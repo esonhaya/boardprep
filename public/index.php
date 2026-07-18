@@ -59,8 +59,6 @@ $pageTitle = "Quiz";
 
 
 
-// Open quiz settings
-
 if(isset($_GET["setup"]))
 {
 
@@ -76,9 +74,6 @@ $content = ob_get_clean();
 
 
 
-
-// Generate quiz
-
 else if(isset($_GET["count"]))
 {
 
@@ -90,7 +85,6 @@ QuizController::getQuestions(
 );
 
 
-
 $_SESSION["mode"] =
 $_GET["mode"] ?? "practice";
 
@@ -99,8 +93,6 @@ $_SESSION["current"] = 0;
 
 $_SESSION["answers"] = [];
 
-$_SESSION["feedback"] = null;
-
 
 
 ob_start();
@@ -114,8 +106,6 @@ $content = ob_get_clean();
 
 
 
-
-// Quiz submission
 
 else if($_SERVER["REQUEST_METHOD"] === "POST")
 {
@@ -123,16 +113,40 @@ else if($_SERVER["REQUEST_METHOD"] === "POST")
 
 $current = $_SESSION["current"];
 
-
 $question =
 $_SESSION["questions"][$current];
 
 
 
+// Practice feedback submit
 
-// Moving to next question after feedback
+if($_SESSION["mode"] === "practice")
+{
 
-if(isset($_POST["next"]))
+
+if(!isset($_POST["next"]))
+{
+
+
+$_SESSION["answers"][$question["id"]]
+=
+$_POST["answer"] ?? null;
+
+
+
+$_SESSION["feedback"] = [
+
+"correct" =>
+QuizController::checkAnswer(
+$question,
+$_POST["answer"] ?? null
+)
+
+];
+
+
+}
+else
 {
 
 
@@ -140,40 +154,67 @@ unset($_SESSION["feedback"]);
 
 
 
-if($current + 1 < count($_SESSION["questions"]))
+$current++;
+
+
+if($current < count($_SESSION["questions"]))
 {
 
-$_SESSION["current"]++;
+$_SESSION["current"] = $current;
 
+}
 
-ob_start();
+}
 
-include "../app/Views/quiz/index.php";
-
-$content = ob_get_clean();
 
 
 }
 
+
+
+// Exam mode
+
+else
+{
+
+
+$_SESSION["answers"][$question["id"]]
+=
+$_POST["answer"] ?? null;
+
+
+
+$current++;
+
+
+
+if($current < count($_SESSION["questions"]))
+{
+
+
+$_SESSION["current"] = $current;
+
+
+}
 else
 {
 
 
 $score =
 QuizController::calculateResult(
-    $_SESSION["questions"],
-    $_SESSION["answers"]
+$_SESSION["questions"],
+$_SESSION["answers"]
 );
 
 
 
 $result = [
 
-"score" => $score,
+"score"=>$score,
 
-"total" => count($_SESSION["questions"]),
+"total"=>count($_SESSION["questions"]),
 
-"results" => []
+"results"=>[]
 
 ];
 
@@ -183,29 +224,27 @@ foreach($_SESSION["questions"] as $q)
 {
 
 
-$result["results"][] = [
+$result["results"][]=[
 
-"question" => $q,
+"question"=>$q,
 
-"userAnswer" =>
+"userAnswer"=>
 $_SESSION["answers"][$q["id"]] ?? null,
 
 
-"correctAnswer" =>
-$q["answer"],
+"correctAnswer"=>$q["answer"],
 
 
-"correct" =>
+"correct"=>
 QuizController::checkAnswer(
-    $q,
-    $_SESSION["answers"][$q["id"]] ?? null
+$q,
+$_SESSION["answers"][$q["id"]] ?? null
 )
 
 ];
 
 
 }
-
 
 
 
@@ -216,64 +255,14 @@ include "../app/Views/quiz/result.php";
 $content = ob_get_clean();
 
 
-}
+include "../app/Views/layouts/main.php";
 
-
-
-}
-
-
-
-
-// Submit answer
-
-else
-{
-
-
-$answer = $_POST["answer"] ?? null;
-
-
-
-$_SESSION["answers"][$question["id"]]
-=
-$answer;
-
-
-
-// Practice mode feedback
-
-if($_SESSION["mode"] === "practice")
-{
-
-
-$_SESSION["feedback"] = [
-
-"correct" =>
-QuizController::checkAnswer(
-    $question,
-    $answer
-)
-
-];
+exit;
 
 
 }
 
 
-// Exam mode skips feedback
-
-else
-{
-
-
-if($current + 1 < count($_SESSION["questions"]))
-{
-
-$_SESSION["current"]++;
-
-
-}
 
 }
 
@@ -290,16 +279,13 @@ $content = ob_get_clean();
 
 
 
-}
-
-
 break;
 
 
 
 default:
 
-$pageTitle = "BoardPrep";
+$pageTitle="BoardPrep";
 
 ob_start();
 
