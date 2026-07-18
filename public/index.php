@@ -1,8 +1,10 @@
 <?php
 
-require_once "../app/Controllers/QuizController.php";
+require_once "../app/Controllers/QuizFlowController.php";
 
 session_start();
+
+$content = "";
 
 $page = $_GET["page"] ?? "home";
 
@@ -58,10 +60,10 @@ case "quiz":
 $pageTitle = "Quiz";
 
 
+// Quiz setup page
 
 if(isset($_GET["setup"]))
 {
-
 
 ob_start();
 
@@ -69,29 +71,21 @@ include "../app/Views/quiz/settings.php";
 
 $content = ob_get_clean();
 
-
 }
 
 
+
+// Start quiz
 
 else if(isset($_GET["count"]))
 {
 
 
-$_SESSION["questions"] =
-QuizController::getQuestions(
+QuizFlowController::startQuiz(
     $_GET["count"],
-    $_GET["difficulty"]
+    $_GET["difficulty"],
+    $_GET["mode"] ?? "practice"
 );
-
-
-$_SESSION["mode"] =
-$_GET["mode"] ?? "practice";
-
-
-$_SESSION["current"] = 0;
-
-$_SESSION["answers"] = [];
 
 
 
@@ -106,145 +100,38 @@ $content = ob_get_clean();
 
 
 
+// Quiz answers
 
 else if($_SERVER["REQUEST_METHOD"] === "POST")
 {
 
 
-$current = $_SESSION["current"];
-
-$question =
-$_SESSION["questions"][$current];
-
-
-
-// Practice feedback submit
-
-if($_SESSION["mode"] === "practice")
+if(isset($_POST["next"]))
 {
 
-
-if(!isset($_POST["next"]))
-{
-
-
-$_SESSION["answers"][$question["id"]]
-=
-$_POST["answer"] ?? null;
-
-
-
-$_SESSION["feedback"] = [
-
-"correct" =>
-QuizController::checkAnswer(
-$question,
-$_POST["answer"] ?? null
-)
-
-];
-
+$status =
+QuizFlowController::nextQuestion();
 
 }
-else
-{
-
-
-unset($_SESSION["feedback"]);
-
-
-
-$current++;
-
-
-if($current < count($_SESSION["questions"]))
-{
-
-$_SESSION["current"] = $current;
-
-}
-
-}
-
-
-
-}
-
-
-
-// Exam mode
 
 else
 {
 
-
-$_SESSION["answers"][$question["id"]]
-=
-$_POST["answer"] ?? null;
-
-
-
-$current++;
-
-
-
-if($current < count($_SESSION["questions"]))
-{
-
-
-$_SESSION["current"] = $current;
-
-
-}
-else
-{
-
-
-$score =
-QuizController::calculateResult(
-$_SESSION["questions"],
-$_SESSION["answers"]
+$status =
+QuizFlowController::submitAnswer(
+    $_POST["answer"] ?? null
 );
 
-
-
-$result = [
-
-"score"=>$score,
-
-"total"=>count($_SESSION["questions"]),
-
-"results"=>[]
-
-];
+}
 
 
 
-foreach($_SESSION["questions"] as $q)
+if($status === "finished")
 {
 
 
-$result["results"][]=[
-
-"question"=>$q,
-
-"userAnswer"=>
-$_SESSION["answers"][$q["id"]] ?? null,
-
-
-"correctAnswer"=>$q["answer"],
-
-
-"correct"=>
-QuizController::checkAnswer(
-$q,
-$_SESSION["answers"][$q["id"]] ?? null
-)
-
-];
-
-
-}
+$result =
+QuizFlowController::finishQuiz();
 
 
 
@@ -255,17 +142,10 @@ include "../app/Views/quiz/result.php";
 $content = ob_get_clean();
 
 
-include "../app/Views/layouts/main.php";
-
-exit;
-
-
 }
 
-
-
-}
-
+else
+{
 
 
 ob_start();
@@ -279,19 +159,24 @@ $content = ob_get_clean();
 
 
 
+}
+
+
 break;
 
 
 
 default:
 
-$pageTitle="BoardPrep";
+$pageTitle = "BoardPrep";
 
 ob_start();
 
 include "../app/Views/home/index.php";
 
 $content = ob_get_clean();
+
+break;
 
 
 }
