@@ -24,6 +24,60 @@ Question <?= $current + 1 ?> / <?= $total ?>
 </h2>
 
 
+<?php if(isset($_SESSION["feedback"])): ?>
+
+
+<hr>
+
+
+<?php if($_SESSION["feedback"]["correct"]): ?>
+
+<h3>
+✅ Correct!
+</h3>
+
+<?php else: ?>
+
+<h3>
+❌ Incorrect
+</h3>
+
+
+<p>
+Correct Answer:
+<?= $question["answer"] ?>
+</p>
+
+<?php endif; ?>
+
+
+<p>
+<strong>Explanation:</strong>
+</p>
+
+<p>
+<?= $question["explanation"] ?>
+</p>
+
+
+
+<form method="POST" action="?page=quiz">
+
+<button type="submit" name="next" value="1">
+
+Next Question
+
+</button>
+
+</form>
+
+
+
+<?php unset($_SESSION["feedback"]); ?>
+
+
+<?php else: ?>
+
 
 <form method="POST" action="?page=quiz">
 
@@ -37,11 +91,10 @@ Question <?= $current + 1 ?> / <?= $total ?>
 type="radio"
 name="answer"
 value="<?= chr(65+$key) ?>"
+required
 >
 
-
 <?= $choice ?>
-
 
 </label>
 
@@ -57,20 +110,12 @@ value="<?= chr(65+$key) ?>"
 
 <button type="submit">
 
-<?php
-
-if($current + 1 >= $total)
-{
-    echo "Finish";
-}
-else
-{
-    echo "Next";
-}
-
-?>
+Submit Answer
 
 </button>
 
 
 </form>
+
+
+<?php endif; ?>
