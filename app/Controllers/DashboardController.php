@@ -1,57 +1,30 @@
 <?php
 
-require_once __DIR__ . "/BaseController.php";
-
 class DashboardController
-extends BaseController
 {
+
     public static function index(): void
     {
+
         $attempts =
-            AttemptRepository::all();
+            AttemptHistoryService::recent();
 
-        $progress =
-            ProgressService::summary(
-                $attempts
-            );
-
-        $latest =
-            ProgressService::latest(
-                $attempts
-            );
-
-        $weakness =
+        $weaknesses =
             WeaknessService::all();
 
-        $mastery =
-            MasteryService::calculate(
-                $weakness
-            );
-
-        $recommendation =
-            RecommendationService::nextTopic(
-                $mastery
-            );
-
-        self::render(
+        View::render(
             "dashboard/index",
             [
 
-            "pageTitle" => "Learning Center",
+                "attempts" =>
+                    $attempts,
 
-            "progress" =>
-            $progress,
-
-            "latest" =>
-            $latest,
-
-            "mastery" =>
-            $mastery,
-
-            "recommendation" =>
-            $recommendation
+                "weaknesses" =>
+                    $weaknesses
 
             ]
         );
+
     }
+
 }

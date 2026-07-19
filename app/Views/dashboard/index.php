@@ -1,110 +1,90 @@
-<h2>📚 Learning Center</h2>
+<h1>📚 BoardPrep Dashboard</h1>
 
-<hr>
+<h2>Recent Attempts</h2>
 
-<h3>📊 Progress</h3>
-
-<p>
-
-Attempts:
-
-<strong>
-
-<?= $progress["attempts"] ?>
-
-</strong>
-
-</p>
+<?php if(empty($attempts)): ?>
 
 <p>
-
-Average:
-
-<strong>
-
-<?= $progress["average"] ?>%
-
-</strong>
-
-</p>
-
-<p>
-
-Best:
-
-<strong>
-
-<?= $progress["best"] ?>%
-
-</strong>
-
-</p>
-
-<hr>
-
-<h3>🎯 Today's Focus</h3>
-
-<?php if($recommendation): ?>
-
-<p>
-
-Study:
-
-<strong>
-
-<?= htmlspecialchars($recommendation) ?>
-
-</strong>
-
+No quiz attempts yet.
 </p>
 
 <?php else: ?>
 
-<p>
+<table border="1" cellpadding="6">
 
-Keep answering quizzes.
+<tr>
 
-BoardPrep is still learning.
+<th>Date</th>
 
-</p>
+<th>Mode</th>
+
+<th>Topic</th>
+
+<th>Score</th>
+
+<th>Percentage</th>
+
+</tr>
+
+<?php foreach($attempts as $attempt): ?>
+
+<tr>
+
+<td>
+<?= htmlspecialchars($attempt["date"]) ?>
+</td>
+
+<td>
+<?= htmlspecialchars(ucfirst($attempt["mode"])) ?>
+</td>
+
+<td>
+<?= htmlspecialchars($attempt["topic"]) ?>
+</td>
+
+<td>
+<?= htmlspecialchars($attempt["score"]) ?>
+/
+<?= htmlspecialchars($attempt["total"]) ?>
+</td>
+
+<td>
+<?= htmlspecialchars($attempt["percentage"]) ?>%
+</td>
+
+</tr>
+
+<?php endforeach; ?>
+
+</table>
 
 <?php endif; ?>
 
-<hr>
 
-<h3>🧠 Mastery</h3>
+<br><br>
 
-<?php if(empty($mastery)): ?>
+
+<h2>Weakness Analysis</h2>
+
+<?php if(empty($weaknesses)): ?>
 
 <p>
-
-No mastery data yet.
-
+No weakness data available yet.
 </p>
 
 <?php else: ?>
 
 <ul>
 
-<?php foreach($mastery as $topic => $data): ?>
+<?php foreach($weaknesses as $weakness): ?>
 
 <li>
 
-<strong>
-
-<?= htmlspecialchars($topic) ?>
-
-</strong>
+<?= htmlspecialchars($weakness["topic"] ?? "Unknown") ?>
 
 -
 
-<?= $data["percentage"] ?>%
-
-(
-
-<?= $data["status"] ?>
-
-)
+<?= htmlspecialchars($weakness["accuracy"] ?? 0) ?>%
 
 </li>
 
@@ -114,34 +94,27 @@ No mastery data yet.
 
 <?php endif; ?>
 
-<hr>
 
-<h3>📝 Latest Quiz</h3>
+<br><br>
 
-<?php if($latest): ?>
 
-<p>
+<a href="?page=quiz">
 
-<?= htmlspecialchars($latest["subject"]) ?>
+<button>
 
--
+Take Quiz
 
-<?= htmlspecialchars($latest["topic"]) ?>
+</button>
 
-</p>
+</a>
 
-<p>
 
-<?= $latest["percentage"] ?>%
+<a href="?page=home">
 
-</p>
+<button>
 
-<?php else: ?>
+Home
 
-<p>
+</button>
 
-No attempts yet.
-
-</p>
-
-<?php endif; ?>
+</a>
