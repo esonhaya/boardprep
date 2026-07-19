@@ -1,6 +1,6 @@
 <?php
 
-class AttemptHistoryService
+class LearningHistoryService
 {
 
     public static function recent(int $limit = 10): array

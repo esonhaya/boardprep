@@ -2,12 +2,16 @@
 
 class Autoloader
 {
+
     public static function register(): void
     {
-        spl_autoload_register(
-            function ($class) {
 
-                $folders = [
+        spl_autoload_register(
+
+            function ($class)
+            {
+
+                $directories = [
 
                     __DIR__,
 
@@ -17,26 +21,42 @@ class Autoloader
 
                     __DIR__ . "/../Repositories",
 
-                    __DIR__ . "/../Services"
+                    __DIR__ . "/../Services",
+
+                    __DIR__ . "/../Services/Quiz",
+
+                    __DIR__ . "/../Services/Learning",
+
+                    __DIR__ . "/../Services/Profile",
+
+                    __DIR__ . "/../Services/Shared"
 
                 ];
 
-                foreach ($folders as $folder) {
+                foreach($directories as $directory)
+                {
 
                     $file =
-                        $folder .
+                        $directory .
                         "/" .
                         $class .
                         ".php";
 
-                    if (file_exists($file)) {
+                    if(file_exists($file))
+                    {
+
                         require_once $file;
+
                         return;
+
                     }
 
                 }
 
             }
+
         );
+
     }
+
 }

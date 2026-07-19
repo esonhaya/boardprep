@@ -7,7 +7,7 @@ class DashboardController
     {
 
         $attempts =
-            AttemptHistoryService::recent();
+            LearningHistoryService::recent();
 
         $weaknesses =
             WeaknessService::all();

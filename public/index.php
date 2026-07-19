@@ -63,4 +63,10 @@ case "dashboard":
         );
 
         break;
+case "profile":
+
+   LearningProfileController::index();
+
+    break;
+
 }
