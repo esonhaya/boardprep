@@ -4,28 +4,39 @@ class QuestionFilterService
 {
     public static function filter(array $questions, array $options = []): array
     {
+
         $filtered = $questions;
 
-        if (!empty($options["difficulty"])) {
+
+        if (
+            !empty($options["difficulty"]) &&
+            $options["difficulty"] !== "mixed"
+        ) {
 
             $filtered = array_filter(
                 $filtered,
                 fn($q) =>
-                    ($q["difficulty"] ?? "Easy") ===
-                    $options["difficulty"]
+                    strtolower($q["difficulty"] ?? "") ===
+                    strtolower($options["difficulty"])
             );
+
         }
+
+
 
         if (!empty($options["topic"])) {
 
             $filtered = array_filter(
                 $filtered,
                 fn($q) =>
-                    ($q["topic"] ?? "") ===
-                    $options["topic"]
+                    strtolower($q["topic"] ?? "") ===
+                    strtolower($options["topic"])
             );
+
         }
 
+
         return array_values($filtered);
+
     }
 }

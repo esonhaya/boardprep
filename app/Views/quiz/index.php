@@ -1,36 +1,46 @@
-<h2>
-<?= ucfirst($_SESSION["mode"]) ?> Mode
-</h2>
-
-
 <?php
 
-$current = $_SESSION["current"];
-
-$total = count($_SESSION["questions"]);
-
-$question = $_SESSION["questions"][$current];
+$question = $question ?? null;
+$current = $current ?? 0;
+$total = $total ?? 0;
+$mode = $mode ?? "practice";
+$feedback = $feedback ?? null;
 
 ?>
-
 
 <h3>
 Question <?= $current + 1 ?> / <?= $total ?>
 </h3>
 
+<p>
+Mode:
+<strong>
+<?= ucfirst($mode) ?>
+</strong>
+</p>
+
+
+<?php if(!$question): ?>
+
+<p>
+No question available.
+</p>
+
+<?php exit; ?>
+
+<?php endif; ?>
+
 
 <h2>
-<?= $question["question"] ?>
+<?= htmlspecialchars($question["question"]) ?>
 </h2>
 
 
-<?php if(isset($_SESSION["feedback"])): ?>
-
+<?php if($feedback): ?>
 
 <hr>
 
-
-<?php if($_SESSION["feedback"]["correct"]): ?>
+<?php if($feedback["correct"]): ?>
 
 <h3>
 ✅ Correct!
@@ -42,44 +52,38 @@ Question <?= $current + 1 ?> / <?= $total ?>
 ❌ Incorrect
 </h3>
 
-
 <p>
 Correct Answer:
-<?= $question["answer"] ?>
+<?= htmlspecialchars($question["answer"]) ?>
 </p>
 
 <?php endif; ?>
 
 
 <p>
-<strong>Explanation:</strong>
+<strong>
+Explanation:
+</strong>
 </p>
 
 <p>
-<?= $question["explanation"] ?>
+<?= htmlspecialchars($question["explanation"] ?? "") ?>
 </p>
 
 
+<form method="POST" action="?page=quiz&action=next">
 
-<form method="POST" action="?page=quiz">
-
-<button type="submit" name="next" value="1">
-
+<button type="submit">
 Next Question
-
 </button>
 
 </form>
 
 
-
-<?php unset($_SESSION["feedback"]); ?>
-
-
 <?php else: ?>
 
 
-<form method="POST" action="?page=quiz">
+<form method="POST" action="?page=quiz&action=submit">
 
 
 <?php foreach($question["choices"] as $key=>$choice): ?>
@@ -87,17 +91,16 @@ Next Question
 
 <label>
 
-<input 
+<input
 type="radio"
 name="answer"
 value="<?= chr(65+$key) ?>"
 required
 >
 
-<?= $choice ?>
+<?= htmlspecialchars($choice) ?>
 
 </label>
-
 
 <br>
 
@@ -107,11 +110,8 @@ required
 
 <br>
 
-
 <button type="submit">
-
 Submit Answer
-
 </button>
 
 

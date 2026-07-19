@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "subject": "LET",
+        "topic": "grammar",
+        "difficulty": "easy",
+        "question": "Which word is a noun?",
+        "choices": [
+            "Run",
+            "Beautiful",
+            "Teacher",
+            "Quickly"
+        ],
+        "answer": "Teacher",
+        "explanation": "A teacher is a person, place, or thing, making it a noun."
+    },
+    {
+        "id": 2,
+        "subject": "LET",
+        "topic": "grammar",
+        "difficulty": "easy",
+        "question": "Choose the correct sentence.",
+        "choices": [
+            "She go to school.",
+            "She goes to school.",
+            "She going school.",
+            "She gone school."
+        ],
+        "answer": "She goes to school.",
+        "explanation": "A singular subject uses the verb form goes."
+    },
+    {
+        "id": 3,
+        "subject": "LET",
+        "topic": "grammar",
+        "difficulty": "medium",
+        "question": "What is the past tense of teach?",
+        "choices": [
+            "Teached",
+            "Taught",
+            "Teaching",
+            "Teach"
+        ],
+        "answer": "Taught",
+        "explanation": "Teach is an irregular verb. Its past tense is taught."
+    }
+]

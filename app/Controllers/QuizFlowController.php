@@ -1,206 +1,424 @@
 <?php
 
-require_once __DIR__ . "/QuizController.php";
-require_once __DIR__ . "/../Repositories/AttemptRepository.php";
-
-
 class QuizFlowController
 {
 
+    public static function handle(): void
+    {
 
-public static function startQuiz($count, $difficulty, $mode)
-{
+        $action = $_GET["action"] ?? null;
 
-$_SESSION["questions"] =
-QuizController::getQuestions(
-    $count,
-    $difficulty
-);
 
+        if ($action === null) {
 
-$_SESSION["mode"] = $mode;
+            if (isset($_GET["count"])) {
+                $action = "start";
+            } else {
+                $action = "settings";
+            }
 
-$_SESSION["current"] = 0;
+        }
 
-$_SESSION["answers"] = [];
 
-$_SESSION["feedback"] = null;
+        switch ($action) {
 
-}
 
+            case "settings":
 
+                View::render(
+                    "quiz/settings"
+                );
 
-public static function submitAnswer($answer)
-{
+                break;
 
 
-$current = $_SESSION["current"];
 
-$question =
-$_SESSION["questions"][$current];
+            case "start":
 
+                self::startQuiz();
 
-$_SESSION["answers"][$question["id"]]
-=
-$answer;
+                break;
 
 
 
-if($_SESSION["mode"] === "practice")
-{
+            case "submit":
 
+                self::submitAnswer();
 
-$_SESSION["feedback"] = [
+                break;
 
-"correct" =>
-QuizController::checkAnswer(
-    $question,
-    $answer
-)
 
-];
 
+            case "next":
 
-return "feedback";
+                self::nextQuestion();
 
+                break;
 
-}
 
 
+            case "finish":
 
-return self::nextQuestion();
+                $result =
+                    self::finishQuiz();
 
 
-}
+                View::render(
+                    "quiz/result",
+                    [
+                        "result" => $result,
+                        "mode" =>
+                            SessionService::get(
+                                "mode",
+                                "practice"
+                            )
+                    ]
+                );
 
+                break;
 
 
-public static function nextQuestion()
-{
 
+            default:
 
-unset($_SESSION["feedback"]);
+                View::render(
+                    "quiz/settings"
+                );
 
+                break;
 
-$_SESSION["current"]++;
+        }
 
+    }
 
-if(
-$_SESSION["current"]
-<
-count($_SESSION["questions"])
-)
-{
 
-return "question";
 
-}
 
 
-return "finished";
+    private static function startQuiz(): void
+    {
 
-}
+        $count =
+            (int)($_GET["count"] ?? 10);
 
 
+        $difficulty =
+            $_GET["difficulty"] ?? "mixed";
 
-public static function finishQuiz()
-{
 
+        $mode =
+            $_GET["mode"] ?? "practice";
 
-$questions = $_SESSION["questions"];
 
-$answers = $_SESSION["answers"];
+        $questions =
+            QuestionRepository::all();
 
 
-$score =
-QuizController::calculateResult(
-    $questions,
-    $answers
-);
 
+        $questions =
+            QuizGenerationService::generate(
+                $questions,
+                [
+                    "difficulty" => $difficulty,
+                    "shuffle" => true,
+                    "limit" => $count
+                ]
+            );
 
 
-$results = [];
 
+        SessionService::set(
+            "questions",
+            $questions
+        );
 
 
-foreach($questions as $question)
-{
+        SessionService::set(
+            "answers",
+            []
+        );
 
 
-$userAnswer =
-$answers[$question["id"]] ?? null;
+        SessionService::set(
+            "mode",
+            $mode
+        );
 
 
+        QuizNavigationService::reset();
 
-$results[] = [
 
-"question" =>
-$question,
 
+        View::render(
+            "quiz/index",
+            [
+                "question" =>
+                    $questions[0] ?? null,
 
-"userAnswer" =>
-$userAnswer,
+                "current" =>
+                    0,
 
+                "total" =>
+                    count($questions),
 
-"correctAnswer" =>
-$question["answer"],
+                "mode" =>
+                    $mode,
 
+                "feedback" =>
+                    null
+            ]
+        );
 
-"correct" =>
-QuizController::checkAnswer(
-    $question,
-    $userAnswer
-),
+    }
 
 
-"explanation" =>
-$question["explanation"] ?? "No explanation available."
 
-];
 
 
-}
+    private static function submitAnswer(): void
+    {
 
+        $questions =
+            SessionService::get(
+                "questions",
+                []
+            );
 
 
-AttemptRepository::save([
+        $current =
+            QuizNavigationService::current();
 
-"date" => date("Y-m-d H:i:s"),
 
-"mode" => $_SESSION["mode"],
 
-"subject" => "English",
+        $question =
+            $questions[$current] ?? null;
 
-"topic" => "Grammar",
 
-"score" => $score,
 
-"total" => count($questions),
+        if (!$question) {
 
-"percentage" =>
-round(
-($score / count($questions)) * 100
-)
+            header(
+                "Location: ?page=quiz&action=finish"
+            );
 
-]);
+            exit;
 
+        }
 
 
-return [
 
-"score" => $score,
+        $answer =
+            $_POST["answer"] ?? null;
 
-"total" => count($questions),
 
-"mode" => $_SESSION["mode"],
 
-"results" => $results
+        $answers =
+            SessionService::get(
+                "answers",
+                []
+            );
 
-];
 
 
-}
+        $answers[
+            $question["id"]
+        ] = $answer;
 
+
+
+        SessionService::set(
+            "answers",
+            $answers
+        );
+
+
+
+        $mode =
+            SessionService::get(
+                "mode",
+                "practice"
+            );
+
+
+
+        if ($mode === "practice") {
+
+
+            SessionService::set(
+                "feedback",
+                [
+                    "correct" =>
+                        QuizController::checkAnswer(
+                            $question,
+                            $answer
+                        )
+                ]
+            );
+
+
+
+            View::render(
+                "quiz/index",
+                [
+                    "question" =>
+                        $question,
+
+                    "current" =>
+                        $current,
+
+                    "total" =>
+                        count($questions),
+
+                    "mode" =>
+                        $mode,
+
+                    "feedback" =>
+                        SessionService::get(
+                            "feedback"
+                        )
+                ]
+            );
+
+
+            return;
+
+        }
+
+
+
+        self::nextQuestion();
+
+    }
+
+
+
+
+
+    private static function nextQuestion(): void
+    {
+
+        QuizNavigationService::next();
+
+
+        $questions =
+            SessionService::get(
+                "questions",
+                []
+            );
+
+
+        $current =
+            QuizNavigationService::current();
+
+
+
+        if (
+            $current >= count($questions)
+        ) {
+
+            header(
+                "Location: ?page=quiz&action=finish"
+            );
+
+            exit;
+
+        }
+
+
+
+        SessionService::remove(
+            "feedback"
+        );
+
+
+
+        View::render(
+            "quiz/index",
+            [
+                "question" =>
+                    $questions[$current],
+
+                "current" =>
+                    $current,
+
+                "total" =>
+                    count($questions),
+
+                "mode" =>
+                    SessionService::get(
+                        "mode",
+                        "practice"
+                    ),
+
+                "feedback" =>
+                    null
+            ]
+        );
+
+    }
+
+
+
+
+
+    private static function finishQuiz(): array
+    {
+
+        $questions =
+            SessionService::get(
+                "questions",
+                []
+            );
+
+
+        $answers =
+            SessionService::get(
+                "answers",
+                []
+            );
+
+
+
+        $result =
+            QuizScoringService::calculate(
+                $questions,
+                $answers
+            );
+
+
+
+        AttemptRepository::save(
+            [
+                "date" =>
+                    date("Y-m-d H:i:s"),
+
+                "mode" =>
+                    SessionService::get(
+                        "mode",
+                        "practice"
+                    ),
+
+                "subject" =>
+                    "LET",
+
+                "topic" =>
+                    "grammar",
+
+                "score" =>
+                    $result["score"],
+
+                "total" =>
+                    $result["total"],
+
+                "percentage" =>
+                    $result["percentage"]
+            ]
+        );
+
+
+
+        return $result;
+
+    }
 
 }
