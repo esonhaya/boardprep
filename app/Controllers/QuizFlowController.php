@@ -106,8 +106,15 @@ class QuizFlowController
             $_GET["difficulty"] ?? "mixed";
 
 
-        $mode =
-            $_GET["mode"] ?? "practice";
+$mode =
+    $_GET["mode"] ?? "practice";
+
+
+$adaptive =
+    isset(
+        $_GET["adaptive"]
+    );       
+
 
 
         $questions =
@@ -116,15 +123,22 @@ class QuizFlowController
 
 
         $questions =
-            QuizGenerationService::generate(
-                $questions,
-                [
-                    "difficulty" => $difficulty,
-                    "shuffle" => true,
-                    "limit" => $count
-                ]
-            );
+    QuizGenerationService::generate(
+        $questions,
+        [
+            "difficulty" =>
+                $difficulty,
 
+            "shuffle" =>
+                true,
+
+            "limit" =>
+                $count,
+
+            "adaptive" =>
+                $adaptive
+        ]
+    );
 
 
         SessionService::set(

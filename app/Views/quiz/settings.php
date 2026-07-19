@@ -4,7 +4,11 @@
 <form method="GET" action="">
 
 
-<input type="hidden" name="page" value="quiz">
+<input
+type="hidden"
+name="page"
+value="quiz"
+>
 
 
 <label>
@@ -40,26 +44,21 @@ Difficulty:
 
 <select name="difficulty">
 
-
 <option value="mixed">
 Mixed
 </option>
-
 
 <option value="easy">
 Easy
 </option>
 
-
 <option value="medium">
 Medium
 </option>
 
-
 <option value="hard">
 Hard
 </option>
-
 
 </select>
 
@@ -75,23 +74,44 @@ Mode:
 
 <select name="mode">
 
-
 <option value="practice">
 Practice Mode
 </option>
-
 
 <option value="exam">
 Exam Mode
 </option>
 
-
 <option value="review">
 Review Mode
 </option>
 
-
 </select>
+
+
+<br><br>
+
+
+
+<label>
+
+<input
+type="checkbox"
+name="adaptive"
+value="1"
+>
+
+Adaptive Learning
+
+</label>
+
+<br>
+
+<small>
+
+Prioritizes questions from your weak topics.
+
+</small>
 
 
 <br><br>

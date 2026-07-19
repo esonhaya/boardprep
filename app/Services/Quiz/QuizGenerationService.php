@@ -9,97 +9,90 @@ class QuizGenerationService
     ): array
     {
 
-        /*
-        |--------------------------------------------------------------------------
-        | Difficulty
-        |--------------------------------------------------------------------------
-        */
-
-        if (
-            !empty($options["difficulty"]) &&
-            $options["difficulty"] !== "mixed"
-        ) {
-
-            $questions = array_filter(
-
-                $questions,
-
-                fn($question) =>
-
-                    strtolower(
-                        $question["difficulty"] ?? ""
-                    )
-
-                    ===
-
-                    strtolower(
-                        $options["difficulty"]
-                    )
-
-            );
-
-        }
-
-        /*
-        |--------------------------------------------------------------------------
-        | Topic
-        |--------------------------------------------------------------------------
-        */
-
-        if (!empty($options["topic"])) {
-
-            $questions = array_filter(
-
-                $questions,
-
-                fn($question) =>
-
-                    strtolower(
-                        $question["topic"] ?? ""
-                    )
-
-                    ===
-
-                    strtolower(
-                        $options["topic"]
-                    )
-
-            );
-
-        }
-
         $questions =
-            array_values($questions);
+            QuestionFilterService::filter(
+                $questions,
+                $options
+            );
 
-        /*
-        |--------------------------------------------------------------------------
-        | Shuffle
-        |--------------------------------------------------------------------------
-        */
 
-        shuffle($questions);
+        if (!empty($options["adaptive"])) {
 
-        /*
-        |--------------------------------------------------------------------------
-        | Limit
-        |--------------------------------------------------------------------------
-        */
+            $adaptive =
+                AdaptiveQuizService::buildOptions();
 
-        $limit =
-            $options["limit"]
-            ?? 10;
 
-        return array_slice(
+            $questions =
+                AdaptiveQuizService::prioritize(
+                    $questions,
+                    $adaptive
+                );
 
-            $questions,
 
-            0,
+            if (
+                ($options["difficulty"] ?? "mixed")
+                ===
+                "mixed"
+            ) {
 
-            min(
-                $limit,
-                count($questions)
-            )
+                $recommended =
+                    $adaptive["recommendedDifficulty"];
 
+
+                usort(
+                    $questions,
+                    function($a, $b)
+                    use ($recommended)
+                    {
+
+                        $aScore =
+                            (
+                                strtolower(
+                                    $a["difficulty"] ?? ""
+                                )
+                                ===
+                                $recommended
+                            );
+
+                        $bScore =
+                            (
+                                strtolower(
+                                    $b["difficulty"] ?? ""
+                                )
+                                ===
+                                $recommended
+                            );
+
+                        return
+                            $bScore <=> $aScore;
+
+                    }
+                );
+
+            }
+
+        }
+        elseif (!empty($options["shuffle"])) {
+
+            shuffle($questions);
+
+        }
+
+
+        if (!empty($options["limit"])) {
+
+            $questions =
+                array_slice(
+                    $questions,
+                    0,
+                    $options["limit"]
+                );
+
+        }
+
+
+        return array_values(
+            $questions
         );
 
     }

@@ -1,8 +1,5 @@
 <?php
 
-require_once __DIR__ . "/../Repositories/QuestionRepository.php";
-
-
 class QuizController
 {
 
@@ -67,8 +64,42 @@ class QuizController
     )
     {
 
+        $userAnswer =
+            trim($answer ?? "");
+
+
+        /*
+         Convert choice letter (A-D)
+         into actual answer text
+        */
+
+        if(
+            isset($question["choices"])
+            &&
+            preg_match(
+                '/^[A-D]$/i',
+                $userAnswer
+            )
+        )
+        {
+
+            $index =
+                ord(
+                    strtoupper($userAnswer)
+                )
+                - 65;
+
+
+            $userAnswer =
+                $question["choices"][$index]
+                ??
+                "";
+
+        }
+
+
         return strtoupper(
-            trim($answer ?? "")
+            trim($userAnswer)
         )
         ===
         strtoupper(

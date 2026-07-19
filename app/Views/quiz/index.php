@@ -71,6 +71,32 @@ Explanation:
 </p>
 
 
+<?php if($current + 1 >= $total): ?>
+
+<form method="GET" action="">
+
+<input
+type="hidden"
+name="page"
+value="quiz"
+>
+
+<input
+type="hidden"
+name="action"
+value="finish"
+>
+
+<button type="submit">
+Finish Quiz
+</button>
+
+</form>
+
+
+<?php else: ?>
+
+
 <form method="POST" action="?page=quiz&action=next">
 
 <button type="submit">
@@ -78,6 +104,9 @@ Next Question
 </button>
 
 </form>
+
+
+<?php endif; ?>
 
 
 <?php else: ?>
