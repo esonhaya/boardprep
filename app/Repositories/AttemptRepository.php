@@ -1,82 +1,29 @@
 <?php
 
-
 class AttemptRepository
 {
+    private const FILE = __DIR__ . "/../../storage/attempts.json";
 
+    public static function all(): array
+    {
+        if (!file_exists(self::FILE)) {
+            return [];
+        }
 
-public static function save($attempt)
-{
+        $data = json_decode(file_get_contents(self::FILE), true);
 
+        return is_array($data) ? $data : [];
+    }
 
-$file =
-__DIR__
-. "/../../database/attempts/attempts.json";
+    public static function save(array $attempt): void
+    {
+        $attempts = self::all();
 
+        $attempts[] = $attempt;
 
-
-$data = [];
-
-
-
-if(file_exists($file))
-{
-
-$data =
-json_decode(
-file_get_contents($file),
-true
-);
-
-}
-
-
-
-$data[] = $attempt;
-
-
-
-file_put_contents(
-$file,
-json_encode(
-$data,
-JSON_PRETTY_PRINT
-)
-);
-
-
-
-}
-
-
-
-public static function all()
-{
-
-
-$file =
-__DIR__
-. "/../../database/attempts/attempts.json";
-
-
-
-if(!file_exists($file))
-{
-
-return [];
-
-}
-
-
-
-return json_decode(
-file_get_contents($file),
-true
-);
-
-
-}
-
-
-
+        file_put_contents(
+            self::FILE,
+            json_encode($attempts, JSON_PRETTY_PRINT)
+        );
+    }
 }

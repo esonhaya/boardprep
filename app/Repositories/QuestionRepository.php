@@ -1,41 +1,51 @@
 <?php
 
-
 class QuestionRepository
 {
+    private const FILE =
+        __DIR__ . "/../../storage/questions.json";
 
-
-    public static function getQuestions(
-        $exam,
-        $subject,
-        $topic
-    )
+    public static function all(): array
     {
-
-
-        $path =
-        __DIR__
-        . "/../../database/questions/"
-        . $exam
-        . "/"
-        . $subject
-        . "/"
-        . $topic
-        . "/questions.php";
-
-
-
-        if(file_exists($path))
-        {
-
-            return require $path;
-
+        if (!file_exists(self::FILE)) {
+            return [];
         }
 
+        $questions = json_decode(
+            file_get_contents(self::FILE),
+            true
+        );
 
-        return [];
-
+        return is_array($questions)
+            ? $questions
+            : [];
     }
 
+    public static function bySubject(
+        string $subject
+    ): array
+    {
+        return array_values(
+            array_filter(
+                self::all(),
+                fn($question) =>
+                    ($question["subject"] ?? "")
+                    === $subject
+            )
+        );
+    }
 
+    public static function byTopic(
+        string $topic
+    ): array
+    {
+        return array_values(
+            array_filter(
+                self::all(),
+                fn($question) =>
+                    ($question["topic"] ?? "")
+                    === $topic
+            )
+        );
+    }
 }
