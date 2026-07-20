@@ -11,6 +11,7 @@ class QuestionAuditService
 
         $subjects = [];
         $topics = [];
+        $concepts = [];
         $difficulty = [];
 
         $duplicates = [];
@@ -36,6 +37,19 @@ class QuestionAuditService
                 ($topics[
                     $question["topic"] ?? "Unknown"
                 ] ?? 0) + 1;
+
+
+            $concept =
+                trim(
+                    $question["concept"] ?? ""
+                );
+
+            if ($concept !== "") {
+
+                $concepts[$concept] =
+                    ($concepts[$concept] ?? 0) + 1;
+
+            }
 
 
             $difficulty[
@@ -88,6 +102,9 @@ class QuestionAuditService
 
             "topics" =>
                 $topics,
+
+            "concepts" =>
+                $concepts,
 
             "difficulty" =>
                 $difficulty,

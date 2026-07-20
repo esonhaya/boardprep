@@ -21,6 +21,8 @@ switch ($page) {
 
         break;
 
+
+
     case "english":
 
         View::render(
@@ -31,6 +33,8 @@ switch ($page) {
         );
 
         break;
+
+
 
     case "grammar":
 
@@ -43,16 +47,48 @@ switch ($page) {
 
         break;
 
+
+
     case "quiz":
 
         QuizFlowController::handle();
 
         break;
-case "dashboard":
 
-    DashboardController::index();
 
-    break;
+
+    case "dashboard":
+
+        DashboardController::index();
+
+        break;
+
+
+
+    case "profile":
+
+        LearningProfileController::index();
+
+        break;
+
+
+
+    case "progress":
+
+        ProgressController::index();
+
+        break;
+
+
+
+    case "developer":
+
+        DeveloperToolsController::index();
+
+        break;
+
+
+
     default:
 
         View::render(
@@ -63,10 +99,5 @@ case "dashboard":
         );
 
         break;
-case "profile":
-
-   LearningProfileController::index();
-
-    break;
 
 }
