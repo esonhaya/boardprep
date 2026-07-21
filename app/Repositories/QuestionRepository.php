@@ -536,8 +536,7 @@ public static function findDuplicates(
 
     return $duplicates;
 
-}x
-
+}
 
 
 }
