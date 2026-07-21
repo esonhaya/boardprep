@@ -126,7 +126,6 @@ elseif ($action === "restore") {
 
 }
 
-
     else {
 
         QuestionEditorController::index();
@@ -135,7 +134,28 @@ elseif ($action === "restore") {
 
     break;
 
+case "question-export":
 
+    QuestionExportController::export();
+
+    break;
+
+case "question-import":
+
+    if (
+        ($_GET["action"] ?? "") === "import"
+    ) {
+
+        QuestionImportController::import();
+
+    }
+    else {
+
+        QuestionImportController::index();
+
+    }
+
+    break;
 
     default:
 

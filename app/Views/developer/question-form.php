@@ -32,6 +32,49 @@ function fieldError(
 
 </h2>
 
+<?php if (!empty($duplicates)): ?>
+
+<div style="border:2px solid orange; padding:10px; margin:10px 0;">
+
+<h3>
+⚠ Possible Duplicate Questions
+</h3>
+
+<p>
+The system found similar questions already in the bank:
+</p>
+
+
+<?php foreach($duplicates as $duplicate): ?>
+
+<p>
+
+<strong>
+Question #<?= $duplicate["question"]["id"] ?? "" ?>
+</strong>
+
+<br>
+
+Similarity:
+<?= $duplicate["score"] ?>%
+
+<br>
+
+<?= htmlspecialchars(
+    $duplicate["question"]["question"] ?? ""
+) ?>
+
+</p>
+
+<hr>
+
+<?php endforeach; ?>
+
+</div>
+
+<?php endif; ?>
+
+
 <form
 method="POST"
 action="?page=question-editor&action=<?= $isEdit ? "update&id=" . ($question["id"] ?? 0) : "save" ?>"

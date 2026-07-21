@@ -236,8 +236,130 @@ public static function restore(
 
 }
 
+public static function search(
+    string $keyword
+): array
+{
+
+    $keyword =
+        strtolower(
+            trim($keyword)
+        );
+
+    if ($keyword === "") {
+
+        return self::all();
+
+    }
+
+    return array_values(
+
+        array_filter(
+
+            self::all(),
+
+            function ($question) use ($keyword) {
+
+                return
+                    str_contains(
+                        strtolower(
+                            $question["question"] ?? ""
+                        ),
+                        $keyword
+                    )
+                    ||
+                    str_contains(
+                        strtolower(
+                            $question["topic"] ?? ""
+                        ),
+                        $keyword
+                    )
+                    ||
+                    str_contains(
+                        strtolower(
+                            $question["concept"] ?? ""
+                        ),
+                        $keyword
+                    );
+
+            }
+
+        )
+
+    );
+
+}
+
+public static function filter(
+    string $domain,
+    string $difficulty,
+    string $topic
+): array
+{
+
+    return array_values(
+
+        array_filter(
+
+            self::all(),
+
+            function ($question)
+            use (
+                $domain,
+                $difficulty,
+                $topic
+            ) {
+
+                if (
+                    $domain !== ""
+                    &&
+                    ($question["domain"] ?? "")
+                    !==
+                    $domain
+                ) {
+
+                    return false;
+
+                }
+
+                if (
+                    $difficulty !== ""
+                    &&
+                    ($question["difficulty"] ?? "")
+                    !==
+                    $difficulty
+                ) {
+
+                    return false;
+
+                }
+
+                if (
+                    $topic !== ""
+                    &&
+                    ($question["topic"] ?? "")
+                    !==
+                    $topic
+                ) {
+
+                    return false;
+
+                }
+
+                return true;
+
+            }
+
+        )
+
+    );
+
+}
+
+
 
     private static function loadDirectory(
+
         string $directory
     ): array
     {
@@ -343,5 +465,79 @@ public static function restore(
         );
 
     }
+
+public static function findDuplicates(
+    array $question
+): array
+{
+
+    $duplicates = [];
+
+
+    $target =
+        strtolower(
+            trim(
+                $question["question"] ?? ""
+            )
+        );
+
+
+    foreach (
+        self::all()
+        as $existing
+    ) {
+
+
+        if (
+            ($existing["id"] ?? 0)
+            ==
+            ($question["id"] ?? 0)
+        ) {
+
+            continue;
+
+        }
+
+
+        $current =
+            strtolower(
+                trim(
+                    $existing["question"] ?? ""
+                )
+            );
+
+
+        similar_text(
+            $target,
+            $current,
+            $percent
+        );
+
+
+        if (
+            $percent >= 85
+        ) {
+
+            $duplicates[] =
+                [
+                    "question" =>
+                        $existing,
+
+                    "score" =>
+                        round(
+                            $percent
+                        )
+                ];
+
+        }
+
+    }
+
+
+    return $duplicates;
+
+}x
+
+
 
 }

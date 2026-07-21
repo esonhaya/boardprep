@@ -4,24 +4,125 @@ class QuestionEditorController
 {
 
     public static function index(): void
-    {
+{
+
+    $search =
+        trim(
+            $_GET["search"] ?? ""
+        );
+
+    $domain =
+        trim(
+            $_GET["domain"] ?? ""
+        );
+
+    $difficulty =
+        trim(
+            $_GET["difficulty"] ?? ""
+        );
+
+    $topic =
+        trim(
+            $_GET["topic"] ?? ""
+        );
+
+
+    $questions =
+        QuestionRepository::all();
+
+
+    if (
+        $domain !== ""
+        ||
+        $difficulty !== ""
+        ||
+        $topic !== ""
+    ) {
 
         $questions =
-            QuestionRepository::all();
-
-        View::render(
-            "developer/question-editor",
-            [
-                "pageTitle" =>
-                    "Question Editor",
-
-                "questions" =>
-                    $questions
-            ]
-        );
+            QuestionRepository::filter(
+                $domain,
+                $difficulty,
+                $topic
+            );
 
     }
 
+
+    if ($search !== "") {
+
+        $questions =
+            array_filter(
+                $questions,
+
+                function ($question)
+                use ($search) {
+
+                    $search =
+                        strtolower(
+                            $search
+                        );
+
+                    return
+                        str_contains(
+                            strtolower(
+                                $question["question"] ?? ""
+                            ),
+                            $search
+                        )
+                        ||
+                        str_contains(
+                            strtolower(
+                                $question["topic"] ?? ""
+                            ),
+                            $search
+                        )
+                        ||
+                        str_contains(
+                            strtolower(
+                                $question["concept"] ?? ""
+                            ),
+                            $search
+                        );
+
+                }
+            );
+
+    }
+
+
+    View::render(
+        "developer/question-editor",
+        [
+
+            "pageTitle" =>
+                "Question Editor",
+
+            "questions" =>
+                $questions,
+
+            "search" =>
+                $search,
+
+            "domain" =>
+                $domain,
+
+            "difficulty" =>
+                $difficulty,
+
+            "topic" =>
+                $topic,
+
+            "domains" =>
+                TaxonomyRepository::domains(),
+
+            "topics" =>
+                TaxonomyRepository::topics()
+
+        ]
+    );
+
+}
 
 
     public static function create(): void
@@ -103,6 +204,12 @@ class QuestionEditorController
         $question
     );
 
+$duplicates =
+    QuestionRepository::findDuplicates(
+        $question
+    );
+
+
 if (!empty($errors)) {
 
     View::render(
@@ -116,6 +223,9 @@ if (!empty($errors)) {
 
             "errors" =>
                 $errors,
+
+"duplicates" =>
+    $duplicates,
 
             "domains" =>
                 TaxonomyRepository::domains(),
@@ -160,6 +270,11 @@ if (!empty($errors)) {
                 $question
             );
 
+$duplicates =
+    QuestionRepository::findDuplicates(
+        $question
+    );
+
         if (!empty($errors)) {
 
     View::render(
@@ -173,6 +288,9 @@ if (!empty($errors)) {
 
             "errors" =>
                 $errors,
+
+"duplicates" =>
+    $duplicates,
 
             "domains" =>
                 TaxonomyRepository::domains(),
