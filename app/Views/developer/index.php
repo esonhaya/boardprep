@@ -133,6 +133,18 @@ Missing Choices:
 
 <hr>
 
+<h3>Management</h3>
+
+<ul>
+
+<li>
+<a href="?page=question-editor">
+📝 Question Editor
+</a>
+</li>
+
+</ul>
+
 <h3>Coming Soon</h3>
 
 <ul>

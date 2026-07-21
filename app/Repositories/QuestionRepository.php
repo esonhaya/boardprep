@@ -40,6 +40,203 @@ class QuestionRepository
 
 
 
+    public static function save(
+        array $question
+    ): void
+    {
+
+        $questions =
+            self::all();
+
+        $questions[] =
+            $question;
+
+
+        file_put_contents(
+
+            self::ROOT .
+            self::LEGACY,
+
+            json_encode(
+
+                $questions,
+
+                JSON_PRETTY_PRINT
+
+            )
+
+        );
+
+    }
+
+
+
+    public static function find(
+        int $id
+    ): ?array
+    {
+
+        foreach (
+            self::all()
+            as $question
+        ) {
+
+            if (
+                ($question["id"] ?? 0)
+                ===
+                $id
+            ) {
+
+                return $question;
+
+            }
+
+        }
+
+        return null;
+
+    }
+
+
+
+    public static function update(
+        int $id,
+        array $updatedQuestion
+    ): void
+    {
+
+        $questions =
+            self::all();
+
+
+        foreach (
+            $questions
+            as $index => $question
+        ) {
+
+            if (
+                ($question["id"] ?? 0)
+                ===
+                $id
+            ) {
+
+                $questions[$index] =
+                    $updatedQuestion;
+
+                break;
+
+            }
+
+        }
+
+
+        file_put_contents(
+
+            self::ROOT .
+            self::LEGACY,
+
+            json_encode(
+
+                $questions,
+
+                JSON_PRETTY_PRINT
+
+            )
+
+        );
+
+    }
+
+public static function archive(
+    int $id
+): void
+{
+
+    $questions =
+        self::all();
+
+
+    foreach (
+        $questions
+        as $index => $question
+    ) {
+
+        if (
+            ($question["id"] ?? 0)
+            ===
+            $id
+        ) {
+
+            $questions[$index]["status"] =
+                "archived";
+
+            break;
+
+        }
+
+    }
+
+
+    file_put_contents(
+
+        self::ROOT .
+        self::LEGACY,
+
+        json_encode(
+            $questions,
+            JSON_PRETTY_PRINT
+        )
+
+    );
+
+}
+
+
+public static function restore(
+    int $id
+): void
+{
+
+    $questions =
+        self::allIncludingArchived();
+
+
+    foreach (
+        $questions
+        as $index => $question
+    ) {
+
+        if (
+            ($question["id"] ?? 0)
+            ===
+            $id
+        ) {
+
+            $questions[$index]["status"] =
+                "active";
+
+            break;
+
+        }
+
+    }
+
+
+    file_put_contents(
+
+        self::ROOT .
+        self::LEGACY,
+
+        json_encode(
+            $questions,
+            JSON_PRETTY_PRINT
+        )
+
+    );
+
+}
+
+
     private static function loadDirectory(
         string $directory
     ): array

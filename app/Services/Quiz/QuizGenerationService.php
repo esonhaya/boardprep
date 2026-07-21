@@ -9,12 +9,60 @@ class QuizGenerationService
     ): array
     {
 
+        /*
+        |--------------------------------------------------------------------------
+        | Blueprint
+        |--------------------------------------------------------------------------
+        */
+
+        if (!empty($options["blueprint"])) {
+
+            $blueprint =
+                BlueprintRepository::find(
+                    $options["blueprint"]
+                );
+
+            if ($blueprint) {
+
+                foreach (
+                    $blueprint["sections"] ?? []
+                    as $section
+                ) {
+
+                    if (!empty($section["topic"])) {
+
+                        $options["topic"] =
+                            $section["topic"];
+
+                    }
+
+                }
+
+            }
+
+        }
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Question Filter
+        |--------------------------------------------------------------------------
+        */
+
         $questions =
             QuestionFilterService::filter(
                 $questions,
                 $options
             );
 
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Adaptive
+        |--------------------------------------------------------------------------
+        */
 
         if (!empty($options["adaptive"])) {
 
@@ -40,44 +88,59 @@ class QuizGenerationService
 
 
                 usort(
+
                     $questions,
+
                     function($a, $b)
                     use ($recommended)
                     {
 
                         $aScore =
-                            (
-                                strtolower(
-                                    $a["difficulty"] ?? ""
-                                )
-                                ===
-                                $recommended
-                            );
+
+                            strtolower(
+                                $a["difficulty"] ?? ""
+                            )
+
+                            ===
+
+                            $recommended;
+
 
                         $bScore =
-                            (
-                                strtolower(
-                                    $b["difficulty"] ?? ""
-                                )
-                                ===
-                                $recommended
-                            );
+
+                            strtolower(
+                                $b["difficulty"] ?? ""
+                            )
+
+                            ===
+
+                            $recommended;
+
 
                         return
                             $bScore <=> $aScore;
 
                     }
+
                 );
 
             }
 
         }
+
         elseif (!empty($options["shuffle"])) {
 
             shuffle($questions);
 
         }
 
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Limit
+        |--------------------------------------------------------------------------
+        */
 
         if (!empty($options["limit"])) {
 
@@ -89,6 +152,7 @@ class QuizGenerationService
                 );
 
         }
+
 
 
         return array_values(

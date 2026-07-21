@@ -87,6 +87,54 @@ switch ($page) {
 
         break;
 
+ case "question-editor":
+
+    $action =
+        $_GET["action"] ?? "index";
+
+    if ($action === "create") {
+
+        QuestionEditorController::create();
+
+    }
+    elseif ($action === "edit") {
+
+    QuestionEditorController::edit();
+
+    }
+    elseif ($action === "save") {
+
+        QuestionEditorController::save();
+
+    }
+
+elseif ($action === "update") {
+
+    QuestionEditorController::update();
+
+}
+
+elseif ($action === "archive") {
+
+    QuestionEditorController::archive();
+
+}
+
+elseif ($action === "restore") {
+
+    QuestionEditorController::restore();
+
+}
+
+
+    else {
+
+        QuestionEditorController::index();
+
+    }
+
+    break;
+
 
 
     default:

@@ -126,6 +126,9 @@ $adaptive =
     QuizGenerationService::generate(
         $questions,
         [
+            "blueprint" =>
+                $_GET["exam"] ?? "LET",
+
             "difficulty" =>
                 $difficulty,
 
