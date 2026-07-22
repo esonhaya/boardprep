@@ -157,6 +157,23 @@ case "question-import":
 
     break;
 
+case "question-quality":
+
+    QuestionQualityController::index();
+
+    break;
+
+case "question-inspector":
+
+    QuestionInspectorController::index();
+
+    break;
+
+
+
+
+
+
     default:
 
         View::render(

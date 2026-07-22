@@ -374,68 +374,95 @@ $adaptive =
 
     }
 
+private static function finishQuiz(): array
+{
 
-
-
-
-    private static function finishQuiz(): array
-    {
-
-        $questions =
-            SessionService::get(
-                "questions",
-                []
-            );
-
-
-        $answers =
-            SessionService::get(
-                "answers",
-                []
-            );
-
-
-
-        $result =
-            QuizScoringService::calculate(
-                $questions,
-                $answers
-            );
-
-
-
-        AttemptRepository::save(
-            [
-                "date" =>
-                    date("Y-m-d H:i:s"),
-
-                "mode" =>
-                    SessionService::get(
-                        "mode",
-                        "practice"
-                    ),
-
-                "subject" =>
-                    "LET",
-
-                "topic" =>
-                    "grammar",
-
-                "score" =>
-                    $result["score"],
-
-                "total" =>
-                    $result["total"],
-
-                "percentage" =>
-                    $result["percentage"]
-            ]
+    $questions =
+        SessionService::get(
+            "questions",
+            []
         );
 
+    $answers =
+        SessionService::get(
+            "answers",
+            []
+        );
+
+    $result =
+        QuizSubmissionService::submit(
+            $questions,
+            $answers
+        );
+
+    AttemptRepository::save(
+        [
+
+            "date" =>
+                date("Y-m-d H:i:s"),
+
+            "mode" =>
+                SessionService::get(
+                    "mode",
+                    "practice"
+                ),
+
+            "subject" =>
+                "LET",
+
+            "topic" =>
+                "grammar",
+
+            "score" =>
+                $result["score"],
+
+            "total" =>
+                $result["total"],
+
+            "percentage" =>
+                round(
+                    (
+                        $result["score"]
+                        /
+                        max(
+                            1,
+                            $result["total"]
+                        )
+                    )
+                    * 100,
+                    2
+                )
+
+        ]
+    );
+
+    return [
+
+        "score" =>
+            $result["score"],
+
+        "total" =>
+            $result["total"],
+
+        "percentage" =>
+            round(
+                (
+                    $result["score"]
+                    /
+                    max(
+                        1,
+                        $result["total"]
+                    )
+                )
+                * 100,
+                2
+            )
+
+    ];
+
+}
 
 
-        return $result;
 
-    }
 
 }

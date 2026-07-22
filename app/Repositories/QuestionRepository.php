@@ -538,5 +538,40 @@ public static function findDuplicates(
 
 }
 
+public static function updateStatistics(
+    array $question
+): void
+{
+
+    $questions =
+        self::all();
+
+    foreach (
+        $questions
+        as &$current
+    ) {
+
+        if (
+            $current["id"]
+            ===
+            $question["id"]
+        ) {
+
+            $current =
+                $question;
+
+            break;
+
+        }
+
+    }
+
+    self::saveAll(
+        $questions
+    );
+
+}
+
+
 
 }

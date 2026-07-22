@@ -200,12 +200,12 @@ class QuestionEditorController
             );
 
         $errors =
-    self::validate(
+    QuestionValidationService::validate(
         $question
     );
 
 $duplicates =
-    QuestionRepository::findDuplicates(
+    QuestionDuplicateService::find(
         $question
     );
 
@@ -266,14 +266,15 @@ if (!empty($errors)) {
             self::buildQuestion($id);
 
         $errors =
-            self::validate(
-                $question
-            );
-
-$duplicates =
-    QuestionRepository::findDuplicates(
+    QuestionValidationService::validate(
         $question
     );
+
+$duplicates =
+    QuestionDuplicateService::find(
+        $question
+    );
+
 
         if (!empty($errors)) {
 
@@ -363,114 +364,58 @@ public static function restore(): void
 }
 
 
-    private static function buildQuestion(
-        int $id
-    ): array
-    {
-
-        return [
-
-            "id" =>
-                $id,
-
-            "status" =>
-                "active",
-
-            "domain" =>
-                trim($_POST["domain"] ?? ""),
-
-            "topic" =>
-                trim($_POST["topic"] ?? ""),
-
-            "concept" =>
-                trim($_POST["concept"] ?? ""),
-
-            "difficulty" =>
-                trim($_POST["difficulty"] ?? ""),
-
-            "question" =>
-                trim($_POST["question"] ?? ""),
-
-            "choices" => [
-
-                trim($_POST["choice_a"] ?? ""),
-
-                trim($_POST["choice_b"] ?? ""),
-
-                trim($_POST["choice_c"] ?? ""),
-
-                trim($_POST["choice_d"] ?? "")
-
-            ],
-
-            "answer" =>
-                trim($_POST["answer"] ?? ""),
-
-            "explanation" =>
-                trim($_POST["explanation"] ?? "")
-
-        ];
-
-    }
-
-
-
-    private static function validate(
-    array $question
+private static function buildQuestion(
+    int $id
 ): array
 {
 
-    $errors = [];
+    $formData = [
 
+        "domain" =>
+            trim($_POST["domain"] ?? ""),
 
-    if ($question["question"] === "") {
+        "topic" =>
+            trim($_POST["topic"] ?? ""),
 
-        $errors["question"] =
-            "Question cannot be empty.";
+        "concept" =>
+            trim($_POST["concept"] ?? ""),
 
-    }
+        "difficulty" =>
+            trim($_POST["difficulty"] ?? ""),
 
+        "question" =>
+            trim($_POST["question"] ?? ""),
 
-    if ($question["explanation"] === "") {
+        "choices" => [
 
-        $errors["explanation"] =
-            "Explanation is required.";
+            trim($_POST["choice_a"] ?? ""),
 
-    }
+            trim($_POST["choice_b"] ?? ""),
 
+            trim($_POST["choice_c"] ?? ""),
 
-    if (
-        count(
-            array_unique(
-                $question["choices"]
-            )
-        )
-        !==
-        4
-    ) {
+            trim($_POST["choice_d"] ?? "")
 
-        $errors["choices"] =
-            "Choices must all be different.";
+        ],
 
-    }
+        "answer" =>
+            trim($_POST["answer"] ?? ""),
 
+        "explanation" =>
+            trim($_POST["explanation"] ?? "")
 
-    if (
-        !in_array(
-            $question["answer"],
-            $question["choices"],
-            true
-        )
-    ) {
+    ];
 
-        $errors["answer"] =
-            "Correct answer must match one of the choices.";
+    return QuestionMetadataService::build(
 
-    }
+        $id,
 
+        $formData
 
-    return $errors;
+    );
 
 }
+
+
     
 }

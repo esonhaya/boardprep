@@ -51,11 +51,9 @@ class QuizGenerationService
         */
 
         $questions =
-            QuestionFilterService::filter(
-                $questions,
-                $options
-            );
-
+    QuizHistoryService::filterUnused(
+        $questions
+    );
 
 
         /*
@@ -155,9 +153,17 @@ class QuizGenerationService
 
 
 
-        return array_values(
-            $questions
-        );
+$questions =
+    array_values(
+        $questions
+    );
+
+QuizHistoryService::remember(
+    $questions
+);
+
+return $questions;        
+
 
     }
 

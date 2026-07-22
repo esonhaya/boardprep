@@ -133,32 +133,38 @@ Missing Choices:
 
 <hr>
 
-<h3>Management</h3>
+<h2>📚 Question Management</h2>
 
 <ul>
 
 <li>
 <a href="?page=question-editor">
-📝 Question Editor
+Question Editor
 </a>
 </li>
 
-</ul>
+<li>
+<a href="?page=question-import">
+Import Questions
+</a>
+</li>
 
-<h3>Coming Soon</h3>
+<li>
+<a href="?page=question-export">
+Export Questions
+</a>
+</li>
 
-<ul>
+<li>
+<a href="?page=question-quality">
+Repository Health
+</a>
+</li>
 
-<li>📥 Import Questions</li>
-
-<li>📤 Export Question Bank</li>
-
-<li>🤖 AI Mock Exam Generator</li>
-
-<li>🧠 AI Question Generator</li>
-
-<li>📈 Question Analytics</li>
-
-<li>🔍 Duplicate Finder</li>
+<li>
+<a href="?page=question-inspector">
+Question Inspector
+</a>
+</li>
 
 </ul>

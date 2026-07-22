@@ -241,6 +241,14 @@ Total Questions:
 
 <td>
 
+<a href="?page=question-inspector&id=<?= $question["id"] ?>">
+
+🔍 Inspect
+
+</a>
+
+|
+
 <a href="?page=question-editor&action=edit&id=<?= $question["id"] ?>">
 
 ✏ Edit

@@ -14,39 +14,33 @@ class QuizController
                 "grammar"
             );
 
-
-        if($difficulty !== "mixed")
-        {
+        if ($difficulty !== "mixed") {
 
             $filtered = [];
 
+            foreach ($questions as $question) {
 
-            foreach($questions as $question)
-            {
-
-                if(
+                if (
                     strtolower(
                         $question["difficulty"] ?? ""
                     )
                     ===
                     strtolower($difficulty)
-                )
-                {
+                ) {
 
-                    $filtered[] = $question;
+                    $filtered[] =
+                        $question;
 
                 }
 
             }
 
-
-            $questions = $filtered;
+            $questions =
+                $filtered;
 
         }
 
-
         shuffle($questions);
-
 
         return array_slice(
             $questions,
@@ -67,28 +61,24 @@ class QuizController
         $userAnswer =
             trim($answer ?? "");
 
+        if (
 
-        /*
-         Convert choice letter (A-D)
-         into actual answer text
-        */
-
-        if(
             isset($question["choices"])
+
             &&
+
             preg_match(
                 '/^[A-D]$/i',
                 $userAnswer
             )
-        )
-        {
+
+        ) {
 
             $index =
                 ord(
                     strtoupper($userAnswer)
                 )
                 - 65;
-
 
             $userAnswer =
                 $question["choices"][$index]
@@ -97,16 +87,19 @@ class QuizController
 
         }
 
+        return
 
-        return strtoupper(
-            trim($userAnswer)
-        )
-        ===
-        strtoupper(
-            trim(
-                $question["answer"] ?? ""
+            strtoupper(
+                trim($userAnswer)
             )
-        );
+
+            ===
+
+            strtoupper(
+                trim(
+                    $question["answer"] ?? ""
+                )
+            );
 
     }
 
@@ -120,24 +113,45 @@ class QuizController
 
         $score = 0;
 
+        foreach (
+            $questions
+            as $question
+        ) {
 
-        foreach($questions as $question)
-        {
+            $correct =
 
-            if(
                 self::checkAnswer(
+
                     $question,
-                    $answers[$question["id"]] ?? null
-                )
-            )
-            {
+
+                    $answers[
+                        $question["id"]
+                    ] ?? null
+
+                );
+
+            if ($correct) {
+
+                QuestionStatisticsService::correct(
+                    $question
+                );
 
                 $score++;
 
             }
+            else {
+
+                QuestionStatisticsService::incorrect(
+                    $question
+                );
+
+            }
+
+            QuestionRepository::updateStatistics(
+                $question
+            );
 
         }
-
 
         return $score;
 
