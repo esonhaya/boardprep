@@ -1,131 +1,99 @@
 <?php
 
-$result = $result ?? [];
+$summary =
+    $result["summary"];
 
-$mode = $mode ?? "practice";
+$review =
+    $result["review"];
 
 ?>
 
+<h1>
+    Quiz Result
+</h1>
+
+
+<div class="result-summary">
+
+    <h2>
+        Score:
+        <?= $summary["score"] ?>
+        /
+        <?= $summary["total"] ?>
+    </h2>
+
+
+    <h3>
+        <?= $summary["percentage"] ?>%
+    </h3>
+
+</div>
+
+
+
 <h2>
-Quiz Result
+    Answer Review
 </h2>
 
 
-<h3>
-Mode:
-<?= ucfirst($mode) ?>
-</h3>
+<?php foreach ($review as $index => $item): ?>
+
+<div class="question-review">
 
 
-<h3>
-Score:
-<?= $result["score"] ?? 0 ?>
-/
-<?= $result["total"] ?? 0 ?>
-</h3>
+    <h3>
+        <?= ($index + 1) ?>.
+        <?= htmlspecialchars(
+            $item["question"]["question"]
+        ) ?>
+    </h3>
 
 
+    <p>
+        Your Answer:
+        <strong>
+            <?= htmlspecialchars(
+                $item["userAnswer"] ?? "No answer"
+            ) ?>
+        </strong>
+    </p>
 
-<?php foreach(($result["results"] ?? []) as $item): ?>
+
+    <?php if ($item["correct"]): ?>
+
+        <p>
+            ✅ Correct
+        </p>
+
+    <?php else: ?>
+
+        <p>
+            ❌ Incorrect
+        </p>
+
+
+        <p>
+            Correct Answer:
+            <strong>
+                <?= htmlspecialchars(
+                    $item["question"]["answer"]
+                ) ?>
+            </strong>
+        </p>
+
+    <?php endif; ?>
+
+
+    <p>
+        Explanation:
+        <?= htmlspecialchars(
+            $item["question"]["explanation"] ?? ""
+        ) ?>
+    </p>
+
+
+</div>
 
 <hr>
-
-
-<h4>
-<?= htmlspecialchars($item["question"] ?? "") ?>
-</h4>
-
-
-<p>
-Your Answer:
-
-<?= htmlspecialchars(
-$item["userAnswer"] ?? "No answer"
-) ?>
-
-</p>
-
-
-<p>
-Correct Answer:
-
-<?= htmlspecialchars(
-$item["correctAnswer"] ?? ""
-) ?>
-
-</p>
-
-
-
-<?php if($item["correct"] ?? false): ?>
-
-<p>
-✅ Correct
-</p>
-
-<?php else: ?>
-
-<p>
-❌ Incorrect
-</p>
-
-<?php endif; ?>
-
-
-
-<?php if($mode !== "exam"): ?>
-
-<p>
-<strong>
-Explanation:
-</strong>
-</p>
-
-<p>
-<?= htmlspecialchars(
-$item["explanation"] ?? ""
-) ?>
-</p>
-
-
-<?php endif; ?>
-
 
 <?php endforeach; ?>
-
-
-
-<hr>
-
-
-<a href="?page=dashboard">
-
-<button type="button">
-View Performance Dashboard
-</button>
-
-</a>
-
-
-<br><br>
-
-
-<a href="?page=quiz">
-
-<button type="button">
-Take Another Quiz
-</button>
-
-</a>
-
-
-<br><br>
-
-
-<a href="?page=home">
-
-<button type="button">
-Back to Home
-</button>
-
-</a>

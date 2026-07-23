@@ -17,6 +17,7 @@ class QuestionImportController
     }
 
 
+
     public static function import(): void
     {
 
@@ -33,60 +34,22 @@ class QuestionImportController
         }
 
 
-        $content =
-            file_get_contents(
+        $result =
+            QuestionImportService::importJson(
                 $_FILES["file"]["tmp_name"]
             );
 
 
-        $questions =
-            json_decode(
-                $content,
-                true
-            );
+        View::render(
+            "developer/question-import",
+            [
+                "pageTitle" =>
+                    "Import Questions",
 
-
-        if (
-            !is_array($questions)
-        ) {
-
-            die(
-                "Invalid JSON file."
-            );
-
-        }
-
-
-        $count = 0;
-
-
-        foreach (
-            $questions
-            as $question
-        ) {
-
-
-            $question["id"] =
-                time() + $count;
-
-
-            $question["status"] =
-                "draft";
-
-
-            QuestionRepository::save(
-                $question
-            );
-
-
-            $count++;
-
-        }
-
-
-        echo
-            $count .
-            " questions imported.";
+                "result" =>
+                    $result
+            ]
+        );
 
     }
 

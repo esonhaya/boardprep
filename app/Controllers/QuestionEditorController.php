@@ -4,103 +4,23 @@ class QuestionEditorController
 {
 
     public static function index(): void
-{
+    {
 
-    $search =
-        trim(
-            $_GET["search"] ?? ""
-        );
+        $search =
+            trim($_GET["search"] ?? "");
 
-    $domain =
-        trim(
-            $_GET["domain"] ?? ""
-        );
+        $domain =
+            trim($_GET["domain"] ?? "");
 
-    $difficulty =
-        trim(
-            $_GET["difficulty"] ?? ""
-        );
+        $difficulty =
+            trim($_GET["difficulty"] ?? "");
 
-    $topic =
-        trim(
-            $_GET["topic"] ?? ""
-        );
+        $topic =
+            trim($_GET["topic"] ?? "");
 
-
-    $questions =
-        QuestionRepository::all();
-
-
-    if (
-        $domain !== ""
-        ||
-        $difficulty !== ""
-        ||
-        $topic !== ""
-    ) {
-
-        $questions =
-            QuestionRepository::filter(
-                $domain,
-                $difficulty,
-                $topic
-            );
-
-    }
-
-
-    if ($search !== "") {
-
-        $questions =
-            array_filter(
-                $questions,
-
-                function ($question)
-                use ($search) {
-
-                    $search =
-                        strtolower(
-                            $search
-                        );
-
-                    return
-                        str_contains(
-                            strtolower(
-                                $question["question"] ?? ""
-                            ),
-                            $search
-                        )
-                        ||
-                        str_contains(
-                            strtolower(
-                                $question["topic"] ?? ""
-                            ),
-                            $search
-                        )
-                        ||
-                        str_contains(
-                            strtolower(
-                                $question["concept"] ?? ""
-                            ),
-                            $search
-                        );
-
-                }
-            );
-
-    }
-
-
-    View::render(
-        "developer/question-editor",
+$questions =
+    QuestionEditorQueryService::getQuestions(
         [
-
-            "pageTitle" =>
-                "Question Editor",
-
-            "questions" =>
-                $questions,
-
             "search" =>
                 $search,
 
@@ -111,18 +31,45 @@ class QuestionEditorController
                 $difficulty,
 
             "topic" =>
-                $topic,
-
-            "domains" =>
-                TaxonomyRepository::domains(),
-
-            "topics" =>
-                TaxonomyRepository::topics()
-
+                $topic
         ]
     );
 
-}
+        View::render(
+            "developer/question-editor",
+
+            array_merge(
+
+                [
+
+                    "pageTitle" =>
+                        "Question Editor",
+
+                    "questions" =>
+                        $questions,
+
+                    "search" =>
+                        $search,
+
+                    "domain" =>
+                        $domain,
+
+                    "difficulty" =>
+                        $difficulty,
+
+                    "topic" =>
+                        $topic
+
+                ],
+
+                QuestionEditorViewService::taxonomy()
+
+            )
+
+        );
+
+    }
+
 
 
     public static function create(): void
@@ -130,19 +77,20 @@ class QuestionEditorController
 
         View::render(
             "developer/question-create",
-            [
-                "pageTitle" =>
-                    "Create Question",
 
-                "domains" =>
-                    TaxonomyRepository::domains(),
+            array_merge(
 
-                "topics" =>
-                    TaxonomyRepository::topics(),
+                [
 
-                "concepts" =>
-                    TaxonomyRepository::concepts()
-            ]
+                    "pageTitle" =>
+                        "Create Question"
+
+                ],
+
+                QuestionEditorViewService::taxonomy()
+
+            )
+
         );
 
     }
@@ -157,6 +105,7 @@ class QuestionEditorController
                 (int)($_GET["id"] ?? 0)
             );
 
+
         if (!$question) {
 
             header(
@@ -167,24 +116,26 @@ class QuestionEditorController
 
         }
 
+
         View::render(
             "developer/question-edit",
-            [
-                "pageTitle" =>
-                    "Edit Question",
 
-                "question" =>
-                    $question,
+            array_merge(
 
-                "domains" =>
-                    TaxonomyRepository::domains(),
+                [
 
-                "topics" =>
-                    TaxonomyRepository::topics(),
+                    "pageTitle" =>
+                        "Edit Question",
 
-                "concepts" =>
-                    TaxonomyRepository::concepts()
-            ]
+                    "question" =>
+                        $question
+
+                ],
+
+                QuestionEditorViewService::taxonomy()
+
+            )
+
         );
 
     }
@@ -195,56 +146,55 @@ class QuestionEditorController
     {
 
         $question =
-            self::buildQuestion(
+            QuestionEditorService::buildQuestion(
                 time()
             );
 
-        $errors =
-    QuestionValidationService::validate(
-        $question
-    );
 
-$duplicates =
-    QuestionDuplicateService::find(
-        $question
-    );
+        $check =
+            QuestionEditorService::prepareSave(
+                $question
+            );
 
 
-if (!empty($errors)) {
+        if (!empty($check["errors"])) {
 
-    View::render(
-        "developer/question-create",
-        [
-            "pageTitle" =>
-                "Create Question",
+            View::render(
+                "developer/question-create",
 
-            "question" =>
-                $question,
+                array_merge(
 
-            "errors" =>
-                $errors,
+                    [
 
-"duplicates" =>
-    $duplicates,
+                        "pageTitle" =>
+                            "Create Question",
 
-            "domains" =>
-                TaxonomyRepository::domains(),
+                        "question" =>
+                            $question,
 
-            "topics" =>
-                TaxonomyRepository::topics(),
+                        "errors" =>
+                            $check["errors"],
 
-            "concepts" =>
-                TaxonomyRepository::concepts()
-        ]
-    );
+                        "duplicates" =>
+                            $check["duplicates"]
 
-    return;
+                    ],
 
-}
+                    QuestionEditorViewService::taxonomy()
 
-        QuestionRepository::save(
+                )
+
+            );
+
+            return;
+
+        }
+
+
+        QuestionEditorService::save(
             $question
         );
+
 
         header(
             "Location: ?page=question-editor"
@@ -262,56 +212,58 @@ if (!empty($errors)) {
         $id =
             (int)($_GET["id"] ?? 0);
 
+
         $question =
-            self::buildQuestion($id);
-
-        $errors =
-    QuestionValidationService::validate(
-        $question
-    );
-
-$duplicates =
-    QuestionDuplicateService::find(
-        $question
-    );
+            QuestionEditorService::buildQuestion(
+                $id
+            );
 
 
-        if (!empty($errors)) {
+        $check =
+            QuestionEditorService::prepareSave(
+                $question
+            );
 
-    View::render(
-        "developer/question-edit",
-        [
-            "pageTitle" =>
-                "Edit Question",
 
-            "question" =>
-                $question,
+        if (!empty($check["errors"])) {
 
-            "errors" =>
-                $errors,
+            View::render(
+                "developer/question-edit",
 
-"duplicates" =>
-    $duplicates,
+                array_merge(
 
-            "domains" =>
-                TaxonomyRepository::domains(),
+                    [
 
-            "topics" =>
-                TaxonomyRepository::topics(),
+                        "pageTitle" =>
+                            "Edit Question",
 
-            "concepts" =>
-                TaxonomyRepository::concepts()
-        ]
-    );
+                        "question" =>
+                            $question,
 
-    return;
+                        "errors" =>
+                            $check["errors"],
 
-}
+                        "duplicates" =>
+                            $check["duplicates"]
 
-        QuestionRepository::update(
+                    ],
+
+                    QuestionEditorViewService::taxonomy()
+
+                )
+
+            );
+
+            return;
+
+        }
+
+
+        QuestionEditorService::update(
             $id,
             $question
         );
+
 
         header(
             "Location: ?page=question-editor"
@@ -321,101 +273,40 @@ $duplicates =
 
     }
 
-public static function archive(): void
-{
 
-    $id =
-        (int)(
-            $_GET["id"] ?? 0
-        );
 
-    QuestionRepository::archive(
-        $id
-    );
+    public static function archive(): void
+    {
 
-    header(
-        "Location: ?page=question-editor"
-    );
-
-    exit;
-
-}
-
-public static function restore(): void
-{
-
-    $id =
-        (int)(
-            $_GET["id"] ?? 0
+        QuestionRepository::archive(
+            (int)($_GET["id"] ?? 0)
         );
 
 
-    QuestionRepository::restore(
-        $id
-    );
+        header(
+            "Location: ?page=question-editor"
+        );
+
+        exit;
+
+    }
 
 
-    header(
-        "Location: ?page=question-editor"
-    );
 
-    exit;
+    public static function restore(): void
+    {
 
-}
-
-
-private static function buildQuestion(
-    int $id
-): array
-{
-
-    $formData = [
-
-        "domain" =>
-            trim($_POST["domain"] ?? ""),
-
-        "topic" =>
-            trim($_POST["topic"] ?? ""),
-
-        "concept" =>
-            trim($_POST["concept"] ?? ""),
-
-        "difficulty" =>
-            trim($_POST["difficulty"] ?? ""),
-
-        "question" =>
-            trim($_POST["question"] ?? ""),
-
-        "choices" => [
-
-            trim($_POST["choice_a"] ?? ""),
-
-            trim($_POST["choice_b"] ?? ""),
-
-            trim($_POST["choice_c"] ?? ""),
-
-            trim($_POST["choice_d"] ?? "")
-
-        ],
-
-        "answer" =>
-            trim($_POST["answer"] ?? ""),
-
-        "explanation" =>
-            trim($_POST["explanation"] ?? "")
-
-    ];
-
-    return QuestionMetadataService::build(
-
-        $id,
-
-        $formData
-
-    );
-
-}
+        QuestionRepository::restore(
+            (int)($_GET["id"] ?? 0)
+        );
 
 
-    
+        header(
+            "Location: ?page=question-editor"
+        );
+
+        exit;
+
+    }
+
 }

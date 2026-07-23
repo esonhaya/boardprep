@@ -14,7 +14,7 @@ class QuizSubmissionService
         foreach ($questions as $question) {
 
             $correct =
-                QuizController::checkAnswer(
+                QuizScoringService::checkAnswer(
                     $question,
                     $answers[$question["id"]] ?? null
                 );
@@ -25,14 +25,7 @@ class QuizSubmissionService
 
             }
 
-            QuestionStatisticsService::recordAnswer(
-
-                $question["id"],
-
-                $correct
-
-            );
-
+            
         }
 
         return [

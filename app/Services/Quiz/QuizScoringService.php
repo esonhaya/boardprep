@@ -10,55 +10,41 @@ class QuizScoringService
     {
 
         $score = 0;
+
         $results = [];
 
 
-        foreach ($questions as $question) {
-
+        foreach (
+            $questions
+            as $question
+        ) {
 
             $userAnswer =
-                $answers[$question["id"]] ?? null;
+                self::normalizeAnswer(
+                    $question,
+                    $answers[$question["id"]] ?? null
+                );
 
 
             $correctAnswer =
-                $question["answer"];
-
-
-            // Convert A/B/C/D into actual choice text
-            if (
-                is_string($userAnswer)
-                &&
-                strlen($userAnswer) === 1
-                &&
-                ctype_alpha($userAnswer)
-            ) {
-
-                $index =
-                    ord(strtoupper($userAnswer)) - 65;
-
-
-                if (
-                    isset($question["choices"][$index])
-                ) {
-
-                    $userAnswer =
-                        $question["choices"][$index];
-
-                }
-
-            }
-
+                $question["answer"] ?? "";
 
 
             $correct =
-                $userAnswer === $correctAnswer;
-
+                strtoupper(
+                    trim($userAnswer)
+                )
+                ===
+                strtoupper(
+                    trim($correctAnswer)
+                );
 
 
             if ($correct) {
-                $score++;
-            }
 
+                $score++;
+
+            }
 
 
             $results[] = [
@@ -67,7 +53,7 @@ class QuizScoringService
                     $question["question"],
 
                 "choices" =>
-                    $question["choices"],
+                    $question["choices"] ?? [],
 
                 "userAnswer" =>
                     $userAnswer,
@@ -87,25 +73,99 @@ class QuizScoringService
 
 
 
+        $total =
+            count($questions);
+
+
         return [
 
             "score" =>
                 $score,
 
             "total" =>
-                count($questions),
+                $total,
 
             "percentage" =>
-                count($questions)
-                    ? round(
-                        ($score / count($questions)) * 100
-                    )
-                    : 0,
+                $total > 0
+                ?
+                round(
+                    ($score / $total) * 100
+                )
+                :
+                0,
 
             "results" =>
                 $results
 
         ];
+
+    }
+
+
+
+    public static function checkAnswer(
+        array $question,
+        ?string $answer
+    ): bool
+    {
+
+        $userAnswer =
+            self::normalizeAnswer(
+                $question,
+                $answer
+            );
+
+
+        return
+            strtoupper(
+                trim($userAnswer)
+            )
+            ===
+            strtoupper(
+                trim(
+                    $question["answer"] ?? ""
+                )
+            );
+
+    }
+
+
+
+    private static function normalizeAnswer(
+        array $question,
+        ?string $answer
+    ): string
+    {
+
+        $answer =
+            trim(
+                $answer ?? ""
+            );
+
+
+        if (
+            preg_match(
+                '/^[A-D]$/i',
+                $answer
+            )
+        ) {
+
+            $index =
+                ord(
+                    strtoupper($answer)
+                )
+                - 65;
+
+
+            return
+                $question["choices"][$index]
+                ??
+                "";
+
+        }
+
+
+        return $answer;
 
     }
 

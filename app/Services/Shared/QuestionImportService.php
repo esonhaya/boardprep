@@ -136,29 +136,13 @@ class QuestionImportService
         }
 
 
-        if (!empty($valid)) {
+if (!empty($valid)) {
 
-            file_put_contents(
+    QuestionRepository::saveMany(
+        $valid
+    );
 
-                __DIR__
-                .
-                "/../../storage/questions.json",
-
-                json_encode(
-
-                    array_merge(
-                        $existing,
-                        $valid
-                    ),
-
-                    JSON_PRETTY_PRINT
-
-                )
-
-            );
-
-        }
-
+}
 
         return [
 
