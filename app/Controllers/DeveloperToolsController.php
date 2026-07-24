@@ -9,11 +9,36 @@ class DeveloperToolsController
         $audit =
             QuestionAuditService::summary();
 
+
+        $taxonomyStatus = null;
+
+
+        if (
+            ($_GET["action"] ?? "")
+            ===
+            "rebuild-taxonomy"
+        ) {
+
+            $taxonomyStatus =
+                TaxonomyBuilderService::rebuild();
+
+        }
+
+
         View::render(
+
             "developer/index",
+
             [
-                "audit" => $audit
+
+                "audit" =>
+                    $audit,
+
+                "taxonomyStatus" =>
+                    $taxonomyStatus
+
             ]
+
         );
 
     }

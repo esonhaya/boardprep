@@ -4,8 +4,7 @@ class TaxonomyRepository
 {
 
     private const ROOT =
-        __DIR__ .
-        "/../../storage/taxonomy/";
+        __DIR__ . "/../../storage/taxonomy/";
 
 
     private static function load(
@@ -14,8 +13,7 @@ class TaxonomyRepository
     {
 
         $path =
-            self::ROOT .
-            $file;
+            self::ROOT . $file;
 
 
         if (!file_exists($path)) {
@@ -27,14 +25,42 @@ class TaxonomyRepository
 
         $data =
             json_decode(
+
                 file_get_contents($path),
+
                 true
+
             );
 
 
-        return is_array($data)
-            ? $data
-            : [];
+        return
+            is_array($data)
+                ? $data
+                : [];
+
+    }
+
+
+
+    private static function save(
+        string $file,
+        array $data
+    ): void
+    {
+
+        file_put_contents(
+
+            self::ROOT . $file,
+
+            json_encode(
+
+                array_values($data),
+
+                JSON_PRETTY_PRINT
+
+            )
+
+        );
 
     }
 
@@ -67,6 +93,48 @@ class TaxonomyRepository
 
         return self::load(
             "concepts.json"
+        );
+
+    }
+
+
+
+    public static function saveDomains(
+        array $domains
+    ): void
+    {
+
+        self::save(
+            "domains.json",
+            $domains
+        );
+
+    }
+
+
+
+    public static function saveTopics(
+        array $topics
+    ): void
+    {
+
+        self::save(
+            "topics.json",
+            $topics
+        );
+
+    }
+
+
+
+    public static function saveConcepts(
+        array $concepts
+    ): void
+    {
+
+        self::save(
+            "concepts.json",
+            $concepts
         );
 
     }

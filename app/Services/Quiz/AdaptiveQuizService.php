@@ -43,23 +43,10 @@ class AdaptiveQuizService
 
         }
 
-
-        if ($average >= 85) {
-
-            $difficulty =
-                "hard";
-
-        } elseif ($average >= 65) {
-
-            $difficulty =
-                "medium";
-
-        } else {
-
-            $difficulty =
-                "easy";
-
-        }
+$difficulty =
+    self::recommendedDifficulty(
+        $average
+    );
 
 
         return [
@@ -135,5 +122,24 @@ class AdaptiveQuizService
         );
 
     }
+
+
+private static function recommendedDifficulty(
+    int|float $average
+): string
+{
+
+    if ($average >= 85) {
+        return "hard";
+    }
+
+    if ($average >= 65) {
+        return "medium";
+    }
+
+    return "easy";
+
+}
+
 
 }

@@ -6,9 +6,13 @@ require_once "../app/Core/Autoloader.php";
 
 Autoloader::register();
 
-$page = $_GET["page"] ?? "home";
+
+$page =
+    $_GET["page"] ?? "home";
+
 
 switch ($page) {
+
 
     case "let":
 
@@ -87,90 +91,156 @@ switch ($page) {
 
         break;
 
- case "question-editor":
 
-    $action =
-        $_GET["action"] ?? "index";
 
-    if ($action === "create") {
+    case "taxonomy":
 
-        QuestionEditorController::create();
+        $action =
+            $_GET["action"] ?? "index";
 
-    }
-    elseif ($action === "edit") {
 
-    QuestionEditorController::edit();
+        switch ($action) {
 
-    }
-    elseif ($action === "save") {
 
-        QuestionEditorController::save();
+            case "add-domain":
 
-    }
+                TaxonomyController::addDomain();
 
-elseif ($action === "update") {
+                break;
 
-    QuestionEditorController::update();
 
-}
+            case "add-topic":
 
-elseif ($action === "archive") {
+                TaxonomyController::addTopic();
 
-    QuestionEditorController::archive();
+                break;
 
-}
 
-elseif ($action === "restore") {
+            case "add-concept":
 
-    QuestionEditorController::restore();
+                TaxonomyController::addConcept();
 
-}
+                break;
 
-    else {
 
-        QuestionEditorController::index();
+            default:
 
-    }
+                TaxonomyController::index();
 
-    break;
+                break;
 
-case "question-export":
+        }
 
-    QuestionExportController::export();
-
-    break;
-
-case "question-import":
-
-    if (
-        ($_GET["action"] ?? "") === "import"
-    ) {
-
-        QuestionImportController::import();
-
-    }
-    else {
-
-        QuestionImportController::index();
-
-    }
-
-    break;
-
-case "question-quality":
-
-    QuestionQualityController::index();
-
-    break;
-
-case "question-inspector":
-
-    QuestionInspectorController::index();
-
-    break;
+        break;
 
 
 
+    case "question-editor":
+
+        $action =
+            $_GET["action"] ?? "index";
+
+
+        switch ($action) {
+
+
+            case "create":
+
+                QuestionEditorController::create();
+
+                break;
+
+
+            case "edit":
+
+                QuestionEditorController::edit();
+
+                break;
+
+
+            case "save":
+
+                QuestionEditorController::save();
+
+                break;
+
+
+            case "update":
+
+                QuestionEditorController::update();
+
+                break;
+
+
+            case "archive":
+
+                QuestionEditorController::archive();
+
+                break;
+
+
+            case "restore":
+
+                QuestionEditorController::restore();
+
+                break;
+
+
+            default:
+
+                QuestionEditorController::index();
+
+                break;
+
+        }
+
+        break;
+
+
+
+    case "question-export":
+
+        QuestionExportController::export();
+
+        break;
+
+
+
+    case "question-import":
+
+        if (
+            ($_GET["action"] ?? "")
+            ===
+            "import"
+        ) {
+
+            QuestionImportController::import();
+
+        }
+
+        else {
+
+            QuestionImportController::index();
+
+        }
+
+        break;
+
+
+
+    case "question-quality":
+
+        QuestionQualityController::index();
+
+        break;
+
+
+
+    case "question-inspector":
+
+        QuestionInspectorController::index();
+
+        break;
 
 
 
@@ -184,5 +254,6 @@ case "question-inspector":
         );
 
         break;
+
 
 }

@@ -9,114 +9,35 @@ class QuestionAuditService
         $questions =
             QuestionRepository::all();
 
-        $subjects = [];
-        $topics = [];
-        $concepts = [];
-        $difficulty = [];
+        $taxonomy =
+            TaxonomyStatisticsService::summary();
 
-        $duplicates = [];
-        $ids = [];
+        $quality =
+            QuestionQualitySummaryService::summary();
 
-        $missingExplanation = 0;
-        $missingChoices = 0;
-
-
-        foreach ($questions as $question) {
-
-            $subjects[
-                $question["subject"] ?? "Unknown"
-            ] =
-                ($subjects[
-                    $question["subject"] ?? "Unknown"
-                ] ?? 0) + 1;
-
-
-            $topics[
-                $question["topic"] ?? "Unknown"
-            ] =
-                ($topics[
-                    $question["topic"] ?? "Unknown"
-                ] ?? 0) + 1;
-
-
-            $concept =
-                trim(
-                    $question["concept"] ?? ""
-                );
-
-            if ($concept !== "") {
-
-                $concepts[$concept] =
-                    ($concepts[$concept] ?? 0) + 1;
-
-            }
-
-
-            $difficulty[
-                $question["difficulty"] ?? "Unknown"
-            ] =
-                ($difficulty[
-                    $question["difficulty"] ?? "Unknown"
-                ] ?? 0) + 1;
-
-
-            if (empty($question["choices"])) {
-
-                $missingChoices++;
-
-            }
-
-
-            if (empty($question["explanation"])) {
-
-                $missingExplanation++;
-
-            }
-
-
-            if (isset($question["id"])) {
-
-                if (isset($ids[$question["id"]])) {
-
-                    $duplicates[] =
-                        $question["id"];
-
-                }
-
-                $ids[
-                    $question["id"]
-                ] = true;
-
-            }
-
-        }
-
+        $coverage =
+            CoverageSummaryService::summary();
 
         return [
 
-            "total" =>
-                count($questions),
+            "questions" => [
 
-            "subjects" =>
-                $subjects,
+                "total" =>
+                    count($questions),
 
-            "topics" =>
-                $topics,
+                "duplicates" =>
+                    DuplicateQuestionSummaryService::summary()
 
-            "concepts" =>
-                $concepts,
+            ],
 
-            "difficulty" =>
-                $difficulty,
+            "taxonomy" =>
+                $taxonomy,
 
-            "duplicateIds" =>
-                $duplicates,
+            "quality" =>
+                $quality,
 
-            "missingExplanation" =>
-                $missingExplanation,
-
-            "missingChoices" =>
-                $missingChoices
+            "coverage" =>
+                $coverage
 
         ];
 
