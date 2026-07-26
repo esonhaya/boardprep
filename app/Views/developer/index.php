@@ -1,151 +1,155 @@
-<h2>Developer Tools</h2>
-
-<hr>
-
-<?php if (!empty($taxonomyStatus)): ?>
-
-<h3>Taxonomy Rebuilt</h3>
+<h1>Developer Dashboard</h1>
 
 <p>
-Domains:
-<strong>
-<?= $taxonomyStatus["domains"] ?>
-</strong>
-</p>
 
-<p>
-Topics:
-<strong>
-<?= $taxonomyStatus["topics"] ?>
-</strong>
-</p>
+BoardPrep Developer Tools
 
-<p>
-Concepts:
-<strong>
-<?= $taxonomyStatus["concepts"] ?>
-</strong>
 </p>
 
 <hr>
-
-<?php endif; ?>
-
-
-<h3>Maintenance</h3>
-
-<a href="?page=developer&action=rebuild-taxonomy">
-
-<button>
-Rebuild Taxonomy
-</button>
-
-</a>
-
-
-<hr>
-
-
-<h3>Question Bank Audit</h3>
-
-
-<p>
-Total Questions:
-
-<strong>
-<?= $audit["questions"]["total"] ?? 0 ?>
-</strong>
-
-</p>
-
-
-
-<h3>Taxonomy</h3>
-
-<pre>
-
-<?= htmlspecialchars(
-    json_encode(
-        $audit["taxonomy"] ?? [],
-        JSON_PRETTY_PRINT
-    )
-) ?>
-
-</pre>
-
-
-
-<h3>Quality</h3>
-
-<pre>
-
-<?= htmlspecialchars(
-    json_encode(
-        $audit["quality"] ?? [],
-        JSON_PRETTY_PRINT
-    )
-) ?>
-
-</pre>
-
-
-
-<h3>Coverage</h3>
-
-<pre>
-
-<?= htmlspecialchars(
-    json_encode(
-        $audit["coverage"] ?? [],
-        JSON_PRETTY_PRINT
-    )
-) ?>
-
-</pre>
-
-
-
-<hr>
-
-
-<h2>📚 Question Management</h2>
-
 
 <ul>
 
-<li>
-<a href="?page=question-editor">
-Question Editor
-</a>
-</li>
+    <li>
 
+        <a href="?page=boards">
 
-<li>
-<a href="?page=question-import">
-Import Questions
-</a>
-</li>
+            Board Manager
 
+        </a>
 
-<li>
-<a href="?page=question-export">
-Export Questions
-</a>
-</li>
+        <br>
 
+        <small>
 
-<li>
-<a href="?page=question-quality">
-Repository Health
-</a>
-</li>
+            Manage supported board examinations.
 
+        </small>
 
-<li>
-<a href="?page=question-inspector">
-Question Inspector
-</a>
-</li>
+    </li>
 
+    <br>
+
+    <li>
+
+        <a href="?page=blueprints">
+
+            Blueprint Manager
+
+        </a>
+
+        <br>
+
+        <small>
+
+            Create and manage official board blueprints.
+
+        </small>
+
+    </li>
+
+    <br>
+
+    <li>
+
+        <a href="?page=question-editor">
+
+            Question Editor
+
+        </a>
+
+        <br>
+
+        <small>
+
+            Create, edit, archive and manage questions.
+
+        </small>
+
+    </li>
+
+    <br>
+
+    <li>
+
+        <a href="?page=question-import">
+
+            Question Import
+
+        </a>
+
+    </li>
+
+    <br>
+
+    <li>
+
+        <a href="?page=question-quality">
+
+            Question Quality
+
+        </a>
+
+    </li>
+
+    <br>
+
+    <li>
+
+        <a href="?page=question-inspector">
+
+            Question Inspector
+
+        </a>
+
+    </li>
+
+    <br>
+
+    <li>
+
+        <a href="?page=coverage">
+
+            Coverage Matrix
+
+        </a>
+
+    </li>
+
+    <br>
+
+    <li>
+
+        <a href="?page=taxonomy">
+
+            Taxonomy Manager
+
+        </a>
+
+    </li>
+
+    <br>
+
+    <li>
+
+        <a href="?page=metadata-repair">
+
+            Metadata Repair
+
+        </a>
+
+    </li>
+
+    <br>
+
+    <li>
+
+        <a href="?page=blueprint-health">
+
+            Repository Health
+
+        </a>
+
+    </li>
 
 </ul>

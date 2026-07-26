@@ -1,7 +1,6 @@
 <?php
 
-class QuestionInspectorController
-{
+class QuestionInspectorController extends BaseDeveloperController{
 
     public static function index(): void
     {
@@ -13,8 +12,7 @@ class QuestionInspectorController
 
         if ($id === 0) {
 
-            View::render(
-
+            self::renderDeveloper(
                 "developer/question-inspector-list",
 
                 [
@@ -46,8 +44,7 @@ class QuestionInspectorController
 
         }
 
-        View::render(
-
+        self::renderDeveloper(
             "developer/question-inspector",
 
             [

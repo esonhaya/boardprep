@@ -1,12 +1,12 @@
 <?php
 
-class QuestionImportController
+class QuestionImportController extends BaseDeveloperController
 {
 
     public static function index(): void
     {
 
-        View::render(
+        self::renderDeveloper(
             "developer/question-import",
             [
                 "pageTitle" =>
@@ -40,7 +40,7 @@ class QuestionImportController
             );
 
 
-        View::render(
+        self::renderDeveloper(
             "developer/question-import",
             [
                 "pageTitle" =>

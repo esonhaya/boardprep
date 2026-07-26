@@ -3,7 +3,7 @@
 class BlueprintRepository
 {
 
-    private const DIRECTORY =
+    private const ROOT =
         __DIR__ .
         "/../../storage/blueprints/";
 
@@ -12,12 +12,32 @@ class BlueprintRepository
     public static function all(): array
     {
 
+        if (
+            !is_dir(
+                self::ROOT
+            )
+        ) {
+
+            mkdir(
+                self::ROOT,
+                0777,
+                true
+            );
+
+        }
+
+
         $blueprints = [];
 
 
         foreach (
-            glob(self::DIRECTORY . "*.json")
+
+            glob(
+                self::ROOT . "*.json"
+            )
+
             as $file
+
         ) {
 
             $data =
@@ -26,8 +46,9 @@ class BlueprintRepository
                     true
                 );
 
-
-            if (is_array($data)) {
+            if (
+                is_array($data)
+            ) {
 
                 $blueprints[] =
                     $data;
@@ -37,33 +58,74 @@ class BlueprintRepository
         }
 
 
-        return $blueprints;
+        return
+            $blueprints;
 
     }
 
 
 
     public static function find(
-        string $name
+        string $id
     ): ?array
     {
 
-        $file =
-            self::DIRECTORY .
-            strtolower($name) .
-            ".json";
+        foreach (
+            self::all()
+            as $blueprint
+        ) {
 
+            if (
+                ($blueprint["id"] ?? "")
+                ===
+                $id
+            ) {
 
-        if (!file_exists($file)) {
+                return
+                    $blueprint;
 
-            return null;
+            }
 
         }
 
 
-        return json_decode(
-            file_get_contents($file),
-            true
+        return null;
+
+    }
+
+
+
+    public static function save(
+        array $blueprint
+    ): void
+    {
+
+        if (
+            !isset(
+                $blueprint["id"]
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        file_put_contents(
+
+            self::ROOT .
+            $blueprint["id"] .
+            ".json",
+
+            json_encode(
+
+                $blueprint,
+
+                JSON_PRETTY_PRINT |
+                JSON_UNESCAPED_UNICODE
+
+            )
+
         );
 
     }

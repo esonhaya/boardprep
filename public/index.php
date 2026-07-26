@@ -6,13 +6,9 @@ require_once "../app/Core/Autoloader.php";
 
 Autoloader::register();
 
-
-$page =
-    $_GET["page"] ?? "home";
-
+$page = $_GET["page"] ?? "home";
 
 switch ($page) {
-
 
     case "let":
 
@@ -25,8 +21,6 @@ switch ($page) {
 
         break;
 
-
-
     case "english":
 
         View::render(
@@ -37,8 +31,6 @@ switch ($page) {
         );
 
         break;
-
-
 
     case "grammar":
 
@@ -51,15 +43,11 @@ switch ($page) {
 
         break;
 
-
-
     case "quiz":
 
         QuizFlowController::handle();
 
         break;
-
-
 
     case "dashboard":
 
@@ -67,15 +55,11 @@ switch ($page) {
 
         break;
 
-
-
     case "profile":
 
         LearningProfileController::index();
 
         break;
-
-
 
     case "progress":
 
@@ -83,128 +67,95 @@ switch ($page) {
 
         break;
 
-
-
     case "developer":
 
         DeveloperToolsController::index();
 
         break;
 
+    case "boards":
 
-
-    case "taxonomy":
-
-        $action =
-            $_GET["action"] ?? "index";
-
-
-        switch ($action) {
-
-
-            case "add-domain":
-
-                TaxonomyController::addDomain();
-
-                break;
-
-
-            case "add-topic":
-
-                TaxonomyController::addTopic();
-
-                break;
-
-
-            case "add-concept":
-
-                TaxonomyController::addConcept();
-
-                break;
-
-
-            default:
-
-                TaxonomyController::index();
-
-                break;
-
-        }
+        BoardController::index();
 
         break;
 
+    case "board-create":
 
+        BoardController::create();
+
+        break;
+
+    case "board-save":
+
+        BoardController::save();
+
+        break;
+
+    case "board-archive":
+
+        BoardController::archive();
+
+        break;
+
+    case "board-activate":
+
+        BoardController::activate();
+
+        break;
+
+    case "metadata-repair":
+
+        MetadataRepairController::index();
+
+        break;
 
     case "question-editor":
 
-        $action =
-            $_GET["action"] ?? "index";
+        $action = $_GET["action"] ?? "index";
 
+        if ($action === "create") {
 
-        switch ($action) {
+            QuestionEditorController::create();
 
+        }
+        elseif ($action === "edit") {
 
-            case "create":
+            QuestionEditorController::edit();
 
-                QuestionEditorController::create();
+        }
+        elseif ($action === "save") {
 
-                break;
+            QuestionEditorController::save();
 
+        }
+        elseif ($action === "update") {
 
-            case "edit":
+            QuestionEditorController::update();
 
-                QuestionEditorController::edit();
+        }
+        elseif ($action === "archive") {
 
-                break;
+            QuestionEditorController::archive();
 
+        }
+        elseif ($action === "restore") {
 
-            case "save":
+            QuestionEditorController::restore();
 
-                QuestionEditorController::save();
+        }
+        else {
 
-                break;
-
-
-            case "update":
-
-                QuestionEditorController::update();
-
-                break;
-
-
-            case "archive":
-
-                QuestionEditorController::archive();
-
-                break;
-
-
-            case "restore":
-
-                QuestionEditorController::restore();
-
-                break;
-
-
-            default:
-
-                QuestionEditorController::index();
-
-                break;
+            QuestionEditorController::index();
 
         }
 
         break;
-
-
 
     case "question-export":
 
         QuestionExportController::export();
 
         break;
-
-
 
     case "question-import":
 
@@ -217,7 +168,6 @@ switch ($page) {
             QuestionImportController::import();
 
         }
-
         else {
 
             QuestionImportController::index();
@@ -226,15 +176,11 @@ switch ($page) {
 
         break;
 
-
-
     case "question-quality":
 
         QuestionQualityController::index();
 
         break;
-
-
 
     case "question-inspector":
 
@@ -242,7 +188,56 @@ switch ($page) {
 
         break;
 
+    case "coverage":
 
+        CoverageController::index();
+
+        break;
+
+    case "taxonomy":
+
+        $action = $_GET["action"] ?? "index";
+
+        if ($action === "rebuild") {
+
+            TaxonomyController::rebuild();
+
+        }
+        else {
+
+            TaxonomyController::index();
+
+        }
+
+        break;
+
+    case "blueprints":
+
+        $action = $_GET["action"] ?? "index";
+
+        if ($action === "create") {
+
+            BlueprintController::create();
+
+        }
+        elseif ($action === "save") {
+
+            BlueprintController::save();
+
+        }
+        else {
+
+            BlueprintController::index();
+
+        }
+
+        break;
+
+    case "blueprint-health":
+
+        BlueprintHealthController::index();
+
+        break;
 
     default:
 
@@ -254,6 +249,5 @@ switch ($page) {
         );
 
         break;
-
 
 }

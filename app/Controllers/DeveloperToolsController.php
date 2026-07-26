@@ -1,6 +1,6 @@
 <?php
 
-class DeveloperToolsController
+class DeveloperToolsController extends BaseDeveloperController
 {
 
     public static function index(): void
@@ -9,9 +9,7 @@ class DeveloperToolsController
         $audit =
             QuestionAuditService::summary();
 
-
         $taxonomyStatus = null;
-
 
         if (
             ($_GET["action"] ?? "")
@@ -24,8 +22,7 @@ class DeveloperToolsController
 
         }
 
-
-        View::render(
+        self::renderDeveloper(
 
             "developer/index",
 
@@ -37,7 +34,9 @@ class DeveloperToolsController
                 "taxonomyStatus" =>
                     $taxonomyStatus
 
-            ]
+            ],
+
+            false
 
         );
 

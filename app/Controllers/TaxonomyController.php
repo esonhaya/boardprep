@@ -1,12 +1,12 @@
 <?php
 
-class TaxonomyController
+class TaxonomyController extends BaseDeveloperController
 {
 
     public static function index(): void
     {
 
-        View::render(
+        self::renderDeveloper(
 
             "developer/taxonomy",
 
@@ -31,59 +31,14 @@ class TaxonomyController
     }
 
 
-    public static function addDomain(): void
+
+    public static function rebuild(): void
     {
 
-        TaxonomyService::addDomain(
-
-            $_POST["name"] ?? ""
-
-        );
+        TaxonomyBuilderService::rebuild();
 
         header(
-
             "Location: ?page=taxonomy"
-
-        );
-
-        exit;
-
-    }
-
-
-    public static function addTopic(): void
-    {
-
-        TaxonomyService::addTopic(
-
-            $_POST["name"] ?? ""
-
-        );
-
-        header(
-
-            "Location: ?page=taxonomy"
-
-        );
-
-        exit;
-
-    }
-
-
-    public static function addConcept(): void
-    {
-
-        TaxonomyService::addConcept(
-
-            $_POST["name"] ?? ""
-
-        );
-
-        header(
-
-            "Location: ?page=taxonomy"
-
         );
 
         exit;

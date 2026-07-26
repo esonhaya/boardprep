@@ -64,6 +64,19 @@
 
 </main>
 
+<?php
+
+if (
+    !empty($showDeveloperFooter)
+) {
+
+    require __DIR__ . "/../developer/footer.php";
+
+}
+
+?>
+
+
 <footer>
 
     <hr>

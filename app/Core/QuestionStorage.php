@@ -16,12 +16,20 @@ class QuestionStorage
             is_dir($directory)
         ) {
 
-            return self::loadDirectory(
-                $directory
-            );
+            $questions =
+                self::loadDirectory(
+                    $directory
+                );
+
+            if (
+                !empty($questions)
+            ) {
+
+                return $questions;
+
+            }
 
         }
-
 
         return self::loadFile(
             $legacy
@@ -58,7 +66,6 @@ class QuestionStorage
 
         $questions = [];
 
-
         foreach (
             glob(
                 $directory . "/*.json"
@@ -73,7 +80,6 @@ class QuestionStorage
                 );
 
         }
-
 
         return $questions;
 
@@ -94,19 +100,15 @@ class QuestionStorage
 
         }
 
-
         $questions =
             json_decode(
                 file_get_contents($file),
                 true
             );
 
-
         return is_array($questions)
-            ?
-            $questions
-            :
-            [];
+            ? $questions
+            : [];
 
     }
 

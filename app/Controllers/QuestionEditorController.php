@@ -1,6 +1,6 @@
 <?php
 
-class QuestionEditorController
+class QuestionEditorController extends BaseDeveloperController
 {
 
     public static function index(): void
@@ -35,7 +35,7 @@ $questions =
         ]
     );
 
-        View::render(
+        self::renderDeveloper(
             "developer/question-editor",
 
             array_merge(
@@ -75,7 +75,7 @@ $questions =
     public static function create(): void
     {
 
-        View::render(
+        self::renderDeveloper(
             "developer/question-create",
 
             array_merge(
@@ -117,7 +117,7 @@ $questions =
         }
 
 
-        View::render(
+        self::renderDeveloper(
             "developer/question-edit",
 
             array_merge(
@@ -159,7 +159,7 @@ $questions =
 
         if (!empty($check["errors"])) {
 
-            View::render(
+            self::renderDeveloper(
                 "developer/question-create",
 
                 array_merge(
@@ -227,7 +227,7 @@ $questions =
 
         if (!empty($check["errors"])) {
 
-            View::render(
+            self::renderDeveloper(
                 "developer/question-edit",
 
                 array_merge(

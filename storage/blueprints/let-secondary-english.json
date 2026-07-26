@@ -1,0 +1,33 @@
+{
+    "id": "let-secondary-english",
+    "name": "LET Secondary English",
+    "board": "LET",
+    "subject": "English",
+    "version": "2026",
+
+    "questionCount": 150,
+
+    "timeLimitMinutes": 180,
+
+    "passingScore": 75,
+
+    "difficulty": {
+        "easy": 20,
+        "medium": 50,
+        "hard": 30
+    },
+
+    "topicWeights": {
+
+    },
+
+    "conceptWeights": {
+
+    },
+
+    "questionSelection": {
+        "allowRepeats": false,
+        "randomizeChoices": true,
+        "randomizeQuestions": true
+    }
+}

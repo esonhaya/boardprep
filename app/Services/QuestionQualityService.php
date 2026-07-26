@@ -2,13 +2,10 @@
 
 class QuestionQualityService
 {
-
     public static function analyze(): array
     {
-
-        $questions =
-            QuestionRepository::all();
-
+        $report =
+            RepositoryHealthEngine::analyze();
 
         $drafts = [];
 
@@ -22,158 +19,59 @@ class QuestionQualityService
 
         $emptyQuestion = [];
 
+        foreach ($report->issues as $issue) {
 
-        foreach (
-            $questions
-            as $question
-        ) {
+            switch ($issue->code) {
 
+                case "draft":
 
-            if (
-                ($question["status"] ?? "")
-                ===
-                "draft"
-            ) {
+                    $drafts[] = $issue;
 
-                $drafts[] =
-                    $question;
+                    break;
 
-            }
+                case "missing-explanation":
 
+                    $missingExplanation[] = $issue;
 
+                    break;
 
-            if (
-                trim(
-                    $question["question"] ?? ""
-                )
-                ===
-                ""
-            ) {
+                case "invalid-answer":
 
-                $emptyQuestion[] =
-                    $question;
+                    $invalidAnswers[] = $issue;
 
-            }
+                    break;
 
+                case "missing-choice":
 
+                    $missingChoices[] = $issue;
 
-            if (
-                trim(
-                    $question["explanation"] ?? ""
-                )
-                ===
-                ""
-            ) {
+                    break;
 
-                $missingExplanation[] =
-                    $question;
+                case "duplicate-choice":
 
-            }
+                    $duplicateChoices[] = $issue;
 
+                    break;
 
+                case "empty-question":
 
-            if (
-                count(
-                    $question["choices"] ?? []
-                )
-                <
-                4
-            ) {
+                    $emptyQuestion[] = $issue;
 
-                $missingChoices[] =
-                    $question;
-
-            }
-
-
-
-            $choices =
-                $question["choices"] ?? [];
-
-
-            if (
-                count(
-                    array_unique($choices)
-                )
-                <
-                count($choices)
-            ) {
-
-                $duplicateChoices[] =
-                    $question;
-
-            }
-
-
-
-            if (
-                !in_array(
-                    $question["answer"] ?? "",
-                    $choices,
-                    true
-                )
-            ) {
-
-                $invalidAnswers[] =
-                    $question;
+                    break;
 
             }
 
         }
 
-
-
-        $totalQuestions =
-            count($questions);
-
-
-        $totalIssues =
-            count($drafts)
-            +
-            count($missingExplanation)
-            +
-            count($invalidAnswers)
-            +
-            count($missingChoices)
-            +
-            count($duplicateChoices)
-            +
-            count($emptyQuestion);
-
-
-
-        $healthScore =
-            $totalQuestions > 0
-
-            ?
-
-            max(
-                0,
-                round(
-                    (
-                        (
-                            $totalQuestions
-                            -
-                            $totalIssues
-                        )
-                        /
-                        $totalQuestions
-                    )
-                    *
-                    100
-                )
-            )
-
-            :
-
-            100;
-
-
-
         return [
 
+            "report" => $report,
+
             "healthScore" =>
-                $healthScore,
+                $report->healthScore,
+
+            "issues" =>
+                $report->issues,
 
             "drafts" =>
                 $drafts,
@@ -191,10 +89,9 @@ class QuestionQualityService
                 $duplicateChoices,
 
             "emptyQuestion" =>
-                $emptyQuestion
+                $emptyQuestion,
 
         ];
 
     }
-
 }

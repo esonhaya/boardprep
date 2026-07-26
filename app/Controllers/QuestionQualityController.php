@@ -1,12 +1,11 @@
 <?php
 
-class QuestionQualityController
-{
+class QuestionQualityController extends BaseDeveloperController{
 
     public static function index(): void
     {
 
-        View::render(
+        self::renderDeveloper(
             "developer/question-quality",
             array_merge(
 

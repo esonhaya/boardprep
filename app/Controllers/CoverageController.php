@@ -1,12 +1,11 @@
 <?php
 
-class CoverageController
-{
+class CoverageController extends BaseDeveloperController{
 
     public static function index(): void
     {
 
-        View::render(
+        self::renderDeveloper(
 
             "developer/coverage",
 

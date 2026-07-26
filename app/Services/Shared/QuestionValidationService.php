@@ -11,7 +11,9 @@ class QuestionValidationService
         $errors = [];
 
 
-        if (empty($question["id"])) {
+        if (
+            empty($question["id"])
+        ) {
 
             $errors[] =
                 "Missing ID";
@@ -19,7 +21,9 @@ class QuestionValidationService
         }
 
 
-        if (empty($question["subject"])) {
+        if (
+            empty($question["subject"])
+        ) {
 
             $errors[] =
                 "Missing subject";
@@ -27,19 +31,29 @@ class QuestionValidationService
         }
 
 
-        if (empty($question["topic"])) {
+        if (
+            empty($question["topic"])
+        ) {
 
             $errors[] =
                 "Missing topic";
 
         }
-if (!isset($question["concept"])) {
 
-    $question["concept"] = "";
 
-}
+        if (
+            !isset($question["concept"])
+        ) {
 
-        if (empty($question["difficulty"])) {
+            $question["concept"] =
+                "";
+
+        }
+
+
+        if (
+            empty($question["difficulty"])
+        ) {
 
             $errors[] =
                 "Missing difficulty";
@@ -47,7 +61,9 @@ if (!isset($question["concept"])) {
         }
 
 
-        if (empty($question["question"])) {
+        if (
+            empty($question["question"])
+        ) {
 
             $errors[] =
                 "Missing question";
@@ -61,7 +77,9 @@ if (!isset($question["concept"])) {
 
             ||
 
-            count($question["choices"]) < 2
+            count(
+                $question["choices"]
+            ) < 2
 
         ) {
 
@@ -69,17 +87,63 @@ if (!isset($question["concept"])) {
                 "Invalid choices";
 
         }
+        else {
+
+            if (
+
+                count(
+                    array_unique(
+                        $question["choices"]
+                    )
+                )
+                !==
+                count(
+                    $question["choices"]
+                )
+
+            ) {
+
+                $errors[] =
+                    "Choices must all be different.";
+
+            }
+
+        }
 
 
-        if (empty($question["answer"])) {
+        if (
+            empty($question["answer"])
+        ) {
 
             $errors[] =
                 "Missing answer";
 
         }
+        else if (
+
+            !empty($question["choices"])
+
+            &&
+
+            !in_array(
+
+                $question["answer"],
+
+                $question["choices"]
+
+            )
+
+        ) {
+
+            $errors[] =
+                "Answer must match one of the choices.";
+
+        }
 
 
-        if (empty($question["explanation"])) {
+        if (
+            empty($question["explanation"])
+        ) {
 
             $errors[] =
                 "Missing explanation";
@@ -87,7 +151,15 @@ if (!isset($question["concept"])) {
         }
 
 
-        return $errors;
+        return [
+
+            "valid" =>
+                empty($errors),
+
+            "errors" =>
+                $errors
+
+        ];
 
     }
 

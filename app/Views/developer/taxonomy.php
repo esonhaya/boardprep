@@ -2,22 +2,42 @@
 
 <hr>
 
-<h3>Add Domain</h3>
+<p>
+The taxonomy is automatically generated from the question bank.
+</p>
 
-<form method="post" action="?page=taxonomy&action=add-domain">
+<form method="post" action="?page=taxonomy&action=rebuild">
 
-<input
-type="text"
-name="name"
-required>
+    <button type="submit">
 
-<button>
+        Rebuild Taxonomy
 
-Add
-
-</button>
+    </button>
 
 </form>
+
+<hr>
+
+<h3>Summary</h3>
+
+<ul>
+
+    <li>
+        Domains:
+        <?= count($domains) ?>
+    </li>
+
+    <li>
+        Topics:
+        <?= count($topics) ?>
+    </li>
+
+    <li>
+        Concepts:
+        <?= count($concepts) ?>
+    </li>
+
+</ul>
 
 <hr>
 
@@ -27,42 +47,19 @@ Add
 
 <?php foreach ($domains as $domain): ?>
 
-<li>
+    <li>
 
-<?= htmlspecialchars(
+        <?= htmlspecialchars(
+            is_array($domain)
+                ? ($domain["name"] ?? "")
+                : $domain
+        ) ?>
 
-is_array($domain)
-
-? ($domain["name"] ?? "")
-
-: $domain
-
-) ?>
-
-</li>
+    </li>
 
 <?php endforeach; ?>
 
 </ul>
-
-<hr>
-
-<h3>Add Topic</h3>
-
-<form method="post" action="?page=taxonomy&action=add-topic">
-
-<input
-type="text"
-name="name"
-required>
-
-<button>
-
-Add
-
-</button>
-
-</form>
 
 <hr>
 
@@ -72,42 +69,19 @@ Add
 
 <?php foreach ($topics as $topic): ?>
 
-<li>
+    <li>
 
-<?= htmlspecialchars(
+        <?= htmlspecialchars(
+            is_array($topic)
+                ? ($topic["name"] ?? "")
+                : $topic
+        ) ?>
 
-is_array($topic)
-
-? ($topic["name"] ?? "")
-
-: $topic
-
-) ?>
-
-</li>
+    </li>
 
 <?php endforeach; ?>
 
 </ul>
-
-<hr>
-
-<h3>Add Concept</h3>
-
-<form method="post" action="?page=taxonomy&action=add-concept">
-
-<input
-type="text"
-name="name"
-required>
-
-<button>
-
-Add
-
-</button>
-
-</form>
 
 <hr>
 
@@ -117,19 +91,15 @@ Add
 
 <?php foreach ($concepts as $concept): ?>
 
-<li>
+    <li>
 
-<?= htmlspecialchars(
+        <?= htmlspecialchars(
+            is_array($concept)
+                ? ($concept["name"] ?? "")
+                : $concept
+        ) ?>
 
-is_array($concept)
-
-? ($concept["name"] ?? "")
-
-: $concept
-
-) ?>
-
-</li>
+    </li>
 
 <?php endforeach; ?>
 
