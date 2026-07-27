@@ -12,6 +12,8 @@ class View
 
         $content = ob_get_clean();
 
-        include __DIR__ . "/../Views/layouts/main.php";
+        $layout = $layout ?? "main";
+
+        include __DIR__ . "/../Views/layouts/" . $layout . ".php";
     }
 }
