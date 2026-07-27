@@ -1,47 +1,37 @@
 <?php
 
-class MetadataRepairController extends BaseDeveloperController{
-
+class MetadataRepairController extends BaseDeveloperController
+{
     public static function index(): void
     {
+        $report = RepositoryHealthEngine::analyze();
 
-        $report =
-            MetadataRepairService::scan();
+        $repairable = [];
 
-        $repaired = null;
+        foreach ($report->issues as $issue) {
 
-        if (
-            ($_GET["action"] ?? "")
-            ===
-            "repair"
-        ) {
+            if ($issue->repairable) {
 
-            $repaired =
-                MetadataRepairService::repair();
+                $repairable[] = $issue;
 
-            $report =
-                MetadataRepairService::scan();
+            }
 
         }
 
         self::renderDeveloper(
+
             "developer/metadata-repair",
 
             [
 
-                "pageTitle" =>
-                    "Metadata Repair",
+                "pageTitle" => "Metadata Repair",
 
-                "report" =>
-                    $report,
+                "report" => $report,
 
-                "repaired" =>
-                    $repaired
+                "repairableIssues" => $repairable
 
             ]
 
         );
-
     }
-
 }

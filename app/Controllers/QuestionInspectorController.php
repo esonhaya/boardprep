@@ -1,64 +1,47 @@
 <?php
 
-class QuestionInspectorController extends BaseDeveloperController{
-
+class QuestionInspectorController extends BaseDeveloperController
+{
     public static function index(): void
     {
+        $report = RepositoryHealthEngine::analyze();
 
-        $id =
-            (int)(
-                $_GET["id"] ?? 0
-            );
+        $questions = [];
 
-        if ($id === 0) {
+        foreach ($report->issues as $issue) {
 
-            self::renderDeveloper(
-                "developer/question-inspector-list",
+            $id = $issue->entityId;
 
-                [
+            if (!isset($questions[$id])) {
 
-                    "pageTitle" =>
-                        "Question Inspector",
+                $questions[$id] = [
 
-                    "questions" =>
-                        QuestionRepository::all()
+                    "id" => $id,
 
-                ]
+                    "issues" => []
 
-            );
+                ];
 
-            return;
+            }
 
-        }
-
-        $question =
-            QuestionRepository::find($id);
-
-        if (!$question) {
-
-            header(
-                "Location: ?page=question-inspector"
-            );
-
-            exit;
+            $questions[$id]["issues"][] = $issue;
 
         }
 
         self::renderDeveloper(
+
             "developer/question-inspector",
 
             [
 
-                "pageTitle" =>
-                    "Question Inspector",
+                "pageTitle" => "Question Inspector",
 
-                "question" =>
-                    $question
+                "report" => $report,
+
+                "questions" => $questions
 
             ]
 
         );
-
     }
-
 }

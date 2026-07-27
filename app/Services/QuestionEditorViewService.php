@@ -8,6 +8,9 @@ class QuestionEditorViewService
 
         return [
 
+            "subjects" =>
+                TaxonomyRepository::subjects(),
+
             "domains" =>
                 TaxonomyRepository::domains(),
 
@@ -18,6 +21,17 @@ class QuestionEditorViewService
                 TaxonomyRepository::concepts()
 
         ];
+
+    }
+
+    public static function domainsForSubject(
+        string $subjectId
+    ): array
+    {
+
+        return TaxonomyRepository::domainsBySubject(
+            $subjectId
+        );
 
     }
 

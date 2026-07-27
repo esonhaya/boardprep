@@ -2,7 +2,6 @@
 
 class MetadataValidator
 {
-
     private const VALID_DIFFICULTIES = [
 
         "easy",
@@ -14,14 +13,13 @@ class MetadataValidator
     private const VALID_STATUSES = [
 
         "draft",
-        "published",
+        "active",
         "archived"
 
     ];
 
     public static function validate(array $question): array
     {
-
         $issues = [];
 
         if (empty($question["id"])) {
@@ -166,7 +164,5 @@ class MetadataValidator
         }
 
         return $issues;
-
     }
-
 }

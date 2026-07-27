@@ -67,11 +67,11 @@ switch ($page) {
 
         break;
 
-    case "developer":
+case "developer":
 
-        DeveloperToolsController::index();
+    DashboardController::index();
 
-        break;
+    break;
 
     case "boards":
 

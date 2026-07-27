@@ -1,11 +1,42 @@
 [
-    "Grammar",
-    "Modifiers",
-    "Parallelism",
-    "Parts of Speech",
-    "Prepositions",
-    "Pronouns",
-    "Sentence Structure",
-    "Subject-Verb Agreement",
-    "Verb Tenses"
+    {
+        "id": "parts-of-speech",
+        "domain": "grammar",
+        "name": "Parts of Speech"
+    },
+    {
+        "id": "modifiers",
+        "domain": "grammar",
+        "name": "Modifiers"
+    },
+    {
+        "id": "parallelism",
+        "domain": "grammar",
+        "name": "Parallelism"
+    },
+    {
+        "id": "prepositions",
+        "domain": "grammar",
+        "name": "Prepositions"
+    },
+    {
+        "id": "pronouns",
+        "domain": "grammar",
+        "name": "Pronouns"
+    },
+    {
+        "id": "sentence-structure",
+        "domain": "grammar",
+        "name": "Sentence Structure"
+    },
+    {
+        "id": "subject-verb-agreement",
+        "domain": "grammar",
+        "name": "Subject-Verb Agreement"
+    },
+    {
+        "id": "verb-tenses",
+        "domain": "grammar",
+        "name": "Verb Tenses"
+    }
 ]

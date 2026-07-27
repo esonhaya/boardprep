@@ -1,30 +1,34 @@
 <?php
 
-class DashboardController
+class DashboardController extends BaseDeveloperController
 {
-
     public static function index(): void
     {
+        $report = RepositoryHealthEngine::analyze();
 
-        $attempts =
-            LearningHistoryService::recent();
+        self::renderDeveloper(
 
-        $weaknesses =
-            WeaknessService::all();
+            "developer/dashboard",
 
-        View::render(
-            "dashboard/index",
             [
 
-                "attempts" =>
-                    $attempts,
+                "pageTitle" => "Developer Dashboard",
 
-                "weaknesses" =>
-                    $weaknesses
+                "report" => $report,
+
+                "statistics" => $report->statistics,
+
+                "healthScore" => $report->healthScore,
+
+                "recentIssues" =>
+                    array_slice(
+                        $report->issues,
+                        0,
+                        10
+                    )
 
             ]
+
         );
-
     }
-
 }

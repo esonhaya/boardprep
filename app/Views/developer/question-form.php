@@ -9,17 +9,25 @@ $question =
 $errors =
     $errors ?? [];
 
+$subjects =
+    $subjects ?? [];
+
+$domains =
+    $domains ?? [];
+
+$topics =
+    $topics ?? [];
+
+$concepts =
+    $concepts ?? [];
 
 function fieldError(
     array $errors,
     string $field
 ): string
 {
-
     return $errors[$field] ?? "";
-
 }
-
 
 ?>
 
@@ -34,18 +42,15 @@ function fieldError(
 
 <?php if (!empty($duplicates)): ?>
 
-<div style="border:2px solid orange; padding:10px; margin:10px 0;">
+<div style="border:2px solid orange;padding:10px;margin:10px 0;">
 
-<h3>
-⚠ Possible Duplicate Questions
-</h3>
+<h3>⚠ Possible Duplicate Questions</h3>
 
 <p>
 The system found similar questions already in the bank:
 </p>
 
-
-<?php foreach($duplicates as $duplicate): ?>
+<?php foreach ($duplicates as $duplicate): ?>
 
 <p>
 
@@ -74,12 +79,47 @@ Similarity:
 
 <?php endif; ?>
 
-
 <form
 method="POST"
-action="?page=question-editor&action=<?= $isEdit ? "update&id=" . ($question["id"] ?? 0) : "save" ?>"
+action="?page=question-editor&action=<?= $isEdit
+    ? "update&id=" . ($question["id"] ?? 0)
+    : "save" ?>"
 >
 
+<label>
+
+Subject
+
+</label>
+
+<br>
+
+<select
+name="subject"
+id="subject"
+required
+>
+
+<option value="">
+Select Subject
+</option>
+
+<?php foreach ($subjects as $subject): ?>
+
+<option
+value="<?= htmlspecialchars($subject["id"]) ?>"
+<?= (($question["subject"] ?? "") === ($subject["id"] ?? "")) ? "selected" : "" ?>
+>
+
+<?= htmlspecialchars($subject["name"]) ?>
+
+</option>
+
+<?php endforeach; ?>
+
+</select>
+
+<br><br>
 
 <label>
 
@@ -89,16 +129,24 @@ Domain
 
 <br>
 
-<select name="domain">
-
-<?php foreach(($domains ?? []) as $domain): ?>
-
-<option
-value="<?= htmlspecialchars($domain) ?>"
-<?= (($question["domain"] ?? "") === $domain) ? "selected" : "" ?>
+<select
+name="domain"
+id="domain"
+required
 >
 
-<?= htmlspecialchars($domain) ?>
+<option value="">
+Select Domain
+</option>
+
+<?php foreach ($domains as $domain): ?>
+
+<option
+value="<?= htmlspecialchars($domain["id"]) ?>"
+<?= (($question["domain"] ?? "") === ($domain["id"] ?? "")) ? "selected" : "" ?>
+>
+
+<?= htmlspecialchars($domain["name"]) ?>
 
 </option>
 
@@ -106,9 +154,7 @@ value="<?= htmlspecialchars($domain) ?>"
 
 </select>
 
-
 <br><br>
-
 
 <label>
 
@@ -118,30 +164,32 @@ Topic
 
 <br>
 
-<select name="topic">
-
-<?php foreach(($topics ?? []) as $group): ?>
-
-<?php foreach(($group["topics"] ?? []) as $topic): ?>
-
-<option
-value="<?= htmlspecialchars($topic) ?>"
-<?= (($question["topic"] ?? "") === $topic) ? "selected" : "" ?>
+<select
+name="topic"
+id="topic"
+required
 >
 
-<?= htmlspecialchars($topic) ?>
+<option value="">
+Select Topic
+</option>
+
+<?php foreach ($topics as $topic): ?>
+
+<option
+value="<?= htmlspecialchars($topic["id"]) ?>"
+<?= (($question["topic"] ?? "") === ($topic["id"] ?? "")) ? "selected" : "" ?>
+>
+
+<?= htmlspecialchars($topic["name"]) ?>
 
 </option>
 
 <?php endforeach; ?>
 
-<?php endforeach; ?>
-
 </select>
 
-
 <br><br>
-
 
 <label>
 
@@ -151,30 +199,32 @@ Concept
 
 <br>
 
-<select name="concept">
-
-<?php foreach(($concepts ?? []) as $group): ?>
-
-<?php foreach(($group["concepts"] ?? []) as $concept): ?>
-
-<option
-value="<?= htmlspecialchars($concept) ?>"
-<?= (($question["concept"] ?? "") === $concept) ? "selected" : "" ?>
+<select
+name="concept"
+id="concept"
+required
 >
 
-<?= htmlspecialchars($concept) ?>
+<option value="">
+Select Concept
+</option>
+
+<?php foreach ($concepts as $concept): ?>
+
+<option
+value="<?= htmlspecialchars($concept["id"]) ?>"
+<?= (($question["concept"] ?? "") === ($concept["id"] ?? "")) ? "selected" : "" ?>
+>
+
+<?= htmlspecialchars($concept["name"]) ?>
 
 </option>
 
 <?php endforeach; ?>
 
-<?php endforeach; ?>
-
 </select>
 
-
 <br><br>
-
 
 <label>
 
@@ -184,7 +234,10 @@ Difficulty
 
 <br>
 
-<select name="difficulty">
+<select
+name="difficulty"
+required
+>
 
 <option
 value="easy"
@@ -215,6 +268,8 @@ Hard
 
 </select>
 
+<br><br>
+
 <label>
 
 Question
@@ -225,7 +280,7 @@ Question
 
 <?php if (fieldError($errors, "question")): ?>
 
-<p style="color:red; margin:4px 0;">
+<p style="color:red;margin:4px 0;">
 
 <?= htmlspecialchars(
     fieldError(
@@ -252,11 +307,6 @@ style="<?= fieldError($errors, "question")
 
 <br><br>
 
-
-
-<br><br>
-
-
 <label>
 
 Choice A
@@ -271,9 +321,7 @@ value="<?= htmlspecialchars($question["choices"][0] ?? "") ?>"
 required
 >
 
-
 <br><br>
-
 
 <label>
 
@@ -289,9 +337,7 @@ value="<?= htmlspecialchars($question["choices"][1] ?? "") ?>"
 required
 >
 
-
 <br><br>
-
 
 <label>
 
@@ -307,9 +353,7 @@ value="<?= htmlspecialchars($question["choices"][2] ?? "") ?>"
 required
 >
 
-
 <br><br>
-
 
 <label>
 
@@ -325,7 +369,6 @@ value="<?= htmlspecialchars($question["choices"][3] ?? "") ?>"
 required
 >
 
-
 <br><br>
 
 <label>
@@ -338,7 +381,7 @@ Correct Answer
 
 <?php if (fieldError($errors, "answer")): ?>
 
-<p style="color:red; margin:4px 0;">
+<p style="color:red;margin:4px 0;">
 
 <?= htmlspecialchars(
     fieldError(
@@ -360,9 +403,7 @@ style="<?= fieldError($errors, "answer")
     : "" ?>"
 >
 
-
 <br><br>
-
 
 <label>
 
@@ -374,7 +415,7 @@ Explanation
 
 <?php if (fieldError($errors, "explanation")): ?>
 
-<p style="color:red; margin:4px 0;">
+<p style="color:red;margin:4px 0;">
 
 <?= htmlspecialchars(
     fieldError(
@@ -401,14 +442,39 @@ style="<?= fieldError($errors, "explanation")
 
 <br><br>
 
-
 <button type="submit">
 
 <?= $isEdit
-? "Update Question"
-: "Save Question"
+    ? "Update Question"
+    : "Save Question"
 ?>
 
 </button>
 
 </form>
+
+<script
+id="taxonomy-domains"
+type="application/json"
+><?= json_encode(
+    $domains,
+    JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+) ?></script>
+
+<script
+id="taxonomy-topics"
+type="application/json"
+><?= json_encode(
+    $topics,
+    JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+) ?></script>
+
+<script
+id="taxonomy-concepts"
+type="application/json"
+><?= json_encode(
+    $concepts,
+    JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+) ?></script>
+
+<script src="assets/js/taxonomy-selector.js"></script>

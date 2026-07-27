@@ -2,29 +2,9 @@
 
 class BlueprintHealthController extends BaseDeveloperController
 {
-
     public static function index(): void
     {
-
-        $results = [];
-
-        foreach (
-            BlueprintService::all()
-            as $blueprint
-        ) {
-
-            $results[] = [
-
-                "blueprint" => $blueprint,
-
-                "validation" =>
-                    BlueprintValidator::validate(
-                        $blueprint
-                    )
-
-            ];
-
-        }
+        $report = RepositoryHealthEngine::analyze();
 
         self::renderDeveloper(
 
@@ -32,12 +12,28 @@ class BlueprintHealthController extends BaseDeveloperController
 
             [
 
-                "results" => $results
+                "pageTitle" => "Blueprint Health",
+
+                "report" => $report,
+
+                "statistics" => $report->statistics,
+
+                "issues" => $report->issues,
+
+                "subjects" =>
+                    $report->statistics->questionsPerSubject,
+
+                "domains" =>
+                    $report->statistics->questionsPerDomain,
+
+                "topics" =>
+                    $report->statistics->questionsPerTopic,
+
+                "concepts" =>
+                    $report->statistics->questionsPerConcept
 
             ]
 
         );
-
     }
-
 }

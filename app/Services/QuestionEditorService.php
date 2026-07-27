@@ -2,13 +2,14 @@
 
 class QuestionEditorService
 {
-
     public static function buildQuestion(
         int $id
-    ): array
-    {
+    ): array {
 
         $formData = [
+
+            "subject" =>
+                trim($_POST["subject"] ?? ""),
 
             "domain" =>
                 trim($_POST["domain"] ?? ""),
@@ -42,7 +43,6 @@ class QuestionEditorService
 
         ];
 
-
         return QuestionMetadataService::build(
             $id,
             $formData
@@ -50,12 +50,9 @@ class QuestionEditorService
 
     }
 
-
-
     public static function validate(
         array $question
-    ): array
-    {
+    ): array {
 
         return QuestionValidationService::validate(
             $question
@@ -63,12 +60,9 @@ class QuestionEditorService
 
     }
 
-
-
     public static function duplicates(
         array $question
-    ): array
-    {
+    ): array {
 
         return QuestionDuplicateService::find(
             $question
@@ -76,12 +70,9 @@ class QuestionEditorService
 
     }
 
-
-
     public static function prepareSave(
         array $question
-    ): array
-    {
+    ): array {
 
         return [
 
@@ -99,12 +90,9 @@ class QuestionEditorService
 
     }
 
-
-
     public static function save(
         array $question
-    ): void
-    {
+    ): void {
 
         QuestionRepository::save(
             $question
@@ -112,13 +100,10 @@ class QuestionEditorService
 
     }
 
-
-
     public static function update(
         int $id,
         array $question
-    ): void
-    {
+    ): void {
 
         QuestionRepository::update(
             $id,

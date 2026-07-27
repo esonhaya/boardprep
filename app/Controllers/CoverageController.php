@@ -1,9 +1,10 @@
 <?php
 
-class CoverageController extends BaseDeveloperController{
-
+class CoverageController extends BaseDeveloperController
+{
     public static function index(): void
     {
+        $report = RepositoryHealthEngine::analyze();
 
         self::renderDeveloper(
 
@@ -11,16 +12,29 @@ class CoverageController extends BaseDeveloperController{
 
             [
 
-                "pageTitle" =>
-                    "Coverage Matrix",
+                "pageTitle" => "Coverage Matrix",
 
-                "coverage" =>
-                    CoverageMatrixService::build()
+                "report" => $report,
+
+                "statistics" => $report->statistics,
+
+                "subjects" =>
+                    $report->statistics->questionsPerSubject,
+
+                "domains" =>
+                    $report->statistics->questionsPerDomain,
+
+                "topics" =>
+                    $report->statistics->questionsPerTopic,
+
+                "concepts" =>
+                    $report->statistics->questionsPerConcept,
+
+                "difficulty" =>
+                    $report->statistics->questionsPerDifficulty
 
             ]
 
         );
-
     }
-
 }
