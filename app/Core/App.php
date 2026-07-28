@@ -14,6 +14,8 @@ class App
 
     private Database $database;
 
+    private Container $container;
+
     private function __construct()
     {
     }
@@ -33,11 +35,42 @@ class App
         self::$instance->database = new Database(
             self::$instance->config['database']
         );
+
+        self::$instance->container = new Container();
+
+        self::$instance->registerCoreBindings();
     }
 
     public static function instance(): self
     {
+        if (self::$instance === null) {
+            self::boot();
+        }
+
         return self::$instance;
+    }
+
+    private function registerCoreBindings(): void
+    {
+        $this->container->singleton(
+            self::class,
+            fn () => $this
+        );
+
+        $this->container->singleton(
+            Container::class,
+            fn () => $this->container
+        );
+
+        $this->container->singleton(
+            Database::class,
+            fn () => $this->database
+        );
+
+        $this->container->singleton(
+            StorageInterface::class,
+            fn () => $this->database->storage()
+        );
     }
 
     private function loadEnvironment(): void
@@ -48,7 +81,10 @@ class App
             return;
         }
 
-        $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $lines = file(
+            $path,
+            FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES
+        );
 
         if ($lines === false) {
             return;
@@ -57,7 +93,10 @@ class App
         foreach ($lines as $line) {
             $line = trim($line);
 
-            if ($line === '' || str_starts_with($line, '#')) {
+            if (
+                $line === ''
+                || str_starts_with($line, '#')
+            ) {
                 continue;
             }
 
@@ -75,13 +114,6 @@ class App
     {
         $this->config = require dirname(__DIR__, 2)
             . '/config/app.php';
-    }
-
-    private function env(
-        string $key,
-        mixed $default = null
-    ): mixed {
-        return $_ENV[$key] ?? $default;
     }
 
     public static function config(
@@ -105,5 +137,10 @@ class App
     public static function storage(): StorageInterface
     {
         return self::database()->storage();
+    }
+
+    public static function container(): Container
+    {
+        return self::instance()->container;
     }
 }

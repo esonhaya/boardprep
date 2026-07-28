@@ -1,25 +1,27 @@
 <?php
 
-require_once
-__DIR__ . "/../Core/Storage.php";
+declare(strict_types=1);
+
+namespace App\Repositories;
+
+use App\Core\App;
 
 class WeaknessRepository
 {
     private const FILE =
-        "database/attempts/weakness.json";
+        'database/attempts/weakness.json';
 
     public static function all(): array
     {
-        return Storage::read(
+        return App::storage()->read(
             self::FILE
         );
     }
 
     public static function save(
         array $data
-    ): void
-    {
-        Storage::write(
+    ): void {
+        App::storage()->write(
             self::FILE,
             $data
         );

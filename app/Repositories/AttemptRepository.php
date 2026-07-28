@@ -1,29 +1,41 @@
 <?php
 
-class AttemptRepository
+declare(strict_types=1);
+
+namespace App\Repositories;
+
+use App\Contracts\StorageInterface;
+
+class AttemptRepository extends BaseRepository
 {
-    private const FILE = __DIR__ . "/../../storage/attempts.json";
+    protected string $collection = 'attempts';
 
-    public static function all(): array
-    {
-        if (!file_exists(self::FILE)) {
-            return [];
-        }
-
-        $data = json_decode(file_get_contents(self::FILE), true);
-
-        return is_array($data) ? $data : [];
+    public function __construct(
+        StorageInterface $storage
+    ) {
+        parent::__construct($storage);
     }
 
-    public static function save(array $attempt): void
+    public function byUser(
+        string $userId
+    ): array {
+        return $this->where([
+            'user_id' => $userId,
+        ]);
+    }
+
+    public function byMode(
+        string $mode
+    ): array {
+        return $this->where([
+            'mode' => $mode,
+        ]);
+    }
+
+    public function completed(): array
     {
-        $attempts = self::all();
-
-        $attempts[] = $attempt;
-
-        file_put_contents(
-            self::FILE,
-            json_encode($attempts, JSON_PRETTY_PRINT)
-        );
+        return $this->where([
+            'completed' => true,
+        ]);
     }
 }

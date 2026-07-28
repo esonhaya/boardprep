@@ -1,19 +1,31 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Core;
+
 class View
 {
-    public static function render(string $view, array $data = []): void
-    {
+    public static function render(
+        string $view,
+        array $data = []
+    ): void {
         extract($data);
 
         ob_start();
 
-        include __DIR__ . "/../Views/" . $view . ".php";
+        require dirname(__DIR__)
+            . '/Views/'
+            . $view
+            . '.php';
 
         $content = ob_get_clean();
 
-        $layout = $layout ?? "main";
+        $layout = $layout ?? 'main';
 
-        include __DIR__ . "/../Views/layouts/" . $layout . ".php";
+        require dirname(__DIR__)
+            . '/Views/layouts/'
+            . $layout
+            . '.php';
     }
 }
