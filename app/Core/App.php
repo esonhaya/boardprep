@@ -1,116 +1,109 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Core;
 
-use App\Storage\JsonStorage;
-use App\Storage\MysqlStorage;
 use App\Contracts\StorageInterface;
 
 class App
 {
-    private static bool $booted = false;
+    private static ?self $instance = null;
 
-    private static array $config = [];
+    private array $config = [];
 
-    private static ?StorageInterface $storage = null;
+    private Database $database;
 
-    private static ?Database $database = null;
+    private function __construct()
+    {
+    }
 
     public static function boot(): void
     {
-        if (self::$booted) {
+        if (self::$instance !== null) {
             return;
         }
 
-        Env::load(
-            dirname(__DIR__, 2) . '/.env'
+        self::$instance = new self();
+
+        self::$instance->loadEnvironment();
+
+        self::$instance->loadConfiguration();
+
+        self::$instance->database = new Database(
+            self::$instance->config['database']
         );
-
-        self::$config = [
-            'app' => require dirname(__DIR__, 2) . '/config/app.php',
-            'database' => require dirname(__DIR__, 2) . '/config/database.php',
-        ];
-
-        self::applyEnvironment();
-
-        self::$booted = true;
     }
 
-    private static function applyEnvironment(): void
+    public static function instance(): self
     {
-        self::$config['app']['name'] =
-            Env::get('APP_NAME', self::$config['app']['name']);
-
-        self::$config['app']['environment'] =
-            Env::get('APP_ENV', self::$config['app']['environment']);
-
-        self::$config['app']['storage']['driver'] =
-            Env::get('STORAGE_DRIVER', self::$config['app']['storage']['driver']);
-
-        self::$config['database']['driver'] =
-            Env::get('DB_DRIVER', self::$config['database']['driver']);
-
-        self::$config['database']['host'] =
-            Env::get('DB_HOST', self::$config['database']['host']);
-
-        self::$config['database']['port'] =
-            (int) Env::get('DB_PORT', self::$config['database']['port']);
-
-        self::$config['database']['database'] =
-            Env::get('DB_NAME', self::$config['database']['database']);
-
-        self::$config['database']['username'] =
-            Env::get('DB_USER', self::$config['database']['username']);
-
-        self::$config['database']['password'] =
-            Env::get('DB_PASS', self::$config['database']['password']);
+        return self::$instance;
     }
 
-    public static function config(
+    private function loadEnvironment(): void
+    {
+        $path = dirname(__DIR__, 2) . '/.env';
+
+        if (!is_file($path)) {
+            return;
+        }
+
+        $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+        if ($lines === false) {
+            return;
+        }
+
+        foreach ($lines as $line) {
+            $line = trim($line);
+
+            if ($line === '' || str_starts_with($line, '#')) {
+                continue;
+            }
+
+            [$key, $value] = array_pad(
+                explode('=', $line, 2),
+                2,
+                ''
+            );
+
+            $_ENV[trim($key)] = trim($value);
+        }
+    }
+
+    private function loadConfiguration(): void
+    {
+        $this->config = require dirname(__DIR__, 2)
+            . '/config/app.php';
+    }
+
+    private function env(
         string $key,
         mixed $default = null
     ): mixed {
-        self::boot();
-
-        $value = self::$config;
-
-        foreach (explode('.', $key) as $segment) {
-            if (!is_array($value) || !array_key_exists($segment, $value)) {
-                return $default;
-            }
-
-            $value = $value[$segment];
-        }
-
-        return $value;
+        return $_ENV[$key] ?? $default;
     }
 
-    public static function storage(): StorageInterface
-    {
-        self::boot();
+    public static function config(
+        ?string $key = null,
+        mixed $default = null
+    ): mixed {
+        $config = self::instance()->config;
 
-        if (self::$storage !== null) {
-            return self::$storage;
+        if ($key === null) {
+            return $config;
         }
 
-        self::$storage = match (self::config('app.storage.driver')) {
-            'mysql' => new MysqlStorage(),
-            default => new JsonStorage(),
-        };
-
-        return self::$storage;
+        return $config[$key] ?? $default;
     }
 
     public static function database(): Database
     {
-        self::boot();
+        return self::instance()->database;
+    }
 
-        if (self::$database !== null) {
-            return self::$database;
-        }
-
-        self::$database = new Database();
-
-        return self::$database;
+    public static function storage(): StorageInterface
+    {
+        return self::database()->storage();
     }
 }
