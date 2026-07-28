@@ -1,63 +1,30 @@
 <?php
 
+namespace App\Core;
+
 class Autoloader
 {
     public static function register(): void
     {
-        spl_autoload_register(function ($class) {
+        spl_autoload_register(
+            function (string $class): void {
 
-            $directories = [
+                $prefix = 'App\\';
 
-                __DIR__,
-
-                __DIR__ . "/../Controllers",
-
-                __DIR__ . "/../Models",
-
-                __DIR__ . "/../Repositories",
-
-                __DIR__ . "/../Services",
-
-                __DIR__ . "/../Services/Quiz",
-
-                __DIR__ . "/../Services/Learning",
-
-                __DIR__ . "/../Services/Profile",
-
-                __DIR__ . "/../Services/Shared",
-
-                __DIR__ . "/../Services/Quality",
-
-                __DIR__ . "/../Services/Quality/Validators",
-
-                __DIR__ . "/../Services/RepositoryHealth",
-
-                __DIR__ . "/../Services/RepositoryHealth/Contracts",
-
-                __DIR__ . "/../Services/RepositoryHealth/DTO",
-
-                __DIR__ . "/../Services/RepositoryHealth/Engine"
-
-            ];
-
-            foreach ($directories as $directory) {
-
-                $file =
-                    $directory .
-                    "/" .
-                    $class .
-                    ".php";
-
-                if (file_exists($file)) {
-
-                    require_once $file;
-
+                if (strncmp($prefix, $class, strlen($prefix)) !== 0) {
                     return;
-
                 }
 
-            }
+                $relativeClass = substr($class, strlen($prefix));
 
-        });
+                $file = dirname(__DIR__) . '/'
+                    . str_replace('\\', '/', $relativeClass)
+                    . '.php';
+
+                if (is_file($file)) {
+                    require_once $file;
+                }
+            }
+        );
     }
 }

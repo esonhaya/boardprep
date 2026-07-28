@@ -27,14 +27,11 @@ class SubjectRepository
     ): void {
 
         file_put_contents(
-
             self::FILE,
-
             json_encode(
                 array_values($subjects),
                 JSON_PRETTY_PRINT
             )
-
         );
 
     }
@@ -45,13 +42,13 @@ class SubjectRepository
     }
 
     public static function find(
-        int $id
+        string $id
     ): ?array {
 
         foreach (self::load() as $subject) {
 
             if (
-                (int)($subject["id"] ?? 0)
+                ($subject["id"] ?? "")
                 ===
                 $id
             ) {
@@ -66,7 +63,7 @@ class SubjectRepository
 
     public static function exists(
         string $name,
-        ?int $ignoreId = null
+        ?string $ignoreId = null
     ): bool {
 
         foreach (self::load() as $subject) {
@@ -82,7 +79,7 @@ class SubjectRepository
 
             if (
                 $ignoreId !== null &&
-                (int)$subject["id"] === $ignoreId
+                ($subject["id"] ?? "") === $ignoreId
             ) {
                 continue;
             }
@@ -99,42 +96,30 @@ class SubjectRepository
         array $subject
     ): void {
 
-        $subjects =
-            self::load();
+        $subjects = self::load();
 
-        $maxId = 0;
-
-        foreach ($subjects as $row) {
-
-            $maxId = max(
-                $maxId,
-                (int)($row["id"] ?? 0)
-            );
-
-        }
-
-        $subject["id"] = $maxId + 1;
+        $subject["id"] = Slugger::unique(
+            $subject["name"],
+            $subjects
+        );
 
         $subjects[] = $subject;
 
-        self::saveAll(
-            $subjects
-        );
+        self::saveAll($subjects);
 
     }
 
     public static function update(
-        int $id,
+        string $id,
         array $subject
     ): void {
 
-        $subjects =
-            self::load();
+        $subjects = self::load();
 
         foreach ($subjects as &$row) {
 
             if (
-                (int)$row["id"] === $id
+                ($row["id"] ?? "") === $id
             ) {
 
                 $subject["id"] = $id;
@@ -147,14 +132,12 @@ class SubjectRepository
 
         }
 
-        self::saveAll(
-            $subjects
-        );
+        self::saveAll($subjects);
 
     }
 
     public static function delete(
-        int $id
+        string $id
     ): void {
 
         $subjects = array_filter(
@@ -162,13 +145,11 @@ class SubjectRepository
             self::load(),
 
             fn(array $row) =>
-                (int)$row["id"] !== $id
+                ($row["id"] ?? "") !== $id
 
         );
 
-        self::saveAll(
-            $subjects
-        );
+        self::saveAll($subjects);
 
     }
 }
