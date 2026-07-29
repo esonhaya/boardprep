@@ -1,249 +1,262 @@
 <?php
 
+declare(strict_types=1);
+
 session_start();
 
 require_once "../app/Core/Autoloader.php";
 
 \App\Core\Autoloader::register();
 
+use App\Core\ExceptionHandler;
 use App\Core\View;
 
-require_once "../bootstrap/app.php";
+try {
 
-$router = new \App\Core\Router();
+    require_once "../bootstrap/app.php";
 
-require_once "../routes/web.php";
+    $router = new \App\Core\Router();
 
-$page = $_GET["page"] ?? "home";
+    require_once "../routes/web.php";
 
-switch ($page) {
+    $page = $_GET["page"] ?? "home";
 
-    case "let":
+    switch ($page) {
 
-        View::render(
-            "let/index",
-            [
-                "pageTitle" => "LET"
-            ]
-        );
+        case "let":
 
-        break;
+            View::render(
+                "let/index",
+                [
+                    "pageTitle" => "LET"
+                ]
+            );
 
-    case "english":
+            break;
 
-        View::render(
-            "english/index",
-            [
-                "pageTitle" => "English Major"
-            ]
-        );
+        case "english":
 
-        break;
+            View::render(
+                "english/index",
+                [
+                    "pageTitle" => "English Major"
+                ]
+            );
 
-    case "grammar":
+            break;
 
-        View::render(
-            "grammar/index",
-            [
-                "pageTitle" => "Grammar"
-            ]
-        );
+        case "grammar":
 
-        break;
+            View::render(
+                "grammar/index",
+                [
+                    "pageTitle" => "Grammar"
+                ]
+            );
 
-    case "quiz":
+            break;
 
-        QuizFlowController::handle();
+        case "quiz":
 
-        break;
+            QuizFlowController::handle();
 
-    case "dashboard":
+            break;
 
-        $router->dispatch(
-            $_SERVER["REQUEST_METHOD"],
-            "/dashboard"
-        );
+        case "dashboard":
 
-        break;
+            $router->dispatch(
+                $_SERVER["REQUEST_METHOD"],
+                "/dashboard"
+            );
 
-    case "profile":
+            break;
 
-        LearningProfileController::index();
+        case "profile":
 
-        break;
+            LearningProfileController::index();
 
-    case "progress":
+            break;
 
-        ProgressController::index();
+        case "progress":
 
-        break;
+            ProgressController::index();
 
-    case "developer":
+            break;
 
-        DashboardController::index();
+        case "developer":
 
-        break;
+            DashboardController::index();
 
-    case "boards":
+            break;
 
-        BoardController::index();
+        case "boards":
 
-        break;
+            BoardController::index();
 
-    case "board-create":
+            break;
 
-        BoardController::create();
+        case "board-create":
 
-        break;
+            BoardController::create();
 
-    case "board-save":
+            break;
 
-        BoardController::save();
+        case "board-save":
 
-        break;
+            BoardController::save();
 
-    case "board-archive":
+            break;
 
-        BoardController::archive();
+        case "board-archive":
 
-        break;
+            BoardController::archive();
 
-    case "board-activate":
+            break;
 
-        BoardController::activate();
+        case "board-activate":
 
-        break;
+            BoardController::activate();
 
-    case "metadata-repair":
+            break;
 
-        MetadataRepairController::index();
+        case "metadata-repair":
 
-        break;
+            MetadataRepairController::index();
 
-    case "question-editor":
+            break;
 
-        $action = $_GET["action"] ?? "index";
+        case "question-editor":
 
-        if ($action === "create") {
+            $action = $_GET["action"] ?? "index";
 
-            QuestionEditorController::create();
+            if ($action === "create") {
 
-        } elseif ($action === "edit") {
+                QuestionEditorController::create();
 
-            QuestionEditorController::edit();
+            } elseif ($action === "edit") {
 
-        } elseif ($action === "save") {
+                QuestionEditorController::edit();
 
-            QuestionEditorController::save();
+            } elseif ($action === "save") {
 
-        } elseif ($action === "update") {
+                QuestionEditorController::save();
 
-            QuestionEditorController::update();
+            } elseif ($action === "update") {
 
-        } elseif ($action === "archive") {
+                QuestionEditorController::update();
 
-            QuestionEditorController::archive();
+            } elseif ($action === "archive") {
 
-        } elseif ($action === "restore") {
+                QuestionEditorController::archive();
 
-            QuestionEditorController::restore();
+            } elseif ($action === "restore") {
 
-        } else {
+                QuestionEditorController::restore();
 
-            QuestionEditorController::index();
+            } else {
 
-        }
+                QuestionEditorController::index();
 
-        break;
+            }
 
-    case "question-export":
+            break;
 
-        QuestionExportController::export();
+        case "question-export":
 
-        break;
+            QuestionExportController::export();
 
-    case "question-import":
+            break;
 
-        if (($_GET["action"] ?? "") === "import") {
+        case "question-import":
 
-            QuestionImportController::import();
+            if (($_GET["action"] ?? "") === "import") {
 
-        } else {
+                QuestionImportController::import();
 
-            QuestionImportController::index();
+            } else {
 
-        }
+                QuestionImportController::index();
 
-        break;
+            }
 
-    case "question-quality":
+            break;
 
-        QuestionQualityController::index();
+        case "question-quality":
 
-        break;
+            QuestionQualityController::index();
 
-    case "question-inspector":
+            break;
 
-        QuestionInspectorController::index();
+        case "question-inspector":
 
-        break;
+            QuestionInspectorController::index();
 
-    case "coverage":
+            break;
 
-        CoverageController::index();
+        case "coverage":
 
-        break;
+            CoverageController::index();
 
-    case "taxonomy":
+            break;
 
-        $action = $_GET["action"] ?? "index";
+        case "taxonomy":
 
-        if ($action === "rebuild") {
+            $action = $_GET["action"] ?? "index";
 
-            TaxonomyController::rebuild();
+            if ($action === "rebuild") {
 
-        } else {
+                TaxonomyController::rebuild();
 
-            TaxonomyController::index();
+            } else {
 
-        }
+                TaxonomyController::index();
 
-        break;
+            }
 
-    case "blueprints":
+            break;
 
-        $action = $_GET["action"] ?? "index";
+        case "blueprints":
 
-        if ($action === "create") {
+            $action = $_GET["action"] ?? "index";
 
-            BlueprintController::create();
+            if ($action === "create") {
 
-        } elseif ($action === "save") {
+                BlueprintController::create();
 
-            BlueprintController::save();
+            } elseif ($action === "save") {
 
-        } else {
+                BlueprintController::save();
 
-            BlueprintController::index();
+            } else {
 
-        }
+                BlueprintController::index();
 
-        break;
+            }
 
-    case "blueprint-health":
+            break;
 
-        BlueprintHealthController::index();
+        case "blueprint-health":
 
-        break;
+            BlueprintHealthController::index();
 
-    default:
+            break;
 
-        View::render(
-            "home/index",
-            [
-                "pageTitle" => "BoardPrep"
-            ]
-        );
+        default:
 
-        break;
+            View::render(
+                "home/index",
+                [
+                    "pageTitle" => "BoardPrep"
+                ]
+            );
+
+            break;
+    }
+
+} catch (Throwable $exception) {
+
+    (new ExceptionHandler())->handle(
+        $exception
+    );
+
 }

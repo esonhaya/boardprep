@@ -1,203 +1,54 @@
 <?php
 
-class BoardRepository
+declare(strict_types=1);
+
+namespace App\Repositories;
+
+class BoardRepository extends BaseRepository
 {
+    protected string $collection = 'boards';
 
-    private const FILE =
-        __DIR__ . "/../../storage/boards/boards.json";
-
-    public static function all(): array
+    public function active(): array
     {
-
-        if (!file_exists(self::FILE)) {
-
-            return [];
-
-        }
-
-        $contents =
-            file_get_contents(
-                self::FILE
-            );
-
-        if (!$contents) {
-
-            return [];
-
-        }
-
-        $boards =
-            json_decode(
-                $contents,
-                true
-            );
-
-        if (!is_array($boards)) {
-
-            return [];
-
-        }
-
-        foreach ($boards as &$board) {
-
-            $board = self::normalize(
-                $board
-            );
-
-        }
-
-        unset($board);
-
-        return $boards;
-
+        return $this->where([
+            'status' => 'active',
+        ]);
     }
 
-    public static function find(
-        string $id
-    ): ?array
+    public function archived(): array
     {
-
-        foreach (
-            self::all()
-            as $board
-        ) {
-
-            if (
-                $board["id"] === $id
-            ) {
-
-                return $board;
-
-            }
-
-        }
-
-        return null;
-
+        return $this->where([
+            'status' => 'archived',
+        ]);
     }
 
-    public static function exists(
-        string $id
-    ): bool
-    {
-
-        return self::find(
-            $id
-        ) !== null;
-
-    }
-
-    public static function saveAll(
-        array $boards
-    ): void
-    {
-
-        $directory =
-            dirname(
-                self::FILE
-            );
-
-        if (
-            !is_dir(
-                $directory
-            )
-        ) {
-
-            mkdir(
-                $directory,
-                0777,
-                true
-            );
-
-        }
-
-        foreach ($boards as &$board) {
-
-            $board = self::normalize(
-                $board
-            );
-
-        }
-
-        unset($board);
-
-        file_put_contents(
-
-            self::FILE,
-
-            json_encode(
-
-                $boards,
-
-                JSON_PRETTY_PRINT
-                |
-                JSON_UNESCAPED_SLASHES
-
-            )
-
-        );
-
-    }
-
-    public static function setStatus(
+    public function setStatus(
         string $id,
         string $status
-    ): void
-    {
-
-        $boards =
-            self::all();
-
-        foreach (
-            $boards
-            as &$board
-        ) {
-
-            if (
-                $board["id"] === $id
-            ) {
-
-                $board["status"] =
-                    $status;
-
-                break;
-
-            }
-
-        }
-
-        unset($board);
-
-        self::saveAll(
-            $boards
+    ): ?array {
+        return $this->update(
+            $id,
+            [
+                'status' => $status,
+            ]
         );
-
     }
 
-    private static function normalize(
-        array $board
-    ): array
-    {
-
-        return [
-
-            "id" =>
-                $board["id"] ?? "",
-
-            "name" =>
-                $board["name"] ?? "",
-
-            "description" =>
-                $board["description"] ?? "",
-
-            "status" =>
-                $board["status"] ?? "active",
-
-            "subjects" =>
-                $board["subjects"] ?? []
-
-        ];
-
+    public function activate(
+        string $id
+    ): ?array {
+        return $this->setStatus(
+            $id,
+            'active'
+        );
     }
 
+    public function archive(
+        string $id
+    ): ?array {
+        return $this->setStatus(
+            $id,
+            'archived'
+        );
+    }
 }
