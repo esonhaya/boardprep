@@ -18,10 +18,19 @@ class BlueprintService
     {
 
         $board =
-            $data["board"] ?? "";
+            trim(
+                $data["board"] ?? ""
+            );
 
         $subject =
-            $data["subject"] ?? "";
+            trim(
+                $data["subject"] ?? ""
+            );
+
+        $name =
+            trim(
+                $data["name"] ?? ""
+            );
 
 
         $version =
@@ -51,7 +60,7 @@ class BlueprintService
                 $subject,
 
             "name" =>
-                $data["name"] ?? "",
+                $name,
 
             "version" =>
                 $version,
@@ -135,6 +144,20 @@ class BlueprintService
         int $version
     ): string
     {
+
+        $board =
+            preg_replace(
+                '/\s+/',
+                '-',
+                trim($board)
+            );
+
+        $subject =
+            preg_replace(
+                '/\s+/',
+                '-',
+                trim($subject)
+            );
 
         return strtolower(
             $board

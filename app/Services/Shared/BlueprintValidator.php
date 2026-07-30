@@ -2,66 +2,40 @@
 
 class BlueprintValidator
 {
-
     public static function validate(
         array $blueprint
     ): array
     {
-
         $errors = [];
 
-
         if (empty($blueprint["id"])) {
-
-            $errors[] =
-                "Missing blueprint ID.";
-
+            $errors[] = "Missing blueprint ID.";
         }
-
 
         if (empty($blueprint["name"])) {
-
-            $errors[] =
-                "Missing blueprint name.";
-
+            $errors[] = "Missing blueprint name.";
         }
-
 
         if (empty($blueprint["board"])) {
-
-            $errors[] =
-                "Missing board.";
-
+            $errors[] = "Missing board.";
         }
-
 
         if (empty($blueprint["subject"])) {
-
-            $errors[] =
-                "Missing subject.";
-
+            $errors[] = "Missing subject.";
         }
-
 
         if (!isset($blueprint["version"])) {
-
-            $errors[] =
-                "Missing version.";
-
+            $errors[] = "Missing version.";
         }
-
 
         if (
             empty($blueprint["questionCount"])
             ||
             $blueprint["questionCount"] <= 0
         ) {
-
             $errors[] =
                 "Question count must be greater than zero.";
-
         }
-
 
         if (!isset($blueprint["difficulty"])) {
 
@@ -70,48 +44,33 @@ class BlueprintValidator
 
         } else {
 
-            $easy =
-                (int)(
-                    $blueprint["difficulty"]["easy"] ?? 0
-                );
+            $easy = (int) ($blueprint["difficulty"]["easy"] ?? 0);
+            $medium = (int) ($blueprint["difficulty"]["medium"] ?? 0);
+            $hard = (int) ($blueprint["difficulty"]["hard"] ?? 0);
 
-            $medium =
-                (int)(
-                    $blueprint["difficulty"]["medium"] ?? 0
-                );
+            foreach ([
+                "Easy" => $easy,
+                "Medium" => $medium,
+                "Hard" => $hard,
+            ] as $label => $value) {
 
-            $hard =
-                (int)(
-                    $blueprint["difficulty"]["hard"] ?? 0
-                );
+                if ($value < 0 || $value > 100) {
+                    $errors[] =
+                        "{$label} difficulty must be between 0 and 100.";
+                }
 
+            }
 
-            $totalDifficulty =
-                $easy +
-                $medium +
-                $hard;
-
-
-            if ($totalDifficulty !== 100) {
-
+            if (($easy + $medium + $hard) !== 100) {
                 $errors[] =
                     "Difficulty distribution must equal 100%.";
-
             }
 
         }
 
-
         return [
-
-            "valid" =>
-                empty($errors),
-
-            "errors" =>
-                $errors
-
+            "valid" => empty($errors),
+            "errors" => $errors
         ];
-
     }
-
 }

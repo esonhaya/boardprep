@@ -11,6 +11,10 @@ class QuizScoringService
 
         $score = 0;
 
+        $incorrect = 0;
+
+        $unanswered = 0;
+
         $results = [];
 
 
@@ -30,19 +34,29 @@ class QuizScoringService
                 $question["answer"] ?? "";
 
 
+            $answered =
+                trim($userAnswer) !== "";
+
+
             $correct =
-                strtoupper(
-                    trim($userAnswer)
-                )
+                $answered
+                &&
+                strtoupper(trim($userAnswer))
                 ===
-                strtoupper(
-                    trim($correctAnswer)
-                );
+                strtoupper(trim($correctAnswer));
 
 
             if ($correct) {
 
                 $score++;
+
+            } elseif ($answered) {
+
+                $incorrect++;
+
+            } else {
+
+                $unanswered++;
 
             }
 
@@ -64,13 +78,15 @@ class QuizScoringService
                 "correct" =>
                     $correct,
 
+                "answered" =>
+                    $answered,
+
                 "explanation" =>
                     $question["explanation"] ?? ""
 
             ];
 
         }
-
 
 
         $total =
@@ -81,6 +97,15 @@ class QuizScoringService
 
             "score" =>
                 $score,
+
+            "correct" =>
+                $score,
+
+            "incorrect" =>
+                $incorrect,
+
+            "unanswered" =>
+                $unanswered,
 
             "total" =>
                 $total,
@@ -102,7 +127,6 @@ class QuizScoringService
     }
 
 
-
     public static function checkAnswer(
         array $question,
         ?string $answer
@@ -117,9 +141,7 @@ class QuizScoringService
 
 
         return
-            strtoupper(
-                trim($userAnswer)
-            )
+            strtoupper(trim($userAnswer))
             ===
             strtoupper(
                 trim(
@@ -128,7 +150,6 @@ class QuizScoringService
             );
 
     }
-
 
 
     private static function normalizeAnswer(

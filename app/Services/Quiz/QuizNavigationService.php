@@ -6,16 +6,19 @@ class QuizNavigationService
     public static function next(): void
     {
 
-        $_SESSION["currentQuestion"]++;
+        $current =
+            self::current() + 1;
+
+        SessionService::set(
+            "currentQuestion",
+            $current
+        );
 
         $questions =
             SessionService::get(
                 "questions",
                 []
             );
-
-        $current =
-            self::current();
 
         if (
             $current >= count($questions)
@@ -36,7 +39,6 @@ class QuizNavigationService
         View::render(
             "quiz/index",
             [
-
                 "question" =>
                     $questions[$current],
 
@@ -54,7 +56,6 @@ class QuizNavigationService
 
                 "feedback" =>
                     null
-
             ]
         );
 
@@ -64,7 +65,10 @@ class QuizNavigationService
     {
 
         return
-            $_SESSION["currentQuestion"] ?? 0;
+            (int) SessionService::get(
+                "currentQuestion",
+                0
+            );
 
     }
 
@@ -75,7 +79,10 @@ class QuizNavigationService
             self::current()
             >=
             count(
-                $_SESSION["questions"] ?? []
+                SessionService::get(
+                    "questions",
+                    []
+                )
             ) - 1;
 
     }
@@ -83,7 +90,10 @@ class QuizNavigationService
     public static function reset(): void
     {
 
-        $_SESSION["currentQuestion"] = 0;
+        SessionService::set(
+            "currentQuestion",
+            0
+        );
 
     }
 

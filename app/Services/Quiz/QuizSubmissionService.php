@@ -31,6 +31,41 @@ class QuizSubmissionService
         $answer =
             $_POST["answer"] ?? null;
 
+        if ($answer === null) {
+
+            FlashMessageService::error(
+                "Please select an answer before continuing."
+            );
+
+            View::render(
+                "quiz/index",
+                [
+                    "question" =>
+                        $question,
+
+                    "current" =>
+                        $current,
+
+                    "total" =>
+                        count($questions),
+
+                    "mode" =>
+                        SessionService::get(
+                            "mode",
+                            "practice"
+                        ),
+
+                    "feedback" =>
+                        SessionService::get(
+                            "feedback"
+                        )
+                ]
+            );
+
+            return;
+
+        }
+
         $answers =
             SessionService::get(
                 "answers",

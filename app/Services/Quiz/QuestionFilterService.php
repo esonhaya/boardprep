@@ -9,8 +9,10 @@ class QuestionFilterService
     {
         $filtered = $questions;
 
-        if (!empty($options["difficulty"]) &&
-            $options["difficulty"] !== "mixed") {
+        if (
+            !empty($options["difficulty"]) &&
+            $options["difficulty"] !== "mixed"
+        ) {
 
             $filtered = array_filter(
                 $filtered,
@@ -21,7 +23,24 @@ class QuestionFilterService
             );
         }
 
-        if (!empty($options["topic"])) {
+        if (!empty($options["topics"])) {
+
+            $topics = array_map(
+                "strtolower",
+                $options["topics"]
+            );
+
+            $filtered = array_filter(
+                $filtered,
+                fn($q) =>
+                    in_array(
+                        strtolower($q["topic"] ?? ""),
+                        $topics,
+                        true
+                    )
+            );
+
+        } elseif (!empty($options["topic"])) {
 
             $filtered = array_filter(
                 $filtered,
@@ -30,6 +49,7 @@ class QuestionFilterService
                     ===
                     $options["topic"]
             );
+
         }
 
         return array_values($filtered);

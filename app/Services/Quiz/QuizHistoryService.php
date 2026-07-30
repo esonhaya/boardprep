@@ -8,39 +8,27 @@ class QuizHistoryService
     ): array
     {
 
-        $used =
-            SessionService::get(
-                "usedQuestions",
-                []
-            );
+        $used = SessionService::get(
+            "usedQuestions",
+            []
+        );
 
-        $unused =
-            array_filter(
+        $unused = array_filter(
+            $questions,
+            function ($question) use ($used) {
 
-                $questions,
-
-                function ($question)
-                use ($used)
-                {
-
-                    return !in_array(
-
-                        $question["id"],
-
-                        $used,
-
-                        true
-
-                    );
-
+                if (!isset($question["id"])) {
+                    return true;
                 }
 
-            );
+                return !in_array(
+                    $question["id"],
+                    $used,
+                    true
+                );
 
-        /*
-         Pool exhausted.
-         Start a fresh cycle.
-        */
+            }
+        );
 
         if (empty($unused)) {
 
@@ -57,31 +45,31 @@ class QuizHistoryService
     }
 
 
-
     public static function remember(
         array $questions
     ): void
     {
 
-        $used =
-            SessionService::get(
-                "usedQuestions",
-                []
-            );
+        $used = SessionService::get(
+            "usedQuestions",
+            []
+        );
 
         foreach ($questions as $question) {
 
-            $used[] =
-                $question["id"];
+            if (!isset($question["id"])) {
+                continue;
+            }
+
+            $used[] = $question["id"];
 
         }
 
         SessionService::set(
-
             "usedQuestions",
-
-            array_unique($used)
-
+            array_values(
+                array_unique($used)
+            )
         );
 
     }

@@ -2,38 +2,38 @@
 
 class ProgressRepository
 {
-    private const FILE =
-        __DIR__ . "/../../storage/progress.json";
+    private JsonStorage $storage;
 
-    public static function all(): array
+    public function __construct()
     {
-        if (!file_exists(self::FILE)) {
-            return [];
+        $this->storage = new JsonStorage(
+            "./database/progress/progress.json",
+            "user_id"
+        );
+    }
+
+    public function all(): array
+    {
+        return $this->storage->all();
+    }
+
+    public function find(string $userId): ?array
+    {
+        return $this->storage->find($userId);
+    }
+
+    public function save(array $progress): void
+    {
+        $existing = $this->find($progress["user_id"]);
+
+        if ($existing === null) {
+            $this->storage->create($progress);
+            return;
         }
 
-        $progress = json_decode(
-            file_get_contents(self::FILE),
-            true
+        $this->storage->update(
+            $progress["user_id"],
+            $progress
         );
-
-        return is_array($progress)
-            ? $progress
-            : [];
-    }
-
-    public static function save(array $progress): void
-    {
-        file_put_contents(
-            self::FILE,
-            json_encode(
-                $progress,
-                JSON_PRETTY_PRINT
-            )
-        );
-    }
-
-    public static function clear(): void
-    {
-        self::save([]);
     }
 }

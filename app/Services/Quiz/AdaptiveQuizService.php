@@ -33,7 +33,6 @@ class AdaptiveQuizService
 
         $average = 70;
 
-
         if (!empty($attempts)) {
 
             $average =
@@ -42,12 +41,6 @@ class AdaptiveQuizService
                 );
 
         }
-
-$difficulty =
-    self::recommendedDifficulty(
-        $average
-    );
-
 
         return [
 
@@ -59,7 +52,9 @@ $difficulty =
                 ),
 
             "recommendedDifficulty" =>
-                $difficulty,
+                self::recommendedDifficulty(
+                    $average
+                ),
 
             "averageScore" =>
                 $average
@@ -67,7 +62,6 @@ $difficulty =
         ];
 
     }
-
 
 
     public static function prioritize(
@@ -79,7 +73,6 @@ $difficulty =
         $priority = [];
         $normal = [];
 
-
         foreach ($questions as $question) {
 
             $topic =
@@ -89,57 +82,52 @@ $difficulty =
                     )
                 );
 
-
             if (
-
                 in_array(
                     $topic,
-                    $options["priorityTopics"] ?? []
+                    $options["priorityTopics"] ?? [],
+                    true
                 )
-
             ) {
 
-                $priority[] =
-                    $question;
+                $priority[] = $question;
 
             } else {
 
-                $normal[] =
-                    $question;
+                $normal[] = $question;
 
             }
 
         }
 
-
         shuffle($priority);
         shuffle($normal);
 
-
-        return array_merge(
-            $priority,
-            $normal
+        return array_values(
+            array_merge(
+                $priority,
+                $normal
+            )
         );
 
     }
 
 
-private static function recommendedDifficulty(
-    int|float $average
-): string
-{
+    private static function recommendedDifficulty(
+        int|float $average
+    ): string
+    {
 
-    if ($average >= 85) {
-        return "hard";
+        if ($average >= 85) {
+            return "hard";
+        }
+
+        if ($average >= 65) {
+            return "medium";
+        }
+
+        return "easy";
+
     }
-
-    if ($average >= 65) {
-        return "medium";
-    }
-
-    return "easy";
-
-}
-
 
 }

@@ -7,7 +7,7 @@ class QuizStartService
     {
 
         $count =
-            (int)($_GET["count"] ?? 10);
+            (int) ($_GET["count"] ?? 10);
 
         $difficulty =
             $_GET["difficulty"] ?? "mixed";
@@ -42,6 +42,18 @@ class QuizStartService
                 ]
             );
 
+        if (empty($questions)) {
+
+            FlashMessageService::error(
+                "No questions matched the selected quiz settings."
+            );
+
+            redirect("/quiz");
+
+            return;
+
+        }
+
         SessionService::set(
             "questions",
             $questions
@@ -63,7 +75,7 @@ class QuizStartService
             "quiz/index",
             [
                 "question" =>
-                    $questions[0] ?? null,
+                    $questions[0],
 
                 "current" =>
                     0,

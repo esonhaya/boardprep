@@ -21,6 +21,17 @@ class QuizGenerationService
             );
 
 
+        /*
+         * Apply blueprint filters before
+         * adaptive/shuffle logic.
+         */
+        $questions =
+            QuestionFilterService::filter(
+                $questions,
+                $options
+            );
+
+
         if (
             !empty(
                 $options["adaptive"]
@@ -45,7 +56,9 @@ class QuizGenerationService
             ) {
 
                 $recommended =
-                    $adaptive["recommendedDifficulty"];
+                    strtolower(
+                        $adaptive["recommendedDifficulty"]
+                    );
 
 
                 usort(
@@ -86,7 +99,6 @@ class QuizGenerationService
 
             }
 
-
         }
         elseif (
             !empty(
@@ -101,7 +113,6 @@ class QuizGenerationService
         }
 
 
-
         if (
             !empty(
                 $options["limit"]
@@ -112,11 +123,10 @@ class QuizGenerationService
                 array_slice(
                     $questions,
                     0,
-                    $options["limit"]
+                    (int) $options["limit"]
                 );
 
         }
-
 
 
         $questions =
@@ -130,7 +140,8 @@ class QuizGenerationService
         );
 
 
-        return $questions;
+        return
+            $questions;
 
     }
 

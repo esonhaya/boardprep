@@ -12,78 +12,27 @@ class QuizResultService
                 []
             );
 
-
         $answers =
             SessionService::get(
                 "answers",
                 []
             );
 
-
-        $result =
+        $summary =
             QuizScoringService::calculate(
                 $questions,
                 $answers
             );
 
-
         return [
 
             "summary" =>
-                $result,
+                $summary,
 
             "review" =>
-                self::buildReview(
-                    $questions,
-                    $answers
-                )
+                $summary["results"]
 
         ];
-
-    }
-
-
-
-    private static function buildReview(
-        array $questions,
-        array $answers
-    ): array
-    {
-
-        $review = [];
-
-
-        foreach (
-            $questions
-            as $question
-        ) {
-
-            $userAnswer =
-                $answers[
-                    $question["id"]
-                ] ?? null;
-
-
-            $review[] = [
-
-                "question" =>
-                    $question,
-
-                "userAnswer" =>
-                    $userAnswer,
-
-                "correct" =>
-                    QuizScoringService::checkAnswer(
-                        $question,
-                        $userAnswer
-                    )
-
-            ];
-
-        }
-
-
-        return $review;
 
     }
 
