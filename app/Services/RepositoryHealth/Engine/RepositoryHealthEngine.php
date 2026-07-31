@@ -1,11 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Services\RepositoryHealth\Engine;
+
+use App\Services\RepositoryHealth\DTO\HealthReport;
+
 class RepositoryHealthEngine
 {
     public static function analyze(): HealthReport
     {
-        $context =
-            RepositoryContextFactory::create();
+        $context = RepositoryContextFactory::create();
 
         $results = [];
 
@@ -17,46 +22,37 @@ class RepositoryHealthEngine
                 ValidatorRegistry::entityValidators()
                 as $validator
             ) {
-
                 $issues = array_merge(
                     $issues,
                     $validator::validate($question)
                 );
-
             }
 
-            $results[] =
-                QuestionIssueMapper::map(
-                    $question,
-                    $issues
-                );
-
+            $results[] = QuestionIssueMapper::map(
+                $question,
+                $issues
+            );
         }
 
         foreach (
             ValidatorRegistry::repositoryValidators()
             as $validator
         ) {
-
-            $results[] =
-                RepositoryIssueMapper::map(
-                    $validator::analyze(
-                        $context->questions
-                    )
-                );
-
+            $results[] = RepositoryIssueMapper::map(
+                $validator::analyze(
+                    $context->questions
+                )
+            );
         }
 
-        $statistics =
-            StatisticsBuilder::build(
-                $context,
-                $results
-            );
+        $statistics = StatisticsBuilder::build(
+            $context,
+            $results
+        );
 
-        $healthScore =
-            HealthScoreCalculator::calculate(
-                $results
-            );
+        $healthScore = HealthScoreCalculator::calculate(
+            $results
+        );
 
         return ReportBuilder::build(
             $results,

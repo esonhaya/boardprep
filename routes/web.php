@@ -1,5 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Core\View;
+
+use App\Controllers\DashboardController;
+use App\Controllers\QuizFlowController;
+use App\Controllers\LearningProfileController;
+use App\Controllers\ProgressController;
+use App\Controllers\LetController;
+
 $router->get("/", function () {
     View::render(
         "home/index",

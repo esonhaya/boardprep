@@ -1,5 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Controllers;
+
+use App\Services\SessionService;
+use App\Core\View;
+
 class BaseController
 {
     protected static function render(

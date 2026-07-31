@@ -1,5 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Controllers;
+
+use App\Services\BoardService;
+
 class BoardController extends BaseDeveloperController
 {
     public static function index(): void

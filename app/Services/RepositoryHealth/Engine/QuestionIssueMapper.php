@@ -1,12 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Services\RepositoryHealth\Engine;
+
+use App\Services\RepositoryHealth\DTO\HealthIssue;
+use App\Services\RepositoryHealth\DTO\ValidationResult;
+
 class QuestionIssueMapper
 {
     public static function map(
         array $question,
         array $issues
-    ): ValidationResult
-    {
+    ): ValidationResult {
         $result = new ValidationResult();
 
         foreach ($issues as $issue) {
@@ -46,7 +52,6 @@ class QuestionIssueMapper
                 $question["id"] ?? null;
 
             $result->addIssue($healthIssue);
-
         }
 
         return $result;

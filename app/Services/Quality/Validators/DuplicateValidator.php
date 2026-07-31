@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Services\Quality\Validators;
+
 class DuplicateValidator
 {
-
     public static function analyze(array $questions): array
     {
-
         $issues = [];
 
         $ids = [];
@@ -14,39 +16,30 @@ class DuplicateValidator
 
         foreach ($questions as $question) {
 
-            $id = trim($question["id"] ?? "");
+            $id = trim(
+                (string) ($question["id"] ?? "")
+            );
 
             if ($id !== "") {
 
                 if (isset($ids[$id])) {
 
                     $issues[] = [
-
                         "severity" => "error",
-
                         "type" => "duplicate-id",
-
                         "questionId" => $id,
-
-                        "message" =>
-                            "Duplicate question ID."
-
+                        "message" => "Duplicate question ID."
                     ];
 
                 }
 
                 $ids[$id] = true;
-
             }
 
             $text = strtolower(
-
                 trim(
-
-                    $question["question"] ?? ""
-
+                    (string) ($question["question"] ?? "")
                 )
-
             );
 
             if ($text !== "") {
@@ -54,28 +47,18 @@ class DuplicateValidator
                 if (isset($questionsSeen[$text])) {
 
                     $issues[] = [
-
                         "severity" => "warning",
-
                         "type" => "duplicate-question",
-
                         "questionId" => $id,
-
-                        "message" =>
-                            "Duplicate question text."
-
+                        "message" => "Duplicate question text."
                     ];
 
                 }
 
                 $questionsSeen[$text] = true;
-
             }
-
         }
 
         return $issues;
-
     }
-
 }

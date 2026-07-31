@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Services\RepositoryHealth\DTO;
+
 class HealthIssue
 {
-
     public string $validator;
 
     public string $severity;
@@ -21,8 +24,7 @@ class HealthIssue
 
     public ?string $entityType = null;
 
-    public ?string $entityId = null;
+    public string|int|null $entityId = null;
 
     public array $metadata = [];
-
-}
+}	

@@ -1,12 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Services\RepositoryHealth\Engine;
+
+use App\Services\RepositoryHealth\DTO\RepositoryContext;
+use App\Services\RepositoryHealth\DTO\RepositoryStatistics;
+use App\Services\RepositoryHealth\DTO\ValidationResult;
+
 class StatisticsBuilder
 {
     public static function build(
         RepositoryContext $context,
         array $results
-    ): RepositoryStatistics
-    {
+    ): RepositoryStatistics {
         $stats = new RepositoryStatistics();
 
         $stats->totalQuestions = count($context->questions);
@@ -56,61 +63,26 @@ class StatisticsBuilder
 
         foreach ($context->questions as $question) {
 
-            $difficulty = $question["difficulty"] ?? "Unknown";
+            foreach (
+                [
+                    "difficulty" => "questionsPerDifficulty",
+                    "status" => "questionsPerStatus",
+                    "board" => "questionsPerBoard",
+                    "subject" => "questionsPerSubject",
+                    "domain" => "questionsPerDomain",
+                    "topic" => "questionsPerTopic",
+                    "concept" => "questionsPerConcept",
+                ] as $field => $property
+            ) {
 
-            if (!isset($stats->questionsPerDifficulty[$difficulty])) {
-                $stats->questionsPerDifficulty[$difficulty] = 0;
+                $value = (string) ($question[$field] ?? "Unknown");
+
+                if (!isset($stats->{$property}[$value])) {
+                    $stats->{$property}[$value] = 0;
+                }
+
+                $stats->{$property}[$value]++;
             }
-
-            $stats->questionsPerDifficulty[$difficulty]++;
-
-            $status = $question["status"] ?? "Unknown";
-
-            if (!isset($stats->questionsPerStatus[$status])) {
-                $stats->questionsPerStatus[$status] = 0;
-            }
-
-            $stats->questionsPerStatus[$status]++;
-
-            $board = $question["board"] ?? "Unknown";
-
-            if (!isset($stats->questionsPerBoard[$board])) {
-                $stats->questionsPerBoard[$board] = 0;
-            }
-
-            $stats->questionsPerBoard[$board]++;
-
-            $subject = $question["subject"] ?? "Unknown";
-
-            if (!isset($stats->questionsPerSubject[$subject])) {
-                $stats->questionsPerSubject[$subject] = 0;
-            }
-
-            $stats->questionsPerSubject[$subject]++;
-
-            $domain = $question["domain"] ?? "Unknown";
-
-            if (!isset($stats->questionsPerDomain[$domain])) {
-                $stats->questionsPerDomain[$domain] = 0;
-            }
-
-            $stats->questionsPerDomain[$domain]++;
-
-            $topic = $question["topic"] ?? "Unknown";
-
-            if (!isset($stats->questionsPerTopic[$topic])) {
-                $stats->questionsPerTopic[$topic] = 0;
-            }
-
-            $stats->questionsPerTopic[$topic]++;
-
-            $concept = $question["concept"] ?? "Unknown";
-
-            if (!isset($stats->questionsPerConcept[$concept])) {
-                $stats->questionsPerConcept[$concept] = 0;
-            }
-
-            $stats->questionsPerConcept[$concept]++;
         }
 
         return $stats;

@@ -1,14 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Services\RepositoryHealth\Engine;
+
+use App\Services\RepositoryHealth\DTO\ValidationResult;
+
 class HealthScoreCalculator
 {
     public static function calculate(
         array $results
-    ): float
-    {
-        $score = 100;
+    ): float {
+        $score = 100.0;
 
         foreach ($results as $result) {
+
+            if (!$result instanceof ValidationResult) {
+                continue;
+            }
 
             foreach ($result->issues as $issue) {
 
@@ -25,17 +34,10 @@ class HealthScoreCalculator
                     case "info":
                         $score -= 0.5;
                         break;
-
                 }
-
             }
-
         }
 
-        if ($score < 0) {
-            $score = 0;
-        }
-
-        return round($score, 1);
+        return max(0.0, round($score, 1));
     }
 }

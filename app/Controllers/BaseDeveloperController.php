@@ -1,5 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Controllers;
+
+use App\Core\View;
+
 class BaseDeveloperController extends BaseController
 {
     protected static function renderDeveloper(
@@ -9,8 +15,6 @@ class BaseDeveloperController extends BaseController
     ): void
     {
         $data["showDeveloperFooter"] = $showFooter;
-
-        // Automatically use the developer layout.
         $data["layout"] = "developer";
 
         View::render(
