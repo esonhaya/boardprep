@@ -59,9 +59,9 @@ class JsonStorage implements StorageInterface
     ): array {
         $this->ensureCollectionExists($collection);
 
-        $path = $this->collectionPath($collection);
-
-        $contents = file_get_contents($path);
+        $contents = file_get_contents(
+            $this->collectionPath($collection)
+        );
 
         if ($contents === false) {
             throw new StorageException(
@@ -85,9 +85,10 @@ class JsonStorage implements StorageInterface
         string $collection,
         array $records
     ): void {
+
         $path = $this->collectionPath($collection);
 
-        $tempPath = $path . '.tmp';
+        $temp = $path . '.tmp';
 
         $json = json_encode(
             array_values($records),
@@ -96,25 +97,50 @@ class JsonStorage implements StorageInterface
             | JSON_THROW_ON_ERROR
         );
 
-        if ($json === false) {
-            throw new StorageException(
-                "Unable to encode collection: {$collection}"
-            );
-        }
-
-        if (file_put_contents($tempPath, $json, LOCK_EX) === false) {
+        if (file_put_contents($temp, $json, LOCK_EX) === false) {
             throw new StorageException(
                 "Unable to write collection: {$collection}"
             );
         }
 
-        if (!rename($tempPath, $path)) {
-            @unlink($tempPath);
+        if (!rename($temp, $path)) {
+
+            @unlink($temp);
 
             throw new StorageException(
                 "Unable to replace collection: {$collection}"
             );
+
         }
+
+    }
+
+    private function value(
+        array $record,
+        string $key
+    ): mixed {
+
+        if (!str_contains($key, '.')) {
+            return $record[$key] ?? null;
+        }
+
+        $value = $record;
+
+        foreach (explode('.', $key) as $segment) {
+
+            if (
+                !is_array($value)
+                || !array_key_exists($segment, $value)
+            ) {
+                return null;
+            }
+
+            $value = $value[$segment];
+
+        }
+
+        return $value;
+
     }
 
     public function all(
@@ -127,56 +153,100 @@ class JsonStorage implements StorageInterface
         string $collection,
         string $id
     ): ?array {
+
         foreach ($this->readCollection($collection) as $record) {
-            if (($record[$this->primaryKey] ?? null) === $id) {
+
+            if (
+                ($record[$this->primaryKey] ?? null) === $id
+            ) {
                 return $record;
             }
+
         }
 
         return null;
+
     }
 
     public function where(
         string $collection,
         array $criteria
     ): array {
-        return array_values(array_filter(
-            $this->readCollection($collection),
-            function (array $record) use ($criteria): bool {
-                foreach ($criteria as $key => $value) {
-                    if (($record[$key] ?? null) !== $value) {
-                        return false;
-                    }
-                }
 
-                return true;
-            }
-        ));
+        return array_values(
+            array_filter(
+                $this->readCollection($collection),
+                function (
+                    array $record
+                ) use (
+                    $criteria
+                ): bool {
+
+                    foreach (
+                        $criteria as $key => $value
+                    ) {
+
+                        if (
+                            $this->value(
+                                $record,
+                                $key
+                            ) !== $value
+                        ) {
+                            return false;
+                        }
+
+                    }
+
+                    return true;
+
+                }
+            )
+        );
+
     }
 
     public function create(
         string $collection,
         array $data
     ): array {
-        if (!array_key_exists($this->primaryKey, $data)) {
+
+        if (
+            !isset(
+                $data[$this->primaryKey]
+            )
+        ) {
+
             throw new StorageException(
                 "Missing primary key '{$this->primaryKey}'."
             );
+
         }
 
-        if ($this->exists($collection, (string) $data[$this->primaryKey])) {
+        if (
+            $this->exists(
+                $collection,
+                (string) $data[$this->primaryKey]
+            )
+        ) {
+
             throw new StorageException(
                 "Duplicate primary key '{$data[$this->primaryKey]}'."
             );
+
         }
 
-        $records = $this->readCollection($collection);
+        $records =
+            $this->readCollection($collection);
 
         $records[] = $data;
 
-        $this->writeCollection($collection, $records);
+        $this->writeCollection(
+            $collection,
+            $records
+        );
 
         return $data;
+
     }
 
     public function update(
@@ -184,44 +254,77 @@ class JsonStorage implements StorageInterface
         string $id,
         array $data
     ): ?array {
-        $records = $this->readCollection($collection);
+
+        $records =
+            $this->readCollection($collection);
 
         foreach ($records as $index => $record) {
-            if (($record[$this->primaryKey] ?? null) === $id) {
-                $records[$index] = array_merge($record, $data);
 
-                $this->writeCollection($collection, $records);
+            if (
+                ($record[$this->primaryKey] ?? null) === $id
+            ) {
+
+                $records[$index] =
+                    array_merge(
+                        $record,
+                        $data
+                    );
+
+                $this->writeCollection(
+                    $collection,
+                    $records
+                );
 
                 return $records[$index];
+
             }
+
         }
 
         return null;
+
     }
 
     public function delete(
         string $collection,
         string $id
     ): bool {
-        $records = $this->readCollection($collection);
+
+        $records =
+            $this->readCollection($collection);
 
         foreach ($records as $index => $record) {
-            if (($record[$this->primaryKey] ?? null) === $id) {
+
+            if (
+                ($record[$this->primaryKey] ?? null) === $id
+            ) {
+
                 unset($records[$index]);
 
-                $this->writeCollection($collection, $records);
+                $this->writeCollection(
+                    $collection,
+                    $records
+                );
 
                 return true;
+
             }
+
         }
 
         return false;
+
     }
 
     public function exists(
         string $collection,
         string $id
     ): bool {
-        return $this->find($collection, $id) !== null;
+
+        return $this->find(
+            $collection,
+            $id
+        ) !== null;
+
     }
 }

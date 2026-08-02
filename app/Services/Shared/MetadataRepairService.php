@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 class MetadataRepairService
 {
-
     public static function scan(): array
     {
 
@@ -11,95 +12,30 @@ class MetadataRepairService
 
         $report = [];
 
-        foreach ($questions as $question) {
+        foreach (
+            $questions as $question
+        ) {
 
             $issues = [];
 
+            self::scanTaxonomy(
+                $question,
+                $issues
+            );
+
+            self::scanDifficulty(
+                $question,
+                $issues
+            );
 
             if (
-                empty(
-                    trim(
-                        $question["subject"] ?? ""
-                    )
-                )
+                !empty($issues)
             ) {
-
-                $issues[] =
-                    "Missing Subject";
-
-            }
-
-
-            if (
-                empty(
-                    trim(
-                        $question["domain"] ?? ""
-                    )
-                )
-            ) {
-
-                $issues[] =
-                    "Missing Domain";
-
-            }
-
-
-            if (
-                empty(
-                    trim(
-                        $question["topic"] ?? ""
-                    )
-                )
-            ) {
-
-                $issues[] =
-                    "Missing Topic";
-
-            }
-
-
-            if (
-                empty(
-                    trim(
-                        $question["concept"] ?? ""
-                    )
-                )
-            ) {
-
-                $issues[] =
-                    "Missing Concept";
-
-            }
-
-
-            if (
-                !in_array(
-
-                    strtolower(
-                        $question["difficulty"] ?? ""
-                    ),
-
-                    [
-                        "easy",
-                        "medium",
-                        "hard"
-                    ]
-
-                )
-            ) {
-
-                $issues[] =
-                    "Invalid Difficulty";
-
-            }
-
-
-            if (!empty($issues)) {
 
                 $report[] = [
 
                     "id" =>
-                        $question["id"] ?? 0,
+                        $question["id"] ?? "",
 
                     "question" =>
                         $question["question"] ?? "",
@@ -117,8 +53,6 @@ class MetadataRepairService
 
     }
 
-
-
     public static function repair(): int
     {
 
@@ -127,20 +61,25 @@ class MetadataRepairService
 
         $updated = 0;
 
-        foreach ($questions as &$question) {
+        foreach (
+            $questions as &$question
+        ) {
 
             if (
                 empty(
-                    trim(
-                        $question["subject"] ?? ""
-                    )
+                    $question["taxonomy"]
                 )
             ) {
 
-                $question["subject"] =
-                    self::guessSubject(
-                        $question
-                    );
+                $question["taxonomy"] = [
+
+                    "board_id" => "",
+                    "subject_id" => "",
+                    "domain_id" => "",
+                    "topic_id" => "",
+                    "concept_id" => ""
+
+                ];
 
                 $updated++;
 
@@ -156,30 +95,105 @@ class MetadataRepairService
 
     }
 
-
-
-    private static function guessSubject(
-        array $question
-    ): string
+    private static function scanTaxonomy(
+        array $question,
+        array &$issues
+    ): void
     {
 
-        $domain =
-            strtolower(
-                trim(
-                    $question["domain"] ?? ""
+        $taxonomy =
+            $question["taxonomy"] ?? [];
+
+        foreach (
+
+            [
+
+                "board_id" =>
+                    "Missing board",
+
+                "subject_id" =>
+                    "Missing subject",
+
+                "domain_id" =>
+                    "Missing domain",
+
+                "topic_id" =>
+                    "Missing topic",
+
+                "concept_id" =>
+                    "Missing concept"
+
+            ]
+
+            as $key => $message
+
+        ) {
+
+            if (
+
+                empty(
+
+                    trim(
+
+                        (string)
+
+                        ($taxonomy[$key] ?? "")
+
+                    )
+
                 )
-            );
 
+            ) {
 
-        return match ($domain) {
+                $issues[] =
+                    $message;
 
-            "language" =>
-                "English",
+            }
 
-            default =>
-                "General"
+        }
 
-        };
+    }
+
+    private static function scanDifficulty(
+        array $question,
+        array &$issues
+    ): void
+    {
+
+        if (
+
+            !in_array(
+
+                strtolower(
+
+                    trim(
+
+                        (string)
+
+                        ($question["difficulty"] ?? "")
+
+                    )
+
+                ),
+
+                [
+
+                    "easy",
+                    "medium",
+                    "hard"
+
+                ],
+
+                true
+
+            )
+
+        ) {
+
+            $issues[] =
+                "Invalid difficulty";
+
+        }
 
     }
 

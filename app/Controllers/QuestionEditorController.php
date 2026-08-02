@@ -11,6 +11,80 @@ use App\Services\Question\QuestionViewService;
 
 class QuestionEditorController extends BaseDeveloperController
 {
+    private static function workspace(
+        array $data = []
+    ): void {
+
+        $context = [
+
+            "board" =>
+                trim((string) Request::query(
+                    "board",
+                    ""
+                )),
+
+            "subject" =>
+                trim((string) Request::query(
+                    "subject",
+                    ""
+                )),
+
+            "domain" =>
+                trim((string) Request::query(
+                    "domain",
+                    ""
+                )),
+
+            "topic" =>
+                trim((string) Request::query(
+                    "topic",
+                    ""
+                )),
+
+            "concept" =>
+                trim((string) Request::query(
+                    "concept",
+                    ""
+                ))
+
+        ];
+
+        $context = array_filter(
+
+            $context,
+
+            static fn(
+                string $value
+            ): bool =>
+                $value !== ""
+
+        );
+
+        self::renderDeveloper(
+
+            "developer/question-workspace",
+
+            array_merge(
+
+                $data,
+
+                QuestionViewService::taxonomy(
+                    $context
+                ),
+
+                [
+
+                    "context" =>
+                        $context
+
+                ]
+
+            )
+
+        );
+
+    }
+
     public static function index(): void
     {
         $search =
@@ -65,43 +139,35 @@ class QuestionEditorController extends BaseDeveloperController
 
     public static function create(): void
     {
-        self::renderDeveloper(
-            "developer/question-create",
-            array_merge(
-                [
-                    "pageTitle" => "Create Question"
-                ],
-                QuestionViewService::taxonomy()
-            )
-        );
+        self::workspace([
+            "pageTitle" => "Create Question",
+            "contentMode" => "create"
+        ]);
     }
 
     public static function edit(): void
     {
         $question =
             QuestionRepository::find(
-                (int) Request::query(
+                (string) Request::query(
                     "id",
-                    0
+                    ""
                 )
             );
 
         if (!$question) {
+
             Response::redirect(
                 "/question-editor"
             );
+
         }
 
-        self::renderDeveloper(
-            "developer/question-edit",
-            array_merge(
-                [
-                    "pageTitle" => "Edit Question",
-                    "question" => $question
-                ],
-                QuestionViewService::taxonomy()
-            )
-        );
+        self::workspace([
+            "pageTitle" => "Edit Question",
+            "contentMode" => "edit",
+            "question" => $question
+        ]);
     }
 
     public static function save(): void
@@ -119,20 +185,16 @@ class QuestionEditorController extends BaseDeveloperController
 
         if (!empty($check["errors"])) {
 
-            self::renderDeveloper(
-                "developer/question-create",
-                array_merge(
-                    [
-                        "pageTitle" => "Create Question",
-                        "question" => $question,
-                        "errors" => $check["errors"],
-                        "duplicates" => $check["duplicates"]
-                    ],
-                    QuestionViewService::taxonomy()
-                )
-            );
+            self::workspace([
+                "pageTitle" => "Create Question",
+                "contentMode" => "create",
+                "question" => $question,
+                "errors" => $check["errors"],
+                "duplicates" => $check["duplicates"]
+            ]);
 
             return;
+
         }
 
         QuestionService::save(
@@ -165,20 +227,16 @@ class QuestionEditorController extends BaseDeveloperController
 
         if (!empty($check["errors"])) {
 
-            self::renderDeveloper(
-                "developer/question-edit",
-                array_merge(
-                    [
-                        "pageTitle" => "Edit Question",
-                        "question" => $question,
-                        "errors" => $check["errors"],
-                        "duplicates" => $check["duplicates"]
-                    ],
-                    QuestionViewService::taxonomy()
-                )
-            );
+            self::workspace([
+                "pageTitle" => "Edit Question",
+                "contentMode" => "edit",
+                "question" => $question,
+                "errors" => $check["errors"],
+                "duplicates" => $check["duplicates"]
+            ]);
 
             return;
+
         }
 
         QuestionService::update(
@@ -194,9 +252,9 @@ class QuestionEditorController extends BaseDeveloperController
     public static function archive(): void
     {
         QuestionRepository::archive(
-            (int) Request::query(
+            (string) Request::query(
                 "id",
-                0
+                ""
             )
         );
 
@@ -208,9 +266,9 @@ class QuestionEditorController extends BaseDeveloperController
     public static function restore(): void
     {
         QuestionRepository::restore(
-            (int) Request::query(
+            (string) Request::query(
                 "id",
-                0
+                ""
             )
         );
 

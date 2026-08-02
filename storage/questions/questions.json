@@ -1,138 +1,53 @@
 [
     {
-        "id": "eng-gram-001-001-0001",
-        "code": "Q-000001",
-        "slug": "identify-the-noun",
-
-        "display": {
-            "title": "Identify the Noun",
-            "short_title": "Identify Noun"
-        },
+        "id": "eng-gram-pos-noun-0001",
+        "code": "Q000001",
 
         "taxonomy": {
-            "board_ids": [
-                "let"
-            ],
+            "board_id": "let",
             "subject_id": "english",
             "domain_id": "grammar",
             "topic_id": "parts-of-speech",
             "concept_id": "noun"
         },
 
-        "content": {
-            "question": "Which word is the noun in the sentence 'Maria bought a book yesterday'?",
-            "choices": [
-                {
-                    "id": "A",
-                    "text": "bought"
-                },
-                {
-                    "id": "B",
-                    "text": "Maria"
-                },
-                {
-                    "id": "C",
-                    "text": "yesterday"
-                },
-                {
-                    "id": "D",
-                    "text": "the"
-                }
-            ],
-            "correct_answer": "B",
-            "explanation": "Maria is the noun because it names a person.",
-            "hint": "",
-            "solution_steps": [],
-            "references": []
-        },
+        "type": "multiple_choice",
 
-        "assessment": {
-            "difficulty": "easy",
-            "cognitive_level": "remember",
-            "question_type": "multiple_choice",
-            "estimated_seconds": 30,
-            "points": 1,
-            "negative_points": 0,
-            "shuffle_choices": true,
-            "allow_partial_credit": false
-        },
+        "difficulty": "easy",
 
-        "learning": {
-            "learning_objectives": [],
-            "outcomes": [],
-            "keywords": [
-                "noun",
-                "person"
-            ],
-            "common_mistakes": [],
-            "study_tips": [],
-            "prerequisites": [],
-            "mastery_threshold": 90
-        },
+        "question": "Which word is the noun in the sentence 'Maria bought a book yesterday'?",
 
-        "quality": {
-            "status": "approved",
-            "review_status": "reviewed",
-            "duplicate_status": "unique",
-            "validation_score": 100,
-            "quality_score": 100,
-            "review_notes": []
-        },
+        "options": [
+            {
+                "id": "option-1",
+                "text": "bought",
+                "correct": false
+            },
+            {
+                "id": "option-2",
+                "text": "Maria",
+                "correct": true
+            },
+            {
+                "id": "option-3",
+                "text": "yesterday",
+                "correct": false
+            },
+            {
+                "id": "option-4",
+                "text": "the",
+                "correct": false
+            }
+        ],
 
-        "statistics": {
-            "times_answered": 0,
-            "times_correct": 0,
-            "times_incorrect": 0,
-            "correct_rate": 0,
-            "average_seconds": 0,
-            "difficulty_index": null,
-            "discrimination_index": null,
-            "last_answered_at": null
-        },
+        "explanation": "Maria is a noun because it names a person.",
 
-        "media": {
-            "images": [],
-            "audio": [],
-            "videos": [],
-            "attachments": []
-        },
+        "hint": "",
 
-        "blueprints": {
-            "included_in": []
-        },
+        "tags": [],
 
-        "ai": {
-            "generated": false,
-            "generator": null,
-            "generator_version": null,
-            "verified": false,
-            "last_reviewed_prompt": null
-        },
+        "source": "",
 
-        "cache": {},
-
-        "metadata": {
-            "tags": [],
-            "aliases": [],
-            "notes": [],
-            "custom": {}
-        },
-
-        "audit": {
-            "created_at": "",
-            "updated_at": "",
-            "archived_at": null,
-            "created_by": "system",
-            "updated_by": "system",
-            "revision": 1
-        },
-
-        "lifecycle": {
-            "status": "active",
-            "visibility": "public",
-            "version": "1.0.0"
-        },
-
-        "sort_order": 1
+        "status": "approved"
     }
 ]

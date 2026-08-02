@@ -16,29 +16,72 @@ class QuestionRepository extends BaseRepository
         parent::__construct($storage);
     }
 
-    public function bySubject(
-        string $subject
+    public function byBoard(
+        string $boardId
     ): array {
+
         return $this->where([
-            'subject' => $subject,
+            'taxonomy.board_id' => $boardId,
         ]);
+
+    }
+
+    public function bySubject(
+        string $subjectId
+    ): array {
+
+        return $this->where([
+            'taxonomy.subject_id' => $subjectId,
+        ]);
+
+    }
+
+    public function byDomain(
+        string $domainId
+    ): array {
+
+        return $this->where([
+            'taxonomy.domain_id' => $domainId,
+        ]);
+
     }
 
     public function byTopic(
-        string $topic
+        string $topicId
     ): array {
+
         return $this->where([
-            'topic' => $topic,
+            'taxonomy.topic_id' => $topicId,
         ]);
+
     }
 
-    public function bySubjectAndTopic(
-        string $subject,
-        string $topic
+    public function byConcept(
+        string $conceptId
     ): array {
+
         return $this->where([
-            'subject' => $subject,
-            'topic' => $topic,
+            'taxonomy.concept_id' => $conceptId,
         ]);
+
+    }
+
+    public function byDifficulty(
+        string $difficulty
+    ): array {
+
+        return $this->where([
+            'difficulty' => $difficulty,
+        ]);
+
+    }
+
+    public function approved(): array
+    {
+
+        return $this->where([
+            'status' => 'approved',
+        ]);
+
     }
 }

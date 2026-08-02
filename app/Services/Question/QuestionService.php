@@ -13,47 +13,170 @@ class QuestionService
         array $input
     ): array {
 
-        $formData = [
+        return [
 
-            "subject" =>
-                trim($input["subject"] ?? ""),
+            "id" =>
+                (string) $id,
 
-            "domain" =>
-                trim($input["domain"] ?? ""),
+            "code" =>
+                sprintf(
+                    "Q%06d",
+                    $id
+                ),
 
-            "topic" =>
-                trim($input["topic"] ?? ""),
+            "taxonomy" =>
+                self::buildTaxonomy(
+                    $input
+                ),
 
-            "concept" =>
-                trim($input["concept"] ?? ""),
+            "type" =>
+                "multiple_choice",
 
             "difficulty" =>
-                trim($input["difficulty"] ?? ""),
+                trim(
+                    $input["difficulty"] ?? "easy"
+                ),
 
             "question" =>
-                trim($input["question"] ?? ""),
+                trim(
+                    $input["question"] ?? ""
+                ),
 
-            "choices" => [
-
-                trim($input["choice_a"] ?? ""),
-                trim($input["choice_b"] ?? ""),
-                trim($input["choice_c"] ?? ""),
-                trim($input["choice_d"] ?? "")
-
-            ],
-
-            "answer" =>
-                trim($input["answer"] ?? ""),
+            "options" =>
+                self::buildOptions(
+                    $input
+                ),
 
             "explanation" =>
-                trim($input["explanation"] ?? "")
+                trim(
+                    $input["explanation"] ?? ""
+                ),
+
+            "hint" =>
+                trim(
+                    $input["hint"] ?? ""
+                ),
+
+            "tags" => [],
+
+            "source" =>
+                trim(
+                    $input["source"] ?? ""
+                ),
+
+            "status" =>
+                "approved"
 
         ];
 
-        return QuestionMetadataService::build(
-            $id,
-            $formData
-        );
+    }
+
+    private static function buildTaxonomy(
+        array $input
+    ): array {
+
+        return [
+
+            "board_id" =>
+                trim(
+                    $input["board"] ?? ""
+                ),
+
+            "subject_id" =>
+                trim(
+                    $input["subject"] ?? ""
+                ),
+
+            "domain_id" =>
+                trim(
+                    $input["domain"] ?? ""
+                ),
+
+            "topic_id" =>
+                trim(
+                    $input["topic"] ?? ""
+                ),
+
+            "concept_id" =>
+                trim(
+                    $input["concept"] ?? ""
+                )
+
+        ];
+
+    }
+
+    private static function buildOptions(
+        array $input
+    ): array {
+
+        $correct =
+            trim(
+                $input["correct_option"] ?? ""
+            );
+
+        return [
+
+            [
+
+                "id" =>
+                    "option-1",
+
+                "text" =>
+                    trim(
+                        $input["option_1"] ?? ""
+                    ),
+
+                "correct" =>
+                    $correct === "option-1"
+
+            ],
+
+            [
+
+                "id" =>
+                    "option-2",
+
+                "text" =>
+                    trim(
+                        $input["option_2"] ?? ""
+                    ),
+
+                "correct" =>
+                    $correct === "option-2"
+
+            ],            [
+
+                "id" =>
+                    "option-3",
+
+                "text" =>
+                    trim(
+                        $input["option_3"] ?? ""
+                    ),
+
+                "correct" =>
+                    $correct === "option-3"
+
+            ],
+
+            [
+
+                "id" =>
+                    "option-4",
+
+                "text" =>
+                    trim(
+                        $input["option_4"] ?? ""
+                    ),
+
+                "correct" =>
+                    $correct === "option-4"
+
+            ]
+
+        ];
+
     }
 
     public static function validate(
@@ -63,6 +186,7 @@ class QuestionService
         return QuestionValidationService::validate(
             $question
         );
+
     }
 
     public static function findDuplicates(
@@ -72,6 +196,7 @@ class QuestionService
         return QuestionDuplicateService::find(
             $question
         );
+
     }
 
     public static function validateForSave(
@@ -91,6 +216,7 @@ class QuestionService
                 )
 
         ];
+
     }
 
     public static function save(
@@ -100,6 +226,7 @@ class QuestionService
         QuestionRepository::save(
             $question
         );
+
     }
 
     public static function update(
@@ -111,5 +238,6 @@ class QuestionService
             $id,
             $question
         );
+
     }
 }

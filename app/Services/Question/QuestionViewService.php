@@ -1,38 +1,50 @@
 <?php
 
+declare(strict_types=1);
+
 class QuestionViewService
 {
+    public static function taxonomy(
+        array $context = []
+    ): array {
 
-    public static function taxonomy(): array
-    {
+        $subjects =
+            TaxonomyRepository::subjects();
+
+        $domains =
+            empty($context["subject"])
+                ? TaxonomyRepository::domains()
+                : TaxonomyRepository::domainsBySubject(
+                    $context["subject"]
+                );
+
+        $topics =
+            empty($context["domain"])
+                ? TaxonomyRepository::topics()
+                : TaxonomyRepository::topicsByDomain(
+                    $context["domain"]
+                );
+
+        $concepts =
+            empty($context["topic"])
+                ? TaxonomyRepository::concepts()
+                : TaxonomyRepository::conceptsByTopic(
+                    $context["topic"]
+                );
 
         return [
 
-            "subjects" =>
-                TaxonomyRepository::subjects(),
+            "context" => $context,
 
-            "domains" =>
-                TaxonomyRepository::domains(),
+            "subjects" => $subjects,
 
-            "topics" =>
-                TaxonomyRepository::topics(),
+            "domains" => $domains,
 
-            "concepts" =>
-                TaxonomyRepository::concepts()
+            "topics" => $topics,
+
+            "concepts" => $concepts
 
         ];
 
     }
-
-    public static function domainsForSubject(
-        string $subjectId
-    ): array
-    {
-
-        return TaxonomyRepository::domainsBySubject(
-            $subjectId
-        );
-
-    }
-
 }

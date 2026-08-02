@@ -1,12 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 class QuestionSearchRepository
 {
-
     public static function search(
         string $keyword
-    ): array
-    {
+    ): array {
 
         $keyword =
             strtolower(
@@ -14,9 +14,7 @@ class QuestionSearchRepository
             );
 
         if ($keyword === "") {
-
             return QuestionRepository::all();
-
         }
 
         return array_values(
@@ -25,7 +23,11 @@ class QuestionSearchRepository
 
                 QuestionRepository::all(),
 
-                function ($question) use ($keyword) {
+                static function (
+                    array $question
+                ) use (
+                    $keyword
+                ): bool {
 
                     return
 
@@ -40,7 +42,7 @@ class QuestionSearchRepository
 
                         str_contains(
                             strtolower(
-                                $question["topic"] ?? ""
+                                $question["taxonomy"]["subject_id"] ?? ""
                             ),
                             $keyword
                         )
@@ -49,7 +51,25 @@ class QuestionSearchRepository
 
                         str_contains(
                             strtolower(
-                                $question["concept"] ?? ""
+                                $question["taxonomy"]["domain_id"] ?? ""
+                            ),
+                            $keyword
+                        )
+
+                        ||
+
+                        str_contains(
+                            strtolower(
+                                $question["taxonomy"]["topic_id"] ?? ""
+                            ),
+                            $keyword
+                        )
+
+                        ||
+
+                        str_contains(
+                            strtolower(
+                                $question["taxonomy"]["concept_id"] ?? ""
                             ),
                             $keyword
                         );
@@ -62,14 +82,11 @@ class QuestionSearchRepository
 
     }
 
-
-
     public static function filter(
-        string $domain,
+        string $domainId,
         string $difficulty,
-        string $topic
-    ): array
-    {
+        string $topicId
+    ): array {
 
         return array_values(
 
@@ -77,24 +94,25 @@ class QuestionSearchRepository
 
                 QuestionRepository::all(),
 
-                function ($question)
-                use (
-                    $domain,
+                static function (
+                    array $question
+                ) use (
+                    $domainId,
                     $difficulty,
-                    $topic
-                ) {
+                    $topicId
+                ): bool {
 
                     if (
 
-                        $domain !== ""
+                        $domainId !== ""
 
                         &&
 
-                        ($question["domain"] ?? "")
+                        ($question["taxonomy"]["domain_id"] ?? "")
 
                         !==
 
-                        $domain
+                        $domainId
 
                     ) {
 
@@ -122,15 +140,15 @@ class QuestionSearchRepository
 
                     if (
 
-                        $topic !== ""
+                        $topicId !== ""
 
                         &&
 
-                        ($question["topic"] ?? "")
+                        ($question["taxonomy"]["topic_id"] ?? "")
 
                         !==
 
-                        $topic
+                        $topicId
 
                     ) {
 
@@ -148,12 +166,9 @@ class QuestionSearchRepository
 
     }
 
-
-
     public static function bySubject(
-        string $subject
-    ): array
-    {
+        string $subjectId
+    ): array {
 
         return array_values(
 
@@ -161,26 +176,25 @@ class QuestionSearchRepository
 
                 QuestionRepository::all(),
 
-                fn($question) =>
+                static fn(
+                    array $question
+                ) =>
 
-                    ($question["subject"] ?? "")
+                    ($question["taxonomy"]["subject_id"] ?? "")
 
                     ===
 
-                    $subject
+                    $subjectId
 
             )
 
         );
 
     }
-
-
 
     public static function byTopic(
-        string $topic
-    ): array
-    {
+        string $topicId
+    ): array {
 
         return array_values(
 
@@ -188,18 +202,19 @@ class QuestionSearchRepository
 
                 QuestionRepository::all(),
 
-                fn($question) =>
+                static fn(
+                    array $question
+                ) =>
 
-                    ($question["topic"] ?? "")
+                    ($question["taxonomy"]["topic_id"] ?? "")
 
                     ===
 
-                    $topic
+                    $topicId
 
             )
 
         );
 
     }
-
 }

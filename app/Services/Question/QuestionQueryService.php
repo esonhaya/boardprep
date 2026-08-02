@@ -1,49 +1,98 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Services\Question;
+
+use App\Repositories\QuestionRepository;
+use App\Repositories\QuestionSearchRepository;
+
 class QuestionQueryService
 {
-
     public static function getQuestions(
         array $filters
-    ): array
-    {
+    ): array {
 
         $questions =
             QuestionRepository::all();
 
+        $domainId =
+            trim(
+                $filters["domain"] ?? ""
+            );
+
+        $difficulty =
+            trim(
+                $filters["difficulty"] ?? ""
+            );
+
+        $topicId =
+            trim(
+                $filters["topic"] ?? ""
+            );
+
+        $search =
+            trim(
+                $filters["search"] ?? ""
+            );
 
         if (
-            ($filters["domain"] ?? "") !== ""
+
+            $domainId !== ""
+
             ||
-            ($filters["difficulty"] ?? "") !== ""
+
+            $difficulty !== ""
+
             ||
-            ($filters["topic"] ?? "") !== ""
+
+            $topicId !== ""
+
         ) {
 
             $questions =
                 QuestionSearchRepository::filter(
-                    $filters["domain"] ?? "",
-                    $filters["difficulty"] ?? "",
-                    $filters["topic"] ?? ""
+                    $domainId,
+                    $difficulty,
+                    $topicId
                 );
 
         }
 
-
         if (
-            ($filters["search"] ?? "") !== ""
+            $search !== ""
         ) {
 
             $questions =
-                QuestionSearchRepository::search(
-                    $filters["search"]
+                array_values(
+
+                    array_filter(
+
+                        $questions,
+
+                        static function (
+                            array $question
+                        ) use (
+                            $search
+                        ): bool {
+
+                            return in_array(
+                                $question,
+                                QuestionSearchRepository::search(
+                                    $search
+                                ),
+                                true
+                            );
+
+                        }
+
+                    )
+
                 );
 
         }
-
 
         return $questions;
 
     }
-
 }

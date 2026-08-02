@@ -1,15 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 class TaxonomyRepository
 {
     private const ROOT =
-        __DIR__ . "/../../storage/taxonomy/";
+        __DIR__ . "/../../storage/";
 
     private static function load(
-        string $file
+        string $collection
     ): array {
 
-        $path = self::ROOT . $file;
+        $path =
+            self::ROOT
+            . $collection
+            . "/"
+            . $collection
+            . ".json";
 
         if (!file_exists($path)) {
             return [];
@@ -23,23 +30,6 @@ class TaxonomyRepository
         return is_array($data)
             ? $data
             : [];
-    }
-
-    private static function save(
-        string $file,
-        array $data
-    ): void {
-
-        file_put_contents(
-
-            self::ROOT . $file,
-
-            json_encode(
-                array_values($data),
-                JSON_PRETTY_PRINT
-            )
-
-        );
 
     }
 
@@ -51,7 +41,9 @@ class TaxonomyRepository
 
     public static function subjects(): array
     {
-        return SubjectRepository::all();
+        return self::load(
+            "subjects"
+        );
     }
 
     /*
@@ -63,7 +55,7 @@ class TaxonomyRepository
     public static function domains(): array
     {
         return self::load(
-            "domains.json"
+            "domains"
         );
     }
 
@@ -77,8 +69,10 @@ class TaxonomyRepository
 
                 self::domains(),
 
-                fn(array $domain) =>
-                    ($domain["subject"] ?? "")
+                static fn(
+                    array $domain
+                ) =>
+                    ($domain["subject_id"] ?? "")
                     ===
                     $subjectId
 
@@ -97,7 +91,7 @@ class TaxonomyRepository
     public static function topics(): array
     {
         return self::load(
-            "topics.json"
+            "topics"
         );
     }
 
@@ -111,8 +105,10 @@ class TaxonomyRepository
 
                 self::topics(),
 
-                fn(array $topic) =>
-                    ($topic["domain"] ?? "")
+                static fn(
+                    array $topic
+                ) =>
+                    ($topic["domain_id"] ?? "")
                     ===
                     $domainId
 
@@ -131,7 +127,7 @@ class TaxonomyRepository
     public static function concepts(): array
     {
         return self::load(
-            "concepts.json"
+            "concepts"
         );
     }
 
@@ -145,8 +141,10 @@ class TaxonomyRepository
 
                 self::concepts(),
 
-                fn(array $concept) =>
-                    ($concept["topic"] ?? "")
+                static fn(
+                    array $concept
+                ) =>
+                    ($concept["topic_id"] ?? "")
                     ===
                     $topicId
 
@@ -155,44 +153,4 @@ class TaxonomyRepository
         );
 
     }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Save
-    |--------------------------------------------------------------------------
-    */
-
-    public static function saveDomains(
-        array $domains
-    ): void {
-
-        self::save(
-            "domains.json",
-            $domains
-        );
-
-    }
-
-    public static function saveTopics(
-        array $topics
-    ): void {
-
-        self::save(
-            "topics.json",
-            $topics
-        );
-
-    }
-
-    public static function saveConcepts(
-        array $concepts
-    ): void {
-
-        self::save(
-            "concepts.json",
-            $concepts
-        );
-
-    }
-
 }
