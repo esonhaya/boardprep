@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\Question;
 
+use App\Core\App;
 use App\Repositories\QuestionRepository;
 use App\Repositories\QuestionSearchRepository;
 
@@ -14,7 +15,11 @@ class QuestionQueryService
     ): array {
 
         $questions =
-            QuestionRepository::all();
+            App::container()
+                ->get(
+                    QuestionRepository::class
+                )
+                ->all();
 
         $domainId =
             trim(

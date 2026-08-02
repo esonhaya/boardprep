@@ -1,20 +1,33 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Services\Question;
+
+use App\Core\App;
+use App\Repositories\QuestionRepository;
+
 class QuestionStatisticsService
 {
-
     public static function recordAnswer(
-        int $questionId,
+        string $questionId,
         bool $correct
-    ): void
-    {
+    ): void {
+
+        $repository =
+            App::container()
+                ->get(
+                    QuestionRepository::class
+                );
 
         $question =
-            QuestionRepository::find(
+            $repository->find(
                 $questionId
             );
 
-        if (!$question) {
+        if (
+            $question === null
+        ) {
 
             return;
 
@@ -24,7 +37,9 @@ class QuestionStatisticsService
             ($question["timesUsed"] ?? 0)
             + 1;
 
-        if ($correct) {
+        if (
+            $correct
+        ) {
 
             $question["timesCorrect"] =
                 ($question["timesCorrect"] ?? 0)
@@ -41,14 +56,10 @@ class QuestionStatisticsService
         $question["updatedAt"] =
             date("c");
 
-        QuestionRepository::update(
-
+        $repository->update(
             $questionId,
-
             $question
-
         );
 
     }
-
 }

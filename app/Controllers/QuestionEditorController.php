@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Core\App;
 use App\Core\Request;
 use App\Core\Response;
 use App\Repositories\QuestionRepository;
@@ -11,6 +12,16 @@ use App\Services\Question\QuestionViewService;
 
 class QuestionEditorController extends BaseDeveloperController
 {
+    private static function repository(): QuestionRepository
+    {
+
+        return App::container()
+            ->get(
+                QuestionRepository::class
+            );
+
+    }
+
     private static function workspace(
         array $data = []
     ): void {
@@ -87,6 +98,7 @@ class QuestionEditorController extends BaseDeveloperController
 
     public static function index(): void
     {
+
         $search =
             trim((string) Request::query(
                 "search",
@@ -113,49 +125,92 @@ class QuestionEditorController extends BaseDeveloperController
 
         $questions =
             QuestionQueryService::getQuestions(
+
                 [
-                    "search" => $search,
-                    "domain" => $domain,
-                    "difficulty" => $difficulty,
-                    "topic" => $topic
+
+                    "search" =>
+                        $search,
+
+                    "domain" =>
+                        $domain,
+
+                    "difficulty" =>
+                        $difficulty,
+
+                    "topic" =>
+                        $topic
+
                 ]
+
             );
 
         self::renderDeveloper(
+
             "developer/question-editor",
+
             array_merge(
+
                 [
-                    "pageTitle" => "Question Editor",
-                    "questions" => $questions,
-                    "search" => $search,
-                    "domain" => $domain,
-                    "difficulty" => $difficulty,
-                    "topic" => $topic
+
+                    "pageTitle" =>
+                        "Question Editor",
+
+                    "questions" =>
+                        $questions,
+
+                    "search" =>
+                        $search,
+
+                    "domain" =>
+                        $domain,
+
+                    "difficulty" =>
+                        $difficulty,
+
+                    "topic" =>
+                        $topic
+
                 ],
+
                 QuestionViewService::taxonomy()
+
             )
+
         );
+
     }
 
     public static function create(): void
     {
+
         self::workspace([
-            "pageTitle" => "Create Question",
-            "contentMode" => "create"
+
+            "pageTitle" =>
+                "Create Question",
+
+            "contentMode" =>
+                "create"
+
         ]);
+
     }
 
     public static function edit(): void
     {
+
         $question =
-            QuestionRepository::find(
+            self::repository()->find(
+
                 (string) Request::query(
                     "id",
                     ""
                 )
+
             );
 
-        if (!$question) {
+        if (
+            $question === null
+        ) {
 
             Response::redirect(
                 "/question-editor"
@@ -164,14 +219,23 @@ class QuestionEditorController extends BaseDeveloperController
         }
 
         self::workspace([
-            "pageTitle" => "Edit Question",
-            "contentMode" => "edit",
-            "question" => $question
+
+            "pageTitle" =>
+                "Edit Question",
+
+            "contentMode" =>
+                "edit",
+
+            "question" =>
+                $question
+
         ]);
+
     }
 
     public static function save(): void
     {
+
         $question =
             QuestionService::build(
                 time(),
@@ -186,11 +250,22 @@ class QuestionEditorController extends BaseDeveloperController
         if (!empty($check["errors"])) {
 
             self::workspace([
-                "pageTitle" => "Create Question",
-                "contentMode" => "create",
-                "question" => $question,
-                "errors" => $check["errors"],
-                "duplicates" => $check["duplicates"]
+
+                "pageTitle" =>
+                    "Create Question",
+
+                "contentMode" =>
+                    "create",
+
+                "question" =>
+                    $question,
+
+                "errors" =>
+                    $check["errors"],
+
+                "duplicates" =>
+                    $check["duplicates"]
+
             ]);
 
             return;
@@ -204,10 +279,12 @@ class QuestionEditorController extends BaseDeveloperController
         Response::redirect(
             "/question-editor"
         );
+
     }
 
     public static function update(): void
     {
+
         $id =
             (int) Request::query(
                 "id",
@@ -228,11 +305,22 @@ class QuestionEditorController extends BaseDeveloperController
         if (!empty($check["errors"])) {
 
             self::workspace([
-                "pageTitle" => "Edit Question",
-                "contentMode" => "edit",
-                "question" => $question,
-                "errors" => $check["errors"],
-                "duplicates" => $check["duplicates"]
+
+                "pageTitle" =>
+                    "Edit Question",
+
+                "contentMode" =>
+                    "edit",
+
+                "question" =>
+                    $question,
+
+                "errors" =>
+                    $check["errors"],
+
+                "duplicates" =>
+                    $check["duplicates"]
+
             ]);
 
             return;
@@ -247,33 +335,71 @@ class QuestionEditorController extends BaseDeveloperController
         Response::redirect(
             "/question-editor"
         );
+
     }
 
     public static function archive(): void
     {
-        QuestionRepository::archive(
+
+        $id =
             (string) Request::query(
                 "id",
                 ""
-            )
-        );
+            );
+
+        $question =
+            self::repository()->find(
+                $id
+            );
+
+        if ($question !== null) {
+
+            $question["status"] =
+                "archived";
+
+            self::repository()->update(
+                $id,
+                $question
+            );
+
+        }
 
         Response::redirect(
             "/question-editor"
         );
+
     }
 
     public static function restore(): void
     {
-        QuestionRepository::restore(
+
+        $id =
             (string) Request::query(
                 "id",
                 ""
-            )
-        );
+            );
+
+        $question =
+            self::repository()->find(
+                $id
+            );
+
+        if ($question !== null) {
+
+            $question["status"] =
+                "approved";
+
+            self::repository()->update(
+                $id,
+                $question
+            );
+
+        }
 
         Response::redirect(
             "/question-editor"
         );
+
     }
+
 }

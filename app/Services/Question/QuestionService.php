@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\Question;
 
+use App\Core\App;
 use App\Repositories\QuestionRepository;
 
 class QuestionService
@@ -145,7 +146,9 @@ class QuestionService
                 "correct" =>
                     $correct === "option-2"
 
-            ],            [
+            ],
+
+            [
 
                 "id" =>
                     "option-3",
@@ -223,9 +226,13 @@ class QuestionService
         array $question
     ): void {
 
-        QuestionRepository::save(
-            $question
-        );
+        App::container()
+            ->get(
+                QuestionRepository::class
+            )
+            ->create(
+                $question
+            );
 
     }
 
@@ -234,10 +241,15 @@ class QuestionService
         array $question
     ): void {
 
-        QuestionRepository::update(
-            $id,
-            $question
-        );
+        App::container()
+            ->get(
+                QuestionRepository::class
+            )
+            ->update(
+                (string) $id,
+                $question
+            );
 
     }
+
 }
