@@ -1,0 +1,80 @@
+[
+    {
+        "id": "grammar",
+        "subject_id": "english",
+        "code": "GRAM",
+        "name": "Grammar",
+        "description": "Rules governing the structure and use of the English language.",
+
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "reading-comprehension",
+        "subject_id": "english",
+        "code": "READ",
+        "name": "Reading Comprehension",
+        "description": "Understanding, analyzing, and interpreting written texts.",
+
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 180,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "vocabulary",
+        "subject_id": "english",
+        "code": "VOCAB",
+        "name": "Vocabulary",
+        "description": "Word meanings, usage, and contextual understanding.",
+
+        "learning": {
+            "difficulty": "easy",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 75
+        }
+    },
+    {
+        "id": "literature",
+        "subject_id": "english",
+        "code": "LIT",
+        "name": "Literature",
+        "description": "Study and analysis of literary works.",
+
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 150,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "writing",
+        "subject_id": "english",
+        "code": "WRITE",
+        "name": "Writing",
+        "description": "Written communication, composition, and organization of ideas.",
+
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 150,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "oral-communication",
+        "subject_id": "english",
+        "code": "ORAL",
+        "name": "Oral Communication",
+        "description": "Speaking, listening, and effective verbal communication.",
+
+        "learning": {
+            "difficulty": "easy",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 75
+        }
+    }
+]

@@ -1,0 +1,60 @@
+[
+    {
+        "id": "parts-of-speech",
+        "domain_id": "grammar",
+        "code": "POS",
+        "name": "Parts of Speech",
+        "description": "Classification of words based on their grammatical function.",
+
+        "learning": {
+            "difficulty": "easy",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 85,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Identify the eight parts of speech.",
+                "Classify words according to their grammatical function."
+            ]
+        }
+    },
+    {
+        "id": "sentence-structure",
+        "domain_id": "grammar",
+        "code": "SENT",
+        "name": "Sentence Structure",
+        "description": "Construction and organization of grammatically correct sentences.",
+
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 85,
+            "prerequisite_ids": [
+                "parts-of-speech"
+            ],
+            "learning_objectives": [
+                "Construct grammatically correct sentences.",
+                "Identify sentence components."
+            ]
+        }
+    },
+    {
+        "id": "verb-tenses",
+        "domain_id": "grammar",
+        "code": "TENSE",
+        "name": "Verb Tenses",
+        "description": "Correct use of past, present, and future tenses.",
+
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 75,
+            "mastery_threshold": 85,
+            "prerequisite_ids": [
+                "parts-of-speech"
+            ],
+            "learning_objectives": [
+                "Use appropriate verb tenses.",
+                "Recognize tense consistency."
+            ]
+        }
+    }
+]

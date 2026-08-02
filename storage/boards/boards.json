@@ -1,12 +1,36 @@
 [
     {
         "id": "let",
+        "organization_id": "prc",
+
+        "code": "LET",
+
         "name": "Licensure Examination for Teachers",
-        "organization": "PRC"
+
+        "description": "",
+
+        "status": "active",
+
+        "settings": {
+            "passing_score": 75,
+            "default_mode": "practice"
+        }
     },
     {
         "id": "civil-service",
+        "organization_id": "csc",
+
+        "code": "CSE",
+
         "name": "Civil Service Examination",
-        "organization": "CSC"
+
+        "description": "",
+
+        "status": "active",
+
+        "settings": {
+            "passing_score": 80,
+            "default_mode": "practice"
+        }
     }
 ]

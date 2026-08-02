@@ -1,0 +1,40 @@
+[
+    {
+        "id": "noun",
+        "topic_id": "parts-of-speech",
+        "code": "NOUN",
+        "name": "Noun",
+        "description": "A word that names a person, place, thing, or idea.",
+
+        "learning": {
+            "difficulty": "easy",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 90,
+            "keywords": [
+                "person",
+                "place",
+                "thing",
+                "idea"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "pronoun",
+        "topic_id": "parts-of-speech",
+        "code": "PRON",
+        "name": "Pronoun",
+        "description": "A word that replaces a noun.",
+
+        "learning": {
+            "difficulty": "easy",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 90,
+            "keywords": [
+                "replacement",
+                "reference"
+            ],
+            "common_misconceptions": []
+        }
+    }
+]

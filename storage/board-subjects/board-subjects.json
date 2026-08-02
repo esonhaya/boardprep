@@ -1,0 +1,35 @@
+[
+    {
+        "id": "let-english",
+        "board_id": "let",
+        "subject_id": "english",
+
+        "settings": {
+            "weight": 40,
+            "required": true,
+            "sort_order": 1
+        }
+    },
+    {
+        "id": "let-general-education",
+        "board_id": "let",
+        "subject_id": "general-education",
+
+        "settings": {
+            "weight": 40,
+            "required": true,
+            "sort_order": 2
+        }
+    },
+    {
+        "id": "let-professional-education",
+        "board_id": "let",
+        "subject_id": "professional-education",
+
+        "settings": {
+            "weight": 20,
+            "required": true,
+            "sort_order": 3
+        }
+    }
+]

@@ -1,0 +1,138 @@
+[
+    {
+        "id": "eng-gram-001-001-0001",
+        "code": "Q-000001",
+        "slug": "identify-the-noun",
+
+        "display": {
+            "title": "Identify the Noun",
+            "short_title": "Identify Noun"
+        },
+
+        "taxonomy": {
+            "board_ids": [
+                "let"
+            ],
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "parts-of-speech",
+            "concept_id": "noun"
+        },
+
+        "content": {
+            "question": "Which word is the noun in the sentence 'Maria bought a book yesterday'?",
+            "choices": [
+                {
+                    "id": "A",
+                    "text": "bought"
+                },
+                {
+                    "id": "B",
+                    "text": "Maria"
+                },
+                {
+                    "id": "C",
+                    "text": "yesterday"
+                },
+                {
+                    "id": "D",
+                    "text": "the"
+                }
+            ],
+            "correct_answer": "B",
+            "explanation": "Maria is the noun because it names a person.",
+            "hint": "",
+            "solution_steps": [],
+            "references": []
+        },
+
+        "assessment": {
+            "difficulty": "easy",
+            "cognitive_level": "remember",
+            "question_type": "multiple_choice",
+            "estimated_seconds": 30,
+            "points": 1,
+            "negative_points": 0,
+            "shuffle_choices": true,
+            "allow_partial_credit": false
+        },
+
+        "learning": {
+            "learning_objectives": [],
+            "outcomes": [],
+            "keywords": [
+                "noun",
+                "person"
+            ],
+            "common_mistakes": [],
+            "study_tips": [],
+            "prerequisites": [],
+            "mastery_threshold": 90
+        },
+
+        "quality": {
+            "status": "approved",
+            "review_status": "reviewed",
+            "duplicate_status": "unique",
+            "validation_score": 100,
+            "quality_score": 100,
+            "review_notes": []
+        },
+
+        "statistics": {
+            "times_answered": 0,
+            "times_correct": 0,
+            "times_incorrect": 0,
+            "correct_rate": 0,
+            "average_seconds": 0,
+            "difficulty_index": null,
+            "discrimination_index": null,
+            "last_answered_at": null
+        },
+
+        "media": {
+            "images": [],
+            "audio": [],
+            "videos": [],
+            "attachments": []
+        },
+
+        "blueprints": {
+            "included_in": []
+        },
+
+        "ai": {
+            "generated": false,
+            "generator": null,
+            "generator_version": null,
+            "verified": false,
+            "last_reviewed_prompt": null
+        },
+
+        "cache": {},
+
+        "metadata": {
+            "tags": [],
+            "aliases": [],
+            "notes": [],
+            "custom": {}
+        },
+
+        "audit": {
+            "created_at": "",
+            "updated_at": "",
+            "archived_at": null,
+            "created_by": "system",
+            "updated_by": "system",
+            "revision": 1
+        },
+
+        "lifecycle": {
+            "status": "active",
+            "visibility": "public",
+            "version": "1.0.0"
+        },
+
+        "sort_order": 1
+    }
+]

@@ -1,10 +1,30 @@
 [
     {
         "id": "english",
-        "name": "English"
+        "code": "ENG",
+        "name": "English",
+        "description": "Language, grammar, reading comprehension, literature, writing, and communication.",
+        "category": "major"
+    },
+    {
+        "id": "general-education",
+        "code": "GENED",
+        "name": "General Education",
+        "description": "Core competencies common across licensure examinations.",
+        "category": "core"
+    },
+    {
+        "id": "professional-education",
+        "code": "PROFED",
+        "name": "Professional Education",
+        "description": "Teaching principles, curriculum, assessment, and educational foundations.",
+        "category": "major"
     },
     {
         "id": "mathematics",
-        "name": "Mathematics"
+        "code": "MATH",
+        "name": "Mathematics",
+        "description": "Arithmetic, algebra, geometry, statistics, and problem solving.",
+        "category": "major"
     }
 ]
