@@ -22,7 +22,7 @@
 <?php endif; ?>
 
 
-<form method="POST" action="?page=blueprints&action=save">
+<form method="POST" action="/blueprints/save">
 
 
 <label>

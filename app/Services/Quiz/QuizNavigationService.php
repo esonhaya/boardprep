@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Core\Response;
+use App\Core\View;
+
 class QuizNavigationService
 {
-
     public static function next(): void
     {
-
         $current =
             self::current() + 1;
 
@@ -24,11 +27,9 @@ class QuizNavigationService
             $current >= count($questions)
         ) {
 
-            header(
-                "Location: ?page=quiz&action=finish"
+            Response::redirect(
+                "/quiz/finish"
             );
-
-            exit;
 
         }
 
@@ -58,23 +59,19 @@ class QuizNavigationService
                     null
             ]
         );
-
     }
 
     public static function current(): int
     {
-
         return
             (int) SessionService::get(
                 "currentQuestion",
                 0
             );
-
     }
 
     public static function isLastQuestion(): bool
     {
-
         return
             self::current()
             >=
@@ -84,17 +81,13 @@ class QuizNavigationService
                     []
                 )
             ) - 1;
-
     }
 
     public static function reset(): void
     {
-
         SessionService::set(
             "currentQuestion",
             0
         );
-
     }
-
 }

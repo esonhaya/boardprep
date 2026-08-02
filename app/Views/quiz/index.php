@@ -97,7 +97,7 @@ Finish Quiz
 <?php else: ?>
 
 
-<form method="POST" action="?page=quiz&action=next">
+<form method="POST" action="/quiz&action=next">
 
 <button type="submit">
 Next Question
@@ -112,7 +112,7 @@ Next Question
 <?php else: ?>
 
 
-<form method="POST" action="?page=quiz&action=submit">
+<form method="POST" action="/quiz&action=submit">
 
 
 <?php foreach($question["choices"] as $key=>$choice): ?>

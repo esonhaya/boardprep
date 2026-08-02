@@ -18,7 +18,7 @@ Imported questions will be saved as draft.
 
 <form
 method="POST"
-action="?page=question-import&action=import"
+action="/question-import/import"
 enctype="multipart/form-data"
 >
 

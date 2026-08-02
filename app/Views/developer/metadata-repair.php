@@ -38,7 +38,7 @@ Questions needing repair:
 
 <p>
 
-<a href="?page=metadata-repair&action=repair">
+<a href="/metadata-repair&action=repair">
 
 <button>
 

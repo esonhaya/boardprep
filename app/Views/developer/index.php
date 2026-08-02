@@ -1,5 +1,5 @@
 <?php
 
-header("Location: ?page=developer");
+header("Location: /developer");
 
 exit;

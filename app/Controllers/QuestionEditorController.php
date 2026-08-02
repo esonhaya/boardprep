@@ -1,312 +1,221 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Core\Request;
+use App\Core\Response;
+use App\Repositories\QuestionRepository;
+use App\Services\Question\QuestionQueryService;
+use App\Services\Question\QuestionService;
+use App\Services\Question\QuestionViewService;
+
 class QuestionEditorController extends BaseDeveloperController
 {
-
     public static function index(): void
     {
-
         $search =
-            trim($_GET["search"] ?? "");
+            trim((string) Request::query(
+                "search",
+                ""
+            ));
 
         $domain =
-            trim($_GET["domain"] ?? "");
+            trim((string) Request::query(
+                "domain",
+                ""
+            ));
 
         $difficulty =
-            trim($_GET["difficulty"] ?? "");
+            trim((string) Request::query(
+                "difficulty",
+                ""
+            ));
 
         $topic =
-            trim($_GET["topic"] ?? "");
+            trim((string) Request::query(
+                "topic",
+                ""
+            ));
 
-$questions =
-    QuestionEditorQueryService::getQuestions(
-        [
-            "search" =>
-                $search,
-
-            "domain" =>
-                $domain,
-
-            "difficulty" =>
-                $difficulty,
-
-            "topic" =>
-                $topic
-        ]
-    );
+        $questions =
+            QuestionQueryService::getQuestions(
+                [
+                    "search" => $search,
+                    "domain" => $domain,
+                    "difficulty" => $difficulty,
+                    "topic" => $topic
+                ]
+            );
 
         self::renderDeveloper(
             "developer/question-editor",
-
             array_merge(
-
                 [
-
-                    "pageTitle" =>
-                        "Question Editor",
-
-                    "questions" =>
-                        $questions,
-
-                    "search" =>
-                        $search,
-
-                    "domain" =>
-                        $domain,
-
-                    "difficulty" =>
-                        $difficulty,
-
-                    "topic" =>
-                        $topic
-
+                    "pageTitle" => "Question Editor",
+                    "questions" => $questions,
+                    "search" => $search,
+                    "domain" => $domain,
+                    "difficulty" => $difficulty,
+                    "topic" => $topic
                 ],
-
-                QuestionEditorViewService::taxonomy()
-
+                QuestionViewService::taxonomy()
             )
-
         );
-
     }
-
-
 
     public static function create(): void
     {
-
         self::renderDeveloper(
             "developer/question-create",
-
             array_merge(
-
                 [
-
-                    "pageTitle" =>
-                        "Create Question"
-
+                    "pageTitle" => "Create Question"
                 ],
-
-                QuestionEditorViewService::taxonomy()
-
+                QuestionViewService::taxonomy()
             )
-
         );
-
     }
-
-
 
     public static function edit(): void
     {
-
         $question =
             QuestionRepository::find(
-                (int)($_GET["id"] ?? 0)
+                (int) Request::query(
+                    "id",
+                    0
+                )
             );
-
 
         if (!$question) {
-
-            header(
-                "Location: ?page=question-editor"
+            Response::redirect(
+                "/question-editor"
             );
-
-            exit;
-
         }
-
 
         self::renderDeveloper(
             "developer/question-edit",
-
             array_merge(
-
                 [
-
-                    "pageTitle" =>
-                        "Edit Question",
-
-                    "question" =>
-                        $question
-
+                    "pageTitle" => "Edit Question",
+                    "question" => $question
                 ],
-
-                QuestionEditorViewService::taxonomy()
-
+                QuestionViewService::taxonomy()
             )
-
         );
-
     }
-
-
 
     public static function save(): void
     {
-
         $question =
-            QuestionEditorService::buildQuestion(
-                time()
+            QuestionService::build(
+                time(),
+                Request::input()
             );
-
 
         $check =
-            QuestionEditorService::prepareSave(
+            QuestionService::validateForSave(
                 $question
             );
-
 
         if (!empty($check["errors"])) {
 
             self::renderDeveloper(
                 "developer/question-create",
-
                 array_merge(
-
                     [
-
-                        "pageTitle" =>
-                            "Create Question",
-
-                        "question" =>
-                            $question,
-
-                        "errors" =>
-                            $check["errors"],
-
-                        "duplicates" =>
-                            $check["duplicates"]
-
+                        "pageTitle" => "Create Question",
+                        "question" => $question,
+                        "errors" => $check["errors"],
+                        "duplicates" => $check["duplicates"]
                     ],
-
-                    QuestionEditorViewService::taxonomy()
-
+                    QuestionViewService::taxonomy()
                 )
-
             );
 
             return;
-
         }
 
-
-        QuestionEditorService::save(
+        QuestionService::save(
             $question
         );
 
-
-        header(
-            "Location: ?page=question-editor"
+        Response::redirect(
+            "/question-editor"
         );
-
-        exit;
-
     }
-
-
 
     public static function update(): void
     {
-
         $id =
-            (int)($_GET["id"] ?? 0);
-
+            (int) Request::query(
+                "id",
+                0
+            );
 
         $question =
-            QuestionEditorService::buildQuestion(
-                $id
+            QuestionService::build(
+                $id,
+                Request::input()
             );
-
 
         $check =
-            QuestionEditorService::prepareSave(
+            QuestionService::validateForSave(
                 $question
             );
-
 
         if (!empty($check["errors"])) {
 
             self::renderDeveloper(
                 "developer/question-edit",
-
                 array_merge(
-
                     [
-
-                        "pageTitle" =>
-                            "Edit Question",
-
-                        "question" =>
-                            $question,
-
-                        "errors" =>
-                            $check["errors"],
-
-                        "duplicates" =>
-                            $check["duplicates"]
-
+                        "pageTitle" => "Edit Question",
+                        "question" => $question,
+                        "errors" => $check["errors"],
+                        "duplicates" => $check["duplicates"]
                     ],
-
-                    QuestionEditorViewService::taxonomy()
-
+                    QuestionViewService::taxonomy()
                 )
-
             );
 
             return;
-
         }
 
-
-        QuestionEditorService::update(
+        QuestionService::update(
             $id,
             $question
         );
 
-
-        header(
-            "Location: ?page=question-editor"
+        Response::redirect(
+            "/question-editor"
         );
-
-        exit;
-
     }
-
-
 
     public static function archive(): void
     {
-
         QuestionRepository::archive(
-            (int)($_GET["id"] ?? 0)
+            (int) Request::query(
+                "id",
+                0
+            )
         );
 
-
-        header(
-            "Location: ?page=question-editor"
+        Response::redirect(
+            "/question-editor"
         );
-
-        exit;
-
     }
-
-
 
     public static function restore(): void
     {
-
         QuestionRepository::restore(
-            (int)($_GET["id"] ?? 0)
+            (int) Request::query(
+                "id",
+                0
+            )
         );
 
-
-        header(
-            "Location: ?page=question-editor"
+        Response::redirect(
+            "/question-editor"
         );
-
-        exit;
-
     }
-
 }

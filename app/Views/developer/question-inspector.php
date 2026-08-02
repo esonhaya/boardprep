@@ -86,7 +86,7 @@ Reports:
 
 <p>
 
-<a href="?page=question-editor">
+<a href="/question-editor">
 
 ← Back
 

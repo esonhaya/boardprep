@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Core\Request;
+use App\Core\Response;
+
 class QuizSubmissionService
 {
-
     public static function submit(): void
     {
-
         $questions =
             SessionService::get(
                 "questions",
@@ -20,16 +23,16 @@ class QuizSubmissionService
 
         if (!$question) {
 
-            header(
-                "Location: ?page=quiz&action=finish"
+            Response::redirect(
+                "/quiz/finish"
             );
-
-            exit;
 
         }
 
         $answer =
-            $_POST["answer"] ?? null;
+            Request::input(
+                "answer"
+            );
 
         if ($answer === null) {
 
@@ -127,7 +130,5 @@ class QuizSubmissionService
         }
 
         QuizNavigationService::next();
-
     }
-
 }

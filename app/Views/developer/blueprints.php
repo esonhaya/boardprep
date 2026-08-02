@@ -4,7 +4,7 @@
 
 <p>
 
-<a href="?page=blueprints&action=create">
+<a href="/blueprints/create">
 
 Create Blueprint
 

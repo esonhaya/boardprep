@@ -1,45 +1,52 @@
 <?php
 
-class QuestionEditorService
+declare(strict_types=1);
+
+namespace App\Services\Question;
+
+use App\Repositories\QuestionRepository;
+
+class QuestionService
 {
-    public static function buildQuestion(
-        int $id
+    public static function build(
+        int $id,
+        array $input
     ): array {
 
         $formData = [
 
             "subject" =>
-                trim($_POST["subject"] ?? ""),
+                trim($input["subject"] ?? ""),
 
             "domain" =>
-                trim($_POST["domain"] ?? ""),
+                trim($input["domain"] ?? ""),
 
             "topic" =>
-                trim($_POST["topic"] ?? ""),
+                trim($input["topic"] ?? ""),
 
             "concept" =>
-                trim($_POST["concept"] ?? ""),
+                trim($input["concept"] ?? ""),
 
             "difficulty" =>
-                trim($_POST["difficulty"] ?? ""),
+                trim($input["difficulty"] ?? ""),
 
             "question" =>
-                trim($_POST["question"] ?? ""),
+                trim($input["question"] ?? ""),
 
             "choices" => [
 
-                trim($_POST["choice_a"] ?? ""),
-                trim($_POST["choice_b"] ?? ""),
-                trim($_POST["choice_c"] ?? ""),
-                trim($_POST["choice_d"] ?? "")
+                trim($input["choice_a"] ?? ""),
+                trim($input["choice_b"] ?? ""),
+                trim($input["choice_c"] ?? ""),
+                trim($input["choice_d"] ?? "")
 
             ],
 
             "answer" =>
-                trim($_POST["answer"] ?? ""),
+                trim($input["answer"] ?? ""),
 
             "explanation" =>
-                trim($_POST["explanation"] ?? "")
+                trim($input["explanation"] ?? "")
 
         ];
 
@@ -47,7 +54,6 @@ class QuestionEditorService
             $id,
             $formData
         );
-
     }
 
     public static function validate(
@@ -57,20 +63,18 @@ class QuestionEditorService
         return QuestionValidationService::validate(
             $question
         );
-
     }
 
-    public static function duplicates(
+    public static function findDuplicates(
         array $question
     ): array {
 
         return QuestionDuplicateService::find(
             $question
         );
-
     }
 
-    public static function prepareSave(
+    public static function validateForSave(
         array $question
     ): array {
 
@@ -82,12 +86,11 @@ class QuestionEditorService
                 ),
 
             "duplicates" =>
-                self::duplicates(
+                self::findDuplicates(
                     $question
                 )
 
         ];
-
     }
 
     public static function save(
@@ -97,7 +100,6 @@ class QuestionEditorService
         QuestionRepository::save(
             $question
         );
-
     }
 
     public static function update(
@@ -109,7 +111,5 @@ class QuestionEditorService
             $id,
             $question
         );
-
     }
-
 }

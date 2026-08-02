@@ -50,7 +50,7 @@ foreach ($boards as $board) {
 
 <p>
 
-<a href="?page=board-create">
+<a href="/board/create">
 
 + Create Board
 
@@ -118,7 +118,7 @@ No boards have been created yet.
 
         <?php if (($board["status"] ?? "") === "active"): ?>
 
-            <a href="?page=board-archive&id=<?= urlencode($board["id"]) ?>">
+            <a href="/board/archive&id=<?= urlencode($board["id"]) ?>">
 
                 Archive
 
@@ -126,7 +126,7 @@ No boards have been created yet.
 
         <?php else: ?>
 
-            <a href="?page=board-activate&id=<?= urlencode($board["id"]) ?>">
+            <a href="/board/activate&id=<?= urlencode($board["id"]) ?>">
 
                 Activate
 

@@ -26,7 +26,7 @@ class QuestionImportController extends BaseDeveloperController
         ) {
 
             header(
-                "Location: ?page=question-import"
+                "Location: /question-import"
             );
 
             exit;

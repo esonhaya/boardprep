@@ -1,6 +1,6 @@
 <?php
 
-class QuestionEditorViewService
+class QuestionViewService
 {
 
     public static function taxonomy(): array

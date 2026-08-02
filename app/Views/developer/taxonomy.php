@@ -6,7 +6,7 @@
 The taxonomy is automatically generated from the question bank.
 </p>
 
-<form method="post" action="?page=taxonomy&action=rebuild">
+<form method="post" action="/taxonomy/rebuild">
 
     <button type="submit">
 

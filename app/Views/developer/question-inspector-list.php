@@ -50,7 +50,7 @@ Select a question to inspect.
 
 <td>
 
-<a href="?page=question-inspector&id=<?= $question["id"] ?>">
+<a href="/question-inspector&id=<?= $question["id"] ?>">
 
 Inspect
 
@@ -68,7 +68,7 @@ Inspect
 
 <p>
 
-<a href="?page=developer">
+<a href="/developer">
 
 ← Back to Developer Tools
 

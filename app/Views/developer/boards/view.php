@@ -118,7 +118,7 @@ Blueprint management will be available here.
 
 <p>
 
-<a href="?page=blueprints">
+<a href="/blueprints">
 
 Open Blueprint Manager
 
@@ -130,7 +130,7 @@ Open Blueprint Manager
 
 <p>
 
-<a href="?page=boards">
+<a href="/boards">
 
 ← Back to Board Manager
 

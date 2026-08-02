@@ -56,37 +56,37 @@ Welcome to the BoardPrep Developer CMS.
 <ul>
 
 <li>
-<a href="?page=question-quality">
+<a href="/question-quality">
 Repository Health Dashboard
 </a>
 </li>
 
 <li>
-<a href="?page=question-inspector">
+<a href="/question-inspector">
 Question Inspector
 </a>
 </li>
 
 <li>
-<a href="?page=metadata-repair">
+<a href="/metadata-repair">
 Metadata Repair
 </a>
 </li>
 
 <li>
-<a href="?page=coverage">
+<a href="/coverage">
 Coverage Matrix
 </a>
 </li>
 
 <li>
-<a href="?page=blueprint-health">
+<a href="/blueprint-health">
 Blueprint Health
 </a>
 </li>
 
 <li>
-<a href="?page=question-editor">
+<a href="/question-editor">
 Question Editor
 </a>
 </li>

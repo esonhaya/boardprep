@@ -50,7 +50,7 @@ class BlueprintController extends BaseDeveloperController
             return;
         }
 
-        header("Location: ?page=blueprints");
+        header("Location: /blueprints");
         exit;
     }
 }

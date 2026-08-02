@@ -35,7 +35,7 @@ Create a new board examination.
 <?php endif; ?>
 
 
-<form method="POST" action="?page=board-save">
+<form method="POST" action="/board/save">
 
     <label>
 

@@ -54,7 +54,7 @@
 
 <h2>Quick Navigation</h2>
 
-<a href="?page=profile">
+<a href="/profile">
 
 <button>
 
@@ -66,7 +66,7 @@
 
 <br><br>
 
-<a href="?page=quiz">
+<a href="/quiz">
 
 <button>
 

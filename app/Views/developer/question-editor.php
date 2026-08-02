@@ -241,7 +241,7 @@ Total Questions:
 
 <td>
 
-<a href="?page=question-inspector&id=<?= $question["id"] ?>">
+<a href="/question-inspector&id=<?= $question["id"] ?>">
 
 🔍 Inspect
 
@@ -249,7 +249,7 @@ Total Questions:
 
 |
 
-<a href="?page=question-editor&action=edit&id=<?= $question["id"] ?>">
+<a href="/question-editor/edit&id=<?= $question["id"] ?>">
 
 ✏ Edit
 
@@ -260,7 +260,7 @@ Total Questions:
 <?php if (($question["status"] ?? "active") === "active"): ?>
 
 <a
-href="?page=question-editor&action=archive&id=<?= $question["id"] ?>"
+href="/question-editor/archive&id=<?= $question["id"] ?>"
 onclick="return confirm('Archive this question?')"
 >
 
@@ -271,7 +271,7 @@ onclick="return confirm('Archive this question?')"
 <?php else: ?>
 
 <a
-href="?page=question-editor&action=restore&id=<?= $question["id"] ?>"
+href="/question-editor/restore&id=<?= $question["id"] ?>"
 onclick="return confirm('Restore this question?')"
 >
 
@@ -291,7 +291,7 @@ onclick="return confirm('Restore this question?')"
 
 <hr>
 
-<a href="?page=question-editor&action=create">
+<a href="/question-editor/create">
 
 <button type="button">
 

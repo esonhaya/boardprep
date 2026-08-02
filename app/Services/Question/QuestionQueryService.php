@@ -1,6 +1,6 @@
 <?php
 
-class QuestionEditorQueryService
+class QuestionQueryService
 {
 
     public static function getQuestions(

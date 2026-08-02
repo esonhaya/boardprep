@@ -9,13 +9,13 @@
 
         <h3>Dashboard</h3>
 
-        <a href="?page=developer">
+        <a href="/developer">
             Dashboard
         </a>
 
         <h3>Exam Management</h3>
 
-        <a href="?page=boards">
+        <a href="/boards">
             Boards
         </a>
 
@@ -51,15 +51,15 @@
             Question Bank
         </a>
 
-        <a href="?page=question-editor">
+        <a href="/question-editor">
             Add Question
         </a>
 
-        <a href="?page=question-import">
+        <a href="/question-import">
             Import
         </a>
 
-        <a href="?page=question-export">
+        <a href="/question-export">
             Export
         </a>
 
@@ -69,11 +69,11 @@
             Repository Health
         </a>
 
-        <a href="?page=question-inspector">
+        <a href="/question-inspector">
             Inspector
         </a>
 
-        <a href="?page=coverage">
+        <a href="/coverage">
             Coverage
         </a>
 
@@ -85,7 +85,7 @@
 
         <h3>System</h3>
 
-        <a href="?page=developer-tools">
+        <a href="/developer-tools">
             Developer Tools
         </a>
 

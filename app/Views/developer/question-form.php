@@ -81,7 +81,7 @@ Similarity:
 
 <form
 method="POST"
-action="?page=question-editor&action=<?= $isEdit
+action="/question-editor&action=<?= $isEdit
     ? "update&id=" . ($question["id"] ?? 0)
     : "save" ?>"
 >

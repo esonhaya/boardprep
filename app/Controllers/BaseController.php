@@ -4,50 +4,30 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Services\SessionService;
+use App\Core\Response;
 use App\Core\View;
 
-class BaseController
+abstract class BaseController
 {
-    protected static function render(
+    protected static function view(
         string $view,
         array $data = []
-    ): void
-    {
+    ): void {
+
         View::render(
             $view,
             $data
         );
+
     }
 
-    protected static function session(
-        string $key,
-        $default = null
-    )
-    {
-        return SessionService::get(
-            $key,
-            $default
-        );
-    }
+    protected static function redirect(
+        string $url
+    ): never {
 
-    protected static function setSession(
-        string $key,
-        $value
-    ): void
-    {
-        SessionService::set(
-            $key,
-            $value
+        Response::redirect(
+            $url
         );
-    }
 
-    protected static function removeSession(
-        string $key
-    ): void
-    {
-        SessionService::remove(
-            $key
-        );
     }
 }

@@ -2,7 +2,7 @@
 
 <div style="margin-top:20px;">
 
-<a href="?page=developer">
+<a href="/developer">
 
 ← Back to Developer Dashboard
 

@@ -6,101 +6,59 @@ namespace App\Core;
 
 class Response
 {
-    private int $status = 200;
+    public static function redirect(
+        string $location,
+        int $status = 302
+    ): never {
 
-    /**
-     * @var array<string, string>
-     */
-    private array $headers = [];
+        http_response_code(
+            $status
+        );
 
-    private string $content = '';
+        header(
+            "Location: {$location}"
+        );
 
-    public static function make(
-        string $content = '',
-        int $status = 200
-    ): self {
-        $response = new self();
+        exit;
 
-        $response->status = $status;
-        $response->content = $content;
-
-        return $response;
     }
 
     public static function json(
         array $data,
         int $status = 200
-    ): self {
-        return self::make(
-            json_encode(
-                $data,
-                JSON_UNESCAPED_UNICODE
-                | JSON_UNESCAPED_SLASHES
-                | JSON_PRETTY_PRINT
-            ) ?: '{}',
-            $status
-        )->header(
-            'Content-Type',
-            'application/json'
-        );
-    }
+    ): never {
 
-    public static function redirect(
-        string $location,
-        int $status = 302
-    ): self {
-        return self::make('', $status)
-            ->header(
-                'Location',
-                $location
-            );
-    }
-
-    public function header(
-        string $name,
-        string $value
-    ): self {
-        $this->headers[$name] = $value;
-
-        return $this;
-    }
-
-    public function status(
-        int $status
-    ): self {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    public function content(
-        string $content
-    ): self {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    public function send(): never
-    {
         http_response_code(
-            $this->status
+            $status
         );
 
-        foreach (
-            $this->headers as $name => $value
-        ) {
-            header(
-                sprintf(
-                    '%s: %s',
-                    $name,
-                    $value
-                )
-            );
-        }
+        header(
+            "Content-Type: application/json"
+        );
 
-        echo $this->content;
+        echo json_encode(
+            $data,
+            JSON_PRETTY_PRINT
+            | JSON_UNESCAPED_UNICODE
+            | JSON_UNESCAPED_SLASHES
+        );
 
         exit;
+
+    }
+
+    public static function text(
+        string $content,
+        int $status = 200
+    ): never {
+
+        http_response_code(
+            $status
+        );
+
+        echo $content;
+
+        exit;
+
     }
 }

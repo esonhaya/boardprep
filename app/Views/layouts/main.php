@@ -39,16 +39,16 @@
         <a href="/">
             Home
         </a>
-        <a href="?page=dashboard">
+        <a href="/dashboard">
             Dashboard
         </a>
-        <a href="?page=profile">
+        <a href="/profile">
             Profile
         </a>
-        <a href="?page=quiz">
+        <a href="/quiz">
             Quiz
         </a>
-        <a href="?page=developer">
+        <a href="/developer">
             Developer
         </a>
 

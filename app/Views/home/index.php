@@ -8,7 +8,7 @@ Prepare smarter for Philippine board examinations.
 
 <a href="?page=let">Start Learning</a>
 <p>
-    <a href="?page=dashboard">
+    <a href="/dashboard">
         📚 Learning Center
     </a>
 </p>

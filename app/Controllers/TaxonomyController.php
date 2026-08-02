@@ -38,7 +38,7 @@ class TaxonomyController extends BaseDeveloperController
         TaxonomyBuilderService::rebuild();
 
         header(
-            "Location: ?page=taxonomy"
+            "Location: /taxonomy"
         );
 
         exit;

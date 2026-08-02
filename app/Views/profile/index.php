@@ -66,7 +66,7 @@ Total Quizzes:
 
 <hr>
 
-<a href="?page=dashboard">
+<a href="/dashboard">
 
 <button>
 
@@ -77,7 +77,7 @@ Dashboard
 </a>
 
 
-<a href="?page=quiz">
+<a href="/quiz">
 
 <button>
 
