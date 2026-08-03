@@ -1,0 +1,20 @@
+#!/data/data/com.termux/files/usr/bin/sh
+
+echo "===== Foundation ====="
+tree app/Foundation 2>/dev/null
+
+echo
+echo "===== Builders ====="
+tree app/Builders 2>/dev/null
+
+echo
+echo "===== ViewModels ====="
+tree app/ViewModels 2>/dev/null
+
+echo
+echo "===== Components ====="
+tree app/Views/developer/components 2>/dev/null
+
+echo
+echo "===== Services ====="
+tree app/Services 2>/dev/null

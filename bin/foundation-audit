@@ -1,0 +1,16 @@
+#!/data/data/com.termux/files/usr/bin/sh
+
+echo "===== htmlspecialchars ====="
+grep -R "htmlspecialchars(" app --include="*.php"
+
+echo
+echo "===== array access ====="
+grep -R '\[".*"\] ??' app --include="*.php"
+
+echo
+echo "===== array_filter ====="
+grep -R "array_filter(" app --include="*.php"
+
+echo
+echo "===== count(array_filter ====="
+grep -R "count *(.*array_filter" app --include="*.php"
