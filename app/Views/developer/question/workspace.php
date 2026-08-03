@@ -93,7 +93,7 @@ Workspace
 
 require __DIR__
 
-    . "/partials/workspace-header.php";
+    . "/../workspace/partials/header.php";
 
 ?>
 
@@ -169,7 +169,7 @@ Quick Actions
 
 require __DIR__
 
-    . "/question-form.php";
+    . "/form.php";
 
 ?>
 

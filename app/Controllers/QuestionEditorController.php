@@ -73,7 +73,7 @@ class QuestionEditorController extends BaseDeveloperController
 
         self::renderDeveloper(
 
-            "developer/question-workspace",
+            "developer/question/workspace",
 
             array_merge(
 
@@ -146,7 +146,7 @@ class QuestionEditorController extends BaseDeveloperController
 
         self::renderDeveloper(
 
-            "developer/question-editor",
+            "developer/question/editor",
 
             array_merge(
 

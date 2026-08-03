@@ -45,7 +45,7 @@ $concepts =
 
 require __DIR__
 
-    . "/partials/question-duplicates.php";
+    . "/partials/duplicates.php";
 
 ?>
 
@@ -79,7 +79,7 @@ Taxonomy
 
 require __DIR__
 
-    . "/partials/question-taxonomy.php";
+    . "/partials/taxonomy.php";
 
 ?>
 
@@ -95,7 +95,7 @@ Question
 
 require __DIR__
 
-    . "/partials/question-question.php";
+    . "/partials/question.php";
 
 ?>
 
@@ -111,7 +111,7 @@ Answer Options
 
 require __DIR__
 
-    . "/partials/question-options.php";
+    . "/partials/options.php";
 ?>
 <h3>
 
@@ -125,7 +125,7 @@ Save
 
 require __DIR__
 
-    . "/partials/question-actions.php";
+    . "/partials/actions.php";
 
 ?>
 
