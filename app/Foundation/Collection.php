@@ -15,9 +15,7 @@ class Collection
         array $items
     ): self {
 
-        return new self(
-            $items
-        );
+        return new self($items);
 
     }
 
@@ -69,13 +67,21 @@ class Collection
 
         return $this->filter(
 
-            static fn(
-                array $item
-            ): bool =>
+            static fn(array $item): bool =>
+                ($item[$key] ?? null) === $value
 
-                ($item[$key] ?? null)
-                ===
-                $value
+        );
+
+    }
+
+    public function reject(
+        callable $callback
+    ): self {
+
+        return $this->filter(
+
+            static fn($item): bool =>
+                !$callback($item)
 
         );
 
@@ -89,12 +95,8 @@ class Collection
 
             array_map(
 
-                static fn(
-                    array $item
-                ) =>
-
-                    $item[$key]
-                    ?? null,
+                static fn(array $item) =>
+                    $item[$key] ?? null,
 
                 $this->items
 
@@ -108,57 +110,68 @@ class Collection
         string $key
     ): self {
 
-        $items =
-            $this->items;
+        $items = $this->items;
 
         usort(
 
             $items,
 
-            static function (
-                array $left,
-                array $right
-            ) use (
+            static fn(array $a, array $b): int =>
+
+                ($a[$key] ?? "")
+                <=>
+                ($b[$key] ?? "")
+
+        );
+
+        return new self($items);
+
+    }
+
+    public function each(
+        callable $callback
+    ): self {
+
+        foreach ($this->items as $key => $item) {
+
+            $callback(
+                $item,
                 $key
-            ): int {
+            );
 
-                return ($left[$key] ?? "")
-                    <=>
-                    ($right[$key] ?? "");
+        }
 
-            }
-
-        );
-
-        return new self(
-            $items
-        );
+        return $this;
 
     }
 
     public function first(): mixed
     {
 
-        return $this->items[0]
-            ?? null;
+        return $this->items[0] ?? null;
+
+    }
+
+    public function last(): mixed
+    {
+
+        return empty($this->items)
+            ? null
+            : $this->items[array_key_last($this->items)];
 
     }
 
     public function count(): int
     {
 
-        return count(
-            $this->items
-        );
+        return count($this->items);
 
     }
 
     public function isEmpty(): bool
     {
 
-        return empty(
-            $this->items
-        );
+        return empty($this->items);
 
     }
 
@@ -167,11 +180,16 @@ class Collection
 
         return new self(
 
-            array_values(
-                $this->items
-            )
+            array_values($this->items)
 
         );
+
+    }
+
+    public function toArray(): array
+    {
+
+        return $this->items;
 
     }
 }
