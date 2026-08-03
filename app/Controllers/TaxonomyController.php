@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 class TaxonomyController extends BaseDeveloperController
 {
-
     public static function index(): void
     {
 
@@ -30,12 +31,10 @@ class TaxonomyController extends BaseDeveloperController
 
     }
 
-
-
-    public static function rebuild(): void
+    public static function analyze(): void
     {
 
-        TaxonomyBuilderService::rebuild();
+        TaxonomyIntegrityService::analyze();
 
         header(
             "Location: /taxonomy"

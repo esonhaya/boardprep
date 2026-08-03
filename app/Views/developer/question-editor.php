@@ -1,8 +1,38 @@
-<h2>Question Editor</h2>
+<h2>
+
+Question Library
+
+</h2>
 
 <p>
 
-Shared Question Bank
+Browse, search and manage your question repository.
+
+</p>
+
+<hr>
+
+<h3>
+
+Repository Summary
+
+</h3>
+
+<p>
+
+<strong>
+
+Total Questions:
+
+</strong>
+
+<?= count($questions ?? []) ?>
+
+</p>
+
+<p>
+
+Use the filters below to quickly locate questions.
 
 </p>
 
@@ -16,27 +46,38 @@ name="page"
 value="question-editor"
 >
 
+<label>
+
+Search
+
+</label>
+
+<br>
 
 <input
 type="text"
 name="search"
-placeholder="Search question, topic, concept..."
+placeholder="Question, topic or concept..."
 value="<?= htmlspecialchars(
     $search ?? ""
 ) ?>"
+style="width:100%;max-width:500px;"
 >
-
 
 <br><br>
 
-
 <label>
 
-Domain:
+Domain
 
 </label>
 
-<select name="domain">
+<br>
+
+<select
+name="domain"
+style="width:100%;max-width:500px;"
+>
 
 <option value="">
 
@@ -44,7 +85,7 @@ All Domains
 
 </option>
 
-<?php foreach(($domains ?? []) as $item): ?>
+<?php foreach (($domains ?? []) as $item): ?>
 
 <option
 value="<?= htmlspecialchars($item) ?>"
@@ -61,17 +102,20 @@ value="<?= htmlspecialchars($item) ?>"
 
 </select>
 
-
 <br><br>
-
 
 <label>
 
-Difficulty:
+Difficulty
 
 </label>
 
-<select name="difficulty">
+<br>
+
+<select
+name="difficulty"
+style="width:100%;max-width:500px;"
+>
 
 <option value="">
 
@@ -114,17 +158,20 @@ Hard
 
 </select>
 
-
 <br><br>
-
 
 <label>
 
-Topic:
+Topic
 
 </label>
 
-<select name="topic">
+<br>
+
+<select
+name="topic"
+style="width:100%;max-width:500px;"
+>
 
 <option value="">
 
@@ -132,9 +179,9 @@ All Topics
 
 </option>
 
-<?php foreach(($topics ?? []) as $group): ?>
+<?php foreach (($topics ?? []) as $group): ?>
 
-<?php foreach(($group["topics"] ?? []) as $item): ?>
+<?php foreach (($group["topics"] ?? []) as $item): ?>
 
 <option
 value="<?= htmlspecialchars($item) ?>"
@@ -153,9 +200,7 @@ value="<?= htmlspecialchars($item) ?>"
 
 </select>
 
-
 <br><br>
-
 
 <button type="submit">
 
@@ -163,83 +208,103 @@ value="<?= htmlspecialchars($item) ?>"
 
 </button>
 
+<a href="/question-editor">
+
+<button
+type="button"
+>
+
+Reset
+
+</button>
+
+</a>
+
 </form>
 
-<br>
+<hr>
+
+<h3>
+
+Questions
+
+</h3>
+
+<?php if (empty($questions)): ?>
+
+<p>
+
+No questions matched your filters.
+
+</p>
+
+<?php else: ?>
+
+<?php foreach (($questions ?? []) as $question): ?>
+
+<div
+style="
+border:1px solid #d1d5db;
+padding:16px;
+margin-bottom:16px;
+border-radius:8px;
+background:white;
+"
+>
 
 <p>
 
 <strong>
 
-Total Questions:
+#<?= htmlspecialchars(
+    (string) ($question["id"] ?? "")
+) ?>
 
 </strong>
 
-<?= count($questions ?? []) ?>
-
 </p>
 
-<table border="1" cellpadding="6">
-
-<tr>
-
-<th>ID</th>
-
-<th>Topic</th>
-
-<th>Difficulty</th>
-
-<th>Question</th>
-
-<th>Status</th>
-
-<th>Actions</th>
-
-</tr>
-
-<?php foreach(($questions ?? []) as $question): ?>
-
-<tr>
-
-<td>
-
-<?= $question["id"] ?>
-
-</td>
-
-<td>
-
-<?= htmlspecialchars(
-    $question["topic"] ?? ""
-) ?>
-
-</td>
-
-<td>
-
-<?= htmlspecialchars(
-    $question["difficulty"] ?? ""
-) ?>
-
-</td>
-
-<td>
+<p>
 
 <?= htmlspecialchars(
     $question["question"] ?? ""
 ) ?>
 
-</td>
+</p>
 
-<td>
+<p>
+
+<strong>Difficulty:</strong>
 
 <?= htmlspecialchars(
-    $question["status"] ?? "active"
+    ucfirst(
+        $question["difficulty"] ?? "Unknown"
+    )
 ) ?>
 
-</td>
+<br>
 
-<td>
+<strong>Status:</strong>
+
+<?= htmlspecialchars(
+    ucfirst(
+        $question["status"] ?? "Approved"
+    )
+) ?>
+
+</p>
+
+<p>
+
+<strong>Topic:</strong>
+
+<?= htmlspecialchars(
+    $question["taxonomy"]["topic_id"] ?? ""
+) ?>
+
+</p>
+
+<p>
 
 <a href="/question-inspector&id=<?= $question["id"] ?>">
 
@@ -251,20 +316,23 @@ Total Questions:
 
 <a href="/question-editor/edit&id=<?= $question["id"] ?>">
 
-✏ Edit
+✏️ Edit
 
 </a>
 
 |
 
-<?php if (($question["status"] ?? "active") === "active"): ?>
+<?php if (
+    ($question["status"] ?? "approved")
+    === "approved"
+): ?>
 
 <a
 href="/question-editor/archive&id=<?= $question["id"] ?>"
 onclick="return confirm('Archive this question?')"
 >
 
-🗃 Archive
+🗃️ Archive
 
 </a>
 
@@ -275,28 +343,56 @@ href="/question-editor/restore&id=<?= $question["id"] ?>"
 onclick="return confirm('Restore this question?')"
 >
 
-♻ Restore
+♻️ Restore
 
 </a>
 
 <?php endif; ?>
 
-</td>
+</p>
 
-</tr>
+</div>
 
 <?php endforeach; ?>
 
-</table>
+<?php endif; ?>
 
 <hr>
 
-<a href="/question-editor/create">
+<p
+style="
+margin-top:24px;
+"
+>
 
-<button type="button">
+<a
+href="/question-editor/create"
+>
 
-➕ New Question
+<button
+type="button"
+style="
+width:100%;
+padding:14px;
+font-size:16px;
+"
+>
+
+➕ Create New Question
 
 </button>
 
 </a>
+
+</p>
+
+<hr>
+
+<p>
+
+<strong>Tip:</strong>
+
+Use <em>Save &amp; Next</em> when encoding multiple questions, or
+<em>Save Similar</em> when creating variations of an existing question.
+
+</p>

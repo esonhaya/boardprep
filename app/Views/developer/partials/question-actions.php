@@ -1,10 +1,19 @@
+<div
+style="
+display:flex;
+flex-direction:column;
+gap:12px;
+margin-top:20px;
+"
+>
+
 <button
 type="submit"
 >
 
 <?= $isEdit
-? "Update Question"
-: "Save Question" ?>
+    ? "💾 Update Question"
+    : "💾 Save Question" ?>
 
 </button>
 
@@ -14,7 +23,7 @@ name="action"
 value="save_next"
 >
 
-Save & Next
+⏭️ Save & Next
 
 </button>
 
@@ -24,6 +33,24 @@ name="action"
 value="save_similar"
 >
 
-Save & Create Similar
+📄 Save Similar
 
 </button>
+
+<a
+href="/question-editor"
+style="
+display:block;
+text-align:center;
+padding:10px;
+border:1px solid #ccc;
+text-decoration:none;
+border-radius:4px;
+"
+>
+
+❌ Cancel
+
+</a>
+
+</div>

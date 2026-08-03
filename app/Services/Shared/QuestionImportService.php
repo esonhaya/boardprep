@@ -1,27 +1,35 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Core\App;
+use App\Repositories\QuestionRepository;
+
 class QuestionImportService
 {
-
     public static function importJson(
         string $file
     ): array
     {
 
-        if (!file_exists($file)) {
+        if (
+            !file_exists($file)
+        ) {
 
             return [
 
                 "imported" => 0,
                 "rejected" => 0,
+
                 "errors" => [
+
                     "Import file not found."
+
                 ]
 
             ];
 
         }
-
 
         $questions =
             json_decode(
@@ -29,31 +37,43 @@ class QuestionImportService
                 true
             );
 
-
-        if (!is_array($questions)) {
+        if (
+            !is_array($questions)
+        ) {
 
             return [
 
                 "imported" => 0,
                 "rejected" => 0,
+
                 "errors" => [
+
                     "Invalid JSON format."
+
                 ]
 
             ];
 
         }
 
-
-        $existing =
-            QuestionRepository::all();
+        $repository =
+            App::container()
+                ->get(
+                    QuestionRepository::class
+                );
 
         $existingIds = [];
 
+        foreach (
+            $repository->all()
+            as $question
+        ) {
 
-        foreach ($existing as $question) {
-
-            if (isset($question["id"])) {
+            if (
+                isset(
+                    $question["id"]
+                )
+            ) {
 
                 $existingIds[
                     $question["id"]
@@ -63,23 +83,28 @@ class QuestionImportService
 
         }
 
-
-        $valid = [];
         $errors = [];
 
         $imported = 0;
+
         $rejected = 0;
 
-
-        foreach ($questions as $index => $question) {
+        foreach (
+            $questions as $index => $question
+        ) {
 
             $validation =
                 QuestionValidationService::validate(
                     $question
                 );
 
+            if (
 
-            if (!empty($validation)) {
+                !empty(
+                    $validation["errors"]
+                )
+
+            ) {
 
                 $rejected++;
 
@@ -89,7 +114,7 @@ class QuestionImportService
                         $index + 1,
 
                     "errors" =>
-                        $validation
+                        $validation["errors"]
 
                 ];
 
@@ -97,13 +122,21 @@ class QuestionImportService
 
             }
 
+            $id =
+                (string) (
+                    $question["id"] ?? ""
+                );
 
             if (
+
+                $id !== ""
+
+                &&
+
                 isset(
-                    $existingIds[
-                        $question["id"]
-                    ]
+                    $existingIds[$id]
                 )
+
             ) {
 
                 $rejected++;
@@ -111,10 +144,12 @@ class QuestionImportService
                 $errors[] = [
 
                     "question" =>
-                        $question["id"],
+                        $id,
 
                     "errors" => [
+
                         "Duplicate ID"
+
                     ]
 
                 ];
@@ -123,26 +158,21 @@ class QuestionImportService
 
             }
 
+            $repository->create(
+                $question
+            );
 
-            $existingIds[
-                $question["id"]
-            ] = true;
+            if (
+                $id !== ""
+            ) {
 
-            $valid[] =
-                $question;
+                $existingIds[$id] = true;
+
+            }
 
             $imported++;
 
         }
-
-
-if (!empty($valid)) {
-
-    QuestionRepository::saveMany(
-        $valid
-    );
-
-}
 
         return [
 

@@ -1,34 +1,58 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Core\App;
+use App\Repositories\QuestionRepository;
+
 class TaxonomyStatisticsService
 {
-
     public static function summary(): array
     {
 
+        $questions =
+            App::container()
+                ->get(
+                    QuestionRepository::class
+                )
+                ->all();
+
         $subjects = [];
+        $domains = [];
         $topics = [];
         $concepts = [];
         $difficulty = [];
 
-        foreach (QuestionRepository::all() as $question) {
+        foreach (
+            $questions as $question
+        ) {
+
+            $taxonomy =
+                $question["taxonomy"] ?? [];
 
             self::increment(
                 $subjects,
-                $question["subject"] ?? "Unknown"
+                $taxonomy["subject_id"] ?? "Unknown"
+            );
+
+            self::increment(
+                $domains,
+                $taxonomy["domain_id"] ?? "Unknown"
             );
 
             self::increment(
                 $topics,
-                $question["topic"] ?? "Unknown"
+                $taxonomy["topic_id"] ?? "Unknown"
             );
 
             $concept =
                 trim(
-                    $question["concept"] ?? ""
+                    $taxonomy["concept_id"] ?? ""
                 );
 
-            if ($concept !== "") {
+            if (
+                $concept !== ""
+            ) {
 
                 self::increment(
                     $concepts,
@@ -46,10 +70,20 @@ class TaxonomyStatisticsService
 
         return [
 
-            "subjects" => $subjects,
-            "topics" => $topics,
-            "concepts" => $concepts,
-            "difficulty" => $difficulty
+            "subjects" =>
+                $subjects,
+
+            "domains" =>
+                $domains,
+
+            "topics" =>
+                $topics,
+
+            "concepts" =>
+                $concepts,
+
+            "difficulty" =>
+                $difficulty
 
         ];
 
@@ -62,7 +96,8 @@ class TaxonomyStatisticsService
     {
 
         $collection[$key] =
-            ($collection[$key] ?? 0) + 1;
+            ($collection[$key] ?? 0)
+            + 1;
 
     }
 

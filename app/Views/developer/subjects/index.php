@@ -1,13 +1,47 @@
-<h1>
-Subjects
-</h1>
+<?php
 
-<p>
-Manage the global subject repository.
-Subjects can be attached to multiple boards.
-</p>
+use App\Services\Developer\DeveloperViewService;
+use App\Constants\Status;
 
-<hr>
+$pageHeader =
+    DeveloperViewService::pageHeader(
+
+        "Subjects",
+
+        "Manage the global subject repository."
+
+    );
+
+$summary =
+    DeveloperViewService::summary([
+
+        "Total Subjects" =>
+            count($subjects)
+
+    ]);
+
+$actionBar =
+    DeveloperViewService::actionBar([
+
+        [
+
+            "label" =>
+                "➕ Create Subject",
+
+            "href" =>
+                "/subject/create"
+
+        ]
+
+    ]);
+
+require __DIR__
+    . "/../components/page-header.php";
+
+require __DIR__
+    . "/../components/summary.php";
+
+?>
 
 <form method="GET">
 
@@ -21,132 +55,138 @@ value="subjects"
 type="search"
 name="search"
 placeholder="Search subjects..."
+value="<?= htmlspecialchars(
+    $search ?? ""
+) ?>"
 >
 
-<button type="submit">
-Search
-</button>
+<button>
 
-<a href="/subject/create">
-Create Subject
-</a>
+🔍 Search
+
+</button>
 
 </form>
 
-<br>
+<?php
 
-<p>
+require __DIR__
+    . "/../components/action-bar.php";
 
-<strong>
-<?= count($subjects) ?>
-</strong>
+if (empty($subjects)) {
 
-subjects
+    $emptyMessage =
+        "No subjects found.";
 
-</p>
+    require __DIR__
+        . "/../components/empty-state.php";
+
+    return;
+
+}
+
+foreach ($subjects as $subject) {
+
+    $entityCard =
+        DeveloperViewService::entity(
+
+            $subject,
+
+            [
+
+                "ID" =>
+                    $subject["id"],
+
+                "Status" =>
+                    ucfirst(
+                        $subject["status"]
+                    )
+
+            ],
+
+            [
+
+                [
+
+                    "label" =>
+                        "👁 View",
+
+                    "href" =>
+                        "/subject/view?id="
+                        .
+                        urlencode(
+                            $subject["id"]
+                        )
+
+                ],
+
+                [
+
+                    "label" =>
+                        "✏ Edit",
+
+                    "href" =>
+                        "/subject/edit?id="
+                        .
+                        urlencode(
+                            $subject["id"]
+                        )
+
+                ],
+
+                [
+
+                    "label" =>
+
+                        ($subject["status"] === Status::ACTIVE)
+
+                        ?
+
+                        "🗃 Archive"
+
+                        :
+
+                        "♻ Activate",
+
+                    "href" =>
+
+                        ($subject["status"] === Status::ACTIVE)
+
+                        ?
+
+                        "/subject/archive?id="
+
+                        :
+
+                        "/subject/activate?id="
+
+                    .
+
+                    urlencode(
+                        $subject["id"]
+                    )
+
+                ]
+
+            ]
+
+        );
+
+    require __DIR__
+        . "/../components/entity-card.php";
+
+}
+
+?>
 
 <hr>
 
-<?php if(empty($subjects)): ?>
-
 <p>
 
-No subjects found.
+<a href="/developer">
+
+🏠 Back to Dashboard
+
+</a>
 
 </p>
-
-<?php else: ?>
-
-<?php foreach($subjects as $subject): ?>
-
-<div
-style="
-border:1px solid #ddd;
-padding:16px;
-margin-bottom:12px;
-border-radius:8px;
-"
->
-
-<h3>
-
-<?= htmlspecialchars(
-    $subject["name"]
-) ?>
-
-</h3>
-
-<p>
-
-<?= htmlspecialchars(
-    $subject["description"] ?? ""
-) ?>
-
-</p>
-
-<p>
-
-Status:
-
-<strong>
-
-<?= htmlspecialchars(
-    ucfirst(
-        $subject["status"] ?? "active"
-    )
-) ?>
-
-</strong>
-
-</p>
-
-<a
-href="/subject/view?id=<?= urlencode($subject["id"]) ?>"
->
-
-Open
-
-</a>
-
-|
-
-<a
-href="/subject/edit?id=<?= urlencode($subject["id"]) ?>"
->
-
-Edit
-
-</a>
-
-|
-
-<?php if(
-($subject["status"] ?? "active")
-=== \App\Constants\Status::ACTIVE
-): ?>
-
-<a
-href="/subject/archive?id=<?= urlencode($subject["id"]) ?>"
->
-
-Archive
-
-</a>
-
-<?php else: ?>
-
-<a
-href="/subject/activate?id=<?= urlencode($subject["id"]) ?>"
->
-
-Activate
-
-</a>
-
-<?php endif; ?>
-
-</div>
-
-<?php endforeach; ?>
-
-<?php endif; ?>

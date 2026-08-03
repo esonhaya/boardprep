@@ -1,92 +1,143 @@
 <aside class="developer-sidebar">
 
     <div class="developer-brand">
-        <h2>BoardPrep CMS</h2>
-        <small>Developer Portal</small>
+
+        <h2>
+
+            BoardPrep
+
+        </h2>
+
+        <small>
+
+            Developer CMS
+
+        </small>
+
     </div>
 
     <nav>
 
-        <h3>Dashboard</h3>
+        <h3>
+
+            Dashboard
+
+        </h3>
 
         <a href="/developer">
-            Dashboard
+
+            🏠 Dashboard
+
         </a>
 
-        <h3>Exam Management</h3>
+        <hr>
 
-        <a href="/boards">
-            Boards
-        </a>
+        <h3>
 
-        <a href="?page=subjects">
-            Subjects
-        </a>
+            Question Management
 
-        <a href="?page=board-blueprints">
-            Board Blueprints
-        </a>
+        </h3>
 
-        <a href="?page=subject-blueprints">
-            Subject Blueprints
-        </a>
+        <a href="/question-workspace">
 
-        <h3>Taxonomy</h3>
+            📝 Question Workspace
 
-        <a href="?page=domains">
-            Domains
-        </a>
-
-        <a href="?page=topics">
-            Topics
-        </a>
-
-        <a href="?page=concepts">
-            Concepts
-        </a>
-
-        <h3>Questions</h3>
-
-        <a href="?page=question-bank">
-            Question Bank
         </a>
 
         <a href="/question-editor">
-            Add Question
-        </a>
 
-        <a href="/question-import">
-            Import
-        </a>
+            📚 Question Library
 
-        <a href="/question-export">
-            Export
-        </a>
-
-        <h3>Quality</h3>
-
-        <a href="?page=repository-health">
-            Repository Health
-        </a>
-
-        <a href="/question-inspector">
-            Inspector
         </a>
 
         <a href="/coverage">
-            Coverage
+
+            📊 Coverage Matrix
+
         </a>
 
-        <h3>Analytics</h3>
+        <a href="/question-quality">
 
-        <a href="?page=analytics">
-            Analytics
+            ✅ Question Quality
+
         </a>
 
-        <h3>System</h3>
+        <a href="/question-inspector">
 
-        <a href="/developer-tools">
+            🔍 Question Inspector
+
+        </a>
+
+        <hr>
+
+        <h3>
+
+            Repository
+
+        </h3>
+
+        <a href="/boards">
+
+            🏛 Boards
+
+        </a>
+
+        <a href="/subjects">
+
+            📖 Subjects
+
+        </a>
+
+        <a href="/taxonomy">
+
+            🧬 Taxonomy
+
+        </a>
+
+        <a href="/blueprints">
+
+            📋 Blueprints
+
+        </a>
+
+        <hr>
+
+        <h3>
+
+            Import / Export
+
+        </h3>
+
+        <a href="/question-import">
+
+            📥 Import Questions
+
+        </a>
+
+        <a href="/question-export">
+
+            📤 Export Questions
+
+        </a>
+
+        <hr>
+
+        <h3>
+
             Developer Tools
+
+        </h3>
+
+        <a href="/developer?action=analyze">
+
+            🩺 Analyze Repository
+
+        </a>
+
+        <a href="/developer?action=fix-all">
+
+            🛠 Fix Everything
+
         </a>
 
     </nav>

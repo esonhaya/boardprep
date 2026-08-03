@@ -1,26 +1,55 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Core\App;
+use App\Repositories\QuestionRepository;
+
 class QuestionQualitySummaryService
 {
-
     public static function summary(): array
     {
 
         $missingExplanation = 0;
-        $missingChoices = 0;
+        $missingOptions = 0;
 
-        foreach (QuestionRepository::all() as $question) {
+        $questions =
+            App::container()
+                ->get(
+                    QuestionRepository::class
+                )
+                ->all();
 
-            if (empty($question["explanation"])) {
+        foreach (
+            $questions as $question
+        ) {
+
+            if (
+                empty(
+                    $question["explanation"]
+                )
+            ) {
+
                 $missingExplanation++;
+
             }
 
             if (
-                empty($question["choices"])
+
+                empty(
+                    $question["options"]
+                )
+
                 ||
-                count($question["choices"]) < 4
+
+                count(
+                    $question["options"]
+                ) < 4
+
             ) {
-                $missingChoices++;
+
+                $missingOptions++;
+
             }
 
         }
@@ -30,11 +59,10 @@ class QuestionQualitySummaryService
             "missingExplanation" =>
                 $missingExplanation,
 
-            "missingChoices" =>
-                $missingChoices
+            "missingOptions" =>
+                $missingOptions
 
         ];
 
     }
-
 }

@@ -27,22 +27,16 @@ $topics =
 $concepts =
     $concepts ?? [];
 
-function fieldError(
-    array $errors,
-    string $field
-): string {
-
-    return $errors[$field] ?? "";
-
-}
-
 ?>
 
 <h2>
 
 <?= $isEdit
+
     ? "Edit Question"
+
     : "Create Question"
+
 ?>
 
 </h2>
@@ -50,41 +44,87 @@ function fieldError(
 <?php
 
 require __DIR__
+
     . "/partials/question-duplicates.php";
 
 ?>
 
 <form
+
 method="POST"
-action="/question-editor&action=<?= $isEdit
-    ? "update&id=" . ($question["id"] ?? "")
-    : "save" ?>"
+
+action="/question-editor&action=<?=
+
+$isEdit
+
+    ? "update&id="
+
+        . ($question["id"] ?? "")
+
+    : "save"
+
+?>"
+
 >
+
+<h3>
+
+Taxonomy
+
+</h3>
+
+<hr>
 
 <?php
 
 require __DIR__
+
     . "/partials/question-taxonomy.php";
 
 ?>
 
+<h3>
+
+Question
+
+</h3>
+
+<hr>
+
 <?php
 
 require __DIR__
+
     . "/partials/question-question.php";
 
 ?>
 
+<h3>
+
+Answer Options
+
+</h3>
+
+<hr>
+
 <?php
 
 require __DIR__
+
     . "/partials/question-options.php";
-
 ?>
+<h3>
+
+Save
+
+</h3>
+
+<hr>
 
 <?php
 
 require __DIR__
+
     . "/partials/question-actions.php";
 
 ?>
@@ -92,35 +132,55 @@ require __DIR__
 </form>
 
 <script
+
 id="taxonomy-domains"
+
 type="application/json"
+
 ><?= json_encode(
+
     $domains,
+
     JSON_UNESCAPED_UNICODE
     |
     JSON_UNESCAPED_SLASHES
+
 ) ?></script>
 
 <script
+
 id="taxonomy-topics"
+
 type="application/json"
+
 ><?= json_encode(
+
     $topics,
+
     JSON_UNESCAPED_UNICODE
     |
     JSON_UNESCAPED_SLASHES
+
 ) ?></script>
 
 <script
+
 id="taxonomy-concepts"
+
 type="application/json"
+
 ><?= json_encode(
+
     $concepts,
+
     JSON_UNESCAPED_UNICODE
     |
     JSON_UNESCAPED_SLASHES
+
 ) ?></script>
 
 <script
+
 src="assets/js/taxonomy-selector.js"
+
 ></script>

@@ -1,22 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Core\App;
+use App\Repositories\QuestionRepository;
+
 class QuestionAuditService
 {
-
     public static function summary(): array
     {
 
         $questions =
-            QuestionRepository::all();
-
-        $taxonomy =
-            TaxonomyStatisticsService::summary();
-
-        $quality =
-            QuestionQualitySummaryService::summary();
-
-        $coverage =
-            CoverageSummaryService::summary();
+            App::container()
+                ->get(
+                    QuestionRepository::class
+                )
+                ->all();
 
         return [
 
@@ -31,16 +30,15 @@ class QuestionAuditService
             ],
 
             "taxonomy" =>
-                $taxonomy,
+                TaxonomyStatisticsService::summary(),
 
             "quality" =>
-                $quality,
+                QuestionQualitySummaryService::summary(),
 
             "coverage" =>
-                $coverage
+                CoverageSummaryService::summary()
 
         ];
 
     }
-
 }

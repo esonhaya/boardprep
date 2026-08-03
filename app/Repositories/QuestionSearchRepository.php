@@ -2,8 +2,22 @@
 
 declare(strict_types=1);
 
+use App\Core\App;
+use App\Repositories\QuestionRepository;
+
 class QuestionSearchRepository
 {
+    private static function questions(): array
+    {
+
+        return App::container()
+            ->get(
+                QuestionRepository::class
+            )
+            ->all();
+
+    }
+
     public static function search(
         string $keyword
     ): array {
@@ -13,15 +27,19 @@ class QuestionSearchRepository
                 trim($keyword)
             );
 
-        if ($keyword === "") {
-            return QuestionRepository::all();
+        if (
+            $keyword === ""
+        ) {
+
+            return self::questions();
+
         }
 
         return array_values(
 
             array_filter(
 
-                QuestionRepository::all(),
+                self::questions(),
 
                 static function (
                     array $question
@@ -92,7 +110,7 @@ class QuestionSearchRepository
 
             array_filter(
 
-                QuestionRepository::all(),
+                self::questions(),
 
                 static function (
                     array $question
@@ -174,11 +192,11 @@ class QuestionSearchRepository
 
             array_filter(
 
-                QuestionRepository::all(),
+                self::questions(),
 
                 static fn(
                     array $question
-                ) =>
+                ): bool =>
 
                     ($question["taxonomy"]["subject_id"] ?? "")
 
@@ -200,11 +218,11 @@ class QuestionSearchRepository
 
             array_filter(
 
-                QuestionRepository::all(),
+                self::questions(),
 
                 static fn(
                     array $question
-                ) =>
+                ): bool =>
 
                     ($question["taxonomy"]["topic_id"] ?? "")
 
@@ -217,4 +235,5 @@ class QuestionSearchRepository
         );
 
     }
+
 }

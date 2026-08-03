@@ -1,33 +1,57 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Core\App;
+use App\Repositories\QuestionRepository;
+
 class DuplicateQuestionSummaryService
 {
-
     public static function summary(): array
     {
 
         $duplicates = [];
+
         $ids = [];
 
-        foreach (QuestionRepository::all() as $question) {
+        $questions =
+            App::container()
+                ->get(
+                    QuestionRepository::class
+                )
+                ->all();
 
-            if (!isset($question["id"])) {
+        foreach (
+            $questions as $question
+        ) {
+
+            $id =
+                $question["id"] ?? "";
+
+            if (
+                $id === ""
+            ) {
+
                 continue;
+
             }
 
-            if (isset($ids[$question["id"]])) {
+            if (
+                isset(
+                    $ids[$id]
+                )
+            ) {
 
                 $duplicates[] =
-                    $question["id"];
+                    $id;
 
             }
 
-            $ids[$question["id"]] = true;
+            $ids[$id] = true;
 
         }
 
         return $duplicates;
 
     }
-
 }

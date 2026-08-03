@@ -1,57 +1,126 @@
-<h2>Blueprint Manager</h2>
+<?php
+
+$pageTitle =
+    "Blueprint Manager";
+
+$pageDescription =
+    "Manage blueprint versions and exam templates.";
+
+$summary = [
+
+    "Total Blueprints" =>
+        count($blueprints ?? [])
+
+];
+
+$actions = [
+
+    [
+
+        "label" =>
+            "➕ Create Blueprint",
+
+        "href" =>
+            "/blueprints/create"
+
+    ]
+
+];
+
+require __DIR__
+    . "/components/page-header.php";
+
+require __DIR__
+    . "/components/summary.php";
+
+require __DIR__
+    . "/components/action-bar.php";
+
+if (empty($blueprints)) {
+
+    $emptyMessage =
+        "No blueprints found.";
+
+    require __DIR__
+        . "/components/empty-state.php";
+
+    return;
+
+}
+
+foreach (($blueprints ?? []) as $blueprint) {
+
+    $entity = [
+
+        "name" =>
+            $blueprint["name"] ?? "",
+
+        "description" =>
+            ""
+
+    ];
+
+    $entityDetails = [
+
+        "ID" =>
+            $blueprint["id"] ?? "",
+
+        "Board" =>
+            $blueprint["board"] ?? "",
+
+        "Subject" =>
+            $blueprint["subject"] ?? "",
+
+        "Version" =>
+            $blueprint["version"] ?? ""
+
+    ];
+
+    $entityActions = [
+
+        [
+
+            "label" =>
+                "👁️ View",
+
+            "href" =>
+                "/blueprint/view?id="
+                . urlencode(
+                    $blueprint["id"] ?? ""
+                )
+
+        ],
+
+        [
+
+            "label" =>
+                "✏️ Edit",
+
+            "href" =>
+                "/blueprint/edit?id="
+                . urlencode(
+                    $blueprint["id"] ?? ""
+                )
+
+        ]
+
+    ];
+
+    require __DIR__
+        . "/components/entity-card.php";
+
+}
+
+?>
 
 <hr>
 
 <p>
 
-<a href="/blueprints/create">
+<a href="/developer">
 
-Create Blueprint
+🏠 Back to Developer Dashboard
 
 </a>
 
 </p>
-
-<?php if (empty($blueprints)): ?>
-
-<p>No blueprints found.</p>
-
-<?php else: ?>
-
-<table border="1" cellpadding="8">
-
-<tr>
-
-<th>ID</th>
-
-<th>Name</th>
-
-<th>Board</th>
-
-<th>Subject</th>
-
-<th>Version</th>
-
-</tr>
-
-<?php foreach ($blueprints as $blueprint): ?>
-
-<tr>
-
-<td><?= htmlspecialchars($blueprint["id"] ?? "") ?></td>
-
-<td><?= htmlspecialchars($blueprint["name"] ?? "") ?></td>
-
-<td><?= htmlspecialchars($blueprint["board"] ?? "") ?></td>
-
-<td><?= htmlspecialchars($blueprint["subject"] ?? "") ?></td>
-
-<td><?= htmlspecialchars($blueprint["version"] ?? "") ?></td>
-
-</tr>
-
-<?php endforeach; ?>
-
-</table>
-
-<?php endif; ?>

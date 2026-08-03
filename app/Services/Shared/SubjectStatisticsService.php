@@ -1,24 +1,40 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Core\App;
+use App\Repositories\QuestionRepository;
+
 class SubjectStatisticsService
 {
-
     public static function summary(): array
     {
 
         $questions =
-            QuestionRepository::all();
+            App::container()
+                ->get(
+                    QuestionRepository::class
+                )
+                ->all();
 
         $subjects = [];
 
-        foreach ($questions as $question) {
+        foreach (
+            $questions as $question
+        ) {
 
             $subject =
                 trim(
-                    $question["subject"] ?? ""
+
+                    $question["taxonomy"]["subject_id"]
+
+                    ?? ""
+
                 );
 
-            if ($subject === "") {
+            if (
+                $subject === ""
+            ) {
 
                 $subject =
                     "Unknown";
@@ -26,14 +42,16 @@ class SubjectStatisticsService
             }
 
             $subjects[$subject] =
-                ($subjects[$subject] ?? 0) + 1;
+                ($subjects[$subject] ?? 0)
+                + 1;
 
         }
 
-        ksort($subjects);
+        ksort(
+            $subjects
+        );
 
         return $subjects;
 
     }
-
 }

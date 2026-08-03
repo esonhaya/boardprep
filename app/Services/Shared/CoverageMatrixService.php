@@ -1,40 +1,90 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Core\App;
+use App\Repositories\QuestionRepository;
+use App\Repositories\TaxonomyRepository;
+
 class CoverageMatrixService
 {
-
     public static function build(): array
     {
+
+        $questions =
+            App::container()
+                ->get(
+                    QuestionRepository::class
+                )
+                ->all();
 
         $domains =
             TaxonomyRepository::domains();
 
-        $questions =
-            QuestionRepository::all();
+        $topics =
+            TaxonomyRepository::topics();
 
         $matrix = [];
 
-        foreach ($domains as $domain) {
+        foreach (
+            $domains as $domain
+        ) {
 
-            $matrix[$domain] = [];
+            $domainId =
+                $domain["id"];
 
-            foreach (TaxonomyRepository::topics() as $topic) {
+            $matrix[$domainId] = [
+
+                "domain" =>
+                    $domain,
+
+                "topics" =>
+                    []
+
+            ];
+
+            foreach (
+                $topics as $topic
+            ) {
+
+                if (
+
+                    ($topic["domain"] ?? "")
+
+                    !==
+
+                    $domainId
+
+                ) {
+
+                    continue;
+
+                }
 
                 $count = 0;
 
-                foreach ($questions as $question) {
+                foreach (
+                    $questions as $question
+                ) {
+
+                    $taxonomy =
+                        $question["taxonomy"] ?? [];
 
                     if (
 
-                        ($question["domain"] ?? "")
+                        ($taxonomy["domain_id"] ?? "")
+
                         ===
-                        $domain
+
+                        $domainId
 
                         &&
 
-                        ($question["topic"] ?? "")
+                        ($taxonomy["topic_id"] ?? "")
+
                         ===
-                        $topic
+
+                        ($topic["id"] ?? "")
 
                     ) {
 
@@ -44,41 +94,48 @@ class CoverageMatrixService
 
                 }
 
-                if ($count > 0) {
+                $matrix[$domainId]["topics"][] = [
 
-                    $matrix[$domain][] = [
+                    "topic" =>
+                        $topic,
 
-                        "topic" => $topic,
+                    "count" =>
+                        $count,
 
-                        "count" => $count,
+                    "status" =>
+                        self::status(
+                            $count
+                        )
 
-                        "status" =>
-                            self::status($count)
-
-                    ];
-
-                }
+                ];
 
             }
 
-        }
+        }       
 
-        return $matrix;
+ return $matrix;
 
     }
-
 
     private static function status(
         int $count
     ): string
     {
 
-        if ($count == 0) {
+        if (
+            $count === 0
+        ) {
+
             return "missing";
+
         }
 
-        if ($count < 5) {
+        if (
+            $count < 5
+        ) {
+
             return "needs-work";
+
         }
 
         return "healthy";

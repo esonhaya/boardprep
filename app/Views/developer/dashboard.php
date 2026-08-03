@@ -2,49 +2,55 @@
 
 <p>
 
-Welcome to the BoardPrep Developer CMS.
+Welcome back.
+
+This is the operational center for your BoardPrep repository.
 
 </p>
 
 <hr>
 
-<h3>Repository Overview</h3>
+<h3>Repository Health</h3>
 
 <table border="1" cellpadding="8">
 
 <tr>
-<th>Metric</th>
-<th>Value</th>
+
+<th>Health Score</th>
+<th>Total Questions</th>
+<th>Total Issues</th>
+<th>Errors</th>
+<th>Warnings</th>
+<th>Info</th>
+
 </tr>
 
 <tr>
-<td>Health Score</td>
-<td><?= $healthScore ?>%</td>
-</tr>
 
-<tr>
-<td>Total Questions</td>
-<td><?= $statistics->totalQuestions ?></td>
-</tr>
+<td>
+<strong><?= $healthScore ?>%</strong>
+</td>
 
-<tr>
-<td>Total Issues</td>
-<td><?= $statistics->totalIssues ?></td>
-</tr>
+<td>
+<?= $statistics->totalQuestions ?>
+</td>
 
-<tr>
-<td>Errors</td>
-<td><?= $statistics->errors ?></td>
-</tr>
+<td>
+<?= $statistics->totalIssues ?>
+</td>
 
-<tr>
-<td>Warnings</td>
-<td><?= $statistics->warnings ?></td>
-</tr>
+<td>
+<?= $statistics->errors ?>
+</td>
 
-<tr>
-<td>Information</td>
-<td><?= $statistics->infos ?></td>
+<td>
+<?= $statistics->warnings ?>
+</td>
+
+<td>
+<?= $statistics->infos ?>
+</td>
+
 </tr>
 
 </table>
@@ -53,45 +59,156 @@ Welcome to the BoardPrep Developer CMS.
 
 <h3>Quick Actions</h3>
 
-<ul>
+<table border="1" cellpadding="8">
 
-<li>
-<a href="/question-quality">
-Repository Health Dashboard
+<tr>
+
+<td>
+
+<strong>Repository</strong>
+
+<br><br>
+
+<a href="/developer?action=analyze">
+
+Analyze Repository
+
 </a>
-</li>
 
-<li>
-<a href="/question-inspector">
-Question Inspector
+<br><br>
+
+<a href="/developer?action=fix-all">
+
+Fix Everything
+
 </a>
-</li>
 
-<li>
-<a href="/metadata-repair">
-Metadata Repair
+</td>
+
+<td>
+
+<strong>Questions</strong>
+
+<br><br>
+
+<a href="/question-workspace">
+
+Question Workspace
+
 </a>
-</li>
 
-<li>
-<a href="/coverage">
-Coverage Matrix
-</a>
-</li>
+<br><br>
 
-<li>
-<a href="/blueprint-health">
-Blueprint Health
-</a>
-</li>
-
-<li>
 <a href="/question-editor">
-Question Editor
-</a>
-</li>
 
-</ul>
+Question Library
+
+</a>
+
+</td>
+
+<td>
+
+<strong>Quality</strong>
+
+<br><br>
+
+<a href="/coverage">
+
+Coverage Matrix
+
+</a>
+
+<br><br>
+
+<a href="/question-quality">
+
+Question Quality
+
+</a>
+
+</td>
+
+<td>
+
+<strong>Management</strong>
+
+<br><br>
+
+<a href="/taxonomy">
+
+Taxonomy
+
+</a>
+
+<br><br>
+
+<a href="/blueprints">
+
+Blueprints
+
+</a>
+
+</td>
+
+</tr>
+
+</table>
+
+<hr>
+
+<h3>Repository Status</h3>
+
+<table border="1" cellpadding="8">
+
+<tr>
+
+<th>Component</th>
+<th>Status</th>
+
+</tr>
+
+<tr>
+
+<td>Questions</td>
+
+<td>
+
+<?= $statistics->errors === 0 ? "🟢 Healthy" : "🟡 Review Required" ?>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Repository Health</td>
+
+<td>
+
+<?= $healthScore >= 95 ? "🟢 Excellent" : ($healthScore >= 80 ? "🟡 Good" : "🔴 Needs Attention") ?>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Taxonomy</td>
+
+<td>🟢 Available</td>
+
+</tr>
+
+<tr>
+
+<td>Coverage</td>
+
+<td>🟢 Available</td>
+
+</tr>
+
+</table>
 
 <hr>
 
@@ -99,7 +216,11 @@ Question Editor
 
 <?php if (empty($recentIssues)): ?>
 
-<p>✅ No issues found.</p>
+<p>
+
+✅ No repository issues were detected.
+
+</p>
 
 <?php else: ?>
 
@@ -121,13 +242,37 @@ Question Editor
 
 <tr>
 
-<td>#<?= htmlspecialchars((string)$issue->entityId) ?></td>
+<td>
 
-<td><?= htmlspecialchars($issue->severity) ?></td>
+#<?= htmlspecialchars(
+    (string) $issue->entityId
+) ?>
 
-<td><?= htmlspecialchars($issue->code) ?></td>
+</td>
 
-<td><?= htmlspecialchars($issue->message) ?></td>
+<td>
+
+<?= htmlspecialchars(
+    $issue->severity
+) ?>
+
+</td>
+
+<td>
+
+<?= htmlspecialchars(
+    $issue->code
+) ?>
+
+</td>
+
+<td>
+
+<?= htmlspecialchars(
+    $issue->message
+) ?>
+
+</td>
 
 </tr>
 
@@ -136,3 +281,121 @@ Question Editor
 </table>
 
 <?php endif; ?>
+
+<hr>
+
+<h3>Developer Modules</h3>
+
+<table border="1" cellpadding="8" width="100%">
+
+<tr>
+
+<td>
+
+<strong>📝 Question Workspace</strong>
+
+<br><br>
+
+Create and edit questions using the new workspace.
+
+<br><br>
+
+<a href="/question-workspace">
+
+Open Workspace →
+
+</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<strong>📚 Question Library</strong>
+
+<br><br>
+
+Search, inspect and manage your repository.
+
+<br><br>
+
+<a href="/question-editor">
+
+Open Library →
+
+</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<strong>🧬 Repository Health</strong>
+
+<br><br>
+
+Analyze repository quality and repair detected issues.
+
+<br><br>
+
+<a href="/developer?action=analyze">
+
+Analyze →
+
+</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<strong>🏛 Taxonomy</strong>
+
+<br><br>
+
+Manage boards, subjects, domains, topics and concepts.
+
+<br><br>
+
+<a href="/taxonomy">
+
+Open Taxonomy →
+
+</a>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<strong>📋 Blueprints</strong>
+
+<br><br>
+
+Manage blueprint versions and exam templates.
+
+<br><br>
+
+<a href="/blueprints">
+
+Open Blueprints →
+
+</a>
+
+</td>
+
+</tr>
+
+</table>

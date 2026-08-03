@@ -1,24 +1,53 @@
 <?php
 
+declare(strict_types=1);
+
 class DeveloperToolsController extends BaseDeveloperController
 {
-
     public static function index(): void
     {
 
         $audit =
             QuestionAuditService::summary();
 
-        $taxonomyStatus = null;
+        $results = [];
 
-        if (
-            ($_GET["action"] ?? "")
-            ===
-            "rebuild-taxonomy"
+        $action =
+            trim(
+                $_GET["action"] ?? ""
+            );
+
+        switch (
+            $action
         ) {
 
-            $taxonomyStatus =
-                TaxonomyBuilderService::rebuild();
+            case "analyze":
+
+                $results["analysis"] =
+                    $audit;
+
+                break;
+
+            case "fix-all":
+
+                $results =
+                    self::fixEverything();
+
+                break;
+
+            case "repair-metadata":
+
+                $results["metadata"] =
+                    MetadataRepairService::repair();
+
+                break;
+
+            case "repair-taxonomy":
+
+                $results["taxonomy"] =
+                    TaxonomyIntegrityService::analyze();
+
+                break;
 
         }
 
@@ -31,14 +60,32 @@ class DeveloperToolsController extends BaseDeveloperController
                 "audit" =>
                     $audit,
 
-                "taxonomyStatus" =>
-                    $taxonomyStatus
+                "results" =>
+                    $results
 
             ],
 
             false
 
         );
+
+    }
+
+    private static function fixEverything(): array
+    {
+
+        return [
+
+            "metadata" =>
+                MetadataRepairService::repair(),
+
+            "taxonomy" =>
+                TaxonomyIntegrityService::analyze(),
+
+            "audit" =>
+                QuestionAuditService::summary()
+
+        ];
 
     }
 

@@ -1,7 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Core\App;
+use App\Repositories\QuestionRepository;
+
 class QuestionStatisticsRepository
 {
+    private static function repository(): QuestionRepository
+    {
+
+        return App::container()
+            ->get(
+                QuestionRepository::class
+            );
+
+    }
 
     public static function findDuplicates(
         array $question
@@ -18,14 +32,18 @@ class QuestionStatisticsRepository
             );
 
         foreach (
-            QuestionRepository::all()
+            self::repository()->all()
             as $existing
         ) {
 
             if (
-                ($existing["id"] ?? 0)
+
+                ($existing["id"] ?? "")
+
                 ===
-                ($question["id"] ?? 0)
+
+                ($question["id"] ?? "")
+
             ) {
 
                 continue;
@@ -45,7 +63,9 @@ class QuestionStatisticsRepository
                 $percent
             );
 
-            if ($percent >= 85) {
+            if (
+                $percent >= 85
+            ) {
 
                 $duplicates[] = [
 
@@ -53,7 +73,9 @@ class QuestionStatisticsRepository
                         $existing,
 
                     "score" =>
-                        round($percent)
+                        round(
+                            $percent
+                        )
 
                 ];
 
@@ -65,38 +87,17 @@ class QuestionStatisticsRepository
 
     }
 
-
-
     public static function updateStatistics(
         array $question
     ): void
     {
 
-        $questions =
-            QuestionRepository::all();
+        self::repository()->update(
 
-        foreach (
-            $questions
-            as &$current
-        ) {
+            (string) $question["id"],
 
-            if (
-                $current["id"]
-                ===
-                $question["id"]
-            ) {
+            $question
 
-                $current =
-                    $question;
-
-                break;
-
-            }
-
-        }
-
-        QuestionRepository::saveAll(
-            $questions
         );
 
     }

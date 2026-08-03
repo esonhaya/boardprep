@@ -1,8 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Core\App;
+use App\Repositories\QuestionRepository;
+
 class QuizStartService
 {
-
     public static function start(): void
     {
 
@@ -19,7 +23,11 @@ class QuizStartService
             isset($_GET["adaptive"]);
 
         $questions =
-            QuestionRepository::all();
+            App::container()
+                ->get(
+                    QuestionRepository::class
+                )
+                ->all();
 
         $questions =
             QuizGenerationService::generate(
