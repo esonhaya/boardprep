@@ -11,13 +11,13 @@
             "summary": "Current project size",
             "details": [
                 "Controllers : 26",
-                "Services    : 81",
+                "Services    : 106",
                 "Repositories: 12",
                 "Domains     : 7",
-                "Classes     : 231",
+                "Classes     : 255",
                 "Interfaces  : 3",
                 "Traits      : 0",
-                "PHP Files   : 294"
+                "PHP Files   : 319"
             ],
             "recommendations": [],
             "score": 100
@@ -36,23 +36,20 @@
                 " 16  BaseDeveloperController.php",
                 " 13  RepositoryHealthEngine.php",
                 " 12  View.php",
-                " 10  DoctorRunner.php"
+                " 11  QuestionSelectionService.php"
             ],
             "recommendations": [],
             "score": 100
         },
         {
             "title": "Regression Check",
-            "status": "WARNING",
-            "summary": "1 regression(s) detected.",
+            "status": "PASS",
+            "summary": "No regressions detected.",
             "details": [
-                "PHP files: 256 \u2192 294",
-                "Classes: 195 \u2192 231",
-                "Largest Service: 304 \u2192 308"
+                "PHP files: 256 \u2192 319",
+                "Classes: 195 \u2192 255"
             ],
-            "recommendations": [
-                "Avoid increasing file sizes beyond the established baseline."
-            ],
+            "recommendations": [],
             "score": 100
         },
         {
@@ -86,7 +83,7 @@
         {
             "title": "Technical Debt",
             "status": "PASS",
-            "summary": "Debt Score: 35",
+            "summary": "Debt Score: 30",
             "details": [],
             "recommendations": [],
             "score": 100
@@ -94,10 +91,12 @@
         {
             "title": "Dead Classes",
             "status": "WARNING",
-            "summary": "42 potentially unused classes.",
+            "summary": "45 potentially unused classes.",
             "details": [
                 "Arr (./app/Foundation/Arr.php)",
                 "AttemptService (./app/Services/AttemptService.php)",
+                "BlueprintDifficultyAllocator (./app/Services/Quiz/Blueprint/BlueprintDifficultyAllocator.php)",
+                "BoardExamAssemblyService (./app/Services/Quiz/Board/BoardExamAssemblyService.php)",
                 "Collection (./app/Foundation/Collection.php)",
                 "Config (./app/Core/Config.php)",
                 "CoverageMatrixService (./app/Services/Shared/CoverageMatrixService.php)",
@@ -108,9 +107,7 @@
                 "DoctorDashboardController (./app/Controllers/DoctorDashboardController.php)",
                 "DoctorHistoryService (./app/Services/Developer/DoctorHistoryService.php)",
                 "DoctorRunController (./app/Controllers/DoctorRunController.php)",
-                "EnglishController (./app/Controllers/EnglishController.php)",
-                "EntityCardBuilder (./app/Builders/Developer/EntityCardBuilder.php)",
-                "EntityFactory (./app/Support/EntityFactory.php)"
+                "EnglishController (./app/Controllers/EnglishController.php)"
             ],
             "recommendations": [],
             "score": 100
@@ -176,13 +173,13 @@
         {
             "title": "Largest Service",
             "status": "WARNING",
-            "summary": "./app/Services/Quiz/QuestionSelectionService.php (308 lines)",
+            "summary": "./app/Services/Shared/MetadataRepairService.php (304 lines)",
             "details": [
                 "Threshold : 250",
-                "Current   : 308"
+                "Current   : 304"
             ],
             "recommendations": [
-                "Split ./app/Services/Quiz/QuestionSelectionService.php into smaller collaborators."
+                "Split ./app/Services/Shared/MetadataRepairService.php into smaller collaborators."
             ],
             "score": 100
         },
@@ -200,8 +197,8 @@
         },
         {
             "title": "Risk Score",
-            "status": "PASS",
-            "summary": "Risk Score: 746",
+            "status": "WARNING",
+            "summary": "Risk Score: 816",
             "details": [],
             "recommendations": [],
             "score": 100
@@ -253,9 +250,9 @@
                 "19  DoctorHistoryService.php::compare()",
                 "19  BlueprintValidator.php::validate()",
                 "18  TokenScanner.php::methods()",
+                "17  BlueprintCoverageAnalyzer.php::analyze()",
                 "17  StatisticsBuilder.php::build()",
-                "17  CoverageMatrixService.php::build()",
-                "16  QuestionSearchRepository.php::search()"
+                "17  CoverageMatrixService.php::build()"
             ],
             "recommendations": [
                 "Reduce branching by extracting smaller methods."
@@ -273,10 +270,10 @@
                 " 58  ./app/Services/Shared/BlueprintValidator.php",
                 " 61  ./app/Services/Quality/Validators/MetadataValidator.php",
                 " 61  ./app/Services/RepositoryHealth/Engine/StatisticsBuilder.php",
+                " 62  ./app/Services/Quiz/Blueprint/BlueprintCoverageAnalyzer.php",
                 " 62  ./tools/Doctor/Scanners/TokenScanner.php",
                 " 63  ./app/Repositories/QuestionSearchRepository.php",
-                " 64  ./app/Storage/JsonStorage.php",
-                " 66  ./app/Services/Shared/QuestionImportService.php"
+                " 64  ./app/Storage/JsonStorage.php"
             ],
             "recommendations": [
                 "Improve maintainability by reducing file size, complexity and responsibilities."
@@ -424,5 +421,5 @@
             "score": 100
         }
     ],
-    "generatedAt": "2026-08-06T08:45:18+00:00"
+    "generatedAt": "2026-08-06T11:09:25+00:00"
 }

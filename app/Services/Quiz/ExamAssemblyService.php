@@ -14,6 +14,11 @@ final class ExamAssemblyService
                 $options
             );
 
+        $tracker =
+            new CoverageTracker();
+
+        $exam = [];
+
         $blueprints =
             BlueprintResolverService::resolve(
                 $specification
@@ -21,72 +26,41 @@ final class ExamAssemblyService
 
         $requests =
             BlueprintFulfillmentService::requests(
-                $blueprints["subject"] ?? [],
-                $specification->questionCount
-            );
 
-        $selected = [];
+                $blueprints["subject"] ?? [],
+
+                $specification->questionCount
+
+            );
 
         foreach ($requests as $request) {
 
-            $chunk =
-                SubjectAssemblyService::assemble(
-
+            $result =
+                QuestionSelectionService::fulfillRequest(
                     $questions,
-
-                    new QuizSpecification(
-
-                        board:
-                            $specification->board,
-
-                        subject:
-                            $specification->subject,
-
-                        domain:
-                            $request->domain,
-
-                        topics:
-                            $request->topic
-                                ? [$request->topic]
-                                : [],
-
-                        concepts:
-                            $request->concept
-                                ? [$request->concept]
-                                : [],
-
-                        difficulty:
-                            $request->difficulty,
-
-                        questionCount:
-                            $request->questionCount,
-
-                        mode:
-                            $specification->mode,
-
-                        adaptive:
-                            false,
-
-                        shuffle:
-                            false,
-
-                        blueprintVersion:
-                            $specification->blueprintVersion
-
-                    )
-
+                    $request
                 );
 
-            $selected = array_merge(
-                $selected,
+            $chunk =
+                ShortageRecoveryService::recover(
+                    $result,
+                    $questions
+                );
+
+            $tracker->add(
+                $chunk
+            );
+
+            $exam = array_merge(
+                $exam,
                 $chunk
             );
 
         }
 
-        return ShortageRecoveryService::recover(
-            $selected,
-            $questions,
+        return array_slice(
+            $exam,
+            0,
             $specification->questionCount
         );
 

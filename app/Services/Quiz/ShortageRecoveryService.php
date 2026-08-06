@@ -5,47 +5,60 @@ declare(strict_types=1);
 final class ShortageRecoveryService
 {
     public static function recover(
-        array $selected,
-        array $pool,
-        int $required
+        SelectionResult $result,
+        array $pool
     ): array {
 
-        if (count($selected) >= $required) {
-            return array_slice($selected, 0, $required);
+        if (
+            $result->fulfilled
+        ) {
+
+            return $result->questions;
+
         }
 
-        $used = [];
+        foreach (
 
-        foreach ($selected as $question) {
-            if (isset($question["id"])) {
-                $used[$question["id"]] = true;
-            }
-        }
+            RecoveryScope::cases()
 
-        foreach ($pool as $question) {
+            as $scope
 
-            $id = $question["id"] ?? null;
+        ) {
+
+            $candidates =
+                RecoveryCandidateService::candidates(
+
+                    $pool,
+
+                    $result->request,
+
+                    $scope
+
+                );
 
             if (
-                $id !== null &&
-                isset($used[$id])
+
+                count($candidates)
+                >=
+                $result->request->questionCount
+
             ) {
-                continue;
-            }
 
-            $selected[] = $question;
+                return array_slice(
 
-            if ($id !== null) {
-                $used[$id] = true;
-            }
+                    $candidates,
 
-            if (count($selected) >= $required) {
-                break;
+                    0,
+
+                    $result->request->questionCount
+
+                );
+
             }
 
         }
 
-        return array_slice($selected, 0, $required);
+        return $result->questions;
 
     }
 }

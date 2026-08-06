@@ -31,15 +31,20 @@ final class BlueprintDistributionService
                     concept:
                         $section["concept"] ?? null,
 
-                    difficulty:
-                        $section["difficulty"] ?? "mixed",
+                    difficultyDistribution:
+                        $section["difficulty"] ?? [
+                            "mixed" => 100
+                        ],
 
                     questionCount:
                         max(
                             1,
                             (int) round(
                                 $questionCount *
-                                (($section["weight"] ?? 0) / 100)
+                                (
+                                    ($section["weight"] ?? 0)
+                                    / 100
+                                )
                             )
                         )
 
@@ -47,7 +52,10 @@ final class BlueprintDistributionService
 
         }
 
-        return $requests;
+        return BlueprintAllocationReconciler::reconcile(
+            $requests,
+            $questionCount
+        );
 
     }
 }
