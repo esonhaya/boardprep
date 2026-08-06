@@ -9,7 +9,7 @@ final class SubjectAssemblyService
         QuizSpecification $specification
     ): array {
 
-        return QuestionSelectionService::select(
+        return Subject\SubjectAssemblyService::assemble(
             $questions,
             $specification
         );
