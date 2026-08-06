@@ -25,6 +25,17 @@ final class BoardExamAssemblyService
 
         foreach ($allocations as $allocation) {
 
+            $subjectSpecification =
+                BlueprintSpecificationMerger::subject(
+
+                    $specification,
+
+                    $allocation["subject"],
+
+                    $allocation["questions"]
+
+                );
+
             $exam = array_merge(
 
                 $exam,
@@ -33,40 +44,7 @@ final class BoardExamAssemblyService
 
                     $questions,
 
-                    new QuizSpecification(
-
-                        board:
-                            $specification->board,
-
-                        subject:
-                            $allocation["subject"],
-
-                        domain:
-                            null,
-
-                        topics: [],
-
-                        concepts: [],
-
-                        difficulty:
-                            "mixed",
-
-                        questionCount:
-                            $allocation["questions"],
-
-                        mode:
-                            $specification->mode,
-
-                        adaptive:
-                            false,
-
-                        shuffle:
-                            false,
-
-                        blueprintVersion:
-                            $specification->blueprintVersion
-
-                    )
+                    $subjectSpecification
 
                 )
 
