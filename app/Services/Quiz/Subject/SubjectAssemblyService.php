@@ -9,18 +9,32 @@ final class SubjectAssemblyService
         QuizSpecification $specification
     ): array {
 
-        $blueprints =
-            BlueprintResolverService::resolve(
-                $specification
+        $boardBlueprint =
+            BlueprintResolutionService::board(
+                $specification->board
+            );
+
+        $subjectBlueprint =
+            BlueprintResolutionService::subject(
+                $specification->board,
+                $specification->subject
             );
 
         return BlueprintExecutor::execute(
 
-            $questions,
+            questions:
+                $questions,
 
-            $blueprints["subject"] ?? [],
+            boardBlueprint:
+                $boardBlueprint,
 
-            $specification
+            subjectBlueprints: [
+                $specification->subject =>
+                    $subjectBlueprint
+            ],
+
+            specification:
+                $specification
 
         )->questions;
 
