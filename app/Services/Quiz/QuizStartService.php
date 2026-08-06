@@ -9,19 +9,6 @@ class QuizStartService
 {
     public static function start(): void
     {
-
-        $count =
-            (int) ($_GET["count"] ?? 10);
-
-        $difficulty =
-            $_GET["difficulty"] ?? "mixed";
-
-        $mode =
-            $_GET["mode"] ?? "practice";
-
-        $adaptive =
-            isset($_GET["adaptive"]);
-
         $questions =
             App::container()
                 ->get(
@@ -29,28 +16,42 @@ class QuizStartService
                 )
                 ->all();
 
-        $questions =
-            QuizGenerationService::generate(
-                $questions,
+        $specification =
+            BaseSpecificationFactory::create(
                 [
-                    "blueprint" =>
+                    "board" =>
                         $_GET["exam"] ?? "LET",
 
+                    "subject" =>
+                        $_GET["subject"] ?? "",
+
+                    "domain" =>
+                        $_GET["domain"] ?? null,
+
                     "difficulty" =>
-                        $difficulty,
+                        $_GET["difficulty"] ?? "mixed",
+
+                    "count" =>
+                        (int) ($_GET["count"] ?? 10),
+
+                    "mode" =>
+                        $_GET["mode"] ?? "practice",
+
+                    "adaptive" =>
+                        isset($_GET["adaptive"]),
 
                     "shuffle" =>
                         true,
-
-                    "limit" =>
-                        $count,
-
-                    "adaptive" =>
-                        $adaptive
                 ]
             );
 
-        if (empty($questions)) {
+        $result =
+            QuizGenerationService::generate(
+                $questions,
+                $specification
+            );
+
+        if (empty($result->questions)) {
 
             FlashMessageService::error(
                 "No questions matched the selected quiz settings."
@@ -59,12 +60,11 @@ class QuizStartService
             redirect("/quiz");
 
             return;
-
         }
 
         SessionService::set(
             "questions",
-            $questions
+            $result->questions
         );
 
         SessionService::set(
@@ -74,7 +74,7 @@ class QuizStartService
 
         SessionService::set(
             "mode",
-            $mode
+            $specification->mode
         );
 
         QuizNavigationService::reset();
@@ -83,22 +83,20 @@ class QuizStartService
             "quiz/index",
             [
                 "question" =>
-                    $questions[0],
+                    $result->questions[0],
 
                 "current" =>
                     0,
 
                 "total" =>
-                    count($questions),
+                    count($result->questions),
 
                 "mode" =>
-                    $mode,
+                    $specification->mode,
 
                 "feedback" =>
                     null
             ]
         );
-
     }
-
 }
