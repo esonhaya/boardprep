@@ -9,26 +9,26 @@ class QuestionViewService
     ): array {
 
         $subjects =
-            TaxonomyRepository::subjects();
+            TaxonomyStorageService::subjects();
 
         $domains =
             empty($context["subject"])
-                ? TaxonomyRepository::domains()
-                : TaxonomyRepository::domainsBySubject(
+                ? TaxonomyStorageService::domains()
+                : TaxonomyStorageService::domainsBySubject(
                     $context["subject"]
                 );
 
         $topics =
             empty($context["domain"])
-                ? TaxonomyRepository::topics()
-                : TaxonomyRepository::topicsByDomain(
+                ? TaxonomyStorageService::topics()
+                : TaxonomyStorageService::topicsByDomain(
                     $context["domain"]
                 );
 
         $concepts =
             empty($context["topic"])
-                ? TaxonomyRepository::concepts()
-                : TaxonomyRepository::conceptsByTopic(
+                ? TaxonomyStorageService::concepts()
+                : TaxonomyStorageService::conceptsByTopic(
                     $context["topic"]
                 );
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use App\Core\App;
 use App\Repositories\QuestionRepository;
-use App\Repositories\TaxonomyRepository;
+use App\Repositories\TaxonomyStorageService;
 
 class CoverageMatrixService
 {
@@ -19,10 +19,10 @@ class CoverageMatrixService
                 ->all();
 
         $domains =
-            TaxonomyRepository::domains();
+            TaxonomyStorageService::domains();
 
         $topics =
-            TaxonomyRepository::topics();
+            TaxonomyStorageService::topics();
 
         $matrix = [];
 

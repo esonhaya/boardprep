@@ -26,7 +26,9 @@ final class QuizSpecification
 
         public readonly bool $shuffle,
 
-        public readonly ?string $blueprintVersion = null,
+        public readonly ?int $boardBlueprintVersion,
+
+        public readonly ?int $subjectBlueprintVersion,
 
     ) {
     }

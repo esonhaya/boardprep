@@ -5,54 +5,69 @@ declare(strict_types=1);
 final class BlueprintIntegrityValidator
 {
     public static function validate(
-        array $blueprint
+        array $boardBlueprint,
+        array $subjectBlueprints
     ): array {
 
         $errors = [];
 
-        $weight = 0;
+        $boardTotal = 0;
 
         foreach (
-            $blueprint["sections"] ?? []
-            as $index => $section
+            $boardBlueprint["subjects"] ?? []
+            as $subject
         ) {
 
-            $weight +=
-                (int) (
-                    $section["weight"] ?? 0
-                );
-
-            if (
-                isset($section["difficulty"])
-            ) {
-
-                $difficulty = 0;
-
-                foreach (
-                    $section["difficulty"]
-                    as $value
-                ) {
-
-                    $difficulty +=
-                        (int) $value;
-
-                }
-
-                if ($difficulty !== 100) {
-
-                    $errors[] =
-                        "Section {$index}: difficulty distribution must equal 100.";
-
-                }
-
-            }
+            $boardTotal +=
+                (int) ($subject["percentage"] ?? 0);
 
         }
 
-        if ($weight !== 100) {
+        if ($boardTotal !== 100) {
 
             $errors[] =
-                "Blueprint weights total {$weight}. Expected 100.";
+                "Board Blueprint subject percentages must total 100.";
+
+        }
+
+        foreach (
+            $subjectBlueprints
+            as $name => $blueprint
+        ) {
+
+            $domainTotal = 0;
+
+            foreach (
+                $blueprint["domains"] ?? []
+                as $domain
+            ) {
+
+                $domainTotal +=
+                    (int) ($domain["percentage"] ?? 0);
+
+            }
+
+            if ($domainTotal !== 100) {
+
+                $errors[] =
+                    "{$name}: domain percentages must total 100.";
+
+            }
+
+            $difficultyTotal =
+                array_sum(
+                    $blueprint["difficulty"] ?? []
+                );
+
+            if (
+                !empty($blueprint["difficulty"]) &&
+                $difficultyTotal !== 100
+            ) {
+
+                $errors[] =
+                    "{$name}: difficulty percentages must total 100.";
+
+            }
 
         }
 

@@ -7,7 +7,7 @@ class WeaknessService
     ): array
     {
         $weakness =
-            WeaknessRepository::all();
+            WeaknessStorageService::all();
 
         foreach ($answers as $answer) {
 
@@ -35,7 +35,7 @@ class WeaknessService
 
         }
 
-        WeaknessRepository::save(
+        WeaknessStorageService::save(
             $weakness
         );
 
@@ -44,11 +44,11 @@ class WeaknessService
 
     public static function all(): array
     {
-        return WeaknessRepository::all();
+        return WeaknessStorageService::all();
     }
 
     public static function clear(): void
     {
-        WeaknessRepository::clear();
+        WeaknessStorageService::clear();
     }
 }

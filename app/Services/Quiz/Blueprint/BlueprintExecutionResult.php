@@ -14,6 +14,10 @@ final class BlueprintExecutionResult
 
         public readonly array $issues,
 
+        public readonly ?int $boardBlueprintVersion,
+
+        public readonly ?int $subjectBlueprintVersion,
+
     ) {
     }
 }

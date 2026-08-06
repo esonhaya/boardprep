@@ -6,7 +6,7 @@ namespace App\Services\Question;
 
 use App\Core\App;
 use App\Repositories\QuestionRepository;
-use App\Repositories\QuestionSearchRepository;
+use App\Services\Question\QuestionSearchService;
 
 class QuestionQueryService
 {
@@ -56,7 +56,7 @@ class QuestionQueryService
         ) {
 
             $questions =
-                QuestionSearchRepository::filter(
+                QuestionSearchService::filter(
                     $domainId,
                     $difficulty,
                     $topicId
@@ -83,7 +83,7 @@ class QuestionQueryService
 
                             return in_array(
                                 $question,
-                                QuestionSearchRepository::search(
+                                QuestionSearchService::search(
                                     $search
                                 ),
                                 true

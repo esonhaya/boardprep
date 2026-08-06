@@ -6,11 +6,9 @@ final class SelectionRequest
 {
     public function __construct(
 
-        public readonly ?string $domain,
+        public readonly string $subject,
 
-        public readonly ?string $topic,
-
-        public readonly ?string $concept,
+        public readonly string $domain,
 
         public readonly array $difficultyDistribution,
 

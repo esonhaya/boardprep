@@ -9,6 +9,29 @@ final class QuestionSelectionService
         SelectionRequest $request
     ): SelectionResult {
 
+        $pool = array_values(
+
+            array_filter(
+
+                $questions,
+
+                static function (
+                    array $question
+                ) use (
+                    $request
+                ): bool {
+
+                    return
+                        ($question["subject"] ?? null) === $request->subject
+                        &&
+                        ($question["domain"] ?? null) === $request->domain;
+
+                }
+
+            )
+
+        );
+
         $selected =
             SelectionDeduplicator::unique(
 
@@ -16,10 +39,7 @@ final class QuestionSelectionService
 
                     DifficultySelectionService::select(
 
-                        SelectionPool::create(
-                            $questions,
-                            $request
-                        ),
+                        $pool,
 
                         $request->difficultyDistribution,
 
@@ -33,8 +53,7 @@ final class QuestionSelectionService
 
         return new SelectionResult(
 
-            questions:
-                $selected,
+            questions: $selected,
 
             fulfilled:
                 BlueprintQuotaValidator::validate(
@@ -42,8 +61,7 @@ final class QuestionSelectionService
                     $request
                 ),
 
-            request:
-                $request
+            request: $request
 
         );
 

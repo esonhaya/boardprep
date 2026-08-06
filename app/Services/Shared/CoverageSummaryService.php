@@ -10,17 +10,17 @@ class CoverageSummaryService
 
             "domains" =>
                 count(
-                    TaxonomyRepository::domains()
+                    TaxonomyStorageService::domains()
                 ),
 
             "topics" =>
                 count(
-                    TaxonomyRepository::topics()
+                    TaxonomyStorageService::topics()
                 ),
 
             "concepts" =>
                 count(
-                    TaxonomyRepository::concepts()
+                    TaxonomyStorageService::concepts()
                 )
 
         ];

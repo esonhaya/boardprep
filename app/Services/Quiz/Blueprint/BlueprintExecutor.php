@@ -6,22 +6,24 @@ final class BlueprintExecutor
 {
     public static function execute(
         array $questions,
-        array $blueprint,
+        array $boardBlueprint,
+        array $subjectBlueprints,
         QuizSpecification $specification
     ): BlueprintExecutionResult {
 
-        $session =
-            new SelectionSession();
-
         $requests =
-            RequestPriorityService::sort(
+            BlueprintDistributionService::distribution(
 
-                BlueprintDistributionService::distribution(
-                    $blueprint,
-                    $specification->questionCount
-                )
+                $boardBlueprint,
+
+                $subjectBlueprints,
+
+                $specification->questionCount
 
             );
+
+        $session =
+            new SelectionSession();
 
         $selected = [];
 
@@ -30,9 +32,7 @@ final class BlueprintExecutor
             $result =
                 QuestionSelectionService::fulfillRequest(
 
-                    $session->available(
-                        $questions
-                    ),
+                    $session->available($questions),
 
                     $request
 
@@ -44,9 +44,7 @@ final class BlueprintExecutor
                     $questions
                 );
 
-            $session->reserve(
-                $chunk
-            );
+            $session->reserve($chunk);
 
             $selected = array_merge(
                 $selected,
@@ -57,8 +55,20 @@ final class BlueprintExecutor
 
         $coverage =
             BlueprintCoverageAnalyzer::analyze(
+
                 $selected,
-                $blueprint
+
+                $boardBlueprint,
+
+                $subjectBlueprints,
+
+                $requests
+
+            );
+
+        $issues =
+            BlueprintCoverageValidator::validate(
+                $coverage
             );
 
         return new BlueprintExecutionResult(
@@ -73,9 +83,17 @@ final class BlueprintExecutor
                 $coverage,
 
             issues:
-                BlueprintCoverageValidator::validate(
-                    $coverage
-                )
+                $issues,
+
+            boardBlueprintVersion:
+                isset($boardBlueprint["version"])
+                    ? (int) $boardBlueprint["version"]
+                    : null,
+
+            subjectBlueprintVersion:
+                isset($subjectBlueprints[$specification->subject]["version"])
+                    ? (int) $subjectBlueprints[$specification->subject]["version"]
+                    : null
 
         );
 

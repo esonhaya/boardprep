@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use App\Core\App;
 use App\Repositories\QuestionRepository;
-use App\Repositories\TaxonomyRepository;
+use App\Repositories\TaxonomyStorageService;
 
 class TaxonomyIntegrityService
 {
@@ -103,27 +103,27 @@ class TaxonomyIntegrityService
 
             "boards" =>
                 count(
-                    TaxonomyRepository::boards()
+                    TaxonomyStorageService::boards()
                 ),
 
             "subjects" =>
                 count(
-                    TaxonomyRepository::subjects()
+                    TaxonomyStorageService::subjects()
                 ),
 
             "domains" =>
                 count(
-                    TaxonomyRepository::domains()
+                    TaxonomyStorageService::domains()
                 ),
 
             "topics" =>
                 count(
-                    TaxonomyRepository::topics()
+                    TaxonomyStorageService::topics()
                 ),
 
             "concepts" =>
                 count(
-                    TaxonomyRepository::concepts()
+                    TaxonomyStorageService::concepts()
                 )
 
         ];

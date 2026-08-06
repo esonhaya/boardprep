@@ -5,35 +5,31 @@ declare(strict_types=1);
 final class BlueprintCoverageValidator
 {
     public static function validate(
-        array $report
+        array $coverage
     ): array {
 
         $issues = [];
 
-        foreach ($report as $row) {
-
-            $required =
-                (int) (
-                    $row["section"]["questions"]
-                    ??
-                    0
-                );
+        foreach ($coverage as $row) {
 
             if (
-                $required > 0 &&
-                $row["available"] < $required
+                $row["generated"] <
+                $row["required"]
             ) {
 
                 $issues[] = [
 
-                    "section" =>
-                        $row["section"],
+                    "subject" =>
+                        $row["subject"],
+
+                    "domain" =>
+                        $row["domain"],
 
                     "required" =>
-                        $required,
+                        $row["required"],
 
-                    "available" =>
-                        $row["available"],
+                    "generated" =>
+                        $row["generated"],
 
                 ];
 

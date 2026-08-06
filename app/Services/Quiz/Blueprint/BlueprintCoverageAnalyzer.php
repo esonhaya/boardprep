@@ -6,64 +6,58 @@ final class BlueprintCoverageAnalyzer
 {
     public static function analyze(
         array $questions,
-        array $blueprint
+        array $boardBlueprint,
+        array $subjectBlueprints,
+        array $requests
     ): array {
 
-        $report = [];
+        $coverage = [];
 
-        foreach (
-            $blueprint["sections"] ?? []
-            as $section
-        ) {
+        foreach ($requests as $request) {
 
-            $count = 0;
+            $matched = array_filter(
 
-            foreach ($questions as $question) {
+                $questions,
 
-                if (
-                    !empty($section["domain"]) &&
-                    ($question["domain"] ?? null)
-                    !==
-                    $section["domain"]
-                ) {
-                    continue;
+                static function (array $question) use ($request): bool {
+
+                    return
+                        ($question["subject"] ?? null)
+                        ===
+                        $request->subject
+
+                        &&
+
+                        ($question["domain"] ?? null)
+                        ===
+                        $request->domain;
+
                 }
 
-                if (
-                    !empty($section["topic"]) &&
-                    ($question["topic"] ?? null)
-                    !==
-                    $section["topic"]
-                ) {
-                    continue;
-                }
+            );
 
-                if (
-                    !empty($section["concept"]) &&
-                    ($question["concept"] ?? null)
-                    !==
-                    $section["concept"]
-                ) {
-                    continue;
-                }
+            $coverage[] = [
 
-                $count++;
+                "subject" =>
+                    $request->subject,
 
-            }
+                "domain" =>
+                    $request->domain,
 
-            $report[] = [
+                "required" =>
+                    $request->questionCount,
 
-                "section" =>
-                    $section,
+                "generated" =>
+                    count($matched),
 
-                "available" =>
-                    $count,
+                "difficultyDistribution" =>
+                    $request->difficultyDistribution,
 
             ];
 
         }
 
-        return $report;
+        return $coverage;
 
     }
 }

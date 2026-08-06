@@ -15,13 +15,13 @@ class TaxonomyService
         }
 
         $domains =
-            TaxonomyRepository::domains();
+            TaxonomyStorageService::domains();
 
         $domains[] = $name;
 
         sort($domains);
 
-        TaxonomyRepository::saveDomains($domains);
+        TaxonomyStorageService::saveDomains($domains);
 
     }
 
@@ -38,13 +38,13 @@ class TaxonomyService
         }
 
         $topics =
-            TaxonomyRepository::topics();
+            TaxonomyStorageService::topics();
 
         $topics[] = $name;
 
         sort($topics);
 
-        TaxonomyRepository::saveTopics($topics);
+        TaxonomyStorageService::saveTopics($topics);
 
     }
 
@@ -61,13 +61,13 @@ class TaxonomyService
         }
 
         $concepts =
-            TaxonomyRepository::concepts();
+            TaxonomyStorageService::concepts();
 
         $concepts[] = $name;
 
         sort($concepts);
 
-        TaxonomyRepository::saveConcepts($concepts);
+        TaxonomyStorageService::saveConcepts($concepts);
 
     }
 

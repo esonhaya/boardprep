@@ -1,7 +1,7 @@
 {
-    "health": 68,
-    "pass": 12,
-    "warning": 16,
+    "health": 70,
+    "pass": 13,
+    "warning": 15,
     "fail": 0,
     "info": 0,
     "checks": [
@@ -11,13 +11,13 @@
             "summary": "Current project size",
             "details": [
                 "Controllers : 26",
-                "Services    : 106",
-                "Repositories: 12",
+                "Services    : 105",
+                "Repositories: 8",
                 "Domains     : 7",
-                "Classes     : 255",
+                "Classes     : 250",
                 "Interfaces  : 3",
                 "Traits      : 0",
-                "PHP Files   : 319"
+                "PHP Files   : 314"
             ],
             "recommendations": [],
             "score": 100
@@ -28,15 +28,15 @@
             "summary": "CheckResult.php (29)",
             "details": [
                 " 29  CheckResult.php",
-                " 25  App.php",
+                " 24  App.php",
                 " 24  DoctorContext.php",
-                " 21  QuestionRepository.php",
+                " 20  QuestionRepository.php",
                 " 18  index.php",
                 " 17  web.php",
                 " 16  BaseDeveloperController.php",
                 " 13  RepositoryHealthEngine.php",
                 " 12  View.php",
-                " 11  QuestionSelectionService.php"
+                " 10  DoctorRunner.php"
             ],
             "recommendations": [],
             "score": 100
@@ -46,8 +46,8 @@
             "status": "PASS",
             "summary": "No regressions detected.",
             "details": [
-                "PHP files: 256 \u2192 319",
-                "Classes: 195 \u2192 255"
+                "PHP files: 256 \u2192 314",
+                "Classes: 195 \u2192 250"
             ],
             "recommendations": [],
             "score": 100
@@ -91,23 +91,23 @@
         {
             "title": "Dead Classes",
             "status": "WARNING",
-            "summary": "45 potentially unused classes.",
+            "summary": "53 potentially unused classes.",
             "details": [
+                "AdaptiveQuizService (./app/Services/Quiz/AdaptiveQuizService.php)",
                 "Arr (./app/Foundation/Arr.php)",
                 "AttemptService (./app/Services/AttemptService.php)",
+                "BlueprintAllocationReconciler (./app/Services/Quiz/Blueprint/BlueprintAllocationReconciler.php)",
                 "BlueprintDifficultyAllocator (./app/Services/Quiz/Blueprint/BlueprintDifficultyAllocator.php)",
-                "BoardExamAssemblyService (./app/Services/Quiz/Board/BoardExamAssemblyService.php)",
+                "BoardBlueprintResolver (./app/Services/Quiz/Board/BoardBlueprintResolver.php)",
                 "Collection (./app/Foundation/Collection.php)",
                 "Config (./app/Core/Config.php)",
                 "CoverageMatrixService (./app/Services/Shared/CoverageMatrixService.php)",
+                "CoverageTracker (./app/Services/Quiz/Coverage/CoverageTracker.php)",
                 "CreateQuestion (./app/Domains/Question/Actions/CreateQuestion.php)",
                 "DeveloperComponentRenderer (./app/Services/Developer/DeveloperComponentRenderer.php)",
                 "DeveloperPageBuilder (./app/Builders/Developer/DeveloperPageBuilder.php)",
                 "DoctorApiController (./app/Controllers/DoctorApiController.php)",
-                "DoctorDashboardController (./app/Controllers/DoctorDashboardController.php)",
-                "DoctorHistoryService (./app/Services/Developer/DoctorHistoryService.php)",
-                "DoctorRunController (./app/Controllers/DoctorRunController.php)",
-                "EnglishController (./app/Controllers/EnglishController.php)"
+                "DoctorDashboardController (./app/Controllers/DoctorDashboardController.php)"
             ],
             "recommendations": [],
             "score": 100
@@ -197,8 +197,8 @@
         },
         {
             "title": "Risk Score",
-            "status": "WARNING",
-            "summary": "Risk Score: 816",
+            "status": "PASS",
+            "summary": "Risk Score: 780",
             "details": [],
             "recommendations": [],
             "score": 100
@@ -230,9 +230,9 @@
             "summary": "./tools/Doctor/DTO/CheckResult.php (29 dependencies)",
             "details": [
                 "29  ./tools/Doctor/DTO/CheckResult.php",
-                "25  ./app/Core/App.php",
+                "24  ./app/Core/App.php",
                 "24  ./tools/Doctor/Context/DoctorContext.php",
-                "21  ./app/Repositories/QuestionRepository.php",
+                "20  ./app/Repositories/QuestionRepository.php",
                 "18  ./public/index.php"
             ],
             "recommendations": [],
@@ -241,18 +241,18 @@
         {
             "title": "Cyclomatic Complexity",
             "status": "WARNING",
-            "summary": "RecommendationAdvisor.php::recommendations() (24)",
+            "summary": "BaseSpecificationFactory.php::create() (25)",
             "details": [
+                "25  BaseSpecificationFactory.php::create()",
                 "24  RecommendationAdvisor.php::recommendations()",
-                "23  BaseSpecificationFactory.php::create()",
                 "20  RecommendationService.php::generate()",
                 "20  RegressionCheck.php::run()",
                 "19  DoctorHistoryService.php::compare()",
                 "19  BlueprintValidator.php::validate()",
+                "18  BlueprintDistributionService.php::distribution()",
+                "18  BlueprintIntegrityValidator.php::validate()",
                 "18  TokenScanner.php::methods()",
-                "17  BlueprintCoverageAnalyzer.php::analyze()",
-                "17  StatisticsBuilder.php::build()",
-                "17  CoverageMatrixService.php::build()"
+                "17  StatisticsBuilder.php::build()"
             ],
             "recommendations": [
                 "Reduce branching by extracting smaller methods."
@@ -266,13 +266,13 @@
             "details": [
                 " 54  ./tools/Doctor/Advisor/RecommendationAdvisor.php",
                 " 55  ./app/Services/Learning/RecommendationService.php",
-                " 58  ./app/Services/Quiz/Specification/BaseSpecificationFactory.php",
+                " 56  ./app/Services/Quiz/Specification/BaseSpecificationFactory.php",
+                " 58  ./app/Services/Quiz/Blueprint/BlueprintDistributionService.php",
                 " 58  ./app/Services/Shared/BlueprintValidator.php",
+                " 60  ./app/Services/Quiz/Blueprint/BlueprintIntegrityValidator.php",
                 " 61  ./app/Services/Quality/Validators/MetadataValidator.php",
                 " 61  ./app/Services/RepositoryHealth/Engine/StatisticsBuilder.php",
-                " 62  ./app/Services/Quiz/Blueprint/BlueprintCoverageAnalyzer.php",
                 " 62  ./tools/Doctor/Scanners/TokenScanner.php",
-                " 63  ./app/Repositories/QuestionSearchRepository.php",
                 " 64  ./app/Storage/JsonStorage.php"
             ],
             "recommendations": [
@@ -317,15 +317,14 @@
         {
             "title": "Layer Violations",
             "status": "WARNING",
-            "summary": "7 layer violations detected.",
+            "summary": "6 layer violations detected.",
             "details": [
                 "BlueprintController.php -> BoardRepository.php",
                 "BlueprintController.php -> SubjectRepository.php",
                 "ProgressController.php -> AttemptRepository.php",
                 "QuestionEditorController.php -> QuestionRepository.php",
                 "QuestionExportController.php -> QuestionRepository.php",
-                "RecommendationController.php -> AttemptRepository.php",
-                "TaxonomyController.php -> TaxonomyRepository.php"
+                "RecommendationController.php -> AttemptRepository.php"
             ],
             "recommendations": [
                 "Inject Services instead of Repositories.",
@@ -354,8 +353,8 @@
             "status": "WARNING",
             "summary": "2 long parameter lists found.",
             "details": [
-                "app/DTO/QuizSpecification.php (12 parameters)",
-                "app/DTO/SelectionRequest.php (6 parameters)"
+                "app/Services/Quiz/Blueprint/BlueprintExecutionResult.php (7 parameters)",
+                "app/DTO/QuizSpecification.php (13 parameters)"
             ],
             "recommendations": [
                 "Consider DTOs, value objects or builders for large parameter lists."
@@ -421,5 +420,5 @@
             "score": 100
         }
     ],
-    "generatedAt": "2026-08-06T11:36:10+00:00"
+    "generatedAt": "2026-08-06T14:06:23+00:00"
 }

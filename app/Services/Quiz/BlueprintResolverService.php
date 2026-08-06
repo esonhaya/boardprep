@@ -16,20 +16,39 @@ final class BlueprintResolverService
                 BlueprintRepository::class
             );
 
+        $board =
+            $repository->board(
+                $specification->board
+            ) ?? [];
+
+        $subject =
+            $repository->subject(
+                $specification->board,
+                $specification->subject
+            ) ?? [];
+
+        if (!empty($board)) {
+            BlueprintIntegrityValidator::validate(
+                $board
+            );
+        }
+
+        if (!empty($subject)) {
+            BlueprintIntegrityValidator::validate(
+                $subject
+            );
+        }
+
         return [
 
-            'board' =>
+            "board" => $board,
 
-                $repository->board(
-                    $specification->board
-                ),
+            "subjects" => [
 
-            'subject' =>
+                $specification->subject =>
+                    $subject,
 
-                $repository->subject(
-                    $specification->board,
-                    $specification->subject
-                ),
+            ],
 
         ];
 

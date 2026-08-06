@@ -17,13 +17,13 @@ class TaxonomyController extends BaseDeveloperController
                     "Taxonomy Manager",
 
                 "domains" =>
-                    TaxonomyRepository::domains(),
+                    TaxonomyStorageService::domains(),
 
                 "topics" =>
-                    TaxonomyRepository::topics(),
+                    TaxonomyStorageService::topics(),
 
                 "concepts" =>
-                    TaxonomyRepository::concepts()
+                    TaxonomyStorageService::concepts()
 
             ]
 

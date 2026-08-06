@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Repositories;
+namespace App\Services\Learning;
 
 use App\Core\App;
 
-class WeaknessRepository
+final class WeaknessStorageService
 {
     private const FILE =
         'database/attempts/weakness.json';
@@ -21,14 +21,18 @@ class WeaknessRepository
     public static function save(
         array $data
     ): void {
+
         App::storage()->write(
             self::FILE,
             $data
         );
+
     }
 
     public static function clear(): void
     {
+
         self::save([]);
+
     }
 }
