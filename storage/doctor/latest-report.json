@@ -1,7 +1,7 @@
 {
-    "health": 72,
-    "pass": 14,
-    "warning": 14,
+    "health": 68,
+    "pass": 12,
+    "warning": 16,
     "fail": 0,
     "info": 0,
     "checks": [
@@ -11,13 +11,13 @@
             "summary": "Current project size",
             "details": [
                 "Controllers : 26",
-                "Services    : 71",
+                "Services    : 75",
                 "Repositories: 12",
                 "Domains     : 7",
-                "Classes     : 219",
+                "Classes     : 224",
                 "Interfaces  : 3",
                 "Traits      : 0",
-                "PHP Files   : 282"
+                "PHP Files   : 287"
             ],
             "recommendations": [],
             "score": 100
@@ -28,7 +28,7 @@
             "summary": "CheckResult.php (29)",
             "details": [
                 " 29  CheckResult.php",
-                " 24  App.php",
+                " 25  App.php",
                 " 24  DoctorContext.php",
                 " 21  QuestionRepository.php",
                 " 18  index.php",
@@ -43,13 +43,16 @@
         },
         {
             "title": "Regression Check",
-            "status": "PASS",
-            "summary": "No regressions detected.",
+            "status": "WARNING",
+            "summary": "1 regression(s) detected.",
             "details": [
-                "PHP files: 256 \u2192 282",
-                "Classes: 195 \u2192 219"
+                "PHP files: 256 \u2192 287",
+                "Classes: 195 \u2192 224",
+                "Largest Service: 304 \u2192 308"
             ],
-            "recommendations": [],
+            "recommendations": [
+                "Avoid increasing file sizes beyond the established baseline."
+            ],
             "score": 100
         },
         {
@@ -83,7 +86,7 @@
         {
             "title": "Technical Debt",
             "status": "PASS",
-            "summary": "Debt Score: 30",
+            "summary": "Debt Score: 35",
             "details": [],
             "recommendations": [],
             "score": 100
@@ -91,10 +94,11 @@
         {
             "title": "Dead Classes",
             "status": "WARNING",
-            "summary": "39 potentially unused classes.",
+            "summary": "43 potentially unused classes.",
             "details": [
                 "Arr (./app/Foundation/Arr.php)",
                 "AttemptService (./app/Services/AttemptService.php)",
+                "BlueprintDistributionService (./app/Services/Quiz/BlueprintDistributionService.php)",
                 "Collection (./app/Foundation/Collection.php)",
                 "Config (./app/Core/Config.php)",
                 "CoverageMatrixService (./app/Services/Shared/CoverageMatrixService.php)",
@@ -106,8 +110,7 @@
                 "DoctorHistoryService (./app/Services/Developer/DoctorHistoryService.php)",
                 "DoctorRunController (./app/Controllers/DoctorRunController.php)",
                 "EnglishController (./app/Controllers/EnglishController.php)",
-                "EntityCardBuilder (./app/Builders/Developer/EntityCardBuilder.php)",
-                "EntityFactory (./app/Support/EntityFactory.php)"
+                "EntityCardBuilder (./app/Builders/Developer/EntityCardBuilder.php)"
             ],
             "recommendations": [],
             "score": 100
@@ -173,13 +176,13 @@
         {
             "title": "Largest Service",
             "status": "WARNING",
-            "summary": "./app/Services/Shared/MetadataRepairService.php (304 lines)",
+            "summary": "./app/Services/Quiz/QuestionSelectionService.php (308 lines)",
             "details": [
                 "Threshold : 250",
-                "Current   : 304"
+                "Current   : 308"
             ],
             "recommendations": [
-                "Split ./app/Services/Shared/MetadataRepairService.php into smaller collaborators."
+                "Split ./app/Services/Quiz/QuestionSelectionService.php into smaller collaborators."
             ],
             "score": 100
         },
@@ -198,7 +201,7 @@
         {
             "title": "Risk Score",
             "status": "PASS",
-            "summary": "Risk Score: 710",
+            "summary": "Risk Score: 720",
             "details": [],
             "recommendations": [],
             "score": 100
@@ -230,7 +233,7 @@
             "summary": "./tools/Doctor/DTO/CheckResult.php (29 dependencies)",
             "details": [
                 "29  ./tools/Doctor/DTO/CheckResult.php",
-                "24  ./app/Core/App.php",
+                "25  ./app/Core/App.php",
                 "24  ./tools/Doctor/Context/DoctorContext.php",
                 "21  ./app/Repositories/QuestionRepository.php",
                 "18  ./public/index.php"
@@ -241,8 +244,9 @@
         {
             "title": "Cyclomatic Complexity",
             "status": "WARNING",
-            "summary": "RecommendationAdvisor.php::recommendations() (24)",
+            "summary": "QuizSpecificationBuilder.php::build() (29)",
             "details": [
+                "29  QuizSpecificationBuilder.php::build()",
                 "24  RecommendationAdvisor.php::recommendations()",
                 "20  RecommendationService.php::generate()",
                 "20  RegressionCheck.php::run()",
@@ -251,8 +255,7 @@
                 "18  TokenScanner.php::methods()",
                 "17  StatisticsBuilder.php::build()",
                 "17  CoverageMatrixService.php::build()",
-                "16  QuestionSearchRepository.php::search()",
-                "16  BlueprintService.php::create()"
+                "16  QuestionSearchRepository.php::search()"
             ],
             "recommendations": [
                 "Reduce branching by extracting smaller methods."
@@ -262,8 +265,9 @@
         {
             "title": "Maintainability",
             "status": "WARNING",
-            "summary": "./tools/Doctor/Advisor/RecommendationAdvisor.php (54)",
+            "summary": "./app/Services/Quiz/QuizSpecificationBuilder.php (53)",
             "details": [
+                " 53  ./app/Services/Quiz/QuizSpecificationBuilder.php",
                 " 54  ./tools/Doctor/Advisor/RecommendationAdvisor.php",
                 " 55  ./app/Services/Learning/RecommendationService.php",
                 " 58  ./app/Services/Shared/BlueprintValidator.php",
@@ -272,8 +276,7 @@
                 " 62  ./tools/Doctor/Scanners/TokenScanner.php",
                 " 63  ./app/Repositories/QuestionSearchRepository.php",
                 " 64  ./app/Storage/JsonStorage.php",
-                " 66  ./app/Services/Shared/QuestionImportService.php",
-                " 68  ./app/Controllers/QuestionEditorController.php"
+                " 66  ./app/Services/Shared/QuestionImportService.php"
             ],
             "recommendations": [
                 "Improve maintainability by reducing file size, complexity and responsibilities."
@@ -292,7 +295,7 @@
                 "122  BlueprintService.php::create()",
                 "121  QuizScoringService.php::calculate()",
                 "114  RegressionCheck.php::run()",
-                "107  QuizGenerationService.php::generate()",
+                "111  QuizSpecificationBuilder.php::build()",
                 "107  CoverageMatrixService.php::build()",
                 "102  CyclomaticComplexityCheck.php::run()"
             ],
@@ -351,10 +354,14 @@
         },
         {
             "title": "Long Parameter Lists",
-            "status": "PASS",
-            "summary": "No long parameter lists found.",
-            "details": [],
-            "recommendations": [],
+            "status": "WARNING",
+            "summary": "1 long parameter lists found.",
+            "details": [
+                "app/DTO/QuizSpecification.php (12 parameters)"
+            ],
+            "recommendations": [
+                "Consider DTOs, value objects or builders for large parameter lists."
+            ],
             "score": 100
         },
         {
@@ -416,5 +423,5 @@
             "score": 100
         }
     ],
-    "generatedAt": "2026-08-06T07:05:58+00:00"
+    "generatedAt": "2026-08-06T08:04:07+00:00"
 }

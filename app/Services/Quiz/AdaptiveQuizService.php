@@ -1,133 +1,106 @@
 <?php
 
-class AdaptiveQuizService
-{
+declare(strict_types=1);
 
-    public static function buildOptions(): array
-    {
+final class AdaptiveQuizService
+{
+    public static function prioritize(
+        array $questions,
+        QuizSpecification $specification
+    ): array {
+
+        if (
+            !$specification->adaptive
+        ) {
+
+            return $questions;
+
+        }
 
         $weaknesses =
             WeaknessService::all();
 
-        $attempts =
-            AttemptRepository::all();
-
         $priorityTopics = [];
 
+        foreach (
+            $weaknesses
+            as $weakness
+        ) {
 
-        foreach ($weaknesses as $weakness) {
-
-            if (isset($weakness["topic"])) {
-
-                $priorityTopics[] =
-                    strtolower(
-                        trim(
-                            $weakness["topic"]
-                        )
-                    );
-
+            if (
+                !isset(
+                    $weakness["topic"]
+                )
+            ) {
+                continue;
             }
 
-        }
-
-
-        $average = 70;
-
-        if (!empty($attempts)) {
-
-            $average =
-                ProgressService::averageScore(
-                    $attempts
+            $priorityTopics[] =
+                strtolower(
+                    trim(
+                        $weakness["topic"]
+                    )
                 );
 
         }
 
-        return [
-
-            "priorityTopics" =>
-                array_values(
-                    array_unique(
-                        $priorityTopics
-                    )
-                ),
-
-            "recommendedDifficulty" =>
-                self::recommendedDifficulty(
-                    $average
-                ),
-
-            "averageScore" =>
-                $average
-
-        ];
-
-    }
-
-
-    public static function prioritize(
-        array $questions,
-        array $options
-    ): array
-    {
+        $priorityTopics =
+            array_unique(
+                $priorityTopics
+            );
 
         $priority = [];
         $normal = [];
 
-        foreach ($questions as $question) {
+        foreach (
+            $questions
+            as $question
+        ) {
 
             $topic =
                 strtolower(
                     trim(
-                        $question["topic"] ?? ""
+                        $question["topic"]
+                        ?? ""
                     )
                 );
 
             if (
                 in_array(
                     $topic,
-                    $options["priorityTopics"] ?? [],
+                    $priorityTopics,
                     true
                 )
             ) {
 
-                $priority[] = $question;
+                $priority[] =
+                    $question;
 
             } else {
 
-                $normal[] = $question;
+                $normal[] =
+                    $question;
 
             }
 
         }
 
-        shuffle($priority);
-        shuffle($normal);
+        shuffle(
+            $priority
+        );
+
+        shuffle(
+            $normal
+        );
 
         return array_values(
+
             array_merge(
                 $priority,
                 $normal
             )
+
         );
 
     }
-
-
-    private static function recommendedDifficulty(
-        int|float $average
-    ): string
-    {
-
-        if ($average >= 85) {
-            return "hard";
-        }
-
-        if ($average >= 65) {
-            return "medium";
-        }
-
-        return "easy";
-
-    }
-
 }
