@@ -1,28 +1,52 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Core;
 
-class Autoloader
+final class Autoloader
 {
+    /**
+     * @var array<string,string>
+     */
+    private static array $prefixes = [
+        'App\\'   => __DIR__ . '/../',
+        'Tools\\' => __DIR__ . '/../../tools/',
+    ];
+
     public static function register(): void
     {
         spl_autoload_register(
             function (string $class): void {
 
-                $prefix = 'App\\';
+                foreach (self::$prefixes as $prefix => $baseDirectory) {
 
-                if (strncmp($prefix, $class, strlen($prefix)) !== 0) {
+                    if (
+                        strncmp(
+                            $prefix,
+                            $class,
+                            strlen($prefix)
+                        ) !== 0
+                    ) {
+                        continue;
+                    }
+
+                    $relativeClass = substr(
+                        $class,
+                        strlen($prefix)
+                    );
+
+                    $file =
+                        rtrim($baseDirectory, '/')
+                        . '/'
+                        . str_replace('\\', '/', $relativeClass)
+                        . '.php';
+
+                    if (is_file($file)) {
+                        require_once $file;
+                    }
+
                     return;
-                }
-
-                $relativeClass = substr($class, strlen($prefix));
-
-                $file = dirname(__DIR__) . '/'
-                    . str_replace('\\', '/', $relativeClass)
-                    . '.php';
-
-                if (is_file($file)) {
-                    require_once $file;
                 }
             }
         );

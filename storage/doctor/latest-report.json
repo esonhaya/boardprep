@@ -1,0 +1,374 @@
+{
+    "health": 78,
+    "pass": 15,
+    "warning": 11,
+    "fail": 0,
+    "info": 0,
+    "checks": [
+        {
+            "title": "Project Statistics",
+            "status": "PASS",
+            "summary": "Current project size",
+            "details": [
+                "Controllers : 26",
+                "Services    : 70",
+                "Repositories: 12",
+                "Domains     : 7",
+                "Classes     : 216",
+                "Interfaces  : 3",
+                "Traits      : 0",
+                "PHP Files   : 279"
+            ],
+            "recommendations": [],
+            "score": 100
+        },
+        {
+            "title": "Regression Check",
+            "status": "PASS",
+            "summary": "No regressions detected.",
+            "details": [
+                "PHP files: 256 \u2192 279",
+                "Classes: 195 \u2192 216"
+            ],
+            "recommendations": [],
+            "score": 100
+        },
+        {
+            "title": "Architecture Scorecard",
+            "status": "PASS",
+            "summary": "Architectural quality overview.",
+            "details": [
+                "Controllers         100",
+                "Services            100",
+                "Dependencies        100",
+                "Maintainability      60",
+                "Technical Debt      100"
+            ],
+            "recommendations": [],
+            "score": 100
+        },
+        {
+            "title": "History Trend",
+            "status": "PASS",
+            "summary": "-2% over last 5 run(s)",
+            "details": [
+                "08-05T15:08  76%",
+                "08-05T15:09  76%",
+                "08-05T15:49  74%",
+                "08-05T15:53  74%",
+                "08-06T00:36  74%"
+            ],
+            "recommendations": [],
+            "score": 100
+        },
+        {
+            "title": "Technical Debt",
+            "status": "PASS",
+            "summary": "Debt Score: 30",
+            "details": [],
+            "recommendations": [],
+            "score": 100
+        },
+        {
+            "title": "Dead Classes",
+            "status": "WARNING",
+            "summary": "144 potentially unused classes.",
+            "details": [
+                "ActionBarViewModel (./app/ViewModels/Developer/ActionBarViewModel.php)",
+                "AdaptiveQuizService (./app/Services/Quiz/AdaptiveQuizService.php)",
+                "App (./app/Core/App.php)",
+                "AppException (./app/Exceptions/AppException.php)",
+                "Arr (./app/Foundation/Arr.php)",
+                "AttemptRepository (./app/Repositories/AttemptRepository.php)",
+                "AttemptService (./app/Services/AttemptService.php)",
+                "Autoloader (./app/Core/Autoloader.php)",
+                "BaseController (./app/Controllers/BaseController.php)",
+                "BaseDeveloperController (./app/Controllers/BaseDeveloperController.php)",
+                "BaseRepository (./app/Repositories/BaseRepository.php)",
+                "BlueprintController (./app/Controllers/BlueprintController.php)",
+                "BlueprintHealthController (./app/Controllers/BlueprintHealthController.php)",
+                "BlueprintRepository (./app/Repositories/BlueprintRepository.php)",
+                "BlueprintService (./app/Services/Blueprint/BlueprintService.php)"
+            ],
+            "recommendations": [],
+            "score": 100
+        },
+        {
+            "title": "Technical Debt Breakdown",
+            "status": "PASS",
+            "summary": "Debt Score: 0",
+            "details": [
+                "Largest Methods ...... 0",
+                "Largest Services ..... 0",
+                "Layer Violations ..... 0",
+                "Legacy Files ......... 0",
+                "Unused Imports ....... 0",
+                "Dead Classes ......... 0"
+            ],
+            "recommendations": [],
+            "score": 100
+        },
+        {
+            "title": "Circular Dependencies",
+            "status": "PASS",
+            "summary": "No circular dependencies detected.",
+            "details": [],
+            "recommendations": [],
+            "score": 100
+        },
+        {
+            "title": "Quality Gate",
+            "status": "PASS",
+            "summary": "All quality gates passed.",
+            "details": [],
+            "recommendations": [],
+            "score": 100
+        },
+        {
+            "title": "Largest Controller",
+            "status": "WARNING",
+            "summary": "./app/Controllers/QuestionEditorController.php (406 lines)",
+            "details": [
+                "Threshold : 300",
+                "Current   : 406"
+            ],
+            "recommendations": [
+                "Split ./app/Controllers/QuestionEditorController.php into smaller action-oriented classes."
+            ],
+            "score": 100
+        },
+        {
+            "title": "Largest Method",
+            "status": "WARNING",
+            "summary": "./app/Services/Shared/QuestionImportService.php",
+            "details": [
+                "Method    : importJson",
+                "Length    : 180 lines",
+                "Threshold : 60"
+            ],
+            "recommendations": [
+                "Split importJson() into smaller methods."
+            ],
+            "score": 100
+        },
+        {
+            "title": "Largest Service",
+            "status": "WARNING",
+            "summary": "./app/Services/Shared/MetadataRepairService.php (304 lines)",
+            "details": [
+                "Threshold : 250",
+                "Current   : 304"
+            ],
+            "recommendations": [
+                "Split ./app/Services/Shared/MetadataRepairService.php into smaller collaborators."
+            ],
+            "score": 100
+        },
+        {
+            "title": "Controller Complexity",
+            "status": "PASS",
+            "summary": "app/Controllers/QuestionEditorController.php",
+            "details": [
+                "Methods         : 9",
+                "Public Methods  : 7",
+                "Private Methods : 2"
+            ],
+            "recommendations": [],
+            "score": 100
+        },
+        {
+            "title": "Change Impact",
+            "status": "PASS",
+            "summary": "No dependency information.",
+            "details": [],
+            "recommendations": [],
+            "score": 100
+        },
+        {
+            "title": "Dependency Coupling",
+            "status": "PASS",
+            "summary": "No dependency information.",
+            "details": [],
+            "recommendations": [],
+            "score": 100
+        },
+        {
+            "title": "Cyclomatic Complexity",
+            "status": "WARNING",
+            "summary": "RecommendationAdvisor.php::recommendations() (24)",
+            "details": [
+                "24  RecommendationAdvisor.php::recommendations()",
+                "20  RecommendationService.php::generate()",
+                "20  RegressionCheck.php::run()",
+                "19  DoctorHistoryService.php::compare()",
+                "19  BlueprintValidator.php::validate()",
+                "18  TokenScanner.php::methods()",
+                "17  StatisticsBuilder.php::build()",
+                "17  CoverageMatrixService.php::build()",
+                "16  QuestionSearchRepository.php::search()",
+                "16  BlueprintService.php::create()"
+            ],
+            "recommendations": [
+                "Reduce branching by extracting smaller methods."
+            ],
+            "score": 100
+        },
+        {
+            "title": "Maintainability",
+            "status": "WARNING",
+            "summary": "./tools/Doctor/Advisor/RecommendationAdvisor.php (54)",
+            "details": [
+                " 54  ./tools/Doctor/Advisor/RecommendationAdvisor.php",
+                " 55  ./app/Services/Learning/RecommendationService.php",
+                " 58  ./app/Services/Shared/BlueprintValidator.php",
+                " 61  ./app/Services/Quality/Validators/MetadataValidator.php",
+                " 61  ./app/Services/RepositoryHealth/Engine/StatisticsBuilder.php",
+                " 62  ./tools/Doctor/Scanners/TokenScanner.php",
+                " 63  ./app/Repositories/QuestionSearchRepository.php",
+                " 64  ./app/Storage/JsonStorage.php",
+                " 66  ./app/Services/Shared/QuestionImportService.php",
+                " 68  ./app/Controllers/QuestionEditorController.php"
+            ],
+            "recommendations": [
+                "Improve maintainability by reducing file size, complexity and responsibilities."
+            ],
+            "score": 100
+        },
+        {
+            "title": "Refactor Candidates",
+            "status": "WARNING",
+            "summary": "Largest methods suitable for extraction.",
+            "details": [
+                "180  QuestionImportService.php::importJson()",
+                "146  MetadataValidator.php::validate()",
+                "140  QuizGenerationService.php::generate()",
+                "136  TokenScanner.php::methods()",
+                "123  QuizSubmissionService.php::submit()",
+                "122  BlueprintService.php::create()",
+                "121  QuizScoringService.php::calculate()",
+                "114  RegressionCheck.php::run()",
+                "107  CoverageMatrixService.php::build()",
+                "102  CyclomaticComplexityCheck.php::run()"
+            ],
+            "recommendations": [
+                "Extract helper methods before adding new functionality."
+            ],
+            "score": 100
+        },
+        {
+            "title": "Domain Migration",
+            "status": "WARNING",
+            "summary": "6 implemented, 18 empty",
+            "details": [
+                "Implemented : 6",
+                "Empty       : 18"
+            ],
+            "recommendations": [
+                "Continue implementing the Domain layer as features are added."
+            ],
+            "score": 100
+        },
+        {
+            "title": "Layer Violations",
+            "status": "WARNING",
+            "summary": "7 layer violations detected.",
+            "details": [
+                "BlueprintController.php -> BoardRepository.php",
+                "BlueprintController.php -> SubjectRepository.php",
+                "ProgressController.php -> AttemptRepository.php",
+                "QuestionEditorController.php -> QuestionRepository.php",
+                "QuestionExportController.php -> QuestionRepository.php",
+                "RecommendationController.php -> AttemptRepository.php",
+                "TaxonomyController.php -> TaxonomyRepository.php"
+            ],
+            "recommendations": [
+                "Inject Services instead of Repositories.",
+                "Keep Controllers independent of persistence."
+            ],
+            "score": 100
+        },
+        {
+            "title": "Unused Imports",
+            "status": "WARNING",
+            "summary": "5 unused imports found.",
+            "details": [
+                "./app/Storage/MysqlStorage.php :: StorageException",
+                "./app/Views/developer/components/action-bar.php :: ActionBarViewModel",
+                "./app/Views/developer/components/entity-card.php :: EntityCardViewModel",
+                "./app/Views/developer/components/page-header.php :: PageHeaderViewModel",
+                "./app/Views/developer/components/summary.php :: SummaryViewModel"
+            ],
+            "recommendations": [
+                "Remove unused imports to reduce noise."
+            ],
+            "score": 100
+        },
+        {
+            "title": "Long Parameter Lists",
+            "status": "PASS",
+            "summary": "No long parameter lists found.",
+            "details": [],
+            "recommendations": [],
+            "score": 100
+        },
+        {
+            "title": "TODO Comments",
+            "status": "PASS",
+            "summary": "No TODO/FIXME comments found.",
+            "details": [],
+            "recommendations": [],
+            "score": 100
+        },
+        {
+            "title": "Empty Directories",
+            "status": "WARNING",
+            "summary": "18 empty directories found.",
+            "details": [
+                "app/Domains/Question/Queries",
+                "app/Domains/Question/Validation",
+                "app/Domains/Question/View",
+                "app/Domains/Question/DTO",
+                "app/Domains/Quiz/Actions",
+                "app/Domains/Quiz/Queries",
+                "app/Domains/Quiz/DTO",
+                "app/Domains/Board/Actions",
+                "app/Domains/Board/Queries",
+                "app/Domains/Board/DTO",
+                "app/Domains/Blueprint/Actions",
+                "app/Domains/Blueprint/Queries",
+                "app/Domains/Blueprint/Validation",
+                "app/Domains/Blueprint/DTO",
+                "app/Domains/Developer/Actions",
+                "app/Domains/Developer/Queries",
+                "app/Domains/Profile",
+                "app/Domains/Progress"
+            ],
+            "recommendations": [
+                "Remove placeholders or implement the remaining domain folders."
+            ],
+            "score": 100
+        },
+        {
+            "title": "Legacy Files",
+            "status": "PASS",
+            "summary": "No legacy files found.",
+            "details": [],
+            "recommendations": [],
+            "score": 100
+        },
+        {
+            "title": "Foundation Usage",
+            "status": "PASS",
+            "summary": "Foundation adoption overview",
+            "details": [
+                "Arr        : 0",
+                "Collection : 0",
+                "Html       : 0",
+                "Str        : 0"
+            ],
+            "recommendations": [],
+            "score": 100
+        }
+    ],
+    "generatedAt": "2026-08-06T03:49:24+00:00"
+}

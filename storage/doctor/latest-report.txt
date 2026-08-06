@@ -1,0 +1,256 @@
+
+======================================
+ BoardPrep Doctor
+======================================
+
+[PASS] Project Statistics
+  > Current project size
+  - Controllers : 23
+  - Services    : 69
+  - Repositories: 12
+  - Domains     : 7
+  - Classes     : 199
+  - Interfaces  : 3
+  - Traits      : 0
+  - PHP Files   : 260
+
+[WARNING] Largest Controller
+  > ./app/Controllers/QuestionEditorController.php (406 lines)
+  - Threshold : 300
+  - Current   : 406
+
+[PASS] Controller Complexity
+  > app/Controllers/QuestionEditorController.php
+  - Methods         : 9
+  - Public Methods  : 7
+  - Private Methods : 2
+
+[WARNING] Cyclomatic Complexity
+  > RecommendationAdvisor.php::recommendations() (24)
+  - 24  RecommendationAdvisor.php::recommendations()
+  - 20  RecommendationService.php::generate()
+  - 20  RegressionCheck.php::run()
+  - 19  BlueprintValidator.php::validate()
+  - 18  TokenScanner.php::methods()
+  - 17  StatisticsBuilder.php::build()
+  - 17  CoverageMatrixService.php::build()
+  - 16  QuestionSearchRepository.php::search()
+  - 16  BlueprintService.php::create()
+  - 15  QuestionSearchRepository.php::bool()
+
+[PASS] Maintainability
+  > ./app/Storage/JsonStorage.php (72)
+  -  72  ./app/Storage/JsonStorage.php
+  -  74  ./app/Repositories/QuestionSearchRepository.php
+  -  75  ./app/Controllers/QuestionEditorController.php
+  -  75  ./tools/Doctor/Scanners/TokenScanner.php
+  -  78  ./app/Services/Shared/MetadataRepairService.php
+  -  79  ./app/Services/Question/QuestionService.php
+  -  80  ./app/Services/Shared/QuestionValidationService.php
+  -  80  ./app/Views/developer/dashboard.php
+  -  81  ./app/Foundation/Collection.php
+  -  81  ./app/Views/developer/question/editor.php
+
+[WARNING] Hotspots
+  > ./app/Repositories/QuestionSearchRepository.php (143)
+  - 143  ./app/Repositories/QuestionSearchRepository.php
+  -      • Large method
+  -      • High complexity
+  -      • Low maintainability
+  - 114  ./app/Services/Question/QuestionService.php
+  -      • Large method
+  -      • High complexity
+  -      • Low maintainability
+  -  85  ./app/Controllers/QuestionEditorController.php
+  -      • Large method
+  -      • Low maintainability
+  -  73  ./tools/Doctor/Scanners/TokenScanner.php
+  -      • Large method
+  -      • High complexity
+  -      • Low maintainability
+  -  54  ./tools/Doctor/Advisor/RecommendationAdvisor.php
+  -      • Large method
+  -      • High complexity
+
+[WARNING] Largest Service
+  > ./app/Services/Shared/MetadataRepairService.php (304 lines)
+  - Threshold : 250
+  - Current   : 304
+
+[WARNING] Largest Method
+  > ./app/Services/Shared/QuestionImportService.php
+  - Method    : importJson
+  - Length    : 180 lines
+  - Threshold : 60
+
+[WARNING] Refactor Candidates
+  > Largest methods suitable for extraction.
+  - 180  QuestionImportService.php::importJson()
+  - 146  MetadataValidator.php::validate()
+  - 140  QuizGenerationService.php::generate()
+  - 136  TokenScanner.php::methods()
+  - 123  QuizSubmissionService.php::submit()
+  - 122  BlueprintService.php::create()
+  - 121  QuizScoringService.php::calculate()
+  - 114  RegressionCheck.php::run()
+  - 111  DependencyCouplingCheck.php::run()
+  - 107  CoverageMatrixService.php::build()
+
+[PASS] Regression Check
+  > No regressions detected.
+  - PHP files: 256 → 260
+  - Classes: 195 → 199
+
+[PASS] History Trend
+  > +0% over last 5 run(s)
+  - 08-05T14:59  76%
+  - 08-05T15:00  76%
+  - 08-05T15:01  76%
+  - 08-05T15:01  76%
+  - 08-05T15:08  76%
+
+[PASS] Technical Debt
+  > Debt Score: 30
+
+[PASS] Architecture Scorecard
+  > Architectural quality overview.
+  - Controllers         A+ (100)
+  - Services            A+ (100)
+  - Dependencies        A+ (100)
+  - Maintainability     A- (88)
+  - Technical Debt      B- (70)
+
+[PASS] Change Impact
+  > No dependency information.
+
+[PASS] Dependency Coupling
+  > ./app/Controllers/QuestionEditorController.php (8 dependencies)
+  -  8  ./app/Controllers/QuestionEditorController.php
+  -  7  ./app/Controllers/LearningProfileController.php
+  -  7  ./app/Services/Quiz/QuizStartService.php
+  -  7  ./app/Services/Quiz/QuizSubmissionService.php
+  -  7  ./app/Services/RepositoryHealth/Engine/RepositoryHealthEngine.php
+
+[PASS] Circular Dependencies
+  > No circular dependencies detected.
+
+[WARNING] Dead Classes
+  > 28 potentially unused classes.
+  - NotFoundException (./app/Exceptions/NotFoundException.php)
+  - ValidationException (./app/Exceptions/ValidationException.php)
+  - Arr (./app/Foundation/Arr.php)
+  - Collection (./app/Foundation/Collection.php)
+  - Html (./app/Foundation/Html.php)
+  - Str (./app/Foundation/Str.php)
+  - Question (./app/Models/Question.php)
+  - ProgressRepository (./app/Repositories/ProgressRepository.php)
+  - QuestionStatisticsRepository (./app/Repositories/QuestionStatisticsRepository.php)
+  - AttemptService (./app/Services/AttemptService.php)
+  - DeveloperComponentRenderer (./app/Services/Developer/DeveloperComponentRenderer.php)
+  - LearningTimelineService (./app/Services/Learning/LearningTimelineService.php)
+  - MasteryService (./app/Services/Learning/MasteryService.php)
+  - QuestionValidator (./app/Services/Quality/Validators/QuestionValidator.php)
+  - QuestionStatisticsService (./app/Services/Question/QuestionStatisticsService.php)
+
+[WARNING] Layer Violations
+  > 7 layer violations detected.
+  - BlueprintController.php -> BoardRepository.php
+  - BlueprintController.php -> SubjectRepository.php
+  - ProgressController.php -> AttemptRepository.php
+  - QuestionEditorController.php -> QuestionRepository.php
+  - QuestionExportController.php -> QuestionRepository.php
+  - RecommendationController.php -> AttemptRepository.php
+  - TaxonomyController.php -> TaxonomyRepository.php
+
+[WARNING] Domain Migration
+  > 6 implemented, 18 empty
+  - Implemented : 6
+  - Empty       : 18
+
+[WARNING] Unused Imports
+  > 6 unused imports found.
+  - ./app/Storage/MysqlStorage.php :: StorageException
+  - ./app/Views/developer/components/action-bar.php :: ActionBarViewModel
+  - ./app/Views/developer/components/entity-card.php :: EntityCardViewModel
+  - ./app/Views/developer/components/page-header.php :: PageHeaderViewModel
+  - ./app/Views/developer/components/summary.php :: SummaryViewModel
+  - ./tools/Doctor/Engine/DoctorRunner.php :: AnalyzerRegistry
+
+[PASS] Long Parameter Lists
+  > No long parameter lists found.
+
+[PASS] TODO Comments
+  > No TODO/FIXME comments found.
+
+[WARNING] Empty Directories
+  > 18 empty directories found.
+  - app/Domains/Question/Queries
+  - app/Domains/Question/Validation
+  - app/Domains/Question/View
+  - app/Domains/Question/DTO
+  - app/Domains/Quiz/Actions
+  - app/Domains/Quiz/Queries
+  - app/Domains/Quiz/DTO
+  - app/Domains/Board/Actions
+  - app/Domains/Board/Queries
+  - app/Domains/Board/DTO
+  - app/Domains/Blueprint/Actions
+  - app/Domains/Blueprint/Queries
+  - app/Domains/Blueprint/Validation
+  - app/Domains/Blueprint/DTO
+  - app/Domains/Developer/Actions
+  - app/Domains/Developer/Queries
+  - app/Domains/Profile
+  - app/Domains/Progress
+
+[WARNING] Legacy Files
+  > 3 legacy files found.
+  - ././storage/doctor/Doctor.php.bak
+  - ././storage/doctor/doctor.php.bak
+  - ././storage/doctor/DoctorRunner.php.bak
+
+[PASS] Foundation Usage
+  > Foundation adoption overview
+  - Arr        : 0
+  - Collection : 0
+  - Html       : 0
+  - Str        : 0
+
+======================================
+ SUMMARY
+======================================
+
+PASS     : 13
+WARNING  : 12
+FAIL     : 0
+INFO     : 0
+
+Project Health : 88%
+
+======================================
+ TOP PRIORITIES
+======================================
+
+[Critical] Largest Method
+  Impact : 100
+
+[Critical] Largest Service
+  Impact : 95
+
+[Critical] Largest Controller
+  Impact : 90
+
+[Critical] Layer Violations
+  Impact : 90
+
+[Medium] Dead Classes
+  Impact : 60
+
+======================================
+ RECOMMENDATIONS
+======================================
+
+• QuestionEditorController is large but well-structured. Prioritize other architectural improvements before splitting it.
+• Split MetadataRepairService into smaller collaborators.
+• Continue implementing the Domain layer and replace placeholder directories as features are added.
+
