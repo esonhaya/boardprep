@@ -6,63 +6,16 @@ final class ExamAssemblyService
 {
     public static function assemble(
         array $questions,
-        array $options = []
+        QuizSpecification $specification
     ): array {
 
-        $specification =
-            QuizSpecificationBuilder::build(
-                $options
-            );
+        return QuizGenerationService::generate(
 
-        $tracker =
-            new CoverageTracker();
+            $questions,
 
-        $exam = [];
+            $specification
 
-        $blueprints =
-            BlueprintResolverService::resolve(
-                $specification
-            );
-
-        $requests =
-            BlueprintFulfillmentService::requests(
-
-                $blueprints["subject"] ?? [],
-
-                $specification->questionCount
-
-            );
-
-        foreach ($requests as $request) {
-
-            $result =
-                QuestionSelectionService::fulfillRequest(
-                    $questions,
-                    $request
-                );
-
-            $chunk =
-                ShortageRecoveryService::recover(
-                    $result,
-                    $questions
-                );
-
-            $tracker->add(
-                $chunk
-            );
-
-            $exam = array_merge(
-                $exam,
-                $chunk
-            );
-
-        }
-
-        return array_slice(
-            $exam,
-            0,
-            $specification->questionCount
-        );
+        )->questions;
 
     }
 }
