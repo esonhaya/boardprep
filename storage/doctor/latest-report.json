@@ -11,13 +11,13 @@
             "summary": "Current project size",
             "details": [
                 "Controllers : 26",
-                "Services    : 75",
+                "Services    : 81",
                 "Repositories: 12",
                 "Domains     : 7",
-                "Classes     : 224",
+                "Classes     : 231",
                 "Interfaces  : 3",
                 "Traits      : 0",
-                "PHP Files   : 287"
+                "PHP Files   : 294"
             ],
             "recommendations": [],
             "score": 100
@@ -46,8 +46,8 @@
             "status": "WARNING",
             "summary": "1 regression(s) detected.",
             "details": [
-                "PHP files: 256 \u2192 287",
-                "Classes: 195 \u2192 224",
+                "PHP files: 256 \u2192 294",
+                "Classes: 195 \u2192 231",
                 "Largest Service: 304 \u2192 308"
             ],
             "recommendations": [
@@ -94,11 +94,10 @@
         {
             "title": "Dead Classes",
             "status": "WARNING",
-            "summary": "43 potentially unused classes.",
+            "summary": "42 potentially unused classes.",
             "details": [
                 "Arr (./app/Foundation/Arr.php)",
                 "AttemptService (./app/Services/AttemptService.php)",
-                "BlueprintDistributionService (./app/Services/Quiz/BlueprintDistributionService.php)",
                 "Collection (./app/Foundation/Collection.php)",
                 "Config (./app/Core/Config.php)",
                 "CoverageMatrixService (./app/Services/Shared/CoverageMatrixService.php)",
@@ -110,7 +109,8 @@
                 "DoctorHistoryService (./app/Services/Developer/DoctorHistoryService.php)",
                 "DoctorRunController (./app/Controllers/DoctorRunController.php)",
                 "EnglishController (./app/Controllers/EnglishController.php)",
-                "EntityCardBuilder (./app/Builders/Developer/EntityCardBuilder.php)"
+                "EntityCardBuilder (./app/Builders/Developer/EntityCardBuilder.php)",
+                "EntityFactory (./app/Support/EntityFactory.php)"
             ],
             "recommendations": [],
             "score": 100
@@ -201,7 +201,7 @@
         {
             "title": "Risk Score",
             "status": "PASS",
-            "summary": "Risk Score: 720",
+            "summary": "Risk Score: 746",
             "details": [],
             "recommendations": [],
             "score": 100
@@ -244,10 +244,10 @@
         {
             "title": "Cyclomatic Complexity",
             "status": "WARNING",
-            "summary": "QuizSpecificationBuilder.php::build() (29)",
+            "summary": "RecommendationAdvisor.php::recommendations() (24)",
             "details": [
-                "29  QuizSpecificationBuilder.php::build()",
                 "24  RecommendationAdvisor.php::recommendations()",
+                "23  BaseSpecificationFactory.php::create()",
                 "20  RecommendationService.php::generate()",
                 "20  RegressionCheck.php::run()",
                 "19  DoctorHistoryService.php::compare()",
@@ -265,11 +265,11 @@
         {
             "title": "Maintainability",
             "status": "WARNING",
-            "summary": "./app/Services/Quiz/QuizSpecificationBuilder.php (53)",
+            "summary": "./tools/Doctor/Advisor/RecommendationAdvisor.php (54)",
             "details": [
-                " 53  ./app/Services/Quiz/QuizSpecificationBuilder.php",
                 " 54  ./tools/Doctor/Advisor/RecommendationAdvisor.php",
                 " 55  ./app/Services/Learning/RecommendationService.php",
+                " 58  ./app/Services/Quiz/Specification/BaseSpecificationFactory.php",
                 " 58  ./app/Services/Shared/BlueprintValidator.php",
                 " 61  ./app/Services/Quality/Validators/MetadataValidator.php",
                 " 61  ./app/Services/RepositoryHealth/Engine/StatisticsBuilder.php",
@@ -295,9 +295,9 @@
                 "122  BlueprintService.php::create()",
                 "121  QuizScoringService.php::calculate()",
                 "114  RegressionCheck.php::run()",
-                "111  QuizSpecificationBuilder.php::build()",
                 "107  CoverageMatrixService.php::build()",
-                "102  CyclomaticComplexityCheck.php::run()"
+                "102  CyclomaticComplexityCheck.php::run()",
+                " 98  AdaptiveQuizService.php::prioritize()"
             ],
             "recommendations": [
                 "Extract helper methods before adding new functionality."
@@ -355,9 +355,10 @@
         {
             "title": "Long Parameter Lists",
             "status": "WARNING",
-            "summary": "1 long parameter lists found.",
+            "summary": "2 long parameter lists found.",
             "details": [
-                "app/DTO/QuizSpecification.php (12 parameters)"
+                "app/DTO/QuizSpecification.php (12 parameters)",
+                "app/DTO/SelectionRequest.php (6 parameters)"
             ],
             "recommendations": [
                 "Consider DTOs, value objects or builders for large parameter lists."
@@ -423,5 +424,5 @@
             "score": 100
         }
     ],
-    "generatedAt": "2026-08-06T08:04:07+00:00"
+    "generatedAt": "2026-08-06T08:45:18+00:00"
 }

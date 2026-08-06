@@ -9,20 +9,15 @@ final class QuizEngineService
         array $options = []
     ): array {
 
-        $specification =
-            QuizSpecificationBuilder::build(
+        $questions =
+            ExamAssemblyService::assemble(
+                $questions,
                 $options
             );
 
-        $questions =
-            QuizHistoryService::filterUnused(
-                $questions
-            );
-
-        $questions =
-            QuestionSelectionService::select(
-                $questions,
-                $specification
+        $specification =
+            QuizSpecificationBuilder::build(
+                $options
             );
 
         $questions =
@@ -31,14 +26,13 @@ final class QuizEngineService
                 $specification
             );
 
-        if (
-            $specification->shuffle
-        ) {
-
-            shuffle(
+        $questions =
+            QuizHistoryService::filterUnused(
                 $questions
             );
 
+        if ($specification->shuffle) {
+            shuffle($questions);
         }
 
         $questions =

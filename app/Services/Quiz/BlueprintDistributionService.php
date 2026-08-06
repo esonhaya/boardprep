@@ -4,22 +4,50 @@ declare(strict_types=1);
 
 final class BlueprintDistributionService
 {
-    public static function distribute(
-        array $questions,
-        array $options = []
-    ): array
-    {
-        /*
-         * Placeholder.
-         *
-         * Future versions will:
-         *
-         * - Load Board blueprint.
-         * - Load Subject blueprint.
-         * - Calculate quotas.
-         * - Return a distribution plan.
-         */
+    /**
+     * @return SelectionRequest[]
+     */
+    public static function distribution(
+        array $blueprint,
+        int $questionCount
+    ): array {
 
-        return $questions;
+        $requests = [];
+
+        foreach (
+            $blueprint["sections"] ?? []
+            as $section
+        ) {
+
+            $requests[] =
+                new SelectionRequest(
+
+                    domain:
+                        $section["domain"] ?? null,
+
+                    topic:
+                        $section["topic"] ?? null,
+
+                    concept:
+                        $section["concept"] ?? null,
+
+                    difficulty:
+                        $section["difficulty"] ?? "mixed",
+
+                    questionCount:
+                        max(
+                            1,
+                            (int) round(
+                                $questionCount *
+                                (($section["weight"] ?? 0) / 100)
+                            )
+                        )
+
+                );
+
+        }
+
+        return $requests;
+
     }
 }
