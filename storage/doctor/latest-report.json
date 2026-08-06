@@ -1,6 +1,6 @@
 {
     "health": 78,
-    "pass": 15,
+    "pass": 17,
     "warning": 11,
     "fail": 0,
     "info": 0,
@@ -14,11 +14,19 @@
                 "Services    : 70",
                 "Repositories: 12",
                 "Domains     : 7",
-                "Classes     : 216",
+                "Classes     : 218",
                 "Interfaces  : 3",
                 "Traits      : 0",
-                "PHP Files   : 279"
+                "PHP Files   : 281"
             ],
+            "recommendations": [],
+            "score": 100
+        },
+        {
+            "title": "Hotspots",
+            "status": "PASS",
+            "summary": "No hotspot information.",
+            "details": [],
             "recommendations": [],
             "score": 100
         },
@@ -27,8 +35,8 @@
             "status": "PASS",
             "summary": "No regressions detected.",
             "details": [
-                "PHP files: 256 \u2192 279",
-                "Classes: 195 \u2192 216"
+                "PHP files: 256 \u2192 281",
+                "Classes: 195 \u2192 218"
             ],
             "recommendations": [],
             "score": 100
@@ -173,6 +181,14 @@
                 "Public Methods  : 7",
                 "Private Methods : 2"
             ],
+            "recommendations": [],
+            "score": 100
+        },
+        {
+            "title": "Risk Score",
+            "status": "PASS",
+            "summary": "Risk Score: 0",
+            "details": [],
             "recommendations": [],
             "score": 100
         },
@@ -370,5 +386,5 @@
             "score": 100
         }
     ],
-    "generatedAt": "2026-08-06T03:49:24+00:00"
+    "generatedAt": "2026-08-06T03:54:09+00:00"
 }
