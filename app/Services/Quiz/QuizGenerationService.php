@@ -2,52 +2,45 @@
 
 class QuizGenerationService
 {
-
     public static function generate(
         array $questions,
         array $options = []
     ): array
     {
-
         $options =
             QuizBlueprintService::apply(
                 $options
             );
-
 
         $questions =
             QuizHistoryService::filterUnused(
                 $questions
             );
 
-
-        /*
-         * Apply blueprint filters before
-         * adaptive/shuffle logic.
-         */
         $questions =
             QuestionFilterService::filter(
                 $questions,
                 $options
             );
 
+        $questions =
+            QuestionBalancingService::balance(
+                $questions,
+                $options
+            );
 
         if (
-            !empty(
-                $options["adaptive"]
-            )
+            !empty($options["adaptive"])
         ) {
 
             $adaptive =
                 AdaptiveQuizService::buildOptions();
-
 
             $questions =
                 AdaptiveQuizService::prioritize(
                     $questions,
                     $adaptive
                 );
-
 
             if (
                 ($options["difficulty"] ?? "mixed")
@@ -60,63 +53,43 @@ class QuizGenerationService
                         $adaptive["recommendedDifficulty"]
                     );
 
-
                 usort(
-
                     $questions,
-
-                    function (
-                        $a,
-                        $b
+                    static function (
+                        array $a,
+                        array $b
                     ) use (
                         $recommended
-                    ) {
+                    ): int {
 
                         $aScore =
                             strtolower(
                                 $a["difficulty"] ?? ""
-                            )
-                            ===
-                            $recommended;
-
+                            ) === $recommended;
 
                         $bScore =
                             strtolower(
                                 $b["difficulty"] ?? ""
-                            )
-                            ===
-                            $recommended;
-
+                            ) === $recommended;
 
                         return
-                            $bScore
-                            <=>
-                            $aScore;
+                            $bScore <=> $aScore;
 
                     }
-
                 );
 
             }
 
-        }
-        elseif (
-            !empty(
-                $options["shuffle"]
-            )
+        } elseif (
+            !empty($options["shuffle"])
         ) {
 
-            shuffle(
-                $questions
-            );
+            shuffle($questions);
 
         }
 
-
         if (
-            !empty(
-                $options["limit"]
-            )
+            !empty($options["limit"])
         ) {
 
             $questions =
@@ -128,21 +101,13 @@ class QuizGenerationService
 
         }
 
-
         $questions =
-            array_values(
-                $questions
-            );
-
+            array_values($questions);
 
         QuizHistoryService::remember(
             $questions
         );
 
-
-        return
-            $questions;
-
+        return $questions;
     }
-
 }
