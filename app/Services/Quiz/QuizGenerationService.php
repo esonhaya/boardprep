@@ -6,12 +6,36 @@ final class QuizGenerationService
 {
     public static function generate(
         array $questions,
-        array $options = []
-    ): array {
+        QuizSpecification $specification
+    ): BlueprintExecutionResult {
 
-        return QuizEngineService::generate(
-            $questions,
-            $options
+        $boardBlueprint =
+            BlueprintResolutionService::board(
+                $specification->board
+            );
+
+        $subjectBlueprint =
+            BlueprintResolutionService::subject(
+                $specification->board,
+                $specification->subject
+            );
+
+        return BlueprintExecutor::execute(
+
+            questions:
+                $questions,
+
+            boardBlueprint:
+                $boardBlueprint,
+
+            subjectBlueprints: [
+                $specification->subject =>
+                    $subjectBlueprint
+            ],
+
+            specification:
+                $specification
+
         );
 
     }
