@@ -8,93 +8,111 @@ Approved
 
 # Purpose
 
-QuestionSelectionService fulfills a Quiz Specification by selecting the best available questions.
+QuestionSelectionService fulfills a QuizSpecification by producing the best possible set of questions.
 
-It does not understand curriculum.
+It is the core service of the Quiz Generation pipeline.
 
-It does not understand blueprints.
+It fulfills blueprint requirements while maximizing educational diversity.
 
-It only fulfills the specification.
+---
+
+# Philosophy
+
+Question selection does not create curriculum.
+
+Question selection fulfills curriculum.
+
+Curriculum is determined before selection begins.
 
 ---
 
 # Inputs
 
-Quiz Specification
+QuestionSelectionService receives
 
-Question Pool
+- QuizSpecification
+- Question Repository
+- Attempt History
+- Weakness Profile
 
-Attempt History
-
-Adaptive Priority
+The service never loads blueprints directly.
 
 ---
 
 # Responsibilities
 
-Question Selection is responsible for:
+QuestionSelectionService is responsible for
 
-- Filtering
-- Candidate collection
+- Blueprint fulfillment
+- Domain filtering
+- Difficulty fulfillment
 - Topic balancing
 - Concept balancing
-- Difficulty balancing
-- Diversity optimization
 - Duplicate prevention
+- Question diversity
+- History filtering
+- Adaptive prioritization
 - Shortage recovery
-
-Question Selection is never responsible for:
-
-- Curriculum design
-- Blueprint creation
-- Session management
-- Scoring
+- Final question ordering
 
 ---
 
-# Pipeline
+# Non-Responsibilities
 
-Quiz Specification
+QuestionSelectionService never
 
-↓
+- Creates curriculum
+- Modifies blueprints
+- Builds QuizSpecifications
+- Scores quizzes
+- Stores attempts
+- Generates reports
 
-Collect Candidates
+---
 
-↓
+# Selection Pipeline
 
-Filter Candidates
-
-↓
-
-Apply Difficulty
-
-↓
-
-Apply Topic Filter
+QuizSpecification
 
 ↓
 
-Apply Concept Filter
+Candidate Collection
 
 ↓
 
-Balance Topics
+Domain Filtering
 
 ↓
 
-Balance Concepts
+Difficulty Fulfillment
 
 ↓
 
-Prevent Duplicates
+Topic Balancing
 
 ↓
 
-Recover Shortages
+Concept Balancing
 
 ↓
 
-Finalize Selection
+History Filtering
+
+↓
+
+Adaptive Prioritization
+
+↓
+
+Duplicate Prevention
+
+↓
+
+Shortage Recovery
+
+↓
+
+Question Ordering
 
 ↓
 
@@ -102,11 +120,77 @@ Selected Questions
 
 ---
 
-# Design Rules
+# Selection Rules
 
-Selection never edits the Quiz Specification.
+The service should maximize
 
-Selection returns questions only.
+- Blueprint compliance
 
-Selection should remain deterministic except where randomization is explicitly requested.
+- Topic diversity
+
+- Concept diversity
+
+- Learning value
+
+The service should minimize
+
+- Duplicate concepts
+
+- Repeated questions
+
+- History repetition
+
+---
+
+# Recovery Rules
+
+Recovery hierarchy
+
+Concept
+
+↓
+
+Topic
+
+↓
+
+Domain
+
+↓
+
+Subject
+
+Recovery never crosses subject boundaries.
+
+Blueprint requirements always have priority.
+
+---
+
+# Determinism
+
+Given the same
+
+- QuizSpecification
+
+- Question Repository
+
+- Blueprint versions
+
+- Random seed
+
+the service should produce identical results.
+
+---
+
+# Architectural Rules
+
+QuestionSelectionService fulfills specifications.
+
+It never creates specifications.
+
+It never owns curriculum.
+
+It never owns blueprint data.
+
+It remains the single implementation responsible for selecting questions.
 

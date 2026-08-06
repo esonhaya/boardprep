@@ -8,73 +8,122 @@ Approved
 
 # Purpose
 
-Adaptive Learning personalizes quizzes without changing the curriculum.
+Adaptive Learning personalizes quiz generation without changing the official curriculum.
 
 Blueprints remain authoritative.
 
-Adaptive only changes question priority.
+Adaptive Learning influences question priority only.
+
+---
+
+# Philosophy
+
+Curriculum determines what must be studied.
+
+Adaptive Learning determines what should be emphasized.
+
+Personalization never overrides curriculum.
 
 ---
 
 # Inputs
 
-Attempt History
+AdaptiveQuizService receives
 
-Weaknesses
+- QuizSpecification
+- Attempt History
+- Weakness Profile
+- Candidate Questions
 
-Mastery
-
-Quiz Specification
-
-Question Candidates
+AdaptiveQuizService never loads blueprints directly.
 
 ---
 
 # Responsibilities
 
-Adaptive Learning may:
+AdaptiveQuizService may
 
 - Prioritize weak concepts
 - Recommend difficulty
 - Increase review frequency
-- Space repetition
+- Support spaced repetition
+- Improve concept coverage
 
-Adaptive Learning must never:
+AdaptiveQuizService never
 
-- Change blueprint weights
-- Change curriculum
-- Change question count
-- Ignore required domains
-
----
-
-# Pipeline
-
-Quiz Specification
-
-↓
-
-Question Candidates
-
-↓
-
-Adaptive Priority
-
-↓
-
-Question Selection
-
-↓
-
-Quiz Session
+- Changes blueprint percentages
+- Changes curriculum
+- Changes question count
+- Ignores required domains
+- Modifies QuizSpecification
 
 ---
 
-# Rules
+# Adaptive Pipeline
 
-Blueprint defines what must be studied.
+QuizSpecification
 
-Adaptive defines what should be emphasized.
+↓
 
-Curriculum always has higher priority than personalization.
+Candidate Questions
+
+↓
+
+Weakness Analysis
+
+↓
+
+Priority Scoring
+
+↓
+
+QuestionSelectionService
+
+↓
+
+Selected Questions
+
+---
+
+# Priority Rules
+
+Adaptive Learning should prioritize
+
+- Weak concepts
+- Weak topics
+- Recently missed questions
+- Low mastery areas
+
+Adaptive Learning should never violate
+
+- Blueprint distribution
+- Domain requirements
+- Difficulty distribution
+- QuizSpecification
+
+---
+
+# Architectural Rules
+
+Blueprints remain the source of truth.
+
+Adaptive Learning is advisory.
+
+QuestionSelectionService makes the final selection.
+
+AdaptiveQuizService influences priority only.
+
+---
+
+# Future Expansion
+
+The architecture supports
+
+- Spaced repetition
+- Personalized study plans
+- AI recommendations
+- Predictive mastery
+- Review scheduling
+
+without changing the quiz generation pipeline.
 

@@ -8,160 +8,150 @@ Approved
 
 # Purpose
 
-Blueprints define the official curriculum distribution.
+Blueprints define the official examination structure.
 
-Blueprints never select individual questions.
+Blueprints describe curriculum policy.
 
-Blueprints produce specifications that the Question Selection Engine fulfills.
+Blueprints never select questions.
+
+Question selection is performed by the Quiz Engine.
 
 ---
 
-# Blueprint Ownership
+# Blueprint Levels
 
-Blueprints may only exist on:
+BoardPrep supports exactly two blueprint levels.
 
-- Board
-- Subject
+- Board Blueprint
+- Subject Blueprint
 
-Blueprints must never exist on:
+No Domain Blueprint exists.
 
-- Domain
-- Topic
-- Concept
+No Topic Blueprint exists.
 
-This is a permanent architectural rule.
+No Concept Blueprint exists.
 
 ---
 
 # Board Blueprint
 
-A Board Blueprint defines:
+A Board Blueprint defines
 
-- Subjects
-- Subject Weight
-- Total Question Count
-- Blueprint Version
+- Subject distribution
 
 Example
 
-LET
+General Education ...... 40%
 
-Professional Education ...... 40%
+Professional Education . 40%
 
-General Education ........... 40%
+Major .................. 20%
 
-Specialization .............. 20%
+Board Blueprints never define
+
+- Domains
+- Difficulty
+- Topics
+- Concepts
+- Question IDs
 
 ---
 
 # Subject Blueprint
 
-A Subject Blueprint defines:
+A Subject Blueprint defines
 
-- Domains
-- Domain Weight
-- Difficulty Distribution
-- Total Question Count
-- Blueprint Version
+- Domain distribution
+
+- Difficulty distribution
 
 Example
 
-Professional Education
+Assessment ............. 30%
 
-Assessment .............20%
+Curriculum ............. 25%
 
-Curriculum .............15%
-
-Research ...............10%
-
-Teaching ...............25%
-
-Psychology .............30%
+Teaching ............... 45%
 
 Difficulty
 
-Easy ........20%
+Easy ................... 20%
 
-Medium ......50%
+Medium ................. 60%
 
-Hard ........30%
+Hard ................... 20%
 
----
-
-# Domain
-
-Domains never own blueprints.
-
-Domains are learner workspaces.
-
-Users may configure:
+Subject Blueprints never define
 
 - Topics
 - Concepts
-- Difficulty Override
-- Question Count
-- Study Mode
-
----
-
-# Blueprint Responsibilities
-
-Blueprints define:
-
-- Official distribution
-- Official weighting
-- Difficulty mix
-
-Blueprints never define:
-
-- Question IDs
-- Randomization
+- Recovery
 - Adaptive behavior
-- Question selection
+- Question IDs
 
 ---
 
 # Blueprint Versioning
 
-Every Board and Subject has exactly one active blueprint.
+Each Board has one active Board Blueprint.
 
-Previous versions remain available.
+Each Subject has one active Subject Blueprint.
 
-Example
+Previous versions remain available for
 
-LET
+- replay
 
-Blueprint V1
+- auditing
 
-Blueprint V2
+- analytics
 
-Blueprint V3
+Generated quizzes record the blueprint versions used.
 
-Active = V3
+---
+
+# Blueprint Responsibilities
+
+Blueprints define
+
+- curriculum distribution
+
+- weighting
+
+- difficulty
+
+Blueprints never define
+
+- runtime allocation
+
+- randomization
+
+- adaptive learning
+
+- duplicate prevention
+
+- question history
+
+- shortage recovery
+
+---
+
+# Runtime Allocation
+
+Question counts are calculated only during quiz generation.
+
+Blueprint percentages represent intent.
+
+The Quiz Engine converts percentages into question counts.
+
+Derived counts are never persisted.
 
 ---
 
 # Output
 
-Blueprints produce a Quiz Specification.
+Blueprints produce a QuizSpecification.
 
-They never produce questions.
+The Quiz Engine fulfills that specification.
 
----
-
-# Architectural Rules
-
-Board owns Board Blueprint.
-
-Subject owns Subject Blueprint.
-
-Domain owns no Blueprint.
-
-Question Selection fulfills Blueprint specifications.
-
-Blueprints describe curriculum.
-
-Selection chooses questions.
-
-Adaptive personalizes results.
+Blueprints never produce questions.
 

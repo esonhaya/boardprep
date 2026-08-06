@@ -1,6 +1,20 @@
 # TB-015 — Quiz Generation Pipeline
 
-Status: Approved
+## Status
+
+Approved
+
+---
+
+# Purpose
+
+This document defines the canonical quiz generation pipeline used by every BoardPrep quiz.
+
+All quiz modes reuse this pipeline.
+
+Only configuration changes.
+
+The pipeline does not.
 
 ---
 
@@ -10,13 +24,13 @@ Curriculum is developer-owned.
 
 Study behavior is user-owned.
 
-Users may customize how they study.
+Blueprints define policy.
 
-Users may never redefine the curriculum.
+The Quiz Engine implements strategy.
 
 ---
 
-# Hierarchy
+# Curriculum Hierarchy
 
 Board
 
@@ -38,11 +52,114 @@ Domain
 
 ↓
 
+Topic
+
+↓
+
+Concept
+
+↓
+
+Questions
+
+---
+
+# Blueprint Responsibilities
+
+## Board Blueprint
+
+Responsible for
+
+- Subject distribution
+
+Board Blueprints never define
+
+- Domains
+- Difficulty
+- Topics
+- Concepts
+- Question IDs
+
+---
+
+## Subject Blueprint
+
+Responsible for
+
+- Domain distribution
+- Difficulty distribution
+
+Subject Blueprints never define
+
+- Topics
+- Concepts
+- Question IDs
+- Recovery rules
+- Adaptive rules
+
+---
+
+# Quiz Specification
+
+QuizSpecification is the immutable contract describing the requested quiz.
+
+It combines
+
+- Active Board Blueprint
+- Active Subject Blueprint
+- User configuration
+
+Once created it is never modified.
+
+---
+
+# Quiz Generation Pipeline
+
+Quiz Request
+
+↓
+
 Quiz Specification
 
 ↓
 
-Question Selection Engine
+Blueprint Resolution
+
+↓
+
+Blueprint Distribution
+
+↓
+
+QuestionSelectionService
+
+↓
+
+Topic Balancing
+
+↓
+
+Concept Balancing
+
+↓
+
+History Filter
+
+↓
+
+Adaptive Prioritization
+
+↓
+
+Shortage Recovery
+
+↓
+
+Coverage Validation
+
+↓
+
+Quiz Assembly
 
 ↓
 
@@ -50,107 +167,57 @@ Quiz Session
 
 ---
 
-# Responsibilities
+# QuestionSelectionService
 
-## Board Blueprint
+QuestionSelectionService fulfills the Quiz Specification.
 
-Defines the curriculum at the Board level.
+Responsibilities include
 
-Responsible for:
+- Blueprint fulfillment
+- Domain filtering
+- Difficulty fulfillment
+- Topic balancing
+- Concept balancing
+- Duplicate prevention
+- Diversity optimization
+- History filtering
+- Adaptive prioritization
+- Shortage recovery
 
-- Subject distribution
-- Subject weights
-- Subject order
-- Active blueprint version
+QuestionSelectionService never
 
-A Board Blueprint never defines:
-
-- Topics
-- Concepts
-- Difficulty
-
----
-
-## Subject Blueprint
-
-Defines the curriculum inside one subject.
-
-Responsible for:
-
-- Domain distribution
-- Topic distribution
-- Concept distribution
-- Difficulty distribution
-- Coverage rules
-
-A Subject Blueprint never changes Board distribution.
+- Creates curriculum
+- Modifies blueprints
+- Scores quizzes
+- Persists attempts
 
 ---
 
-## Domain
+# Allocation Rules
 
-The Domain is the user's study workspace.
+Blueprint percentages represent intent.
 
-Users may configure:
+Question counts are calculated during generation.
 
-- Practice Mode
-- Adaptive Mode
-- Difficulty
-- Topic focus
-- Concept focus
-- Question count
+BoardPrep uses the Largest Remainder Method for proportional allocation.
 
-Users never modify curriculum.
+Calculated counts are runtime values only.
 
 ---
 
-# Quiz Specification
+# Architectural Rules
 
-QuizSpecification is immutable.
+1. Navigation ends at Domain.
 
-It is created by combining:
+2. Board Blueprints own subject distribution.
 
-Board Blueprint
+3. Subject Blueprints own domain and difficulty distribution.
 
-+
+4. Topics and Concepts are balanced algorithmically.
 
-Subject Blueprint
+5. Adaptive learning never overrides blueprint requirements.
 
-+
+6. Recovery never crosses subject boundaries.
 
-User selections
+7. Every generated quiz stores the blueprint versions used.
 
-The Specification becomes the contract for the Quiz Engine.
-
----
-
-# Question Selection Engine
-
-The engine fulfills the Quiz Specification.
-
-Responsibilities:
-
-1. Collect candidates
-2. Fulfill Board requirements
-3. Fulfill Subject requirements
-4. Apply Domain filters
-5. Apply Adaptive priority
-6. Balance Topics
-7. Balance Concepts
-8. Recover shortages
-9. Shuffle
-10. Limit
-
-The engine never creates curriculum.
-
-The engine only fulfills curriculum.
-
----
-
-# Golden Rule
-
-Higher levels define curriculum.
-
-Lower levels constrain curriculum.
-
-Lower levels never redefine higher levels.

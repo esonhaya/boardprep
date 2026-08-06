@@ -8,215 +8,163 @@ Approved
 
 # Purpose
 
-This document defines the mandatory development rules for all future Quiz Engine work.
+This document defines the mandatory development rules for every Quiz Engine feature.
 
-Every new quiz feature, refactor, or optimization must be evaluated against these guidelines before implementation.
+Implementation must follow the Technical Bible.
+
+Architecture changes must be documented before code changes.
 
 ---
 
 # Development Philosophy
 
-BoardPrep prioritizes:
+BoardPrep prioritizes
 
-1. Long-term maintainability
-2. Learning effectiveness
-3. Architectural consistency
-4. Extensibility
-5. Performance
+1. Maintainability
+2. Simplicity
+3. Extensibility
+4. Learning effectiveness
+5. Architectural consistency
 
-Quick implementations must never compromise architecture.
-
----
-
-# Before Writing Code
-
-Every implementation must answer:
-
-## 1. Does this belong in the current service?
-
-If not:
-
-Extract it.
+Architecture always takes priority over convenience.
 
 ---
 
-## 2. Is there already a service responsible?
+# Responsibility Rules
 
-Never duplicate responsibilities.
+Every service owns exactly one responsibility.
 
-Extend existing architecture.
+Business logic belongs inside Services.
 
----
+Controllers orchestrate.
 
-## 3. Does this violate TB-008?
+Repositories persist data.
 
-If yes:
-
-Redesign before implementation.
+DTOs transport data.
 
 ---
 
-## 4. Will this still make sense two years from now?
+# Core Quiz Services
 
-If uncertain:
+## QuizGenerationService
 
-Prefer the simpler architecture.
+Responsible only for orchestration.
 
----
+It coordinates the quiz generation pipeline.
 
-# Service Responsibilities
-
-QuizGenerationService
-
-Responsible only for orchestrating generation.
-
-Never contains business logic.
+It never performs question selection.
 
 ---
 
-QuestionSelectionService
+## QuestionSelectionService
 
-Owns question selection.
+Responsible for fulfilling a QuizSpecification.
 
-Includes:
+Responsibilities include
 
-- balancing
-- diversity
-- blueprint distribution
-- adaptive preparation
-- history prioritization
+- Blueprint fulfillment
+- Difficulty fulfillment
+- Topic balancing
+- Concept balancing
+- Duplicate prevention
+- Diversity optimization
+- History filtering
+- Adaptive prioritization
+- Shortage recovery
+
+QuestionSelectionService never
+
+- Creates curriculum
+- Modifies blueprints
+- Scores quizzes
+- Persists attempts
 
 ---
 
-AdaptiveQuizService
+## QuizScoringService
 
-Only responsible for adaptive behavior.
-
-Never filters curriculum.
-
----
-
-QuizScoringService
-
-Only responsible for scoring.
+Responsible only for scoring.
 
 Never selects questions.
 
 ---
 
-QuizResultService
+## QuizResultService
 
-Builds learner-facing results.
+Responsible only for learner-facing results.
 
 Never recalculates scores.
 
 ---
 
-# Pipeline Integrity
+## AdaptiveQuizService
 
-The pipeline order must remain:
+Responsible only for adaptive prioritization.
 
-Repository
+Never changes curriculum.
 
-↓
-
-Filter
-
-↓
-
-Selection
-
-↓
-
-Adaptive
-
-↓
-
-History
-
-↓
-
-Shuffle
-
-↓
-
-Limit
-
-↓
-
-Session
-
-No shortcuts.
-
-No duplicated stages.
+Never changes blueprint distribution.
 
 ---
 
-# Feature Checklist
+# Architectural Rules
 
-Every new feature should satisfy:
+Every new feature must
 
-□ Fits existing architecture
+- Reuse the existing quiz pipeline.
+- Respect blueprint authority.
+- Preserve QuizSpecification immutability.
+- Maintain single responsibility.
 
-□ Has a single responsibility
-
-□ Improves learning
-
-□ Doesn't duplicate another service
-
-□ Doesn't introduce another pipeline
-
-□ Doctor remains healthy
+Never introduce a second quiz pipeline.
 
 ---
 
-# Documentation Rule
+# Development Checklist
 
-Architecture changes are documented before implementation.
+Before merging code verify
 
-Implementation follows documentation.
+□ Technical Bible updated
 
-Never the other way around.
+□ Single responsibility maintained
+
+□ No duplicated logic
+
+□ Doctor passes
+
+□ Regression checks pass
+
+□ Architecture remains consistent
 
 ---
 
 # Doctor Rule
 
-Every milestone:
+Every milestone
 
 1. Run Doctor
 
-2. Fix regressions
+2. Review regressions
 
 3. Commit
-
-Large features should be split into milestones.
 
 ---
 
 # Refactoring Rule
 
-Refactor when:
+Refactor when
 
-- responsibility grows
-- complexity increases
-- duplication appears
+- Responsibilities grow
+- Duplication appears
+- Complexity increases
 
-Do not refactor purely for aesthetics.
-
----
-
-# Backwards Compatibility
-
-Existing quizzes should continue functioning whenever possible.
-
-Large architectural changes should preserve current behavior.
+Do not refactor solely for aesthetics.
 
 ---
 
-# Future Rule
+# Golden Rule
 
-Whenever uncertainty exists:
+When implementation and documentation disagree,
 
-Prefer extending the current architecture over introducing a new one.
+the Technical Bible is the source of truth.
 

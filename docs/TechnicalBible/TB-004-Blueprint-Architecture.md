@@ -157,40 +157,6 @@ Final Quiz
 
 # Blueprint Boundaries
 
-Board Blueprints know only:
-
-- Board
-- Subjects
-- Subject percentages
-
-Board Blueprints never define:
-
-- Domains
-- Difficulty
-- Topics
-- Concepts
-- Question IDs
-
-Subject Blueprints know only:
-
-- Subject
-- Domains
-- Domain percentages
-- Difficulty percentages
-
-Subject Blueprints never define:
-
-- Topics
-- Concepts
-- Recovery rules
-- Adaptive rules
-- Question IDs
-
-
----
-
-# Blueprint Boundaries
-
 Board Blueprints know only
 
 - Board

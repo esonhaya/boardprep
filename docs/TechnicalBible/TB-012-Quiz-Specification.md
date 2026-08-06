@@ -8,112 +8,103 @@ Approved
 
 # Purpose
 
-A Quiz Specification is the immutable contract describing a quiz before any questions are selected.
+QuizSpecification is the immutable contract describing a quiz before question selection begins.
 
-Every generated quiz must begin with a Quiz Specification.
+Every generated quiz begins with a QuizSpecification.
 
 QuestionSelectionService fulfills the specification.
+
+QuizGenerationService creates and orchestrates it.
 
 ---
 
 # Philosophy
 
-Blueprints define the curriculum.
+Blueprints define curriculum.
 
-Users define their study preferences.
+Users define study preferences.
 
-Quiz Specification combines both.
+QuizSpecification combines both into a single immutable object.
 
-Question Selection fulfills it.
+Services consume the specification.
+
+Services never modify it.
 
 ---
 
 # Inputs
 
-Board
+Blueprint information
 
-Subject
+- Board
+- Subject
+- Active Board Blueprint Version
+- Active Subject Blueprint Version
 
-Domain
+Curriculum
 
-Blueprint
+- Domain
 
-Study Mode
+User configuration
 
-Question Count
-
-Difficulty
-
-Topic Filters
-
-Concept Filters
-
-Adaptive Mode
-
-Shuffle
-
-History Policy
-
----
-
-# Output
-
-QuizSpecification
-
-This object completely describes the quiz before question selection begins.
+- Study Mode
+- Question Count
+- Difficulty Preference
+- Topic Filters
+- Concept Filters
+- Shuffle
+- Adaptive Enabled
+- History Policy
 
 ---
 
 # Responsibilities
 
-Quiz Specification determines:
+QuizSpecification defines
 
 - Curriculum scope
-- Blueprint version
-- Domain scope
-- Question count
+- Blueprint versions
+- Requested question count
 - Difficulty policy
 - Topic filters
 - Concept filters
 - Study mode
-- Adaptive flag
 - Shuffle policy
+- History policy
+- Adaptive policy
 
-It never contains selected questions.
+QuizSpecification never contains
+
+- Questions
+- Scores
+- Attempts
+- Results
 
 ---
 
 # Lifecycle
 
-Board
+Quiz Request
 
 ↓
 
-Subject
+Blueprint Resolution
 
 ↓
 
-Blueprint
+Blueprint Distribution
 
 ↓
 
-Domain
+QuizSpecification
 
 ↓
 
-User Filters
+QuestionSelectionService
 
 ↓
 
-Quiz Specification
-
-↓
-
-Question Selection
-
-↓
-
-Adaptive
+Quiz Assembly
 
 ↓
 
@@ -121,79 +112,27 @@ Quiz Session
 
 ---
 
-# Immutable Rule
+# Immutability
 
-After creation, a Quiz Specification must not be modified.
+After creation
 
-Services consume it.
+QuizSpecification must never change.
 
-They do not rewrite it.
+All services receive the same instance.
 
----
-
-# Example
-
-QuizSpecification
-
-Board
-
-LET
-
-Subject
-
-Professional Education
-
-Blueprint Version
-
-3
-
-Question Count
-
-40
-
-Difficulty
-
-Mixed
-
-Study Mode
-
-Practice
-
-Domain
-
-Assessment
-
-Topics
-
-Measurement
-
-Evaluation
-
-Concepts
-
-Validity
-
-Reliability
-
-Adaptive
-
-Enabled
-
-Shuffle
-
-Enabled
+No service rewrites its contents.
 
 ---
 
 # Architectural Rules
 
-QuestionSelectionService receives a Quiz Specification.
+QuestionSelectionService fulfills QuizSpecifications.
 
-Blueprints create specifications.
+Blueprints produce specifications.
 
-Adaptive never edits specifications.
+Adaptive learning influences prioritization only.
 
-History never edits specifications.
+History filtering never modifies the specification.
 
-QuizGenerationService orchestrates creation only.
+QuizGenerationService orchestrates the generation process.
 

@@ -75,22 +75,6 @@ Subject Blueprints define
 Everything else is determined algorithmically.
 
 
----
-
-# Architectural Invariants
-
-The Quiz Engine may evolve over time.
-
-Blueprints should remain stable.
-
-Question counts are derived values calculated during quiz generation.
-
-Derived values are never persisted.
-
-Adaptive learning may influence question selection only within blueprint constraints.
-
-Generated quizzes record the Board Blueprint version and Subject Blueprint version used for generation.
-
 
 ---
 

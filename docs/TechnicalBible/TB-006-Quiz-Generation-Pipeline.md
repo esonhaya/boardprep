@@ -167,23 +167,6 @@ Custom Quiz
 All future modes reuse the same architecture.
 
 
----
-
-# Generation Engine
-
-The Generation Engine contains the following internal components:
-
-- Question Selection
-- Topic Balancer
-- Concept Balancer
-- Adaptive Prioritization
-- History Filter
-- Shortage Recovery
-
-Generation is responsible for producing candidate questions only.
-
-Quiz assembly occurs after generation has completed.
-
 
 ---
 

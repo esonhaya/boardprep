@@ -185,16 +185,6 @@ Publishing a new Subject Blueprint does not require publishing a new Board Bluep
 
 Only one active version may exist per scope.
 
----
-
-# Allocation Strategy
-
-Percentage distributions are converted into whole question counts during quiz generation.
-
-BoardPrep uses the Largest Remainder Method to ensure totals remain exact while preserving proportional fairness.
-
-Calculated question counts are temporary runtime values and are never stored in blueprint definitions.
-
 
 ---
 

@@ -8,16 +8,16 @@ Approved
 
 # Purpose
 
-This document defines the permanent architectural rules governing:
+This document defines the permanent architecture governing
 
-- Curriculum hierarchy
+- Curriculum
 - Quiz generation
 - Study navigation
-- Blueprint ownership
 - Study modes
-- Question selection
+- Blueprint ownership
+- Quiz assembly
 
-All future quiz-related features must comply with this specification.
+All future quiz features must comply with this specification.
 
 ---
 
@@ -25,64 +25,70 @@ All future quiz-related features must comply with this specification.
 
 ## Curriculum First
 
-BoardPrep models the curriculum first.
+Curriculum defines what may be studied.
 
-Quizzes are generated from curriculum data.
-
-The curriculum is the source of truth.
+The Quiz Engine determines how questions are assembled.
 
 ---
 
-## Shallow Navigation
+## Two Blueprint Levels
 
-Navigation should remain simple.
+BoardPrep supports only
 
-Users never navigate deeper than the Domain level.
+- Board Blueprint
+- Subject Blueprint
 
-Everything below Domain is represented as filters.
+Topics and Concepts never own blueprints.
 
 ---
 
 ## Single Quiz Pipeline
 
-BoardPrep has one quiz generation pipeline.
+Every quiz mode uses the same generation pipeline.
 
-Different quiz types configure the pipeline instead of replacing it.
+Quiz modes configure behavior.
+
+They never replace the pipeline.
 
 ---
 
 ## Separation of Responsibilities
 
-Curriculum decides:
+Blueprints define policy.
 
-- What can be studied.
+The Quiz Engine implements strategy.
 
-Study Mode decides:
+QuestionSelectionService fulfills QuizSpecifications.
 
-- How it is studied.
-
-Question Selection decides:
-
-- Which questions are selected.
-
-Scoring decides:
-
-- How performance is evaluated.
+Scoring evaluates performance.
 
 ---
 
 # Curriculum Hierarchy
 
-```
 Board
-└── Subject
-    └── Domain
-        ├── Topic
-        │   └── Concept
-        └── Questions
-```
 
-Every question belongs to exactly one:
+↓
+
+Subject
+
+↓
+
+Domain
+
+↓
+
+Topic
+
+↓
+
+Concept
+
+↓
+
+Questions
+
+Every question belongs to exactly one
 
 - Board
 - Subject
@@ -92,50 +98,15 @@ Every question belongs to exactly one:
 
 ---
 
-# Navigation Rules
+# Navigation
 
-Users may navigate only to:
+Users navigate only to
 
 - Board
 - Subject
 - Domain
 
-Topic and Concept are not standalone study pages.
-
-Instead, they are filters inside a Domain workspace.
-
----
-
-# Blueprint Rules
-
-Blueprints exist only for:
-
-- Board
-- Subject
-
-Blueprints never belong to:
-
-- Domain
-- Topic
-- Concept
-
-Every Board has exactly one active blueprint.
-
-Example:
-
-```
-LET
-
-Blueprint V1
-Blueprint V2
-Blueprint V3
-
-Active = V3
-```
-
-Only developers may change the active blueprint.
-
-Historical blueprint versions remain for compatibility.
+Topic and Concept remain filters inside a Domain workspace.
 
 ---
 
@@ -143,39 +114,33 @@ Historical blueprint versions remain for compatibility.
 
 ## Board
 
-Represents the complete official examination.
+Uses the active Board Blueprint.
 
-Available modes:
+Available modes
 
 - Exam
 - Practice
-
-Both use the active Board blueprint.
-
-Practice changes the user experience only.
-
-Question distribution remains identical.
 
 ---
 
 ## Subject
 
-Represents one official examination section.
+Uses the active Subject Blueprint.
 
-Available modes:
+Available modes
 
 - Exam
 - Practice
-
-Uses the Subject blueprint.
 
 ---
 
 ## Domain
 
-Represents the learner's workspace.
+Developer-defined curriculum.
 
-Available modes:
+User-configurable workspace.
+
+Available modes
 
 - Practice
 - Adaptive
@@ -183,194 +148,125 @@ Available modes:
 - Mastery
 - Review Incorrect
 
-Users configure:
+Users may configure
 
 - Topic filters
 - Concept filters
-- Difficulty
+- Difficulty preference
 - Question count
 - Shuffle
 
-Domains never own blueprints.
-
 ---
 
-# Study Modes
+# Quiz Generation
 
-Study modes affect quiz behavior.
+Quiz Request
 
-They never determine curriculum.
+↓
 
-## Exam
+QuizSpecification
 
-- Timed
-- No feedback
-- End-of-exam scoring
+↓
 
-## Practice
+Blueprint Resolution
 
-- Immediate feedback
-- Resume supported
-- Untimed
+↓
 
-## Adaptive
+Blueprint Distribution
 
-- Prioritize weak concepts
-- Adjust difficulty
-- Maintain curriculum balance
+↓
 
-## Weakness Review
+QuestionSelectionService
 
-Only previously weak concepts.
+↓
 
-## Mastery
+Topic Balancing
 
-Continue until mastery target.
+↓
 
-## Review Incorrect
+Concept Balancing
 
-Previously answered incorrectly.
+↓
 
----
-
-# Question Generation Pipeline
-
-```
-Question Repository
-        ↓
-Question Filter
-        ↓
-Question Selection
-        ↓
-Adaptive Prioritization
-        ↓
 History Filter
-        ↓
-Shuffle
-        ↓
-Limit
-        ↓
-Quiz Session
-```
 
-Pipeline order should not change without architectural review.
+↓
+
+Adaptive Prioritization
+
+↓
+
+Shortage Recovery
+
+↓
+
+Coverage Validation
+
+↓
+
+Quiz Assembly
+
+↓
+
+Quiz Session
 
 ---
 
 # QuestionSelectionService
 
-QuestionSelectionService owns all selection logic.
+QuestionSelectionService fulfills the QuizSpecification.
 
-Responsibilities include:
+Responsibilities
 
-- Blueprint distribution
+- Blueprint fulfillment
 - Topic balancing
 - Concept balancing
-- Difficulty balancing
-- Weakness prioritization
-- Duplicate concept prevention
-- Question diversity
+- Diversity
+- Duplicate prevention
+- History filtering
+- Adaptive prioritization
 - Shortage recovery
-- Final selection
 
-No other service performs these responsibilities.
+QuestionSelectionService never
 
-QuizGenerationService only orchestrates the pipeline.
-
----
-
-# Question Diversity Rules
-
-Generated quizzes should maximize learning coverage.
-
-Avoid:
-
-- Duplicate questions
-- Near-identical questions
-- Consecutive questions testing the same concept
-
-Prefer broader concept coverage before repetition.
+- Creates curriculum
+- Modifies blueprints
+- Scores quizzes
+- Persists attempts
 
 ---
 
-# Difficulty Rules
+# Study Modes
 
-Difficulty is a learner preference.
+Study modes influence behavior.
 
-It is never part of the curriculum.
+They never change curriculum.
 
-Mixed difficulty is the default.
+Adaptive learning may influence priority.
 
-Adaptive mode may override preferred difficulty.
-
----
-
-# History Rules
-
-Previously answered questions should be deprioritized.
-
-Incorrect questions may reappear depending on study mode.
-
-History influences selection but never overrides blueprint requirements.
-
----
-
-# Domain Workspace
-
-The Domain page is the learner's primary study workspace.
-
-Everything needed to generate a quiz is configured here.
-
-Future additions should integrate into this workspace without changing navigation.
-
-Examples:
-
-- Years
-- Sources
-- Authors
-- Tags
-- Favorites
-- Saved Presets
-- AI-generated questions
+It never overrides blueprint requirements.
 
 ---
 
 # Architectural Rules
 
-The following rules are non-negotiable.
+1. Navigation ends at Domain.
 
-1. Navigation stops at Domain.
+2. Board Blueprints own subject distribution.
 
-2. Board and Subject own blueprints.
+3. Subject Blueprints own domain and difficulty distribution.
 
-3. Domain never owns a blueprint.
+4. Topic balancing is algorithmic.
 
-4. Topic and Concept are filters, not destinations.
+5. Concept balancing is algorithmic.
 
-5. QuizGenerationService is an orchestrator only.
+6. Question counts are calculated at runtime.
 
-6. QuestionSelectionService owns all question selection.
+7. Generated quizzes store blueprint versions.
 
-7. New quiz modes configure the existing pipeline rather than introducing new pipelines.
+8. Blueprint percentages represent intent.
 
-8. Curriculum determines content.
+9. The Quiz Engine may evolve while blueprints remain stable.
 
-9. Study mode determines experience.
-
-10. Future features should extend existing architecture rather than replacing it.
-
----
-
-# Future Expansion
-
-The architecture must support without redesign:
-
-- Additional licensure examinations
-- Multiple blueprint versions
-- AI-generated questions
-- Personalized study plans
-- Spaced repetition
-- Offline study
-- Review center customization
-- Analytics-driven recommendations
+10. Future quiz modes extend the existing pipeline.
 
