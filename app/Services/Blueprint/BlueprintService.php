@@ -1,223 +1,150 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Services\Blueprint;
+
+use App\Repositories\BlueprintRepository;
+use App\Services\Shared\BlueprintValidator;
+
 class BlueprintService
 {
-
     public static function all(): array
     {
-
-        return BlueprintRepository::all();
-
+        return (new BlueprintRepository())->all();
     }
-
-
 
     public static function create(
         array $data
-    ): array
-    {
+    ): array {
 
-        $board =
-            trim(
-                $data["board"] ?? ""
-            );
+        $board = trim(
+            $data["board"] ?? ""
+        );
 
-        $subject =
-            trim(
-                $data["subject"] ?? ""
-            );
+        $subject = trim(
+            $data["subject"] ?? ""
+        );
 
-        $name =
-            trim(
-                $data["name"] ?? ""
-            );
+        $name = trim(
+            $data["name"] ?? ""
+        );
 
+        $version = self::nextVersion(
+            $board,
+            $subject
+        );
 
-        $version =
-            self::nextVersion(
-                $board,
-                $subject
-            );
-
-
-        $id =
-            self::generateId(
-                $board,
-                $subject,
-                $version
-            );
-
+        $id = self::generateId(
+            $board,
+            $subject,
+            $version
+        );
 
         $blueprint = [
+            "id" => $id,
+            "board" => $board,
+            "subject" => $subject,
+            "name" => $name,
+            "version" => $version,
 
-            "id" =>
-                $id,
-
-            "board" =>
-                $board,
-
-            "subject" =>
-                $subject,
-
-            "name" =>
-                $name,
-
-            "version" =>
-                $version,
-
-            "questionCount" =>
-                (int)(
-                    $data["questionCount"] ?? 0
-                ),
+            "questionCount" => (int) (
+                $data["questionCount"] ?? 0
+            ),
 
             "difficulty" => [
+                "easy" => (int) (
+                    $data["easy"] ?? 0
+                ),
 
-                "easy" =>
-                    (int)(
-                        $data["easy"] ?? 0
-                    ),
+                "medium" => (int) (
+                    $data["medium"] ?? 0
+                ),
 
-                "medium" =>
-                    (int)(
-                        $data["medium"] ?? 0
-                    ),
-
-                "hard" =>
-                    (int)(
-                        $data["hard"] ?? 0
-                    )
-
+                "hard" => (int) (
+                    $data["hard"] ?? 0
+                ),
             ],
 
             "topicWeights" => [],
-
-            "conceptWeights" => []
-
+            "conceptWeights" => [],
         ];
-
 
         $validation =
             BlueprintValidator::validate(
                 $blueprint
             );
 
-
-        if (
-            !$validation["valid"]
-        ) {
-
+        if (!$validation["valid"]) {
             return [
-
-                "success" =>
-                    false,
-
-                "errors" =>
-                    $validation["errors"]
-
+                "success" => false,
+                "errors" => $validation["errors"],
             ];
-
         }
 
-
-        BlueprintRepository::save(
+        (new BlueprintRepository())->create(
             $blueprint
         );
 
-
         return [
-
-            "success" =>
-                true,
-
-            "blueprint" =>
-                $blueprint
-
+            "success" => true,
+            "blueprint" => $blueprint,
         ];
-
     }
-
-
 
     private static function generateId(
         string $board,
         string $subject,
         int $version
-    ): string
-    {
+    ): string {
 
-        $board =
-            preg_replace(
-                '/\s+/',
-                '-',
-                trim($board)
-            );
+        $board = preg_replace(
+            '/\s+/',
+            '-',
+            trim($board)
+        );
 
-        $subject =
-            preg_replace(
-                '/\s+/',
-                '-',
-                trim($subject)
-            );
+        $subject = preg_replace(
+            '/\s+/',
+            '-',
+            trim($subject)
+        );
 
         return strtolower(
             $board
-            .
-            "-"
-            .
-            $subject
-            .
-            "-v"
-            .
-            $version
+            . "-"
+            . $subject
+            . "-v"
+            . $version
         );
-
     }
-
-
 
     private static function nextVersion(
         string $board,
         string $subject
-    ): int
-    {
+    ): int {
 
         $highest = 0;
 
-
         foreach (
-            BlueprintRepository::all()
+            (new BlueprintRepository())->all()
             as $blueprint
         ) {
 
             if (
-
-                ($blueprint["board"] ?? "")
-                ===
-                $board
-
+                ($blueprint["board"] ?? "") === $board
                 &&
-
-                ($blueprint["subject"] ?? "")
-                ===
-                $subject
-
+                ($blueprint["subject"] ?? "") === $subject
             ) {
-
-                $highest =
-                    max(
-                        $highest,
-                        (int)(
-                            $blueprint["version"] ?? 0
-                        )
-                    );
-
+                $highest = max(
+                    $highest,
+                    (int) (
+                        $blueprint["version"] ?? 0
+                    )
+                );
             }
-
         }
 
-
         return $highest + 1;
-
     }
-
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Services\BoardService;
+use App\Services\Board\BoardService;
 
 class BoardController extends BaseDeveloperController
 {
@@ -13,7 +13,7 @@ class BoardController extends BaseDeveloperController
         self::renderDeveloper(
             "developer/boards/index",
             [
-                "boards" => BoardService::all()
+                "boards" => BoardService::all(),
             ]
         );
     }
@@ -57,7 +57,6 @@ class BoardController extends BaseDeveloperController
         $board = BoardService::find($id);
 
         if (!$board) {
-
             self::developerRedirect("boards");
 
             return;
@@ -66,7 +65,7 @@ class BoardController extends BaseDeveloperController
         self::renderDeveloper(
             "developer/boards/view",
             [
-                "board" => $board
+                "board" => $board,
             ]
         );
     }

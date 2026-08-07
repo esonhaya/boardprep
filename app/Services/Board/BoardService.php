@@ -1,111 +1,85 @@
 <?php
 
-class BoardService
-{
+declare(strict_types=1);
 
+namespace App\Services\Board;
+
+use App\Core\App;
+use App\Repositories\BoardRepository;
+use App\Services\Shared\BoardValidator;
+
+final class BoardService
+{
     public static function all(): array
     {
-
-        return BoardRepository::all();
-
+        return App::container()
+            ->get(BoardRepository::class)
+            ->all();
     }
 
     public static function find(
         string $id
-    ): ?array
-    {
-
-        return BoardRepository::find(
-            $id
-        );
-
+    ): ?array {
+        return App::container()
+            ->get(BoardRepository::class)
+            ->find($id);
     }
 
     public static function create(
         array $data
-    ): void
-    {
+    ): void {
+        BoardValidator::validate($data);
 
-        BoardValidator::validate(
-            $data
-        );
+        $repository = App::container()
+            ->get(BoardRepository::class);
 
-        $boards =
-            BoardRepository::all();
-
-        $boards[] = [
-
-            "id" =>
-                self::generateId(
-                    $data["name"]
-                ),
-
-            "name" =>
-                trim($data["name"]),
-
-            "description" =>
-                trim($data["description"] ?? ""),
-
-            "status" =>
-                "active",
-
-            "subjects" =>
-                []
-
-        ];
-
-        BoardRepository::saveAll(
-            $boards
-        );
-
+        $repository->create([
+            "id" => self::generateId(
+                $data["name"]
+            ),
+            "name" => trim(
+                $data["name"]
+            ),
+            "description" => trim(
+                $data["description"] ?? ""
+            ),
+            "status" => "active",
+            "subjects" => [],
+        ]);
     }
 
     public static function archive(
         string $id
-    ): void
-    {
-
-        BoardRepository::setStatus(
-            $id,
-            "archived"
-        );
-
+    ): void {
+        App::container()
+            ->get(BoardRepository::class)
+            ->archive($id);
     }
 
     public static function activate(
         string $id
-    ): void
-    {
-
-        BoardRepository::setStatus(
-            $id,
-            "active"
-        );
-
+    ): void {
+        App::container()
+            ->get(BoardRepository::class)
+            ->activate($id);
     }
 
     private static function generateId(
         string $name
-    ): string
-    {
+    ): string {
+        $id = strtolower(
+            trim($name)
+        );
 
-        $id =
-            strtolower(
-                trim($name)
-            );
-
-        $id =
-            preg_replace(
-                "/[^a-z0-9]+/",
-                "-",
-                $id
-            );
+        $id = preg_replace(
+            "/[^a-z0-9]+/",
+            "-",
+            $id
+        );
 
         return trim(
             $id,
             "-"
         );
-
     }
-
 }

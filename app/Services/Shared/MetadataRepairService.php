@@ -5,299 +5,53 @@ declare(strict_types=1);
 use App\Core\App;
 use App\Repositories\QuestionRepository;
 
-class MetadataRepairService
+final class MetadataRepairService
 {
-    private static function repository(): QuestionRepository
+    public static function repair(): array
     {
-
-        return App::container()
-            ->get(
-                QuestionRepository::class
-            );
-
-    }
-
-    public static function scan(): array
-    {
-
-        $report = [];
-
-        foreach (
-
-            self::repository()->all()
-
-            as $question
-
-        ) {
-
-            $issues = [];
-
-            self::scanTaxonomy(
-                $question,
-                $issues
-            );
-
-            self::scanDifficulty(
-                $question,
-                $issues
-            );
-
-            if (
-
-                !empty($issues)
-
-            ) {
-
-                $report[] = [
-
-                    "id" =>
-                        $question["id"] ?? "",
-
-                    "question" =>
-                        $question["question"] ?? "",
-
-                    "issues" =>
-                        $issues
-
-                ];
-
-            }
-
-        }
-
-        return $report;
-
-    }
-
-    public static function repair(): int
-    {
-
-        $updated = 0;
-
-        foreach (
-
-            self::repository()->all()
-
-            as $question
-
-        ) {
-
-            if (
-
-                self::repairQuestion(
-                    $question
-                )
-
-            ) {
-
-                self::repository()->update(
-
-                    (string) $question["id"],
-
-                    $question
-
+        $repository =
+            App::container()
+                ->get(
+                    QuestionRepository::class
                 );
 
-                $updated++;
+        $processor =
+            new MetadataRepairProcessor();
 
-            }
+        $report =
+            new MetadataRepairReport();
 
-        }
+        $questions =
+            $processor->process(
+                $repository->all(),
+                $report
+            );
 
-        return $updated;
+        foreach ($questions as $question) {
 
-    }
-
-    private static function repairQuestion(
-        array &$question
-    ): bool
-    {
-
-        $changed = false;
-
-        if (
-
-            empty(
-                $question["taxonomy"]
-            )
-
-        ) {
-
-            $question["taxonomy"] = [
-
-                "board_id" => "",
-                "subject_id" => "",
-                "domain_id" => "",
-                "topic_id" => "",
-                "concept_id" => ""
-
-            ];
-
-            $changed = true;
-
-        }
-
-        if (
-
-            empty(
-                $question["status"]
-            )
-
-        ) {
-
-            $question["status"] =
-                "approved";
-
-            $changed = true;
-
-        }
-
-        if (
-
-            empty(
-                $question["options"]
-            )
-
-        ) {
-
-            $question["options"] = [];
-
-            $changed = true;
-
-        }
-
-        if (
-
-            !isset(
-                $question["tags"]
-            )
-
-        ) {
-
-            $question["tags"] = [];
-
-            $changed = true;
-
-        }
-
-        if (
-
-            !isset(
-                $question["hint"]
-            )
-
-        ) {
-
-            $question["hint"] = "";
-
-            $changed = true;
-
-        }
-
-        return $changed;
-
-    }
-
-    private static function scanTaxonomy(
-        array $question,
-        array &$issues
-    ): void
-    {
-
-        $taxonomy =
-            $question["taxonomy"] ?? [];
-
-        foreach (
-
-            [
-
-                "board_id" =>
-                    "Missing board",
-
-                "subject_id" =>
-                    "Missing subject",
-
-                "domain_id" =>
-                    "Missing domain",
-
-                "topic_id" =>
-                    "Missing topic",
-
-                "concept_id" =>
-                    "Missing concept"
-
-            ]
-
-            as $key => $message
-
-        ) {
+            $id =
+                trim(
+                    (string) (
+                        $question["id"]
+                        ?? ""
+                    )
+                );
 
             if (
-
-                empty(
-
-                    trim(
-
-                        (string)
-
-                        ($taxonomy[$key] ?? "")
-
-                    )
-
-                )
-
+                $id === ""
+                ||
+                !$report->hasChanges($id)
             ) {
-
-                $issues[] =
-                    $message;
-
+                continue;
             }
 
-        }
-
-    }
-
-    private static function scanDifficulty(
-        array $question,
-        array &$issues
-    ): void
-    {
-
-        if (
-
-            !in_array(
-
-                strtolower(
-
-                    trim(
-
-                        (string)
-
-                        ($question["difficulty"] ?? "")
-
-                    )
-
-                ),
-
-                [
-
-                    "easy",
-                    "medium",
-                    "hard"
-
-                ],
-
-                true
-
-            )
-
-        ) {
-
-            $issues[] =
-                "Invalid difficulty";
+            $repository->update(
+                $id,
+                $question
+            );
 
         }
 
+        return $report->summary();
     }
-
 }

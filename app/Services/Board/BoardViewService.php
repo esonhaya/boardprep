@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace App\Services\Subject;
+namespace App\Services\Board;
 
 use App\Core\App;
-use App\Repositories\SubjectRepository;
+use App\Repositories\BoardRepository;
 
-final class SubjectViewService
+final class BoardViewService
 {
     public static function all(): array
     {
         return App::container()
-            ->get(SubjectRepository::class)
+            ->get(BoardRepository::class)
             ->all();
     }
 }

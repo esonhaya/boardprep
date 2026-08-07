@@ -25,6 +25,17 @@ final class CircularDependencyCheck implements CheckInterface
                 as $dependency
             ) {
 
+                /*
+                 * A file resolving to itself is a self-reference,
+                 * not a meaningful architectural circular dependency.
+                 *
+                 * This can occur when scanners resolve a symbol declared
+                 * within the same source file.
+                 */
+                if ($file === $dependency) {
+                    continue;
+                }
+
                 if (
                     !isset($graph[$dependency])
                 ) {
@@ -39,17 +50,18 @@ final class CircularDependencyCheck implements CheckInterface
                     )
                 ) {
 
-                    $pair = [$file, $dependency];
+                    $pair = [
+                        $file,
+                        $dependency,
+                    ];
+
                     sort($pair);
 
                     $cycles[
                         implode("|", $pair)
                     ] = $pair;
-
                 }
-
             }
-
         }
 
         $details = array_map(

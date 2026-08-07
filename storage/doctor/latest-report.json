@@ -1,23 +1,35 @@
 {
     "health": 70,
-    "pass": 13,
+    "pass": 14,
     "warning": 15,
     "fail": 0,
     "info": 0,
     "checks": [
+        {
+            "title": "Runtime Function Test",
+            "status": "PASS",
+            "summary": "26/26 runtime simulations passed.",
+            "details": [
+                "Passed: 26",
+                "Failed: 0",
+                "Execution time: 0.014s"
+            ],
+            "recommendations": [],
+            "score": 100
+        },
         {
             "title": "Project Statistics",
             "status": "PASS",
             "summary": "Current project size",
             "details": [
                 "Controllers : 26",
-                "Services    : 105",
+                "Services    : 116",
                 "Repositories: 8",
                 "Domains     : 7",
-                "Classes     : 250",
+                "Classes     : 266",
                 "Interfaces  : 3",
                 "Traits      : 0",
-                "PHP Files   : 314"
+                "PHP Files   : 331"
             ],
             "recommendations": [],
             "score": 100
@@ -25,18 +37,18 @@
         {
             "title": "Hotspots",
             "status": "WARNING",
-            "summary": "CheckResult.php (29)",
+            "summary": "App.php (31)",
             "details": [
-                " 29  CheckResult.php",
-                " 24  App.php",
+                " 31  App.php",
+                " 30  CheckResult.php",
                 " 24  DoctorContext.php",
-                " 20  QuestionRepository.php",
+                " 18  QuestionRepository.php",
                 " 18  index.php",
                 " 17  web.php",
                 " 16  BaseDeveloperController.php",
                 " 13  RepositoryHealthEngine.php",
                 " 12  View.php",
-                " 10  DoctorRunner.php"
+                " 11  function-test.php"
             ],
             "recommendations": [],
             "score": 100
@@ -46,8 +58,8 @@
             "status": "PASS",
             "summary": "No regressions detected.",
             "details": [
-                "PHP files: 256 \u2192 314",
-                "Classes: 195 \u2192 250"
+                "PHP files: 256 \u2192 331",
+                "Classes: 195 \u2192 266"
             ],
             "recommendations": [],
             "score": 100
@@ -59,7 +71,7 @@
             "details": [
                 "Controllers         100",
                 "Services            100",
-                "Dependencies        96",
+                "Dependencies        94",
                 "Maintainability      60",
                 "Technical Debt      100"
             ],
@@ -91,7 +103,7 @@
         {
             "title": "Dead Classes",
             "status": "WARNING",
-            "summary": "53 potentially unused classes.",
+            "summary": "54 potentially unused classes.",
             "details": [
                 "AdaptiveQuizService (./app/Services/Quiz/AdaptiveQuizService.php)",
                 "Arr (./app/Foundation/Arr.php)",
@@ -146,10 +158,10 @@
         {
             "title": "Largest Controller",
             "status": "WARNING",
-            "summary": "./app/Controllers/QuestionEditorController.php (406 lines)",
+            "summary": "./app/Controllers/QuestionEditorController.php (396 lines)",
             "details": [
                 "Threshold : 300",
-                "Current   : 406"
+                "Current   : 396"
             ],
             "recommendations": [
                 "Split ./app/Controllers/QuestionEditorController.php into smaller action-oriented classes."
@@ -159,27 +171,27 @@
         {
             "title": "Largest Method",
             "status": "WARNING",
-            "summary": "./app/Services/Shared/QuestionImportService.php",
+            "summary": "./app/Services/Quiz/QuizScoringService.php",
             "details": [
-                "Method    : importJson",
-                "Length    : 180 lines",
+                "Method    : calculate",
+                "Length    : 121 lines",
                 "Threshold : 60"
             ],
             "recommendations": [
-                "Split importJson() into smaller methods."
+                "Split calculate() into smaller methods."
             ],
             "score": 100
         },
         {
             "title": "Largest Service",
             "status": "WARNING",
-            "summary": "./app/Services/Shared/MetadataRepairService.php (304 lines)",
+            "summary": "./app/Services/Shared/QuestionValidationService.php (263 lines)",
             "details": [
                 "Threshold : 250",
-                "Current   : 304"
+                "Current   : 263"
             ],
             "recommendations": [
-                "Split ./app/Services/Shared/MetadataRepairService.php into smaller collaborators."
+                "Split ./app/Services/Shared/QuestionValidationService.php into smaller collaborators."
             ],
             "score": 100
         },
@@ -188,17 +200,17 @@
             "status": "PASS",
             "summary": "app/Controllers/QuestionEditorController.php",
             "details": [
-                "Methods         : 9",
+                "Methods         : 8",
                 "Public Methods  : 7",
-                "Private Methods : 2"
+                "Private Methods : 1"
             ],
             "recommendations": [],
             "score": 100
         },
         {
             "title": "Risk Score",
-            "status": "PASS",
-            "summary": "Risk Score: 780",
+            "status": "WARNING",
+            "summary": "Risk Score: 850",
             "details": [],
             "recommendations": [],
             "score": 100
@@ -206,7 +218,7 @@
         {
             "title": "Change Impact",
             "status": "WARNING",
-            "summary": "CheckResult.php affects 29 file(s)",
+            "summary": "CheckResult.php affects 30 file(s)",
             "details": [
                 "ArchitectureScorecardCheck.php",
                 "ChangeImpactCheck.php",
@@ -227,12 +239,12 @@
         {
             "title": "Dependency Coupling",
             "status": "WARNING",
-            "summary": "./tools/Doctor/DTO/CheckResult.php (29 dependencies)",
+            "summary": "./app/Core/App.php (31 dependencies)",
             "details": [
-                "29  ./tools/Doctor/DTO/CheckResult.php",
-                "24  ./app/Core/App.php",
+                "31  ./app/Core/App.php",
+                "30  ./tools/Doctor/DTO/CheckResult.php",
                 "24  ./tools/Doctor/Context/DoctorContext.php",
-                "20  ./app/Repositories/QuestionRepository.php",
+                "18  ./app/Repositories/QuestionRepository.php",
                 "18  ./public/index.php"
             ],
             "recommendations": [],
@@ -245,13 +257,13 @@
             "details": [
                 "25  BaseSpecificationFactory.php::create()",
                 "24  RecommendationAdvisor.php::recommendations()",
+                "22  BlueprintService.php::create()",
                 "20  RecommendationService.php::generate()",
                 "20  RegressionCheck.php::run()",
                 "19  DoctorHistoryService.php::compare()",
                 "19  BlueprintValidator.php::validate()",
                 "18  BlueprintDistributionService.php::distribution()",
                 "18  BlueprintIntegrityValidator.php::validate()",
-                "18  TokenScanner.php::methods()",
                 "17  StatisticsBuilder.php::build()"
             ],
             "recommendations": [
@@ -267,13 +279,13 @@
                 " 54  ./tools/Doctor/Advisor/RecommendationAdvisor.php",
                 " 55  ./app/Services/Learning/RecommendationService.php",
                 " 56  ./app/Services/Quiz/Specification/BaseSpecificationFactory.php",
+                " 57  ./app/Services/Shared/BlueprintValidator.php",
                 " 58  ./app/Services/Quiz/Blueprint/BlueprintDistributionService.php",
-                " 58  ./app/Services/Shared/BlueprintValidator.php",
+                " 58  ./tools/Doctor/Scanners/TokenScanner.php",
                 " 60  ./app/Services/Quiz/Blueprint/BlueprintIntegrityValidator.php",
-                " 61  ./app/Services/Quality/Validators/MetadataValidator.php",
+                " 60  ./tests/function-test.php",
                 " 61  ./app/Services/RepositoryHealth/Engine/StatisticsBuilder.php",
-                " 62  ./tools/Doctor/Scanners/TokenScanner.php",
-                " 64  ./app/Storage/JsonStorage.php"
+                " 65  ./app/Storage/JsonStorage.php"
             ],
             "recommendations": [
                 "Improve maintainability by reducing file size, complexity and responsibilities."
@@ -285,16 +297,16 @@
             "status": "WARNING",
             "summary": "Largest methods suitable for extraction.",
             "details": [
-                "180  QuestionImportService.php::importJson()",
-                "146  MetadataValidator.php::validate()",
-                "136  TokenScanner.php::methods()",
-                "123  QuizSubmissionService.php::submit()",
-                "122  BlueprintService.php::create()",
                 "121  QuizScoringService.php::calculate()",
                 "114  RegressionCheck.php::run()",
                 "107  CoverageMatrixService.php::build()",
                 "102  CyclomaticComplexityCheck.php::run()",
-                " 98  AdaptiveQuizService.php::prioritize()"
+                " 98  AdaptiveQuizService.php::prioritize()",
+                " 97  ChoiceValidator.php::validate()",
+                " 96  FunctionTest.php::run()",
+                " 93  BlueprintDistributionService.php::distribution()",
+                " 93  BlueprintExecutor.php::execute()",
+                " 91  QuestionQualityService.php::analyze()"
             ],
             "recommendations": [
                 "Extract helper methods before adding new functionality."
@@ -316,16 +328,9 @@
         },
         {
             "title": "Layer Violations",
-            "status": "WARNING",
-            "summary": "6 layer violations detected.",
-            "details": [
-                "BlueprintController.php -> BoardRepository.php",
-                "BlueprintController.php -> SubjectRepository.php",
-                "ProgressController.php -> AttemptRepository.php",
-                "QuestionEditorController.php -> QuestionRepository.php",
-                "QuestionExportController.php -> QuestionRepository.php",
-                "RecommendationController.php -> AttemptRepository.php"
-            ],
+            "status": "PASS",
+            "summary": "No layer violations detected.",
+            "details": [],
             "recommendations": [
                 "Inject Services instead of Repositories.",
                 "Keep Controllers independent of persistence."
@@ -335,8 +340,11 @@
         {
             "title": "Unused Imports",
             "status": "WARNING",
-            "summary": "5 unused imports found.",
+            "summary": "8 unused imports found.",
             "details": [
+                "./app/Controllers/QuestionEditorController.php :: App",
+                "./app/Services/Question/QuestionService.php :: App",
+                "./app/Services/Question/QuestionService.php :: QuestionRepository",
                 "./app/Storage/MysqlStorage.php :: StorageException",
                 "./app/Views/developer/components/action-bar.php :: ActionBarViewModel",
                 "./app/Views/developer/components/entity-card.php :: EntityCardViewModel",
@@ -420,5 +428,5 @@
             "score": 100
         }
     ],
-    "generatedAt": "2026-08-06T14:06:23+00:00"
+    "generatedAt": "2026-08-07T13:12:03+00:00"
 }

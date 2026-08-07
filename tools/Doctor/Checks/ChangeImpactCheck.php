@@ -12,7 +12,9 @@ final class ChangeImpactCheck implements CheckInterface
 {
     public function run(): CheckResult
     {
-        $items = DoctorContext::snapshot()->metric('change-impact');
+        $items =
+            DoctorContext::snapshot()
+                ->metric('change-impact');
 
         if (!is_array($items) || $items === []) {
             return new CheckResult(
@@ -22,37 +24,68 @@ final class ChangeImpactCheck implements CheckInterface
             );
         }
 
+        $items = array_values(
+            array_filter(
+                $items,
+                fn(mixed $item): bool =>
+                    is_array($item)
+                    && $this->isApplicationFile(
+                        (string) ($item['target'] ?? '')
+                    )
+            )
+        );
+
+        if ($items === []) {
+            return new CheckResult(
+                title: 'Change Impact',
+                status: 'PASS',
+                summary: 'No application change-impact data.'
+            );
+        }
+
         usort(
             $items,
-            fn(array $a, array $b) =>
+            fn(array $a, array $b): int =>
                 ($b['count'] ?? 0) <=> ($a['count'] ?? 0)
         );
 
         $worst = $items[0];
 
+        $count = (int) ($worst['count'] ?? 0);
+
         $details = [];
 
         foreach (
-            array_slice($worst['affected'] ?? [], 0, 10)
-            as $file
+            array_slice(
+                $worst['affected'] ?? [],
+                0,
+                10
+            ) as $file
         ) {
-            $details[] = basename($file);
+            if ($this->isApplicationFile((string) $file)) {
+                $details[] = basename((string) $file);
+            }
         }
 
         return new CheckResult(
             title: 'Change Impact',
-            status: ($worst['count'] ?? 0) >= 8
-                ? 'WARNING'
-                : 'PASS',
+            status:
+                $count >= 15
+                    ? 'WARNING'
+                    : 'PASS',
             summary: sprintf(
-                '%s affects %d file(s)',
-                basename($worst['target']),
-                $worst['count']
+                '%s affects %d application file(s)',
+                basename((string) ($worst['target'] ?? 'N/A')),
+                $count
             ),
             details: $details,
-            recommendations: ($worst['count'] ?? 0) >= 8
-                ? ['Review all affected files before refactoring.']
-                : []
+            recommendations:
+                $count >= 15
+                    ? [
+                        'Review the affected application files before changing this component.',
+                        'Consider reducing unnecessary consumers of highly shared components.',
+                    ]
+                    : []
         );
     }
 
@@ -64,5 +97,18 @@ final class ChangeImpactCheck implements CheckInterface
     public function priority(): int
     {
         return 22;
+    }
+
+    private function isApplicationFile(string $file): bool
+    {
+        $normalized =
+            str_replace('\\', '/', $file);
+
+        return !(
+            str_starts_with($normalized, './tools/Doctor/')
+            || str_starts_with($normalized, 'tools/Doctor/')
+            || str_starts_with($normalized, './tests/')
+            || str_starts_with($normalized, 'tests/')
+        );
     }
 }

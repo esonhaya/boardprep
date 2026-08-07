@@ -22,11 +22,9 @@ class QuizSubmissionService
             $questions[$current] ?? null;
 
         if (!$question) {
-
             Response::redirect(
                 "/quiz/finish"
             );
-
         }
 
         $answer =
@@ -40,48 +38,18 @@ class QuizSubmissionService
                 "Please select an answer before continuing."
             );
 
-            View::render(
-                "quiz/index",
-                [
-                    "question" =>
-                        $question,
-
-                    "current" =>
-                        $current,
-
-                    "total" =>
-                        count($questions),
-
-                    "mode" =>
-                        SessionService::get(
-                            "mode",
-                            "practice"
-                        ),
-
-                    "feedback" =>
-                        SessionService::get(
-                            "feedback"
-                        )
-                ]
+            self::renderQuestion(
+                $question,
+                $current,
+                count($questions)
             );
 
             return;
-
         }
 
-        $answers =
-            SessionService::get(
-                "answers",
-                []
-            );
-
-        $answers[
-            $question["id"]
-        ] = $answer;
-
-        SessionService::set(
-            "answers",
-            $answers
+        self::storeAnswer(
+            $question,
+            $answer
         );
 
         $mode =
@@ -92,43 +60,93 @@ class QuizSubmissionService
 
         if ($mode === "practice") {
 
-            SessionService::set(
-                "feedback",
-                [
-                    "correct" =>
-                        QuizScoringService::checkAnswer(
-                            $question,
-                            $answer
-                        )
-                ]
+            self::storeFeedback(
+                $question,
+                $answer
             );
 
-            View::render(
-                "quiz/index",
-                [
-                    "question" =>
-                        $question,
-
-                    "current" =>
-                        $current,
-
-                    "total" =>
-                        count($questions),
-
-                    "mode" =>
-                        $mode,
-
-                    "feedback" =>
-                        SessionService::get(
-                            "feedback"
-                        )
-                ]
+            self::renderQuestion(
+                $question,
+                $current,
+                count($questions),
+                $mode
             );
 
             return;
-
         }
 
         QuizNavigationService::next();
+    }
+
+    private static function storeAnswer(
+        array $question,
+        mixed $answer
+    ): void {
+
+        $answers =
+            SessionService::get(
+                "answers",
+                []
+            );
+
+        $answers[$question["id"]] =
+            $answer;
+
+        SessionService::set(
+            "answers",
+            $answers
+        );
+    }
+
+    private static function storeFeedback(
+        array $question,
+        mixed $answer
+    ): void {
+
+        SessionService::set(
+            "feedback",
+            [
+                "correct" =>
+                    QuizScoringService::checkAnswer(
+                        $question,
+                        $answer
+                    )
+            ]
+        );
+    }
+
+    private static function renderQuestion(
+        array $question,
+        int $current,
+        int $total,
+        ?string $mode = null
+    ): void {
+
+        View::render(
+            "quiz/index",
+            [
+                "question" =>
+                    $question,
+
+                "current" =>
+                    $current,
+
+                "total" =>
+                    $total,
+
+                "mode" =>
+                    $mode
+                    ??
+                    SessionService::get(
+                        "mode",
+                        "practice"
+                    ),
+
+                "feedback" =>
+                    SessionService::get(
+                        "feedback"
+                    )
+            ]
+        );
     }
 }

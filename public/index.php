@@ -8,7 +8,7 @@ ini_set('display_errors', '1');
 
 session_start();
 
-require_once "../app/Core/Autoloader.php";
+require_once __DIR__ . "/../app/Core/Autoloader.php";
 
 \App\Core\Autoloader::register();
 
@@ -17,11 +17,11 @@ use App\Core\View;
 
 try {
 
-    require_once "../bootstrap/app.php";
+require_once __DIR__ . "/../bootstrap/app.php";
 
     $router = new \App\Core\Router();
 
-    require_once "../routes/web.php";
+require_once __DIR__ . "/../routes/web.php";
 
     $page = $_GET["page"] ?? "home";
 

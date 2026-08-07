@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Repositories\BoardRepository;
-use App\Repositories\SubjectRepository;
-use App\Services\BlueprintService;
+use App\Services\Blueprint\BlueprintService;
+use App\Services\Board\BoardViewService;
+use App\Services\Subject\SubjectViewService;
 
 class BlueprintController extends BaseDeveloperController
 {
@@ -15,7 +15,7 @@ class BlueprintController extends BaseDeveloperController
         self::renderDeveloper(
             "developer/blueprints",
             [
-                "blueprints" => BlueprintService::all()
+                "blueprints" => BlueprintService::all(),
             ]
         );
     }
@@ -25,8 +25,8 @@ class BlueprintController extends BaseDeveloperController
         self::renderDeveloper(
             "developer/blueprint-create",
             [
-                "boards" => BoardRepository::all(),
-                "subjects" => SubjectRepository::all()
+                "boards" => BoardViewService::all(),
+                "subjects" => SubjectViewService::all(),
             ]
         );
     }
@@ -40,10 +40,10 @@ class BlueprintController extends BaseDeveloperController
             self::renderDeveloper(
                 "developer/blueprint-create",
                 [
-                    "boards" => BoardRepository::all(),
-                    "subjects" => SubjectRepository::all(),
+                    "boards" => BoardViewService::all(),
+                    "subjects" => SubjectViewService::all(),
                     "errors" => $result["errors"],
-                    "old" => $_POST
+                    "old" => $_POST,
                 ]
             );
 
