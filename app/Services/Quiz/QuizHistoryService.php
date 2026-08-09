@@ -3,6 +3,17 @@
 class QuizHistoryService
 {
 
+    public static function all(): array
+    {
+
+        return SessionService::get(
+            "quizHistory",
+            []
+        );
+
+    }
+
+
     public static function filterUnused(
         array $questions
     ): array
