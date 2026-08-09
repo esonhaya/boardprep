@@ -9,6 +9,10 @@ final class RuntimeAllocationService
         array $distribution
     ): array {
 
+        if ($total <= 0 || empty($distribution)) {
+            return [];
+        }
+
         $result = [];
 
         $allocated = 0;
@@ -52,6 +56,10 @@ final class RuntimeAllocationService
 
                 }
 
+            }
+
+            if ($largest === null) {
+                break;
             }
 
             $result[$largest]["count"]++;
