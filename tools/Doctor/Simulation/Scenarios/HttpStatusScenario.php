@@ -20,7 +20,7 @@ final class HttpStatusScenario extends SimulationScenario
         $simulation
             ->get('/route-that-does-not-exist')
             ->execute()
-            ->assertStatus(500)
+            ->assertStatus(404)
             ->assertNotContains('Fatal error');
     }
 }

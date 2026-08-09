@@ -9,15 +9,15 @@ use Tools\Doctor\Simulation\Scenarios\HomePageScenario;
 use Tools\Doctor\Simulation\Scenarios\HttpStatusScenario;
 use Tools\Doctor\Simulation\Scenarios\QuizLifecycleScenario;
 
-final class DefaultScenarioRegistry implements ScenarioRegistry
+final class DefaultScenarioRegistry
 {
-    public function all(): array
+    public static function create(): ScenarioRegistry
     {
-        return [
+        return new ScenarioRegistry([
             HomePageScenario::class,
             HttpStatusScenario::class,
             ApplicationSmokeScenario::class,
             QuizLifecycleScenario::class,
-        ];
+        ]);
     }
 }

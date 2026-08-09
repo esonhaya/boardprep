@@ -168,6 +168,13 @@ try {
 
     echo $output;
 
+    fwrite(
+        STDERR,
+        "__BOARDPREP_HTTP_STATUS__"
+        . http_response_code()
+        . PHP_EOL
+    );
+
 } catch (\Throwable $exception) {
 
     if (ob_get_level() > 0) {
@@ -263,7 +270,10 @@ PHP;
             $this->extractHeaders($stdout);
 
         $status =
-            $this->extractStatus($headers);
+            $this->extractStatus(
+                $headers,
+                $stderr
+            );
 
         $location =
             $this->extractLocation($headers);
@@ -287,8 +297,19 @@ PHP;
      * @param array<int,string> $headers
      */
     private function extractStatus(
-        array $headers
+        array $headers,
+        string $stderr = ''
     ): int {
+
+        if (
+            preg_match(
+                '/__BOARDPREP_HTTP_STATUS__(\\d{3})/',
+                $stderr,
+                $matches
+            )
+        ) {
+            return (int) $matches[1];
+        }
 
         foreach ($headers as $header) {
 
