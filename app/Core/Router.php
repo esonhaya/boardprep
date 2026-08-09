@@ -49,6 +49,7 @@ class Router
         string $method,
         string $uri
     ): mixed {
+        $method = strtoupper($method);
         $uri = $this->normalize($uri);
 
         $handler =
@@ -56,15 +57,13 @@ class Router
             ?? null;
 
         if ($handler === null) {
-            http_response_code(404);
-
             throw new RuntimeException(
-                'Route not found.'
+                'Route not found.',
+                404
             );
         }
 
         if (is_array($handler)) {
-
             [$controller, $action] = $handler;
 
             if (!class_exists($controller)) {

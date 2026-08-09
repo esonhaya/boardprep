@@ -39,7 +39,6 @@ final class HttpSimulator
         array $server = [],
         array $cookies = []
     ): array {
-
         $payload = base64_encode(
             serialize([
                 'method' => strtoupper($method),
@@ -93,9 +92,10 @@ foreach (
 }
 
 /*
- * Give every simulation its own persistent PHP
- * session directory. The session ID itself is
- * supplied through PHPSESSID in $_COOKIE.
+ * Each simulation receives a persistent session
+ * directory and a stable PHPSESSID. Disable
+ * cookie handling inside CLI PHP so session_id()
+ * is the sole source of session identity.
  */
 $sessionDirectory =
     dirname($argv[1], 2)
@@ -108,6 +108,21 @@ if (!is_dir($sessionDirectory)) {
         true
     );
 }
+
+ini_set(
+    'session.use_cookies',
+    '0'
+);
+
+ini_set(
+    'session.use_strict_mode',
+    '0'
+);
+
+ini_set(
+    'session.cache_limiter',
+    ''
+);
 
 session_save_path(
     $sessionDirectory
@@ -123,7 +138,30 @@ if (
     );
 }
 
-$headers = [];
+/*
+ * The application's ExceptionHandler calls exit()
+ * after setting the HTTP response code. A normal
+ * post-require status marker therefore never runs.
+ *
+ * Capture the final response code during shutdown
+ * so simulated HTTP errors remain observable.
+ */
+register_shutdown_function(
+    static function (): void {
+        $status = http_response_code();
+
+        if ($status === false) {
+            $status = 200;
+        }
+
+        fwrite(
+            STDERR,
+            '__BOARDPREP_HTTP_STATUS__'
+            . $status
+            . PHP_EOL
+        );
+    }
+);
 
 set_error_handler(
     static function (
@@ -131,7 +169,7 @@ set_error_handler(
         string $message,
         string $file,
         int $line
-    ) {
+    ): bool {
         throw new \ErrorException(
             $message,
             0,
@@ -145,7 +183,7 @@ set_error_handler(
 set_exception_handler(
     static function (
         \Throwable $exception
-    ) {
+    ): void {
         fwrite(
             STDERR,
             get_class($exception)
@@ -161,19 +199,11 @@ set_exception_handler(
 ob_start();
 
 try {
-
     require $argv[1];
 
     $output = ob_get_clean();
 
     echo $output;
-
-    fwrite(
-        STDERR,
-        "__BOARDPREP_HTTP_STATUS__"
-        . http_response_code()
-        . PHP_EOL
-    );
 
 } catch (\Throwable $exception) {
 
@@ -300,10 +330,9 @@ PHP;
         array $headers,
         string $stderr = ''
     ): int {
-
         if (
             preg_match(
-                '/__BOARDPREP_HTTP_STATUS__(\\d{3})/',
+                '/__BOARDPREP_HTTP_STATUS__(\d{3})/',
                 $stderr,
                 $matches
             )
@@ -312,7 +341,6 @@ PHP;
         }
 
         foreach ($headers as $header) {
-
             if (
                 preg_match(
                     '/^HTTP\/\S+\s+(\d{3})/i',
@@ -333,9 +361,7 @@ PHP;
     private function extractLocation(
         array $headers
     ): ?string {
-
         foreach ($headers as $header) {
-
             if (
                 preg_match(
                     '/^Location:\s*(.+)$/i',
@@ -356,7 +382,6 @@ PHP;
     private function extractHeaders(
         string $output
     ): array {
-
         $headers = [];
 
         foreach (
@@ -366,7 +391,6 @@ PHP;
             ) ?: []
             as $line
         ) {
-
             $line = trim($line);
 
             if (

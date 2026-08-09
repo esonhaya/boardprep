@@ -11,11 +11,8 @@ final class QuestionSelectionService
 
         $pool =
             array_values(
-
                 array_filter(
-
                     $questions,
-
                     static function (
                         array $question
                     ) use (
@@ -24,8 +21,7 @@ final class QuestionSelectionService
 
                         $taxonomy =
                             is_array(
-                                $question['taxonomy']
-                                ?? null
+                                $question['taxonomy'] ?? null
                             )
                                 ? $question['taxonomy']
                                 : [];
@@ -40,16 +36,28 @@ final class QuestionSelectionService
                             ?? $taxonomy['domain_id']
                             ?? null;
 
+                        /*
+                         * The current question bank uses "active".
+                         * Older/generated records may use "approved".
+                         * Both are valid selectable states.
+                         */
                         $status =
                             strtolower(
                                 (string) (
                                     $question['status']
-                                    ?? 'approved'
+                                    ?? 'active'
                                 )
                             );
 
                         if (
-                            $status !== 'approved'
+                            !in_array(
+                                $status,
+                                [
+                                    'active',
+                                    'approved',
+                                ],
+                                true
+                            )
                         ) {
                             return false;
                         }
@@ -64,51 +72,34 @@ final class QuestionSelectionService
                             (string) $domain
                             ===
                             (string) $request->domain;
-
                     }
-
                 )
-
             );
 
         $selected =
             SelectionDeduplicator::unique(
-
                 WeightedShuffleService::shuffle(
-
                     DifficultySelectionService::select(
-
                         $pool,
-
                         $request->difficultyDistribution,
-
                         $request->questionCount
-
                     )
-
                 )
-
             );
 
         return new SelectionResult(
-
             questions:
                 $selected,
 
             fulfilled:
                 BlueprintQuotaValidator::validate(
-
                     $selected,
-
                     $request
-
                 ),
 
             request:
                 $request
-
         );
-
     }
 
     public static function select(
@@ -118,11 +109,8 @@ final class QuestionSelectionService
 
         $selected =
             array_values(
-
                 array_filter(
-
                     $questions,
-
                     static function (
                         array $question
                     ) use (
@@ -131,8 +119,7 @@ final class QuestionSelectionService
 
                         $taxonomy =
                             is_array(
-                                $question['taxonomy']
-                                ?? null
+                                $question['taxonomy'] ?? null
                             )
                                 ? $question['taxonomy']
                                 : [];
@@ -142,29 +129,42 @@ final class QuestionSelectionService
                             ?? $taxonomy['subject_id']
                             ?? null;
 
+                        $status =
+                            strtolower(
+                                (string) (
+                                    $question['status']
+                                    ?? 'active'
+                                )
+                            );
+
+                        if (
+                            !in_array(
+                                $status,
+                                [
+                                    'active',
+                                    'approved',
+                                ],
+                                true
+                            )
+                        ) {
+                            return false;
+                        }
+
                         return
                             (string) $subject
                             ===
                             (string) $specification->subject;
-
                     }
-
                 )
-
             );
 
         return array_slice(
-
             $selected,
-
             0,
-
             max(
                 0,
                 $specification->questionCount
             )
-
         );
-
     }
 }

@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Core\App;
+use App\Core\Response;
 use App\Repositories\QuestionRepository;
 
 class QuizStartService
@@ -19,28 +20,31 @@ class QuizStartService
         $specification =
             BaseSpecificationFactory::create(
                 [
-                    "board" =>
-                        $_GET["exam"] ?? "LET",
+                    'board' =>
+                        $_GET['exam'] ?? 'LET',
 
-                    "subject" =>
-                        $_GET["subject"] ?? "",
+                    'subject' =>
+                        $_GET['subject'] ?? '',
 
-                    "domain" =>
-                        $_GET["domain"] ?? null,
+                    'domain' =>
+                        $_GET['domain'] ?? null,
 
-                    "difficulty" =>
-                        $_GET["difficulty"] ?? "mixed",
+                    'difficulty' =>
+                        $_GET['difficulty'] ?? 'mixed',
 
-                    "count" =>
-                        (int) ($_GET["count"] ?? 10),
+                    'count' =>
+                        (int) (
+                            $_GET['count']
+                            ?? 10
+                        ),
 
-                    "mode" =>
-                        $_GET["mode"] ?? "practice",
+                    'mode' =>
+                        $_GET['mode'] ?? 'practice',
 
-                    "adaptive" =>
-                        isset($_GET["adaptive"]),
+                    'adaptive' =>
+                        isset($_GET['adaptive']),
 
-                    "shuffle" =>
+                    'shuffle' =>
                         true,
                 ]
             );
@@ -51,51 +55,56 @@ class QuizStartService
                 $specification
             );
 
-        if (empty($result->questions)) {
-
-            FlashMessageService::error(
-                "No questions matched the selected quiz settings."
+        if (
+            empty($result->questions)
+        ) {
+            Response::redirect(
+                '/quiz',
+                302
             );
-
-            redirect("/quiz");
-
-            return;
         }
 
         SessionService::set(
-            "questions",
+            'questions',
             $result->questions
         );
 
         SessionService::set(
-            "answers",
+            'answers',
             []
         );
 
         SessionService::set(
-            "mode",
+            'feedback',
+            null
+        );
+
+        SessionService::set(
+            'mode',
             $specification->mode
         );
 
         QuizNavigationService::reset();
 
         View::render(
-            "quiz/index",
+            'quiz/index',
             [
-                "question" =>
+                'question' =>
                     $result->questions[0],
 
-                "current" =>
+                'current' =>
                     0,
 
-                "total" =>
-                    count($result->questions),
+                'total' =>
+                    count(
+                        $result->questions
+                    ),
 
-                "mode" =>
+                'mode' =>
                     $specification->mode,
 
-                "feedback" =>
-                    null
+                'feedback' =>
+                    null,
             ]
         );
     }
