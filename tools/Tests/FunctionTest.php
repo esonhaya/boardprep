@@ -21,6 +21,10 @@ final class FunctionTest
             'name' => 'MemoryStorage',
             'class' => MemoryStorageTest::class,
         ],
+        [
+            'name' => 'Repository',
+            'class' => RepositoryTest::class,
+        ],
     ];
 
     public function run(): int

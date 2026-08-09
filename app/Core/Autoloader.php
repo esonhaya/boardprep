@@ -25,6 +25,7 @@ final class Autoloader
         'MasteryService' => __DIR__ . '/../Services/Learning/MasteryService.php',
         'QuestionViewService' => __DIR__ . '/../Services/Question/QuestionViewService.php',
         'QuestionQualityService' => __DIR__ . '/../Services/Question/QuestionQualityService.php',
+        'QuestionImportService' => __DIR__ . '/../Services/Shared/QuestionImportService.php',
         'AttemptRepository' => __DIR__ . '/../Repositories/AttemptRepository.php',
     ];
 
