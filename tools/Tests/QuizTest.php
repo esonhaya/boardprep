@@ -25,6 +25,7 @@ final class QuizTest
         $this->testCoreQuizServices();
         $this->testSelectionServices();
         $this->testBlueprintServices();
+        $this->testScoringBehavior();
 
         $this->summary();
 
@@ -72,6 +73,8 @@ final class QuizTest
             'ExamAssemblyService',
         ];
 
+        $before = $this->failed;
+
         foreach ($services as $class) {
             $this->assertTrue(
                 class_exists($class),
@@ -79,7 +82,7 @@ final class QuizTest
             );
         }
 
-        if ($this->failed === 0) {
+        if ($this->failed === $before) {
             echo "[PASS] OK\n";
         }
     }
@@ -184,6 +187,174 @@ final class QuizTest
         }
     }
 
+    private function testScoringBehavior(): void
+    {
+        echo "[TEST] Quiz scoring behavior\n";
+
+        $questions = [
+            [
+                'id' => 1,
+                'question' => 'Capital of France?',
+                'choices' => [
+                    'London',
+                    'Paris',
+                    'Rome',
+                    'Madrid',
+                ],
+                'answer' => 'Paris',
+                'explanation' => 'Paris is the capital of France.',
+            ],
+            [
+                'id' => 2,
+                'question' => '2 + 2?',
+                'choices' => [
+                    '3',
+                    '4',
+                    '5',
+                    '6',
+                ],
+                'answer' => '4',
+            ],
+            [
+                'id' => 3,
+                'question' => 'Primary color?',
+                'choices' => [
+                    'Green',
+                    'Orange',
+                    'Blue',
+                    'Purple',
+                ],
+                'answer' => 'Blue',
+            ],
+            [
+                'id' => 4,
+                'question' => 'Largest ocean?',
+                'choices' => [
+                    'Atlantic',
+                    'Indian',
+                    'Pacific',
+                    'Arctic',
+                ],
+                'answer' => 'Pacific',
+            ],
+        ];
+
+        $answers = [
+            1 => 'B',
+            2 => '4',
+            3 => 'A',
+        ];
+
+        $result = \QuizScoringService::calculate(
+            $questions,
+            $answers
+        );
+
+        $this->assertSame(
+            2,
+            $result['score'] ?? null,
+            'Scoring: correct score'
+        );
+
+        $this->assertSame(
+            2,
+            $result['correct'] ?? null,
+            'Scoring: correct count'
+        );
+
+        $this->assertSame(
+            1,
+            $result['incorrect'] ?? null,
+            'Scoring: incorrect count'
+        );
+
+        $this->assertSame(
+            1,
+            $result['unanswered'] ?? null,
+            'Scoring: unanswered count'
+        );
+
+        $this->assertSame(
+            4,
+            $result['total'] ?? null,
+            'Scoring: total count'
+        );
+
+        $this->assertTrue(
+            (float) ($result['percentage'] ?? -1) === 50.0,
+            'Scoring: percentage'
+        );
+
+        $this->assertTrue(
+            \QuizScoringService::checkAnswer(
+                $questions[0],
+                'B'
+            ),
+            'Scoring: choice letter B resolves correctly'
+        );
+
+        $this->assertTrue(
+            \QuizScoringService::checkAnswer(
+                $questions[0],
+                'paris'
+            ),
+            'Scoring: direct answer is case-insensitive'
+        );
+
+        $this->assertFalse(
+            \QuizScoringService::checkAnswer(
+                $questions[0],
+                'A'
+            ),
+            'Scoring: wrong choice is rejected'
+        );
+
+        $this->assertFalse(
+            \QuizScoringService::checkAnswer(
+                $questions[0],
+                null
+            ),
+            'Scoring: unanswered answer is rejected'
+        );
+
+        $this->assertSame(
+            4,
+            count($result['results'] ?? []),
+            'Scoring: one result per question'
+        );
+
+        $this->assertTrue(
+            ($result['results'][0]['correct'] ?? false) === true,
+            'Scoring: first result marked correct'
+        );
+
+        $this->assertTrue(
+            ($result['results'][2]['correct'] ?? true) === false,
+            'Scoring: third result marked incorrect'
+        );
+
+        $this->assertTrue(
+            ($result['results'][3]['answered'] ?? true) === false,
+            'Scoring: fourth result marked unanswered'
+        );
+
+        echo "[PASS] OK\n";
+    }
+
+    private function assertFalse(
+        bool $condition,
+        string $message
+    ): void {
+        $this->assertions++;
+
+        if ($condition) {
+            $this->failed++;
+            echo "[FAIL] {$message}\\n";
+        } else {
+            $this->passed++;
+        }
+    }
+
     private function assertTrue(
         bool $condition,
         string $message
@@ -197,6 +368,25 @@ final class QuizTest
 
         $this->failed++;
         echo "[FAIL] {$message}\n";
+    }
+
+    private function assertSame(
+        mixed $expected,
+        mixed $actual,
+        string $message
+    ): void {
+        $this->assertions++;
+
+        if ($expected === $actual) {
+            $this->passed++;
+            return;
+        }
+
+        $this->failed++;
+
+        echo "[FAIL] {$message}\n";
+        echo "       Expected: " . var_export($expected, true) . "\n";
+        echo "       Actual:   " . var_export($actual, true) . "\n";
     }
 
     private function summary(): void
