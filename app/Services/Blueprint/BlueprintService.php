@@ -12,42 +12,54 @@ class BlueprintService
 {
     public static function all(): array
     {
-        return App::container()->get(BlueprintRepository::class)->all();
+        return App::container()
+            ->get(BlueprintRepository::class)
+            ->all();
     }
 
-    public static function create(
-        array $data
-    ): array {
-
-        $board = trim(
-            $data["board"] ?? ""
+    public static function create(array $data): array
+    {
+        $boardId = trim(
+            (string) ($data["board"] ?? "")
         );
 
-        $subject = trim(
-            $data["subject"] ?? ""
+        $subjectId = trim(
+            (string) ($data["subject"] ?? "")
         );
 
         $name = trim(
-            $data["name"] ?? ""
+            (string) ($data["name"] ?? "")
         );
 
         $version = self::nextVersion(
-            $board,
-            $subject
+            $boardId,
+            $subjectId
         );
 
         $id = self::generateId(
-            $board,
-            $subject,
+            $boardId,
+            $subjectId,
             $version
         );
 
         $blueprint = [
             "id" => $id,
-            "board" => $board,
-            "subject" => $subject,
+
+            "scope" => "subject",
+
+            "board_id" => $boardId,
+
+            "subject_id" => $subjectId,
+
+            "board" => $boardId,
+
+            "subject" => $subjectId,
+
             "name" => $name,
+
             "version" => $version,
+
+            "status" => "active",
 
             "questionCount" => (int) (
                 $data["questionCount"] ?? 0
@@ -68,6 +80,7 @@ class BlueprintService
             ],
 
             "topicWeights" => [],
+
             "conceptWeights" => [],
         ];
 
@@ -77,15 +90,17 @@ class BlueprintService
             );
 
         if (!$validation["valid"]) {
+
             return [
                 "success" => false,
                 "errors" => $validation["errors"],
             ];
+
         }
 
-        App::container()->get(BlueprintRepository::class)->create(
-            $blueprint
-        );
+        App::container()
+            ->get(BlueprintRepository::class)
+            ->create($blueprint);
 
         return [
             "success" => true,
@@ -94,56 +109,57 @@ class BlueprintService
     }
 
     private static function generateId(
-        string $board,
-        string $subject,
+        string $boardId,
+        string $subjectId,
         int $version
     ): string {
 
-        $board = preg_replace(
-            '/\s+/',
+        $boardId = preg_replace(
+            '/[^a-zA-Z0-9_-]+/',
             '-',
-            trim($board)
-        );
+            trim($boardId)
+        ) ?? "board";
 
-        $subject = preg_replace(
-            '/\s+/',
+        $subjectId = preg_replace(
+            '/[^a-zA-Z0-9_-]+/',
             '-',
-            trim($subject)
-        );
+            trim($subjectId)
+        ) ?? "subject";
 
         return strtolower(
-            $board
+            $boardId
             . "-"
-            . $subject
+            . $subjectId
             . "-v"
             . $version
         );
     }
 
     private static function nextVersion(
-        string $board,
-        string $subject
+        string $boardId,
+        string $subjectId
     ): int {
 
         $highest = 0;
 
+        $repository =
+            App::container()
+                ->get(BlueprintRepository::class);
+
         foreach (
-            App::container()->get(BlueprintRepository::class)->all()
-            as $blueprint
+            $repository->versions(
+                $boardId,
+                $subjectId
+            ) as $blueprint
         ) {
 
-            if (
-                ($blueprint["board"] ?? "") === $board
-                &&
-                ($blueprint["subject"] ?? "") === $subject
-            ) {
-                $highest = max(
-                    $highest,
-                    (int) (
-                        $blueprint["version"] ?? 0
-                    )
-                );
-            }
+            $highest = max(
+                $highest,
+                (int) (
+                    $blueprint["version"] ?? 0
+                )
+            );
+
         }
 
         return $highest + 1;
