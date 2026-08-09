@@ -1,73 +1,26 @@
 <?php
 
-require_once __DIR__ . "/../Repositories/AttemptRepository.php";
+declare(strict_types=1);
+
+use App\Services\Learning\LearningStatisticsService;
+use App\Services\Learning\RecommendationService;
+use App\Services\Learning\WeaknessService;
 
 class RecommendationController
 {
+    public static function getRecommendation(): array
+    {
+        $recommendations =
+            RecommendationService::generate(
+                LearningStatisticsService::summary(),
+                WeaknessService::all()
+            );
 
-public static function getRecommendation()
-{
-
-$attempts = AttemptRepository::all();
-
-if(count($attempts) === 0)
-{
-
-return [
-
-"title"=>"Take Your First Quiz",
-
-"description"=>
-"Complete a quiz to receive personalized recommendations."
-
-];
-
-}
-
-
-$latest =
-end($attempts);
-
-
-if($latest["percentage"] < 50)
-{
-
-return [
-
-"title"=>"Strengthen Your Foundation",
-
-"description"=>
-"Practice Grammar on Easy difficulty (10 questions)."
-
-];
-
-}
-
-
-if($latest["percentage"] < 75)
-{
-
-return [
-
-"title"=>"Keep Improving",
-
-"description"=>
-"Practice Grammar on Medium difficulty (10 questions)."
-
-];
-
-}
-
-
-return [
-
-"title"=>"Challenge Yourself",
-
-"description"=>
-"Try a Hard Grammar quiz or switch to Exam Mode."
-
-];
-
-}
-
+        return [
+            "title" => "Recommended Next Step",
+            "description" =>
+                $recommendations[0]
+                ?? "Keep studying."
+        ];
+    }
 }

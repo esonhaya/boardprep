@@ -5,257 +5,45 @@ declare(strict_types=1);
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-
 session_start();
 
-require_once "../app/Core/Autoloader.php";
+require_once __DIR__ . '/../app/Core/Autoloader.php';
 
 \App\Core\Autoloader::register();
 
 use App\Core\ExceptionHandler;
-use App\Core\View;
+use App\Core\Router;
 
 try {
 
-    require_once "../bootstrap/app.php";
+    require_once __DIR__ . '/../bootstrap/app.php';
 
-    $router = new \App\Core\Router();
+    $router = new Router();
 
-    require_once "../routes/web.php";
+    require_once __DIR__ . '/../routes/web.php';
 
-    $page = $_GET["page"] ?? "home";
+    $method =
+        $_SERVER['REQUEST_METHOD']
+        ?? 'GET';
 
-    switch ($page) {
+    $uri =
+        $_SERVER['REQUEST_URI']
+        ?? '/';
 
-        case "let":
+    $path =
+        parse_url(
+            $uri,
+            PHP_URL_PATH
+        );
 
-            View::render(
-                "let/index",
-                [
-                    "pageTitle" => "LET"
-                ]
-            );
-
-            break;
-
-        case "english":
-
-            View::render(
-                "english/index",
-                [
-                    "pageTitle" => "English Major"
-                ]
-            );
-
-            break;
-
-        case "grammar":
-
-            View::render(
-                "grammar/index",
-                [
-                    "pageTitle" => "Grammar"
-                ]
-            );
-
-            break;
-
-        case "quiz":
-
-            QuizFlowController::handle();
-
-            break;
-
-        case "dashboard":
-
-            $router->dispatch(
-                $_SERVER["REQUEST_METHOD"],
-                "/dashboard"
-            );
-
-            break;
-
-        case "profile":
-
-            LearningProfileController::index();
-
-            break;
-
-        case "progress":
-
-            ProgressController::index();
-
-            break;
-
-        case "developer":
-
-            DashboardController::index();
-
-            break;
-
-        case "boards":
-
-            BoardController::index();
-
-            break;
-
-        case "board-create":
-
-            BoardController::create();
-
-            break;
-
-        case "board-save":
-
-            BoardController::save();
-
-            break;
-
-        case "board-archive":
-
-            BoardController::archive();
-
-            break;
-
-        case "board-activate":
-
-            BoardController::activate();
-
-            break;
-
-        case "metadata-repair":
-
-            MetadataRepairController::index();
-
-            break;
-
-        case "question-editor":
-
-            $action = $_GET["action"] ?? "index";
-
-            if ($action === "create") {
-
-                QuestionEditorController::create();
-
-            } elseif ($action === "edit") {
-
-                QuestionEditorController::edit();
-
-            } elseif ($action === "save") {
-
-                QuestionEditorController::save();
-
-            } elseif ($action === "update") {
-
-                QuestionEditorController::update();
-
-            } elseif ($action === "archive") {
-
-                QuestionEditorController::archive();
-
-            } elseif ($action === "restore") {
-
-                QuestionEditorController::restore();
-
-            } else {
-
-                QuestionEditorController::index();
-
-            }
-
-            break;
-
-        case "question-export":
-
-            QuestionExportController::export();
-
-            break;
-
-        case "question-import":
-
-            if (($_GET["action"] ?? "") === "import") {
-
-                QuestionImportController::import();
-
-            } else {
-
-                QuestionImportController::index();
-
-            }
-
-            break;
-
-        case "question-quality":
-
-            QuestionQualityController::index();
-
-            break;
-
-        case "question-inspector":
-
-            QuestionInspectorController::index();
-
-            break;
-
-        case "coverage":
-
-            CoverageController::index();
-
-            break;
-
-        case "taxonomy":
-
-            $action = $_GET["action"] ?? "index";
-
-            if ($action === "rebuild") {
-
-                TaxonomyController::rebuild();
-
-            } else {
-
-                TaxonomyController::index();
-
-            }
-
-            break;
-
-        case "blueprints":
-
-            $action = $_GET["action"] ?? "index";
-
-            if ($action === "create") {
-
-                BlueprintController::create();
-
-            } elseif ($action === "save") {
-
-                BlueprintController::save();
-
-            } else {
-
-                BlueprintController::index();
-
-            }
-
-            break;
-
-        case "blueprint-health":
-
-            BlueprintHealthController::index();
-
-            break;
-
-        default:
-
-            View::render(
-                "home/index",
-                [
-                    "pageTitle" => "BoardPrep"
-                ]
-            );
-
-            break;
+    if (!is_string($path) || $path === '') {
+        $path = '/';
     }
+
+    $router->dispatch(
+        $method,
+        $path
+    );
 
 } catch (Throwable $exception) {
 

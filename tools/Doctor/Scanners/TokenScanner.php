@@ -36,120 +36,265 @@ final class TokenScanner
                 continue;
             }
 
-            switch ($token[0]) {
+            if (
+                self::isVisibilityToken(
+                    $token[0]
+                )
+            ) {
 
-                case T_PUBLIC:
-                    $visibility = "public";
-                    break;
+                $visibility =
+                    self::visibility(
+                        $token[0]
+                    );
 
-                case T_PROTECTED:
-                    $visibility = "protected";
-                    break;
+                continue;
 
-                case T_PRIVATE:
-                    $visibility = "private";
-                    break;
+            }
 
-                case T_FUNCTION:
+            if (
+                $token[0] !== T_FUNCTION
+            ) {
+                continue;
+            }
 
-                    $j = $i + 1;
+            $method =
+                self::parseMethod(
+                    $tokens,
+                    $i,
+                    $visibility,
+                    $count
+                );
 
-                    while ($j < $count) {
+            if ($method !== null) {
+                $methods[] = $method;
+            }
 
-                        if (
-                            is_array($tokens[$j])
-                            && $tokens[$j][0] === T_STRING
-                        ) {
-                            break;
-                        }
+            $visibility = "public";
 
-                        $j++;
+        }
 
-                    }
+        return $methods;
 
-                    if ($j >= $count) {
-                        continue 2;
-                    }
+    }
 
-                    $name =
-                        $tokens[$j][1];
+    private static function isVisibilityToken(
+        int $tokenType
+    ): bool {
 
-                    $startLine =
-                        $tokens[$j][2];
+        return in_array(
+            $tokenType,
+            [
+                T_PUBLIC,
+                T_PROTECTED,
+                T_PRIVATE,
+            ],
+            true
+        );
 
-                    $braceDepth = 0;
-                    $bodyStarted = false;
-                    $endLine = $startLine;
+    }
 
-                    for ($k = $j; $k < $count; $k++) {
+    private static function visibility(
+        int $tokenType
+    ): string {
 
-                        $current = $tokens[$k];
+        return match ($tokenType) {
 
-                        if ($current === "{") {
+            T_PROTECTED =>
+                "protected",
 
-                            $braceDepth++;
-                            $bodyStarted = true;
+            T_PRIVATE =>
+                "private",
 
-                        }
+            default =>
+                "public",
 
-                        if ($current === "}") {
+        };
 
-                            $braceDepth--;
+    }
 
-                            if (
-                                $bodyStarted
-                                && $braceDepth === 0
-                            ) {
+    /**
+     * @param array<int,mixed> $tokens
+     * @return array{
+     *     name:string,
+     *     visibility:string,
+     *     line:int,
+     *     endLine:int,
+     *     lines:int
+     * }|null
+     */
+    private static function parseMethod(
+        array $tokens,
+        int $functionIndex,
+        string $visibility,
+        int $count
+    ): ?array {
 
-                                if (
-                                    isset($tokens[$k + 1])
-                                    && is_array($tokens[$k + 1])
-                                ) {
+        $nameIndex =
+            self::findMethodName(
+                $tokens,
+                $functionIndex + 1,
+                $count
+            );
 
-                                    $endLine =
-                                        $tokens[$k + 1][2] - 1;
+        if ($nameIndex === null) {
+            return null;
+        }
 
-                                }
+        $name =
+            $tokens[$nameIndex][1];
 
-                                break;
+        $startLine =
+            $tokens[$nameIndex][2];
 
-                            }
+        $endLine =
+            self::findMethodEndLine(
+                $tokens,
+                $nameIndex,
+                $count,
+                $startLine
+            );
 
-                        }
+        return [
 
-                    }
+            "name" =>
+                $name,
 
-                    $methods[] = [
+            "visibility" =>
+                $visibility,
 
-                        "name" =>
-                            $name,
+            "line" =>
+                $startLine,
 
-                        "visibility" =>
-                            $visibility,
+            "endLine" =>
+                $endLine,
 
-                        "line" =>
-                            $startLine,
+            "lines" =>
+                max(
+                    1,
+                    $endLine - $startLine + 1
+                ),
 
-                        "endLine" =>
-                            $endLine,
+        ];
 
-                        "lines" =>
-                            max(
-                                1,
-                                $endLine - $startLine + 1
-                            ),
+    }
 
-                    ];
+    /**
+     * @param array<int,mixed> $tokens
+     */
+    private static function findMethodName(
+        array $tokens,
+        int $start,
+        int $count
+    ): ?int {
 
-                    $visibility = "public";
+        for (
+            $i = $start;
+            $i < $count;
+            $i++
+        ) {
 
-                    break;
+            if (
+                is_array($tokens[$i])
+                && $tokens[$i][0] === T_STRING
+            ) {
+
+                return $i;
+
+            }
+
+            if (
+                $tokens[$i] === "("
+            ) {
+
+                return null;
 
             }
 
         }
 
-        return $methods;
+        return null;
+
+    }
+
+    /**
+     * @param array<int,mixed> $tokens
+     */
+    private static function findMethodEndLine(
+        array $tokens,
+        int $start,
+        int $count,
+        int $defaultLine
+    ): int {
+
+        $braceDepth = 0;
+        $bodyStarted = false;
+
+        for (
+            $i = $start;
+            $i < $count;
+            $i++
+        ) {
+
+            $token =
+                $tokens[$i];
+
+            if ($token === "{") {
+
+                $braceDepth++;
+                $bodyStarted = true;
+
+                continue;
+
+            }
+
+            if ($token !== "}") {
+                continue;
+            }
+
+            $braceDepth--;
+
+            if (
+                !$bodyStarted
+                || $braceDepth !== 0
+            ) {
+                continue;
+            }
+
+            return self::endLine(
+                $tokens,
+                $i,
+                $defaultLine
+            );
+
+        }
+
+        return $defaultLine;
+
+    }
+
+    /**
+     * @param array<int,mixed> $tokens
+     */
+    private static function endLine(
+        array $tokens,
+        int $closingBraceIndex,
+        int $defaultLine
+    ): int {
+
+        $next =
+            $tokens[$closingBraceIndex + 1]
+            ?? null;
+
+        if (
+            is_array($next)
+            && isset($next[2])
+        ) {
+
+            return $next[2] - 1;
+
+        }
+
+        return $defaultLine;
 
     }
 
@@ -163,20 +308,12 @@ final class TokenScanner
         $identifiers = [];
 
         foreach (
-
-            token_get_all(
-                $contents
-            )
-
-            as $token
-
+            token_get_all($contents) as $token
         ) {
 
             if (
-
                 is_array($token)
                 && $token[0] === T_STRING
-
             ) {
 
                 $identifiers[] =
@@ -187,11 +324,9 @@ final class TokenScanner
         }
 
         return array_values(
-
             array_unique(
                 $identifiers
             )
-
         );
 
     }
@@ -203,42 +338,10 @@ final class TokenScanner
         string $contents
     ): array {
 
-        $classes = [];
-        $tokens = token_get_all($contents);
-        $count = count($tokens);
-
-        for ($i = 0; $i < $count; $i++) {
-
-            if (
-
-                is_array($tokens[$i])
-                && $tokens[$i][0] === T_CLASS
-
-            ) {
-
-                for ($j = $i + 1; $j < $count; $j++) {
-
-                    if (
-
-                        is_array($tokens[$j])
-                        && $tokens[$j][0] === T_STRING
-
-                    ) {
-
-                        $classes[] =
-                            $tokens[$j][1];
-
-                        break;
-
-                    }
-
-                }
-
-            }
-
-        }
-
-        return $classes;
+        return self::namedDeclarations(
+            $contents,
+            T_CLASS
+        );
 
     }
 
@@ -249,42 +352,10 @@ final class TokenScanner
         string $contents
     ): array {
 
-        $interfaces = [];
-        $tokens = token_get_all($contents);
-        $count = count($tokens);
-
-        for ($i = 0; $i < $count; $i++) {
-
-            if (
-
-                is_array($tokens[$i])
-                && $tokens[$i][0] === T_INTERFACE
-
-            ) {
-
-                for ($j = $i + 1; $j < $count; $j++) {
-
-                    if (
-
-                        is_array($tokens[$j])
-                        && $tokens[$j][0] === T_STRING
-
-                    ) {
-
-                        $interfaces[] =
-                            $tokens[$j][1];
-
-                        break;
-
-                    }
-
-                }
-
-            }
-
-        }
-
-        return $interfaces;
+        return self::namedDeclarations(
+            $contents,
+            T_INTERFACE
+        );
 
     }
 
@@ -295,42 +366,91 @@ final class TokenScanner
         string $contents
     ): array {
 
-        $traits = [];
+        return self::namedDeclarations(
+            $contents,
+            T_TRAIT
+        );
+
+    }
+
+    /**
+     * @return array<int,string>
+     */
+    private static function namedDeclarations(
+        string $contents,
+        int $declarationToken
+    ): array {
+
+        $names = [];
         $tokens = token_get_all($contents);
         $count = count($tokens);
 
-        for ($i = 0; $i < $count; $i++) {
+        for (
+            $i = 0;
+            $i < $count;
+            $i++
+        ) {
 
             if (
+                !is_array($tokens[$i])
+                || $tokens[$i][0] !== $declarationToken
+            ) {
+                continue;
+            }
 
+            $name =
+                self::findDeclarationName(
+                    $tokens,
+                    $i + 1,
+                    $count
+                );
+
+            if ($name !== null) {
+                $names[] = $name;
+            }
+
+        }
+
+        return $names;
+
+    }
+
+    /**
+     * @param array<int,mixed> $tokens
+     */
+    private static function findDeclarationName(
+        array $tokens,
+        int $start,
+        int $count
+    ): ?string {
+
+        for (
+            $i = $start;
+            $i < $count;
+            $i++
+        ) {
+
+            if (
                 is_array($tokens[$i])
-                && $tokens[$i][0] === T_TRAIT
-
+                && $tokens[$i][0] === T_STRING
             ) {
 
-                for ($j = $i + 1; $j < $count; $j++) {
+                return $tokens[$i][1];
 
-                    if (
+            }
 
-                        is_array($tokens[$j])
-                        && $tokens[$j][0] === T_STRING
+            if (
+                $tokens[$i] === "{"
+                || $tokens[$i] === ";"
+            ) {
 
-                    ) {
-
-                        $traits[] =
-                            $tokens[$j][1];
-
-                        break;
-
-                    }
-
-                }
+                return null;
 
             }
 
         }
 
-        return $traits;
+        return null;
 
     }
 }

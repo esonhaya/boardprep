@@ -1,0 +1,252 @@
+
+======================================
+ BoardPrep Doctor
+======================================
+
+[PASS] Runtime Function Test
+  > 26/26 runtime simulations passed.
+  - Passed: 26
+  - Failed: 0
+  - Execution time: 0.021s
+
+[PASS] Project Statistics
+  > Current project size
+  - Controllers : 24
+  - Services    : 116
+  - Repositories: 9
+  - Domains     : 1
+  - Classes     : 282
+  - Interfaces  : 3
+  - Traits      : 0
+  - PHP Files   : 349
+
+[WARNING] Hotspots
+  > App.php (31)
+  -  31  App.php
+  -  30  CheckResult.php
+  -  24  DoctorContext.php
+  -  19  web.php
+  -  18  QuestionRepository.php
+  -  16  BaseDeveloperController.php
+  -  13  RepositoryHealthEngine.php
+  -  11  function-test.php
+  -  10  DoctorRunner.php
+  -  10  BlueprintRepository.php
+
+[PASS] Regression Check
+  > No baseline available.
+
+[PASS] Architecture Scorecard
+  > Architectural quality overview.
+  - Controllers         100
+  - Services            100
+  - Dependencies        96
+  - Maintainability      60
+  - Technical Debt      100
+
+[PASS] History Trend
+  > Collecting history...
+
+[PASS] Technical Debt
+  > Debt Score: 40
+
+[WARNING] Dead Classes
+  > 51 potentially unused classes.
+  - AdaptiveQuizService (./app/Services/Quiz/AdaptiveQuizService.php)
+  - Arr (./app/Foundation/Arr.php)
+  - AttemptService (./app/Services/AttemptService.php)
+  - BlueprintAllocationReconciler (./app/Services/Quiz/Blueprint/BlueprintAllocationReconciler.php)
+  - BlueprintDifficultyAllocator (./app/Services/Quiz/Blueprint/BlueprintDifficultyAllocator.php)
+  - BoardBlueprintResolver (./app/Services/Quiz/Board/BoardBlueprintResolver.php)
+  - Collection (./app/Foundation/Collection.php)
+  - Config (./app/Core/Config.php)
+  - CoverageMatrixService (./app/Services/Shared/CoverageMatrixService.php)
+  - CoverageTracker (./app/Services/Quiz/Coverage/CoverageTracker.php)
+  - CreateQuestion (./app/Domains/Question/Actions/CreateQuestion.php)
+  - DeveloperComponentRenderer (./app/Services/Developer/DeveloperComponentRenderer.php)
+  - DeveloperPageBuilder (./app/Builders/Developer/DeveloperPageBuilder.php)
+  - DoctorApiController (./app/Controllers/DoctorApiController.php)
+  - DoctorDashboardController (./app/Controllers/DoctorDashboardController.php)
+
+[PASS] Technical Debt Breakdown
+  > Debt Score: 0
+  - Largest Methods ...... 0
+  - Largest Services ..... 0
+  - Layer Violations ..... 0
+  - Legacy Files ......... 0
+  - Unused Imports ....... 0
+  - Dead Classes ......... 0
+
+[PASS] Circular Dependencies
+  > No circular dependencies detected.
+
+[PASS] Quality Gate
+  > All quality gates passed.
+
+[WARNING] Largest Controller
+  > ./app/Controllers/QuestionEditorController.php (396 lines)
+  - Threshold : 300
+  - Current   : 396
+
+[WARNING] Largest Method
+  > ./tools/Doctor/Simulation/HttpSimulator.php
+  - Method    : request
+  - Length    : 229 lines
+  - Threshold : 60
+
+[WARNING] Largest Service
+  > ./app/Services/Shared/QuestionValidationService.php (263 lines)
+  - Threshold : 250
+  - Current   : 263
+
+[PASS] Controller Complexity
+  > app/Controllers/QuestionEditorController.php
+  - Methods         : 8
+  - Public Methods  : 7
+  - Private Methods : 1
+
+[WARNING] Risk Score
+  > Risk Score: 100/100 (High)
+  - Highest coupling: ./app/Core/App.php (31 dependencies)
+  - Total application dependencies: 612
+  - Highly coupled files: 7
+
+[WARNING] Change Impact
+  > App.php affects 29 application file(s)
+  - Storage.php
+  - BlueprintService.php
+  - BoardService.php
+  - BoardViewService.php
+  - LearningStatisticsService.php
+  - WeaknessStorageService.php
+  - QuestionDuplicateService.php
+  - QuestionEditorService.php
+  - QuestionExportService.php
+  - QuestionQueryService.php
+
+[WARNING] Dependency Coupling
+  > ./app/Core/App.php (31 dependencies)
+  - 31  ./app/Core/App.php
+  - 19  ./routes/web.php
+  - 18  ./app/Repositories/QuestionRepository.php
+  - 16  ./app/Controllers/BaseDeveloperController.php
+  - 13  ./app/Services/RepositoryHealth/Engine/RepositoryHealthEngine.php
+
+[WARNING] Cyclomatic Complexity
+  > HttpSimulator.php::request() (29)
+  - 29  HttpSimulator.php::request()
+  - 25  BaseSpecificationFactory.php::create()
+  - 24  RecommendationAdvisor.php::recommendations()
+  - 22  BlueprintService.php::create()
+  - 22  DependencyCouplingCheck.php::run()
+  - 21  ChangeImpactCheck.php::run()
+  - 20  RecommendationService.php::generate()
+  - 20  RegressionCheck.php::run()
+  - 19  DoctorHistoryService.php::compare()
+  - 19  BlueprintValidator.php::validate()
+
+[WARNING] Maintainability
+  > ./tools/Doctor/Advisor/RecommendationAdvisor.php (54)
+  -  54  ./tools/Doctor/Advisor/RecommendationAdvisor.php
+  -  55  ./app/Services/Learning/RecommendationService.php
+  -  56  ./app/Services/Quiz/Specification/BaseSpecificationFactory.php
+  -  57  ./app/Services/Shared/BlueprintValidator.php
+  -  58  ./app/Services/Quiz/Blueprint/BlueprintDistributionService.php
+  -  58  ./tools/Doctor/Scanners/TokenScanner.php
+  -  60  ./app/Services/Quiz/Blueprint/BlueprintIntegrityValidator.php
+  -  60  ./tests/function-test.php
+  -  60  ./tools/Doctor/Simulation/ApplicationSimulator.php
+  -  61  ./app/Services/RepositoryHealth/Engine/StatisticsBuilder.php
+
+[WARNING] Refactor Candidates
+  > Largest methods suitable for extraction.
+  - 229  HttpSimulator.php::request()
+  - 164  HttpTest.php::run()
+  - 121  QuizScoringService.php::calculate()
+  - 114  RegressionCheck.php::run()
+  - 107  CoverageMatrixService.php::build()
+  - 102  CyclomaticComplexityCheck.php::run()
+  -  98  AdaptiveQuizService.php::prioritize()
+  -  97  ChoiceValidator.php::validate()
+  -  96  FunctionTest.php::run()
+  -  93  BlueprintDistributionService.php::distribution()
+
+[PASS] Domain Migration
+  > 2 implemented, 0 empty
+  - Implemented : 2
+  - Empty       : 0
+
+[PASS] Layer Violations
+  > No layer violations detected.
+
+[WARNING] Unused Imports
+  > 10 unused imports found.
+  - ./app/Controllers/QuestionEditorController.php :: App
+  - ./app/Services/Question/QuestionService.php :: App
+  - ./app/Services/Question/QuestionService.php :: QuestionRepository
+  - ./app/Storage/MysqlStorage.php :: StorageException
+  - ./app/Views/developer/components/action-bar.php :: ActionBarViewModel
+  - ./app/Views/developer/components/entity-card.php :: EntityCardViewModel
+  - ./app/Views/developer/components/page-header.php :: PageHeaderViewModel
+  - ./app/Views/developer/components/summary.php :: SummaryViewModel
+  - ./tools/Doctor/Simulation/Runner/SimulationRunner.php :: SimulationResult
+  - ./tools/Doctor/Simulation/Runner/SimulationRunner.php :: SimulationScenario
+
+[WARNING] Long Parameter Lists
+  > 2 long parameter lists found.
+  - app/Services/Quiz/Blueprint/BlueprintExecutionResult.php (7 parameters)
+  - app/DTO/QuizSpecification.php (13 parameters)
+
+[PASS] TODO Comments
+  > No TODO/FIXME comments found.
+
+[PASS] Empty Directories
+  > No empty directories found.
+
+[PASS] Legacy Files
+  > No legacy files found.
+
+[PASS] Foundation Usage
+  > Foundation adoption overview
+  - Arr        : 0
+  - Collection : 0
+  - Html       : 0
+  - Str        : 0
+
+======================================
+ SUMMARY
+======================================
+
+PASS     : 16
+WARNING  : 13
+FAIL     : 0
+INFO     : 0
+
+Project Health : 89%
+
+======================================
+ TOP PRIORITIES
+======================================
+
+[Critical] Largest Method
+  Impact : 100
+
+[Critical] Largest Service
+  Impact : 95
+
+[Critical] Largest Controller
+  Impact : 90
+
+[High] Dependency Coupling
+  Impact : 80
+
+[Medium] Dead Classes
+  Impact : 60
+
+======================================
+ RECOMMENDATIONS
+======================================
+
+• QuestionEditorController is large but well-structured. Prioritize other architectural improvements before splitting it.
+• Split MetadataRepairService into smaller collaborators.
+

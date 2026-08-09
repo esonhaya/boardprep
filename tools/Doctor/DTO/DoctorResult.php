@@ -18,10 +18,7 @@ final class DoctorResult
     public function add(
         CheckResult $check
     ): void {
-
-        $this->checks[] =
-            $check;
-
+        $this->checks[] = $check;
     }
 
     public function passCount(): int
@@ -73,7 +70,6 @@ final class DoctorResult
         $score = 100;
 
         foreach ($this->checks as $check) {
-
             if ($check->status === "FAIL") {
                 $score -= 15;
             }
@@ -81,7 +77,6 @@ final class DoctorResult
             if ($check->status === "WARNING") {
                 $score -= 2;
             }
-
         }
 
         return max(

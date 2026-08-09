@@ -34,7 +34,6 @@ final class DoctorRunner
             Doctor::checks()
             as $check
         ) {
-
             $checkResult =
                 $check->run();
 
@@ -52,7 +51,6 @@ final class DoctorRunner
             $result->add(
                 $checkResult
             );
-
         }
 
         (new JsonReportWriter())

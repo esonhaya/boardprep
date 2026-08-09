@@ -4,169 +4,186 @@ declare(strict_types=1);
 
 namespace App\Services\Quality\Validators;
 
-class MetadataValidator
+final class MetadataValidator
 {
     private const VALID_DIFFICULTIES = [
-
-        "easy",
-        "medium",
-        "hard"
-
+        'easy',
+        'medium',
+        'hard',
     ];
 
     private const VALID_STATUSES = [
-
-        "draft",
-        "active",
-        "archived"
-
+        'draft',
+        'approved',
+        'archived',
     ];
 
-    public static function validate(array $question): array
-    {
+    public static function validate(
+        array $question
+    ): array {
+
+        return array_merge(
+            self::validateIdentity($question),
+            self::validateTaxonomy($question),
+            self::validateDifficulty($question),
+            self::validateStatus($question)
+        );
+
+    }
+
+    private static function validateIdentity(
+        array $question
+    ): array {
+
+        if (
+            !empty($question['id'])
+        ) {
+            return [];
+        }
+
+        return [
+            [
+                'severity' => 'error',
+                'type' => 'missing-id',
+                'message' => 'Question has no ID.',
+            ],
+        ];
+
+    }
+
+    private static function validateTaxonomy(
+        array $question
+    ): array {
+
         $issues = [];
 
-        if (empty($question["id"])) {
-
-            $issues[] = [
-
-                "severity" => "error",
-
-                "type" => "missing-id",
-
-                "message" => "Question has no ID."
-
-            ];
-
-        }
+        $taxonomy =
+            $question['taxonomy']
+            ?? [];
 
         foreach (
-
             [
-
-                "board",
-                "subject",
-                "difficulty"
-
-            ]
-
-            as $field
-
+                'board_id',
+                'subject_id',
+                'domain_id',
+                'topic_id',
+                'concept_id',
+            ] as $field
         ) {
 
-            if (trim($question[$field] ?? "") === "") {
-
-                $issues[] = [
-
-                    "severity" => "error",
-
-                    "type" => "missing-" . $field,
-
-                    "message" =>
-                        ucfirst($field) . " is missing."
-
-                ];
-
+            if (
+                trim(
+                    (string) (
+                        $taxonomy[$field]
+                        ?? ''
+                    )
+                ) !== ''
+            ) {
+                continue;
             }
 
-        }
-
-        $difficulty = strtolower(
-
-            trim(
-
-                $question["difficulty"] ?? ""
-
-            )
-
-        );
-
-        if (
-
-            $difficulty !== ""
-
-            &&
-
-            !in_array(
-
-                $difficulty,
-
-                self::VALID_DIFFICULTIES,
-
-                true
-
-            )
-
-        ) {
-
             $issues[] = [
-
-                "severity" => "warning",
-
-                "type" => "invalid-difficulty",
-
-                "message" =>
-                    "Difficulty value is invalid."
-
-            ];
-
-        }
-
-        $status = strtolower(
-
-            trim(
-
-                $question["status"] ?? ""
-
-            )
-
-        );
-
-        if (
-
-            $status !== ""
-
-            &&
-
-            !in_array(
-
-                $status,
-
-                self::VALID_STATUSES,
-
-                true
-
-            )
-
-        ) {
-
-            $issues[] = [
-
-                "severity" => "warning",
-
-                "type" => "invalid-status",
-
-                "message" =>
-                    "Status value is invalid."
-
-            ];
-
-        }
-
-        if ($status === "draft") {
-
-            $issues[] = [
-
-                "severity" => "info",
-
-                "type" => "draft",
-
-                "message" => "Question is still a draft."
-
+                'severity' => 'error',
+                'type' => 'missing-' . $field,
+                'message' =>
+                    ucfirst(
+                        str_replace(
+                            '_',
+                            ' ',
+                            $field
+                        )
+                    ) . ' is missing.',
             ];
 
         }
 
         return $issues;
+
+    }
+
+    private static function validateDifficulty(
+        array $question
+    ): array {
+
+        $difficulty =
+            strtolower(
+                trim(
+                    (string) (
+                        $question['difficulty']
+                        ?? ''
+                    )
+                )
+            );
+
+        if (
+            $difficulty === ''
+            ||
+            in_array(
+                $difficulty,
+                self::VALID_DIFFICULTIES,
+                true
+            )
+        ) {
+            return [];
+        }
+
+        return [
+            [
+                'severity' => 'warning',
+                'type' => 'invalid-difficulty',
+                'message' => 'Difficulty value is invalid.',
+            ],
+        ];
+
+    }
+
+    private static function validateStatus(
+        array $question
+    ): array {
+
+        $status =
+            strtolower(
+                trim(
+                    (string) (
+                        $question['status']
+                        ?? ''
+                    )
+                )
+            );
+
+        $issues = [];
+
+        if (
+            $status !== ''
+            &&
+            !in_array(
+                $status,
+                self::VALID_STATUSES,
+                true
+            )
+        ) {
+
+            $issues[] = [
+                'severity' => 'warning',
+                'type' => 'invalid-status',
+                'message' => 'Status value is invalid.',
+            ];
+
+        }
+
+        if (
+            $status === 'draft'
+        ) {
+
+            $issues[] = [
+                'severity' => 'info',
+                'type' => 'draft',
+                'message' => 'Question is still a draft.',
+            ];
+
+        }
+
+        return $issues;
+
     }
 }

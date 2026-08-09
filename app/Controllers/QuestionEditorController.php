@@ -5,24 +5,14 @@ declare(strict_types=1);
 use App\Core\App;
 use App\Core\Request;
 use App\Core\Response;
-use App\Repositories\QuestionRepository;
+use App\Services\Question\QuestionEditorService;
 use App\Services\Question\QuestionQueryService;
 use App\Services\Question\QuestionService;
 use App\Services\Question\QuestionViewService;
 
 class QuestionEditorController extends BaseDeveloperController
 {
-    private static function repository(): QuestionRepository
-    {
-
-        return App::container()
-            ->get(
-                QuestionRepository::class
-            );
-
-    }
-
-    private static function workspace(
+        private static function workspace(
         array $data = []
     ): void {
 
@@ -199,7 +189,7 @@ class QuestionEditorController extends BaseDeveloperController
     {
 
         $question =
-            self::repository()->find(
+            QuestionEditorService::find(
 
                 (string) Request::query(
                     "id",
@@ -348,7 +338,7 @@ class QuestionEditorController extends BaseDeveloperController
             );
 
         $question =
-            self::repository()->find(
+            QuestionEditorService::find(
                 $id
             );
 
@@ -380,7 +370,7 @@ class QuestionEditorController extends BaseDeveloperController
             );
 
         $question =
-            self::repository()->find(
+            QuestionEditorService::find(
                 $id
             );
 

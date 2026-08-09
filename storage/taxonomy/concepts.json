@@ -1,52 +1,1970 @@
 [
     {
-        "id": "adverbs",
-        "topic": "parts-of-speech",
-        "name": "Adverbs"
+        "id": "parts-of-speech-nouns",
+        "topic_id": "parts-of-speech",
+        "code": "N",
+        "name": "Nouns",
+        "description": "Nouns as applied to parts of speech.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "nouns"
+            ],
+            "common_misconceptions": []
+        }
     },
     {
-        "id": "compound-subject",
-        "topic": "subject-verb-agreement",
-        "name": "Compound Subject"
+        "id": "parts-of-speech-pronouns",
+        "topic_id": "parts-of-speech",
+        "code": "P",
+        "name": "Pronouns",
+        "description": "Pronouns as applied to parts of speech.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "pronouns"
+            ],
+            "common_misconceptions": []
+        }
     },
     {
-        "id": "correct-preposition",
-        "topic": "prepositions",
-        "name": "Correct Preposition"
+        "id": "parts-of-speech-verbs",
+        "topic_id": "parts-of-speech",
+        "code": "V",
+        "name": "Verbs",
+        "description": "Verbs as applied to parts of speech.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "verbs"
+            ],
+            "common_misconceptions": []
+        }
     },
     {
-        "id": "dangling-modifier",
-        "topic": "modifiers",
-        "name": "Dangling Modifier"
+        "id": "parts-of-speech-adjectives",
+        "topic_id": "parts-of-speech",
+        "code": "A",
+        "name": "Adjectives",
+        "description": "Adjectives as applied to parts of speech.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "adjectives"
+            ],
+            "common_misconceptions": []
+        }
     },
     {
-        "id": "parallel-structure",
-        "topic": "parallelism",
-        "name": "Parallel Structure"
+        "id": "parts-of-speech-adverbs",
+        "topic_id": "parts-of-speech",
+        "code": "A",
+        "name": "Adverbs",
+        "description": "Adverbs as applied to parts of speech.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "adverbs"
+            ],
+            "common_misconceptions": []
+        }
     },
     {
-        "id": "present-perfect",
-        "topic": "verb-tenses",
-        "name": "Present Perfect"
+        "id": "parts-of-speech-prepositions",
+        "topic_id": "parts-of-speech",
+        "code": "P",
+        "name": "Prepositions",
+        "description": "Prepositions as applied to parts of speech.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "prepositions"
+            ],
+            "common_misconceptions": []
+        }
     },
     {
-        "id": "pronoun-agreement",
-        "topic": "pronouns",
-        "name": "Pronoun Agreement"
+        "id": "parts-of-speech-conjunctions",
+        "topic_id": "parts-of-speech",
+        "code": "C",
+        "name": "Conjunctions",
+        "description": "Conjunctions as applied to parts of speech.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "conjunctions"
+            ],
+            "common_misconceptions": []
+        }
     },
     {
-        "id": "run-on-sentence",
-        "topic": "sentence-structure",
-        "name": "Run-on Sentence"
+        "id": "parts-of-speech-interjections",
+        "topic_id": "parts-of-speech",
+        "code": "I",
+        "name": "Interjections",
+        "description": "Interjections as applied to parts of speech.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "interjections"
+            ],
+            "common_misconceptions": []
+        }
     },
     {
-        "id": "singular-subject",
-        "topic": "subject-verb-agreement",
-        "name": "Singular Subject"
+        "id": "sentence-structure-simple-sentences",
+        "topic_id": "sentence-structure",
+        "code": "SS",
+        "name": "Simple Sentences",
+        "description": "Simple Sentences as applied to sentence structure.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "simple sentences"
+            ],
+            "common_misconceptions": []
+        }
     },
     {
-        "id": "subject-verb-agreement-rule",
-        "topic": "subject-verb-agreement",
-        "name": "Subject-Verb Agreement"
+        "id": "sentence-structure-compound-sentences",
+        "topic_id": "sentence-structure",
+        "code": "CS",
+        "name": "Compound Sentences",
+        "description": "Compound Sentences as applied to sentence structure.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "compound sentences"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sentence-structure-complex-sentences",
+        "topic_id": "sentence-structure",
+        "code": "CS",
+        "name": "Complex Sentences",
+        "description": "Complex Sentences as applied to sentence structure.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "complex sentences"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sentence-structure-fragments",
+        "topic_id": "sentence-structure",
+        "code": "F",
+        "name": "Fragments",
+        "description": "Fragments as applied to sentence structure.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "fragments"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sentence-structure-run-on-sentences",
+        "topic_id": "sentence-structure",
+        "code": "ROS",
+        "name": "Run-on Sentences",
+        "description": "Run-on Sentences as applied to sentence structure.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "run-on sentences"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "subject-verb-agreement-singular-subjects",
+        "topic_id": "subject-verb-agreement",
+        "code": "SS",
+        "name": "Singular Subjects",
+        "description": "Singular Subjects as applied to subject-verb agreement.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "singular subjects"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "subject-verb-agreement-compound-subjects",
+        "topic_id": "subject-verb-agreement",
+        "code": "CS",
+        "name": "Compound Subjects",
+        "description": "Compound Subjects as applied to subject-verb agreement.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "compound subjects"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "subject-verb-agreement-indefinite-pronouns",
+        "topic_id": "subject-verb-agreement",
+        "code": "IP",
+        "name": "Indefinite Pronouns",
+        "description": "Indefinite Pronouns as applied to subject-verb agreement.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "indefinite pronouns"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "subject-verb-agreement-collective-nouns",
+        "topic_id": "subject-verb-agreement",
+        "code": "CN",
+        "name": "Collective Nouns",
+        "description": "Collective Nouns as applied to subject-verb agreement.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "collective nouns"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "verb-tenses-present-tense",
+        "topic_id": "verb-tenses",
+        "code": "PT",
+        "name": "Present Tense",
+        "description": "Present Tense as applied to verb tenses.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "present tense"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "verb-tenses-past-tense",
+        "topic_id": "verb-tenses",
+        "code": "PT",
+        "name": "Past Tense",
+        "description": "Past Tense as applied to verb tenses.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "past tense"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "verb-tenses-future-tense",
+        "topic_id": "verb-tenses",
+        "code": "FT",
+        "name": "Future Tense",
+        "description": "Future Tense as applied to verb tenses.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "future tense"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "verb-tenses-perfect-tenses",
+        "topic_id": "verb-tenses",
+        "code": "PT",
+        "name": "Perfect Tenses",
+        "description": "Perfect Tenses as applied to verb tenses.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "perfect tenses"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "verb-tenses-tense-consistency",
+        "topic_id": "verb-tenses",
+        "code": "TC",
+        "name": "Tense Consistency",
+        "description": "Tense Consistency as applied to verb tenses.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "tense consistency"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "pronouns-pronoun-antecedent-agreement",
+        "topic_id": "pronouns",
+        "code": "PAA",
+        "name": "Pronoun-Antecedent Agreement",
+        "description": "Pronoun-Antecedent Agreement as applied to pronouns.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "pronoun-antecedent agreement"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "pronouns-pronoun-case",
+        "topic_id": "pronouns",
+        "code": "PC",
+        "name": "Pronoun Case",
+        "description": "Pronoun Case as applied to pronouns.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "pronoun case"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "pronouns-pronoun-reference",
+        "topic_id": "pronouns",
+        "code": "PR",
+        "name": "Pronoun Reference",
+        "description": "Pronoun Reference as applied to pronouns.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "pronoun reference"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "modifiers-adjective-modifiers",
+        "topic_id": "modifiers",
+        "code": "AM",
+        "name": "Adjective Modifiers",
+        "description": "Adjective Modifiers as applied to modifiers.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "adjective modifiers"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "modifiers-adverb-modifiers",
+        "topic_id": "modifiers",
+        "code": "AM",
+        "name": "Adverb Modifiers",
+        "description": "Adverb Modifiers as applied to modifiers.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "adverb modifiers"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "modifiers-dangling-modifiers",
+        "topic_id": "modifiers",
+        "code": "DM",
+        "name": "Dangling Modifiers",
+        "description": "Dangling Modifiers as applied to modifiers.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "dangling modifiers"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "modifiers-misplaced-modifiers",
+        "topic_id": "modifiers",
+        "code": "MM",
+        "name": "Misplaced Modifiers",
+        "description": "Misplaced Modifiers as applied to modifiers.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "misplaced modifiers"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "parallelism-parallel-structure",
+        "topic_id": "parallelism",
+        "code": "PS",
+        "name": "Parallel Structure",
+        "description": "Parallel Structure as applied to parallelism.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "parallel structure"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "parallelism-parallel-items",
+        "topic_id": "parallelism",
+        "code": "PI",
+        "name": "Parallel Items",
+        "description": "Parallel Items as applied to parallelism.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "parallel items"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "parallelism-faulty-comparisons",
+        "topic_id": "parallelism",
+        "code": "FC",
+        "name": "Faulty Comparisons",
+        "description": "Faulty Comparisons as applied to parallelism.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "faulty comparisons"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "prepositions-preposition-choice",
+        "topic_id": "prepositions",
+        "code": "PC",
+        "name": "Preposition Choice",
+        "description": "Preposition Choice as applied to prepositions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "preposition choice"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "prepositions-prepositional-phrases",
+        "topic_id": "prepositions",
+        "code": "PP",
+        "name": "Prepositional Phrases",
+        "description": "Prepositional Phrases as applied to prepositions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "prepositional phrases"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "prepositions-idiomatic-prepositions",
+        "topic_id": "prepositions",
+        "code": "IP",
+        "name": "Idiomatic Prepositions",
+        "description": "Idiomatic Prepositions as applied to prepositions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "idiomatic prepositions"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "main-idea-and-support-central-idea",
+        "topic_id": "main-idea-and-support",
+        "code": "CI",
+        "name": "Central Idea",
+        "description": "Central Idea as applied to main idea and supporting details.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "central idea"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "main-idea-and-support-topic-sentences",
+        "topic_id": "main-idea-and-support",
+        "code": "TS",
+        "name": "Topic Sentences",
+        "description": "Topic Sentences as applied to main idea and supporting details.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "topic sentences"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "main-idea-and-support-supporting-evidence",
+        "topic_id": "main-idea-and-support",
+        "code": "SE",
+        "name": "Supporting Evidence",
+        "description": "Supporting Evidence as applied to main idea and supporting details.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "supporting evidence"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "inference-textual-inference",
+        "topic_id": "inference",
+        "code": "TI",
+        "name": "Textual Inference",
+        "description": "Textual Inference as applied to inference and interpretation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "textual inference"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "inference-implicit-meaning",
+        "topic_id": "inference",
+        "code": "IM",
+        "name": "Implicit Meaning",
+        "description": "Implicit Meaning as applied to inference and interpretation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "implicit meaning"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "inference-evidence-based-conclusions",
+        "topic_id": "inference",
+        "code": "EBC",
+        "name": "Evidence-Based Conclusions",
+        "description": "Evidence-Based Conclusions as applied to inference and interpretation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "evidence-based conclusions"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "authors-purpose-and-tone-purpose",
+        "topic_id": "authors-purpose-and-tone",
+        "code": "P",
+        "name": "Purpose",
+        "description": "Purpose as applied to author's purpose and tone.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "purpose"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "authors-purpose-and-tone-tone",
+        "topic_id": "authors-purpose-and-tone",
+        "code": "T",
+        "name": "Tone",
+        "description": "Tone as applied to author's purpose and tone.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "tone"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "authors-purpose-and-tone-attitude",
+        "topic_id": "authors-purpose-and-tone",
+        "code": "A",
+        "name": "Attitude",
+        "description": "Attitude as applied to author's purpose and tone.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "attitude"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "context-clues-definition-clues",
+        "topic_id": "context-clues",
+        "code": "DC",
+        "name": "Definition Clues",
+        "description": "Definition Clues as applied to context clues.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "definition clues"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "context-clues-contrast-clues",
+        "topic_id": "context-clues",
+        "code": "CC",
+        "name": "Contrast Clues",
+        "description": "Contrast Clues as applied to context clues.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "contrast clues"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "context-clues-example-clues",
+        "topic_id": "context-clues",
+        "code": "EC",
+        "name": "Example Clues",
+        "description": "Example Clues as applied to context clues.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "example clues"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "context-clues-inference-clues",
+        "topic_id": "context-clues",
+        "code": "IC",
+        "name": "Inference Clues",
+        "description": "Inference Clues as applied to context clues.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "inference clues"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "text-structure-cause-and-effect",
+        "topic_id": "text-structure",
+        "code": "CAE",
+        "name": "Cause and Effect",
+        "description": "Cause and Effect as applied to text structure.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "cause and effect"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "text-structure-compare-and-contrast",
+        "topic_id": "text-structure",
+        "code": "CAC",
+        "name": "Compare and Contrast",
+        "description": "Compare and Contrast as applied to text structure.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "compare and contrast"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "text-structure-problem-and-solution",
+        "topic_id": "text-structure",
+        "code": "PAS",
+        "name": "Problem and Solution",
+        "description": "Problem and Solution as applied to text structure.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "problem and solution"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "text-structure-sequence",
+        "topic_id": "text-structure",
+        "code": "S",
+        "name": "Sequence",
+        "description": "Sequence as applied to text structure.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "sequence"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "critical-reading-argument-evaluation",
+        "topic_id": "critical-reading",
+        "code": "AE",
+        "name": "Argument Evaluation",
+        "description": "Argument Evaluation as applied to critical reading.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "argument evaluation"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "critical-reading-evidence-quality",
+        "topic_id": "critical-reading",
+        "code": "EQ",
+        "name": "Evidence Quality",
+        "description": "Evidence Quality as applied to critical reading.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "evidence quality"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "critical-reading-fact-and-opinion",
+        "topic_id": "critical-reading",
+        "code": "FAO",
+        "name": "Fact and Opinion",
+        "description": "Fact and Opinion as applied to critical reading.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "fact and opinion"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "word-meaning-denotation",
+        "topic_id": "word-meaning",
+        "code": "D",
+        "name": "Denotation",
+        "description": "Denotation as applied to word meaning.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "denotation"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "word-meaning-connotation",
+        "topic_id": "word-meaning",
+        "code": "C",
+        "name": "Connotation",
+        "description": "Connotation as applied to word meaning.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "connotation"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "word-meaning-contextual-meaning",
+        "topic_id": "word-meaning",
+        "code": "CM",
+        "name": "Contextual Meaning",
+        "description": "Contextual Meaning as applied to word meaning.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "contextual meaning"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "synonyms-and-antonyms-synonyms",
+        "topic_id": "synonyms-and-antonyms",
+        "code": "S",
+        "name": "Synonyms",
+        "description": "Synonyms as applied to synonyms and antonyms.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "synonyms"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "synonyms-and-antonyms-antonyms",
+        "topic_id": "synonyms-and-antonyms",
+        "code": "A",
+        "name": "Antonyms",
+        "description": "Antonyms as applied to synonyms and antonyms.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "antonyms"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "synonyms-and-antonyms-near-synonyms",
+        "topic_id": "synonyms-and-antonyms",
+        "code": "NS",
+        "name": "Near Synonyms",
+        "description": "Near Synonyms as applied to synonyms and antonyms.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "near synonyms"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "word-relationships-analogies",
+        "topic_id": "word-relationships",
+        "code": "A",
+        "name": "Analogies",
+        "description": "Analogies as applied to word relationships.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "analogies"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "word-relationships-categories",
+        "topic_id": "word-relationships",
+        "code": "C",
+        "name": "Categories",
+        "description": "Categories as applied to word relationships.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "categories"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "word-relationships-part-whole-relationships",
+        "topic_id": "word-relationships",
+        "code": "PWR",
+        "name": "Part-Whole Relationships",
+        "description": "Part-Whole Relationships as applied to word relationships.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "part-whole relationships"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "idioms-and-figurative-language-idioms",
+        "topic_id": "idioms-and-figurative-language",
+        "code": "I",
+        "name": "Idioms",
+        "description": "Idioms as applied to idioms and figurative language.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "idioms"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "idioms-and-figurative-language-metaphors",
+        "topic_id": "idioms-and-figurative-language",
+        "code": "M",
+        "name": "Metaphors",
+        "description": "Metaphors as applied to idioms and figurative language.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "metaphors"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "idioms-and-figurative-language-similes",
+        "topic_id": "idioms-and-figurative-language",
+        "code": "S",
+        "name": "Similes",
+        "description": "Similes as applied to idioms and figurative language.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "similes"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "literary-elements-character",
+        "topic_id": "literary-elements",
+        "code": "C",
+        "name": "Character",
+        "description": "Character as applied to literary elements.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "character"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "literary-elements-setting",
+        "topic_id": "literary-elements",
+        "code": "S",
+        "name": "Setting",
+        "description": "Setting as applied to literary elements.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "setting"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "literary-elements-plot",
+        "topic_id": "literary-elements",
+        "code": "P",
+        "name": "Plot",
+        "description": "Plot as applied to literary elements.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "plot"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "literary-elements-conflict",
+        "topic_id": "literary-elements",
+        "code": "C",
+        "name": "Conflict",
+        "description": "Conflict as applied to literary elements.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "conflict"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "literary-elements-theme",
+        "topic_id": "literary-elements",
+        "code": "T",
+        "name": "Theme",
+        "description": "Theme as applied to literary elements.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "theme"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "literary-genres-poetry",
+        "topic_id": "literary-genres",
+        "code": "P",
+        "name": "Poetry",
+        "description": "Poetry as applied to literary genres.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "poetry"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "literary-genres-fiction",
+        "topic_id": "literary-genres",
+        "code": "F",
+        "name": "Fiction",
+        "description": "Fiction as applied to literary genres.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "fiction"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "literary-genres-drama",
+        "topic_id": "literary-genres",
+        "code": "D",
+        "name": "Drama",
+        "description": "Drama as applied to literary genres.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "drama"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "literary-genres-nonfiction",
+        "topic_id": "literary-genres",
+        "code": "N",
+        "name": "Nonfiction",
+        "description": "Nonfiction as applied to literary genres.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "nonfiction"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "literary-devices-imagery",
+        "topic_id": "literary-devices",
+        "code": "I",
+        "name": "Imagery",
+        "description": "Imagery as applied to literary devices.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "imagery"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "literary-devices-symbolism",
+        "topic_id": "literary-devices",
+        "code": "S",
+        "name": "Symbolism",
+        "description": "Symbolism as applied to literary devices.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "symbolism"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "literary-devices-irony",
+        "topic_id": "literary-devices",
+        "code": "I",
+        "name": "Irony",
+        "description": "Irony as applied to literary devices.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "irony"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "literary-devices-foreshadowing",
+        "topic_id": "literary-devices",
+        "code": "F",
+        "name": "Foreshadowing",
+        "description": "Foreshadowing as applied to literary devices.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "foreshadowing"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "literary-analysis-theme-analysis",
+        "topic_id": "literary-analysis",
+        "code": "TA",
+        "name": "Theme Analysis",
+        "description": "Theme Analysis as applied to literary analysis.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "theme analysis"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "literary-analysis-character-analysis",
+        "topic_id": "literary-analysis",
+        "code": "CA",
+        "name": "Character Analysis",
+        "description": "Character Analysis as applied to literary analysis.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "character analysis"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "literary-analysis-point-of-view",
+        "topic_id": "literary-analysis",
+        "code": "POV",
+        "name": "Point of View",
+        "description": "Point of View as applied to literary analysis.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "point of view"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "organization-introduction",
+        "topic_id": "organization",
+        "code": "I",
+        "name": "Introduction",
+        "description": "Introduction as applied to organization.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "introduction"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "organization-body-development",
+        "topic_id": "organization",
+        "code": "BD",
+        "name": "Body Development",
+        "description": "Body Development as applied to organization.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "body development"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "organization-conclusion",
+        "topic_id": "organization",
+        "code": "C",
+        "name": "Conclusion",
+        "description": "Conclusion as applied to organization.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "conclusion"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "paragraph-development-unity",
+        "topic_id": "paragraph-development",
+        "code": "U",
+        "name": "Unity",
+        "description": "Unity as applied to paragraph development.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "unity"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "paragraph-development-coherence",
+        "topic_id": "paragraph-development",
+        "code": "C",
+        "name": "Coherence",
+        "description": "Coherence as applied to paragraph development.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "coherence"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "paragraph-development-topic-sentences",
+        "topic_id": "paragraph-development",
+        "code": "TS",
+        "name": "Topic Sentences",
+        "description": "Topic Sentences as applied to paragraph development.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "topic sentences"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "grammar-and-mechanics-punctuation",
+        "topic_id": "grammar-and-mechanics",
+        "code": "P",
+        "name": "Punctuation",
+        "description": "Punctuation as applied to grammar and mechanics.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "punctuation"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "grammar-and-mechanics-capitalization",
+        "topic_id": "grammar-and-mechanics",
+        "code": "C",
+        "name": "Capitalization",
+        "description": "Capitalization as applied to grammar and mechanics.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "capitalization"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "grammar-and-mechanics-sentence-mechanics",
+        "topic_id": "grammar-and-mechanics",
+        "code": "SM",
+        "name": "Sentence Mechanics",
+        "description": "Sentence Mechanics as applied to grammar and mechanics.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "sentence mechanics"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "academic-writing-clarity",
+        "topic_id": "academic-writing",
+        "code": "C",
+        "name": "Clarity",
+        "description": "Clarity as applied to academic writing.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "clarity"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "academic-writing-evidence-integration",
+        "topic_id": "academic-writing",
+        "code": "EI",
+        "name": "Evidence Integration",
+        "description": "Evidence Integration as applied to academic writing.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "evidence integration"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "academic-writing-formal-register",
+        "topic_id": "academic-writing",
+        "code": "FR",
+        "name": "Formal Register",
+        "description": "Formal Register as applied to academic writing.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "formal register"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "listening-active-listening",
+        "topic_id": "listening",
+        "code": "AL",
+        "name": "Active Listening",
+        "description": "Active Listening as applied to listening.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "active listening"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "listening-listening-for-main-ideas",
+        "topic_id": "listening",
+        "code": "LFMI",
+        "name": "Listening for Main Ideas",
+        "description": "Listening for Main Ideas as applied to listening.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "listening for main ideas"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "listening-listening-for-details",
+        "topic_id": "listening",
+        "code": "LFD",
+        "name": "Listening for Details",
+        "description": "Listening for Details as applied to listening.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "listening for details"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "speaking-clarity",
+        "topic_id": "speaking",
+        "code": "C",
+        "name": "Clarity",
+        "description": "Clarity as applied to speaking.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "clarity"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "speaking-fluency",
+        "topic_id": "speaking",
+        "code": "F",
+        "name": "Fluency",
+        "description": "Fluency as applied to speaking.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "fluency"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "speaking-pronunciation",
+        "topic_id": "speaking",
+        "code": "P",
+        "name": "Pronunciation",
+        "description": "Pronunciation as applied to speaking.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "pronunciation"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "communication-context-audience",
+        "topic_id": "communication-context",
+        "code": "A",
+        "name": "Audience",
+        "description": "Audience as applied to communication context.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "audience"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "communication-context-purpose",
+        "topic_id": "communication-context",
+        "code": "P",
+        "name": "Purpose",
+        "description": "Purpose as applied to communication context.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "purpose"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "communication-context-register",
+        "topic_id": "communication-context",
+        "code": "R",
+        "name": "Register",
+        "description": "Register as applied to communication context.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "register"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "register-formal-register",
+        "topic_id": "register",
+        "code": "FR",
+        "name": "Formal Register",
+        "description": "Formal Register as applied to language register.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "formal register"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "register-informal-register",
+        "topic_id": "register",
+        "code": "IR",
+        "name": "Informal Register",
+        "description": "Informal Register as applied to language register.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "informal register"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "register-professional-register",
+        "topic_id": "register",
+        "code": "PR",
+        "name": "Professional Register",
+        "description": "Professional Register as applied to language register.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "professional register"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "meaning-in-context-literal-meaning",
+        "topic_id": "meaning-in-context",
+        "code": "LM",
+        "name": "Literal Meaning",
+        "description": "Literal Meaning as applied to meaning in context.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "literal meaning"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "meaning-in-context-implied-meaning",
+        "topic_id": "meaning-in-context",
+        "code": "IM",
+        "name": "Implied Meaning",
+        "description": "Implied Meaning as applied to meaning in context.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "implied meaning"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "meaning-in-context-contextual-meaning",
+        "topic_id": "meaning-in-context",
+        "code": "CM",
+        "name": "Contextual Meaning",
+        "description": "Contextual Meaning as applied to meaning in context.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "contextual meaning"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "functional-language-requests",
+        "topic_id": "functional-language",
+        "code": "R",
+        "name": "Requests",
+        "description": "Requests as applied to functional language.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "requests"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "functional-language-persuasion",
+        "topic_id": "functional-language",
+        "code": "P",
+        "name": "Persuasion",
+        "description": "Persuasion as applied to functional language.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "persuasion"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "functional-language-explanation",
+        "topic_id": "functional-language",
+        "code": "E",
+        "name": "Explanation",
+        "description": "Explanation as applied to functional language.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "explanation"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "source-evaluation-authority",
+        "topic_id": "source-evaluation",
+        "code": "A",
+        "name": "Authority",
+        "description": "Authority as applied to source evaluation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "authority"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "source-evaluation-accuracy",
+        "topic_id": "source-evaluation",
+        "code": "A",
+        "name": "Accuracy",
+        "description": "Accuracy as applied to source evaluation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "accuracy"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "source-evaluation-currency",
+        "topic_id": "source-evaluation",
+        "code": "C",
+        "name": "Currency",
+        "description": "Currency as applied to source evaluation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "currency"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "source-evaluation-relevance",
+        "topic_id": "source-evaluation",
+        "code": "R",
+        "name": "Relevance",
+        "description": "Relevance as applied to source evaluation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "relevance"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "research-process-research-questions",
+        "topic_id": "research-process",
+        "code": "RQ",
+        "name": "Research Questions",
+        "description": "Research Questions as applied to research process.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "research questions"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "research-process-source-gathering",
+        "topic_id": "research-process",
+        "code": "SG",
+        "name": "Source Gathering",
+        "description": "Source Gathering as applied to research process.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "source gathering"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "research-process-synthesis",
+        "topic_id": "research-process",
+        "code": "S",
+        "name": "Synthesis",
+        "description": "Synthesis as applied to research process.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "synthesis"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "citation-and-attribution-paraphrasing",
+        "topic_id": "citation-and-attribution",
+        "code": "P",
+        "name": "Paraphrasing",
+        "description": "Paraphrasing as applied to citation and attribution.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "paraphrasing"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "citation-and-attribution-quoting",
+        "topic_id": "citation-and-attribution",
+        "code": "Q",
+        "name": "Quoting",
+        "description": "Quoting as applied to citation and attribution.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "quoting"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "citation-and-attribution-plagiarism-avoidance",
+        "topic_id": "citation-and-attribution",
+        "code": "PA",
+        "name": "Plagiarism Avoidance",
+        "description": "Plagiarism Avoidance as applied to citation and attribution.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 20,
+            "mastery_threshold": 85,
+            "keywords": [
+                "plagiarism avoidance"
+            ],
+            "common_misconceptions": []
+        }
     }
 ]

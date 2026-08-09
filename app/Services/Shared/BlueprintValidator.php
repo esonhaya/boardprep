@@ -1,11 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Services\Shared;
+
 class BlueprintValidator
 {
     public static function validate(
         array $blueprint
-    ): array
-    {
+    ): array {
+
         $errors = [];
 
         if (empty($blueprint["id"])) {
@@ -44,9 +48,17 @@ class BlueprintValidator
 
         } else {
 
-            $easy = (int) ($blueprint["difficulty"]["easy"] ?? 0);
-            $medium = (int) ($blueprint["difficulty"]["medium"] ?? 0);
-            $hard = (int) ($blueprint["difficulty"]["hard"] ?? 0);
+            $easy = (int) (
+                $blueprint["difficulty"]["easy"] ?? 0
+            );
+
+            $medium = (int) (
+                $blueprint["difficulty"]["medium"] ?? 0
+            );
+
+            $hard = (int) (
+                $blueprint["difficulty"]["hard"] ?? 0
+            );
 
             foreach ([
                 "Easy" => $easy,
@@ -58,19 +70,17 @@ class BlueprintValidator
                     $errors[] =
                         "{$label} difficulty must be between 0 and 100.";
                 }
-
             }
 
             if (($easy + $medium + $hard) !== 100) {
                 $errors[] =
                     "Difficulty distribution must equal 100%.";
             }
-
         }
 
         return [
             "valid" => empty($errors),
-            "errors" => $errors
+            "errors" => $errors,
         ];
     }
 }

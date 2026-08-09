@@ -1,32 +1,974 @@
 [
     {
         "id": "grammar",
-        "subject": "english",
-        "name": "Grammar"
+        "subject_id": "english",
+        "code": "G",
+        "name": "Grammar",
+        "description": "Structure and correct use of English.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
     },
     {
-        "id": "reading",
-        "subject": "english",
-        "name": "Reading"
+        "id": "reading-comprehension",
+        "subject_id": "english",
+        "code": "RC",
+        "name": "Reading Comprehension",
+        "description": "Understanding, analyzing, and evaluating written texts.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
     },
     {
         "id": "vocabulary",
-        "subject": "english",
-        "name": "Vocabulary"
+        "subject_id": "english",
+        "code": "V",
+        "name": "Vocabulary",
+        "description": "Word meaning, usage, context, and relationships.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
     },
     {
-        "id": "arithmetic",
-        "subject": "mathematics",
-        "name": "Arithmetic"
+        "id": "literature",
+        "subject_id": "english",
+        "code": "L",
+        "name": "Literature",
+        "description": "Literary forms, elements, analysis, and appreciation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "writing",
+        "subject_id": "english",
+        "code": "W",
+        "name": "Writing",
+        "description": "Composition, organization, clarity, and mechanics.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "oral-communication",
+        "subject_id": "english",
+        "code": "OC",
+        "name": "Oral Communication",
+        "description": "Effective speaking, listening, and communication.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "language-use",
+        "subject_id": "english",
+        "code": "LU",
+        "name": "Language Use",
+        "description": "Meaning, register, context, and functional language.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "research-and-information-literacy",
+        "subject_id": "english",
+        "code": "RAIL",
+        "name": "Research and Information Literacy",
+        "description": "Finding, evaluating, organizing, and using information.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "gramatikang-filipino",
+        "subject_id": "filipino",
+        "code": "GF",
+        "name": "Gramatikang Filipino",
+        "description": "Wastong gamit at kayarian ng wikang Filipino.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "pagbasa",
+        "subject_id": "filipino",
+        "code": "P",
+        "name": "Pagbasa",
+        "description": "Pag-unawa, pagsusuri, at pagtataya ng mga teksto.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "talasalitaan",
+        "subject_id": "filipino",
+        "code": "T",
+        "name": "Talasalitaan",
+        "description": "Kahulugan, gamit, at ugnayan ng mga salita.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "panitikan",
+        "subject_id": "filipino",
+        "code": "P",
+        "name": "Panitikan",
+        "description": "Mga anyo, elemento, akda, at pagsusuri ng panitikan.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "pagsulat",
+        "subject_id": "filipino",
+        "code": "P",
+        "name": "Pagsulat",
+        "description": "Pagbuo, organisasyon, at mekanika ng pagsulat.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "komunikasyon",
+        "subject_id": "filipino",
+        "code": "K",
+        "name": "Komunikasyon",
+        "description": "Mabisang pakikipagtalastasan sa iba't ibang sitwasyon.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "number-sense",
+        "subject_id": "mathematics",
+        "code": "NS",
+        "name": "Number Sense",
+        "description": "Numbers, operations, estimation, and quantitative reasoning.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
     },
     {
         "id": "algebra",
-        "subject": "mathematics",
-        "name": "Algebra"
+        "subject_id": "mathematics",
+        "code": "A",
+        "name": "Algebra",
+        "description": "Expressions, equations, inequalities, functions, and patterns.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
     },
     {
         "id": "geometry",
-        "subject": "mathematics",
-        "name": "Geometry"
+        "subject_id": "mathematics",
+        "code": "G",
+        "name": "Geometry",
+        "description": "Shapes, spatial relationships, measurement, and geometric reasoning.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "statistics-and-probability",
+        "subject_id": "mathematics",
+        "code": "SAP",
+        "name": "Statistics and Probability",
+        "description": "Data analysis, probability, and interpretation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "measurement",
+        "subject_id": "mathematics",
+        "code": "M",
+        "name": "Measurement",
+        "description": "Units, conversions, perimeter, area, volume, and applications.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "problem-solving",
+        "subject_id": "mathematics",
+        "code": "PS",
+        "name": "Problem Solving",
+        "description": "Mathematical modeling, reasoning, and multi-step applications.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "biology",
+        "subject_id": "science",
+        "code": "B",
+        "name": "Biology",
+        "description": "Life processes, organisms, heredity, ecology, and systems.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "chemistry",
+        "subject_id": "science",
+        "code": "C",
+        "name": "Chemistry",
+        "description": "Matter, properties, reactions, and chemical relationships.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "physics",
+        "subject_id": "science",
+        "code": "P",
+        "name": "Physics",
+        "description": "Motion, forces, energy, waves, electricity, and matter.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "earth-science",
+        "subject_id": "science",
+        "code": "ES",
+        "name": "Earth Science",
+        "description": "Earth systems, resources, weather, climate, and geologic processes.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "environmental-science",
+        "subject_id": "science",
+        "code": "ES",
+        "name": "Environmental Science",
+        "description": "Ecosystems, sustainability, hazards, and human-environment interactions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "scientific-inquiry",
+        "subject_id": "science",
+        "code": "SI",
+        "name": "Scientific Inquiry",
+        "description": "Evidence, variables, experimentation, measurement, and scientific reasoning.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "philippine-history",
+        "subject_id": "social-studies",
+        "code": "PH",
+        "name": "Philippine History",
+        "description": "Major periods, events, people, and historical interpretation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "world-history",
+        "subject_id": "social-studies",
+        "code": "WH",
+        "name": "World History",
+        "description": "Major civilizations, movements, conflicts, and global developments.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "geography",
+        "subject_id": "social-studies",
+        "code": "G",
+        "name": "Geography",
+        "description": "Places, spatial relationships, resources, and human-environment interaction.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "government-and-civics",
+        "subject_id": "social-studies",
+        "code": "GAC",
+        "name": "Government and Civics",
+        "description": "Constitutional principles, institutions, citizenship, and governance.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "economics",
+        "subject_id": "social-studies",
+        "code": "E",
+        "name": "Economics",
+        "description": "Basic economic concepts, markets, production, and public policy.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "culture-and-society",
+        "subject_id": "social-studies",
+        "code": "CAS",
+        "name": "Culture and Society",
+        "description": "Culture, identity, social institutions, and social change.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "communication",
+        "subject_id": "general-education",
+        "code": "C",
+        "name": "Communication",
+        "description": "Language and communication skills across academic contexts.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "mathematics",
+        "subject_id": "general-education",
+        "code": "M",
+        "name": "Mathematics",
+        "description": "Foundational quantitative reasoning and mathematical literacy.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "science",
+        "subject_id": "general-education",
+        "code": "S",
+        "name": "Science",
+        "description": "Foundational scientific concepts and scientific literacy.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "social-sciences",
+        "subject_id": "general-education",
+        "code": "SS",
+        "name": "Social Sciences",
+        "description": "Society, culture, history, government, and civic understanding.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "humanities",
+        "subject_id": "general-education",
+        "code": "H",
+        "name": "Humanities",
+        "description": "Arts, literature, philosophy, and human culture.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "information-and-media-literacy",
+        "subject_id": "general-education",
+        "code": "IAML",
+        "name": "Information and Media Literacy",
+        "description": "Evaluating information, media, sources, and digital content.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "ethics-and-values",
+        "subject_id": "general-education",
+        "code": "EAV",
+        "name": "Ethics and Values",
+        "description": "Ethical reasoning, values, responsibility, and social conduct.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "philippine-studies",
+        "subject_id": "general-education",
+        "code": "PS",
+        "name": "Philippine Studies",
+        "description": "Philippine society, culture, history, and national identity.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "learner-development",
+        "subject_id": "professional-education",
+        "code": "LD",
+        "name": "Learner Development",
+        "description": "Human development, learning theories, and learner diversity.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "facilitating-learning",
+        "subject_id": "professional-education",
+        "code": "FL",
+        "name": "Facilitating Learning",
+        "description": "Teaching-learning principles, strategies, and classroom practice.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "curriculum-development",
+        "subject_id": "professional-education",
+        "code": "CD",
+        "name": "Curriculum Development",
+        "description": "Curriculum principles, planning, implementation, and evaluation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "assessment-of-learning",
+        "subject_id": "professional-education",
+        "code": "AOL",
+        "name": "Assessment of Learning",
+        "description": "Assessment principles, tools, interpretation, and feedback.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "classroom-management",
+        "subject_id": "professional-education",
+        "code": "CM",
+        "name": "Classroom Management",
+        "description": "Learning environment, routines, behavior, and classroom climate.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "educational-technology",
+        "subject_id": "professional-education",
+        "code": "ET",
+        "name": "Educational Technology",
+        "description": "Technology integration, digital learning, and instructional resources.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "professional-ethics",
+        "subject_id": "professional-education",
+        "code": "PE",
+        "name": "Professional Ethics",
+        "description": "Teacher responsibilities, ethics, standards, and professional conduct.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "inclusive-education",
+        "subject_id": "professional-education",
+        "code": "IE",
+        "name": "Inclusive Education",
+        "description": "Equity, inclusion, differentiation, and support for diverse learners.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "school-community-relations",
+        "subject_id": "professional-education",
+        "code": "SCR",
+        "name": "School and Community Relations",
+        "description": "Family, community, stakeholder, and school partnerships.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "educational-foundations",
+        "subject_id": "professional-education",
+        "code": "EF",
+        "name": "Educational Foundations",
+        "description": "Philosophical, historical, sociological, and legal foundations of education.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "elementary-content-integration",
+        "subject_id": "elementary-education",
+        "code": "ECI",
+        "name": "Elementary Content Integration",
+        "description": "Integrated content knowledge for elementary instruction.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "elementary-pedagogy",
+        "subject_id": "elementary-education",
+        "code": "EP",
+        "name": "Elementary Pedagogy",
+        "description": "Developmentally appropriate elementary teaching strategies.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "literacy-instruction",
+        "subject_id": "elementary-education",
+        "code": "LI",
+        "name": "Literacy Instruction",
+        "description": "Early reading, writing, language development, and literacy teaching.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "numeracy-instruction",
+        "subject_id": "elementary-education",
+        "code": "NI",
+        "name": "Numeracy Instruction",
+        "description": "Foundational number sense and elementary mathematics teaching.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "elementary-assessment",
+        "subject_id": "elementary-education",
+        "code": "EA",
+        "name": "Elementary Assessment",
+        "description": "Assessment and feedback appropriate for elementary learners.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "child-development",
+        "subject_id": "early-childhood-education",
+        "code": "CD",
+        "name": "Child Development",
+        "description": "Physical, cognitive, language, social, and emotional development.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "play-based-learning",
+        "subject_id": "early-childhood-education",
+        "code": "PBL",
+        "name": "Play-Based Learning",
+        "description": "Play, exploration, and developmentally appropriate learning.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "early-literacy-and-numeracy",
+        "subject_id": "early-childhood-education",
+        "code": "ELAN",
+        "name": "Early Literacy and Numeracy",
+        "description": "Foundational language, literacy, and mathematical development.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "health-safety-and-care",
+        "subject_id": "early-childhood-education",
+        "code": "HSAC",
+        "name": "Health, Safety and Care",
+        "description": "Health, nutrition, safety, and responsive care.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "family-engagement",
+        "subject_id": "early-childhood-education",
+        "code": "FE",
+        "name": "Family Engagement",
+        "description": "Families, communities, culture, and early learning partnerships.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "learner-diversity-and-inclusion",
+        "subject_id": "special-needs-education",
+        "code": "LDAI",
+        "name": "Learner Diversity and Inclusion",
+        "description": "Inclusive practices and diverse learning needs.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "assessment-and-identification",
+        "subject_id": "special-needs-education",
+        "code": "AAI",
+        "name": "Assessment and Identification",
+        "description": "Screening, assessment, documentation, and educational decision making.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "instructional-adaptations",
+        "subject_id": "special-needs-education",
+        "code": "IA",
+        "name": "Instructional Adaptations",
+        "description": "Differentiation, accommodations, modifications, and accessible instruction.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "behavior-and-support",
+        "subject_id": "special-needs-education",
+        "code": "BAS",
+        "name": "Behavior and Support",
+        "description": "Positive behavior support and learner assistance.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "collaboration-and-transition",
+        "subject_id": "special-needs-education",
+        "code": "CAT",
+        "name": "Collaboration and Transition",
+        "description": "Families, specialists, multidisciplinary collaboration, and transitions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "vocabulary-and-word-meaning",
+        "subject_id": "verbal-ability",
+        "code": "VAWM",
+        "name": "Vocabulary and Word Meaning",
+        "description": "Word meanings, synonyms, antonyms, and contextual usage.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "grammar-and-usage",
+        "subject_id": "verbal-ability",
+        "code": "GAU",
+        "name": "Grammar and Usage",
+        "description": "Correct grammar, sentence construction, and usage.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "reading-comprehension",
+        "subject_id": "verbal-ability",
+        "code": "RC",
+        "name": "Reading Comprehension",
+        "description": "Understanding and interpreting passages.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "verbal-reasoning",
+        "subject_id": "verbal-ability",
+        "code": "VR",
+        "name": "Verbal Reasoning",
+        "description": "Analogies, relationships, logic, and verbal inference.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "arithmetic",
+        "subject_id": "numerical-ability",
+        "code": "A",
+        "name": "Arithmetic",
+        "description": "Basic operations, fractions, decimals, percentages, and ratios.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "number-relationships",
+        "subject_id": "numerical-ability",
+        "code": "NR",
+        "name": "Number Relationships",
+        "description": "Sequences, comparisons, patterns, and numerical relationships.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "quantitative-reasoning",
+        "subject_id": "numerical-ability",
+        "code": "QR",
+        "name": "Quantitative Reasoning",
+        "description": "Applied quantitative reasoning and word problems.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "data-interpretation",
+        "subject_id": "numerical-ability",
+        "code": "DI",
+        "name": "Data Interpretation",
+        "description": "Tables, charts, graphs, and numerical information.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "philippine-government",
+        "subject_id": "general-information",
+        "code": "PG",
+        "name": "Philippine Government",
+        "description": "Government structure, constitutional principles, and public institutions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "philippine-history-and-culture",
+        "subject_id": "general-information",
+        "code": "PHAC",
+        "name": "Philippine History and Culture",
+        "description": "History, culture, national identity, and heritage.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "current-events",
+        "subject_id": "general-information",
+        "code": "CE",
+        "name": "Current Events",
+        "description": "Recent national and international developments.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "public-service-awareness",
+        "subject_id": "general-information",
+        "code": "PSA",
+        "name": "Public Service Awareness",
+        "description": "Public service values, responsibilities, and civic awareness.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "filing-and-alphabetizing",
+        "subject_id": "clerical-ability",
+        "code": "FAA",
+        "name": "Filing and Alphabetizing",
+        "description": "Alphabetical, numerical, and systematic filing.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "spelling-and-word-forms",
+        "subject_id": "clerical-ability",
+        "code": "SAWF",
+        "name": "Spelling and Word Forms",
+        "description": "Correct spelling and recognition of word forms.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "clerical-accuracy",
+        "subject_id": "clerical-ability",
+        "code": "CA",
+        "name": "Clerical Accuracy",
+        "description": "Comparison, proofreading, and attention to detail.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
+    },
+    {
+        "id": "office-procedures",
+        "subject_id": "clerical-ability",
+        "code": "OP",
+        "name": "Office Procedures",
+        "description": "Basic records, correspondence, and office workflow.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 120,
+            "mastery_threshold": 80
+        }
     }
 ]

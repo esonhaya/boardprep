@@ -56,3 +56,8 @@ When implementation and documentation disagree:
 
 Documentation is considered the source of truth until intentionally updated.
 
+
+
+## Taxonomy
+
+- [TB-016 Taxonomy and Reusable Subject Architecture](TB-016-Taxonomy-Architecture.md) — canonical Board → Subject → Domain → Topic → Concept model and reusable board-subject relationships.

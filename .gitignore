@@ -1,0 +1,14 @@
+.env
+*.zip
+
+# Runtime/generated storage
+storage/doctor/
+
+# Local/runtime artifacts
+.DS_Store
+Thumbs.db
+*.log
+
+# Editor / IDE
+.vscode/
+.idea/

@@ -1,1 +1,26 @@
-[]
+[
+    {
+        "id": "let",
+        "organization_id": "prc",
+        "code": "LET",
+        "name": "Licensure Examination for Teachers",
+        "description": "Teacher licensure examination subject repository and blueprint entry point.",
+        "status": "active",
+        "settings": {
+            "passing_score": 75,
+            "default_mode": "practice"
+        }
+    },
+    {
+        "id": "civil-service",
+        "organization_id": "csc",
+        "code": "CSE",
+        "name": "Civil Service Examination",
+        "description": "Civil service examination repository prepared for future BoardPrep support.",
+        "status": "active",
+        "settings": {
+            "passing_score": 80,
+            "default_mode": "practice"
+        }
+    }
+]

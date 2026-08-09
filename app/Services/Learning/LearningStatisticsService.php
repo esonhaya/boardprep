@@ -1,89 +1,57 @@
 <?php
 
-class ProgressService
+declare(strict_types=1);
+
+namespace App\Services\Learning;
+
+use App\Core\App;
+use App\Repositories\AttemptRepository;
+
+final class LearningStatisticsService
 {
-    public static function summary(
-        array $attempts
-    ): array
+    public static function summary(): array
     {
-        $count = count($attempts);
+        $attempts =
+            App::container()
+                ->get(AttemptRepository::class)
+                ->all();
 
-        if ($count === 0) {
+        $total = count($attempts);
 
-            return [
-                "attempts" => 0,
-                "average" => 0,
-                "best" => 0
-            ];
-
-        }
-
-        $total = 0;
+        $practice = 0;
+        $exam = 0;
         $best = 0;
+        $latest = null;
+        $sum = 0;
 
         foreach ($attempts as $attempt) {
 
-            $score =
-                $attempt["percentage"] ?? 0;
+            $sum += $attempt["percentage"] ?? 0;
 
-            $total += $score;
-
-            if ($score > $best) {
-
-                $best = $score;
-
+            if (($attempt["mode"] ?? "") === "practice") {
+                $practice++;
             }
 
+            if (($attempt["mode"] ?? "") === "exam") {
+                $exam++;
+            }
+
+            $best = max(
+                $best,
+                (int) ($attempt["percentage"] ?? 0)
+            );
+
+            $latest = $attempt;
         }
 
         return [
-
-            "attempts" => $count,
-
-            "average" => round(
-                $total / $count
-            ),
-
-            "best" => $best
-
+            "totalAttempts" => $total,
+            "practice" => $practice,
+            "exam" => $exam,
+            "average" => $total > 0 ? round($sum / $total) : 0,
+            "best" => $best,
+            "latest" => $latest,
+            "attempts" => array_reverse($attempts),
         ];
     }
-public static function latest(
-    array $attempts
-): ?array
-{
-    if (empty($attempts)) {
-
-        return null;
-
-    }
-
-    return end($attempts);
-}
-
-public static function totalQuestions(
-    array $attempts
-): int
-{
-    $total = 0;
-
-    foreach ($attempts as $attempt) {
-
-        $total +=
-            $attempt["total"] ?? 0;
-
-    }
-
-    return $total;
-}
-
-public static function averageScore(
-    array $attempts
-): int
-{
-    return
-        self::summary(
-            $attempts
-        )["average"];
-}
 }

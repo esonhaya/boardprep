@@ -4,56 +4,593 @@
         "domain_id": "grammar",
         "code": "POS",
         "name": "Parts of Speech",
-        "description": "Classification of words based on their grammatical function.",
-
+        "description": "Parts of Speech within the Grammar domain.",
         "learning": {
-            "difficulty": "easy",
-            "estimated_study_minutes": 45,
-            "mastery_threshold": 85,
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
             "prerequisite_ids": [],
             "learning_objectives": [
-                "Identify the eight parts of speech.",
-                "Classify words according to their grammatical function."
+                "Understand parts of speech.",
+                "Apply {tname.lower()} in questions and examples."
             ]
         }
     },
     {
         "id": "sentence-structure",
         "domain_id": "grammar",
-        "code": "SENT",
+        "code": "SS",
         "name": "Sentence Structure",
-        "description": "Construction and organization of grammatically correct sentences.",
-
+        "description": "Sentence Structure within the Grammar domain.",
         "learning": {
             "difficulty": "medium",
-            "estimated_study_minutes": 90,
-            "mastery_threshold": 85,
-            "prerequisite_ids": [
-                "parts-of-speech"
-            ],
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
             "learning_objectives": [
-                "Construct grammatically correct sentences.",
-                "Identify sentence components."
+                "Understand sentence structure.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "subject-verb-agreement",
+        "domain_id": "grammar",
+        "code": "SVA",
+        "name": "Subject-Verb Agreement",
+        "description": "Subject-Verb Agreement within the Grammar domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand subject-verb agreement.",
+                "Apply {tname.lower()} in questions and examples."
             ]
         }
     },
     {
         "id": "verb-tenses",
         "domain_id": "grammar",
-        "code": "TENSE",
+        "code": "VT",
         "name": "Verb Tenses",
-        "description": "Correct use of past, present, and future tenses.",
-
+        "description": "Verb Tenses within the Grammar domain.",
         "learning": {
             "difficulty": "medium",
-            "estimated_study_minutes": 75,
-            "mastery_threshold": 85,
-            "prerequisite_ids": [
-                "parts-of-speech"
-            ],
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
             "learning_objectives": [
-                "Use appropriate verb tenses.",
-                "Recognize tense consistency."
+                "Understand verb tenses.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "pronouns",
+        "domain_id": "grammar",
+        "code": "P",
+        "name": "Pronouns",
+        "description": "Pronouns within the Grammar domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand pronouns.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "modifiers",
+        "domain_id": "grammar",
+        "code": "M",
+        "name": "Modifiers",
+        "description": "Modifiers within the Grammar domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand modifiers.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "parallelism",
+        "domain_id": "grammar",
+        "code": "P",
+        "name": "Parallelism",
+        "description": "Parallelism within the Grammar domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand parallelism.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "prepositions",
+        "domain_id": "grammar",
+        "code": "P",
+        "name": "Prepositions",
+        "description": "Prepositions within the Grammar domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand prepositions.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "main-idea-and-support",
+        "domain_id": "reading-comprehension",
+        "code": "MIAS",
+        "name": "Main Idea and Supporting Details",
+        "description": "Main Idea and Supporting Details within the Reading Comprehension domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand main idea and supporting details.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "inference",
+        "domain_id": "reading-comprehension",
+        "code": "I",
+        "name": "Inference and Interpretation",
+        "description": "Inference and Interpretation within the Reading Comprehension domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand inference and interpretation.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "authors-purpose-and-tone",
+        "domain_id": "reading-comprehension",
+        "code": "APAT",
+        "name": "Author's Purpose and Tone",
+        "description": "Author's Purpose and Tone within the Reading Comprehension domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand author's purpose and tone.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "context-clues",
+        "domain_id": "reading-comprehension",
+        "code": "CC",
+        "name": "Context Clues",
+        "description": "Context Clues within the Reading Comprehension domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand context clues.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "text-structure",
+        "domain_id": "reading-comprehension",
+        "code": "TS",
+        "name": "Text Structure",
+        "description": "Text Structure within the Reading Comprehension domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand text structure.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "critical-reading",
+        "domain_id": "reading-comprehension",
+        "code": "CR",
+        "name": "Critical Reading",
+        "description": "Critical Reading within the Reading Comprehension domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand critical reading.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "word-meaning",
+        "domain_id": "vocabulary",
+        "code": "WM",
+        "name": "Word Meaning",
+        "description": "Word Meaning within the Vocabulary domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand word meaning.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "synonyms-and-antonyms",
+        "domain_id": "vocabulary",
+        "code": "SAA",
+        "name": "Synonyms and Antonyms",
+        "description": "Synonyms and Antonyms within the Vocabulary domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand synonyms and antonyms.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "word-relationships",
+        "domain_id": "vocabulary",
+        "code": "WR",
+        "name": "Word Relationships",
+        "description": "Word Relationships within the Vocabulary domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand word relationships.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "idioms-and-figurative-language",
+        "domain_id": "vocabulary",
+        "code": "IAFL",
+        "name": "Idioms and Figurative Language",
+        "description": "Idioms and Figurative Language within the Vocabulary domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand idioms and figurative language.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "literary-elements",
+        "domain_id": "literature",
+        "code": "LE",
+        "name": "Literary Elements",
+        "description": "Literary Elements within the Literature domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand literary elements.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "literary-genres",
+        "domain_id": "literature",
+        "code": "LG",
+        "name": "Literary Genres",
+        "description": "Literary Genres within the Literature domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand literary genres.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "literary-devices",
+        "domain_id": "literature",
+        "code": "LD",
+        "name": "Literary Devices",
+        "description": "Literary Devices within the Literature domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand literary devices.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "literary-analysis",
+        "domain_id": "literature",
+        "code": "LA",
+        "name": "Literary Analysis",
+        "description": "Literary Analysis within the Literature domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand literary analysis.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "organization",
+        "domain_id": "writing",
+        "code": "O",
+        "name": "Organization",
+        "description": "Organization within the Writing domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand organization.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "paragraph-development",
+        "domain_id": "writing",
+        "code": "PD",
+        "name": "Paragraph Development",
+        "description": "Paragraph Development within the Writing domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand paragraph development.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "grammar-and-mechanics",
+        "domain_id": "writing",
+        "code": "GAM",
+        "name": "Grammar and Mechanics",
+        "description": "Grammar and Mechanics within the Writing domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand grammar and mechanics.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "academic-writing",
+        "domain_id": "writing",
+        "code": "AW",
+        "name": "Academic Writing",
+        "description": "Academic Writing within the Writing domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand academic writing.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "listening",
+        "domain_id": "oral-communication",
+        "code": "L",
+        "name": "Listening",
+        "description": "Listening within the Oral Communication domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand listening.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "speaking",
+        "domain_id": "oral-communication",
+        "code": "S",
+        "name": "Speaking",
+        "description": "Speaking within the Oral Communication domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand speaking.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "communication-context",
+        "domain_id": "oral-communication",
+        "code": "CC",
+        "name": "Communication Context",
+        "description": "Communication Context within the Oral Communication domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand communication context.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "register",
+        "domain_id": "language-use",
+        "code": "R",
+        "name": "Language Register",
+        "description": "Language Register within the Language Use domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand language register.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "meaning-in-context",
+        "domain_id": "language-use",
+        "code": "MIC",
+        "name": "Meaning in Context",
+        "description": "Meaning in Context within the Language Use domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand meaning in context.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "functional-language",
+        "domain_id": "language-use",
+        "code": "FL",
+        "name": "Functional Language",
+        "description": "Functional Language within the Language Use domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand functional language.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "source-evaluation",
+        "domain_id": "research-and-information-literacy",
+        "code": "SE",
+        "name": "Source Evaluation",
+        "description": "Source Evaluation within the Research and Information Literacy domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand source evaluation.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "research-process",
+        "domain_id": "research-and-information-literacy",
+        "code": "RP",
+        "name": "Research Process",
+        "description": "Research Process within the Research and Information Literacy domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand research process.",
+                "Apply {tname.lower()} in questions and examples."
+            ]
+        }
+    },
+    {
+        "id": "citation-and-attribution",
+        "domain_id": "research-and-information-literacy",
+        "code": "CAA",
+        "name": "Citation and Attribution",
+        "description": "Citation and Attribution within the Research and Information Literacy domain.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 60,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Understand citation and attribution.",
+                "Apply {tname.lower()} in questions and examples."
             ]
         }
     }

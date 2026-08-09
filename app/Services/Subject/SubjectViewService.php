@@ -4,37 +4,15 @@ declare(strict_types=1);
 
 namespace App\Services\Subject;
 
-class SubjectViewService
+use App\Core\App;
+use App\Repositories\SubjectRepository;
+
+final class SubjectViewService
 {
-    public static function index(): array
+    public static function all(): array
     {
-        return [
-            "subjects" => SubjectService::all(),
-        ];
-    }
-
-    public static function create(): array
-    {
-        return [];
-    }
-
-    public static function edit(
-        array $subject
-    ): array {
-
-        return [
-            "subject" => $subject,
-        ];
-
-    }
-
-    public static function view(
-        array $subject
-    ): array {
-
-        return [
-            "subject" => $subject,
-        ];
-
+        return App::container()
+            ->get(SubjectRepository::class)
+            ->all();
     }
 }

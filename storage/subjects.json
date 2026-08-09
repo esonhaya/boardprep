@@ -1,0 +1,114 @@
+[
+    {
+        "id": "general-education",
+        "code": "GENED",
+        "name": "General Education",
+        "description": "Foundational academic competencies that may be shared across teacher licensure and other general examinations.",
+        "category": "general",
+        "status": "active"
+    },
+    {
+        "id": "professional-education",
+        "code": "PROFED",
+        "name": "Professional Education",
+        "description": "Teaching profession foundations, curriculum, pedagogy, assessment, learner development, and professional practice.",
+        "category": "professional",
+        "status": "active"
+    },
+    {
+        "id": "english",
+        "code": "ENG",
+        "name": "English",
+        "description": "English language proficiency, grammar, vocabulary, reading, literature, writing, and communication.",
+        "category": "specialization",
+        "status": "active"
+    },
+    {
+        "id": "filipino",
+        "code": "FIL",
+        "name": "Filipino",
+        "description": "Wikang Filipino, pagbasa, pagsulat, panitikan, gramatika, at komunikasyon.",
+        "category": "specialization",
+        "status": "active"
+    },
+    {
+        "id": "mathematics",
+        "code": "MATH",
+        "name": "Mathematics",
+        "description": "Number sense, algebra, geometry, measurement, statistics, probability, and mathematical reasoning.",
+        "category": "specialization",
+        "status": "active"
+    },
+    {
+        "id": "science",
+        "code": "SCI",
+        "name": "Science",
+        "description": "Life science, physical science, earth and space science, and scientific reasoning.",
+        "category": "specialization",
+        "status": "active"
+    },
+    {
+        "id": "social-studies",
+        "code": "SOCSTUD",
+        "name": "Social Studies",
+        "description": "History, geography, government, economics, culture, society, and civic understanding.",
+        "category": "specialization",
+        "status": "active"
+    },
+    {
+        "id": "elementary-education",
+        "code": "ELEM",
+        "name": "Elementary Education",
+        "description": "Integrated elementary-level teaching content and pedagogy for broad elementary education preparation.",
+        "category": "specialization",
+        "status": "active"
+    },
+    {
+        "id": "early-childhood-education",
+        "code": "ECE",
+        "name": "Early Childhood Education",
+        "description": "Development, learning, care, curriculum, assessment, and family engagement for young children.",
+        "category": "specialization",
+        "status": "active"
+    },
+    {
+        "id": "special-needs-education",
+        "code": "SPED",
+        "name": "Special Needs Education",
+        "description": "Inclusive education, learner support, assessment, intervention, and collaboration for diverse learning needs.",
+        "category": "specialization",
+        "status": "active"
+    },
+    {
+        "id": "verbal-ability",
+        "code": "VERBAL",
+        "name": "Verbal Ability",
+        "description": "Vocabulary, grammar, reading comprehension, and verbal reasoning skills used in general aptitude examinations.",
+        "category": "general",
+        "status": "active"
+    },
+    {
+        "id": "numerical-ability",
+        "code": "NUMERICAL",
+        "name": "Numerical Ability",
+        "description": "Arithmetic, quantitative reasoning, number relationships, and practical numerical problem solving.",
+        "category": "general",
+        "status": "active"
+    },
+    {
+        "id": "general-information",
+        "code": "GENINFO",
+        "name": "General Information",
+        "description": "Civics, Philippine government, current affairs, and broad public knowledge for general examinations.",
+        "category": "general",
+        "status": "active"
+    },
+    {
+        "id": "clerical-ability",
+        "code": "CLERICAL",
+        "name": "Clerical Ability",
+        "description": "Filing, spelling, alphabetizing, office procedures, and clerical accuracy skills.",
+        "category": "general",
+        "status": "active"
+    }
+]
