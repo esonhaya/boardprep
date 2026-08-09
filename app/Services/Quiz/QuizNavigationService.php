@@ -72,15 +72,20 @@ class QuizNavigationService
 
     public static function isLastQuestion(): bool
     {
+        $questions =
+            SessionService::get(
+                "questions",
+                []
+            );
+
+        if (empty($questions)) {
+            return false;
+        }
+
         return
             self::current()
             >=
-            count(
-                SessionService::get(
-                    "questions",
-                    []
-                )
-            ) - 1;
+            count($questions) - 1;
     }
 
     public static function reset(): void

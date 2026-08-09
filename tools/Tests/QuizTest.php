@@ -28,6 +28,11 @@ final class QuizTest
         $this->testScoringBehavior();
         $this->testHistoryBehavior();
         $this->testResultBehavior();
+        $this->testNavigationBehavior();
+        $this->testSubmissionBehavior();
+        $this->testBalancingBehavior();
+        $this->testSelectionBehavior();
+        $this->testGenerationBehavior();
 
         $this->summary();
     }
@@ -570,6 +575,595 @@ final class QuizTest
 
         \SessionService::remove('questions');
         \SessionService::remove('answers');
+
+        echo "[PASS] OK\n";
+    }
+
+    private function testNavigationBehavior(): void
+    {
+        echo "[TEST] Quiz navigation behavior\n";
+
+        $this->assertTrue(
+            class_exists('SessionService'),
+            'Navigation: SessionService available'
+        );
+
+        if (!class_exists('SessionService')) {
+            echo "[FAIL] Cannot continue navigation behavior test.\n";
+            return;
+        }
+
+        \SessionService::remove('questions');
+        \SessionService::remove('currentQuestion');
+
+        $this->assertSame(
+            0,
+            \QuizNavigationService::current(),
+            'Navigation: current defaults to zero'
+        );
+
+        $this->assertFalse(
+            \QuizNavigationService::isLastQuestion(),
+            'Navigation: empty quiz is not last question'
+        );
+
+        $questions = [
+            [
+                'id' => 301,
+                'question' => 'Question one',
+            ],
+            [
+                'id' => 302,
+                'question' => 'Question two',
+            ],
+            [
+                'id' => 303,
+                'question' => 'Question three',
+            ],
+        ];
+
+        \SessionService::set(
+            'questions',
+            $questions
+        );
+
+        \QuizNavigationService::reset();
+
+        $this->assertSame(
+            0,
+            \QuizNavigationService::current(),
+            'Navigation: reset returns to first question'
+        );
+
+        $this->assertFalse(
+            \QuizNavigationService::isLastQuestion(),
+            'Navigation: first question is not last'
+        );
+
+        \SessionService::set(
+            'currentQuestion',
+            1
+        );
+
+        $this->assertSame(
+            1,
+            \QuizNavigationService::current(),
+            'Navigation: current question is persisted'
+        );
+
+        $this->assertFalse(
+            \QuizNavigationService::isLastQuestion(),
+            'Navigation: middle question is not last'
+        );
+
+        \SessionService::set(
+            'currentQuestion',
+            2
+        );
+
+        $this->assertTrue(
+            \QuizNavigationService::isLastQuestion(),
+            'Navigation: final question is detected'
+        );
+
+        \SessionService::remove('questions');
+        \SessionService::remove('currentQuestion');
+
+        echo "[PASS] OK\n";
+    }
+
+    private function testBalancingBehavior(): void
+    {
+        echo "[TEST] Quiz balancing behavior\n";
+
+        $questions = [
+            [
+                'id' => 401,
+                'topic' => 'Grammar',
+                'difficulty' => 'easy',
+            ],
+            [
+                'id' => 402,
+                'topic' => 'Grammar',
+                'difficulty' => 'hard',
+            ],
+            [
+                'id' => 403,
+                'topic' => 'Vocabulary',
+                'difficulty' => 'easy',
+            ],
+            [
+                'id' => 404,
+                'topic' => 'Vocabulary',
+                'difficulty' => 'medium',
+            ],
+            [
+                'id' => 405,
+                'difficulty' => 'easy',
+            ],
+        ];
+
+        $balanced =
+            \QuestionBalancingService::balance(
+                $questions
+            );
+
+        $this->assertSame(
+            5,
+            count($balanced),
+            'Balancing: mixed difficulty preserves all questions'
+        );
+
+        $ids = array_map(
+            static fn(array $question): int =>
+                (int) $question['id'],
+            $balanced
+        );
+
+        sort($ids);
+
+        $this->assertSame(
+            [401, 402, 403, 404, 405],
+            $ids,
+            'Balancing: all questions are preserved'
+        );
+
+        $easy =
+            \QuestionBalancingService::balance(
+                $questions,
+                [
+                    'difficulty' => 'easy',
+                ]
+            );
+
+        $this->assertSame(
+            3,
+            count($easy),
+            'Balancing: difficulty filter selects easy questions'
+        );
+
+        foreach ($easy as $question) {
+            $this->assertTrue(
+                strtolower($question['difficulty'] ?? '') === 'easy',
+                'Balancing: filtered questions match requested difficulty'
+            );
+        }
+
+        $singleTopic = [
+            [
+                'id' => 501,
+                'topic' => 'Grammar',
+                'difficulty' => 'easy',
+            ],
+            [
+                'id' => 502,
+                'topic' => 'Grammar',
+                'difficulty' => 'easy',
+            ],
+            [
+                'id' => 503,
+                'topic' => 'Vocabulary',
+                'difficulty' => 'easy',
+            ],
+            [
+                'id' => 504,
+                'topic' => 'Vocabulary',
+                'difficulty' => 'easy',
+            ],
+        ];
+
+        $ordered =
+            \QuestionBalancingService::balance(
+                $singleTopic
+            );
+
+        $this->assertSame(
+            4,
+            count($ordered),
+            'Balancing: topic groups preserve total count'
+        );
+
+        $firstTopic =
+            strtolower(
+                trim(
+                    $ordered[0]['topic'] ?? ''
+                )
+            );
+
+        $secondTopic =
+            strtolower(
+                trim(
+                    $ordered[1]['topic'] ?? ''
+                )
+            );
+
+        $this->assertTrue(
+            $firstTopic !== $secondTopic,
+            'Balancing: different topics are interleaved'
+        );
+
+        echo "[PASS] OK\n";
+    }
+
+    private function testSelectionBehavior(): void
+    {
+        echo "[TEST] Quiz selection behavior\n";
+
+        $questions = [
+            [
+                'id' => 601,
+                'subject' => 'English',
+                'domain' => 'Grammar',
+                'status' => 'approved',
+                'difficulty' => 'easy',
+                'question' => 'Grammar 1',
+            ],
+            [
+                'id' => 602,
+                'subject' => 'English',
+                'domain' => 'Grammar',
+                'status' => 'approved',
+                'difficulty' => 'medium',
+                'question' => 'Grammar 2',
+            ],
+            [
+                'id' => 603,
+                'subject' => 'English',
+                'domain' => 'Reading',
+                'status' => 'approved',
+                'difficulty' => 'easy',
+                'question' => 'Reading 1',
+            ],
+            [
+                'id' => 604,
+                'subject' => 'Science',
+                'domain' => 'Biology',
+                'status' => 'approved',
+                'difficulty' => 'easy',
+                'question' => 'Science 1',
+            ],
+        ];
+
+        $specification = new \QuizSpecification(
+            board: 'LET',
+            subject: 'English',
+            domain: 'Grammar',
+            topics: [],
+            concepts: [],
+            difficulty: 'mixed',
+            questionCount: 10,
+            mode: 'practice',
+            adaptive: false,
+            shuffle: false,
+            boardBlueprintVersion: null,
+            subjectBlueprintVersion: null
+        );
+
+        $selected =
+            \QuestionSelectionService::select(
+                $questions,
+                $specification
+            );
+
+        $this->assertSame(
+            3,
+            count($selected),
+            'Selection: subject matching questions selected'
+        );
+
+        foreach ($selected as $question) {
+            $this->assertTrue(
+                ($question['subject'] ?? null) === 'English',
+                'Selection: selected question belongs to requested subject'
+            );
+        }
+
+        $limitedSpecification = new \QuizSpecification(
+            board: 'LET',
+            subject: 'English',
+            domain: 'Grammar',
+            topics: [],
+            concepts: [],
+            difficulty: 'mixed',
+            questionCount: 2,
+            mode: 'practice',
+            adaptive: false,
+            shuffle: false,
+            boardBlueprintVersion: null,
+            subjectBlueprintVersion: null
+        );
+
+        $limited =
+            \QuestionSelectionService::select(
+                $questions,
+                $limitedSpecification
+            );
+
+        $this->assertSame(
+            2,
+            count($limited),
+            'Selection: question count is respected'
+        );
+
+        $otherSpecification = new \QuizSpecification(
+            board: 'LET',
+            subject: 'Science',
+            domain: 'Biology',
+            topics: [],
+            concepts: [],
+            difficulty: 'mixed',
+            questionCount: 10,
+            mode: 'practice',
+            adaptive: false,
+            shuffle: false,
+            boardBlueprintVersion: null,
+            subjectBlueprintVersion: null
+        );
+
+        $other =
+            \QuestionSelectionService::select(
+                $questions,
+                $otherSpecification
+            );
+
+        $this->assertSame(
+            1,
+            count($other),
+            'Selection: different subject does not leak English questions'
+        );
+
+        echo "[PASS] OK\n";
+    }
+
+    private function testSubmissionBehavior(): void
+    {
+        echo "[TEST] Quiz submission behavior\n";
+
+        $this->assertTrue(
+            class_exists('SessionService'),
+            'Submission: SessionService available'
+        );
+
+        if (!class_exists('SessionService')) {
+            echo "[FAIL] Cannot continue submission behavior test.\n";
+            return;
+        }
+
+        $this->assertTrue(
+            class_exists('QuizSubmissionService'),
+            'Submission: QuizSubmissionService available'
+        );
+
+        if (!class_exists('QuizSubmissionService')) {
+            echo "[FAIL] Cannot continue submission behavior test.\n";
+            return;
+        }
+
+        \SessionService::set(
+            'questions',
+            [
+                [
+                    'id' => 401,
+                    'question' => 'Capital of France?',
+                    'choices' => [
+                        'London',
+                        'Paris',
+                        'Berlin',
+                        'Madrid',
+                    ],
+                    'answer' => 'Paris',
+                    'explanation' => 'Paris is the capital of France.',
+                ],
+            ]
+        );
+
+        \SessionService::set(
+            'answers',
+            []
+        );
+
+        \SessionService::set(
+            'currentQuestion',
+            0
+        );
+
+        \SessionService::set(
+            'mode',
+            'exam'
+        );
+
+        $this->assertSame(
+            [],
+            \SessionService::get('answers', []),
+            'Submission: answers initially empty'
+        );
+
+        /*
+         * The actual submit() method depends on the application Request,
+         * Response, and redirect/render pipeline. The simulation therefore
+         * verifies the submission state contract without invoking HTTP flow.
+         */
+        $answers = \SessionService::get(
+            'answers',
+            []
+        );
+
+        $answers[401] = 'B';
+
+        \SessionService::set(
+            'answers',
+            $answers
+        );
+
+        $stored = \SessionService::get(
+            'answers',
+            []
+        );
+
+        $this->assertSame(
+            'B',
+            $stored[401] ?? null,
+            'Submission: selected answer stored by question id'
+        );
+
+        $this->assertTrue(
+            \QuizScoringService::checkAnswer(
+                \SessionService::get('questions')[0],
+                $stored[401]
+            ),
+            'Submission: stored answer can be scored'
+        );
+
+        \SessionService::remove('questions');
+        \SessionService::remove('answers');
+        \SessionService::remove('currentQuestion');
+        \SessionService::remove('mode');
+        \SessionService::remove('feedback');
+
+        echo "[PASS] OK\n";
+    }
+
+    private function testGenerationBehavior(): void
+    {
+        echo "[TEST] Quiz generation behavior\n";
+
+        $this->assertTrue(
+            class_exists('QuizGenerationService'),
+            'Generation: QuizGenerationService available'
+        );
+
+        $this->assertTrue(
+            class_exists('QuizSpecification'),
+            'Generation: QuizSpecification available'
+        );
+
+        if (
+            !class_exists('QuizGenerationService')
+            || !class_exists('QuizSpecification')
+        ) {
+            echo "[FAIL] Cannot continue generation behavior test.\n";
+            return;
+        }
+
+        $specification = new \QuizSpecification(
+            board: 'LET',
+            subject: 'English',
+            domain: null,
+            topics: [],
+            concepts: [],
+            difficulty: 'mixed',
+            questionCount: 2,
+            mode: 'practice',
+            adaptive: false,
+            shuffle: true,
+            boardBlueprintVersion: null,
+            subjectBlueprintVersion: null
+        );
+
+        $questions = [
+            [
+                'id' => 501,
+                'question' => 'Generation test question one',
+                'choices' => ['A', 'B', 'C', 'D'],
+                'answer' => 'A',
+                'subject' => 'English',
+                'domain' => 'Grammar',
+                'difficulty' => 'easy',
+                'status' => 'approved',
+                'taxonomy' => [
+                    'subject_id' => 'English',
+                    'domain_id' => 'Grammar',
+                ],
+            ],
+            [
+                'id' => 502,
+                'question' => 'Generation test question two',
+                'choices' => ['A', 'B', 'C', 'D'],
+                'answer' => 'B',
+                'subject' => 'English',
+                'domain' => 'Grammar',
+                'difficulty' => 'medium',
+                'status' => 'approved',
+                'taxonomy' => [
+                    'subject_id' => 'English',
+                    'domain_id' => 'Grammar',
+                ],
+            ],
+            [
+                'id' => 503,
+                'question' => 'Generation test question three',
+                'choices' => ['A', 'B', 'C', 'D'],
+                'answer' => 'C',
+                'subject' => 'English',
+                'domain' => 'Grammar',
+                'difficulty' => 'hard',
+                'status' => 'approved',
+                'taxonomy' => [
+                    'subject_id' => 'English',
+                    'domain_id' => 'Grammar',
+                ],
+            ],
+        ];
+
+        try {
+            $result = \QuizGenerationService::generate(
+                $questions,
+                $specification
+            );
+
+            $this->assertNotNull(
+                $result,
+                'Generation: result returned'
+            );
+
+            $this->assertTrue(
+                is_object($result),
+                'Generation: result is an object'
+            );
+
+            $this->assertTrue(
+                property_exists($result, 'questions'),
+                'Generation: result exposes questions'
+            );
+
+            $this->assertTrue(
+                is_array($result->questions),
+                'Generation: questions are an array'
+            );
+
+            $this->assertTrue(
+                count($result->questions) <=
+                $specification->questionCount,
+                'Generation: does not exceed requested count'
+            );
+
+        } catch (\Throwable $exception) {
+            $this->assertTrue(
+                false,
+                'Generation: pipeline executes without exception: '
+                . $exception->getMessage()
+            );
+        }
 
         echo "[PASS] OK\n";
     }
