@@ -27,6 +27,7 @@ final class QuizTest
         $this->testBlueprintServices();
         $this->testScoringBehavior();
         $this->testHistoryBehavior();
+        $this->testResultBehavior();
 
         $this->summary();
     }
@@ -423,6 +424,152 @@ final class QuizTest
 
         \SessionService::remove('quizHistory');
         \SessionService::remove('usedQuestions');
+
+        echo "[PASS] OK\n";
+    }
+
+    private function testResultBehavior(): void
+    {
+        echo "[TEST] Quiz result behavior\n";
+
+        $this->assertTrue(
+            class_exists('SessionService'),
+            'Result: SessionService available'
+        );
+
+        if (!class_exists('SessionService')) {
+            echo "[FAIL] Cannot continue result behavior test.\n";
+            return;
+        }
+
+        \SessionService::remove('questions');
+        \SessionService::remove('answers');
+
+        $questions = [
+            [
+                'id' => 201,
+                'question' => 'Capital of France?',
+                'choices' => [
+                    'London',
+                    'Paris',
+                    'Berlin',
+                    'Madrid',
+                ],
+                'answer' => 'Paris',
+            ],
+            [
+                'id' => 202,
+                'question' => '2 + 2 = ?',
+                'choices' => [
+                    '3',
+                    '4',
+                    '5',
+                    '6',
+                ],
+                'answer' => '4',
+            ],
+            [
+                'id' => 203,
+                'question' => 'Primary color?',
+                'choices' => [
+                    'Green',
+                    'Orange',
+                    'Blue',
+                    'Purple',
+                ],
+                'answer' => 'Blue',
+            ],
+        ];
+
+        \SessionService::set(
+            'questions',
+            $questions
+        );
+
+        \SessionService::set(
+            'answers',
+            [
+                201 => 'B',
+                202 => '3',
+            ]
+        );
+
+        $result =
+            \QuizResultService::build();
+
+        $this->assertTrue(
+            is_array($result),
+            'Result: build returns array'
+        );
+
+        $this->assertTrue(
+            isset($result['summary']),
+            'Result: summary exists'
+        );
+
+        $this->assertTrue(
+            isset($result['review']),
+            'Result: review exists'
+        );
+
+        $this->assertSame(
+            1,
+            $result['summary']['score'] ?? null,
+            'Result: score comes from scoring'
+        );
+
+        $this->assertSame(
+            1,
+            $result['summary']['correct'] ?? null,
+            'Result: correct count comes from scoring'
+        );
+
+        $this->assertSame(
+            1,
+            $result['summary']['incorrect'] ?? null,
+            'Result: incorrect count comes from scoring'
+        );
+
+        $this->assertSame(
+            1,
+            $result['summary']['unanswered'] ?? null,
+            'Result: unanswered count comes from scoring'
+        );
+
+        $this->assertSame(
+            3,
+            $result['summary']['total'] ?? null,
+            'Result: total comes from scoring'
+        );
+
+        $this->assertTrue(
+            (float) ($result['summary']['percentage'] ?? -1) === 33.0,
+            'Result: percentage comes from scoring'
+        );
+
+        $this->assertSame(
+            3,
+            count($result['review'] ?? []),
+            'Result: review contains one entry per question'
+        );
+
+        $this->assertTrue(
+            ($result['review'][0]['correct'] ?? false) === true,
+            'Result: first review entry is correct'
+        );
+
+        $this->assertTrue(
+            ($result['review'][1]['correct'] ?? true) === false,
+            'Result: second review entry is incorrect'
+        );
+
+        $this->assertTrue(
+            ($result['review'][2]['answered'] ?? true) === false,
+            'Result: third review entry is unanswered'
+        );
+
+        \SessionService::remove('questions');
+        \SessionService::remove('answers');
 
         echo "[PASS] OK\n";
     }
