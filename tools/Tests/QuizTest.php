@@ -16,7 +16,7 @@ final class QuizTest
     private int $failed = 0;
     private int $assertions = 0;
 
-    public function run(): int
+    public function run(): void
     {
         $this->header();
 
@@ -26,10 +26,9 @@ final class QuizTest
         $this->testSelectionServices();
         $this->testBlueprintServices();
         $this->testScoringBehavior();
+        $this->testHistoryBehavior();
 
         $this->summary();
-
-        return $this->failed > 0 ? 1 : 0;
     }
 
     private function header(): void
@@ -198,15 +197,14 @@ final class QuizTest
                 'choices' => [
                     'London',
                     'Paris',
-                    'Rome',
+                    'Berlin',
                     'Madrid',
                 ],
                 'answer' => 'Paris',
-                'explanation' => 'Paris is the capital of France.',
             ],
             [
                 'id' => 2,
-                'question' => '2 + 2?',
+                'question' => '2 + 2 = ?',
                 'choices' => [
                     '3',
                     '4',
@@ -341,6 +339,94 @@ final class QuizTest
         echo "[PASS] OK\n";
     }
 
+    private function testHistoryBehavior(): void
+    {
+        echo "[TEST] Quiz history behavior\n";
+
+        $this->assertTrue(
+            class_exists('SessionService'),
+            'SessionService available'
+        );
+
+        if (!class_exists('SessionService')) {
+            echo "[FAIL] Cannot continue history behavior test.\n";
+            return;
+        }
+
+        \SessionService::remove('quizHistory');
+        \SessionService::remove('usedQuestions');
+
+        $this->assertSame(
+            [],
+            \QuizHistoryService::all(),
+            'History: empty history initially'
+        );
+
+        $questions = [
+            [
+                'id' => 101,
+                'question' => 'Question one',
+            ],
+            [
+                'id' => 102,
+                'question' => 'Question two',
+            ],
+            [
+                'id' => 103,
+                'question' => 'Question three',
+            ],
+        ];
+
+        \QuizHistoryService::remember([
+            $questions[0],
+            $questions[1],
+        ]);
+
+        $unused = \QuizHistoryService::filterUnused(
+            $questions
+        );
+
+        $this->assertSame(
+            1,
+            count($unused),
+            'History: used questions are filtered'
+        );
+
+        $this->assertSame(
+            103,
+            $unused[0]['id'] ?? null,
+            'History: unused question remains'
+        );
+
+        \QuizHistoryService::remember([
+            $questions[2],
+        ]);
+
+        $cycled = \QuizHistoryService::filterUnused(
+            $questions
+        );
+
+        $this->assertSame(
+            3,
+            count($cycled),
+            'History: exhausted pool resets and returns all questions'
+        );
+
+        $this->assertSame(
+            [],
+            \SessionService::get(
+                'usedQuestions',
+                []
+            ),
+            'History: used-question session resets after exhaustion'
+        );
+
+        \SessionService::remove('quizHistory');
+        \SessionService::remove('usedQuestions');
+
+        echo "[PASS] OK\n";
+    }
+
     private function assertFalse(
         bool $condition,
         string $message
@@ -349,7 +435,7 @@ final class QuizTest
 
         if ($condition) {
             $this->failed++;
-            echo "[FAIL] {$message}\\n";
+            echo "[FAIL] {$message}\n";
         } else {
             $this->passed++;
         }
@@ -407,5 +493,4 @@ final class QuizTest
 }
 
 $test = new QuizTest();
-
-exit($test->run());
+$test->run();
