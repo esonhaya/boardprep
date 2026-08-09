@@ -45,6 +45,7 @@ final class Autoloader
         'QuestionViewService' => __DIR__ . '/../Services/Question/QuestionViewService.php',
         'QuestionQualityService' => __DIR__ . '/../Services/Question/QuestionQualityService.php',
         'QuestionImportService' => __DIR__ . '/../Services/Shared/QuestionImportService.php',
+        'QuestionValidationService' => __DIR__ . '/../Services/Shared/QuestionValidationService.php',
         'QuizScoringService' => __DIR__ . '/../Services/Quiz/QuizScoringService.php',
         'QuizStartService' => __DIR__ . '/../Services/Quiz/QuizStartService.php',
         'QuizSubmissionService' => __DIR__ . '/../Services/Quiz/QuizSubmissionService.php',

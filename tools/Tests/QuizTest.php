@@ -36,6 +36,7 @@ final class QuizTest
         $this->testBlueprintDistributionBehavior();
         $this->testRuntimeAllocationBehavior();
         $this->testBlueprintCoverageBehavior();
+        $this->testContentAuthoringBehavior();
 
         $this->summary();
     }
@@ -1464,6 +1465,135 @@ final class QuizTest
 
         $this->failed++;
         echo "[FAIL] {$message}\\n";
+    }
+
+    private function testContentAuthoringBehavior(): void
+    {
+        echo "[TEST] Content authoring behavior\n";
+
+        $this->assertTrue(
+            class_exists(\App\Services\Board\BoardService::class),
+            "Authoring: BoardService available"
+        );
+
+        $this->assertTrue(
+            method_exists(
+                \App\Services\Board\BoardService::class,
+                "create"
+            ),
+            "Authoring: BoardService::create available"
+        );
+
+        $this->assertTrue(
+            class_exists(\App\Services\BlueprintService::class),
+            "Authoring: BlueprintService available"
+        );
+
+        $this->assertTrue(
+            method_exists(
+                \App\Services\BlueprintService::class,
+                "create"
+            ),
+            "Authoring: BlueprintService::create available"
+        );
+
+        $this->assertTrue(
+            class_exists(\App\Services\Question\QuestionService::class),
+            "Authoring: QuestionService available"
+        );
+
+        $question =
+            \App\Services\Question\QuestionService::build(
+                0,
+                [
+                    "board_id" => "LET",
+                    "subject_id" => "English",
+                    "domain_id" => "Grammar",
+                    "topic_id" => "Parts of Speech",
+                    "concept_id" => "Nouns",
+                    "difficulty" => "medium",
+                    "type" => "multiple_choice",
+                    "question" => "Which word is a noun?",
+                    "option_1" => "Quickly",
+                    "option_2" => "Teacher",
+                    "option_3" => "Beautiful",
+                    "option_4" => "Run",
+                    "correct_option" => "option-2",
+                    "explanation" => "Teacher is a noun.",
+                ]
+            );
+
+        $this->assertSame(
+            "LET",
+            $question["taxonomy"]["board_id"],
+            "Authoring: board taxonomy preserved"
+        );
+
+        $this->assertSame(
+            "English",
+            $question["taxonomy"]["subject_id"],
+            "Authoring: subject taxonomy preserved"
+        );
+
+        $this->assertSame(
+            "Grammar",
+            $question["taxonomy"]["domain_id"],
+            "Authoring: domain taxonomy preserved"
+        );
+
+        $this->assertSame(
+            "medium",
+            $question["difficulty"],
+            "Authoring: difficulty preserved"
+        );
+
+        $correctOptions = array_values(
+            array_filter(
+                $question["options"],
+                static fn(array $option): bool =>
+                    $option["correct"] === true
+            )
+        );
+
+        $this->assertSame(
+            "option-2",
+            $correctOptions[0]["id"] ?? null,
+            "Authoring: correct option mapped"
+        );
+
+        $invalidBlueprint =
+            \App\Services\BlueprintService::create(
+                [
+                    "board" => "LET",
+                    "subject" => "English",
+                    "name" => "",
+                    "questionCount" => 0,
+                    "easy" => 50,
+                    "medium" => 30,
+                    "hard" => 10,
+                ]
+            );
+
+        $this->assertSame(
+            false,
+            $invalidBlueprint["success"] ?? null,
+            "Authoring: invalid blueprint rejected"
+        );
+
+        $this->assertTrue(
+            !empty($invalidBlueprint["errors"]),
+            "Authoring: blueprint validation errors returned"
+        );
+
+        $this->assertTrue(
+            method_exists(
+                \App\Services\Question\QuestionService::class,
+                "validateForSave"
+            ),
+            "Authoring: question save-validation pipeline available"
+        );
+
+        echo "[PASS] OK\n";
     }
 
     private function assertFalse(
