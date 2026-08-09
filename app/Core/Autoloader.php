@@ -67,6 +67,7 @@ final class Autoloader
         'BlueprintExecutionResult' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintExecutionResult.php',
         'SessionService' => __DIR__ . '/../Services/Shared/SessionService.php',
         'RuntimeAllocationService' => __DIR__ . '/../Services/Quiz/Allocation/RuntimeAllocationService.php',
+        'SelectionRequest' => __DIR__ . '/../Services/Quiz/Selection/SelectionRequest.php',
         'SelectionSession' => __DIR__ . '/../Services/Quiz/Selection/SelectionSession.php',
         'QuizSpecification' => __DIR__ . '/../DTO/QuizSpecification.php',
         'AttemptRepository' => __DIR__ . '/../Repositories/AttemptRepository.php',

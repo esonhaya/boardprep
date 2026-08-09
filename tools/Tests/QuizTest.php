@@ -33,6 +33,7 @@ final class QuizTest
         $this->testBalancingBehavior();
         $this->testSelectionBehavior();
         $this->testGenerationBehavior();
+        $this->testBlueprintDistributionBehavior();
 
         $this->summary();
     }
@@ -1164,6 +1165,177 @@ final class QuizTest
                 . $exception->getMessage()
             );
         }
+
+        echo "[PASS] OK\n";
+    }
+
+    private function testBlueprintDistributionBehavior(): void
+    {
+        echo "[TEST] Blueprint distribution behavior\n";
+
+        $this->assertTrue(
+            class_exists('BlueprintDistributionService'),
+            'Distribution: BlueprintDistributionService available'
+        );
+
+        if (!class_exists('BlueprintDistributionService')) {
+            echo "[FAIL] Cannot continue distribution behavior test.\n";
+            return;
+        }
+
+        $boardBlueprint = [
+            'subjects' => [
+                [
+                    'subject' => 'English',
+                    'percentage' => 50,
+                ],
+                [
+                    'subject' => 'Math',
+                    'percentage' => 50,
+                ],
+            ],
+        ];
+
+        $subjectBlueprints = [
+            'English' => [
+                'domains' => [
+                    [
+                        'domain' => 'Grammar',
+                        'percentage' => 60,
+                    ],
+                    [
+                        'domain' => 'Reading',
+                        'percentage' => 40,
+                    ],
+                ],
+                'difficulty' => [
+                    'easy' => 50,
+                    'medium' => 50,
+                ],
+            ],
+            'Math' => [
+                'domains' => [
+                    [
+                        'domain' => 'Algebra',
+                        'percentage' => 100,
+                    ],
+                ],
+                'difficulty' => [
+                    'easy' => 50,
+                    'medium' => 50,
+                ],
+            ],
+        ];
+
+        try {
+            $requests = \BlueprintDistributionService::distribution(
+                $boardBlueprint,
+                $subjectBlueprints,
+                10
+            );
+
+            $this->assertTrue(
+                is_array($requests),
+                'Distribution: returns an array'
+            );
+
+            $this->assertTrue(
+                count($requests) > 0,
+                'Distribution: creates selection requests'
+            );
+
+            $total = 0;
+
+            foreach ($requests as $request) {
+                $this->assertTrue(
+                    is_object($request),
+                    'Distribution: request is an object'
+                );
+
+                $total += (int) ($request->questionCount ?? 0);
+            }
+
+            $this->assertSame(
+                10,
+                $total,
+                'Distribution: requested question count is preserved'
+            );
+
+        } catch (\Throwable $exception) {
+            $this->assertTrue(
+                false,
+                'Distribution: executes without exception: '
+                . $exception->getMessage()
+            );
+        }
+
+        echo "[PASS] OK\n";
+    }
+
+    private function testRuntimeAllocationBehavior(): void
+    {
+        echo "[TEST] Runtime allocation behavior\n";
+
+        $this->assertTrue(
+            class_exists('RuntimeAllocationService'),
+            'Allocation: RuntimeAllocationService available'
+        );
+
+        if (!class_exists('RuntimeAllocationService')) {
+            echo "[FAIL] Cannot continue allocation behavior test.\n";
+            return;
+        }
+
+        $this->assertSame(
+            [],
+            \RuntimeAllocationService::allocate(
+                0,
+                ['easy' => 50, 'hard' => 50]
+            ),
+            'Allocation: zero total returns empty'
+        );
+
+        $this->assertSame(
+            [],
+            \RuntimeAllocationService::allocate(
+                10,
+                []
+            ),
+            'Allocation: empty distribution returns empty'
+        );
+
+        $result = \RuntimeAllocationService::allocate(
+            10,
+            [
+                'easy' => 50,
+                'medium' => 30,
+                'hard' => 20,
+            ]
+        );
+
+        $this->assertSame(
+            10,
+            array_sum($result),
+            'Allocation: total is preserved'
+        );
+
+        $this->assertSame(
+            5,
+            $result['easy'] ?? null,
+            'Allocation: easy receives expected count'
+        );
+
+        $this->assertSame(
+            3,
+            $result['medium'] ?? null,
+            'Allocation: medium receives expected count'
+        );
+
+        $this->assertSame(
+            2,
+            $result['hard'] ?? null,
+            'Allocation: hard receives expected count'
+        );
 
         echo "[PASS] OK\n";
     }
