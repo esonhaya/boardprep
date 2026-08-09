@@ -22,6 +22,11 @@ final class BlueprintExecutor
 
             );
 
+        $requests =
+            RequestExecutionPlanService::build(
+                $requests
+            );
+
         $session =
             new SelectionSession();
 

@@ -59,6 +59,7 @@ final class Autoloader
         'ExamAssemblyService' => __DIR__ . '/../Services/Quiz/ExamAssemblyService.php',
         'BlueprintExecutor' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintExecutor.php',
         'BlueprintResolverService' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintResolverService.php',
+        'RequestExecutionPlan' => __DIR__ . '/../Services/Quiz/Blueprint/RequestExecutionPlan.php',
         'RequestExecutionPlanService' => __DIR__ . '/../Services/Quiz/Blueprint/RequestExecutionPlanService.php',
         'RequestPriorityService' => __DIR__ . '/../Services/Quiz/Blueprint/RequestPriorityService.php',
         'BlueprintAllocationReconciler' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintAllocationReconciler.php',
