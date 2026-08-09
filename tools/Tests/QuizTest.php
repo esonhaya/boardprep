@@ -34,6 +34,8 @@ final class QuizTest
         $this->testSelectionBehavior();
         $this->testGenerationBehavior();
         $this->testBlueprintDistributionBehavior();
+        $this->testRuntimeAllocationBehavior();
+        $this->testBlueprintCoverageBehavior();
 
         $this->summary();
     }
@@ -1336,6 +1338,115 @@ final class QuizTest
             $result['hard'] ?? null,
             'Allocation: hard receives expected count'
         );
+
+        echo "[PASS] OK\n";
+    }
+
+
+    private function testBlueprintCoverageBehavior(): void
+    {
+        echo "[TEST] Blueprint coverage behavior\n";
+
+        $this->assertTrue(
+            class_exists('BlueprintCoverageAnalyzer'),
+            'Coverage: BlueprintCoverageAnalyzer available'
+        );
+
+        $this->assertTrue(
+            class_exists('BlueprintCoverageValidator'),
+            'Coverage: BlueprintCoverageValidator available'
+        );
+
+        if (
+            !class_exists('BlueprintCoverageAnalyzer')
+            || !class_exists('BlueprintCoverageValidator')
+        ) {
+            echo "[FAIL] Cannot continue coverage behavior test.\n";
+            return;
+        }
+
+        $questions = [
+            [
+                'id' => 601,
+                'subject' => 'English',
+                'domain' => 'Grammar',
+            ],
+            [
+                'id' => 602,
+                'subject' => 'English',
+                'domain' => 'Grammar',
+            ],
+        ];
+
+        $request = new \SelectionRequest(
+            subject: 'English',
+            domain: 'Grammar',
+            difficultyDistribution: [
+                'easy' => 50,
+                'medium' => 50,
+            ],
+            questionCount: 2
+        );
+
+        try {
+            $coverage =
+                \BlueprintCoverageAnalyzer::analyze(
+                    $questions,
+                    [],
+                    [],
+                    [$request]
+                );
+
+            $this->assertSame(
+                1,
+                count($coverage),
+                'Coverage: produces one coverage row'
+            );
+
+            $this->assertSame(
+                2,
+                $coverage[0]['required'] ?? null,
+                'Coverage: required count preserved'
+            );
+
+            $this->assertSame(
+                2,
+                $coverage[0]['generated'] ?? null,
+                'Coverage: generated count detected'
+            );
+
+            $issues =
+                \BlueprintCoverageValidator::validate(
+                    $coverage
+                );
+
+            $this->assertSame(
+                0,
+                count($issues),
+                'Coverage: complete coverage has no issues'
+            );
+
+            $shortage = $coverage;
+            $shortage[0]['generated'] = 1;
+
+            $issues =
+                \BlueprintCoverageValidator::validate(
+                    $shortage
+                );
+
+            $this->assertSame(
+                1,
+                count($issues),
+                'Coverage: shortage is detected'
+            );
+
+        } catch (\Throwable $exception) {
+            $this->assertTrue(
+                false,
+                'Coverage: executes without exception: '
+                . $exception->getMessage()
+            );
+        }
 
         echo "[PASS] OK\n";
     }
