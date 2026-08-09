@@ -23,8 +23,13 @@ final class ApplicationSimulator
 
     private array $requestData = [];
 
-    public function __construct()
-    {
+    private string $method = 'GET';
+
+    private string $uri = '/';
+
+    public function __construct(
+        private readonly ?string $entryPoint = null
+    ) {
         $this->result = new SimulationResult();
         $this->context = new SimulationContext();
     }
@@ -54,10 +59,12 @@ final class ApplicationSimulator
         string $uri,
         array $data = []
     ): static {
+        $this->method = strtoupper($method);
+        $this->uri = $uri;
         $this->requestData = $data;
 
         $this->server = [
-            'REQUEST_METHOD' => strtoupper($method),
+            'REQUEST_METHOD' => $this->method,
             'REQUEST_URI' => $uri,
             'QUERY_STRING' => parse_url(
                 $uri,
@@ -70,6 +77,71 @@ final class ApplicationSimulator
         return $this;
     }
 
+    /**
+     * Execute the real BoardPrep application.
+     */
+    public function execute(): static
+    {
+        $entryPoint =
+            $this->entryPoint
+            ?? dirname(__DIR__, 3) . '/public/index.php';
+
+        if (!is_file($entryPoint)) {
+            throw new \RuntimeException(
+                "Application entry point not found: {$entryPoint}"
+            );
+        }
+
+        $parts = parse_url($this->uri);
+
+        $path =
+            is_string($parts['path'] ?? null)
+                ? $parts['path']
+                : '/';
+
+        $query = [];
+
+        if (isset($parts['query'])) {
+            parse_str(
+                (string) $parts['query'],
+                $query
+            );
+        }
+
+        $simulator =
+            new HttpSimulator(
+                $entryPoint
+            );
+
+        $result =
+            $simulator->request(
+                method: $this->method,
+                path: $path,
+                query: $query,
+                post: $this->requestData,
+                server: $this->server,
+                cookies: $this->cookies
+            );
+
+        $this->response =
+            new SimulationResponse(
+                status: $result['status'],
+                body: $result['stdout'],
+                headers: $result['headers']
+            );
+
+        $this->context->set(
+            'http',
+            $result
+        );
+
+        return $this;
+    }
+
+    /**
+     * Manually provide a response when testing
+     * the assertion layer itself.
+     */
     public function response(
         SimulationResponse $response
     ): static {
@@ -238,6 +310,8 @@ final class ApplicationSimulator
         $this->context->clear();
         $this->server = [];
         $this->requestData = [];
+        $this->method = 'GET';
+        $this->uri = '/';
 
         return $this;
     }

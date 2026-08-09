@@ -12,7 +12,7 @@
             "details": [
                 "Passed: 26",
                 "Failed: 0",
-                "Execution time: 0.014s"
+                "Execution time: 0.021s"
             ],
             "recommendations": [],
             "score": 100
@@ -22,14 +22,14 @@
             "status": "PASS",
             "summary": "Current project size",
             "details": [
-                "Controllers : 26",
+                "Controllers : 24",
                 "Services    : 116",
                 "Repositories: 8",
                 "Domains     : 7",
-                "Classes     : 266",
+                "Classes     : 282",
                 "Interfaces  : 3",
                 "Traits      : 0",
-                "PHP Files   : 331"
+                "PHP Files   : 349"
             ],
             "recommendations": [],
             "score": 100
@@ -42,13 +42,13 @@
                 " 31  App.php",
                 " 30  CheckResult.php",
                 " 24  DoctorContext.php",
+                " 19  web.php",
                 " 18  QuestionRepository.php",
-                " 18  index.php",
-                " 17  web.php",
                 " 16  BaseDeveloperController.php",
                 " 13  RepositoryHealthEngine.php",
-                " 12  View.php",
-                " 11  function-test.php"
+                " 11  function-test.php",
+                " 10  DoctorRunner.php",
+                " 10  BlueprintRepository.php"
             ],
             "recommendations": [],
             "score": 100
@@ -58,8 +58,8 @@
             "status": "PASS",
             "summary": "No regressions detected.",
             "details": [
-                "PHP files: 256 \u2192 331",
-                "Classes: 195 \u2192 266"
+                "PHP files: 256 \u2192 349",
+                "Classes: 195 \u2192 282"
             ],
             "recommendations": [],
             "score": 100
@@ -71,7 +71,7 @@
             "details": [
                 "Controllers         100",
                 "Services            100",
-                "Dependencies        94",
+                "Dependencies        96",
                 "Maintainability      60",
                 "Technical Debt      100"
             ],
@@ -95,7 +95,7 @@
         {
             "title": "Technical Debt",
             "status": "PASS",
-            "summary": "Debt Score: 30",
+            "summary": "Debt Score: 40",
             "details": [],
             "recommendations": [],
             "score": 100
@@ -103,7 +103,7 @@
         {
             "title": "Dead Classes",
             "status": "WARNING",
-            "summary": "54 potentially unused classes.",
+            "summary": "51 potentially unused classes.",
             "details": [
                 "AdaptiveQuizService (./app/Services/Quiz/AdaptiveQuizService.php)",
                 "Arr (./app/Foundation/Arr.php)",
@@ -171,14 +171,14 @@
         {
             "title": "Largest Method",
             "status": "WARNING",
-            "summary": "./app/Services/Quiz/QuizScoringService.php",
+            "summary": "./tools/Doctor/Simulation/HttpSimulator.php",
             "details": [
-                "Method    : calculate",
-                "Length    : 121 lines",
+                "Method    : request",
+                "Length    : 229 lines",
                 "Threshold : 60"
             ],
             "recommendations": [
-                "Split calculate() into smaller methods."
+                "Split request() into smaller methods."
             ],
             "score": 100
         },
@@ -210,29 +210,37 @@
         {
             "title": "Risk Score",
             "status": "WARNING",
-            "summary": "Risk Score: 850",
-            "details": [],
-            "recommendations": [],
-            "score": 100
+            "summary": "Risk Score: 100/100 (High)",
+            "details": [
+                "Highest coupling: ./app/Core/App.php (31 dependencies)",
+                "Total application dependencies: 604",
+                "Highly coupled files: 7"
+            ],
+            "recommendations": [
+                "Prioritize dependency concentration before major refactoring.",
+                "Review the highest-coupled application components first."
+            ],
+            "score": 0
         },
         {
             "title": "Change Impact",
             "status": "WARNING",
-            "summary": "CheckResult.php affects 30 file(s)",
+            "summary": "App.php affects 29 application file(s)",
             "details": [
-                "ArchitectureScorecardCheck.php",
-                "ChangeImpactCheck.php",
-                "CircularDependencyCheck.php",
-                "ControllerComplexityCheck.php",
-                "CyclomaticComplexityCheck.php",
-                "DeadClassCheck.php",
-                "DependencyCouplingCheck.php",
-                "DomainMigrationCheck.php",
-                "EmptyDirectoryCheck.php",
-                "FoundationUsageCheck.php"
+                "Storage.php",
+                "BlueprintService.php",
+                "BoardService.php",
+                "BoardViewService.php",
+                "LearningStatisticsService.php",
+                "WeaknessStorageService.php",
+                "QuestionDuplicateService.php",
+                "QuestionEditorService.php",
+                "QuestionExportService.php",
+                "QuestionQueryService.php"
             ],
             "recommendations": [
-                "Review all affected files before refactoring."
+                "Review the affected application files before changing this component.",
+                "Consider reducing unnecessary consumers of highly shared components."
             ],
             "score": 100
         },
@@ -242,29 +250,32 @@
             "summary": "./app/Core/App.php (31 dependencies)",
             "details": [
                 "31  ./app/Core/App.php",
-                "30  ./tools/Doctor/DTO/CheckResult.php",
-                "24  ./tools/Doctor/Context/DoctorContext.php",
+                "19  ./routes/web.php",
                 "18  ./app/Repositories/QuestionRepository.php",
-                "18  ./public/index.php"
+                "16  ./app/Controllers/BaseDeveloperController.php",
+                "13  ./app/Services/RepositoryHealth/Engine/RepositoryHealthEngine.php"
             ],
-            "recommendations": [],
+            "recommendations": [
+                "Review the highest-coupled application component.",
+                "Prefer narrower collaborators when a component accumulates many dependencies."
+            ],
             "score": 100
         },
         {
             "title": "Cyclomatic Complexity",
             "status": "WARNING",
-            "summary": "BaseSpecificationFactory.php::create() (25)",
+            "summary": "HttpSimulator.php::request() (29)",
             "details": [
+                "29  HttpSimulator.php::request()",
                 "25  BaseSpecificationFactory.php::create()",
                 "24  RecommendationAdvisor.php::recommendations()",
                 "22  BlueprintService.php::create()",
+                "22  DependencyCouplingCheck.php::run()",
+                "21  ChangeImpactCheck.php::run()",
                 "20  RecommendationService.php::generate()",
                 "20  RegressionCheck.php::run()",
                 "19  DoctorHistoryService.php::compare()",
-                "19  BlueprintValidator.php::validate()",
-                "18  BlueprintDistributionService.php::distribution()",
-                "18  BlueprintIntegrityValidator.php::validate()",
-                "17  StatisticsBuilder.php::build()"
+                "19  BlueprintValidator.php::validate()"
             ],
             "recommendations": [
                 "Reduce branching by extracting smaller methods."
@@ -284,8 +295,8 @@
                 " 58  ./tools/Doctor/Scanners/TokenScanner.php",
                 " 60  ./app/Services/Quiz/Blueprint/BlueprintIntegrityValidator.php",
                 " 60  ./tests/function-test.php",
-                " 61  ./app/Services/RepositoryHealth/Engine/StatisticsBuilder.php",
-                " 65  ./app/Storage/JsonStorage.php"
+                " 60  ./tools/Doctor/Simulation/ApplicationSimulator.php",
+                " 61  ./app/Services/RepositoryHealth/Engine/StatisticsBuilder.php"
             ],
             "recommendations": [
                 "Improve maintainability by reducing file size, complexity and responsibilities."
@@ -297,6 +308,8 @@
             "status": "WARNING",
             "summary": "Largest methods suitable for extraction.",
             "details": [
+                "229  HttpSimulator.php::request()",
+                "164  HttpTest.php::run()",
                 "121  QuizScoringService.php::calculate()",
                 "114  RegressionCheck.php::run()",
                 "107  CoverageMatrixService.php::build()",
@@ -304,9 +317,7 @@
                 " 98  AdaptiveQuizService.php::prioritize()",
                 " 97  ChoiceValidator.php::validate()",
                 " 96  FunctionTest.php::run()",
-                " 93  BlueprintDistributionService.php::distribution()",
-                " 93  BlueprintExecutor.php::execute()",
-                " 91  QuestionQualityService.php::analyze()"
+                " 93  BlueprintDistributionService.php::distribution()"
             ],
             "recommendations": [
                 "Extract helper methods before adding new functionality."
@@ -340,7 +351,7 @@
         {
             "title": "Unused Imports",
             "status": "WARNING",
-            "summary": "8 unused imports found.",
+            "summary": "11 unused imports found.",
             "details": [
                 "./app/Controllers/QuestionEditorController.php :: App",
                 "./app/Services/Question/QuestionService.php :: App",
@@ -349,7 +360,10 @@
                 "./app/Views/developer/components/action-bar.php :: ActionBarViewModel",
                 "./app/Views/developer/components/entity-card.php :: EntityCardViewModel",
                 "./app/Views/developer/components/page-header.php :: PageHeaderViewModel",
-                "./app/Views/developer/components/summary.php :: SummaryViewModel"
+                "./app/Views/developer/components/summary.php :: SummaryViewModel",
+                "./tools/Doctor/Simulation/Output/SimulationReport.php :: SimulationResult",
+                "./tools/Doctor/Simulation/Runner/SimulationRunner.php :: SimulationResult",
+                "./tools/Doctor/Simulation/Runner/SimulationRunner.php :: SimulationScenario"
             ],
             "recommendations": [
                 "Remove unused imports to reduce noise."
@@ -428,5 +442,5 @@
             "score": 100
         }
     ],
-    "generatedAt": "2026-08-07T13:12:03+00:00"
+    "generatedAt": "2026-08-09T01:50:16+00:00"
 }

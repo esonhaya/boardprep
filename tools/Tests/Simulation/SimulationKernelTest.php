@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Tools\Tests\Simulation;
 
 use Tools\Doctor\Simulation\ApplicationSimulator;
-use Tools\Doctor\Simulation\SimulationResponse;
 
 final class SimulationKernelTest
 {
@@ -15,12 +14,7 @@ final class SimulationKernelTest
 
         $simulation
             ->get('/')
-            ->response(
-                new SimulationResponse(
-                    status: 200,
-                    body: '<h1>BoardPrep</h1>'
-                )
-            )
+            ->execute()
             ->assertStatus(200)
             ->assertSuccessful()
             ->assertContains('BoardPrep')
@@ -35,7 +29,7 @@ final class SimulationKernelTest
             );
         }
 
-        echo "PASS: Simulation kernel\n";
+        echo "PASS: Real application simulation\n";
         echo "Steps: {$simulation->result()->passCount()}\n";
     }
 }

@@ -94,7 +94,7 @@ No subjects have been added yet.
 
 <p>
 
-<a href="?page=subject-create&board=<?= urlencode($board["id"]) ?>">
+<a href="/subject/create?board=<?= urlencode($board["id"]) ?>">
 
 + Add Subject
 

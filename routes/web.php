@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-use App\Core\View;
-
 use App\Controllers\BoardController;
 use App\Controllers\BlueprintController;
 use App\Controllers\BlueprintHealthController;
 use App\Controllers\CoverageController;
 use App\Controllers\DashboardController;
 use App\Controllers\DeveloperToolsController;
+use App\Controllers\HomeController;
 use App\Controllers\LearningProfileController;
 use App\Controllers\MetadataRepairController;
 use App\Controllers\ProgressController;
@@ -19,34 +18,25 @@ use App\Controllers\QuestionImportController;
 use App\Controllers\QuestionInspectorController;
 use App\Controllers\QuestionQualityController;
 use App\Controllers\QuizFlowController;
+use App\Controllers\SubjectController;
 use App\Controllers\TaxonomyController;
 
-$router->get("/", function () {
-    View::render(
-        "home/index",
-        [
-            "pageTitle" => "BoardPrep"
-        ]
-    );
-});
+$router->get(
+    "/",
+    [HomeController::class, "index"]
+);
 
-$router->get("/english", function () {
-    View::render(
-        "english/index",
-        [
-            "pageTitle" => "English Major"
-        ]
-    );
-});
-
-$router->get("/grammar", function () {
-    View::render(
-        "grammar/index",
-        [
-            "pageTitle" => "Grammar"
-        ]
-    );
-});
+$router->get(
+    "/grammar",
+    function () {
+        \App\Core\View::render(
+            "grammar/index",
+            [
+                "pageTitle" => "Grammar"
+            ]
+        );
+    }
+);
 
 $router->get(
     "/dashboard",
@@ -96,6 +86,46 @@ $router->get(
 $router->get(
     "/board/activate",
     [BoardController::class, "activate"]
+);
+
+$router->get(
+    "/subjects",
+    [SubjectController::class, "index"]
+);
+
+$router->get(
+    "/subject/create",
+    [SubjectController::class, "create"]
+);
+
+$router->post(
+    "/subject/save",
+    [SubjectController::class, "save"]
+);
+
+$router->get(
+    "/subject/edit",
+    [SubjectController::class, "edit"]
+);
+
+$router->post(
+    "/subject/update",
+    [SubjectController::class, "update"]
+);
+
+$router->get(
+    "/subject/view",
+    [SubjectController::class, "view"]
+);
+
+$router->get(
+    "/subject/archive",
+    [SubjectController::class, "archive"]
+);
+
+$router->get(
+    "/subject/activate",
+    [SubjectController::class, "activate"]
 );
 
 $router->get(
