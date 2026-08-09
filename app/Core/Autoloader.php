@@ -65,6 +65,7 @@ final class Autoloader
         'BlueprintDistributionService' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintDistributionService.php',
         'BlueprintIntegrityValidator' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintIntegrityValidator.php',
         'SessionService' => __DIR__ . '/../Services/Shared/SessionService.php',
+        'QuizSpecification' => __DIR__ . '/../DTO/QuizSpecification.php',
         'AttemptRepository' => __DIR__ . '/../Repositories/AttemptRepository.php',
     ];
 
