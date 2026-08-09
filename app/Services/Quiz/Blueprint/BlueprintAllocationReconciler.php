@@ -9,6 +9,12 @@ final class BlueprintAllocationReconciler
         int $target
     ): array {
 
+        if ($target < 0) {
+            throw new InvalidArgumentException(
+                'Allocation target cannot be negative.'
+            );
+        }
+
         $allocated = 0;
 
         foreach ($requests as $request) {
@@ -17,66 +23,80 @@ final class BlueprintAllocationReconciler
 
         $difference = $target - $allocated;
 
-        if ($difference === 0) {
+        if ($difference === 0 || empty($requests)) {
             return $requests;
         }
 
         $count = count($requests);
-
-        if ($count === 0) {
-            return $requests;
-        }
-
         $index = 0;
 
-        while ($difference !== 0) {
+        while ($difference > 0) {
 
             $request = $requests[$index];
 
-            $questions =
-                $request->questionCount;
-
-            if ($difference > 0) {
-
-                $questions++;
-                $difference--;
-
-            } elseif ($questions > 1) {
-
-                $questions--;
-                $difference++;
-
-            }
-
             $requests[$index] =
                 new SelectionRequest(
+                    subject:
+                        $request->subject,
 
                     domain:
                         $request->domain,
-
-                    topic:
-                        $request->topic,
-
-                    concept:
-                        $request->concept,
 
                     difficultyDistribution:
                         $request->difficultyDistribution,
 
                     questionCount:
-                        $questions
-
+                        $request->questionCount + 1
                 );
 
+            $difference--;
             $index++;
 
             if ($index >= $count) {
                 $index = 0;
             }
+        }
 
+        while ($difference < 0) {
+
+            $index = 0;
+            $changed = false;
+
+            while ($index < $count && $difference < 0) {
+
+                $request = $requests[$index];
+
+                if ($request->questionCount > 0) {
+
+                    $requests[$index] =
+                        new SelectionRequest(
+                            subject:
+                                $request->subject,
+
+                            domain:
+                                $request->domain,
+
+                            difficultyDistribution:
+                                $request->difficultyDistribution,
+
+                            questionCount:
+                                $request->questionCount - 1
+                        );
+
+                    $difference++;
+                    $changed = true;
+                }
+
+                $index++;
+            }
+
+            if (!$changed) {
+                throw new InvalidArgumentException(
+                    'Allocation target cannot be reconciled with the available requests.'
+                );
+            }
         }
 
         return $requests;
-
     }
 }

@@ -13,9 +13,7 @@ final class RequestPriorityService
     ): array {
 
         usort(
-
             $requests,
-
             static function (
                 SelectionRequest $a,
                 SelectionRequest $b
@@ -26,30 +24,19 @@ final class RequestPriorityService
                     self::priority($a);
 
             }
-
         );
 
         return $requests;
-
     }
 
     private static function priority(
         SelectionRequest $request
     ): int {
 
-        if ($request->concept !== null) {
-            return 4;
-        }
-
-        if ($request->topic !== null) {
-            return 3;
-        }
-
         if ($request->domain !== null) {
             return 2;
         }
 
         return 1;
-
     }
 }
