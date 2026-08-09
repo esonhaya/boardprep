@@ -1168,6 +1168,21 @@ final class QuizTest
         echo "[PASS] OK\n";
     }
 
+    private function assertNotNull(
+        mixed $value,
+        string $message
+    ): void {
+        $this->assertions++;
+
+        if ($value !== null) {
+            $this->passed++;
+            return;
+        }
+
+        $this->failed++;
+        echo "[FAIL] {$message}\\n";
+    }
+
     private function assertFalse(
         bool $condition,
         string $message

@@ -14,21 +14,34 @@ final class QuizGenerationService
                 $specification
             );
 
-        return BlueprintExecutor::execute(
+        $boardBlueprint =
+            $blueprints['board']
+            ?? [];
 
+        $subjectBlueprints =
+            $blueprints['subjects']
+            ?? [];
+
+        if (!is_array($boardBlueprint)) {
+            $boardBlueprint = [];
+        }
+
+        if (!is_array($subjectBlueprints)) {
+            $subjectBlueprints = [];
+        }
+
+        return BlueprintExecutor::execute(
             questions:
                 $questions,
 
             boardBlueprint:
-                $blueprints["board"],
+                $boardBlueprint,
 
             subjectBlueprints:
-                $blueprints["subjects"],
+                $subjectBlueprints,
 
             specification:
                 $specification
-
         );
-
     }
 }

@@ -64,8 +64,10 @@ final class Autoloader
         'BlueprintDifficultyAllocator' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintDifficultyAllocator.php',
         'BlueprintDistributionService' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintDistributionService.php',
         'BlueprintIntegrityValidator' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintIntegrityValidator.php',
+        'BlueprintExecutionResult' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintExecutionResult.php',
         'SessionService' => __DIR__ . '/../Services/Shared/SessionService.php',
         'RuntimeAllocationService' => __DIR__ . '/../Services/Quiz/Allocation/RuntimeAllocationService.php',
+        'SelectionSession' => __DIR__ . '/../Services/Quiz/Selection/SelectionSession.php',
         'QuizSpecification' => __DIR__ . '/../DTO/QuizSpecification.php',
         'AttemptRepository' => __DIR__ . '/../Repositories/AttemptRepository.php',
     ];
