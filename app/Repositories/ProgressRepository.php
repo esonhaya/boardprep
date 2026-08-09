@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Repositories;
+
 class ProgressRepository
 {
     private JsonStorage $storage;

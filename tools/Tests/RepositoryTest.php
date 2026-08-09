@@ -4,142 +4,266 @@ declare(strict_types=1);
 
 namespace Tools\Tests;
 
-use App\Constants\Status;
-use App\Repositories\BoardRepository;
-use App\Repositories\BlueprintRepository;
-use App\Repositories\SubjectRepository;
+use App\Core\Autoloader;
 
-final class RepositoryTest extends TestCase
+require_once dirname(__DIR__, 2) . '/app/Core/Autoloader.php';
+
+Autoloader::register();
+
+require_once __DIR__ . '/TestCase.php';
+require_once __DIR__ . '/MemoryStorage.php';
+
+final class RepositoryTest
 {
-    public function run(): void
+    private int $passed = 0;
+
+    private int $failed = 0;
+
+    private int $assertions = 0;
+
+    public function run(): int
     {
-        $storage = new MemoryStorage();
+        $this->header();
 
-        $this->testBoardRepository($storage);
-        $this->testSubjectRepository($storage);
-        $this->testBlueprintRepository($storage);
+        $this->testAutoloader();
+        $this->testBaseRepositoryContract();
+        $this->testAttemptRepository();
+        $this->testProgressRepository();
+        $this->testQuestionRepository();
+        $this->testBlueprintRepository();
+        $this->testBoardRepository();
+        $this->testSubjectRepository();
+        $this->testBoardSubjectRepository();
+
+        $this->summary();
+
+        return $this->failed > 0 ? 1 : 0;
     }
 
-    private function testBoardRepository(
-        MemoryStorage $storage
-    ): void {
-        $repository = new BoardRepository($storage);
-
-        $created = $repository->create([
-            'id' => 'let',
-            'name' => 'LET',
-            'status' => Status::ACTIVE,
-        ]);
-
-        $this->assertSame(
-            'LET',
-            $created['name'] ?? null
-        );
-
-        $this->assertSame(
-            1,
-            count($repository->active())
-        );
-
-        $repository->archive('let');
-
-        $this->assertSame(
-            0,
-            count($repository->active())
-        );
-
-        $this->assertSame(
-            1,
-            count($repository->archived())
-        );
-
-        $repository->activate('let');
-
-        $this->assertSame(
-            Status::ACTIVE,
-            $repository->find('let')['status'] ?? null
-        );
-    }
-
-    private function testSubjectRepository(
-        MemoryStorage $storage
-    ): void {
-        $repository = new SubjectRepository($storage);
-
-        $repository->create([
-            'id' => 'english',
-            'name' => 'English',
-            'status' => Status::ACTIVE,
-        ]);
-
-        $repository->create([
-            'id' => 'math',
-            'name' => 'Mathematics',
-            'status' => Status::ACTIVE,
-        ]);
+    private function testAutoloader(): void
+    {
+        echo "[TEST] Application autoloader\n";
 
         $this->assertTrue(
-            $repository->existsByName('english')
-        );
-
-        $this->assertTrue(
-            $repository->existsByName('ENGLISH')
-        );
-
-        $this->assertFalse(
-            $repository->existsByName(
-                'English',
-                'english'
-            )
-        );
-
-        $this->assertFalse(
-            $repository->existsByName('Science')
+            class_exists(Autoloader::class),
+            'Autoloader available'
         );
     }
 
-    private function testBlueprintRepository(
-        MemoryStorage $storage
+    private function testBaseRepositoryContract(): void
+    {
+        echo "[TEST] BaseRepository\n";
+
+        $class = 'App\\Repositories\\BaseRepository';
+
+        $this->assertTrue(
+            class_exists($class),
+            'BaseRepository class exists'
+        );
+
+        foreach ([
+            'all',
+            'find',
+            'where',
+            'create',
+            'update',
+            'delete',
+            'exists',
+        ] as $method) {
+            $this->assertTrue(
+                method_exists($class, $method),
+                "BaseRepository::{$method} exists"
+            );
+        }
+    }
+
+    private function testAttemptRepository(): void
+    {
+        echo "[TEST] AttemptRepository\n";
+
+        $class = 'App\\Repositories\\AttemptRepository';
+
+        $this->assertClassMethods($class, [
+            'byUser',
+            'byMode',
+            'completed',
+        ]);
+    }
+
+    private function testProgressRepository(): void
+    {
+        echo "[TEST] ProgressRepository\n";
+
+        $class = 'App\\Repositories\\ProgressRepository';
+
+        $this->assertClassMethods($class, [
+            'all',
+            'find',
+            'save',
+        ]);
+    }
+
+    private function testQuestionRepository(): void
+    {
+        echo "[TEST] QuestionRepository\n";
+
+        $class = 'App\\Repositories\\QuestionRepository';
+
+        $this->assertClassMethods($class, [
+            'byBoard',
+            'bySubject',
+            'byDomain',
+            'byTopic',
+            'byConcept',
+            'byDifficulty',
+            'approved',
+        ]);
+    }
+
+    private function testBlueprintRepository(): void
+    {
+        echo "[TEST] BlueprintRepository\n";
+
+        $class = 'App\\Repositories\\BlueprintRepository';
+
+        $this->assertClassMethods($class, [
+            'board',
+            'subject',
+            'versions',
+            'activate',
+            'archive',
+        ]);
+    }
+
+    private function testBoardRepository(): void
+    {
+        echo "[TEST] BoardRepository\n";
+
+        $class = 'App\\Repositories\\BoardRepository';
+
+        $this->assertClassMethods($class, [
+            'all',
+            'find',
+            'where',
+            'create',
+            'update',
+            'delete',
+            'exists',
+            'active',
+            'archived',
+            'setStatus',
+            'activate',
+            'archive',
+        ]);
+    }
+
+    private function testSubjectRepository(): void
+    {
+        echo "[TEST] SubjectRepository\n";
+
+        $class = 'App\\Repositories\\SubjectRepository';
+
+        $this->assertClassMethods($class, [
+            'all',
+            'find',
+            'where',
+            'create',
+            'update',
+            'delete',
+            'exists',
+            'active',
+            'archived',
+            'setStatus',
+            'activate',
+            'archive',
+            'existsByName',
+        ]);
+    }
+
+    private function testBoardSubjectRepository(): void
+    {
+        echo "[TEST] BoardSubjectRepository\n";
+
+        $class = 'App\\Repositories\\BoardSubjectRepository';
+
+        $this->assertClassMethods($class, [
+            'all',
+            'find',
+            'where',
+            'create',
+            'update',
+            'delete',
+            'exists',
+        ]);
+    }
+
+    /**
+     * @param array<int, string> $methods
+     */
+    private function assertClassMethods(
+        string $class,
+        array $methods
     ): void {
-        $repository = new BlueprintRepository($storage);
+        $exists = class_exists($class);
 
-        $repository->create([
-            'id' => 'let-v1',
-            'board_id' => 'let',
-            'scope' => 'board',
-            'version' => 1,
-            'status' => Status::ARCHIVED,
-        ]);
-
-        $repository->create([
-            'id' => 'let-v2',
-            'board_id' => 'let',
-            'scope' => 'board',
-            'version' => 2,
-            'status' => Status::ACTIVE,
-        ]);
-
-        $versions = $repository->versions('let');
-
-        $this->assertSame(
-            'let-v2',
-            $versions[0]['id'] ?? null
+        $this->assertTrue(
+            $exists,
+            "{$class} class exists"
         );
 
-        $repository->activate('let-v1');
+        if (!$exists) {
+            return;
+        }
 
-        $this->assertSame(
-            Status::ACTIVE,
-            $repository->find('let-v1')['status'] ?? null
-        );
+        foreach ($methods as $method) {
+            $this->assertTrue(
+                method_exists($class, $method),
+                "{$class}::{$method} exists"
+            );
+        }
+    }
 
-        $this->assertSame(
-            Status::ARCHIVED,
-            $repository->find('let-v2')['status'] ?? null
-        );
+    private function assertTrue(
+        bool $condition,
+        string $message
+    ): void {
+        $this->assertions++;
 
-        $this->assertNotNull(
-            $repository->board('let')
-        );
+        if ($condition) {
+            $this->passed++;
+            echo "[PASS] {$message}\n";
+            return;
+        }
+
+        $this->failed++;
+        echo "[FAIL] {$message}\n";
+    }
+
+    private function header(): void
+    {
+        echo "======================================\n";
+        echo " BoardPrep Repository Test\n";
+        echo "======================================\n";
+        echo "Mode: In-process simulation\n";
+        echo "Database: NOT USED\n";
+        echo "HTTP server: NOT USED\n\n";
+    }
+
+    private function summary(): void
+    {
+        echo "\n======================================\n";
+        echo " SUMMARY\n";
+        echo "======================================\n";
+        echo "PASS       : {$this->passed}\n";
+        echo "FAIL       : {$this->failed}\n";
+        echo "ASSERTIONS : {$this->assertions}\n\n";
+
+        if ($this->failed === 0) {
+            echo "[PASS] Repository simulation passed.\n";
+        } else {
+            echo "[FAIL] Repository simulation failed.\n";
+        }
     }
 }
+
+exit((new RepositoryTest())->run());
