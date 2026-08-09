@@ -32,6 +32,9 @@ final class ApplicationSimulator
     ) {
         $this->result = new SimulationResult();
         $this->context = new SimulationContext();
+
+        $this->cookies['PHPSESSID'] =
+            bin2hex(random_bytes(16));
     }
 
     public function get(
@@ -77,9 +80,6 @@ final class ApplicationSimulator
         return $this;
     }
 
-    /**
-     * Execute the real BoardPrep application.
-     */
     public function execute(): static
     {
         $entryPoint =
@@ -138,10 +138,6 @@ final class ApplicationSimulator
         return $this;
     }
 
-    /**
-     * Manually provide a response when testing
-     * the assertion layer itself.
-     */
     public function response(
         SimulationResponse $response
     ): static {

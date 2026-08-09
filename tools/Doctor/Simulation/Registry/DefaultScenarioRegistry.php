@@ -5,15 +5,19 @@ declare(strict_types=1);
 namespace Tools\Doctor\Simulation\Registry;
 
 use Tools\Doctor\Simulation\Scenarios\ApplicationSmokeScenario;
+use Tools\Doctor\Simulation\Scenarios\HomePageScenario;
 use Tools\Doctor\Simulation\Scenarios\HttpStatusScenario;
+use Tools\Doctor\Simulation\Scenarios\QuizLifecycleScenario;
 
-final class DefaultScenarioRegistry
+final class DefaultScenarioRegistry implements ScenarioRegistry
 {
-    public static function create(): ScenarioRegistry
+    public function all(): array
     {
-        return new ScenarioRegistry([
-            ApplicationSmokeScenario::class,
+        return [
+            HomePageScenario::class,
             HttpStatusScenario::class,
-        ]);
+            ApplicationSmokeScenario::class,
+            QuizLifecycleScenario::class,
+        ];
     }
 }

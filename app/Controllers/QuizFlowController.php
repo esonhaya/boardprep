@@ -2,13 +2,10 @@
 
 class QuizFlowController
 {
-
     public static function handle(): void
     {
-
         $action =
             $_GET["action"] ?? null;
-
 
         if ($action === null) {
 
@@ -18,13 +15,9 @@ class QuizFlowController
                 "start"
                 :
                 "settings";
-
         }
 
-
-
         switch ($action) {
-
 
             case "settings":
 
@@ -34,15 +27,11 @@ class QuizFlowController
 
                 break;
 
-
-
             case "start":
 
                 QuizStartService::start();
 
                 break;
-
-
 
             case "submit":
 
@@ -50,22 +39,17 @@ class QuizFlowController
 
                 break;
 
-
-
             case "next":
 
                 QuizNavigationService::next();
 
                 break;
 
-
-
             case "finish":
 
                 View::render(
                     "quiz/result",
                     [
-
                         "result" =>
                             QuizResultService::build(),
 
@@ -74,13 +58,10 @@ class QuizFlowController
                                 "mode",
                                 "practice"
                             )
-
                     ]
                 );
 
                 break;
-
-
 
             default:
 
@@ -89,9 +70,6 @@ class QuizFlowController
                 );
 
                 break;
-
         }
-
     }
-
 }

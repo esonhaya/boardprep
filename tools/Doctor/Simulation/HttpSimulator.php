@@ -74,22 +74,53 @@ $_SERVER['QUERY_STRING'] =
     http_build_query($_GET);
 
 $_SERVER['HTTP_HOST'] =
-    $_SERVER['HTTP_HOST'] ?? 'localhost';
+    'localhost';
 
 $_SERVER['SERVER_NAME'] =
-    $_SERVER['SERVER_NAME'] ?? 'localhost';
+    'localhost';
 
 $_SERVER['SERVER_PORT'] =
-    $_SERVER['SERVER_PORT'] ?? '80';
+    '80';
 
 $_SERVER['HTTPS'] =
-    $_SERVER['HTTPS'] ?? '';
+    '';
 
 foreach (
     $payload['server'] ?? []
     as $key => $value
 ) {
     $_SERVER[$key] = $value;
+}
+
+/*
+ * Give every simulation its own persistent PHP
+ * session directory. The session ID itself is
+ * supplied through PHPSESSID in $_COOKIE.
+ */
+$sessionDirectory =
+    dirname($argv[1], 2)
+    . '/storage/doctor/simulation-sessions';
+
+if (!is_dir($sessionDirectory)) {
+    mkdir(
+        $sessionDirectory,
+        0777,
+        true
+    );
+}
+
+session_save_path(
+    $sessionDirectory
+);
+
+if (
+    isset($_COOKIE['PHPSESSID'])
+    && is_string($_COOKIE['PHPSESSID'])
+    && $_COOKIE['PHPSESSID'] !== ''
+) {
+    session_id(
+        $_COOKIE['PHPSESSID']
+    );
 }
 
 $headers = [];
@@ -124,21 +155,6 @@ set_exception_handler(
         );
 
         exit(1);
-    }
-);
-
-register_shutdown_function(
-    static function (): void {
-        $status = http_response_code();
-
-        if (!is_int($status) || $status < 100) {
-            $status = 200;
-        }
-
-        fwrite(
-            STDERR,
-            '__BOARDPREP_SIM_STATUS__' . $status . PHP_EOL
-        );
     }
 );
 
@@ -202,16 +218,6 @@ PHP;
             );
         }
 
-        $environment = $_ENV;
-
-        $environment[
-            'BOARDPREP_SIMULATION'
-        ] = $payload;
-
-        $environment[
-            'BOARDPREP_SIMULATED'
-        ] = '1';
-
         $processCommand =
             'env '
             . escapeshellarg(
@@ -247,17 +253,6 @@ PHP;
                 ? (string) file_get_contents($stderrFile)
                 : '';
 
-        $simulatedStatus =
-            $this->extractSimulatedStatus($stderr);
-
-        if ($simulatedStatus !== null) {
-            $stderr = preg_replace(
-                '/^__BOARDPREP_SIM_STATUS__\d{3}\R?/m',
-                '',
-                $stderr
-            ) ?? $stderr;
-        }
-
         @unlink($stdoutFile);
         @unlink($stderrFile);
 
@@ -268,8 +263,7 @@ PHP;
             $this->extractHeaders($stdout);
 
         $status =
-            $simulatedStatus
-            ?? $this->extractStatus($headers);
+            $this->extractStatus($headers);
 
         $location =
             $this->extractLocation($headers);
@@ -287,22 +281,6 @@ PHP;
                 $exitCode === 0
                 && $status < 400,
         ];
-    }
-
-    private function extractSimulatedStatus(
-        string $stderr
-    ): ?int {
-        if (
-            preg_match(
-                '/^__BOARDPREP_SIM_STATUS__(\d{3})$/m',
-                $stderr,
-                $matches
-            )
-        ) {
-            return (int) $matches[1];
-        }
-
-        return null;
     }
 
     /**

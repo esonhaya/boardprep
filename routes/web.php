@@ -26,11 +26,6 @@ $router->get(
     [HomeController::class, "index"]
 );
 
-$router->post(
-    "/",
-    [HomeController::class, "index"]
-);
-
 $router->get(
     "/grammar",
     function () {
@@ -53,6 +48,11 @@ $router->get(
     [QuizFlowController::class, "handle"]
 );
 
+$router->post(
+    "/quiz",
+    [QuizFlowController::class, "handle"]
+);
+
 $router->get(
     "/profile",
     [LearningProfileController::class, "index"]
@@ -71,11 +71,6 @@ $router->get(
 $router->get(
     "/boards",
     [BoardController::class, "index"]
-);
-
-$router->get(
-    "/board/view",
-    [BoardController::class, "show"]
 );
 
 $router->get(
@@ -125,7 +120,7 @@ $router->post(
 
 $router->get(
     "/subject/view",
-    [SubjectController::class, "show"]
+    [SubjectController::class, "view"]
 );
 
 $router->get(
