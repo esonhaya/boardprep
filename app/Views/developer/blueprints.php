@@ -1,126 +1,21 @@
-<?php
-
-$pageTitle =
-    "Blueprint Manager";
-
-$pageDescription =
-    "Manage blueprint versions and exam templates.";
-
-$summary = [
-
-    "Total Blueprints" =>
-        count($blueprints ?? [])
-
-];
-
-$actions = [
-
-    [
-
-        "label" =>
-            "➕ Create Blueprint",
-
-        "href" =>
-            "/blueprints/create"
-
-    ]
-
-];
-
-require __DIR__
-    . "/components/page-header.php";
-
-require __DIR__
-    . "/components/summary.php";
-
-require __DIR__
-    . "/components/action-bar.php";
-
-if (empty($blueprints)) {
-
-    $emptyMessage =
-        "No blueprints found.";
-
-    require __DIR__
-        . "/components/empty-state.php";
-
-    return;
-
-}
-
-foreach (($blueprints ?? []) as $blueprint) {
-
-    $entity = [
-
-        "name" =>
-            $blueprint["name"] ?? "",
-
-        "description" =>
-            ""
-
-    ];
-
-    $entityDetails = [
-
-        "ID" =>
-            $blueprint["id"] ?? "",
-
-        "Board" =>
-            $blueprint["board"] ?? "",
-
-        "Subject" =>
-            $blueprint["subject"] ?? "",
-
-        "Version" =>
-            $blueprint["version"] ?? ""
-
-    ];
-
-    $entityActions = [
-
-        [
-
-            "label" =>
-                "👁️ View",
-
-            "href" =>
-                "/blueprint/view?id="
-                . urlencode(
-                    $blueprint["id"] ?? ""
-                )
-
-        ],
-
-        [
-
-            "label" =>
-                "✏️ Edit",
-
-            "href" =>
-                "/blueprint/edit?id="
-                . urlencode(
-                    $blueprint["id"] ?? ""
-                )
-
-        ]
-
-    ];
-
-    require __DIR__
-        . "/components/entity-card.php";
-
-}
-
-?>
-
+<h2>Blueprint Manager</h2>
+<p>Manage blueprint versions and exam templates.</p>
 <hr>
-
-<p>
-
-<a href="/developer">
-
-🏠 Back to Developer Dashboard
-
-</a>
-
-</p>
+<p><strong>Total Blueprints:</strong> <?= count($blueprints ?? []) ?></p>
+<p><a href="/blueprints/create"><button type="button">➕ Create Blueprint</button></a></p>
+<hr>
+<?php if (empty($blueprints)): ?>
+<p>No blueprints found.</p>
+<?php else: ?>
+<?php foreach ($blueprints as $blueprint): ?>
+<div style="border:1px solid #d1d5db;border-radius:8px;padding:16px;margin-bottom:16px;background:white;">
+<h3><?= htmlspecialchars((string) ($blueprint['name'] ?? '')) ?></h3>
+<p><strong>ID:</strong> <?= htmlspecialchars((string) ($blueprint['id'] ?? '')) ?></p>
+<p><strong>Board:</strong> <?= htmlspecialchars((string) ($blueprint['board'] ?? '')) ?></p>
+<p><strong>Subject:</strong> <?= htmlspecialchars((string) ($blueprint['subject'] ?? '')) ?></p>
+<p><strong>Version:</strong> <?= htmlspecialchars((string) ($blueprint['version'] ?? '')) ?></p>
+</div>
+<?php endforeach; ?>
+<?php endif; ?>
+<hr>
+<p><a href="/developer">🏠 Back to Developer Dashboard</a></p>

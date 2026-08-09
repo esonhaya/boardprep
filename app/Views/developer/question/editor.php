@@ -88,13 +88,13 @@ All Domains
 <?php foreach (($domains ?? []) as $item): ?>
 
 <option
-value="<?= htmlspecialchars($item) ?>"
-<?= (($domain ?? "") === $item)
+value="<?= htmlspecialchars((string) ($item["id"] ?? "")) ?>"
+<?= (($domain ?? "") === ($item["id"] ?? ""))
     ? "selected"
     : "" ?>
 >
 
-<?= htmlspecialchars($item) ?>
+<?= htmlspecialchars((string) ($item["name"] ?? $item["id"] ?? "")) ?>
 
 </option>
 
@@ -179,22 +179,18 @@ All Topics
 
 </option>
 
-<?php foreach (($topics ?? []) as $group): ?>
-
-<?php foreach (($group["topics"] ?? []) as $item): ?>
+<?php foreach (($topics ?? []) as $item): ?>
 
 <option
-value="<?= htmlspecialchars($item) ?>"
-<?= (($topic ?? "") === $item)
+value="<?= htmlspecialchars((string) ($item["id"] ?? "")) ?>"
+<?= (($topic ?? "") === ($item["id"] ?? ""))
     ? "selected"
     : "" ?>
 >
 
-<?= htmlspecialchars($item) ?>
+<?= htmlspecialchars((string) ($item["name"] ?? $item["id"] ?? "")) ?>
 
 </option>
-
-<?php endforeach; ?>
 
 <?php endforeach; ?>
 

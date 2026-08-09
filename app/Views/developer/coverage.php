@@ -2,54 +2,33 @@
 
 <hr>
 
-<?php foreach ($coverage as $domain => $topics): ?>
-
-<h3>
-
-<?= htmlspecialchars($domain) ?>
-
-</h3>
-
+<?php if (empty($statistics->questionsPerDomain)): ?>
+<p>No domain coverage data found.</p>
+<?php else: ?>
 <table border="1" cellpadding="6">
-
+<tr><th>Domain</th><th>Questions</th></tr>
+<?php foreach ($statistics->questionsPerDomain as $domain => $count): ?>
 <tr>
-
-<th>Topic</th>
-
-<th>Questions</th>
-
-<th>Status</th>
-
+<td><?= htmlspecialchars((string) $domain) ?></td>
+<td><?= (int) $count ?></td>
 </tr>
-
-<?php foreach ($topics as $row): ?>
-
-<tr>
-
-<td>
-
-<?= htmlspecialchars($row["topic"]) ?>
-
-</td>
-
-<td>
-
-<?= $row["count"] ?>
-
-</td>
-
-<td>
-
-<?= $row["status"] ?>
-
-</td>
-
-</tr>
-
 <?php endforeach; ?>
-
 </table>
+<?php endif; ?>
 
-<br>
+<hr>
 
+<h3>Topics</h3>
+<?php if (empty($statistics->questionsPerTopic)): ?>
+<p>No topic coverage data found.</p>
+<?php else: ?>
+<table border="1" cellpadding="6">
+<tr><th>Topic</th><th>Questions</th></tr>
+<?php foreach ($statistics->questionsPerTopic as $topic => $count): ?>
+<tr>
+<td><?= htmlspecialchars((string) $topic) ?></td>
+<td><?= (int) $count ?></td>
+</tr>
 <?php endforeach; ?>
+</table>
+<?php endif; ?>

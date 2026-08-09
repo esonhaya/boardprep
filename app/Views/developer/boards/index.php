@@ -106,7 +106,7 @@ foreach ($boards as $board) {
                         "👁 View",
 
                     "href" =>
-                        "/board/view&id="
+                        "/board/view?id="
                         .
                         urlencode(
                             $board["id"]
@@ -134,11 +134,11 @@ foreach ($boards as $board) {
 
                         ?
 
-                        "/board/archive&id="
+                        "/board/archive?id="
 
                         :
 
-                        "/board/activate&id="
+                        "/board/activate?id="
 
                     .
 

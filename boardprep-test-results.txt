@@ -1,0 +1,63 @@
+=== PHP LINT ===
+FILES: 351
+LINT FAILURES: 0
+
+=== HTTP SIMULATION ===
+======================================
+ BoardPrep HTTP Simulation
+ Real public/index.php
+======================================
+[PASS] GET / (9.58 ms)
+[PASS] GET /grammar (8.82 ms)
+[PASS] GET /dashboard (10.71 ms)
+[PASS] GET /profile (9.21 ms)
+[PASS] GET /progress (9.13 ms)
+[PASS] GET /boards (9.60 ms)
+[PASS] GET /subjects (9.91 ms)
+[PASS] GET /question-editor (10.33 ms)
+[PASS] GET /question-import (9.24 ms)
+[PASS] GET /question-quality (11.11 ms)
+[PASS] GET /question-inspector (10.88 ms)
+[PASS] GET /coverage (10.42 ms)
+[PASS] GET /taxonomy (10.17 ms)
+[PASS] GET /metadata-repair (10.90 ms)
+[PASS] GET /blueprints (9.40 ms)
+[PASS] GET /blueprint-health (9.39 ms)
+[PASS] POST request environment (9.11 ms)
+[PASS] Custom server environment (9.11 ms)
+[PASS] Cookie environment (9.62 ms)
+
+======================================
+PASS: 19
+FAIL: 0
+======================================
+
+=== FUNCTION TEST ===
+======================================
+ BoardPrep Function Test
+======================================
+Mode: In-process simulation
+Database: NOT USED
+HTTP server: NOT USED
+
+[TEST] Application autoloader
+[PASS] OK
+
+[TEST] StorageInterface
+[PASS] OK
+
+[TEST] MemoryStorage
+[PASS] OK
+
+======================================
+ SUMMARY
+======================================
+PASS       : 3
+FAIL       : 0
+ASSERTIONS : 10
+
+[PASS] Function simulation passed.
+
+=== APPLICATION SIMULATION ===
+PASS: Real application simulation
+Steps: 4

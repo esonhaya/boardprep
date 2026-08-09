@@ -12,17 +12,63 @@ class SubjectController extends BaseDeveloperController
 {
     public static function index(): void
     {
+        $search =
+            trim((string) Request::query(
+                "search",
+                ""
+            ));
+
+        $subjects =
+            SubjectViewService::all();
+
+        if ($search !== "") {
+            $needle =
+                strtolower($search);
+
+            $subjects =
+                array_values(
+                    array_filter(
+                        $subjects,
+                        static function (array $subject) use ($needle): bool {
+                            foreach (
+                                [
+                                    "id",
+                                    "code",
+                                    "name",
+                                    "description",
+                                ] as $field
+                            ) {
+                                if (
+                                    str_contains(
+                                        strtolower(
+                                            (string) ($subject[$field] ?? "")
+                                        ),
+                                        $needle
+                                    )
+                                ) {
+                                    return true;
+                                }
+                            }
+
+                            return false;
+                        }
+                    )
+                );
+        }
+
         self::renderDeveloper(
             "developer/subjects/index",
-            SubjectViewService::index()
+            [
+                "subjects" => $subjects,
+                "search" => $search,
+            ]
         );
     }
 
     public static function create(): void
     {
         self::renderDeveloper(
-            "developer/subjects/create",
-            SubjectViewService::create()
+            "developer/subjects/create"
         );
     }
 
@@ -41,34 +87,30 @@ class SubjectController extends BaseDeveloperController
     {
         $subject =
             SubjectService::find(
-                Request::get(
+                (string) Request::query(
                     "id",
                     ""
                 )
             );
 
         if ($subject === null) {
-
             self::developerRedirect(
                 "subjects"
             );
-
-            return;
-
         }
 
         self::renderDeveloper(
             "developer/subjects/edit",
-            SubjectViewService::edit(
-                $subject
-            )
+            [
+                "subject" => $subject,
+            ]
         );
     }
 
     public static function update(): void
     {
         SubjectService::update(
-            Request::get(
+            (string) Request::query(
                 "id",
                 ""
             ),
@@ -83,7 +125,7 @@ class SubjectController extends BaseDeveloperController
     public static function archive(): void
     {
         SubjectService::archive(
-            Request::get(
+            (string) Request::query(
                 "id",
                 ""
             )
@@ -97,7 +139,7 @@ class SubjectController extends BaseDeveloperController
     public static function activate(): void
     {
         SubjectService::activate(
-            Request::get(
+            (string) Request::query(
                 "id",
                 ""
             )
@@ -108,31 +150,27 @@ class SubjectController extends BaseDeveloperController
         );
     }
 
-    public static function view(): void
+    public static function show(): void
     {
         $subject =
             SubjectService::find(
-                Request::get(
+                (string) Request::query(
                     "id",
                     ""
                 )
             );
 
         if ($subject === null) {
-
             self::developerRedirect(
                 "subjects"
             );
-
-            return;
-
         }
 
         self::renderDeveloper(
             "developer/subjects/view",
-            SubjectViewService::view(
-                $subject
-            )
+            [
+                "subject" => $subject,
+            ]
         );
     }
 }

@@ -1,5 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Services\Learning;
+
+use App\Services\Learning\WeaknessStorageService;
+
 class WeaknessService
 {
     public static function analyze(

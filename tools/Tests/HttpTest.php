@@ -25,6 +25,12 @@ final class HttpTest
         echo " Real public/index.php\n";
         echo "======================================\n";
 
+        /*
+        |--------------------------------------------------------------------------
+        | Public routes
+        |--------------------------------------------------------------------------
+        */
+
         $this->test(
             'GET /',
             $simulator->request('GET', '/'),
@@ -32,6 +38,7 @@ final class HttpTest
             $failed,
             function (array $response): void {
                 $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
                 $this->assertContains(
                     $response['output'],
                     'BoardPrep'
@@ -40,56 +47,183 @@ final class HttpTest
         );
 
         $this->test(
-            'GET /?page=let',
-            $simulator->request(
-                'GET',
-                '/?page=let',
-                ['page' => 'let']
-            ),
+            'GET /grammar',
+            $simulator->request('GET', '/grammar'),
             $passed,
             $failed,
             function (array $response): void {
                 $this->assertSuccessful($response);
-                $this->assertContains(
-                    $response['output'],
-                    'LET'
-                );
-            }
-        );
-
-        $this->test(
-            'GET /?page=english',
-            $simulator->request(
-                'GET',
-                '/?page=english',
-                ['page' => 'english']
-            ),
-            $passed,
-            $failed,
-            function (array $response): void {
-                $this->assertSuccessful($response);
-                $this->assertContains(
-                    $response['output'],
-                    'English'
-                );
-            }
-        );
-
-        $this->test(
-            'GET /?page=grammar',
-            $simulator->request(
-                'GET',
-                '/?page=grammar',
-                ['page' => 'grammar']
-            ),
-            $passed,
-            $failed,
-            function (array $response): void {
-                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
                 $this->assertContains(
                     $response['output'],
                     'Grammar'
                 );
+            }
+        );
+
+        /*
+        |--------------------------------------------------------------------------
+        | Application routes
+        |--------------------------------------------------------------------------
+        */
+
+        $this->test(
+            'GET /dashboard',
+            $simulator->request('GET', '/dashboard'),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
+            }
+        );
+
+        $this->test(
+            'GET /profile',
+            $simulator->request('GET', '/profile'),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
+            }
+        );
+
+        $this->test(
+            'GET /progress',
+            $simulator->request('GET', '/progress'),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
+            }
+        );
+
+        $this->test(
+            'GET /boards',
+            $simulator->request('GET', '/boards'),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
+            }
+        );
+
+        $this->test(
+            'GET /subjects',
+            $simulator->request('GET', '/subjects'),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
+            }
+        );
+
+        /*
+        |--------------------------------------------------------------------------
+        | Developer routes
+        |--------------------------------------------------------------------------
+        */
+
+        $this->test(
+            'GET /question-editor',
+            $simulator->request('GET', '/question-editor'),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
+            }
+        );
+
+        $this->test(
+            'GET /question-import',
+            $simulator->request('GET', '/question-import'),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
+            }
+        );
+
+        $this->test(
+            'GET /question-quality',
+            $simulator->request('GET', '/question-quality'),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
+            }
+        );
+
+        $this->test(
+            'GET /question-inspector',
+            $simulator->request('GET', '/question-inspector'),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
+            }
+        );
+
+        $this->test(
+            'GET /coverage',
+            $simulator->request('GET', '/coverage'),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
+            }
+        );
+
+        $this->test(
+            'GET /taxonomy',
+            $simulator->request('GET', '/taxonomy'),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
+            }
+        );
+
+        $this->test(
+            'GET /metadata-repair',
+            $simulator->request('GET', '/metadata-repair'),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
+            }
+        );
+
+        $this->test(
+            'GET /blueprints',
+            $simulator->request('GET', '/blueprints'),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
+            }
+        );
+
+        $this->test(
+            'GET /blueprint-health',
+            $simulator->request('GET', '/blueprint-health'),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
             }
         );
 
@@ -103,7 +237,7 @@ final class HttpTest
             'POST request environment',
             $simulator->request(
                 'POST',
-                '/?page=home',
+                '/',
                 [],
                 [
                     'simulation' => 'true',

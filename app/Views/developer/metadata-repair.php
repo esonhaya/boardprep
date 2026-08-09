@@ -2,105 +2,24 @@
 
 <hr>
 
-<?php if ($repaired !== null): ?>
+<p>Questions with repairable metadata issues:
+<strong><?= count($repairableIssues ?? []) ?></strong></p>
 
-<p>
-
-<strong>
-
-Repaired:
-
-<?= $repaired ?>
-
-question(s)
-
-</strong>
-
-</p>
-
-<hr>
-
-<?php endif; ?>
-
-
-<p>
-
-Questions needing repair:
-
-<strong>
-
-<?= count($report) ?>
-
-</strong>
-
-</p>
-
-
-<p>
-
-<a href="/metadata-repair&action=repair">
-
-<button>
-
-Apply Repairs
-
-</button>
-
-</a>
-
-</p>
-
-<hr>
-
-
-<?php if (empty($report)): ?>
-
-<p>
-
-No metadata issues found.
-
-</p>
-
+<?php if (empty($repairableIssues)): ?>
+<p>No repairable metadata issues found.</p>
 <?php else: ?>
-
 <table border="1" cellpadding="6">
-
+<tr><th>ID</th><th>Severity</th><th>Code</th><th>Message</th></tr>
+<?php foreach ($repairableIssues as $issue): ?>
 <tr>
-
-<th>ID</th>
-
-<th>Question</th>
-
-<th>Issues</th>
-
+<td><?= htmlspecialchars((string) ($issue->entityId ?? '')) ?></td>
+<td><?= htmlspecialchars((string) $issue->severity) ?></td>
+<td><?= htmlspecialchars((string) $issue->code) ?></td>
+<td><?= htmlspecialchars((string) $issue->message) ?></td>
 </tr>
-
-<?php foreach ($report as $row): ?>
-
-<tr>
-
-<td>
-
-<?= $row["id"] ?>
-
-</td>
-
-<td>
-
-<?= htmlspecialchars($row["question"]) ?>
-
-</td>
-
-<td>
-
-<?= implode(", ", $row["issues"]) ?>
-
-</td>
-
-</tr>
-
 <?php endforeach; ?>
-
 </table>
-
 <?php endif; ?>
+
+<hr>
+<p>Total repository issues: <?= count($report->issues ?? []) ?></p>

@@ -6,6 +6,7 @@ namespace App\Controllers;
 
 use App\Core\Response;
 use App\Core\View;
+use App\ViewModels\Developer\PageHeaderViewModel;
 
 class BaseDeveloperController extends BaseController
 {
@@ -17,6 +18,15 @@ class BaseDeveloperController extends BaseController
 
         $data["showDeveloperFooter"] =
             $showFooter;
+
+        if (
+            !isset($data["pageHeader"])
+            && isset($data["pageTitle"])
+        ) {
+            $data["pageHeader"] = new PageHeaderViewModel(
+                (string) $data["pageTitle"]
+            );
+        }
 
         $data["layout"] =
             "developer";

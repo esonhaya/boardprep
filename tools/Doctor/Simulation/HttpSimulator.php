@@ -127,6 +127,21 @@ set_exception_handler(
     }
 );
 
+register_shutdown_function(
+    static function (): void {
+        $status = http_response_code();
+
+        if (!is_int($status) || $status < 100) {
+            $status = 200;
+        }
+
+        fwrite(
+            STDERR,
+            '__BOARDPREP_SIM_STATUS__' . $status . PHP_EOL
+        );
+    }
+);
+
 ob_start();
 
 try {
@@ -232,6 +247,17 @@ PHP;
                 ? (string) file_get_contents($stderrFile)
                 : '';
 
+        $simulatedStatus =
+            $this->extractSimulatedStatus($stderr);
+
+        if ($simulatedStatus !== null) {
+            $stderr = preg_replace(
+                '/^__BOARDPREP_SIM_STATUS__\d{3}\R?/m',
+                '',
+                $stderr
+            ) ?? $stderr;
+        }
+
         @unlink($stdoutFile);
         @unlink($stderrFile);
 
@@ -242,7 +268,8 @@ PHP;
             $this->extractHeaders($stdout);
 
         $status =
-            $this->extractStatus($headers);
+            $simulatedStatus
+            ?? $this->extractStatus($headers);
 
         $location =
             $this->extractLocation($headers);
@@ -260,6 +287,22 @@ PHP;
                 $exitCode === 0
                 && $status < 400,
         ];
+    }
+
+    private function extractSimulatedStatus(
+        string $stderr
+    ): ?int {
+        if (
+            preg_match(
+                '/^__BOARDPREP_SIM_STATUS__(\d{3})$/m',
+                $stderr,
+                $matches
+            )
+        ) {
+            return (int) $matches[1];
+        }
+
+        return null;
     }
 
     /**

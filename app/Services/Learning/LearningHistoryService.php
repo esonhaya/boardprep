@@ -1,12 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Services\Learning;
+
+use App\Core\App;
+use App\Repositories\AttemptRepository;
+
 class LearningHistoryService
 {
 
     public static function recent(int $limit = 10): array
     {
 
-        $attempts = AttemptRepository::all();
+        $attempts = App::container()->get(AttemptRepository::class)->all();
 
         usort(
             $attempts,

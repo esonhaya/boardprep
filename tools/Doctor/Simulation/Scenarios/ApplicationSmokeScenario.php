@@ -20,25 +20,17 @@ final class ApplicationSmokeScenario extends SimulationScenario
         $simulation
             ->get('/')
             ->execute()
+            ->assertStatus(200)
             ->assertSuccessful()
-            ->assertNotContains(
-                'Fatal error'
-            );
+            ->assertContains('BoardPrep')
+            ->assertNotContains('Fatal error');
 
         $simulation
-            ->get('/let')
+            ->get('/grammar')
             ->execute()
+            ->assertStatus(200)
             ->assertSuccessful()
-            ->assertContains(
-                'LET'
-            );
-
-        $simulation
-            ->get('/english')
-            ->execute()
-            ->assertSuccessful()
-            ->assertContains(
-                'English'
-            );
+            ->assertContains('Grammar')
+            ->assertNotContains('Fatal error');
     }
 }

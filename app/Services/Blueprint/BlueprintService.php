@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\Blueprint;
 
+use App\Core\App;
 use App\Repositories\BlueprintRepository;
 use App\Services\Shared\BlueprintValidator;
 
@@ -11,7 +12,7 @@ class BlueprintService
 {
     public static function all(): array
     {
-        return (new BlueprintRepository())->all();
+        return App::container()->get(BlueprintRepository::class)->all();
     }
 
     public static function create(
@@ -82,7 +83,7 @@ class BlueprintService
             ];
         }
 
-        (new BlueprintRepository())->create(
+        App::container()->get(BlueprintRepository::class)->create(
             $blueprint
         );
 
@@ -127,7 +128,7 @@ class BlueprintService
         $highest = 0;
 
         foreach (
-            (new BlueprintRepository())->all()
+            App::container()->get(BlueprintRepository::class)->all()
             as $blueprint
         ) {
 

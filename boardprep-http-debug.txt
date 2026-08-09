@@ -1,0 +1,536 @@
+===== ROUTES =====
+<?php
+
+declare(strict_types=1);
+
+use App\Controllers\BoardController;
+use App\Controllers\BlueprintController;
+use App\Controllers\BlueprintHealthController;
+use App\Controllers\CoverageController;
+use App\Controllers\DashboardController;
+use App\Controllers\DeveloperToolsController;
+use App\Controllers\HomeController;
+use App\Controllers\LearningProfileController;
+use App\Controllers\MetadataRepairController;
+use App\Controllers\ProgressController;
+use App\Controllers\QuestionEditorController;
+use App\Controllers\QuestionExportController;
+use App\Controllers\QuestionImportController;
+use App\Controllers\QuestionInspectorController;
+use App\Controllers\QuestionQualityController;
+use App\Controllers\QuizFlowController;
+use App\Controllers\SubjectController;
+use App\Controllers\TaxonomyController;
+
+$router->get(
+    "/",
+    [HomeController::class, "index"]
+);
+
+$router->get(
+    "/grammar",
+    function () {
+        \App\Core\View::render(
+            "grammar/index",
+            [
+                "pageTitle" => "Grammar"
+            ]
+        );
+    }
+);
+
+$router->get(
+    "/dashboard",
+    [DashboardController::class, "index"]
+);
+
+$router->get(
+    "/quiz",
+    [QuizFlowController::class, "handle"]
+);
+
+$router->get(
+    "/profile",
+    [LearningProfileController::class, "index"]
+);
+
+$router->get(
+    "/progress",
+    [ProgressController::class, "index"]
+);
+
+$router->get(
+    "/developer",
+    [DeveloperToolsController::class, "index"]
+);
+
+$router->get(
+    "/boards",
+    [BoardController::class, "index"]
+);
+
+$router->get(
+    "/board/create",
+    [BoardController::class, "create"]
+);
+
+$router->post(
+    "/board/save",
+    [BoardController::class, "save"]
+);
+
+$router->get(
+    "/board/archive",
+    [BoardController::class, "archive"]
+);
+
+$router->get(
+    "/board/activate",
+    [BoardController::class, "activate"]
+);
+
+$router->get(
+    "/subjects",
+    [SubjectController::class, "index"]
+);
+
+$router->get(
+    "/subject/create",
+    [SubjectController::class, "create"]
+);
+
+$router->post(
+    "/subject/save",
+    [SubjectController::class, "save"]
+);
+
+$router->get(
+    "/subject/edit",
+    [SubjectController::class, "edit"]
+);
+
+$router->post(
+    "/subject/update",
+    [SubjectController::class, "update"]
+);
+
+$router->get(
+    "/subject/view",
+    [SubjectController::class, "view"]
+);
+
+$router->get(
+    "/subject/archive",
+    [SubjectController::class, "archive"]
+);
+
+$router->get(
+    "/subject/activate",
+    [SubjectController::class, "activate"]
+);
+
+$router->get(
+    "/question-editor",
+    [QuestionEditorController::class, "index"]
+);
+
+$router->get(
+    "/question-editor/create",
+    [QuestionEditorController::class, "create"]
+);
+
+$router->get(
+    "/question-editor/edit",
+    [QuestionEditorController::class, "edit"]
+);
+
+$router->post(
+    "/question-editor/save",
+    [QuestionEditorController::class, "save"]
+);
+
+$router->post(
+    "/question-editor/update",
+    [QuestionEditorController::class, "update"]
+);
+
+$router->get(
+    "/question-editor/archive",
+    [QuestionEditorController::class, "archive"]
+);
+
+$router->get(
+    "/question-editor/restore",
+    [QuestionEditorController::class, "restore"]
+);
+
+$router->get(
+    "/question-export",
+    [QuestionExportController::class, "export"]
+);
+
+$router->get(
+    "/question-import",
+    [QuestionImportController::class, "index"]
+);
+
+$router->post(
+    "/question-import/import",
+    [QuestionImportController::class, "import"]
+);
+
+$router->get(
+    "/question-quality",
+    [QuestionQualityController::class, "index"]
+);
+
+$router->get(
+    "/question-inspector",
+    [QuestionInspectorController::class, "index"]
+);
+
+$router->get(
+    "/coverage",
+    [CoverageController::class, "index"]
+);
+
+$router->get(
+    "/taxonomy",
+    [TaxonomyController::class, "index"]
+);
+
+$router->post(
+    "/taxonomy/rebuild",
+    [TaxonomyController::class, "rebuild"]
+);
+
+$router->get(
+    "/metadata-repair",
+    [MetadataRepairController::class, "index"]
+);
+
+$router->get(
+    "/blueprints",
+    [BlueprintController::class, "index"]
+);
+
+$router->get(
+    "/blueprints/create",
+    [BlueprintController::class, "create"]
+);
+
+$router->post(
+    "/blueprints/save",
+    [BlueprintController::class, "save"]
+);
+
+$router->get(
+    "/blueprint-health",
+    [BlueprintHealthController::class, "index"]
+);
+
+===== HTTP TEST =====
+<?php
+
+declare(strict_types=1);
+
+namespace Tools\Tests;
+
+use Tools\Doctor\Simulation\HttpSimulator;
+
+final class HttpTest
+{
+    public function run(): int
+    {
+        $entryPoint =
+            dirname(__DIR__, 2)
+            . '/public/index.php';
+
+        $simulator =
+            new HttpSimulator($entryPoint);
+
+        $passed = 0;
+        $failed = 0;
+
+        echo "======================================\n";
+        echo " BoardPrep HTTP Simulation\n";
+        echo " Real public/index.php\n";
+        echo "======================================\n";
+
+        $this->test(
+            'GET /',
+            $simulator->request('GET', '/'),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertContains(
+                    $response['output'],
+                    'BoardPrep'
+                );
+            }
+        );
+
+        $this->test(
+            'GET /?page=let',
+            $simulator->request(
+                'GET',
+                '/?page=let',
+                ['page' => 'let']
+            ),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertContains(
+                    $response['output'],
+                    'LET'
+                );
+            }
+        );
+
+        $this->test(
+            'GET /?page=english',
+            $simulator->request(
+                'GET',
+                '/?page=english',
+                ['page' => 'english']
+            ),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertContains(
+                    $response['output'],
+                    'English'
+                );
+            }
+        );
+
+        $this->test(
+            'GET /?page=grammar',
+            $simulator->request(
+                'GET',
+                '/?page=grammar',
+                ['page' => 'grammar']
+            ),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertContains(
+                    $response['output'],
+                    'Grammar'
+                );
+            }
+        );
+
+        /*
+        |--------------------------------------------------------------------------
+        | POST simulation
+        |--------------------------------------------------------------------------
+        */
+
+        $this->test(
+            'POST request environment',
+            $simulator->request(
+                'POST',
+                '/?page=home',
+                [],
+                [
+                    'simulation' => 'true',
+                    'value' => 'BoardPrep',
+                ]
+            ),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
+            }
+        );
+
+        /*
+        |--------------------------------------------------------------------------
+        | Custom server variables
+        |--------------------------------------------------------------------------
+        */
+
+        $this->test(
+            'Custom server environment',
+            $simulator->request(
+                'GET',
+                '/',
+                [],
+                [],
+                [
+                    'HTTP_HOST' => 'boardprep.test',
+                    'HTTPS' => 'on',
+                    'HTTP_USER_AGENT' => 'BoardPrep-Simulator',
+                ]
+            ),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
+            }
+        );
+
+        /*
+        |--------------------------------------------------------------------------
+        | Cookies
+        |--------------------------------------------------------------------------
+        */
+
+        $this->test(
+            'Cookie environment',
+            $simulator->request(
+                'GET',
+                '/',
+                [],
+                [],
+                [],
+                [
+                    'boardprep_test' => 'simulation',
+                ]
+            ),
+            $passed,
+            $failed,
+            function (array $response): void {
+                $this->assertSuccessful($response);
+                $this->assertNoRuntimeError($response);
+            }
+        );
+
+        echo "\n======================================\n";
+        echo "PASS: {$passed}\n";
+        echo "FAIL: {$failed}\n";
+        echo "======================================\n";
+
+        return $failed === 0 ? 0 : 1;
+    }
+
+    private function test(
+        string $name,
+        array $response,
+        int &$passed,
+        int &$failed,
+        callable $assertions
+    ): void {
+        try {
+            $assertions($response);
+
+            echo "[PASS] {$name} ("
+                . number_format(
+                    $response['duration'] * 1000,
+                    2
+                )
+                . " ms)\n";
+
+            $passed++;
+
+        } catch (\Throwable $exception) {
+
+            echo "[FAIL] {$name}\n";
+            echo "       {$exception->getMessage()}\n";
+
+            if ($response['stderr'] !== '') {
+                echo "       STDERR: "
+                    . trim($response['stderr'])
+                    . "\n";
+            }
+
+            $failed++;
+        }
+    }
+
+    private function assertSuccessful(
+        array $response
+    ): void {
+        if (!$response['success']) {
+            throw new \RuntimeException(
+                "Expected successful response, received "
+                . "HTTP {$response['status']}."
+            );
+        }
+    }
+
+    private function assertNoRuntimeError(
+        array $response
+    ): void {
+        if ($response['exitCode'] !== 0) {
+            throw new \RuntimeException(
+                'Runtime error: '
+                . trim($response['stderr'])
+            );
+        }
+    }
+
+    private function assertContains(
+        string $haystack,
+        string $needle
+    ): void {
+        if (!str_contains($haystack, $needle)) {
+            throw new \RuntimeException(
+                "Expected response to contain: {$needle}"
+            );
+        }
+    }
+}
+
+===== PUBLIC ENTRY =====
+<?php
+
+declare(strict_types=1);
+
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
+session_start();
+
+require_once __DIR__ . '/../app/Core/Autoloader.php';
+
+\App\Core\Autoloader::register();
+
+use App\Core\ExceptionHandler;
+use App\Core\Router;
+
+try {
+
+    require_once __DIR__ . '/../bootstrap/app.php';
+
+    $router = new Router();
+
+    require_once __DIR__ . '/../routes/web.php';
+
+    $method =
+        $_SERVER['REQUEST_METHOD']
+        ?? 'GET';
+
+    $uri =
+        $_SERVER['REQUEST_URI']
+        ?? '/';
+
+    $path =
+        parse_url(
+            $uri,
+            PHP_URL_PATH
+        );
+
+    if (!is_string($path) || $path === '') {
+        $path = '/';
+    }
+
+    $router->dispatch(
+        $method,
+        $path
+    );
+
+} catch (Throwable $exception) {
+
+    (new ExceptionHandler())->handle(
+        $exception
+    );
+
+}

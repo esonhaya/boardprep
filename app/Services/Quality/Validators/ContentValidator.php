@@ -22,7 +22,7 @@ class ContentValidator
                 "message" => "Question text is empty."
             ];
 
-        } elseif (mb_strlen($text) < 15) {
+        } elseif (function_exists('mb_strlen') ? mb_strlen($text) : strlen($text) < 15) {
 
             $issues[] = [
                 "severity" => "warning",
@@ -44,7 +44,7 @@ class ContentValidator
                 "message" => "Explanation is missing."
             ];
 
-        } elseif (mb_strlen($explanation) < 20) {
+        } elseif (function_exists('mb_strlen') ? mb_strlen($explanation) : strlen($explanation) < 20) {
 
             $issues[] = [
                 "severity" => "info",

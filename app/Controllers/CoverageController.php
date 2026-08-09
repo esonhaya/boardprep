@@ -1,5 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
+namespace App\Controllers;
+
+use App\Services\RepositoryHealth\Engine\RepositoryHealthEngine;
+
 class CoverageController extends BaseDeveloperController
 {
     public static function index(): void

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\Core\Request;
 use App\Services\Board\BoardService;
 use App\Services\Board\BoardViewService;
 
@@ -28,39 +29,57 @@ class BoardController extends BaseDeveloperController
 
     public static function save(): void
     {
-        BoardService::create($_POST);
+        BoardService::create(
+            Request::post()
+        );
 
-        self::developerRedirect("boards");
+        self::developerRedirect(
+            "boards"
+        );
     }
 
     public static function archive(): void
     {
-        $id = $_GET["id"] ?? "";
+        BoardService::archive(
+            (string) Request::query(
+                "id",
+                ""
+            )
+        );
 
-        BoardService::archive($id);
-
-        self::developerRedirect("boards");
+        self::developerRedirect(
+            "boards"
+        );
     }
 
     public static function activate(): void
     {
-        $id = $_GET["id"] ?? "";
+        BoardService::activate(
+            (string) Request::query(
+                "id",
+                ""
+            )
+        );
 
-        BoardService::activate($id);
-
-        self::developerRedirect("boards");
+        self::developerRedirect(
+            "boards"
+        );
     }
 
-    public static function view(): void
+    public static function show(): void
     {
-        $id = $_GET["id"] ?? "";
+        $board =
+            BoardViewService::find(
+                (string) Request::query(
+                    "id",
+                    ""
+                )
+            );
 
-        $board = BoardViewService::find($id);
-
-        if (!$board) {
-            self::developerRedirect("boards");
-
-            return;
+        if ($board === null) {
+            self::developerRedirect(
+                "boards"
+            );
         }
 
         self::renderDeveloper(

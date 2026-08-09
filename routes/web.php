@@ -26,6 +26,11 @@ $router->get(
     [HomeController::class, "index"]
 );
 
+$router->post(
+    "/",
+    [HomeController::class, "index"]
+);
+
 $router->get(
     "/grammar",
     function () {
@@ -66,6 +71,11 @@ $router->get(
 $router->get(
     "/boards",
     [BoardController::class, "index"]
+);
+
+$router->get(
+    "/board/view",
+    [BoardController::class, "show"]
 );
 
 $router->get(
@@ -115,7 +125,7 @@ $router->post(
 
 $router->get(
     "/subject/view",
-    [SubjectController::class, "view"]
+    [SubjectController::class, "show"]
 );
 
 $router->get(
