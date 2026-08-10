@@ -24,6 +24,7 @@ final class QuizTest
         $this->testServicesAvailable();
         $this->testCoreQuizServices();
         $this->testSelectionServices();
+        $this->testDifficultySelectionBehavior();
         $this->testBlueprintServices();
         $this->testScoringBehavior();
         $this->testHistoryBehavior();
@@ -168,6 +169,181 @@ final class QuizTest
         }
     }
 
+    private function testDifficultySelectionBehavior(): void
+    {
+        echo "[TEST] Difficulty selection behavior\n";
+
+        $this->testDifficultyQuotaBehavior();
+        $this->testDifficultyShortageRecovery();
+        $this->testDifficultyEdgeCases();
+        $this->testDifficultyUniqueness();
+
+        echo "[PASS] OK\n";
+    }
+
+    private function testDifficultyQuotaBehavior(): void
+    {
+        $questions = [
+            ['id' => 701, 'difficulty' => 'easy'],
+            ['id' => 702, 'difficulty' => 'easy'],
+            ['id' => 703, 'difficulty' => 'easy'],
+            ['id' => 704, 'difficulty' => 'medium'],
+            ['id' => 705, 'difficulty' => 'medium'],
+            ['id' => 706, 'difficulty' => 'medium'],
+            ['id' => 707, 'difficulty' => 'hard'],
+            ['id' => 708, 'difficulty' => 'hard'],
+        ];
+
+        $balanced =
+            \DifficultySelectionService::select(
+                $questions,
+                [
+                    'easy' => 50,
+                    'medium' => 50,
+                ],
+                6
+            );
+
+        $this->assertSame(
+            6,
+            count($balanced),
+            'Difficulty: requested count is respected'
+        );
+
+        $counts = [
+            'easy' => 0,
+            'medium' => 0,
+            'hard' => 0,
+        ];
+
+        foreach ($balanced as $question) {
+            $difficulty =
+                strtolower(
+                    (string) ($question['difficulty'] ?? '')
+                );
+
+            if (isset($counts[$difficulty])) {
+                $counts[$difficulty]++;
+            }
+        }
+
+        $this->assertSame(
+            3,
+            $counts['easy'],
+            'Difficulty: easy quota is respected'
+        );
+
+        $this->assertSame(
+            3,
+            $counts['medium'],
+            'Difficulty: medium quota is respected'
+        );
+    }
+
+    private function testDifficultyShortageRecovery(): void
+    {
+        $shortPool = [
+            ['id' => 711, 'difficulty' => 'easy'],
+            ['id' => 712, 'difficulty' => 'easy'],
+            ['id' => 713, 'difficulty' => 'medium'],
+        ];
+
+        $recovered =
+            \DifficultySelectionService::select(
+                $shortPool,
+                [
+                    'easy' => 50,
+                    'hard' => 50,
+                ],
+                3
+            );
+
+        $this->assertSame(
+            3,
+            count($recovered),
+            'Difficulty: shortage recovery fills available count'
+        );
+    }
+
+    private function testDifficultyEdgeCases(): void
+    {
+        $questions = [
+            ['id' => 701, 'difficulty' => 'easy'],
+            ['id' => 702, 'difficulty' => 'easy'],
+            ['id' => 703, 'difficulty' => 'easy'],
+            ['id' => 704, 'difficulty' => 'medium'],
+            ['id' => 705, 'difficulty' => 'medium'],
+            ['id' => 706, 'difficulty' => 'medium'],
+            ['id' => 707, 'difficulty' => 'hard'],
+            ['id' => 708, 'difficulty' => 'hard'],
+        ];
+
+        $mixed =
+            \DifficultySelectionService::select(
+                $questions,
+                [],
+                4
+            );
+
+        $this->assertSame(
+            4,
+            count($mixed),
+            'Difficulty: empty distribution selects requested count'
+        );
+
+        $none =
+            \DifficultySelectionService::select(
+                $questions,
+                [
+                    'easy' => 50,
+                    'medium' => 50,
+                ],
+                0
+            );
+
+        $this->assertSame(
+            0,
+            count($none),
+            'Difficulty: zero question count returns empty selection'
+        );
+    }
+
+    private function testDifficultyUniqueness(): void
+    {
+        $questions = [
+            ['id' => 701, 'difficulty' => 'easy'],
+            ['id' => 702, 'difficulty' => 'easy'],
+            ['id' => 703, 'difficulty' => 'easy'],
+            ['id' => 704, 'difficulty' => 'medium'],
+            ['id' => 705, 'difficulty' => 'medium'],
+            ['id' => 706, 'difficulty' => 'medium'],
+            ['id' => 707, 'difficulty' => 'hard'],
+            ['id' => 708, 'difficulty' => 'hard'],
+        ];
+
+        $balanced =
+            \DifficultySelectionService::select(
+                $questions,
+                [
+                    'easy' => 50,
+                    'medium' => 50,
+                ],
+                6
+            );
+
+        $ids =
+            array_map(
+                static fn(array $question): int =>
+                    (int) ($question['id'] ?? 0),
+                $balanced
+            );
+
+        $this->assertSame(
+            count($ids),
+            count(array_unique($ids)),
+            'Difficulty: selected question IDs are unique'
+        );
+    }
     private function testBlueprintServices(): void
     {
         echo "[TEST] Quiz blueprint services\n";
