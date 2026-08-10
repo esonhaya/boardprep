@@ -4,81 +4,82 @@ declare(strict_types=1);
 
 namespace Tools\Doctor\Checks;
 
-use Tools\Doctor\Context\DoctorContext;
 use Tools\Doctor\Contracts\CheckInterface;
+use Tools\Doctor\Context\DoctorContext;
+use Tools\Doctor\Diagnostics\DiagnosticFindingFactory;
 use Tools\Doctor\DTO\CheckResult;
-use Tools\Doctor\Rules\Rules;
 
 final class LargestMethodCheck implements CheckInterface
 {
     public function run(): CheckResult
     {
-        $snapshot =
-            DoctorContext::snapshot();
+        $snapshot = DoctorContext::snapshot();
 
         $largest = null;
 
         foreach ($snapshot->methods as $method) {
-
             if (
-
                 $largest === null
-                || $method["lines"] > $largest["lines"]
-
+                || ($method['lines'] ?? 0) > ($largest['lines'] ?? 0)
             ) {
-
                 $largest = $method;
-
             }
-
         }
 
-        $threshold =
-            Rules::methodMaxLines();
+        if ($largest === null) {
+            return new CheckResult(
+                title: 'Largest Method',
+                status: 'INFO',
+                summary: 'No methods were found in the project.',
+                score: 100,
+            );
+        }
 
-        $lines =
-            $largest["lines"] ?? 0;
+        $lines = (int) ($largest['lines'] ?? 0);
+        $threshold = 80;
 
-        return new CheckResult(
-
-            title: "Largest Method",
-
-            status:
-                $lines > $threshold
-                    ? "WARNING"
-                    : "PASS",
-
-            summary:
-                $largest["file"] ?? "",
-
+        $result = new CheckResult(
+            title: 'Largest Method',
+            status: $lines > $threshold ? 'WARNING' : 'PASS',
+            summary: "Largest method contains {$lines} lines.",
             details: [
-
-                "Method    : " . ($largest["name"] ?? ""),
-
-                "Length    : {$lines} lines",
-
-                "Threshold : {$threshold}"
-
+                'Method: ' . ($largest['name'] ?? 'Unknown'),
+                'File: ' . ($largest['file'] ?? 'Unknown'),
             ],
-
-            recommendations:
-
-                $lines > $threshold
-
-                ? [
-
-                    "Split {$largest["name"]}() into smaller methods."
-
-                ]
-
-                : []
-
+            score: $lines > $threshold ? 70 : 100,
         );
+
+        if ($lines > $threshold) {
+            $result->addFinding(
+                DiagnosticFindingFactory::warning(
+                    id: 'method.large',
+                    category: 'complexity',
+                    rule: 'largest_method',
+                    title: 'Large Method',
+                    message: sprintf(
+                        '%s contains %d lines, exceeding the recommended limit of %d.',
+                        $largest['name'] ?? 'Unknown method',
+                        $lines,
+                        $threshold
+                    ),
+                    file: $largest['file'] ?? null,
+                    symbol: $largest['name'] ?? null,
+                    recommendation:
+                        'Extract cohesive logic into smaller private methods or collaborators.',
+                    evidence: [
+                        'lines' => $lines,
+                        'threshold' => $threshold,
+                    ],
+                )
+            );
+        }
+
+        return $result;
     }
 
     public function category(): string
     {
-        return "Architecture";
+        return 'complexity';
     }
 
     public function priority(): int

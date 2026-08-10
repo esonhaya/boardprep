@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Tools\Doctor\DTO;
 
+use Tools\Doctor\Diagnostics\DiagnosticFinding;
+use Tools\Doctor\Diagnostics\DiagnosticFindingCollection;
+
 final class DoctorResult
 {
     /**
@@ -86,5 +89,41 @@ final class DoctorResult
                 $score
             )
         );
+    }
+
+    public function findings(): DiagnosticFindingCollection
+    {
+        $findings = new DiagnosticFindingCollection();
+
+        foreach ($this->checks as $check) {
+            $findings->addMany(
+                $check->findings->all()
+            );
+        }
+
+        return $findings;
+    }
+
+    public function findingCount(): int
+    {
+        return count($this->findings());
+    }
+
+    /**
+     * @return DiagnosticFinding[]
+     */
+    public function findingsBySeverity(
+        string $severity
+    ): array {
+        return $this->findings()->bySeverity($severity);
+    }
+
+    /**
+     * @return DiagnosticFinding[]
+     */
+    public function findingsByCategory(
+        string $category
+    ): array {
+        return $this->findings()->byCategory($category);
     }
 }
