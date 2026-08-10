@@ -11,6 +11,10 @@ final class JsonReportWriter
     public function write(
         DoctorResult $result
     ): void {
+        $v2 =
+            (new V2ReportBuilder())
+                ->build($result);
+
         $report = [
             'health' => $result->health(),
 
@@ -23,8 +27,11 @@ final class JsonReportWriter
                 'findings' => $result->findingCount(),
             ],
 
-            'diagnostics' =>
-                $result->diagnostics()->toArray(),
+            'diagnostics' => $v2['diagnostics'],
+            'diagnosis' => $v2['diagnosis'],
+            'fix_plan' => $v2['fix_plan'],
+            'fix_plans' => $v2['fix_plans'],
+            'priority_actions' => $v2['priority_actions'],
 
             'checks' => array_map(
                 static function ($check): array {

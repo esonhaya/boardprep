@@ -9,6 +9,7 @@ use Tools\Doctor\DTO\DoctorResult;
 use Tools\Doctor\Metrics\MetricRegistry;
 use Tools\Doctor\Metrics\MetricsPipeline;
 use Tools\Doctor\Output\JsonReportWriter;
+use Tools\Doctor\Output\V2ConsoleWriter;
 use Tools\Doctor\Snapshot\ProjectSnapshotBuilder;
 
 final class DoctorRunner
@@ -54,6 +55,9 @@ final class DoctorRunner
         }
 
         (new JsonReportWriter())
+            ->write($result);
+
+        (new V2ConsoleWriter())
             ->write($result);
 
         return $result;
