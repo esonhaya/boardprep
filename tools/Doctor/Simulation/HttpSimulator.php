@@ -39,7 +39,53 @@ final class HttpSimulator
         array $server = [],
         array $cookies = []
     ): array {
-        $payload = base64_encode(
+        $payload = $this->createPayload(
+            $method,
+            $path,
+            $query,
+            $post,
+            $server,
+            $cookies
+        );
+
+        $bootstrap = $this->createBootstrap();
+
+        $command = $this->createCommand($bootstrap);
+
+        $start = microtime(true);
+
+        [$stdout, $stderr, $exitCode] =
+            $this->execute(
+                $payload,
+                $command
+            );
+
+        $duration =
+            microtime(true) - $start;
+
+        return $this->buildResponse(
+            $stdout,
+            $stderr,
+            $exitCode,
+            $duration
+        );
+    }
+
+    /**
+     * @param array<string,string|int|float|bool|null> $query
+     * @param array<string,string|int|float|bool|null> $post
+     * @param array<string,string> $server
+     * @param array<string,string> $cookies
+     */
+    private function createPayload(
+        string $method,
+        string $path,
+        array $query,
+        array $post,
+        array $server,
+        array $cookies
+    ): string {
+        return base64_encode(
             serialize([
                 'method' => strtoupper($method),
                 'path' => $path,
@@ -49,8 +95,11 @@ final class HttpSimulator
                 'cookies' => $cookies,
             ])
         );
+    }
 
-        $bootstrap = <<<'PHP'
+    private function createBootstrap(): string
+    {
+        return <<<'PHP'
 declare(strict_types=1);
 
 $payload = unserialize(
@@ -222,8 +271,12 @@ try {
     exit(1);
 }
 PHP;
+    }
 
-        $command =
+    private function createCommand(
+        string $bootstrap
+    ): string {
+        return
             escapeshellarg(PHP_BINARY)
             . ' -d display_errors=0'
             . ' -d log_errors=0'
@@ -231,20 +284,24 @@ PHP;
             . escapeshellarg($bootstrap)
             . ' '
             . escapeshellarg($this->entryPoint);
+    }
 
-        $start = microtime(true);
+    /**
+     * @return array{0:string,1:string,2:int}
+     */
+    private function execute(
+        string $payload,
+        string $command
+    ): array {
+        $stdoutFile = tempnam(
+            sys_get_temp_dir(),
+            'boardprep_stdout_'
+        );
 
-        $stdoutFile =
-            tempnam(
-                sys_get_temp_dir(),
-                'boardprep_stdout_'
-            );
-
-        $stderrFile =
-            tempnam(
-                sys_get_temp_dir(),
-                'boardprep_stderr_'
-            );
+        $stderrFile = tempnam(
+            sys_get_temp_dir(),
+            'boardprep_stderr_'
+        );
 
         if (
             $stdoutFile === false
@@ -255,7 +312,57 @@ PHP;
             );
         }
 
-        $processCommand =
+        try {
+            $processCommand =
+                $this->createProcessCommand(
+                    $payload,
+                    $command,
+                    $stdoutFile,
+                    $stderrFile
+                );
+
+            $output = [];
+            $exitCode = 0;
+
+            exec(
+                $processCommand,
+                $output,
+                $exitCode
+            );
+
+            $stdout =
+                is_file($stdoutFile)
+                    ? (string) file_get_contents(
+                        $stdoutFile
+                    )
+                    : '';
+
+            $stderr =
+                is_file($stderrFile)
+                    ? (string) file_get_contents(
+                        $stderrFile
+                    )
+                    : '';
+
+            return [
+                $stdout,
+                $stderr,
+                $exitCode,
+            ];
+
+        } finally {
+            @unlink($stdoutFile);
+            @unlink($stderrFile);
+        }
+    }
+
+    private function createProcessCommand(
+        string $payload,
+        string $command,
+        string $stdoutFile,
+        string $stderrFile
+    ): string {
+        return
             'env '
             . escapeshellarg(
                 'BOARDPREP_SIMULATION=' . $payload
@@ -270,32 +377,27 @@ PHP;
             . escapeshellarg($stdoutFile)
             . ' 2> '
             . escapeshellarg($stderrFile);
+    }
 
-        $output = [];
-        $exitCode = 0;
-
-        exec(
-            $processCommand,
-            $output,
-            $exitCode
-        );
-
-        $stdout =
-            is_file($stdoutFile)
-                ? (string) file_get_contents($stdoutFile)
-                : '';
-
-        $stderr =
-            is_file($stderrFile)
-                ? (string) file_get_contents($stderrFile)
-                : '';
-
-        @unlink($stdoutFile);
-        @unlink($stderrFile);
-
-        $duration =
-            microtime(true) - $start;
-
+    /**
+     * @return array{
+     *     exitCode:int,
+     *     output:string,
+     *     stdout:string,
+     *     stderr:string,
+     *     duration:float,
+     *     status:int,
+     *     headers:array<int,string>,
+     *     location:string|null,
+     *     success:bool
+     * }
+     */
+    private function buildResponse(
+        string $stdout,
+        string $stderr,
+        int $exitCode,
+        float $duration
+    ): array {
         $headers =
             $this->extractHeaders($stdout);
 

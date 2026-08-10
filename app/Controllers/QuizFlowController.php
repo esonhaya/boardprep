@@ -1,75 +1,77 @@
 <?php
 
-class QuizFlowController
+declare(strict_types=1);
+
+namespace App\Controllers;
+
+use App\Core\Request;
+use App\Core\Response;
+use App\Core\View;
+
+final class QuizFlowController
 {
     public static function handle(): void
     {
-        $action =
-            $_GET["action"] ?? null;
-
-        if ($action === null) {
-
-            $action =
-                isset($_GET["count"])
-                ?
-                "start"
-                :
-                "settings";
-        }
+        $action = trim(
+            (string) Request::query(
+                'action',
+                Request::input('action', '')
+            )
+        );
 
         switch ($action) {
-
-            case "settings":
-
-                View::render(
-                    "quiz/settings"
-                );
-
-                break;
-
-            case "start":
-
+            case 'start':
                 QuizStartService::start();
+                return;
 
-                break;
-
-            case "submit":
-
+            case 'submit':
                 QuizSubmissionService::submit();
+                return;
 
-                break;
-
-            case "next":
-
+            case 'next':
                 QuizNavigationService::next();
+                return;
 
-                break;
-
-            case "finish":
-
-                View::render(
-                    "quiz/result",
-                    [
-                        "result" =>
-                            QuizResultService::build(),
-
-                        "mode" =>
-                            SessionService::get(
-                                "mode",
-                                "practice"
-                            )
-                    ]
-                );
-
-                break;
+            case 'finish':
+                self::finish();
+                return;
 
             default:
-
-                View::render(
-                    "quiz/settings"
-                );
-
-                break;
+                self::settings();
+                return;
         }
+    }
+
+    private static function settings(): void
+    {
+        View::render(
+            'quiz/settings',
+            [
+                'pageTitle' => 'Quiz',
+            ]
+        );
+    }
+
+    private static function finish(): void
+    {
+        $questions = SessionService::get(
+            'questions',
+            []
+        );
+
+        if (empty($questions)) {
+            Response::redirect('/quiz');
+            return;
+        }
+
+        $result = QuizResultService::build();
+
+        View::render(
+            'quiz/result',
+            [
+                'summary' => $result['summary'] ?? [],
+                'review' => $result['review'] ?? [],
+            ]
+        );
     }
 }

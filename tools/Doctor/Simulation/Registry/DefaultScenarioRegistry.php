@@ -7,6 +7,7 @@ namespace Tools\Doctor\Simulation\Registry;
 use Tools\Doctor\Simulation\Scenarios\ApplicationSmokeScenario;
 use Tools\Doctor\Simulation\Scenarios\HomePageScenario;
 use Tools\Doctor\Simulation\Scenarios\HttpStatusScenario;
+use Tools\Doctor\Simulation\Scenarios\QuestionEditorScenario;
 use Tools\Doctor\Simulation\Scenarios\QuizLifecycleScenario;
 
 final class DefaultScenarioRegistry
@@ -18,6 +19,7 @@ final class DefaultScenarioRegistry
             HttpStatusScenario::class,
             ApplicationSmokeScenario::class,
             QuizLifecycleScenario::class,
+            QuestionEditorScenario::class,
         ]);
     }
 }

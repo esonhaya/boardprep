@@ -28,10 +28,27 @@ final class SimulationAssertions
         SimulationResponse $response
     ): void {
         if (!$response->isSuccessful()) {
+            $body = trim($response->body);
+
+            if ($body === '') {
+                $body = '[empty response body]';
+            }
+
+            $body = preg_replace(
+                '/\s+/',
+                ' ',
+                $body
+            ) ?? $body;
+
+            if (strlen($body) > 500) {
+                $body = substr($body, 0, 500) . '...';
+            }
+
             throw new RuntimeException(
                 sprintf(
-                    'Expected successful response, received HTTP %d.',
-                    $response->status
+                    'Expected successful response, received HTTP %d. Body: %s',
+                    $response->status,
+                    $body
                 )
             );
         }
