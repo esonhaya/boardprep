@@ -43,6 +43,21 @@ final class DiagnosticFinding
         return $this->severity === 'INFO';
     }
 
+    public function impact(): int
+    {
+        return DiagnosticRegistry::impact($this->id);
+    }
+
+    public function effort(): string
+    {
+        return DiagnosticRegistry::effort($this->id);
+    }
+
+    public function priorityLabel(): string
+    {
+        return DiagnosticRegistry::label($this->id);
+    }
+
     /**
      * @return array<string,mixed>
      */
@@ -59,6 +74,9 @@ final class DiagnosticFinding
             'symbol' => $this->symbol,
             'recommendation' => $this->recommendation,
             'evidence' => $this->evidence,
+            'impact' => $this->impact(),
+            'effort' => $this->effort(),
+            'priority' => $this->priorityLabel(),
         ];
     }
 }

@@ -53,7 +53,6 @@ final class LargestMethodCheck implements CheckInterface
             $result->addFinding(
                 DiagnosticFindingFactory::warning(
                     id: 'method.large',
-                    category: 'complexity',
                     rule: 'largest_method',
                     title: 'Large Method',
                     message: sprintf(

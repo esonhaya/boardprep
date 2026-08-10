@@ -11,7 +11,6 @@ final class DiagnosticFindingFactory
      */
     public static function warning(
         string $id,
-        string $category,
         string $rule,
         string $title,
         string $message,
@@ -23,7 +22,6 @@ final class DiagnosticFindingFactory
         return self::make(
             severity: 'WARNING',
             id: $id,
-            category: $category,
             rule: $rule,
             title: $title,
             message: $message,
@@ -39,7 +37,6 @@ final class DiagnosticFindingFactory
      */
     public static function error(
         string $id,
-        string $category,
         string $rule,
         string $title,
         string $message,
@@ -51,7 +48,6 @@ final class DiagnosticFindingFactory
         return self::make(
             severity: 'ERROR',
             id: $id,
-            category: $category,
             rule: $rule,
             title: $title,
             message: $message,
@@ -67,7 +63,6 @@ final class DiagnosticFindingFactory
      */
     public static function critical(
         string $id,
-        string $category,
         string $rule,
         string $title,
         string $message,
@@ -79,7 +74,6 @@ final class DiagnosticFindingFactory
         return self::make(
             severity: 'CRITICAL',
             id: $id,
-            category: $category,
             rule: $rule,
             title: $title,
             message: $message,
@@ -95,7 +89,6 @@ final class DiagnosticFindingFactory
      */
     public static function info(
         string $id,
-        string $category,
         string $rule,
         string $title,
         string $message,
@@ -107,7 +100,6 @@ final class DiagnosticFindingFactory
         return self::make(
             severity: 'INFO',
             id: $id,
-            category: $category,
             rule: $rule,
             title: $title,
             message: $message,
@@ -124,7 +116,6 @@ final class DiagnosticFindingFactory
     private static function make(
         string $severity,
         string $id,
-        string $category,
         string $rule,
         string $title,
         string $message,
@@ -136,7 +127,7 @@ final class DiagnosticFindingFactory
         return new DiagnosticFinding(
             id: $id,
             severity: $severity,
-            category: $category,
+            category: DiagnosticRegistry::category($id),
             rule: $rule,
             title: $title,
             message: $message,
