@@ -16,10 +16,10 @@ final class CheckRegistry
     {
         $checks = [];
 
-        foreach (glob('./tools/Doctor/Checks/*.php') as $file) {
+        foreach (glob('./tools/Doctor/Project/BoardPrep/Checks/*.php') as $file) {
 
             $class =
-                'Tools\\Doctor\\Checks\\'
+                'Tools\\Doctor\\Project\\BoardPrep\\Checks\\'
                 . basename($file, '.php');
 
             if (!class_exists($class)) {

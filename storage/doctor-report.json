@@ -1,0 +1,633 @@
+{
+    "health": 74,
+    "summary": {
+        "checks": 30,
+        "pass": 17,
+        "warning": 13,
+        "fail": 0,
+        "info": 0,
+        "findings": 1
+    },
+    "diagnostics": {
+        "count": 1,
+        "critical": 0,
+        "errors": 0,
+        "warnings": 1,
+        "info": 0,
+        "highest_impact": 100,
+        "highest_priority": "Critical",
+        "top_finding": {
+            "id": "method.large",
+            "severity": "WARNING",
+            "category": "complexity",
+            "rule": "largest_method",
+            "title": "Large Method",
+            "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 80.",
+            "file": "./tools/Tests/QuizTest.php",
+            "symbol": "testContentAuthoringBehavior",
+            "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
+            "evidence": {
+                "lines": 127,
+                "threshold": 80
+            },
+            "impact": 100,
+            "effort": "Small",
+            "priority": "Critical"
+        },
+        "categories": {
+            "complexity": 1
+        },
+        "severities": {
+            "CRITICAL": 0,
+            "ERROR": 0,
+            "WARNING": 1,
+            "INFO": 0
+        }
+    },
+    "diagnosis": {
+        "primary": {
+            "status": "WARNING",
+            "id": "method.large",
+            "title": "Large Method",
+            "category": "complexity",
+            "priority": "Critical",
+            "impact": 100,
+            "effort": "Small",
+            "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 80.",
+            "file": "./tools/Tests/QuizTest.php",
+            "symbol": "testContentAuthoringBehavior",
+            "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
+            "evidence": {
+                "lines": 127,
+                "threshold": 80
+            }
+        },
+        "recommendations": [
+            "Extract private helper methods.",
+            "Reduce branching where possible."
+        ],
+        "quick_wins": [
+            "Extract one helper method from the largest method."
+        ]
+    },
+    "fix_plan": {
+        "finding": {
+            "id": "method.large",
+            "severity": "WARNING",
+            "category": "complexity",
+            "rule": "largest_method",
+            "title": "Large Method",
+            "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 80.",
+            "file": "./tools/Tests/QuizTest.php",
+            "symbol": "testContentAuthoringBehavior",
+            "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
+            "evidence": {
+                "lines": 127,
+                "threshold": 80
+            },
+            "impact": 100,
+            "effort": "Small",
+            "priority": "Critical"
+        },
+        "actions": [
+            "Extract cohesive private helper methods.",
+            "Reduce branching inside the method.",
+            "Keep each extracted method focused on one responsibility."
+        ]
+    },
+    "fix_plans": {
+        "count": 1,
+        "items": [
+            {
+                "finding": {
+                    "id": "method.large",
+                    "severity": "WARNING",
+                    "category": "complexity",
+                    "rule": "largest_method",
+                    "title": "Large Method",
+                    "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 80.",
+                    "file": "./tools/Tests/QuizTest.php",
+                    "symbol": "testContentAuthoringBehavior",
+                    "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
+                    "evidence": {
+                        "lines": 127,
+                        "threshold": 80
+                    },
+                    "impact": 100,
+                    "effort": "Small",
+                    "priority": "Critical"
+                },
+                "actions": [
+                    "Extract cohesive private helper methods.",
+                    "Reduce branching inside the method.",
+                    "Keep each extracted method focused on one responsibility."
+                ]
+            }
+        ]
+    },
+    "priority_actions": {
+        "count": 1,
+        "items": [
+            {
+                "finding_id": "method.large",
+                "title": "Large Method",
+                "priority": "Critical",
+                "impact": 100,
+                "effort": "Small",
+                "score": 95,
+                "actions": [
+                    "Extract cohesive private helper methods.",
+                    "Reduce branching inside the method.",
+                    "Keep each extracted method focused on one responsibility."
+                ]
+            }
+        ]
+    },
+    "checks": [
+        {
+            "title": "Runtime Function Test",
+            "status": "WARNING",
+            "summary": "Function test suite is not available.",
+            "details": [
+                "Expected: tests/function-test.php"
+            ],
+            "recommendations": [
+                "Create the project runtime function test suite."
+            ],
+            "score": 50,
+            "findings": []
+        },
+        {
+            "title": "Project Statistics",
+            "status": "PASS",
+            "summary": "Current project size",
+            "details": [
+                "Controllers : 24",
+                "Services    : 123",
+                "Repositories: 9",
+                "Domains     : 1",
+                "Classes     : 314",
+                "Interfaces  : 3",
+                "Traits      : 0",
+                "PHP Files   : 382"
+            ],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Hotspots",
+            "status": "WARNING",
+            "summary": "App.php (34)",
+            "details": [
+                " 34  App.php",
+                " 33  CheckResult.php",
+                " 25  DoctorContext.php",
+                " 19  web.php",
+                " 19  QuizTest.php",
+                " 19  ServiceTest.php",
+                " 18  QuestionRepository.php",
+                " 17  BaseDeveloperController.php",
+                " 17  DoctorResult.php",
+                " 14  ApplicationSimulator.php"
+            ],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Dependency Consistency",
+            "status": "PASS",
+            "summary": "No cross-file API inconsistencies detected across 247 application PHP file(s).",
+            "details": [
+                "Class resolution ........ PASS",
+                "Method contracts ........ PASS",
+                "Property contracts ...... PASS",
+                "Constructor arguments ... PASS",
+                "Inheritance contracts ... PASS"
+            ],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Regression Check",
+            "status": "PASS",
+            "summary": "No baseline available.",
+            "details": [],
+            "recommendations": [
+                "Capture a baseline to enable regression detection."
+            ],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Architecture Scorecard",
+            "status": "PASS",
+            "summary": "Architectural quality overview.",
+            "details": [
+                "Controllers         100",
+                "Services            100",
+                "Dependencies        92",
+                "Maintainability      60",
+                "Technical Debt      100"
+            ],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "History Trend",
+            "status": "PASS",
+            "summary": "Collecting history...",
+            "details": [],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Technical Debt",
+            "status": "PASS",
+            "summary": "Debt Score: 50",
+            "details": [],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Dead Classes",
+            "status": "WARNING",
+            "summary": "49 potentially unused classes.",
+            "details": [
+                "AdaptiveQuizService (./app/Services/Quiz/AdaptiveQuizService.php)",
+                "Arr (./app/Foundation/Arr.php)",
+                "AttemptService (./app/Services/AttemptService.php)",
+                "BlueprintAllocationReconciler (./app/Services/Quiz/Blueprint/BlueprintAllocationReconciler.php)",
+                "BlueprintDifficultyAllocator (./app/Services/Quiz/Blueprint/BlueprintDifficultyAllocator.php)",
+                "BoardBlueprintResolver (./app/Services/Quiz/Board/BoardBlueprintResolver.php)",
+                "Collection (./app/Foundation/Collection.php)",
+                "Config (./app/Core/Config.php)",
+                "CoverageTracker (./app/Services/Quiz/Coverage/CoverageTracker.php)",
+                "CreateQuestion (./app/Domains/Question/Actions/CreateQuestion.php)",
+                "DeveloperComponentRenderer (./app/Services/Developer/DeveloperComponentRenderer.php)",
+                "DeveloperPageBuilder (./app/Builders/Developer/DeveloperPageBuilder.php)",
+                "DoctorApiController (./app/Controllers/DoctorApiController.php)",
+                "DoctorDashboardController (./app/Controllers/DoctorDashboardController.php)",
+                "DoctorHistoryService (./app/Services/Developer/DoctorHistoryService.php)"
+            ],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Technical Debt Breakdown",
+            "status": "PASS",
+            "summary": "Debt Score: 0",
+            "details": [
+                "Largest Methods ...... 0",
+                "Largest Services ..... 0",
+                "Layer Violations ..... 0",
+                "Legacy Files ......... 0",
+                "Unused Imports ....... 0",
+                "Dead Classes ......... 0"
+            ],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Circular Dependencies",
+            "status": "PASS",
+            "summary": "No circular dependencies detected.",
+            "details": [],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Quality Gate",
+            "status": "PASS",
+            "summary": "All quality gates passed.",
+            "details": [],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Largest Controller",
+            "status": "PASS",
+            "summary": "./app/Controllers/QuestionEditorController.php (235 lines)",
+            "details": [
+                "Threshold : 300",
+                "Current   : 235"
+            ],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Largest Method",
+            "status": "WARNING",
+            "summary": "Largest method contains 127 lines.",
+            "details": [
+                "Method: testContentAuthoringBehavior",
+                "File: ./tools/Tests/QuizTest.php"
+            ],
+            "recommendations": [],
+            "score": 70,
+            "findings": [
+                {
+                    "id": "method.large",
+                    "severity": "WARNING",
+                    "category": "complexity",
+                    "rule": "largest_method",
+                    "title": "Large Method",
+                    "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 80.",
+                    "file": "./tools/Tests/QuizTest.php",
+                    "symbol": "testContentAuthoringBehavior",
+                    "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
+                    "evidence": {
+                        "lines": 127,
+                        "threshold": 80
+                    },
+                    "impact": 100,
+                    "effort": "Small",
+                    "priority": "Critical"
+                }
+            ]
+        },
+        {
+            "title": "Largest Service",
+            "status": "WARNING",
+            "summary": "./app/Services/Question/QuestionService.php (295 lines)",
+            "details": [
+                "Threshold : 250",
+                "Current   : 295"
+            ],
+            "recommendations": [
+                "Split ./app/Services/Question/QuestionService.php into smaller collaborators."
+            ],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Controller Complexity",
+            "status": "PASS",
+            "summary": "app/Controllers/QuestionEditorController.php",
+            "details": [
+                "Methods         : 8",
+                "Public Methods  : 7",
+                "Private Methods : 1"
+            ],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Risk Score",
+            "status": "WARNING",
+            "summary": "Risk Score: 100/100 (High)",
+            "details": [
+                "Highest coupling: ./app/Core/App.php (34 dependencies)",
+                "Total application dependencies: 724",
+                "Highly coupled files: 10"
+            ],
+            "recommendations": [
+                "Prioritize dependency concentration before major refactoring.",
+                "Review the highest-coupled application components first."
+            ],
+            "score": 0,
+            "findings": []
+        },
+        {
+            "title": "Change Impact",
+            "status": "WARNING",
+            "summary": "App.php affects 32 application file(s)",
+            "details": [
+                "Storage.php",
+                "BlueprintService.php",
+                "BlueprintService.php",
+                "BoardService.php",
+                "BoardViewService.php",
+                "LearningHistoryService.php",
+                "LearningStatisticsService.php",
+                "WeaknessStorageService.php",
+                "QuestionDuplicateService.php",
+                "QuestionEditorService.php"
+            ],
+            "recommendations": [
+                "Review the affected application files before changing this component.",
+                "Consider reducing unnecessary consumers of highly shared components."
+            ],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Dependency Coupling",
+            "status": "WARNING",
+            "summary": "./app/Core/App.php (34 dependencies)",
+            "details": [
+                "34  ./app/Core/App.php",
+                "19  ./routes/web.php",
+                "19  ./tools/Tests/QuizTest.php",
+                "19  ./tools/Tests/ServiceTest.php",
+                "18  ./app/Repositories/QuestionRepository.php"
+            ],
+            "recommendations": [
+                "Review the highest-coupled application component.",
+                "Prefer narrower collaborators when a component accumulates many dependencies."
+            ],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Cyclomatic Complexity",
+            "status": "WARNING",
+            "summary": "DependencyConsistencyScanner.php::checkReferences() (77)",
+            "details": [
+                "77  DependencyConsistencyScanner.php::checkReferences()",
+                "29  DependencyConsistencyScanner.php::findMethod()",
+                "28  DependencyConsistencyScanner.php::parseMembers()",
+                "27  DependencyConsistencyScanner.php::parseParameters()",
+                "25  BaseSpecificationFactory.php::create()",
+                "25  DependencyConsistencyScanner.php::checkInheritanceContracts()",
+                "22  BlueprintService.php::create()",
+                "22  DependencyCouplingCheck.php::run()",
+                "22  DependencyConsistencyScanner.php::parseDeclarations()",
+                "21  ChangeImpactCheck.php::run()"
+            ],
+            "recommendations": [
+                "Reduce branching by extracting smaller methods."
+            ],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Maintainability",
+            "status": "WARNING",
+            "summary": "./tools/Doctor/Scanners/DependencyConsistencyScanner.php (28)",
+            "details": [
+                " 28  ./tools/Doctor/Scanners/DependencyConsistencyScanner.php",
+                " 43  ./tools/Tests/QuizTest.php",
+                " 54  ./tools/Doctor/Project/BoardPrep/Simulation/HttpSimulator.php",
+                " 55  ./app/Services/Learning/RecommendationService.php",
+                " 56  ./app/Services/Quiz/Specification/BaseSpecificationFactory.php",
+                " 57  ./app/Services/Shared/BlueprintValidator.php",
+                " 58  ./app/Services/Quiz/Blueprint/BlueprintDistributionService.php",
+                " 58  ./tools/Doctor/Scanners/TokenScanner.php",
+                " 60  ./app/Services/Quiz/Blueprint/BlueprintIntegrityValidator.php",
+                " 60  ./app/Services/Quiz/Recovery/RecoveryCandidateService.php"
+            ],
+            "recommendations": [
+                "Improve maintainability by reducing file size, complexity and responsibilities."
+            ],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Refactor Candidates",
+            "status": "WARNING",
+            "summary": "Largest methods suitable for extraction.",
+            "details": [
+                "127  QuizTest.php::testContentAuthoringBehavior()",
+                "125  DependencyConsistencyScanner.php::checkReferences()",
+                "123  QuizTest.php::testGenerationBehavior()",
+                "121  QuizScoringService.php::calculate()",
+                "114  RegressionCheck.php::run()",
+                "107  BlueprintExecutor.php::execute()",
+                "106  QuizTest.php::testSubmissionBehavior()",
+                "106  QuizTest.php::testBlueprintCoverageBehavior()",
+                "102  CyclomaticComplexityCheck.php::run()",
+                "101  QuizTest.php::testBlueprintDistributionBehavior()"
+            ],
+            "recommendations": [
+                "Extract helper methods before adding new functionality."
+            ],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Domain Migration",
+            "status": "PASS",
+            "summary": "2 implemented, 0 empty",
+            "details": [
+                "Implemented : 2",
+                "Empty       : 0"
+            ],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Layer Violations",
+            "status": "PASS",
+            "summary": "No layer violations detected.",
+            "details": [],
+            "recommendations": [
+                "Inject Services instead of Repositories.",
+                "Keep Controllers independent of persistence."
+            ],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Unused Imports",
+            "status": "WARNING",
+            "summary": "10 unused imports found.",
+            "details": [
+                "./app/Storage/MysqlStorage.php :: StorageException",
+                "./app/Views/developer/components/action-bar.php :: ActionBarViewModel",
+                "./app/Views/developer/components/entity-card.php :: EntityCardViewModel",
+                "./app/Views/developer/components/page-header.php :: PageHeaderViewModel",
+                "./app/Views/developer/components/summary.php :: SummaryViewModel",
+                "./tools/Doctor/Advisor/QuickWinAdvisor.php :: DiagnosticFinding",
+                "./tools/Doctor/Advisor/RecommendationAdvisor.php :: DiagnosticFinding",
+                "./tools/Doctor/DTO/DoctorResult.php :: DiagnosticFinding",
+                "./tools/Doctor/Project/BoardPrep/Simulation/Runner/SimulationRunner.php :: SimulationResult",
+                "./tools/Doctor/Project/BoardPrep/Simulation/Runner/SimulationRunner.php :: SimulationScenario"
+            ],
+            "recommendations": [
+                "Remove unused imports to reduce noise."
+            ],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Long Parameter Lists",
+            "status": "WARNING",
+            "summary": "3 long parameter lists found.",
+            "details": [
+                "app/DTO/QuizSpecification.php (13 parameters)",
+                "app/Services/Quiz/Selection/SelectionRequest.php (6 parameters)",
+                "app/Services/Quiz/Blueprint/BlueprintExecutionResult.php (7 parameters)"
+            ],
+            "recommendations": [
+                "Consider DTOs, value objects or builders for large parameter lists."
+            ],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "TODO Comments",
+            "status": "PASS",
+            "summary": "No TODO/FIXME comments found.",
+            "details": [],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Empty Directories",
+            "status": "PASS",
+            "summary": "No empty directories found.",
+            "details": [],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Legacy Files",
+            "status": "PASS",
+            "summary": "No legacy files found.",
+            "details": [],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Foundation Usage",
+            "status": "PASS",
+            "summary": "Foundation adoption overview",
+            "details": [
+                "Arr        : 0",
+                "Collection : 0",
+                "Html       : 0",
+                "Str        : 0"
+            ],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        }
+    ],
+    "findings": [
+        {
+            "id": "method.large",
+            "severity": "WARNING",
+            "category": "complexity",
+            "rule": "largest_method",
+            "title": "Large Method",
+            "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 80.",
+            "file": "./tools/Tests/QuizTest.php",
+            "symbol": "testContentAuthoringBehavior",
+            "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
+            "evidence": {
+                "lines": 127,
+                "threshold": 80
+            },
+            "impact": 100,
+            "effort": "Small",
+            "priority": "Critical"
+        }
+    ],
+    "trend": []
+}

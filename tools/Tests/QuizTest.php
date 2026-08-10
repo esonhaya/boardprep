@@ -376,7 +376,31 @@ final class QuizTest
     {
         echo "[TEST] Quiz scoring behavior\n";
 
-        $questions = [
+        $questions = $this->scoringQuestions();
+        $answers = [
+            1 => 'B',
+            2 => '4',
+            3 => 'A',
+        ];
+
+        $result = \QuizScoringService::calculate(
+            $questions,
+            $answers
+        );
+
+        $this->assertScoringSummary($result);
+        $this->assertScoringAnswers($questions);
+        $this->assertScoringResults($result);
+
+        echo "[PASS] OK\n";
+    }
+
+    /**
+     * @return array<int,array<string,mixed>>
+     */
+    private function scoringQuestions(): array
+    {
+        return [
             [
                 'id' => 1,
                 'question' => 'Capital of France?',
@@ -422,18 +446,13 @@ final class QuizTest
                 'answer' => 'Pacific',
             ],
         ];
+    }
 
-        $answers = [
-            1 => 'B',
-            2 => '4',
-            3 => 'A',
-        ];
-
-        $result = \QuizScoringService::calculate(
-            $questions,
-            $answers
-        );
-
+    /**
+     * @param array<string,mixed> $result
+     */
+    private function assertScoringSummary(array $result): void
+    {
         $this->assertSame(
             2,
             $result['score'] ?? null,
@@ -468,7 +487,13 @@ final class QuizTest
             (float) ($result['percentage'] ?? -1) === 50.0,
             'Scoring: percentage'
         );
+    }
 
+    /**
+     * @param array<int,array<string,mixed>> $questions
+     */
+    private function assertScoringAnswers(array $questions): void
+    {
         $this->assertTrue(
             \QuizScoringService::checkAnswer(
                 $questions[0],
@@ -500,7 +525,13 @@ final class QuizTest
             ),
             'Scoring: unanswered answer is rejected'
         );
+    }
 
+    /**
+     * @param array<string,mixed> $result
+     */
+    private function assertScoringResults(array $result): void
+    {
         $this->assertSame(
             4,
             count($result['results'] ?? []),
@@ -521,8 +552,6 @@ final class QuizTest
             ($result['results'][3]['answered'] ?? true) === false,
             'Scoring: fourth result marked unanswered'
         );
-
-        echo "[PASS] OK\n";
     }
 
     private function testHistoryBehavior(): void
@@ -617,6 +646,23 @@ final class QuizTest
     {
         echo "[TEST] Quiz result behavior\n";
 
+        if (!$this->prepareResultBehavior()) {
+            return;
+        }
+
+        $result = \QuizResultService::build();
+
+        $this->assertResultSummary($result);
+        $this->assertResultReview($result);
+
+        \SessionService::remove('questions');
+        \SessionService::remove('answers');
+
+        echo "[PASS] OK\n";
+    }
+
+    private function prepareResultBehavior(): bool
+    {
         $this->assertTrue(
             class_exists('SessionService'),
             'Result: SessionService available'
@@ -624,13 +670,34 @@ final class QuizTest
 
         if (!class_exists('SessionService')) {
             echo "[FAIL] Cannot continue result behavior test.\n";
-            return;
+            return false;
         }
 
         \SessionService::remove('questions');
         \SessionService::remove('answers');
 
-        $questions = [
+        \SessionService::set(
+            'questions',
+            $this->resultQuestions()
+        );
+
+        \SessionService::set(
+            'answers',
+            [
+                201 => 'B',
+                202 => '3',
+            ]
+        );
+
+        return true;
+    }
+
+    /**
+     * @return array<int,array<string,mixed>>
+     */
+    private function resultQuestions(): array
+    {
+        return [
             [
                 'id' => 201,
                 'question' => 'Capital of France?',
@@ -665,23 +732,13 @@ final class QuizTest
                 'answer' => 'Blue',
             ],
         ];
+    }
 
-        \SessionService::set(
-            'questions',
-            $questions
-        );
-
-        \SessionService::set(
-            'answers',
-            [
-                201 => 'B',
-                202 => '3',
-            ]
-        );
-
-        $result =
-            \QuizResultService::build();
-
+    /**
+     * @param array<string,mixed> $result
+     */
+    private function assertResultSummary(array $result): void
+    {
         $this->assertTrue(
             is_array($result),
             'Result: build returns array'
@@ -697,66 +754,71 @@ final class QuizTest
             'Result: review exists'
         );
 
+        $summary = $result['summary'] ?? [];
+
         $this->assertSame(
             1,
-            $result['summary']['score'] ?? null,
+            $summary['score'] ?? null,
             'Result: score comes from scoring'
         );
 
         $this->assertSame(
             1,
-            $result['summary']['correct'] ?? null,
+            $summary['correct'] ?? null,
             'Result: correct count comes from scoring'
         );
 
         $this->assertSame(
             1,
-            $result['summary']['incorrect'] ?? null,
+            $summary['incorrect'] ?? null,
             'Result: incorrect count comes from scoring'
         );
 
         $this->assertSame(
             1,
-            $result['summary']['unanswered'] ?? null,
+            $summary['unanswered'] ?? null,
             'Result: unanswered count comes from scoring'
         );
 
         $this->assertSame(
             3,
-            $result['summary']['total'] ?? null,
+            $summary['total'] ?? null,
             'Result: total comes from scoring'
         );
 
         $this->assertTrue(
-            (float) ($result['summary']['percentage'] ?? -1) === 33.0,
+            (float) ($summary['percentage'] ?? -1) === 33.0,
             'Result: percentage comes from scoring'
         );
+    }
+
+    /**
+     * @param array<string,mixed> $result
+     */
+    private function assertResultReview(array $result): void
+    {
+        $review = $result['review'] ?? [];
 
         $this->assertSame(
             3,
-            count($result['review'] ?? []),
+            count($review),
             'Result: review contains one entry per question'
         );
 
         $this->assertTrue(
-            ($result['review'][0]['correct'] ?? false) === true,
+            ($review[0]['correct'] ?? false) === true,
             'Result: first review entry is correct'
         );
 
         $this->assertTrue(
-            ($result['review'][1]['correct'] ?? true) === false,
+            ($review[1]['correct'] ?? true) === false,
             'Result: second review entry is incorrect'
         );
 
         $this->assertTrue(
-            ($result['review'][2]['answered'] ?? true) === false,
+            ($review[2]['answered'] ?? true) === false,
             'Result: third review entry is unanswered'
         );
-
-        \SessionService::remove('questions');
-        \SessionService::remove('answers');
-
-        echo "[PASS] OK\n";
     }
 
     private function testNavigationBehavior(): void
@@ -856,7 +918,21 @@ final class QuizTest
     {
         echo "[TEST] Quiz balancing behavior\n";
 
-        $questions = [
+        $questions = $this->balancingQuestions();
+
+        $this->assertBalancedQuestionPreservation($questions);
+        $this->assertBalancedDifficultyFiltering($questions);
+        $this->assertBalancedTopicInterleaving();
+
+        echo "[PASS] OK\n";
+    }
+
+    /**
+     * @return array<int,array<string,mixed>>
+     */
+    private function balancingQuestions(): array
+    {
+        return [
             [
                 'id' => 401,
                 'topic' => 'Grammar',
@@ -882,7 +958,14 @@ final class QuizTest
                 'difficulty' => 'easy',
             ],
         ];
+    }
 
+    /**
+     * @param array<int,array<string,mixed>> $questions
+     */
+    private function assertBalancedQuestionPreservation(
+        array $questions
+    ): void {
         $balanced =
             \QuestionBalancingService::balance(
                 $questions
@@ -907,7 +990,14 @@ final class QuizTest
             $ids,
             'Balancing: all questions are preserved'
         );
+    }
 
+    /**
+     * @param array<int,array<string,mixed>> $questions
+     */
+    private function assertBalancedDifficultyFiltering(
+        array $questions
+    ): void {
         $easy =
             \QuestionBalancingService::balance(
                 $questions,
@@ -928,7 +1018,10 @@ final class QuizTest
                 'Balancing: filtered questions match requested difficulty'
             );
         }
+    }
 
+    private function assertBalancedTopicInterleaving(): void
+    {
         $singleTopic = [
             [
                 'id' => 501,
@@ -981,15 +1074,27 @@ final class QuizTest
             $firstTopic !== $secondTopic,
             'Balancing: different topics are interleaved'
         );
-
-        echo "[PASS] OK\n";
     }
 
     private function testSelectionBehavior(): void
     {
         echo "[TEST] Quiz selection behavior\n";
 
-        $questions = [
+        $questions = $this->selectionQuestions();
+
+        $this->testSelectionBySubject($questions);
+        $this->testSelectionQuestionCount($questions);
+        $this->testSelectionSubjectIsolation($questions);
+
+        echo "[PASS] OK\n";
+    }
+
+    /**
+     * @return array<int,array<string,mixed>>
+     */
+    private function selectionQuestions(): array
+    {
+        return [
             [
                 'id' => 601,
                 'subject' => 'English',
@@ -1023,20 +1128,18 @@ final class QuizTest
                 'question' => 'Science 1',
             ],
         ];
+    }
 
-        $specification = new \QuizSpecification(
-            board: 'LET',
-            subject: 'English',
-            domain: 'Grammar',
-            topics: [],
-            concepts: [],
-            difficulty: 'mixed',
-            questionCount: 10,
-            mode: 'practice',
-            adaptive: false,
-            shuffle: false,
-            boardBlueprintVersion: null,
-            subjectBlueprintVersion: null
+    /**
+     * @param array<int,array<string,mixed>> $questions
+     */
+    private function testSelectionBySubject(
+        array $questions
+    ): void {
+        $specification = $this->selectionSpecification(
+            'English',
+            'Grammar',
+            10
         );
 
         $selected =
@@ -1057,62 +1160,77 @@ final class QuizTest
                 'Selection: selected question belongs to requested subject'
             );
         }
+    }
 
-        $limitedSpecification = new \QuizSpecification(
-            board: 'LET',
-            subject: 'English',
-            domain: 'Grammar',
-            topics: [],
-            concepts: [],
-            difficulty: 'mixed',
-            questionCount: 2,
-            mode: 'practice',
-            adaptive: false,
-            shuffle: false,
-            boardBlueprintVersion: null,
-            subjectBlueprintVersion: null
+    /**
+     * @param array<int,array<string,mixed>> $questions
+     */
+    private function testSelectionQuestionCount(
+        array $questions
+    ): void {
+        $specification = $this->selectionSpecification(
+            'English',
+            'Grammar',
+            2
         );
 
-        $limited =
+        $selected =
             \QuestionSelectionService::select(
                 $questions,
-                $limitedSpecification
+                $specification
             );
 
         $this->assertSame(
             2,
-            count($limited),
+            count($selected),
             'Selection: question count is respected'
         );
+    }
 
-        $otherSpecification = new \QuizSpecification(
+    /**
+     * @param array<int,array<string,mixed>> $questions
+     */
+    private function testSelectionSubjectIsolation(
+        array $questions
+    ): void {
+        $specification = $this->selectionSpecification(
+            'Science',
+            'Biology',
+            10
+        );
+
+        $selected =
+            \QuestionSelectionService::select(
+                $questions,
+                $specification
+            );
+
+        $this->assertSame(
+            1,
+            count($selected),
+            'Selection: different subject does not leak English questions'
+        );
+    }
+
+    private function selectionSpecification(
+        string $subject,
+        string $domain,
+        int $questionCount
+    ): \QuizSpecification {
+        return new \QuizSpecification(
             board: 'LET',
-            subject: 'Science',
-            domain: 'Biology',
+            subject: $subject,
+            domain: $domain,
             topics: [],
             concepts: [],
             difficulty: 'mixed',
-            questionCount: 10,
+            questionCount: $questionCount,
             mode: 'practice',
             adaptive: false,
             shuffle: false,
             boardBlueprintVersion: null,
             subjectBlueprintVersion: null
         );
-
-        $other =
-            \QuestionSelectionService::select(
-                $questions,
-                $otherSpecification
-            );
-
-        $this->assertSame(
-            1,
-            count($other),
-            'Selection: different subject does not leak English questions'
-        );
-
-        echo "[PASS] OK\n";
     }
 
     private function testSubmissionBehavior(): void
