@@ -29,7 +29,7 @@ final class SimulationKernelTest
             );
         }
 
-        echo "PASS: Real application simulation\n";
+        echo "PASS: Application simulation\n";
         echo "Steps: {$simulation->result()->passCount()}\n";
     }
 }
