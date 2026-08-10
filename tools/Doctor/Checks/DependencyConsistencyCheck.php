@@ -7,25 +7,29 @@ namespace Tools\Doctor\Checks;
 use Tools\Doctor\Context\DoctorContext;
 use Tools\Doctor\Contracts\CheckInterface;
 use Tools\Doctor\DTO\CheckResult;
+use Tools\Doctor\Scanners\DependencyConsistency\DependencyConsistencyPolicy;
 use Tools\Doctor\Scanners\DependencyConsistencyScanner;
 
 final class DependencyConsistencyCheck implements CheckInterface
 {
     public function run(): CheckResult
     {
+        $policy = new DependencyConsistencyPolicy();
+
         $files = array_values(array_filter(
             DoctorContext::snapshot()->files,
-            static function (array $file): bool {
-                $path = str_replace('\\', '/', (string) ($file['path'] ?? ''));
-
-                return str_starts_with($path, 'app/')
-                    || str_starts_with($path, './app/')
-                    || str_starts_with($path, 'routes/')
-                    || str_starts_with($path, './routes/');
+            static function (array $file) use ($policy): bool {
+                return $policy->includes(
+                    (string) ($file['path'] ?? '')
+                );
             }
         ));
 
-        $result = DependencyConsistencyScanner::scan($files);
+        $result = DependencyConsistencyScanner::scan(
+            $files,
+            $policy
+        );
+
         $issues = $result['issues'];
 
         if ($issues === []) {
@@ -48,7 +52,11 @@ final class DependencyConsistencyCheck implements CheckInterface
         }
 
         $details = [];
-        foreach (array_slice($issues, 0, 40) as $issue) {
+
+        foreach (
+            array_slice($issues, 0, $policy->maxIssues)
+            as $issue
+        ) {
             $details[] = sprintf(
                 '%s:%d  %s',
                 $issue['file'],
@@ -57,10 +65,10 @@ final class DependencyConsistencyCheck implements CheckInterface
             );
         }
 
-        if (count($issues) > 40) {
+        if (count($issues) > $policy->maxIssues) {
             $details[] = sprintf(
                 '... %d additional issue(s) omitted from console output.',
-                count($issues) - 40
+                count($issues) - $policy->maxIssues
             );
         }
 
