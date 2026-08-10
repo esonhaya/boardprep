@@ -12,53 +12,58 @@ final class ShortageRecoveryService
         if (
             $result->fulfilled
         ) {
-
             return $result->questions;
-
         }
 
+        $required =
+            $result->request->questionCount;
+
+        /*
+         * Recovery intentionally widens the search scope.
+         *
+         * Current SelectionRequest supports:
+         *   1. subject
+         *   2. domain
+         *
+         * Concept/topic recovery will be introduced when those
+         * dimensions become part of SelectionRequest.
+         */
+
         foreach (
-
-            RecoveryScope::cases()
-
+            [
+                RecoveryScope::Domain,
+                RecoveryScope::Subject,
+            ]
             as $scope
-
         ) {
 
             $candidates =
                 RecoveryCandidateService::candidates(
-
                     $pool,
-
                     $result->request,
-
                     $scope
-
                 );
 
             if (
-
                 count($candidates)
                 >=
-                $result->request->questionCount
-
+                $required
             ) {
 
                 return array_slice(
-
                     $candidates,
-
                     0,
-
-                    $result->request->questionCount
-
+                    $required
                 );
-
             }
-
         }
 
+        /*
+         * Nothing could satisfy the request.
+         *
+         * Preserve the original selection rather than inventing
+         * questions or returning unrelated subject matter.
+         */
         return $result->questions;
-
     }
 }

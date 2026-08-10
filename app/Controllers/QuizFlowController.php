@@ -21,15 +21,15 @@ final class QuizFlowController
 
         switch ($action) {
             case 'start':
-                QuizStartService::start();
+                \QuizStartService::start();
                 return;
 
             case 'submit':
-                QuizSubmissionService::submit();
+                \QuizSubmissionService::submit();
                 return;
 
             case 'next':
-                QuizNavigationService::next();
+                \QuizNavigationService::next();
                 return;
 
             case 'finish':
@@ -54,7 +54,7 @@ final class QuizFlowController
 
     private static function finish(): void
     {
-        $questions = SessionService::get(
+        $questions = \SessionService::get(
             'questions',
             []
         );
@@ -64,7 +64,7 @@ final class QuizFlowController
             return;
         }
 
-        $result = QuizResultService::build();
+        $result = \QuizResultService::build();
 
         View::render(
             'quiz/result',

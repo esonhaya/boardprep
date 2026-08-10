@@ -16,6 +16,7 @@ final class BlueprintResolverService
          * This keeps the quiz lifecycle functional while still
          * passing through the normal blueprint executor.
          */
+
         $subject =
             trim((string) $specification->subject);
 
@@ -58,19 +59,25 @@ final class BlueprintResolverService
             ],
         ];
 
-        BlueprintIntegrityValidator::validate(
-            $boardBlueprint
-        );
+        $subjectBlueprints = [
+            $subject => $subjectBlueprint,
+        ];
 
-        BlueprintIntegrityValidator::validate(
-            $subjectBlueprint
-        );
+        $errors =
+            BlueprintIntegrityValidator::validate(
+                $boardBlueprint,
+                $subjectBlueprints
+            );
+
+        if (!empty($errors)) {
+            throw new RuntimeException(
+                implode(' ', $errors)
+            );
+        }
 
         return [
             'board' => $boardBlueprint,
-            'subjects' => [
-                $subject => $subjectBlueprint,
-            ],
+            'subjects' => $subjectBlueprints,
         ];
     }
 }

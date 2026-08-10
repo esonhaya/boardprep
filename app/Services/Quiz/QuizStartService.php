@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Core\App;
 use App\Core\Response;
+use App\Core\View;
 use App\Repositories\QuestionRepository;
 
 class QuizStartService

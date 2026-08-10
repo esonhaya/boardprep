@@ -13,13 +13,9 @@ final class BlueprintExecutor
 
         $requests =
             BlueprintDistributionService::distribution(
-
                 $boardBlueprint,
-
                 $subjectBlueprints,
-
                 $specification->questionCount
-
             );
 
         $requests =
@@ -34,41 +30,51 @@ final class BlueprintExecutor
 
         foreach ($requests as $request) {
 
+            /*
+             * Both normal selection and shortage recovery must work
+             * against the same remaining pool. This prevents a
+             * recovery pass from reusing questions reserved by an
+             * earlier blueprint request.
+             */
+            $available =
+                $session->available(
+                    $questions
+                );
+
             $result =
                 QuestionSelectionService::fulfillRequest(
-
-                    $session->available($questions),
-
+                    $available,
                     $request
-
                 );
 
             $chunk =
                 ShortageRecoveryService::recover(
                     $result,
-                    $questions
+                    $available
                 );
 
-            $session->reserve($chunk);
+            $chunk =
+                SelectionDeduplicator::unique(
+                    $chunk
+                );
 
-            $selected = array_merge(
-                $selected,
+            $session->reserve(
                 $chunk
             );
 
+            $selected =
+                array_merge(
+                    $selected,
+                    $chunk
+                );
         }
 
         $coverage =
             BlueprintCoverageAnalyzer::analyze(
-
                 $selected,
-
                 $boardBlueprint,
-
                 $subjectBlueprints,
-
                 $requests
-
             );
 
         $issues =
@@ -77,7 +83,6 @@ final class BlueprintExecutor
             );
 
         return new BlueprintExecutionResult(
-
             questions:
                 $selected,
 
@@ -91,16 +96,20 @@ final class BlueprintExecutor
                 $issues,
 
             boardBlueprintVersion:
-                isset($boardBlueprint["version"])
-                    ? (int) $boardBlueprint["version"]
+                isset($boardBlueprint['version'])
+                    ? (int) $boardBlueprint['version']
                     : null,
 
             subjectBlueprintVersion:
-                isset($subjectBlueprints[$specification->subject]["version"])
-                    ? (int) $subjectBlueprints[$specification->subject]["version"]
+                isset(
+                    $subjectBlueprints[
+                        $specification->subject
+                    ]['version']
+                )
+                    ? (int) $subjectBlueprints[
+                        $specification->subject
+                    ]['version']
                     : null
-
         );
-
     }
 }
