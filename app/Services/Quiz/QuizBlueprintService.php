@@ -1,5 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Core\App;
+use App\Repositories\BlueprintRepository;
+
 class QuizBlueprintService
 {
     public static function apply(
@@ -11,8 +16,13 @@ class QuizBlueprintService
             return $options;
         }
 
+        $repository =
+            App::container()->get(
+                BlueprintRepository::class
+            );
+
         $blueprint =
-            BlueprintRepository::find(
+            $repository->find(
                 $options["blueprint"]
             );
 

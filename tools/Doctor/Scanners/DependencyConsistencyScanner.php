@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Tools\Doctor\Scanners;
 
+use Tools\Doctor\Scanners\DependencyConsistency\DependencyConsistencyPolicy;
+
 final class DependencyConsistencyScanner
 {
     /**
@@ -12,8 +14,23 @@ final class DependencyConsistencyScanner
      *
      * @return array{issues:array<int,array<string,mixed>>, symbols:array<string,array<string,mixed>>}
      */
-    public static function scan(array $files): array
-    {
+    public static function scan(
+        array $files,
+        ?DependencyConsistencyPolicy $policy = null
+    ): array {
+        $policy ??= new DependencyConsistencyPolicy();
+
+        $files = array_values(array_filter(
+            $files,
+            static function (array|string $file) use ($policy): bool {
+                $path = is_array($file)
+                    ? (string) ($file['path'] ?? '')
+                    : $file;
+
+                return $policy->includes($path);
+            }
+        ));
+
         $symbols = self::collectSymbols($files);
         $issues = [];
 
@@ -799,13 +816,51 @@ final class DependencyConsistencyScanner
 
     private static function argumentCount(array $tokens): int
     {
-        if ($tokens === []) return 0;
-        $depth = 0; $count = 1;
-        foreach ($tokens as $t) {
-            if ($t === '(' || $t === '[' || $t === '{') $depth++;
-            elseif ($t === ')' || $t === ']' || $t === '}') $depth--;
-            elseif ($t === ',' && $depth === 0) $count++;
+        if ($tokens === []) {
+            return 0;
         }
+
+        $depth = 0;
+        $count = 0;
+        $hasValue = false;
+
+        foreach ($tokens as $t) {
+            if ($t === '(' || $t === '[' || $t === '{') {
+                $depth++;
+                $hasValue = true;
+                continue;
+            }
+
+            if ($t === ')' || $t === ']' || $t === '}') {
+                $depth--;
+                continue;
+            }
+
+            if ($depth === 0 && $t === ',') {
+                if ($hasValue) {
+                    $count++;
+                    $hasValue = false;
+                }
+                continue;
+            }
+
+            if (is_array($t)) {
+                if (in_array(
+                    $t[0],
+                    [T_WHITESPACE, T_COMMENT, T_DOC_COMMENT],
+                    true
+                )) {
+                    continue;
+                }
+            }
+
+            $hasValue = true;
+        }
+
+        if ($hasValue) {
+            $count++;
+        }
+
         return $count;
     }
 

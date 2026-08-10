@@ -30,7 +30,7 @@ class BoardController extends BaseDeveloperController
     public static function save(): void
     {
         BoardService::create(
-            Request::post()
+            Request::input()
         );
 
         self::developerRedirect(

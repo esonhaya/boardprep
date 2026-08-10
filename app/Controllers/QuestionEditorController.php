@@ -203,7 +203,7 @@ class QuestionEditorController extends BaseDeveloperController
         if ($question !== null) {
             $question["status"] = "archived";
 
-            self::repository()->update(
+            QuestionService::update(
                 $id,
                 $question
             );
@@ -223,7 +223,7 @@ class QuestionEditorController extends BaseDeveloperController
         if ($question !== null) {
             $question["status"] = "approved";
 
-            self::repository()->update(
+            QuestionService::update(
                 $id,
                 $question
             );

@@ -75,7 +75,7 @@ class SubjectController extends BaseDeveloperController
     public static function save(): void
     {
         SubjectService::create(
-            Request::post()
+            Request::input()
         );
 
         self::developerRedirect(
@@ -114,7 +114,7 @@ class SubjectController extends BaseDeveloperController
                 "id",
                 ""
             ),
-            Request::post()
+            Request::input()
         );
 
         self::developerRedirect(

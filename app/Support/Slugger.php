@@ -1,7 +1,17 @@
 <?php
 
+namespace App\Support;
+
 class Slugger
 {
+    /**
+     * Convert arbitrary text into a URL-safe slug.
+     */
+    public static function slug(string $text): string
+    {
+        return self::slugify($text);
+    }
+
     /**
      * Convert arbitrary text into a URL-safe slug.
      */

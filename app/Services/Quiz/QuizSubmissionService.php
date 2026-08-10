@@ -35,7 +35,8 @@ class QuizSubmissionService
 
         if ($answer === null) {
 
-            FlashMessageService::error(
+            SessionService::flash(
+                "error",
                 "Please select an answer before continuing."
             );
 

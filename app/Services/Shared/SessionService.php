@@ -61,4 +61,27 @@ class SessionService
             $items
         );
     }
+
+    public static function flash(
+        string $type,
+        string $message
+    ): void
+    {
+        self::set(
+            'flash',
+            [
+                'type' => $type,
+                'message' => $message,
+            ]
+        );
+    }
+
+    public static function consumeFlash(): ?array
+    {
+        $flash = self::get('flash');
+
+        self::remove('flash');
+
+        return $flash;
+    }
 }

@@ -29,13 +29,10 @@ final class BlueprintResolverService
 
         if (!empty($board)) {
             BlueprintIntegrityValidator::validate(
-                $board
-            );
-        }
-
-        if (!empty($subject)) {
-            BlueprintIntegrityValidator::validate(
-                $subject
+                $board,
+                !empty($subject)
+                    ? [$specification->subject => $subject]
+                    : []
             );
         }
 

@@ -8,7 +8,9 @@ final class SelectionRequest
         public readonly string $subject,
         public readonly ?string $domain,
         public readonly array $difficultyDistribution,
-        public readonly int $questionCount
+        public readonly int $questionCount,
+        public readonly ?string $topic = null,
+        public readonly ?string $concept = null
     ) {
     }
 }
