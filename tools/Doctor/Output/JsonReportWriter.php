@@ -23,6 +23,9 @@ final class JsonReportWriter
                 'findings' => $result->findingCount(),
             ],
 
+            'diagnostics' =>
+                $result->diagnostics()->toArray(),
+
             'checks' => array_map(
                 static function ($check): array {
                     return [
@@ -38,7 +41,8 @@ final class JsonReportWriter
                 $result->checks
             ),
 
-            'findings' => $result->findings()->toArray(),
+            'findings' =>
+                $result->findings()->toArray(),
 
             'trend' => $result->trend,
         ];

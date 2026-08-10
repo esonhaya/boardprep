@@ -6,6 +6,7 @@ namespace Tools\Doctor\DTO;
 
 use Tools\Doctor\Diagnostics\DiagnosticFinding;
 use Tools\Doctor\Diagnostics\DiagnosticFindingCollection;
+use Tools\Doctor\Diagnostics\DiagnosticSummary;
 
 final class DoctorResult
 {
@@ -30,7 +31,7 @@ final class DoctorResult
             array_filter(
                 $this->checks,
                 fn(CheckResult $check) =>
-                    $check->status === "PASS"
+                    $check->status === 'PASS'
             )
         );
     }
@@ -41,7 +42,7 @@ final class DoctorResult
             array_filter(
                 $this->checks,
                 fn(CheckResult $check) =>
-                    $check->status === "WARNING"
+                    $check->status === 'WARNING'
             )
         );
     }
@@ -52,7 +53,7 @@ final class DoctorResult
             array_filter(
                 $this->checks,
                 fn(CheckResult $check) =>
-                    $check->status === "FAIL"
+                    $check->status === 'FAIL'
             )
         );
     }
@@ -63,7 +64,7 @@ final class DoctorResult
             array_filter(
                 $this->checks,
                 fn(CheckResult $check) =>
-                    $check->status === "INFO"
+                    $check->status === 'INFO'
             )
         );
     }
@@ -73,11 +74,11 @@ final class DoctorResult
         $score = 100;
 
         foreach ($this->checks as $check) {
-            if ($check->status === "FAIL") {
+            if ($check->status === 'FAIL') {
                 $score -= 15;
             }
 
-            if ($check->status === "WARNING") {
+            if ($check->status === 'WARNING') {
                 $score -= 2;
             }
         }
@@ -104,9 +105,16 @@ final class DoctorResult
         return $findings;
     }
 
+    public function diagnostics(): DiagnosticSummary
+    {
+        return new DiagnosticSummary(
+            $this->findings()->all()
+        );
+    }
+
     public function findingCount(): int
     {
-        return count($this->findings());
+        return $this->diagnostics()->count();
     }
 
     /**
