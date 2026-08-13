@@ -15,9 +15,19 @@ final class QualityGateCheck implements CheckInterface
     {
         $snapshot = DoctorContext::snapshot();
 
-        $warnings =
-            count($snapshot->metric('layer-violations'))
-            + count($snapshot->metric('largest-method'));
+        $warnings = 0;
+
+        if (
+            count($snapshot->metric('layer-violations')) > 0
+        ) {
+            $warnings++;
+        }
+
+        if (
+            count($snapshot->metric('largest-method')) > 0
+        ) {
+            $warnings++;
+        }
 
         $largestService =
             $snapshot->largestFile('/Services/');
