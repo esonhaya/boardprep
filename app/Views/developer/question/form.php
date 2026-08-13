@@ -53,15 +53,15 @@ require __DIR__
 
 method="POST"
 
-action="/question-editor&action=<?=
+action="<?=
 
 $isEdit
 
-    ? "update&id="
+    ? "/question-editor/update?id="
 
-        . ($question["id"] ?? "")
+        . urlencode((string) ($question["id"] ?? ""))
 
-    : "save"
+    : "/question-editor/save"
 
 ?>"
 
@@ -181,6 +181,6 @@ type="application/json"
 
 <script
 
-src="assets/js/taxonomy-selector.js"
+src="/assets/js/taxonomy-selector.js"
 
 ></script>

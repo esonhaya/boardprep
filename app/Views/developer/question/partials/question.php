@@ -1,17 +1,48 @@
 <label>
-
 Question
-
 </label>
 
 <br>
 
-<?php if (
-    fieldError(
-        $errors,
-        "question"
-    )
-): ?>
+<?php
+
+$questionError =
+    $errors["question"] ?? "";
+
+if (
+    is_array($questionError)
+) {
+    $questionError =
+        $questionError["message"]
+        ?? $questionError[0]
+        ?? "";
+}
+
+$explanationError =
+    $errors["explanation"] ?? "";
+
+if (
+    is_array($explanationError)
+) {
+    $explanationError =
+        $explanationError["message"]
+        ?? $explanationError[0]
+        ?? "";
+}
+
+$questionError =
+    is_string($questionError)
+        ? $questionError
+        : "";
+
+$explanationError =
+    is_string($explanationError)
+        ? $explanationError
+        : "";
+
+?>
+
+<?php if ($questionError !== ""): ?>
 
 <p
 style="
@@ -21,10 +52,7 @@ margin:4px 0;
 >
 
 <?= htmlspecialchars(
-    fieldError(
-        $errors,
-        "question"
-    )
+    $questionError
 ) ?>
 
 </p>
@@ -36,9 +64,9 @@ name="question"
 rows="4"
 cols="60"
 required
-style="<?= fieldError($errors, "question")
-? "border:2px solid red;"
-: "" ?>"
+style="<?= $questionError !== ""
+    ? "border:2px solid red;"
+    : "" ?>"
 ><?= htmlspecialchars(
     $question["question"] ?? ""
 ) ?></textarea>
@@ -46,19 +74,12 @@ style="<?= fieldError($errors, "question")
 <br><br>
 
 <label>
-
 Explanation
-
 </label>
 
 <br>
 
-<?php if (
-    fieldError(
-        $errors,
-        "explanation"
-    )
-): ?>
+<?php if ($explanationError !== ""): ?>
 
 <p
 style="
@@ -68,10 +89,7 @@ margin:4px 0;
 >
 
 <?= htmlspecialchars(
-    fieldError(
-        $errors,
-        "explanation"
-    )
+    $explanationError
 ) ?>
 
 </p>
@@ -83,9 +101,9 @@ name="explanation"
 rows="5"
 cols="60"
 required
-style="<?= fieldError($errors, "explanation")
-? "border:2px solid red;"
-: "" ?>"
+style="<?= $explanationError !== ""
+    ? "border:2px solid red;"
+    : "" ?>"
 ><?= htmlspecialchars(
     $question["explanation"] ?? ""
 ) ?></textarea>
