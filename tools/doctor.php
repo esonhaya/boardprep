@@ -9,7 +9,7 @@ require_once __DIR__ . '/../app/Core/Autoloader.php';
 use Tools\Doctor\Commands\BaselineCommand;
 use Tools\Doctor\Engine\DoctorRunner;
 use Tools\Doctor\Output\ConsoleRenderer;
-use Tools\Doctor\Simulation\SimulationCommand;
+use Tools\Doctor\Project\BoardPrep\Simulation\SimulationCommand;
 
 if (($argv[1] ?? '') === '--baseline') {
     (new BaselineCommand())->run();

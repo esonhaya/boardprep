@@ -12,15 +12,16 @@ final class MetricsPipeline
     public function analyze(
         ProjectSnapshot $snapshot
     ): void {
-
         (new CyclomaticAnalyzer())
             ->analyze($snapshot);
 
         (new MaintainabilityAnalyzer())
             ->analyze($snapshot);
 
-        (new GraphStatisticsAnalyzer())
+        (new MethodMetricsAnalyzer())
             ->analyze($snapshot);
 
+        (new GraphStatisticsAnalyzer())
+            ->analyze($snapshot);
     }
 }

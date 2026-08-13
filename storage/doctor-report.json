@@ -1,9 +1,9 @@
 {
-    "health": 74,
+    "health": 76,
     "summary": {
         "checks": 30,
-        "pass": 17,
-        "warning": 13,
+        "pass": 18,
+        "warning": 12,
         "fail": 0,
         "info": 0,
         "findings": 1
@@ -22,13 +22,13 @@
             "category": "complexity",
             "rule": "largest_method",
             "title": "Large Method",
-            "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 80.",
+            "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 60.",
             "file": "./tools/Tests/QuizTest.php",
             "symbol": "testContentAuthoringBehavior",
             "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
             "evidence": {
                 "lines": 127,
-                "threshold": 80
+                "threshold": 60
             },
             "impact": 100,
             "effort": "Small",
@@ -53,13 +53,13 @@
             "priority": "Critical",
             "impact": 100,
             "effort": "Small",
-            "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 80.",
+            "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 60.",
             "file": "./tools/Tests/QuizTest.php",
             "symbol": "testContentAuthoringBehavior",
             "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
             "evidence": {
                 "lines": 127,
-                "threshold": 80
+                "threshold": 60
             }
         },
         "recommendations": [
@@ -77,13 +77,13 @@
             "category": "complexity",
             "rule": "largest_method",
             "title": "Large Method",
-            "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 80.",
+            "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 60.",
             "file": "./tools/Tests/QuizTest.php",
             "symbol": "testContentAuthoringBehavior",
             "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
             "evidence": {
                 "lines": 127,
-                "threshold": 80
+                "threshold": 60
             },
             "impact": 100,
             "effort": "Small",
@@ -105,13 +105,13 @@
                     "category": "complexity",
                     "rule": "largest_method",
                     "title": "Large Method",
-                    "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 80.",
+                    "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 60.",
                     "file": "./tools/Tests/QuizTest.php",
                     "symbol": "testContentAuthoringBehavior",
                     "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
                     "evidence": {
                         "lines": 127,
-                        "threshold": 80
+                        "threshold": 60
                     },
                     "impact": 100,
                     "effort": "Small",
@@ -146,15 +146,15 @@
     "checks": [
         {
             "title": "Runtime Function Test",
-            "status": "WARNING",
-            "summary": "Function test suite is not available.",
+            "status": "PASS",
+            "summary": "26/26 runtime simulations passed.",
             "details": [
-                "Expected: tests/function-test.php"
+                "Passed: 26",
+                "Failed: 0",
+                "Execution time: 0.045s"
             ],
-            "recommendations": [
-                "Create the project runtime function test suite."
-            ],
-            "score": 50,
+            "recommendations": [],
+            "score": 100,
             "findings": []
         },
         {
@@ -163,13 +163,13 @@
             "summary": "Current project size",
             "details": [
                 "Controllers : 24",
-                "Services    : 123",
+                "Services    : 125",
                 "Repositories: 9",
                 "Domains     : 1",
-                "Classes     : 314",
+                "Classes     : 320",
                 "Interfaces  : 3",
                 "Traits      : 0",
-                "PHP Files   : 382"
+                "PHP Files   : 389"
             ],
             "recommendations": [],
             "score": 100,
@@ -182,7 +182,7 @@
             "details": [
                 " 34  App.php",
                 " 33  CheckResult.php",
-                " 25  DoctorContext.php",
+                " 27  DoctorContext.php",
                 " 19  web.php",
                 " 19  QuizTest.php",
                 " 19  ServiceTest.php",
@@ -198,7 +198,7 @@
         {
             "title": "Dependency Consistency",
             "status": "PASS",
-            "summary": "No cross-file API inconsistencies detected across 247 application PHP file(s).",
+            "summary": "No cross-file API inconsistencies detected across 249 application PHP file(s).",
             "details": [
                 "Class resolution ........ PASS",
                 "Method contracts ........ PASS",
@@ -257,7 +257,7 @@
         {
             "title": "Dead Classes",
             "status": "WARNING",
-            "summary": "49 potentially unused classes.",
+            "summary": "52 potentially unused classes.",
             "details": [
                 "AdaptiveQuizService (./app/Services/Quiz/AdaptiveQuizService.php)",
                 "Arr (./app/Foundation/Arr.php)",
@@ -282,10 +282,10 @@
         {
             "title": "Technical Debt Breakdown",
             "status": "PASS",
-            "summary": "Debt Score: 0",
+            "summary": "Debt Score: 600",
             "details": [
-                "Largest Methods ...... 0",
-                "Largest Services ..... 0",
+                "Largest Methods ...... 600",
+                "Largest Service File .. 0",
                 "Layer Violations ..... 0",
                 "Legacy Files ......... 0",
                 "Unused Imports ....... 0",
@@ -306,8 +306,8 @@
         },
         {
             "title": "Quality Gate",
-            "status": "PASS",
-            "summary": "All quality gates passed.",
+            "status": "WARNING",
+            "summary": "60 quality gate(s) require attention.",
             "details": [],
             "recommendations": [],
             "score": 100,
@@ -342,13 +342,13 @@
                     "category": "complexity",
                     "rule": "largest_method",
                     "title": "Large Method",
-                    "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 80.",
+                    "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 60.",
                     "file": "./tools/Tests/QuizTest.php",
                     "symbol": "testContentAuthoringBehavior",
                     "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
                     "evidence": {
                         "lines": 127,
-                        "threshold": 80
+                        "threshold": 60
                     },
                     "impact": 100,
                     "effort": "Small",
@@ -358,15 +358,13 @@
         },
         {
             "title": "Largest Service",
-            "status": "WARNING",
-            "summary": "./app/Services/Question/QuestionService.php (295 lines)",
+            "status": "PASS",
+            "summary": "./app/Services/Quiz/QuizScoringService.php (194 lines)",
             "details": [
                 "Threshold : 250",
-                "Current   : 295"
+                "Current   : 194"
             ],
-            "recommendations": [
-                "Split ./app/Services/Question/QuestionService.php into smaller collaborators."
-            ],
+            "recommendations": [],
             "score": 100,
             "findings": []
         },
@@ -389,8 +387,8 @@
             "summary": "Risk Score: 100/100 (High)",
             "details": [
                 "Highest coupling: ./app/Core/App.php (34 dependencies)",
-                "Total application dependencies: 724",
-                "Highly coupled files: 10"
+                "Total application dependencies: 746",
+                "Highly coupled files: 12"
             ],
             "recommendations": [
                 "Prioritize dependency concentration before major refactoring.",
@@ -449,12 +447,12 @@
                 "29  DependencyConsistencyScanner.php::findMethod()",
                 "28  DependencyConsistencyScanner.php::parseMembers()",
                 "27  DependencyConsistencyScanner.php::parseParameters()",
+                "25  QuestionMetadataBuilderService.php::build()",
                 "25  BaseSpecificationFactory.php::create()",
                 "25  DependencyConsistencyScanner.php::checkInheritanceContracts()",
                 "22  BlueprintService.php::create()",
                 "22  DependencyCouplingCheck.php::run()",
-                "22  DependencyConsistencyScanner.php::parseDeclarations()",
-                "21  ChangeImpactCheck.php::run()"
+                "22  DependencyConsistencyScanner.php::parseDeclarations()"
             ],
             "recommendations": [
                 "Reduce branching by extracting smaller methods."
@@ -471,12 +469,12 @@
                 " 43  ./tools/Tests/QuizTest.php",
                 " 54  ./tools/Doctor/Project/BoardPrep/Simulation/HttpSimulator.php",
                 " 55  ./app/Services/Learning/RecommendationService.php",
+                " 56  ./app/Services/Question/QuestionMetadataBuilderService.php",
                 " 56  ./app/Services/Quiz/Specification/BaseSpecificationFactory.php",
                 " 57  ./app/Services/Shared/BlueprintValidator.php",
                 " 58  ./app/Services/Quiz/Blueprint/BlueprintDistributionService.php",
                 " 58  ./tools/Doctor/Scanners/TokenScanner.php",
-                " 60  ./app/Services/Quiz/Blueprint/BlueprintIntegrityValidator.php",
-                " 60  ./app/Services/Quiz/Recovery/RecoveryCandidateService.php"
+                " 60  ./app/Services/Quiz/Blueprint/BlueprintIntegrityValidator.php"
             ],
             "recommendations": [
                 "Improve maintainability by reducing file size, complexity and responsibilities."
@@ -533,7 +531,7 @@
         {
             "title": "Unused Imports",
             "status": "WARNING",
-            "summary": "10 unused imports found.",
+            "summary": "11 unused imports found.",
             "details": [
                 "./app/Storage/MysqlStorage.php :: StorageException",
                 "./app/Views/developer/components/action-bar.php :: ActionBarViewModel",
@@ -544,7 +542,8 @@
                 "./tools/Doctor/Advisor/RecommendationAdvisor.php :: DiagnosticFinding",
                 "./tools/Doctor/DTO/DoctorResult.php :: DiagnosticFinding",
                 "./tools/Doctor/Project/BoardPrep/Simulation/Runner/SimulationRunner.php :: SimulationResult",
-                "./tools/Doctor/Project/BoardPrep/Simulation/Runner/SimulationRunner.php :: SimulationScenario"
+                "./tools/Doctor/Project/BoardPrep/Simulation/Runner/SimulationRunner.php :: SimulationScenario",
+                "./tools/Tests/MethodMetricsAnalyzerTest.php :: Rules"
             ],
             "recommendations": [
                 "Remove unused imports to reduce noise."
@@ -616,13 +615,13 @@
             "category": "complexity",
             "rule": "largest_method",
             "title": "Large Method",
-            "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 80.",
+            "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 60.",
             "file": "./tools/Tests/QuizTest.php",
             "symbol": "testContentAuthoringBehavior",
             "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
             "evidence": {
                 "lines": 127,
-                "threshold": 80
+                "threshold": 60
             },
             "impact": 100,
             "effort": "Small",

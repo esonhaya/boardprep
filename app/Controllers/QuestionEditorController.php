@@ -130,7 +130,7 @@ class QuestionEditorController extends BaseDeveloperController
     {
         $question =
             QuestionService::build(
-                time(),
+                0,
                 Request::input()
             );
 

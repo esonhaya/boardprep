@@ -7,6 +7,7 @@ namespace Tools\Doctor\Project\BoardPrep\Checks;
 use Tools\Doctor\Contracts\CheckInterface;
 use Tools\Doctor\Context\DoctorContext;
 use Tools\Doctor\DTO\CheckResult;
+use Tools\Doctor\Rules\Rules;
 
 final class TechnicalDebtBreakdownCheck implements CheckInterface
 {
@@ -17,8 +18,13 @@ final class TechnicalDebtBreakdownCheck implements CheckInterface
         $largestMethods =
             count($snapshot->metric("largest-method"));
 
+        $largestService =
+            $snapshot->largestFile("/Services/");
+
         $largestServices =
-            count($snapshot->metric("largest-service"));
+            ($largestService["lines"] ?? 0) > Rules::serviceMaxLines()
+                ? 1
+                : 0;
 
         $layers =
             count($snapshot->metric("layer-violations"));
@@ -46,7 +52,7 @@ final class TechnicalDebtBreakdownCheck implements CheckInterface
             summary: "Debt Score: {$total}",
             details: [
                 "Largest Methods ...... " . ($largestMethods * 10),
-                "Largest Services ..... " . ($largestServices * 8),
+                "Largest Service File .. " . ($largestServices * 8),
                 "Layer Violations ..... " . ($layers * 5),
                 "Legacy Files ......... " . ($legacy * 2),
                 "Unused Imports ....... " . $unused,

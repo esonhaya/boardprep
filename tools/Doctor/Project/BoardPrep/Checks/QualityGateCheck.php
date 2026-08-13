@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Tools\Doctor\Project\BoardPrep\Checks;
 
-use Tools\Doctor\Contracts\CheckInterface;
 use Tools\Doctor\Context\DoctorContext;
+use Tools\Doctor\Contracts\CheckInterface;
 use Tools\Doctor\DTO\CheckResult;
+use Tools\Doctor\Rules\Rules;
 
 final class QualityGateCheck implements CheckInterface
 {
@@ -16,8 +17,17 @@ final class QualityGateCheck implements CheckInterface
 
         $warnings =
             count($snapshot->metric('layer-violations'))
-            + count($snapshot->metric('largest-method'))
-            + count($snapshot->metric('largest-service'));
+            + count($snapshot->metric('largest-method'));
+
+        $largestService =
+            $snapshot->largestFile('/Services/');
+
+        if (
+            ($largestService['lines'] ?? 0)
+            > Rules::serviceMaxLines()
+        ) {
+            $warnings++;
+        }
 
         return new CheckResult(
             title: 'Quality Gate',

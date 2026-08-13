@@ -11,7 +11,7 @@ final class RuntimeFunctionTestCheck implements CheckInterface
 {
     public function run(): CheckResult
     {
-        $testFile = dirname(__DIR__, 3) . '/tests/function-test.php';
+        $testFile = dirname(__DIR__, 5) . '/tests/function-test.php';
 
         if (!is_file($testFile)) {
             return new CheckResult(

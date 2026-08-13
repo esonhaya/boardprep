@@ -1,10 +1,7 @@
 <?php
 
-$summary =
-    $result["summary"];
-
-$review =
-    $result["review"];
+$summary = $summary ?? [];
+$review = $review ?? [];
 
 ?>
 
@@ -17,14 +14,14 @@ $review =
 
     <h2>
         Score:
-        <?= $summary["score"] ?>
+        <?= $summary["score"] ?? 0 ?>
         /
-        <?= $summary["total"] ?>
+        <?= $summary["total"] ?? 0 ?>
     </h2>
 
 
     <h3>
-        <?= $summary["percentage"] ?>%
+        <?= $summary["percentage"] ?? 0 ?>%
     </h3>
 
 </div>
@@ -44,7 +41,7 @@ $review =
     <h3>
         <?= ($index + 1) ?>.
         <?= htmlspecialchars(
-            $item["question"]["question"]
+            $item["question"]["question"] ?? ""
         ) ?>
     </h3>
 
@@ -59,7 +56,7 @@ $review =
     </p>
 
 
-    <?php if ($item["correct"]): ?>
+    <?php if (!empty($item["correct"])): ?>
 
         <p>
             ✅ Correct
@@ -76,7 +73,7 @@ $review =
             Correct Answer:
             <strong>
                 <?= htmlspecialchars(
-                    $item["question"]["answer"]
+                    $item["question"]["answer"] ?? ""
                 ) ?>
             </strong>
         </p>

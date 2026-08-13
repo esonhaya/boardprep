@@ -84,7 +84,7 @@ final class ApplicationSimulator
     {
         $entryPoint =
             $this->entryPoint
-            ?? dirname(__DIR__, 3) . '/public/index.php';
+            ?? dirname(__DIR__, 5) . '/public/index.php';
 
         if (!is_file($entryPoint)) {
             throw new \RuntimeException(
