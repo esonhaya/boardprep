@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 namespace App\Controllers;
-
 use App\Services\RepositoryHealth\Engine\RepositoryHealthEngine;
 
 class MetadataRepairController extends BaseDeveloperController

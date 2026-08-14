@@ -1765,6 +1765,17 @@ final class QuizTest
     {
         echo "[TEST] Content authoring behavior\n";
 
+        $this->assertAuthoringServicesAvailable();
+        $question = $this->buildAuthoringQuestion();
+        $this->assertAuthoringQuestionData($question);
+        $this->assertInvalidBlueprint();
+        $this->assertQuestionSaveValidationAvailable();
+
+        echo "[PASS] OK\n";
+    }
+
+    private function assertAuthoringServicesAvailable(): void
+    {
         $this->assertTrue(
             class_exists(\App\Services\Board\BoardService::class),
             "Authoring: BoardService available"
@@ -1795,28 +1806,33 @@ final class QuizTest
             class_exists(\App\Services\Question\QuestionService::class),
             "Authoring: QuestionService available"
         );
+    }
 
-        $question =
-            \App\Services\Question\QuestionService::build(
-                0,
-                [
-                    "board_id" => "LET",
-                    "subject_id" => "English",
-                    "domain_id" => "Grammar",
-                    "topic_id" => "Parts of Speech",
-                    "concept_id" => "Nouns",
-                    "difficulty" => "medium",
-                    "type" => "multiple_choice",
-                    "question" => "Which word is a noun?",
-                    "option_1" => "Quickly",
-                    "option_2" => "Teacher",
-                    "option_3" => "Beautiful",
-                    "option_4" => "Run",
-                    "correct_option" => "option-2",
-                    "explanation" => "Teacher is a noun.",
-                ]
-            );
+    private function buildAuthoringQuestion(): array
+    {
+        return \App\Services\Question\QuestionService::build(
+            0,
+            [
+                "board_id" => "LET",
+                "subject_id" => "English",
+                "domain_id" => "Grammar",
+                "topic_id" => "Parts of Speech",
+                "concept_id" => "Nouns",
+                "difficulty" => "medium",
+                "type" => "multiple_choice",
+                "question" => "Which word is a noun?",
+                "option_1" => "Quickly",
+                "option_2" => "Teacher",
+                "option_3" => "Beautiful",
+                "option_4" => "Run",
+                "correct_option" => "option-2",
+                "explanation" => "Teacher is a noun.",
+            ]
+        );
+    }
 
+    private function assertAuthoringQuestionData(array $question): void
+    {
         $this->assertSame(
             "LET",
             $question["taxonomy"]["board_id"],
@@ -1854,7 +1870,10 @@ final class QuizTest
             $correctOptions[0]["id"] ?? null,
             "Authoring: correct option mapped"
         );
+    }
 
+    private function assertInvalidBlueprint(): void
+    {
         $invalidBlueprint =
             \App\Services\BlueprintService::create(
                 [
@@ -1878,7 +1897,10 @@ final class QuizTest
             !empty($invalidBlueprint["errors"]),
             "Authoring: blueprint validation errors returned"
         );
+    }
 
+    private function assertQuestionSaveValidationAvailable(): void
+    {
         $this->assertTrue(
             method_exists(
                 \App\Services\Question\QuestionService::class,
@@ -1886,8 +1908,6 @@ final class QuizTest
             ),
             "Authoring: question save-validation pipeline available"
         );
-
-        echo "[PASS] OK\n";
     }
 
     private function assertFalse(

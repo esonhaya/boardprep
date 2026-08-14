@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 namespace App\Controllers;
-
 use App\Services\Blueprint\BlueprintService;
 use App\Services\Board\BoardViewService;
 use App\Services\Subject\SubjectViewService;

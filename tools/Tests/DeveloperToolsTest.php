@@ -1,0 +1,147 @@
+<?php
+
+declare(strict_types=1);
+
+require_once dirname(__DIR__, 2) . '/app/Core/Autoloader.php';
+
+use App\Core\Autoloader;
+use App\Builders\Developer\DeveloperPageBuilder;
+use App\Builders\Developer\EntityCardBuilder;
+use App\Services\Developer\DeveloperViewService;
+use App\ViewModels\Developer\ActionBarViewModel;
+use App\ViewModels\Developer\EntityCardViewModel;
+use App\ViewModels\Developer\PageHeaderViewModel;
+use App\ViewModels\Developer\SummaryViewModel;
+
+Autoloader::register();
+
+echo "======================================\n";
+echo " BoardPrep Developer Tools Test\n";
+echo "======================================\n";
+echo "Mode: In-process simulation\n";
+echo "Database: NOT USED\n";
+echo "HTTP server: NOT USED\n\n";
+
+$pass = 0;
+$fail = 0;
+
+function check(bool $condition, string $message): void
+{
+    global $pass, $fail;
+
+    if ($condition) {
+        $pass++;
+        echo "[PASS] {$message}\n";
+        return;
+    }
+
+    $fail++;
+    echo "[FAIL] {$message}\n";
+}
+
+echo "[TEST] Developer controller surface\n";
+
+$controllers = [
+    'BaseDeveloperController',
+    'DashboardController',
+    'DeveloperToolsController',
+    'DoctorDashboardController',
+    'DoctorRunController',
+    'DoctorApiController',
+    'QuestionInspectorController',
+    'QuestionQualityController',
+    'MetadataRepairController',
+    'QuestionImportController',
+    'QuestionExportController',
+    'BlueprintController',
+    'BlueprintHealthController',
+    'CoverageController',
+    'TaxonomyController',
+];
+
+foreach ($controllers as $class) {
+    $fqcn = "App\\Controllers\\{$class}";
+    check(class_exists($fqcn), "{$fqcn} class exists");
+}
+
+echo "[TEST] Developer view service factories\n";
+
+$header = DeveloperViewService::pageHeader('Test Page', 'Test description');
+$summary = DeveloperViewService::summary(['Questions' => 10]);
+$actions = DeveloperViewService::actionBar([
+    ['label' => 'Test', 'href' => '/developer'],
+]);
+$entity = DeveloperViewService::entity(
+    ['id' => 'test'],
+    ['Status' => 'OK'],
+    [['label' => 'Open', 'href' => '/developer']]
+);
+
+check($header instanceof PageHeaderViewModel, 'pageHeader returns PageHeaderViewModel');
+check($header->title === 'Test Page', 'pageHeader preserves title');
+check($header->description === 'Test description', 'pageHeader preserves description');
+
+check($summary instanceof SummaryViewModel, 'summary returns SummaryViewModel');
+check($actions instanceof ActionBarViewModel, 'actionBar returns ActionBarViewModel');
+check($entity instanceof EntityCardViewModel, 'entity returns EntityCardViewModel');
+
+echo "[TEST] Developer page builder\n";
+
+$page = DeveloperPageBuilder::make()
+    ->title('Developer Test', 'Smoke test')
+    ->summary(['Questions' => 10])
+    ->actions([['label' => 'Open', 'href' => '/developer']])
+    ->entities([['id' => 'q1']])
+    ->build();
+
+check(is_array($page), 'DeveloperPageBuilder::build returns array');
+check(isset($page['pageHeader']), 'page builder contains pageHeader');
+check(isset($page['summary']), 'page builder contains summary');
+check(isset($page['actionBar']), 'page builder contains actionBar');
+check(isset($page['entities']), 'page builder contains entities');
+
+echo "[TEST] Entity card builder\n";
+
+$card = EntityCardBuilder::make()
+    ->entity(['id' => 'q1'])
+    ->details(['Status' => 'approved'])
+    ->actions([['label' => 'Open', 'href' => '/question-editor']])
+    ->build();
+
+check($card instanceof EntityCardViewModel, 'EntityCardBuilder returns EntityCardViewModel');
+
+echo "[TEST] Developer view files\n";
+
+$views = [
+    'app/Views/developer/index.php',
+    'app/Views/developer/dashboard.php',
+    'app/Views/developer/workspace/index.php',
+    'app/Views/developer/question/workspace.php',
+    'app/Views/developer/question/editor.php',
+    'app/Views/developer/question-inspector.php',
+    'app/Views/developer/question-quality.php',
+    'app/Views/developer/metadata-repair.php',
+    'app/Views/developer/taxonomy.php',
+    'app/Views/developer/coverage.php',
+    'app/Views/developer/blueprints.php',
+    'app/Views/developer/blueprint-health.php',
+    'app/Views/developer/doctor/index.php',
+];
+
+foreach ($views as $view) {
+    check(is_file(__DIR__ . "/../../{$view}"), "{$view} exists");
+}
+
+echo "\n======================================\n";
+echo " SUMMARY\n";
+echo "======================================\n";
+echo "PASS       : {$pass}\n";
+echo "FAIL       : {$fail}\n";
+echo "ASSERTIONS : " . ($pass + $fail) . "\n";
+
+if ($fail > 0) {
+    echo "\n[FAIL] Developer tools simulation failed.\n";
+    exit(1);
+}
+
+echo "\n[PASS] Developer tools simulation passed.\n";

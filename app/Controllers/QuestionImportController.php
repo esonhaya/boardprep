@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 namespace App\Controllers;
-
 use App\Services\Shared\QuestionImportService;
 
 class QuestionImportController extends BaseDeveloperController

@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 namespace App\Controllers;
-
 final class DoctorApiController
 {
     public function index(): void

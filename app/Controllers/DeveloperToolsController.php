@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+namespace App\Controllers;
 class DeveloperToolsController extends BaseDeveloperController
 {
     public static function index(): void
