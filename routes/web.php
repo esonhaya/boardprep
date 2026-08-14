@@ -120,7 +120,7 @@ $router->post(
 
 $router->get(
     "/subject/view",
-    [SubjectController::class, "view"]
+    [SubjectController::class, "show"]
 );
 
 $router->get(

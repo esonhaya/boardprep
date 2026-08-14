@@ -104,54 +104,77 @@ foreach ($baseMethods as $method) {
 }
 
 
-echo "[TEST] Developer routed controller methods\n";
+echo "[TEST] Route-derived controller method contracts\n";
 
-$routedMethods = [
-    'DashboardController' => ['index'],
-    'DeveloperToolsController' => ['index'],
-    'QuestionEditorController' => [
-        'index',
-        'create',
-        'edit',
-        'save',
-        'update',
-        'archive',
-        'restore',
-    ],
-    'QuestionExportController' => ['export'],
-    'QuestionImportController' => ['index', 'import'],
-    'QuestionQualityController' => ['index'],
-    'QuestionInspectorController' => ['index'],
-    'CoverageController' => ['index'],
-    'TaxonomyController' => ['index', 'rebuild'],
-    'MetadataRepairController' => ['index'],
-    'BlueprintController' => ['index', 'create', 'save'],
-    'BlueprintHealthController' => ['index'],
-];
+$routesSource = file_get_contents(
+    __DIR__ . "/../../routes/web.php"
+);
 
-foreach ($routedMethods as $class => $methods) {
-    $fqcn = "App\\Controllers\\{$class}";
-    $reflection = new ReflectionClass($fqcn);
+check(
+    $routesSource !== false,
+    "routes/web.php is readable"
+);
 
-    foreach ($methods as $method) {
+if ($routesSource !== false) {
+    preg_match_all(
+        '/\[\s*([A-Za-z_][A-Za-z0-9_]*)::class\s*,\s*"([A-Za-z_][A-Za-z0-9_]*)"\s*\]/s',
+        $routesSource,
+        $routeMatches,
+        PREG_SET_ORDER
+    );
+
+    check(
+        !empty($routeMatches),
+        "controller route targets discovered"
+    );
+
+    $routeTargets = [];
+
+    foreach ($routeMatches as $match) {
+        $class = $match[1];
+        $method = $match[2];
+        $routeTargets["{$class}::{$method}"] = [$class, $method];
+    }
+
+    check(
+        count($routeTargets) > 0,
+        "controller route targets discovered"
+    );
+
+    foreach ($routeTargets as [$class, $method]) {
+        $fqcn = "App\\Controllers\\{$class}";
+
+        check(
+            class_exists($fqcn),
+            "{$fqcn} exists for routed method {$method}"
+        );
+
+        if (!class_exists($fqcn)) {
+            continue;
+        }
+
+        $reflection = new ReflectionClass($fqcn);
+
         check(
             $reflection->hasMethod($method),
             "{$fqcn}::{$method} exists"
         );
 
-        if ($reflection->hasMethod($method)) {
-            $methodReflection = $reflection->getMethod($method);
-
-            check(
-                $methodReflection->isPublic(),
-                "{$fqcn}::{$method} is public"
-            );
-
-            check(
-                $methodReflection->isStatic(),
-                "{$fqcn}::{$method} is static"
-            );
+        if (!$reflection->hasMethod($method)) {
+            continue;
         }
+
+        $methodReflection = $reflection->getMethod($method);
+
+        check(
+            $methodReflection->isPublic(),
+            "{$fqcn}::{$method} is public"
+        );
+
+        check(
+            $methodReflection->isStatic(),
+            "{$fqcn}::{$method} is static"
+        );
     }
 }
 
