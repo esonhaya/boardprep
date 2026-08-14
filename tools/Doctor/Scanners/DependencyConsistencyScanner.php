@@ -224,56 +224,101 @@ final class DependencyConsistencyScanner
                 continue;
             }
 
-            if ($t[0] === T_PUBLIC || $t[0] === T_PROTECTED || $t[0] === T_PRIVATE) {
-                $pending['visibility'] = strtolower($t[1]);
-                continue;
-            }
-            if ($t[0] === T_STATIC) { $pending['static'] = true; continue; }
-            if ($t[0] === T_ABSTRACT) { $pending['abstract'] = true; continue; }
-            if ($t[0] === T_FINAL) { $pending['final'] = true; continue; }
-            if (defined('T_READONLY') && $t[0] === T_READONLY) { continue; }
+            if (self::applyMemberModifier($t, $pending)) continue;
 
             if ($t[0] === T_FUNCTION) {
-                $nameIndex = self::nextToken($tokens, $i + 1, T_STRING);
-                if ($nameIndex === null) continue;
-                $open = self::findToken($tokens, $nameIndex + 1, '(');
-                if ($open === null) continue;
-                $close = self::matchingParen($tokens, $open);
-                if ($close === null) continue;
+                $method = self::parseMemberMethod($tokens, $i, $baseLine, $pending);
+                if ($method === null) continue;
 
-                $methods[$tokens[$nameIndex][1]] = [
-                    'name' => $tokens[$nameIndex][1],
-                    'visibility' => $pending['visibility'],
-                    'static' => $pending['static'],
-                    'abstract' => $pending['abstract'],
-                    'final' => $pending['final'],
-                    'params' => self::parseParameters(array_slice($tokens, $open + 1, $close - $open - 1)),
-                    'returnType' => self::parseReturnType($tokens, $close + 1),
-                    'line' => (int) ($tokens[$nameIndex][2] ?? $baseLine),
-                ];
-
-                $pending = [
-                    'visibility' => 'public',
-                    'static' => false,
-                    'abstract' => false,
-                    'final' => false,
-                ];
+                $methods[$method['name']] = $method;
+                $pending = self::defaultMemberModifiers();
                 continue;
             }
 
             if ($t[0] === T_VARIABLE) {
-                $name = substr($t[1], 1);
-                $properties[$name] = [
-                    'name' => $name,
-                    'visibility' => $pending['visibility'],
-                    'static' => $pending['static'],
-                    'type' => self::propertyTypeBefore($tokens, $i),
-                    'line' => (int) ($t[2] ?? $baseLine),
-                ];
+                self::registerMemberProperty($properties, $tokens, $i, $baseLine, $pending);
             }
         }
 
         return [$methods, $properties];
+    }
+
+    private static function defaultMemberModifiers(): array
+    {
+        return [
+            'visibility' => 'public',
+            'static' => false,
+            'abstract' => false,
+            'final' => false,
+        ];
+    }
+
+    private static function applyMemberModifier(array $token, array &$pending): bool
+    {
+        if ($token[0] === T_PUBLIC || $token[0] === T_PROTECTED || $token[0] === T_PRIVATE) {
+            $pending['visibility'] = strtolower($token[1]);
+            return true;
+        }
+        if ($token[0] === T_STATIC) {
+            $pending['static'] = true;
+            return true;
+        }
+        if ($token[0] === T_ABSTRACT) {
+            $pending['abstract'] = true;
+            return true;
+        }
+        if ($token[0] === T_FINAL) {
+            $pending['final'] = true;
+            return true;
+        }
+        return defined('T_READONLY') && $token[0] === T_READONLY;
+    }
+
+    private static function parseMemberMethod(
+        array $tokens,
+        int $index,
+        int $baseLine,
+        array $pending
+    ): ?array {
+        $nameIndex = self::nextToken($tokens, $index + 1, T_STRING);
+        if ($nameIndex === null) return null;
+
+        $open = self::findToken($tokens, $nameIndex + 1, '(');
+        if ($open === null) return null;
+
+        $close = self::matchingParen($tokens, $open);
+        if ($close === null) return null;
+
+        $name = $tokens[$nameIndex][1];
+
+        return [
+            'name' => $name,
+            'visibility' => $pending['visibility'],
+            'static' => $pending['static'],
+            'abstract' => $pending['abstract'],
+            'final' => $pending['final'],
+            'params' => self::parseParameters(array_slice($tokens, $open + 1, $close - $open - 1)),
+            'returnType' => self::parseReturnType($tokens, $close + 1),
+            'line' => (int) ($tokens[$nameIndex][2] ?? $baseLine),
+        ];
+    }
+
+    private static function registerMemberProperty(
+        array &$properties,
+        array $tokens,
+        int $index,
+        int $baseLine,
+        array $pending
+    ): void {
+        $name = substr($tokens[$index][1], 1);
+
+        $properties[$name] = [
+            'name' => $name,
+            'visibility' => $pending['visibility'],
+            'static' => $pending['static'],
+            'type' => self::propertyTypeBefore($tokens, $index),
+            'line' => (int) ($tokens[$index][2] ?? $baseLine),
+        ];
     }
 
     private static function propertyTypeBefore(array $tokens, int $variableIndex): ?string
