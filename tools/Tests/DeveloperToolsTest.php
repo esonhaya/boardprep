@@ -61,7 +61,19 @@ $controllers = [
 
 foreach ($controllers as $class) {
     $fqcn = "App\\Controllers\\{$class}";
-    check(class_exists($fqcn), "{$fqcn} class exists");
+    $exists = class_exists($fqcn);
+
+    check($exists, "{$fqcn} class exists");
+
+    if ($exists) {
+        $reflection = new ReflectionClass($fqcn);
+        $publicMethods = $reflection->getMethods(ReflectionMethod::IS_PUBLIC);
+
+        check(
+            count($publicMethods) > 0,
+            "{$fqcn} exposes public runtime methods"
+        );
+    }
 }
 
 echo "[TEST] Developer view service factories\n";
