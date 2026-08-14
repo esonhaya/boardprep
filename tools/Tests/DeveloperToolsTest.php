@@ -103,6 +103,58 @@ foreach ($baseMethods as $method) {
     }
 }
 
+
+echo "[TEST] Developer routed controller methods\n";
+
+$routedMethods = [
+    'DashboardController' => ['index'],
+    'DeveloperToolsController' => ['index'],
+    'QuestionEditorController' => [
+        'index',
+        'create',
+        'edit',
+        'save',
+        'update',
+        'archive',
+        'restore',
+    ],
+    'QuestionExportController' => ['export'],
+    'QuestionImportController' => ['index', 'import'],
+    'QuestionQualityController' => ['index'],
+    'QuestionInspectorController' => ['index'],
+    'CoverageController' => ['index'],
+    'TaxonomyController' => ['index', 'rebuild'],
+    'MetadataRepairController' => ['index'],
+    'BlueprintController' => ['index', 'create', 'save'],
+    'BlueprintHealthController' => ['index'],
+];
+
+foreach ($routedMethods as $class => $methods) {
+    $fqcn = "App\\Controllers\\{$class}";
+    $reflection = new ReflectionClass($fqcn);
+
+    foreach ($methods as $method) {
+        check(
+            $reflection->hasMethod($method),
+            "{$fqcn}::{$method} exists"
+        );
+
+        if ($reflection->hasMethod($method)) {
+            $methodReflection = $reflection->getMethod($method);
+
+            check(
+                $methodReflection->isPublic(),
+                "{$fqcn}::{$method} is public"
+            );
+
+            check(
+                $methodReflection->isStatic(),
+                "{$fqcn}::{$method} is static"
+            );
+        }
+    }
+}
+
 echo "[TEST] Developer view service factories\n";
 
 $header = DeveloperViewService::pageHeader('Test Page', 'Test description');

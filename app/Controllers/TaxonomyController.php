@@ -35,7 +35,7 @@ class TaxonomyController extends BaseDeveloperController
 
     }
 
-    public static function analyze(): void
+    public static function rebuild(): void
     {
 
         TaxonomyIntegrityService::analyze();
