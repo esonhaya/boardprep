@@ -65,13 +65,40 @@ foreach ($controllers as $class) {
 
     check($exists, "{$fqcn} class exists");
 
-    if ($exists) {
+    if ($exists && $class !== 'BaseDeveloperController') {
         $reflection = new ReflectionClass($fqcn);
         $publicMethods = $reflection->getMethods(ReflectionMethod::IS_PUBLIC);
 
         check(
             count($publicMethods) > 0,
             "{$fqcn} exposes public runtime methods"
+        );
+    }
+}
+
+$baseDeveloperController = new ReflectionClass(
+    App\\Controllers\\BaseDeveloperController::class
+);
+
+$baseMethods = [
+    'renderDeveloper',
+    'developerRedirect',
+    'renderDeveloperErrors',
+];
+
+foreach ($baseMethods as $method) {
+    check(
+        $baseDeveloperController->hasMethod($method),
+        "BaseDeveloperController::{$method} exists"
+    );
+
+    if ($baseDeveloperController->hasMethod($method)) {
+        $reflectionMethod = $baseDeveloperController->getMethod($method);
+
+        check(
+            $reflectionMethod->isProtected()
+                && $reflectionMethod->isStatic(),
+            "BaseDeveloperController::{$method} is protected static"
         );
     }
 }
