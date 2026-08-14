@@ -77,7 +77,7 @@ foreach ($controllers as $class) {
 }
 
 $baseDeveloperController = new ReflectionClass(
-    App\\Controllers\\BaseDeveloperController::class
+    App\Controllers\BaseDeveloperController::class
 );
 
 $baseMethods = [
