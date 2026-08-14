@@ -346,65 +346,77 @@ final class DependencyConsistencyScanner
     {
         if ($tokens === []) return [];
 
+        $params = [];
+        foreach (self::splitParameterSegments($tokens) as $segment) {
+            $parameter = self::parseParameterSegment($segment);
+            if ($parameter !== null) $params[] = $parameter;
+        }
+
+        return $params;
+    }
+
+    private static function splitParameterSegments(array $tokens): array
+    {
         $segments = [];
         $current = [];
         $depth = 0;
+
         foreach ($tokens as $token) {
-            if ($token === '(' || $token === '[' || $token === '{') $depth++;
-            if ($token === ')' || $token === ']' || $token === '}') $depth--;
+            if (in_array($token, ['(', '[', '{'], true)) $depth++;
+            if (in_array($token, [')', ']', '}'], true)) $depth--;
+
             if ($token === ',' && $depth === 0) {
                 $segments[] = $current;
                 $current = [];
                 continue;
             }
+
             $current[] = $token;
         }
+
         if ($current !== []) $segments[] = $current;
+        return $segments;
+    }
 
-        $params = [];
-        foreach ($segments as $segment) {
-            $typeParts = [];
-            $name = null;
-            $variadic = false;
-            $optional = false;
-            $seenVariable = false;
+    private static function parseParameterSegment(array $segment): ?array
+    {
+        $typeParts = [];
+        $name = null;
+        $variadic = false;
+        $optional = false;
+        $seenVariable = false;
 
-            foreach ($segment as $token) {
-                if (is_array($token)) {
-                    if ($token[0] === T_ELLIPSIS) {
-                        $variadic = true;
-                        continue;
-                    }
-                    if ($token[0] === T_VARIABLE) {
-                        $name = substr($token[1], 1);
-                        $seenVariable = true;
-                        continue;
-                    }
-                    if (!$seenVariable && self::isTypeToken($token[0])) {
-                        $typeParts[] = $token[1];
-                    }
+        foreach ($segment as $token) {
+            if (is_array($token)) {
+                if ($token[0] === T_ELLIPSIS) {
+                    $variadic = true;
                     continue;
                 }
-
-                if ($token === '=' && $seenVariable) {
-                    $optional = true;
+                if ($token[0] === T_VARIABLE) {
+                    $name = substr($token[1], 1);
+                    $seenVariable = true;
+                    continue;
                 }
-                if (!$seenVariable && in_array($token, ['?', '|', '&', '\\'], true)) {
-                    $typeParts[] = $token;
+                if (!$seenVariable && self::isTypeToken($token[0])) {
+                    $typeParts[] = $token[1];
                 }
+                continue;
             }
 
-            if ($name !== null) {
-                $params[] = [
-                    'name' => $name,
-                    'type' => self::normalizeTypeText(implode('', $typeParts)) ?: null,
-                    'variadic' => $variadic,
-                    'optional' => $optional || $variadic,
-                ];
+            if ($token === '=' && $seenVariable) $optional = true;
+            if (!$seenVariable && in_array($token, ['?', '|', '&', '\\'], true)) {
+                $typeParts[] = $token;
             }
         }
 
-        return $params;
+        if ($name === null) return null;
+
+        return [
+            'name' => $name,
+            'type' => self::normalizeTypeText(implode('', $typeParts)) ?: null,
+            'variadic' => $variadic,
+            'optional' => $optional || $variadic,
+        ];
     }
 
     private static function parseReturnType(array $tokens, int $start): ?string
