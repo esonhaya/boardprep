@@ -597,31 +597,91 @@ final class DependencyConsistencyScanner
     {
         $definition = self::findMethod($target, $method, $symbols);
         if ($definition === null) {
-            if ($method === '__construct' && empty($symbols[$target]['methods'])) {
-                return;
-            }
-            $issues[] = self::issue($source, self::tokenLine($tokens, $open), sprintf('%s::%s() does not exist', $target, $method));
+            self::reportMissingMethod($issues, $source, $symbols, $target, $method, $open, $tokens);
             return;
         }
 
-        if ($static && !$definition['static'] && $method !== '__construct') {
-            $issues[] = self::issue($source, self::tokenLine($tokens, $open), sprintf('%s::%s() is an instance method, not static', $target, $method));
-        }
-        if (!$static && $definition['static'] && $method !== '__construct') {
-            // Calling a static method through an object is legal in PHP, so don't flag it.
-        }
+        self::validateMethodStaticness($issues, $source, $target, $method, $static, $definition, $open, $tokens);
+        self::validateMethodArguments($issues, $source, $target, $method, $definition, $open, $tokens);
+    }
 
+    private static function reportMissingMethod(
+        array &$issues,
+        array $source,
+        array $symbols,
+        string $target,
+        string $method,
+        int $open,
+        array $tokens
+    ): void {
+        if ($method === '__construct' && empty($symbols[$target]['methods'])) return;
+
+        $issues[] = self::issue(
+            $source,
+            self::tokenLine($tokens, $open),
+            sprintf('%s::%s() does not exist', $target, $method)
+        );
+    }
+
+    private static function validateMethodStaticness(
+        array &$issues,
+        array $source,
+        string $target,
+        string $method,
+        bool $static,
+        array $definition,
+        int $open,
+        array $tokens
+    ): void {
+        if ($static && !$definition['static'] && $method !== '__construct') {
+            $issues[] = self::issue(
+                $source,
+                self::tokenLine($tokens, $open),
+                sprintf('%s::%s() is an instance method, not static', $target, $method)
+            );
+        }
+    }
+
+    private static function validateMethodArguments(
+        array &$issues,
+        array $source,
+        string $target,
+        string $method,
+        array $definition,
+        int $open,
+        array $tokens
+    ): void {
         $close = self::matchingParen($tokens, $open);
         if ($close === null) return;
+
         $args = self::argumentCount(array_slice($tokens, $open + 1, $close - $open - 1));
         $params = $definition['params'];
-        $required = count(array_filter($params, static fn(array $p): bool => !$p['optional'] && !$p['variadic']));
-        $maximum = count(array_filter($params, static fn(array $p): bool => !$p['variadic']));
-        $hasVariadic = (bool) array_filter($params, static fn(array $p): bool => $p['variadic']);
+        $required = count(array_filter(
+            $params,
+            static fn(array $p): bool => !$p['optional'] && !$p['variadic']
+        ));
+        $maximum = count(array_filter(
+            $params,
+            static fn(array $p): bool => !$p['variadic']
+        ));
+        $hasVariadic = (bool) array_filter(
+            $params,
+            static fn(array $p): bool => $p['variadic']
+        );
 
         if ($args < $required || (!$hasVariadic && $args > $maximum)) {
             $expected = $hasVariadic ? $required . '+' : $required . '-' . $maximum;
-            $issues[] = self::issue($source, self::tokenLine($tokens, $open), sprintf('%s::%s() receives %d argument(s); expected %s', $target, $method, $args, $expected));
+            $issues[] = self::issue(
+                $source,
+                self::tokenLine($tokens, $open),
+                sprintf(
+                    '%s::%s() receives %d argument(s); expected %s',
+                    $target,
+                    $method,
+                    $args,
+                    $expected
+                )
+            );
         }
     }
 
