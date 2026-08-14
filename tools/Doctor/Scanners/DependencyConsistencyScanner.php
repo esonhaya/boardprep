@@ -379,128 +379,161 @@ final class DependencyConsistencyScanner
     private static function checkReferences(array $symbol, array $symbols): array
     {
         $issues = [];
-        $code = (string) ($symbol['code'] ?? '');
-        $tokens = $symbol['tokens'] ?? token_get_all($code);
-        $count = count($tokens);
+        $tokens = $symbol['tokens'] ?? token_get_all((string) ($symbol['code'] ?? ''));
         $variables = [];
-        foreach ($symbol['methods'] as $method) {
-            // Method-local type information is reconstructed below from the source token stream.
-        }
 
-        for ($i = 0; $i < $count; $i++) {
-            $t = $tokens[$i];
-            if (!is_array($t)) continue;
+        for ($i = 0, $count = count($tokens); $i < $count; $i++) {
+            $token = $tokens[$i];
+            if (!is_array($token)) continue;
 
-            if ($t[0] === T_FUNCTION) {
-                $nameIndex = self::nextToken($tokens, $i + 1, T_STRING);
-                $open = $nameIndex === null ? null : self::findToken($tokens, $nameIndex + 1, '(');
-                if ($open === null) continue;
-                $close = self::matchingParen($tokens, $open);
-                if ($close === null) continue;
-                $local = self::parseParameterTypesWithVariables(array_slice($tokens, $open + 1, $close - $open - 1));
-                foreach ($local as $name => $type) $variables[$name] = $type;
+            if ($token[0] === T_FUNCTION) {
+                self::collectReferenceMethodVariables($tokens, $i, $variables);
                 continue;
             }
-
-            if ($t[0] === T_USE) {
-                $open = self::nextMeaningful($tokens, $i + 1);
-                if ($open !== null && isset($tokens[$open]) && $tokens[$open] === '(') {
-                    $close = self::matchingParen($tokens, $open);
-                    if ($close !== null) {
-                        foreach (self::parseUseVariables(array_slice($tokens, $open + 1, $close - $open - 1)) as $name) {
-                            // Keep the type inferred from the enclosing method parameter.
-                            if (!isset($variables[$name])) $variables[$name] = null;
-                        }
-                        $i = $close;
-                    }
-                }
+            if ($token[0] === T_USE) {
+                self::collectReferenceUseVariables($tokens, $i, $variables);
                 continue;
             }
-
-            if ($t[0] === T_VARIABLE) {
-                $name = substr($t[1], 1);
-                if ($name === 'this') {
-                    $variables['this'] = $symbol['fqcn'];
-                }
-
-                $next = self::nextMeaningful($tokens, $i + 1);
-                if ($next !== null && isset($tokens[$next]) && is_array($tokens[$next]) && $tokens[$next][0] === T_OBJECT_OPERATOR) {
-                    $member = self::nextMeaningful($tokens, $next + 1);
-                    if ($member === null) continue;
-                    $memberToken = $tokens[$member];
-                    if (!is_array($memberToken) || $memberToken[0] !== T_STRING) continue;
-                    $memberName = $memberToken[1];
-                    $type = $variables[$name] ?? null;
-                    if ($type === null) continue;
-                    $target = $name === 'this'
-                        ? $type
-                        : self::resolveType($type, $symbol);
-                    if ($target === null) continue;
-                    if (!isset($symbols[$target])) {
-                        if (!self::isKnownExternalType($target)) {
-                            $issues[] = self::issue($symbol, $memberToken[2] ?? 1, sprintf('Referenced type %s cannot be resolved', $target));
-                        }
-                        continue;
-                    }
-                    $after = self::nextMeaningful($tokens, $member + 1);
-                    if ($after !== null && isset($tokens[$after]) && $tokens[$after] === '(') {
-                        self::validateMethodCall($issues, $symbol, $symbols, $target, $memberName, false, $after, $tokens);
-                    } else {
-                        self::validateProperty($issues, $symbol, $symbols, $target, $memberName, $memberToken[2] ?? 1);
-                    }
-                }
+            if ($token[0] === T_VARIABLE) {
+                self::checkObjectReference($issues, $symbol, $symbols, $tokens, $i, $variables);
+                continue;
             }
-
-            if ($t[0] === T_DOUBLE_COLON) {
-                $nameIndex = $i - 1;
-                while ($nameIndex >= 0 && is_array($tokens[$nameIndex]) && $tokens[$nameIndex][0] === T_WHITESPACE) $nameIndex--;
-                if ($nameIndex < 0 || !is_array($tokens[$nameIndex])) continue;
-                if (!in_array($tokens[$nameIndex][0], array_filter([T_STRING, T_NAME_QUALIFIED ?? null, T_NAME_FULLY_QUALIFIED ?? null, defined('T_NAME_RELATIVE') ? T_NAME_RELATIVE : null], static fn($v) => $v !== null), true)) {
-                    continue;
-                }
-                $className = $tokens[$nameIndex][1];
-                if ($className === 'self' || $className === 'static') {
-                    $target = $symbol['fqcn'];
-                } elseif ($className === 'parent') {
-                    $target = self::resolveClassName($symbol['extends'] ?? '', $symbol, $symbols);
-                } else {
-                    $target = self::resolveClassName($className, $symbol, $symbols);
-                }
-                if ($target === null) continue;
-                if (!isset($symbols[$target])) {
-                    if (!self::isKnownExternalType($target)) {
-                        $issues[] = self::issue($symbol, self::tokenLine($tokens, $i), sprintf('Referenced class %s cannot be resolved', $target));
-                    }
-                    continue;
-                }
-                $member = self::nextMeaningful($tokens, $i + 1);
-                if ($member === null || !is_array($tokens[$member]) || $tokens[$member][0] !== T_STRING) continue;
-                $after = self::nextMeaningful($tokens, $member + 1);
-                if ($after !== null && isset($tokens[$after]) && $tokens[$after] === '(') {
-                    self::validateMethodCall($issues, $symbol, $symbols, $target, $tokens[$member][1], true, $after, $tokens);
-                }
+            if ($token[0] === T_DOUBLE_COLON) {
+                self::checkStaticReference($issues, $symbol, $symbols, $tokens, $i);
+                continue;
             }
-
-            if ($t[0] === T_NEW) {
-                $nameIndex = self::nextNameToken($tokens, $i + 1);
-                if ($nameIndex === null) continue;
-                $raw = self::tokensName($tokens, $i + 1, $nameIndex);
-                $target = self::resolveClassName($raw, $symbol, $symbols);
-                if ($target === null) continue;
-                if (!isset($symbols[$target])) {
-                    if (!self::isKnownExternalType($target)) {
-                        $issues[] = self::issue($symbol, self::tokenLine($tokens, $nameIndex), sprintf('Referenced class %s cannot be resolved', $target));
-                    }
-                    continue;
-                }
-                $open = self::nextMeaningful($tokens, $nameIndex + 1);
-                if ($open !== null && isset($tokens[$open]) && $tokens[$open] === '(') {
-                    self::validateMethodCall($issues, $symbol, $symbols, $target, '__construct', false, $open, $tokens);
-                }
+            if ($token[0] === T_NEW) {
+                self::checkNewReference($issues, $symbol, $symbols, $tokens, $i);
             }
         }
 
         return $issues;
+    }
+
+    private static function collectReferenceMethodVariables(array $tokens, int &$index, array &$variables): void
+    {
+        $name = self::nextToken($tokens, $index + 1, T_STRING);
+        $open = $name === null ? null : self::findToken($tokens, $name + 1, '(');
+        if ($open === null) return;
+        $close = self::matchingParen($tokens, $open);
+        if ($close === null) return;
+
+        foreach (self::parseParameterTypesWithVariables(
+            array_slice($tokens, $open + 1, $close - $open - 1)
+        ) as $name => $type) {
+            $variables[$name] = $type;
+        }
+    }
+
+    private static function collectReferenceUseVariables(array $tokens, int &$index, array &$variables): void
+    {
+        $open = self::nextMeaningful($tokens, $index + 1);
+        if ($open === null || ($tokens[$open] ?? null) !== '(') return;
+        $close = self::matchingParen($tokens, $open);
+        if ($close === null) return;
+
+        foreach (self::parseUseVariables(array_slice($tokens, $open + 1, $close - $open - 1)) as $name) {
+            if (!isset($variables[$name])) $variables[$name] = null;
+        }
+        $index = $close;
+    }
+
+    private static function checkObjectReference(
+        array &$issues, array $symbol, array $symbols, array $tokens, int $index, array &$variables
+    ): void {
+        $name = substr($tokens[$index][1], 1);
+        if ($name === 'this') $variables['this'] = $symbol['fqcn'];
+
+        $next = self::nextMeaningful($tokens, $index + 1);
+        if ($next === null || !is_array($tokens[$next]) || $tokens[$next][0] !== T_OBJECT_OPERATOR) return;
+
+        $member = self::nextMeaningful($tokens, $next + 1);
+        if ($member === null || !is_array($tokens[$member]) || $tokens[$member][0] !== T_STRING) return;
+
+        $type = $variables[$name] ?? null;
+        if ($type === null) return;
+        $target = $name === 'this' ? $type : self::resolveType($type, $symbol);
+        if ($target === null) return;
+
+        if (!isset($symbols[$target])) {
+            if (!self::isKnownExternalType($target)) {
+                $issues[] = self::issue($symbol, $tokens[$member][2] ?? 1,
+                    sprintf('Referenced type %s cannot be resolved', $target));
+            }
+            return;
+        }
+
+        $memberName = $tokens[$member][1];
+        $after = self::nextMeaningful($tokens, $member + 1);
+        if ($after !== null && ($tokens[$after] ?? null) === '(') {
+            self::validateMethodCall($issues, $symbol, $symbols, $target, $memberName, false, $after, $tokens);
+        } else {
+            self::validateProperty($issues, $symbol, $symbols, $target, $memberName, $tokens[$member][2] ?? 1);
+        }
+    }
+
+    private static function checkStaticReference(
+        array &$issues, array $symbol, array $symbols, array $tokens, int $index
+    ): void {
+        $nameIndex = $index - 1;
+        while ($nameIndex >= 0 && is_array($tokens[$nameIndex]) && $tokens[$nameIndex][0] === T_WHITESPACE) $nameIndex--;
+        if ($nameIndex < 0 || !is_array($tokens[$nameIndex])) return;
+
+        $types = array_filter([
+            T_STRING, T_NAME_QUALIFIED ?? null, T_NAME_FULLY_QUALIFIED ?? null,
+            defined('T_NAME_RELATIVE') ? T_NAME_RELATIVE : null
+        ], static fn($v) => $v !== null);
+        if (!in_array($tokens[$nameIndex][0], $types, true)) return;
+
+        $className = $tokens[$nameIndex][1];
+        if ($className === 'self' || $className === 'static') {
+            $target = $symbol['fqcn'];
+        } elseif ($className === 'parent') {
+            $target = self::resolveClassName($symbol['extends'] ?? '', $symbol, $symbols);
+        } else {
+            $target = self::resolveClassName($className, $symbol, $symbols);
+        }
+        if ($target === null) return;
+
+        if (!isset($symbols[$target])) {
+            if (!self::isKnownExternalType($target)) {
+                $issues[] = self::issue($symbol, self::tokenLine($tokens, $index),
+                    sprintf('Referenced class %s cannot be resolved', $target));
+            }
+            return;
+        }
+
+        $member = self::nextMeaningful($tokens, $index + 1);
+        if ($member === null || !is_array($tokens[$member]) || $tokens[$member][0] !== T_STRING) return;
+        $after = self::nextMeaningful($tokens, $member + 1);
+        if ($after !== null && ($tokens[$after] ?? null) === '(') {
+            self::validateMethodCall($issues, $symbol, $symbols, $target, $tokens[$member][1], true, $after, $tokens);
+        }
+    }
+
+    private static function checkNewReference(
+        array &$issues, array $symbol, array $symbols, array $tokens, int $index
+    ): void {
+        $nameIndex = self::nextNameToken($tokens, $index + 1);
+        if ($nameIndex === null) return;
+
+        $target = self::resolveClassName(
+            self::tokensName($tokens, $index + 1, $nameIndex), $symbol, $symbols
+        );
+        if ($target === null) return;
+
+        if (!isset($symbols[$target])) {
+            if (!self::isKnownExternalType($target)) {
+                $issues[] = self::issue($symbol, self::tokenLine($tokens, $nameIndex),
+                    sprintf('Referenced class %s cannot be resolved', $target));
+            }
+            return;
+        }
+
+        $open = self::nextMeaningful($tokens, $nameIndex + 1);
+        if ($open !== null && ($tokens[$open] ?? null) === '(') {
+            self::validateMethodCall($issues, $symbol, $symbols, $target, '__construct', false, $open, $tokens);
+        }
     }
 
     private static function validateMethodCall(array &$issues, array $source, array $symbols, string $target, string $method, bool $static, int $open, array $tokens): void
