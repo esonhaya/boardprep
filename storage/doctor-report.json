@@ -151,7 +151,7 @@
             "details": [
                 "Passed: 26",
                 "Failed: 0",
-                "Execution time: 0.016s"
+                "Execution time: 0.014s"
             ],
             "recommendations": [],
             "score": 100,
@@ -441,9 +441,8 @@
         {
             "title": "Cyclomatic Complexity",
             "status": "WARNING",
-            "summary": "DependencyConsistencyScanner.php::checkStaticReference() (27)",
+            "summary": "QuestionMetadataBuilderService.php::build() (25)",
             "details": [
-                "27  DependencyConsistencyScanner.php::checkStaticReference()",
                 "25  QuestionMetadataBuilderService.php::build()",
                 "25  BaseSpecificationFactory.php::create()",
                 "23  DependencyConsistencyScanner.php::checkObjectReference()",
@@ -452,7 +451,8 @@
                 "22  DependencyConsistencyScanner.php::parseDeclarations()",
                 "21  ChangeImpactCheck.php::run()",
                 "20  RecommendationService.php::generate()",
-                "20  RegressionCheck.php::run()"
+                "20  RegressionCheck.php::run()",
+                "19  DoctorHistoryService.php::compare()"
             ],
             "recommendations": [
                 "Reduce branching by extracting smaller methods."

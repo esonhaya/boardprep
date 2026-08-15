@@ -530,42 +530,159 @@ final class DependencyConsistencyScanner
     }
 
     private static function checkStaticReference(
-        array &$issues, array $symbol, array $symbols, array $tokens, int $index
+        array &$issues,
+        array $symbol,
+        array $symbols,
+        array $tokens,
+        int $index
     ): void {
-        $nameIndex = $index - 1;
-        while ($nameIndex >= 0 && is_array($tokens[$nameIndex]) && $tokens[$nameIndex][0] === T_WHITESPACE) $nameIndex--;
-        if ($nameIndex < 0 || !is_array($tokens[$nameIndex])) return;
+        $nameIndex = self::previousNameToken($tokens, $index);
 
-        $types = array_filter([
-            T_STRING, T_NAME_QUALIFIED ?? null, T_NAME_FULLY_QUALIFIED ?? null,
-            defined('T_NAME_RELATIVE') ? T_NAME_RELATIVE : null
-        ], static fn($v) => $v !== null);
-        if (!in_array($tokens[$nameIndex][0], $types, true)) return;
+        if ($nameIndex === null) {
+            return;
+        }
 
         $className = $tokens[$nameIndex][1];
-        if ($className === 'self' || $className === 'static') {
-            $target = $symbol['fqcn'];
-        } elseif ($className === 'parent') {
-            $target = self::resolveClassName($symbol['extends'] ?? '', $symbol, $symbols);
-        } else {
-            $target = self::resolveClassName($className, $symbol, $symbols);
-        }
-        if ($target === null) return;
 
-        if (!isset($symbols[$target])) {
-            if (!self::isKnownExternalType($target)) {
-                $issues[] = self::issue($symbol, self::tokenLine($tokens, $index),
-                    sprintf('Referenced class %s cannot be resolved', $target));
-            }
+        $target = self::resolveStaticReferenceTarget(
+            $className,
+            $symbol,
+            $symbols
+        );
+
+        if ($target === null) {
+            return;
+        }
+
+        if (!self::validateStaticReferenceTarget(
+            $issues,
+            $symbol,
+            $symbols,
+            $target,
+            $tokens,
+            $index
+        )) {
             return;
         }
 
         $member = self::nextMeaningful($tokens, $index + 1);
-        if ($member === null || !is_array($tokens[$member]) || $tokens[$member][0] !== T_STRING) return;
-        $after = self::nextMeaningful($tokens, $member + 1);
-        if ($after !== null && ($tokens[$after] ?? null) === '(') {
-            self::validateMethodCall($issues, $symbol, $symbols, $target, $tokens[$member][1], true, $after, $tokens);
+
+        if (
+            $member === null
+            || !is_array($tokens[$member])
+            || $tokens[$member][0] !== T_STRING
+        ) {
+            return;
         }
+
+        $after = self::nextMeaningful($tokens, $member + 1);
+
+        if ($after !== null && ($tokens[$after] ?? null) === '(') {
+            self::validateMethodCall(
+                $issues,
+                $symbol,
+                $symbols,
+                $target,
+                $tokens[$member][1],
+                true,
+                $after,
+                $tokens
+            );
+        }
+    }
+
+    private static function previousNameToken(
+        array $tokens,
+        int $index
+    ): ?int {
+        $nameIndex = $index - 1;
+
+        while (
+            $nameIndex >= 0
+            && is_array($tokens[$nameIndex])
+            && $tokens[$nameIndex][0] === T_WHITESPACE
+        ) {
+            $nameIndex--;
+        }
+
+        if (
+            $nameIndex < 0
+            || !is_array($tokens[$nameIndex])
+        ) {
+            return null;
+        }
+
+        $types = array_filter(
+            [
+                T_STRING,
+                T_NAME_QUALIFIED ?? null,
+                T_NAME_FULLY_QUALIFIED ?? null,
+                defined('T_NAME_RELATIVE')
+                    ? T_NAME_RELATIVE
+                    : null,
+            ],
+            static fn($value) => $value !== null
+        );
+
+        return in_array(
+            $tokens[$nameIndex][0],
+            $types,
+            true
+        )
+            ? $nameIndex
+            : null;
+    }
+
+    private static function resolveStaticReferenceTarget(
+        string $className,
+        array $symbol,
+        array $symbols
+    ): ?string {
+        if ($className === 'self' || $className === 'static') {
+            return $symbol['fqcn'];
+        }
+
+        if ($className === 'parent') {
+            return self::resolveClassName(
+                $symbol['extends'] ?? '',
+                $symbol,
+                $symbols
+            );
+        }
+
+        return self::resolveClassName(
+            $className,
+            $symbol,
+            $symbols
+        );
+    }
+
+    private static function validateStaticReferenceTarget(
+        array &$issues,
+        array $symbol,
+        array $symbols,
+        string $target,
+        array $tokens,
+        int $index
+    ): bool {
+        if (isset($symbols[$target])) {
+            return true;
+        }
+
+        if (self::isKnownExternalType($target)) {
+            return false;
+        }
+
+        $issues[] = self::issue(
+            $symbol,
+            self::tokenLine($tokens, $index),
+            sprintf(
+                'Referenced class %s cannot be resolved',
+                $target
+            )
+        );
+
+        return false;
     }
 
     private static function checkNewReference(
