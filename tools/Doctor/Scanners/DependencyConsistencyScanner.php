@@ -721,16 +721,183 @@ final class DependencyConsistencyScanner
                 }
                 $requiredCount = count($required['params']);
                 $childCount = count($child['params']);
+
                 if ($childCount < $requiredCount) {
-                    $issues[] = self::issue($symbol, $child['line'], sprintf('%s::%s() declares %d parameter(s); inherited contract has %d', $symbol['fqcn'], $name, $childCount, $requiredCount));
+                    $issues[] = self::issue(
+                        $symbol,
+                        $child['line'],
+                        sprintf(
+                            '%s::%s() declares %d parameter(s); inherited contract has %d',
+                            $symbol['fqcn'],
+                            $name,
+                            $childCount,
+                            $requiredCount
+                        )
+                    );
                 }
+
+                $parameterCount = min($requiredCount, $childCount);
+
+                for ($parameterIndex = 0; $parameterIndex < $parameterCount; $parameterIndex++) {
+                    $requiredParameter = $required['params'][$parameterIndex];
+                    $childParameter = $child['params'][$parameterIndex];
+
+                    if (
+                        !self::isParameterTypeCompatible(
+                            $requiredParameter['type'] ?? null,
+                            $childParameter['type'] ?? null,
+                            $symbol,
+                            $symbols
+                        )
+                    ) {
+                        $issues[] = self::issue(
+                            $symbol,
+                            $child['line'],
+                            sprintf(
+                                '%s::%s() parameter %d type %s is not compatible with inherited type %s',
+                                $symbol['fqcn'],
+                                $name,
+                                $parameterIndex + 1,
+                                $childParameter['type'] ?? 'untyped',
+                                $requiredParameter['type'] ?? 'untyped'
+                            )
+                        );
+                    }
+
+                    if (
+                        ($requiredParameter['optional'] ?? false)
+                        && !($childParameter['optional'] ?? false)
+                    ) {
+                        $issues[] = self::issue(
+                            $symbol,
+                            $child['line'],
+                            sprintf(
+                                '%s::%s() parameter %d makes an inherited optional parameter required',
+                                $symbol['fqcn'],
+                                $name,
+                                $parameterIndex + 1
+                            )
+                        );
+                    }
+
+                    if (
+                        ($requiredParameter['variadic'] ?? false)
+                        && !($childParameter['variadic'] ?? false)
+                    ) {
+                        $issues[] = self::issue(
+                            $symbol,
+                            $child['line'],
+                            sprintf(
+                                '%s::%s() parameter %d removes inherited variadic support',
+                                $symbol['fqcn'],
+                                $name,
+                                $parameterIndex + 1
+                            )
+                        );
+                    }
+                }
+
                 if (($required['returnType'] ?? null) !== null && ($child['returnType'] ?? null) !== null && strtolower($required['returnType']) !== strtolower($child['returnType'])) {
-                    $issues[] = self::issue($symbol, $child['line'], sprintf('%s::%s() return type %s differs from inherited %s', $symbol['fqcn'], $name, $child['returnType'], $required['returnType']));
+                    $issues[] = self::issue(
+                        $symbol,
+                        $child['line'],
+                        sprintf(
+                            '%s::%s() return type %s differs from inherited %s',
+                            $symbol['fqcn'],
+                            $name,
+                            $child['returnType'],
+                            $required['returnType']
+                        )
+                    );
                 }
             }
         }
 
         return $issues;
+    }
+
+    private static function isParameterTypeCompatible(
+        ?string $requiredType,
+        ?string $childType,
+        array $symbol,
+        array $symbols
+    ): bool {
+        if ($requiredType === null || $childType === null) {
+            return true;
+        }
+
+        $requiredParts = self::splitUnionTypes($requiredType);
+        $childParts = self::splitUnionTypes($childType);
+
+        foreach ($requiredParts as $requiredPart) {
+            $covered = false;
+
+            foreach ($childParts as $childPart) {
+                if (
+                    self::isSingleParameterTypeCompatible(
+                        $requiredPart,
+                        $childPart,
+                        $symbol,
+                        $symbols
+                    )
+                ) {
+                    $covered = true;
+                    break;
+                }
+            }
+
+            if (!$covered) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private static function splitUnionTypes(string $type): array
+    {
+        $parts = preg_split('/\\s*\\|\\s*/', strtolower(trim($type)));
+
+        if ($parts === false || $parts === []) {
+            return [strtolower(trim($type))];
+        }
+
+        return array_values(
+            array_filter(
+                array_map('trim', $parts),
+                static fn(string $part): bool => $part !== ''
+            )
+        );
+    }
+
+    private static function isSingleParameterTypeCompatible(
+        string $requiredType,
+        string $childType,
+        array $symbol,
+        array $symbols
+    ): bool {
+        if ($requiredType === $childType) {
+            return true;
+        }
+
+        if ($requiredType === 'mixed') {
+            return true;
+        }
+
+        if ($childType === 'mixed') {
+            return false;
+        }
+
+        $aliases = [
+            'integer' => 'int',
+            'boolean' => 'bool',
+            'double' => 'float',
+        ];
+
+        $requiredType = $aliases[$requiredType] ?? $requiredType;
+        $childType = $aliases[$childType] ?? $childType;
+
+        return $requiredType === $childType;
     }
 
     private static function checkDuplicateSymbols(array $symbols): array

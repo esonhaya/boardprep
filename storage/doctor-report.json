@@ -22,12 +22,12 @@
             "category": "complexity",
             "rule": "largest_method",
             "title": "Large Method",
-            "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 60.",
+            "message": "testGenerationBehavior contains 123 lines, exceeding the recommended limit of 60.",
             "file": "./tools/Tests/QuizTest.php",
-            "symbol": "testContentAuthoringBehavior",
+            "symbol": "testGenerationBehavior",
             "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
             "evidence": {
-                "lines": 127,
+                "lines": 123,
                 "threshold": 60
             },
             "impact": 100,
@@ -53,12 +53,12 @@
             "priority": "Critical",
             "impact": 100,
             "effort": "Small",
-            "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 60.",
+            "message": "testGenerationBehavior contains 123 lines, exceeding the recommended limit of 60.",
             "file": "./tools/Tests/QuizTest.php",
-            "symbol": "testContentAuthoringBehavior",
+            "symbol": "testGenerationBehavior",
             "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
             "evidence": {
-                "lines": 127,
+                "lines": 123,
                 "threshold": 60
             }
         },
@@ -77,12 +77,12 @@
             "category": "complexity",
             "rule": "largest_method",
             "title": "Large Method",
-            "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 60.",
+            "message": "testGenerationBehavior contains 123 lines, exceeding the recommended limit of 60.",
             "file": "./tools/Tests/QuizTest.php",
-            "symbol": "testContentAuthoringBehavior",
+            "symbol": "testGenerationBehavior",
             "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
             "evidence": {
-                "lines": 127,
+                "lines": 123,
                 "threshold": 60
             },
             "impact": 100,
@@ -105,12 +105,12 @@
                     "category": "complexity",
                     "rule": "largest_method",
                     "title": "Large Method",
-                    "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 60.",
+                    "message": "testGenerationBehavior contains 123 lines, exceeding the recommended limit of 60.",
                     "file": "./tools/Tests/QuizTest.php",
-                    "symbol": "testContentAuthoringBehavior",
+                    "symbol": "testGenerationBehavior",
                     "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
                     "evidence": {
-                        "lines": 127,
+                        "lines": 123,
                         "threshold": 60
                     },
                     "impact": 100,
@@ -151,7 +151,7 @@
             "details": [
                 "Passed: 26",
                 "Failed: 0",
-                "Execution time: 0.014s"
+                "Execution time: 0.085s"
             ],
             "recommendations": [],
             "score": 100,
@@ -169,7 +169,7 @@
                 "Classes     : 320",
                 "Interfaces  : 3",
                 "Traits      : 0",
-                "PHP Files   : 389"
+                "PHP Files   : 390"
             ],
             "recommendations": [],
             "score": 100,
@@ -186,8 +186,8 @@
                 " 19  web.php",
                 " 19  QuizTest.php",
                 " 19  ServiceTest.php",
+                " 18  BaseDeveloperController.php",
                 " 18  QuestionRepository.php",
-                " 17  BaseDeveloperController.php",
                 " 17  DoctorResult.php",
                 " 14  ApplicationSimulator.php"
             ],
@@ -257,7 +257,7 @@
         {
             "title": "Dead Classes",
             "status": "WARNING",
-            "summary": "52 potentially unused classes.",
+            "summary": "50 potentially unused classes.",
             "details": [
                 "AdaptiveQuizService (./app/Services/Quiz/AdaptiveQuizService.php)",
                 "Arr (./app/Foundation/Arr.php)",
@@ -270,10 +270,10 @@
                 "CoverageTracker (./app/Services/Quiz/Coverage/CoverageTracker.php)",
                 "CreateQuestion (./app/Domains/Question/Actions/CreateQuestion.php)",
                 "DeveloperComponentRenderer (./app/Services/Developer/DeveloperComponentRenderer.php)",
-                "DeveloperPageBuilder (./app/Builders/Developer/DeveloperPageBuilder.php)",
                 "DoctorApiController (./app/Controllers/DoctorApiController.php)",
                 "DoctorDashboardController (./app/Controllers/DoctorDashboardController.php)",
-                "DoctorHistoryService (./app/Services/Developer/DoctorHistoryService.php)"
+                "DoctorHistoryService (./app/Services/Developer/DoctorHistoryService.php)",
+                "DoctorRunController (./app/Controllers/DoctorRunController.php)"
             ],
             "recommendations": [],
             "score": 100,
@@ -282,9 +282,9 @@
         {
             "title": "Technical Debt Breakdown",
             "status": "PASS",
-            "summary": "Debt Score: 600",
+            "summary": "Debt Score: 580",
             "details": [
-                "Largest Methods ...... 600",
+                "Largest Methods ...... 580",
                 "Largest Service File .. 0",
                 "Layer Violations ..... 0",
                 "Legacy Files ......... 0",
@@ -316,10 +316,10 @@
         {
             "title": "Largest Controller",
             "status": "PASS",
-            "summary": "./app/Controllers/QuestionEditorController.php (235 lines)",
+            "summary": "./app/Controllers/QuestionEditorController.php (234 lines)",
             "details": [
                 "Threshold : 300",
-                "Current   : 235"
+                "Current   : 234"
             ],
             "recommendations": [],
             "score": 100,
@@ -328,9 +328,9 @@
         {
             "title": "Largest Method",
             "status": "WARNING",
-            "summary": "Largest method contains 127 lines.",
+            "summary": "Largest method contains 123 lines.",
             "details": [
-                "Method: testContentAuthoringBehavior",
+                "Method: testGenerationBehavior",
                 "File: ./tools/Tests/QuizTest.php"
             ],
             "recommendations": [],
@@ -342,12 +342,12 @@
                     "category": "complexity",
                     "rule": "largest_method",
                     "title": "Large Method",
-                    "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 60.",
+                    "message": "testGenerationBehavior contains 123 lines, exceeding the recommended limit of 60.",
                     "file": "./tools/Tests/QuizTest.php",
-                    "symbol": "testContentAuthoringBehavior",
+                    "symbol": "testGenerationBehavior",
                     "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
                     "evidence": {
-                        "lines": 127,
+                        "lines": 123,
                         "threshold": 60
                     },
                     "impact": 100,
@@ -387,7 +387,7 @@
             "summary": "Risk Score: 100/100 (High)",
             "details": [
                 "Highest coupling: ./app/Core/App.php (34 dependencies)",
-                "Total application dependencies: 746",
+                "Total application dependencies: 756",
                 "Highly coupled files: 12"
             ],
             "recommendations": [
@@ -429,7 +429,7 @@
                 "19  ./routes/web.php",
                 "19  ./tools/Tests/QuizTest.php",
                 "19  ./tools/Tests/ServiceTest.php",
-                "18  ./app/Repositories/QuestionRepository.php"
+                "18  ./app/Controllers/BaseDeveloperController.php"
             ],
             "recommendations": [
                 "Review the highest-coupled application component.",
@@ -441,18 +441,18 @@
         {
             "title": "Cyclomatic Complexity",
             "status": "WARNING",
-            "summary": "DependencyConsistencyScanner.php::checkReferences() (77)",
+            "summary": "DependencyConsistencyScanner.php::checkInheritanceContracts() (47)",
             "details": [
-                "77  DependencyConsistencyScanner.php::checkReferences()",
+                "47  DependencyConsistencyScanner.php::checkInheritanceContracts()",
                 "29  DependencyConsistencyScanner.php::findMethod()",
-                "28  DependencyConsistencyScanner.php::parseMembers()",
-                "27  DependencyConsistencyScanner.php::parseParameters()",
+                "27  DependencyConsistencyScanner.php::checkStaticReference()",
                 "25  QuestionMetadataBuilderService.php::build()",
                 "25  BaseSpecificationFactory.php::create()",
-                "25  DependencyConsistencyScanner.php::checkInheritanceContracts()",
+                "23  DependencyConsistencyScanner.php::checkObjectReference()",
                 "22  BlueprintService.php::create()",
                 "22  DependencyCouplingCheck.php::run()",
-                "22  DependencyConsistencyScanner.php::parseDeclarations()"
+                "22  DependencyConsistencyScanner.php::parseDeclarations()",
+                "21  ChangeImpactCheck.php::run()"
             ],
             "recommendations": [
                 "Reduce branching by extracting smaller methods."
@@ -463,10 +463,10 @@
         {
             "title": "Maintainability",
             "status": "WARNING",
-            "summary": "./tools/Doctor/Scanners/DependencyConsistencyScanner.php (28)",
+            "summary": "./tools/Doctor/Scanners/DependencyConsistencyScanner.php (32)",
             "details": [
-                " 28  ./tools/Doctor/Scanners/DependencyConsistencyScanner.php",
-                " 43  ./tools/Tests/QuizTest.php",
+                " 32  ./tools/Doctor/Scanners/DependencyConsistencyScanner.php",
+                " 44  ./tools/Tests/QuizTest.php",
                 " 54  ./tools/Doctor/Project/BoardPrep/Simulation/HttpSimulator.php",
                 " 55  ./app/Services/Learning/RecommendationService.php",
                 " 56  ./app/Services/Question/QuestionMetadataBuilderService.php",
@@ -487,16 +487,16 @@
             "status": "WARNING",
             "summary": "Largest methods suitable for extraction.",
             "details": [
-                "127  QuizTest.php::testContentAuthoringBehavior()",
-                "125  DependencyConsistencyScanner.php::checkReferences()",
                 "123  QuizTest.php::testGenerationBehavior()",
+                "122  DependencyConsistencyScanner.php::checkInheritanceContracts()",
                 "121  QuizScoringService.php::calculate()",
                 "114  RegressionCheck.php::run()",
                 "107  BlueprintExecutor.php::execute()",
                 "106  QuizTest.php::testSubmissionBehavior()",
                 "106  QuizTest.php::testBlueprintCoverageBehavior()",
                 "102  CyclomaticComplexityCheck.php::run()",
-                "101  QuizTest.php::testBlueprintDistributionBehavior()"
+                "101  QuizTest.php::testBlueprintDistributionBehavior()",
+                " 99  QuizStartService.php::start()"
             ],
             "recommendations": [
                 "Extract helper methods before adding new functionality."
@@ -615,12 +615,12 @@
             "category": "complexity",
             "rule": "largest_method",
             "title": "Large Method",
-            "message": "testContentAuthoringBehavior contains 127 lines, exceeding the recommended limit of 60.",
+            "message": "testGenerationBehavior contains 123 lines, exceeding the recommended limit of 60.",
             "file": "./tools/Tests/QuizTest.php",
-            "symbol": "testContentAuthoringBehavior",
+            "symbol": "testGenerationBehavior",
             "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
             "evidence": {
-                "lines": 127,
+                "lines": 123,
                 "threshold": 60
             },
             "impact": 100,
