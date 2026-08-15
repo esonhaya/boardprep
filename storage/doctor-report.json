@@ -151,7 +151,7 @@
             "details": [
                 "Passed: 26",
                 "Failed: 0",
-                "Execution time: 0.014s"
+                "Execution time: 0.021s"
             ],
             "recommendations": [],
             "score": 100,
@@ -169,7 +169,7 @@
                 "Classes     : 320",
                 "Interfaces  : 3",
                 "Traits      : 0",
-                "PHP Files   : 390"
+                "PHP Files   : 391"
             ],
             "recommendations": [],
             "score": 100,
@@ -282,9 +282,9 @@
         {
             "title": "Technical Debt Breakdown",
             "status": "PASS",
-            "summary": "Debt Score: 580",
+            "summary": "Debt Score: 590",
             "details": [
-                "Largest Methods ...... 580",
+                "Largest Methods ...... 590",
                 "Largest Service File .. 0",
                 "Layer Violations ..... 0",
                 "Legacy Files ......... 0",
@@ -445,14 +445,14 @@
             "details": [
                 "25  QuestionMetadataBuilderService.php::build()",
                 "25  BaseSpecificationFactory.php::create()",
-                "23  DependencyConsistencyScanner.php::checkObjectReference()",
                 "22  BlueprintService.php::create()",
                 "22  DependencyCouplingCheck.php::run()",
                 "22  DependencyConsistencyScanner.php::parseDeclarations()",
                 "21  ChangeImpactCheck.php::run()",
                 "20  RecommendationService.php::generate()",
                 "20  RegressionCheck.php::run()",
-                "19  DoctorHistoryService.php::compare()"
+                "19  DoctorHistoryService.php::compare()",
+                "19  BlueprintValidator.php::validate()"
             ],
             "recommendations": [
                 "Reduce branching by extracting smaller methods."
@@ -463,9 +463,9 @@
         {
             "title": "Maintainability",
             "status": "WARNING",
-            "summary": "./tools/Doctor/Scanners/DependencyConsistencyScanner.php (35)",
+            "summary": "./tools/Doctor/Scanners/DependencyConsistencyScanner.php (36)",
             "details": [
-                " 35  ./tools/Doctor/Scanners/DependencyConsistencyScanner.php",
+                " 36  ./tools/Doctor/Scanners/DependencyConsistencyScanner.php",
                 " 44  ./tools/Tests/QuizTest.php",
                 " 54  ./tools/Doctor/Project/BoardPrep/Simulation/HttpSimulator.php",
                 " 55  ./app/Services/Learning/RecommendationService.php",
