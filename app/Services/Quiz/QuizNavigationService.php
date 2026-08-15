@@ -28,7 +28,7 @@ class QuizNavigationService
         ) {
 
             Response::redirect(
-                "/quiz/finish"
+                "/quiz?action=finish"
             );
 
         }

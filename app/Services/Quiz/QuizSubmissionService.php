@@ -24,7 +24,7 @@ class QuizSubmissionService
 
         if (!$question) {
             Response::redirect(
-                "/quiz/finish"
+                "/quiz?action=finish"
             );
         }
 
