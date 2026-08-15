@@ -16,7 +16,22 @@ class AttemptService
     public function save(
         array $attempt
     ): array {
-        return $this->attempts->create($attempt);
+        return $this->attempts->create(
+            $this->normalizeAttempt($attempt)
+        );
+    }
+
+    private function normalizeAttempt(
+        array $attempt
+    ): array {
+        if (!isset($attempt["id"]) || trim((string) $attempt["id"]) === "") {
+            $attempt["id"] = "attempt-" . bin2hex(random_bytes(8));
+        }
+
+        $attempt["completed"] =
+            (bool) ($attempt["completed"] ?? true);
+
+        return $attempt;
     }
 
     public function history(

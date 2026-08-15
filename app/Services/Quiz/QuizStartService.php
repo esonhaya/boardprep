@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Core\App;
 use App\Core\Response;
+use App\Core\Request;
 use App\Core\View;
 use App\Repositories\QuestionRepository;
 
@@ -22,28 +23,27 @@ class QuizStartService
             BaseSpecificationFactory::create(
                 [
                     'board' =>
-                        $_GET['exam'] ?? 'LET',
+                        Request::all()["exam"] ?? "LET",
 
                     'subject' =>
-                        $_GET['subject'] ?? '',
+                        Request::all()["subject"] ?? "",
 
                     'domain' =>
-                        $_GET['domain'] ?? null,
+                        Request::all()["domain"] ?? null,
 
                     'difficulty' =>
-                        $_GET['difficulty'] ?? 'mixed',
+                        Request::all()["difficulty"] ?? "mixed",
 
                     'count' =>
                         (int) (
-                            $_GET['count']
-                            ?? 10
+                            Request::all()["count"] ?? 10
                         ),
 
                     'mode' =>
-                        $_GET['mode'] ?? 'practice',
+                        Request::all()["mode"] ?? "practice",
 
                     'adaptive' =>
-                        isset($_GET['adaptive']),
+                        isset(Request::all()["adaptive"]),
 
                     'shuffle' =>
                         true,
@@ -64,6 +64,25 @@ class QuizStartService
                 302
             );
         }
+
+        SessionService::set(
+            'quiz_session',
+            [
+                'id' => 'quiz-' . bin2hex(random_bytes(8)),
+                'board' => $specification->board,
+                'subject' => $specification->subject,
+                'domain' => $specification->domain,
+                'mode' => $specification->mode,
+                'difficulty' => $specification->difficulty,
+                'question_count' => count($result->questions),
+                'question_ids' => array_values(array_filter(array_map(
+                    static fn(array $question): ?string =>
+                        isset($question['id']) ? (string) $question['id'] : null,
+                    $result->questions
+                ))),
+                'started_at' => date('c'),
+            ]
+        );
 
         SessionService::set(
             'questions',
