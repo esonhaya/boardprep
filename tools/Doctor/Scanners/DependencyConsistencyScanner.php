@@ -1173,55 +1173,153 @@ final class DependencyConsistencyScanner
         return $methods;
     }
 
-    private static function findMethod(string $fqcn, string $method, array $symbols, array &$seen = []): ?array
-    {
+    private static function findMethod(
+        string $fqcn,
+        string $method,
+        array $symbols,
+        array &$seen = []
+    ): ?array {
         $methodLower = strtolower($method);
-        foreach (self::allMethods($fqcn, $symbols, $seen) as $name => $definition) {
-            if (strtolower($name) === $methodLower) return $definition;
+
+        $definition = self::findInheritedMethod(
+            $fqcn,
+            $methodLower,
+            $symbols,
+            $seen
+        );
+
+        if ($definition !== null) {
+            return $definition;
         }
 
-        // PHP supplies an implicit zero-argument constructor when a class has
-        // neither its own constructor nor an inherited one. For classes extending
-        // external parents (for example Exception), the inherited signature is not
-        // statically known here, so leave it unknown rather than inventing a contract.
-        if ($methodLower === '__construct' && isset($symbols[$fqcn])) {
-            $parent = $symbols[$fqcn]['extends'] ?? null;
-            if ($parent !== null && self::hasKnownExternalParent($fqcn, $symbols)) {
-                return null;
-            }
+        return self::findBuiltinMethod(
+            $fqcn,
+            $methodLower,
+            $symbols
+        );
+    }
 
-            return [
-                'name' => '__construct',
-                'visibility' => 'public',
-                'static' => false,
-                'abstract' => false,
-                'final' => false,
-                'params' => [],
-                'returnType' => null,
-                'line' => (int) ($symbols[$fqcn]['line'] ?? 1),
-            ];
-        }
-
-        if (isset($symbols[$fqcn]) && ($symbols[$fqcn]['kind'] ?? '') === 'enum') {
-            if ($methodLower === 'cases') {
-                return [
-                    'name' => 'cases', 'visibility' => 'public', 'static' => true,
-                    'abstract' => false, 'final' => false, 'params' => [],
-                    'returnType' => 'array', 'line' => (int) ($symbols[$fqcn]['line'] ?? 1),
-                ];
-            }
-            if (in_array($methodLower, ['from', 'tryfrom'], true)) {
-                return [
-                    'name' => $methodLower, 'visibility' => 'public', 'static' => true,
-                    'abstract' => false, 'final' => false,
-                    'params' => [['name' => 'value', 'type' => 'mixed', 'variadic' => false, 'optional' => false]],
-                    'returnType' => $methodLower === 'tryfrom' ? '?' . ($symbols[$fqcn]['name'] ?? '') : ($symbols[$fqcn]['name'] ?? ''),
-                    'line' => (int) ($symbols[$fqcn]['line'] ?? 1),
-                ];
+    private static function findInheritedMethod(
+        string $fqcn,
+        string $methodLower,
+        array $symbols,
+        array &$seen
+    ): ?array {
+        foreach (
+            self::allMethods($fqcn, $symbols, $seen)
+            as $name => $definition
+        ) {
+            if (strtolower($name) === $methodLower) {
+                return $definition;
             }
         }
 
         return null;
+    }
+
+    private static function findBuiltinMethod(
+        string $fqcn,
+        string $methodLower,
+        array $symbols
+    ): ?array {
+        if (
+            $methodLower === '__construct'
+            && isset($symbols[$fqcn])
+        ) {
+            return self::implicitConstructorMethod(
+                $fqcn,
+                $symbols
+            );
+        }
+
+        if (
+            isset($symbols[$fqcn])
+            && ($symbols[$fqcn]['kind'] ?? '') === 'enum'
+        ) {
+            return self::enumBuiltinMethod(
+                $fqcn,
+                $methodLower,
+                $symbols
+            );
+        }
+
+        return null;
+    }
+
+    private static function implicitConstructorMethod(
+        string $fqcn,
+        array $symbols
+    ): ?array {
+        $parent = $symbols[$fqcn]['extends'] ?? null;
+
+        // External parent constructor signatures are unknown.
+        if (
+            $parent !== null
+            && self::hasKnownExternalParent($fqcn, $symbols)
+        ) {
+            return null;
+        }
+
+        return [
+            'name' => '__construct',
+            'visibility' => 'public',
+            'static' => false,
+            'abstract' => false,
+            'final' => false,
+            'params' => [],
+            'returnType' => null,
+            'line' => (int) ($symbols[$fqcn]['line'] ?? 1),
+        ];
+    }
+
+    private static function enumBuiltinMethod(
+        string $fqcn,
+        string $methodLower,
+        array $symbols
+    ): ?array {
+        $line = (int) ($symbols[$fqcn]['line'] ?? 1);
+
+        if ($methodLower === 'cases') {
+            return [
+                'name' => 'cases',
+                'visibility' => 'public',
+                'static' => true,
+                'abstract' => false,
+                'final' => false,
+                'params' => [],
+                'returnType' => 'array',
+                'line' => $line,
+            ];
+        }
+
+        if (
+            !in_array(
+                $methodLower,
+                ['from', 'tryfrom'],
+                true
+            )
+        ) {
+            return null;
+        }
+
+        return [
+            'name' => $methodLower,
+            'visibility' => 'public',
+            'static' => true,
+            'abstract' => false,
+            'final' => false,
+            'params' => [[
+                'name' => 'value',
+                'type' => 'mixed',
+                'variadic' => false,
+                'optional' => false,
+            ]],
+            'returnType' =>
+                $methodLower === 'tryfrom'
+                    ? '?' . ($symbols[$fqcn]['name'] ?? '')
+                    : ($symbols[$fqcn]['name'] ?? ''),
+            'line' => $line,
+        ];
     }
 
     private static function findProperty(string $fqcn, string $property, array $symbols, array &$seen = []): ?array
