@@ -151,7 +151,7 @@
             "details": [
                 "Passed: 26",
                 "Failed: 0",
-                "Execution time: 0.085s"
+                "Execution time: 0.032s"
             ],
             "recommendations": [],
             "score": 100,
@@ -441,9 +441,8 @@
         {
             "title": "Cyclomatic Complexity",
             "status": "WARNING",
-            "summary": "DependencyConsistencyScanner.php::checkInheritanceContracts() (47)",
+            "summary": "DependencyConsistencyScanner.php::findMethod() (29)",
             "details": [
-                "47  DependencyConsistencyScanner.php::checkInheritanceContracts()",
                 "29  DependencyConsistencyScanner.php::findMethod()",
                 "27  DependencyConsistencyScanner.php::checkStaticReference()",
                 "25  QuestionMetadataBuilderService.php::build()",
@@ -452,7 +451,8 @@
                 "22  BlueprintService.php::create()",
                 "22  DependencyCouplingCheck.php::run()",
                 "22  DependencyConsistencyScanner.php::parseDeclarations()",
-                "21  ChangeImpactCheck.php::run()"
+                "21  ChangeImpactCheck.php::run()",
+                "20  RecommendationService.php::generate()"
             ],
             "recommendations": [
                 "Reduce branching by extracting smaller methods."
@@ -463,9 +463,9 @@
         {
             "title": "Maintainability",
             "status": "WARNING",
-            "summary": "./tools/Doctor/Scanners/DependencyConsistencyScanner.php (32)",
+            "summary": "./tools/Doctor/Scanners/DependencyConsistencyScanner.php (34)",
             "details": [
-                " 32  ./tools/Doctor/Scanners/DependencyConsistencyScanner.php",
+                " 34  ./tools/Doctor/Scanners/DependencyConsistencyScanner.php",
                 " 44  ./tools/Tests/QuizTest.php",
                 " 54  ./tools/Doctor/Project/BoardPrep/Simulation/HttpSimulator.php",
                 " 55  ./app/Services/Learning/RecommendationService.php",
@@ -488,7 +488,6 @@
             "summary": "Largest methods suitable for extraction.",
             "details": [
                 "123  QuizTest.php::testGenerationBehavior()",
-                "122  DependencyConsistencyScanner.php::checkInheritanceContracts()",
                 "121  QuizScoringService.php::calculate()",
                 "114  RegressionCheck.php::run()",
                 "107  BlueprintExecutor.php::execute()",
@@ -496,7 +495,8 @@
                 "106  QuizTest.php::testBlueprintCoverageBehavior()",
                 "102  CyclomaticComplexityCheck.php::run()",
                 "101  QuizTest.php::testBlueprintDistributionBehavior()",
-                " 99  QuizStartService.php::start()"
+                " 99  QuizStartService.php::start()",
+                " 98  AdaptiveQuizService.php::prioritize()"
             ],
             "recommendations": [
                 "Extract helper methods before adding new functionality."

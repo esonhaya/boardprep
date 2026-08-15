@@ -692,128 +692,366 @@ final class DependencyConsistencyScanner
         }
     }
 
-    private static function checkInheritanceContracts(array $symbol, array $symbols): array
-    {
+    private static function checkInheritanceContracts(
+        array $symbol,
+        array $symbols
+    ): array {
         $issues = [];
-        $parents = [];
-        if (!empty($symbol['extends'])) {
-            $parent = self::resolveClassName($symbol['extends'], $symbol, $symbols);
-            if ($parent !== null && isset($symbols[$parent])) $parents[] = $parent;
-        }
-        foreach ($symbol['implements'] as $interface) {
-            $resolved = self::resolveClassName($interface, $symbol, $symbols);
-            if ($resolved !== null && isset($symbols[$resolved])) $parents[] = $resolved;
-        }
 
-        foreach ($parents as $parent) {
-            foreach (self::allMethods($parent, $symbols) as $name => $required) {
-                $child = $symbol['methods'][$name] ?? null;
-                if ($symbol['kind'] === 'class' && $required['abstract'] && $child === null) {
-                    $issues[] = self::issue($symbol, $symbol['line'], sprintf('%s must implement %s::%s()', $symbol['fqcn'], $parent, $name));
-                    continue;
-                }
-                if ($child === null) continue;
-                if ($required['static'] !== $child['static']) {
-                    $issues[] = self::issue($symbol, $child['line'], sprintf('%s::%s() does not match inherited static/instance contract', $symbol['fqcn'], $name));
-                }
-                if (self::visibilityRank($child['visibility']) < self::visibilityRank($required['visibility'])) {
-                    $issues[] = self::issue($symbol, $child['line'], sprintf('%s::%s() reduces visibility of inherited method', $symbol['fqcn'], $name));
-                }
-                $requiredCount = count($required['params']);
-                $childCount = count($child['params']);
-
-                if ($childCount < $requiredCount) {
-                    $issues[] = self::issue(
-                        $symbol,
-                        $child['line'],
-                        sprintf(
-                            '%s::%s() declares %d parameter(s); inherited contract has %d',
-                            $symbol['fqcn'],
-                            $name,
-                            $childCount,
-                            $requiredCount
-                        )
-                    );
-                }
-
-                $parameterCount = min($requiredCount, $childCount);
-
-                for ($parameterIndex = 0; $parameterIndex < $parameterCount; $parameterIndex++) {
-                    $requiredParameter = $required['params'][$parameterIndex];
-                    $childParameter = $child['params'][$parameterIndex];
-
-                    if (
-                        !self::isParameterTypeCompatible(
-                            $requiredParameter['type'] ?? null,
-                            $childParameter['type'] ?? null,
-                            $symbol,
-                            $symbols
-                        )
-                    ) {
-                        $issues[] = self::issue(
-                            $symbol,
-                            $child['line'],
-                            sprintf(
-                                '%s::%s() parameter %d type %s is not compatible with inherited type %s',
-                                $symbol['fqcn'],
-                                $name,
-                                $parameterIndex + 1,
-                                $childParameter['type'] ?? 'untyped',
-                                $requiredParameter['type'] ?? 'untyped'
-                            )
-                        );
-                    }
-
-                    if (
-                        ($requiredParameter['optional'] ?? false)
-                        && !($childParameter['optional'] ?? false)
-                    ) {
-                        $issues[] = self::issue(
-                            $symbol,
-                            $child['line'],
-                            sprintf(
-                                '%s::%s() parameter %d makes an inherited optional parameter required',
-                                $symbol['fqcn'],
-                                $name,
-                                $parameterIndex + 1
-                            )
-                        );
-                    }
-
-                    if (
-                        ($requiredParameter['variadic'] ?? false)
-                        && !($childParameter['variadic'] ?? false)
-                    ) {
-                        $issues[] = self::issue(
-                            $symbol,
-                            $child['line'],
-                            sprintf(
-                                '%s::%s() parameter %d removes inherited variadic support',
-                                $symbol['fqcn'],
-                                $name,
-                                $parameterIndex + 1
-                            )
-                        );
-                    }
-                }
-
-                if (($required['returnType'] ?? null) !== null && ($child['returnType'] ?? null) !== null && strtolower($required['returnType']) !== strtolower($child['returnType'])) {
-                    $issues[] = self::issue(
-                        $symbol,
-                        $child['line'],
-                        sprintf(
-                            '%s::%s() return type %s differs from inherited %s',
-                            $symbol['fqcn'],
-                            $name,
-                            $child['returnType'],
-                            $required['returnType']
-                        )
-                    );
-                }
-            }
+        foreach (
+            self::inheritanceParents($symbol, $symbols)
+            as $parent
+        ) {
+            $issues = array_merge(
+                $issues,
+                self::checkInheritedMethods(
+                    $symbol,
+                    $parent,
+                    $symbols
+                )
+            );
         }
 
         return $issues;
+    }
+
+    private static function inheritanceParents(
+        array $symbol,
+        array $symbols
+    ): array {
+        $parents = [];
+
+        if (!empty($symbol['extends'])) {
+            $parent = self::resolveClassName(
+                $symbol['extends'],
+                $symbol,
+                $symbols
+            );
+
+            if (
+                $parent !== null
+                && isset($symbols[$parent])
+            ) {
+                $parents[] = $parent;
+            }
+        }
+
+        foreach ($symbol['implements'] as $interface) {
+            $resolved = self::resolveClassName(
+                $interface,
+                $symbol,
+                $symbols
+            );
+
+            if (
+                $resolved !== null
+                && isset($symbols[$resolved])
+            ) {
+                $parents[] = $resolved;
+            }
+        }
+
+        return $parents;
+    }
+
+    private static function checkInheritedMethods(
+        array $symbol,
+        string $parent,
+        array $symbols
+    ): array {
+        $issues = [];
+
+        foreach (
+            self::allMethods($parent, $symbols)
+            as $name => $required
+        ) {
+            $child = $symbol['methods'][$name] ?? null;
+
+            if (
+                $symbol['kind'] === 'class'
+                && $required['abstract']
+                && $child === null
+            ) {
+                $issues[] = self::issue(
+                    $symbol,
+                    $symbol['line'],
+                    sprintf(
+                        '%s must implement %s::%s()',
+                        $symbol['fqcn'],
+                        $parent,
+                        $name
+                    )
+                );
+
+                continue;
+            }
+
+            if ($child === null) {
+                continue;
+            }
+
+            $issues = array_merge(
+                $issues,
+                self::checkInheritedMethodContract(
+                    $symbol,
+                    $name,
+                    $required,
+                    $child,
+                    $symbols
+                )
+            );
+        }
+
+        return $issues;
+    }
+
+    private static function checkInheritedMethodContract(
+        array $symbol,
+        string $name,
+        array $required,
+        array $child,
+        array $symbols
+    ): array {
+        $issues = [];
+
+        if ($required['static'] !== $child['static']) {
+            $issues[] = self::issue(
+                $symbol,
+                $child['line'],
+                sprintf(
+                    '%s::%s() does not match inherited static/instance contract',
+                    $symbol['fqcn'],
+                    $name
+                )
+            );
+        }
+
+        if (
+            self::visibilityRank($child['visibility'])
+            < self::visibilityRank($required['visibility'])
+        ) {
+            $issues[] = self::issue(
+                $symbol,
+                $child['line'],
+                sprintf(
+                    '%s::%s() reduces visibility of inherited method',
+                    $symbol['fqcn'],
+                    $name
+                )
+            );
+        }
+
+        $issues = array_merge(
+            $issues,
+            self::checkInheritedParameterContracts(
+                $symbol,
+                $name,
+                $required,
+                $child,
+                $symbols
+            ),
+            self::checkInheritedReturnType(
+                $symbol,
+                $name,
+                $required,
+                $child
+            )
+        );
+
+        return $issues;
+    }
+
+    private static function checkInheritedParameterContracts(
+        array $symbol,
+        string $name,
+        array $required,
+        array $child,
+        array $symbols
+    ): array {
+        $issues = [];
+
+        $requiredCount = count($required['params']);
+        $childCount = count($child['params']);
+
+        if ($childCount < $requiredCount) {
+            $issues[] = self::issue(
+                $symbol,
+                $child['line'],
+                sprintf(
+                    '%s::%s() declares %d parameter(s); inherited contract has %d',
+                    $symbol['fqcn'],
+                    $name,
+                    $childCount,
+                    $requiredCount
+                )
+            );
+        }
+
+        $parameterCount = min(
+            $requiredCount,
+            $childCount
+        );
+
+        for (
+            $parameterIndex = 0;
+            $parameterIndex < $parameterCount;
+            $parameterIndex++
+        ) {
+            $requiredParameter =
+                $required['params'][$parameterIndex];
+
+            $childParameter =
+                $child['params'][$parameterIndex];
+
+            $issues = array_merge(
+                $issues,
+                self::checkInheritedParameterType(
+                    $symbol,
+                    $name,
+                    $parameterIndex,
+                    $requiredParameter,
+                    $childParameter,
+                    $symbols
+                ),
+                self::checkInheritedParameterOptionality(
+                    $symbol,
+                    $name,
+                    $parameterIndex,
+                    $requiredParameter,
+                    $childParameter
+                ),
+                self::checkInheritedParameterVariadic(
+                    $symbol,
+                    $name,
+                    $parameterIndex,
+                    $requiredParameter,
+                    $childParameter
+                )
+            );
+        }
+
+        return $issues;
+    }
+
+    private static function checkInheritedParameterType(
+        array $symbol,
+        string $name,
+        int $parameterIndex,
+        array $requiredParameter,
+        array $childParameter,
+        array $symbols
+    ): array {
+        if (
+            self::isParameterTypeCompatible(
+                $requiredParameter['type'] ?? null,
+                $childParameter['type'] ?? null,
+                $symbol,
+                $symbols
+            )
+        ) {
+            return [];
+        }
+
+        return [
+            self::issue(
+                $symbol,
+                $symbol['methods'][$name]['line'],
+                sprintf(
+                    '%s::%s() parameter %d type %s is not compatible with inherited type %s',
+                    $symbol['fqcn'],
+                    $name,
+                    $parameterIndex + 1,
+                    $childParameter['type'] ?? 'untyped',
+                    $requiredParameter['type'] ?? 'untyped'
+                )
+            )
+        ];
+    }
+
+    private static function checkInheritedParameterOptionality(
+        array $symbol,
+        string $name,
+        int $parameterIndex,
+        array $requiredParameter,
+        array $childParameter
+    ): array {
+        if (
+            !($requiredParameter['optional'] ?? false)
+            || ($childParameter['optional'] ?? false)
+        ) {
+            return [];
+        }
+
+        return [
+            self::issue(
+                $symbol,
+                $symbol['methods'][$name]['line'],
+                sprintf(
+                    '%s::%s() parameter %d makes an inherited optional parameter required',
+                    $symbol['fqcn'],
+                    $name,
+                    $parameterIndex + 1
+                )
+            )
+        ];
+    }
+
+    private static function checkInheritedParameterVariadic(
+        array $symbol,
+        string $name,
+        int $parameterIndex,
+        array $requiredParameter,
+        array $childParameter
+    ): array {
+        if (
+            !($requiredParameter['variadic'] ?? false)
+            || ($childParameter['variadic'] ?? false)
+        ) {
+            return [];
+        }
+
+        return [
+            self::issue(
+                $symbol,
+                $symbol['methods'][$name]['line'],
+                sprintf(
+                    '%s::%s() parameter %d removes inherited variadic support',
+                    $symbol['fqcn'],
+                    $name,
+                    $parameterIndex + 1
+                )
+            )
+        ];
+    }
+
+    private static function checkInheritedReturnType(
+        array $symbol,
+        string $name,
+        array $required,
+        array $child
+    ): array {
+        if (
+            ($required['returnType'] ?? null) === null
+            || ($child['returnType'] ?? null) === null
+            || strtolower($required['returnType'])
+                === strtolower($child['returnType'])
+        ) {
+            return [];
+        }
+
+        return [
+            self::issue(
+                $symbol,
+                $child['line'],
+                sprintf(
+                    '%s::%s() return type %s differs from inherited %s',
+                    $symbol['fqcn'],
+                    $name,
+                    $child['returnType'],
+                    $required['returnType']
+                )
+            )
+        ];
     }
 
     private static function isParameterTypeCompatible(
