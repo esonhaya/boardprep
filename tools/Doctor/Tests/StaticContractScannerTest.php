@@ -121,6 +121,62 @@ if (
     );
 }
 
+
+$trailingSource = <<<'CODE'
+<?php
+
+class TrailingFixture
+{
+    public static function test(): void
+    {
+        self::make(
+            severity: 'WARNING',
+            evidence: [
+                'lines' => 10,
+            ],
+        );
+
+        self::make(
+            first: 1,
+            second: [
+                'nested' => true,
+            ],
+        );
+    }
+
+    private static function make(
+        mixed $first = null,
+        mixed $second = null,
+        mixed $severity = null,
+        mixed $evidence = null,
+    ): void {
+    }
+}
+CODE;
+
+$trailingCalls =
+    StaticContractScanner::staticCalls(
+        'trailing.php',
+        $trailingSource
+    );
+
+if (count($trailingCalls) !== 2) {
+    throw new RuntimeException(
+        'Expected 2 trailing-comma calls; got '
+        . count($trailingCalls)
+    );
+}
+
+if (
+    $trailingCalls[0]['arguments'] !== 2
+    || $trailingCalls[1]['arguments'] !== 2
+) {
+    throw new RuntimeException(
+        'Trailing-comma argument counting failed: '
+        . json_encode($trailingCalls)
+    );
+}
+
 if (!method_exists(
     ScannerChildFixture::class,
     'inherited'
