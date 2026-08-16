@@ -11,18 +11,55 @@ final class V2ConsoleWriter
     public function write(
         DoctorResult $result
     ): void {
-        $diagnostics = $result->diagnostics();
+        $projectDiagnostics =
+            $result->diagnostics();
+
+        $doctorDiagnostics =
+            new \Tools\Doctor\Diagnostics\DiagnosticSummary(
+                $result->findings('DOCTOR')->all()
+            );
 
         echo PHP_EOL;
         echo "=== BOARDPREP DOCTOR V2 ===" . PHP_EOL;
         echo "Checks: " . count($result->checks) . PHP_EOL;
-        echo "Findings: " . $diagnostics->count() . PHP_EOL;
-        echo "Warnings: " . $result->warningCount() . PHP_EOL;
-        echo "Errors: " . $diagnostics->errorCount() . PHP_EOL;
-        echo "Critical: " . $diagnostics->criticalCount() . PHP_EOL;
-        echo "Health: " . $result->health() . PHP_EOL;
+        echo "Project Checks: "
+            . count(
+                array_filter(
+                    $result->checks,
+                    static fn($check) =>
+                        $check->scope === 'PROJECT'
+                )
+            )
+            . PHP_EOL;
+        echo "Doctor Checks: "
+            . count(
+                array_filter(
+                    $result->checks,
+                    static fn($check) =>
+                        $check->scope === 'DOCTOR'
+                )
+            )
+            . PHP_EOL;
+        echo "Project Findings: "
+            . $projectDiagnostics->count()
+            . PHP_EOL;
+        echo "Doctor Findings: "
+            . $doctorDiagnostics->count()
+            . PHP_EOL;
+        echo "Project Warnings: "
+            . $result->warningCount('PROJECT')
+            . PHP_EOL;
+        echo "Doctor Warnings: "
+            . $result->warningCount('DOCTOR')
+            . PHP_EOL;
+        echo "Project Health: "
+            . $result->health()
+            . PHP_EOL;
+        echo "Doctor Health: "
+            . $result->doctorHealth()
+            . PHP_EOL;
 
-        $top = $diagnostics->topFinding();
+        $top = $projectDiagnostics->topFinding();
 
         if ($top === null) {
             echo "Primary: none" . PHP_EOL;

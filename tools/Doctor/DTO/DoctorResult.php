@@ -25,55 +25,76 @@ final class DoctorResult
         $this->checks[] = $check;
     }
 
-    public function passCount(): int
-    {
+    public function passCount(
+        string $scope = 'PROJECT'
+    ): int {
         return count(
             array_filter(
-                $this->checks,
+                $this->checksByScope($scope),
                 fn(CheckResult $check) =>
                     $check->status === 'PASS'
             )
         );
     }
 
-    public function warningCount(): int
-    {
+    public function warningCount(
+        string $scope = 'PROJECT'
+    ): int {
         return count(
             array_filter(
-                $this->checks,
+                $this->checksByScope($scope),
                 fn(CheckResult $check) =>
                     $check->status === 'WARNING'
             )
         );
     }
 
-    public function failCount(): int
-    {
+    public function failCount(
+        string $scope = 'PROJECT'
+    ): int {
         return count(
             array_filter(
-                $this->checks,
+                $this->checksByScope($scope),
                 fn(CheckResult $check) =>
                     $check->status === 'FAIL'
             )
         );
     }
 
-    public function infoCount(): int
-    {
+    public function infoCount(
+        string $scope = 'PROJECT'
+    ): int {
         return count(
             array_filter(
-                $this->checks,
+                $this->checksByScope($scope),
                 fn(CheckResult $check) =>
                     $check->status === 'INFO'
             )
         );
     }
 
+    /**
+     * Project health remains the compatibility default.
+     */
     public function health(): int
     {
+        return $this->healthForScope('PROJECT');
+    }
+
+    public function doctorHealth(): int
+    {
+        return $this->healthForScope('DOCTOR');
+    }
+
+    public function healthForScope(
+        string $scope
+    ): int {
         $score = 100;
 
-        foreach ($this->checks as $check) {
+        foreach (
+            $this->checksByScope($scope)
+            as $check
+        ) {
             if ($check->status === 'FAIL') {
                 $score -= 15;
             }
@@ -92,17 +113,36 @@ final class DoctorResult
         );
     }
 
-    public function findings(): DiagnosticFindingCollection
-    {
+    public function findings(
+        string $scope = 'PROJECT'
+    ): DiagnosticFindingCollection {
         $findings = new DiagnosticFindingCollection();
 
-        foreach ($this->checks as $check) {
+        foreach (
+            $this->checksByScope($scope)
+            as $check
+        ) {
             $findings->addMany(
                 $check->findings->all()
             );
         }
 
         return $findings;
+    }
+
+    /**
+     * @return CheckResult[]
+     */
+    private function checksByScope(
+        string $scope
+    ): array {
+        return array_values(
+            array_filter(
+                $this->checks,
+                static fn(CheckResult $check): bool =>
+                    $check->scope === $scope
+            )
+        );
     }
 
     public function diagnostics(): DiagnosticSummary
