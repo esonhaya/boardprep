@@ -170,6 +170,30 @@ final class StaticContractScanner
                 $depth === 1
                 && $text === ','
             ) {
+                /*
+                 * A trailing comma is syntax, not another argument.
+                 *
+                 * Example:
+                 *
+                 * self::make(
+                 *     severity: 'WARNING',
+                 *     evidence: $evidence,
+                 * );
+                 *
+                 * The final comma must not increase the argument count.
+                 */
+                $next = self::nextMeaningful(
+                    $tokens,
+                    $i + 1
+                );
+
+                if (
+                    $next !== null
+                    && self::tokenText($tokens[$next]) === ')'
+                ) {
+                    continue;
+                }
+
                 $commas++;
                 continue;
             }
