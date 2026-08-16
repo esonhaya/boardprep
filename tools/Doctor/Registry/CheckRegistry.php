@@ -17,52 +17,60 @@ final class CheckRegistry
         $checks = [];
 
         $patterns = [
-            './tools/Doctor/Project/Shared/Checks/*.php',
-            './tools/Doctor/Project/BoardPrep/Checks/*.php',
+            "./tools/Doctor/Project/Shared/Checks/*.php",
+            "./tools/Doctor/Project/BoardPrep/Checks/*.php",
+            "./tools/Doctor/Self/Checks/*.php",
         ];
 
         foreach ($patterns as $pattern) {
             foreach (glob($pattern) as $file) {
 
-            $relative = str_replace(
-                './tools/Doctor/Project/',
-                '',
-                dirname($file)
-            );
+                $relative = str_replace(
+                    "./tools/Doctor/",
+                    "",
+                    dirname($file)
+                );
 
-            $namespace = str_replace(
-                '/',
-                '\\',
-                $relative
-            );
+                $namespace =
+                    str_replace(
+                        "/",
+                        "\\",
+                        $relative
+                    );
 
-            $class =
-                'Tools\\Doctor\\Project\\'
-                . $namespace
-                . '\\'
-                . basename($file, '.php');
+                $class =
+                    "Tools\\Doctor\\"
+                    . $namespace
+                    . "\\"
+                    . basename(
+                        $file,
+                        ".php"
+                    );
 
-            if (!class_exists($class)) {
-                require_once $file;
-            }
+                if (!class_exists($class)) {
+                    require_once $file;
+                }
 
-            if (!class_exists($class)) {
-                continue;
-            }
+                if (!class_exists($class)) {
+                    continue;
+                }
 
-            $reflection = new ReflectionClass($class);
+                $reflection =
+                    new ReflectionClass(
+                        $class
+                    );
 
-            if (
-                $reflection->isAbstract()
-                || !$reflection->implementsInterface(
-                    CheckInterface::class
-                )
-            ) {
-                continue;
-            }
+                if (
+                    $reflection->isAbstract()
+                    || !$reflection->implementsInterface(
+                        CheckInterface::class
+                    )
+                ) {
+                    continue;
+                }
 
-                $checks[] = new $class();
-
+                $checks[] =
+                    new $class();
             }
         }
 
@@ -72,7 +80,9 @@ final class CheckRegistry
                 CheckInterface $a,
                 CheckInterface $b
             ) =>
-                $a->priority() <=> $b->priority()
+                $a->priority()
+                <=>
+                $b->priority()
         );
 
         return $checks;

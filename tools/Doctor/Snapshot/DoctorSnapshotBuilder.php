@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tools\Doctor\Snapshot;
 
-final class ProjectSnapshotBuilder
+final class DoctorSnapshotBuilder
 {
     public function build(): ProjectSnapshot
     {
@@ -13,7 +13,7 @@ final class ProjectSnapshotBuilder
                 static function (
                     string $path
                 ): bool {
-                    return !str_contains(
+                    return str_contains(
                         str_replace(
                             "\\",
                             "/",

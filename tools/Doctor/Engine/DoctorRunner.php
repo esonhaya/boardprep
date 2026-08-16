@@ -5,11 +5,14 @@ declare(strict_types=1);
 namespace Tools\Doctor\Engine;
 
 use Tools\Doctor\Context\DoctorContext;
+use Tools\Doctor\Context\DoctorSelfContext;
 use Tools\Doctor\DTO\DoctorResult;
+use Tools\Doctor\Metrics\DoctorMetricsPipeline;
 use Tools\Doctor\Metrics\MetricRegistry;
 use Tools\Doctor\Metrics\MetricsPipeline;
 use Tools\Doctor\Output\JsonReportWriter;
 use Tools\Doctor\Output\V2ConsoleWriter;
+use Tools\Doctor\Snapshot\DoctorSnapshotBuilder;
 use Tools\Doctor\Snapshot\ProjectSnapshotBuilder;
 
 final class DoctorRunner
@@ -18,15 +21,30 @@ final class DoctorRunner
     {
         MetricRegistry::reset();
 
-        $snapshot =
+        $projectSnapshot =
             (new ProjectSnapshotBuilder())
                 ->build();
 
         (new MetricsPipeline())
-            ->analyze($snapshot);
+            ->analyze(
+                $projectSnapshot
+            );
 
         DoctorContext::setSnapshot(
-            $snapshot
+            $projectSnapshot
+        );
+
+        $doctorSnapshot =
+            (new DoctorSnapshotBuilder())
+                ->build();
+
+        (new DoctorMetricsPipeline())
+            ->analyze(
+                $doctorSnapshot
+            );
+
+        DoctorSelfContext::setSnapshot(
+            $doctorSnapshot
         );
 
         $result = new DoctorResult();
@@ -41,8 +59,8 @@ final class DoctorRunner
             MetricRegistry::set(
                 strtolower(
                     str_replace(
-                        ' ',
-                        '-',
+                        " ",
+                        "-",
                         $checkResult->title
                     )
                 ),
