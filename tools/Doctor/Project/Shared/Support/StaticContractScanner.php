@@ -140,6 +140,24 @@ final class StaticContractScanner
                 || $text === '['
                 || $text === '{'
             ) {
+                /*
+                 * A nested expression at the top argument level is
+                 * itself one argument.
+                 *
+                 * Example:
+                 *
+                 * Service::create([
+                 *     'name' => 'value',
+                 * ]);
+                 *
+                 * The '[' belongs to the first argument. Increasing
+                 * depth without marking content would incorrectly make
+                 * the whole call appear to have zero arguments.
+                 */
+                if ($depth === 1) {
+                    $hasContent = true;
+                }
+
                 $depth++;
                 continue;
             }
