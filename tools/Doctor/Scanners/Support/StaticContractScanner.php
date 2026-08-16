@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tools\Doctor\Project\Shared\Support;
+namespace Tools\Doctor\Scanners\Support;
 
 final class StaticContractScanner
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-require_once __DIR__ . '/../Project/Shared/Support/StaticContractScanner.php';
+require_once __DIR__ . '/../Scanners/Support/StaticContractScanner.php';
 
-use Tools\Doctor\Project\Shared\Support\StaticContractScanner;
+use Tools\Doctor\Scanners\Support\StaticContractScanner;
 
 class ScannerParentFixture
 {

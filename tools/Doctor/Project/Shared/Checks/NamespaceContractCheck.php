@@ -7,7 +7,7 @@ namespace Tools\Doctor\Project\Shared\Checks;
 use Tools\Doctor\Context\DoctorContext;
 use Tools\Doctor\Contracts\CheckInterface;
 use Tools\Doctor\DTO\CheckResult;
-use Tools\Doctor\Project\Shared\Support\StaticContractScanner;
+use Tools\Doctor\Scanners\Support\StaticContractScanner;
 
 final class NamespaceContractCheck implements CheckInterface
 {
