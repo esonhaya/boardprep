@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tools\Doctor\Registry;
 
-use Tools\Doctor\Engine\Doctor;
+use Tools\Doctor\Registry\CheckRegistry;
 
 final class DoctorManifest
 {
@@ -29,7 +29,12 @@ final class DoctorManifest
 
             'checks' =>
                 count(
-                    Doctor::checks()
+                    (new CheckRegistry())
+                        ->fromDirectories([
+                            "./tools/Doctor/Project/Shared/Checks",
+                            "./tools/Doctor/Project/BoardPrep/Checks",
+                            "./tools/Doctor/Self/Checks",
+                        ])
                 ),
 
             'renderers' => [

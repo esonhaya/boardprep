@@ -12,6 +12,7 @@ use Tools\Doctor\Metrics\MetricRegistry;
 use Tools\Doctor\Metrics\MetricsPipeline;
 use Tools\Doctor\Output\JsonReportWriter;
 use Tools\Doctor\Output\V2ConsoleWriter;
+use Tools\Doctor\Registry\CheckRegistry;
 use Tools\Doctor\Snapshot\DoctorSnapshotBuilder;
 use Tools\Doctor\Snapshot\ProjectSnapshotBuilder;
 
@@ -49,10 +50,15 @@ final class DoctorRunner
 
         $result = new DoctorResult();
 
-        foreach (
-            Doctor::checks()
-            as $check
-        ) {
+        $checks =
+            (new CheckRegistry())
+                ->fromDirectories([
+                    "./tools/Doctor/Project/Shared/Checks",
+                    "./tools/Doctor/Project/BoardPrep/Checks",
+                    "./tools/Doctor/Self/Checks",
+                ]);
+
+        foreach ($checks as $check) {
             $checkResult =
                 $check->run();
 
