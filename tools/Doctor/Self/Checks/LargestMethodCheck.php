@@ -35,6 +35,7 @@ final class LargestMethodCheck
                     Rules::methodMaxLines()
                 ),
                 score: 100,
+                scope: "DOCTOR",
             );
         }
 
@@ -58,6 +59,7 @@ final class LargestMethodCheck
                     . ($largest["file"] ?? "Unknown"),
             ],
             score: 70,
+                scope: "DOCTOR",
         );
 
         $result->addFinding(

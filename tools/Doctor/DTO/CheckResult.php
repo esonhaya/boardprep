@@ -9,6 +9,7 @@ use Tools\Doctor\Diagnostics\DiagnosticFindingCollection;
 
 final class CheckResult
 {
+
     /**
      * @param string[] $details
      * @param string[] $recommendations
@@ -21,6 +22,7 @@ final class CheckResult
         public array $recommendations = [],
         public int $score = 100,
         public DiagnosticFindingCollection $findings = new DiagnosticFindingCollection(),
+        public string $scope = "PROJECT",
     ) {
     }
 
