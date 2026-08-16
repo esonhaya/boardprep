@@ -16,10 +16,30 @@ final class CheckRegistry
     {
         $checks = [];
 
-        foreach (glob('./tools/Doctor/Project/BoardPrep/Checks/*.php') as $file) {
+        $patterns = [
+            './tools/Doctor/Project/Shared/Checks/*.php',
+            './tools/Doctor/Project/BoardPrep/Checks/*.php',
+        ];
+
+        foreach ($patterns as $pattern) {
+            foreach (glob($pattern) as $file) {
+
+            $relative = str_replace(
+                './tools/Doctor/Project/',
+                '',
+                dirname($file)
+            );
+
+            $namespace = str_replace(
+                '/',
+                '\\',
+                $relative
+            );
 
             $class =
-                'Tools\\Doctor\\Project\\BoardPrep\\Checks\\'
+                'Tools\\Doctor\\Project\\'
+                . $namespace
+                . '\\'
                 . basename($file, '.php');
 
             if (!class_exists($class)) {
@@ -41,8 +61,9 @@ final class CheckRegistry
                 continue;
             }
 
-            $checks[] = new $class();
+                $checks[] = new $class();
 
+            }
         }
 
         usort(
