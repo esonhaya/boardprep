@@ -34,6 +34,28 @@ final class FileScanner
                 continue;
             }
 
+            $path = str_replace(
+                DIRECTORY_SEPARATOR,
+                "/",
+                $file->getPathname()
+            );
+
+            /*
+             * Doctor backups are generated artifacts, not project source.
+             *
+             * They intentionally contain historical PHP snapshots and must
+             * not participate in source metrics, class maps, dependency
+             * analysis, or contract checks.
+             */
+            if (
+                str_contains(
+                    $path,
+                    "/storage/doctor-backups/"
+                )
+            ) {
+                continue;
+            }
+
             $files[] = $file->getPathname();
 
         }
