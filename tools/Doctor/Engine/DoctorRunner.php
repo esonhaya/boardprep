@@ -50,12 +50,15 @@ final class DoctorRunner
 
         $result = new DoctorResult();
 
+        $projectRoot =
+            dirname(__DIR__, 3);
+
         $checks =
             (new CheckRegistry())
                 ->fromDirectories([
-                    "./tools/Doctor/Project/Shared/Checks",
-                    "./tools/Doctor/Project/BoardPrep/Checks",
-                    "./tools/Doctor/Self/Checks",
+                    $projectRoot . "/tools/Doctor/Project/Shared/Checks",
+                    $projectRoot . "/tools/Doctor/Project/BoardPrep/Checks",
+                    $projectRoot . "/tools/Doctor/Self/Checks",
                 ]);
 
         foreach ($checks as $check) {
@@ -79,7 +82,10 @@ final class DoctorRunner
         }
 
         (new JsonReportWriter())
-            ->write($result);
+            ->write(
+                $result,
+                $projectRoot . "/storage/doctor-report.json"
+            );
 
         (new V2ConsoleWriter())
             ->write($result);

@@ -31,9 +31,12 @@ final class DoctorManifest
                 count(
                     (new CheckRegistry())
                         ->fromDirectories([
-                            "./tools/Doctor/Project/Shared/Checks",
-                            "./tools/Doctor/Project/BoardPrep/Checks",
-                            "./tools/Doctor/Self/Checks",
+                            dirname(__DIR__, 3)
+                                . "/tools/Doctor/Project/Shared/Checks",
+                            dirname(__DIR__, 3)
+                                . "/tools/Doctor/Project/BoardPrep/Checks",
+                            dirname(__DIR__, 3)
+                                . "/tools/Doctor/Self/Checks",
                         ])
                 ),
 
