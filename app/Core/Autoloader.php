@@ -98,14 +98,13 @@ final class Autoloader
 
     public static function register(): void
     {
-        $hayaScannerRoot =
+        $hayaDoctorRoot =
             dirname(__DIR__, 2)
-            . '/tools/HayaDoctor/tools/Doctor/Scanners/Support/';
+            . '/tools/HayaDoctor/tools/Doctor/';
 
         spl_autoload_register(
-            static function (string $class) use ($hayaScannerRoot): void {
-                $prefix =
-                    'Tools\\Doctor\\Scanners\\Support\\';
+            static function (string $class) use ($hayaDoctorRoot): void {
+                $prefix = 'Tools\\Doctor\\';
 
                 if (!str_starts_with($class, $prefix)) {
                     return;
@@ -115,7 +114,7 @@ final class Autoloader
                     substr($class, strlen($prefix));
 
                 $file =
-                    $hayaScannerRoot
+                    $hayaDoctorRoot
                     . str_replace('\\', '/', $relative)
                     . '.php';
 
