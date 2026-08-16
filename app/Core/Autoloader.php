@@ -98,6 +98,33 @@ final class Autoloader
 
     public static function register(): void
     {
+        $hayaScannerRoot =
+            dirname(__DIR__, 2)
+            . '/tools/HayaDoctor/tools/Doctor/Scanners/Support/';
+
+        spl_autoload_register(
+            static function (string $class) use ($hayaScannerRoot): void {
+                $prefix =
+                    'Tools\\Doctor\\Scanners\\Support\\';
+
+                if (!str_starts_with($class, $prefix)) {
+                    return;
+                }
+
+                $relative =
+                    substr($class, strlen($prefix));
+
+                $file =
+                    $hayaScannerRoot
+                    . str_replace('\\', '/', $relative)
+                    . '.php';
+
+                if (is_file($file)) {
+                    require_once $file;
+                }
+            }
+        );
+
         spl_autoload_register(
             function (string $class): void {
 
