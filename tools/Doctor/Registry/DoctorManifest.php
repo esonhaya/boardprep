@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Tools\Doctor\Registry;
 
+use Tools\Doctor\Engine\Doctor;
+
 final class DoctorManifest
 {
     public function info(): array
@@ -27,8 +29,7 @@ final class DoctorManifest
 
             'checks' =>
                 count(
-                    (new CheckRegistry())
-                        ->all()
+                    Doctor::checks()
                 ),
 
             'renderers' => [
