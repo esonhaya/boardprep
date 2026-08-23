@@ -13,22 +13,49 @@ class LearningHistoryService
     public static function recent(int $limit = 10): array
     {
 
-        $attempts = App::container()->get(AttemptRepository::class)->all();
+        $attempts =
+            App::container()
+                ->get(AttemptRepository::class)
+                ->all();
 
         usort(
             $attempts,
-            fn($a, $b) =>
-                strtotime($b["date"])
+            static fn(array $a, array $b): int =>
+                self::timestamp($b)
                 <=>
-                strtotime($a["date"])
+                self::timestamp($a)
         );
 
         return array_slice(
             $attempts,
             0,
-            $limit
+            max(0, $limit)
         );
 
+    }
+
+    private static function timestamp(
+        array $attempt
+    ): int {
+        foreach ([
+            "completed_at",
+            "date",
+            "started_at",
+        ] as $field) {
+            if (
+                isset($attempt[$field])
+                && is_string($attempt[$field])
+                && trim($attempt[$field]) !== ""
+            ) {
+                $timestamp = strtotime($attempt[$field]);
+
+                if ($timestamp !== false) {
+                    return $timestamp;
+                }
+            }
+        }
+
+        return 0;
     }
 
 }
