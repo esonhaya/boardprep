@@ -98,32 +98,12 @@ final class Autoloader
 
     public static function register(): void
     {
-        $hayaDoctorRoot =
-            dirname(__DIR__, 2)
-            . '/tools/HayaDoctor/tools/Doctor/';
-
-        spl_autoload_register(
-            static function (string $class) use ($hayaDoctorRoot): void {
-                $prefix = 'Tools\\Doctor\\';
-
-                if (!str_starts_with($class, $prefix)) {
-                    return;
-                }
-
-                $relative =
-                    substr($class, strlen($prefix));
-
-                $file =
-                    $hayaDoctorRoot
-                    . str_replace('\\', '/', $relative)
-                    . '.php';
-
-                if (is_file($file)) {
-                    require_once $file;
-                }
-            }
-        );
-
+        /*
+         * Register the host autoloader first so BoardPrep-specific
+         * Doctor classes override the generic Haya implementations.
+         * Haya is registered afterwards as a fallback for classes
+         * the host does not provide.
+         */
         spl_autoload_register(
             function (string $class): void {
 
@@ -166,6 +146,32 @@ final class Autoloader
                     if (is_file($legacyFile)) {
                         require_once $legacyFile;
                     }
+                }
+            }
+        );
+
+        $hayaDoctorRoot =
+            dirname(__DIR__, 2)
+            . '/tools/HayaDoctor/tools/Doctor/';
+
+        spl_autoload_register(
+            static function (string $class) use ($hayaDoctorRoot): void {
+                $prefix = 'Tools\\Doctor\\';
+
+                if (!str_starts_with($class, $prefix)) {
+                    return;
+                }
+
+                $relative =
+                    substr($class, strlen($prefix));
+
+                $file =
+                    $hayaDoctorRoot
+                    . str_replace('\\', '/', $relative)
+                    . '.php';
+
+                if (is_file($file)) {
+                    require_once $file;
                 }
             }
         );

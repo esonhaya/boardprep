@@ -20,6 +20,11 @@ final class DoctorRunner
 {
     public function run(): DoctorResult
     {
+        $projectRoot =
+            dirname(__DIR__, 3);
+
+        chdir($projectRoot);
+
         MetricRegistry::reset();
 
         $projectSnapshot =
@@ -49,9 +54,6 @@ final class DoctorRunner
         );
 
         $result = new DoctorResult();
-
-        $projectRoot =
-            dirname(__DIR__, 3);
 
         $checks =
             (new CheckRegistry())
