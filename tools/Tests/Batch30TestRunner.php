@@ -7,17 +7,6 @@ require_once __DIR__ . '/../../app/Core/Autoloader.php';
 
 \App\Core\Autoloader::register();
 
-require_once __DIR__ . '/../Doctor/Snapshot/ProjectSnapshot.php';
-require_once __DIR__ . '/../Doctor/Rules/Rules.php';
-require_once __DIR__ . '/../Doctor/Metrics/MethodMetricsAnalyzer.php';
-require_once __DIR__ . '/../Doctor/Contracts/CheckInterface.php';
-require_once __DIR__ . '/../Doctor/Context/DoctorContext.php';
-require_once __DIR__ . '/../Doctor/DTO/CheckResult.php';
-require_once __DIR__ . '/../Doctor/Diagnostics/DiagnosticFinding.php';
-require_once __DIR__ . '/../Doctor/Diagnostics/DiagnosticFindingFactory.php';
-require_once __DIR__ . '/../Doctor/Project/BoardPrep/Checks/LargestMethodCheck.php';
-require_once __DIR__ . '/../Doctor/Project/BoardPrep/Checks/LargestServiceCheck.php';
-
 require_once __DIR__ . '/MethodMetricsAnalyzerTest.php';
 require_once __DIR__ . '/LargestMethodCheckTest.php';
 require_once __DIR__ . '/LargestServiceCheckTest.php';
