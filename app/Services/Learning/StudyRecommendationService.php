@@ -20,6 +20,8 @@ final class StudyRecommendationService
                 continue;
             }
 
+            $action = StudyActionService::quizForTopic($name);
+
             $recommendations[] = [
                 "type" => "topic",
                 "title" => "Review {$name}",
@@ -27,22 +29,39 @@ final class StudyRecommendationService
                     "Current average: " .
                     (int) ($topic["average"] ?? 0) . "%",
                 "topic" => $name,
+                "subject" => $action["subject"],
+                "action" => StudyActionService::url($action),
+                "label" => "Practice {$name}",
             ];
         }
 
         if (count($attempts) < 3) {
+            $action = StudyActionService::quizForTopic("General");
+
             $recommendations[] = [
                 "type" => "practice",
                 "title" => "Build more history",
-                "reason" => "Complete a few more quizzes to make your insights more reliable.",
+                "reason" =>
+                    "Complete a few more quizzes to make your insights more reliable.",
+                "topic" => "General",
+                "subject" => $action["subject"],
+                "action" => StudyActionService::url($action),
+                "label" => "Start a practice quiz",
             ];
         }
 
         if (empty($recommendations)) {
+            $action = StudyActionService::quizForTopic("General");
+
             $recommendations[] = [
                 "type" => "practice",
                 "title" => "Take another practice quiz",
-                "reason" => "Use another attempt to measure your current performance.",
+                "reason" =>
+                    "Use another attempt to measure your current performance.",
+                "topic" => "General",
+                "subject" => $action["subject"],
+                "action" => StudyActionService::url($action),
+                "label" => "Start a practice quiz",
             ];
         }
 

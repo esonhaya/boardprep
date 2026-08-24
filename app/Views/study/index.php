@@ -111,9 +111,21 @@ $history = $history ?? [];
         <p>Complete a quiz to receive personalized recommendations.</p>
     <?php else: ?>
         <?php foreach ($recommendations as $recommendation): ?>
-            <article>
-                <h3><?= htmlspecialchars((string) ($recommendation["title"] ?? "")) ?></h3>
-                <p><?= htmlspecialchars((string) ($recommendation["reason"] ?? "")) ?></p>
+            <?php
+            $title = (string) ($recommendation["title"] ?? "");
+            $reason = (string) ($recommendation["reason"] ?? "");
+            $action = (string) ($recommendation["action"] ?? "/quiz");
+            $label = (string) ($recommendation["label"] ?? "Start practice");
+            ?>
+            <article class="study-recommendation">
+                <h3><?= htmlspecialchars($title) ?></h3>
+                <p><?= htmlspecialchars($reason) ?></p>
+                <a
+                    href="<?= htmlspecialchars($action) ?>"
+                    aria-label="<?= htmlspecialchars($label) ?>"
+                >
+                    <?= htmlspecialchars($label) ?>
+                </a>
             </article>
         <?php endforeach; ?>
     <?php endif; ?>
