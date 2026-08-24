@@ -19,6 +19,7 @@ use App\Controllers\QuestionInspectorController;
 use App\Controllers\QuestionQualityController;
 use App\Controllers\QuizFlowController;
 use App\Controllers\SubjectController;
+use App\Controllers\StudyDashboardController;
 use App\Controllers\TaxonomyController;
 
 $router->get(
@@ -51,6 +52,11 @@ $router->get(
 $router->post(
     "/quiz",
     [QuizFlowController::class, "handle"]
+);
+
+$router->get(
+    "/study",
+    [StudyDashboardController::class, "index"]
 );
 
 $router->get(
