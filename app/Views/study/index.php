@@ -22,10 +22,22 @@ $history = $history ?? [];
 <section class="study-dashboard-summary">
     <h2>At a Glance</h2>
     <ul>
-        <li>Completed Quizzes: <strong><?= (int) ($progress["completedAttempts"] ?? $progress["totalAttempts"] ?? 0) ?></strong></li>
-        <li>Average Score: <strong><?= (int) ($progress["averageScore"] ?? 0) ?>%</strong></li>
-        <li>Best Score: <strong><?= (int) ($progress["bestScore"] ?? 0) ?>%</strong></li>
-        <li>Learning Streak: <strong><?= $streak ?> day<?= $streak === 1 ? "" : "s" ?></strong></li>
+        <li>
+            Completed Quizzes:
+            <strong><?= (int) ($progress["completedAttempts"] ?? $progress["totalAttempts"] ?? 0) ?></strong>
+        </li>
+        <li>
+            Average Score:
+            <strong><?= (int) ($progress["averageScore"] ?? 0) ?>%</strong>
+        </li>
+        <li>
+            Best Score:
+            <strong><?= (int) ($progress["bestScore"] ?? 0) ?>%</strong>
+        </li>
+        <li>
+            Learning Streak:
+            <strong><?= $streak ?> day<?= $streak === 1 ? "" : "s" ?></strong>
+        </li>
     </ul>
 </section>
 
@@ -38,23 +50,36 @@ $history = $history ?? [];
         <p>Complete a quiz to build your personalized study plan.</p>
     <?php else: ?>
         <?php foreach ($studyPlan as $index => $item): ?>
+            <?php
+            $topic = (string) ($item["topic"] ?? "General");
+            $subject = (string) ($item["subject"] ?? "English");
+            $type = (string) ($item["type"] ?? "Study");
+            $label = (string) ($item["label"] ?? "Start practice");
+            $action = (string) ($item["action"] ?? "/quiz");
+            $average = $item["average"] ?? null;
+            ?>
             <article class="study-plan-item">
                 <h3>
                     <?= $index + 1 ?>.
-                    <?= htmlspecialchars((string) ($item["topic"] ?? "General")) ?>
+                    <?= htmlspecialchars($topic) ?>
                 </h3>
 
                 <p>
-                    <?= htmlspecialchars((string) ($item["type"] ?? "Study")) ?>
+                    <?= htmlspecialchars($type) ?>
+                    —
+                    <?= htmlspecialchars($subject) ?>
 
-                    <?php if ($item["average"] !== null): ?>
+                    <?php if ($average !== null): ?>
                         — Current average:
-                        <strong><?= (int) $item["average"] ?>%</strong>
+                        <strong><?= (int) $average ?>%</strong>
                     <?php endif; ?>
                 </p>
 
-                <a href="<?= htmlspecialchars((string) ($item["action"] ?? "/quiz")) ?>">
-                    Start practice
+                <a
+                    href="<?= htmlspecialchars($action) ?>"
+                    aria-label="<?= htmlspecialchars($label) ?>"
+                >
+                    <?= htmlspecialchars($label) ?>
                 </a>
             </article>
         <?php endforeach; ?>

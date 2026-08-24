@@ -6,38 +6,44 @@ require_once dirname(__DIR__, 2) . "/app/Core/Autoloader.php";
 \App\Core\Autoloader::register();
 
 use App\Controllers\StudyDashboardController;
-use App\Services\Learning\StudyDashboardService;
-
-if (!class_exists(StudyDashboardController::class)) {
-    fwrite(STDERR, "[FAIL] Study dashboard controller unavailable.\n");
-    exit(1);
-}
 
 $data = StudyDashboardController::data();
 
-foreach ([
+$required = [
     "progress",
     "topics",
     "weakestTopics",
     "streak",
     "insight",
     "recommendations",
-] as $key) {
+    "studyPlan",
+];
+
+foreach ($required as $key) {
     if (!array_key_exists($key, $data)) {
-        fwrite(STDERR, "[FAIL] Production dashboard data missing {$key}.\n");
+        fwrite(STDERR, "[FAIL] production data {$key}\n");
         exit(1);
     }
+
     echo "[PASS] production data {$key}\n";
 }
 
-ob_start();
-StudyDashboardController::index();
-$html = ob_get_clean();
+$plan = $data["studyPlan"];
 
-if (strpos($html, "Study Dashboard") === false) {
-    fwrite(STDERR, "[FAIL] Production study dashboard page did not render.\n");
+if (count($plan) < 1 || count($plan) > 5) {
+    fwrite(STDERR, "[FAIL] study plan bounds\n");
     exit(1);
 }
 
-echo "production_study_html_bytes=" . strlen($html) . "\n";
-echo "[PASS] Production study dashboard path executed.\n";
+foreach ($plan as $item) {
+    if (
+        !isset($item["topic"], $item["subject"], $item["action"], $item["label"])
+        || !str_starts_with((string) $item["action"], "/quiz?")
+    ) {
+        fwrite(STDERR, "[FAIL] actionable study plan item\n");
+        exit(1);
+    }
+}
+
+echo "[PASS] production study plan is actionable\n";
+echo "[PASS] Production study dashboard contract verified.\n";

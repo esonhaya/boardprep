@@ -19,7 +19,8 @@ final class StudyPlanService
             $plan[] = self::item(
                 $name,
                 "Focus",
-                (int) ($topic["average"] ?? 0)
+                (int) ($topic["average"] ?? 0),
+                (string) ($topic["subject"] ?? "English")
             );
         }
 
@@ -29,11 +30,16 @@ final class StudyPlanService
                 continue;
             }
 
-            $plan[] = self::item($name, "Recommended", null);
+            $plan[] = self::item(
+                $name,
+                "Recommended",
+                null,
+                (string) ($recommendation["subject"] ?? "English")
+            );
         }
 
         if (empty($plan)) {
-            $plan[] = self::item("General", "Start", null);
+            $plan[] = self::item("General", "Start", null, "English");
         }
 
         return array_slice($plan, 0, 5);
@@ -42,15 +48,23 @@ final class StudyPlanService
     private static function item(
         string $topic,
         string $type,
-        ?int $average
+        ?int $average,
+        string $subject
     ): array {
-        $action = StudyActionService::quizForTopic($topic);
+        $spec = StudyActionService::quizForTopic(
+            $topic,
+            $subject !== "" ? $subject : "English"
+        );
 
         return [
             "topic" => $topic,
+            "subject" => $spec["subject"],
             "type" => $type,
             "average" => $average,
-            "action" => StudyActionService::url($action),
+            "action" => StudyActionService::url($spec),
+            "label" => $topic === "General"
+                ? "Start a practice quiz"
+                : "Practice " . $topic,
         ];
     }
 
