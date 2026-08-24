@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Core\View;
-use App\Services\Learning\LearningCoachService;
 use App\Services\Learning\LearningHistoryService;
-use App\Services\Learning\LearningStreakService;
 use App\Services\Learning\LearningTimelineService;
 use App\Services\Learning\PerformanceAnalyticsService;
-use App\Services\Learning\RecommendationService;
+use App\Services\Learning\StudyDashboardService;
 use App\Services\Learning\TopicPerformanceService;
 use App\Services\Learning\WeaknessService;
+use App\Services\Learning\RecommendationService;
+use App\Services\Learning\LearningCoachService;
 use App\Services\Profile\LearningProfileService;
 
 final class LearningProfileController
@@ -20,10 +20,7 @@ final class LearningProfileController
     public static function index(): void
     {
         $attempts = LearningHistoryService::all();
-
-        $analytics =
-            PerformanceAnalyticsService::summary($attempts);
-
+        $analytics = PerformanceAnalyticsService::summary($attempts);
         $weaknesses = WeaknessService::all();
 
         $profile =
@@ -45,10 +42,8 @@ final class LearningProfileController
                 $recommendations
             );
 
-        $timeline =
-            LearningTimelineService::build(
-                array_slice($attempts, 0, 10)
-            );
+        $dashboard =
+            StudyDashboardService::build($attempts);
 
         View::render(
             "profile/index",
@@ -58,11 +53,18 @@ final class LearningProfileController
                 "weaknesses" => $weaknesses,
                 "recommendations" => $recommendations,
                 "coach" => $coach,
-                "timeline" => $timeline,
+                "timeline" =>
+                    LearningTimelineService::build(
+                        array_slice($attempts, 0, 10)
+                    ),
                 "topics" =>
                     TopicPerformanceService::summarize($attempts),
                 "streak" =>
-                    LearningStreakService::current($attempts),
+                    $dashboard["streak"],
+                "insight" =>
+                    $dashboard["insight"],
+                "studyRecommendations" =>
+                    $dashboard["recommendations"],
             ]
         );
     }
