@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 require_once dirname(__DIR__, 2) . "/app/Core/Autoloader.php";
@@ -24,18 +25,6 @@ foreach ([
     echo "[PASS] production data {$key}\n";
 }
 
-if (
-    empty($data["studyPlan"]) ||
-    !str_starts_with(
-        (string) ($data["studyPlan"][0]["action"] ?? ""),
-        "/quiz?"
-    )
-) {
-    fwrite(STDERR, "[FAIL] production study plan action\n");
-    exit(1);
-}
-echo "[PASS] production study plan action\n";
-
 ob_start();
 StudyDashboardController::index();
 $html = (string) ob_get_clean();
@@ -51,6 +40,7 @@ foreach ([
     "Recommended Next Steps",
     "Focus Areas",
     "Topic Performance",
+    "Recent Activity",
 ] as $marker) {
     if (strpos($html, $marker) === false) {
         fwrite(STDERR, "[FAIL] production marker {$marker}\n");

@@ -6,7 +6,6 @@ namespace App\Controllers;
 
 use App\Services\Learning\LearningHistoryService;
 use App\Services\Learning\StudyDashboardService;
-use App\Services\Learning\StudyPlanService;
 
 final class StudyDashboardController
 {
@@ -23,12 +22,8 @@ final class StudyDashboardController
 
     public static function data(): array
     {
-        $attempts = LearningHistoryService::all();
-        $dashboard = StudyDashboardService::build($attempts);
-
-        $dashboard["studyPlan"] =
-            StudyPlanService::build($dashboard);
-
-        return $dashboard;
+        return StudyDashboardService::build(
+            LearningHistoryService::all()
+        );
     }
 }
