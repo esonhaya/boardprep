@@ -12,40 +12,46 @@ class QuizStartService
 {
     public static function start(): void
     {
+        $input = Request::all();
+
         $questions =
             App::container()
-                ->get(
-                    QuestionRepository::class
-                )
+                ->get(QuestionRepository::class)
                 ->all();
+
+        $topic = trim((string) ($input["topic"] ?? ""));
+        $topics = $topic === "" ? [] : [$topic];
 
         $specification =
             BaseSpecificationFactory::create(
                 [
-                    'board' =>
-                        Request::all()["exam"] ?? "LET",
+                    "board" =>
+                        $input["exam"] ?? "LET",
 
-                    'subject' =>
-                        Request::all()["subject"] ?? "",
+                    "subject" =>
+                        $input["subject"] ?? "",
 
-                    'domain' =>
-                        Request::all()["domain"] ?? null,
+                    "domain" =>
+                        $input["domain"] ?? null,
 
-                    'difficulty' =>
-                        Request::all()["difficulty"] ?? "mixed",
+                    "topics" =>
+                        $topics,
 
-                    'count' =>
+                    "difficulty" =>
+                        $input["difficulty"] ?? "mixed",
+
+                    "count" =>
                         (int) (
-                            Request::all()["count"] ?? 10
+                            $input["count"] ?? 10
                         ),
 
-                    'mode' =>
-                        Request::all()["mode"] ?? "practice",
+                    "mode" =>
+                        $input["mode"] ?? "practice",
 
-                    'adaptive' =>
-                        isset(Request::all()["adaptive"]),
+                    "adaptive" =>
+                        isset($input["adaptive"]),
 
-                    'shuffle' =>
+                    "shuffle" =>
                         true,
                 ]
             );
@@ -56,75 +62,47 @@ class QuizStartService
                 $specification
             );
 
-        if (
-            empty($result->questions)
-        ) {
-            Response::redirect(
-                '/quiz',
-                302
-            );
+        if (empty($result->questions)) {
+            Response::redirect("/quiz", 302);
         }
 
         SessionService::set(
-            'quiz_session',
+            "quiz_session",
             [
-                'id' => 'quiz-' . bin2hex(random_bytes(8)),
-                'board' => $specification->board,
-                'subject' => $specification->subject,
-                'domain' => $specification->domain,
-                'mode' => $specification->mode,
-                'difficulty' => $specification->difficulty,
-                'question_count' => count($result->questions),
-                'question_ids' => array_values(array_filter(array_map(
+                "id" => "quiz-" . bin2hex(random_bytes(8)),
+                "board" => $specification->board,
+                "subject" => $specification->subject,
+                "domain" => $specification->domain,
+                "topics" => $specification->topics,
+                "mode" => $specification->mode,
+                "difficulty" => $specification->difficulty,
+                "question_count" => count($result->questions),
+                "question_ids" => array_values(array_filter(array_map(
                     static fn(array $question): ?string =>
-                        isset($question['id']) ? (string) $question['id'] : null,
+                        isset($question["id"])
+                            ? (string) $question["id"]
+                            : null,
                     $result->questions
                 ))),
-                'started_at' => date('c'),
+                "started_at" => date("c"),
             ]
         );
 
-        SessionService::set(
-            'questions',
-            $result->questions
-        );
-
-        SessionService::set(
-            'answers',
-            []
-        );
-
-        SessionService::set(
-            'feedback',
-            null
-        );
-
-        SessionService::set(
-            'mode',
-            $specification->mode
-        );
+        SessionService::set("questions", $result->questions);
+        SessionService::set("answers", []);
+        SessionService::set("feedback", null);
+        SessionService::set("mode", $specification->mode);
 
         QuizNavigationService::reset();
 
         View::render(
-            'quiz/index',
+            "quiz/index",
             [
-                'question' =>
-                    $result->questions[0],
-
-                'current' =>
-                    0,
-
-                'total' =>
-                    count(
-                        $result->questions
-                    ),
-
-                'mode' =>
-                    $specification->mode,
-
-                'feedback' =>
-                    null,
+                "question" => $result->questions[0],
+                "current" => 0,
+                "total" => count($result->questions),
+                "mode" => $specification->mode,
+                "feedback" => null,
             ]
         );
     }

@@ -29,19 +29,11 @@ final class StudyPlanService
                 continue;
             }
 
-            $plan[] = self::item(
-                $name,
-                "Recommended",
-                null
-            );
+            $plan[] = self::item($name, "Recommended", null);
         }
 
         if (empty($plan)) {
-            $plan[] = self::item(
-                "General",
-                "Start",
-                null
-            );
+            $plan[] = self::item("General", "Start", null);
         }
 
         return array_slice($plan, 0, 5);
@@ -52,13 +44,13 @@ final class StudyPlanService
         string $type,
         ?int $average
     ): array {
+        $action = StudyActionService::quizForTopic($topic);
+
         return [
             "topic" => $topic,
             "type" => $type,
             "average" => $average,
-            "action" => StudySessionService::startUrl([
-                "topic" => $topic,
-            ]),
+            "action" => StudyActionService::url($action),
         ];
     }
 
