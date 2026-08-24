@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\Core\Request;
 use App\Core\Response;
 use App\Core\View;
+use App\Services\Quiz\QuizResultActionService;
 
 final class QuizFlowController
 {
@@ -66,11 +67,18 @@ final class QuizFlowController
 
         $result = \QuizResultService::build();
 
+        $summary = $result['summary'] ?? [];
+        $session = \SessionService::get('quiz_session', []);
+
         View::render(
             'quiz/result',
             [
-                'summary' => $result['summary'] ?? [],
+                'summary' => $summary,
                 'review' => $result['review'] ?? [],
+                'actions' => QuizResultActionService::build(
+                    $session,
+                    $summary
+                ),
             ]
         );
     }

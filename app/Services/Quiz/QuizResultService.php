@@ -89,6 +89,12 @@ class QuizResultService
                     date("c"),
             ];
 
+            $attempt = QuizLearningContextService::enrichAttempt(
+                $attempt,
+                $session,
+                $questions
+            );
+
             App::container()
                 ->get(AttemptService::class)
                 ->save($attempt);
