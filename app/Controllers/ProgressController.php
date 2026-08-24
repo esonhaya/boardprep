@@ -4,25 +4,46 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Services\Learning\LearningStatisticsService;
+use App\Core\View;
+use App\Services\Learning\LearningHistoryService;
+use App\Services\Learning\LearningProgressService;
+use App\Services\Learning\LearningStreakService;
+use App\Services\Learning\TopicPerformanceService;
 
-class ProgressController
+final class ProgressController
 {
     public static function index(): void
     {
-        $stats =
-            LearningStatisticsService::summary();
+        $attempts = LearningHistoryService::all();
 
-        \App\Core\View::render(
+        View::render(
             "progress/index",
             [
-                "stats" => $stats
+                "summary" =>
+                    LearningProgressService::build($attempts),
+                "history" =>
+                    LearningHistoryService::recent(10),
+                "topics" =>
+                    TopicPerformanceService::summarize($attempts),
+                "weakestTopics" =>
+                    TopicPerformanceService::weakest($attempts, 3),
+                "streak" =>
+                    LearningStreakService::current($attempts),
             ]
         );
     }
 
-    public static function getStats(): array
+    public static function data(): array
     {
-        return LearningStatisticsService::summary();
+        $attempts = LearningHistoryService::all();
+
+        return [
+            "summary" =>
+                LearningProgressService::build($attempts),
+            "topics" =>
+                TopicPerformanceService::summarize($attempts),
+            "streak" =>
+                LearningStreakService::current($attempts),
+        ];
     }
 }

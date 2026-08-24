@@ -1,52 +1,46 @@
 <?php
 
-class LearningTimelineService
+declare(strict_types=1);
+
+namespace App\Services\Learning;
+
+final class LearningTimelineService
 {
-
-    public static function build(
-        array $attempts
-    ): array
+    public static function build(array $attempts): array
     {
-
         $timeline = [];
 
-        foreach($attempts as $attempt)
-        {
-
+        foreach ($attempts as $attempt) {
             $timeline[] = [
-
-                "date" =>
-                    $attempt["date"],
-
-                "percentage" =>
-                    (int)$attempt["percentage"],
-
-                "mode" =>
-                    $attempt["mode"],
-
-                "topic" =>
-                    $attempt["topic"]
-
+                'date' =>
+                    LearningHistoryService::dateOf($attempt),
+                'timestamp' =>
+                    LearningHistoryService::timestampOf($attempt),
+                'percentage' =>
+                    (int) ($attempt['percentage'] ?? 0),
+                'score' =>
+                    (int) ($attempt['score'] ?? 0),
+                'total' =>
+                    (int) ($attempt['total'] ?? 0),
+                'mode' =>
+                    (string) ($attempt['mode'] ?? 'practice'),
+                'topic' =>
+                    LearningHistoryService::topicOf($attempt),
+                'subject' =>
+                    (string) ($attempt['subject'] ?? ''),
+                'completed' =>
+                    (bool) ($attempt['completed'] ?? false),
             ];
-
         }
 
         usort(
-
             $timeline,
-
-            fn($a,$b)=>
-
-                strtotime($a["date"])
-
+            static fn(array $a, array $b): int =>
+                ($b['timestamp'] ?? 0)
                 <=>
-
-                strtotime($b["date"])
-
+                ($a['timestamp'] ?? 0)
         );
 
         return $timeline;
-
     }
-
 }
