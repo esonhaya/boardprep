@@ -7,12 +7,8 @@ $weakest = $dashboard["weakestTopics"] ?? [];
 $streak = (int) ($dashboard["streak"] ?? 0);
 $insight = $dashboard["insight"] ?? [];
 $recommendations = $dashboard["recommendations"] ?? [];
+$studyPlan = $dashboard["studyPlan"] ?? [];
 $history = $history ?? [];
-
-$average = (int) ($progress["averageScore"] ?? 0);
-$best = (int) ($progress["bestScore"] ?? 0);
-$total = (int) ($progress["totalAttempts"] ?? 0);
-$completed = (int) ($progress["completedAttempts"] ?? $total);
 ?>
 
 <h1>Study Dashboard</h1>
@@ -25,24 +21,51 @@ $completed = (int) ($progress["completedAttempts"] ?? $total);
 
 <section class="study-dashboard-summary">
     <h2>At a Glance</h2>
-
     <ul>
-        <li>Completed Quizzes: <strong><?= $completed ?></strong></li>
-        <li>Average Score: <strong><?= $average ?>%</strong></li>
-        <li>Best Score: <strong><?= $best ?>%</strong></li>
+        <li>Completed Quizzes: <strong><?= (int) ($progress["completedAttempts"] ?? $progress["totalAttempts"] ?? 0) ?></strong></li>
+        <li>Average Score: <strong><?= (int) ($progress["averageScore"] ?? 0) ?>%</strong></li>
+        <li>Best Score: <strong><?= (int) ($progress["bestScore"] ?? 0) ?>%</strong></li>
         <li>Learning Streak: <strong><?= $streak ?> day<?= $streak === 1 ? "" : "s" ?></strong></li>
-        <li>Total Attempts: <strong><?= $total ?></strong></li>
     </ul>
+</section>
+
+<hr>
+
+<section class="study-plan">
+    <h2>Today's Study Plan</h2>
+
+    <?php if (empty($studyPlan)): ?>
+        <p>Complete a quiz to build your personalized study plan.</p>
+    <?php else: ?>
+        <?php foreach ($studyPlan as $index => $item): ?>
+            <article class="study-plan-item">
+                <h3>
+                    <?= $index + 1 ?>.
+                    <?= htmlspecialchars((string) ($item["topic"] ?? "General")) ?>
+                </h3>
+
+                <p>
+                    <?= htmlspecialchars((string) ($item["type"] ?? "Study")) ?>
+
+                    <?php if ($item["average"] !== null): ?>
+                        — Current average:
+                        <strong><?= (int) $item["average"] ?>%</strong>
+                    <?php endif; ?>
+                </p>
+
+                <a href="<?= htmlspecialchars((string) ($item["action"] ?? "/quiz")) ?>">
+                    Start practice
+                </a>
+            </article>
+        <?php endforeach; ?>
+    <?php endif; ?>
 </section>
 
 <hr>
 
 <section class="study-dashboard-insight">
     <h2><?= htmlspecialchars((string) ($insight["headline"] ?? "Study Insight")) ?></h2>
-
-    <p>
-        <?= htmlspecialchars((string) ($insight["message"] ?? "")) ?>
-    </p>
+    <p><?= htmlspecialchars((string) ($insight["message"] ?? "")) ?></p>
 
     <?php if (!empty($insight["actions"])): ?>
         <h3>What to do next</h3>
@@ -66,12 +89,6 @@ $completed = (int) ($progress["completedAttempts"] ?? $total);
             <article>
                 <h3><?= htmlspecialchars((string) ($recommendation["title"] ?? "")) ?></h3>
                 <p><?= htmlspecialchars((string) ($recommendation["reason"] ?? "")) ?></p>
-                <?php if (!empty($recommendation["topic"])): ?>
-                    <p>
-                        <strong>Topic:</strong>
-                        <?= htmlspecialchars((string) $recommendation["topic"]) ?>
-                    </p>
-                <?php endif; ?>
             </article>
         <?php endforeach; ?>
     <?php endif; ?>
@@ -91,8 +108,6 @@ $completed = (int) ($progress["completedAttempts"] ?? $total);
                 <p>
                     Average:
                     <strong><?= (int) ($topic["average"] ?? 0) ?>%</strong>
-                    —
-                    <?= (int) ($topic["attempts"] ?? 0) ?> attempt<?= ((int) ($topic["attempts"] ?? 0)) === 1 ? "" : "s" ?>
                 </p>
             </article>
         <?php endforeach; ?>
@@ -159,6 +174,4 @@ $completed = (int) ($progress["completedAttempts"] ?? $total);
     <a href="/progress">Progress</a>
     <br><br>
     <a href="/profile">Learning Profile</a>
-    <br><br>
-    <a href="/dashboard">Dashboard</a>
 </nav>

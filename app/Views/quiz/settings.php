@@ -1,6 +1,5 @@
 <h2>Create Quiz</h2>
 
-
 <form method="GET" action="">
 
 
@@ -9,6 +8,23 @@ type="hidden"
 name="page"
 value="quiz"
 >
+
+<input
+type="hidden"
+name="action"
+value="start"
+>
+
+
+<label>
+Subject:
+</label>
+
+<select name="subject">
+<option value="English" selected>English</option>
+</select>
+
+<br><br>
 
 
 <label>
