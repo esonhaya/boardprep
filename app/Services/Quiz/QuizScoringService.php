@@ -1,193 +1,36 @@
 <?php
 
+declare(strict_types=1);
+
 class QuizScoringService
 {
-
-    public static function calculate(
-        array $questions,
-        array $answers
-    ): array
+    public static function calculate(array $questions, array $answers): array
     {
-
-        $score = 0;
-
-        $incorrect = 0;
-
-        $unanswered = 0;
-
+        $accumulator = new ScoreAccumulator();
         $results = [];
 
-
-        foreach (
-            $questions
-            as $question
-        ) {
-
-            $userAnswer =
-                self::normalizeAnswer(
-                    $question,
-                    $answers[$question["id"]] ?? null
-                );
-
-
-            $correctAnswer =
-                $question["answer"] ?? "";
-
-
-            $answered =
-                trim($userAnswer) !== "";
-
-
-            $correct =
-                $answered
-                &&
-                strtoupper(trim($userAnswer))
-                ===
-                strtoupper(trim($correctAnswer));
-
-
-            if ($correct) {
-
-                $score++;
-
-            } elseif ($answered) {
-
-                $incorrect++;
-
-            } else {
-
-                $unanswered++;
-
-            }
-
-
-            $results[] = [
-
-                "question" =>
-                    $question["question"],
-
-                "choices" =>
-                    $question["choices"] ?? [],
-
-                "userAnswer" =>
-                    $userAnswer,
-
-                "correctAnswer" =>
-                    $correctAnswer,
-
-                "correct" =>
-                    $correct,
-
-                "answered" =>
-                    $answered,
-
-                "explanation" =>
-                    $question["explanation"] ?? ""
-
-            ];
-
-        }
-
-
-        $total =
-            count($questions);
-
-
-        return [
-
-            "score" =>
-                $score,
-
-            "correct" =>
-                $score,
-
-            "incorrect" =>
-                $incorrect,
-
-            "unanswered" =>
-                $unanswered,
-
-            "total" =>
-                $total,
-
-            "percentage" =>
-                $total > 0
-                ?
-                round(
-                    ($score / $total) * 100
-                )
-                :
-                0,
-
-            "results" =>
-                $results
-
-        ];
-
-    }
-
-
-    public static function checkAnswer(
-        array $question,
-        ?string $answer
-    ): bool
-    {
-
-        $userAnswer =
-            self::normalizeAnswer(
+        foreach ($questions as $question) {
+            $evaluation = QuestionScoreEvaluator::evaluate(
                 $question,
-                $answer
+                $answers[$question["id"]] ?? null
             );
 
-
-        return
-            strtoupper(trim($userAnswer))
-            ===
-            strtoupper(
-                trim(
-                    $question["answer"] ?? ""
-                )
+            $accumulator->record(
+                $evaluation["correct"],
+                $evaluation["answered"]
             );
 
-    }
-
-
-    private static function normalizeAnswer(
-        array $question,
-        ?string $answer
-    ): string
-    {
-
-        $answer =
-            trim(
-                $answer ?? ""
-            );
-
-
-        if (
-            preg_match(
-                '/^[A-D]$/i',
-                $answer
-            )
-        ) {
-
-            $index =
-                ord(
-                    strtoupper($answer)
-                )
-                - 65;
-
-
-            return
-                $question["choices"][$index]
-                ??
-                "";
-
+            $results[] = ResultRecordFactory::create($question, $evaluation);
         }
 
-
-        return $answer;
-
+        return $accumulator->summarize($results);
     }
 
+    public static function checkAnswer(array $question, ?string $answer): bool
+    {
+        $userAnswer = AnswerNormalizer::normalize($question, $answer);
+
+        return strtoupper(trim($userAnswer))
+            === strtoupper(trim($question["answer"] ?? ""));
+    }
 }
