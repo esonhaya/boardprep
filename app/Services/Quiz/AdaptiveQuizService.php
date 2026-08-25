@@ -4,103 +4,25 @@ declare(strict_types=1);
 
 final class AdaptiveQuizService
 {
+    /**
+     * Prioritize questions matching the learner's known weak topics.
+     *
+     * Non-adaptive specifications retain the original question order.
+     *
+     * @param array<int,array<string,mixed>> $questions
+     * @return array<int,array<string,mixed>>
+     */
     public static function prioritize(
         array $questions,
         QuizSpecification $specification
     ): array {
-
-        if (
-            !$specification->adaptive
-        ) {
-
+        if (!$specification->adaptive) {
             return $questions;
-
         }
 
-        $weaknesses =
-            WeaknessService::all();
-
-        $priorityTopics = [];
-
-        foreach (
-            $weaknesses
-            as $weakness
-        ) {
-
-            if (
-                !isset(
-                    $weakness["topic"]
-                )
-            ) {
-                continue;
-            }
-
-            $priorityTopics[] =
-                strtolower(
-                    trim(
-                        $weakness["topic"]
-                    )
-                );
-
-        }
-
-        $priorityTopics =
-            array_unique(
-                $priorityTopics
-            );
-
-        $priority = [];
-        $normal = [];
-
-        foreach (
-            $questions
-            as $question
-        ) {
-
-            $topic =
-                strtolower(
-                    trim(
-                        $question["topic"]
-                        ?? ""
-                    )
-                );
-
-            if (
-                in_array(
-                    $topic,
-                    $priorityTopics,
-                    true
-                )
-            ) {
-
-                $priority[] =
-                    $question;
-
-            } else {
-
-                $normal[] =
-                    $question;
-
-            }
-
-        }
-
-        shuffle(
-            $priority
+        return AdaptivePriorityBuilder::build(
+            $questions,
+            WeaknessService::all()
         );
-
-        shuffle(
-            $normal
-        );
-
-        return array_values(
-
-            array_merge(
-                $priority,
-                $normal
-            )
-
-        );
-
     }
 }
