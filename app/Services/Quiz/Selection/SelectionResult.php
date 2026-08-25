@@ -14,4 +14,20 @@ final class SelectionResult
 
     ) {
     }
+
+    public function count(): int
+    {
+        return count($this->questions);
+    }
+
+    public function shortage(): int
+    {
+        return max(0, $this->request->questionCount - $this->count());
+    }
+
+    public function hasShortage(): bool
+    {
+        return $this->shortage() > 0;
+    }
 }
+
