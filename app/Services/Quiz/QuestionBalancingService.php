@@ -4,82 +4,23 @@ declare(strict_types=1);
 
 final class QuestionBalancingService
 {
+    /**
+     * Balance questions by rotating across topics while preserving the
+     * existing difficulty-filtering and randomized-group behavior.
+     *
+     * @param array<int,array<string,mixed>> $questions
+     * @param array<string,mixed> $options
+     * @return array<int,array<string,mixed>>
+     */
     public static function balance(
         array $questions,
         array $options = []
     ): array {
+        $difficulty = QuestionBalanceDifficultyResolver::resolve($options);
+        $filtered = QuestionBalanceDifficultyFilter::filter($questions, $difficulty);
+        $groups = QuestionBalanceGrouper::groupByTopic($filtered);
+        $groups = QuestionBalanceShuffler::shuffleGroups($groups);
 
-        $difficulty =
-            strtolower(
-                $options["difficulty"] ?? "mixed"
-            );
-
-        if ($difficulty !== "mixed") {
-
-            $questions = array_values(
-
-                array_filter(
-
-                    $questions,
-
-                    static fn(array $question): bool =>
-                        strtolower(
-                            $question["difficulty"] ?? ""
-                        ) === $difficulty
-
-                )
-
-            );
-
-        }
-
-        $groups = [];
-
-        foreach ($questions as $question) {
-
-            $topic =
-                strtolower(
-                    trim(
-                        $question["topic"]
-                        ?? "__unknown__"
-                    )
-                );
-
-            $groups[$topic][] =
-                $question;
-
-        }
-
-        foreach ($groups as &$group) {
-            shuffle($group);
-        }
-
-        unset($group);
-
-        $balanced = [];
-
-        while (!empty($groups)) {
-
-            foreach (array_keys($groups) as $topic) {
-
-                if (empty($groups[$topic])) {
-
-                    unset($groups[$topic]);
-
-                    continue;
-
-                }
-
-                $balanced[] =
-                    array_shift(
-                        $groups[$topic]
-                    );
-
-            }
-
-        }
-
-        return $balanced;
-
+        return QuestionBalanceRoundRobin::balance($groups);
     }
 }
