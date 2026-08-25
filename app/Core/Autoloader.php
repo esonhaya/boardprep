@@ -82,6 +82,12 @@ final class Autoloader
         'BlueprintCoverageValidator' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintCoverageValidator.php',
         'BlueprintDifficultyAllocator' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintDifficultyAllocator.php',
         'BlueprintDistributionService' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintDistributionService.php',
+        'BlueprintDistributionRequestNormalizer' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintDistributionRequestNormalizer.php',
+        'BlueprintDistributionAllocator' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintDistributionAllocator.php',
+        'BlueprintDistributionResultFactory' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintDistributionResultFactory.php',
+        'BlueprintDistributionDiagnostics' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintDistributionDiagnostics.php',
+        'BlueprintDistributionGuard' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintDistributionGuard.php',
+
         'BlueprintIntegrityValidator' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintIntegrityValidator.php',
         'BlueprintExecutionResult' => __DIR__ . '/../Services/Quiz/Blueprint/BlueprintExecutionResult.php',
         'SessionService' => __DIR__ . '/../Services/Shared/SessionService.php',
