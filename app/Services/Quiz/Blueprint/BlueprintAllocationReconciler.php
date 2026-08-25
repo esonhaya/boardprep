@@ -4,99 +4,38 @@ declare(strict_types=1);
 
 final class BlueprintAllocationReconciler
 {
+    /**
+     * Preserve the existing reconciliation boundary while delegating
+     * validation, delta calculation, and adjustment phases.
+     *
+     * @param array<int,SelectionRequest> $requests
+     * @return array<int,SelectionRequest>
+     */
     public static function reconcile(
         array $requests,
         int $target
     ): array {
+        BlueprintAllocationTargetGuard::validate($target);
 
-        if ($target < 0) {
-            throw new InvalidArgumentException(
-                'Allocation target cannot be negative.'
-            );
-        }
-
-        $allocated = 0;
-
-        foreach ($requests as $request) {
-            $allocated += $request->questionCount;
-        }
-
-        $difference = $target - $allocated;
+        $difference = BlueprintAllocationDeltaCalculator::calculate(
+            $requests,
+            $target
+        );
 
         if ($difference === 0 || empty($requests)) {
             return $requests;
         }
 
-        $count = count($requests);
-        $index = 0;
-
-        while ($difference > 0) {
-
-            $request = $requests[$index];
-
-            $requests[$index] =
-                new SelectionRequest(
-                    subject:
-                        $request->subject,
-
-                    domain:
-                        $request->domain,
-
-                    difficultyDistribution:
-                        $request->difficultyDistribution,
-
-                    questionCount:
-                        $request->questionCount + 1
-                );
-
-            $difference--;
-            $index++;
-
-            if ($index >= $count) {
-                $index = 0;
-            }
+        if ($difference > 0) {
+            return BlueprintAllocationIncrementer::apply(
+                $requests,
+                $difference
+            );
         }
 
-        while ($difference < 0) {
-
-            $index = 0;
-            $changed = false;
-
-            while ($index < $count && $difference < 0) {
-
-                $request = $requests[$index];
-
-                if ($request->questionCount > 0) {
-
-                    $requests[$index] =
-                        new SelectionRequest(
-                            subject:
-                                $request->subject,
-
-                            domain:
-                                $request->domain,
-
-                            difficultyDistribution:
-                                $request->difficultyDistribution,
-
-                            questionCount:
-                                $request->questionCount - 1
-                        );
-
-                    $difference++;
-                    $changed = true;
-                }
-
-                $index++;
-            }
-
-            if (!$changed) {
-                throw new InvalidArgumentException(
-                    'Allocation target cannot be reconciled with the available requests.'
-                );
-            }
-        }
-
-        return $requests;
+        return BlueprintAllocationDecrementer::apply(
+            $requests,
+            $difference
+        );
     }
 }
