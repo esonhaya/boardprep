@@ -36,9 +36,12 @@ final class QuizAnswerStatisticsRecorder
         return array_map(
             static fn(array $entry): array => [
                 "topic" => $topics[$entry["question_id"]] ?? "General",
-                "correct" => ($entry["correct"] ?? false) === true,
+                "correct" => $entry["correct"] === true,
             ],
-            $plan
+            array_values(array_filter(
+                $plan,
+                static fn(array $entry): bool => is_bool($entry["correct"] ?? null)
+            ))
         );
     }
 }

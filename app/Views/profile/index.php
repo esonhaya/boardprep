@@ -31,6 +31,12 @@
         <strong><?= htmlspecialchars((string) ($recommendation["title"] ?? "")) ?></strong>
         —
         <?= htmlspecialchars((string) ($recommendation["reason"] ?? "")) ?>
+        <a
+            href="<?= htmlspecialchars((string) ($recommendation["action"] ?? "/quiz")) ?>"
+            aria-label="<?= htmlspecialchars((string) ($recommendation["label"] ?? "Start practice")) ?>"
+        >
+            <?= htmlspecialchars((string) ($recommendation["label"] ?? "Start practice")) ?>
+        </a>
     </li>
 <?php endforeach; ?>
 </ul>

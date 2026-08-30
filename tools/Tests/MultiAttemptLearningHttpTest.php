@@ -82,11 +82,14 @@ try {
 
     $study = $simulator->request('GET', '/study');
     $progress = $simulator->request('GET', '/progress');
-    if (!$study['success'] || !$progress['success']
+    $profile = $simulator->request('GET', '/profile');
+    if (!$study['success'] || !$progress['success'] || !$profile['success']
         || !str_contains($study['output'], 'Subject-Verb Agreement')
         || !str_contains($study['output'], 'Verb Tenses')
         || !str_contains($progress['output'], 'Subject-Verb Agreement')
-        || !str_contains($progress['output'], 'Verb Tenses')) {
+        || !str_contains($progress['output'], 'Verb Tenses')
+        || !str_contains($profile['output'], 'Subject-Verb Agreement')
+        || !str_contains($profile['output'], 'Practice Subject-Verb Agreement')) {
         throw new RuntimeException('multiple completed topics did not reach learner views');
     }
 
