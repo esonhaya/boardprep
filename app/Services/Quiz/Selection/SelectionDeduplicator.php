@@ -13,18 +13,32 @@ final class SelectionDeduplicator
 
         foreach ($questions as $question) {
 
+            if (!is_array($question)) {
+                continue;
+            }
+
             $id =
                 $question["id"] ?? null;
 
+            if ($id !== null && !is_scalar($id)) {
+                continue;
+            }
+
+            if ($id !== null && trim((string) $id) === '') {
+                continue;
+            }
+
+            $key = $id === null ? null : (string) $id;
+
             if (
-                $id !== null &&
-                isset($seen[$id])
+                $key !== null &&
+                isset($seen[$key])
             ) {
                 continue;
             }
 
-            if ($id !== null) {
-                $seen[$id] = true;
+            if ($key !== null) {
+                $seen[$key] = true;
             }
 
             $unique[] = $question;

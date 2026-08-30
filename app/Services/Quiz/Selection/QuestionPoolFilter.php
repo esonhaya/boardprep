@@ -4,7 +4,14 @@ final class QuestionPoolFilter
 {
     public static function filter(array $questions, SelectionRequest $request): array
     {
-        return array_values(array_filter($questions, static function(array $question) use ($request): bool {
+        return array_values(array_filter($questions, static function(mixed $question) use ($request): bool {
+            // Repository data can contain legacy or partially written entries.
+            // They are not quiz candidates and must not reach the typed
+            // selection/session pipeline or the quiz view.
+            if (!is_array($question) || !is_scalar($question['id'] ?? null) || trim((string) $question['id']) === '') {
+                return false;
+            }
+
             $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
             $subject = $question['subject'] ?? $taxonomy['subject_id'] ?? null;
             $domain = $question['domain'] ?? $taxonomy['domain_id'] ?? null;

@@ -17,18 +17,22 @@ final class SelectionSession
                 $questions,
 
                 function (
-                    array $question
+                    mixed $question
                 ): bool {
+
+                    if (!is_array($question)) {
+                        return false;
+                    }
 
                     $id =
                         $question["id"] ?? null;
 
-                    if ($id === null) {
+                    if ($id === null || !is_scalar($id) || trim((string) $id) === '') {
                         return true;
                     }
 
                     return !isset(
-                        $this->selectedIds[$id]
+                        $this->selectedIds[(string) $id]
                     );
 
                 }
@@ -45,12 +49,10 @@ final class SelectionSession
 
         foreach ($questions as $question) {
 
-            if (
-                isset($question["id"])
-            ) {
+            if (is_array($question) && is_scalar($question["id"] ?? null) && trim((string) $question["id"]) !== '') {
 
                 $this->selectedIds[
-                    $question["id"]
+                    (string) $question["id"]
                 ] = true;
 
             }
