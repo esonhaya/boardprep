@@ -4,7 +4,7 @@ final class QuestionPoolFilter
 {
     public static function filter(array $questions, SelectionRequest $request): array
     {
-        return array_values(array_filter($questions, static function(mixed $question) use ($request): bool {
+        $eligible = array_values(array_filter($questions, static function(mixed $question) use ($request): bool {
             // Repository data can contain legacy or partially written entries.
             // They are not quiz candidates and must not reach the typed
             // selection/session pipeline or the quiz view.
@@ -29,6 +29,50 @@ final class QuestionPoolFilter
                     || self::same($topic, $request->topic)
                 );
         }));
+
+        return array_map(
+            static fn(array $question): array => self::normalizeRuntimeFields($question),
+            $eligible
+        );
+    }
+
+    private static function normalizeRuntimeFields(array $question): array
+    {
+        if (is_array($question['choices'] ?? null) && is_scalar($question['answer'] ?? null)) {
+            return $question;
+        }
+
+        $options = $question['options'] ?? null;
+        if (!is_array($options)) {
+            return $question;
+        }
+
+        $choices = [];
+        $answer = null;
+        foreach ($options as $option) {
+            if (!is_array($option) || !is_scalar($option['text'] ?? null)) {
+                continue;
+            }
+
+            $text = trim((string) $option['text']);
+            if ($text === '') {
+                continue;
+            }
+
+            $choices[] = $text;
+            if (($option['correct'] ?? false) === true && $answer === null) {
+                $answer = $text;
+            }
+        }
+
+        if ($choices === [] || $answer === null) {
+            return $question;
+        }
+
+        $question['choices'] = $choices;
+        $question['answer'] = $answer;
+
+        return $question;
     }
 
     private static function same(mixed $actual, ?string $expected): bool

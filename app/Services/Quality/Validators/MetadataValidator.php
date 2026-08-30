@@ -16,6 +16,7 @@ final class MetadataValidator
         'draft',
         'approved',
         'archived',
+        'active',
     ];
 
     public static function validate(
@@ -71,14 +72,13 @@ final class MetadataValidator
             ] as $field
         ) {
 
-            if (
-                trim(
-                    (string) (
-                        $taxonomy[$field]
-                        ?? ''
-                    )
-                ) !== ''
-            ) {
+            $legacyField = str_replace('_id', '', $field);
+            $value = $taxonomy[$field]
+                ?? $question[$field]
+                ?? $question[$legacyField]
+                ?? '';
+
+            if (is_scalar($value) && trim((string) $value) !== '') {
                 continue;
             }
 
