@@ -11,7 +11,7 @@
 
     <title>
 
-        <?= $pageTitle ?? "BoardPrep" ?>
+        <?= htmlspecialchars((string) ($pageTitle ?? "BoardPrep"), ENT_QUOTES, "UTF-8") ?>
 
     </title>
 
@@ -24,40 +24,43 @@
 
 <body>
 
-<header>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <h1>
-        📚 BoardPrep
-    </h1>
+<header class="site-header">
+
+    <a class="site-brand" href="/" aria-label="BoardPrep home">
+        <span aria-hidden="true">📚</span> BoardPrep
+    </a>
 
     <p>
         Prepare with Confidence.
     </p>
 
-    <nav>
+    <?php $currentPath = parse_url($_SERVER["REQUEST_URI"] ?? "/", PHP_URL_PATH) ?: "/"; ?>
+    <nav aria-label="Primary navigation">
 
-        <a href="/">
+        <a href="/"<?= $currentPath === "/" ? ' aria-current="page"' : "" ?>>
             Home
         </a>
-        <a href="/dashboard">
+        <a href="/dashboard"<?= $currentPath === "/dashboard" ? ' aria-current="page"' : "" ?>>
             Dashboard
         </a>
-        <a href="/history">
+        <a href="/history"<?= $currentPath === "/history" ? ' aria-current="page"' : "" ?>>
             History
         </a>
-        <a href="/progress">
+        <a href="/progress"<?= $currentPath === "/progress" ? ' aria-current="page"' : "" ?>>
             Progress
         </a>
-        <a href="/study">
+        <a href="/study"<?= $currentPath === "/study" ? ' aria-current="page"' : "" ?>>
             Study Plan
         </a>
-        <a href="/profile">
+        <a href="/profile"<?= $currentPath === "/profile" ? ' aria-current="page"' : "" ?>>
             Profile
         </a>
-        <a href="/quiz">
+        <a href="/quiz"<?= $currentPath === "/quiz" ? ' aria-current="page"' : "" ?>>
             Quiz
         </a>
-        <a href="/developer">
+        <a href="/developer"<?= str_starts_with($currentPath, "/developer") ? ' aria-current="page"' : "" ?>>
             Developer
         </a>
 
@@ -67,7 +70,7 @@
 
 </header>
 
-<main>
+<main id="main-content" tabindex="-1">
 
     <?= $content ?>
 
@@ -86,7 +89,7 @@ if (
 ?>
 
 
-<footer>
+<footer class="site-footer">
 
     <hr>
 

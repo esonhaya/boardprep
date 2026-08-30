@@ -49,8 +49,8 @@ $completed = (int) ($progress["completedAttempts"] ?? 0);
 </section>
 
 <hr>
-<nav>
-    <a href="/profile">Learning Profile</a> ·
-    <a href="/progress">Progress</a> ·
+<nav class="related-navigation" aria-label="Learning pages">
+    <a href="/profile">Learning Profile</a>
+    <a href="/progress">Progress</a>
     <a href="/study">Study Plan</a>
 </nav>

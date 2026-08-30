@@ -47,7 +47,7 @@ $actions = $actions ?? [];
 </h2>
 
 <?php foreach ($review as $index => $item): ?>
-<div class="question-review">
+<article class="question-review <?= !empty($item["correct"]) ? "is-correct" : "is-incorrect" ?>">
     <h3>
         <?= ($index + 1) ?>.
         <?= htmlspecialchars(
@@ -67,9 +67,9 @@ $actions = $actions ?? [];
     </p>
 
     <?php if (!empty($item["correct"])): ?>
-        <p>Correct</p>
+        <p class="answer-status"><strong>Correct answer</strong></p>
     <?php else: ?>
-        <p>Incorrect</p>
+        <p class="answer-status"><strong>Incorrect answer</strong></p>
 
         <p>
             Correct Answer:
@@ -87,7 +87,7 @@ $actions = $actions ?? [];
             $item["question"]["explanation"] ?? ""
         ) ?>
     </p>
-</div>
+</article>
 
 <hr>
 <?php endforeach; ?>

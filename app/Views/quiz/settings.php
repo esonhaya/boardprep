@@ -6,9 +6,9 @@
 </p>
 <?php endif; ?>
 
-<h2>Create Quiz</h2>
+<h1>Create Quiz</h1>
 
-<form method="GET" action="">
+<form class="quiz-settings" method="GET" action="/quiz">
 
 
 <input
@@ -24,23 +24,23 @@ value="start"
 >
 
 
-<label>
+<label for="quiz-subject">
 Subject:
 </label>
 
-<select name="subject">
+<select id="quiz-subject" name="subject">
 <option value="English" selected>English</option>
 </select>
 
 <br><br>
 
 
-<label>
+<label for="quiz-count">
 Number of Questions:
 </label>
 
 
-<select name="count">
+<select id="quiz-count" name="count">
 
 <option value="5">
 5 Questions
@@ -65,12 +65,12 @@ Number of Questions:
 
 
 
-<label>
+<label for="quiz-difficulty">
 Difficulty:
 </label>
 
 
-<select name="difficulty">
+<select id="quiz-difficulty" name="difficulty">
 
 <option value="mixed">
 Mixed
@@ -95,12 +95,12 @@ Hard
 
 
 
-<label>
+<label for="quiz-mode">
 Mode:
 </label>
 
 
-<select name="mode">
+<select id="quiz-mode" name="mode">
 
 <option value="practice">
 Practice Mode
@@ -124,6 +124,7 @@ Review Mode
 <label>
 
 <input
+id="quiz-adaptive"
 type="checkbox"
 name="adaptive"
 value="1"

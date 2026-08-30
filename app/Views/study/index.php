@@ -205,12 +205,9 @@ $history = $history ?? [];
 
 <hr>
 
-<nav>
+<nav class="related-navigation" aria-label="Learning pages">
     <a href="/quiz">Take Quiz</a>
-    <br><br>
     <a href="/progress">Progress</a>
-    <br><br>
     <a href="/profile">Learning Profile</a>
-    <br><br>
     <a href="/history">Full Quiz History</a>
 </nav>

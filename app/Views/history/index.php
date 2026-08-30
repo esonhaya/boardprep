@@ -24,8 +24,8 @@ $summary = $summary ?? [];
 <?php endif; ?>
 
 <hr>
-<nav>
-    <a href="/dashboard">Dashboard</a> ·
-    <a href="/progress">Progress</a> ·
+<nav class="related-navigation" aria-label="Learning pages">
+    <a href="/dashboard">Dashboard</a>
+    <a href="/progress">Progress</a>
     <a href="/study">Study Plan</a>
 </nav>

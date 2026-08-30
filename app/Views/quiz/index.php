@@ -8,11 +8,11 @@ $feedback = $feedback ?? null;
 
 ?>
 
-<h3>
+<p class="quiz-progress">
 Question <?= $current + 1 ?> / <?= $total ?>
-</h3>
+</p>
 
-<p>
+<p class="quiz-mode">
 Mode:
 <strong>
 <?= ucfirst($mode) ?>
@@ -22,7 +22,7 @@ Mode:
 
 <?php if(!$question): ?>
 
-<p>
+<p role="status">
 No question available.
 </p>
 
@@ -31,14 +31,16 @@ No question available.
 <?php endif; ?>
 
 
-<h2>
+<h1 class="quiz-question">
 <?= htmlspecialchars($question["question"]) ?>
-</h2>
+</h1>
 
 
 <?php if($feedback): ?>
 
 <hr>
+
+<section class="quiz-feedback <?= $feedback["correct"] ? "is-correct" : "is-incorrect" ?>" role="status" aria-live="polite">
 
 <?php if($feedback["correct"]): ?>
 
@@ -108,11 +110,13 @@ Next Question
 
 <?php endif; ?>
 
+</section>
+
 
 <?php else: ?>
 
 
-<form method="POST" action="/quiz?action=submit">
+<form class="quiz-answer-form" method="POST" action="/quiz?action=submit">
 
 <input
 type="hidden"
@@ -121,26 +125,32 @@ value="<?= htmlspecialchars((string) ($question["id"] ?? "")) ?>"
 >
 
 
+<fieldset class="quiz-choices">
+<legend>Choose one answer</legend>
+
 <?php foreach($question["choices"] as $key=>$choice): ?>
 
+<?php $answerValue = chr(65 + $key); ?>
 
-<label>
+
+<label class="quiz-choice" for="answer-<?= $answerValue ?>">
 
 <input
+id="answer-<?= $answerValue ?>"
 type="radio"
 name="answer"
-value="<?= chr(65+$key) ?>"
+value="<?= $answerValue ?>"
 required
 >
 
-<?= htmlspecialchars($choice) ?>
+<span><strong><?= $answerValue ?>.</strong> <?= htmlspecialchars($choice) ?></span>
 
 </label>
 
-<br>
-
 
 <?php endforeach; ?>
+
+</fieldset>
 
 
 <br>
