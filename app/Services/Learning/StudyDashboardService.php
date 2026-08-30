@@ -7,6 +7,7 @@ final class StudyDashboardService
 {
     public static function build(array $attempts = []): array
     {
+        $attempts = LearningAttemptNormalizer::all($attempts);
         $progress = LearningProgressService::build($attempts);
         $topics = TopicPerformanceService::summarize($attempts);
         $weakestTopics = TopicPerformanceService::weakest($attempts, 3);

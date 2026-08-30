@@ -8,6 +8,7 @@ final class PerformanceAnalyticsService
 {
     public static function summary(array $attempts): array
     {
+        $attempts = LearningAttemptNormalizer::all($attempts);
         $total = count($attempts);
 
         if ($total === 0) {

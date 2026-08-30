@@ -8,7 +8,9 @@ final class LearningStatisticsService
 {
     public static function summary(): array
     {
-        $attempts = LearningHistoryService::all();
+        $attempts = LearningAttemptNormalizer::all(
+            LearningHistoryService::all()
+        );
 
         $total = count($attempts);
         $practice = 0;

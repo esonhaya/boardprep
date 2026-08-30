@@ -16,13 +16,21 @@ final class LearningHistoryService
                 ->get(AttemptRepository::class)
                 ->all();
 
+        $attempts = LearningAttemptNormalizer::all($attempts);
+        $indexed = [];
+        foreach ($attempts as $index => $attempt) {
+            $indexed[] = [$attempt, $index];
+        }
+
         usort(
-            $attempts,
-            static fn(array $a, array $b): int =>
-                self::timestampOf($b)
-                <=>
-                self::timestampOf($a)
+            $indexed,
+            static function (array $a, array $b): int {
+                $timestampOrder = self::timestampOf($b[0]) <=> self::timestampOf($a[0]);
+                return $timestampOrder !== 0 ? $timestampOrder : $a[1] <=> $b[1];
+            }
         );
+
+        $attempts = array_column($indexed, 0);
 
         return array_slice(
             $attempts,

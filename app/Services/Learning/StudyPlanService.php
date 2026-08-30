@@ -26,7 +26,8 @@ final class StudyPlanService
 
         foreach ($dashboard["recommendations"] ?? [] as $recommendation) {
             $name = trim((string) ($recommendation["topic"] ?? ""));
-            if ($name === "" || self::contains($plan, $name)) {
+            $subject = (string) ($recommendation["subject"] ?? "English");
+            if ($name === "" || self::contains($plan, $name, $subject)) {
                 continue;
             }
 
@@ -34,7 +35,7 @@ final class StudyPlanService
                 $name,
                 "Recommended",
                 null,
-                (string) ($recommendation["subject"] ?? "English")
+                $subject
             );
         }
 
@@ -68,13 +69,17 @@ final class StudyPlanService
         ];
     }
 
-    private static function contains(array $plan, string $topic): bool
+    private static function contains(array $plan, string $topic, string $subject): bool
     {
         foreach ($plan as $item) {
             if (
                 strcasecmp(
                     (string) ($item["topic"] ?? ""),
                     $topic
+                ) === 0
+                && strcasecmp(
+                    (string) ($item["subject"] ?? ""),
+                    $subject
                 ) === 0
             ) {
                 return true;

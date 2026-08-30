@@ -8,6 +8,7 @@ final class LearningProgressService
 {
     public static function build(array $attempts): array
     {
+        $attempts = LearningAttemptNormalizer::all($attempts);
         $total = count($attempts);
         $completed = 0;
         $sum = 0;

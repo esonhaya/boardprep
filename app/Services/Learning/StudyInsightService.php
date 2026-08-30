@@ -10,6 +10,7 @@ final class StudyInsightService
         array $attempts,
         array $weakestTopics = []
     ): array {
+        $attempts = LearningAttemptNormalizer::all($attempts);
         $insights = [];
 
         if (empty($attempts)) {

@@ -8,6 +8,7 @@ final class LearningTimelineService
 {
     public static function build(array $attempts): array
     {
+        $attempts = LearningAttemptNormalizer::all($attempts);
         $timeline = [];
 
         foreach ($attempts as $attempt) {
