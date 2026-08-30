@@ -28,6 +28,10 @@ class QuestionDuplicateService
         }
 
         foreach ($repository->all() as $existing) {
+            if (!is_array($existing)) {
+                continue;
+            }
+
             $existingId = (string) ($existing['id'] ?? '');
 
             if (

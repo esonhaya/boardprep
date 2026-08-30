@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 use App\Core\Request;
 use App\Core\Response;
+use App\Services\Question\QuestionAuthoringService;
 use App\Services\Question\QuestionEditorService;
 use App\Services\Question\QuestionQueryService;
 use App\Services\Question\QuestionService;
@@ -127,66 +128,38 @@ class QuestionEditorController extends BaseDeveloperController
 
     public static function save(): void
     {
-        $question =
-            QuestionService::build(
-                0,
-                Request::input()
-            );
-
-        $check =
-            QuestionService::validateForSave(
-                $question
-            );
-
-        if (!empty($check["errors"])) {
-            self::workspace([
-                "pageTitle" => "Create Question",
-                "contentMode" => "create",
-                "question" => $question,
-                "errors" => $check["errors"],
-                "duplicates" => $check["duplicates"]
-            ]);
-
-            return;
-        }
-
-        QuestionService::save($question);
-
-        Response::redirect("/question-editor");
+        self::submitAuthoring(0, "Create Question", "create");
     }
 
     public static function update(): void
     {
-        $id =
-            (int) Request::query("id", 0);
+        self::submitAuthoring(
+            (int) Request::query("id", 0),
+            "Edit Question",
+            "edit"
+        );
+    }
 
-        $question =
-            QuestionService::build(
-                $id,
-                Request::input()
-            );
+    private static function submitAuthoring(
+        int $id,
+        string $pageTitle,
+        string $contentMode
+    ): void {
+        $result = QuestionAuthoringService::submit(
+            $id,
+            Request::input()
+        );
 
-        $check =
-            QuestionService::validateForSave(
-                $question
-            );
-
-        if (!empty($check["errors"])) {
+        if (($result["saved"] ?? false) !== true) {
             self::workspace([
-                "pageTitle" => "Edit Question",
-                "contentMode" => "edit",
-                "question" => $question,
-                "errors" => $check["errors"],
-                "duplicates" => $check["duplicates"]
+                "pageTitle" => $pageTitle,
+                "contentMode" => $contentMode,
+                "question" => $result["question"] ?? [],
+                "errors" => $result["errors"] ?? [],
+                "duplicates" => $result["duplicates"] ?? []
             ]);
-
             return;
         }
-
-        QuestionService::update(
-            $id,
-            $question
-        );
 
         Response::redirect("/question-editor");
     }
