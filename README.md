@@ -53,7 +53,8 @@ Run `php tools/function-test.php`, `php tools/http-test.php`,
 and `php tools/doctor.php` from the repository root. Developer-route tests
 require `APP_ENV=testing`.
 
-Use `php tools/doctor.php --simulate` for the deeper developer learner simulation
-before human acceptance testing. The manual checklist is in
+Developer simulation: `php tools/doctor.php --simulate`. This runs the registered
+scenario suite after the ordinary Doctor checks and is deeper than those checks.
+Run it before human acceptance testing. The manual checklist is in
 `docs/HUMAN_TESTER_READINESS.md`; ordinary Doctor runs intentionally do not run
 the full persona suite.

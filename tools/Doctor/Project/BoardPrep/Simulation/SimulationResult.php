@@ -30,7 +30,7 @@ final class SimulationResult
 
     public function passed(): bool
     {
-        return $this->failures === [];
+        return $this->failCount() === 0;
     }
 
     public function steps(): array

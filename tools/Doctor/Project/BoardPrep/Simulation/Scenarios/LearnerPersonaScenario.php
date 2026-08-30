@@ -35,17 +35,30 @@ final class LearnerPersonaScenario extends SimulationScenario
 
         try {
             foreach (self::PERSONAS as $persona => $scores) {
-                $userId = 'simulation-' . strtolower(str_replace('_', '-', $persona));
-                foreach ($scores as $index => $score) {
-                    $record = $this->attempt($persona, $userId, $index, $score);
-                    $attempts->create($record);
-                    $created[] = $record['id'];
-                }
+                try {
+                    $userId = 'simulation-' . strtolower(str_replace('_', '-', $persona));
+                    foreach ($scores as $index => $score) {
+                        $record = $this->attempt($persona, $userId, $index, $score);
+                        $attempts->create($record);
+                        $created[] = $record['id'];
+                    }
 
-                // A new repository read represents the next application session.
-                $persisted = App::container()->get(AttemptRepository::class)->byUser($userId);
-                $this->verifyPersona($persona, $scores, $persisted);
-                $simulation->result()->record($persona, true);
+                    // A new repository read represents the next application session.
+                    $persisted = App::container()->get(AttemptRepository::class)->byUser($userId);
+                    $this->verifyPersona($persona, $scores, $persisted);
+                    $simulation->result()->record($persona, true);
+                } catch (\Throwable $exception) {
+                    $simulation->result()->record(
+                        $persona,
+                        false,
+                        $persona . ': ' . get_class($exception) . ': ' . $exception->getMessage()
+                    );
+                    break;
+                }
+            }
+
+            if (!$simulation->result()->passed()) {
+                return;
             }
 
             $this->verifyPersistence($attempts);

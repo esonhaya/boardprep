@@ -16,12 +16,11 @@ final class SimulationReport
     ): string {
         $lines = [
             '',
+            '============================================================',
             'BOARDPREP DEVELOPER SIMULATION',
+            '============================================================',
             '',
-            'Personas: 6',
-            'Journeys: 6',
-            'Quiz attempts: 16',
-            'Exam attempts: 1',
+            'Scenario Matrix',
             '',
         ];
 
@@ -30,35 +29,54 @@ final class SimulationReport
             $status = $result->passed() ? 'PASS' : 'FAIL';
 
             $lines[] = sprintf('%-27s %s', $item['scenario'], $status);
+        }
 
-            foreach ($result->steps() as $step) {
-                if (in_array($step['description'], [
-                    'NEW_LEARNER', 'STRUGGLING_LEARNER', 'IMPROVING_LEARNER',
-                    'STRONG_LEARNER', 'MIXED_LEARNER', 'EXAM_READY_LEARNER',
-                    'Persistence', 'Weakness analytics', 'Progress analytics',
-                    'Recommendations', 'Quiz generation', 'Exam simulation',
-                    'Failure recovery',
-                ], true)) {
-                    $lines[] = sprintf(
-                        '  %-25s %s',
+        $personaLines = [];
+        foreach ($results as $item) {
+            foreach ($item['result']->steps() as $step) {
+                if (preg_match('/^[A-Z]+(?:_[A-Z]+)*_LEARNER$/', $step['description']) === 1) {
+                    $personaLines[] = sprintf(
+                        '%-27s %s',
                         $step['description'],
                         $step['passed'] ? 'PASS' : 'FAIL'
                     );
-                    continue;
-                }
-                if (!$step['passed']) {
-                    $lines[] = "  FAIL: {$step['description']}";
                 }
             }
+        }
 
+        if ($personaLines !== []) {
+            $lines[] = '';
+            $lines[] = 'Learner Personas';
+            $lines[] = '';
+            array_push($lines, ...$personaLines);
+        }
+
+        foreach ($results as $item) {
+            $result = $item['result'];
+            if ($result->passed()) {
+                continue;
+            }
+            $lines[] = '';
+            $lines[] = "FAILURE: {$item['scenario']}";
             foreach ($result->failures() as $failure) {
-                $lines[] = "  ERROR: {$failure}";
+                $lines[] = "  REASON: {$failure}";
+            }
+            if ($result->failures() === []) {
+                foreach ($result->steps() as $step) {
+                    if (!$step['passed']) {
+                        $lines[] = "  REASON: {$step['description']} failed";
+                    }
+                }
             }
         }
 
         $lines[] = '';
-        $lines[] = "SIMULATION_PASS={$summary['passed']}";
-        $lines[] = "SIMULATION_FAIL={$summary['failed']}";
+        $lines[] = 'Summary';
+        $lines[] = "SCENARIOS={$summary['scenarios']}";
+        $lines[] = "PASS={$summary['passed']}";
+        $lines[] = "FAIL={$summary['failed']}";
+        $lines[] = '';
+        $lines[] = 'SIMULATION_STATUS=' . ($summary['success'] ? 'PASS' : 'FAIL');
 
         return implode(PHP_EOL, $lines);
     }
