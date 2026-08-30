@@ -6,60 +6,30 @@ namespace App\Services\Question;
 
 use App\Core\App;
 use App\Repositories\QuestionRepository;
+use App\Services\Question\Statistics\QuestionStatisticsUpdater;
 
 class QuestionStatisticsService
 {
     public static function recordAnswer(
         string $questionId,
-        bool $correct
+        ?bool $correct
     ): void {
+        $questionId = trim($questionId);
 
-        $repository =
-            App::container()
-                ->get(
-                    QuestionRepository::class
-                );
-
-        $question =
-            $repository->find(
-                $questionId
-            );
-
-        if (
-            $question === null
-        ) {
-
+        if ($questionId === "") {
             return;
-
         }
 
-        $question["timesUsed"] =
-            ($question["timesUsed"] ?? 0)
-            + 1;
+        $repository = App::container()->get(QuestionRepository::class);
+        $question = $repository->find($questionId);
 
-        if (
-            $correct
-        ) {
-
-            $question["timesCorrect"] =
-                ($question["timesCorrect"] ?? 0)
-                + 1;
-
-        } else {
-
-            $question["timesIncorrect"] =
-                ($question["timesIncorrect"] ?? 0)
-                + 1;
-
+        if (!is_array($question)) {
+            return;
         }
-
-        $question["updatedAt"] =
-            date("c");
 
         $repository->update(
             $questionId,
-            $question
+            QuestionStatisticsUpdater::apply($question, $correct)
         );
-
     }
 }

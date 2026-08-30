@@ -32,7 +32,8 @@ final class QuizResultService
             QuizResultPersistenceService::persist(
                 $attempt,
                 $session,
-                $questions
+                $questions,
+                $answers
             );
         }
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Core\App;
 use App\Services\AttemptService;
+use App\Services\Quiz\Result\QuizAnswerStatisticsRecorder;
 
 final class QuizResultPersistenceService
 {
@@ -11,11 +12,13 @@ final class QuizResultPersistenceService
      * @param array<string,mixed> $attempt
      * @param array<string,mixed> $session
      * @param array<int,array<string,mixed>> $questions
+     * @param array<string,mixed> $answers
      */
     public static function persist(
         array $attempt,
         array $session,
-        array $questions
+        array $questions,
+        array $answers = []
     ): void {
         $attempt = QuizLearningContextService::enrichAttempt(
             $attempt,
@@ -28,5 +31,7 @@ final class QuizResultPersistenceService
             ->save($attempt);
 
         SessionService::set("attempt_persisted", true);
+
+        QuizAnswerStatisticsRecorder::record($questions, $answers);
     }
 }
