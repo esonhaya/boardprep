@@ -38,7 +38,7 @@
 
         </h3>
 
-        <a href="/question-workspace">
+        <a href="/question-editor/create">
 
             📝 Question Workspace
 

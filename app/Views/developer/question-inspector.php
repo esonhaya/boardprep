@@ -185,7 +185,7 @@ Quick Actions
 
 <p>
 
-<a href="/question-editor/edit&id=<?= urlencode((string) ($question["id"] ?? "")) ?>">
+<a href="/question-editor/edit?id=<?= urlencode((string) ($question["id"] ?? "")) ?>">
 
 ✏️ Edit Question
 

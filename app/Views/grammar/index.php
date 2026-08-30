@@ -11,7 +11,7 @@ Practice grammar concepts with BoardPrep.
 </p>
 
 
-<a href="/quiz&setup=true">
+<a href="/quiz">
 
 Create Quiz
 

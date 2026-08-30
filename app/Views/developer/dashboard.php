@@ -91,7 +91,7 @@ Fix Everything
 
 <br><br>
 
-<a href="/question-workspace">
+<a href="/question-editor/create">
 
 Question Workspace
 
@@ -300,7 +300,7 @@ Create and edit questions using the new workspace.
 
 <br><br>
 
-<a href="/question-workspace">
+<a href="/question-editor/create">
 
 Open Workspace →
 

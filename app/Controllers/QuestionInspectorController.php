@@ -3,50 +3,40 @@
 declare(strict_types=1);
 
 namespace App\Controllers;
-use App\Services\RepositoryHealth\Engine\RepositoryHealthEngine;
+use App\Core\Request;
+use App\Core\Response;
+use App\Services\Question\QuestionEditorService;
+use App\Services\Question\QuestionQueryService;
 
 class QuestionInspectorController extends BaseDeveloperController
 {
     public static function index(): void
     {
-        $report = RepositoryHealthEngine::analyze();
+        $id = Request::queryString('id');
 
-        $questions = [];
+        if ($id === '') {
+            self::renderDeveloper(
+                'developer/question-inspector-list',
+                [
+                    'pageTitle' => 'Question Inspector',
+                    'questions' => QuestionQueryService::getQuestions([]),
+                ]
+            );
+            return;
+        }
 
-        foreach ($report->issues as $issue) {
+        $question = QuestionEditorService::find($id);
 
-            $id = $issue->entityId;
-
-            if (!isset($questions[$id])) {
-
-                $questions[$id] = [
-
-                    "id" => $id,
-
-                    "issues" => []
-
-                ];
-
-            }
-
-            $questions[$id]["issues"][] = $issue;
-
+        if ($question === null) {
+            Response::redirect('/question-inspector');
         }
 
         self::renderDeveloper(
-
-            "developer/question-inspector",
-
+            'developer/question-inspector',
             [
-
-                "pageTitle" => "Question Inspector",
-
-                "report" => $report,
-
-                "questions" => $questions
-
+                'pageTitle' => 'Question Inspector',
+                'question' => $question,
             ]
-
         );
     }
 }

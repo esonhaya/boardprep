@@ -32,25 +32,25 @@ Select a question to inspect.
 
 <td>
 
-<?= $question["id"] ?>
+<?= htmlspecialchars((string) ($question["id"] ?? "")) ?>
 
 </td>
 
 <td>
 
-<?= htmlspecialchars($question["question"]) ?>
+<?= htmlspecialchars((string) ($question["question"] ?? "")) ?>
 
 </td>
 
 <td>
 
-<?= htmlspecialchars($question["topic"]) ?>
+<?= htmlspecialchars((string) ($question["topic"] ?? "")) ?>
 
 </td>
 
 <td>
 
-<a href="/question-inspector&id=<?= $question["id"] ?>">
+<a href="/question-inspector?id=<?= urlencode((string) ($question["id"] ?? "")) ?>">
 
 Inspect
 
@@ -75,4 +75,3 @@ Inspect
 </a>
 
 </p>
-

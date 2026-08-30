@@ -300,9 +300,9 @@ background:white;
 
 </p>
 
-<p>
+<div>
 
-<a href="/question-inspector&id=<?= $question["id"] ?>">
+<a href="/question-inspector?id=<?= urlencode((string) $question["id"]) ?>">
 
 🔍 Inspect
 
@@ -310,7 +310,7 @@ background:white;
 
 |
 
-<a href="/question-editor/edit&id=<?= $question["id"] ?>">
+<a href="/question-editor/edit?id=<?= urlencode((string) $question["id"]) ?>">
 
 ✏️ Edit
 
@@ -323,29 +323,31 @@ background:white;
     === "approved"
 ): ?>
 
-<a
-href="/question-editor/archive&id=<?= $question["id"] ?>"
-onclick="return confirm('Archive this question?')"
->
+<form method="POST" action="/question-editor/archive?id=<?= urlencode((string) $question["id"]) ?>" style="display:inline" onsubmit="return confirm('Archive this question?')">
+
+<button type="submit">
 
 🗃️ Archive
 
-</a>
+</button>
+
+</form>
 
 <?php else: ?>
 
-<a
-href="/question-editor/restore&id=<?= $question["id"] ?>"
-onclick="return confirm('Restore this question?')"
->
+<form method="POST" action="/question-editor/restore?id=<?= urlencode((string) $question["id"]) ?>" style="display:inline" onsubmit="return confirm('Restore this question?')">
+
+<button type="submit">
 
 ♻️ Restore
 
-</a>
+</button>
+
+</form>
 
 <?php endif; ?>
 
-</p>
+</div>
 
 </div>
 

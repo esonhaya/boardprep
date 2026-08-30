@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace App\Controllers;
+use App\Core\Request;
 class DeveloperToolsController extends BaseDeveloperController
 {
     public static function index(): void
@@ -13,10 +14,7 @@ class DeveloperToolsController extends BaseDeveloperController
 
         $results = [];
 
-        $action =
-            trim(
-                $_GET["action"] ?? ""
-            );
+        $action = Request::queryString("action");
 
         switch (
             $action

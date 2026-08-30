@@ -13,10 +13,7 @@ class SubjectController extends BaseDeveloperController
     public static function index(): void
     {
         $search =
-            trim((string) Request::query(
-                "search",
-                ""
-            ));
+            Request::queryString("search");
 
         $subjects =
             SubjectViewService::all();
@@ -87,10 +84,7 @@ class SubjectController extends BaseDeveloperController
     {
         $subject =
             SubjectService::find(
-                (string) Request::query(
-                    "id",
-                    ""
-                )
+                Request::queryString("id")
             );
 
         if ($subject === null) {
@@ -110,10 +104,7 @@ class SubjectController extends BaseDeveloperController
     public static function update(): void
     {
         SubjectService::update(
-            (string) Request::query(
-                "id",
-                ""
-            ),
+            Request::queryString("id"),
             Request::input()
         );
 
@@ -125,10 +116,7 @@ class SubjectController extends BaseDeveloperController
     public static function archive(): void
     {
         SubjectService::archive(
-            (string) Request::query(
-                "id",
-                ""
-            )
+            Request::queryString("id")
         );
 
         self::developerRedirect(
@@ -139,10 +127,7 @@ class SubjectController extends BaseDeveloperController
     public static function activate(): void
     {
         SubjectService::activate(
-            (string) Request::query(
-                "id",
-                ""
-            )
+            Request::queryString("id")
         );
 
         self::developerRedirect(
@@ -154,10 +139,7 @@ class SubjectController extends BaseDeveloperController
     {
         $subject =
             SubjectService::find(
-                (string) Request::query(
-                    "id",
-                    ""
-                )
+                Request::queryString("id")
             );
 
         if ($subject === null) {

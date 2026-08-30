@@ -148,23 +148,14 @@ foreach ($subjects as $subject) {
 
                         "♻ Activate",
 
+                    "method" => "POST",
+
                     "href" =>
 
-                        ($subject["status"] === Status::ACTIVE)
-
-                        ?
-
-                        "/subject/archive?id="
-
-                        :
-
-                        "/subject/activate?id="
-
-                    .
-
-                    urlencode(
-                        $subject["id"]
-                    )
+                        (($subject["status"] === Status::ACTIVE)
+                            ? "/subject/archive?id="
+                            : "/subject/activate?id=")
+                        . urlencode($subject["id"])
 
                 ]
 

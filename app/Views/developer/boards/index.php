@@ -128,23 +128,14 @@ foreach ($boards as $board) {
 
                         "♻ Activate",
 
+                    "method" => "POST",
+
                     "href" =>
 
-                        ($board["status"] === "active")
-
-                        ?
-
-                        "/board/archive?id="
-
-                        :
-
-                        "/board/activate?id="
-
-                    .
-
-                    urlencode(
-                        $board["id"]
-                    )
+                        (($board["status"] === "active")
+                            ? "/board/archive?id="
+                            : "/board/activate?id=")
+                        . urlencode($board["id"])
 
                 ]
 

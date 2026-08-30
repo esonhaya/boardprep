@@ -54,7 +54,7 @@ background:white;
 
 <?php if (!empty($entityCard->actions)): ?>
 
-<p>
+<div>
 
 <?php foreach ($entityCard->actions as $index => $action): ?>
 
@@ -64,17 +64,31 @@ background:white;
 
 <?php endif; ?>
 
-<a
-href="<?= htmlspecialchars($action["href"]) ?>"
->
+<?php if (($action["method"] ?? "GET") === "POST"): ?>
+
+<form method="POST" action="<?= htmlspecialchars($action["href"]) ?>" style="display:inline">
+
+<button type="submit">
+
+<?= htmlspecialchars($action["label"]) ?>
+
+</button>
+
+</form>
+
+<?php else: ?>
+
+<a href="<?= htmlspecialchars($action["href"]) ?>">
 
 <?= htmlspecialchars($action["label"]) ?>
 
 </a>
 
+<?php endif; ?>
+
 <?php endforeach; ?>
 
-</p>
+</div>
 
 <?php endif; ?>
 

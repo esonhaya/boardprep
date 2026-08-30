@@ -41,10 +41,7 @@ class BoardController extends BaseDeveloperController
     public static function archive(): void
     {
         BoardService::archive(
-            (string) Request::query(
-                "id",
-                ""
-            )
+            Request::queryString("id")
         );
 
         self::developerRedirect(
@@ -55,10 +52,7 @@ class BoardController extends BaseDeveloperController
     public static function activate(): void
     {
         BoardService::activate(
-            (string) Request::query(
-                "id",
-                ""
-            )
+            Request::queryString("id")
         );
 
         self::developerRedirect(
@@ -70,10 +64,7 @@ class BoardController extends BaseDeveloperController
     {
         $board =
             BoardViewService::find(
-                (string) Request::query(
-                    "id",
-                    ""
-                )
+                Request::queryString("id")
             );
 
         if ($board === null) {

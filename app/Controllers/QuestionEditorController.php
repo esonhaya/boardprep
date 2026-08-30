@@ -18,19 +18,19 @@ class QuestionEditorController extends BaseDeveloperController
     ): void {
         $context = [
             "board" =>
-                trim((string) Request::query("board", "")),
+                Request::queryString("board"),
 
             "subject" =>
-                trim((string) Request::query("subject", "")),
+                Request::queryString("subject"),
 
             "domain" =>
-                trim((string) Request::query("domain", "")),
+                Request::queryString("domain"),
 
             "topic" =>
-                trim((string) Request::query("topic", "")),
+                Request::queryString("topic"),
 
             "concept" =>
-                trim((string) Request::query("concept", ""))
+                Request::queryString("concept")
         ];
 
         $context = array_filter(
@@ -54,16 +54,16 @@ class QuestionEditorController extends BaseDeveloperController
     public static function index(): void
     {
         $search =
-            trim((string) Request::query("search", ""));
+            Request::queryString("search");
 
         $domain =
-            trim((string) Request::query("domain", ""));
+            Request::queryString("domain");
 
         $difficulty =
-            trim((string) Request::query("difficulty", ""));
+            Request::queryString("difficulty");
 
         $topic =
-            trim((string) Request::query("topic", ""));
+            Request::queryString("topic");
 
         $questions =
             QuestionQueryService::getQuestions([
@@ -112,7 +112,7 @@ class QuestionEditorController extends BaseDeveloperController
     {
         $question =
             QuestionEditorService::find(
-                (string) Request::query("id", "")
+                Request::queryString("id")
             );
 
         if ($question === null) {
@@ -134,7 +134,7 @@ class QuestionEditorController extends BaseDeveloperController
     public static function update(): void
     {
         self::submitAuthoring(
-            (int) Request::query("id", 0),
+            (int) Request::queryString("id", "0"),
             "Edit Question",
             "edit"
         );
@@ -167,7 +167,7 @@ class QuestionEditorController extends BaseDeveloperController
     public static function archive(): void
     {
         $id =
-            (string) Request::query("id", "");
+            Request::queryString("id");
 
         $question =
             QuestionEditorService::find($id);
@@ -187,7 +187,7 @@ class QuestionEditorController extends BaseDeveloperController
     public static function restore(): void
     {
         $id =
-            (string) Request::query("id", "");
+            Request::queryString("id");
 
         $question =
             QuestionEditorService::find($id);

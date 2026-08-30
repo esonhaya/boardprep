@@ -28,6 +28,17 @@ class Request
         return $_POST[$key] ?? $default;
     }
 
+    public static function queryString(
+        string $key,
+        string $default = ''
+    ): string {
+        $value = self::query($key, $default);
+
+        return is_scalar($value)
+            ? trim((string) $value)
+            : $default;
+    }
+
     public static function all(): array
     {
         return array_merge(

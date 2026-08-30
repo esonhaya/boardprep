@@ -26,7 +26,7 @@
 
         &nbsp;
 
-        <a href="/question-workspace">
+        <a href="/question-editor/create">
 
             📝 Workspace
 

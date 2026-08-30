@@ -113,6 +113,59 @@ final class HttpTest
                 $failed
             );
         }
+
+        $this->test(
+            'GET /board/view reaches registered board detail',
+            $simulator->request('GET', '/board/view', ['id' => 'let']),
+            $passed,
+            $failed,
+            'Board Information'
+        );
+
+        $this->testExpectedStatus(
+            'malformed board id fails safely',
+            $simulator->request('GET', '/board/view', ['id' => []]),
+            302,
+            $passed,
+            $failed
+        );
+
+        $this->test(
+            'malformed developer filters fail safely',
+            $simulator->request('GET', '/question-editor', [
+                'search' => [],
+                'difficulty' => [],
+                'topic' => [],
+            ]),
+            $passed,
+            $failed
+        );
+
+        $this->test(
+            'question inspector id reaches detail view',
+            $simulator->request('GET', '/question-inspector', ['id' => '1']),
+            $passed,
+            $failed,
+            'Question Information'
+        );
+
+        $this->testExpectedStatus(
+            'malformed question inspector id fails safely',
+            $simulator->request('GET', '/question-inspector', ['id' => []]),
+            200,
+            $passed,
+            $failed
+        );
+
+        foreach (['/board/archive', '/subject/archive', '/question-editor/archive'] as $path) {
+            $this->testExpectedStatus(
+                "GET mutation rejected for {$path}",
+                $simulator->request('GET', $path, ['id' => 'missing']),
+                404,
+                $passed,
+                $failed
+            );
+        }
     }
 
     private function runDeveloperRoutes(

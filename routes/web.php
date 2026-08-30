@@ -102,17 +102,22 @@ $router->get(
     [BoardController::class, "create"]
 );
 
+$router->get(
+    "/board/view",
+    [BoardController::class, "show"]
+);
+
 $router->post(
     "/board/save",
     [BoardController::class, "save"]
 );
 
-$router->get(
+$router->post(
     "/board/archive",
     [BoardController::class, "archive"]
 );
 
-$router->get(
+$router->post(
     "/board/activate",
     [BoardController::class, "activate"]
 );
@@ -147,12 +152,12 @@ $router->get(
     [SubjectController::class, "show"]
 );
 
-$router->get(
+$router->post(
     "/subject/archive",
     [SubjectController::class, "archive"]
 );
 
-$router->get(
+$router->post(
     "/subject/activate",
     [SubjectController::class, "activate"]
 );
@@ -182,12 +187,12 @@ $router->post(
     [QuestionEditorController::class, "update"]
 );
 
-$router->get(
+$router->post(
     "/question-editor/archive",
     [QuestionEditorController::class, "archive"]
 );
 
-$router->get(
+$router->post(
     "/question-editor/restore",
     [QuestionEditorController::class, "restore"]
 );
