@@ -27,6 +27,36 @@ else {
 
 <hr>
 
+<h3>Priority Issue Summary</h3>
+
+<table border="1" cellpadding="8">
+<tr>
+    <th>Issue</th>
+    <th>Count</th>
+</tr>
+<?php foreach ($issueGroupLabels as $key => $label): ?>
+<tr>
+    <td><?= htmlspecialchars($label) ?></td>
+    <td><?= count($issueGroups[$key] ?? []) ?></td>
+</tr>
+<?php endforeach; ?>
+</table>
+
+<p>
+Errors: <?= (int) ($severitySummary["error"] ?? 0) ?> ·
+Warnings: <?= (int) ($severitySummary["warning"] ?? 0) ?> ·
+Info: <?= (int) ($severitySummary["info"] ?? 0) ?>
+</p>
+
+<?php if (!empty($issueGroups["unclassifiedIssues"])): ?>
+<p>
+<strong>Other detected issues:</strong>
+<?= count($issueGroups["unclassifiedIssues"]) ?>
+</p>
+<?php endif; ?>
+
+<hr>
+
 <h3>Repository Summary</h3>
 
 <table border="1" cellpadding="8">
