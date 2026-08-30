@@ -15,9 +15,9 @@ final class QuestionPoolFilter
             $topic=$question['topic']??$taxonomy['topic_id']??null;
             $status=strtolower(trim((string)($question['status']??'active')));
             $matches=in_array($status,['active','approved'],true)
-                && self::same($subject,$request->subject)
-                && ($request->domain===null||self::same($domain,$request->domain)||$request->topic===null)
-                && ($request->topic===null||self::same($topic,$request->topic));
+                && self::sameTaxonomy($subject,$request->subject,'subjects')
+                && ($request->domain===null||self::sameTaxonomy($domain,$request->domain,'domains')||$request->topic===null)
+                && ($request->topic===null||self::sameTaxonomy($topic,$request->topic,'topics'));
             if (!$matches) continue;
             $id=trim((string)$question['id']);
             $text=self::normalizedText((string)$question['question']);
@@ -91,8 +91,20 @@ final class QuestionPoolFilter
         return strtolower($text);
     }
 
-    private static function same(mixed $actual,?string $expected): bool
+    private static function sameTaxonomy(mixed $actual,?string $expected,string $dimension): bool
     {
-        return is_scalar($actual)&&strcasecmp(trim((string)$actual),trim((string)$expected))===0;
+        if (!is_scalar($actual)||$expected===null) return false;
+        $actual=trim((string)$actual); $expected=trim($expected);
+        if (strcasecmp($actual,$expected)===0) return true;
+        $method=$dimension;
+        foreach (\App\Services\Shared\TaxonomyStorageService::{$method}() as $record) {
+            if (!is_array($record)) continue;
+            $id=is_scalar($record['id']??null)?trim((string)$record['id']):'';
+            $name=is_scalar($record['name']??null)?trim((string)$record['name']):'';
+            if (($id!==''||$name!=='')
+                && (strcasecmp($actual,$id)===0||strcasecmp($actual,$name)===0)
+                && (strcasecmp($expected,$id)===0||strcasecmp($expected,$name)===0)) return true;
+        }
+        return false;
     }
 }

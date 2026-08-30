@@ -33,4 +33,6 @@ class RepositoryStatistics
     public array $questionsPerTopic = [];
 
     public array $questionsPerConcept = [];
+
+    public array $coverage = [];
 }

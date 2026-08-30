@@ -7,6 +7,7 @@ namespace App\Services\RepositoryHealth\Engine;
 use App\Services\RepositoryHealth\DTO\RepositoryContext;
 use App\Services\RepositoryHealth\DTO\RepositoryStatistics;
 use App\Services\RepositoryHealth\DTO\ValidationResult;
+use App\Services\Shared\QuestionCoverageService;
 
 class StatisticsBuilder
 {
@@ -84,6 +85,8 @@ class StatisticsBuilder
                 $stats->{$property}[$value]++;
             }
         }
+
+        $stats->coverage = QuestionCoverageService::analyzeRepository();
 
         return $stats;
     }

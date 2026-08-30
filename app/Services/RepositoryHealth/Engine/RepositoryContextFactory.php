@@ -24,6 +24,8 @@ class RepositoryContextFactory
         $context->boards =
             (new BoardRepository($storage))->all();
 
+        $context->subjects = $storage->all('subjects');
+
         $context->blueprints =
             (new BlueprintRepository($storage))->all();
 

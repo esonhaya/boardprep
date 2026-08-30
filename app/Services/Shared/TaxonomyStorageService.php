@@ -53,17 +53,17 @@ final class TaxonomyStorageService
 
     public static function domains(): array
     {
-        return self::load("domains");
+        return self::load("taxonomy/domains");
     }
 
     public static function topics(): array
     {
-        return self::load("topics");
+        return self::load("taxonomy/topics");
     }
 
     public static function concepts(): array
     {
-        return self::load("concepts");
+        return self::load("taxonomy/concepts");
     }
 
     public static function boardSubjects(): array
@@ -121,16 +121,16 @@ final class TaxonomyStorageService
 
     public static function saveDomains(array $domains): void
     {
-        self::save("domains", $domains);
+        self::save("taxonomy/domains", $domains);
     }
 
     public static function saveTopics(array $topics): void
     {
-        self::save("topics", $topics);
+        self::save("taxonomy/topics", $topics);
     }
 
     public static function saveConcepts(array $concepts): void
     {
-        self::save("concepts", $concepts);
+        self::save("taxonomy/concepts", $concepts);
     }
 }

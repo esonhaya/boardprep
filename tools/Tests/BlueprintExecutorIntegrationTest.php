@@ -3,10 +3,18 @@ declare(strict_types=1);
 require_once dirname(__DIR__, 2) . "/app/Core/Autoloader.php";
 \App\Core\Autoloader::register();
 
-$questions = [
-    ["id" => 1, "subject" => "English", "domain" => "Grammar", "status" => "approved", "difficulty" => "easy"],
-    ["id" => 2, "subject" => "English", "domain" => "Grammar", "status" => "approved", "difficulty" => "easy"],
+$question = static fn(int $id): array => [
+    "id" => $id,
+    "subject" => "English",
+    "domain" => "Grammar",
+    "status" => "approved",
+    "difficulty" => "easy",
+    "question" => "Production-selectable question {$id}?",
+    "choices" => ["Yes", "No"],
+    "answer" => "Yes",
+    "explanation" => "A complete explanation.",
 ];
+$questions = [$question(1), $question(2)];
 $board = ["version" => 1, "subjects" => [["subject" => "English", "percentage" => 100]]];
 $subjects = ["English" => [
     "version" => 2,
