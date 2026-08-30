@@ -47,6 +47,10 @@ $storage->replace('questions', [
     ['id' => 'a', 'value' => 'one'],
     ['id' => 'b', 'value' => 'two'],
 ]);
+$replacementJson = (string) file_get_contents($directory . '/questions.json');
+if (!str_ends_with($replacementJson, "\n")) {
+    throw new RuntimeException('JSON storage replacement was not newline-terminated');
+}
 if (count($storage->all('questions')) !== 2
     || ($storage->find('questions', 'b')['value'] ?? null) !== 'two') {
     throw new RuntimeException('atomic collection replacement did not persist canonical records');
@@ -90,4 +94,5 @@ try {
 
 echo "[PASS] JSON storage preserves addressable IDs and safe malformed-row reads.\n";
 echo "[PASS] JSON storage replacement is atomic and rejects invalid primary-key mutations.\n";
+echo "[PASS] JSON storage writes newline-terminated collection files.\n";
 echo "[PASS] Failed JSON writes preserve existing canonical data.\n";

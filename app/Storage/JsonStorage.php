@@ -101,7 +101,7 @@ class JsonStorage implements StorageInterface
                 JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR
             );
 
-            if (file_put_contents($temp, $json, LOCK_EX) === false) {
+            if (file_put_contents($temp, $json . "\n", LOCK_EX) === false) {
                 throw new StorageException(
                     "Unable to write collection: {$collection}"
                 );
