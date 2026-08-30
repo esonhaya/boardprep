@@ -28,7 +28,9 @@ final class BlueprintDistributionService
     public static function distribution(
         array $boardBlueprint,
         array $subjectBlueprints,
-        int $questionCount
+        int $questionCount,
+        ?string $topic = null,
+        string $difficulty = 'mixed'
     ): array {
         $requests = [];
 
@@ -69,12 +71,26 @@ final class BlueprintDistributionService
                 $requests[] = new SelectionRequest(
                     subject: $subject,
                     domain: $domain,
-                    difficultyDistribution: $blueprint["difficulty"] ?? [],
-                    questionCount: $domainQuestions
+                    difficultyDistribution: self::difficultyDistribution(
+                        $difficulty,
+                        $blueprint["difficulty"] ?? []
+                    ),
+                    questionCount: $domainQuestions,
+                    topic: $topic !== null && strcasecmp(trim($topic), 'General') !== 0
+                        ? trim($topic)
+                        : null
                 );
             }
         }
 
         return $requests;
+    }
+
+    private static function difficultyDistribution(string $difficulty, array $fallback): array
+    {
+        $difficulty = strtolower(trim($difficulty));
+        return in_array($difficulty, ['easy', 'medium', 'hard'], true)
+            ? [$difficulty => 100]
+            : $fallback;
     }
 }

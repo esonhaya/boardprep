@@ -33,14 +33,24 @@ final class StudyActionService
 
     public static function query(array $spec): string
     {
-        return http_build_query([
-            "action" => $spec["action"] ?? "start",
-            "topic" => $spec["topic"] ?? "",
-            "subject" => $spec["subject"] ?? "",
-            "mode" => $spec["mode"] ?? "practice",
-            "count" => $spec["count"] ?? 5,
-            "difficulty" => $spec["difficulty"] ?? "mixed",
-        ]);
+        $session = StudySessionService::normalize($spec);
+        $topic = $session["topic"];
+        if (strcasecmp($topic, "General") === 0) {
+            $topic = "";
+        }
+
+        $params = [
+            "action" => "start",
+            "subject" => $session["subject"],
+            "mode" => $session["mode"],
+            "count" => $session["count"],
+            "difficulty" => $session["difficulty"],
+        ];
+        if ($topic !== "") {
+            $params["topic"] = $topic;
+        }
+
+        return http_build_query($params);
     }
 
     public static function url(array|string $input = []): string

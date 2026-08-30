@@ -13,7 +13,9 @@ final class BlueprintExecutor
         $requests = BlueprintRequestPlanBuilder::build(
             $boardBlueprint,
             $subjectBlueprints,
-            $specification->questionCount
+            $specification->questionCount,
+            $specification->topics[0] ?? null,
+            $specification->difficulty
         );
 
         $selected = BlueprintRequestExecutor::execute(

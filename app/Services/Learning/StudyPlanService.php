@@ -11,7 +11,7 @@ final class StudyPlanService
         $plan = [];
 
         foreach ($dashboard["weakestTopics"] ?? [] as $topic) {
-            $name = trim((string) ($topic["topic"] ?? ""));
+            $name = self::text($topic["topic"] ?? "");
             if ($name === "") {
                 continue;
             }
@@ -20,13 +20,13 @@ final class StudyPlanService
                 $name,
                 "Focus",
                 (int) ($topic["average"] ?? 0),
-                (string) ($topic["subject"] ?? "English")
+                self::text($topic["subject"] ?? "English")
             );
         }
 
         foreach ($dashboard["recommendations"] ?? [] as $recommendation) {
-            $name = trim((string) ($recommendation["topic"] ?? ""));
-            $subject = (string) ($recommendation["subject"] ?? "English");
+            $name = self::text($recommendation["topic"] ?? "");
+            $subject = self::text($recommendation["subject"] ?? "English") ?: "English";
             if ($name === "" || self::contains($plan, $name, $subject)) {
                 continue;
             }
@@ -87,5 +87,10 @@ final class StudyPlanService
         }
 
         return false;
+    }
+
+    private static function text(mixed $value): string
+    {
+        return is_scalar($value) ? trim((string) $value) : "";
     }
 }

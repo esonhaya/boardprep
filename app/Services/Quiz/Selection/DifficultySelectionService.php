@@ -69,6 +69,13 @@ final class DifficultySelectionService
                 $questionCount
             );
 
+        if (
+            count($normalized['weights']) === 1
+            && !isset($normalized['weights']['mixed'])
+        ) {
+            return $selection['questions'];
+        }
+
         return SelectionFallbackService::fill(
             $pool,
             $selection['questions'],

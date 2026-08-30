@@ -22,29 +22,49 @@ final class StudySessionService
 
     public static function normalize(array $input = []): array
     {
-        $count = max(5, min(20, (int) ($input["count"] ?? 5)));
-        $mode = (string) ($input["mode"] ?? "practice");
+        $count = max(5, min(20, self::integer($input["count"] ?? 5, 5)));
+        $mode = self::text($input["mode"] ?? "practice");
         if (!in_array($mode, ["practice", "exam", "review"], true)) {
             $mode = "practice";
         }
 
         return [
-            "topic" => trim((string) ($input["topic"] ?? "")),
-            "subject" => trim((string) ($input["subject"] ?? "English")) ?: "English",
+            "topic" => self::text($input["topic"] ?? ""),
+            "subject" => self::text($input["subject"] ?? "English") ?: "English",
             "count" => $count,
-            "difficulty" => (string) ($input["difficulty"] ?? "mixed"),
+            "difficulty" => self::difficulty($input["difficulty"] ?? "mixed"),
             "mode" => $mode,
-            "action" => (string) ($input["action"] ?? "start"),
         ];
     }
 
     public static function startUrl(array $input = []): string
     {
-        return "/quiz?" . http_build_query(self::normalize($input));
+        return "/quiz?" . http_build_query(array_merge(
+            ["action" => "start"],
+            self::normalize($input)
+        ));
     }
 
     public static function isValid(array $session): bool
     {
         return self::normalize($session) === $session;
+    }
+
+    private static function text(mixed $value): string
+    {
+        return is_scalar($value) ? trim((string) $value) : "";
+    }
+
+    private static function integer(mixed $value, int $fallback): int
+    {
+        return is_numeric($value) ? (int) round((float) $value) : $fallback;
+    }
+
+    private static function difficulty(mixed $value): string
+    {
+        $difficulty = strtolower(self::text($value));
+        return in_array($difficulty, ["easy", "medium", "hard", "mixed"], true)
+            ? $difficulty
+            : "mixed";
     }
 }

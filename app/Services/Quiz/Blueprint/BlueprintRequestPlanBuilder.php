@@ -10,12 +10,16 @@ final class BlueprintRequestPlanBuilder
     public static function build(
         array $boardBlueprint,
         array $subjectBlueprints,
-        int $questionCount
+        int $questionCount,
+        ?string $topic = null,
+        string $difficulty = 'mixed'
     ): array {
         $requests = BlueprintDistributionService::distribution(
             $boardBlueprint,
             $subjectBlueprints,
-            $questionCount
+            $questionCount,
+            $topic,
+            $difficulty
         );
 
         return RequestExecutionPlanService::build($requests);

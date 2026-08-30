@@ -8,7 +8,7 @@ final class RecoveryScopeMatcher
         SelectionRequest $request,
         RecoveryScope $scope
     ): bool {
-        if ((string)$question->subject !== (string)$request->subject) {
+        if (!self::same($question->subject, $request->subject)) {
             return false;
         }
 
@@ -31,11 +31,18 @@ final class RecoveryScopeMatcher
 
     private static function matchesOptional(?string $actual, ?string $expected): bool
     {
-        return $expected === null || (string)$actual === (string)$expected;
+        return $expected === null || self::same($actual, $expected);
     }
 
     private static function matchesRequired(?string $actual, ?string $expected): bool
     {
-        return $expected !== null && (string)$actual === (string)$expected;
+        return $expected !== null && self::same($actual, $expected);
+    }
+
+    private static function same(?string $actual, ?string $expected): bool
+    {
+        return $actual !== null
+            && $expected !== null
+            && strcasecmp(trim($actual), trim($expected)) === 0;
     }
 }

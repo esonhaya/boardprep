@@ -12,10 +12,10 @@ final class QuizResultActionContext
 
         return [
             'topic' => $topic,
-            'subject' => self::text($session['subject'] ?? ''),
+            'subject' => self::text($session['subject'] ?? '') ?: 'English',
             'mode' => self::text($session['mode'] ?? '') ?: 'practice',
             'difficulty' => self::text($session['difficulty'] ?? '') ?: 'mixed',
-            'count' => max(1, (int) ($session['question_count'] ?? $session['count'] ?? 10)),
+            'count' => min(20, max(1, self::integer($session['question_count'] ?? $session['count'] ?? 10, 10))),
         ];
     }
 
@@ -36,5 +36,10 @@ final class QuizResultActionContext
     private static function text(mixed $value): string
     {
         return is_scalar($value) ? trim((string) $value) : '';
+    }
+
+    private static function integer(mixed $value, int $fallback): int
+    {
+        return is_numeric($value) ? (int) round((float) $value) : $fallback;
     }
 }
