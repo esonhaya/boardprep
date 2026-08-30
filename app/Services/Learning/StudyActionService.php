@@ -8,7 +8,7 @@ final class StudyActionService
 {
     public static function quizForTopic(
         string $topic,
-        string $subject = "English",
+        string $subject = "",
         string $mode = "practice",
         int $count = 5,
         string $difficulty = "mixed"
@@ -36,7 +36,7 @@ final class StudyActionService
         return http_build_query([
             "action" => $spec["action"] ?? "start",
             "topic" => $spec["topic"] ?? "",
-            "subject" => $spec["subject"] ?? "English",
+            "subject" => $spec["subject"] ?? "",
             "mode" => $spec["mode"] ?? "practice",
             "count" => $spec["count"] ?? 5,
             "difficulty" => $spec["difficulty"] ?? "mixed",

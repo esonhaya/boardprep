@@ -4,59 +4,42 @@ declare(strict_types=1);
 
 namespace App\Services\Quiz;
 
+use App\Services\Quiz\ResultAction\QuizResultActionContext;
+
 final class QuizResultActionService
 {
     public static function build(array $session = [], array $summary = []): array
     {
-        $topic = trim((string) ($session["topics"][0] ?? ""));
-        $subject = trim((string) ($session["subject"] ?? ""));
-        $mode = trim((string) ($session["mode"] ?? "practice"));
-        $difficulty = trim((string) ($session["difficulty"] ?? "mixed"));
-        $count = max(1, (int) ($session["question_count"] ?? 10));
-
+        $context = QuizResultActionContext::fromSession($session);
         $params = [
-            "action" => "start",
-            "subject" => $subject,
-            "mode" => $mode !== "" ? $mode : "practice",
-            "count" => $count,
-            "difficulty" => $difficulty !== "" ? $difficulty : "mixed",
+            'action' => 'start',
+            'subject' => $context['subject'],
+            'mode' => $context['mode'],
+            'count' => $context['count'],
+            'difficulty' => $context['difficulty'],
         ];
 
-        if ($topic !== "") {
-            $params["topic"] = $topic;
+        if ($context['topic'] !== '') {
+            $params['topic'] = $context['topic'];
         }
 
-        $retake = "/quiz?" . http_build_query($params);
-
-        $percentage = (float) ($summary["percentage"] ?? 0);
-
-        if ($percentage < 60) {
-            $primaryLabel = "Practice this again";
-            $primaryReason = "Your score shows this area needs more practice.";
-        } elseif ($percentage < 80) {
-            $primaryLabel = "Practice again";
-            $primaryReason = "A short repeat session can help reinforce this material.";
-        } else {
-            $primaryLabel = "Keep practicing";
-            $primaryReason = "Reviewing this topic will help keep the skill strong.";
-        }
+        [$primaryLabel, $primaryReason] = self::primaryCopy((float) ($summary['percentage'] ?? 0));
 
         return [
-            [
-                "label" => $primaryLabel,
-                "reason" => $primaryReason,
-                "url" => $retake,
-            ],
-            [
-                "label" => "Back to Study Dashboard",
-                "reason" => "Use your study plan and recommendations for the next step.",
-                "url" => "/study",
-            ],
-            [
-                "label" => "View Progress",
-                "reason" => "See how this result changed your learning history.",
-                "url" => "/progress",
-            ],
+            ['label' => $primaryLabel, 'reason' => $primaryReason, 'url' => '/quiz?' . http_build_query($params)],
+            ['label' => 'Back to Study Dashboard', 'reason' => 'Use your study plan and recommendations for the next step.', 'url' => '/study'],
+            ['label' => 'View Progress', 'reason' => 'See how this result changed your learning history.', 'url' => '/progress'],
         ];
+    }
+
+    private static function primaryCopy(float $percentage): array
+    {
+        if ($percentage < 60) {
+            return ['Practice this again', 'Your score shows this area needs more practice.'];
+        }
+        if ($percentage < 80) {
+            return ['Practice again', 'A short repeat session can help reinforce this material.'];
+        }
+        return ['Keep practicing', 'Reviewing this topic will help keep the skill strong.'];
     }
 }
