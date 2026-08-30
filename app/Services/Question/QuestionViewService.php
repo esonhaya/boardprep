@@ -12,6 +12,12 @@ class QuestionViewService
         array $context = []
     ): array {
 
+        $boards =
+            TaxonomyStorageService::boards();
+
+        $boardSubjects =
+            TaxonomyStorageService::boardSubjects();
+
         $subjects =
             TaxonomyStorageService::subjects();
 
@@ -39,6 +45,10 @@ class QuestionViewService
         return [
 
             "context" => $context,
+
+            "boards" => $boards,
+
+            "boardSubjects" => $boardSubjects,
 
             "subjects" => $subjects,
 

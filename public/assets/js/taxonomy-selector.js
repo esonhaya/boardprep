@@ -1,117 +1,77 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const select = id => document.getElementById(id);
+    const value = id => {
+        const field = select(id) || document.querySelector(`[name="${id}"]`);
+        return field ? field.value : "";
+    };
+    const data = id => {
+        const node = document.getElementById(id);
+        if (!node) return [];
+        try {
+            const parsed = JSON.parse(node.textContent);
+            return Array.isArray(parsed) ? parsed : [];
+        } catch (_) {
+            return [];
+        }
+    };
 
-    const subject = document.getElementById("subject");
-    const domain = document.getElementById("domain");
-    const topic = document.getElementById("topic");
-    const concept = document.getElementById("concept");
+    const board = select("board");
+    const subject = select("subject");
+    const domain = select("domain");
+    const topic = select("topic");
+    const concept = select("concept");
+    const boardSubjects = data("taxonomy-board-subjects");
+    const subjects = data("taxonomy-subjects");
+    const domains = data("taxonomy-domains");
+    const topics = data("taxonomy-topics");
+    const concepts = data("taxonomy-concepts");
 
-    if (!subject || !domain || !topic || !concept) {
-        return;
-    }
-
-    const domains = JSON.parse(
-        document.getElementById("taxonomy-domains").textContent
-    );
-
-    const topics = JSON.parse(
-        document.getElementById("taxonomy-topics").textContent
-    );
-
-    const concepts = JSON.parse(
-        document.getElementById("taxonomy-concepts").textContent
-    );
-
-    function populate(select, items, valueKey = "id", labelKey = "name") {
-
-        const current = select.dataset.selected || "";
-
-        select.innerHTML = "";
-
-        const empty = document.createElement("option");
-        empty.value = "";
-        empty.textContent = "-- Select --";
-        select.appendChild(empty);
-
+    const populate = (element, items) => {
+        if (!element) return;
+        const selected = element.dataset.selected || element.value || "";
+        element.innerHTML = '<option value="">-- Select --</option>';
         items.forEach(item => {
-
             const option = document.createElement("option");
-
-            option.value = item[valueKey];
-            option.textContent = item[labelKey];
-
-            if (option.value === current) {
-                option.selected = true;
-            }
-
-            select.appendChild(option);
-
+            option.value = item.id || "";
+            option.textContent = item.name || item.id || "";
+            option.selected = option.value === selected;
+            element.appendChild(option);
         });
+    };
 
-    }
-
-    function refreshDomains() {
-
-        const filtered = domains.filter(
-
-            d => d.subject === subject.value
-
+    const refreshSubjects = () => {
+        if (!subject) return;
+        const allowed = new Set(
+            boardSubjects
+                .filter(relation => (relation.board_id || "") === value("board"))
+                .map(relation => relation.subject_id || "")
         );
+        populate(subject, value("board") ? subjects.filter(item => allowed.has(item.id)) : subjects);
+        if (domain) populate(domain, []);
+        if (topic) populate(topic, []);
+        if (concept) populate(concept, []);
+    };
 
-        domain.dataset.selected = "";
-        topic.dataset.selected = "";
-        concept.dataset.selected = "";
+    const refreshDomains = () => {
+        if (!domain) return;
+        populate(domain, domains.filter(item => (item.subject_id || "") === value("subject")));
+        if (topic) populate(topic, []);
+        if (concept) populate(concept, []);
+    };
 
-        populate(domain, filtered);
+    const refreshTopics = () => {
+        if (!topic) return;
+        populate(topic, topics.filter(item => (item.domain_id || "") === value("domain")));
+        if (concept) populate(concept, []);
+    };
 
-        topic.innerHTML = "";
-        concept.innerHTML = "";
+    const refreshConcepts = () => {
+        if (!concept) return;
+        populate(concept, concepts.filter(item => (item.topic_id || "") === value("topic")));
+    };
 
-    }
-
-    function refreshTopics() {
-
-        const filtered = topics.filter(
-
-            t => t.domain === domain.value
-
-        );
-
-        topic.dataset.selected = "";
-        concept.dataset.selected = "";
-
-        populate(topic, filtered);
-
-        concept.innerHTML = "";
-
-    }
-
-    function refreshConcepts() {
-
-        const filtered = concepts.filter(
-
-            c => c.topic === topic.value
-
-        );
-
-        concept.dataset.selected = "";
-
-        populate(concept, filtered);
-
-    }
-
-    subject.addEventListener(
-        "change",
-        refreshDomains
-    );
-
-    domain.addEventListener(
-        "change",
-        refreshTopics
-    );
-
-    topic.addEventListener(
-        "change",
-        refreshConcepts
-    );
-
+    board?.addEventListener("change", refreshSubjects);
+    subject?.addEventListener("change", refreshDomains);
+    domain?.addEventListener("change", refreshTopics);
+    topic?.addEventListener("change", refreshConcepts);
 });

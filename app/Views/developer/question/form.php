@@ -133,6 +133,38 @@ require __DIR__
 
 <script
 
+id="taxonomy-board-subjects"
+
+type="application/json"
+
+><?= json_encode(
+
+    $boardSubjects ?? [],
+
+    JSON_UNESCAPED_UNICODE
+    |
+    JSON_UNESCAPED_SLASHES
+
+) ?></script>
+
+<script
+
+id="taxonomy-subjects"
+
+type="application/json"
+
+><?= json_encode(
+
+    $subjects ?? [],
+
+    JSON_UNESCAPED_UNICODE
+    |
+    JSON_UNESCAPED_SLASHES
+
+) ?></script>
+
+<script
+
 id="taxonomy-domains"
 
 type="application/json"
