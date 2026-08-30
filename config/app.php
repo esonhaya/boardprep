@@ -2,27 +2,34 @@
 
 declare(strict_types=1);
 
+use App\Core\Environment;
+
 return [
 
     'name' => 'BoardPrep',
 
-    'environment' => $_ENV['APP_ENV'] ?? 'development',
+    'environment' => Environment::get('APP_ENV', 'production'),
 
-    'timezone' => $_ENV['APP_TIMEZONE'] ?? 'UTC',
+    'timezone' => Environment::get('APP_TIMEZONE', 'UTC'),
 
     'database' => [
 
-        'driver' => $_ENV['DB_DRIVER'] ?? 'json',
+        'driver' => Environment::get('DB_DRIVER', 'json'),
 
-        'path' => dirname(__DIR__) . '/storage',
+        'path' => Environment::get(
+            'APP_STORAGE_PATH',
+            dirname(__DIR__) . '/storage'
+        ),
 
-        'host' => $_ENV['DB_HOST'] ?? '127.0.0.1',
+        'host' => Environment::get('DB_HOST', '127.0.0.1'),
 
-        'database' => $_ENV['DB_DATABASE'] ?? 'boardprep',
+        'port' => Environment::get('DB_PORT', '3306'),
 
-        'username' => $_ENV['DB_USERNAME'] ?? 'root',
+        'database' => Environment::get('DB_DATABASE', 'boardprep'),
 
-        'password' => $_ENV['DB_PASSWORD'] ?? '',
+        'username' => Environment::get('DB_USERNAME', ''),
+
+        'password' => Environment::get('DB_PASSWORD', ''),
 
     ],
 

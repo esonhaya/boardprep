@@ -74,6 +74,9 @@ class ExceptionHandler
 
     protected function isDebug(): bool
     {
-        return ($_ENV["APP_DEBUG"] ?? "false") === "true";
+        return filter_var(
+            Environment::get('APP_DEBUG', 'false'),
+            FILTER_VALIDATE_BOOLEAN
+        );
     }
 }

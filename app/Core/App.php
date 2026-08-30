@@ -26,19 +26,15 @@ class App
             return;
         }
 
-        self::$instance = new self();
+        $app = new self();
+        Environment::load(dirname(__DIR__, 2) . '/.env');
+        $app->loadConfiguration();
+        $app->configureRuntime();
+        $app->database = new Database($app->config['database']);
+        $app->container = new Container();
+        $app->registerCoreBindings();
 
-        self::$instance->loadEnvironment();
-
-        self::$instance->loadConfiguration();
-
-        self::$instance->database = new Database(
-            self::$instance->config['database']
-        );
-
-        self::$instance->container = new Container();
-
-        self::$instance->registerCoreBindings();
+        self::$instance = $app;
     }
 
     public static function instance(): self
@@ -73,47 +69,20 @@ class App
         );
     }
 
-    private function loadEnvironment(): void
-    {
-        $path = dirname(__DIR__, 2) . '/.env';
-
-        if (!is_file($path)) {
-            return;
-        }
-
-        $lines = file(
-            $path,
-            FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES
-        );
-
-        if ($lines === false) {
-            return;
-        }
-
-        foreach ($lines as $line) {
-            $line = trim($line);
-
-            if (
-                $line === ''
-                || str_starts_with($line, '#')
-            ) {
-                continue;
-            }
-
-            [$key, $value] = array_pad(
-                explode('=', $line, 2),
-                2,
-                ''
-            );
-
-            $_ENV[trim($key)] = trim($value);
-        }
-    }
-
     private function loadConfiguration(): void
     {
         $this->config = require dirname(__DIR__, 2)
             . '/config/app.php';
+    }
+
+    private function configureRuntime(): void
+    {
+        $timezone = $this->config['timezone'] ?? null;
+        if (!is_string($timezone) || !in_array($timezone, timezone_identifiers_list(), true)) {
+            throw new \RuntimeException('APP_TIMEZONE must be a valid timezone identifier.');
+        }
+
+        date_default_timezone_set($timezone);
     }
 
     public static function config(
