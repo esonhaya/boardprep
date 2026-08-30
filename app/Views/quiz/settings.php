@@ -54,6 +54,10 @@ Number of Questions:
 20 Questions
 </option>
 
+<option value="50">50 Questions</option>
+<option value="100">100 Questions</option>
+<option value="150">150 Questions</option>
+
 </select>
 
 
@@ -103,7 +107,7 @@ Practice Mode
 </option>
 
 <option value="exam">
-Exam Mode
+Exam Simulation
 </option>
 
 <option value="review">

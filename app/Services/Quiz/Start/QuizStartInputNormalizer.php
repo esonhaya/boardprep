@@ -17,9 +17,10 @@ final class QuizStartInputNormalizer
         if (!in_array($mode, ['practice', 'exam', 'review'], true)) {
             $mode = 'practice';
         }
+        $defaultCount = $mode === 'exam' ? 150 : 10;
         $count = is_numeric($input['count'] ?? null)
             ? (int) round((float) $input['count'])
-            : 10;
+            : $defaultCount;
 
         return [
             'board' => self::text($input['exam'] ?? 'LET') ?: 'LET',
@@ -27,7 +28,7 @@ final class QuizStartInputNormalizer
             'domain' => self::nullableText($input['domain'] ?? null),
             'topics' => $topic === '' ? [] : [$topic],
             'difficulty' => $difficulty,
-            'count' => max(1, min(20, $count)),
+            'count' => max(1, min($mode === 'exam' ? 150 : 20, $count)),
             'mode' => $mode,
             'adaptive' => isset($input['adaptive']),
             'shuffle' => true,

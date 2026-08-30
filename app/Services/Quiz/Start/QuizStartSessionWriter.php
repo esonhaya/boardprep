@@ -23,9 +23,18 @@ final class QuizStartSessionWriter
         }
     }
 
-    public static function write(object $specification, array $questions): void
+    public static function write(
+        object $specification,
+        array $questions,
+        array $coverage = [],
+        array $issues = []
+    ): void
     {
-        \SessionService::set('quiz_session', QuizStartSessionPayloadFactory::create($specification, $questions));
+        self::clear();
+        \SessionService::set(
+            'quiz_session',
+            QuizStartSessionPayloadFactory::create($specification, $questions, $coverage, $issues)
+        );
         \SessionService::set('questions', $questions);
         \SessionService::set('answers', []);
         \SessionService::set('feedback', null);

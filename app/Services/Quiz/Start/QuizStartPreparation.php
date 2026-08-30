@@ -9,6 +9,8 @@ final class QuizStartPreparation
     public function __construct(
         public readonly \QuizSpecification $specification,
         public readonly array $questions,
+        public readonly array $coverage = [],
+        public readonly array $issues = [],
     ) {
     }
 

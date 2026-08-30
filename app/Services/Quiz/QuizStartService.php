@@ -29,7 +29,9 @@ class QuizStartService
 
         QuizStartSessionWriter::write(
             $preparation->specification,
-            $preparation->questions
+            $preparation->questions,
+            $preparation->coverage,
+            $preparation->issues
         );
         QuizNavigationService::reset();
 

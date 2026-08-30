@@ -11,6 +11,11 @@ final class QuizStartPreparationService
         $specification = QuizStartSpecificationFactory::create($input);
         $result = \QuizGenerationService::generate($questions, $specification);
 
-        return new QuizStartPreparation($specification, $result->questions);
+        return new QuizStartPreparation(
+            $specification,
+            $result->questions,
+            $result->coverage,
+            $result->issues
+        );
     }
 }

@@ -8,20 +8,7 @@ final class BlueprintResolverService
         QuizSpecification $specification
     ): array {
 
-        /*
-         * Until persisted blueprint resolution is fully wired,
-         * provide a deterministic runtime blueprint from the
-         * requested quiz specification.
-         *
-         * This keeps the quiz lifecycle functional while still
-         * passing through the normal blueprint executor.
-         */
-
-        $subject =
-            trim((string) $specification->subject);
-
-        $domain =
-            trim((string) ($specification->domain ?? ''));
+        $subject = trim((string) $specification->subject);
 
         if ($subject === '') {
             return [
@@ -30,8 +17,8 @@ final class BlueprintResolverService
             ];
         }
 
-        if ($domain === '') {
-            $domain = 'Language';
+        if ($specification->mode === 'exam') {
+            return self::examBlueprint($specification);
         }
 
         $boardBlueprint = [
@@ -44,40 +31,61 @@ final class BlueprintResolverService
             ],
         ];
 
-        $subjectBlueprint = [
-            'version' => 1,
-            'domains' => [
-                [
-                    'domain' => $domain,
-                    'percentage' => 100,
-                ],
-            ],
-            'difficulty' => [
-                'easy' => 40,
-                'medium' => 40,
-                'hard' => 20,
-            ],
-        ];
-
         $subjectBlueprints = [
-            $subject => $subjectBlueprint,
+            $subject => [
+                'version' => 1,
+                'domains' => $specification->domain === null ? [] : [[
+                    'domain' => $specification->domain,
+                    'percentage' => 100,
+                ]],
+                'difficulty' => [],
+            ],
         ];
-
-        $errors =
-            BlueprintIntegrityValidator::validate(
-                $boardBlueprint,
-                $subjectBlueprints
-            );
-
-        if (!empty($errors)) {
-            throw new RuntimeException(
-                implode(' ', $errors)
-            );
-        }
 
         return [
             'board' => $boardBlueprint,
             'subjects' => $subjectBlueprints,
         ];
+    }
+
+    private static function examBlueprint(QuizSpecification $specification): array
+    {
+        $storage = \App\Core\App::storage();
+        $board = strtolower(trim($specification->board));
+        $subjectsById = [];
+        foreach ($storage->all('subjects') as $record) {
+            if (is_array($record) && is_scalar($record['id'] ?? null)
+                && is_scalar($record['name'] ?? null)
+                && strtolower((string) ($record['status'] ?? 'active')) === 'active') {
+                $subjectsById[(string) $record['id']] = trim((string) $record['name']);
+            }
+        }
+
+        $allocations = [];
+        foreach ($storage->all('board-subjects') as $record) {
+            if (!is_array($record) || strtolower(trim((string) ($record['board_id'] ?? ''))) !== $board) {
+                continue;
+            }
+            $settings = is_array($record['settings'] ?? null) ? $record['settings'] : [];
+            $subjectId = trim((string) ($record['subject_id'] ?? ''));
+            $weight = is_numeric($settings['blueprint_weight'] ?? null)
+                ? (float) $settings['blueprint_weight'] : 0.0;
+            if ($subjectId !== '' && isset($subjectsById[$subjectId]) && $weight > 0) {
+                $allocations[$subjectsById[$subjectId]] = $weight;
+            }
+        }
+
+        if ($allocations === [] || abs(array_sum($allocations) - 100.0) > 0.00001) {
+            return ['board' => [], 'subjects' => []];
+        }
+
+        $boardBlueprint = ['subjects' => []];
+        $subjectBlueprints = [];
+        foreach ($allocations as $name => $weight) {
+            $boardBlueprint['subjects'][] = ['subject' => $name, 'percentage' => $weight];
+            $subjectBlueprints[$name] = ['domains' => [], 'difficulty' => []];
+        }
+
+        return ['board' => $boardBlueprint, 'subjects' => $subjectBlueprints];
     }
 }

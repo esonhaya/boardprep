@@ -20,17 +20,17 @@ final class BlueprintCoverageAnalyzer
                 $questions,
 
                 static function (array $question) use ($request): bool {
+                    $taxonomy = is_array($question['taxonomy'] ?? null)
+                        ? $question['taxonomy'] : [];
+                    $subject = $question['subject'] ?? $taxonomy['subject_id'] ?? null;
+                    $domain = $question['domain'] ?? $taxonomy['domain_id'] ?? null;
 
-                    return
-                        ($question["subject"] ?? null)
-                        ===
-                        $request->subject
-
-                        &&
-
-                        ($question["domain"] ?? null)
-                        ===
-                        $request->domain;
+                    return is_scalar($subject)
+                        && strcasecmp(trim((string) $subject), $request->subject) === 0
+                        && ($request->domain === null || (
+                            is_scalar($domain)
+                            && strcasecmp(trim((string) $domain), $request->domain) === 0
+                        ));
 
                 }
 

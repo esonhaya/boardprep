@@ -18,6 +18,13 @@ final class AttemptSessionContext
             "domain" => AttemptValueReader::text($session["domain"] ?? null),
             "mode" => AttemptValueReader::text($session["mode"] ?? null),
             "difficulty" => AttemptValueReader::text($session["difficulty"] ?? null),
+            "session_type" => AttemptValueReader::text($session["session_type"] ?? null),
+            "requested_question_count" => AttemptValueReader::nonNegativeInt(
+                $session["requested_question_count"] ?? null
+            ),
+            "blueprint_issues" => is_array($session["blueprint_issues"] ?? null)
+                ? array_values($session["blueprint_issues"])
+                : [],
             "started_at" => AttemptValueReader::text($session["started_at"] ?? null),
         ];
     }

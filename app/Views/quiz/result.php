@@ -59,7 +59,9 @@ $actions = $actions ?? [];
         Your Answer:
         <strong>
             <?= htmlspecialchars(
-                $item["userAnswer"] ?? "No answer"
+                ($item["answered"] ?? false)
+                    ? (string) ($item["userAnswer"] ?? '')
+                    : "No answer"
             ) ?>
         </strong>
     </p>

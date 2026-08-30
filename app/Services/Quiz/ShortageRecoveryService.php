@@ -13,6 +13,7 @@ final class ShortageRecoveryService
 
         $required = $result->request->questionCount;
 
+        $best = $result->questions;
         foreach (RecoveryScopePlan::forRequest($result->request) as $scope) {
             $candidates = RecoveryCandidateService::candidates(
                 $pool,
@@ -23,8 +24,12 @@ final class ShortageRecoveryService
             if (count($candidates) >= $required) {
                 return array_slice($candidates, 0, $required);
             }
+
+            if (count($candidates) > count($best)) {
+                $best = $candidates;
+            }
         }
 
-        return $result->questions;
+        return array_slice($best, 0, $required);
     }
 }

@@ -67,6 +67,22 @@ final class BlueprintDistributionService
                 $domainWeights
             );
 
+            if ($domainAllocation === []) {
+                $requests[] = new SelectionRequest(
+                    subject: $subject,
+                    domain: null,
+                    difficultyDistribution: self::difficultyDistribution(
+                        $difficulty,
+                        $blueprint["difficulty"] ?? []
+                    ),
+                    questionCount: $subjectQuestions,
+                    topic: $topic !== null && strcasecmp(trim($topic), 'General') !== 0
+                        ? trim($topic)
+                        : null
+                );
+                continue;
+            }
+
             foreach ($domainAllocation as $domain => $domainQuestions) {
                 $requests[] = new SelectionRequest(
                     subject: $subject,

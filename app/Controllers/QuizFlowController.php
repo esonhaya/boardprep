@@ -8,6 +8,7 @@ use App\Core\Request;
 use App\Core\Response;
 use App\Core\View;
 use App\Services\Quiz\QuizResultActionService;
+use App\Services\Quiz\Start\QuizStartSessionWriter;
 
 final class QuizFlowController
 {
@@ -55,12 +56,12 @@ final class QuizFlowController
 
     private static function finish(): void
     {
-        $questions = \SessionService::get(
-            'questions',
-            []
-        );
+        $resultInput = \QuizResultSessionReader::read();
+        $questions = $resultInput['questions'];
 
         if (empty($questions)) {
+            QuizStartSessionWriter::clear();
+            \SessionService::flash('error', 'That quiz session was stale or invalid. Please start a new quiz.');
             Response::redirect('/quiz');
             return;
         }

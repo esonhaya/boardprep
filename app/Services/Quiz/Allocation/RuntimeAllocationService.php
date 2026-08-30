@@ -9,18 +9,25 @@ final class RuntimeAllocationService
         array $distribution
     ): array {
 
-        if ($total <= 0 || empty($distribution)) {
+        $distribution = array_filter(
+            $distribution,
+            static fn(mixed $weight): bool => is_numeric($weight) && (float) $weight > 0
+        );
+        $weightTotal = array_sum(array_map('floatval', $distribution));
+
+        if ($total <= 0 || empty($distribution) || $weightTotal <= 0) {
             return [];
         }
 
         $result = [];
+        $originalOrder = array_keys($distribution);
 
         $allocated = 0;
 
         foreach ($distribution as $key => $percentage) {
 
             $exact =
-                ($total * ((float) $percentage)) / 100;
+                ($total * ((float) $percentage)) / $weightTotal;
 
             $whole =
                 (int) floor($exact);
@@ -40,39 +47,21 @@ final class RuntimeAllocationService
         $remaining =
             $total - $allocated;
 
-        while ($remaining > 0) {
-
-            $largest = null;
-
-            foreach ($result as $key => $row) {
-
-                if (
-                    $largest === null ||
-                    $row["remainder"] >
-                    $result[$largest]["remainder"]
-                ) {
-
-                    $largest = $key;
-
-                }
-
-            }
-
-            if ($largest === null) {
+        uasort($result, static fn(array $left, array $right): int =>
+            $right['remainder'] <=> $left['remainder']
+        );
+        foreach (array_keys($result) as $key) {
+            if ($remaining-- <= 0) {
                 break;
             }
-
-            $result[$largest]["count"]++;
-            $result[$largest]["remainder"] = -1;
-
-            $remaining--;
-
+            $result[$key]['count']++;
         }
 
-        return array_map(
-            static fn(array $row): int => $row["count"],
-            $result
-        );
+        $counts = [];
+        foreach ($originalOrder as $key) {
+            $counts[$key] = $result[$key]['count'];
+        }
+        return $counts;
 
     }
 }
