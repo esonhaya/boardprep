@@ -20,7 +20,8 @@ final class QuizSessionQuestion
         }
 
         $choices = $question['choices'] ?? null;
-        if (!is_array($choices) || count($choices) < 2) {
+        if (!is_array($choices) || !array_is_list($choices)
+            || count($choices) < 2 || count($choices) > 26) {
             return false;
         }
 
@@ -28,6 +29,20 @@ final class QuizSessionQuestion
             if (!is_scalar($choice) || trim((string) $choice) === '') {
                 return false;
             }
+        }
+
+        if (isset($question['explanation'])
+            && !is_scalar($question['explanation'])) {
+            return false;
+        }
+
+        $answer = trim((string) $question['answer']);
+        $answerKey = strtoupper($answer);
+        $validKey = preg_match('/^[A-Z]$/', $answerKey) === 1
+            && (ord($answerKey) - ord('A')) < count($choices);
+        $validText = in_array($answer, array_map('strval', $choices), true);
+        if (!$validKey && !$validText) {
+            return false;
         }
 
         return true;

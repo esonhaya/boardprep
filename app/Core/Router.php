@@ -57,6 +57,14 @@ class Router
             ?? null;
 
         if ($handler === null) {
+            foreach ($this->routes as $registeredMethod => $registeredRoutes) {
+                if ($registeredMethod !== $method && isset($registeredRoutes[$uri])) {
+                    throw new RuntimeException(
+                        'Method not allowed.',
+                        405
+                    );
+                }
+            }
             throw new RuntimeException(
                 'Route not found.',
                 404

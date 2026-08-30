@@ -75,7 +75,7 @@ Explanation:
 
 <?php if($current + 1 >= $total): ?>
 
-<form method="GET" action="">
+<form method="POST" action="/quiz">
 
 <input
 type="hidden"

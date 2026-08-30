@@ -38,8 +38,10 @@ curl -sS \
     -o "$DIR/question.html" \
     -c "$DIR/cookie" \
     -b "$DIR/cookie" \
+    -X POST \
+    -d "action=start&count=5&difficulty=mixed&mode=practice&subject=English" \
     -w 'HTTP %{http_code} | redirects=%{num_redirects} | bytes=%{size_download}\n' \
-    "$BASE_URL/quiz?action=start&count=5&difficulty=mixed&mode=practice&subject=English"
+    "$BASE_URL/quiz"
 
 if grep -q 'Question [0-9]' "$DIR/question.html"; then
 

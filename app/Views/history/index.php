@@ -16,7 +16,7 @@ $summary = $summary ?? [];
 
 <?php if ($history === []): ?>
     <p>No completed quizzes yet.</p>
-    <p><a href="/quiz?action=start&amp;subject=English&amp;topic=&amp;mode=practice&amp;count=5&amp;difficulty=mixed">Start your first practice quiz</a></p>
+    <p><a href="/quiz?action=start&amp;subject=English&amp;topic=&amp;mode=practice&amp;count=5&amp;difficulty=mixed">Set up your first practice quiz</a></p>
 <?php else: ?>
     <?php foreach ($history as $attempt): ?>
         <?php require __DIR__ . "/attempt.php"; ?>

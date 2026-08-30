@@ -9,20 +9,36 @@ use App\Core\Response;
 use App\Core\View;
 use App\Services\Quiz\QuizResultActionService;
 use App\Services\Quiz\Start\QuizStartSessionWriter;
+use App\Services\Quiz\Start\QuizStartInputNormalizer;
 
 final class QuizFlowController
 {
     public static function handle(): void
     {
-        $rawAction = Request::query('action', Request::input('action', ''));
+        $method = Request::method();
+        $rawAction = $method === 'POST'
+            ? Request::input('action', '')
+            : Request::query('action', '');
         if (!is_scalar($rawAction)) {
             self::rejectAction();
         }
 
         $action = trim((string) $rawAction);
 
+        $allowed = $method === 'POST'
+            ? ['start', 'submit', 'next', 'finish']
+            : ['', 'start', 'result'];
+
+        if (!in_array($action, $allowed, true)) {
+            self::rejectAction();
+        }
+
         switch ($action) {
             case 'start':
+                if ($method === 'GET') {
+                    self::settings();
+                    return;
+                }
                 \QuizStartService::start();
                 return;
 
@@ -36,6 +52,10 @@ final class QuizFlowController
 
             case 'finish':
                 self::finish();
+                return;
+
+            case 'result':
+                self::result();
                 return;
 
             default:
@@ -55,10 +75,12 @@ final class QuizFlowController
 
     private static function settings(): void
     {
+        $settings = QuizStartInputNormalizer::normalize(Request::query());
         View::render(
             'quiz/settings',
             [
                 'pageTitle' => 'Quiz',
+                'settings' => $settings,
             ]
         );
     }
@@ -73,6 +95,17 @@ final class QuizFlowController
             \SessionService::flash('error', 'That quiz session was stale or invalid. Please start a new quiz.');
             Response::redirect('/quiz');
             return;
+        }
+
+        \QuizResultService::build();
+        Response::redirect('/quiz?action=result', 303);
+    }
+
+    private static function result(): void
+    {
+        if (!\SessionService::has('attempt_persisted')) {
+            \SessionService::flash('error', 'That quiz result is unavailable or expired.');
+            Response::redirect('/quiz');
         }
 
         $result = \QuizResultService::build();

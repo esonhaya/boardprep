@@ -161,7 +161,7 @@ final class HttpTest
             $this->testExpectedStatus(
                 "GET mutation rejected for {$path}",
                 $simulator->request('GET', $path, ['id' => 'missing']),
-                404,
+                405,
                 $passed,
                 $failed
             );
@@ -202,10 +202,11 @@ final class HttpTest
         int &$failed
     ): void {
         $this->test(
-            'GET /quiz retry action starts quiz',
+            'POST /quiz starts quiz',
             $simulator->request(
-                'GET',
+                'POST',
                 '/quiz',
+                [],
                 [
                     'action' => 'start',
                     'subject' => 'English',
@@ -215,12 +216,19 @@ final class HttpTest
                     'count' => 1,
                 ],
                 [],
-                [],
                 ['PHPSESSID' => 'batch424-quiz-start']
             ),
             $passed,
             $failed,
             'Question '
+        );
+
+        $this->testExpectedStatus(
+            'GET quiz start only opens settings',
+            $simulator->request('GET', '/quiz', ['action' => 'start']),
+            200,
+            $passed,
+            $failed
         );
     }
 
