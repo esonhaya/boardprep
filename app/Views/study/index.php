@@ -183,22 +183,7 @@ $history = $history ?? [];
         <p>No completed quizzes yet.</p>
     <?php else: ?>
         <?php foreach ($history as $attempt): ?>
-            <?php
-            $date = \App\Services\Learning\LearningHistoryService::dateOf($attempt);
-            $topic = \App\Services\Learning\LearningHistoryService::topicOf($attempt);
-            ?>
-            <article>
-                <h3><?= htmlspecialchars($topic) ?></h3>
-                <p>
-                    <?= htmlspecialchars(ucfirst((string) ($attempt["mode"] ?? "practice"))) ?>
-                    —
-                    <?= (int) ($attempt["score"] ?? 0) ?>/<?= (int) ($attempt["total"] ?? 0) ?>
-                    (<?= (int) ($attempt["percentage"] ?? 0) ?>%)
-                </p>
-                <?php if ($date !== null): ?>
-                    <p><?= htmlspecialchars($date) ?></p>
-                <?php endif; ?>
-            </article>
+            <?php require dirname(__DIR__) . "/history/attempt.php"; ?>
         <?php endforeach; ?>
     <?php endif; ?>
 </section>
@@ -211,4 +196,6 @@ $history = $history ?? [];
     <a href="/progress">Progress</a>
     <br><br>
     <a href="/profile">Learning Profile</a>
+    <br><br>
+    <a href="/history">Full Quiz History</a>
 </nav>

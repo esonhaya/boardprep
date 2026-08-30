@@ -46,6 +46,9 @@ $best = (int) ($summary["bestScore"] ?? 0);
 <section class="study-recommendations">
     <h2>Recommended Next Steps</h2>
 
+    <?php if (empty($recommendations)): ?>
+        <p>Complete a quiz to receive a personalized next step.</p>
+    <?php endif; ?>
     <?php foreach ($recommendations as $recommendation): ?>
         <article>
             <h3><?= htmlspecialchars((string) ($recommendation["title"] ?? "")) ?></h3>
@@ -107,24 +110,8 @@ $best = (int) ($summary["bestScore"] ?? 0);
         <p>No completed quizzes yet.</p>
     <?php else: ?>
         <?php foreach ($history as $attempt): ?>
-            <?php
-            $date =
-                \App\Services\Learning\LearningHistoryService::dateOf($attempt);
-            $topic =
-                \App\Services\Learning\LearningHistoryService::topicOf($attempt);
-            ?>
-            <article class="progress-history-item">
-                <h3><?= htmlspecialchars($topic) ?></h3>
-                <p>
-                    <?= htmlspecialchars(ucfirst((string) ($attempt["mode"] ?? "practice"))) ?>
-                    —
-                    <?= (int) ($attempt["score"] ?? 0) ?>/<?= (int) ($attempt["total"] ?? 0) ?>
-                    (<?= (int) ($attempt["percentage"] ?? 0) ?>%)
-                </p>
-                <?php if ($date !== null): ?>
-                    <p><?= htmlspecialchars($date) ?></p>
-                <?php endif; ?>
-            </article>
+            <?php require dirname(__DIR__) . "/history/attempt.php"; ?>
         <?php endforeach; ?>
+        <p><a href="/history">View all quiz history</a></p>
     <?php endif; ?>
 </section>

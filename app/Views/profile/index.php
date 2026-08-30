@@ -87,6 +87,8 @@
 
 <a href="/progress">View Progress</a>
 <br><br>
+<a href="/history">Quiz History</a>
+<br><br>
 <a href="/quiz">Take Quiz</a>
 <br><br>
 <a href="/dashboard">Dashboard</a>

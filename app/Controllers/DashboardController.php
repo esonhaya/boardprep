@@ -4,27 +4,21 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-use App\Services\RepositoryHealth\Engine\RepositoryHealthEngine;
+use App\Core\View;
+use App\Services\Learning\LearningHistoryService;
+use App\Services\Learning\StudyDashboardService;
 
-class DashboardController extends BaseDeveloperController
+final class DashboardController
 {
     public static function index(): void
     {
-        $report = RepositoryHealthEngine::analyze();
-
-        self::renderDeveloper(
-            "developer/dashboard",
+        $attempts = LearningHistoryService::all();
+        View::render(
+            "dashboard/index",
             [
-                "pageTitle" => "Developer Dashboard",
-                "report" => $report,
-                "statistics" => $report->statistics,
-
-                "healthScore" => $report->healthScore,
-                "recentIssues" => array_slice(
-                    $report->issues,
-                    0,
-                    10
-                ),
+                "pageTitle" => "Learner Dashboard",
+                "dashboard" => StudyDashboardService::build($attempts),
+                "history" => array_slice($attempts, 0, 5),
             ]
         );
     }

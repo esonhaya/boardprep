@@ -48,9 +48,9 @@ $subjects = ['English' => [
     'difficulty' => ['easy' => 50, 'hard' => 50],
 ]];
 $questions = [
-    ['id' => 'g1', 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Grammar', 'difficulty' => 'easy', 'status' => 'approved'],
-    ['id' => 'g2', 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Grammar', 'difficulty' => 'hard', 'status' => 'approved'],
-    ['id' => 'r1', 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Reading', 'difficulty' => 'easy', 'status' => 'approved'],
+    ['id' => 'g1', 'question' => 'Easy grammar?', 'choices' => ['A', 'B'], 'answer' => 'A', 'explanation' => 'Easy grammar explanation.', 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Grammar', 'difficulty' => 'easy', 'status' => 'approved'],
+    ['id' => 'g2', 'question' => 'Hard grammar?', 'choices' => ['A', 'B'], 'answer' => 'A', 'explanation' => 'Hard grammar explanation.', 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Grammar', 'difficulty' => 'hard', 'status' => 'approved'],
+    ['id' => 'r1', 'question' => 'Easy reading?', 'choices' => ['A', 'B'], 'answer' => 'A', 'explanation' => 'Easy reading explanation.', 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Reading', 'difficulty' => 'easy', 'status' => 'approved'],
 ];
 $spec = \App\Services\Quiz\Start\QuizStartSpecificationFactory::create($topicQuery);
 $result = \BlueprintExecutor::execute($questions, $board, $subjects, $spec);

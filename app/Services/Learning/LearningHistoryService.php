@@ -16,6 +16,17 @@ final class LearningHistoryService
                 ->get(AttemptRepository::class)
                 ->all();
 
+        $attempts = self::ordered($attempts);
+
+        return array_slice(
+            $attempts,
+            0,
+            max(0, $limit)
+        );
+    }
+
+    public static function ordered(array $attempts): array
+    {
         $attempts = LearningAttemptNormalizer::all($attempts);
         $indexed = [];
         foreach ($attempts as $index => $attempt) {
@@ -26,17 +37,14 @@ final class LearningHistoryService
             $indexed,
             static function (array $a, array $b): int {
                 $timestampOrder = self::timestampOf($b[0]) <=> self::timestampOf($a[0]);
-                return $timestampOrder !== 0 ? $timestampOrder : $a[1] <=> $b[1];
+                // JSON storage appends attempts. If two completions share the same
+                // second (or legacy rows have no date), the later stored record is
+                // still the newest learner activity.
+                return $timestampOrder !== 0 ? $timestampOrder : $b[1] <=> $a[1];
             }
         );
 
-        $attempts = array_column($indexed, 0);
-
-        return array_slice(
-            $attempts,
-            0,
-            max(0, $limit)
-        );
+        return array_column($indexed, 0);
     }
 
     public static function all(): array

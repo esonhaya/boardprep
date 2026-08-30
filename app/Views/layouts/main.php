@@ -42,6 +42,15 @@
         <a href="/dashboard">
             Dashboard
         </a>
+        <a href="/history">
+            History
+        </a>
+        <a href="/progress">
+            Progress
+        </a>
+        <a href="/study">
+            Study Plan
+        </a>
         <a href="/profile">
             Profile
         </a>

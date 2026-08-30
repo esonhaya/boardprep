@@ -9,6 +9,7 @@ use App\Controllers\CoverageController;
 use App\Controllers\DashboardController;
 use App\Controllers\DeveloperToolsController;
 use App\Controllers\HomeController;
+use App\Controllers\HistoryController;
 use App\Controllers\LearningProfileController;
 use App\Controllers\MetadataRepairController;
 use App\Controllers\ProgressController;
@@ -42,6 +43,11 @@ $router->get(
 $router->get(
     "/dashboard",
     [DashboardController::class, "index"]
+);
+
+$router->get(
+    "/history",
+    [HistoryController::class, "index"]
 );
 
 $router->get(
