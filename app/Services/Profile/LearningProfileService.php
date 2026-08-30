@@ -52,8 +52,11 @@ class LearningProfileService
             "latestScore" =>
                 $analytics["latestScore"] ?? 0,
 
-            "weaknessCount" =>
-                count($weaknesses)
+            "weaknessCount" => count(array_filter(
+                $weaknesses,
+                static fn(mixed $weakness): bool => is_array($weakness)
+                    && (int) ($weakness["accuracy"] ?? 100) < 70
+            ))
 
         ];
 

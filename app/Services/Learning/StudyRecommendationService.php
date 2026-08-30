@@ -11,6 +11,7 @@ final class StudyRecommendationService
     public static function build(array $attempts, array $weakestTopics = [], int $limit = 3): array
     {
         $recommendations = [];
+        $seen = [];
 
         foreach (array_slice($weakestTopics, 0, max(0, $limit)) as $topic) {
             if (!is_array($topic)) {
@@ -18,7 +19,15 @@ final class StudyRecommendationService
             }
             $recommendation = StudyRecommendationFactory::forTopic($topic);
             if ($recommendation !== null) {
+                $key = strtolower(
+                    (string) ($recommendation['subject'] ?? '') . "\0"
+                    . (string) ($recommendation['topic'] ?? '')
+                );
+                if (isset($seen[$key])) {
+                    continue;
+                }
                 $recommendations[] = $recommendation;
+                $seen[$key] = true;
             }
         }
 

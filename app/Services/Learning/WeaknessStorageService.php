@@ -22,9 +22,17 @@ final class WeaknessStorageService
                 continue;
             }
 
+            $correct = max(0, (int) ($record['correct'] ?? 0));
+            $wrong = max(0, (int) ($record['wrong'] ?? 0));
+            $total = $correct + $wrong;
+
             $weakness[$topic] = [
-                'correct' => (int) ($record['correct'] ?? 0),
-                'wrong' => (int) ($record['wrong'] ?? 0),
+                'topic' => $topic,
+                'correct' => $correct,
+                'wrong' => $wrong,
+                'accuracy' => $total > 0
+                    ? (int) round(($correct / $total) * 100)
+                    : 0,
             ];
         }
 

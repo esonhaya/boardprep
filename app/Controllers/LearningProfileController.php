@@ -22,6 +22,9 @@ final class LearningProfileController
         $attempts = LearningHistoryService::all();
         $analytics = PerformanceAnalyticsService::summary($attempts);
         $weaknesses = WeaknessService::all();
+        if ($attempts === []) {
+            $weaknesses = [];
+        }
 
         $profile =
             LearningProfileService::build(

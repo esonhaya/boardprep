@@ -8,6 +8,8 @@ require_once dirname(__DIR__, 2) . "/app/Core/Autoloader.php";
 
 use App\Core\App;
 use App\Repositories\AttemptRepository;
+use App\Services\Learning\WeaknessService;
+use App\Services\Learning\WeaknessStorageService;
 use Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator;
 
 $attemptsPath = dirname(__DIR__, 2) . '/storage/attempts.json';
@@ -19,6 +21,7 @@ $beforeIds = array_values(array_filter(array_map(
         : null,
     $before
 )));
+$beforeWeaknesses = WeaknessStorageService::all();
 
 $simulator = new HttpSimulator(dirname(__DIR__, 2) . '/public/index.php');
 
@@ -111,4 +114,6 @@ try {
             $repository->delete($id);
         }
     }
+    WeaknessService::clear();
+    WeaknessStorageService::save($beforeWeaknesses);
 }

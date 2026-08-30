@@ -16,9 +16,11 @@ class WeaknessService
             WeaknessStorageService::all();
 
         foreach ($answers as $answer) {
+            if (!is_array($answer)) {
+                continue;
+            }
 
-            $topic =
-                $answer["topic"] ?? "General";
+            $topic = self::topic($answer["topic"] ?? "General");
 
             if (!isset($weakness[$topic])) {
 
@@ -29,7 +31,7 @@ class WeaknessService
 
             }
 
-            if ($answer["correct"]) {
+            if (($answer["correct"] ?? false) === true) {
 
                 $weakness[$topic]["correct"]++;
 
@@ -56,5 +58,11 @@ class WeaknessService
     public static function clear(): void
     {
         WeaknessStorageService::clear();
+    }
+
+    private static function topic(mixed $value): string
+    {
+        $topic = is_scalar($value) ? trim((string) $value) : "";
+        return $topic !== "" ? $topic : "General";
     }
 }
