@@ -12,6 +12,7 @@ $directory = sys_get_temp_dir() . '/boardprep-json-storage-' . getmypid();
 mkdir($directory, 0777, true);
 file_put_contents($directory . '/questions.json', '[{"id":1,"value":"old"}]');
 $storage = new JsonStorage($directory);
+
 if ($storage->find('questions', '1') === null
     || ($storage->update('questions', '1', ['value' => 'new'])['value'] ?? null) !== 'new') {
     throw new RuntimeException('numeric JSON ID was not addressable through repository string IDs');
@@ -34,6 +35,45 @@ try {
     }
 }
 
+foreach ([['id' => []], ['id' => ''], ['value' => 'missing-id']] as $invalid) {
+    try {
+        $storage->create('questions', $invalid);
+        throw new RuntimeException('invalid primary key was accepted');
+    } catch (StorageException) {
+    }
+}
+
+$storage->replace('questions', [
+    ['id' => 'a', 'value' => 'one'],
+    ['id' => 'b', 'value' => 'two'],
+]);
+if (count($storage->all('questions')) !== 2
+    || ($storage->find('questions', 'b')['value'] ?? null) !== 'two') {
+    throw new RuntimeException('atomic collection replacement did not persist canonical records');
+}
+
+$beforeFailedReplace = (string) file_get_contents($directory . '/questions.json');
+try {
+    $storage->replace('questions', [
+        ['id' => 'duplicate', 'value' => 'one'],
+        ['id' => 'duplicate', 'value' => 'two'],
+    ]);
+    throw new RuntimeException('duplicate replacement IDs were accepted');
+} catch (StorageException) {
+    if ((string) file_get_contents($directory . '/questions.json') !== $beforeFailedReplace) {
+        throw new RuntimeException('failed replacement changed existing canonical data');
+    }
+}
+
+try {
+    $storage->update('questions', 'a', ['id' => 'renamed']);
+    throw new RuntimeException('primary key mutation was accepted');
+} catch (StorageException) {
+    if ($storage->find('questions', 'a') === null) {
+        throw new RuntimeException('rejected primary-key mutation damaged original record');
+    }
+}
+
 file_put_contents($directory . '/questions.json', '{broken');
 try {
     $storage->all('questions');
@@ -44,8 +84,10 @@ try {
     }
 }
 
-unlink($directory . '/questions.json');
-rmdir($directory);
+@unlink($directory . '/questions.json');
+@unlink($directory . '/.storage.lock');
+@rmdir($directory);
 
-echo "[PASS] JSON question storage handles numeric IDs and malformed content safely.\n";
-echo "[PASS] JSON storage skips malformed rows and preserves data on invalid writes.\n";
+echo "[PASS] JSON storage preserves addressable IDs and safe malformed-row reads.\n";
+echo "[PASS] JSON storage replacement is atomic and rejects invalid primary-key mutations.\n";
+echo "[PASS] Failed JSON writes preserve existing canonical data.\n";

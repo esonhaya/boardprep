@@ -161,4 +161,47 @@ class MysqlStorage implements StorageInterface
     ): bool {
         return $this->find($table, $id) !== null;
     }
+
+    public function replace(
+        string $table,
+        array $records
+    ): void {
+        $started = !$this->connection->inTransaction();
+
+        if ($started) {
+            $this->connection->beginTransaction();
+        }
+
+        try {
+            $this->connection->exec("DELETE FROM `{$table}`");
+
+            foreach ($records as $record) {
+                if (!is_array($record)) {
+                    throw new StorageException(
+                        "Replacement records for '{$table}' must be arrays."
+                    );
+                }
+
+                $this->create($table, $record);
+            }
+
+            if ($started) {
+                $this->connection->commit();
+            }
+        } catch (\Throwable $exception) {
+            if ($started && $this->connection->inTransaction()) {
+                $this->connection->rollBack();
+            }
+
+            if ($exception instanceof StorageException) {
+                throw $exception;
+            }
+
+            throw new StorageException(
+                "Unable to replace table: {$table}",
+                0,
+                $exception
+            );
+        }
+    }
 }

@@ -31,6 +31,9 @@ try {
 } finally {
     WeaknessService::clear();
     WeaknessStorageService::save($original);
+    if (WeaknessStorageService::all() !== $original) {
+        throw new RuntimeException('weakness persistence did not restore its complete pre-test state');
+    }
 }
 
 echo "[PASS] unanswered quiz items do not inflate persisted weakness errors.\n";

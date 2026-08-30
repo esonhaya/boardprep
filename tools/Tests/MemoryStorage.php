@@ -118,6 +118,30 @@ final class MemoryStorage implements StorageInterface
         );
     }
 
+    public function replace(string $collection, array $records): void
+    {
+        $replacement = [];
+
+        foreach ($records as $record) {
+            if (!is_array($record)) {
+                throw new \RuntimeException('MemoryStorage replacement requires record arrays.');
+            }
+
+            $id = (string) ($record['id'] ?? '');
+            if ($id === '') {
+                throw new \RuntimeException('MemoryStorage replacement requires an id.');
+            }
+
+            if (isset($replacement[$id])) {
+                throw new \RuntimeException("Duplicate replacement id: {$id}");
+            }
+
+            $replacement[$id] = $record;
+        }
+
+        $this->collections[$collection] = $replacement;
+    }
+
     public function reset(): void
     {
         $this->collections = [];

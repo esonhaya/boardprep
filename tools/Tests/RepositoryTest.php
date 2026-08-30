@@ -69,6 +69,7 @@ final class RepositoryTest
             'update',
             'delete',
             'exists',
+            'replaceAll',
         ] as $method) {
             $this->assertTrue(
                 method_exists($class, $method),

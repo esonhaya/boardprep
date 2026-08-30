@@ -16,8 +16,16 @@ final class WeaknessStorageService
         $weakness = [];
 
         foreach ($records as $record) {
-            $topic = trim((string) ($record['id'] ?? ''));
+            if (!is_array($record)) {
+                continue;
+            }
 
+            $rawTopic = $record['id'] ?? '';
+            if (!is_scalar($rawTopic)) {
+                continue;
+            }
+
+            $topic = trim((string) $rawTopic);
             if ($topic === '') {
                 continue;
             }
@@ -41,41 +49,26 @@ final class WeaknessStorageService
 
     public static function save(array $data): void
     {
-        $storage = App::storage();
-
-        foreach ($storage->all(self::COLLECTION) as $record) {
-            $id = trim((string) ($record['id'] ?? ''));
-
-            if ($id !== '') {
-                $storage->delete(self::COLLECTION, $id);
-            }
-        }
+        $records = [];
 
         foreach ($data as $topic => $stats) {
             $topic = trim((string) $topic);
-
-            if ($topic === '') {
+            if ($topic === '' || !is_array($stats)) {
                 continue;
             }
 
-            $storage->create(self::COLLECTION, [
+            $records[] = [
                 'id' => $topic,
-                'correct' => (int) ($stats['correct'] ?? 0),
-                'wrong' => (int) ($stats['wrong'] ?? 0),
-            ]);
+                'correct' => max(0, (int) ($stats['correct'] ?? 0)),
+                'wrong' => max(0, (int) ($stats['wrong'] ?? 0)),
+            ];
         }
+
+        App::storage()->replace(self::COLLECTION, $records);
     }
 
     public static function clear(): void
     {
-        $storage = App::storage();
-
-        foreach ($storage->all(self::COLLECTION) as $record) {
-            $id = trim((string) ($record['id'] ?? ''));
-
-            if ($id !== '') {
-                $storage->delete(self::COLLECTION, $id);
-            }
-        }
+        App::storage()->replace(self::COLLECTION, []);
     }
 }

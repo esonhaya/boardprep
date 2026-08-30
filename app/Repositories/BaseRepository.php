@@ -80,4 +80,12 @@ abstract class BaseRepository
             $id
         );
     }
+
+    public function replaceAll(array $records): void
+    {
+        $this->storage->replace(
+            $this->collection,
+            $records
+        );
+    }
 }
