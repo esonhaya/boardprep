@@ -45,14 +45,18 @@ $questions = [
     $question('medium', 'english', 'agreement', 'medium'),
     $question('hard', 'english', 'agreement', 'hard'),
 ];
+$draft = $question('draft', 'english', 'empty-topic', 'hard');
+$draft['status'] = 'draft';
 
 $report = QuestionCoverageService::analyze(
-    $questions, $boards, $subjects, $relations, $domains, $topics, $concepts
+    [...$questions, $draft], $boards, $subjects, $relations, $domains, $topics, $concepts
 );
-if ($report['inventory']['eligible'] !== 3
+if ($report['inventory']['total'] !== 4
+    || $report['inventory']['eligible'] !== 3
     || $report['inventory']['by_difficulty'] !== ['easy' => 1, 'hard' => 1, 'medium' => 1]
     || ($report['inventory']['by_topic']['agreement'] ?? 0) !== 3
-    || isset($report['inventory']['by_topic']['empty-topic'])) {
+    || isset($report['inventory']['by_topic']['empty-topic'])
+    || $report['issues']['ineligible'] !== ['draft']) {
     throw new RuntimeException('complete, sparse, or empty-category inventory is inconsistent');
 }
 $blueprint = $report['blueprints'][0] ?? null;

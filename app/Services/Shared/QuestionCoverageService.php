@@ -65,6 +65,8 @@ final class QuestionCoverageService
             }
             $id = is_scalar($question['id'] ?? null) ? (string) $question['id'] : '<unknown>';
             $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+            $canonicalSubject = null;
+            $canonicalTopic = null;
             if ($taxonomy === []) {
                 $issues['legacy_metadata'][] = $id;
             }
@@ -88,9 +90,9 @@ final class QuestionCoverageService
                     ];
                 }
                 if ($dimension === 'subject') {
-                    self::increment($inventory['by_subject'], $match['id']);
+                    $canonicalSubject = $match;
                 } elseif ($dimension === 'topic') {
-                    self::increment($inventory['by_topic'], $match['id']);
+                    $canonicalTopic = $match;
                 }
             }
 
@@ -98,8 +100,6 @@ final class QuestionCoverageService
                 ? strtolower(trim((string) $question['difficulty'])) : '';
             if (!in_array($difficulty, self::DIFFICULTIES, true)) {
                 $issues['invalid_difficulty'][] = $id;
-            } else {
-                self::increment($inventory['by_difficulty'], $difficulty);
             }
             $status = is_scalar($question['status'] ?? null)
                 ? strtolower(trim((string) $question['status'])) : '';
@@ -108,6 +108,15 @@ final class QuestionCoverageService
             $subject = self::fieldName($question, 'subject', $catalog['subject']);
             if ($subject !== null && self::eligible($questions, $question, $subject)) {
                 $inventory['eligible']++;
+                if ($canonicalSubject !== null) {
+                    self::increment($inventory['by_subject'], $canonicalSubject['id']);
+                }
+                if ($canonicalTopic !== null) {
+                    self::increment($inventory['by_topic'], $canonicalTopic['id']);
+                }
+                if (in_array($difficulty, self::DIFFICULTIES, true)) {
+                    self::increment($inventory['by_difficulty'], $difficulty);
+                }
             } else {
                 $issues['ineligible'][] = $id;
             }
