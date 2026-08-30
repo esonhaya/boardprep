@@ -9,7 +9,7 @@ final class QuizStartQuestionIdExtractor
     public static function fromQuestions(array $questions): array
     {
         return array_values(array_filter(array_map(
-            static fn(array $question): ?string => isset($question['id'])
+            static fn(mixed $question): ?string => is_array($question) && isset($question['id'])
                 ? (string) $question['id']
                 : null,
             $questions

@@ -75,10 +75,21 @@ try {
         $outputs[$path] = $response['output'];
     }
 
-    if (!preg_match('/href="(\/quiz\?action=start&amp;[^\"]+)"/', $outputs['/study'], $link)) {
+    if (!preg_match_all('/href="(\/quiz\?action=start&amp;[^\"]+)"/', $outputs['/study'], $links)) {
         throw new RuntimeException('study recommendation has no targeted quiz action');
     }
-    $url = html_entity_decode($link[1], ENT_QUOTES | ENT_HTML5);
+    $url = '';
+    foreach ($links[1] as $candidate) {
+        $decoded = html_entity_decode($candidate, ENT_QUOTES | ENT_HTML5);
+        if (str_contains($decoded, 'subject=English')
+            && str_contains($decoded, 'topic=Subject-Verb')) {
+            $url = $decoded;
+            break;
+        }
+    }
+    if ($url === '') {
+        throw new RuntimeException('study recommendation lost the completed learner topic');
+    }
     parse_str((string) parse_url($url, PHP_URL_QUERY), $target);
     foreach (['subject', 'topic', 'mode', 'difficulty', 'count'] as $field) {
         if (!array_key_exists($field, $target)) {

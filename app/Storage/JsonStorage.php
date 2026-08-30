@@ -101,29 +101,44 @@ class JsonStorage implements StorageInterface
 
         $path = $this->collectionPath($collection);
 
-        $temp = $path . '.tmp';
+        $this->ensureCollectionExists($collection);
 
-        $json = json_encode(
-            array_values($records),
-            JSON_PRETTY_PRINT
-            | JSON_UNESCAPED_UNICODE
-            | JSON_THROW_ON_ERROR
-        );
-
-        if (file_put_contents($temp, $json, LOCK_EX) === false) {
+        $temp = tempnam(dirname($path), basename($path) . '.tmp-');
+        if ($temp === false) {
             throw new StorageException(
-                "Unable to write collection: {$collection}"
+                "Unable to prepare collection write: {$collection}"
             );
         }
 
-        if (!rename($temp, $path)) {
-
-            @unlink($temp);
-
-            throw new StorageException(
-                "Unable to replace collection: {$collection}"
+        try {
+            $json = json_encode(
+                array_values($records),
+                JSON_PRETTY_PRINT
+                | JSON_UNESCAPED_UNICODE
+                | JSON_THROW_ON_ERROR
             );
 
+            if (file_put_contents($temp, $json, LOCK_EX) === false) {
+                throw new StorageException(
+                    "Unable to write collection: {$collection}"
+                );
+            }
+
+            if (!rename($temp, $path)) {
+                throw new StorageException(
+                    "Unable to replace collection: {$collection}"
+                );
+            }
+        } catch (JsonException $exception) {
+            throw new StorageException(
+                "Unable to encode collection: {$collection}",
+                0,
+                $exception
+            );
+        } finally {
+            if (is_file($temp)) {
+                @unlink($temp);
+            }
         }
 
     }
@@ -169,6 +184,10 @@ class JsonStorage implements StorageInterface
 
         foreach ($this->readCollection($collection) as $record) {
 
+            if (!is_array($record)) {
+                continue;
+            }
+
             if (
                 is_scalar($record[$this->primaryKey] ?? null)
                 && (string) $record[$this->primaryKey] === $id
@@ -191,10 +210,14 @@ class JsonStorage implements StorageInterface
             array_filter(
                 $this->readCollection($collection),
                 function (
-                    array $record
+                    mixed $record
                 ) use (
                     $criteria
                 ): bool {
+
+                    if (!is_array($record)) {
+                        return false;
+                    }
 
                     foreach (
                         $criteria as $key => $value
@@ -274,6 +297,10 @@ class JsonStorage implements StorageInterface
 
         foreach ($records as $index => $record) {
 
+            if (!is_array($record)) {
+                continue;
+            }
+
             if (
                 is_scalar($record[$this->primaryKey] ?? null)
                 && (string) $record[$this->primaryKey] === $id
@@ -309,6 +336,10 @@ class JsonStorage implements StorageInterface
             $this->readCollection($collection);
 
         foreach ($records as $index => $record) {
+
+            if (!is_array($record)) {
+                continue;
+            }
 
             if (
                 is_scalar($record[$this->primaryKey] ?? null)

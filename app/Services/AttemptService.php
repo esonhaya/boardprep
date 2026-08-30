@@ -16,9 +16,19 @@ class AttemptService
     public function save(
         array $attempt
     ): array {
-        return $this->attempts->create(
-            $this->normalizeAttempt($attempt)
-        );
+        $attempt = $this->normalizeAttempt($attempt);
+        $sessionId = is_scalar($attempt['session_id'] ?? null)
+            ? trim((string) $attempt['session_id'])
+            : '';
+
+        if ($sessionId !== '') {
+            $existing = $this->attempts->bySessionId($sessionId);
+            if ($existing !== null) {
+                return $existing;
+            }
+        }
+
+        return $this->attempts->create($attempt);
     }
 
     private function normalizeAttempt(

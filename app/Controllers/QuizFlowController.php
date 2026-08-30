@@ -14,12 +14,12 @@ final class QuizFlowController
 {
     public static function handle(): void
     {
-        $action = trim(
-            (string) Request::query(
-                'action',
-                Request::input('action', '')
-            )
-        );
+        $rawAction = Request::query('action', Request::input('action', ''));
+        if (!is_scalar($rawAction)) {
+            self::rejectAction();
+        }
+
+        $action = trim((string) $rawAction);
 
         switch ($action) {
             case 'start':
@@ -39,9 +39,18 @@ final class QuizFlowController
                 return;
 
             default:
+                if ($action !== '') {
+                    self::rejectAction();
+                }
                 self::settings();
                 return;
         }
+    }
+
+    private static function rejectAction(): never
+    {
+        \SessionService::flash('error', 'That quiz action is invalid or expired. Please try again.');
+        Response::redirect('/quiz');
     }
 
     private static function settings(): void

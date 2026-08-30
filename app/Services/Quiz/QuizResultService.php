@@ -7,11 +7,7 @@ final class QuizResultService
     public static function build(): array
     {
         $cached = SessionService::get("quiz_result", null);
-        if (is_array($cached)
-            && array_key_exists("score", $cached)
-            && array_key_exists("total", $cached)
-            && array_key_exists("percentage", $cached)
-        ) {
+        if (self::validCachedResult($cached)) {
             return QuizResultResponseFactory::create($cached);
         }
 
@@ -49,5 +45,30 @@ final class QuizResultService
         SessionService::set("quiz_result", $summary);
 
         return QuizResultResponseFactory::create($summary);
+    }
+
+    private static function validCachedResult(mixed $cached): bool
+    {
+        if (!is_array($cached) || !is_array($cached['results'] ?? null)) {
+            return false;
+        }
+
+        foreach (['score', 'total', 'percentage'] as $field) {
+            if (!isset($cached[$field]) || !is_numeric($cached[$field])
+                || !is_finite((float) $cached[$field])) {
+                return false;
+            }
+        }
+
+        foreach ($cached['results'] as $result) {
+            if (!is_array($result)
+                || !\App\Services\Quiz\Session\QuizSessionQuestion::isRenderable(
+                    $result['question'] ?? null
+                )) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

@@ -22,21 +22,24 @@ final class QuizResultSessionReader
 
     private static function questions(mixed $questions): array
     {
-        if (!is_array($questions)) {
+        if (!is_array($questions) || !array_is_list($questions)) {
             return [];
         }
 
-        return array_values(array_filter(
-            $questions,
-            static function (mixed $question): bool {
-                if (!is_array($question)) {
-                    return false;
-                }
-
-                $id = $question['id'] ?? null;
-                return is_scalar($id) && trim((string) $id) !== '';
+        $ids = [];
+        foreach ($questions as $question) {
+            if (!\App\Services\Quiz\Session\QuizSessionQuestion::isRenderable($question)) {
+                return [];
             }
-        ));
+
+            $id = trim((string) $question['id']);
+            if (isset($ids[$id])) {
+                return [];
+            }
+            $ids[$id] = true;
+        }
+
+        return $questions;
     }
 
     private static function answers(mixed $answers): array

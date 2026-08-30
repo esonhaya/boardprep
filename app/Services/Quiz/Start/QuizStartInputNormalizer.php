@@ -18,8 +18,10 @@ final class QuizStartInputNormalizer
             $mode = 'practice';
         }
         $defaultCount = $mode === 'exam' ? 150 : 10;
-        $count = is_numeric($input['count'] ?? null)
-            ? (int) round((float) $input['count'])
+        $rawCount = $input['count'] ?? null;
+        $numericCount = is_numeric($rawCount) ? (float) $rawCount : NAN;
+        $count = is_finite($numericCount)
+            ? (int) round($numericCount)
             : $defaultCount;
 
         return [

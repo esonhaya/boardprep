@@ -8,4 +8,4 @@ require_once __DIR__
 require_once __DIR__
     . '/Tests/HttpTest.php';
 
-(new \Tools\Tests\HttpTest())->run();
+exit((new \Tools\Tests\HttpTest())->run());

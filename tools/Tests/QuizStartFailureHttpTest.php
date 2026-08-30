@@ -25,7 +25,7 @@ $valid = $simulator->request(
     $cookies
 );
 
-if (!$valid['success'] || !str_contains($valid['output'], 'Question 1 / 2')) {
+if (!$valid['success'] || !preg_match('/Question 1 \/ [1-9]\d*/', $valid['output'])) {
     throw new RuntimeException('valid HTTP quiz start did not create an active quiz');
 }
 

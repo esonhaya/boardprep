@@ -41,6 +41,12 @@ final class HttpTest
             $failed
         );
 
+        $this->runResilienceMatrix(
+            $simulator,
+            $passed,
+            $failed
+        );
+
         $this->runDeveloperRoutes(
             $simulator,
             $passed,
@@ -221,6 +227,53 @@ final class HttpTest
             $passed,
             $failed
         );
+    }
+
+    private function runResilienceMatrix(
+        HttpSimulator $simulator,
+        int &$passed,
+        int &$failed
+    ): void {
+        $cookies = ['PHPSESSID' => 'batch439-http-resilience-' . getmypid()];
+
+        foreach ([
+            ['malformed query action', 'GET', ['action' => []], [], 302],
+            ['malformed POST action', 'POST', [], ['action' => ['submit']], 302],
+            ['unsupported quiz action', 'GET', ['action' => 'obsolete'], [], 302],
+            ['missing quiz session submission', 'POST', ['action' => 'submit'], [], 302],
+        ] as [$name, $method, $query, $post, $status]) {
+            $response = $simulator->request($method, '/quiz', $query, $post, [], $cookies);
+            $this->testExpectedStatus($name, $response, $status, $passed, $failed);
+        }
+
+        $extreme = $simulator->request('GET', '/quiz', [
+            'action' => 'start', 'subject' => 'English', 'mode' => 'practice',
+            'difficulty' => ['hard'], 'count' => '1e309',
+        ], [], [], $cookies);
+        $this->test('extreme and malformed quiz settings', $extreme, $passed, $failed);
+
+        foreach (['/dashboard', '/history', '/profile', '/progress', '/study'] as $path) {
+            $this->test("learner recovery route {$path}", $simulator->request('GET', $path), $passed, $failed);
+        }
+    }
+
+    private function testExpectedStatus(
+        string $name,
+        array $response,
+        int $status,
+        int &$passed,
+        int &$failed
+    ): void {
+        if ($response['exitCode'] === 0 && $response['status'] === $status
+            && !str_contains($response['output'], 'Stack trace')) {
+            echo "[PASS] {$name} (HTTP {$status})\n";
+            $passed++;
+            return;
+        }
+
+        echo "[FAIL] {$name}\n";
+        echo "       Expected HTTP {$status}; received HTTP {$response['status']}.\n";
+        $failed++;
     }
 
     private function testRoute(

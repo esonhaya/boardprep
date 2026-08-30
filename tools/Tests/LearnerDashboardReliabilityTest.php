@@ -20,7 +20,8 @@ $attempts = [
 ];
 
 $progress = LearningProgressService::build($attempts);
-if ($progress['totalAttempts'] !== 2 || $progress['practiceAttempts'] !== 1 || $progress['examAttempts'] !== 1) {
+if ($progress['totalAttempts'] !== 4 || $progress['completedAttempts'] !== 2
+    || $progress['practiceAttempts'] !== 1 || $progress['examAttempts'] !== 1) {
     throw new RuntimeException('dashboard attempt population/counts are inconsistent');
 }
 if ($progress['averageScore'] !== 88 || $progress['bestScore'] !== 100) {

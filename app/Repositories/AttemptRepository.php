@@ -32,6 +32,22 @@ class AttemptRepository extends BaseRepository
         ]);
     }
 
+    public function bySessionId(string $sessionId): ?array
+    {
+        foreach ($this->all() as $attempt) {
+            if (!is_array($attempt)) {
+                continue;
+            }
+
+            $value = $attempt['session_id'] ?? null;
+            if (is_scalar($value) && trim((string) $value) === $sessionId) {
+                return $attempt;
+            }
+        }
+
+        return null;
+    }
+
     public function completed(): array
     {
         return $this->where([

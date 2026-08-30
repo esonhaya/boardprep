@@ -24,16 +24,24 @@ class QuizSubmissionService
             Response::redirect("/quiz");
         }
 
+        $questions = array_values($questions);
+
+        if (!QuizNavigationService::isCurrentValid($questions)) {
+            \App\Services\Quiz\Start\QuizStartSessionWriter::clear();
+            SessionService::flash('error', 'That quiz session was stale or invalid. Please start a new quiz.');
+            Response::redirect('/quiz');
+        }
+
         $current =
             QuizNavigationService::current();
 
         $question =
             $questions[$current] ?? null;
 
-        if (!is_array($question) || !self::questionId($question)) {
-            Response::redirect(
-                "/quiz?action=finish"
-            );
+        if (!\App\Services\Quiz\Session\QuizSessionQuestion::isRenderable($question)) {
+            \App\Services\Quiz\Start\QuizStartSessionWriter::clear();
+            SessionService::flash('error', 'That quiz session was stale or invalid. Please start a new quiz.');
+            Response::redirect('/quiz');
         }
 
         $postedQuestionId = Request::input("question_id");
