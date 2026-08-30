@@ -72,6 +72,13 @@
 
 <main id="main-content" tabindex="-1">
 
+<?php $layoutFlash = \SessionService::consumeFlash(); ?>
+<?php if (is_array($layoutFlash) && is_scalar($layoutFlash["message"] ?? null)): ?>
+<p class="flash-message flash-<?= htmlspecialchars((string) ($layoutFlash["type"] ?? "info")) ?>" role="alert">
+    <?= htmlspecialchars((string) $layoutFlash["message"]) ?>
+</p>
+<?php endif; ?>
+
     <?= $content ?>
 
 </main>
