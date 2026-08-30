@@ -9,13 +9,10 @@ class QuizNavigationService
 {
     public static function next(): void
     {
-        $current =
-            self::current() + 1;
-
-        SessionService::set(
-            "currentQuestion",
-            $current
-        );
+        if (SessionService::get('quiz_completed', false) === true
+            || SessionService::has('attempt_persisted')) {
+            Response::redirect('/quiz?action=finish');
+        }
 
         $questions =
             SessionService::get(
@@ -23,15 +20,17 @@ class QuizNavigationService
                 []
             );
 
-        if (
-            $current >= count($questions)
-        ) {
-
-            Response::redirect(
-                "/quiz?action=finish"
-            );
-
+        if (!is_array($questions) || empty($questions)) {
+            Response::redirect('/quiz');
         }
+
+        $current = self::current() + 1;
+
+        if ($current >= count($questions) || !is_array($questions[$current] ?? null)) {
+            Response::redirect('/quiz?action=finish');
+        }
+
+        SessionService::set("currentQuestion", $current);
 
         SessionService::remove(
             "feedback"
