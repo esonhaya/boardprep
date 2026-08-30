@@ -29,7 +29,9 @@ $http = new HttpSimulator($root . '/public/index.php');
 $cookies = ['PHPSESSID' => 'batch436-learner-journey'];
 
 $complete = static function (array $query, bool $exerciseStaleForm = false) use ($http, $cookies): array {
-    $page = $http->request('GET', '/quiz', $query, [], [], $cookies);
+    $start = $query;
+    unset($start['action']);
+    $page = $http->request('POST', '/quiz', [], ['action' => 'start'] + $start, [], $cookies);
     if (!$page['success'] || !preg_match('/Question 1 \/ (\d+)/', $page['output'], $totalMatch)) {
         throw new RuntimeException('targeted quiz did not start through normalized production path');
     }
@@ -40,7 +42,8 @@ $complete = static function (array $query, bool $exerciseStaleForm = false) use 
             throw new RuntimeException('quiz question id was not rendered');
         }
         $firstQuestionId ??= $id[1];
-        $submit = $http->request('POST', '/quiz', ['action' => 'submit'], [
+        $submit = $http->request('POST', '/quiz', [], [
+            'action' => 'submit',
             'question_id' => $id[1],
             'answer' => 'A',
         ], [], $cookies);
@@ -50,9 +53,10 @@ $complete = static function (array $query, bool $exerciseStaleForm = false) use 
         if ($index + 1 < $total) {
             $page = ($query['mode'] ?? 'practice') === 'exam'
                 ? $submit
-                : $http->request('GET', '/quiz', ['action' => 'next'], [], [], $cookies);
+                : $http->request('POST', '/quiz', [], ['action' => 'next'], [], $cookies);
             if ($exerciseStaleForm && $index === 0) {
-                $stale = $http->request('POST', '/quiz', ['action' => 'submit'], [
+                $stale = $http->request('POST', '/quiz', [], [
+                    'action' => 'submit',
                     'question_id' => $firstQuestionId,
                     'answer' => 'B',
                 ], [], $cookies);
@@ -63,9 +67,11 @@ $complete = static function (array $query, bool $exerciseStaleForm = false) use 
             }
         }
     }
-    $result = $http->request('GET', '/quiz', ['action' => 'finish'], [], [], $cookies);
-    $refresh = $http->request('GET', '/quiz', ['action' => 'finish'], [], [], $cookies);
-    if (!$result['success'] || !$refresh['success'] || !str_contains($result['output'], 'Quiz Result')
+    $finish = $http->request('POST', '/quiz', [], ['action' => 'finish'], [], $cookies);
+    $result = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
+    $refresh = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
+    if (!$finish['success'] || $finish['status'] !== 303
+        || !$result['success'] || !$refresh['success'] || !str_contains($result['output'], 'Quiz Result')
         || !str_contains($result['output'], 'Answer Review')
         || !str_contains($result['output'], 'View Progress')) {
         throw new RuntimeException('quiz completion did not render');
