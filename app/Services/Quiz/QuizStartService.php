@@ -19,6 +19,11 @@ class QuizStartService
         $preparation = QuizStartPreparationService::prepare(Request::all(), $questions);
 
         if ($preparation->isEmpty()) {
+            QuizStartSessionWriter::clear();
+            SessionService::flash(
+                'error',
+                'No questions matched those quiz settings. Try a broader topic, difficulty, or subject.'
+            );
             Response::redirect('/quiz', 302);
         }
 

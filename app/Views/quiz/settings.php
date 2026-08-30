@@ -1,3 +1,11 @@
+<?php $flash = \SessionService::consumeFlash(); ?>
+
+<?php if (is_array($flash) && ($flash['type'] ?? '') === 'error'): ?>
+<p role="alert">
+<?= htmlspecialchars((string) ($flash['message'] ?? 'Unable to generate that quiz.')) ?>
+</p>
+<?php endif; ?>
+
 <h2>Create Quiz</h2>
 
 <form method="GET" action="">

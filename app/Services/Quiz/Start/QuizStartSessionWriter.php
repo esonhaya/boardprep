@@ -6,6 +6,23 @@ namespace App\Services\Quiz\Start;
 
 final class QuizStartSessionWriter
 {
+    public static function clear(): void
+    {
+        foreach ([
+            'quiz_session',
+            'questions',
+            'answers',
+            'feedback',
+            'mode',
+            'currentQuestion',
+            'attempt_persisted',
+            'quiz_completed',
+            'quiz_result',
+        ] as $key) {
+            \SessionService::remove($key);
+        }
+    }
+
     public static function write(object $specification, array $questions): void
     {
         \SessionService::set('quiz_session', QuizStartSessionPayloadFactory::create($specification, $questions));
