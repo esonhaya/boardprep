@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Services\Quiz;
 
+use App\Services\Quiz\LearningContext\QuizAttemptContextResolver;
+use App\Services\Quiz\LearningContext\QuizAttemptLearningContextFactory;
+
 final class QuizLearningContextService
 {
     public static function enrichAttempt(
@@ -11,65 +14,41 @@ final class QuizLearningContextService
         array $session,
         array $questions = []
     ): array {
-        $topics = self::topics($session, $questions);
+        $context = QuizAttemptContextResolver::resolve($attempt, $session, $questions);
 
-        if (!isset($attempt["topic"]) || trim((string) $attempt["topic"]) === "") {
-            $attempt["topic"] = $topics[0] ?? "General";
+        foreach (['board', 'subject', 'domain'] as $field) {
+            if (self::missing($attempt[$field] ?? null) && $context[$field] !== '') {
+                $attempt[$field] = $context[$field];
+            }
         }
 
-        $attempt["topics"] = $topics;
-
-        if (
-            (!isset($attempt["domain"]) || trim((string) $attempt["domain"]) === "")
-            && isset($session["domain"])
-            && is_string($session["domain"])
-        ) {
-            $attempt["domain"] = trim($session["domain"]);
+        if (self::missing($attempt['topic'] ?? null)) {
+            $attempt['topic'] = $context['topic'] !== '' ? $context['topic'] : 'General';
         }
 
-        $attempt["learning_context"] = [
-            "topic" => $attempt["topic"],
-            "topics" => $topics,
-            "subject" => $attempt["subject"] ?? ($session["subject"] ?? ""),
-            "mode" => $attempt["mode"] ?? ($session["mode"] ?? "practice"),
-            "difficulty" =>
-                $attempt["difficulty"] ?? ($session["difficulty"] ?? "mixed"),
-        ];
+        $attempt['topics'] = $context['topics'];
+        $context['topic'] = $attempt['topic'];
+        $context['board'] = self::current($attempt, 'board', $context['board']);
+        $context['subject'] = self::current($attempt, 'subject', $context['subject']);
+        $context['domain'] = self::current($attempt, 'domain', $context['domain']);
+        $attempt['learning_context'] = QuizAttemptLearningContextFactory::create($context);
 
         return $attempt;
     }
 
-    public static function topics(
-        array $session,
-        array $questions = []
-    ): array {
-        $topics = [];
+    public static function topics(array $session, array $questions = []): array
+    {
+        return QuizAttemptContextResolver::resolve([], $session, $questions)['topics'];
+    }
 
-        if (isset($session["topics"]) && is_array($session["topics"])) {
-            foreach ($session["topics"] as $topic) {
-                $topic = trim((string) $topic);
-                if ($topic !== "" && !in_array($topic, $topics, true)) {
-                    $topics[] = $topic;
-                }
-            }
-        }
+    private static function missing(mixed $value): bool
+    {
+        return !is_scalar($value) || trim((string) $value) === '';
+    }
 
-        if (empty($topics) && isset($session["topic"])) {
-            $topic = trim((string) $session["topic"]);
-            if ($topic !== "") {
-                $topics[] = $topic;
-            }
-        }
-
-        if (empty($topics)) {
-            foreach ($questions as $question) {
-                $topic = trim((string) ($question["topic"] ?? ""));
-                if ($topic !== "" && !in_array($topic, $topics, true)) {
-                    $topics[] = $topic;
-                }
-            }
-        }
-
-        return array_values($topics);
+    private static function current(array $attempt, string $field, string $fallback): string
+    {
+        $value = $attempt[$field] ?? null;
+        return self::missing($value) ? $fallback : trim((string) $value);
     }
 }
