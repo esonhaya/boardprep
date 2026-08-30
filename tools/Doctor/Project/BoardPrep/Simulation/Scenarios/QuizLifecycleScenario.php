@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Tools\Doctor\Project\BoardPrep\Simulation\Scenarios;
 
+use App\Core\App;
+use App\Repositories\AttemptRepository;
+use App\Repositories\QuestionRepository;
+use App\Services\Learning\WeaknessStorageService;
 use Tools\Doctor\Project\BoardPrep\Simulation\ApplicationSimulator;
 use Tools\Doctor\Project\BoardPrep\Simulation\SimulationScenario;
 
@@ -17,6 +21,13 @@ final class QuizLifecycleScenario extends SimulationScenario
     public function run(
         ApplicationSimulator $simulation
     ): void {
+        $attempts = App::container()->get(AttemptRepository::class);
+        $questions = App::container()->get(QuestionRepository::class);
+        $beforeIds = array_map('strval', array_column($attempts->all(), 'id'));
+        $questionsBefore = $questions->all();
+        $weaknessesBefore = WeaknessStorageService::all();
+
+        try {
 
         /*
          * 1. Quiz settings
@@ -34,18 +45,24 @@ final class QuizLifecycleScenario extends SimulationScenario
          * subject and Language as the domain.
          */
         $simulation
-            ->get(
-                '/quiz?action=start'
-                . '&exam=LET'
-                . '&subject=English'
-                . '&domain=Language'
-                . '&difficulty=mixed'
-                . '&count=1'
-                . '&mode=practice'
-            )
+            ->post('/quiz', [
+                'action' => 'start',
+                'exam' => 'LET',
+                'subject' => 'English',
+                'domain' => 'Language',
+                'difficulty' => 'mixed',
+                'count' => 1,
+                'mode' => 'practice',
+            ])
             ->execute()
             ->assertSuccessful()
             ->assertContains('Quiz');
+
+        $body = $simulation->context()->get('http')['output'] ?? '';
+        if (!is_string($body)
+            || !preg_match('/name="question_id"\s+value="([^"]+)"/', $body, $match)) {
+            throw new \RuntimeException('Generated quiz did not expose its active question identifier.');
+        }
 
         /*
          * 3. Submit an answer through the real POST path.
@@ -58,6 +75,8 @@ final class QuizLifecycleScenario extends SimulationScenario
             ->post(
                 '/quiz?action=submit',
                 [
+                    'action' => 'submit',
+                    'question_id' => $match[1],
                     'answer' =>
                         'simulation-answer',
                 ]
@@ -69,10 +88,25 @@ final class QuizLifecycleScenario extends SimulationScenario
          * 4. Build the result from the same persisted session.
          */
         $simulation
-            ->get('/quiz?action=finish')
+            ->post('/quiz', ['action' => 'finish'])
+            ->execute()
+            ->assertStatus(303);
+
+        $simulation
+            ->get('/quiz?action=result')
             ->execute()
             ->assertSuccessful()
             ->assertContains('Quiz Result')
             ->assertContains('Answer Review');
+        } finally {
+            foreach ($attempts->all() as $attempt) {
+                $id = is_scalar($attempt['id'] ?? null) ? (string) $attempt['id'] : '';
+                if ($id !== '' && !in_array($id, $beforeIds, true)) {
+                    $attempts->delete($id);
+                }
+            }
+            $questions->replaceAll($questionsBefore);
+            WeaknessStorageService::save($weaknessesBefore);
+        }
     }
 }

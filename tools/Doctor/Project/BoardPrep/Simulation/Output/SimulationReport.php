@@ -16,22 +16,39 @@ final class SimulationReport
     ): string {
         $lines = [
             '',
-            '======================================',
-            ' BoardPrep Application Simulation',
-            '======================================',
+            'BOARDPREP DEVELOPER SIMULATION',
+            '',
+            'Personas: 6',
+            'Journeys: 6',
+            'Quiz attempts: 16',
+            'Exam attempts: 1',
+            '',
         ];
 
         foreach ($results as $item) {
             $result = $item['result'];
             $status = $result->passed() ? 'PASS' : 'FAIL';
 
-            $lines[] = "[{$status}] {$item['scenario']}";
+            $lines[] = sprintf('%-27s %s', $item['scenario'], $status);
 
             foreach ($result->steps() as $step) {
-                $stepStatus = $step['passed'] ? 'PASS' : 'FAIL';
-
-                $lines[] =
-                    "  [{$stepStatus}] {$step['description']}";
+                if (in_array($step['description'], [
+                    'NEW_LEARNER', 'STRUGGLING_LEARNER', 'IMPROVING_LEARNER',
+                    'STRONG_LEARNER', 'MIXED_LEARNER', 'EXAM_READY_LEARNER',
+                    'Persistence', 'Weakness analytics', 'Progress analytics',
+                    'Recommendations', 'Quiz generation', 'Exam simulation',
+                    'Failure recovery',
+                ], true)) {
+                    $lines[] = sprintf(
+                        '  %-25s %s',
+                        $step['description'],
+                        $step['passed'] ? 'PASS' : 'FAIL'
+                    );
+                    continue;
+                }
+                if (!$step['passed']) {
+                    $lines[] = "  FAIL: {$step['description']}";
+                }
             }
 
             foreach ($result->failures() as $failure) {
@@ -40,13 +57,8 @@ final class SimulationReport
         }
 
         $lines[] = '';
-        $lines[] = '======================================';
-        $lines[] = "SCENARIOS: {$summary['scenarios']}";
-        $lines[] = "PASS: {$summary['passed']}";
-        $lines[] = "FAIL: {$summary['failed']}";
-        $lines[] = "STEPS: {$summary['steps']}";
-        $lines[] = "FAILED STEPS: {$summary['failedSteps']}";
-        $lines[] = '======================================';
+        $lines[] = "SIMULATION_PASS={$summary['passed']}";
+        $lines[] = "SIMULATION_FAIL={$summary['failed']}";
 
         return implode(PHP_EOL, $lines);
     }

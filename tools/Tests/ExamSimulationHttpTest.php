@@ -22,26 +22,27 @@ $http = new HttpSimulator(dirname(__DIR__, 2) . '/public/index.php');
 $cookies = ['PHPSESSID' => 'batch437-exam-simulation'];
 
 try {
-    $start = $http->request('GET', '/quiz', [
+    $start = $http->request('POST', '/quiz', [], [
         'action' => 'start', 'exam' => 'LET', 'subject' => 'English',
         'mode' => 'exam', 'difficulty' => 'mixed', 'count' => 3,
-    ], [], [], $cookies);
+    ], [], $cookies);
     if (!$start['success'] || !str_contains($start['output'], 'Question 1 / 3')
         || !preg_match('/name="question_id"\s+value="([^"]+)"/', $start['output'], $match)) {
         throw new RuntimeException('Three-question exam simulation did not start.');
     }
 
-    $submit = $http->request('POST', '/quiz', ['action' => 'submit'], [
-        'question_id' => $match[1], 'answer' => 'A',
+    $submit = $http->request('POST', '/quiz', [], [
+        'action' => 'submit', 'question_id' => $match[1], 'answer' => 'A',
     ], [], $cookies);
     if (!$submit['success'] || !str_contains($submit['output'], 'Question 2 / 3')) {
         throw new RuntimeException('Exam navigation did not advance without practice feedback.');
     }
 
-    $result = $http->request('GET', '/quiz', ['action' => 'finish'], [], [], $cookies);
-    $repeat = $http->request('GET', '/quiz', ['action' => 'finish'], [], [], $cookies);
+    $finish = $http->request('POST', '/quiz', [], ['action' => 'finish'], [], $cookies);
+    $result = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
+    $repeat = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
     $resultText = preg_replace('/\s+/', ' ', strip_tags($result['output'])) ?? '';
-    if (!$result['success'] || !$repeat['success']
+    if ($finish['status'] !== 303 || !$result['success'] || !$repeat['success']
         || !preg_match('/Score:\s*\d+\s*\/\s*3/', $resultText)
         || substr_count($result['output'], 'No answer') !== 2) {
         throw new RuntimeException('Partial simulation result did not retain the generated denominator.');
@@ -57,9 +58,9 @@ try {
         );
     }
 
-    $retry = $http->request('GET', '/quiz', [
+    $retry = $http->request('POST', '/quiz', [], [
         'action' => 'start', 'subject' => 'English', 'mode' => 'practice', 'count' => 1,
-    ], [], [], $cookies);
+    ], [], $cookies);
     $retryText = preg_replace('/\s+/', ' ', strip_tags($retry['output'])) ?? '';
     if (!$retry['success'] || !str_contains($retryText, 'Mode: Practice')) {
         throw new RuntimeException('A new ordinary quiz did not replace the completed simulation session.');
