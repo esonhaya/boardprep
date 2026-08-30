@@ -41,7 +41,7 @@ class LearningProfileService
                 $level,
 
             "overallAccuracy" =>
-                $average,
+                $analytics["accuracy"] ?? $average,
 
             "totalQuizzes" =>
                 $analytics["totalQuizzes"] ?? 0,

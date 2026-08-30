@@ -19,9 +19,18 @@ final class AttemptScoreSummary
         $percentage = $total > 0
             ? round(($score / $total) * 100, 2)
             : 0.0;
+        $unanswered = min(
+            AttemptValueReader::nonNegativeInt($summary['unanswered'] ?? null),
+            max(0, $total - $score)
+        );
+        $answered = $total - $unanswered;
 
         return [
             "score" => $score,
+            "correct" => $score,
+            "incorrect" => max(0, $answered - $score),
+            "unanswered" => $unanswered,
+            "answered" => $answered,
             "total" => $total,
             "percentage" => $percentage,
         ];

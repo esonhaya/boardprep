@@ -3,6 +3,7 @@
 $dashboard = $dashboard ?? [];
 $progress = $dashboard["progress"] ?? [];
 $topics = $dashboard["topics"] ?? [];
+$subjects = $dashboard["subjects"] ?? [];
 $weakest = $dashboard["weakestTopics"] ?? [];
 $streak = (int) ($dashboard["streak"] ?? 0);
 $insight = $dashboard["insight"] ?? [];
@@ -37,6 +38,10 @@ $history = $history ?? [];
         <li>
             Learning Streak:
             <strong><?= $streak ?> day<?= $streak === 1 ? "" : "s" ?></strong>
+        </li>
+        <li>
+            Recent Trend:
+            <strong><?= htmlspecialchars(ucwords(str_replace("_", " ", (string) ($progress["trend"]["direction"] ?? "insufficient_history")))) ?></strong>
         </li>
     </ul>
 </section>
@@ -154,6 +159,16 @@ $history = $history ?? [];
 <hr>
 
 <section class="study-dashboard-topics">
+    <h2>Subject Performance</h2>
+    <?php if ($subjects === []): ?>
+        <p>No subject performance is available yet.</p>
+    <?php else: ?>
+        <?php foreach ($subjects as $subject): ?>
+            <p><strong><?= htmlspecialchars((string) $subject["subject"]) ?></strong> — <?= (int) $subject["average"] ?>% average · <?= (int) $subject["attempts"] ?> attempt<?= ((int) $subject["attempts"]) === 1 ? "" : "s" ?></p>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+    <hr>
     <h2>Topic Performance</h2>
 
     <?php if (empty($topics)): ?>
@@ -161,7 +176,7 @@ $history = $history ?? [];
     <?php else: ?>
         <?php foreach ($topics as $topic): ?>
             <article>
-                <h3><?= htmlspecialchars((string) ($topic["topic"] ?? "General")) ?></h3>
+                <h3><?= htmlspecialchars((string) ($topic["topic"] ?? "General")) ?><?php if (($topic["subject"] ?? "") !== ""): ?> (<?= htmlspecialchars((string) $topic["subject"]) ?>)<?php endif; ?></h3>
                 <p>
                     Average: <?= (int) ($topic["average"] ?? 0) ?>%
                     —

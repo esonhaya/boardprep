@@ -8,8 +8,9 @@ final class PerformanceAnalyticsService
 {
     public static function summary(array $attempts): array
     {
-        $attempts = LearningAttemptNormalizer::all($attempts);
-        $total = count($attempts);
+        $progress = LearningProgressService::build($attempts);
+        $attempts = LearningHistoryService::ordered($attempts);
+        $total = $progress['completedAttempts'];
 
         if ($total === 0) {
             return [
@@ -19,6 +20,12 @@ final class PerformanceAnalyticsService
                 'latestScore' => 0,
                 'practiceQuizzes' => 0,
                 'examQuizzes' => 0,
+                'answeredCount' => 0,
+                'unansweredCount' => 0,
+                'correctCount' => 0,
+                'incorrectCount' => 0,
+                'accuracy' => 0,
+                'trend' => PerformanceTrendService::summarize([]),
             ];
         }
 
@@ -52,6 +59,12 @@ final class PerformanceAnalyticsService
                 (int) ($attempts[0]['percentage'] ?? 0),
             'practiceQuizzes' => $practice,
             'examQuizzes' => $exam,
+            'answeredCount' => $progress['answeredCount'],
+            'unansweredCount' => $progress['unansweredCount'],
+            'correctCount' => $progress['correctCount'],
+            'incorrectCount' => $progress['incorrectCount'],
+            'accuracy' => $progress['accuracy'],
+            'trend' => $progress['trend'],
         ];
     }
 }

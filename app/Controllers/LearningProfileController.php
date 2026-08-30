@@ -62,6 +62,7 @@ final class LearningProfileController
                     ),
                 "topics" =>
                     TopicPerformanceService::summarize($attempts),
+                "subjects" => $dashboard["subjects"],
                 "streak" =>
                     $dashboard["streak"],
                 "insight" =>

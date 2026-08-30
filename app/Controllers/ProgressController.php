@@ -21,6 +21,7 @@ final class ProgressController
                 "summary" => $dashboard["progress"],
                 "history" => LearningHistoryService::recent(10),
                 "topics" => $dashboard["topics"],
+                "subjects" => $dashboard["subjects"],
                 "weakestTopics" => $dashboard["weakestTopics"],
                 "streak" => $dashboard["streak"],
                 "insight" => $dashboard["insight"],

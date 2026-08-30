@@ -7,8 +7,8 @@ final class StudyDashboardService
 {
     public static function build(array $attempts = []): array
     {
-        $attempts = LearningAttemptNormalizer::all($attempts);
         $progress = LearningProgressService::build($attempts);
+        $attempts = LearningHistoryService::ordered($attempts);
         $topics = TopicPerformanceService::summarize($attempts);
         $weakestTopics = TopicPerformanceService::weakest($attempts, 3);
         $streak = LearningStreakService::current($attempts);
@@ -18,6 +18,7 @@ final class StudyDashboardService
         $dashboard = [
             "progress" => $progress,
             "topics" => $topics,
+            "subjects" => SubjectPerformanceService::summarize($attempts),
             "weakestTopics" => $weakestTopics,
             "streak" => $streak,
             "insight" => $insight,

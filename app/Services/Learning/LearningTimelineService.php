@@ -8,7 +8,7 @@ final class LearningTimelineService
 {
     public static function build(array $attempts): array
     {
-        $attempts = LearningAttemptNormalizer::all($attempts);
+        $attempts = LearningHistoryService::ordered($attempts);
         $timeline = [];
 
         foreach ($attempts as $attempt) {
@@ -33,14 +33,6 @@ final class LearningTimelineService
                     (bool) ($attempt['completed'] ?? false),
             ];
         }
-
-        usort(
-            $timeline,
-            static fn(array $a, array $b): int =>
-                ($b['timestamp'] ?? 0)
-                <=>
-                ($a['timestamp'] ?? 0)
-        );
 
         return $timeline;
     }

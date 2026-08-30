@@ -23,8 +23,9 @@ final class StudyInsightService
             ];
         }
 
-        $average = self::average($attempts);
-        $best = self::best($attempts);
+        $metrics = LearningProgressService::build($attempts);
+        $average = $metrics['averageScore'];
+        $best = $metrics['bestScore'];
 
         if ($average < 50) {
             $insights[] = "Focus on core concepts before increasing quiz difficulty.";
@@ -51,35 +52,6 @@ final class StudyInsightService
             "message" => $insights[0] ?? "Keep building your learning history.",
             "actions" => array_values(array_unique($insights)),
         ];
-    }
-
-    private static function average(array $attempts): int
-    {
-        if (empty($attempts)) {
-            return 0;
-        }
-
-        $sum = 0;
-
-        foreach ($attempts as $attempt) {
-            $sum += (int) ($attempt["percentage"] ?? 0);
-        }
-
-        return (int) round($sum / count($attempts));
-    }
-
-    private static function best(array $attempts): int
-    {
-        $best = 0;
-
-        foreach ($attempts as $attempt) {
-            $best = max(
-                $best,
-                (int) ($attempt["percentage"] ?? 0)
-            );
-        }
-
-        return $best;
     }
 
     private static function headline(int $average): string

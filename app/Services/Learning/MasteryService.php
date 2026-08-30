@@ -10,9 +10,16 @@ class MasteryService
 
         foreach ($weakness as $topic => $stats) {
 
+            if (!is_array($stats)) {
+                continue;
+            }
+
+            $correct = self::count($stats["correct"] ?? 0);
+            $wrong = self::count($stats["wrong"] ?? 0);
+
             $total =
-                $stats["correct"] +
-                $stats["wrong"];
+                $correct +
+                $wrong;
 
             if ($total === 0) {
 
@@ -21,7 +28,7 @@ class MasteryService
             } else {
 
                 $percentage = round(
-                    ($stats["correct"] / $total) * 100
+                    ($correct / $total) * 100
                 );
 
             }
@@ -38,6 +45,13 @@ class MasteryService
         }
 
         return $mastery;
+    }
+
+    private static function count(mixed $value): int
+    {
+        return is_numeric($value) && is_finite((float) $value)
+            ? max(0, (int) round((float) $value))
+            : 0;
     }
 
     private static function status(

@@ -3,6 +3,7 @@
 $summary = $summary ?? [];
 $history = $history ?? [];
 $topics = $topics ?? [];
+$subjects = $subjects ?? [];
 $weakestTopics = $weakestTopics ?? [];
 $insight = $insight ?? [];
 $recommendations = $recommendations ?? [];
@@ -24,6 +25,8 @@ $best = (int) ($summary["bestScore"] ?? 0);
     <p>Best Score: <strong><?= $best ?>%</strong></p>
     <p>Current Streak: <strong><?= $streak ?> day<?= $streak === 1 ? "" : "s" ?></strong></p>
     <p>Total Attempts: <strong><?= $total ?></strong></p>
+    <?php $trend = $summary["trend"] ?? []; ?>
+    <p>Recent Trend: <strong><?= htmlspecialchars(ucwords(str_replace("_", " ", (string) ($trend["direction"] ?? "insufficient_history")))) ?></strong></p>
 </section>
 
 <hr>
@@ -66,6 +69,16 @@ $best = (int) ($summary["bestScore"] ?? 0);
 <hr>
 
 <section class="progress-topics">
+    <h2>Subject Performance</h2>
+    <?php if ($subjects === []): ?>
+        <p>No subject performance available yet.</p>
+    <?php else: ?>
+        <?php foreach ($subjects as $subject): ?>
+            <p><strong><?= htmlspecialchars((string) $subject["subject"]) ?></strong> — <?= (int) $subject["average"] ?>% average · <?= (int) $subject["attempts"] ?> attempt<?= ((int) $subject["attempts"]) === 1 ? "" : "s" ?></p>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+    <hr>
     <h2>Topic Performance</h2>
 
     <?php if (empty($topics)): ?>
@@ -74,6 +87,7 @@ $best = (int) ($summary["bestScore"] ?? 0);
         <?php foreach ($topics as $topic): ?>
             <article class="progress-topic">
                 <strong><?= htmlspecialchars((string) $topic["topic"]) ?></strong>
+                <?php if (($topic["subject"] ?? "") !== ""): ?> (<?= htmlspecialchars((string) $topic["subject"]) ?>)<?php endif; ?>
                 <p>
                     Average: <?= (int) $topic["average"] ?>%
                     — Best: <?= (int) $topic["best"] ?>%

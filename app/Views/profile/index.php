@@ -14,6 +14,7 @@
     <li>Latest Score: <?= (int) ($profile["latestScore"] ?? 0) ?>%</li>
     <li>Total Quizzes: <?= (int) ($profile["totalQuizzes"] ?? 0) ?></li>
     <li>Current Streak: <?= (int) ($streak ?? 0) ?> day<?= ((int) ($streak ?? 0)) === 1 ? "" : "s" ?></li>
+    <li>Recent Trend: <?= htmlspecialchars(ucwords(str_replace("_", " ", (string) ($analytics["trend"]["direction"] ?? "insufficient_history")))) ?></li>
 </ul>
 
 <hr>
@@ -45,6 +46,13 @@
 <hr>
 
 <h2>Topic Performance</h2>
+
+<?php if (!empty($subjects)): ?>
+<h3>By Subject</h3>
+<?php foreach ($subjects as $subject): ?>
+<p><strong><?= htmlspecialchars((string) $subject["subject"]) ?></strong> — <?= (int) $subject["average"] ?>% average</p>
+<?php endforeach; ?>
+<?php endif; ?>
 
 <?php if (empty($topics)): ?>
 <p>No topic performance available yet.</p>

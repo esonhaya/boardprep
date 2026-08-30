@@ -17,6 +17,7 @@ $completed = (int) ($progress["completedAttempts"] ?? 0);
     <p>Completed Quizzes: <strong><?= $completed ?></strong></p>
     <p>Average Score: <strong><?= (int) ($progress["averageScore"] ?? 0) ?>%</strong></p>
     <p>Best Score: <strong><?= (int) ($progress["bestScore"] ?? 0) ?>%</strong></p>
+    <p>Recent Trend: <strong><?= htmlspecialchars(ucwords(str_replace("_", " ", (string) ($progress["trend"]["direction"] ?? "insufficient_history")))) ?></strong></p>
 </section>
 
 <hr>
