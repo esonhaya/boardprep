@@ -66,6 +66,13 @@ try {
         throw new RuntimeException('completed result did not render through HTTP');
     }
 
+    $study = $simulator->request('GET', '/study', [], [], [], $cookies);
+    $progress = $simulator->request('GET', '/progress', [], [], [], $cookies);
+    if (!$study['success'] || !str_contains($study['output'], 'Subject-Verb Agreement')
+        || !$progress['success'] || !str_contains($progress['output'], 'Subject-Verb Agreement')) {
+        throw new RuntimeException('completed learning state did not reach dashboard/history views');
+    }
+
     $repeat = $simulator->request('GET', '/quiz', ['action' => 'finish'], [], [], $cookies);
     $oldForm = $simulator->request(
         'POST',
