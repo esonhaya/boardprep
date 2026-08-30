@@ -4,18 +4,28 @@ declare(strict_types=1);
 
 namespace App\Services\Quiz\ResultAction;
 
+use App\Services\Quiz\Start\QuizStartInputNormalizer;
+
 final class QuizResultActionContext
 {
     public static function fromSession(array $session): array
     {
         $topic = self::firstTopic($session);
 
-        return [
+        $normalized = QuizStartInputNormalizer::normalize([
             'topic' => $topic,
-            'subject' => self::text($session['subject'] ?? '') ?: 'English',
-            'mode' => self::text($session['mode'] ?? '') ?: 'practice',
-            'difficulty' => self::text($session['difficulty'] ?? '') ?: 'mixed',
-            'count' => min(20, max(1, self::integer($session['question_count'] ?? $session['count'] ?? 10, 10))),
+            'subject' => $session['subject'] ?? '',
+            'mode' => $session['mode'] ?? '',
+            'difficulty' => $session['difficulty'] ?? '',
+            'count' => $session['question_count'] ?? $session['count'] ?? 10,
+        ]);
+
+        return [
+            'topic' => $normalized['topics'][0] ?? '',
+            'subject' => $normalized['subject'],
+            'mode' => $normalized['mode'],
+            'difficulty' => $normalized['difficulty'],
+            'count' => $normalized['count'],
         ];
     }
 
@@ -38,8 +48,4 @@ final class QuizResultActionContext
         return is_scalar($value) ? trim((string) $value) : '';
     }
 
-    private static function integer(mixed $value, int $fallback): int
-    {
-        return is_numeric($value) ? (int) round((float) $value) : $fallback;
-    }
 }
