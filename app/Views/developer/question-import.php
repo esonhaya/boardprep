@@ -8,7 +8,8 @@ Import Questions
 
 Upload a JSON question file.
 
-Imported questions will be saved as draft.
+Imports use the same validation and duplicate checks as the question editor.
+Records without a status are active and quiz eligible.
 
 </p>
 

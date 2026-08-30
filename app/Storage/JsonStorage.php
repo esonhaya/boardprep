@@ -6,6 +6,7 @@ namespace App\Storage;
 
 use App\Contracts\StorageInterface;
 use App\Exceptions\StorageException;
+use JsonException;
 
 class JsonStorage implements StorageInterface
 {
@@ -69,16 +70,28 @@ class JsonStorage implements StorageInterface
             );
         }
 
-        $data = json_decode(
-            $contents,
-            true,
-            512,
-            JSON_THROW_ON_ERROR
-        );
+        try {
+            $data = json_decode(
+                $contents,
+                true,
+                512,
+                JSON_THROW_ON_ERROR
+            );
+        } catch (JsonException $exception) {
+            throw new StorageException(
+                "Collection '{$collection}' contains malformed JSON.",
+                0,
+                $exception
+            );
+        }
 
-        return is_array($data)
-            ? $data
-            : [];
+        if (!is_array($data) || !array_is_list($data)) {
+            throw new StorageException(
+                "Collection '{$collection}' must contain a JSON list."
+            );
+        }
+
+        return $data;
     }
 
     private function writeCollection(
@@ -157,7 +170,8 @@ class JsonStorage implements StorageInterface
         foreach ($this->readCollection($collection) as $record) {
 
             if (
-                ($record[$this->primaryKey] ?? null) === $id
+                is_scalar($record[$this->primaryKey] ?? null)
+                && (string) $record[$this->primaryKey] === $id
             ) {
                 return $record;
             }
@@ -261,7 +275,8 @@ class JsonStorage implements StorageInterface
         foreach ($records as $index => $record) {
 
             if (
-                ($record[$this->primaryKey] ?? null) === $id
+                is_scalar($record[$this->primaryKey] ?? null)
+                && (string) $record[$this->primaryKey] === $id
             ) {
 
                 $records[$index] =
@@ -296,7 +311,8 @@ class JsonStorage implements StorageInterface
         foreach ($records as $index => $record) {
 
             if (
-                ($record[$this->primaryKey] ?? null) === $id
+                is_scalar($record[$this->primaryKey] ?? null)
+                && (string) $record[$this->primaryKey] === $id
             ) {
 
                 unset($records[$index]);

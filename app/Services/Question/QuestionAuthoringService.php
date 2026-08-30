@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\Question;
 
+use Throwable;
 use App\Services\Question\Authoring\QuestionAuthoringDecision;
 use App\Services\Question\Authoring\QuestionAuthoringPersistence;
 
@@ -39,10 +40,15 @@ final class QuestionAuthoringService
             return $result;
         }
 
-        $result['persisted'] = QuestionAuthoringPersistence::persist(
-            $id,
-            $result['question']
-        );
+        try {
+            $result['persisted'] = QuestionAuthoringPersistence::persist(
+                $id,
+                $result['question']
+            );
+        } catch (Throwable $exception) {
+            $result['errors'][] = $exception->getMessage();
+            return $result;
+        }
         $result['saved'] = $result['persisted'] !== null;
 
         return $result;

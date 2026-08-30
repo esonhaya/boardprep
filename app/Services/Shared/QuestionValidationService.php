@@ -74,6 +74,49 @@ final class QuestionValidationService
                 $errors[] = 'Invalid ' . str_replace('_id', '', $field);
             }
         }
+
+        self::validateTaxonomyHierarchy($taxonomy, $errors);
+    }
+
+    private static function validateTaxonomyHierarchy(array $taxonomy, array &$errors): void
+    {
+        $links = [
+            ['records' => TaxonomyStorageService::domains(), 'id' => 'domain_id', 'parent' => 'subject_id'],
+            ['records' => TaxonomyStorageService::topics(), 'id' => 'topic_id', 'parent' => 'domain_id'],
+            ['records' => TaxonomyStorageService::concepts(), 'id' => 'concept_id', 'parent' => 'topic_id'],
+        ];
+
+        foreach ($links as $link) {
+            $record = self::taxonomyRecord($link['records'], (string) ($taxonomy[$link['id']] ?? ''));
+            if ($record !== null
+                && (string) ($record[$link['parent']] ?? '') !== (string) ($taxonomy[$link['parent']] ?? '')) {
+                $errors[] = 'Inconsistent taxonomy hierarchy';
+                return;
+            }
+        }
+
+        $relations = TaxonomyStorageService::boardSubjects();
+        if ($relations === []) {
+            return;
+        }
+        foreach ($relations as $relation) {
+            if (is_array($relation)
+                && (string) ($relation['board_id'] ?? '') === (string) ($taxonomy['board_id'] ?? '')
+                && (string) ($relation['subject_id'] ?? '') === (string) ($taxonomy['subject_id'] ?? '')) {
+                return;
+            }
+        }
+        $errors[] = 'Inconsistent board and subject taxonomy';
+    }
+
+    private static function taxonomyRecord(array $records, string $id): ?array
+    {
+        foreach ($records as $record) {
+            if (is_array($record) && (string) ($record['id'] ?? '') === $id) {
+                return $record;
+            }
+        }
+        return null;
     }
 
     private static function validateQuestion(array $question, array &$errors): void
