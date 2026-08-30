@@ -142,6 +142,39 @@ class MysqlStorage implements StorageInterface
         return $this->find($table, $id);
     }
 
+    public function updateBatch(string $table, array $ids, callable $updater): void
+    {
+        if ($ids === []) {
+            return;
+        }
+
+        $started = !$this->connection->inTransaction();
+        if ($started) {
+            $this->connection->beginTransaction();
+        }
+
+        try {
+            foreach ($ids as $id) {
+                $statement = $this->connection->prepare(
+                    "SELECT * FROM `{$table}` WHERE `{$this->primaryKey}` = ? FOR UPDATE"
+                );
+                $statement->execute([$id]);
+                $record = $statement->fetch(PDO::FETCH_ASSOC);
+                if (is_array($record)) {
+                    $this->update($table, $id, $updater($record));
+                }
+            }
+            if ($started) {
+                $this->connection->commit();
+            }
+        } catch (\Throwable $exception) {
+            if ($started && $this->connection->inTransaction()) {
+                $this->connection->rollBack();
+            }
+            throw $exception;
+        }
+    }
+
     public function delete(
         string $table,
         string $id

@@ -297,6 +297,42 @@ class JsonStorage implements StorageInterface
         });
     }
 
+    public function updateBatch(string $collection, array $ids, callable $updater): void
+    {
+        if ($ids === []) {
+            return;
+        }
+
+        $this->withMutationLock(function () use ($collection, $ids, $updater): void {
+            $records = $this->readCollection($collection);
+            $positions = [];
+
+            foreach ($records as $index => $record) {
+                $value = is_array($record) ? ($record[$this->primaryKey] ?? null) : null;
+                if (is_scalar($value)) {
+                    $positions[(string) $value] = $index;
+                }
+            }
+
+            $changed = false;
+            foreach ($ids as $id) {
+                $index = $positions[$id] ?? null;
+                if ($index === null) {
+                    continue;
+                }
+
+                $updated = $updater($records[$index]);
+                $updated[$this->primaryKey] = $records[$index][$this->primaryKey];
+                $records[$index] = $updated;
+                $changed = true;
+            }
+
+            if ($changed) {
+                $this->writeCollection($collection, $records);
+            }
+        });
+    }
+
     public function delete(string $collection, string $id): bool
     {
         return $this->withMutationLock(function () use ($collection, $id): bool {

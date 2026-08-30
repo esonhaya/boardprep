@@ -94,6 +94,17 @@ final class MemoryStorage implements StorageInterface
         return $this->collections[$collection][$id];
     }
 
+    public function updateBatch(string $collection, array $ids, callable $updater): void
+    {
+        foreach ($ids as $id) {
+            if (isset($this->collections[$collection][$id])) {
+                $this->collections[$collection][$id] = $updater(
+                    $this->collections[$collection][$id]
+                );
+            }
+        }
+    }
+
     public function delete(
         string $collection,
         string $id

@@ -16,6 +16,14 @@ interface StorageInterface
 
     public function update(string $collection, string $id, array $data): ?array;
 
+    /**
+     * Apply an updater to each requested record as one storage mutation.
+     *
+     * @param array<int, string> $ids
+     * @param callable(array<string, mixed>): array<string, mixed> $updater
+     */
+    public function updateBatch(string $collection, array $ids, callable $updater): void;
+
     public function delete(string $collection, string $id): bool;
 
     public function exists(string $collection, string $id): bool;

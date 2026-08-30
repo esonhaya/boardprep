@@ -130,4 +130,34 @@ class QuestionRepository extends BaseRepository
         ]);
 
     }
+
+    public function updateStatistics(array $entries): void
+    {
+        $correctById = [];
+        foreach ($entries as $entry) {
+            $id = is_scalar($entry['question_id'] ?? null)
+                ? trim((string) $entry['question_id'])
+                : '';
+            if ($id !== '') {
+                $correctById[$id][] = $entry['correct'] ?? null;
+            }
+        }
+
+        $ids = [];
+        foreach ($correctById as $id => $results) {
+            array_push($ids, ...array_fill(0, count($results), $id));
+        }
+
+        $this->storage->updateBatch(
+            $this->collection,
+            $ids,
+            static function (array $question) use (&$correctById): array {
+                $id = (string) $question['id'];
+                return \App\Services\Question\Statistics\QuestionStatisticsUpdater::apply(
+                    $question,
+                    array_shift($correctById[$id])
+                );
+            }
+        );
+    }
 }

@@ -13,12 +13,7 @@ final class QuizAnswerStatisticsRecorder
     {
         $plan = QuizAnswerStatisticsPlan::build($questions, $answers);
 
-        foreach ($plan as $entry) {
-            QuestionStatisticsService::recordAnswer(
-                $entry["question_id"],
-                $entry["correct"]
-            );
-        }
+        QuestionStatisticsService::recordAnswers($plan);
 
         WeaknessService::analyze(self::weaknessAnswers($questions, $plan));
     }

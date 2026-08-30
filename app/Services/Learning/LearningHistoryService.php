@@ -16,13 +16,12 @@ final class LearningHistoryService
                 ->get(AttemptRepository::class)
                 ->all();
 
-        $attempts = self::ordered($attempts);
+        return self::recentFrom($attempts, $limit);
+    }
 
-        return array_slice(
-            $attempts,
-            0,
-            max(0, $limit)
-        );
+    public static function recentFrom(array $attempts, int $limit = 10): array
+    {
+        return array_slice(self::ordered($attempts), 0, max(0, $limit));
     }
 
     public static function ordered(array $attempts): array

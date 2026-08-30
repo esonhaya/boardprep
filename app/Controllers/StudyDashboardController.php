@@ -11,11 +11,12 @@ final class StudyDashboardController
 {
     public static function index(): void
     {
+        $attempts = LearningHistoryService::all();
         \App\Core\View::render(
             "study/index",
             [
-                "dashboard" => self::data(),
-                "history" => LearningHistoryService::recent(5),
+                "dashboard" => StudyDashboardService::build($attempts),
+                "history" => array_slice($attempts, 0, 5),
             ]
         );
     }

@@ -19,7 +19,7 @@ final class ProgressController
             "progress/index",
             [
                 "summary" => $dashboard["progress"],
-                "history" => LearningHistoryService::recent(10),
+                "history" => array_slice($attempts, 0, 10),
                 "topics" => $dashboard["topics"],
                 "subjects" => $dashboard["subjects"],
                 "weakestTopics" => $dashboard["weakestTopics"],
