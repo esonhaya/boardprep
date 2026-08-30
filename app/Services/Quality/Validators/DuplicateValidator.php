@@ -16,9 +16,12 @@ class DuplicateValidator
 
         foreach ($questions as $question) {
 
-            $id = trim(
-                (string) ($question["id"] ?? "")
-            );
+            if (!is_array($question)) {
+                continue;
+            }
+
+            $rawId = $question['id'] ?? null;
+            $id = is_scalar($rawId) ? trim((string) $rawId) : '';
 
             if ($id !== "") {
 
@@ -36,11 +39,10 @@ class DuplicateValidator
                 $ids[$id] = true;
             }
 
-            $text = strtolower(
-                trim(
-                    (string) ($question["question"] ?? "")
-                )
-            );
+            $rawText = $question['question'] ?? null;
+            $text = is_scalar($rawText) ? trim((string) $rawText) : '';
+            $text = preg_replace('/\s+/', ' ', $text) ?? $text;
+            $text = strtolower($text);
 
             if ($text !== "") {
 

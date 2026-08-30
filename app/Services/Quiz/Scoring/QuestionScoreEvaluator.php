@@ -14,7 +14,14 @@ final class QuestionScoreEvaluator
             ? (string) $question["answer"]
             : "";
         $answered = trim($userAnswer) !== "";
+        $choices = is_array($question['choices'] ?? null) ? $question['choices'] : [];
+        $represented = $correctAnswer !== '' && in_array(
+            strtoupper(trim($correctAnswer)),
+            array_map(static fn(mixed $choice): string => is_scalar($choice) ? strtoupper(trim((string) $choice)) : '', $choices),
+            true
+        );
         $correct = $answered
+            && $represented
             && strtoupper(trim($userAnswer)) === strtoupper(trim($correctAnswer));
 
         return [

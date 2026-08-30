@@ -8,6 +8,8 @@ final class ContentTextReader
 {
     public static function read(array $question, string $field): string
     {
-        return trim((string) ($question[$field] ?? ''));
+        $value = $question[$field] ?? null;
+
+        return is_scalar($value) ? trim((string) $value) : '';
     }
 }

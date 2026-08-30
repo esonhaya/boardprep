@@ -35,16 +35,18 @@ $questions = [
     'legacy scalar record',
     ['id' => ['not' => 'an id'], 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Nouns'],
     ['id' => '', 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Nouns'],
-    ['id' => 'q1', 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Nouns', 'difficulty' => 'easy'],
-    ['id' => 'q1', 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Nouns', 'difficulty' => 'easy'],
-    ['id' => 'q2', 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Nouns', 'difficulty' => 'easy'],
+    ['id' => 'bad', 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Nouns', 'difficulty' => 'easy', 'question' => 'Broken answer', 'choices' => ['A', 'B'], 'answer' => 'C', 'explanation' => 'The answer is unavailable.'],
+    ['id' => 'q1', 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Nouns', 'difficulty' => 'easy', 'question' => 'Which is a noun?', 'choices' => ['Teacher', 'Quickly'], 'answer' => 'Teacher', 'explanation' => 'Teacher names a person.'],
+    ['id' => 'q1', 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Nouns', 'difficulty' => 'easy', 'question' => 'Duplicate ID question?', 'choices' => ['One', 'Two'], 'answer' => 'One', 'explanation' => 'This duplicates the identifier.'],
+    ['id' => 'q2', 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Nouns', 'difficulty' => 'easy', 'question' => '  WHICH   is a noun? ', 'choices' => ['School', 'Slowly'], 'answer' => 'School', 'explanation' => 'This duplicates normalized text.'],
+    ['id' => 'q3', 'subject' => 'English', 'domain' => 'Grammar', 'topic' => 'Nouns', 'difficulty' => 'easy', 'question' => 'Which names a place?', 'choices' => ['School', 'Slowly'], 'answer' => ' school ', 'explanation' => 'School names a place.'],
 ];
 
 $result = \QuestionSelectionService::fulfillRequest($questions, $request);
 
 if (count($result->questions) !== 2 ||
-    array_map(static fn(array $question): string => (string) $question['id'], $result->questions) !== ['q1', 'q2'] &&
-    array_map(static fn(array $question): string => (string) $question['id'], $result->questions) !== ['q2', 'q1'] ||
+    array_map(static fn(array $question): string => (string) $question['id'], $result->questions) !== ['q1', 'q3'] &&
+    array_map(static fn(array $question): string => (string) $question['id'], $result->questions) !== ['q3', 'q1'] ||
     !$result->fulfilled) {
     throw new RuntimeException('malformed and duplicate candidates were not isolated');
 }

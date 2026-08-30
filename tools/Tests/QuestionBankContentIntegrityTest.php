@@ -28,7 +28,7 @@ $request = new \SelectionRequest(
     domain: 'Grammar',
     difficultyDistribution: ['medium' => 1],
     questionCount: 1,
-    topic: 'Parts'
+    topic: 'parts-of-speech'
 );
 $selected = \QuestionSelectionService::fulfillRequest([$built], $request)->questions;
 

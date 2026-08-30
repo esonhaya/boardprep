@@ -12,6 +12,13 @@ final class QuestionImportReport
 
     public array $failed = [];
 
+    public array $errors = [];
+
+    public function error(string $message): void
+    {
+        $this->errors[] = $message;
+    }
+
     public function success(
         array $question
     ): void {
@@ -68,6 +75,10 @@ final class QuestionImportReport
     {
 
         return [
+
+            "success" => empty($this->errors) && empty($this->failed),
+
+            "errors" => $this->errors,
 
             "imported" =>
                 $this->imported,

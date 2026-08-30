@@ -54,6 +54,7 @@ trait QuizTestGenerationTrait
             'question' => "Generation test question {$id}",
             'choices' => ['A','B','C','D'],
             'answer' => $answer,
+            'explanation' => "{$answer} is the correct answer for this generation fixture.",
             'subject' => 'English',
             'domain' => 'Grammar',
             'difficulty' => $difficulty,

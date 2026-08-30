@@ -36,10 +36,11 @@ final class QuestionImportService
         $report =
             new \QuestionImportReport();
 
-        $processor->process(
-            $parser->parse($json),
-            $report
-        );
+        $questions = $parser->parse($json);
+        foreach ($parser->errors() as $error) {
+            $report->error($error);
+        }
+        $processor->process($questions, $report);
 
         return $report->summary();
     }

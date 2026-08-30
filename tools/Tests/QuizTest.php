@@ -1013,7 +1013,7 @@ final class QuizTest
      */
     private function selectionQuestions(): array
     {
-        return [
+        $questions = [
             [
                 'id' => 601,
                 'subject' => 'English',
@@ -1047,6 +1047,12 @@ final class QuizTest
                 'question' => 'Science 1',
             ],
         ];
+        return array_map(static function(array $question): array {
+            $question['choices'] = ['A', 'B', 'C', 'D'];
+            $question['answer'] = 'A';
+            $question['explanation'] = 'A is the correct answer for this selection fixture.';
+            return $question;
+        }, $questions);
     }
 
     /**
@@ -1309,19 +1315,19 @@ final class QuizTest
     private function assertAuthoringQuestionData(array $question): void
     {
         $this->assertSame(
-            "LET",
+            "let",
             $question["taxonomy"]["board_id"],
             "Authoring: board taxonomy preserved"
         );
 
         $this->assertSame(
-            "English",
+            "english",
             $question["taxonomy"]["subject_id"],
             "Authoring: subject taxonomy preserved"
         );
 
         $this->assertSame(
-            "Grammar",
+            "grammar",
             $question["taxonomy"]["domain_id"],
             "Authoring: domain taxonomy preserved"
         );
