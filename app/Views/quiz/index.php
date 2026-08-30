@@ -114,6 +114,12 @@ Next Question
 
 <form method="POST" action="/quiz?action=submit">
 
+<input
+type="hidden"
+name="question_id"
+value="<?= htmlspecialchars((string) ($question["id"] ?? "")) ?>"
+>
+
 
 <?php foreach($question["choices"] as $key=>$choice): ?>
 

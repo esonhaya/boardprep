@@ -13,5 +13,8 @@ final class QuizStartSessionWriter
         \SessionService::set('answers', []);
         \SessionService::set('feedback', null);
         \SessionService::set('mode', $specification->mode);
+        \SessionService::remove('attempt_persisted');
+        \SessionService::remove('quiz_completed');
+        \SessionService::remove('quiz_result');
     }
 }

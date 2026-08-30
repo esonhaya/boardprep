@@ -10,7 +10,12 @@ final class AnswerNormalizer
 
         if (preg_match('/^[A-D]$/i', $answer)) {
             $index = ord(strtoupper($answer)) - 65;
-            return $question["choices"][$index] ?? "";
+            $choices = is_array($question["choices"] ?? null)
+                ? $question["choices"]
+                : [];
+            return is_scalar($choices[$index] ?? null)
+                ? (string) $choices[$index]
+                : "";
         }
 
         return $answer;

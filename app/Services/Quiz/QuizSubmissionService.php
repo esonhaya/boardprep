@@ -10,11 +10,19 @@ class QuizSubmissionService
 {
     public static function submit(): void
     {
+        if (SessionService::has("attempt_persisted")) {
+            Response::redirect("/quiz?action=finish");
+        }
+
         $questions =
             SessionService::get(
                 "questions",
                 []
             );
+
+        if (!is_array($questions)) {
+            Response::redirect("/quiz");
+        }
 
         $current =
             QuizNavigationService::current();
@@ -22,10 +30,20 @@ class QuizSubmissionService
         $question =
             $questions[$current] ?? null;
 
-        if (!$question) {
+        if (!is_array($question) || !self::questionId($question)) {
             Response::redirect(
                 "/quiz?action=finish"
             );
+        }
+
+        $postedQuestionId = Request::input("question_id");
+        if ($postedQuestionId !== null && (
+            !is_scalar($postedQuestionId)
+            || (string) $postedQuestionId !== self::questionId($question)
+        )) {
+            SessionService::flash("error", "This quiz question is no longer active.");
+            self::renderQuestion($question, $current, count($questions));
+            return;
         }
 
         $answer =
@@ -33,7 +51,7 @@ class QuizSubmissionService
                 "answer"
             );
 
-        if ($answer === null) {
+        if ($answer === null || !is_scalar($answer)) {
 
             SessionService::flash(
                 "error",
@@ -49,10 +67,14 @@ class QuizSubmissionService
             return;
         }
 
-        self::storeAnswer(
+        if (!self::storeAnswer(
             $question,
-            $answer
-        );
+            (string) $answer
+        )) {
+            self::storeFeedback($question, self::existingAnswer($question));
+            self::renderQuestion($question, $current, count($questions));
+            return;
+        }
 
         $mode =
             SessionService::get(
@@ -82,22 +104,45 @@ class QuizSubmissionService
 
     private static function storeAnswer(
         array $question,
-        mixed $answer
-    ): void {
+        string $answer
+    ): bool {
 
         $answers =
             SessionService::get(
                 "answers",
                 []
             );
+        if (!is_array($answers)) {
+            $answers = [];
+        }
 
-        $answers[$question["id"]] =
-            $answer;
+        $id = self::questionId($question);
+        if ($id === "" || array_key_exists($id, $answers)) {
+            return false;
+        }
+
+        $answers[$id] = $answer;
 
         SessionService::set(
             "answers",
             $answers
         );
+
+        return true;
+    }
+
+    private static function existingAnswer(array $question): ?string
+    {
+        $answers = SessionService::get("answers", []);
+        $id = self::questionId($question);
+        $answer = is_array($answers) ? ($answers[$id] ?? null) : null;
+        return is_scalar($answer) ? (string) $answer : null;
+    }
+
+    private static function questionId(array $question): string
+    {
+        $id = $question["id"] ?? null;
+        return is_scalar($id) ? trim((string) $id) : "";
     }
 
     private static function storeFeedback(

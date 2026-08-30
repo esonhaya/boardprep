@@ -6,6 +6,15 @@ final class QuizResultService
 {
     public static function build(): array
     {
+        $cached = SessionService::get("quiz_result", null);
+        if (is_array($cached)
+            && array_key_exists("score", $cached)
+            && array_key_exists("total", $cached)
+            && array_key_exists("percentage", $cached)
+        ) {
+            return QuizResultResponseFactory::create($cached);
+        }
+
         $input = QuizResultSessionReader::read();
 
         $questions = $input["questions"];
@@ -36,6 +45,8 @@ final class QuizResultService
                 $answers
             );
         }
+
+        SessionService::set("quiz_result", $summary);
 
         return QuizResultResponseFactory::create($summary);
     }

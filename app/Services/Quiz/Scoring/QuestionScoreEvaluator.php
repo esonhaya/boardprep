@@ -10,7 +10,9 @@ final class QuestionScoreEvaluator
     public static function evaluate(array $question, ?string $answer): array
     {
         $userAnswer = AnswerNormalizer::normalize($question, $answer);
-        $correctAnswer = (string) ($question["answer"] ?? "");
+        $correctAnswer = is_scalar($question["answer"] ?? null)
+            ? (string) $question["answer"]
+            : "";
         $answered = trim($userAnswer) !== "";
         $correct = $answered
             && strtoupper(trim($userAnswer)) === strtoupper(trim($correctAnswer));

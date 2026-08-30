@@ -20,6 +20,10 @@ final class QuizResultPersistenceService
         array $questions,
         array $answers = []
     ): void {
+        if (SessionService::has("attempt_persisted")) {
+            return;
+        }
+
         $attempt = QuizLearningContextService::enrichAttempt(
             $attempt,
             $session,
@@ -31,6 +35,7 @@ final class QuizResultPersistenceService
             ->save($attempt);
 
         SessionService::set("attempt_persisted", true);
+        SessionService::set("quiz_completed", true);
 
         QuizAnswerStatisticsRecorder::record($questions, $answers);
     }

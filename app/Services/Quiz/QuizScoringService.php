@@ -10,9 +10,20 @@ class QuizScoringService
         $results = [];
 
         foreach ($questions as $question) {
+            if (!is_array($question)) {
+                continue;
+            }
+
+            $questionId = $question["id"] ?? null;
+            $answer = is_scalar($questionId)
+                && array_key_exists((string) $questionId, $answers)
+                && is_scalar($answers[(string) $questionId])
+                    ? (string) $answers[(string) $questionId]
+                    : null;
+
             $evaluation = QuestionScoreEvaluator::evaluate(
                 $question,
-                $answers[$question["id"]] ?? null
+                $answer
             );
 
             $accumulator->record(
