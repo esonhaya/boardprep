@@ -65,6 +65,31 @@ final class QuizLifecycleScenario extends SimulationScenario
         }
 
         /*
+         * GET /quiz is the production settings route. Visiting it while a
+         * quiz is active must not persist an attempt or destroy the active
+         * server-side quiz session needed by the following submission.
+         */
+        $simulation
+            ->get('/quiz')
+            ->execute()
+            ->assertSuccessful()
+            ->assertContains('Quiz');
+
+        $attemptsAfterSettingsVisit = array_values(array_filter(
+            $attempts->all(),
+            static fn (array $attempt): bool => !in_array(
+                (string) ($attempt['id'] ?? ''),
+                $beforeIds,
+                true
+            ) && trim((string) ($attempt['id'] ?? '')) !== ''
+        ));
+        if ($attemptsAfterSettingsVisit !== []) {
+            throw new \RuntimeException(
+                'Visiting quiz settings during an active session persisted an attempt prematurely.'
+            );
+        }
+
+        /*
          * 3. Submit an answer through the real POST path.
          *
          * We intentionally use a synthetic answer. The lifecycle
@@ -116,6 +141,61 @@ final class QuizLifecycleScenario extends SimulationScenario
         }
         $practiceAttempt = $afterPractice[0];
         $practiceId = (string) ($practiceAttempt['id'] ?? '');
+
+        /*
+         * Revisit the completed practice result. QuizResultService should
+         * serve the cached result and the persistence guard must prevent a
+         * duplicate attempt.
+         */
+        $simulation
+            ->get('/quiz?action=result')
+            ->execute()
+            ->assertSuccessful()
+            ->assertContains('Quiz Result');
+
+        $afterPracticeResultReload = array_values(array_filter(
+            $attempts->all(),
+            static fn (array $attempt): bool => !in_array(
+                (string) ($attempt['id'] ?? ''),
+                $beforeIds,
+                true
+            ) && trim((string) ($attempt['id'] ?? '')) !== ''
+        ));
+        if ($afterPracticeResultReload !== $afterPractice) {
+            throw new \RuntimeException(
+                'Reloading the completed practice result duplicated or changed learner history.'
+            );
+        }
+
+        /*
+         * Navigating back to the ordinary quiz settings page must not destroy
+         * the completed result. Returning to the result remains safe and
+         * exact-once.
+         */
+        $simulation
+            ->get('/quiz')
+            ->execute()
+            ->assertSuccessful()
+            ->assertContains('Quiz');
+
+        $simulation
+            ->get('/quiz?action=result')
+            ->execute()
+            ->assertSuccessful()
+            ->assertContains('Quiz Result');
+
+        if ($afterPractice !== array_values(array_filter(
+            $attempts->all(),
+            static fn (array $attempt): bool => !in_array(
+                (string) ($attempt['id'] ?? ''),
+                $beforeIds,
+                true
+            ) && trim((string) ($attempt['id'] ?? '')) !== ''
+        ))) {
+            throw new \RuntimeException(
+                'Settings/result navigation after practice completion changed learner history.'
+            );
+        }
 
         /*
          * 5. Replace the completed practice session with a real exam session.
@@ -217,6 +297,59 @@ final class QuizLifecycleScenario extends SimulationScenario
             ) && trim((string) ($attempt['id'] ?? '')) !== ''
         ))) {
             throw new \RuntimeException('Post-completion exam submission changed learner history.');
+        }
+
+        /*
+         * A browser-back-style replay of an old next action after completion
+         * must remain behind QuizNavigationService's completion guard.
+         */
+        $simulation
+            ->post('/quiz?action=next', ['action' => 'next'])
+            ->execute()
+            ->assertStatus(302);
+
+        $completedNavigation = $simulation->context()->get('http');
+        if (!is_array($completedNavigation)
+            || ($completedNavigation['location'] ?? null) !== '/quiz?action=finish') {
+            throw new \RuntimeException(
+                'Post-completion navigation did not remain behind the completion guard.'
+            );
+        }
+
+        if ($afterExam !== array_values(array_filter(
+            $attempts->all(),
+            static fn (array $attempt): bool => !in_array(
+                (string) ($attempt['id'] ?? ''),
+                $beforeIds,
+                true
+            ) && trim((string) ($attempt['id'] ?? '')) !== ''
+        ))) {
+            throw new \RuntimeException(
+                'Post-completion navigation changed learner history.'
+            );
+        }
+
+        /*
+         * The completed exam result must remain revisit-able after stale
+         * submit/navigation attempts without another persistence pass.
+         */
+        $simulation
+            ->get('/quiz?action=result')
+            ->execute()
+            ->assertSuccessful()
+            ->assertContains('Quiz Result');
+
+        if ($afterExam !== array_values(array_filter(
+            $attempts->all(),
+            static fn (array $attempt): bool => !in_array(
+                (string) ($attempt['id'] ?? ''),
+                $beforeIds,
+                true
+            ) && trim((string) ($attempt['id'] ?? '')) !== ''
+        ))) {
+            throw new \RuntimeException(
+                'Reloading the completed exam result changed learner history.'
+            );
         }
 
         /*
