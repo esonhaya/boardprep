@@ -19,6 +19,15 @@ class Response
             "Location: {$location}"
         );
 
+        if (getenv('BOARDPREP_SIMULATED') === '1') {
+            fwrite(
+                STDERR,
+                '__BOARDPREP_HTTP_LOCATION__'
+                . $location
+                . PHP_EOL
+            );
+        }
+
         exit;
 
     }

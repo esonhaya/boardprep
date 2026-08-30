@@ -98,6 +98,71 @@ final class QuizLifecycleScenario extends SimulationScenario
             ->assertSuccessful()
             ->assertContains('Quiz Result')
             ->assertContains('Answer Review');
+
+        /*
+         * 5. Fail a replacement start through the production HTTP path.
+         *
+         * An impossible subject must abandon the completed session, expose
+         * the learner recovery message, and leave persistence untouched.
+         */
+        $attemptIdsBeforeFailure = array_map(
+            'strval',
+            array_column($attempts->all(), 'id')
+        );
+
+        $simulation
+            ->post('/quiz', [
+                'action' => 'start',
+                'exam' => 'LET',
+                'subject' => 'Simulation Missing Subject',
+                'domain' => 'Simulation Missing Domain',
+                'difficulty' => 'hard',
+                'count' => 20,
+                'mode' => 'practice',
+            ])
+            ->execute()
+            ->assertStatus(302);
+
+        $failedStart = $simulation->context()->get('http');
+        if (!is_array($failedStart) || ($failedStart['location'] ?? null) !== '/quiz') {
+            throw new \RuntimeException('Failed quiz generation did not use the safe recovery redirect.');
+        }
+
+        $simulation
+            ->get('/quiz')
+            ->execute()
+            ->assertSuccessful()
+            ->assertContains('No questions matched')
+            ->assertNotContains('name="question_id"');
+
+        if ($attemptIdsBeforeFailure !== array_map('strval', array_column($attempts->all(), 'id'))) {
+            throw new \RuntimeException('Failed quiz generation accidentally persisted learner history.');
+        }
+
+        /*
+         * 6. Finishing after recovery must remain safe and cannot reactivate
+         * stale questions or create another attempt.
+         */
+        $simulation
+            ->post('/quiz', ['action' => 'finish'])
+            ->execute()
+            ->assertStatus(302);
+
+        $finishAfterFailure = $simulation->context()->get('http');
+        if (!is_array($finishAfterFailure) || ($finishAfterFailure['location'] ?? null) !== '/quiz') {
+            throw new \RuntimeException('Finish after failed generation did not return to quiz recovery.');
+        }
+
+        $simulation
+            ->get('/quiz')
+            ->execute()
+            ->assertSuccessful()
+            ->assertContains('stale or invalid')
+            ->assertNotContains('name="question_id"');
+
+        if ($attemptIdsBeforeFailure !== array_map('strval', array_column($attempts->all(), 'id'))) {
+            throw new \RuntimeException('Finish after failed generation duplicated learner history.');
+        }
         } finally {
             foreach ($attempts->all() as $attempt) {
                 $id = is_scalar($attempt['id'] ?? null) ? (string) $attempt['id'] : '';

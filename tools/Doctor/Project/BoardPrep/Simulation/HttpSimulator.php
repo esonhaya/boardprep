@@ -391,7 +391,8 @@ PHP;
             );
 
         $location =
-            $this->extractLocation($headers);
+            $this->extractSimulatedLocation($stderr)
+            ?? $this->extractLocation($headers);
 
         return [
             'exitCode' => $exitCode,
@@ -438,6 +439,22 @@ PHP;
         }
 
         return 200;
+    }
+
+    private function extractSimulatedLocation(
+        string $stderr
+    ): ?string {
+        if (
+            preg_match(
+                '/__BOARDPREP_HTTP_LOCATION__(.*)/',
+                $stderr,
+                $matches
+            )
+        ) {
+            return trim($matches[1]);
+        }
+
+        return null;
     }
 
     /**
