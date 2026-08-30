@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tools\Tests;
 
-use Tools\Doctor\Simulation\HttpSimulator;
+use Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator;
 
 final class HttpTest
 {
@@ -30,6 +30,12 @@ final class HttpTest
         );
 
         $this->runApplicationRoutes(
+            $simulator,
+            $passed,
+            $failed
+        );
+
+        $this->runQuizStartRoundTrip(
             $simulator,
             $passed,
             $failed
@@ -131,6 +137,34 @@ final class HttpTest
         }
     }
 
+    private function runQuizStartRoundTrip(
+        HttpSimulator $simulator,
+        int &$passed,
+        int &$failed
+    ): void {
+        $this->test(
+            'GET /quiz retry action starts quiz',
+            $simulator->request(
+                'GET',
+                '/quiz',
+                [
+                    'action' => 'start',
+                    'subject' => 'English',
+                    'topic' => 'Grammar',
+                    'mode' => 'practice',
+                    'difficulty' => 'mixed',
+                    'count' => 1,
+                ],
+                [],
+                [],
+                ['PHPSESSID' => 'batch424-quiz-start']
+            ),
+            $passed,
+            $failed,
+            'Question '
+        );
+    }
+
     private function runEnvironmentTests(
         HttpSimulator $simulator,
         int &$passed,
@@ -140,7 +174,7 @@ final class HttpTest
             'POST request environment',
             $simulator->request(
                 'POST',
-                '/',
+                '/quiz',
                 [],
                 [
                     'simulation' => 'true',
