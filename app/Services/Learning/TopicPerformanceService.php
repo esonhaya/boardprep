@@ -12,7 +12,10 @@ final class TopicPerformanceService
     {
         $attempts = LearningAttemptNormalizer::all($attempts);
         $topics = TopicPerformanceAccumulator::summarize($attempts);
-        usort($topics, static fn(array $a, array $b): int => $b['average'] <=> $a['average']);
+        usort($topics, static function (array $a, array $b): int {
+            $average = $b['average'] <=> $a['average'];
+            return $average !== 0 ? $average : self::tieBreak($a, $b);
+        });
         return array_values($topics);
     }
 
@@ -20,7 +23,25 @@ final class TopicPerformanceService
     {
         $attempts = LearningAttemptNormalizer::all($attempts);
         $topics = TopicPerformanceAccumulator::summarize($attempts);
-        usort($topics, static fn(array $a, array $b): int => $a['average'] <=> $b['average']);
+        usort($topics, static function (array $a, array $b): int {
+            $average = $a['average'] <=> $b['average'];
+            return $average !== 0 ? $average : self::tieBreak($a, $b);
+        });
         return array_slice($topics, 0, max(0, $limit));
+    }
+
+    private static function tieBreak(array $a, array $b): int
+    {
+        $subject = strcasecmp(
+            (string) ($a['subject'] ?? ''),
+            (string) ($b['subject'] ?? '')
+        );
+
+        return $subject !== 0
+            ? $subject
+            : strcasecmp(
+                (string) ($a['topic'] ?? ''),
+                (string) ($b['topic'] ?? '')
+            );
     }
 }
