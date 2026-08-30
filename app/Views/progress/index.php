@@ -50,6 +50,12 @@ $best = (int) ($summary["bestScore"] ?? 0);
         <article>
             <h3><?= htmlspecialchars((string) ($recommendation["title"] ?? "")) ?></h3>
             <p><?= htmlspecialchars((string) ($recommendation["reason"] ?? "")) ?></p>
+            <a
+                href="<?= htmlspecialchars((string) ($recommendation["action"] ?? "/quiz")) ?>"
+                aria-label="<?= htmlspecialchars((string) ($recommendation["label"] ?? "Start practice")) ?>"
+            >
+                <?= htmlspecialchars((string) ($recommendation["label"] ?? "Start practice")) ?>
+            </a>
         </article>
     <?php endforeach; ?>
 </section>
