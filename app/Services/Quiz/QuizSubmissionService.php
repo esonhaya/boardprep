@@ -38,7 +38,7 @@ class QuizSubmissionService
         $question =
             $questions[$current] ?? null;
 
-        if (!\App\Services\Quiz\Session\QuizSessionQuestion::isRenderable($question)) {
+        if (!\App\Services\Quiz\Session\QuizSessionQuestion::isCurrent($question)) {
             \App\Services\Quiz\Start\QuizStartSessionWriter::clear();
             SessionService::flash('error', 'That quiz session was stale or invalid. Please start a new quiz.');
             Response::redirect('/quiz');

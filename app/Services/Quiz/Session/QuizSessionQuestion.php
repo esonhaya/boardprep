@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Services\Quiz\Session;
 
+use App\Core\App;
+use App\Repositories\QuestionRepository;
+
 final class QuizSessionQuestion
 {
     public static function isRenderable(mixed $question): bool
@@ -46,5 +49,21 @@ final class QuizSessionQuestion
         }
 
         return true;
+    }
+
+    public static function isCurrent(mixed $question): bool
+    {
+        if (!self::isRenderable($question)) {
+            return false;
+        }
+
+        $id = trim((string) $question['id']);
+        $stored = App::container()->get(QuestionRepository::class)->find($id);
+        if (!self::isRenderable($stored)) {
+            return false;
+        }
+
+        $status = strtolower(trim((string) ($stored['status'] ?? 'active')));
+        return in_array($status, ['active', 'approved'], true);
     }
 }

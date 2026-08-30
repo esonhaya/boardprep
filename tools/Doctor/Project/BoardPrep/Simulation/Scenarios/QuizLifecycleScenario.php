@@ -353,7 +353,58 @@ final class QuizLifecycleScenario extends SimulationScenario
         }
 
         /*
-         * 6. Exercise a production shortage with a controlled question pool.
+         * 6. Invalidate the active question after generation. The production
+         * submit guard must re-check repository state, clear the session, and
+         * avoid every learner-history side effect.
+         */
+        $invalidationAttempts = $attempts->all();
+        $invalidationWeaknesses = WeaknessStorageService::all();
+        $questions->replaceAll([
+            self::question('simulation-mid-session', 'Mid-session question?', 'approved', 'English'),
+        ]);
+        $simulation
+            ->post('/quiz', [
+                'action' => 'start', 'exam' => 'LET', 'subject' => 'English',
+                'difficulty' => 'mixed', 'count' => 1, 'mode' => 'practice',
+            ])
+            ->execute()
+            ->assertSuccessful()
+            ->assertContains('Mid-session question?');
+
+        $questions->replaceAll([
+            self::question('simulation-mid-session', 'Mid-session question?', 'archived', 'English'),
+        ]);
+        $simulation
+            ->post('/quiz?action=submit', [
+                'action' => 'submit', 'question_id' => 'simulation-mid-session', 'answer' => 'A',
+            ])
+            ->execute()
+            ->assertStatus(302);
+        $invalidSubmit = $simulation->context()->get('http');
+        if (!is_array($invalidSubmit) || ($invalidSubmit['location'] ?? null) !== '/quiz') {
+            throw new \RuntimeException('Invalidated submit did not redirect to quiz recovery.');
+        }
+        $simulation
+            ->get('/quiz')
+            ->execute()
+            ->assertSuccessful()
+            ->assertContains('stale or invalid')
+            ->assertNotContains('name="question_id"');
+        if ($attempts->all() !== $invalidationAttempts
+            || WeaknessStorageService::all() !== $invalidationWeaknesses) {
+            throw new \RuntimeException('Invalidated submit persisted learner side effects.');
+        }
+        $simulation
+            ->get('/quiz?action=result')
+            ->execute()
+            ->assertStatus(302);
+        $invalidResult = $simulation->context()->get('http');
+        if (!is_array($invalidResult) || ($invalidResult['location'] ?? null) !== '/quiz') {
+            throw new \RuntimeException('Invalidated submit fabricated a result.');
+        }
+
+        /*
+         * 7. Exercise a production shortage with a controlled question pool.
          *
          * Production intentionally degrades to the eligible pool size. Draft
          * and archived questions are real authoring states, while the Math
@@ -428,7 +479,7 @@ final class QuizLifecycleScenario extends SimulationScenario
         }
 
         /*
-         * 7. An invalid taxonomy filter creates an empty eligible pool. The
+         * 8. An invalid taxonomy filter creates an empty eligible pool. The
          * failed replacement must clear the still-active shortage quiz.
          */
         $simulation
@@ -461,7 +512,7 @@ final class QuizLifecycleScenario extends SimulationScenario
         }
 
         /*
-         * 8. Finishing after recovery must remain safe and cannot reactivate
+         * 9. Finishing after recovery must remain safe and cannot reactivate
          * stale questions or create another attempt.
          */
         $simulation

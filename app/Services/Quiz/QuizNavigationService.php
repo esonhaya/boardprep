@@ -36,7 +36,7 @@ class QuizNavigationService
             Response::redirect('/quiz?action=finish');
         }
 
-        if (!\App\Services\Quiz\Session\QuizSessionQuestion::isRenderable($questions[$current] ?? null)) {
+        if (!\App\Services\Quiz\Session\QuizSessionQuestion::isCurrent($questions[$current] ?? null)) {
             self::abandonInvalidSession();
         }
 
