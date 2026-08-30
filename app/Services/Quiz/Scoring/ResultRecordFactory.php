@@ -11,7 +11,7 @@ final class ResultRecordFactory
     public static function create(array $question, array $evaluation): array
     {
         return [
-            "question" => $question["question"],
+            "question" => $question,
             "choices" => $question["choices"] ?? [],
             "userAnswer" => $evaluation["userAnswer"],
             "correctAnswer" => $evaluation["correctAnswer"],

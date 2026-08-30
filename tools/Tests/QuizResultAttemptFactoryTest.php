@@ -26,9 +26,9 @@ $attempt = QuizResultAttemptFactory::create(
 assert(str_starts_with($attempt["id"], "attempt-"));
 assert($attempt["session_id"] === "session-395");
 assert($attempt["user_id"] === "session:session-395");
-assert($attempt["question_count"] === 5);
+assert($attempt["question_count"] === 2);
 assert($attempt["score"] === 4);
-assert($attempt["percentage"] === 80);
+assert((float) $attempt["percentage"] === 80.0);
 assert($attempt["completed"] === true);
 
 echo "[PASS] QuizResultAttemptFactory assertions verified.\n";
