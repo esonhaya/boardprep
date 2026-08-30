@@ -5,8 +5,6 @@ declare(strict_types=1);
 error_reporting(E_ALL);
 ini_set('display_errors', '0');
 
-session_start();
-
 require_once __DIR__ . '/../app/Core/Autoloader.php';
 
 \App\Core\Autoloader::register();
@@ -15,6 +13,10 @@ use App\Core\ExceptionHandler;
 use App\Core\Router;
 
 try {
+
+    if (session_status() === PHP_SESSION_NONE && !session_start()) {
+        throw new RuntimeException('Unable to start the application session.');
+    }
 
     require_once __DIR__ . '/../bootstrap/app.php';
 

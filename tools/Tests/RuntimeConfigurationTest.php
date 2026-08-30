@@ -54,4 +54,14 @@ if ($status === 0 || !str_contains($output, 'DB_DRIVER')) {
     exit("[FAIL] invalid storage driver did not fail clearly.\n");
 }
 
+[$status, $output] = runBootstrap($php, $script, [
+    'APP_ENV' => 'production',
+    'APP_DEBUG' => 'true',
+    'APP_TIMEZONE' => 'UTC',
+    'DB_DRIVER' => 'json',
+]);
+if ($status === 0 || !str_contains($output, 'APP_DEBUG')) {
+    exit("[FAIL] production debug mode was accepted.\n");
+}
+
 echo "[PASS] runtime configuration and clean-process bootstrap verified.\n";

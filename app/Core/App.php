@@ -77,6 +77,18 @@ class App
 
     private function configureRuntime(): void
     {
+        $environment = $this->config['environment'] ?? null;
+        if (!is_string($environment) || !in_array($environment, ['production', 'development', 'testing'], true)) {
+            throw new \RuntimeException('APP_ENV must be production, development, or testing.');
+        }
+
+        if ($environment === 'production' && filter_var(
+            Environment::get('APP_DEBUG', 'false'),
+            FILTER_VALIDATE_BOOLEAN
+        )) {
+            throw new \RuntimeException('APP_DEBUG must be false when APP_ENV=production.');
+        }
+
         $timezone = $this->config['timezone'] ?? null;
         if (!is_string($timezone) || !in_array($timezone, timezone_identifiers_list(), true)) {
             throw new \RuntimeException('APP_TIMEZONE must be a valid timezone identifier.');

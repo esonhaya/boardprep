@@ -24,6 +24,7 @@ use App\Controllers\QuizFlowController;
 use App\Controllers\SubjectController;
 use App\Controllers\StudyDashboardController;
 use App\Controllers\TaxonomyController;
+use App\Core\App;
 
 $router->get(
     "/",
@@ -76,6 +77,8 @@ $router->get(
     "/progress",
     [ProgressController::class, "index"]
 );
+
+if (App::config('environment') !== 'production') {
 
 $router->get(
     "/developer",
@@ -261,3 +264,4 @@ $router->get(
     "/blueprint-health",
     [BlueprintHealthController::class, "index"]
 );
+}

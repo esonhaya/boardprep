@@ -60,9 +60,11 @@
         <a href="/quiz"<?= $currentPath === "/quiz" ? ' aria-current="page"' : "" ?>>
             Quiz
         </a>
-        <a href="/developer"<?= str_starts_with($currentPath, "/developer") ? ' aria-current="page"' : "" ?>>
-            Developer
-        </a>
+        <?php if (\App\Core\App::config('environment') !== 'production'): ?>
+            <a href="/developer"<?= str_starts_with($currentPath, "/developer") ? ' aria-current="page"' : "" ?>>
+                Developer
+            </a>
+        <?php endif; ?>
 
     </nav>
 

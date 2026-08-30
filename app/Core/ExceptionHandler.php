@@ -12,6 +12,14 @@ class ExceptionHandler
         Throwable $exception
     ): never {
 
+        error_log(sprintf(
+            '[BoardPrep] %s: %s in %s:%d',
+            $exception::class,
+            $exception->getMessage(),
+            $exception->getFile(),
+            $exception->getLine()
+        ));
+
         http_response_code(
             $this->statusCode($exception)
         );
@@ -74,7 +82,8 @@ class ExceptionHandler
 
     protected function isDebug(): bool
     {
-        return filter_var(
+        return Environment::get('APP_ENV', 'production') !== 'production'
+            && filter_var(
             Environment::get('APP_DEBUG', 'false'),
             FILTER_VALIDATE_BOOLEAN
         );
