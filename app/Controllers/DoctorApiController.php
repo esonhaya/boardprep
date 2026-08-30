@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Controllers;
 final class DoctorApiController
 {
-    public function index(): void
+    public static function index(): void
     {
         $file =
-            './storage/doctor/latest-report.json';
+            dirname(__DIR__, 2) . '/storage/doctor-report.json';
 
         header(
             'Content-Type: application/json'
@@ -25,6 +25,22 @@ final class DoctorApiController
             return;
         }
 
-        readfile($file);
+        $contents = file_get_contents($file);
+        $report = $contents === false
+            ? null
+            : json_decode($contents, true);
+
+        if (!is_array($report)) {
+            http_response_code(500);
+            echo json_encode([
+                'error' => 'Doctor report is malformed.'
+            ]);
+            return;
+        }
+
+        echo json_encode(
+            $report,
+            JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR
+        );
     }
 }

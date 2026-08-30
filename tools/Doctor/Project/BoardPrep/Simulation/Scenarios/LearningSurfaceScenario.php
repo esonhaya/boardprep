@@ -18,16 +18,18 @@ final class LearningSurfaceScenario extends SimulationScenario
         ApplicationSimulator $simulation
     ): void {
         /*
-         * 1. Developer dashboard
+         * 1. Learner dashboard
          *
          * Verifies that the dashboard can build its
-         * repository-health report and render normally.
+         * learning overview and recommendation and render normally.
          */
         $simulation
             ->get('/dashboard')
             ->execute()
             ->assertSuccessful()
-            ->assertContains('Developer Dashboard');
+            ->assertContains('Learner Dashboard')
+            ->assertContains('Learning Overview')
+            ->assertContains('Recommended Next Step');
 
         /*
          * 2. Learning profile
@@ -43,7 +45,8 @@ final class LearningSurfaceScenario extends SimulationScenario
             ->assertContains('Learning Profile')
             ->assertContains('Current Level')
             ->assertContains('Performance')
-            ->assertContains('Coach');
+            ->assertContains('Study Insight')
+            ->assertContains('Recommended Next Steps');
 
         /*
          * 3. Progress page
@@ -55,9 +58,9 @@ final class LearningSurfaceScenario extends SimulationScenario
             ->get('/progress')
             ->execute()
             ->assertSuccessful()
-            ->assertContains('My Progress')
-            ->assertContains('Overall Average')
-            ->assertContains('Total Quizzes')
-            ->assertContains('Recent Attempts');
+            ->assertContains('Progress')
+            ->assertContains('Learning Overview')
+            ->assertContains('Subject Performance')
+            ->assertContains('Recent Quiz History');
     }
 }

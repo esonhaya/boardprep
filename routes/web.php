@@ -8,6 +8,8 @@ use App\Controllers\BlueprintHealthController;
 use App\Controllers\CoverageController;
 use App\Controllers\DashboardController;
 use App\Controllers\DeveloperToolsController;
+use App\Controllers\DoctorDashboardController;
+use App\Controllers\DoctorRunController;
 use App\Controllers\HomeController;
 use App\Controllers\HistoryController;
 use App\Controllers\LearningProfileController;
@@ -78,6 +80,16 @@ $router->get(
 $router->get(
     "/developer",
     [DeveloperToolsController::class, "index"]
+);
+
+$router->get(
+    "/developer/doctor",
+    [DoctorDashboardController::class, "index"]
+);
+
+$router->get(
+    "/developer/doctor/run",
+    [DoctorRunController::class, "run"]
 );
 
 $router->get(

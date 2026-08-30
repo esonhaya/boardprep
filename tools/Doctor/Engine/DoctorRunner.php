@@ -11,7 +11,6 @@ use Tools\Doctor\Metrics\DoctorMetricsPipeline;
 use Tools\Doctor\Metrics\MetricRegistry;
 use Tools\Doctor\Metrics\MetricsPipeline;
 use Tools\Doctor\Output\JsonReportWriter;
-use Tools\Doctor\Output\V2ConsoleWriter;
 use Tools\Doctor\Registry\CheckRegistry;
 use Tools\Doctor\Snapshot\DoctorSnapshotBuilder;
 use Tools\Doctor\Snapshot\ProjectSnapshotBuilder;
@@ -88,9 +87,6 @@ final class DoctorRunner
                 $result,
                 $projectRoot . "/storage/doctor-report.json"
             );
-
-        (new V2ConsoleWriter())
-            ->write($result);
 
         return $result;
     }

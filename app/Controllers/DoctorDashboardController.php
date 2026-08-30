@@ -5,21 +5,25 @@ declare(strict_types=1);
 namespace App\Controllers;
 final class DoctorDashboardController
 {
-    public function index(): void
+    public static function index(): void
     {
         $report = [];
 
-        $file = './storage/doctor/latest-report.json';
+        $file = dirname(__DIR__, 2) . '/storage/doctor-report.json';
 
         if (is_file($file)) {
 
-            $report = json_decode(
-                file_get_contents($file),
-                true
-            ) ?? [];
+            $contents = file_get_contents($file);
+            $decoded = $contents === false
+                ? null
+                : json_decode($contents, true);
+
+            if (is_array($decoded)) {
+                $report = $decoded;
+            }
 
         }
 
-        require './app/Views/developer/doctor/index.php';
+        require dirname(__DIR__) . '/Views/developer/doctor/index.php';
     }
 }

@@ -36,22 +36,22 @@ th,td{padding:10px;border-bottom:1px solid #ddd;text-align:left}
 
 <div class="card">
 <div>PASS</div>
-<div class="value"><?= $report['pass'] ?? 0 ?></div>
+<div class="value"><?= $report['summary']['pass'] ?? 0 ?></div>
 </div>
 
 <div class="card">
 <div>WARNING</div>
-<div class="value"><?= $report['warning'] ?? 0 ?></div>
+<div class="value"><?= $report['summary']['warning'] ?? 0 ?></div>
 </div>
 
 <div class="card">
 <div>FAIL</div>
-<div class="value"><?= $report['fail'] ?? 0 ?></div>
+<div class="value"><?= $report['summary']['fail'] ?? 0 ?></div>
 </div>
 
 <div class="card">
 <div>Checks</div>
-<div class="value"><?= count($report['checks'] ?? []) ?></div>
+<div class="value"><?= $report['summary']['checks'] ?? 0 ?></div>
 </div>
 
 </div>

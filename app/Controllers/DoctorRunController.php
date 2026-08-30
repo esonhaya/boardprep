@@ -7,7 +7,7 @@ use Tools\Doctor\Engine\DoctorRunner;
 
 final class DoctorRunController
 {
-    public function run(): void
+    public static function run(): void
     {
         (new DoctorRunner())->run();
 
