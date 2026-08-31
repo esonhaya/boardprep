@@ -41,5 +41,45 @@
         "status":"published",
         "version":1,
         "updated_at":"2026-08-31"
+    },
+    {
+        "id": "human-rights-review-foundation",
+        "title": "Human Rights and Public Accountability",
+        "summary": "A concise review guide connecting human dignity, rights protections, and accountable public authority.",
+        "notes": [
+            {"heading":"Human dignity","body":"The Constitution recognizes the value of every person and requires public authority to respect protected rights."},
+            {"heading":"Rights in practice","body":"Connect due process, equal protection, and lawful exercise of government power to responsible public service."},
+            {"heading":"Review focus","body":"Use this foundation to distinguish a protected right from an administrative preference and to ask whether government action has lawful basis."}
+        ],
+        "source_ids": ["1987-philippine-constitution"],
+        "exams": ["civil-service", "criminologist"],
+        "exam_focus": {
+            "civil-service": {"priority":"high","rationale":"Rights and accountability are core civic foundations for public-service review.","official_scope_status":"source-backed study material; not an exam prediction","focus_topics":["human dignity","due process","equal protection"]},
+            "criminologist": {"priority":"high","rationale":"Rights and lawful authority are relevant to justice-oriented foundations.","official_scope_status":"editorial foundation; not an exam prediction","focus_topics":["rights protections","lawful authority","accountability"]}
+        },
+        "taxonomy": {"subject_id":"social-studies","domain_id":"government-and-civics","topic_id":"social-civics","concept_id":"social-civics-public-good"},
+        "status":"published",
+        "version":1,
+        "updated_at":"2026-08-31"
+    },
+    {
+        "id": "environmental-public-interest-foundation",
+        "title": "Environmental and Public-Interest Foundations",
+        "summary": "A focused civic review note on stewardship, public welfare, and constitutional responsibility toward the nation’s resources.",
+        "notes": [
+            {"heading":"Public interest","body":"Government policy should be understood through the common good, stewardship of national resources, and responsibility to present and future citizens."},
+            {"heading":"Constitutional connection","body":"Review environmental and patrimonial principles as public-interest concepts rather than as a prediction of particular examination items."},
+            {"heading":"Study application","body":"When answering a civic scenario, identify the public resource, the affected community, and the lawful responsibility involved."}
+        ],
+        "source_ids": ["1987-philippine-constitution"],
+        "exams": ["civil-service", "let"],
+        "exam_focus": {
+            "civil-service": {"priority":"medium","rationale":"Environmental stewardship is a supporting general-information foundation.","official_scope_status":"source-backed study material; not an exam prediction","focus_topics":["public welfare","stewardship","national resources"]},
+            "let": {"priority":"low","rationale":"The material supports broad civic and general-education connections.","official_scope_status":"editorial foundation; not an exam prediction","focus_topics":["common good","citizenship","stewardship"]}
+        },
+        "taxonomy": {"subject_id":"social-studies","domain_id":"government-and-civics","topic_id":"social-civics","concept_id":"social-civics-public-good"},
+        "status":"published",
+        "version":1,
+        "updated_at":"2026-08-31"
     }
 ]

@@ -36,7 +36,12 @@
                 ]
             }
         ],
-        "label": "BoardPrep coverage targets; not an official weighting."
+        "label": "BoardPrep coverage targets; not an official weighting.",
+        "source_id": "prc-let-enhanced-tos-2025",
+        "source_version": "Resolution No. 11 s. 2025",
+        "official_structure": "General Education and Professional Education subjects are represented in the PRC enhanced TOS reference.",
+        "official_weights": null,
+        "internal_targets": true
     },
     {
         "id": "cse-boardprep-coverage-v1",
@@ -75,7 +80,12 @@
                 "target_percent": 30
             }
         ],
-        "label": "BoardPrep coverage targets; not official CSC weighting."
+        "label": "BoardPrep coverage targets; not official CSC weighting.",
+        "source_id": "csc-cse-scope-2026",
+        "source_version": "2026 examination announcements",
+        "official_structure": "Verbal, analytical, and numerical ability are recorded as official scope areas; general information is retained as BoardPrep study context.",
+        "official_weights": null,
+        "internal_targets": true
     },
     {
         "id": "criminologist-boardprep-coverage-v1",
@@ -121,7 +131,12 @@
                 "target_percent": 15
             }
         ],
-        "label": "BoardPrep foundation coverage targets; not official PRC weighting."
+        "label": "BoardPrep foundation coverage targets; not official PRC weighting.",
+        "source_id": "prc-criminology-enhanced-tos-2024",
+        "source_version": "Resolution No. 02 s. 2024",
+        "official_structure": "The enhanced TOS reference covers the six criminology subject areas represented here.",
+        "official_weights": null,
+        "internal_targets": true
     },
     {
         "id": "nursing-boardprep-coverage-v1",
@@ -167,7 +182,12 @@
                 "target_percent": 15
             }
         ],
-        "label": "BoardPrep foundation coverage targets; not official PRC weighting."
+        "label": "BoardPrep foundation coverage targets; not official PRC weighting.",
+        "source_id": "prc-nursing-enhanced-tos-2025",
+        "source_version": "Resolution No. 10 s. 2025",
+        "official_structure": "Nursing practice, community, family, clinical, mental-health, and professional practice areas are represented as foundation sections.",
+        "official_weights": null,
+        "internal_targets": true
     },
     {
         "id": "psychometrician-boardprep-coverage-v1",
@@ -208,6 +228,11 @@
                 "target_percent": 15
             }
         ],
-        "label": "BoardPrep foundation coverage targets; not official PRC weighting."
+        "label": "BoardPrep foundation coverage targets; not official PRC weighting.",
+        "source_id": "prc-psychometrician-enhanced-tos-2023",
+        "source_version": "Resolution No. 02 s. 2023",
+        "official_structure": "Psychological assessment, abnormal, industrial-organizational, personality, and professional practice areas are represented as foundation sections.",
+        "official_weights": null,
+        "internal_targets": true
     }
 ]

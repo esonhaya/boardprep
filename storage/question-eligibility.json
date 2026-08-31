@@ -5,5 +5,6 @@
     {"id":"eligibility-general-science","question_ids":[31,32,33,34,35,36,37,38,39,40,106,107,108,109,110,111,112,113,114,115],"exam_ids":["let","civil-service","nursing"],"subject_ids":{"let":"science","civil-service":"general-information","nursing":"nursing-foundations"}},
     {"id":"eligibility-general-social","question_ids":[41,42,43,44,45,46,47,48,49,50,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130],"exam_ids":["let","civil-service","criminologist"],"subject_ids":{"let":"social-studies","civil-service":"general-information","criminologist":"criminal-justice-foundations"}},
     {"id":"eligibility-cse-analytical","question_ids":[191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220],"exam_ids":["civil-service"],"subject_ids":{"civil-service":"analytical-logical"}},
-    {"id":"eligibility-cse-ra6713","question_ids":[221,222],"exam_ids":["civil-service"],"subject_ids":{"civil-service":"general-information"}}
+    {"id":"eligibility-cse-ra6713","question_ids":[221,222,246,247,248,249,250,251,252,253,254,255,256,257,258],"exam_ids":["civil-service"],"subject_ids":{"civil-service":"general-information"}},
+    {"id":"eligibility-cse-constitution","question_ids":[223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245],"exam_ids":["civil-service","criminologist","let"],"subject_ids":{"civil-service":"general-information","criminologist":"criminal-justice-foundations","let":"social-studies"}}
 ]
