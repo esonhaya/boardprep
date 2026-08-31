@@ -31,17 +31,14 @@ $concepts =
 
 ?>
 
-<h2>
-
+<section class="page-header"><div><h1>
 <?= $isEdit
 
     ? "Edit Question"
 
     : "Create Question"
 
-?>
-
-</h2>
+?></h1><p>Author a clear, reliable question for the BoardPrep repository.</p></div></section>
 
 <?php
 
@@ -71,7 +68,7 @@ $isEdit
 
 <?php if ($returnUrl !== ''): ?><input type="hidden" name="return" value="<?= htmlspecialchars($returnUrl) ?>"><?php endif; ?>
 
-<h3>
+<section class="card"><h3>
 
 Taxonomy
 
@@ -87,7 +84,7 @@ require __DIR__
 
 ?>
 
-<h3>
+</section><section class="card"><h3>
 
 Question
 
@@ -103,7 +100,7 @@ require __DIR__
 
 ?>
 
-<h3>
+</section><section class="card"><h3>
 
 Answer Options
 
@@ -117,7 +114,7 @@ require __DIR__
 
     . "/partials/options.php";
 ?>
-<h3>
+</section><section class="card"><h3>
 
 Save
 
@@ -131,7 +128,7 @@ require __DIR__
 
     . "/partials/actions.php";
 
-?>
+?></section>
 
 </form>
 

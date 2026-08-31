@@ -1,8 +1,4 @@
-<h2>
-
-Import Questions
-
-</h2>
+<section class="page-header"><div><h1>Import questions</h1><p>Bring validated question records into the repository with duplicate checks.</p></div><a class="button secondary" href="/question-export">Export questions</a></section>
 
 <p>
 
@@ -13,13 +9,13 @@ Records without a status are active and quiz eligible.
 
 </p>
 
-<p><strong>Expected format:</strong> a JSON array of question records. Each record uses the same fields as the editor, including <code>id</code>, <code>taxonomy</code>, <code>difficulty</code>, <code>question</code>, <code>options</code>, and <code>explanation</code>.</p>
+<p class="card"><strong>Expected format:</strong> a JSON array of question records. Each record uses the same fields as the editor, including <code>id</code>, <code>taxonomy</code>, <code>difficulty</code>, <code>question</code>, <code>options</code>, and <code>explanation</code>.</p>
 
 
 <hr>
 
 
-<form
+<form class="card"
 method="POST"
 action="/question-import/import"
 enctype="multipart/form-data"

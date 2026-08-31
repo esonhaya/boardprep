@@ -1,4 +1,4 @@
-<h2>Coverage Matrix</h2>
+<section class="page-header"><div><h1>Coverage matrix</h1><p>Use these counts to identify subjects and topics with the least authored content.</p></div></section>
 <p>Use these counts to identify subjects and topics with the least authored content.</p>
 
 <hr>

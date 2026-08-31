@@ -8,16 +8,14 @@ $feedback = $feedback ?? null;
 
 ?>
 
-<p class="quiz-progress">
-Question <?= $current + 1 ?> / <?= $total ?>
-</p>
-
-<p class="quiz-mode">
+<div class="quiz-shell">
+<div class="quiz-meta"><span>Question <?= $current + 1 ?> / <?= $total ?></span><span>
 Mode:
 <strong>
 <?= ucfirst($mode) ?>
 </strong>
-</p>
+</span></div>
+<div class="progress-bar" aria-label="Quiz progress"><span style="width:<?= $total > 0 ? (($current + 1) / $total * 100) : 0 ?>%"></span></div>
 
 
 <?php if(!$question): ?>
@@ -116,7 +114,7 @@ Next Question
 <?php else: ?>
 
 
-<form class="quiz-answer-form" method="POST" action="/quiz?action=submit">
+<form class="quiz-answer-form card" method="POST" action="/quiz?action=submit">
 
 <input
 type="hidden"
@@ -153,14 +151,12 @@ required
 </fieldset>
 
 
-<br>
-
-<button type="submit">
+<div class="quiz-actions"><button type="submit">
 Submit Answer
-</button>
+ </button></div>
 
 
 </form>
 
 
-<?php endif; ?>
+<?php endif; ?></div>

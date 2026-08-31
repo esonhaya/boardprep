@@ -6,9 +6,7 @@ $actions = $actions ?? [];
 
 ?>
 
-<h1>
-    Quiz Result
-</h1>
+<section class="page-header"><div><h1>Quiz Result</h1><p>Review what you know and choose your next useful step.</p></div></section>
 
 <div class="result-summary">
     <h2>

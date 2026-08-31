@@ -6,23 +6,22 @@ $history = $history ?? [];
 $completed = (int) ($progress["completedAttempts"] ?? 0);
 ?>
 
-<h1>Learner Dashboard</h1>
-<p>Your completed quiz results and the next useful study action.</p>
+<section class="page-header"><div><h1>Welcome back</h1><p>Your completed quiz results and the next useful study action.</p></div><div class="page-actions"><a class="button" href="/quiz">Start practice</a><a class="button secondary" href="/history">View history</a></div></section>
 
-<section>
+<section class="stats-grid" aria-label="Learning overview">
     <h2>Learning Overview</h2>
     <?php if ($completed === 0): ?>
         <p>No completed quizzes yet. Start a practice quiz to build your learning profile.</p>
     <?php endif; ?>
-    <p>Completed Quizzes: <strong><?= $completed ?></strong></p>
-    <p>Average Score: <strong><?= (int) ($progress["averageScore"] ?? 0) ?>%</strong></p>
-    <p>Best Score: <strong><?= (int) ($progress["bestScore"] ?? 0) ?>%</strong></p>
-    <p>Recent Trend: <strong><?= htmlspecialchars(ucwords(str_replace("_", " ", (string) ($progress["trend"]["direction"] ?? "insufficient_history")))) ?></strong></p>
+    <article class="card stat-card"><span class="stat-label">Completed quizzes</span><strong class="stat-value"><?= $completed ?></strong></article>
+    <article class="card stat-card"><span class="stat-label">Average score</span><strong class="stat-value"><?= (int) ($progress["averageScore"] ?? 0) ?>%</strong></article>
+    <article class="card stat-card"><span class="stat-label">Best score</span><strong class="stat-value"><?= (int) ($progress["bestScore"] ?? 0) ?>%</strong></article>
+    <article class="card stat-card"><span class="stat-label">Recent trend</span><strong class="stat-value"><?= htmlspecialchars(ucwords(str_replace("_", " ", (string) ($progress["trend"]["direction"] ?? "insufficient_history")))) ?></strong></article>
 </section>
 
 <hr>
 
-<section>
+<section class="card">
     <h2>Recommended Next Step</h2>
     <?php $recommendation = $recommendations[0] ?? null; ?>
     <?php if (is_array($recommendation)): ?>

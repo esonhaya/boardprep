@@ -1,14 +1,4 @@
-<h2>
-
-Question Library
-
-</h2>
-
-<p>
-
-Browse, search and manage your question repository.
-
-</p>
+<section class="page-header"><div><h1>Question Inventory</h1><p>Browse, search and manage your question repository.</p></div><a class="button" href="/question-editor/create">New question</a></section>
 
 <hr>
 
@@ -41,7 +31,7 @@ Use the filters below to quickly locate questions.
 
 <hr>
 
-<form method="GET">
+<form class="filter-bar" method="GET">
 
 <input
 type="hidden"
@@ -254,7 +244,7 @@ No questions matched your filters.
 
 <?php foreach (($questions ?? []) as $question): ?>
 
-<div
+<article class="card inventory-item"
 style="
 border:1px solid #d1d5db;
 padding:16px;
@@ -365,7 +355,7 @@ background:white;
 
 <?php endif; ?>
 
-</div>
+</article>
 
 </div>
 

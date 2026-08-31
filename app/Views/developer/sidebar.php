@@ -1,22 +1,12 @@
 <aside class="developer-sidebar">
-
+    <?php $developerPath = parse_url($_SERVER["REQUEST_URI"] ?? "/developer", PHP_URL_PATH) ?: "/developer"; ?>
     <div class="developer-brand">
-
-        <h2>
-
-            BoardPrep
-
-        </h2>
-
-        <small>
-
-            Developer CMS
-
-        </small>
-
+        <?php $brandClass = "brand developer-brand-link"; $brandHref = "/developer"; require __DIR__ . "/../components/brand.php"; ?>
+        <small>Content Studio</small>
     </div>
+    <button class="mobile-menu-button developer-menu-button" type="button" aria-expanded="false" aria-controls="developer-nav"><span class="sr-only">Toggle developer navigation</span><span aria-hidden="true">☰</span></button>
 
-    <nav>
+    <nav id="developer-nav">
 
         <h3>
 
@@ -24,7 +14,7 @@
 
         </h3>
 
-        <a href="/developer">
+        <a href="/developer"<?= $developerPath === "/developer" ? ' aria-current="page"' : "" ?>>
 
             🏠 Dashboard
 
@@ -38,13 +28,13 @@
 
         </h3>
 
-        <a href="/question-editor/create">
+        <a href="/question-editor/create"<?= $developerPath === "/question-editor/create" ? ' aria-current="page"' : "" ?>>
 
             📝 Question Workspace
 
         </a>
 
-        <a href="/question-editor">
+        <a href="/question-editor"<?= $developerPath === "/question-editor" ? ' aria-current="page"' : "" ?>>
 
             📚 Question Library
 

@@ -27,17 +27,15 @@
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
-
-    <a class="site-brand" href="/" aria-label="BoardPrep home">
-        <span aria-hidden="true">📚</span> BoardPrep
-    </a>
-
-    <p>
-        Prepare with Confidence.
-    </p>
+    <div class="site-header-inner">
+        <?php $brandClass = "brand site-brand"; require __DIR__ . "/../components/brand.php"; ?>
+        <button class="mobile-menu-button" type="button" aria-expanded="false" aria-controls="learner-nav">
+            <span class="sr-only">Toggle navigation</span><span aria-hidden="true">☰</span>
+        </button>
+    </div>
 
     <?php $currentPath = parse_url($_SERVER["REQUEST_URI"] ?? "/", PHP_URL_PATH) ?: "/"; ?>
-    <nav aria-label="Primary navigation">
+    <nav id="learner-nav" aria-label="Primary navigation">
 
         <a href="/"<?= $currentPath === "/" ? ' aria-current="page"' : "" ?>>
             Home
@@ -68,8 +66,6 @@
 
     </nav>
 
-    <hr>
-
 </header>
 
 <main id="main-content" tabindex="-1">
@@ -98,17 +94,8 @@ if (
 ?>
 
 
-<footer class="site-footer">
-
-    <hr>
-
-    <p>
-
-        BoardPrep v0.1
-
-    </p>
-
-</footer>
+<footer class="site-footer"><p>BoardPrep v0.1 · Prepare with confidence.</p></footer>
+<script src="/assets/js/app-shell.js"></script>
 
 </body>
 </html>

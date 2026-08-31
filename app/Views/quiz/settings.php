@@ -6,11 +6,11 @@
 </p>
 <?php endif; ?>
 
-<h1>Create Quiz</h1>
+<section class="page-header"><div><h1>Set up your quiz</h1><p>Choose a focused practice session or simulate a full exam using the available question bank.</p></div></section>
 
 <?php $settings = is_array($settings ?? null) ? $settings : []; ?>
 
-<form class="quiz-settings" method="POST" action="/quiz">
+<form class="quiz-settings card" method="POST" action="/quiz">
 
 
 <input
@@ -32,20 +32,14 @@ value="<?= htmlspecialchars((string) (($settings['topics'][0] ?? '')), ENT_QUOTE
 >
 
 
-<label for="quiz-subject">
-Subject:
-</label>
+<div class="form-field"><label for="quiz-subject">Subject</label>
 
 <select id="quiz-subject" name="subject">
 <option value="English" selected>English</option>
-</select>
-
-<br><br>
+</select></div>
 
 
-<label for="quiz-count">
-Number of Questions:
-</label>
+<div class="form-field"><label for="quiz-count">Number of questions</label>
 
 
 <select id="quiz-count" name="count">
@@ -64,16 +58,11 @@ Number of Questions:
 
 <option value="150" <?= ($settings['count'] ?? 10) === 150 ? 'selected' : '' ?>>150 Questions (Exam)</option>
 
-</select>
-
-
-<br><br>
+</select></div>
 
 
 
-<label for="quiz-difficulty">
-Difficulty:
-</label>
+<div class="form-field"><label for="quiz-difficulty">Difficulty</label>
 
 
 <select id="quiz-difficulty" name="difficulty">
@@ -94,16 +83,11 @@ Medium
 Hard
 </option>
 
-</select>
-
-
-<br><br>
+</select></div>
 
 
 
-<label for="quiz-mode">
-Mode:
-</label>
+<div class="form-field"><label for="quiz-mode">Mode</label>
 
 
 <select id="quiz-mode" name="mode">
@@ -120,10 +104,7 @@ Exam Simulation
 Review Mode
 </option>
 
-</select>
-
-
-<br><br>
+</select></div>
 
 
 
@@ -141,20 +122,18 @@ Adaptive Learning
 
 </label>
 
-<br>
-
-<small>
+<small class="form-help">
 
 Prioritizes questions from your weak topics.
 
 </small>
 
 
-<br><br>
+<br>
 
 
 <button type="submit">
-Generate Quiz
+Start quiz
 </button>
 
 

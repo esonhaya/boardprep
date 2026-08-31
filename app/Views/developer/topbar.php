@@ -10,7 +10,7 @@
 
         <small>
 
-            BoardPrep Developer CMS
+            BoardPrep Content Studio
 
         </small>
 

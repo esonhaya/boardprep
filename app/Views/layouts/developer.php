@@ -22,6 +22,8 @@
 
 <body>
 
+<a class="skip-link" href="#developer-main">Skip to main content</a>
+
 <div class="developer-shell">
 
     <?php require __DIR__ . "/../developer/sidebar.php"; ?>
@@ -30,7 +32,7 @@
 
         <?php require __DIR__ . "/../developer/topbar.php"; ?>
 
-        <main>
+        <main id="developer-main" tabindex="-1">
 
             <?= $content ?>
 
@@ -39,6 +41,8 @@
     </div>
 
 </div>
+
+<script src="/assets/js/app-shell.js"></script>
 
 </body>
 </html>
