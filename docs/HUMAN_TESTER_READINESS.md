@@ -1,15 +1,37 @@
 # BoardPrep human tester readiness
 
-This is the manual acceptance matrix for the MVP. Every case starts as
-`NOT_RUN` and requires a real browser and tester evidence. Run the automated
-prerequisite first:
+This is the manual acceptance matrix for the MVP. It is the only human
+acceptance checklist; do not create a second tracker or infer a result from
+automation. Every case starts as `NOT_RUN` and requires a real browser and
+tester evidence.
+
+## Start here: automated prerequisite and session header
+
+Run this once for the build under test, before opening the matrix:
 
 ```sh
 php tools/doctor.php --simulate
 ```
 
-Proceed in ID order on a fresh learner/session unless a precondition says
-otherwise. Use a phone viewport for `M` cases.
+Then copy this header into the test record. `commit/build`, `date`, `tester
+alias`, `device`, `browser`, `environment`, `viewport/orientation`, and
+`automated prerequisite status` are canonical fields.
+
+```text
+commit/build=
+date=
+tester alias=
+device=
+browser=
+environment=production|staging|local
+viewport/orientation=
+automated prerequisite status=PASS|FAIL|SKIPPED|DEPENDENCY_MISSING|UNAVAILABLE
+```
+
+Do not begin human acceptance when the prerequisite is `FAIL`,
+`DEPENDENCY_MISSING`, or `UNAVAILABLE`; record the environment blocker. Proceed
+on a fresh learner/session unless a precondition says otherwise. Use a phone
+viewport for `M` cases.
 
 ## Result vocabulary
 
@@ -18,6 +40,28 @@ otherwise. Use a phone viewport for `M` cases.
 case cannot be exercised because of an environment/build/access problem;
 record the reason. `NOT_APPLICABLE` is only for a case whose precondition is
 absent in the supplied build. Default: `NOT_RUN`.
+
+## Execution order and groups
+
+Run the groups below in order. Each case appears once in the matrix. The first
+group is the high-risk pass and should be completed before secondary behavior.
+
+1. **Critical learner journey — HP-01–HP-09, HP-15**
+   Entry, settings, practice, exam, submit/finish, result/revisit/reload, and
+   repeat/history integrity. Prioritize HP-02–HP-05, HP-07–HP-09, and HP-15.
+2. **Persistence and recovery — HP-10–HP-14, M-04–M-06**
+   Browser Back/settings navigation, stale or unavailable sessions, empty/short
+   pools, reload, double submission, and persisted state.
+3. **Mobile, usability, and accessibility — M-01–M-03**
+   Phone layout, touch/forms, keyboard focus, labels, headings, and errors.
+4. **Secondary and edge behavior — HP-16–HP-18**
+   Learning surfaces, longitudinal state, and invalid actions.
+
+High-risk cases (execute first): **HP-02, HP-03, HP-04, HP-05, HP-07,
+HP-08, HP-09, HP-10, HP-11, HP-12, HP-15, M-01, M-02, M-04, M-05, M-06**.
+These cover practice and exam completion, result integrity, accidental or
+double submission, browser/settings navigation, stale/invalid recovery,
+persisted history/progress, and mobile forms/navigation.
 
 ## Acceptance matrix
 
@@ -51,34 +95,65 @@ absent in the supplied build. Default: `NOT_RUN`.
 HP-11 and HP-12 cover equivalent invalid-session guards; run both only when the
 environment permits distinct stale and unavailable-content setups.
 
+## Result record and evidence
+
+Use one block per case. Leave `STATUS=NOT_RUN` until that case is actually
+exercised by a human. `DEFECT_ID=` is blank when no defect is raised.
+
+```text
+CASE_ID=
+STATUS=PASS|FAIL|BLOCKED|NOT_APPLICABLE
+EVIDENCE=
+NOTES=
+DEFECT_ID=
+```
+
+`PASS` requires the expected behavior, usable presentation, and adequate
+evidence. `BLOCKED` is never a product PASS. For every failure capture the URL,
+visible message, exact steps, expected/actual behavior, and at least one
+screenshot; include viewport dimensions and a short recording for mobile or
+interaction defects when practical. Never include real learner secrets.
+
 ## Test session record
 
 Copy this block for each session:
 
 ```text
-Tester:
-Device / OS / browser + version:
-Viewport / connection:
-Build commit or release:
-Date/time/timezone:
+commit/build:
+date:
+tester alias:
+device:
+browser:
+environment:
+viewport/orientation:
+automated prerequisite status:
 Cases: <IDs>
-Case ID | Result (PASS/FAIL/BLOCKED/NOT_APPLICABLE) | Notes | Evidence ref | Defect ID
+CASE_ID=
+STATUS=NOT_RUN
+EVIDENCE=
+NOTES=
+DEFECT_ID=
 ```
 
-Capture URL, visible message, and one screenshot for every failure; add viewport
-dimensions and a short recording for mobile/interaction defects when practical.
-Never include real learner secrets in evidence.
-
-## Defect triage and continuation
+## Defect triage, stop, and continuation rules
 
 - **Blocker** — cannot start/finish core quiz, data loss/corruption, unsafe
-  exposure, or testing cannot proceed. Stop the journey and block release.
+  exposure, or testing cannot proceed. Stop testing immediately and block
+  release.
 - **Critical** — wrong score/result/history, duplicate attempt, analytics side
-  effect on failure, or stale recovery fails. Stop that journey; release blocks.
+  effect on failure, or stale recovery fails. Stop the affected journey and
+  block release until fixed or explicitly re-accepted after a verified fix.
 - **Major** — core flow needs a workaround, key phone control is inaccessible,
-  or recovery guidance misleads. Continue unrelated cases; fix or waive.
+  or recovery guidance misleads. Continue unrelated groups and record the
+  defect; release requires a documented release-owner fix or waiver.
 - **Minor** — cosmetic/copy/layout issue without loss of comprehension or use.
-  Continue and batch for follow-up.
+  Continue testing and batch for follow-up; it does not block release unless
+  its impact is reclassified.
+
+Stop the current journey for any Blocker/Critical, or whenever continuing could
+overwrite evidence or learner data. Testing may continue in unrelated groups
+for a Major/Minor or an environment-only Blocked case. Re-run affected cases
+after a fix using a new build/session; never silently change an old result.
 
 Use defect IDs like `HP-<case>-<short-slug>` with build, exact steps,
 expected/actual, severity, frequency, evidence, and journey impact. A BLOCKED
@@ -88,14 +163,14 @@ case is an environment ticket, never a product PASS.
 
 Record two independent gates. Automation must never change a human case to PASS.
 
-**AUTOMATED**
+**AUTOMATED READINESS**
 
 - `php tools/doctor.php --simulate`: 7/7 scenarios, 6/6 personas, zero fails.
 - Relevant focused/regression tests, ordinary Doctor/project checks, and clean
   `git diff --check`.
 - Simulation storage isolation and fixture restoration verified.
 
-**HUMAN**
+**HUMAN READINESS**
 
 - Required HP-01 through HP-18 and M-01 through M-06 are recorded.
 - No unresolved Blocker/Critical defects; Major defects have an explicit

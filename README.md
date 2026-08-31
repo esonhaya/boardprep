@@ -59,8 +59,17 @@ Run it before human acceptance testing. The manual checklist is in
 `docs/HUMAN_TESTER_READINESS.md`; ordinary Doctor runs intentionally do not run
 the full persona suite.
 
-Human testing starts only after that automated prerequisite. Use
-`docs/HUMAN_TESTER_READINESS.md` for ordered case IDs, `NOT_RUN`/PASS/FAIL/
-BLOCKED recording, evidence capture, defect triage, and the separate
+## Release-candidate acceptance
+
+The single human acceptance entry point is
+[`docs/HUMAN_TESTER_READINESS.md`](docs/HUMAN_TESTER_READINESS.md). It contains
+the 24 stable cases, high-risk-first execution order, test-session header,
+copy/paste result record, evidence guidance, defect handling, and the separate
 automated-versus-human release gate. Human acceptance is never inferred from
-the simulation report.
+the simulation report and all cases remain `NOT_RUN` until a real tester records
+them.
+
+Before handing a build to a tester, run `php tools/doctor.php --simulate` and
+record its result in the session header. Automated readiness and human
+readiness are independent: real browser/mobile behavior, visual judgment,
+accessibility, and learner comprehension require human evidence.
