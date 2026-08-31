@@ -6,7 +6,7 @@
         "name": "Licensure Examination for Teachers",
         "description": "Teacher licensure examination practice across general, professional, and specialization foundations.",
         "status": "active",
-        "visual": {"accent": "emerald", "icon": "book"},
+        "visual": {"accent": "emerald", "secondary_accent": "blue", "icon": "let"},
         "settings": {
             "passing_score": 75,
             "default_mode": "practice"
@@ -19,7 +19,7 @@
         "name": "Civil Service Examination",
         "description": "Public-service examination preparation infrastructure is being built for a future study release.",
         "status": "active",
-        "visual": {"accent": "blue", "icon": "civic"},
+        "visual": {"accent": "blue", "secondary_accent": "gold", "icon": "cse"},
         "settings": {
             "passing_score": 80,
             "default_mode": "practice"

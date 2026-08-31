@@ -5,6 +5,8 @@ $label = $iconLabel ?? null;
 $paths = [
     'home' => '<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
     'book' => '<path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5zm0 0v17M8 6h8M8 10h8"/>',
+    'let' => '<path d="M3 6.5 12 3l9 3.5v11L12 21l-9-3.5zM12 3v18M3 6.5l9 3.8 9-3.8M7 8v7m10-7v7"/>',
+    'cse' => '<path d="M3 9 12 4l9 5M5 10v8m4-8v8m6-8v8m4-8v8M3 20h18M17 5v-2h3v3"/>',
     'exam' => '<path d="M5 3h14a2 2 0 0 1 2 2v14H3V5a2 2 0 0 1 2-2zm3 4h8M8 11h8M8 15h5"/>',
     'practice' => '<path d="m13 2-9 11h7l-1 9 9-12h-7z"/>',
     'history' => '<path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5M12 7v5l3 2"/>',
