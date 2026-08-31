@@ -44,7 +44,7 @@ $actionBar =
         [
 
             "label" =>
-                "➕ Create Board",
+                "Create Board",
 
             "href" =>
                 "/board/create"
@@ -122,11 +122,11 @@ foreach ($boards as $board) {
 
                         ?
 
-                        "🗃 Archive"
+                        "Archive"
 
                         :
 
-                        "♻ Activate",
+                        "Activate",
 
                     "method" => "POST",
 
@@ -156,7 +156,7 @@ foreach ($boards as $board) {
 
 <a href="/developer">
 
-🏠 Back to Dashboard
+Back to Dashboard
 
 </a>
 

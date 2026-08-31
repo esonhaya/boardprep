@@ -25,13 +25,13 @@
 <form method="POST" action="/blueprints/save">
 
 
-<label>
+<label for="blueprint-board">
 Board
 </label>
 
 <br>
 
-<select name="board">
+<select id="blueprint-board" name="board">
 
 <?php foreach ($boards as $board): ?>
 
@@ -52,13 +52,13 @@ value="<?= htmlspecialchars($board["id"]) ?>"
 
 
 
-<label>
+<label for="blueprint-subject">
 Subject
 </label>
 
 <br>
 
-<select name="subject">
+<select id="blueprint-subject" name="subject">
 
 <?php foreach ($subjects as $subject): ?>
 
@@ -79,7 +79,7 @@ value="<?= htmlspecialchars($subject["id"]) ?>"
 
 
 
-<label>
+<label for="blueprint-name">
 Blueprint Name
 </label>
 
@@ -87,6 +87,7 @@ Blueprint Name
 
 <input
 type="text"
+id="blueprint-name"
 name="name"
 placeholder="LET English Professional"
 required
@@ -97,7 +98,7 @@ required
 
 
 
-<label>
+<label for="blueprint-count">
 Question Count
 </label>
 
@@ -105,6 +106,7 @@ Question Count
 
 <input
 type="number"
+id="blueprint-count"
 name="questionCount"
 value="150"
 min="1"
@@ -121,13 +123,14 @@ Difficulty Distribution
 </h3>
 
 
-<label>
+<label for="easy">
 Easy:
 <span id="easyValue">40</span>%
 </label>
 
 <br>
 
+<label class="sr-only" for="easyInput">Easy percentage</label>
 <input
 type="range"
 id="easy"
@@ -150,13 +153,14 @@ value="40"
 
 
 
-<label>
+<label for="medium">
 Medium:
 <span id="mediumValue">50</span>%
 </label>
 
 <br>
 
+<label class="sr-only" for="mediumInput">Medium percentage</label>
 <input
 type="range"
 id="medium"
@@ -179,13 +183,14 @@ value="50"
 
 
 
-<label>
+<label for="hard">
 Hard:
 <span id="hardValue">10</span>%
 </label>
 
 <br>
 
+<label class="sr-only" for="hardInput">Hard percentage</label>
 <input
 type="range"
 id="hard"

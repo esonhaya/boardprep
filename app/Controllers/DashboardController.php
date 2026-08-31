@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\Core\View;
 use App\Services\Learning\LearningHistoryService;
 use App\Services\Learning\StudyDashboardService;
+use App\Support\Presentation\PreviewCollection;
 
 final class DashboardController
 {
@@ -18,7 +19,8 @@ final class DashboardController
             [
                 "pageTitle" => "Learner Dashboard",
                 "dashboard" => StudyDashboardService::build($attempts),
-                "history" => array_slice($attempts, 0, 5),
+                "history" => PreviewCollection::items($attempts),
+                "historyHasMore" => PreviewCollection::hasMore($attempts),
             ]
         );
     }

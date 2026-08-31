@@ -35,7 +35,7 @@ $completed = (int) ($progress["completedAttempts"] ?? 0);
 
 <hr>
 
-<section>
+<section data-ui-collection="preview" data-ui-limit="5">
     <h2>Recent Activity</h2>
     <?php if ($history === []): ?>
         <p>Your completed quizzes will appear here.</p>
@@ -43,7 +43,7 @@ $completed = (int) ($progress["completedAttempts"] ?? 0);
         <?php foreach ($history as $attempt): ?>
             <?php require dirname(__DIR__) . "/history/attempt.php"; ?>
         <?php endforeach; ?>
-        <p><a href="/history">View all quiz history</a></p>
+        <p><a class="ui-view-all" data-ui-view-all href="/history">View all quiz history</a></p>
     <?php endif; ?>
 </section>
 

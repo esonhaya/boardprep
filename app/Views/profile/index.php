@@ -1,4 +1,4 @@
-<h1>🧠 Learning Profile</h1>
+<h1>Learning Profile</h1>
 
 <hr>
 
@@ -75,6 +75,7 @@
 <?php if (empty($timeline)): ?>
 <p>No completed quizzes yet. Take a quiz to start building your learning history.</p>
 <?php else: ?>
+<div class="ui-preview-list" data-ui-collection="preview" data-ui-limit="5">
 <?php foreach ($timeline as $item): ?>
 <div class="record-card">
     <strong><?= htmlspecialchars(ucfirst((string) ($item["mode"] ?? "practice"))) ?></strong>
@@ -89,6 +90,8 @@
     <?php endif; ?>
 </div>
 <?php endforeach; ?>
+</div>
+<?php if (!empty($timelineHasMore)): ?><p><a class="ui-view-all" data-ui-view-all href="/history">View all quiz history</a></p><?php endif; ?>
 <?php endif; ?>
 
 <hr>

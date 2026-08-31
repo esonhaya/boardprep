@@ -14,6 +14,7 @@ use App\Services\Learning\WeaknessService;
 use App\Services\Learning\RecommendationService;
 use App\Services\Learning\LearningCoachService;
 use App\Services\Profile\LearningProfileService;
+use App\Support\Presentation\PreviewCollection;
 
 final class LearningProfileController
 {
@@ -58,8 +59,9 @@ final class LearningProfileController
                 "coach" => $coach,
                 "timeline" =>
                     LearningTimelineService::build(
-                        array_slice($attempts, 0, 10)
+                        PreviewCollection::items($attempts)
                     ),
+                "timelineHasMore" => PreviewCollection::hasMore($attempts),
                 "topics" =>
                     TopicPerformanceService::summarize($attempts),
                 "subjects" => $dashboard["subjects"],

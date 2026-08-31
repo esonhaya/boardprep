@@ -22,7 +22,7 @@ enctype="multipart/form-data"
 >
 
 
-<label>
+<label for="question-file">
 
 JSON File:
 
@@ -34,7 +34,8 @@ JSON File:
 
 <input
 type="file"
-name="file"
+ id="question-file"
+ name="file"
 accept=".json"
 required
 >
@@ -45,7 +46,7 @@ required
 
 <button type="submit">
 
-📥 Import Questions
+Import Questions
 
 </button>
 

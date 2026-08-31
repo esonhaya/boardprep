@@ -37,7 +37,7 @@ Create a new board examination.
 
 <form method="POST" action="/board/save">
 
-    <label>
+    <label for="board-name">
 
         Board Name
 
@@ -47,6 +47,7 @@ Create a new board examination.
 
     <input
         type="text"
+        id="board-name"
         name="name"
         value="<?= htmlspecialchars($old["name"] ?? "") ?>"
         required
@@ -55,7 +56,7 @@ Create a new board examination.
     <div class="form-spacer"></div>
 
 
-    <label>
+    <label for="board-description">
 
         Description
 
@@ -64,6 +65,7 @@ Create a new board examination.
     <br>
 
     <textarea
+        id="board-description"
         name="description"
         rows="4"
         cols="60"

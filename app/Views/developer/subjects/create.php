@@ -13,7 +13,7 @@ method="POST"
 action="/subject/save"
 >
 
-<label>
+<label for="subject-name">
 
 Name
 
@@ -23,6 +23,7 @@ Name
 
 <input
 type="text"
+id="subject-name"
 name="name"
 required
 maxlength="100"
@@ -30,7 +31,7 @@ maxlength="100"
 
 <div class="form-spacer"></div>
 
-<label>
+<label for="subject-description">
 
 Description
 
@@ -39,7 +40,8 @@ Description
 <br>
 
 <textarea
-name="description"
+ id="subject-description"
+ name="description"
 rows="5"
 ></textarea>
 

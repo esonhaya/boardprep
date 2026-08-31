@@ -191,7 +191,7 @@ $history = $history ?? [];
 
 <hr>
 
-<section class="study-dashboard-history">
+<section class="study-dashboard-history ui-preview-list" data-ui-collection="preview" data-ui-limit="5">
     <h2>Recent Activity</h2>
 
     <?php if (empty($history)): ?>
@@ -200,6 +200,7 @@ $history = $history ?? [];
         <?php foreach ($history as $attempt): ?>
             <?php require dirname(__DIR__) . "/history/attempt.php"; ?>
         <?php endforeach; ?>
+    <?php if (!empty($historyHasMore)): ?><p><a class="ui-view-all" data-ui-view-all href="/history">View all quiz history</a></p><?php endif; ?>
     <?php endif; ?>
 </section>
 

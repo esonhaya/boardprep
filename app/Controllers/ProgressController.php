@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\Core\View;
 use App\Services\Learning\LearningHistoryService;
 use App\Services\Learning\StudyDashboardService;
+use App\Support\Presentation\PreviewCollection;
 
 final class ProgressController
 {
@@ -19,7 +20,8 @@ final class ProgressController
             "progress/index",
             [
                 "summary" => $dashboard["progress"],
-                "history" => array_slice($attempts, 0, 10),
+                "history" => PreviewCollection::items($attempts),
+                "historyHasMore" => PreviewCollection::hasMore($attempts),
                 "topics" => $dashboard["topics"],
                 "subjects" => $dashboard["subjects"],
                 "weakestTopics" => $dashboard["weakestTopics"],

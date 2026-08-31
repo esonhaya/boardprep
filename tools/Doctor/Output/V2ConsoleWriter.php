@@ -59,6 +59,20 @@ final class V2ConsoleWriter
             . $result->doctorHealth()
             . PHP_EOL;
 
+        foreach ($result->checks as $check) {
+            if ($check->title !== 'UI Contract Engine') {
+                continue;
+            }
+            echo "UI_HEALTH: " . $check->score . PHP_EOL;
+            echo "UI_FINDINGS: " . $check->findingCount() . PHP_EOL;
+            foreach ($check->findings->all() as $finding) {
+                echo "  [{$finding->id}] "
+                    . ($finding->file ?? 'unknown') . ': '
+                    . $finding->message . PHP_EOL;
+            }
+            break;
+        }
+
         $top = $projectDiagnostics->topFinding();
 
         if ($top === null) {

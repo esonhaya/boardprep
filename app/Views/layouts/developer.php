@@ -20,7 +20,7 @@
 
 </head>
 
-<body>
+<body class="ui-theme">
 
 <a class="skip-link" href="#developer-main">Skip to main content</a>
 

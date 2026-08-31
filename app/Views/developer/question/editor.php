@@ -39,7 +39,7 @@ name="page"
 value="question-editor"
 >
 
-<label>
+<label for="question-search">
 
 Search
 
@@ -49,6 +49,7 @@ Search
 
 <input
 type="text"
+id="question-search"
 name="search"
 placeholder="Question, topic or concept..."
 value="<?= htmlspecialchars(
@@ -206,7 +207,7 @@ value="<?= htmlspecialchars((string) ($item["id"] ?? "")) ?>"
 
 <button type="submit">
 
-🔍 Apply Filters
+Apply Filters
 
 </button>
 
@@ -304,7 +305,7 @@ No questions matched your filters.
 
 <a href="/question-inspector?id=<?= urlencode((string) $question["id"]) ?>">
 
-🔍 Inspect
+Inspect
 
 </a>
 
@@ -312,7 +313,7 @@ No questions matched your filters.
 
 <a href="/question-editor/edit?id=<?= urlencode((string) $question["id"]) ?>&amp;return=<?= urlencode((string) ($_SERVER['REQUEST_URI'] ?? '/question-editor')) ?>">
 
-✏️ Edit
+Edit
 
 </a>
 
@@ -327,7 +328,7 @@ No questions matched your filters.
 
 <button type="submit">
 
-🗃️ Archive
+Archive
 
 </button>
 
@@ -339,7 +340,7 @@ No questions matched your filters.
 
 <button type="submit">
 
-♻️ Restore
+Restore
 
 </button>
 
@@ -363,7 +364,7 @@ href="/question-editor/create"
 
 <button type="button">
 
-➕ Create New Question
+Create New Question
 
 </button>
 

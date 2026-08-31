@@ -36,6 +36,9 @@ final class JsonRenderer
                 'score' =>
                     $check->score,
 
+                'findings' =>
+                    $check->findings->toArray(),
+
             ];
 
         }

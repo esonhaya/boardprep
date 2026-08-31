@@ -117,7 +117,7 @@ $best = (int) ($summary["bestScore"] ?? 0);
 
 <hr>
 
-<section class="progress-history">
+<section class="progress-history ui-preview-list" data-ui-collection="preview" data-ui-limit="5">
     <h2>Recent Quiz History</h2>
 
     <?php if (empty($history)): ?>
@@ -126,6 +126,6 @@ $best = (int) ($summary["bestScore"] ?? 0);
         <?php foreach ($history as $attempt): ?>
             <?php require dirname(__DIR__) . "/history/attempt.php"; ?>
         <?php endforeach; ?>
-        <p><a href="/history">View all quiz history</a></p>
+        <?php if (!empty($historyHasMore)): ?><p><a class="ui-view-all" data-ui-view-all href="/history">View all quiz history</a></p><?php endif; ?>
     <?php endif; ?>
 </section>

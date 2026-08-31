@@ -10,10 +10,10 @@ $percentage = (int) ($attempt["percentage"] ?? 0);
     <h3><?= htmlspecialchars($topic) ?></h3>
     <p>
         <span class="badge badge-info"><?= htmlspecialchars(ucfirst($mode !== "" ? $mode : "practice")) ?></span>
-        <strong><?= $percentage ?>%</strong> —
+        <strong><?= \App\Support\Presentation\UiFormatter::formatPercentage($percentage) ?></strong> —
         <?php if ($total > 0): ?><?= $score ?>/<?= $total ?> · <?php endif; ?><?= $percentage ?>%
     </p>
     <?php if ($date !== null): ?>
-        <p><?= htmlspecialchars($date) ?></p>
+        <p><?= htmlspecialchars(\App\Support\Presentation\UiFormatter::formatDateTime($date)) ?></p>
     <?php endif; ?>
 </article>

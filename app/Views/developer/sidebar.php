@@ -16,7 +16,7 @@
 
         <a href="/developer"<?= $developerPath === "/developer" ? ' aria-current="page"' : "" ?>>
 
-            🏠 Dashboard
+            Dashboard
 
         </a>
 
@@ -30,31 +30,31 @@
 
         <a href="/question-editor/create"<?= $developerPath === "/question-editor/create" ? ' aria-current="page"' : "" ?>>
 
-            📝 Question Workspace
+            Question Workspace
 
         </a>
 
         <a href="/question-editor"<?= $developerPath === "/question-editor" ? ' aria-current="page"' : "" ?>>
 
-            📚 Question Library
+            Question Library
 
         </a>
 
         <a href="/coverage">
 
-            📊 Coverage Matrix
+            Coverage Matrix
 
         </a>
 
         <a href="/question-quality">
 
-            ✅ Question Quality
+            Question Quality
 
         </a>
 
         <a href="/question-inspector">
 
-            🔍 Question Inspector
+            Question Inspector
 
         </a>
 
@@ -68,25 +68,25 @@
 
         <a href="/boards">
 
-            🏛 Boards
+            Boards
 
         </a>
 
         <a href="/subjects">
 
-            📖 Subjects
+            Subjects
 
         </a>
 
         <a href="/taxonomy">
 
-            🧬 Taxonomy
+            Taxonomy
 
         </a>
 
         <a href="/blueprints">
 
-            📋 Blueprints
+            Blueprints
 
         </a>
 
@@ -100,13 +100,13 @@
 
         <a href="/question-import">
 
-            📥 Import Questions
+            Import Questions
 
         </a>
 
         <a href="/question-export">
 
-            📤 Export Questions
+            Export Questions
 
         </a>
 
@@ -120,13 +120,13 @@
 
         <a href="/developer?action=analyze">
 
-            🩺 Analyze Repository
+            Analyze Repository
 
         </a>
 
         <a href="/developer?action=fix-all">
 
-            🛠 Fix Everything
+            Fix Everything
 
         </a>
 

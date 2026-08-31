@@ -187,7 +187,7 @@ Quick Actions
 
 <a href="/question-editor/edit?id=<?= urlencode((string) ($question["id"] ?? "")) ?>">
 
-✏️ Edit Question
+Edit Question
 
 </a>
 
@@ -197,7 +197,7 @@ Quick Actions
 
 <a href="/question-editor">
 
-📚 Back to Question Library
+Back to Question Library
 
 </a>
 
@@ -207,7 +207,7 @@ Quick Actions
 
 <a href="/developer">
 
-🏠 Developer Dashboard
+Developer Dashboard
 
 </a>
 

@@ -3,7 +3,7 @@
     <div class="page-actions"><a class="button" href="/question-editor/create">Create question</a><a class="button secondary" href="/question-import">Import</a></div>
 </section>
 <section aria-labelledby="health-heading"><div class="section-heading"><h2 id="health-heading">Repository Health</h2><span class="badge <?= $healthScore >= 80 ? 'badge-success' : 'badge-warning' ?>"><?= (int) $healthScore ?>% health</span></div>
-<div class="stats-grid developer-stats">
+<div class="stats-grid ui-metric-grid developer-stats" data-ui-component="metric-grid">
 <article class="card stat-card"><span class="stat-label">Health score</span><strong class="stat-value"><?= $healthScore ?>%</strong></article>
 <article class="card stat-card"><span class="stat-label">Total questions</span><strong class="stat-value"><?= $statistics->totalQuestions ?></strong></article>
 <article class="card stat-card"><span class="stat-label">Total issues</span><strong class="stat-value"><?= $statistics->totalIssues ?></strong></article>
@@ -12,7 +12,7 @@
 <article class="card stat-card"><span class="stat-label">Info</span><strong class="stat-value"><?= $statistics->infos ?></strong></article>
 </div></section>
 <section aria-labelledby="actions-heading"><div class="section-heading"><h2 id="actions-heading">Quick Actions</h2></div>
-<div class="action-card-grid">
+<div class="action-card-grid ui-action-group" data-ui-component="action-group">
 <article class="card action-group"><h3>Repository</h3><p>Run diagnostics and apply supported repairs.</p><div class="page-actions"><a href="/developer?action=analyze">Analyze Repository</a><a href="/developer?action=fix-all">Fix Everything</a></div></article>
 <article class="card action-group"><h3>Questions</h3><p>Author, search, and inspect your content bank.</p><div class="page-actions"><a href="/question-editor/create">Question Workspace</a><a href="/question-editor">Question Library</a></div></article>
 <article class="card action-group"><h3>Quality</h3><p>See coverage and content health signals.</p><div class="page-actions"><a href="/coverage">Coverage Matrix</a><a href="/question-quality">Question Quality</a></div></article>

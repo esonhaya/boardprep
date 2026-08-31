@@ -115,7 +115,7 @@ Quick Actions
 
 <a href="/developer">
 
-🏠 Dashboard
+Dashboard
 
 </a>
 
@@ -125,7 +125,7 @@ Quick Actions
 
 <a href="/coverage">
 
-📊 Coverage Matrix
+Coverage Matrix
 
 </a>
 
@@ -135,7 +135,7 @@ Quick Actions
 
 <a href="/taxonomy">
 
-🧬 Taxonomy
+Taxonomy
 
 </a>
 
@@ -145,7 +145,7 @@ Quick Actions
 
 <a href="/blueprints">
 
-📋 Blueprints
+Blueprints
 
 </a>
 
@@ -155,7 +155,7 @@ Quick Actions
 
 <a href="/developer?action=analyze">
 
-🩺 Analyze Repository
+Analyze Repository
 
 </a>
 

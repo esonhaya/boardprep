@@ -20,7 +20,7 @@
 
         <a href="/developer">
 
-            🏠 Dashboard
+            Dashboard
 
         </a>
 
@@ -28,7 +28,7 @@
 
         <a href="/question-editor/create">
 
-            📝 Workspace
+            Workspace
 
         </a>
 
@@ -36,7 +36,7 @@
 
         <a href="/">
 
-            🌐 View Site
+            View Site
 
         </a>
 

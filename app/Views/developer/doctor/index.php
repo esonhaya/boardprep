@@ -3,36 +3,29 @@
 <head>
 <meta charset="utf-8">
 <title>BoardPrep Doctor</title>
-<style>
-body{font-family:system-ui;margin:32px;background:#f5f5f5}
-.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-.card{background:#fff;padding:16px;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
-.value{font-size:2rem;font-weight:bold}
-.actions{margin:24px 0}
-.button{display:inline-block;padding:10px 18px;background:#2563eb;color:#fff;text-decoration:none;border-radius:8px;font-weight:bold}
-table{width:100%;margin-top:24px;border-collapse:collapse;background:#fff}
-th,td{padding:10px;border-bottom:1px solid #ddd;text-align:left}
-.pass{color:#15803d;font-weight:bold}
-.warning{color:#d97706;font-weight:bold}
-.fail{color:#dc2626;font-weight:bold}
-</style>
+<link rel="stylesheet" href="/assets/css/style.css">
 </head>
-<body>
+<body class="ui-theme">
 
 <h1>BoardPrep Doctor</h1>
 
-<div class="actions">
+<div class="actions page-actions">
 <a class="button" href="/developer/doctor/run">
-▶ Run Doctor
+Run Doctor
 </a>
 </div>
 
-<div class="cards">
+<div class="stats-grid">
 
 <div class="card">
 <div>Health</div>
 <div class="value"><?= $report['health'] ?? '--' ?>%</div>
 </div>
+
+<?php $uiCheck = null; foreach (($report['checks'] ?? []) as $check) { if (($check['title'] ?? '') === 'UI Contract Engine') { $uiCheck = $check; break; } } ?>
+<?php if (is_array($uiCheck)): ?>
+<section class="card" aria-labelledby="ui-health-heading"><div class="section-heading"><h2 id="ui-health-heading">UI Health</h2><strong class="health-score"><?= (int) ($uiCheck['score'] ?? 0) ?>%</strong></div><p><?= htmlspecialchars((string) ($uiCheck['summary'] ?? '')) ?></p><div class="record-list"><?php foreach (($uiCheck['details'] ?? []) as $detail): ?><div class="metric-row"><span><?= htmlspecialchars((string) $detail) ?></span></div><?php endforeach; ?></div></section>
+<?php endif; ?>
 
 <div class="card">
 <div>PASS</div>
@@ -56,7 +49,7 @@ th,td{padding:10px;border-bottom:1px solid #ddd;text-align:left}
 
 </div>
 
-<div class="table-scroll"><table class="data-table">
+<div class="table-scroll ui-dense-table-wrap"><table class="data-table" data-ui-dense-table>
 
 <thead>
 <tr>

@@ -13,7 +13,7 @@ Update the reusable subject definition.
     action="/subject/update?id=<?= urlencode($subject["id"] ?? "") ?>"
 >
 
-<label>
+<label for="subject-name">
 Name
 </label>
 
@@ -21,6 +21,7 @@ Name
 
 <input
     type="text"
+    id="subject-name"
     name="name"
     value="<?= htmlspecialchars($subject["name"] ?? "") ?>"
     required
@@ -29,13 +30,14 @@ Name
 
 <div class="form-spacer"></div>
 
-<label>
+<label for="subject-description">
 Description
 </label>
 
 <br>
 
 <textarea
+    id="subject-description"
     name="description"
     rows="5"
 ><?= htmlspecialchars($subject["description"] ?? "") ?></textarea>

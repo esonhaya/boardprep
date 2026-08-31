@@ -48,7 +48,7 @@ foreach (
     $options as $index => $option
 ): ?>
 
-<label>
+<label for="option-<?= $index + 1 ?>">
 
 Option <?= $index + 1 ?>
 
@@ -57,6 +57,7 @@ Option <?= $index + 1 ?>
 <br>
 
 <input
+id="option-<?= $index + 1 ?>"
 name="option_<?= $index + 1 ?>"
 value="<?= htmlspecialchars($option["text"] ?? "") ?>"
 required

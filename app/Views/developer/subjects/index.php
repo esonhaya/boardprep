@@ -26,7 +26,7 @@ $actionBar =
         [
 
             "label" =>
-                "➕ Create Subject",
+                "Create Subject",
 
             "href" =>
                 "/subject/create"
@@ -45,6 +45,8 @@ require __DIR__
 
 <form method="GET">
 
+<label for="subject-search">Search subjects</label>
+
 <input
 type="hidden"
 name="page"
@@ -53,6 +55,7 @@ value="subjects"
 
 <input
 type="search"
+id="subject-search"
 name="search"
 placeholder="Search subjects..."
 value="<?= htmlspecialchars(
@@ -60,9 +63,9 @@ value="<?= htmlspecialchars(
 ) ?>"
 >
 
-<button>
+<button type="submit">
 
-🔍 Search
+Search
 
 </button>
 
@@ -123,7 +126,7 @@ foreach ($subjects as $subject) {
                 [
 
                     "label" =>
-                        "✏ Edit",
+                        "Edit",
 
                     "href" =>
                         "/subject/edit?id="
@@ -142,11 +145,11 @@ foreach ($subjects as $subject) {
 
                         ?
 
-                        "🗃 Archive"
+                        "Archive"
 
                         :
 
-                        "♻ Activate",
+                        "Activate",
 
                     "method" => "POST",
 
@@ -176,7 +179,7 @@ foreach ($subjects as $subject) {
 
 <a href="/developer">
 
-🏠 Back to Dashboard
+Back to Dashboard
 
 </a>
 
