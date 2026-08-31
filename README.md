@@ -58,3 +58,9 @@ scenario suite after the ordinary Doctor checks and is deeper than those checks.
 Run it before human acceptance testing. The manual checklist is in
 `docs/HUMAN_TESTER_READINESS.md`; ordinary Doctor runs intentionally do not run
 the full persona suite.
+
+Human testing starts only after that automated prerequisite. Use
+`docs/HUMAN_TESTER_READINESS.md` for ordered case IDs, `NOT_RUN`/PASS/FAIL/
+BLOCKED recording, evidence capture, defect triage, and the separate
+automated-versus-human release gate. Human acceptance is never inferred from
+the simulation report.
