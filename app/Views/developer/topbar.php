@@ -2,7 +2,7 @@
 
     <div>
 
-        <h1><?= $pageTitle ?? "Developer Dashboard" ?></h1><small>BoardPrep Content Studio</small>
+        <p class="topbar-title"><?= $pageTitle ?? "Developer Dashboard" ?></p><small>BoardPrep Content Studio</small>
 
     </div>
 

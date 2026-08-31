@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace App\Controllers;
+use App\Core\App;
 use App\Core\Request;
 use App\Services\Question\QuestionQualityService;
 use App\Services\Shared\TaxonomyIntegrityService;
@@ -53,6 +54,16 @@ class DeveloperToolsController extends BaseDeveloperController
         }
 
         $quality = QuestionQualityService::analyze();
+        $questions = App::storage()->all('questions');
+        $complete = 0;
+        $statuses = [];
+        foreach ($questions as $question) {
+            $statuses[(string) ($question['status'] ?? 'unknown')] = ($statuses[(string) ($question['status'] ?? 'unknown')] ?? 0) + 1;
+            $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+            if (count(array_filter(['board_id', 'subject_id', 'domain_id', 'topic_id', 'concept_id'], static fn(string $key): bool => trim((string) ($taxonomy[$key] ?? '')) !== '')) === 5) {
+                $complete++;
+            }
+        }
 
         self::renderDeveloper(
 
@@ -73,7 +84,13 @@ class DeveloperToolsController extends BaseDeveloperController
                     $audit,
 
                 "results" =>
-                    $results
+                    $results,
+                "repositorySummary" => [
+                    "active" => $statuses["active"] ?? 0,
+                    "draft" => $statuses["draft"] ?? 0,
+                    "archived" => $statuses["archived"] ?? 0,
+                    "taxonomyComplete" => $complete,
+                ]
 
             ],
 

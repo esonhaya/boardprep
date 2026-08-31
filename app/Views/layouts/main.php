@@ -19,6 +19,7 @@
         rel="stylesheet"
         href="/assets/css/style.css"
     >
+    <link rel="stylesheet" href="/assets/css/rich-product.css">
 
 </head>
 
@@ -38,20 +39,20 @@
     <nav id="learner-nav" aria-label="Primary navigation">
 
         <a href="/"<?= $currentPath === "/" ? ' aria-current="page"' : "" ?>>
-            Home
+            <?php $icon='home';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Home
         </a>
-        <a href="/quiz"<?= $currentPath === "/quiz" ? ' aria-current="page"' : "" ?>>Practice</a>
-        <a href="/quiz?mode=exam">Exam mode</a>
+        <a href="/quiz"<?= $currentPath === "/quiz" ? ' aria-current="page"' : "" ?>><?php $icon='practice';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Practice</a>
+        <a href="/quiz?mode=exam"><?php $icon='exam';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Exam mode</a>
         <a href="/history"<?= $currentPath === "/history" ? ' aria-current="page"' : "" ?>>
-            History
+            <?php $icon='history';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>History
         </a>
         <a href="/progress"<?= $currentPath === "/progress" ? ' aria-current="page"' : "" ?>>
-            Progress
+            <?php $icon='progress';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Progress
         </a>
-        <a href="/exams"<?= $currentPath === "/exams" ? ' aria-current="page"' : "" ?>>Exams &amp; subjects</a>
+        <a href="/exams"<?= $currentPath === "/exams" ? ' aria-current="page"' : "" ?>><?php $icon='book';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Exams &amp; subjects</a>
         <?php if (\App\Core\App::config('environment') !== 'production'): ?>
             <a href="/developer"<?= str_starts_with($currentPath, "/developer") ? ' aria-current="page"' : "" ?>>
-                Developer
+                <?php $icon='settings';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Developer
             </a>
         <?php endif; ?>
 
