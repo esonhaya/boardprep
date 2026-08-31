@@ -50,6 +50,7 @@
             <?php $icon='progress';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Progress
         </a>
         <a href="/exams"<?= $currentPath === "/exams" ? ' aria-current="page"' : "" ?>><?php $icon='book';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Exams &amp; subjects</a>
+        <a href="/study-library"<?= $currentPath === "/study-library" ? ' aria-current="page"' : "" ?>><?php $icon='book';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Study materials</a>
         <?php if (\App\Core\App::config('environment') !== 'production'): ?>
             <a href="/developer"<?= str_starts_with($currentPath, "/developer") ? ' aria-current="page"' : "" ?>>
                 <?php $icon='settings';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Developer

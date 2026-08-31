@@ -23,6 +23,7 @@ use App\Controllers\QuestionQualityController;
 use App\Controllers\QuizFlowController;
 use App\Controllers\SubjectController;
 use App\Controllers\StudyDashboardController;
+use App\Controllers\StudyLibraryController;
 use App\Controllers\TaxonomyController;
 use App\Core\App;
 
@@ -68,6 +69,7 @@ $router->get(
     "/study",
     [StudyDashboardController::class, "index"]
 );
+$router->get("/study-library", [StudyLibraryController::class, "index"]);
 
 $router->get(
     "/profile",
@@ -85,6 +87,7 @@ $router->get(
     "/developer",
     [DeveloperToolsController::class, "index"]
 );
+$router->get("/developer/study-library", [StudyLibraryController::class, "developer"]);
 
 $router->get(
     "/developer/doctor",

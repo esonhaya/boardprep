@@ -1,0 +1,45 @@
+[
+    {
+        "id": "constitution-review-foundation",
+        "title": "1987 Philippine Constitution: Review Foundation",
+        "summary": "A concise map of constitutional principles, rights, government structure, and accountability for focused review.",
+        "notes": [
+            {"heading":"Principles and state policies","body":"Review the constitutional commitment to a democratic and republican state, the rule of law, human dignity, social justice, and integrity in public service."},
+            {"heading":"Bill of Rights and due process","body":"Focus on the protection of individual liberty, equal protection, due process, and safeguards against unreasonable government action."},
+            {"heading":"Government structure","body":"Distinguish the legislative, executive, and judicial functions, and understand why separation of powers and checks and balances matter."},
+            {"heading":"Accountability and public trust","body":"Public office is a public trust. Accountability, constitutional commissions, elections, and responsible citizenship connect authority with service to the people."}
+        ],
+        "source_ids": ["1987-philippine-constitution"],
+        "exams": ["let", "civil-service", "criminologist"],
+        "exam_focus": {
+            "let": {"priority":"medium","rationale":"Civic and government concepts support general-education review.","official_scope_status":"editorial foundation; not an exam prediction","focus_topics":["principles and state policies","citizenship","government fundamentals"]},
+            "civil-service": {"priority":"high","rationale":"General-information and public-service preparation use constitutional foundations.","official_scope_status":"editorial foundation; not an exam prediction","focus_topics":["government structure","accountability","rights and citizenship"]},
+            "criminologist": {"priority":"high","rationale":"Rights, authority, due process, and accountability are relevant foundations for justice-oriented study.","official_scope_status":"editorial foundation; not an exam prediction","focus_topics":["Bill of Rights","due process","public trust"]}
+        },
+        "taxonomy": {"subject_id":"social-studies","domain_id":"government-and-civics","topic_id":"social-civics","concept_id":"social-civics-public-good"},
+        "status":"published",
+        "version":1,
+        "updated_at":"2026-08-31"
+    },
+    {
+        "id": "ra-6713-review-foundation",
+        "title": "RA 6713: Public-Service Ethics Review",
+        "summary": "A source-backed review outline of the Code of Conduct and Ethical Standards for Public Officials and Employees.",
+        "notes": [
+            {"heading":"Purpose and public interest","body":"The law promotes a high standard of ethics and treats public office as a responsibility to serve the public interest."},
+            {"heading":"Norms of conduct","body":"Review commitment to public interest, professionalism, justness and sincerity, political neutrality, responsiveness, nationalism and patriotism, commitment to democracy, and simple living."},
+            {"heading":"Duties and transparency","body":"Focus on duties to respond to the public, process documents properly, and disclose relevant business interests and financial connections as required."},
+            {"heading":"Prohibited acts and accountability","body":"Understand that conflicts of interest, prohibited transactions, and violations of the law can create administrative and legal accountability."}
+        ],
+        "source_ids": ["republic-act-6713"],
+        "exams": ["civil-service", "criminologist"],
+        "exam_focus": {
+            "civil-service": {"priority":"high","rationale":"The statute is a direct public-service ethics foundation.","official_scope_status":"source-backed study material; not an exam prediction","focus_topics":["norms of conduct","duties","prohibited acts","transparency"]},
+            "criminologist": {"priority":"medium","rationale":"Professional accountability and public-service ethics provide relevant civic context.","official_scope_status":"editorial extension; not an exam prediction","focus_topics":["professionalism","public interest","accountability"]}
+        },
+        "taxonomy": {"subject_id":"social-studies","domain_id":"government-and-civics","topic_id":"social-civics","concept_id":"social-civics-public-good"},
+        "status":"published",
+        "version":1,
+        "updated_at":"2026-08-31"
+    }
+]
