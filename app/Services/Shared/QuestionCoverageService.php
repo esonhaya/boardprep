@@ -35,106 +35,82 @@ final class QuestionCoverageService
         array $topics,
         array $concepts
     ): array {
-        $catalog = [
-            'board' => self::catalog($boards),
-            'subject' => self::catalog($subjects),
-            'domain' => self::catalog($domains),
-            'topic' => self::catalog($topics),
-            'concept' => self::catalog($concepts),
-        ];
-        $inventory = [
-            'total' => count($questions),
-            'eligible' => 0,
-            'by_subject' => [],
-            'by_topic' => [],
-            'by_difficulty' => [],
-            'by_status' => [],
-        ];
-        $issues = [
-            'unknown_taxonomy' => [],
-            'aliases' => [],
-            'invalid_difficulty' => [],
-            'legacy_metadata' => [],
-            'ineligible' => [],
-            'taxonomy_orphans' => self::taxonomyOrphans($boards, $subjects, $boardSubjects, $domains, $topics, $concepts),
-        ];
-
+        $catalog = self::catalogs($boards, $subjects, $domains, $topics, $concepts);
+        $inventory = self::emptyInventory(count($questions));
+        $issues = self::emptyIssues(
+            $boards,
+            $subjects,
+            $boardSubjects,
+            $domains,
+            $topics,
+            $concepts
+        );
         foreach ($questions as $question) {
-            if (!is_array($question)) {
-                continue;
-            }
-            $id = is_scalar($question['id'] ?? null) ? (string) $question['id'] : '<unknown>';
-            $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
-            $canonicalSubject = null;
-            $canonicalTopic = null;
-            if ($taxonomy === []) {
-                $issues['legacy_metadata'][] = $id;
-            }
-            foreach (['board', 'subject', 'domain', 'topic', 'concept'] as $dimension) {
-                $value = $question[$dimension] ?? $taxonomy[$dimension . '_id'] ?? null;
-                $match = self::canonical($value, $catalog[$dimension]);
-                if ($match === null) {
-                    $issues['unknown_taxonomy'][] = [
-                        'question' => $id,
-                        'dimension' => $dimension,
-                        'value' => is_scalar($value) ? trim((string) $value) : '',
-                    ];
-                    continue;
-                }
-                if (is_scalar($value) && trim((string) $value) !== $match['id']) {
-                    $issues['aliases'][] = [
-                        'question' => $id,
-                        'dimension' => $dimension,
-                        'value' => trim((string) $value),
-                        'canonical' => $match['id'],
-                    ];
-                }
-                if ($dimension === 'subject') {
-                    $canonicalSubject = $match;
-                } elseif ($dimension === 'topic') {
-                    $canonicalTopic = $match;
-                }
-            }
-
-            $difficulty = is_scalar($question['difficulty'] ?? null)
-                ? strtolower(trim((string) $question['difficulty'])) : '';
-            if (!in_array($difficulty, self::DIFFICULTIES, true)) {
-                $issues['invalid_difficulty'][] = $id;
-            }
-            $status = is_scalar($question['status'] ?? null)
-                ? strtolower(trim((string) $question['status'])) : '';
-            self::increment($inventory['by_status'], $status === '' ? '<missing>' : $status);
-
-            $subject = self::fieldName($question, 'subject', $catalog['subject']);
-            if ($subject !== null && self::eligible($questions, $question, $subject)) {
-                $inventory['eligible']++;
-                if ($canonicalSubject !== null) {
-                    self::increment($inventory['by_subject'], $canonicalSubject['id']);
-                }
-                if ($canonicalTopic !== null) {
-                    self::increment($inventory['by_topic'], $canonicalTopic['id']);
-                }
-                if (in_array($difficulty, self::DIFFICULTIES, true)) {
-                    self::increment($inventory['by_difficulty'], $difficulty);
-                }
-            } else {
-                $issues['ineligible'][] = $id;
-            }
+            self::inspectQuestion($question, $questions, $catalog, $inventory, $issues);
         }
-
-        foreach ($issues as &$entries) {
-            $entries = array_values($entries);
-        }
-        unset($entries);
-        foreach (['by_subject', 'by_topic', 'by_difficulty', 'by_status'] as $key) {
-            ksort($inventory[$key]);
-        }
-
+        self::finalizeReport($inventory, $issues);
         return [
             'inventory' => $inventory,
             'issues' => $issues,
             'blueprints' => self::blueprints($questions, $boards, $subjects, $boardSubjects),
         ];
+    }
+
+    private static function catalogs(array ...$groups): array
+    {
+        return array_combine(
+            ['board', 'subject', 'domain', 'topic', 'concept'],
+            array_map(static fn (array $records): array => self::catalog($records), $groups)
+        );
+    }
+
+    private static function emptyInventory(int $total): array
+    {
+        return ['total' => $total, 'eligible' => 0, 'by_subject' => [], 'by_topic' => [], 'by_difficulty' => [], 'by_status' => []];
+    }
+
+    private static function emptyIssues(array ...$groups): array
+    {
+        return ['unknown_taxonomy' => [], 'aliases' => [], 'invalid_difficulty' => [], 'legacy_metadata' => [], 'ineligible' => [], 'taxonomy_orphans' => self::taxonomyOrphans(...$groups)];
+    }
+
+    private static function inspectQuestion(mixed $question, array $questions, array $catalog, array &$inventory, array &$issues): void
+    {
+        if (!is_array($question)) return;
+        $id = is_scalar($question['id'] ?? null) ? (string) $question['id'] : '<unknown>';
+        $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+        if ($taxonomy === []) $issues['legacy_metadata'][] = $id;
+        $canonical = [];
+        foreach (['board', 'subject', 'domain', 'topic', 'concept'] as $dimension) {
+            $value = $question[$dimension] ?? $taxonomy[$dimension . '_id'] ?? null;
+            $match = self::canonical($value, $catalog[$dimension]);
+            if ($match === null) {
+                $issues['unknown_taxonomy'][] = ['question' => $id, 'dimension' => $dimension, 'value' => is_scalar($value) ? trim((string) $value) : ''];
+                continue;
+            }
+            if (is_scalar($value) && trim((string) $value) !== $match['id']) $issues['aliases'][] = ['question' => $id, 'dimension' => $dimension, 'value' => trim((string) $value), 'canonical' => $match['id']];
+            $canonical[$dimension] = $match;
+        }
+        $difficulty = is_scalar($question['difficulty'] ?? null) ? strtolower(trim((string) $question['difficulty'])) : '';
+        if (!in_array($difficulty, self::DIFFICULTIES, true)) $issues['invalid_difficulty'][] = $id;
+        $status = is_scalar($question['status'] ?? null) ? strtolower(trim((string) $question['status'])) : '';
+        self::increment($inventory['by_status'], $status === '' ? '<missing>' : $status);
+        $subject = self::fieldName($question, 'subject', $catalog['subject']);
+        if ($subject === null || !self::eligible($questions, $question, $subject)) {
+            $issues['ineligible'][] = $id;
+            return;
+        }
+        $inventory['eligible']++;
+        if (isset($canonical['subject'])) self::increment($inventory['by_subject'], $canonical['subject']['id']);
+        if (isset($canonical['topic'])) self::increment($inventory['by_topic'], $canonical['topic']['id']);
+        if (in_array($difficulty, self::DIFFICULTIES, true)) self::increment($inventory['by_difficulty'], $difficulty);
+    }
+
+    private static function finalizeReport(array &$inventory, array &$issues): void
+    {
+        foreach ($issues as &$entries) $entries = array_values($entries);
+        unset($entries);
+        foreach (['by_subject', 'by_topic', 'by_difficulty', 'by_status'] as $key) ksort($inventory[$key]);
     }
 
     private static function blueprints(
