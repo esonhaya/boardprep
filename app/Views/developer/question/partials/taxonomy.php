@@ -23,7 +23,7 @@ $conceptValue = $fieldValue('concept');
 <?php if (!empty($context['board'])): ?>
 <input type="hidden" name="board" value="<?= htmlspecialchars($boardValue) ?>">
 <?php else: ?>
-<label>Board</label><br>
+<label for="board">Board</label><br>
 <select name="board" id="board" data-selected="<?= htmlspecialchars($boardValue) ?>" required>
 <option value="">Select Board</option>
 <?php foreach ($boards as $board): ?>
@@ -37,7 +37,7 @@ $conceptValue = $fieldValue('concept');
 <?php if (!empty($context['subject'])): ?>
 <input type="hidden" name="subject" value="<?= htmlspecialchars($subjectValue) ?>">
 <?php else: ?>
-<label>Subject</label><br>
+<label for="subject">Subject</label><br>
 <select name="subject" id="subject" data-selected="<?= htmlspecialchars($subjectValue) ?>" required>
 <option value="">Select Subject</option>
 <?php foreach ($subjects as $subject): ?>
@@ -51,7 +51,7 @@ $conceptValue = $fieldValue('concept');
 <?php if (!empty($context['domain'])): ?>
 <input type="hidden" name="domain" value="<?= htmlspecialchars($domainValue) ?>">
 <?php else: ?>
-<label>Domain</label><br>
+<label for="domain">Domain</label><br>
 <select name="domain" id="domain" data-selected="<?= htmlspecialchars($domainValue) ?>" required>
 <option value="">Select Domain</option>
 <?php foreach ($domains as $domain): ?>
@@ -65,7 +65,7 @@ $conceptValue = $fieldValue('concept');
 <?php if (!empty($context['topic'])): ?>
 <input type="hidden" name="topic" value="<?= htmlspecialchars($topicValue) ?>">
 <?php else: ?>
-<label>Topic</label><br>
+<label for="topic">Topic</label><br>
 <select name="topic" id="topic" data-selected="<?= htmlspecialchars($topicValue) ?>" required>
 <option value="">Select Topic</option>
 <?php foreach ($topics as $topic): ?>
@@ -79,7 +79,7 @@ $conceptValue = $fieldValue('concept');
 <?php if (!empty($context['concept'])): ?>
 <input type="hidden" name="concept" value="<?= htmlspecialchars($conceptValue) ?>">
 <?php else: ?>
-<label>Concept</label><br>
+<label for="concept">Concept</label><br>
 <select name="concept" id="concept" data-selected="<?= htmlspecialchars($conceptValue) ?>" required>
 <option value="">Select Concept</option>
 <?php foreach ($concepts as $concept): ?>
@@ -90,9 +90,16 @@ $conceptValue = $fieldValue('concept');
 </select><br><br>
 <?php endif; ?>
 
-<label>Difficulty</label><br>
-<select name="difficulty" required>
+<label for="difficulty">Difficulty</label><br>
+<select name="difficulty" id="difficulty" required>
 <?php foreach (['easy' => 'Easy', 'medium' => 'Medium', 'hard' => 'Hard'] as $value => $label): ?>
 <option value="<?= $value ?>" <?= (($question['difficulty'] ?? '') === $value) ? 'selected' : '' ?>><?= $label ?></option>
+<?php endforeach; ?>
+</select><br><br>
+
+<label for="status">Status</label><br>
+<select name="status" id="status" required>
+<?php foreach (['active' => 'Active', 'draft' => 'Draft', 'approved' => 'Approved', 'archived' => 'Archived'] as $value => $label): ?>
+<option value="<?= $value ?>" <?= (($question['status'] ?? 'active') === $value) ? 'selected' : '' ?>><?= $label ?></option>
 <?php endforeach; ?>
 </select><br><br>

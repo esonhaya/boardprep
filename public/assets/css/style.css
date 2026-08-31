@@ -353,7 +353,13 @@ footer{
 
 .developer-content main {
     padding: 28px;
+    min-width: 0;
 }
+
+.developer-content input,
+.developer-content select,
+.developer-content textarea { max-width: 100%; box-sizing: border-box; }
+.form-error { color: #b91c1c; }
 
 /* ==========================================================
    Developer CMS Phase 1.5

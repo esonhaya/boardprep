@@ -1,4 +1,5 @@
 <h2>Coverage Matrix</h2>
+<p>Use these counts to identify subjects and topics with the least authored content.</p>
 
 <hr>
 

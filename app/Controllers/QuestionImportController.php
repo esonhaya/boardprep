@@ -15,7 +15,8 @@ class QuestionImportController extends BaseDeveloperController
             "developer/question-import",
             [
                 "pageTitle" =>
-                    "Import Questions"
+                    "Import Questions",
+                "expectedFormat" => '[{"id":"...","question":"...","options":[...]}]'
             ]
         );
 
@@ -26,9 +27,7 @@ class QuestionImportController extends BaseDeveloperController
     public static function import(): void
     {
 
-        if (
-            !isset($_FILES["file"])
-        ) {
+        if (!isset($_FILES["file"]) || ($_FILES["file"]["error"] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK) {
 
             header(
                 "Location: /question-import"
@@ -50,6 +49,8 @@ class QuestionImportController extends BaseDeveloperController
             [
                 "pageTitle" =>
                     "Import Questions",
+
+                "expectedFormat" => '[{"id":"...","question":"...","options":[...]}]',
 
                 "result" =>
                     $result

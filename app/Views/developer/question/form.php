@@ -15,6 +15,8 @@ $errors =
 $duplicates =
     $duplicates ?? [];
 
+$returnUrl = $returnUrl ?? '';
+
 $subjects =
     $subjects ?? [];
 
@@ -66,6 +68,8 @@ $isEdit
 ?>"
 
 >
+
+<?php if ($returnUrl !== ''): ?><input type="hidden" name="return" value="<?= htmlspecialchars($returnUrl) ?>"><?php endif; ?>
 
 <h3>
 

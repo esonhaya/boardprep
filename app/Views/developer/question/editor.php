@@ -12,6 +12,9 @@ Browse, search and manage your question repository.
 
 <hr>
 
+<?php if (isset($_GET['saved'])): ?><p role="status">✅ Question saved.</p><?php endif; ?>
+<?php if (($_GET['notice'] ?? '') === 'archived'): ?><p role="status">🗃️ Question archived.</p><?php elseif (($_GET['notice'] ?? '') === 'restored'): ?><p role="status">♻️ Question restored.</p><?php endif; ?>
+
 <h3>
 
 Repository Summary
@@ -198,6 +201,19 @@ value="<?= htmlspecialchars((string) ($item["id"] ?? "")) ?>"
 
 <br><br>
 
+<label for="status">Status</label>
+
+<br>
+
+<select name="status" id="status" style="width:100%;max-width:500px;">
+<option value="">All Statuses</option>
+<?php foreach (['active' => 'Active', 'draft' => 'Draft', 'approved' => 'Approved', 'archived' => 'Archived'] as $value => $label): ?>
+<option value="<?= $value ?>" <?= (($status ?? '') === $value) ? 'selected' : '' ?>><?= $label ?></option>
+<?php endforeach; ?>
+</select>
+
+<br><br>
+
 <button type="submit">
 
 🔍 Apply Filters
@@ -292,11 +308,13 @@ background:white;
 
 <p>
 
+<strong>Subject:</strong>
+
+<?= htmlspecialchars((string) (($taxonomyNames['subject'][$question['taxonomy']['subject_id'] ?? ''] ?? ($question['taxonomy']['subject_id'] ?? '')))) ?><br>
+
 <strong>Topic:</strong>
 
-<?= htmlspecialchars(
-    $question["taxonomy"]["topic_id"] ?? ""
-) ?>
+<?= htmlspecialchars((string) (($taxonomyNames['topic'][$question['taxonomy']['topic_id'] ?? ''] ?? ($question['taxonomy']['topic_id'] ?? '')))) ?>
 
 </p>
 
@@ -310,7 +328,7 @@ background:white;
 
 |
 
-<a href="/question-editor/edit?id=<?= urlencode((string) $question["id"]) ?>">
+<a href="/question-editor/edit?id=<?= urlencode((string) $question["id"]) ?>&amp;return=<?= urlencode((string) ($_SERVER['REQUEST_URI'] ?? '/question-editor')) ?>">
 
 ✏️ Edit
 
@@ -320,7 +338,7 @@ background:white;
 
 <?php if (
     ($question["status"] ?? "approved")
-    === "approved"
+    !== "archived"
 ): ?>
 
 <form method="POST" action="/question-editor/archive?id=<?= urlencode((string) $question["id"]) ?>" style="display:inline" onsubmit="return confirm('Archive this question?')">

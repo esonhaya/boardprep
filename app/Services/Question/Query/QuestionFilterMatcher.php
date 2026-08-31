@@ -10,6 +10,12 @@ final class QuestionFilterMatcher
         array $question,
         QuestionQueryFilters $filters
     ): bool {
+        if ($filters->status !== ''
+            && QuestionValueReader::text($question, 'status') !== $filters->status
+        ) {
+            return false;
+        }
+
         if (
             $filters->domain !== ''
             && QuestionValueReader::taxonomy($question, 'domain_id') !== $filters->domain
