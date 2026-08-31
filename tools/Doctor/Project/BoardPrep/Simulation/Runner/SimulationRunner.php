@@ -46,6 +46,7 @@ final class SimulationRunner
 
             $results[] = [
                 'scenario' => $scenario->name(),
+                'audience' => $scenario->audience(),
                 'result' => $simulation->result(),
             ];
         }

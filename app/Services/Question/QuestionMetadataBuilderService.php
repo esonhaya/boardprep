@@ -8,7 +8,7 @@ use App\Services\Question\Authoring\QuestionIdentityGenerator;
 
 final class QuestionMetadataBuilderService
 {
-    public static function build(int $id, ?array $existing, string $now): array
+    public static function build(int|string $id, ?array $existing, string $now): array
     {
         return [
             'id' => QuestionIdentityGenerator::resolve($id, $existing),

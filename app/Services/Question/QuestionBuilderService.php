@@ -10,7 +10,7 @@ use App\Services\Question\Builder\QuestionTaxonomyResolver;
 
 final class QuestionBuilderService
 {
-    public static function build(int $id, array $input, ?array $existing = null): array
+    public static function build(int|string $id, array $input, ?array $existing = null): array
     {
         $now = date(DATE_ATOM);
 

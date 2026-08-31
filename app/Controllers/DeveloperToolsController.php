@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 use App\Core\Request;
+use App\Services\Question\QuestionQualityService;
+use App\Services\Shared\TaxonomyIntegrityService;
 class DeveloperToolsController extends BaseDeveloperController
 {
     public static function index(): void
     {
 
         $audit =
-            QuestionAuditService::summary();
+            \QuestionAuditService::summary();
 
         $results = [];
 
@@ -37,7 +39,7 @@ class DeveloperToolsController extends BaseDeveloperController
             case "repair-metadata":
 
                 $results["metadata"] =
-                    MetadataRepairService::repair();
+                    \MetadataRepairService::repair();
 
                 break;
 
@@ -50,11 +52,22 @@ class DeveloperToolsController extends BaseDeveloperController
 
         }
 
+        $quality = QuestionQualityService::analyze();
+
         self::renderDeveloper(
 
-            "developer/index",
+            "developer/dashboard",
 
             [
+
+                "healthScore" =>
+                    $quality["healthScore"],
+
+                "statistics" =>
+                    $quality["report"]->statistics,
+
+                "recentIssues" =>
+                    array_slice($quality["issues"], 0, 10),
 
                 "audit" =>
                     $audit,
@@ -76,13 +89,13 @@ class DeveloperToolsController extends BaseDeveloperController
         return [
 
             "metadata" =>
-                MetadataRepairService::repair(),
+                \MetadataRepairService::repair(),
 
             "taxonomy" =>
                 TaxonomyIntegrityService::analyze(),
 
             "audit" =>
-                QuestionAuditService::summary()
+                \QuestionAuditService::summary()
 
         ];
 

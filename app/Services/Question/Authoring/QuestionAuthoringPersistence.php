@@ -8,7 +8,7 @@ use App\Services\Question\QuestionService;
 
 final class QuestionAuthoringPersistence
 {
-    public static function persist(int $id, array $question): ?array
+    public static function persist(int|string $id, array $question): ?array
     {
         if ($id > 0) {
             return QuestionService::update($id, $question);

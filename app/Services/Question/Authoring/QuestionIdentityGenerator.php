@@ -6,9 +6,9 @@ namespace App\Services\Question\Authoring;
 
 final class QuestionIdentityGenerator
 {
-    public static function resolve(int $requestedId, ?array $existing): int|string
+    public static function resolve(int|string $requestedId, ?array $existing): int|string
     {
-        if ($requestedId > 0) {
+        if (trim((string) $requestedId) !== '' && trim((string) $requestedId) !== '0') {
             return $requestedId;
         }
 

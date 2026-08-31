@@ -24,7 +24,17 @@ final class SimulationReport
             '',
         ];
 
+        $lastAudience = null;
         foreach ($results as $item) {
+            $audience = $item['audience'] ?? 'learner';
+            if ($audience !== $lastAudience) {
+                $lines[] = $audience === 'developer'
+                    ? 'Developer Scenarios'
+                    : 'Learner Scenarios';
+                $lines[] = '';
+                $lastAudience = $audience;
+            }
+
             $result = $item['result'];
             $status = $result->passed() ? 'PASS' : 'FAIL';
 

@@ -30,6 +30,8 @@ $output = (string) ob_get_clean();
 
 requireContract($exit === 0, 'The registered developer simulation did not exit successfully.');
 requireContract(str_contains($output, 'BOARDPREP DEVELOPER SIMULATION'), 'Command report heading is missing.');
+requireContract(str_contains($output, 'Learner Scenarios'), 'Learner scenario section is missing.');
+requireContract(str_contains($output, 'Developer Scenarios'), 'Developer scenario section is missing.');
 requireContract(str_contains($output, 'SCENARIOS=' . count($scenarioNames)), 'Scenario count does not match the registry.');
 requireContract(str_contains($output, 'PASS=' . count($scenarioNames)), 'Pass count does not match executed scenarios.');
 requireContract(str_contains($output, 'FAIL=0'), 'Successful command reported failures.');

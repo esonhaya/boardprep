@@ -10,7 +10,7 @@ use App\Services\Question\Authoring\QuestionAuthoringPersistence;
 
 final class QuestionAuthoringService
 {
-    public static function prepare(int $id, array $input): array
+    public static function prepare(int|string $id, array $input): array
     {
         $question = QuestionService::build($id, $input);
         $validation = QuestionService::validateForSave($question);
@@ -23,14 +23,14 @@ final class QuestionAuthoringService
         ];
     }
 
-    public static function canSave(int $id, array $input): bool
+    public static function canSave(int|string $id, array $input): bool
     {
         return QuestionAuthoringDecision::allows(
             self::prepare($id, $input)
         );
     }
 
-    public static function submit(int $id, array $input): array
+    public static function submit(int|string $id, array $input): array
     {
         $result = self::prepare($id, $input);
         $result['saved'] = false;
@@ -54,7 +54,7 @@ final class QuestionAuthoringService
         return $result;
     }
 
-    public static function save(int $id, array $input): ?array
+    public static function save(int|string $id, array $input): ?array
     {
         return self::submit($id, $input)['persisted'];
     }

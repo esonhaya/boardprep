@@ -134,14 +134,14 @@ class QuestionEditorController extends BaseDeveloperController
     public static function update(): void
     {
         self::submitAuthoring(
-            (int) Request::queryString("id", "0"),
+            Request::queryString("id"),
             "Edit Question",
             "edit"
         );
     }
 
     private static function submitAuthoring(
-        int $id,
+        int|string $id,
         string $pageTitle,
         string $contentMode
     ): void {

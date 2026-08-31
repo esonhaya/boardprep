@@ -12,9 +12,9 @@ use App\Services\Shared\QuestionValidationService;
 
 class QuestionService
 {
-    public static function build(int $id, array $input): array
+    public static function build(int|string $id, array $input): array
     {
-        $existing = $id > 0
+        $existing = trim((string) $id) !== '' && trim((string) $id) !== '0'
             ? self::repository()->find((string) $id)
             : null;
 
