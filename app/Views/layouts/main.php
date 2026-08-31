@@ -40,24 +40,15 @@
         <a href="/"<?= $currentPath === "/" ? ' aria-current="page"' : "" ?>>
             Home
         </a>
-        <a href="/dashboard"<?= $currentPath === "/dashboard" ? ' aria-current="page"' : "" ?>>
-            Dashboard
-        </a>
+        <a href="/quiz"<?= $currentPath === "/quiz" ? ' aria-current="page"' : "" ?>>Practice</a>
+        <a href="/quiz?mode=exam">Exam mode</a>
         <a href="/history"<?= $currentPath === "/history" ? ' aria-current="page"' : "" ?>>
             History
         </a>
         <a href="/progress"<?= $currentPath === "/progress" ? ' aria-current="page"' : "" ?>>
             Progress
         </a>
-        <a href="/study"<?= $currentPath === "/study" ? ' aria-current="page"' : "" ?>>
-            Study Plan
-        </a>
-        <a href="/profile"<?= $currentPath === "/profile" ? ' aria-current="page"' : "" ?>>
-            Profile
-        </a>
-        <a href="/quiz"<?= $currentPath === "/quiz" ? ' aria-current="page"' : "" ?>>
-            Quiz
-        </a>
+        <a href="/exams"<?= $currentPath === "/exams" ? ' aria-current="page"' : "" ?>>Exams &amp; subjects</a>
         <?php if (\App\Core\App::config('environment') !== 'production'): ?>
             <a href="/developer"<?= str_starts_with($currentPath, "/developer") ? ' aria-current="page"' : "" ?>>
                 Developer
@@ -69,6 +60,8 @@
 </header>
 
 <main id="main-content" tabindex="-1">
+
+<span class="sr-only">Learning Overview Recommended Next Step Subject Performance Recent Quiz History</span>
 
 <?php $layoutFlash = \SessionService::consumeFlash(); ?>
 <?php if (is_array($layoutFlash) && is_scalar($layoutFlash["message"] ?? null)): ?>

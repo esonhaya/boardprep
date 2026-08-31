@@ -30,6 +30,7 @@ $router->get(
     "/",
     [HomeController::class, "index"]
 );
+$router->get("/exams", [HomeController::class, "exams"]);
 
 $router->get(
     "/grammar",

@@ -1,53 +1,14 @@
 [
-    {
-        "id": "eng-gram-pos-noun-0001",
-        "code": "Q000001",
-
-        "taxonomy": {
-            "board_id": "let",
-            "subject_id": "english",
-            "domain_id": "grammar",
-            "topic_id": "parts-of-speech",
-            "concept_id": "noun"
-        },
-
-        "type": "multiple_choice",
-
-        "difficulty": "easy",
-
-        "question": "Which word is the noun in the sentence 'Maria bought a book yesterday'?",
-
-        "options": [
-            {
-                "id": "option-1",
-                "text": "bought",
-                "correct": false
-            },
-            {
-                "id": "option-2",
-                "text": "Maria",
-                "correct": true
-            },
-            {
-                "id": "option-3",
-                "text": "yesterday",
-                "correct": false
-            },
-            {
-                "id": "option-4",
-                "text": "the",
-                "correct": false
-            }
-        ],
-
-        "explanation": "Maria is a noun because it names a person.",
-
-        "hint": "",
-
-        "tags": [],
-
-        "source": "",
-
-        "status": "approved"
-    }
+{"id":"eng-gram-pos-noun-0001","code":"Q000001","taxonomy":{"board_id":"let","subject_id":"english","domain_id":"grammar","topic_id":"parts-of-speech","concept_id":"parts-of-speech-nouns"},"type":"multiple_choice","difficulty":"easy","question":"Which word is the noun in the sentence 'Maria bought a book yesterday'?","options":[{"id":"option-1","text":"bought","correct":false},{"id":"option-2","text":"Maria","correct":true},{"id":"option-3","text":"yesterday","correct":false},{"id":"option-4","text":"the","correct":false}],"explanation":"Maria is a noun because it names a person.","hint":"","tags":["authored-sample"],"source":"BoardPrep-authored","status":"approved"},
+{"id":"eng-grammar-sva-0002","code":"Q000002","taxonomy":{"board_id":"let","subject_id":"english","domain_id":"grammar","topic_id":"subject-verb-agreement","concept_id":"subject-verb-agreement-singular-subjects"},"type":"multiple_choice","difficulty":"medium","question":"Which sentence uses subject-verb agreement correctly?","options":[{"id":"option-1","text":"The list of names is on the desk.","correct":true},{"id":"option-2","text":"The list of names are on the desk.","correct":false},{"id":"option-3","text":"The names on the list is on the desk.","correct":false},{"id":"option-4","text":"The list are on the desk.","correct":false}],"explanation":"The singular subject list takes the singular verb is.","hint":"Find the head noun of the subject.","tags":["authored-sample"],"source":"BoardPrep-authored","status":"approved"},
+{"id":"eng-grammar-tense-0003","code":"Q000003","taxonomy":{"board_id":"let","subject_id":"english","domain_id":"grammar","topic_id":"verb-tenses","concept_id":"verb-tenses-perfect-tenses"},"type":"multiple_choice","difficulty":"easy","question":"By the time the class began, the teacher ____ the materials.","options":[{"id":"option-1","text":"prepared","correct":false},{"id":"option-2","text":"has prepared","correct":false},{"id":"option-3","text":"had prepared","correct":true},{"id":"option-4","text":"prepares","correct":false}],"explanation":"The past perfect shows an action completed before another past action.","hint":"Look for the earlier past action.","tags":["authored-sample"],"source":"BoardPrep-authored","status":"approved"},
+{"id":"eng-grammar-pronoun-0004","code":"Q000004","taxonomy":{"board_id":"let","subject_id":"english","domain_id":"grammar","topic_id":"pronouns","concept_id":"pronouns-pronoun-case"},"type":"multiple_choice","difficulty":"medium","question":"Which pronoun correctly completes the sentence: The committee reached ____ decision?","options":[{"id":"option-1","text":"its","correct":true},{"id":"option-2","text":"their","correct":false},{"id":"option-3","text":"they're","correct":false},{"id":"option-4","text":"it’s","correct":false}],"explanation":"A committee used as one unit takes the singular possessive pronoun its.","hint":"Choose the possessive form.","tags":["authored-sample"],"source":"BoardPrep-authored","status":"approved"},
+{"id":"eng-reading-inference-0005","code":"Q000005","taxonomy":{"board_id":"let","subject_id":"english","domain_id":"reading-comprehension","topic_id":"inference","concept_id":"inference-textual-inference"},"type":"multiple_choice","difficulty":"hard","question":"A learner brings an umbrella after seeing dark clouds. What can reasonably be inferred?","options":[{"id":"option-1","text":"The learner expects rain.","correct":true},{"id":"option-2","text":"The learner dislikes sunshine.","correct":false},{"id":"option-3","text":"The learner has finished class.","correct":false},{"id":"option-4","text":"The clouds are harmless.","correct":false}],"explanation":"The umbrella and dark clouds support the expectation of rain.","hint":"Use only evidence in the situation.","tags":["authored-sample"],"source":"BoardPrep-authored","status":"approved"},
+{"id":"eng-vocab-synonym-0006","code":"Q000006","taxonomy":{"board_id":"let","subject_id":"english","domain_id":"vocabulary","topic_id":"synonyms-and-antonyms","concept_id":"synonyms-and-antonyms-synonyms"},"type":"multiple_choice","difficulty":"easy","question":"Which word is closest in meaning to diligent?","options":[{"id":"option-1","text":"careless","correct":false},{"id":"option-2","text":"hardworking","correct":true},{"id":"option-3","text":"uncertain","correct":false},{"id":"option-4","text":"silent","correct":false}],"explanation":"Diligent means showing steady and careful effort.","hint":"Think of consistent effort.","tags":["authored-sample"],"source":"BoardPrep-authored","status":"approved"},
+{"id":"eng-writing-organization-0007","code":"Q000007","taxonomy":{"board_id":"let","subject_id":"english","domain_id":"writing","topic_id":"organization","concept_id":"organization-introduction"},"type":"multiple_choice","difficulty":"medium","question":"Which sentence best states the main point of a paragraph about daily reading?","options":[{"id":"option-1","text":"Daily reading builds vocabulary and comprehension.","correct":true},{"id":"option-2","text":"Some books have blue covers.","correct":false},{"id":"option-3","text":"Libraries have shelves.","correct":false},{"id":"option-4","text":"Readers sometimes use bookmarks.","correct":false}],"explanation":"The first choice summarizes the paragraph topic and central benefit.","hint":"Choose the broadest supported statement.","tags":["authored-sample"],"source":"BoardPrep-authored","status":"approved"},
+{"id":"eng-grammar-parallel-0008","code":"Q000008","taxonomy":{"board_id":"let","subject_id":"english","domain_id":"grammar","topic_id":"parallelism","concept_id":"parallelism-parallel-structure"},"type":"multiple_choice","difficulty":"hard","question":"Which sentence maintains parallel structure?","options":[{"id":"option-1","text":"The course teaches planning, assessing, and reflecting.","correct":true},{"id":"option-2","text":"The course teaches planning, assessment, and to reflect.","correct":false},{"id":"option-3","text":"The course teaches to plan, assessing, and reflection.","correct":false},{"id":"option-4","text":"The course teaches plan, assess, and reflection.","correct":false}],"explanation":"The three items use the same -ing form.","hint":"Compare each grammatical form.","tags":["authored-sample"],"source":"BoardPrep-authored","status":"approved"},
+{"id":"eng-reading-main-0009","code":"Q000009","taxonomy":{"board_id":"let","subject_id":"english","domain_id":"reading-comprehension","topic_id":"main-idea-and-support","concept_id":"main-idea-and-support-supporting-evidence"},"type":"multiple_choice","difficulty":"medium","question":"What makes a detail supporting evidence?","options":[{"id":"option-1","text":"It directly helps explain the central claim.","correct":true},{"id":"option-2","text":"It is the longest sentence.","correct":false},{"id":"option-3","text":"It contains a difficult word.","correct":false},{"id":"option-4","text":"It appears at the end.","correct":false}],"explanation":"Supporting evidence is relevant to and helps establish the central claim.","hint":"Focus on relevance.","tags":["authored-sample"],"source":"BoardPrep-authored","status":"approved"},
+{"id":"eng-grammar-modifier-0010","code":"Q000010","taxonomy":{"board_id":"let","subject_id":"english","domain_id":"grammar","topic_id":"modifiers","concept_id":"modifiers-dangling-modifiers"},"type":"multiple_choice","difficulty":"medium","question":"Which sentence places the modifier clearly?","options":[{"id":"option-1","text":"Walking to school, Ana saw the sunrise.","correct":true},{"id":"option-2","text":"Walking to school, the sunrise was seen by Ana.","correct":false},{"id":"option-3","text":"Ana saw walking the sunrise to school.","correct":false},{"id":"option-4","text":"The sunrise walking to school saw Ana.","correct":false}],"explanation":"The opening phrase clearly modifies Ana, the person walking.","hint":"Identify who is doing the walking.","tags":["authored-sample"],"source":"BoardPrep-authored","status":"approved"},
+{"id":"eng-vocab-context-0011","code":"Q000011","taxonomy":{"board_id":"let","subject_id":"english","domain_id":"reading-comprehension","topic_id":"context-clues","concept_id":"context-clues-definition-clues"},"type":"multiple_choice","difficulty":"easy","question":"In 'The concise report was easy to review,' concise most nearly means:","options":[{"id":"option-1","text":"brief and clear","correct":true},{"id":"option-2","text":"late and unfinished","correct":false},{"id":"option-3","text":"brightly colored","correct":false},{"id":"option-4","text":"highly technical","correct":false}],"explanation":"The context supports brief and clear.","hint":"Use the result described.","tags":["authored-sample"],"source":"BoardPrep-authored","status":"approved"},
+{"id":"eng-grammar-prep-0012","code":"Q000012","taxonomy":{"board_id":"let","subject_id":"english","domain_id":"grammar","topic_id":"prepositions","concept_id":"prepositions-prepositional-phrases"},"type":"multiple_choice","difficulty":"easy","question":"The reference book is located ____ the teacher's desk.","options":[{"id":"option-1","text":"beside","correct":true},{"id":"option-2","text":"quickly","correct":false},{"id":"option-3","text":"although","correct":false},{"id":"option-4","text":"careful","correct":false}],"explanation":"Beside expresses location next to the desk.","hint":"Choose the word that shows location.","tags":["authored-sample"],"source":"BoardPrep-authored","status":"approved"}
 ]

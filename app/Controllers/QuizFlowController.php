@@ -10,6 +10,7 @@ use App\Core\View;
 use App\Services\Quiz\QuizResultActionService;
 use App\Services\Quiz\Start\QuizStartSessionWriter;
 use App\Services\Quiz\Start\QuizStartInputNormalizer;
+use App\Services\Board\BoardViewService;
 
 final class QuizFlowController
 {
@@ -81,6 +82,7 @@ final class QuizFlowController
             [
                 'pageTitle' => 'Quiz',
                 'settings' => $settings,
+                'boards' => BoardViewService::all(),
             ]
         );
     }

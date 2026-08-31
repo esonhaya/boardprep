@@ -2,17 +2,7 @@
 
     <div>
 
-        <h1>
-
-            <?= $pageTitle ?? "Developer Dashboard" ?>
-
-        </h1>
-
-        <small>
-
-            BoardPrep Content Studio
-
-        </small>
+        <h1><?= $pageTitle ?? "Developer Dashboard" ?></h1><small>BoardPrep Content Studio</small>
 
     </div>
 
@@ -20,7 +10,7 @@
 
         <a href="/developer">
 
-            Dashboard
+            View dashboard
 
         </a>
 
@@ -28,7 +18,7 @@
 
         <a href="/question-editor/create">
 
-            Workspace
+            Create question
 
         </a>
 

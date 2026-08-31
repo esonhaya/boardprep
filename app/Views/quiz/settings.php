@@ -6,7 +6,7 @@
 </p>
 <?php endif; ?>
 
-<section class="page-header"><div><h1>Set up your quiz</h1><p>Choose a focused practice session or simulate a full exam using the available question bank.</p></div></section>
+<section class="page-header"><div><p class="eyebrow">Practice setup</p><h1>Choose how you want to study</h1><p>Set the examination context first, then tailor the session to your review goal.</p></div></section>
 
 <?php $settings = is_array($settings ?? null) ? $settings : []; ?>
 
@@ -31,6 +31,8 @@ name="topic"
 value="<?= htmlspecialchars((string) (($settings['topics'][0] ?? '')), ENT_QUOTES, 'UTF-8') ?>"
 >
 
+
+<div class="form-field"><label for="quiz-exam">Examination</label><select id="quiz-exam" name="exam"><?php foreach (($boards ?? []) as $board): ?><option value="<?= htmlspecialchars((string) ($board['code'] ?? '')) ?>" <?= strtoupper((string) ($settings['board'] ?? 'LET')) === strtoupper((string) ($board['code'] ?? '')) ? 'selected' : '' ?>><?= htmlspecialchars((string) ($board['name'] ?? '')) ?></option><?php endforeach; ?></select></div>
 
 <div class="form-field"><label for="quiz-subject">Subject</label>
 

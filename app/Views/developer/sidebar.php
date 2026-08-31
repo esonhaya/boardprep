@@ -8,11 +8,7 @@
 
     <nav id="developer-nav">
 
-        <h3>
-
-            Dashboard
-
-        </h3>
+        <h3>Overview</h3>
 
         <a href="/developer"<?= $developerPath === "/developer" ? ' aria-current="page"' : "" ?>>
 
@@ -24,37 +20,37 @@
 
         <h3>
 
-            Question Management
+            Content
 
         </h3>
 
         <a href="/question-editor/create"<?= $developerPath === "/question-editor/create" ? ' aria-current="page"' : "" ?>>
 
-            Question Workspace
+            Create Question
 
         </a>
 
         <a href="/question-editor"<?= $developerPath === "/question-editor" ? ' aria-current="page"' : "" ?>>
 
-            Question Library
+            Questions
 
         </a>
 
         <a href="/coverage">
 
-            Coverage Matrix
+            Coverage
 
         </a>
 
         <a href="/question-quality">
 
-            Question Quality
+            Quality
 
         </a>
 
         <a href="/question-inspector">
 
-            Question Inspector
+            Inspector
 
         </a>
 
@@ -94,19 +90,19 @@
 
         <h3>
 
-            Import / Export
+            Content operations
 
         </h3>
 
         <a href="/question-import">
 
-            Import Questions
+            Import
 
         </a>
 
         <a href="/question-export">
 
-            Export Questions
+            Export
 
         </a>
 

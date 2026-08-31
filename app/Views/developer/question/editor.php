@@ -291,13 +291,9 @@ No questions matched your filters.
 
 <p>
 
-<strong>Subject:</strong>
-
-<?= htmlspecialchars((string) (($taxonomyNames['subject'][$question['taxonomy']['subject_id'] ?? ''] ?? ($question['taxonomy']['subject_id'] ?? '')))) ?><br>
-
-<strong>Topic:</strong>
-
-<?= htmlspecialchars((string) (($taxonomyNames['topic'][$question['taxonomy']['topic_id'] ?? ''] ?? ($question['taxonomy']['topic_id'] ?? '')))) ?>
+<?php $questionTaxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : []; ?>
+<?php if (!empty($questionTaxonomy['subject_id'])): ?><span class="chip"><?= htmlspecialchars((string) ($taxonomyNames['subject'][$questionTaxonomy['subject_id']] ?? $questionTaxonomy['subject_id'])) ?></span><?php endif; ?>
+<?php if (!empty($questionTaxonomy['topic_id'])): ?><span class="chip"><?= htmlspecialchars((string) ($taxonomyNames['topic'][$questionTaxonomy['topic_id']] ?? $questionTaxonomy['topic_id'])) ?></span><?php endif; ?>
 
 </p>
 
