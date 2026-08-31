@@ -1,1 +1,41 @@
-[]
+[
+    {
+        "id": "let-boardprep-coverage-v1",
+        "scope": "board",
+        "board_id": "let",
+        "board": "let",
+        "subject": "let",
+        "name": "LET BoardPrep Coverage Targets",
+        "version": 1,
+        "status": "active",
+        "questionCount": 100,
+        "difficulty": {
+            "easy": 30,
+            "medium": 50,
+            "hard": 20
+        },
+        "sections": [
+            {
+                "id": "general-education",
+                "name": "General Education",
+                "target_percent": 50,
+                "subjects": [
+                    "english",
+                    "filipino",
+                    "mathematics",
+                    "science",
+                    "social-studies"
+                ]
+            },
+            {
+                "id": "professional-education",
+                "name": "Professional Education",
+                "target_percent": 50,
+                "subjects": [
+                    "professional-education"
+                ]
+            }
+        ],
+        "label": "BoardPrep coverage targets; not an official weighting."
+    }
+]

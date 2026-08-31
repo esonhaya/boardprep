@@ -9,6 +9,7 @@ use App\Repositories\BoardRepository;
 use App\Repositories\BoardSubjectRepository;
 use App\Repositories\SubjectRepository;
 use App\Repositories\QuestionRepository;
+use App\Repositories\BlueprintRepository;
 
 final class BoardViewService
 {
@@ -102,7 +103,15 @@ final class BoardViewService
         unset($subject);
         $board["available_questions"] = count($questions);
         $board["available_subjects"] = count($availableSubjectIds);
-        $board["study_status"] = $board["available_questions"] > 0 ? "ready" : "coming_soon";
+        $blueprint = App::container()->get(BlueprintRepository::class)->board((string) $board['id']);
+        $readiness = ExamContentReadinessService::evaluate(
+            $board,
+            $allQuestions,
+            $relations,
+            $blueprint
+        );
+        $board["content_readiness"] = $readiness;
+        $board["study_status"] = $readiness['status'] === 'STUDY_READY' ? "ready" : "coming_soon";
 
         return $board;
     }

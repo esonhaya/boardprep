@@ -8,7 +8,7 @@
             "role": "general-education",
             "required": true,
             "sort_order": 1,
-            "blueprint_weight": 20
+            "blueprint_weight": 0
         }
     },
     {
@@ -20,7 +20,7 @@
             "role": "professional-education",
             "required": true,
             "sort_order": 2,
-            "blueprint_weight": 40
+            "blueprint_weight": 50
         }
     },
     {
@@ -32,8 +32,32 @@
             "role": "specialization",
             "required": true,
             "sort_order": 3,
-            "blueprint_weight": 40
+            "blueprint_weight": 10
         }
+    },
+    {
+        "id": "let-filipino",
+        "board_id": "let",
+        "subject_id": "filipino",
+        "settings": {"track":"general-education","required":true,"sort_order":4,"blueprint_weight":10}
+    },
+    {
+        "id": "let-mathematics",
+        "board_id": "let",
+        "subject_id": "mathematics",
+        "settings": {"track":"general-education","required":true,"sort_order":5,"blueprint_weight":10}
+    },
+    {
+        "id": "let-science",
+        "board_id": "let",
+        "subject_id": "science",
+        "settings": {"track":"general-education","required":true,"sort_order":6,"blueprint_weight":10}
+    },
+    {
+        "id": "let-social-studies",
+        "board_id": "let",
+        "subject_id": "social-studies",
+        "settings": {"track":"general-education","required":true,"sort_order":7,"blueprint_weight":10}
     },
     {
         "id": "cse-verbal-ability",

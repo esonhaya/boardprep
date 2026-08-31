@@ -1,6 +1,13 @@
 [
     {
         "id": 1,
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "subject-verb-agreement",
+            "concept_id": "subject-verb-agreement-singular-subjects"
+        },
         "board": "let",
         "status": "active",
         "source": "manual",
@@ -30,6 +37,13 @@
     },
     {
         "id": 2,
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "verb-tenses",
+            "concept_id": "verb-tenses-perfect-tenses"
+        },
         "board": "let",
         "status": "active",
         "source": "manual",
@@ -59,6 +73,13 @@
     },
     {
         "id": 3,
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "pronouns",
+            "concept_id": "pronouns-pronoun-antecedent-agreement"
+        },
         "board": "let",
         "status": "active",
         "source": "manual",
@@ -88,6 +109,13 @@
     },
     {
         "id": 4,
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "prepositions",
+            "concept_id": "prepositions-preposition-choice"
+        },
         "board": "let",
         "status": "active",
         "source": "manual",
@@ -117,6 +145,13 @@
     },
     {
         "id": 5,
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "modifiers",
+            "concept_id": "modifiers-dangling-modifiers"
+        },
         "board": "let",
         "status": "active",
         "source": "manual",
@@ -146,6 +181,13 @@
     },
     {
         "id": 6,
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "sentence-structure",
+            "concept_id": "sentence-structure-run-on-sentences"
+        },
         "board": "let",
         "status": "active",
         "source": "manual",
@@ -175,6 +217,13 @@
     },
     {
         "id": 7,
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "parallelism",
+            "concept_id": "parallelism-parallel-structure"
+        },
         "board": "let",
         "status": "active",
         "source": "manual",
@@ -204,6 +253,13 @@
     },
     {
         "id": 8,
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "parts-of-speech",
+            "concept_id": "parts-of-speech-adverbs"
+        },
         "board": "let",
         "status": "active",
         "source": "manual",
@@ -233,6 +289,13 @@
     },
     {
         "id": 9,
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "subject-verb-agreement",
+            "concept_id": "subject-verb-agreement-compound-subjects"
+        },
         "board": "let",
         "status": "active",
         "source": "manual",
@@ -262,6 +325,13 @@
     },
     {
         "id": 10,
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "verb-tenses",
+            "concept_id": "verb-tenses-perfect-tenses"
+        },
         "board": "let",
         "status": "active",
         "source": "manual",
@@ -288,5 +358,2105 @@
         "answer": "had prepared",
         "explanation": "The past perfect describes an action completed before another action in the past.",
         "subject": "English"
+    },
+    {
+        "id": 11,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "filipino",
+            "domain_id": "gramatikang-filipino",
+            "topic_id": "filipino-gramatika",
+            "concept_id": "filipino-gramatika-wastong-gamit"
+        },
+        "subject": "Filipino",
+        "domain": "Gramatikang Filipino",
+        "topic": "Wastong Gamit at Gramatika",
+        "concept": "Wastong Gamit",
+        "difficulty": "easy",
+        "question": "Alin ang wastong gamit ng salitang 'nang'?",
+        "choices": [
+            "Nang umulan, nanatili kami sa bahay.",
+            "Nang bahay ay malinis.",
+            "Nang libro ay bago.",
+            "Nang guro ay dumating."
+        ],
+        "answer": "Nang umulan, nanatili kami sa bahay.",
+        "explanation": "Ginagamit ang nang upang iugnay ang kilos o pangyayari sa sugnay.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 12,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "filipino",
+            "domain_id": "gramatikang-filipino",
+            "topic_id": "filipino-gramatika",
+            "concept_id": "filipino-gramatika-wastong-gamit"
+        },
+        "subject": "Filipino",
+        "domain": "Gramatikang Filipino",
+        "topic": "Wastong Gamit at Gramatika",
+        "concept": "Wastong Gamit",
+        "difficulty": "medium",
+        "question": "Alin ang pangungusap na may wastong baybay?",
+        "choices": [
+            "Mabisa ang paraan ng pagtuturo.",
+            "Mabisa ang paraan nang pagtuturo.",
+            "Mabisa ang paraan ng pag tuturo.",
+            "Mabisa ang paraan nang pag tuturo."
+        ],
+        "answer": "Mabisa ang paraan ng pagtuturo.",
+        "explanation": "Isinusulat nang buo ang tambalang salitang pagtuturo.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 13,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "filipino",
+            "domain_id": "gramatikang-filipino",
+            "topic_id": "filipino-gramatika",
+            "concept_id": "filipino-gramatika-wastong-gamit"
+        },
+        "subject": "Filipino",
+        "domain": "Gramatikang Filipino",
+        "topic": "Wastong Gamit at Gramatika",
+        "concept": "Wastong Gamit",
+        "difficulty": "medium",
+        "question": "Ano ang kasingkahulugan ng 'masigasig'?",
+        "choices": [
+            "Masipag",
+            "Mabagal",
+            "Mahina",
+            "Malungkot"
+        ],
+        "answer": "Masipag",
+        "explanation": "Ang masigasig ay nangangahulugang masipag at puno ng sigla.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 14,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "filipino",
+            "domain_id": "pagbasa",
+            "topic_id": "filipino-pagbasa",
+            "concept_id": "filipino-pagbasa-pangunahing-diwan"
+        },
+        "subject": "Filipino",
+        "domain": "Pagbasa",
+        "topic": "Pag-unawa sa Binasa",
+        "concept": "Pangunahing Diwa",
+        "difficulty": "easy",
+        "question": "Ano ang pangunahing layunin ng pagbasa?",
+        "choices": [
+            "Maunawaan ang mensahe ng teksto",
+            "Bilangin ang mga salita",
+            "Piliin ang pinakamahabang pangungusap",
+            "Isaulo ang pamagat lamang"
+        ],
+        "answer": "Maunawaan ang mensahe ng teksto",
+        "explanation": "Ang pagbasa ay proseso ng pagbuo ng kahulugan mula sa teksto.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 15,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "filipino",
+            "domain_id": "pagbasa",
+            "topic_id": "filipino-pagbasa",
+            "concept_id": "filipino-pagbasa-pangunahing-diwan"
+        },
+        "subject": "Filipino",
+        "domain": "Pagbasa",
+        "topic": "Pag-unawa sa Binasa",
+        "concept": "Pangunahing Diwa",
+        "difficulty": "medium",
+        "question": "Aling detalye ang pinakamainam na pantulong sa pahayag na 'Mahalaga ang ehersisyo'?",
+        "choices": [
+            "Nakabubuti ito sa kalusugan.",
+            "May iba't ibang kulay ang sapatos.",
+            "Maaga nagsasara ang tindahan.",
+            "Mahaba ang pila sa palengke."
+        ],
+        "answer": "Nakabubuti ito sa kalusugan.",
+        "explanation": "Direktang sinusuportahan ng detalye ang pangunahing pahayag.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 16,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "filipino",
+            "domain_id": "pagbasa",
+            "topic_id": "filipino-pagbasa",
+            "concept_id": "filipino-pagbasa-pangunahing-diwan"
+        },
+        "subject": "Filipino",
+        "domain": "Pagbasa",
+        "topic": "Pag-unawa sa Binasa",
+        "concept": "Pangunahing Diwa",
+        "difficulty": "hard",
+        "question": "Kung binibigyang-diin ng teksto ang pagtutulungan sa komunidad, ano ang pinakamalapit na pangunahing diwa?",
+        "choices": [
+            "Nalulutas ang suliranin sa sama-samang pagkilos.",
+            "Lahat ng suliranin ay madaling lutasin.",
+            "Mas mabuti ang kumilos nang mag-isa.",
+            "Hindi kailangan ang pagpaplano."
+        ],
+        "answer": "Nalulutas ang suliranin sa sama-samang pagkilos.",
+        "explanation": "Pinagsasama ng sagot ang sentrong ideya at ipinahihiwatig na bunga.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 17,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "filipino",
+            "domain_id": "gramatikang-filipino",
+            "topic_id": "filipino-gramatika",
+            "concept_id": "filipino-gramatika-wastong-gamit"
+        },
+        "subject": "Filipino",
+        "domain": "Gramatikang Filipino",
+        "topic": "Wastong Gamit at Gramatika",
+        "concept": "Wastong Gamit",
+        "difficulty": "easy",
+        "question": "Alin ang pangngalan sa pangungusap na 'Nagbasa si Liza ng tula'?",
+        "choices": [
+            "Liza",
+            "Nagbasa",
+            "ng",
+            "si"
+        ],
+        "answer": "Liza",
+        "explanation": "Ang Liza ay ngalan ng tao kaya ito ay pangngalan.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 18,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "filipino",
+            "domain_id": "pagbasa",
+            "topic_id": "filipino-pagbasa",
+            "concept_id": "filipino-pagbasa-pangunahing-diwan"
+        },
+        "subject": "Filipino",
+        "domain": "Pagbasa",
+        "topic": "Pag-unawa sa Binasa",
+        "concept": "Pangunahing Diwa",
+        "difficulty": "medium",
+        "question": "Anong kasanayan ang ginagamit sa pagkuha ng diwang hindi tuwirang sinabi?",
+        "choices": [
+            "Paghihinuha",
+            "Pagbabaybay",
+            "Pagsipi",
+            "Pag-uuri ng titik"
+        ],
+        "answer": "Paghihinuha",
+        "explanation": "Ang paghihinuha ay pagbuo ng konklusyon mula sa pahiwatig at ebidensya.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 19,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "filipino",
+            "domain_id": "gramatikang-filipino",
+            "topic_id": "filipino-gramatika",
+            "concept_id": "filipino-gramatika-wastong-gamit"
+        },
+        "subject": "Filipino",
+        "domain": "Gramatikang Filipino",
+        "topic": "Wastong Gamit at Gramatika",
+        "concept": "Wastong Gamit",
+        "difficulty": "medium",
+        "question": "Alin ang wastong panghalip sa pangungusap: 'Ang mga mag-aaral ay nagdala ng ____ aklat'?",
+        "choices": [
+            "kanilang",
+            "kaniyang",
+            "aking",
+            "atin"
+        ],
+        "answer": "kanilang",
+        "explanation": "Maramihang mag-aaral ang tinutukoy kaya kanilang ang angkop na panghalip.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 20,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "filipino",
+            "domain_id": "pagbasa",
+            "topic_id": "filipino-pagbasa",
+            "concept_id": "filipino-pagbasa-pangunahing-diwan"
+        },
+        "subject": "Filipino",
+        "domain": "Pagbasa",
+        "topic": "Pag-unawa sa Binasa",
+        "concept": "Pangunahing Diwa",
+        "difficulty": "hard",
+        "question": "Bakit mahalaga ang pagsusuri sa pinagmulan ng tekstong binabasa?",
+        "choices": [
+            "Natutukoy ang kredibilidad at pananaw nito.",
+            "Napapahaba ang teksto.",
+            "Nababago ang lahat ng datos.",
+            "Nawawala ang pangangailangang magbasa."
+        ],
+        "answer": "Natutukoy ang kredibilidad at pananaw nito.",
+        "explanation": "Ang pinagmulan ay tumutulong sa pagsusuri ng pagiging mapagkakatiwalaan at bias.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 21,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "mathematics",
+            "domain_id": "number-sense",
+            "topic_id": "math-number-sense",
+            "concept_id": "math-number-sense-operations"
+        },
+        "subject": "Mathematics",
+        "domain": "Number Sense",
+        "topic": "Number Sense and Operations",
+        "concept": "Operations with Whole Numbers",
+        "difficulty": "easy",
+        "question": "What is 36 divided by 4?",
+        "choices": [
+            "7",
+            "8",
+            "9",
+            "10"
+        ],
+        "answer": "9",
+        "explanation": "Thirty-six divided into four equal groups gives nine.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 22,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "mathematics",
+            "domain_id": "number-sense",
+            "topic_id": "math-number-sense",
+            "concept_id": "math-number-sense-operations"
+        },
+        "subject": "Mathematics",
+        "domain": "Number Sense",
+        "topic": "Number Sense and Operations",
+        "concept": "Operations with Whole Numbers",
+        "difficulty": "medium",
+        "question": "Which fraction is equivalent to 3\/4?",
+        "choices": [
+            "6\/8",
+            "4\/6",
+            "9\/16",
+            "12\/20"
+        ],
+        "answer": "6\/8",
+        "explanation": "Multiplying numerator and denominator by two gives 6\/8.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 23,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "mathematics",
+            "domain_id": "number-sense",
+            "topic_id": "math-number-sense",
+            "concept_id": "math-number-sense-operations"
+        },
+        "subject": "Mathematics",
+        "domain": "Number Sense",
+        "topic": "Number Sense and Operations",
+        "concept": "Operations with Whole Numbers",
+        "difficulty": "medium",
+        "question": "A class has 24 learners arranged in 6 equal groups. How many learners are in each group?",
+        "choices": [
+            "3",
+            "4",
+            "5",
+            "6"
+        ],
+        "answer": "4",
+        "explanation": "Dividing 24 by 6 gives 4 learners per group.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 24,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "mathematics",
+            "domain_id": "algebra",
+            "topic_id": "math-algebra",
+            "concept_id": "math-algebra-linear-equations"
+        },
+        "subject": "Mathematics",
+        "domain": "Algebra",
+        "topic": "Expressions and Equations",
+        "concept": "Linear Equations",
+        "difficulty": "easy",
+        "question": "If x + 7 = 15, what is x?",
+        "choices": [
+            "6",
+            "7",
+            "8",
+            "9"
+        ],
+        "answer": "8",
+        "explanation": "Subtracting seven from both sides leaves x equal to eight.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 25,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "mathematics",
+            "domain_id": "algebra",
+            "topic_id": "math-algebra",
+            "concept_id": "math-algebra-linear-equations"
+        },
+        "subject": "Mathematics",
+        "domain": "Algebra",
+        "topic": "Expressions and Equations",
+        "concept": "Linear Equations",
+        "difficulty": "medium",
+        "question": "Which expression represents three more than twice n?",
+        "choices": [
+            "2n + 3",
+            "3n + 2",
+            "2(n + 3)",
+            "n + 6"
+        ],
+        "answer": "2n + 3",
+        "explanation": "Twice n is 2n, and three more adds 3.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 26,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "mathematics",
+            "domain_id": "algebra",
+            "topic_id": "math-algebra",
+            "concept_id": "math-algebra-linear-equations"
+        },
+        "subject": "Mathematics",
+        "domain": "Algebra",
+        "topic": "Expressions and Equations",
+        "concept": "Linear Equations",
+        "difficulty": "hard",
+        "question": "Solve 3x - 5 = 16.",
+        "choices": [
+            "5",
+            "6",
+            "7",
+            "8"
+        ],
+        "answer": "7",
+        "explanation": "Add five to get 3x=21, then divide by three.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 27,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "mathematics",
+            "domain_id": "number-sense",
+            "topic_id": "math-number-sense",
+            "concept_id": "math-number-sense-operations"
+        },
+        "subject": "Mathematics",
+        "domain": "Number Sense",
+        "topic": "Number Sense and Operations",
+        "concept": "Operations with Whole Numbers",
+        "difficulty": "easy",
+        "question": "What is the place value of 6 in 46,281?",
+        "choices": [
+            "Tens",
+            "Hundreds",
+            "Thousands",
+            "Ten-thousands"
+        ],
+        "answer": "Thousands",
+        "explanation": "The 6 is in the thousands place.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 28,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "mathematics",
+            "domain_id": "number-sense",
+            "topic_id": "math-number-sense",
+            "concept_id": "math-number-sense-operations"
+        },
+        "subject": "Mathematics",
+        "domain": "Number Sense",
+        "topic": "Number Sense and Operations",
+        "concept": "Operations with Whole Numbers",
+        "difficulty": "medium",
+        "question": "A 20% discount is applied to a 500-peso item. What is the sale price?",
+        "choices": [
+            "380 pesos",
+            "400 pesos",
+            "420 pesos",
+            "480 pesos"
+        ],
+        "answer": "400 pesos",
+        "explanation": "Twenty percent of 500 is 100, leaving 400 pesos.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 29,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "mathematics",
+            "domain_id": "algebra",
+            "topic_id": "math-algebra",
+            "concept_id": "math-algebra-linear-equations"
+        },
+        "subject": "Mathematics",
+        "domain": "Algebra",
+        "topic": "Expressions and Equations",
+        "concept": "Linear Equations",
+        "difficulty": "medium",
+        "question": "If 2a = 18, which value satisfies the equation?",
+        "choices": [
+            "7",
+            "8",
+            "9",
+            "10"
+        ],
+        "answer": "9",
+        "explanation": "Dividing both sides by two gives a=9.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 30,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "mathematics",
+            "domain_id": "algebra",
+            "topic_id": "math-algebra",
+            "concept_id": "math-algebra-linear-equations"
+        },
+        "subject": "Mathematics",
+        "domain": "Algebra",
+        "topic": "Expressions and Equations",
+        "concept": "Linear Equations",
+        "difficulty": "hard",
+        "question": "A number increased by four equals three times the number minus eight. What is the number?",
+        "choices": [
+            "4",
+            "6",
+            "8",
+            "10"
+        ],
+        "answer": "6",
+        "explanation": "n+4=3n-8 gives 12=2n, so n=6.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 31,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "science",
+            "domain_id": "biology",
+            "topic_id": "science-biology",
+            "concept_id": "science-biology-cells"
+        },
+        "subject": "Science",
+        "domain": "Biology",
+        "topic": "Cells and Life Processes",
+        "concept": "Cellular Structures",
+        "difficulty": "easy",
+        "question": "What is the basic unit of life?",
+        "choices": [
+            "Cell",
+            "Tissue",
+            "Organ",
+            "Organism"
+        ],
+        "answer": "Cell",
+        "explanation": "All living organisms are made of one or more cells.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 32,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "science",
+            "domain_id": "biology",
+            "topic_id": "science-biology",
+            "concept_id": "science-biology-cells"
+        },
+        "subject": "Science",
+        "domain": "Biology",
+        "topic": "Cells and Life Processes",
+        "concept": "Cellular Structures",
+        "difficulty": "medium",
+        "question": "Which cell structure controls most cell activities?",
+        "choices": [
+            "Nucleus",
+            "Cell wall",
+            "Vacuole",
+            "Ribosome"
+        ],
+        "answer": "Nucleus",
+        "explanation": "The nucleus contains genetic material and directs many cell activities.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 33,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "science",
+            "domain_id": "biology",
+            "topic_id": "science-biology",
+            "concept_id": "science-biology-cells"
+        },
+        "subject": "Science",
+        "domain": "Biology",
+        "topic": "Cells and Life Processes",
+        "concept": "Cellular Structures",
+        "difficulty": "medium",
+        "question": "Which process allows plants to make glucose using light?",
+        "choices": [
+            "Photosynthesis",
+            "Respiration",
+            "Digestion",
+            "Diffusion"
+        ],
+        "answer": "Photosynthesis",
+        "explanation": "Plants use light energy to convert carbon dioxide and water into glucose.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 34,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "science",
+            "domain_id": "biology",
+            "topic_id": "science-biology",
+            "concept_id": "science-biology-cells"
+        },
+        "subject": "Science",
+        "domain": "Biology",
+        "topic": "Cells and Life Processes",
+        "concept": "Cellular Structures",
+        "difficulty": "hard",
+        "question": "Why are mitochondria often called the powerhouses of cells?",
+        "choices": [
+            "They produce usable cellular energy.",
+            "They store hereditary information.",
+            "They form the cell wall.",
+            "They digest external food."
+        ],
+        "answer": "They produce usable cellular energy.",
+        "explanation": "Mitochondria generate much of the cell's ATP through cellular respiration.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 35,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "science",
+            "domain_id": "scientific-inquiry",
+            "topic_id": "science-inquiry",
+            "concept_id": "science-inquiry-evidence"
+        },
+        "subject": "Science",
+        "domain": "Scientific Inquiry",
+        "topic": "Scientific Reasoning",
+        "concept": "Evidence and Conclusions",
+        "difficulty": "easy",
+        "question": "What should a conclusion in an investigation be based on?",
+        "choices": [
+            "Collected evidence",
+            "Personal preference",
+            "A guess made first",
+            "The expected result only"
+        ],
+        "answer": "Collected evidence",
+        "explanation": "A defensible conclusion interprets the evidence gathered during the investigation.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 36,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "science",
+            "domain_id": "scientific-inquiry",
+            "topic_id": "science-inquiry",
+            "concept_id": "science-inquiry-evidence"
+        },
+        "subject": "Science",
+        "domain": "Scientific Inquiry",
+        "topic": "Scientific Reasoning",
+        "concept": "Evidence and Conclusions",
+        "difficulty": "medium",
+        "question": "Why is a control group useful in an experiment?",
+        "choices": [
+            "It provides a comparison.",
+            "It guarantees the hypothesis.",
+            "It increases every measurement.",
+            "It removes the need for variables."
+        ],
+        "answer": "It provides a comparison.",
+        "explanation": "A control helps show whether the tested variable caused an observed difference.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 37,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "science",
+            "domain_id": "scientific-inquiry",
+            "topic_id": "science-inquiry",
+            "concept_id": "science-inquiry-evidence"
+        },
+        "subject": "Science",
+        "domain": "Scientific Inquiry",
+        "topic": "Scientific Reasoning",
+        "concept": "Evidence and Conclusions",
+        "difficulty": "medium",
+        "question": "Which action improves the reliability of repeated measurements?",
+        "choices": [
+            "Use the same procedure each time.",
+            "Change several variables at once.",
+            "Record only the preferred result.",
+            "Remove unusual observations without review."
+        ],
+        "answer": "Use the same procedure each time.",
+        "explanation": "Consistent procedures reduce avoidable variation between trials.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 38,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "science",
+            "domain_id": "biology",
+            "topic_id": "science-biology",
+            "concept_id": "science-biology-cells"
+        },
+        "subject": "Science",
+        "domain": "Biology",
+        "topic": "Cells and Life Processes",
+        "concept": "Cellular Structures",
+        "difficulty": "easy",
+        "question": "Which structure gives plant cells additional support?",
+        "choices": [
+            "Cell wall",
+            "Nucleus",
+            "Cytoplasm",
+            "Chloroplast only"
+        ],
+        "answer": "Cell wall",
+        "explanation": "The rigid cell wall supports and protects plant cells.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 39,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "science",
+            "domain_id": "biology",
+            "topic_id": "science-biology",
+            "concept_id": "science-biology-cells"
+        },
+        "subject": "Science",
+        "domain": "Biology",
+        "topic": "Cells and Life Processes",
+        "concept": "Cellular Structures",
+        "difficulty": "medium",
+        "question": "What is the role of a cell membrane?",
+        "choices": [
+            "Regulate movement into and out of the cell",
+            "Produce sunlight",
+            "Store all body water",
+            "Make bones rigid"
+        ],
+        "answer": "Regulate movement into and out of the cell",
+        "explanation": "The selectively permeable membrane controls exchange with the environment.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 40,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "science",
+            "domain_id": "scientific-inquiry",
+            "topic_id": "science-inquiry",
+            "concept_id": "science-inquiry-evidence"
+        },
+        "subject": "Science",
+        "domain": "Scientific Inquiry",
+        "topic": "Scientific Reasoning",
+        "concept": "Evidence and Conclusions",
+        "difficulty": "hard",
+        "question": "A claim supported by several independent observations is best described as:",
+        "choices": [
+            "Evidence-based",
+            "An unsupported opinion",
+            "A controlled variable",
+            "A measurement error"
+        ],
+        "answer": "Evidence-based",
+        "explanation": "Independent observations strengthen the basis for a claim.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 41,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "social-studies",
+            "domain_id": "philippine-history",
+            "topic_id": "social-history",
+            "concept_id": "social-history-primary-sources"
+        },
+        "subject": "Social Studies",
+        "domain": "Philippine History",
+        "topic": "Philippine History",
+        "concept": "Primary Sources",
+        "difficulty": "easy",
+        "question": "Which is a primary source for studying a historical event?",
+        "choices": [
+            "A diary written during the event",
+            "A later textbook summary",
+            "A modern review article",
+            "An encyclopedia entry"
+        ],
+        "answer": "A diary written during the event",
+        "explanation": "A primary source was created by a participant or observer close to the event.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 42,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "social-studies",
+            "domain_id": "philippine-history",
+            "topic_id": "social-history",
+            "concept_id": "social-history-primary-sources"
+        },
+        "subject": "Social Studies",
+        "domain": "Philippine History",
+        "topic": "Philippine History",
+        "concept": "Primary Sources",
+        "difficulty": "medium",
+        "question": "Why should historians compare accounts of the same event?",
+        "choices": [
+            "To identify perspective and corroborate evidence",
+            "To make every account identical",
+            "To avoid reading original sources",
+            "To replace evidence with opinion"
+        ],
+        "answer": "To identify perspective and corroborate evidence",
+        "explanation": "Comparison helps reveal perspective and test whether details are supported.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 43,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "social-studies",
+            "domain_id": "philippine-history",
+            "topic_id": "social-history",
+            "concept_id": "social-history-primary-sources"
+        },
+        "subject": "Social Studies",
+        "domain": "Philippine History",
+        "topic": "Philippine History",
+        "concept": "Primary Sources",
+        "difficulty": "medium",
+        "question": "What does chronology organize?",
+        "choices": [
+            "Events in time order",
+            "Places by population",
+            "Ideas by popularity",
+            "Sources by length"
+        ],
+        "answer": "Events in time order",
+        "explanation": "Chronology arranges events according to when they occurred.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 44,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "social-studies",
+            "domain_id": "government-and-civics",
+            "topic_id": "social-civics",
+            "concept_id": "social-civics-public-good"
+        },
+        "subject": "Social Studies",
+        "domain": "Government and Civics",
+        "topic": "Citizenship and Government",
+        "concept": "Public Good",
+        "difficulty": "easy",
+        "question": "Which action demonstrates responsible citizenship?",
+        "choices": [
+            "Participating in community decisions",
+            "Ignoring community rules",
+            "Spreading unverified claims",
+            "Taking public resources for oneself"
+        ],
+        "answer": "Participating in community decisions",
+        "explanation": "Responsible citizens take part in civic life and consider the common good.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 45,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "social-studies",
+            "domain_id": "government-and-civics",
+            "topic_id": "social-civics",
+            "concept_id": "social-civics-public-good"
+        },
+        "subject": "Social Studies",
+        "domain": "Government and Civics",
+        "topic": "Citizenship and Government",
+        "concept": "Public Good",
+        "difficulty": "medium",
+        "question": "Why are laws needed in a democratic society?",
+        "choices": [
+            "They establish shared rules and protect rights.",
+            "They remove all differences of opinion.",
+            "They make citizens unable to participate.",
+            "They guarantee every decision is popular."
+        ],
+        "answer": "They establish shared rules and protect rights.",
+        "explanation": "Laws create an agreed framework for rights, responsibilities, and public order.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 46,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "social-studies",
+            "domain_id": "government-and-civics",
+            "topic_id": "social-civics",
+            "concept_id": "social-civics-public-good"
+        },
+        "subject": "Social Studies",
+        "domain": "Government and Civics",
+        "topic": "Citizenship and Government",
+        "concept": "Public Good",
+        "difficulty": "medium",
+        "question": "Which is an example of a public good?",
+        "choices": [
+            "A community flood-control system",
+            "A private collection",
+            "A personal notebook",
+            "A family meal"
+        ],
+        "answer": "A community flood-control system",
+        "explanation": "A public good benefits a broad community rather than one individual owner.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 47,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "social-studies",
+            "domain_id": "philippine-history",
+            "topic_id": "social-history",
+            "concept_id": "social-history-primary-sources"
+        },
+        "subject": "Social Studies",
+        "domain": "Philippine History",
+        "topic": "Philippine History",
+        "concept": "Primary Sources",
+        "difficulty": "hard",
+        "question": "When a source was written for persuasion, a careful reader should examine its:",
+        "choices": [
+            "Purpose and intended audience",
+            "Page color only",
+            "Number of commas",
+            "Binding material"
+        ],
+        "answer": "Purpose and intended audience",
+        "explanation": "Purpose and audience help identify a source's perspective and limitations.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 48,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "social-studies",
+            "domain_id": "government-and-civics",
+            "topic_id": "social-civics",
+            "concept_id": "social-civics-public-good"
+        },
+        "subject": "Social Studies",
+        "domain": "Government and Civics",
+        "topic": "Citizenship and Government",
+        "concept": "Public Good",
+        "difficulty": "easy",
+        "question": "What is the main purpose of voting?",
+        "choices": [
+            "To participate in selecting representatives",
+            "To avoid all public debate",
+            "To appoint every government worker",
+            "To replace laws with preferences"
+        ],
+        "answer": "To participate in selecting representatives",
+        "explanation": "Voting is a basic way citizens participate in representative government.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 49,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "social-studies",
+            "domain_id": "philippine-history",
+            "topic_id": "social-history",
+            "concept_id": "social-history-primary-sources"
+        },
+        "subject": "Social Studies",
+        "domain": "Philippine History",
+        "topic": "Philippine History",
+        "concept": "Primary Sources",
+        "difficulty": "medium",
+        "question": "What makes a historical interpretation stronger?",
+        "choices": [
+            "Clear evidence linked to the claim",
+            "A confident tone without sources",
+            "A very long title",
+            "Many unrelated details"
+        ],
+        "answer": "Clear evidence linked to the claim",
+        "explanation": "Interpretations should connect relevant evidence to a defensible claim.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 50,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "social-studies",
+            "domain_id": "government-and-civics",
+            "topic_id": "social-civics",
+            "concept_id": "social-civics-public-good"
+        },
+        "subject": "Social Studies",
+        "domain": "Government and Civics",
+        "topic": "Citizenship and Government",
+        "concept": "Public Good",
+        "difficulty": "hard",
+        "question": "Balancing individual liberty with public safety requires:",
+        "choices": [
+            "Considering rights, evidence, and proportional effects",
+            "Ignoring rights whenever risk exists",
+            "Allowing one person to decide everything",
+            "Rejecting all community rules"
+        ],
+        "answer": "Considering rights, evidence, and proportional effects",
+        "explanation": "Civic decisions should weigh evidence and rights carefully and proportionately.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 51,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "learner-development",
+            "topic_id": "prof-development",
+            "concept_id": "prof-development-readiness"
+        },
+        "subject": "Professional Education",
+        "domain": "Learner Development",
+        "topic": "Learner Development",
+        "concept": "Readiness and Development",
+        "difficulty": "easy",
+        "question": "Which practice best respects individual differences among learners?",
+        "choices": [
+            "Varying support while keeping the learning goal clear",
+            "Giving every learner the same response",
+            "Comparing learners publicly",
+            "Using one assessment method only"
+        ],
+        "answer": "Varying support while keeping the learning goal clear",
+        "explanation": "Responsive teaching recognizes differences without lowering meaningful expectations.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 52,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "learner-development",
+            "topic_id": "prof-development",
+            "concept_id": "prof-development-readiness"
+        },
+        "subject": "Professional Education",
+        "domain": "Learner Development",
+        "topic": "Learner Development",
+        "concept": "Readiness and Development",
+        "difficulty": "medium",
+        "question": "A developmentally appropriate task should primarily match the learner's:",
+        "choices": [
+            "Readiness and learning needs",
+            "Seating location",
+            "Uniform color",
+            "Test rank only"
+        ],
+        "answer": "Readiness and learning needs",
+        "explanation": "Appropriate challenge depends on developmental readiness and learner needs.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 53,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "learner-development",
+            "topic_id": "prof-development",
+            "concept_id": "prof-development-readiness"
+        },
+        "subject": "Professional Education",
+        "domain": "Learner Development",
+        "topic": "Learner Development",
+        "concept": "Readiness and Development",
+        "difficulty": "medium",
+        "question": "Why should a teacher gather learner background information?",
+        "choices": [
+            "To connect instruction to prior knowledge",
+            "To label learners permanently",
+            "To remove student choice",
+            "To avoid checking understanding"
+        ],
+        "answer": "To connect instruction to prior knowledge",
+        "explanation": "Prior knowledge helps a teacher select accessible entry points and examples.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 54,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "learner-development",
+            "topic_id": "prof-development",
+            "concept_id": "prof-development-readiness"
+        },
+        "subject": "Professional Education",
+        "domain": "Learner Development",
+        "topic": "Learner Development",
+        "concept": "Readiness and Development",
+        "difficulty": "hard",
+        "question": "A learner makes progress after feedback and guided practice. This most directly shows the value of:",
+        "choices": [
+            "Scaffolded learning experiences",
+            "Fixed ability labels",
+            "Unrelated competition",
+            "Removing practice opportunities"
+        ],
+        "answer": "Scaffolded learning experiences",
+        "explanation": "Scaffolds provide temporary support that can be adjusted as competence grows.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 55,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "learner-development",
+            "topic_id": "prof-development",
+            "concept_id": "prof-development-readiness"
+        },
+        "subject": "Professional Education",
+        "domain": "Learner Development",
+        "topic": "Learner Development",
+        "concept": "Readiness and Development",
+        "difficulty": "medium",
+        "question": "Which classroom response supports learner agency?",
+        "choices": [
+            "Offering meaningful choices within clear boundaries",
+            "Allowing no questions",
+            "Choosing goals without explanation",
+            "Grading personality"
+        ],
+        "answer": "Offering meaningful choices within clear boundaries",
+        "explanation": "Structured choice gives learners an appropriate role in their learning.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 56,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "learner-development",
+            "topic_id": "prof-development",
+            "concept_id": "prof-development-readiness"
+        },
+        "subject": "Professional Education",
+        "domain": "Learner Development",
+        "topic": "Learner Development",
+        "concept": "Readiness and Development",
+        "difficulty": "easy",
+        "question": "What is a useful purpose of learner reflection?",
+        "choices": [
+            "To identify progress and next steps",
+            "To replace all teacher feedback",
+            "To rank classmates",
+            "To predict a final grade exactly"
+        ],
+        "answer": "To identify progress and next steps",
+        "explanation": "Reflection helps learners interpret their work and plan improvement.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 57,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "curriculum-development",
+            "topic_id": "prof-curriculum",
+            "concept_id": "prof-curriculum-alignment"
+        },
+        "subject": "Professional Education",
+        "domain": "Curriculum Development",
+        "topic": "Curriculum Planning",
+        "concept": "Curriculum Alignment",
+        "difficulty": "easy",
+        "question": "Curriculum alignment means that objectives, instruction, and assessment are:",
+        "choices": [
+            "Consistent with one another",
+            "All equally difficult",
+            "Unrelated by design",
+            "Based only on textbook order"
+        ],
+        "answer": "Consistent with one another",
+        "explanation": "Alignment connects intended learning, learning experiences, and evidence of learning.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 58,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "curriculum-development",
+            "topic_id": "prof-curriculum",
+            "concept_id": "prof-curriculum-alignment"
+        },
+        "subject": "Professional Education",
+        "domain": "Curriculum Development",
+        "topic": "Curriculum Planning",
+        "concept": "Curriculum Alignment",
+        "difficulty": "medium",
+        "question": "A well-written learning objective should describe an observable:",
+        "choices": [
+            "Learner performance",
+            "Teacher preference",
+            "Classroom decoration",
+            "Textbook price"
+        ],
+        "answer": "Learner performance",
+        "explanation": "Observable performance makes the intended learning clear and assessable.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 59,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "curriculum-development",
+            "topic_id": "prof-curriculum",
+            "concept_id": "prof-curriculum-alignment"
+        },
+        "subject": "Professional Education",
+        "domain": "Curriculum Development",
+        "topic": "Curriculum Planning",
+        "concept": "Curriculum Alignment",
+        "difficulty": "medium",
+        "question": "What should guide the selection of learning activities?",
+        "choices": [
+            "The intended competencies and learner context",
+            "The activity's decoration alone",
+            "The number of worksheets",
+            "The teacher's convenience only"
+        ],
+        "answer": "The intended competencies and learner context",
+        "explanation": "Activities should help learners practise the intended outcomes in a suitable context.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 60,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "curriculum-development",
+            "topic_id": "prof-curriculum",
+            "concept_id": "prof-curriculum-alignment"
+        },
+        "subject": "Professional Education",
+        "domain": "Curriculum Development",
+        "topic": "Curriculum Planning",
+        "concept": "Curriculum Alignment",
+        "difficulty": "hard",
+        "question": "When an assessment measures recall but the objective requires analysis, the main issue is weak:",
+        "choices": [
+            "Alignment",
+            "Attendance",
+            "Class size",
+            "Scheduling"
+        ],
+        "answer": "Alignment",
+        "explanation": "The assessment evidence does not match the cognitive demand of the objective.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 61,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "curriculum-development",
+            "topic_id": "prof-curriculum",
+            "concept_id": "prof-curriculum-alignment"
+        },
+        "subject": "Professional Education",
+        "domain": "Curriculum Development",
+        "topic": "Curriculum Planning",
+        "concept": "Curriculum Alignment",
+        "difficulty": "medium",
+        "question": "A curriculum map is most useful for seeing:",
+        "choices": [
+            "How learning goals develop across units",
+            "Which learner is most popular",
+            "The cost of classroom paint",
+            "Only the final examination"
+        ],
+        "answer": "How learning goals develop across units",
+        "explanation": "Mapping reveals sequence, connections, and gaps across instruction.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 62,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "assessment-of-learning",
+            "topic_id": "prof-assessment",
+            "concept_id": "prof-assessment-validity"
+        },
+        "subject": "Professional Education",
+        "domain": "Assessment of Learning",
+        "topic": "Assessment Principles",
+        "concept": "Validity and Reliability",
+        "difficulty": "easy",
+        "question": "Validity asks whether an assessment measures what it is intended to measure. Which quality complements it by addressing consistency?",
+        "choices": [
+            "Reliability",
+            "Popularity",
+            "Speed",
+            "Difficulty alone"
+        ],
+        "answer": "Reliability",
+        "explanation": "Reliability concerns consistency of measurement across comparable conditions.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 63,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "assessment-of-learning",
+            "topic_id": "prof-assessment",
+            "concept_id": "prof-assessment-validity"
+        },
+        "subject": "Professional Education",
+        "domain": "Assessment of Learning",
+        "topic": "Assessment Principles",
+        "concept": "Validity and Reliability",
+        "difficulty": "medium",
+        "question": "Which assessment is most appropriate for checking understanding during instruction?",
+        "choices": [
+            "Formative assessment",
+            "Final grading only",
+            "Entrance ranking",
+            "Attendance record"
+        ],
+        "answer": "Formative assessment",
+        "explanation": "Formative assessment provides information while learning is still underway.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 64,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "assessment-of-learning",
+            "topic_id": "prof-assessment",
+            "concept_id": "prof-assessment-validity"
+        },
+        "subject": "Professional Education",
+        "domain": "Assessment of Learning",
+        "topic": "Assessment Principles",
+        "concept": "Validity and Reliability",
+        "difficulty": "medium",
+        "question": "A rubric improves assessment communication when its criteria are:",
+        "choices": [
+            "Clear and connected to the task",
+            "Hidden until after grading",
+            "Different for every learner",
+            "Based on handwriting only"
+        ],
+        "answer": "Clear and connected to the task",
+        "explanation": "Transparent criteria help learners understand the expected performance.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 65,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "assessment-of-learning",
+            "topic_id": "prof-assessment",
+            "concept_id": "prof-assessment-validity"
+        },
+        "subject": "Professional Education",
+        "domain": "Assessment of Learning",
+        "topic": "Assessment Principles",
+        "concept": "Validity and Reliability",
+        "difficulty": "hard",
+        "question": "Using multiple forms of evidence to judge a competency strengthens:",
+        "choices": [
+            "Triangulation",
+            "Guessing",
+            "Subjectivity",
+            "Test speed"
+        ],
+        "answer": "Triangulation",
+        "explanation": "Different evidence sources can corroborate a judgement about competency.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 66,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "assessment-of-learning",
+            "topic_id": "prof-assessment",
+            "concept_id": "prof-assessment-validity"
+        },
+        "subject": "Professional Education",
+        "domain": "Assessment of Learning",
+        "topic": "Assessment Principles",
+        "concept": "Validity and Reliability",
+        "difficulty": "medium",
+        "question": "Useful feedback should be timely, specific, and:",
+        "choices": [
+            "Actionable",
+            "Personal",
+            "Secret",
+            "Unrelated"
+        ],
+        "answer": "Actionable",
+        "explanation": "Actionable feedback tells learners what they can do to improve.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 67,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "facilitating-learning",
+            "topic_id": "prof-facilitation",
+            "concept_id": "prof-facilitation-scaffolding"
+        },
+        "subject": "Professional Education",
+        "domain": "Facilitating Learning",
+        "topic": "Facilitating Learning",
+        "concept": "Scaffolding and Transfer",
+        "difficulty": "easy",
+        "question": "Questioning that asks learners to explain evidence encourages:",
+        "choices": [
+            "Higher-order thinking",
+            "Silent copying",
+            "Random recall",
+            "Avoidance of reasoning"
+        ],
+        "answer": "Higher-order thinking",
+        "explanation": "Explaining evidence requires learners to reason beyond repeating an answer.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 68,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "facilitating-learning",
+            "topic_id": "prof-facilitation",
+            "concept_id": "prof-facilitation-scaffolding"
+        },
+        "subject": "Professional Education",
+        "domain": "Facilitating Learning",
+        "topic": "Facilitating Learning",
+        "concept": "Scaffolding and Transfer",
+        "difficulty": "medium",
+        "question": "Collaborative learning is most productive when learners have:",
+        "choices": [
+            "A shared goal and accountable roles",
+            "No task or purpose",
+            "Identical opinions",
+            "Only one permitted speaker"
+        ],
+        "answer": "A shared goal and accountable roles",
+        "explanation": "Purpose and accountability help collaboration produce meaningful learning.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 69,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "facilitating-learning",
+            "topic_id": "prof-facilitation",
+            "concept_id": "prof-facilitation-scaffolding"
+        },
+        "subject": "Professional Education",
+        "domain": "Facilitating Learning",
+        "topic": "Facilitating Learning",
+        "concept": "Scaffolding and Transfer",
+        "difficulty": "medium",
+        "question": "A teacher models a process, guides practice, then gradually withdraws help. This is:",
+        "choices": [
+            "Scaffolding",
+            "Drill without feedback",
+            "Summative grading",
+            "Unplanned instruction"
+        ],
+        "answer": "Scaffolding",
+        "explanation": "Scaffolding shifts responsibility to the learner as competence increases.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 70,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "facilitating-learning",
+            "topic_id": "prof-facilitation",
+            "concept_id": "prof-facilitation-scaffolding"
+        },
+        "subject": "Professional Education",
+        "domain": "Facilitating Learning",
+        "topic": "Facilitating Learning",
+        "concept": "Scaffolding and Transfer",
+        "difficulty": "hard",
+        "question": "Which teacher action best supports transfer of learning?",
+        "choices": [
+            "Connecting a new skill to varied real situations",
+            "Repeating one example only",
+            "Avoiding application tasks",
+            "Assessing memorization alone"
+        ],
+        "answer": "Connecting a new skill to varied real situations",
+        "explanation": "Varied application helps learners use knowledge beyond the original example.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 71,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "classroom-management",
+            "topic_id": "prof-management",
+            "concept_id": "prof-management-routines"
+        },
+        "subject": "Professional Education",
+        "domain": "Classroom Management",
+        "topic": "Learning Environment",
+        "concept": "Classroom Routines",
+        "difficulty": "easy",
+        "question": "A predictable opening routine primarily helps learners:",
+        "choices": [
+            "Begin work efficiently",
+            "Avoid all interaction",
+            "Skip objectives",
+            "Choose grades"
+        ],
+        "answer": "Begin work efficiently",
+        "explanation": "Predictable routines reduce transition time and clarify how learning begins.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 72,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "classroom-management",
+            "topic_id": "prof-management",
+            "concept_id": "prof-management-routines"
+        },
+        "subject": "Professional Education",
+        "domain": "Classroom Management",
+        "topic": "Learning Environment",
+        "concept": "Classroom Routines",
+        "difficulty": "medium",
+        "question": "The most constructive response to a minor disruption is usually:",
+        "choices": [
+            "A calm, proportionate redirection",
+            "Public humiliation",
+            "Ignoring every behavior",
+            "Removing the entire class"
+        ],
+        "answer": "A calm, proportionate redirection",
+        "explanation": "Calm redirection preserves dignity while returning attention to learning.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 73,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "classroom-management",
+            "topic_id": "prof-management",
+            "concept_id": "prof-management-routines"
+        },
+        "subject": "Professional Education",
+        "domain": "Classroom Management",
+        "topic": "Learning Environment",
+        "concept": "Classroom Routines",
+        "difficulty": "medium",
+        "question": "Co-creating class norms can improve management because learners:",
+        "choices": [
+            "Understand and share responsibility for expectations",
+            "Never need correction",
+            "Set no limits",
+            "Replace the teacher"
+        ],
+        "answer": "Understand and share responsibility for expectations",
+        "explanation": "Participation can increase ownership when norms remain clear and fair.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 74,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "classroom-management",
+            "topic_id": "prof-management",
+            "concept_id": "prof-management-routines"
+        },
+        "subject": "Professional Education",
+        "domain": "Classroom Management",
+        "topic": "Learning Environment",
+        "concept": "Classroom Routines",
+        "difficulty": "hard",
+        "question": "A teacher reviewing behavior patterns before changing a routine is using:",
+        "choices": [
+            "Evidence-informed management",
+            "Punishment by assumption",
+            "Random grouping",
+            "Instructional avoidance"
+        ],
+        "answer": "Evidence-informed management",
+        "explanation": "Reviewing patterns supports a targeted response rather than an assumption.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 75,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "educational-technology",
+            "topic_id": "prof-technology",
+            "concept_id": "prof-technology-access"
+        },
+        "subject": "Professional Education",
+        "domain": "Educational Technology",
+        "topic": "Technology for Learning",
+        "concept": "Accessible Digital Learning",
+        "difficulty": "easy",
+        "question": "Technology improves learning when it is selected because it:",
+        "choices": [
+            "Supports a clear learning purpose",
+            "Looks impressive alone",
+            "Adds more screen time",
+            "Replaces every interaction"
+        ],
+        "answer": "Supports a clear learning purpose",
+        "explanation": "Tools should serve the learning objective and learner context.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 76,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "educational-technology",
+            "topic_id": "prof-technology",
+            "concept_id": "prof-technology-access"
+        },
+        "subject": "Professional Education",
+        "domain": "Educational Technology",
+        "topic": "Technology for Learning",
+        "concept": "Accessible Digital Learning",
+        "difficulty": "medium",
+        "question": "Which feature most directly improves accessibility of a recorded lesson?",
+        "choices": [
+            "Captions or a transcript",
+            "Decorative animation only",
+            "Autoplay at maximum volume",
+            "Text embedded too small to read"
+        ],
+        "answer": "Captions or a transcript",
+        "explanation": "Captions and transcripts provide an alternative access route to spoken content.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 77,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "educational-technology",
+            "topic_id": "prof-technology",
+            "concept_id": "prof-technology-access"
+        },
+        "subject": "Professional Education",
+        "domain": "Educational Technology",
+        "topic": "Technology for Learning",
+        "concept": "Accessible Digital Learning",
+        "difficulty": "medium",
+        "question": "Before using an online resource with learners, a teacher should first check its:",
+        "choices": [
+            "Accuracy, accessibility, and privacy implications",
+            "Number of advertisements only",
+            "Color scheme only",
+            "Popularity without context"
+        ],
+        "answer": "Accuracy, accessibility, and privacy implications",
+        "explanation": "Responsible selection considers quality, access, and learner data protection.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 78,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "educational-technology",
+            "topic_id": "prof-technology",
+            "concept_id": "prof-technology-access"
+        },
+        "subject": "Professional Education",
+        "domain": "Educational Technology",
+        "topic": "Technology for Learning",
+        "concept": "Accessible Digital Learning",
+        "difficulty": "hard",
+        "question": "If a digital tool distracts from the intended task, the teacher should:",
+        "choices": [
+            "Reconsider or redesign the tool use",
+            "Keep it because it is new",
+            "Add more unrelated features",
+            "Ignore learner feedback"
+        ],
+        "answer": "Reconsider or redesign the tool use",
+        "explanation": "Technology is useful only when its cognitive and instructional benefits outweigh distraction.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 79,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "assessment-of-learning",
+            "topic_id": "prof-assessment",
+            "concept_id": "prof-assessment-validity"
+        },
+        "subject": "Professional Education",
+        "domain": "Assessment of Learning",
+        "topic": "Assessment Principles",
+        "concept": "Validity and Reliability",
+        "difficulty": "medium",
+        "question": "A teacher uses an exit ticket to decide what to reteach tomorrow. This is assessment for:",
+        "choices": [
+            "Learning",
+            "Certification only",
+            "Attendance",
+            "Ranking only"
+        ],
+        "answer": "Learning",
+        "explanation": "The evidence is used to adjust instruction and support ongoing learning.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
+    },
+    {
+        "id": 80,
+        "board": "let",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "professional-education",
+            "domain_id": "curriculum-development",
+            "topic_id": "prof-curriculum",
+            "concept_id": "prof-curriculum-alignment"
+        },
+        "subject": "Professional Education",
+        "domain": "Curriculum Development",
+        "topic": "Curriculum Planning",
+        "concept": "Curriculum Alignment",
+        "difficulty": "hard",
+        "question": "When planning a unit, backward design begins by identifying the desired:",
+        "choices": [
+            "Learning results and evidence",
+            "Classroom decorations",
+            "Longest activity",
+            "Textbook page count"
+        ],
+        "answer": "Learning results and evidence",
+        "explanation": "Backward design starts with intended results and the evidence that will demonstrate them.",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0
     }
 ]

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Tools\Doctor\Project\BoardPrep\Checks;
 
 use App\Services\Shared\QuestionCoverageService;
+use App\Services\Board\BoardViewService;
+use App\Services\Shared\TaxonomyStorageService;
 use Tools\Doctor\Contracts\CheckInterface;
 use Tools\Doctor\DTO\CheckResult;
 
@@ -25,6 +27,18 @@ final class QuestionCoverageCheck implements CheckInterface
             'Difficulty: ' . json_encode($inventory['by_difficulty'], JSON_UNESCAPED_UNICODE),
             'Subjects: ' . json_encode($inventory['by_subject'], JSON_UNESCAPED_UNICODE),
         ];
+        foreach (TaxonomyStorageService::boards() as $board) {
+            $view = BoardViewService::find((string) ($board['id'] ?? ''));
+            $readiness = $view['content_readiness'] ?? [];
+            $details[] = sprintf(
+                '%s readiness: %s; %d eligible questions across %d subjects; taxonomy completeness %d%%.',
+                $board['code'] ?? $board['id'] ?? 'Board',
+                $readiness['status'] ?? 'UNKNOWN',
+                (int) ($readiness['eligible_questions'] ?? 0),
+                (int) ($readiness['eligible_subjects'] ?? 0),
+                (int) ($readiness['taxonomy_completeness'] ?? 0)
+            );
+        }
         foreach ($report['blueprints'] as $blueprint) {
             foreach ($blueprint['categories'] as $category) {
                 if ($category['shortage_per_100'] > 0) {
