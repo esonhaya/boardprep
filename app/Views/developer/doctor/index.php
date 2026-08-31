@@ -56,7 +56,7 @@ th,td{padding:10px;border-bottom:1px solid #ddd;text-align:left}
 
 </div>
 
-<table>
+<div class="table-scroll"><table class="data-table">
 
 <thead>
 <tr>
@@ -82,7 +82,7 @@ th,td{padding:10px;border-bottom:1px solid #ddd;text-align:left}
 
 </tbody>
 
-</table>
+</table></div>
 
 </body>
 </html>

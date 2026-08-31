@@ -1,25 +1,5 @@
-<h2>Metadata Repair</h2>
-
-<hr>
-
-<p>Questions with repairable metadata issues:
-<strong><?= count($repairableIssues ?? []) ?></strong></p>
-
-<?php if (empty($repairableIssues)): ?>
-<p>No repairable metadata issues found.</p>
-<?php else: ?>
-<table border="1" cellpadding="6">
-<tr><th>ID</th><th>Severity</th><th>Code</th><th>Message</th></tr>
-<?php foreach ($repairableIssues as $issue): ?>
-<tr>
-<td><?= htmlspecialchars((string) ($issue->entityId ?? '')) ?></td>
-<td><?= htmlspecialchars((string) $issue->severity) ?></td>
-<td><?= htmlspecialchars((string) $issue->code) ?></td>
-<td><?= htmlspecialchars((string) $issue->message) ?></td>
-</tr>
-<?php endforeach; ?>
-</table>
-<?php endif; ?>
-
-<hr>
-<p>Total repository issues: <?= count($report->issues ?? []) ?></p>
+<section class="page-header"><div><h1>Metadata Repair</h1><p>Review questions with repairable metadata issues.</p></div></section>
+<div class="card"><strong><?= count($repairableIssues ?? []) ?></strong> repairable issues</div>
+<?php if (empty($repairableIssues)): ?><div class="empty-state">No repairable metadata issues found.</div>
+<?php else: ?><div class="record-list"><?php foreach ($repairableIssues as $issue): ?><article class="card record-card"><div><strong>#<?= htmlspecialchars((string) ($issue->entityId ?? '')) ?></strong><p><?= htmlspecialchars((string) $issue->message) ?></p></div><div class="record-meta"><span class="badge badge-warning"><?= htmlspecialchars((string) $issue->severity) ?></span><code><?= htmlspecialchars((string) $issue->code) ?></code></div></article><?php endforeach; ?></div><?php endif; ?>
+<p class="muted-note">Total repository issues: <?= count($report->issues ?? []) ?></p>

@@ -52,7 +52,7 @@ Create a new board examination.
         required
     >
 
-    <br><br>
+    <div class="form-spacer"></div>
 
 
     <label>
@@ -70,7 +70,7 @@ Create a new board examination.
         required
     ><?= htmlspecialchars($old["description"] ?? "") ?></textarea>
 
-    <br><br>
+    <div class="form-spacer"></div>
 
 
     <p>

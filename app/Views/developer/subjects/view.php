@@ -52,83 +52,55 @@ Settings
 Overview
 </h2>
 
-<table>
+<div class="card metric-list">
 
-<tr>
-<td>
+<div class="metric-row"><strong>
 Status
-</td>
-
-<td>
+</strong><span>
 <?= htmlspecialchars(
     ucfirst(
         $subject["status"] ?? "active"
     )
 ) ?>
-</td>
-</tr>
+</span></div>
 
-<tr>
-<td>
+<div class="metric-row"><strong>
 ID
-</td>
-
-<td>
+</strong><span>
 <?= htmlspecialchars($subject["id"]) ?>
-</td>
-</tr>
+</span></div>
 
-<tr>
-<td>
+<div class="metric-row"><strong>
 Boards
-</td>
-
-<td>
+</strong><span>
 Coming Soon
-</td>
-</tr>
+</span></div>
 
-<tr>
-<td>
+<div class="metric-row"><strong>
 Questions
-</td>
-
-<td>
+</strong><span>
 Coming Soon
-</td>
-</tr>
+</span></div>
 
-<tr>
-<td>
+<div class="metric-row"><strong>
 Domains
-</td>
-
-<td>
+</strong><span>
 Coming Soon
-</td>
-</tr>
+</span></div>
 
-<tr>
-<td>
+<div class="metric-row"><strong>
 Topics
-</td>
-
-<td>
+</strong><span>
 Coming Soon
-</td>
-</tr>
+</span></div>
 
-<tr>
-<td>
+<div class="metric-row"><strong>
 Concepts
-</td>
-
-<td>
+</strong><span>
 Coming Soon
-</td>
-</tr>
+</span></div>
 
-</table>
+</div>
 
 <br>
 

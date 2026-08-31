@@ -1,4 +1,4 @@
-<section class="page-header"><div><h1>Import questions</h1><p>Bring validated question records into the repository with duplicate checks.</p></div><a class="button secondary" href="/question-export">Export questions</a></section>
+<section class="page-header"><div><h1>Import Questions</h1><p>Bring validated question records into the repository with duplicate checks.</p></div><a class="button secondary" href="/question-export">Export questions</a></section>
 
 <p>
 
@@ -40,7 +40,7 @@ required
 >
 
 
-<br><br>
+<div class="form-spacer"></div>
 
 
 <button type="submit">
@@ -57,12 +57,7 @@ required
 <h3>Import result</h3>
 <p role="status"><?= ($result['success'] ?? false) ? '✅ Import completed.' : '⚠ Import was not completed.' ?></p>
 <?php foreach (($result['errors'] ?? []) as $error): ?><p class="form-error"><strong>Error:</strong> <?= htmlspecialchars((string) $error) ?></p><?php endforeach; ?>
-<table>
-<tr><th>Outcome</th><th>Count</th></tr>
-<tr><td>Accepted</td><td><?= count($result['imported'] ?? []) ?></td></tr>
-<tr><td>Updated</td><td><?= count($result['updated'] ?? []) ?></td></tr>
-<tr><td>Rejected</td><td><?= count($result['failed'] ?? []) + count($result['skipped'] ?? []) ?></td></tr>
-</table>
+<div class="stats-grid"><article class="card stat-card"><span class="stat-label">Processed</span><strong class="stat-value"><?= count($result['imported'] ?? []) + count($result['updated'] ?? []) + count($result['failed'] ?? []) + count($result['skipped'] ?? []) ?></strong></article><article class="card stat-card"><span class="stat-label">Imported</span><strong class="stat-value"><?= count($result['imported'] ?? []) ?></strong></article><article class="card stat-card"><span class="stat-label">Updated</span><strong class="stat-value"><?= count($result['updated'] ?? []) ?></strong></article><article class="card stat-card"><span class="stat-label">Rejected</span><strong class="stat-value"><?= count($result['failed'] ?? []) + count($result['skipped'] ?? []) ?></strong></article></div>
 <?php foreach (array_merge($result['failed'] ?? [], $result['skipped'] ?? []) as $rejection): ?>
 <p><strong>Rejected:</strong> <?= htmlspecialchars((string) ($rejection['reason'] ?? 'Unknown reason')) ?></p>
 <?php endforeach; ?>

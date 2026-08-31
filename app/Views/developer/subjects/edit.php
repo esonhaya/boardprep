@@ -27,7 +27,7 @@ Name
     maxlength="100"
 >
 
-<br><br>
+<div class="form-spacer"></div>
 
 <label>
 Description
@@ -40,7 +40,7 @@ Description
     rows="5"
 ><?= htmlspecialchars($subject["description"] ?? "") ?></textarea>
 
-<br><br>
+<div class="form-spacer"></div>
 
 <button type="submit">
 Save Changes

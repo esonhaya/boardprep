@@ -31,7 +31,7 @@ $conceptValue = $fieldValue('concept');
 <?= htmlspecialchars((string) ($board['name'] ?? $board['id'] ?? '')) ?>
 </option>
 <?php endforeach; ?>
-</select><br><br>
+</select><div class="form-spacer"></div>
 <?php endif; ?>
 
 <?php if (!empty($context['subject'])): ?>
@@ -45,7 +45,7 @@ $conceptValue = $fieldValue('concept');
 <?= htmlspecialchars((string) ($subject['name'] ?? $subject['id'] ?? '')) ?>
 </option>
 <?php endforeach; ?>
-</select><br><br>
+</select><div class="form-spacer"></div>
 <?php endif; ?>
 
 <?php if (!empty($context['domain'])): ?>
@@ -59,7 +59,7 @@ $conceptValue = $fieldValue('concept');
 <?= htmlspecialchars((string) ($domain['name'] ?? $domain['id'] ?? '')) ?>
 </option>
 <?php endforeach; ?>
-</select><br><br>
+</select><div class="form-spacer"></div>
 <?php endif; ?>
 
 <?php if (!empty($context['topic'])): ?>
@@ -73,7 +73,7 @@ $conceptValue = $fieldValue('concept');
 <?= htmlspecialchars((string) ($topic['name'] ?? $topic['id'] ?? '')) ?>
 </option>
 <?php endforeach; ?>
-</select><br><br>
+</select><div class="form-spacer"></div>
 <?php endif; ?>
 
 <?php if (!empty($context['concept'])): ?>
@@ -87,7 +87,7 @@ $conceptValue = $fieldValue('concept');
 <?= htmlspecialchars((string) ($concept['name'] ?? $concept['id'] ?? '')) ?>
 </option>
 <?php endforeach; ?>
-</select><br><br>
+</select><div class="form-spacer"></div>
 <?php endif; ?>
 
 <label for="difficulty">Difficulty</label><br>
@@ -95,11 +95,11 @@ $conceptValue = $fieldValue('concept');
 <?php foreach (['easy' => 'Easy', 'medium' => 'Medium', 'hard' => 'Hard'] as $value => $label): ?>
 <option value="<?= $value ?>" <?= (($question['difficulty'] ?? '') === $value) ? 'selected' : '' ?>><?= $label ?></option>
 <?php endforeach; ?>
-</select><br><br>
+</select><div class="form-spacer"></div>
 
 <label for="status">Status</label><br>
 <select name="status" id="status" required>
 <?php foreach (['active' => 'Active', 'draft' => 'Draft', 'approved' => 'Approved', 'archived' => 'Archived'] as $value => $label): ?>
 <option value="<?= $value ?>" <?= (($question['status'] ?? 'active') === $value) ? 'selected' : '' ?>><?= $label ?></option>
 <?php endforeach; ?>
-</select><br><br>
+</select><div class="form-spacer"></div>

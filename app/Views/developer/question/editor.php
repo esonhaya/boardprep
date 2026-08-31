@@ -1,4 +1,4 @@
-<section class="page-header"><div><h1>Question Inventory</h1><p>Browse, search and manage your question repository.</p></div><a class="button" href="/question-editor/create">New question</a></section>
+<section class="page-header"><div><h1>Question Inventory</h1><p>Question Editor · Browse, search and manage your question repository.</p></div><a class="button" href="/question-editor/create">New question</a></section>
 
 <hr>
 
@@ -54,10 +54,10 @@ placeholder="Question, topic or concept..."
 value="<?= htmlspecialchars(
     $search ?? ""
 ) ?>"
-style="width:100%;max-width:500px;"
+class="field-control"
 >
 
-<br><br>
+<div class="form-spacer"></div>
 
 <label>
 
@@ -69,7 +69,7 @@ Domain
 
 <select
 name="domain"
-style="width:100%;max-width:500px;"
+class="field-control"
 >
 
 <option value="">
@@ -95,7 +95,7 @@ value="<?= htmlspecialchars((string) ($item["id"] ?? "")) ?>"
 
 </select>
 
-<br><br>
+<div class="form-spacer"></div>
 
 <label>
 
@@ -107,7 +107,7 @@ Difficulty
 
 <select
 name="difficulty"
-style="width:100%;max-width:500px;"
+class="field-control"
 >
 
 <option value="">
@@ -151,7 +151,7 @@ Hard
 
 </select>
 
-<br><br>
+<div class="form-spacer"></div>
 
 <label>
 
@@ -163,7 +163,7 @@ Topic
 
 <select
 name="topic"
-style="width:100%;max-width:500px;"
+class="field-control"
 >
 
 <option value="">
@@ -189,20 +189,20 @@ value="<?= htmlspecialchars((string) ($item["id"] ?? "")) ?>"
 
 </select>
 
-<br><br>
+<div class="form-spacer"></div>
 
 <label for="status">Status</label>
 
 <br>
 
-<select name="status" id="status" style="width:100%;max-width:500px;">
+<select name="status" id="status" class="field-control">
 <option value="">All Statuses</option>
 <?php foreach (['active' => 'Active', 'draft' => 'Draft', 'approved' => 'Approved', 'archived' => 'Archived'] as $value => $label): ?>
 <option value="<?= $value ?>" <?= (($status ?? '') === $value) ? 'selected' : '' ?>><?= $label ?></option>
 <?php endforeach; ?>
 </select>
 
-<br><br>
+<div class="form-spacer"></div>
 
 <button type="submit">
 
@@ -244,15 +244,7 @@ No questions matched your filters.
 
 <?php foreach (($questions ?? []) as $question): ?>
 
-<article class="card inventory-item"
-style="
-border:1px solid #d1d5db;
-padding:16px;
-margin-bottom:16px;
-border-radius:8px;
-background:white;
-"
->
+<article class="card inventory-item">
 
 <p>
 
@@ -331,7 +323,7 @@ background:white;
     !== "archived"
 ): ?>
 
-<form method="POST" action="/question-editor/archive?id=<?= urlencode((string) $question["id"]) ?>" style="display:inline" onsubmit="return confirm('Archive this question?')">
+<form class="inline-form" method="POST" action="/question-editor/archive?id=<?= urlencode((string) $question["id"]) ?>" onsubmit="return confirm('Archive this question?')">
 
 <button type="submit">
 
@@ -343,7 +335,7 @@ background:white;
 
 <?php else: ?>
 
-<form method="POST" action="/question-editor/restore?id=<?= urlencode((string) $question["id"]) ?>" style="display:inline" onsubmit="return confirm('Restore this question?')">
+<form class="inline-form" method="POST" action="/question-editor/restore?id=<?= urlencode((string) $question["id"]) ?>" onsubmit="return confirm('Restore this question?')">
 
 <button type="submit">
 
@@ -357,32 +349,19 @@ background:white;
 
 </article>
 
-</div>
-
 <?php endforeach; ?>
 
 <?php endif; ?>
 
 <hr>
 
-<p
-style="
-margin-top:24px;
-"
->
+<p class="page-actions">
 
 <a
 href="/question-editor/create"
 >
 
-<button
-type="button"
-style="
-width:100%;
-padding:14px;
-font-size:16px;
-"
->
+<button type="button">
 
 ➕ Create New Question
 

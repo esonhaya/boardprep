@@ -15,3 +15,17 @@ BoardPrep remains a lightweight server-rendered PHP application. `App\Core\View`
 - **Learner:** `/`, `/dashboard`, `/quiz`, `/history`, `/study`, `/progress`, `/profile`, and subject entry views use the learner shell.
 - **Developer:** `/developer`, question inventory/editor/import/export, quality, coverage, taxonomy, boards, subjects, blueprints, inspector, doctor, and metadata tools use the developer shell through `BaseDeveloperController`.
 - **Data boundary:** controllers and services retain existing route contracts and storage-backed values; the overhaul changes presentation and navigation only.
+
+## Batch 470 visual migration matrix
+
+| Route | View | Current pattern | Target pattern | Mobile pattern | Status |
+|---|---|---|---|---|---|
+| `/` | `home/index.php` | Hero | Branded hero/action group | Stacked hero | Complete |
+| `/dashboard` | `dashboard/index.php` | Summary blocks | Metric grid + recommendation card | Two-column cards | Complete |
+| `/quiz` | `quiz/*` | Setup/form/answer flow | Focused card, progress, answer cards | Full-width controls/cards | Complete |
+| `/history`, `/progress`, `/profile`, `/study` | learner views | Lists and summaries | Shared cards/metrics | Stacked records | Inherited/shared |
+| `/developer` | `developer/dashboard.php` | Six-column health and action tables | Metric grid, action groups, status/record cards | One/two-column cards | Complete |
+| `/question-editor*` | editor/workspace views | Inline styles and spacing breaks | Filter bar, workspace panels, editor sections | Single-column panels | Complete |
+| `/question-quality`, `/coverage`, `/metadata-repair` | developer reports | Border tables | Summary metrics and record lists | Stacked records | Complete |
+| `/boards`, `/subjects`, `/blueprints`, `/taxonomy` | developer management views | Tables/unstyled lists | Cards, metric lists, badges | Stacked cards | Complete |
+| `/developer/doctor` | doctor view | Dense check table | Local-scroll data table | Intentional local scroll | Complete |

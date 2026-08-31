@@ -62,7 +62,7 @@ value="<?= htmlspecialchars($option["text"] ?? "") ?>"
 required
 >
 
-<br><br>
+<div class="form-spacer"></div>
 
 <?php endforeach; ?>
 
@@ -98,4 +98,4 @@ Option <?= $index + 1 ?>
 
 </select>
 
-<br><br>
+<div class="form-spacer"></div>

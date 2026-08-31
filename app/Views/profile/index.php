@@ -76,7 +76,7 @@
 <p>No completed quizzes yet. Take a quiz to start building your learning history.</p>
 <?php else: ?>
 <?php foreach ($timeline as $item): ?>
-<div style="margin-bottom: 15px;">
+<div class="record-card">
     <strong><?= htmlspecialchars(ucfirst((string) ($item["mode"] ?? "practice"))) ?></strong>
     —
     <?= htmlspecialchars((string) ($item["topic"] ?? "General")) ?>
@@ -94,9 +94,9 @@
 <hr>
 
 <a href="/progress">View Progress</a>
-<br><br>
+<div class="form-spacer"></div>
 <a href="/history">Quiz History</a>
-<br><br>
+<div class="form-spacer"></div>
 <a href="/quiz">Take Quiz</a>
-<br><br>
+<div class="form-spacer"></div>
 <a href="/dashboard">Dashboard</a>

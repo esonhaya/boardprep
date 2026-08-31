@@ -1,6 +1,6 @@
 <hr>
 
-<div style="margin-top:20px;">
+<div class="developer-footer-panel">
 
 <a href="/developer">
 

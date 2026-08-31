@@ -28,7 +28,7 @@ required
 maxlength="100"
 >
 
-<br><br>
+<div class="form-spacer"></div>
 
 <label>
 
@@ -43,7 +43,7 @@ name="description"
 rows="5"
 ></textarea>
 
-<br><br>
+<div class="form-spacer"></div>
 
 <button type="submit">
 

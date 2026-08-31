@@ -44,12 +44,7 @@ $explanationError =
 
 <?php if ($questionError !== ""): ?>
 
-<p
-style="
-color:red;
-margin:4px 0;
-"
->
+<p class="form-error">
 
 <?= htmlspecialchars(
     $questionError
@@ -64,14 +59,12 @@ name="question"
 rows="4"
 cols="60"
 required
-style="<?= $questionError !== ""
-    ? "border:2px solid red;"
-    : "" ?>"
+class="<?= $questionError !== "" ? "field-invalid" : "" ?>"
 ><?= htmlspecialchars(
     $question["question"] ?? ""
 ) ?></textarea>
 
-<br><br>
+<div class="form-spacer"></div>
 
 <label>
 Explanation
@@ -81,12 +74,7 @@ Explanation
 
 <?php if ($explanationError !== ""): ?>
 
-<p
-style="
-color:red;
-margin:4px 0;
-"
->
+<p class="form-error">
 
 <?= htmlspecialchars(
     $explanationError
@@ -101,11 +89,9 @@ name="explanation"
 rows="5"
 cols="60"
 required
-style="<?= $explanationError !== ""
-    ? "border:2px solid red;"
-    : "" ?>"
+class="<?= $explanationError !== "" ? "field-invalid" : "" ?>"
 ><?= htmlspecialchars(
     $question["explanation"] ?? ""
 ) ?></textarea>
 
-<br><br>
+<div class="form-spacer"></div>

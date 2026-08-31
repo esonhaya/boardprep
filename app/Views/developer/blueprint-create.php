@@ -48,7 +48,7 @@ value="<?= htmlspecialchars($board["id"]) ?>"
 </select>
 
 
-<br><br>
+<div class="form-spacer"></div>
 
 
 
@@ -75,7 +75,7 @@ value="<?= htmlspecialchars($subject["id"]) ?>"
 </select>
 
 
-<br><br>
+<div class="form-spacer"></div>
 
 
 
@@ -93,7 +93,7 @@ required
 >
 
 
-<br><br>
+<div class="form-spacer"></div>
 
 
 
@@ -112,7 +112,7 @@ required
 >
 
 
-<br><br>
+<div class="form-spacer"></div>
 
 
 
@@ -146,7 +146,7 @@ value="40"
 >
 
 
-<br><br>
+<div class="form-spacer"></div>
 
 
 
@@ -175,7 +175,7 @@ value="50"
 >
 
 
-<br><br>
+<div class="form-spacer"></div>
 
 
 
@@ -204,7 +204,7 @@ value="10"
 >
 
 
-<br><br>
+<div class="form-spacer"></div>
 
 
 
