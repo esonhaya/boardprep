@@ -63,7 +63,7 @@ the full persona suite.
 
 The single human acceptance entry point is
 [`docs/HUMAN_TESTER_READINESS.md`](docs/HUMAN_TESTER_READINESS.md). It contains
-the 24 stable cases, high-risk-first execution order, test-session header,
+the 12 bundled MVP cases, high-risk-first execution order, test-session header,
 copy/paste result record, evidence guidance, defect handling, and the separate
 automated-versus-human release gate. Human acceptance is never inferred from
 the simulation report and all cases remain `NOT_RUN` until a real tester records

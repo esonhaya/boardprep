@@ -41,60 +41,25 @@ case cannot be exercised because of an environment/build/access problem;
 record the reason. `NOT_APPLICABLE` is only for a case whose precondition is
 absent in the supplied build. Default: `NOT_RUN`.
 
-## Execution order and groups
+## Short MVP acceptance pass
 
-Run the groups below in order. Each case appears once in the matrix. The first
-group is the high-risk pass and should be completed before secondary behavior.
+Run these 12 cases in order in one fresh learner session. Each case requires
+human observation in a real browser; automation references are prechecks only.
 
-1. **Critical learner journey — HP-01–HP-07**
-   Entry, settings, practice start/answer/navigation/finish, result, review,
-   and result revisit/reload.
-2. **Persistence and recovery — HP-08–HP-12, HP-15, M-04–M-06**
-   Exam completion, repeat/history integrity, browser Back/settings navigation,
-   stale or unavailable sessions, reload, double submission, and persistence.
-3. **Mobile, usability, and accessibility — M-01–M-03**
-   Phone layout, touch/forms, keyboard focus, labels, headings, and errors.
-4. **Secondary and edge behavior — HP-13, HP-14, HP-16–HP-18**
-   Empty/short pools, learning surfaces, longitudinal state, and invalid
-   actions.
-
-High-risk cases (execute first): **HP-02, HP-03, HP-04, HP-05, HP-06, HP-07,
-HP-08, HP-09, HP-10, HP-11, HP-12, HP-15, M-02, M-04, M-05, M-06**.
-These cover practice and exam completion, result integrity, accidental or
-double submission, browser/settings navigation, stale/invalid recovery,
-persisted history/progress, and mobile forms/navigation.
-
-## Acceptance matrix
-
-| ID | Area | Preconditions and steps | Expected result | Evidence / failed severity | Automated reference | Status |
-|---|---|---|---|---|---|---|
-| HP-01 | Entry | Fresh browser; open `/` | Entry point explains the next learner action and links work | Screenshot; major | Home page scenario | NOT_RUN |
-| HP-02 | Configuration | Open `/quiz`; submit valid LET/English settings | Settings are understandable; quiz starts with a question | Screenshot; major | Quiz lifecycle | NOT_RUN |
-| HP-03 | Practice | Start practice; answer one question | Answer is accepted and feedback is understandable | Screenshot; major | Quiz lifecycle | NOT_RUN |
-| HP-04 | Navigation | Use practice Next/Finish through all questions | No skipped/duplicated question; finish is reachable | Recording or steps; major | Quiz lifecycle | NOT_RUN |
-| HP-05 | Results | Finish HP-04 | Result shows score/summary and answer review | Screenshot; critical if data wrong | Quiz lifecycle | NOT_RUN |
-| HP-06 | Review | Open each answer review item | Question, answer, correct answer, and explanation are coherent | Screenshot; major | Quiz lifecycle | NOT_RUN |
-| HP-07 | Result revisit | Refresh result; leave to settings and return | Result remains available and is not duplicated | Before/after; critical | Quiz lifecycle | NOT_RUN |
-| HP-08 | Exam | Start 3-question exam; answer one; finish | Exam navigation and partial completion match labels | Screenshot; major | Quiz lifecycle/exam tests | NOT_RUN |
-| HP-09 | Repeat | Complete a second practice session | New history entry is distinct; earlier result unchanged | History screenshots; critical | Quiz lifecycle | NOT_RUN |
-| HP-10 | Back/settings | During quiz visit `/quiz`, use browser Back, continue | No accidental completion or loss; controls recover | Steps + screenshots; major | Quiz lifecycle | NOT_RUN |
-| HP-11 | Stale session | Submit a captured question after completing/invalidating | Safe redirect and stale/invalid message; no fabricated result | URL + screenshot; critical | Lifecycle invalidation | NOT_RUN |
-| HP-12 | Unavailable question | Start quiz; make active question unavailable in supplied content/admin environment; submit | Session abandoned with guidance; no attempt/analytics side effect | Before/after; critical | Lifecycle invalidation | NOT_RUN |
-| HP-13 | Empty pool | Request settings matching no questions | Recovery message; no blank/fabricated or stale quiz | Screenshot + URL; major | Lifecycle shortage | NOT_RUN |
-| HP-14 | Short pool | Request more than eligible supply | Displayed count/content matches production behavior; no leak | Screenshot + count; major | Lifecycle shortage | NOT_RUN |
-| HP-15 | History | Open `/history` after HP-05/09 | Sessions are listed once with understandable labels | Screenshot; major | Learning surfaces/personas | NOT_RUN |
-| HP-16 | Learning surfaces | Visit `/dashboard`, `/progress`, `/profile`, `/study` | Surfaces load, agree on state, and links work | Four screenshots; major | Learning surfaces/personas | NOT_RUN |
-| HP-17 | Longitudinal loop | Complete session; revisit study/progress; use shown targeted action if present | Progress/weakness state changes coherently | Before/after; major | Learner persona simulation | NOT_RUN |
-| HP-18 | Invalid actions | Try invalid quiz action or stale Finish | Safe redirect/message; no server error/history mutation | URL + screenshot; major | HTTP status/lifecycle | NOT_RUN |
-| M-01 | Mobile layout | Phone viewport; home, settings, quiz, result, history | No clipping/horizontal scroll; primary action visible | Viewport screenshots; major | UI checks (partial) | NOT_RUN |
-| M-02 | Touch/forms | On phone operate inputs, choices, buttons | Targets tappable; labels associated; submits once | Short recording; major | UI checks (partial) | NOT_RUN |
-| M-03 | Accessibility | Keyboard where available; inspect headings, focus, labels, status | Logical focus/order, visible focus, meaningful headings and errors | Notes/tree capture; major | UI checks (partial) | NOT_RUN |
-| M-04 | Reload | Refresh settings, active quiz, feedback, result | No duplicate/corrupt navigation; recovery is clear | URLs + screenshots; critical | Lifecycle/reload | NOT_RUN |
-| M-05 | Double submit | Double-tap Submit/Finish or replay browser request | At most one answer/attempt; replay safely rejected | Recording + history; critical | Exact-once lifecycle | NOT_RUN |
-| M-06 | Persistence | Move between quiz, result, history, learning surfaces | State is consistent and survives navigation | Screenshot sequence; major | Learner journey | NOT_RUN |
-
-HP-11 and HP-12 cover equivalent invalid-session guards; run both only when the
-environment permits distinct stale and unavailable-content setups.
+| ID | Area and exact action | Expected result | Evidence / failed severity | Automated reference | Status |
+|---|---|---|---|---|---|
+| MVP-01 | Open `/` in a fresh browser, then open `/quiz` | Entry and settings clearly explain the next learner action; links work | Screenshot; major | Home and HTTP scenarios | NOT_RUN |
+| MVP-02 | Submit valid LET/English practice settings | A question renders with usable choices and a clear progress indicator | Screenshot; major | Quiz lifecycle | NOT_RUN |
+| MVP-03 | Answer a practice question, then use Next/Finish through the quiz | Feedback is understandable; no question is skipped or duplicated; completion is reachable | Short recording; major | Quiz lifecycle | NOT_RUN |
+| MVP-04 | Inspect the completed result and each review item | Score, denominator, answer review, correct answers, and explanations are coherent | Screenshot; critical if data is wrong | Quiz lifecycle | NOT_RUN |
+| MVP-05 | Refresh/revisit the result, then open history and learning surfaces | Result remains available; exactly one attempt appears; dashboard/progress/study/profile agree | Before/after screenshots; critical | Learner journey and persistence tests | NOT_RUN |
+| MVP-06 | Start a 3-question exam, answer one, finish, and revisit its result | Exam labels/navigation are accurate and the partial result preserves the generated denominator | Screenshot; major, critical if score/history is wrong | Exam HTTP regression | NOT_RUN |
+| MVP-07 | Start a second practice quiz after MVP-05 | New session replaces the old active state; prior history/result is unchanged | History screenshot; critical | Quiz lifecycle | NOT_RUN |
+| MVP-08 | Revisit `/quiz`, refresh an active quiz, replay Submit/Finish, and use browser Back | No accidental completion, duplicate answer/attempt, or corrupted state; recovery is clear | Steps + screenshot; critical | Reload/exact-once lifecycle | NOT_RUN |
+| MVP-09 | Submit a captured question after completion or make its question unavailable if supported | Safe redirect/message; no fabricated result or analytics/attempt side effect | URL + screenshot; critical | Lifecycle invalidation | NOT_RUN |
+| MVP-10 | Request no-match settings, a short pool, and an invalid quiz action | Clear empty/short/error guidance; no blank, stale, or fabricated quiz | Screenshot + URL; major | Shortage and HTTP tests | NOT_RUN |
+| MVP-11 | At a phone viewport, operate settings, choices, Submit, Next, and result/history links | No clipping or horizontal scroll; controls are tappable and the primary action is visible | Viewport screenshots/recording; major | UI checks (partial) | NOT_RUN |
+| MVP-12 | Use keyboard where available; inspect headings, labels, focus, and error/status messages | Focus/order, labels, headings, and validation messages are understandable | Notes or accessibility capture; major | UI checks (partial) | NOT_RUN |
 
 ## Result record and evidence
 
@@ -173,7 +138,7 @@ Record two independent gates. Automation must never change a human case to PASS.
 
 **HUMAN READINESS**
 
-- Required HP-01 through HP-18 and M-01 through M-06 are recorded.
+- Required MVP-01 through MVP-12 are recorded.
 - No unresolved Blocker/Critical defects; Major defects have an explicit
   release-owner decision.
 - Mobile usability, visual clarity, accessibility, real browser navigation, and
