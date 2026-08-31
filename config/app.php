@@ -8,6 +8,8 @@ return [
 
     'name' => 'BoardPrep',
 
+    'version' => '0.1.0',
+
     'environment' => Environment::get('APP_ENV', 'production'),
 
     'timezone' => Environment::get('APP_TIMEZONE', 'UTC'),
