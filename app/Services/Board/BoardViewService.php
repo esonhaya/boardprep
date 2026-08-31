@@ -82,15 +82,15 @@ final class BoardViewService
             if (strtolower((string) ($question["status"] ?? "active")) === "archived") {
                 return false;
             }
-            $taxonomy = is_array($question["taxonomy"] ?? null) ? $question["taxonomy"] : [];
-            $questionBoard = strtolower((string) ($taxonomy["board_id"] ?? $question["board"] ?? ""));
-            return $questionBoard === $boardId || $questionBoard === $boardCode;
+            return \App\Services\Question\QuestionEligibilityService::forExam($question, $boardId) !== null
+                || ($boardCode !== '' && \App\Services\Question\QuestionEligibilityService::forExam($question, $boardCode) !== null);
         }));
         $availableSubjectIds = [];
         $questionCountsBySubject = [];
         foreach ($questions as $question) {
-            $taxonomy = is_array($question["taxonomy"] ?? null) ? $question["taxonomy"] : [];
-            $subjectId = trim((string) ($taxonomy["subject_id"] ?? $question["subject"] ?? ""));
+            $eligibility = \App\Services\Question\QuestionEligibilityService::forExam($question, $boardId)
+                ?? \App\Services\Question\QuestionEligibilityService::forExam($question, $boardCode);
+            $subjectId = trim((string) ($eligibility['subject_id'] ?? ''));
             if ($subjectId !== "") {
                 $availableSubjectIds[$subjectId] = true;
                 $questionCountsBySubject[strtolower($subjectId)] = ($questionCountsBySubject[strtolower($subjectId)] ?? 0) + 1;

@@ -49,7 +49,10 @@ final class QuestionImportProcessor
 
         foreach ($accepted as $question) {
             try {
+                $eligibility = is_array($question['_eligibility'] ?? null) ? $question['_eligibility'] : [];
+                unset($question['_eligibility']);
                 $persisted = QuestionService::save($question);
+                \App\Services\Question\QuestionEligibilityService::persist($persisted, $eligibility);
                 $report->success($persisted);
             } catch (\Throwable $exception) {
                 $report->fail($question, $exception->getMessage());

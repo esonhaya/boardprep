@@ -21,9 +21,8 @@ final class ExamContentReadinessService
             if (strtolower((string) ($question['status'] ?? 'active')) === 'archived') {
                 return false;
             }
-            $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
-            $questionBoard = strtolower((string) ($taxonomy['board_id'] ?? $question['board'] ?? ''));
-            return $questionBoard === $boardId || $questionBoard === $boardCode;
+            return \App\Services\Question\QuestionEligibilityService::forExam($question, $boardId) !== null
+                || ($boardCode !== '' && \App\Services\Question\QuestionEligibilityService::forExam($question, $boardCode) !== null);
         }));
 
         $relations = [];
@@ -37,7 +36,9 @@ final class ExamContentReadinessService
         $complete = 0;
         foreach ($eligible as $question) {
             $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
-            $subjectId = (string) ($taxonomy['subject_id'] ?? $question['subject_id'] ?? '');
+            $eligibility = \App\Services\Question\QuestionEligibilityService::forExam($question, $boardId)
+                ?? \App\Services\Question\QuestionEligibilityService::forExam($question, $boardCode);
+            $subjectId = (string) ($eligibility['subject_id'] ?? '');
             if ($subjectId !== '' && ($relations === [] || isset($relations[$subjectId]))) {
                 $subjectIds[$subjectId] = true;
             }
@@ -54,7 +55,9 @@ final class ExamContentReadinessService
         if ($count === 0) {
             $status = 'EMPTY';
             $reason = 'No eligible questions are available yet.';
-        } elseif ($count >= 80 && $subjectCount >= 5 && $taxonomyPercent === 100 && $blueprintReady) {
+        } elseif ($count >= (int) ($board['settings']['readiness']['minimum_questions'] ?? 80)
+            && $subjectCount >= (int) ($board['settings']['readiness']['minimum_subjects'] ?? 5)
+            && $taxonomyPercent === 100 && $blueprintReady) {
             $status = 'STUDY_READY';
             $reason = 'The repository meets the BoardPrep coverage and taxonomy foundation targets.';
         } elseif ($count >= 20 && $subjectCount >= 2) {

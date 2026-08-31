@@ -4,11 +4,20 @@
         "organization_id": "prc",
         "code": "LET",
         "name": "Licensure Examination for Teachers",
-        "description": "Teacher licensure examination subject repository and blueprint entry point.",
+        "description": "Teacher licensure examination practice across general, professional, and specialization foundations.",
+        "visual": {
+            "accent": "emerald",
+            "secondary_accent": "blue",
+            "icon": "let"
+        },
         "status": "active",
         "settings": {
             "passing_score": 75,
-            "default_mode": "practice"
+            "default_mode": "practice",
+            "readiness": {
+                "minimum_questions": 80,
+                "minimum_subjects": 5
+            }
         }
     },
     {
@@ -16,11 +25,20 @@
         "organization_id": "csc",
         "code": "CSE",
         "name": "Civil Service Examination",
-        "description": "Civil service examination repository prepared for future BoardPrep support.",
+        "description": "Public-service examination practice with verbal, numerical, and civic foundations.",
+        "visual": {
+            "accent": "blue",
+            "secondary_accent": "gold",
+            "icon": "cse"
+        },
         "status": "active",
         "settings": {
             "passing_score": 80,
-            "default_mode": "practice"
+            "default_mode": "practice",
+            "readiness": {
+                "minimum_questions": 100,
+                "minimum_subjects": 3
+            }
         }
     }
 ]

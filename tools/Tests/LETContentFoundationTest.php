@@ -68,8 +68,8 @@ if (($readiness['status'] ?? '') !== 'STUDY_READY' || ($readiness['taxonomy_comp
     throw new RuntimeException('LET readiness did not reflect validated content');
 }
 $cse = BoardViewService::find('civil-service')['content_readiness'] ?? [];
-if (($cse['status'] ?? '') !== 'EMPTY') {
-    throw new RuntimeException('CSE must remain truthfully empty');
+if (($cse['eligible_questions'] ?? 0) !== 100) {
+    throw new RuntimeException('shared CSE eligibility is not reflected in board readiness');
 }
 $coverage = QuestionCoverageService::analyzeRepository();
 if (($coverage['inventory']['eligible'] ?? 0) < 80) {

@@ -13,7 +13,8 @@ final class QuestionSelectionService
             ],
             questionCount: $specification->questionCount,
             topic: $specification->topics[0] ?? null,
-            concept: $specification->concepts[0] ?? null
+            concept: $specification->concepts[0] ?? null,
+            exam: $specification->board
         );
 
         return self::fulfillRequest($questions, $request)->questions;

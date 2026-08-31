@@ -66,7 +66,8 @@
         "settings": {
             "role": "general",
             "required": true,
-            "sort_order": 1
+            "sort_order": 1,
+            "blueprint_weight": 35
         }
     },
     {
@@ -76,7 +77,8 @@
         "settings": {
             "role": "general",
             "required": true,
-            "sort_order": 2
+            "sort_order": 2,
+            "blueprint_weight": 30
         }
     },
     {
@@ -86,7 +88,8 @@
         "settings": {
             "role": "general",
             "required": true,
-            "sort_order": 3
+            "sort_order": 3,
+            "blueprint_weight": 35
         }
     },
     {

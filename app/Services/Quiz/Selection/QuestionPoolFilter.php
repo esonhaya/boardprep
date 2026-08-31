@@ -10,7 +10,13 @@ final class QuestionPoolFilter
             $question=self::normalizeRuntimeFields($question);
             if (!self::hasValidRuntimeContent($question)) continue;
             $taxonomy=is_array($question['taxonomy']??null)?$question['taxonomy']:[];
+            $examEligibility = $request->exam === null ? null : \App\Services\Question\QuestionEligibilityService::forExam($question, $request->exam);
+            if ($request->exam !== null && $examEligibility === null
+                && (array_key_exists('board', $question) || array_key_exists('taxonomy', $question))) continue;
             $subject=$question['subject']??$taxonomy['subject_id']??null;
+            if ($examEligibility !== null && ($examEligibility['subject_id'] ?? '') !== '') {
+                $subject = $examEligibility['subject_id'];
+            }
             $domain=$question['domain']??$taxonomy['domain_id']??null;
             $topic=$question['topic']??$taxonomy['topic_id']??null;
             $status=strtolower(trim((string)($question['status']??'active')));

@@ -17,6 +17,18 @@ final class BlueprintExecutor
             $specification->topics[0] ?? null,
             $specification->difficulty
         );
+        $requests = array_map(
+            static fn(SelectionRequest $request): SelectionRequest => new SelectionRequest(
+                subject: $request->subject,
+                domain: $request->domain,
+                difficultyDistribution: $request->difficultyDistribution,
+                questionCount: $request->questionCount,
+                topic: $request->topic,
+                concept: $request->concept,
+                exam: $specification->board
+            ),
+            $requests
+        );
 
         $selected = BlueprintRequestExecutor::execute(
             $questions,

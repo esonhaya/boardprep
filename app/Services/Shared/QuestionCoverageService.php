@@ -156,7 +156,7 @@ final class QuestionCoverageService
                 $name = $subjectNames[$subjectId];
                 $available = count(\QuestionPoolFilter::filter(
                     $questions,
-                    new \SelectionRequest($name, null, [], $required)
+                    new \SelectionRequest($name, null, [], $required, null, null, $boardId)
                 ));
                 $categories[] = [
                     'subject' => $subjectId,
