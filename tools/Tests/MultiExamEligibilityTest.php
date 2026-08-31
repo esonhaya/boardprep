@@ -13,17 +13,29 @@ use App\Services\Shared\QuestionCoverageService;
 
 $questions = App::storage()->all('questions');
 $ids = array_map(static fn(array $question): string => (string) ($question['id'] ?? ''), $questions);
-if (count($questions) !== 190 || count(array_unique($ids)) !== 190) {
+if (count($questions) !== 220 || count(array_unique($ids)) !== 220) {
     throw new RuntimeException('canonical question identities were not preserved');
+}
+foreach (range(1, 190) as $id) {
+    if (!in_array((string) $id, $ids, true)) {
+        throw new RuntimeException("existing question identity {$id} was lost");
+    }
 }
 
 $let = QuestionEligibilityService::eligible($questions, 'let');
 $cse = QuestionEligibilityService::eligible($questions, 'civil-service');
-if (count($let) !== 190 || count($cse) !== 100) {
+if (count($let) !== 190 || count($cse) !== 130) {
     throw new RuntimeException('explicit exam eligibility counts are incorrect');
 }
-if (count(array_unique(array_map(static fn(array $q): string => (string) $q['id'], $cse))) !== 100) {
+if (count(array_unique(array_map(static fn(array $q): string => (string) $q['id'], $cse))) !== 130) {
     throw new RuntimeException('CSE eligibility contains duplicate canonical records');
+}
+$analytical = array_values(array_filter(
+    $cse,
+    static fn(array $question): bool => ($question['taxonomy']['subject_id'] ?? '') === 'analytical-logical'
+));
+if (count($analytical) < 30) {
+    throw new RuntimeException('CSE analytical/logical foundation is incomplete');
 }
 
 $verbal = QuestionSelectionService::select(
@@ -41,7 +53,7 @@ foreach ($verbal as $question) {
 
 $letView = BoardViewService::find('let');
 $cseView = BoardViewService::find('civil-service');
-if (($letView['available_questions'] ?? 0) !== 190 || ($cseView['available_questions'] ?? 0) !== 100) {
+if (($letView['available_questions'] ?? 0) !== 190 || ($cseView['available_questions'] ?? 0) !== 130) {
     throw new RuntimeException('board availability is not derived from eligibility');
 }
 $coverage = QuestionCoverageService::analyzeRepository()['blueprints'] ?? [];
@@ -51,6 +63,21 @@ $cseCoverage = array_values(array_filter(
 ));
 if ($cseCoverage === [] || ($cseView['content_readiness']['status'] ?? '') !== 'STUDY_READY') {
     throw new RuntimeException('CSE blueprint/readiness integration is incomplete');
+}
+$expectedBoards = ['let', 'civil-service', 'criminologist', 'nursing', 'psychometrician'];
+foreach ($expectedBoards as $boardId) {
+    $view = BoardViewService::find($boardId);
+    if ($view === null || !isset($view['content_readiness']['status'])) {
+        throw new RuntimeException("missing registered board: {$boardId}");
+    }
+}
+$foundationCounts = ['criminologist' => 25, 'nursing' => 20, 'psychometrician' => 20];
+foreach ($foundationCounts as $boardId => $count) {
+    $view = BoardViewService::find($boardId);
+    if (($view['available_questions'] ?? 0) !== $count
+        || ($view['content_readiness']['status'] ?? '') !== 'FOUNDATION') {
+        throw new RuntimeException("{$boardId} foundation readiness is not repository-derived");
+    }
 }
 
 echo '[PASS] Multi-exam eligibility, identity preservation, CSE selection, and board counts verified.' . PHP_EOL;

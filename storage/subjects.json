@@ -110,5 +110,37 @@
         "description": "Filing, spelling, alphabetizing, office procedures, and clerical accuracy skills.",
         "category": "general",
         "status": "active"
+    },
+    {
+        "id": "analytical-logical",
+        "code": "ANALYTICAL",
+        "name": "Analytical and Logical Ability",
+        "description": "Patterns, logic, inference, and structured problem solving for aptitude examinations.",
+        "category": "general",
+        "status": "active"
+    },
+    {
+        "id": "criminal-justice-foundations",
+        "code": "CRIMFOUND",
+        "name": "Criminal Justice Foundations",
+        "description": "Shared civic, ethical, and public-interest foundations for criminology study.",
+        "category": "general",
+        "status": "active"
+    },
+    {
+        "id": "nursing-foundations",
+        "code": "NURFOUND",
+        "name": "Nursing Foundations",
+        "description": "Shared science, ethics, and health foundations for nursing study.",
+        "category": "general",
+        "status": "active"
+    },
+    {
+        "id": "psychology-foundations",
+        "code": "PSYFOUND",
+        "name": "Psychology Foundations",
+        "description": "Shared human development, ethics, and evidence foundations for psychology study.",
+        "category": "general",
+        "status": "active"
     }
 ]

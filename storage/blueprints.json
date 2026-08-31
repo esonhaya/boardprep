@@ -57,19 +57,157 @@
             {
                 "id": "verbal-ability",
                 "name": "Verbal Ability",
-                "target_percent": 35
+                "target_percent": 25
             },
             {
                 "id": "numerical-ability",
                 "name": "Numerical Ability",
-                "target_percent": 30
+                "target_percent": 20
             },
             {
                 "id": "general-information",
                 "name": "General Information",
-                "target_percent": 35
+                "target_percent": 25
+            },
+            {
+                "id": "analytical-logical",
+                "name": "Analytical and Logical Ability",
+                "target_percent": 30
             }
         ],
         "label": "BoardPrep coverage targets; not official CSC weighting."
+    },
+    {
+        "id": "criminologist-boardprep-coverage-v1",
+        "scope": "board",
+        "board_id": "criminologist",
+        "board": "criminologist",
+        "subject": "criminal-justice-foundations",
+        "name": "Criminologist BoardPrep Coverage Targets",
+        "version": 1,
+        "status": "active",
+        "questionCount": 80,
+        "foundation": true,
+        "official_weighting": false,
+        "sections": [
+            {
+                "id": "criminal-jurisprudence",
+                "name": "Criminal Jurisprudence and Procedure",
+                "target_percent": 20
+            },
+            {
+                "id": "law-enforcement",
+                "name": "Law Enforcement Administration",
+                "target_percent": 15
+            },
+            {
+                "id": "investigation",
+                "name": "Crime Detection and Investigation",
+                "target_percent": 20
+            },
+            {
+                "id": "forensics",
+                "name": "Criminalistics and Forensic Science",
+                "target_percent": 15
+            },
+            {
+                "id": "criminology",
+                "name": "Criminology",
+                "target_percent": 15
+            },
+            {
+                "id": "corrections",
+                "name": "Correctional Administration",
+                "target_percent": 15
+            }
+        ],
+        "label": "BoardPrep foundation coverage targets; not official PRC weighting."
+    },
+    {
+        "id": "nursing-boardprep-coverage-v1",
+        "scope": "board",
+        "board_id": "nursing",
+        "board": "nursing",
+        "subject": "nursing-foundations",
+        "name": "Nursing BoardPrep Coverage Targets",
+        "version": 1,
+        "status": "active",
+        "questionCount": 80,
+        "foundation": true,
+        "official_weighting": false,
+        "sections": [
+            {
+                "id": "nursing-practice",
+                "name": "Nursing Practice",
+                "target_percent": 25
+            },
+            {
+                "id": "community-health",
+                "name": "Community Health",
+                "target_percent": 15
+            },
+            {
+                "id": "maternal-child",
+                "name": "Maternal and Child Nursing",
+                "target_percent": 15
+            },
+            {
+                "id": "medical-surgical",
+                "name": "Medical-Surgical Nursing",
+                "target_percent": 20
+            },
+            {
+                "id": "mental-health",
+                "name": "Mental Health Nursing",
+                "target_percent": 10
+            },
+            {
+                "id": "professional-ethics",
+                "name": "Professional and Ethical Practice",
+                "target_percent": 15
+            }
+        ],
+        "label": "BoardPrep foundation coverage targets; not official PRC weighting."
+    },
+    {
+        "id": "psychometrician-boardprep-coverage-v1",
+        "scope": "board",
+        "board_id": "psychometrician",
+        "board": "psychometrician",
+        "subject": "psychology-foundations",
+        "name": "Psychometrician BoardPrep Coverage Targets",
+        "version": 1,
+        "status": "active",
+        "questionCount": 80,
+        "foundation": true,
+        "official_weighting": false,
+        "sections": [
+            {
+                "id": "psychological-assessment",
+                "name": "Psychological Assessment",
+                "target_percent": 30
+            },
+            {
+                "id": "abnormal-psychology",
+                "name": "Abnormal Psychology",
+                "target_percent": 20
+            },
+            {
+                "id": "industrial-organizational",
+                "name": "Industrial and Organizational Psychology",
+                "target_percent": 15
+            },
+            {
+                "id": "personality",
+                "name": "Theories of Personality",
+                "target_percent": 20
+            },
+            {
+                "id": "professional-practice",
+                "name": "Professional Practice and Ethics",
+                "target_percent": 15
+            }
+        ],
+        "label": "BoardPrep foundation coverage targets; not official PRC weighting."
     }
 ]

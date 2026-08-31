@@ -40,5 +40,68 @@
                 "minimum_subjects": 3
             }
         }
+    },
+    {
+        "id": "criminologist",
+        "organization_id": "prc",
+        "code": "CLE",
+        "name": "Criminologist Licensure Examination",
+        "description": "A foundation repository for criminology, justice, investigation, and correctional studies.",
+        "visual": {
+            "accent": "red",
+            "secondary_accent": "blue",
+            "icon": "criminologist"
+        },
+        "status": "active",
+        "settings": {
+            "passing_score": 75,
+            "default_mode": "practice",
+            "readiness": {
+                "minimum_questions": 80,
+                "minimum_subjects": 4
+            }
+        }
+    },
+    {
+        "id": "nursing",
+        "organization_id": "prc",
+        "code": "NLE",
+        "name": "Philippine Nurse Licensure Examination",
+        "description": "A foundation repository for nursing practice, health systems, and professional care.",
+        "visual": {
+            "accent": "teal",
+            "secondary_accent": "blue",
+            "icon": "nursing"
+        },
+        "status": "active",
+        "settings": {
+            "passing_score": 75,
+            "default_mode": "practice",
+            "readiness": {
+                "minimum_questions": 80,
+                "minimum_subjects": 4
+            }
+        }
+    },
+    {
+        "id": "psychometrician",
+        "organization_id": "prc",
+        "code": "PLE",
+        "name": "Psychometrician Licensure Examination",
+        "description": "A foundation repository for psychological assessment and behavioral science.",
+        "visual": {
+            "accent": "purple",
+            "secondary_accent": "blue",
+            "icon": "psychometrician"
+        },
+        "status": "active",
+        "settings": {
+            "passing_score": 75,
+            "default_mode": "practice",
+            "readiness": {
+                "minimum_questions": 80,
+                "minimum_subjects": 3
+            }
+        }
     }
 ]

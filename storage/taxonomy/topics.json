@@ -608,5 +608,26 @@
     {"id":"prof-management","domain_id":"classroom-management","code":"CM","name":"Learning Environment"},
     {"id":"prof-technology","domain_id":"educational-technology","code":"ET","name":"Technology for Learning"},
     {"id":"prof-facilitation","domain_id":"facilitating-learning","code":"FL","name":"Facilitating Learning"},
-    {"id":"english-inference","domain_id":"english-reading-comprehension","code":"EI","name":"Inference and Interpretation"}
+    {"id":"english-inference","domain_id":"english-reading-comprehension","code":"EI","name":"Inference and Interpretation"},
+    {"id":"analytical-assumptions","domain_id":"analytical-reasoning","code":"AS","name":"Assumptions and Conclusions"},
+    {"id":"analytical-analogy","domain_id":"analytical-reasoning","code":"AN","name":"Analogies and Relationships"},
+    {"id":"analytical-sequences","domain_id":"logical-sequences","code":"SEQ","name":"Pattern and Number Sequences"},
+    {"id":"analytical-data","domain_id":"quantitative-relationships","code":"DATA","name":"Data Interpretation"}
+    ,{"id":"cle-jurisprudence-basics","domain_id":"cle-criminal-jurisprudence","code":"CJB","name":"Criminal Law Foundations"}
+    ,{"id":"cle-law-administration","domain_id":"cle-law-enforcement","code":"LA","name":"Public Safety Administration"}
+    ,{"id":"cle-investigation-methods","domain_id":"cle-investigation","code":"IM","name":"Investigation Methods"}
+    ,{"id":"cle-forensic-evidence","domain_id":"cle-forensics","code":"FE","name":"Forensic Evidence"}
+    ,{"id":"cle-criminology-theory","domain_id":"cle-criminology","code":"CT","name":"Criminology Theory"}
+    ,{"id":"cle-correctional-systems","domain_id":"cle-corrections","code":"CS","name":"Correctional Systems"}
+    ,{"id":"nle-foundations","domain_id":"nle-practice","code":"NF","name":"Foundations of Nursing Care"}
+    ,{"id":"nle-health-promotion","domain_id":"nle-community-health","code":"HP","name":"Health Promotion"}
+    ,{"id":"nle-family-care","domain_id":"nle-maternal-child","code":"FC","name":"Family-Centered Care"}
+    ,{"id":"nle-clinical-care","domain_id":"nle-medical-surgical","code":"CC","name":"Clinical Care"}
+    ,{"id":"nle-therapeutic-care","domain_id":"nle-mental-health","code":"TC","name":"Therapeutic Care"}
+    ,{"id":"nle-ethical-practice","domain_id":"nle-professional-ethics","code":"EP","name":"Ethical Nursing Practice"}
+    ,{"id":"ple-measurement","domain_id":"ple-assessment","code":"PM","name":"Psychological Measurement"}
+    ,{"id":"ple-clinical-foundations","domain_id":"ple-abnormal","code":"CF","name":"Clinical Foundations"}
+    ,{"id":"ple-workplace","domain_id":"ple-industrial","code":"WP","name":"Workplace Behavior"}
+    ,{"id":"ple-personality-models","domain_id":"ple-personality","code":"PMO","name":"Personality Models"}
+    ,{"id":"ple-professional-ethics","domain_id":"ple-professional-practice","code":"PPE","name":"Professional Ethics"}
 ]

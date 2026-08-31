@@ -67,7 +67,7 @@
             "role": "general",
             "required": true,
             "sort_order": 1,
-            "blueprint_weight": 35
+            "blueprint_weight": 25
         }
     },
     {
@@ -78,7 +78,7 @@
             "role": "general",
             "required": true,
             "sort_order": 2,
-            "blueprint_weight": 30
+            "blueprint_weight": 20
         }
     },
     {
@@ -89,7 +89,7 @@
             "role": "general",
             "required": true,
             "sort_order": 3,
-            "blueprint_weight": 35
+            "blueprint_weight": 25
         }
     },
     {
@@ -101,5 +101,9 @@
             "required": true,
             "sort_order": 4
         }
-    }
+    },
+    {"id":"cse-analytical-logical","board_id":"civil-service","subject_id":"analytical-logical","settings":{"role":"general","required":true,"sort_order":4,"blueprint_weight":30}},
+    {"id":"cle-criminal-foundations","board_id":"criminologist","subject_id":"criminal-justice-foundations","settings":{"role":"general","required":true,"sort_order":1,"blueprint_weight":100}},
+    {"id":"nle-nursing-foundations","board_id":"nursing","subject_id":"nursing-foundations","settings":{"role":"general","required":true,"sort_order":1,"blueprint_weight":100}},
+    {"id":"ple-psychology-foundations","board_id":"psychometrician","subject_id":"psychology-foundations","settings":{"role":"general","required":true,"sort_order":1,"blueprint_weight":100}}
 ]

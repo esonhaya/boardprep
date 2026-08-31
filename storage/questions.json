@@ -5758,5 +5758,695 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0
+    },
+    {
+        "id": 191,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "analytical-reasoning",
+            "topic_id": "analytical-assumptions",
+            "concept_id": "analytical-assumption-identification"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "easy",
+        "question": "A city should add a pedestrian crossing near the school because many learners cross there. Which assumption supports this proposal?",
+        "choices": [
+            "Learners currently cross the road at that location",
+            "The school will move next year",
+            "All roads should have traffic lights",
+            "Teachers will supervise every crossing"
+        ],
+        "answer": "Learners currently cross the road at that location",
+        "explanation": "The proposal depends on the stated location being used by learners."
+    },
+    {
+        "id": 192,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "analytical-reasoning",
+            "topic_id": "analytical-assumptions",
+            "concept_id": "analytical-conclusion-validity"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "question": "All approved requests have a reference number. Request 24 has a reference number. What conclusion is logically justified?",
+        "choices": [
+            "Request 24 is approved",
+            "Request 24 may or may not be approved",
+            "No approved request has a reference number",
+            "Request 24 was submitted today"
+        ],
+        "answer": "Request 24 may or may not be approved",
+        "explanation": "Having a reference number is necessary for approval in the premise, but it is not stated to be sufficient."
+    },
+    {
+        "id": 193,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "analytical-reasoning",
+            "topic_id": "analytical-analogy",
+            "concept_id": "analytical-analogy-structure"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "easy",
+        "question": "Transparent is to opaque as generous is to:",
+        "choices": [
+            "kind",
+            "selfish",
+            "helpful",
+            "patient"
+        ],
+        "answer": "selfish",
+        "explanation": "The first pair expresses opposites, so the matching opposite of generous is selfish."
+    },
+    {
+        "id": 194,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "analytical-reasoning",
+            "topic_id": "analytical-analogy",
+            "concept_id": "analytical-analogy-structure"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "question": "Blueprint is to building as recipe is to:",
+        "choices": [
+            "meal",
+            "kitchen",
+            "plate",
+            "cook"
+        ],
+        "answer": "meal",
+        "explanation": "A blueprint guides construction of a building; a recipe guides preparation of a meal."
+    },
+    {
+        "id": 195,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "analytical-reasoning",
+            "topic_id": "analytical-assumptions",
+            "concept_id": "analytical-assumption-identification"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "hard",
+        "question": "A report recommends extending library hours to improve access. Which evidence would most strengthen the recommendation?",
+        "choices": [
+            "Many residents request evening access but cannot visit before closing",
+            "The library walls were recently painted",
+            "The library has a printed catalog",
+            "Some books are arranged alphabetically"
+        ],
+        "answer": "Many residents request evening access but cannot visit before closing",
+        "explanation": "Direct evidence of unmet evening demand connects the recommendation to its intended outcome."
+    },
+    {
+        "id": 196,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "analytical-reasoning",
+            "topic_id": "analytical-assumptions",
+            "concept_id": "analytical-conclusion-validity"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "question": "Some permits are urgent. All urgent permits are reviewed today. What follows?",
+        "choices": [
+            "Some permits are reviewed today",
+            "All permits are reviewed today",
+            "No permits are reviewed today",
+            "Only digital permits are reviewed today"
+        ],
+        "answer": "Some permits are reviewed today",
+        "explanation": "The permits that are urgent form a nonempty group, and every member of that group is reviewed today."
+    },
+    {
+        "id": 197,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "analytical-reasoning",
+            "topic_id": "analytical-analogy",
+            "concept_id": "analytical-analogy-structure"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "easy",
+        "question": "Inspect is to examine as preserve is to:",
+        "choices": [
+            "protect",
+            "discard",
+            "measure",
+            "divide"
+        ],
+        "answer": "protect",
+        "explanation": "Inspect means examine, while preserve means protect or maintain."
+    },
+    {
+        "id": 198,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "analytical-reasoning",
+            "topic_id": "analytical-assumptions",
+            "concept_id": "analytical-conclusion-validity"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "hard",
+        "question": "A survey finds that employees who use a new checklist make fewer filing errors. Which conclusion is safest?",
+        "choices": [
+            "The checklist is associated with fewer filing errors",
+            "The checklist eliminates every filing error",
+            "Employees never used other aids",
+            "The survey proves the checklist caused every improvement"
+        ],
+        "answer": "The checklist is associated with fewer filing errors",
+        "explanation": "The survey supports an association, but the stated information does not establish exclusive causation."
+    },
+    {
+        "id": 199,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "logical-sequences",
+            "topic_id": "analytical-sequences",
+            "concept_id": "analytical-sequence-rule"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "easy",
+        "question": "What number comes next: 3, 6, 12, 24, ___?",
+        "choices": [
+            "30",
+            "36",
+            "48",
+            "60"
+        ],
+        "answer": "48",
+        "explanation": "Each term is twice the preceding term."
+    },
+    {
+        "id": 200,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "logical-sequences",
+            "topic_id": "analytical-sequences",
+            "concept_id": "analytical-sequence-rule"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "question": "What letter comes next: A, C, F, J, O, ___?",
+        "choices": [
+            "R",
+            "T",
+            "U",
+            "V"
+        ],
+        "answer": "U",
+        "explanation": "The forward gaps are 2, 3, 4, and 5 letters; the next gap is 6."
+    },
+    {
+        "id": 201,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "logical-sequences",
+            "topic_id": "analytical-sequences",
+            "concept_id": "analytical-sequence-rule"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "question": "A schedule repeats every fourth day. If a briefing is held on Monday, on which day is the next briefing?",
+        "choices": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "answer": "Friday",
+        "explanation": "Counting four days after Monday gives Friday."
+    },
+    {
+        "id": 202,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "logical-sequences",
+            "topic_id": "analytical-sequences",
+            "concept_id": "analytical-sequence-rule"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "hard",
+        "question": "A code changes by adding 4, then 7, then 10. Starting at 5, what is the fourth code value?",
+        "choices": [
+            "12",
+            "16",
+            "19",
+            "26"
+        ],
+        "answer": "26",
+        "explanation": "The values are 5, 9, 16, and 26; the increments increase by three each time."
+    },
+    {
+        "id": 203,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "logical-sequences",
+            "topic_id": "analytical-sequences",
+            "concept_id": "analytical-sequence-rule"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "easy",
+        "question": "Which item completes the pattern: red, blue, red, blue, red, ___?",
+        "choices": [
+            "red",
+            "green",
+            "blue",
+            "yellow"
+        ],
+        "answer": "blue",
+        "explanation": "The two-color pattern alternates red and blue."
+    },
+    {
+        "id": 204,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "logical-sequences",
+            "topic_id": "analytical-sequences",
+            "concept_id": "analytical-sequence-rule"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "question": "Five files are arranged from oldest to newest. File M is older than N but newer than P. Which order is possible?",
+        "choices": [
+            "N, M, P",
+            "P, M, N",
+            "M, P, N",
+            "P, N, M"
+        ],
+        "answer": "P, M, N",
+        "explanation": "P must precede M, and M must precede N."
+    },
+    {
+        "id": 205,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "logical-sequences",
+            "topic_id": "analytical-sequences",
+            "concept_id": "analytical-sequence-rule"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "hard",
+        "question": "A, B, and C each speak once. A speaks before B, and C speaks after A. Which speaker can speak second?",
+        "choices": [
+            "A only",
+            "B only",
+            "C only",
+            "B or C"
+        ],
+        "answer": "B or C",
+        "explanation": "A must be first; either B or C can occupy the second position while satisfying both conditions."
+    },
+    {
+        "id": 206,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "logical-sequences",
+            "topic_id": "analytical-sequences",
+            "concept_id": "analytical-sequence-rule"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "easy",
+        "question": "What number is missing: 2, 5, 8, 11, ___?",
+        "choices": [
+            "12",
+            "13",
+            "14",
+            "15"
+        ],
+        "answer": "14",
+        "explanation": "The sequence increases by three each time."
+    },
+    {
+        "id": 207,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "logical-sequences",
+            "topic_id": "analytical-sequences",
+            "concept_id": "analytical-sequence-rule"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "question": "A queue has Ana before Ben and Ben before Carlo. Who cannot be first?",
+        "choices": [
+            "Ana",
+            "Ben",
+            "Carlo",
+            "Any of them"
+        ],
+        "answer": "Carlo",
+        "explanation": "Carlo must come after Ben, so Carlo cannot be first."
+    },
+    {
+        "id": 208,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "quantitative-relationships",
+            "topic_id": "analytical-data",
+            "concept_id": "analytical-data-comparison"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "question": "A unit processed 18 forms on Monday and 24 on Tuesday. How many more forms were processed on Tuesday?",
+        "choices": [
+            "4",
+            "6",
+            "8",
+            "42"
+        ],
+        "answer": "6",
+        "explanation": "Subtracting 18 from 24 gives six more forms."
+    },
+    {
+        "id": 209,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "quantitative-relationships",
+            "topic_id": "analytical-data",
+            "concept_id": "analytical-data-comparison"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "easy",
+        "question": "A chart records 40 requests, of which 10 are pending. What fraction are pending?",
+        "choices": [
+            "1\/2",
+            "1\/4",
+            "3\/4",
+            "1\/10"
+        ],
+        "answer": "1\/4",
+        "explanation": "Ten out of forty simplifies to one-fourth."
+    },
+    {
+        "id": 210,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "quantitative-relationships",
+            "topic_id": "analytical-data",
+            "concept_id": "analytical-data-comparison"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "question": "A team completed 60% of 50 assigned cases. How many cases did it complete?",
+        "choices": [
+            "20",
+            "25",
+            "30",
+            "35"
+        ],
+        "answer": "30",
+        "explanation": "Sixty percent of 50 is 0.60 multiplied by 50, or 30."
+    },
+    {
+        "id": 211,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "quantitative-relationships",
+            "topic_id": "analytical-data",
+            "concept_id": "analytical-data-comparison"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "hard",
+        "question": "Branch A processed 120 applications and Branch B processed 150. What is the ratio of A to B in simplest form?",
+        "choices": [
+            "4:5",
+            "5:4",
+            "12:15",
+            "8:9"
+        ],
+        "answer": "4:5",
+        "explanation": "Dividing both terms of 120:150 by 30 gives 4:5."
+    },
+    {
+        "id": 212,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "quantitative-relationships",
+            "topic_id": "analytical-data",
+            "concept_id": "analytical-data-comparison"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "easy",
+        "question": "A report lists 7 online and 5 walk-in applications. What is the total?",
+        "choices": [
+            "2",
+            "10",
+            "12",
+            "35"
+        ],
+        "answer": "12",
+        "explanation": "Adding the two categories gives twelve applications."
+    },
+    {
+        "id": 213,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "quantitative-relationships",
+            "topic_id": "analytical-data",
+            "concept_id": "analytical-data-comparison"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "question": "A budget of 80,000 pesos is reduced by 15%. What is the new budget?",
+        "choices": [
+            "12,000",
+            "68,000",
+            "72,000",
+            "92,000"
+        ],
+        "answer": "68,000",
+        "explanation": "Fifteen percent of 80,000 is 12,000; subtracting it leaves 68,000."
+    },
+    {
+        "id": 214,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "quantitative-relationships",
+            "topic_id": "analytical-data",
+            "concept_id": "analytical-data-comparison"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "hard",
+        "question": "Three offices share 240 forms in the ratio 2:3:5. How many forms go to the largest share?",
+        "choices": [
+            "48",
+            "72",
+            "120",
+            "150"
+        ],
+        "answer": "120",
+        "explanation": "The total ratio is 10; the largest share is 5\/10 of 240, or 120."
+    },
+    {
+        "id": 215,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "quantitative-relationships",
+            "topic_id": "analytical-data",
+            "concept_id": "analytical-data-comparison"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "question": "A service desk received 25 calls each hour for 4 hours. If 18 calls were unresolved, how many were resolved?",
+        "choices": [
+            "82",
+            "100",
+            "118",
+            "125"
+        ],
+        "answer": "82",
+        "explanation": "The desk received 100 calls total, and 100 minus 18 equals 82 resolved calls."
+    },
+    {
+        "id": 216,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "analytical-reasoning",
+            "topic_id": "analytical-assumptions",
+            "concept_id": "analytical-assumption-identification"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "easy",
+        "question": "A notice says applicants should bring an original ID and one photocopy. What is required?",
+        "choices": [
+            "Two original IDs",
+            "An original ID and one photocopy",
+            "A photocopy only",
+            "No identification"
+        ],
+        "answer": "An original ID and one photocopy",
+        "explanation": "The notice explicitly identifies both required items."
+    },
+    {
+        "id": 217,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "analytical-reasoning",
+            "topic_id": "analytical-assumptions",
+            "concept_id": "analytical-conclusion-validity"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "question": "If no incomplete application is approved, and Form X was approved, what must be true?",
+        "choices": [
+            "Form X was complete",
+            "Form X was submitted online",
+            "Form X was submitted first",
+            "Form X was reviewed twice"
+        ],
+        "answer": "Form X was complete",
+        "explanation": "Approval excludes incomplete applications, so an approved form must be complete."
+    },
+    {
+        "id": 218,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "analytical-reasoning",
+            "topic_id": "analytical-analogy",
+            "concept_id": "analytical-analogy-structure"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "hard",
+        "question": "Evidence is to decision as data is to:",
+        "choices": [
+            "analysis",
+            "building",
+            "silence",
+            "delay"
+        ],
+        "answer": "analysis",
+        "explanation": "Evidence informs a decision; data is examined through analysis."
+    },
+    {
+        "id": 219,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "logical-sequences",
+            "topic_id": "analytical-sequences",
+            "concept_id": "analytical-sequence-rule"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "hard",
+        "question": "Four tasks take 10, 15, 20, and 25 minutes respectively. If started together, which finishes last?",
+        "choices": [
+            "Task 1",
+            "Task 2",
+            "Task 3",
+            "Task 4"
+        ],
+        "answer": "Task 4",
+        "explanation": "The task requiring 25 minutes has the latest completion time when all start together."
+    },
+    {
+        "id": 220,
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "quantitative-relationships",
+            "topic_id": "analytical-data",
+            "concept_id": "analytical-data-comparison"
+        },
+        "board": "civil-service",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "question": "A monthly total rose from 200 to 230 cases. What was the increase?",
+        "choices": [
+            "15 cases",
+            "20 cases",
+            "30 cases",
+            "430 cases"
+        ],
+        "answer": "30 cases",
+        "explanation": "The increase is 230 minus 200, which equals 30 cases."
     }
 ]
