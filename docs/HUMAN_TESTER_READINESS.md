@@ -18,14 +18,14 @@ alias`, `device`, `browser`, `environment`, `viewport/orientation`, and
 `automated prerequisite status` are canonical fields.
 
 ```text
-commit/build=
-date=
-tester alias=
-device=
-browser=
-environment=production|staging|local
-viewport/orientation=
-automated prerequisite status=PASS|FAIL|SKIPPED|DEPENDENCY_MISSING|UNAVAILABLE
+COMMIT_BUILD=
+DATE=
+TESTER=
+DEVICE=
+BROWSER=
+ENVIRONMENT=production|staging|local
+VIEWPORT=
+AUTOMATED_PREREQUISITE=PASS|FAIL|SKIPPED|DEPENDENCY_MISSING|UNAVAILABLE
 ```
 
 Do not begin human acceptance when the prerequisite is `FAIL`,
@@ -43,23 +43,67 @@ absent in the supplied build. Default: `NOT_RUN`.
 
 ## Short MVP acceptance pass
 
-Run these 12 cases in order in one fresh learner session. Each case requires
-human observation in a real browser; automation references are prechecks only.
+Run these 12 cases in six stages, using one fresh learner session where the
+preconditions allow it. `AUTOMATED_CONFIRMED` means the functional assertions
+already pass locally; `AUTOMATED_PARTIAL` means automation covers behavior but
+not the whole human judgment; `HUMAN_REQUIRED` means a real tester must judge
+the interaction or presentation. No automated result changes `HUMAN_STATUS`.
 
-| ID | Area and exact action | Expected result | Evidence / failed severity | Automated reference | Status |
+### Stage A — Entry and mobile setup
+
+Set a phone viewport and open `/`, `/quiz`, and the settings page. Record the
+session header above. Run MVP-01 and MVP-11.
+
+### Stage B — Practice start and active quiz
+
+Submit valid LET/English practice settings, answer a question, use Next, and
+continue to Finish. Run MVP-02 and MVP-03. Note any unclear feedback or
+control, but do not interrupt the journey for a cosmetic issue.
+
+### Stage C — Completion and persistence
+
+Inspect the result and review, refresh/revisit it, then open history and the
+learning surfaces. Run MVP-04 and MVP-05. Capture evidence only for a failure,
+unexpected data, or confusing presentation.
+
+### Stage D — Exam and second session
+
+Start a three-question exam, answer one, finish, revisit its result, then start
+a second practice quiz. Run MVP-06 and MVP-07. Confirm the earlier history and
+result remain unchanged.
+
+### Stage E — Recovery and edge states
+
+During the active session revisit `/quiz`, refresh, use Back, replay Submit or
+Finish, and submit a captured question after completion. If the supplied
+environment permits, make its question unavailable. Request no-match and
+short-pool settings and try an invalid quiz action. Run MVP-08, MVP-09, and
+MVP-10.
+
+### Stage F — Keyboard and accessibility
+
+Use keyboard navigation where available and inspect headings, labels, visible
+focus, validation, and status messages. Run MVP-12. Record viewport/device
+details for any interaction or accessibility defect.
+
+| CASE | PURPOSE | AUTOMATED EVIDENCE | HUMAN ACTION | EXPECTED RESULT | STATUS |
 |---|---|---|---|---|---|
-| MVP-01 | Open `/` in a fresh browser, then open `/quiz` | Entry and settings clearly explain the next learner action; links work | Screenshot; major | Home and HTTP scenarios | NOT_RUN |
-| MVP-02 | Submit valid LET/English practice settings | A question renders with usable choices and a clear progress indicator | Screenshot; major | Quiz lifecycle | NOT_RUN |
-| MVP-03 | Answer a practice question, then use Next/Finish through the quiz | Feedback is understandable; no question is skipped or duplicated; completion is reachable | Short recording; major | Quiz lifecycle | NOT_RUN |
-| MVP-04 | Inspect the completed result and each review item | Score, denominator, answer review, correct answers, and explanations are coherent | Screenshot; critical if data is wrong | Quiz lifecycle | NOT_RUN |
-| MVP-05 | Refresh/revisit the result, then open history and learning surfaces | Result remains available; exactly one attempt appears; dashboard/progress/study/profile agree | Before/after screenshots; critical | Learner journey and persistence tests | NOT_RUN |
-| MVP-06 | Start a 3-question exam, answer one, finish, and revisit its result | Exam labels/navigation are accurate and the partial result preserves the generated denominator | Screenshot; major, critical if score/history is wrong | Exam HTTP regression | NOT_RUN |
-| MVP-07 | Start a second practice quiz after MVP-05 | New session replaces the old active state; prior history/result is unchanged | History screenshot; critical | Quiz lifecycle | NOT_RUN |
-| MVP-08 | Revisit `/quiz`, refresh an active quiz, replay Submit/Finish, and use browser Back | No accidental completion, duplicate answer/attempt, or corrupted state; recovery is clear | Steps + screenshot; critical | Reload/exact-once lifecycle | NOT_RUN |
-| MVP-09 | Submit a captured question after completion or make its question unavailable if supported | Safe redirect/message; no fabricated result or analytics/attempt side effect | URL + screenshot; critical | Lifecycle invalidation | NOT_RUN |
-| MVP-10 | Request no-match settings, a short pool, and an invalid quiz action | Clear empty/short/error guidance; no blank, stale, or fabricated quiz | Screenshot + URL; major | Shortage and HTTP tests | NOT_RUN |
-| MVP-11 | At a phone viewport, operate settings, choices, Submit, Next, and result/history links | No clipping or horizontal scroll; controls are tappable and the primary action is visible | Viewport screenshots/recording; major | UI checks (partial) | NOT_RUN |
-| MVP-12 | Use keyboard where available; inspect headings, labels, focus, and error/status messages | Focus/order, labels, headings, and validation messages are understandable | Notes or accessibility capture; major | UI checks (partial) | NOT_RUN |
+| MVP-01 | Entry and settings | `AUTOMATED_PARTIAL` — home/settings routes and links pass | Open `/` then `/quiz`; judge clarity | Learner understands the next action and links work | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
+| MVP-02 | Practice start/render | `AUTOMATED_PARTIAL` — POST start and question HTML pass | Submit valid settings; judge choices/progress usability | A valid question renders with clear progress | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
+| MVP-03 | Answer/navigation | `AUTOMATED_PARTIAL` — submission, feedback path, navigation pass | Answer and advance through practice; judge feedback | Answer is accepted, feedback is understandable, no skips/duplicates | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
+| MVP-04 | Result/review | `AUTOMATED_CONFIRMED` — score, denominator, review and result flow pass | Inspect result/review for comprehension | Score and review data are correct and coherent | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
+| MVP-05 | Revisit/persistence | `AUTOMATED_CONFIRMED` — result revisit, history, persistence pass | Refresh result; visit history/dashboard/progress/study/profile | One attempt persists and learner surfaces agree | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
+| MVP-06 | Exam mode | `AUTOMATED_CONFIRMED` — exam HTTP lifecycle and denominator pass | Run 3-question exam and judge labels | Exam navigation and partial result are accurate | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
+| MVP-07 | Second session | `AUTOMATED_CONFIRMED` — replacement and exact-once isolation pass | Start another practice quiz; spot-check history | New session is distinct; earlier result is unchanged | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
+| MVP-08 | Reload/back/replay | `AUTOMATED_PARTIAL` — stale replay and lifecycle recovery pass | Refresh, Back, replay Submit/Finish during a session | No accidental completion, duplicate write, or corruption | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
+| MVP-09 | Stale/unavailable question | `AUTOMATED_PARTIAL` — live status revalidation and safe redirect pass | Use a captured question after completion; try unavailable content if possible | Safe recovery message; no fabricated result or side effect | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
+| MVP-10 | Empty/short/error states | `AUTOMATED_CONFIRMED` — shortage, eligibility, and invalid-action paths pass | Request no-match/short pool and invalid action; judge guidance | Clear recovery; no blank, stale, or fabricated quiz | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
+| MVP-11 | Mobile interaction | `AUTOMATED_PARTIAL` — viewport/markup checks only | Use phone viewport and operate all primary controls | No clipping/scroll; controls are tappable and visible | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
+| MVP-12 | Keyboard/accessibility | `AUTOMATED_PARTIAL` — semantic markup/static checks only | Navigate by keyboard; inspect focus, labels, headings, errors | Focus and messages are understandable and usable | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
+
+Case-level classification: `AUTOMATED_CONFIRMED=5`,
+`AUTOMATED_PARTIAL=7`, and `HUMAN_REQUIRED=12` for the learner-facing
+presentation, comprehension, or practical interaction assertions.
 
 ## Result record and evidence
 
@@ -85,15 +129,15 @@ interaction defects when practical. Never include real learner secrets.
 Copy this block for each session:
 
 ```text
-commit/build:
-date:
-tester alias:
-device:
-browser:
-environment:
-viewport/orientation:
-automated prerequisite status:
-Cases: <IDs>
+COMMIT_BUILD=
+DATE=
+TESTER=
+DEVICE=
+BROWSER=
+ENVIRONMENT=
+VIEWPORT=
+AUTOMATED_PREREQUISITE=
+CASES=<IDs>
 CASE_ID=
 STATUS=NOT_RUN
 EVIDENCE=
