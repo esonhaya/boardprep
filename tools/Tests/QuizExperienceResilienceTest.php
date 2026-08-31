@@ -10,8 +10,9 @@ $simulator = new HttpSimulator(dirname(__DIR__, 2) . "/public/index.php");
 $cookies = ['PHPSESSID' => 'batch433-stale-navigation'];
 
 $start = $simulator->request(
-    'GET',
+    'POST',
     '/quiz',
+    [],
     [
         'action' => 'start',
         'subject' => 'English',
@@ -20,7 +21,6 @@ $start = $simulator->request(
         'difficulty' => 'mixed',
         'count' => 1,
     ],
-    [],
     [],
     $cookies
 );
@@ -34,8 +34,8 @@ if (!$start['success'] || $start['status'] !== 200
 $submit = $simulator->request(
     'POST',
     '/quiz',
-    ['action' => 'submit'],
-    ['question_id' => $matches[1], 'answer' => 'A'],
+    [],
+    ['action' => 'submit', 'question_id' => $matches[1], 'answer' => 'A'],
     [],
     $cookies
 );
@@ -44,12 +44,13 @@ if (!$submit['success'] || $submit['status'] !== 200) {
     throw new RuntimeException('practice answer did not return to the active quiz');
 }
 
-$result = $simulator->request('GET', '/quiz', ['action' => 'finish'], [], [], $cookies);
+$finish = $simulator->request('POST', '/quiz', [], ['action' => 'finish'], [], $cookies);
+$result = $simulator->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
 if (!$result['success'] || $result['status'] !== 200 || !str_contains($result['output'], 'Quiz Result')) {
     throw new RuntimeException('completed quiz did not render its result');
 }
 
-$staleNext = $simulator->request('POST', '/quiz', ['action' => 'next'], [], [], $cookies);
+$staleNext = $simulator->request('POST', '/quiz', [], ['action' => 'next'], [], $cookies);
 if (!$staleNext['success'] || $staleNext['status'] !== 302 || $staleNext['output'] !== '') {
     throw new RuntimeException('completed quiz still accepted stale navigation');
 }

@@ -4,70 +4,18 @@ declare(strict_types=1);
 
 use App\Core\Response;
 use App\Core\View;
+use App\Services\Quiz\Session\QuizSessionRecoveryService;
 
 class QuizNavigationService
 {
     public static function next(): void
     {
-        if (SessionService::get('quiz_completed', false) === true
-            || SessionService::has('attempt_persisted')) {
-            Response::redirect('/quiz?action=finish');
-        }
-
-        $questions =
-            SessionService::get(
-                "questions",
-                []
-            );
-
-        if (!is_array($questions) || empty($questions)) {
-            Response::redirect('/quiz');
-        }
-
-        $questions = array_values($questions);
-
-        if (!self::isCurrentValid($questions)) {
-            self::abandonInvalidSession();
-        }
-
-        $current = self::current() + 1;
-
-        if ($current >= count($questions)) {
-            Response::redirect('/quiz?action=finish');
-        }
-
-        if (!\App\Services\Quiz\Session\QuizSessionQuestion::isCurrent($questions[$current] ?? null)) {
-            self::abandonInvalidSession();
-        }
+        self::redirectIfCompleted();
+        $questions = self::sessionQuestions();
+        $current = self::nextQuestionIndex($questions);
 
         SessionService::set("currentQuestion", $current);
-
-        SessionService::remove(
-            "feedback"
-        );
-
-        View::render(
-            "quiz/index",
-            [
-                "question" =>
-                    $questions[$current],
-
-                "current" =>
-                    $current,
-
-                "total" =>
-                    count($questions),
-
-                "mode" =>
-                    SessionService::get(
-                        "mode",
-                        "practice"
-                    ),
-
-                "feedback" =>
-                    null
-            ]
-        );
+        self::renderNextQuestion($questions, $current);
     }
 
     public static function current(): int
@@ -120,10 +68,51 @@ class QuizNavigationService
             && $current < count($questions);
     }
 
-    private static function abandonInvalidSession(): never
+    private static function redirectIfCompleted(): void
     {
-        \App\Services\Quiz\Start\QuizStartSessionWriter::clear();
-        SessionService::flash('error', 'That quiz session was stale or invalid. Please start a new quiz.');
-        Response::redirect('/quiz');
+        if (SessionService::get('quiz_completed', false) === true
+            || SessionService::has('attempt_persisted')) {
+            Response::redirect('/quiz?action=finish');
+        }
+    }
+
+    private static function sessionQuestions(): array
+    {
+        $questions = SessionService::get("questions", []);
+        if (!is_array($questions) || empty($questions)) {
+            Response::redirect('/quiz');
+        }
+
+        return array_values($questions);
+    }
+
+    private static function nextQuestionIndex(array $questions): int
+    {
+        if (!self::isCurrentValid($questions)) {
+            QuizSessionRecoveryService::abandonInvalidSession();
+        }
+
+        $current = self::current() + 1;
+        if ($current >= count($questions)) {
+            Response::redirect('/quiz?action=finish');
+        }
+
+        if (!\App\Services\Quiz\Session\QuizSessionQuestion::isCurrent($questions[$current] ?? null)) {
+            QuizSessionRecoveryService::abandonInvalidSession();
+        }
+
+        return $current;
+    }
+
+    private static function renderNextQuestion(array $questions, int $current): void
+    {
+        SessionService::remove("feedback");
+        View::render("quiz/index", [
+            "question" => $questions[$current],
+            "current" => $current,
+            "total" => count($questions),
+            "mode" => SessionService::get("mode", "practice"),
+            "feedback" => null,
+        ]);
     }
 }

@@ -25,8 +25,9 @@ $cookies = ['PHPSESSID' => 'batch426-completion'];
 
 try {
     $start = $simulator->request(
-        'GET',
+        'POST',
         '/quiz',
+        [],
         [
             'action' => 'start',
             'subject' => 'English',
@@ -35,7 +36,6 @@ try {
             'difficulty' => 'mixed',
             'count' => 1,
         ],
-        [],
         [],
         $cookies
     );
@@ -51,8 +51,8 @@ try {
     $submit = $simulator->request(
         'POST',
         '/quiz',
-        ['action' => 'submit'],
-        ['question_id' => $matches[1], 'answer' => 'A'],
+        [],
+        ['action' => 'submit', 'question_id' => $matches[1], 'answer' => 'A'],
         [],
         $cookies
     );
@@ -60,8 +60,10 @@ try {
         throw new RuntimeException('final answer did not redirect to completion');
     }
 
-    $result = $simulator->request('GET', '/quiz', ['action' => 'finish'], [], [], $cookies);
-    if (!$result['success'] || !str_contains($result['output'], 'Quiz Result')
+    $finish = $simulator->request('POST', '/quiz', [], ['action' => 'finish'], [], $cookies);
+    $result = $simulator->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
+    if (!$finish['success'] || $finish['status'] !== 303
+        || !$result['success'] || !str_contains($result['output'], 'Quiz Result')
         || !str_contains($result['output'], 'Answer Review')) {
         throw new RuntimeException('completed result did not render through HTTP');
     }
@@ -73,12 +75,12 @@ try {
         throw new RuntimeException('completed learning state did not reach dashboard/history views');
     }
 
-    $repeat = $simulator->request('GET', '/quiz', ['action' => 'finish'], [], [], $cookies);
+    $repeat = $simulator->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
     $oldForm = $simulator->request(
         'POST',
         '/quiz',
-        ['action' => 'submit'],
-        ['question_id' => $matches[1], 'answer' => 'B'],
+        [],
+        ['action' => 'submit', 'question_id' => $matches[1], 'answer' => 'B'],
         [],
         $cookies
     );
