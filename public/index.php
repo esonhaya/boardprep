@@ -14,11 +14,9 @@ use App\Core\Router;
 
 try {
 
-    if (session_status() === PHP_SESSION_NONE && !session_start()) {
-        throw new RuntimeException('Unable to start the application session.');
-    }
-
     require_once __DIR__ . '/../bootstrap/app.php';
+
+    \App\Core\SessionConfiguration::start();
 
     $router = new Router();
 

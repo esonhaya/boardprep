@@ -46,19 +46,20 @@ absent in the supplied build. Default: `NOT_RUN`.
 Run the groups below in order. Each case appears once in the matrix. The first
 group is the high-risk pass and should be completed before secondary behavior.
 
-1. **Critical learner journey — HP-01–HP-09, HP-15**
-   Entry, settings, practice, exam, submit/finish, result/revisit/reload, and
-   repeat/history integrity. Prioritize HP-02–HP-05, HP-07–HP-09, and HP-15.
-2. **Persistence and recovery — HP-10–HP-14, M-04–M-06**
-   Browser Back/settings navigation, stale or unavailable sessions, empty/short
-   pools, reload, double submission, and persisted state.
+1. **Critical learner journey — HP-01–HP-07**
+   Entry, settings, practice start/answer/navigation/finish, result, review,
+   and result revisit/reload.
+2. **Persistence and recovery — HP-08–HP-12, HP-15, M-04–M-06**
+   Exam completion, repeat/history integrity, browser Back/settings navigation,
+   stale or unavailable sessions, reload, double submission, and persistence.
 3. **Mobile, usability, and accessibility — M-01–M-03**
    Phone layout, touch/forms, keyboard focus, labels, headings, and errors.
-4. **Secondary and edge behavior — HP-16–HP-18**
-   Learning surfaces, longitudinal state, and invalid actions.
+4. **Secondary and edge behavior — HP-13, HP-14, HP-16–HP-18**
+   Empty/short pools, learning surfaces, longitudinal state, and invalid
+   actions.
 
-High-risk cases (execute first): **HP-02, HP-03, HP-04, HP-05, HP-07,
-HP-08, HP-09, HP-10, HP-11, HP-12, HP-15, M-01, M-02, M-04, M-05, M-06**.
+High-risk cases (execute first): **HP-02, HP-03, HP-04, HP-05, HP-06, HP-07,
+HP-08, HP-09, HP-10, HP-11, HP-12, HP-15, M-02, M-04, M-05, M-06**.
 These cover practice and exam completion, result integrity, accidental or
 double submission, browser/settings navigation, stale/invalid recovery,
 persisted history/progress, and mobile forms/navigation.

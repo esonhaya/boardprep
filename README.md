@@ -73,3 +73,11 @@ Before handing a build to a tester, run `php tools/doctor.php --simulate` and
 record its result in the session header. Automated readiness and human
 readiness are independent: real browser/mobile behavior, visual judgment,
 accessibility, and learner comprehension require human evidence.
+
+## Session and proxy requirements
+
+Learner sessions use strict session IDs and cookies marked `HttpOnly` and
+`SameSite=Lax`. In HTTPS production, the front server must pass the original
+HTTPS state through to PHP (`HTTPS=on`, or the equivalent server configuration)
+so the session cookie receives its `Secure` flag. The built-in HTTP smoke test
+is intentionally non-TLS and therefore uses a non-secure cookie.
