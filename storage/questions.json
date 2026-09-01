@@ -39840,5 +39840,4313 @@
                 ]
             }
         ]
+    },
+    {
+        "id": 1259,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-accruals",
+            "concept_id": "cpa-financial-accounting-accruals-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A trial balance omits accrued salaries at year-end. What is the reporting consequence?",
+        "choices": [
+            "Assets increase",
+            "Liabilities and expense increase",
+            "Revenue increases",
+            "Equity increases"
+        ],
+        "answer": "Liabilities and expense increase",
+        "explanation": "Accruing earned but unpaid salaries recognizes both the obligation and the period expense.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "accruals"
+                    ]
+                ]
+            }
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1260,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-receivables",
+            "concept_id": "cpa-financial-accounting-receivables-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "Which evidence most directly supports the existence assertion for a receivable?",
+        "choices": [
+            "Tracing invoices to the sales journal",
+            "Confirming the balance with the customer",
+            "Recomputing depreciation",
+            "Inspecting unpaid supplier invoices"
+        ],
+        "answer": "Confirming the balance with the customer",
+        "explanation": "A customer confirmation directly addresses whether the receivable exists.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1261,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-inventory",
+            "concept_id": "cpa-financial-accounting-inventory-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "Inventory costing P120,000 has an estimated selling price of P116,000 and costs to complete of P3,000. At the lower-of-cost-and-NRV test, what amount is reported?",
+        "choices": [
+            "P113,000",
+            "P116,000",
+            "P117,000",
+            "P120,000"
+        ],
+        "answer": "P113,000",
+        "explanation": "Net realizable value is P116,000 less P3,000, or P113,000; it is below cost.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1262,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-ppe",
+            "concept_id": "cpa-financial-accounting-ppe-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A machine costs P500,000, has a P50,000 residual value, and a five-year useful life. Straight-line depreciation for one year is:",
+        "choices": [
+            "P50,000",
+            "P90,000",
+            "P100,000",
+            "P110,000"
+        ],
+        "answer": "P90,000",
+        "explanation": "Depreciable amount is P450,000; dividing by five years gives P90,000.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "ppe"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1263,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-revenue",
+            "concept_id": "cpa-financial-accounting-revenue-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A contract transfers control of goods when delivered, while payment is due later. The key recognition question is whether:",
+        "choices": [
+            "Cash was collected",
+            "Control transferred and the performance obligation was satisfied",
+            "The invoice was printed",
+            "The customer requested a discount"
+        ],
+        "answer": "Control transferred and the performance obligation was satisfied",
+        "explanation": "Revenue recognition follows satisfaction of the performance obligation and transfer of control.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1264,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-provisions",
+            "concept_id": "cpa-financial-accounting-provisions-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A provision is recognized when an obligation is present, an outflow is probable, and the amount can be:",
+        "choices": [
+            "Guaranteed by management",
+            "Reliably estimated",
+            "Paid immediately",
+            "Approved by the auditor"
+        ],
+        "answer": "Reliably estimated",
+        "explanation": "Those conditions distinguish a provision from a merely possible obligation.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1265,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-estimates",
+            "concept_id": "cpa-financial-accounting-estimates-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "Which change is generally treated prospectively?",
+        "choices": [
+            "Correction of a prior-period error",
+            "Change in accounting estimate",
+            "Restatement of comparative statements",
+            "Correction of a misclassified liability"
+        ],
+        "answer": "Change in accounting estimate",
+        "explanation": "An estimate changes as new information becomes available and is applied prospectively.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "estimates"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1266,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-cash-flow",
+            "concept_id": "cpa-financial-accounting-cash-flow-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "In a cash-flow statement, cash paid to acquire equipment is normally classified as:",
+        "choices": [
+            "Operating",
+            "Investing",
+            "Financing",
+            "Noncash"
+        ],
+        "answer": "Investing",
+        "explanation": "Acquiring a long-term asset is an investing cash flow.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1267,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-liabilities",
+            "concept_id": "cpa-financial-accounting-liabilities-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A liability due in ten months is normally current when the entity:",
+        "choices": [
+            "Has an unconditional right to defer settlement beyond twelve months",
+            "Expects to settle it within its operating cycle or twelve months",
+            "Has no supplier invoice",
+            "Classifies all liabilities as equity"
+        ],
+        "answer": "Expects to settle it within its operating cycle or twelve months",
+        "explanation": "Current classification reflects the operating cycle or the twelve-month settlement horizon.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1268,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-intangibles",
+            "concept_id": "cpa-financial-accounting-intangibles-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "Which feature most clearly distinguishes an intangible asset from inventory?",
+        "choices": [
+            "It is identifiable and lacks physical substance",
+            "It is always current",
+            "It is held only for resale",
+            "It must be measured at cash"
+        ],
+        "answer": "It is identifiable and lacks physical substance",
+        "explanation": "An intangible asset is an identifiable nonmonetary asset without physical substance.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "intangibles"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1269,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-transactions",
+            "concept_id": "cpa-financial-accounting-transactions-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "An entity buys goods for P80,000 on credit and later pays the supplier. Which entry records the purchase initially?",
+        "choices": [
+            "Debit inventory; credit accounts payable",
+            "Debit expense; credit cash",
+            "Debit accounts payable; credit inventory",
+            "Debit cash; credit revenue"
+        ],
+        "answer": "Debit inventory; credit accounts payable",
+        "explanation": "The credit purchase increases inventory and creates a payable.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1270,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-interpretation",
+            "concept_id": "cpa-financial-accounting-interpretation-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A financial statement reader compares profit with operating cash flow. A persistent large gap most directly invites review of:",
+        "choices": [
+            "Noncash accruals and working-capital changes",
+            "The entity logo",
+            "Share certificate color",
+            "The audit office address"
+        ],
+        "answer": "Noncash accruals and working-capital changes",
+        "explanation": "Profit includes accrual effects; operating cash flow reflects cash and working-capital movements.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1271,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-impairment",
+            "concept_id": "cpa-financial-accounting-impairment-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "When an asset is impaired, the recoverable amount is compared with its:",
+        "choices": [
+            "Original invoice number",
+            "Carrying amount",
+            "Tax identification number",
+            "Supplier rating"
+        ],
+        "answer": "Carrying amount",
+        "explanation": "An impairment loss arises when carrying amount exceeds recoverable amount.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "impairment"
+                    ]
+                ]
+            }
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1272,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-leases",
+            "concept_id": "cpa-financial-accounting-leases-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A lease arrangement gives the customer control of the right to use an identified asset for a period. The accounting focus is the:",
+        "choices": [
+            "Right-of-use asset and lease liability",
+            "Customer deposit only",
+            "Supplier inventory only",
+            "Share capital"
+        ],
+        "answer": "Right-of-use asset and lease liability",
+        "explanation": "Control of an identified right to use generally gives rise to a right-of-use asset and obligation.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1273,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-presentation",
+            "concept_id": "cpa-financial-accounting-presentation-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "Which presentation improves faithful representation of a material accounting policy?",
+        "choices": [
+            "Omitting it to reduce length",
+            "Describing the policy and relevant judgments clearly",
+            "Replacing it with an advertisement",
+            "Reporting only the tax treatment"
+        ],
+        "answer": "Describing the policy and relevant judgments clearly",
+        "explanation": "Material policies and judgments help users understand reported amounts.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1274,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-allowance",
+            "concept_id": "cpa-financial-accounting-allowance-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A receivable is objectively uncollectible after previously being estimated as doubtful. The write-off primarily:",
+        "choices": [
+            "Creates new revenue",
+            "Removes the receivable and related allowance without creating a new loss",
+            "Increases cash",
+            "Increases inventory"
+        ],
+        "answer": "Removes the receivable and related allowance without creating a new loss",
+        "explanation": "The allowance already recognized absorbs the write-off; the receivable is removed.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "allowance"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1275,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-analysis",
+            "concept_id": "cpa-financial-accounting-analysis-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "Which ratio is most directly used to examine short-term liquidity?",
+        "choices": [
+            "Current ratio",
+            "Gross margin only",
+            "Debt-service coverage for a bond",
+            "Inventory turnover only"
+        ],
+        "answer": "Current ratio",
+        "explanation": "The current ratio compares current assets with current liabilities.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1276,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-equity",
+            "concept_id": "cpa-financial-accounting-equity-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A company issues ordinary shares for cash. The transaction increases:",
+        "choices": [
+            "Assets and equity",
+            "Expenses and liabilities",
+            "Inventory and revenue",
+            "Only retained earnings"
+        ],
+        "answer": "Assets and equity",
+        "explanation": "Cash increases assets and the share issue increases contributed equity.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1277,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-classification",
+            "concept_id": "cpa-financial-accounting-classification-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "An asset is reclassified from held for sale after criteria cease to be met. The next step is to:",
+        "choices": [
+            "Continue the held-for-sale measurement blindly",
+            "Apply the applicable continuing-use measurement basis",
+            "Erase the asset",
+            "Record it as revenue"
+        ],
+        "answer": "Apply the applicable continuing-use measurement basis",
+        "explanation": "Once criteria cease, the continuing-use basis applies under the relevant standard.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "classification"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1278,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-financial-accounting",
+            "domain_id": "cpa-financial-accounting",
+            "topic_id": "cpa-financial-accounting-framework",
+            "concept_id": "cpa-financial-accounting-framework-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "Which item is a qualitative characteristic of useful financial information?",
+        "choices": [
+            "Relevance",
+            "Guaranteed profit",
+            "Tax secrecy",
+            "Unlimited detail"
+        ],
+        "answer": "Relevance",
+        "explanation": "Relevance helps information influence user decisions.",
+        "subject": "Cpa Financial Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1279,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-partnerships",
+            "concept_id": "cpa-advanced-accounting-partnerships-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "In a partnership, a new partner contributes cash for an agreed capital interest. The accounting issue includes determining the effect on:",
+        "choices": [
+            "Existing partners’ capital and the incoming partner’s capital",
+            "Only office supplies",
+            "Only sales revenue",
+            "The auditor’s salary"
+        ],
+        "answer": "Existing partners’ capital and the incoming partner’s capital",
+        "explanation": "Admission changes the partners’ capital interests and requires an agreed allocation.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "partnerships"
+                    ]
+                ]
+            }
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1280,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-consolidation",
+            "concept_id": "cpa-advanced-accounting-consolidation-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A parent controls a subsidiary. Consolidated statements present the group as:",
+        "choices": [
+            "Separate unrelated entities",
+            "One economic entity",
+            "Only the parent’s legal records",
+            "Only the subsidiary’s tax return"
+        ],
+        "answer": "One economic entity",
+        "explanation": "Consolidation presents the parent and controlled subsidiary as one reporting entity.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1281,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-intercompany",
+            "concept_id": "cpa-advanced-accounting-intercompany-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "An intercompany sale leaves unrealized profit in ending inventory. Consolidation should:",
+        "choices": [
+            "Retain the profit twice",
+            "Eliminate the unrealized intragroup profit",
+            "Record it as external revenue",
+            "Ignore inventory"
+        ],
+        "answer": "Eliminate the unrealized intragroup profit",
+        "explanation": "Profit is unrealized from the group perspective until sale outside the group.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1282,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-combinations",
+            "concept_id": "cpa-advanced-accounting-combinations-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A business combination transfers consideration above the fair value of identifiable net assets. The residual is generally analyzed as:",
+        "choices": [
+            "Goodwill",
+            "Inventory shrinkage",
+            "A dividend",
+            "Cash discount"
+        ],
+        "answer": "Goodwill",
+        "explanation": "The excess may represent goodwill after identifying and measuring net assets.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "combinations"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1283,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-branch",
+            "concept_id": "cpa-advanced-accounting-branch-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A branch remits cash to head office. The head-office record primarily recognizes:",
+        "choices": [
+            "A due-from branch balance",
+            "External sales",
+            "A tax penalty",
+            "A new subsidiary"
+        ],
+        "answer": "A due-from branch balance",
+        "explanation": "Inter-office transfers create reciprocal current-account balances.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1284,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-foreign-currency",
+            "concept_id": "cpa-advanced-accounting-foreign-currency-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A foreign operation’s financial statements are translated before consolidation. The purpose is to:",
+        "choices": [
+            "Place amounts in the group presentation currency",
+            "Change the operation’s legal identity",
+            "Avoid all exchange differences",
+            "Turn liabilities into equity"
+        ],
+        "answer": "Place amounts in the group presentation currency",
+        "explanation": "Translation makes the foreign operation comparable in the group currency.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1285,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-liquidation",
+            "concept_id": "cpa-advanced-accounting-liquidation-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "In liquidation, assets are realized and claims are settled. The sequence emphasizes:",
+        "choices": [
+            "Priority of valid claims before residual distribution",
+            "Dividends before creditors",
+            "Ignoring secured claims",
+            "Recording all assets at zero immediately"
+        ],
+        "answer": "Priority of valid claims before residual distribution",
+        "explanation": "Liquidation accounting follows realization and settlement priorities before residual allocation.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "liquidation"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1286,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-joint-arrangements",
+            "concept_id": "cpa-advanced-accounting-joint-arrangements-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A joint arrangement gives parties rights to specific assets and obligations for specific liabilities. It is analyzed as a:",
+        "choices": [
+            "Joint operation",
+            "Ordinary expense",
+            "Cash equivalent",
+            "Simple loan"
+        ],
+        "answer": "Joint operation",
+        "explanation": "Rights and obligations to underlying items characterize a joint operation.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1287,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-nci",
+            "concept_id": "cpa-advanced-accounting-nci-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A parent acquires 80% of a subsidiary. The remaining 20% is presented as:",
+        "choices": [
+            "Noncontrolling interest",
+            "Revenue",
+            "A payable to customers",
+            "Inventory reserve"
+        ],
+        "answer": "Noncontrolling interest",
+        "explanation": "The portion not attributable to the parent is noncontrolling interest.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1288,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-elimination",
+            "concept_id": "cpa-advanced-accounting-elimination-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A consolidated statement eliminates the parent’s investment against the subsidiary’s:",
+        "choices": [
+            "Relevant equity at consolidation",
+            "External cash sales",
+            "Tax expense only",
+            "Office rent"
+        ],
+        "answer": "Relevant equity at consolidation",
+        "explanation": "The investment and corresponding subsidiary equity are intragroup balances.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "elimination"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1289,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-profit-allocation",
+            "concept_id": "cpa-advanced-accounting-profit-allocation-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A partnership agreement allocates interest on capital before residual profit. The accountant should first:",
+        "choices": [
+            "Apply the agreement’s allocation sequence",
+            "Divide all profit equally regardless of agreement",
+            "Record the interest as an asset",
+            "Ignore capital balances"
+        ],
+        "answer": "Apply the agreement’s allocation sequence",
+        "explanation": "The governing agreement determines the allocation sequence.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1290,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-fixed-assets",
+            "concept_id": "cpa-advanced-accounting-fixed-assets-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A subsidiary sells equipment to its parent and the equipment remains in use. Consolidation must consider unrealized gain and:",
+        "choices": [
+            "The asset’s group carrying amount and depreciation",
+            "Only the seller’s invoice",
+            "A new external customer",
+            "No depreciation"
+        ],
+        "answer": "The asset’s group carrying amount and depreciation",
+        "explanation": "The group must reverse unrealized gain and adjust subsequent depreciation.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1291,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-translation",
+            "concept_id": "cpa-advanced-accounting-translation-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A change in a foreign exchange rate changes the translated amount of a foreign operation. The change is primarily a:",
+        "choices": [
+            "Translation effect",
+            "New sale",
+            "Physical inventory count",
+            "Partner admission"
+        ],
+        "answer": "Translation effect",
+        "explanation": "Currency translation changes can arise without a new transaction.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "translation"
+                    ]
+                ]
+            }
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1292,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-measurement",
+            "concept_id": "cpa-advanced-accounting-measurement-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "When identifiable assets and liabilities are measured in an acquisition, the purpose is to determine:",
+        "choices": [
+            "The acquisition-date net assets and residual consideration",
+            "The parent’s payroll",
+            "A branch petty-cash limit",
+            "A sales commission"
+        ],
+        "answer": "The acquisition-date net assets and residual consideration",
+        "explanation": "Acquisition accounting measures identifiable net assets before determining residual goodwill.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1293,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-withdrawal",
+            "concept_id": "cpa-advanced-accounting-withdrawal-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A partner withdraws under an agreement requiring settlement of the partner’s capital. The settlement affects:",
+        "choices": [
+            "Partnership equity and the withdrawing partner’s claim",
+            "External revenue only",
+            "Inventory quantity only",
+            "Audit evidence only"
+        ],
+        "answer": "Partnership equity and the withdrawing partner’s claim",
+        "explanation": "Withdrawal settles an equity interest and changes remaining partnership capital.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1294,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-dividends",
+            "concept_id": "cpa-advanced-accounting-dividends-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A subsidiary declares a dividend to its parent. In consolidation, the intragroup dividend is:",
+        "choices": [
+            "Eliminated",
+            "Reported as external group revenue",
+            "Added to inventory",
+            "Converted to goodwill"
+        ],
+        "answer": "Eliminated",
+        "explanation": "The group cannot earn income from a transfer within itself.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "dividends"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1295,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-branch-inventory",
+            "concept_id": "cpa-advanced-accounting-branch-inventory-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A branch records goods received from head office. The receiving entry should preserve:",
+        "choices": [
+            "The inter-office account and inventory recognition",
+            "Only a customer receivable",
+            "A share issue",
+            "An audit qualification"
+        ],
+        "answer": "The inter-office account and inventory recognition",
+        "explanation": "Branch records must reconcile goods and reciprocal inter-office balances.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1296,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-intercompany-balances",
+            "concept_id": "cpa-advanced-accounting-intercompany-balances-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A group has an intercompany payable and receivable of equal amount. Consolidation should:",
+        "choices": [
+            "Eliminate both balances",
+            "Double both balances",
+            "Record them as revenue",
+            "Classify them as PPE"
+        ],
+        "answer": "Eliminate both balances",
+        "explanation": "Reciprocal intragroup balances do not represent claims against outsiders.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1297,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-profit-attribution",
+            "concept_id": "cpa-advanced-accounting-profit-attribution-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A noncontrolling shareholder receives a share of subsidiary profit. The consolidated presentation recognizes:",
+        "choices": [
+            "Profit attributable to NCI separately from parent-attributable profit",
+            "Only parent profit",
+            "A liability to every customer",
+            "No subsidiary profit"
+        ],
+        "answer": "Profit attributable to NCI separately from parent-attributable profit",
+        "explanation": "Consolidated profit is allocated between parent owners and NCI.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "profit-attribution"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1298,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-agreement",
+            "concept_id": "cpa-advanced-accounting-agreement-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A partnership changes its profit-sharing agreement prospectively. Future allocations should follow:",
+        "choices": [
+            "The revised agreement for the applicable period",
+            "The original agreement forever",
+            "Equal division in all cases",
+            "The auditor’s preference"
+        ],
+        "answer": "The revised agreement for the applicable period",
+        "explanation": "The valid agreement governs allocation after the change.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1299,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-cvp",
+            "concept_id": "cpa-management-services-cvp-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A product sells for P50 with variable cost P30. Contribution margin per unit is:",
+        "choices": [
+            "P20",
+            "P30",
+            "P50",
+            "P80"
+        ],
+        "answer": "P20",
+        "explanation": "Contribution margin equals selling price less variable cost: P50 − P30 = P20.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "cvp"
+                    ]
+                ]
+            }
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1300,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-cvp",
+            "concept_id": "cpa-management-services-cvp-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "Fixed costs are P120,000 and contribution margin per unit is P30. Break-even units are:",
+        "choices": [
+            "2,000",
+            "3,000",
+            "4,000",
+            "5,000"
+        ],
+        "answer": "4,000",
+        "explanation": "Break-even volume is fixed costs divided by unit contribution: P120,000/P30 = 4,000.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1301,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-relevant-costing",
+            "concept_id": "cpa-management-services-relevant-costing-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A manager can avoid a cost by rejecting a special order. That avoidable cost is:",
+        "choices": [
+            "Relevant to the decision",
+            "Always sunk",
+            "Never measurable",
+            "A financing cost"
+        ],
+        "answer": "Relevant to the decision",
+        "explanation": "A future cost that differs between alternatives is relevant.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1302,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-budgeting",
+            "concept_id": "cpa-management-services-budgeting-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A flexible budget adjusts expected costs for actual activity. It helps isolate:",
+        "choices": [
+            "Activity-level effects from spending effects",
+            "Only tax penalties",
+            "Share-price changes",
+            "Audit opinions"
+        ],
+        "answer": "Activity-level effects from spending effects",
+        "explanation": "Flexible budgets compare costs at the actual activity level.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "budgeting"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1303,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-variance",
+            "concept_id": "cpa-management-services-variance-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A favorable material price variance may coexist with an unfavorable usage variance. The combination suggests:",
+        "choices": [
+            "Cheaper material may have caused greater usage",
+            "All materials were perfect",
+            "No variance exists",
+            "Labor was omitted"
+        ],
+        "answer": "Cheaper material may have caused greater usage",
+        "explanation": "Price and usage variances measure different effects and may move in opposite directions.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1304,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-capital-budgeting",
+            "concept_id": "cpa-management-services-capital-budgeting-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A project requires P100,000 now and returns P120,000 later without considering timing. The missing decision factor is:",
+        "choices": [
+            "Time value of money",
+            "Inventory count",
+            "Audit sampling",
+            "Sales return"
+        ],
+        "answer": "Time value of money",
+        "explanation": "Investment decisions compare cash flows with their timing and risk.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1305,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-constraints",
+            "concept_id": "cpa-management-services-constraints-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A scarce machine hour can make one product more valuable than another when ranked by:",
+        "choices": [
+            "Contribution per constrained hour",
+            "Selling price alone",
+            "Fixed cost total alone",
+            "Number of employees"
+        ],
+        "answer": "Contribution per constrained hour",
+        "explanation": "The constraint should be evaluated using contribution generated per scarce unit.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "constraints"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1306,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-sunk-cost",
+            "concept_id": "cpa-management-services-sunk-cost-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A cost already incurred cannot be changed by a new decision. It is:",
+        "choices": [
+            "Sunk cost",
+            "Relevant avoidable cost",
+            "Opportunity benefit",
+            "Incremental revenue"
+        ],
+        "answer": "Sunk cost",
+        "explanation": "Sunk costs do not differ between current alternatives.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1307,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-control",
+            "concept_id": "cpa-management-services-control-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A budget variance investigation should begin with the variance that is:",
+        "choices": [
+            "Material and potentially actionable",
+            "Smallest regardless of cause",
+            "Always favorable",
+            "Already corrected"
+        ],
+        "answer": "Material and potentially actionable",
+        "explanation": "Materiality and controllability help prioritize investigation.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1308,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-responsibility",
+            "concept_id": "cpa-management-services-responsibility-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A responsibility center manager controls revenues and costs but not invested assets. It is a:",
+        "choices": [
+            "Profit center",
+            "Investment center",
+            "Cost center only",
+            "Treasury"
+        ],
+        "answer": "Profit center",
+        "explanation": "A profit center is accountable for revenues and costs; investment centers also control assets.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "responsibility"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1309,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-cost-behavior",
+            "concept_id": "cpa-management-services-cost-behavior-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A cost increases in total as activity increases but remains constant per unit. It is:",
+        "choices": [
+            "Variable cost",
+            "Fixed cost per period",
+            "Sunk cost",
+            "Allocated equity"
+        ],
+        "answer": "Variable cost",
+        "explanation": "Variable cost behavior changes in total with activity while unit cost is stable.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1310,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-npv",
+            "concept_id": "cpa-management-services-npv-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A project’s discounted cash inflows exceed its initial outlay. Its net present value is:",
+        "choices": [
+            "Positive",
+            "Always zero",
+            "Negative",
+            "Not computable because cash flows exist"
+        ],
+        "answer": "Positive",
+        "explanation": "Positive NPV means discounted benefits exceed the investment.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1311,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-make-buy",
+            "concept_id": "cpa-management-services-make-buy-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A make-or-buy analysis should exclude allocated fixed costs that:",
+        "choices": [
+            "Continue under either option",
+            "Can be avoided by buying",
+            "Vary with the decision",
+            "Are future cash costs"
+        ],
+        "answer": "Continue under either option",
+        "explanation": "Unavoidable costs do not differentiate make from buy.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "make-buy"
+                    ]
+                ]
+            }
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1312,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-standard-costing",
+            "concept_id": "cpa-management-services-standard-costing-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A standard cost is best used as:",
+        "choices": [
+            "A benchmark for analyzing performance",
+            "A substitute for all actual records",
+            "A tax rate",
+            "A legal penalty"
+        ],
+        "answer": "A benchmark for analyzing performance",
+        "explanation": "Standards provide a benchmark against which actual performance is analyzed.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1313,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-sales-mix",
+            "concept_id": "cpa-management-services-sales-mix-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "When sales mix changes, total contribution may change even if total units do not. The reason is:",
+        "choices": [
+            "Products have different unit contributions",
+            "Fixed cost disappears",
+            "Revenue is always constant",
+            "Labor becomes sunk"
+        ],
+        "answer": "Products have different unit contributions",
+        "explanation": "A different mix changes the weighted contribution per unit.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1314,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-opportunity-cost",
+            "concept_id": "cpa-management-services-opportunity-cost-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A manager rejects a project because it uses space that could earn rent. The forgone rent is:",
+        "choices": [
+            "An opportunity cost",
+            "A sunk cost",
+            "A committed historical cost",
+            "A noncash tax"
+        ],
+        "answer": "An opportunity cost",
+        "explanation": "Opportunity cost is the benefit forgone by choosing one alternative.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "opportunity-cost"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1315,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-cash-budget",
+            "concept_id": "cpa-management-services-cash-budget-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A cash budget shows a shortfall next month. The first planning response is to:",
+        "choices": [
+            "Evaluate timing of receipts, payments, and financing needs",
+            "Delete all expenses without analysis",
+            "Record the shortfall as revenue",
+            "Ignore the forecast"
+        ],
+        "answer": "Evaluate timing of receipts, payments, and financing needs",
+        "explanation": "A cash budget supports timing and financing decisions.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1316,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-performance",
+            "concept_id": "cpa-management-services-performance-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A performance measure encourages excessive inventory because managers are rewarded for output only. The design flaw is:",
+        "choices": [
+            "A dysfunctional incentive",
+            "A perfect control",
+            "A neutral standard",
+            "A favorable tax rule"
+        ],
+        "answer": "A dysfunctional incentive",
+        "explanation": "Measures can cause dysfunctional behavior when they reward one objective at the expense of the whole system.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1317,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-activity-based",
+            "concept_id": "cpa-management-services-activity-based-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A cost driver should be selected because it:",
+        "choices": [
+            "Causally explains resource consumption",
+            "Is the most convenient label",
+            "Always has the largest amount",
+            "Is chosen after reporting"
+        ],
+        "answer": "Causally explains resource consumption",
+        "explanation": "A cost driver should have a defensible cause-and-effect relationship.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "activity-based"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1318,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-management-services",
+            "domain_id": "cpa-management-services",
+            "topic_id": "cpa-management-services-sensitivity",
+            "concept_id": "cpa-management-services-sensitivity-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "Sensitivity analysis changes one assumption while observing its effect. It helps assess:",
+        "choices": [
+            "Risk around a decision model",
+            "Whether invoices exist",
+            "Legal ownership",
+            "Physical depreciation"
+        ],
+        "answer": "Risk around a decision model",
+        "explanation": "Sensitivity analysis shows how conclusions respond to uncertain assumptions.",
+        "subject": "Cpa Management Services",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1319,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-assertions",
+            "concept_id": "cpa-auditing-assertions-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "An auditor tests whether recorded sales occurred. The assertion is:",
+        "choices": [
+            "Occurrence",
+            "Completeness",
+            "Cutoff only",
+            "Classification only"
+        ],
+        "answer": "Occurrence",
+        "explanation": "Occurrence asks whether recorded transactions actually happened.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "assertions"
+                    ]
+                ]
+            }
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1320,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-internal-control",
+            "concept_id": "cpa-auditing-internal-control-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A control separates custody of cash from recordkeeping. Its primary purpose is to reduce:",
+        "choices": [
+            "Opportunity for concealment and error",
+            "All business risk",
+            "Market volatility",
+            "Tax rates"
+        ],
+        "answer": "Opportunity for concealment and error",
+        "explanation": "Segregation of duties reduces incompatible control responsibilities.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1321,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-audit-risk",
+            "concept_id": "cpa-auditing-audit-risk-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "Audit risk includes the possibility that the auditor:",
+        "choices": [
+            "Expresses an inappropriate opinion",
+            "Finds every error",
+            "Prepares management accounts",
+            "Guarantees solvency"
+        ],
+        "answer": "Expresses an inappropriate opinion",
+        "explanation": "Audit risk concerns an inappropriate opinion on materially misstated statements.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1322,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-materiality",
+            "concept_id": "cpa-auditing-materiality-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "Materiality affects audit planning because it helps determine:",
+        "choices": [
+            "The significance of possible misstatements",
+            "The client’s selling price",
+            "The tax filing date",
+            "The bank interest rate"
+        ],
+        "answer": "The significance of possible misstatements",
+        "explanation": "Materiality guides the nature, timing, and extent of audit work.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "materiality"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1323,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-evidence",
+            "concept_id": "cpa-auditing-evidence-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "An external confirmation is most directly useful for testing:",
+        "choices": [
+            "A receivable balance",
+            "The existence of an internal policy",
+            "The auditor’s vacation",
+            "A depreciation method alone"
+        ],
+        "answer": "A receivable balance",
+        "explanation": "Confirmation obtains evidence from an independent external party about the receivable.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1324,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-inventory-audit",
+            "concept_id": "cpa-auditing-inventory-audit-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A physical inventory observation primarily provides evidence about:",
+        "choices": [
+            "Existence and condition",
+            "Future sales price",
+            "Management integrity alone",
+            "Tax residency"
+        ],
+        "answer": "Existence and condition",
+        "explanation": "Observation helps assess whether inventory is present and its condition.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1325,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-control-risk",
+            "concept_id": "cpa-auditing-control-risk-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "If controls are unreliable, the auditor generally responds by:",
+        "choices": [
+            "Increasing substantive procedures as appropriate",
+            "Ignoring the risk",
+            "Issuing an automatic clean opinion",
+            "Deleting the ledger"
+        ],
+        "answer": "Increasing substantive procedures as appropriate",
+        "explanation": "Weak controls may require more direct substantive evidence.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "control-risk"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1326,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-analytics",
+            "concept_id": "cpa-auditing-analytics-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "Analytical procedures identify an unexpected margin change. The auditor should first:",
+        "choices": [
+            "Investigate the variance with appropriate evidence",
+            "Assume fraud",
+            "Change the client’s numbers",
+            "Ignore it because it is only a ratio"
+        ],
+        "answer": "Investigate the variance with appropriate evidence",
+        "explanation": "An unexpected relationship is an inquiry trigger, not proof of a misstatement.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1327,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-ethics",
+            "concept_id": "cpa-auditing-ethics-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "An auditor’s independence is threatened by reviewing work the auditor prepared. The safeguard is to:",
+        "choices": [
+            "Remove or mitigate the self-review threat",
+            "Accept it without evaluation",
+            "Hide the relationship",
+            "Increase the audit fee"
+        ],
+        "answer": "Remove or mitigate the self-review threat",
+        "explanation": "Self-review threats require an appropriate safeguard or withdrawal from the role.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1328,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-sampling",
+            "concept_id": "cpa-auditing-sampling-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "Sampling risk is the risk that a sample conclusion differs from the conclusion for:",
+        "choices": [
+            "The entire population",
+            "The auditor’s budget",
+            "The tax authority",
+            "A different client"
+        ],
+        "answer": "The entire population",
+        "explanation": "Sampling risk arises because only part of the population is tested.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "sampling"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1329,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-scope",
+            "concept_id": "cpa-auditing-scope-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "Management refuses access to necessary evidence. The auditor should consider:",
+        "choices": [
+            "The effect on scope and the audit opinion",
+            "Treating missing evidence as proof",
+            "Issuing statements personally",
+            "Ignoring the limitation"
+        ],
+        "answer": "The effect on scope and the audit opinion",
+        "explanation": "A scope limitation may affect the opinion if sufficient evidence cannot be obtained.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1330,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-going-concern",
+            "concept_id": "cpa-auditing-going-concern-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "Going-concern indicators require the auditor to:",
+        "choices": [
+            "Evaluate management’s assessment and relevant evidence",
+            "Guarantee future funding",
+            "Automatically close the entity",
+            "Remove all liabilities"
+        ],
+        "answer": "Evaluate management’s assessment and relevant evidence",
+        "explanation": "The auditor evaluates conditions and management’s plans using evidence.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1331,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-representations",
+            "concept_id": "cpa-auditing-representations-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A written representation from management is:",
+        "choices": [
+            "Evidence but not a substitute for other required evidence",
+            "Always sufficient alone",
+            "Never useful",
+            "A bank confirmation"
+        ],
+        "answer": "Evidence but not a substitute for other required evidence",
+        "explanation": "Representations support other evidence but do not replace it.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "representations"
+                    ]
+                ]
+            }
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1332,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-completeness",
+            "concept_id": "cpa-auditing-completeness-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "An auditor assessing whether payables are complete may examine:",
+        "choices": [
+            "Subsequent cash disbursements and unmatched receiving reports",
+            "Only sales invoices",
+            "Employee leave forms",
+            "The office layout"
+        ],
+        "answer": "Subsequent cash disbursements and unmatched receiving reports",
+        "explanation": "After-date payments and receiving records can reveal unrecorded obligations.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1333,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-fraud",
+            "concept_id": "cpa-auditing-fraud-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A fraud risk assessment changes the audit plan when:",
+        "choices": [
+            "Identified risks require different procedures",
+            "The client requests fewer tests",
+            "The auditor wants a shorter report",
+            "No evidence exists"
+        ],
+        "answer": "Identified risks require different procedures",
+        "explanation": "Risk assessment drives responsive audit procedures.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1334,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-reporting",
+            "concept_id": "cpa-auditing-reporting-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "An audit report communicates the auditor’s conclusion about:",
+        "choices": [
+            "The financial statements under the applicable reporting framework",
+            "Management’s marketing plan",
+            "Every future event",
+            "The tax authority’s budget"
+        ],
+        "answer": "The financial statements under the applicable reporting framework",
+        "explanation": "The opinion addresses whether the financial statements are presented under the applicable framework.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "reporting"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1335,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-documentation",
+            "concept_id": "cpa-auditing-documentation-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "Audit documentation should allow an experienced reviewer to understand:",
+        "choices": [
+            "Work performed, evidence obtained, and conclusions",
+            "Only the invoice total",
+            "The auditor’s personal opinions",
+            "The client’s future profits"
+        ],
+        "answer": "Work performed, evidence obtained, and conclusions",
+        "explanation": "Documentation supports review and shows how conclusions were reached.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1336,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-substantive-testing",
+            "concept_id": "cpa-auditing-substantive-testing-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A test of details selects individual transactions to evaluate:",
+        "choices": [
+            "Recorded amounts or attributes directly",
+            "Only staff morale",
+            "The firm’s rent",
+            "A macroeconomic forecast"
+        ],
+        "answer": "Recorded amounts or attributes directly",
+        "explanation": "Tests of details inspect transaction-level evidence.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1337,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-estimates",
+            "concept_id": "cpa-auditing-estimates-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "An estimate uses significant management assumptions. The auditor should focus on:",
+        "choices": [
+            "Methods, assumptions, data, and possible bias",
+            "Only the final rounded number",
+            "The client logo",
+            "Unrelated cash receipts"
+        ],
+        "answer": "Methods, assumptions, data, and possible bias",
+        "explanation": "Estimation uncertainty and management bias affect audit risk.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "estimates"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1338,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-auditing",
+            "domain_id": "cpa-auditing",
+            "topic_id": "cpa-auditing-assurance",
+            "concept_id": "cpa-auditing-assurance-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "An assurance engagement requires an appropriate subject matter and:",
+        "choices": [
+            "Suitable criteria for evaluation",
+            "A guaranteed favorable conclusion",
+            "No evidence",
+            "Only a verbal promise"
+        ],
+        "answer": "Suitable criteria for evaluation",
+        "explanation": "Criteria allow the practitioner to evaluate the subject matter consistently.",
+        "subject": "Cpa Auditing",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1339,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-contracts",
+            "concept_id": "cpa-regulatory-framework-contracts-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A valid contract requires consent, object, and:",
+        "choices": [
+            "Cause",
+            "Profit",
+            "A bank loan",
+            "An audit opinion"
+        ],
+        "answer": "Cause",
+        "explanation": "Cause is the third essential element of a contract.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "contracts"
+                    ]
+                ]
+            }
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1340,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-corporate-law",
+            "concept_id": "cpa-regulatory-framework-corporate-law-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A corporation has a legal personality distinct from its shareholders. This means:",
+        "choices": [
+            "Corporate obligations are generally distinct from shareholder obligations",
+            "Shareholders own every corporate asset personally",
+            "The corporation cannot contract",
+            "All debts are employee debts"
+        ],
+        "answer": "Corporate obligations are generally distinct from shareholder obligations",
+        "explanation": "Separate personality distinguishes the corporation’s rights and obligations.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1341,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-commercial-law",
+            "concept_id": "cpa-regulatory-framework-commercial-law-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A negotiable instrument’s transfer by endorsement generally concerns:",
+        "choices": [
+            "Negotiation of the instrument",
+            "Depreciation of equipment",
+            "Inventory count",
+            "Payroll tax"
+        ],
+        "answer": "Negotiation of the instrument",
+        "explanation": "Endorsement can transfer an instrument according to its legal form.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1342,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-agency",
+            "concept_id": "cpa-regulatory-framework-agency-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "An agent acts within authority for a disclosed principal. The resulting contract generally binds:",
+        "choices": [
+            "The principal and the other contracting party",
+            "Only the agent personally",
+            "The auditor",
+            "No one"
+        ],
+        "answer": "The principal and the other contracting party",
+        "explanation": "An authorized agent connects the principal to the third party.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "agency"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1343,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-obligations",
+            "concept_id": "cpa-regulatory-framework-obligations-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A creditor accepts a new debtor and releases the old debtor. This is an example of:",
+        "choices": [
+            "Novation",
+            "Compensation",
+            "Deposit",
+            "Lease"
+        ],
+        "answer": "Novation",
+        "explanation": "Novation replaces an obligation or party with the required consent.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1344,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-interpretation",
+            "concept_id": "cpa-regulatory-framework-interpretation-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A contract clause is unclear. Interpretation should first seek:",
+        "choices": [
+            "The parties’ intended meaning from the contract and circumstances",
+            "The most expensive outcome",
+            "A random dictionary entry",
+            "The auditor’s preference"
+        ],
+        "answer": "The parties’ intended meaning from the contract and circumstances",
+        "explanation": "Contract interpretation seeks the parties’ intent using the agreement and context.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1345,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-governance",
+            "concept_id": "cpa-regulatory-framework-governance-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A corporation’s board approves a transaction outside its authority. The issue concerns:",
+        "choices": [
+            "Corporate power and authority",
+            "Inventory valuation",
+            "Audit sampling",
+            "Cash conversion"
+        ],
+        "answer": "Corporate power and authority",
+        "explanation": "Corporate acts must be evaluated against the entity’s powers and authorized decision makers.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "governance"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1346,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-sales",
+            "concept_id": "cpa-regulatory-framework-sales-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A seller transfers ownership and possession for a price. The transaction is a:",
+        "choices": [
+            "Sale",
+            "Donation",
+            "Agency only",
+            "Mortgage only"
+        ],
+        "answer": "Sale",
+        "explanation": "Sale involves transfer of ownership for a price.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1347,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-security",
+            "concept_id": "cpa-regulatory-framework-security-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A debtor’s obligation is secured by a property interest. The security primarily protects:",
+        "choices": [
+            "The creditor’s claim",
+            "The employee’s leave",
+            "The tax rate",
+            "The audit opinion"
+        ],
+        "answer": "The creditor’s claim",
+        "explanation": "Security supports enforcement of the creditor’s obligation.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1348,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-professional-law",
+            "concept_id": "cpa-regulatory-framework-professional-law-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "Professional independence is relevant to a CPA because it supports:",
+        "choices": [
+            "Objective professional judgment",
+            "Guaranteed client profit",
+            "Avoidance of all business risk",
+            "Automatic tax exemption"
+        ],
+        "answer": "Objective professional judgment",
+        "explanation": "Independence protects objective judgment in professional work.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "professional-law"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1349,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-partnership-law",
+            "concept_id": "cpa-regulatory-framework-partnership-law-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A partner uses partnership property for personal benefit without authority. The concern is:",
+        "choices": [
+            "Breach of fiduciary responsibility",
+            "Normal depreciation",
+            "A cash equivalent",
+            "A valid dividend"
+        ],
+        "answer": "Breach of fiduciary responsibility",
+        "explanation": "Partners must respect duties owed to the partnership.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1350,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-records",
+            "concept_id": "cpa-regulatory-framework-records-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A corporation’s records should support accountability through:",
+        "choices": [
+            "Accurate authorization and documentation",
+            "Unrecorded side agreements",
+            "Personal mixing of funds",
+            "Deletion of minutes"
+        ],
+        "answer": "Accurate authorization and documentation",
+        "explanation": "Records and authorization make corporate actions reviewable.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1351,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-validity",
+            "concept_id": "cpa-regulatory-framework-validity-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A contract is void because its object is unlawful. The defect concerns:",
+        "choices": [
+            "The object of the contract",
+            "The auditor’s materiality",
+            "The cash budget",
+            "The inventory count"
+        ],
+        "answer": "The object of the contract",
+        "explanation": "An unlawful object prevents a valid contractual obligation.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "validity"
+                    ]
+                ]
+            }
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1352,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-remedies",
+            "concept_id": "cpa-regulatory-framework-remedies-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A party fails to perform a substantial contractual obligation. The other party may examine:",
+        "choices": [
+            "Available remedies under the governing law and agreement",
+            "Only the tax return",
+            "The office lease",
+            "A marketing slogan"
+        ],
+        "answer": "Available remedies under the governing law and agreement",
+        "explanation": "Material nonperformance can trigger contractual remedies.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1353,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-conflict",
+            "concept_id": "cpa-regulatory-framework-conflict-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A corporate officer receives a personal benefit from a transaction involving the corporation. The central governance issue is:",
+        "choices": [
+            "Conflict of interest",
+            "Inventory turnover",
+            "Bank reconciliation",
+            "Depreciation"
+        ],
+        "answer": "Conflict of interest",
+        "explanation": "Personal benefit may compromise loyalty and requires disclosure and proper review.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1354,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-formalities",
+            "concept_id": "cpa-regulatory-framework-formalities-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A document signed by an authorized representative is evaluated for:",
+        "choices": [
+            "Authority, consent, and applicable formal requirements",
+            "The weather",
+            "Employee attendance",
+            "Product color"
+        ],
+        "answer": "Authority, consent, and applicable formal requirements",
+        "explanation": "Authority and formal validity are central to an executed legal document.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "formalities"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1355,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-partnerships",
+            "concept_id": "cpa-regulatory-framework-partnerships-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A partnership agreement allocates losses differently from profits. The accountant should:",
+        "choices": [
+            "Apply the valid agreement to each allocation",
+            "Assume losses always equal profits",
+            "Ignore the agreement",
+            "Allocate by invoice number"
+        ],
+        "answer": "Apply the valid agreement to each allocation",
+        "explanation": "Different valid allocation clauses should be applied as written.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1356,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-disclosure",
+            "concept_id": "cpa-regulatory-framework-disclosure-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A corporation publishes misleading financial information. The relevant concern is:",
+        "choices": [
+            "Accountability for truthful corporate reporting",
+            "A normal cash flow",
+            "A payroll adjustment",
+            "A physical count"
+        ],
+        "answer": "Accountability for truthful corporate reporting",
+        "explanation": "Corporate reporting must not mislead users.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1357,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-sales-remedies",
+            "concept_id": "cpa-regulatory-framework-sales-remedies-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A buyer discovers a material defect that was concealed. The buyer should assess:",
+        "choices": [
+            "The legal effect of concealment and available remedies",
+            "Only the seller’s logo",
+            "The audit sampling interval",
+            "A depreciation method"
+        ],
+        "answer": "The legal effect of concealment and available remedies",
+        "explanation": "Concealment can affect consent and remedies under applicable law.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "sales-remedies"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1358,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-regulatory-framework",
+            "domain_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-confidentiality",
+            "concept_id": "cpa-regulatory-framework-confidentiality-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A CPA receives confidential client information. Professional duty generally requires:",
+        "choices": [
+            "Protecting confidentiality subject to lawful or professional exceptions",
+            "Publishing it for convenience",
+            "Selling it to competitors",
+            "Ignoring all requests"
+        ],
+        "answer": "Protecting confidentiality subject to lawful or professional exceptions",
+        "explanation": "Confidentiality is a core professional responsibility with limited lawful exceptions.",
+        "subject": "Cpa Regulatory Framework",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1359,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-tax-basics",
+            "concept_id": "cpa-taxation-tax-basics-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A tax is imposed by public authority to raise revenue and fund public purposes. It is primarily a:",
+        "choices": [
+            "Compulsory contribution",
+            "Voluntary donation",
+            "Private dividend",
+            "Loan repayment"
+        ],
+        "answer": "Compulsory contribution",
+        "explanation": "Taxes are compulsory contributions imposed under law for public purposes.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "tax-basics"
+                    ]
+                ]
+            }
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1360,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-substantiation",
+            "concept_id": "cpa-taxation-substantiation-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A taxpayer keeps invoices and transaction records to support a reported deduction. The records provide:",
+        "choices": [
+            "Substantiation for the tax position",
+            "Automatic tax exemption",
+            "A new liability",
+            "An audit opinion"
+        ],
+        "answer": "Substantiation for the tax position",
+        "explanation": "Records support the factual and legal basis of a claimed tax treatment.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1361,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-tax-base",
+            "concept_id": "cpa-taxation-tax-base-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A business tax calculation begins with identifying the transaction’s:",
+        "choices": [
+            "Applicable tax base and governing rule",
+            "Office paint color",
+            "Employee preference",
+            "Audit firm size"
+        ],
+        "answer": "Applicable tax base and governing rule",
+        "explanation": "Correct computation starts with the base and rule that govern the transaction.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1362,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-deductions",
+            "concept_id": "cpa-taxation-deductions-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A taxpayer separates personal and business expenses before filing. This improves:",
+        "choices": [
+            "Accurate classification of deductible and nondeductible amounts",
+            "Guaranteed refund",
+            "Avoidance of recordkeeping",
+            "Automatic exemption"
+        ],
+        "answer": "Accurate classification of deductible and nondeductible amounts",
+        "explanation": "Proper classification supports a defensible return.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "deductions"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1363,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-withholding",
+            "concept_id": "cpa-taxation-withholding-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A withholding agent remits tax withheld from a payment. The remittance represents:",
+        "choices": [
+            "Collection on behalf of the government",
+            "A dividend to the payee",
+            "An inventory purchase",
+            "A bank loan"
+        ],
+        "answer": "Collection on behalf of the government",
+        "explanation": "Withholding collects tax at source for later remittance.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1364,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-vat",
+            "concept_id": "cpa-taxation-vat-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A VAT-registered business compares output tax with allowable input tax. The comparison determines:",
+        "choices": [
+            "Net VAT payable or credit under the applicable rules",
+            "Employee salary",
+            "Corporate share capital",
+            "Audit materiality"
+        ],
+        "answer": "Net VAT payable or credit under the applicable rules",
+        "explanation": "Output and allowable input tax are compared under VAT rules.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1365,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-filing",
+            "concept_id": "cpa-taxation-filing-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A tax return contains an arithmetic error discovered before filing. The responsible response is to:",
+        "choices": [
+            "Correct it using the applicable filing process",
+            "Submit knowingly without review",
+            "Delete source records",
+            "Change unrelated transactions"
+        ],
+        "answer": "Correct it using the applicable filing process",
+        "explanation": "Review and correction improve accuracy before filing.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "filing"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1366,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-exemptions",
+            "concept_id": "cpa-taxation-exemptions-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A tax exemption is claimed without a legal basis. The claim should be:",
+        "choices": [
+            "Rejected or supported by the applicable authority",
+            "Accepted because it is convenient",
+            "Recorded as revenue",
+            "Treated as a dividend"
+        ],
+        "answer": "Rejected or supported by the applicable authority",
+        "explanation": "Exemptions require legal support; convenience is not sufficient.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1367,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-administration",
+            "concept_id": "cpa-taxation-administration-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A taxpayer receives a notice requiring records. The taxpayer should:",
+        "choices": [
+            "Review the notice and respond through the applicable lawful process",
+            "Destroy records",
+            "Ignore every deadline",
+            "Alter invoices"
+        ],
+        "answer": "Review the notice and respond through the applicable lawful process",
+        "explanation": "A notice should be handled through the stated lawful process with records preserved.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1368,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-current-law",
+            "concept_id": "cpa-taxation-current-law-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A tax rate changes after a transaction date. The accountant must first determine:",
+        "choices": [
+            "Which law and effective date govern the transaction",
+            "Which rate looks fairest",
+            "The auditor’s favorite rate",
+            "The company logo"
+        ],
+        "answer": "Which law and effective date govern the transaction",
+        "explanation": "Tax treatment depends on the governing rule and effective date.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "current-law"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1369,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-deductions",
+            "concept_id": "cpa-taxation-deductions-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A deductible expense must be ordinary and properly supported under the applicable rule. The key issue is:",
+        "choices": [
+            "Whether both qualification and substantiation are met",
+            "Whether it is the largest expense",
+            "Whether cash was kept at home",
+            "Whether it is popular"
+        ],
+        "answer": "Whether both qualification and substantiation are met",
+        "explanation": "A deduction requires both legal qualification and adequate support.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1370,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-reconciliation",
+            "concept_id": "cpa-taxation-reconciliation-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A tax computation uses gross receipts but omits an allowable adjustment. Before finalizing, the accountant should:",
+        "choices": [
+            "Reconcile the base and all applicable adjustments",
+            "Guess the final liability",
+            "Ignore source documents",
+            "Record the difference as equity"
+        ],
+        "answer": "Reconcile the base and all applicable adjustments",
+        "explanation": "Reconciliation reduces omissions and supports the computed base.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1371,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-records",
+            "concept_id": "cpa-taxation-records-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A taxpayer’s business and personal accounts are mixed. The primary tax risk is:",
+        "choices": [
+            "Unreliable classification and substantiation",
+            "Automatic audit exemption",
+            "Lower accounting risk",
+            "Guaranteed deduction"
+        ],
+        "answer": "Unreliable classification and substantiation",
+        "explanation": "Mixed accounts make business purpose and amount harder to establish.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "records"
+                    ]
+                ]
+            }
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1372,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-remedies",
+            "concept_id": "cpa-taxation-remedies-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A tax authority’s assessment is disputed. The taxpayer should use:",
+        "choices": [
+            "The remedies and periods provided by applicable law",
+            "An informal social-media poll",
+            "A changed invoice",
+            "A personal dividend"
+        ],
+        "answer": "The remedies and periods provided by applicable law",
+        "explanation": "Tax disputes are governed by prescribed remedies and periods.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1373,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-transfer-tax",
+            "concept_id": "cpa-taxation-transfer-tax-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A transfer may be subject to a transaction tax. The accountant should identify:",
+        "choices": [
+            "The nature of transfer and applicable statutory treatment",
+            "Only the buyer’s age",
+            "The office rent",
+            "The audit opinion"
+        ],
+        "answer": "The nature of transfer and applicable statutory treatment",
+        "explanation": "Transaction type determines which tax rules may apply.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1374,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-payroll-tax",
+            "concept_id": "cpa-taxation-payroll-tax-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "An employer withholds tax based on employee payroll information. The essential control is:",
+        "choices": [
+            "Accurate computation, remittance, and records",
+            "Deleting payroll after payment",
+            "Using one rate forever",
+            "Ignoring employee data"
+        ],
+        "answer": "Accurate computation, remittance, and records",
+        "explanation": "Withholding compliance requires accurate calculations, remittance, and records.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "payroll-tax"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1375,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-ethics",
+            "concept_id": "cpa-taxation-ethics-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A tax planning proposal relies on a fabricated invoice. The professional should:",
+        "choices": [
+            "Reject the false support and advise lawful compliance",
+            "Use it if the amount is small",
+            "Hide it from the client",
+            "Record it as capital"
+        ],
+        "answer": "Reject the false support and advise lawful compliance",
+        "explanation": "False documentation is unethical and cannot support a tax position.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "numeric": false
+    },
+    {
+        "id": 1376,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-reconciliation",
+            "concept_id": "cpa-taxation-reconciliation-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "An accountant compares a filed return with the ledger and finds a mismatch. The next step is to:",
+        "choices": [
+            "Reconcile the difference and correct the source if needed",
+            "Choose the lower number without analysis",
+            "Delete the ledger",
+            "Assume the return is correct"
+        ],
+        "answer": "Reconcile the difference and correct the source if needed",
+        "explanation": "Reconciliation identifies the source and supports an accurate correction.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
+    },
+    {
+        "id": 1377,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-current-law",
+            "concept_id": "cpa-taxation-current-law-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A taxpayer asks whether a rule still applies in the current filing period. The accountant should:",
+        "choices": [
+            "Verify the current authoritative rule before advising",
+            "Rely on a decade-old rate",
+            "Guess from memory",
+            "Use a reviewer advertisement"
+        ],
+        "answer": "Verify the current authoritative rule before advising",
+        "explanation": "Time-sensitive tax advice requires current authoritative verification.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Accounting cue",
+                    "Treatment"
+                ],
+                "rows": [
+                    [
+                        "Core principle",
+                        "Apply the current authoritative rule"
+                    ],
+                    [
+                        "Decision point",
+                        "current-law"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1378,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-taxation",
+            "domain_id": "cpa-taxation",
+            "topic_id": "cpa-taxation-compliance",
+            "concept_id": "cpa-taxation-compliance-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-01T00:00:00+00:00",
+        "updatedAt": "2026-09-01T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A business retains tax records according to the applicable requirement. The purpose is to:",
+        "choices": [
+            "Support compliance, auditability, and substantiation",
+            "Guarantee no tax is due",
+            "Replace financial statements",
+            "Create a dividend"
+        ],
+        "answer": "Support compliance, auditability, and substantiation",
+        "explanation": "Retained records support compliance and later verification.",
+        "subject": "Cpa Taxation",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ]
     }
 ]

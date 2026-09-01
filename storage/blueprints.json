@@ -376,47 +376,47 @@
         "board": "cpa",
         "subject": "cpa-foundation",
         "name": "Licensure Examination for Certified Public Accountants BoardPrep Foundation Scope",
-        "version": 1,
+        "version": 2,
         "status": "active",
-        "questionCount": 80,
-        "foundation": true,
+        "questionCount": 120,
+        "foundation": false,
         "official_weighting": false,
         "sections": [
             {
-                "id": "auditing",
-                "name": "Auditing",
+                "id": "cpa-financial-accounting",
+                "name": "Financial Accounting and Reporting",
                 "target_percent": null
             },
             {
-                "id": "financial-accounting",
-                "name": "Financial Accounting",
+                "id": "cpa-advanced-accounting",
+                "name": "Advanced Financial Accounting and Reporting",
                 "target_percent": null
             },
             {
-                "id": "management-services",
+                "id": "cpa-management-services",
                 "name": "Management Services",
                 "target_percent": null
             },
             {
-                "id": "taxation",
+                "id": "cpa-auditing",
+                "name": "Auditing",
+                "target_percent": null
+            },
+            {
+                "id": "cpa-regulatory-framework",
+                "name": "Regulatory Framework for Business Transactions",
+                "target_percent": null
+            },
+            {
+                "id": "cpa-taxation",
                 "name": "Taxation",
-                "target_percent": null
-            },
-            {
-                "id": "regulatory-framework",
-                "name": "Regulatory Framework",
-                "target_percent": null
-            },
-            {
-                "id": "advanced-accounting",
-                "name": "Advanced Accounting",
                 "target_percent": null
             }
         ],
-        "label": "Foundation scope only; official weighting unavailable in the current repository record.",
+        "label": "Current 2026 LECPA TOS scope; subject structure is from Resolution No. 20 s. 2026 Annex A.",
         "source_id": "prc-accountancy-board-page",
-        "source_version": "official PRC reference",
-        "official_structure": "Official subject areas are represented for future content planning; no unsupported internal weighting is claimed.",
+        "source_version": "Resolution No. 20 s. 2026, Revised Annex A",
+        "official_structure": "Resolution No. 20 s. 2026 Annex A is the scope authority; this repository does not transcribe unsupported weights.",
         "official_weights": null,
         "internal_targets": false
     },

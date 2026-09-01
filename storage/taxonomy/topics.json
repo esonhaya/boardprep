@@ -972,5 +972,1397 @@
         "domain_id": "ce-hydraulics-geotech",
         "code": "HYDR",
         "name": "Hydraulics and Geotechnical Methods"
+    },
+    {
+        "id": "cpa-financial-accounting-core",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CORE",
+        "name": "Financial Accounting and Reporting Core Topics"
+    },
+    {
+        "id": "cpa-advanced-accounting-core",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CORE",
+        "name": "Advanced Financial Accounting and Reporting Core Topics"
+    },
+    {
+        "id": "cpa-management-services-core",
+        "domain_id": "cpa-management-services",
+        "code": "CORE",
+        "name": "Management Services Core Topics"
+    },
+    {
+        "id": "cpa-auditing-core",
+        "domain_id": "cpa-auditing",
+        "code": "CORE",
+        "name": "Auditing Core Topics"
+    },
+    {
+        "id": "cpa-regulatory-framework-core",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CORE",
+        "name": "Regulatory Framework for Business Transactions Core Topics"
+    },
+    {
+        "id": "cpa-taxation-core",
+        "domain_id": "cpa-taxation",
+        "code": "CORE",
+        "name": "Taxation Core Topics"
+    },
+    {
+        "id": "cpa-accruals",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Accruals"
+    },
+    {
+        "id": "cpa-receivables",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Receivables"
+    },
+    {
+        "id": "cpa-inventory",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Inventory"
+    },
+    {
+        "id": "cpa-ppe",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Ppe"
+    },
+    {
+        "id": "cpa-revenue",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Revenue"
+    },
+    {
+        "id": "cpa-provisions",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Provisions"
+    },
+    {
+        "id": "cpa-estimates",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Estimates"
+    },
+    {
+        "id": "cpa-cash-flow",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Cash Flow"
+    },
+    {
+        "id": "cpa-liabilities",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Liabilities"
+    },
+    {
+        "id": "cpa-intangibles",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Intangibles"
+    },
+    {
+        "id": "cpa-transactions",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Transactions"
+    },
+    {
+        "id": "cpa-interpretation",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Interpretation"
+    },
+    {
+        "id": "cpa-impairment",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Impairment"
+    },
+    {
+        "id": "cpa-leases",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Leases"
+    },
+    {
+        "id": "cpa-presentation",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Presentation"
+    },
+    {
+        "id": "cpa-allowance",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Allowance"
+    },
+    {
+        "id": "cpa-analysis",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Analysis"
+    },
+    {
+        "id": "cpa-equity",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Equity"
+    },
+    {
+        "id": "cpa-classification",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Classification"
+    },
+    {
+        "id": "cpa-framework",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Framework"
+    },
+    {
+        "id": "cpa-partnerships",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Partnerships"
+    },
+    {
+        "id": "cpa-consolidation",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Consolidation"
+    },
+    {
+        "id": "cpa-intercompany",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Intercompany"
+    },
+    {
+        "id": "cpa-combinations",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Combinations"
+    },
+    {
+        "id": "cpa-branch",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Branch"
+    },
+    {
+        "id": "cpa-foreign-currency",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Foreign Currency"
+    },
+    {
+        "id": "cpa-liquidation",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Liquidation"
+    },
+    {
+        "id": "cpa-joint-arrangements",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Joint Arrangements"
+    },
+    {
+        "id": "cpa-nci",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Nci"
+    },
+    {
+        "id": "cpa-elimination",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Elimination"
+    },
+    {
+        "id": "cpa-profit-allocation",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Profit Allocation"
+    },
+    {
+        "id": "cpa-fixed-assets",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Fixed Assets"
+    },
+    {
+        "id": "cpa-translation",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Translation"
+    },
+    {
+        "id": "cpa-measurement",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Measurement"
+    },
+    {
+        "id": "cpa-withdrawal",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Withdrawal"
+    },
+    {
+        "id": "cpa-dividends",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Dividends"
+    },
+    {
+        "id": "cpa-branch-inventory",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Branch Inventory"
+    },
+    {
+        "id": "cpa-intercompany-balances",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Intercompany Balances"
+    },
+    {
+        "id": "cpa-profit-attribution",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Profit Attribution"
+    },
+    {
+        "id": "cpa-agreement",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Agreement"
+    },
+    {
+        "id": "cpa-cvp",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Cvp"
+    },
+    {
+        "id": "cpa-relevant-costing",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Relevant Costing"
+    },
+    {
+        "id": "cpa-budgeting",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Budgeting"
+    },
+    {
+        "id": "cpa-variance",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Variance"
+    },
+    {
+        "id": "cpa-capital-budgeting",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Capital Budgeting"
+    },
+    {
+        "id": "cpa-constraints",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Constraints"
+    },
+    {
+        "id": "cpa-sunk-cost",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Sunk Cost"
+    },
+    {
+        "id": "cpa-control",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Control"
+    },
+    {
+        "id": "cpa-responsibility",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Responsibility"
+    },
+    {
+        "id": "cpa-cost-behavior",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Cost Behavior"
+    },
+    {
+        "id": "cpa-npv",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Npv"
+    },
+    {
+        "id": "cpa-make-buy",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Make Buy"
+    },
+    {
+        "id": "cpa-standard-costing",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Standard Costing"
+    },
+    {
+        "id": "cpa-sales-mix",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Sales Mix"
+    },
+    {
+        "id": "cpa-opportunity-cost",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Opportunity Cost"
+    },
+    {
+        "id": "cpa-cash-budget",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Cash Budget"
+    },
+    {
+        "id": "cpa-performance",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Performance"
+    },
+    {
+        "id": "cpa-activity-based",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Activity Based"
+    },
+    {
+        "id": "cpa-sensitivity",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Sensitivity"
+    },
+    {
+        "id": "cpa-assertions",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Assertions"
+    },
+    {
+        "id": "cpa-internal-control",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Internal Control"
+    },
+    {
+        "id": "cpa-audit-risk",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Audit Risk"
+    },
+    {
+        "id": "cpa-materiality",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Materiality"
+    },
+    {
+        "id": "cpa-evidence",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Evidence"
+    },
+    {
+        "id": "cpa-inventory-audit",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Inventory Audit"
+    },
+    {
+        "id": "cpa-control-risk",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Control Risk"
+    },
+    {
+        "id": "cpa-analytics",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Analytics"
+    },
+    {
+        "id": "cpa-ethics",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Ethics"
+    },
+    {
+        "id": "cpa-sampling",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Sampling"
+    },
+    {
+        "id": "cpa-scope",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Scope"
+    },
+    {
+        "id": "cpa-going-concern",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Going Concern"
+    },
+    {
+        "id": "cpa-representations",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Representations"
+    },
+    {
+        "id": "cpa-completeness",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Completeness"
+    },
+    {
+        "id": "cpa-fraud",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Fraud"
+    },
+    {
+        "id": "cpa-reporting",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Reporting"
+    },
+    {
+        "id": "cpa-documentation",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Documentation"
+    },
+    {
+        "id": "cpa-substantive-testing",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Substantive Testing"
+    },
+    {
+        "id": "cpa-assurance",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Assurance"
+    },
+    {
+        "id": "cpa-contracts",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Contracts"
+    },
+    {
+        "id": "cpa-corporate-law",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Corporate Law"
+    },
+    {
+        "id": "cpa-commercial-law",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Commercial Law"
+    },
+    {
+        "id": "cpa-agency",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Agency"
+    },
+    {
+        "id": "cpa-obligations",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Obligations"
+    },
+    {
+        "id": "cpa-governance",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Governance"
+    },
+    {
+        "id": "cpa-sales",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Sales"
+    },
+    {
+        "id": "cpa-security",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Security"
+    },
+    {
+        "id": "cpa-professional-law",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Professional Law"
+    },
+    {
+        "id": "cpa-partnership-law",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Partnership Law"
+    },
+    {
+        "id": "cpa-records",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Records"
+    },
+    {
+        "id": "cpa-validity",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Validity"
+    },
+    {
+        "id": "cpa-remedies",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Remedies"
+    },
+    {
+        "id": "cpa-conflict",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Conflict"
+    },
+    {
+        "id": "cpa-formalities",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Formalities"
+    },
+    {
+        "id": "cpa-disclosure",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Disclosure"
+    },
+    {
+        "id": "cpa-sales-remedies",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Sales Remedies"
+    },
+    {
+        "id": "cpa-confidentiality",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Confidentiality"
+    },
+    {
+        "id": "cpa-tax-basics",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Tax Basics"
+    },
+    {
+        "id": "cpa-substantiation",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Substantiation"
+    },
+    {
+        "id": "cpa-tax-base",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Tax Base"
+    },
+    {
+        "id": "cpa-deductions",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Deductions"
+    },
+    {
+        "id": "cpa-withholding",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Withholding"
+    },
+    {
+        "id": "cpa-vat",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Vat"
+    },
+    {
+        "id": "cpa-filing",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Filing"
+    },
+    {
+        "id": "cpa-exemptions",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Exemptions"
+    },
+    {
+        "id": "cpa-administration",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Administration"
+    },
+    {
+        "id": "cpa-current-law",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Current Law"
+    },
+    {
+        "id": "cpa-reconciliation",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Reconciliation"
+    },
+    {
+        "id": "cpa-transfer-tax",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Transfer Tax"
+    },
+    {
+        "id": "cpa-payroll-tax",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Payroll Tax"
+    },
+    {
+        "id": "cpa-compliance",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Compliance"
+    },
+    {
+        "id": "cpa-financial-accounting-accruals",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Accruals"
+    },
+    {
+        "id": "cpa-financial-accounting-receivables",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Receivables"
+    },
+    {
+        "id": "cpa-financial-accounting-inventory",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Inventory"
+    },
+    {
+        "id": "cpa-financial-accounting-ppe",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Ppe"
+    },
+    {
+        "id": "cpa-financial-accounting-revenue",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Revenue"
+    },
+    {
+        "id": "cpa-financial-accounting-provisions",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Provisions"
+    },
+    {
+        "id": "cpa-financial-accounting-estimates",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Estimates"
+    },
+    {
+        "id": "cpa-financial-accounting-cash-flow",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Cash Flow"
+    },
+    {
+        "id": "cpa-financial-accounting-liabilities",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Liabilities"
+    },
+    {
+        "id": "cpa-financial-accounting-intangibles",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Intangibles"
+    },
+    {
+        "id": "cpa-financial-accounting-transactions",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Transactions"
+    },
+    {
+        "id": "cpa-financial-accounting-interpretation",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Interpretation"
+    },
+    {
+        "id": "cpa-financial-accounting-impairment",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Impairment"
+    },
+    {
+        "id": "cpa-financial-accounting-leases",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Leases"
+    },
+    {
+        "id": "cpa-financial-accounting-presentation",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Presentation"
+    },
+    {
+        "id": "cpa-financial-accounting-allowance",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Allowance"
+    },
+    {
+        "id": "cpa-financial-accounting-analysis",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Analysis"
+    },
+    {
+        "id": "cpa-financial-accounting-equity",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Equity"
+    },
+    {
+        "id": "cpa-financial-accounting-classification",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Classification"
+    },
+    {
+        "id": "cpa-financial-accounting-framework",
+        "domain_id": "cpa-financial-accounting",
+        "code": "CPA",
+        "name": "Cpa Financial Accounting Framework"
+    },
+    {
+        "id": "cpa-advanced-accounting-partnerships",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Partnerships"
+    },
+    {
+        "id": "cpa-advanced-accounting-consolidation",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Consolidation"
+    },
+    {
+        "id": "cpa-advanced-accounting-intercompany",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Intercompany"
+    },
+    {
+        "id": "cpa-advanced-accounting-combinations",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Combinations"
+    },
+    {
+        "id": "cpa-advanced-accounting-branch",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Branch"
+    },
+    {
+        "id": "cpa-advanced-accounting-foreign-currency",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Foreign Currency"
+    },
+    {
+        "id": "cpa-advanced-accounting-liquidation",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Liquidation"
+    },
+    {
+        "id": "cpa-advanced-accounting-joint-arrangements",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Joint Arrangements"
+    },
+    {
+        "id": "cpa-advanced-accounting-nci",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Nci"
+    },
+    {
+        "id": "cpa-advanced-accounting-elimination",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Elimination"
+    },
+    {
+        "id": "cpa-advanced-accounting-profit-allocation",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Profit Allocation"
+    },
+    {
+        "id": "cpa-advanced-accounting-fixed-assets",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Fixed Assets"
+    },
+    {
+        "id": "cpa-advanced-accounting-translation",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Translation"
+    },
+    {
+        "id": "cpa-advanced-accounting-measurement",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Measurement"
+    },
+    {
+        "id": "cpa-advanced-accounting-withdrawal",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Withdrawal"
+    },
+    {
+        "id": "cpa-advanced-accounting-dividends",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Dividends"
+    },
+    {
+        "id": "cpa-advanced-accounting-branch-inventory",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Branch Inventory"
+    },
+    {
+        "id": "cpa-advanced-accounting-intercompany-balances",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Intercompany Balances"
+    },
+    {
+        "id": "cpa-advanced-accounting-profit-attribution",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Profit Attribution"
+    },
+    {
+        "id": "cpa-advanced-accounting-agreement",
+        "domain_id": "cpa-advanced-accounting",
+        "code": "CPA",
+        "name": "Cpa Advanced Accounting Agreement"
+    },
+    {
+        "id": "cpa-management-services-cvp",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Cvp"
+    },
+    {
+        "id": "cpa-management-services-relevant-costing",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Relevant Costing"
+    },
+    {
+        "id": "cpa-management-services-budgeting",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Budgeting"
+    },
+    {
+        "id": "cpa-management-services-variance",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Variance"
+    },
+    {
+        "id": "cpa-management-services-capital-budgeting",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Capital Budgeting"
+    },
+    {
+        "id": "cpa-management-services-constraints",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Constraints"
+    },
+    {
+        "id": "cpa-management-services-sunk-cost",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Sunk Cost"
+    },
+    {
+        "id": "cpa-management-services-control",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Control"
+    },
+    {
+        "id": "cpa-management-services-responsibility",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Responsibility"
+    },
+    {
+        "id": "cpa-management-services-cost-behavior",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Cost Behavior"
+    },
+    {
+        "id": "cpa-management-services-npv",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Npv"
+    },
+    {
+        "id": "cpa-management-services-make-buy",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Make Buy"
+    },
+    {
+        "id": "cpa-management-services-standard-costing",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Standard Costing"
+    },
+    {
+        "id": "cpa-management-services-sales-mix",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Sales Mix"
+    },
+    {
+        "id": "cpa-management-services-opportunity-cost",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Opportunity Cost"
+    },
+    {
+        "id": "cpa-management-services-cash-budget",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Cash Budget"
+    },
+    {
+        "id": "cpa-management-services-performance",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Performance"
+    },
+    {
+        "id": "cpa-management-services-activity-based",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Activity Based"
+    },
+    {
+        "id": "cpa-management-services-sensitivity",
+        "domain_id": "cpa-management-services",
+        "code": "CPA",
+        "name": "Cpa Management Services Sensitivity"
+    },
+    {
+        "id": "cpa-auditing-assertions",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Assertions"
+    },
+    {
+        "id": "cpa-auditing-internal-control",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Internal Control"
+    },
+    {
+        "id": "cpa-auditing-audit-risk",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Audit Risk"
+    },
+    {
+        "id": "cpa-auditing-materiality",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Materiality"
+    },
+    {
+        "id": "cpa-auditing-evidence",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Evidence"
+    },
+    {
+        "id": "cpa-auditing-inventory-audit",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Inventory Audit"
+    },
+    {
+        "id": "cpa-auditing-control-risk",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Control Risk"
+    },
+    {
+        "id": "cpa-auditing-analytics",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Analytics"
+    },
+    {
+        "id": "cpa-auditing-ethics",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Ethics"
+    },
+    {
+        "id": "cpa-auditing-sampling",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Sampling"
+    },
+    {
+        "id": "cpa-auditing-scope",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Scope"
+    },
+    {
+        "id": "cpa-auditing-going-concern",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Going Concern"
+    },
+    {
+        "id": "cpa-auditing-representations",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Representations"
+    },
+    {
+        "id": "cpa-auditing-completeness",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Completeness"
+    },
+    {
+        "id": "cpa-auditing-fraud",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Fraud"
+    },
+    {
+        "id": "cpa-auditing-reporting",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Reporting"
+    },
+    {
+        "id": "cpa-auditing-documentation",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Documentation"
+    },
+    {
+        "id": "cpa-auditing-substantive-testing",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Substantive Testing"
+    },
+    {
+        "id": "cpa-auditing-estimates",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Estimates"
+    },
+    {
+        "id": "cpa-auditing-assurance",
+        "domain_id": "cpa-auditing",
+        "code": "CPA",
+        "name": "Cpa Auditing Assurance"
+    },
+    {
+        "id": "cpa-regulatory-framework-contracts",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Contracts"
+    },
+    {
+        "id": "cpa-regulatory-framework-corporate-law",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Corporate Law"
+    },
+    {
+        "id": "cpa-regulatory-framework-commercial-law",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Commercial Law"
+    },
+    {
+        "id": "cpa-regulatory-framework-agency",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Agency"
+    },
+    {
+        "id": "cpa-regulatory-framework-obligations",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Obligations"
+    },
+    {
+        "id": "cpa-regulatory-framework-interpretation",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Interpretation"
+    },
+    {
+        "id": "cpa-regulatory-framework-governance",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Governance"
+    },
+    {
+        "id": "cpa-regulatory-framework-sales",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Sales"
+    },
+    {
+        "id": "cpa-regulatory-framework-security",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Security"
+    },
+    {
+        "id": "cpa-regulatory-framework-professional-law",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Professional Law"
+    },
+    {
+        "id": "cpa-regulatory-framework-partnership-law",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Partnership Law"
+    },
+    {
+        "id": "cpa-regulatory-framework-records",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Records"
+    },
+    {
+        "id": "cpa-regulatory-framework-validity",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Validity"
+    },
+    {
+        "id": "cpa-regulatory-framework-remedies",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Remedies"
+    },
+    {
+        "id": "cpa-regulatory-framework-conflict",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Conflict"
+    },
+    {
+        "id": "cpa-regulatory-framework-formalities",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Formalities"
+    },
+    {
+        "id": "cpa-regulatory-framework-partnerships",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Partnerships"
+    },
+    {
+        "id": "cpa-regulatory-framework-disclosure",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Disclosure"
+    },
+    {
+        "id": "cpa-regulatory-framework-sales-remedies",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Sales Remedies"
+    },
+    {
+        "id": "cpa-regulatory-framework-confidentiality",
+        "domain_id": "cpa-regulatory-framework",
+        "code": "CPA",
+        "name": "Cpa Regulatory Framework Confidentiality"
+    },
+    {
+        "id": "cpa-taxation-tax-basics",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Taxation Tax Basics"
+    },
+    {
+        "id": "cpa-taxation-substantiation",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Taxation Substantiation"
+    },
+    {
+        "id": "cpa-taxation-tax-base",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Taxation Tax Base"
+    },
+    {
+        "id": "cpa-taxation-deductions",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Taxation Deductions"
+    },
+    {
+        "id": "cpa-taxation-withholding",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Taxation Withholding"
+    },
+    {
+        "id": "cpa-taxation-vat",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Taxation Vat"
+    },
+    {
+        "id": "cpa-taxation-filing",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Taxation Filing"
+    },
+    {
+        "id": "cpa-taxation-exemptions",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Taxation Exemptions"
+    },
+    {
+        "id": "cpa-taxation-administration",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Taxation Administration"
+    },
+    {
+        "id": "cpa-taxation-current-law",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Taxation Current Law"
+    },
+    {
+        "id": "cpa-taxation-reconciliation",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Taxation Reconciliation"
+    },
+    {
+        "id": "cpa-taxation-records",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Taxation Records"
+    },
+    {
+        "id": "cpa-taxation-remedies",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Taxation Remedies"
+    },
+    {
+        "id": "cpa-taxation-transfer-tax",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Taxation Transfer Tax"
+    },
+    {
+        "id": "cpa-taxation-payroll-tax",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Taxation Payroll Tax"
+    },
+    {
+        "id": "cpa-taxation-ethics",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Taxation Ethics"
+    },
+    {
+        "id": "cpa-taxation-compliance",
+        "domain_id": "cpa-taxation",
+        "code": "CPA",
+        "name": "Cpa Taxation Compliance"
     }
 ]
