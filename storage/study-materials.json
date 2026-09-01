@@ -1191,5 +1191,137 @@
         "status": "published",
         "version": 1,
         "updated_at": "2026-08-31"
+    },
+    {
+        "id": "cse-verbal-foundation",
+        "title": "CSE Verbal Ability Practice Foundation",
+        "summary": "Contextual vocabulary, grammar, organization, and evidence-based reading practice.",
+        "notes": [
+            {
+                "heading": "Core skills",
+                "body": "Study meaning in context, sentence relationships, paragraph logic, and conclusions supported by a passage."
+            }
+        ],
+        "source_ids": [
+            "csc-cse-scope-2026"
+        ],
+        "exams": [
+            "civil-service"
+        ],
+        "taxonomy": {
+            "subject_id": "verbal-ability"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01",
+        "exam_focus": {
+            "civil-service-professional": {
+                "priority": "high",
+                "official_scope_status": "official scope reference; internal study organization"
+            },
+            "civil-service-subprofessional": {
+                "priority": "high",
+                "official_scope_status": "official scope reference; internal study organization"
+            }
+        }
+    },
+    {
+        "id": "cse-numerical-foundation",
+        "title": "CSE Numerical Ability Practice Foundation",
+        "summary": "Practical arithmetic, sequences, ratios, percentages, and quantitative reasoning.",
+        "notes": [
+            {
+                "heading": "Core skills",
+                "body": "Translate quantities into operations, check units, and test whether an answer is reasonable."
+            }
+        ],
+        "source_ids": [
+            "csc-cse-scope-2026"
+        ],
+        "exams": [
+            "civil-service"
+        ],
+        "taxonomy": {
+            "subject_id": "numerical-ability"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01",
+        "exam_focus": {
+            "civil-service-professional": {
+                "priority": "high",
+                "official_scope_status": "official scope reference; internal study organization"
+            },
+            "civil-service-subprofessional": {
+                "priority": "high",
+                "official_scope_status": "official scope reference; internal study organization"
+            }
+        }
+    },
+    {
+        "id": "cse-analytical-foundation",
+        "title": "CSE Analytical Ability Practice Foundation",
+        "summary": "Analogy, sequence, assumption, conclusion, and data interpretation practice.",
+        "notes": [
+            {
+                "heading": "Core skills",
+                "body": "Separate stated facts from assumptions, identify relationships, and infer only what supplied evidence supports."
+            }
+        ],
+        "source_ids": [
+            "csc-cse-scope-2026"
+        ],
+        "exams": [
+            "civil-service"
+        ],
+        "taxonomy": {
+            "subject_id": "analytical-logical"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01",
+        "exam_focus": {
+            "civil-service-professional": {
+                "priority": "high",
+                "official_scope_status": "official scope reference; internal study organization"
+            },
+            "civil-service-subprofessional": {
+                "priority": "high",
+                "official_scope_status": "official scope reference; internal study organization"
+            }
+        }
+    },
+    {
+        "id": "cse-clerical-foundation",
+        "title": "CSE Subprofessional Clerical Ability Foundation",
+        "summary": "Filing and spelling practice for accurate records work.",
+        "notes": [
+            {
+                "heading": "Core skills",
+                "body": "Compare complete identifiers carefully and apply standard spelling in official records."
+            }
+        ],
+        "source_ids": [
+            "csc-cse-scope-2026"
+        ],
+        "exams": [
+            "civil-service"
+        ],
+        "taxonomy": {
+            "subject_id": "clerical-ability"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01",
+        "exam_focus": {
+            "civil-service-professional": {
+                "priority": "high",
+                "official_scope_status": "official scope reference; internal study organization"
+            },
+            "civil-service-subprofessional": {
+                "priority": "high",
+                "official_scope_status": "official scope reference; internal study organization"
+            }
+        }
     }
 ]

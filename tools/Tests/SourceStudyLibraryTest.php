@@ -24,12 +24,12 @@ if ($constitution === null || $ra === null || ($constitution['sources'][0]['sour
 }
 $cse = StudyLibraryService::all('civil-service');
 $let = StudyLibraryService::all('let');
-if (count($cse) !== 4 || count($let) !== 25 || !isset($constitution['exam_focus']['civil-service'])) {
+if (count($cse) !== 8 || count($let) !== 25 || !isset($constitution['exam_focus']['civil-service'])) {
     throw new RuntimeException('exam-specific study focus mapping is incomplete');
 }
 $questions = \App\Core\App::storage()->all('questions');
 $ids = array_map(static fn(array $question): string => (string) ($question['id'] ?? ''), $questions);
-if (count($questions) !== 574 || count(array_unique($ids)) !== 574) {
+if (count($questions) !== 706 || count(array_unique($ids)) !== 706) {
     throw new RuntimeException('source library work changed canonical question identities');
 }
 if (count(StudyLibraryService::questionsFor('constitution-review-foundation')) !== 45

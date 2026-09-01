@@ -13,7 +13,7 @@ use App\Services\Shared\QuestionCoverageService;
 
 $questions = App::storage()->all('questions');
 $ids = array_map(static fn(array $question): string => (string) ($question['id'] ?? ''), $questions);
-if (count($questions) !== 574 || count(array_unique($ids)) !== 574) {
+if (count($questions) !== 706 || count(array_unique($ids)) !== 706) {
     throw new RuntimeException('canonical question identities were not preserved');
 }
 foreach (range(1, 258) as $id) {
@@ -24,17 +24,17 @@ foreach (range(1, 258) as $id) {
 
 $let = QuestionEligibilityService::eligible($questions, 'let');
 $cse = QuestionEligibilityService::eligible($questions, 'civil-service');
-if (count($let) !== 514 || count($cse) !== 243) {
+if (count($let) !== 514 || count($cse) !== 375) {
     throw new RuntimeException('explicit exam eligibility counts are incorrect');
 }
-if (count(array_unique(array_map(static fn(array $q): string => (string) $q['id'], $cse))) !== 243) {
+if (count(array_unique(array_map(static fn(array $q): string => (string) $q['id'], $cse))) !== 375) {
     throw new RuntimeException('CSE eligibility contains duplicate canonical records');
 }
 $analytical = array_values(array_filter(
     $cse,
     static fn(array $question): bool => ($question['taxonomy']['subject_id'] ?? '') === 'analytical-logical'
 ));
-if (count($analytical) < 30) {
+if (count($analytical) < 70) {
     throw new RuntimeException('CSE analytical/logical foundation is incomplete');
 }
 
@@ -53,7 +53,7 @@ foreach ($verbal as $question) {
 
 $letView = BoardViewService::find('let');
 $cseView = BoardViewService::find('civil-service');
-if (($letView['available_questions'] ?? 0) !== 514 || ($cseView['available_questions'] ?? 0) !== 243) {
+if (($letView['available_questions'] ?? 0) !== 514 || ($cseView['available_questions'] ?? 0) !== 375) {
     throw new RuntimeException('board availability is not derived from eligibility');
 }
 $coverage = QuestionCoverageService::analyzeRepository()['blueprints'] ?? [];
