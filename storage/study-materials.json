@@ -1683,5 +1683,445 @@
         "status": "published",
         "version": 1,
         "updated_at": "2026-09-01"
+    },
+    {
+        "id": "nle-np-i-foundation",
+        "title": "Community Health Nursing Review Foundation",
+        "summary": "Structured clinical reasoning for Community Health Nursing.",
+        "notes": [
+            {
+                "heading": "Clinical focus",
+                "body": "Prioritize assessment, safety, nursing process, communication, and evaluation in concise clinical situations."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-enhanced-tos-2025"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "exam_focus": {
+            "nursing": {
+                "priority": "high",
+                "official_scope_status": "official PRC enhanced TOS scope; BoardPrep educational review"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-community-health"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "nle-np-ii-foundation",
+        "title": "Maternal and Child Nursing Review Foundation",
+        "summary": "Structured clinical reasoning for Maternal and Child Nursing.",
+        "notes": [
+            {
+                "heading": "Clinical focus",
+                "body": "Prioritize assessment, safety, nursing process, communication, and evaluation in concise clinical situations."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-enhanced-tos-2025"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "exam_focus": {
+            "nursing": {
+                "priority": "high",
+                "official_scope_status": "official PRC enhanced TOS scope; BoardPrep educational review"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-maternal-child"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "nle-np-iii-foundation",
+        "title": "Medical-Surgical Nursing Review Foundation",
+        "summary": "Structured clinical reasoning for Medical-Surgical Nursing.",
+        "notes": [
+            {
+                "heading": "Clinical focus",
+                "body": "Prioritize assessment, safety, nursing process, communication, and evaluation in concise clinical situations."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-enhanced-tos-2025"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "exam_focus": {
+            "nursing": {
+                "priority": "high",
+                "official_scope_status": "official PRC enhanced TOS scope; BoardPrep educational review"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "nle-np-iv-foundation",
+        "title": "Nutrition, GI, Endocrine, and Coordination Review Foundation",
+        "summary": "Structured clinical reasoning for Nutrition, GI, Endocrine, and Coordination.",
+        "notes": [
+            {
+                "heading": "Clinical focus",
+                "body": "Prioritize assessment, safety, nursing process, communication, and evaluation in concise clinical situations."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-enhanced-tos-2025"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "exam_focus": {
+            "nursing": {
+                "priority": "high",
+                "official_scope_status": "official PRC enhanced TOS scope; BoardPrep educational review"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "nle-np-v-foundation",
+        "title": "Mental Health, Emergency, and High-Acuity Nursing Review Foundation",
+        "summary": "Structured clinical reasoning for Mental Health, Emergency, and High-Acuity Nursing.",
+        "notes": [
+            {
+                "heading": "Clinical focus",
+                "body": "Prioritize assessment, safety, nursing process, communication, and evaluation in concise clinical situations."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-enhanced-tos-2025"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "exam_focus": {
+            "nursing": {
+                "priority": "high",
+                "official_scope_status": "official PRC enhanced TOS scope; BoardPrep educational review"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-mental-health"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "nle-nursing-process",
+        "title": "Nursing Process and Clinical Judgment",
+        "summary": "Integrated Nursing licensure review across NP I\u2013V.",
+        "notes": [
+            {
+                "heading": "Integrated practice",
+                "body": "Connect assessment, intervention, patient teaching, documentation, medication safety, and evaluation to the client\u2019s changing condition."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-enhanced-tos-2025"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "exam_focus": {
+            "nursing": {
+                "priority": "high",
+                "official_scope_status": "official TOS-aligned integrated review"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "nursing-foundations"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "nle-pharmacology-safety",
+        "title": "Pharmacology and Medication Safety",
+        "summary": "Integrated Nursing licensure review across NP I\u2013V.",
+        "notes": [
+            {
+                "heading": "Integrated practice",
+                "body": "Connect assessment, intervention, patient teaching, documentation, medication safety, and evaluation to the client\u2019s changing condition."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-enhanced-tos-2025"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "exam_focus": {
+            "nursing": {
+                "priority": "high",
+                "official_scope_status": "official TOS-aligned integrated review"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "nursing-foundations"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "nle-integrated-safety",
+        "title": "Patient Safety, Communication, and Teamwork",
+        "summary": "Integrated Nursing licensure review across NP I\u2013V.",
+        "notes": [
+            {
+                "heading": "Integrated practice",
+                "body": "Connect assessment, intervention, patient teaching, documentation, medication safety, and evaluation to the client\u2019s changing condition."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-enhanced-tos-2025"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "exam_focus": {
+            "nursing": {
+                "priority": "high",
+                "official_scope_status": "official TOS-aligned integrated review"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "nursing-foundations"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "nle-np-i-prevention",
+        "title": "NP I: Prevention and Community Assessment",
+        "summary": "Focused structured Nursing review aligned with the PRC enhanced TOS.",
+        "notes": [
+            {
+                "heading": "Practice focus",
+                "body": "Connect assessment, safety, clinical reasoning, communication, and evaluation to the client situation."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-enhanced-tos-2025"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "exam_focus": {
+            "nursing": {
+                "priority": "high",
+                "official_scope_status": "official TOS-aligned educational review"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "nursing-foundations"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "nle-np-ii-newborn",
+        "title": "NP II: Maternal, Newborn, and Pediatric Care",
+        "summary": "Focused structured Nursing review aligned with the PRC enhanced TOS.",
+        "notes": [
+            {
+                "heading": "Practice focus",
+                "body": "Connect assessment, safety, clinical reasoning, communication, and evaluation to the client situation."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-enhanced-tos-2025"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "exam_focus": {
+            "nursing": {
+                "priority": "high",
+                "official_scope_status": "official TOS-aligned educational review"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "nursing-foundations"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "nle-np-iii-oxygenation",
+        "title": "NP III: Oxygenation, Fluids, and Infection",
+        "summary": "Focused structured Nursing review aligned with the PRC enhanced TOS.",
+        "notes": [
+            {
+                "heading": "Practice focus",
+                "body": "Connect assessment, safety, clinical reasoning, communication, and evaluation to the client situation."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-enhanced-tos-2025"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "exam_focus": {
+            "nursing": {
+                "priority": "high",
+                "official_scope_status": "official TOS-aligned educational review"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "nursing-foundations"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "nle-np-iv-endocrine",
+        "title": "NP IV: Nutrition, GI, Endocrine, and Coordination",
+        "summary": "Focused structured Nursing review aligned with the PRC enhanced TOS.",
+        "notes": [
+            {
+                "heading": "Practice focus",
+                "body": "Connect assessment, safety, clinical reasoning, communication, and evaluation to the client situation."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-enhanced-tos-2025"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "exam_focus": {
+            "nursing": {
+                "priority": "high",
+                "official_scope_status": "official TOS-aligned educational review"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "nursing-foundations"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "nle-np-v-emergency",
+        "title": "NP V: Mental Health and Emergency Care",
+        "summary": "Focused structured Nursing review aligned with the PRC enhanced TOS.",
+        "notes": [
+            {
+                "heading": "Practice focus",
+                "body": "Connect assessment, safety, clinical reasoning, communication, and evaluation to the client situation."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-enhanced-tos-2025"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "exam_focus": {
+            "nursing": {
+                "priority": "high",
+                "official_scope_status": "official TOS-aligned educational review"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "nursing-foundations"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "nle-integrated-pharmacology",
+        "title": "Integrated Pharmacology and Medication Safety",
+        "summary": "Focused structured Nursing review aligned with the PRC enhanced TOS.",
+        "notes": [
+            {
+                "heading": "Practice focus",
+                "body": "Connect assessment, safety, clinical reasoning, communication, and evaluation to the client situation."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-enhanced-tos-2025"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "exam_focus": {
+            "nursing": {
+                "priority": "high",
+                "official_scope_status": "official TOS-aligned educational review"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "nursing-foundations"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "nle-integrated-process",
+        "title": "Integrated Nursing Process and Evidence-Based Practice",
+        "summary": "Focused structured Nursing review aligned with the PRC enhanced TOS.",
+        "notes": [
+            {
+                "heading": "Practice focus",
+                "body": "Connect assessment, safety, clinical reasoning, communication, and evaluation to the client situation."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-enhanced-tos-2025"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "exam_focus": {
+            "nursing": {
+                "priority": "high",
+                "official_scope_status": "official TOS-aligned educational review"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "nursing-foundations"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
     }
 ]

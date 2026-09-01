@@ -13,7 +13,7 @@ use App\Services\Shared\QuestionCoverageService;
 
 $questions = App::storage()->all('questions');
 $ids = array_map(static fn(array $question): string => (string) ($question['id'] ?? ''), $questions);
-if (count($questions) !== 856 || count(array_unique($ids)) !== 856) {
+if (count($questions) !== 1036 || count(array_unique($ids)) !== 1036) {
     throw new RuntimeException('canonical question identities were not preserved');
 }
 foreach (range(1, 258) as $id) {
