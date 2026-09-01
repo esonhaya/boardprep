@@ -295,22 +295,26 @@
             {
                 "id": "psychological-assessment",
                 "name": "Psychological Assessment",
-                "target_percent": 40
+                "target_percent": 40,
+                "domain_id": "ple-assessment"
             },
             {
                 "id": "developmental-psychology",
                 "name": "Developmental Psychology",
-                "target_percent": 20
+                "target_percent": 20,
+                "domain_id": "ple-developmental"
             },
             {
                 "id": "abnormal-psychology",
                 "name": "Abnormal Psychology",
-                "target_percent": 20
+                "target_percent": 20,
+                "domain_id": "ple-abnormal"
             },
             {
                 "id": "industrial-organizational",
                 "name": "Industrial-Organizational Psychology",
-                "target_percent": 20
+                "target_percent": 20,
+                "domain_id": "ple-industrial"
             }
         ],
         "label": "Current official PRC weighting represented from the registered source.",

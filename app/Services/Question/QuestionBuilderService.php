@@ -29,6 +29,7 @@ final class QuestionBuilderService
                 'question' => QuestionInputReader::text($input, 'question', $existing),
                 'options' => QuestionOptionBuilder::build($input, $existing),
                 'explanation' => QuestionInputReader::text($input, 'explanation', $existing),
+                'content_blocks' => QuestionInputReader::blocks($input, $existing),
             ]
         );
     }

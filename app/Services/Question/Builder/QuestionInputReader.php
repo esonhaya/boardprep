@@ -33,4 +33,13 @@ final class QuestionInputReader
 
         return '';
     }
+
+    public static function blocks(array $input, ?array $existing = null): array
+    {
+        $raw = $input['content_blocks_json'] ?? null;
+        if ($raw === null && is_array($existing) && isset($existing['content_blocks'])) return $existing['content_blocks'];
+        if (!is_string($raw) || trim($raw) === '') return [];
+        $decoded = json_decode($raw, true);
+        return is_array($decoded) ? $decoded : [];
+    }
 }

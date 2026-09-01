@@ -52,6 +52,9 @@ $actions = $actions ?? [];
             $item["question"]["question"] ?? ""
         ) ?>
     </h3>
+    <?php if (!empty($item["question"]["content_blocks"])): ?>
+        <?= \App\Services\Question\StructuredContentService::render($item["question"]) ?>
+    <?php endif; ?>
 
     <p>
         Your Answer:

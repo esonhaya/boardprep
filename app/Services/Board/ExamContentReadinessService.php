@@ -31,6 +31,10 @@ final class ExamContentReadinessService
                 $relations[(string) ($relation['subject_id'] ?? '')] = true;
             }
         }
+        $blueprintSubjects = array_values(array_filter(
+            array_map(static fn(mixed $section): string => (string) ($section['id'] ?? ''), $blueprint['sections'] ?? []),
+            static fn(string $id): bool => $id !== ''
+        ));
 
         $subjectIds = [];
         $complete = 0;
@@ -39,7 +43,7 @@ final class ExamContentReadinessService
             $eligibility = \App\Services\Question\QuestionEligibilityService::forExam($question, $boardId)
                 ?? \App\Services\Question\QuestionEligibilityService::forExam($question, $boardCode);
             $subjectId = (string) ($eligibility['subject_id'] ?? '');
-            if ($subjectId !== '' && ($relations === [] || isset($relations[$subjectId]))) {
+            if ($subjectId !== '' && ($relations === [] || isset($relations[$subjectId]) || in_array($subjectId, $blueprintSubjects, true))) {
                 $subjectIds[$subjectId] = true;
             }
             if (self::completeTaxonomy($taxonomy)) {

@@ -10,6 +10,8 @@ final class QuestionValidationService
     {
         $errors = [];
 
+        $errors = array_merge($errors, \App\Services\Question\StructuredContentService::validate($question));
+
         self::validateIdentity($question, $errors);
         self::validateTaxonomy($question, $errors);
         self::validateQuestion($question, $errors);

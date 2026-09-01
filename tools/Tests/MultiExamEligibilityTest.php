@@ -74,8 +74,9 @@ foreach ($expectedBoards as $boardId) {
 $foundationCounts = ['criminologist' => 253, 'nursing' => 20, 'psychometrician' => 100];
 foreach ($foundationCounts as $boardId => $count) {
     $view = BoardViewService::find($boardId);
+    $expectedStatus = $boardId === 'psychometrician' ? 'STUDY_READY' : 'FOUNDATION';
     if (($view['available_questions'] ?? 0) !== $count
-        || ($view['content_readiness']['status'] ?? '') !== 'FOUNDATION') {
+        || ($view['content_readiness']['status'] ?? '') !== $expectedStatus) {
         throw new RuntimeException("{$boardId} foundation readiness is not repository-derived");
     }
 }

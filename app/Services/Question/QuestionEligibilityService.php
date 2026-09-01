@@ -64,7 +64,7 @@ final class QuestionEligibilityService
                 $subjects = is_array($entry['subject_ids'] ?? null) ? $entry['subject_ids'] : [];
                 return [
                     'exam_id' => $exam,
-                    'subject_id' => (string) ($subjects[$exam] ?? $entry['subject_id'] ?? ''),
+                    'subject_id' => self::resolvedSubject($question, $exam, (string) ($subjects[$exam] ?? $entry['subject_id'] ?? '')),
                 ];
             }
         }
@@ -72,6 +72,21 @@ final class QuestionEligibilityService
         $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
         $board = self::normalize((string) ($taxonomy['board_id'] ?? $question['board'] ?? ''));
         return $board === $exam ? ['exam_id' => $exam, 'subject_id' => (string) ($taxonomy['subject_id'] ?? $question['subject_id'] ?? '')] : null;
+    }
+
+    /** Resolve a legacy umbrella subject to a blueprint section when taxonomy provides it. */
+    private static function resolvedSubject(array $question, string $exam, string $subject): string
+    {
+        $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+        $domain = (string) ($taxonomy['domain_id'] ?? '');
+        if ($domain === '') return $subject;
+        foreach (App::storage()->all('blueprints') as $blueprint) {
+            if (($blueprint['board_id'] ?? $blueprint['board'] ?? '') !== $exam) continue;
+            foreach (($blueprint['sections'] ?? []) as $section) {
+                if (($section['id'] ?? '') === $domain || ($section['domain_id'] ?? '') === $domain) return (string) $section['id'];
+            }
+        }
+        return $subject;
     }
 
     public static function eligible(array $questions, string $exam): array

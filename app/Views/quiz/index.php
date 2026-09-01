@@ -33,6 +33,10 @@ No question available.
 <?= htmlspecialchars($question["question"]) ?>
 </h1>
 
+<?php if (!empty($question['content_blocks'])): ?>
+    <?= \App\Services\Question\StructuredContentService::render($question) ?>
+<?php endif; ?>
+
 
 <?php if($feedback): ?>
 
