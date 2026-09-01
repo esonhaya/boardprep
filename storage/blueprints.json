@@ -181,7 +181,7 @@
         "status": "active",
         "questionCount": 80,
         "foundation": true,
-        "official_weighting": false,
+        "official_weighting": true,
         "sections": [
             {
                 "id": "criminal-jurisprudence",
@@ -206,19 +206,26 @@
             {
                 "id": "criminology",
                 "name": "Criminology",
-                "target_percent": 15
+                "target_percent": 20
             },
             {
                 "id": "corrections",
                 "name": "Correctional Administration",
-                "target_percent": 15
+                "target_percent": 10
             }
         ],
-        "label": "BoardPrep foundation coverage targets; not official PRC weighting.",
+        "label": "Official PRC TOS subject weights; repository depth targets remain inventory guidance.",
         "source_id": "prc-criminology-enhanced-tos-2024",
         "source_version": "Resolution No. 02 s. 2024",
         "official_structure": "The enhanced TOS reference covers the six criminology subject areas represented here.",
-        "official_weights": null,
+        "official_weights": {
+            "criminal-jurisprudence": 20,
+            "law-enforcement": 15,
+            "investigation": 20,
+            "forensics": 15,
+            "criminology": 20,
+            "corrections": 10
+        },
         "internal_targets": true
     },
     {

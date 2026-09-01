@@ -13,7 +13,7 @@ use App\Services\Shared\QuestionCoverageService;
 
 $questions = App::storage()->all('questions');
 $ids = array_map(static fn(array $question): string => (string) ($question['id'] ?? ''), $questions);
-if (count($questions) !== 706 || count(array_unique($ids)) !== 706) {
+if (count($questions) !== 856 || count(array_unique($ids)) !== 856) {
     throw new RuntimeException('canonical question identities were not preserved');
 }
 foreach (range(1, 258) as $id) {
@@ -71,7 +71,7 @@ foreach ($expectedBoards as $boardId) {
         throw new RuntimeException("missing registered board: {$boardId}");
     }
 }
-$foundationCounts = ['criminologist' => 103, 'nursing' => 20, 'psychometrician' => 20];
+$foundationCounts = ['criminologist' => 253, 'nursing' => 20, 'psychometrician' => 20];
 foreach ($foundationCounts as $boardId => $count) {
     $view = BoardViewService::find($boardId);
     if (($view['available_questions'] ?? 0) !== $count
