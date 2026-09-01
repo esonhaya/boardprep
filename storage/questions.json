@@ -39856,39 +39856,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A trial balance omits accrued salaries at year-end. What is the reporting consequence?",
+        "question": "A machine costs P240,000, has a P40,000 residual value, and a four-year life. What is first-year straight-line depreciation?",
         "choices": [
-            "Assets increase",
-            "Liabilities and expense increase",
-            "Revenue increases",
-            "Equity increases"
+            "P50,000",
+            "P40,000",
+            "P60,000",
+            "P70,000"
         ],
-        "answer": "Liabilities and expense increase",
-        "explanation": "Accruing earned but unpaid salaries recognizes both the obligation and the period expense.",
+        "answer": "P50,000",
+        "explanation": "(P240,000 − P40,000) ÷ 4 = P50,000.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "accruals"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE"
     },
     {
         "id": 1260,
@@ -39905,18 +39912,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Which evidence most directly supports the existence assertion for a receivable?",
+        "question": "A receivable schedule has P80,000 current and P20,000 over 90 days. If the allowance rates are 2% and 10%, respectively, the allowance is:",
         "choices": [
-            "Tracing invoices to the sales journal",
-            "Confirming the balance with the customer",
-            "Recomputing depreciation",
-            "Inspecting unpaid supplier invoices"
+            "P3,600",
+            "P2,000",
+            "P2,400",
+            "P10,000"
         ],
-        "answer": "Confirming the balance with the customer",
-        "explanation": "A customer confirmation directly addresses whether the receivable exists.",
+        "answer": "P3,600",
+        "explanation": "P80,000×2% plus P20,000×10% equals P3,600.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -39934,18 +39968,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "Inventory costing P120,000 has an estimated selling price of P116,000 and costs to complete of P3,000. At the lower-of-cost-and-NRV test, what amount is reported?",
+        "question": "Cost is P75,000 and accumulated depreciation is P30,000. The carrying amount is:",
         "choices": [
-            "P113,000",
-            "P116,000",
-            "P117,000",
-            "P120,000"
+            "P45,000",
+            "P30,000",
+            "P75,000",
+            "P105,000"
         ],
-        "answer": "P113,000",
-        "explanation": "Net realizable value is P116,000 less P3,000, or P113,000; it is below cost.",
+        "answer": "P45,000",
+        "explanation": "Carrying amount equals cost less accumulated depreciation.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -39963,38 +40024,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A machine costs P500,000, has a P50,000 residual value, and a five-year useful life. Straight-line depreciation for one year is:",
+        "question": "A P12,000 annual insurance payment covers 12 months; four months have elapsed. The prepaid balance is:",
         "choices": [
-            "P50,000",
-            "P90,000",
-            "P100,000",
-            "P110,000"
+            "P8,000",
+            "P4,000",
+            "P6,000",
+            "P12,000"
         ],
-        "answer": "P90,000",
-        "explanation": "Depreciable amount is P450,000; dividing by five years gives P90,000.",
+        "answer": "P8,000",
+        "explanation": "Eight months remain, so P12,000×8/12 = P8,000.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "ppe"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE"
     },
     {
         "id": 1263,
@@ -40011,20 +40080,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A contract transfers control of goods when delivered, while payment is due later. The key recognition question is whether:",
+        "question": "A sale of P150,000 includes a P30,000 performance obligation not yet satisfied. Revenue recognized now is:",
         "choices": [
-            "Cash was collected",
-            "Control transferred and the performance obligation was satisfied",
-            "The invoice was printed",
-            "The customer requested a discount"
+            "P120,000",
+            "P30,000",
+            "P150,000",
+            "P180,000"
         ],
-        "answer": "Control transferred and the performance obligation was satisfied",
-        "explanation": "Revenue recognition follows satisfaction of the performance obligation and transfer of control.",
+        "answer": "P120,000",
+        "explanation": "Only the satisfied P120,000 portion is recognized.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1264,
@@ -40041,18 +40136,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A provision is recognized when an obligation is present, an outflow is probable, and the amount can be:",
+        "question": "A payable of P90,000 is settled with a P5,000 discount. Cash paid is:",
         "choices": [
-            "Guaranteed by management",
-            "Reliably estimated",
-            "Paid immediately",
-            "Approved by the auditor"
+            "P85,000",
+            "P5,000",
+            "P90,000",
+            "P95,000"
         ],
-        "answer": "Reliably estimated",
-        "explanation": "Those conditions distinguish a provision from a merely possible obligation.",
+        "answer": "P85,000",
+        "explanation": "Settlement cash equals the payable less discount.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -40070,38 +40192,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "Which change is generally treated prospectively?",
+        "question": "Beginning inventory is P40,000; purchases P110,000; ending inventory P35,000. Cost of goods sold is:",
         "choices": [
-            "Correction of a prior-period error",
-            "Change in accounting estimate",
-            "Restatement of comparative statements",
-            "Correction of a misclassified liability"
+            "P115,000",
+            "P75,000",
+            "P110,000",
+            "P185,000"
         ],
-        "answer": "Change in accounting estimate",
-        "explanation": "An estimate changes as new information becomes available and is applied prospectively.",
+        "answer": "P115,000",
+        "explanation": "COGS = beginning inventory + purchases − ending inventory.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "estimates"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE"
     },
     {
         "id": 1266,
@@ -40118,18 +40248,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "In a cash-flow statement, cash paid to acquire equipment is normally classified as:",
+        "question": "Cash from operations is P210,000 and investing cash flow is negative P80,000. Combined net cash from these two categories is:",
         "choices": [
-            "Operating",
-            "Investing",
-            "Financing",
-            "Noncash"
+            "P130,000",
+            "P80,000",
+            "P210,000",
+            "P290,000"
         ],
-        "answer": "Investing",
-        "explanation": "Acquiring a long-term asset is an investing cash flow.",
+        "answer": "P130,000",
+        "explanation": "P210,000 − P80,000 = P130,000.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -40147,20 +40304,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A liability due in ten months is normally current when the entity:",
+        "question": "A P500,000 bond is issued at 98. The proceeds are:",
         "choices": [
-            "Has an unconditional right to defer settlement beyond twelve months",
-            "Expects to settle it within its operating cycle or twelve months",
-            "Has no supplier invoice",
-            "Classifies all liabilities as equity"
+            "P490,000",
+            "P480,000",
+            "P498,000",
+            "P510,000"
         ],
-        "answer": "Expects to settle it within its operating cycle or twelve months",
-        "explanation": "Current classification reflects the operating cycle or the twelve-month settlement horizon.",
+        "answer": "P490,000",
+        "explanation": "98% of P500,000 equals P490,000.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1268,
@@ -40177,38 +40360,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Which feature most clearly distinguishes an intangible asset from inventory?",
+        "question": "Current assets are P360,000 and current liabilities P180,000. The current ratio is:",
         "choices": [
-            "It is identifiable and lacks physical substance",
-            "It is always current",
-            "It is held only for resale",
-            "It must be measured at cash"
+            "2.0:1",
+            "0.5:1",
+            "1.5:1",
+            "3.0:1"
         ],
-        "answer": "It is identifiable and lacks physical substance",
-        "explanation": "An intangible asset is an identifiable nonmonetary asset without physical substance.",
+        "answer": "2.0:1",
+        "explanation": "P360,000 ÷ P180,000 = 2.0.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "intangibles"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE"
     },
     {
         "id": 1269,
@@ -40574,39 +40765,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "In a partnership, a new partner contributes cash for an agreed capital interest. The accounting issue includes determining the effect on:",
+        "question": "A parent owns 75% of a subsidiary reporting P400,000 profit. Ignoring other adjustments, profit attributable to the parent is:",
         "choices": [
-            "Existing partners’ capital and the incoming partner’s capital",
-            "Only office supplies",
-            "Only sales revenue",
-            "The auditor’s salary"
+            "P300,000",
+            "P100,000",
+            "P325,000",
+            "P400,000"
         ],
-        "answer": "Existing partners’ capital and the incoming partner’s capital",
-        "explanation": "Admission changes the partners’ capital interests and requires an agreed allocation.",
+        "answer": "P300,000",
+        "explanation": "P400,000×75% = P300,000.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "partnerships"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE"
     },
     {
         "id": 1280,
@@ -40623,18 +40821,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A parent controls a subsidiary. Consolidated statements present the group as:",
+        "question": "An intercompany sale includes P20,000 profit; half remains in ending inventory. Consolidation eliminates unrealized profit of:",
         "choices": [
-            "Separate unrelated entities",
-            "One economic entity",
-            "Only the parent’s legal records",
-            "Only the subsidiary’s tax return"
+            "P10,000",
+            "P5,000",
+            "P20,000",
+            "P40,000"
         ],
-        "answer": "One economic entity",
-        "explanation": "Consolidation presents the parent and controlled subsidiary as one reporting entity.",
+        "answer": "P10,000",
+        "explanation": "Only the half still inside the group is unrealized: P20,000×1/2.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -40652,18 +40877,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "An intercompany sale leaves unrealized profit in ending inventory. Consolidation should:",
+        "question": "A branch receives goods billed at P60,000 and sells 80% externally. Goods remaining at billed amount are:",
         "choices": [
-            "Retain the profit twice",
-            "Eliminate the unrealized intragroup profit",
-            "Record it as external revenue",
-            "Ignore inventory"
+            "P12,000",
+            "P8,000",
+            "P48,000",
+            "P60,000"
         ],
-        "answer": "Eliminate the unrealized intragroup profit",
-        "explanation": "Profit is unrealized from the group perspective until sale outside the group.",
+        "answer": "P12,000",
+        "explanation": "Twenty percent remains: P60,000×20%.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -40681,38 +40933,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A business combination transfers consideration above the fair value of identifiable net assets. The residual is generally analyzed as:",
+        "question": "Consideration is P900,000 and identifiable net assets are P760,000. The residual before other adjustments is:",
         "choices": [
-            "Goodwill",
-            "Inventory shrinkage",
-            "A dividend",
-            "Cash discount"
+            "P140,000",
+            "P90,000",
+            "P160,000",
+            "P1,660,000"
         ],
-        "answer": "Goodwill",
-        "explanation": "The excess may represent goodwill after identifying and measuring net assets.",
+        "answer": "P140,000",
+        "explanation": "P900,000 − P760,000 = P140,000.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "combinations"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE"
     },
     {
         "id": 1283,
@@ -40729,20 +40989,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A branch remits cash to head office. The head-office record primarily recognizes:",
+        "question": "Partners share residual profit 3:2. On P250,000 residual profit, the first partner receives:",
         "choices": [
-            "A due-from branch balance",
-            "External sales",
-            "A tax penalty",
-            "A new subsidiary"
+            "P150,000",
+            "P100,000",
+            "P125,000",
+            "P200,000"
         ],
-        "answer": "A due-from branch balance",
-        "explanation": "Inter-office transfers create reciprocal current-account balances.",
+        "answer": "P150,000",
+        "explanation": "Three-fifths of P250,000 is P150,000.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1284,
@@ -40759,18 +41045,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A foreign operation’s financial statements are translated before consolidation. The purpose is to:",
+        "question": "A foreign balance of USD10,000 is translated at P56 per dollar. The peso amount is:",
         "choices": [
-            "Place amounts in the group presentation currency",
-            "Change the operation’s legal identity",
-            "Avoid all exchange differences",
-            "Turn liabilities into equity"
+            "P560,000",
+            "P46,000",
+            "An amount inconsistent with the supplied data",
+            "P5,600,000"
         ],
-        "answer": "Place amounts in the group presentation currency",
-        "explanation": "Translation makes the foreign operation comparable in the group currency.",
+        "answer": "P560,000",
+        "explanation": "10,000×56 = P560,000.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -40788,38 +41101,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "In liquidation, assets are realized and claims are settled. The sequence emphasizes:",
+        "question": "A subsidiary has assets P1,000,000 and liabilities P400,000. Net assets are:",
         "choices": [
-            "Priority of valid claims before residual distribution",
-            "Dividends before creditors",
-            "Ignoring secured claims",
-            "Recording all assets at zero immediately"
+            "P600,000",
+            "P400,000",
+            "P1,000,000",
+            "P1,400,000"
         ],
-        "answer": "Priority of valid claims before residual distribution",
-        "explanation": "Liquidation accounting follows realization and settlement priorities before residual allocation.",
+        "answer": "P600,000",
+        "explanation": "Net assets equal assets less liabilities.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "liquidation"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE"
     },
     {
         "id": 1286,
@@ -40836,18 +41157,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A joint arrangement gives parties rights to specific assets and obligations for specific liabilities. It is analyzed as a:",
+        "question": "A partnership capital balance is P420,000 before a P70,000 authorized withdrawal. Remaining capital is:",
         "choices": [
-            "Joint operation",
-            "Ordinary expense",
-            "Cash equivalent",
-            "Simple loan"
+            "P350,000",
+            "P70,000",
+            "P490,000",
+            "P420,000"
         ],
-        "answer": "Joint operation",
-        "explanation": "Rights and obligations to underlying items characterize a joint operation.",
+        "answer": "P350,000",
+        "explanation": "Withdrawal reduces capital by P70,000.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -40865,20 +41213,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A parent acquires 80% of a subsidiary. The remaining 20% is presented as:",
+        "question": "A parent’s receivable from its subsidiary is P45,000 and the subsidiary’s payable agrees. Consolidated balance is:",
         "choices": [
-            "Noncontrolling interest",
-            "Revenue",
-            "A payable to customers",
-            "Inventory reserve"
+            "P0",
+            "P45,000",
+            "P90,000",
+            "P135,000"
         ],
-        "answer": "Noncontrolling interest",
-        "explanation": "The portion not attributable to the parent is noncontrolling interest.",
+        "answer": "P0",
+        "explanation": "Reciprocal intragroup balances are eliminated.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1288,
@@ -40895,38 +41269,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A consolidated statement eliminates the parent’s investment against the subsidiary’s:",
+        "question": "A subsidiary earns P180,000 after tax; NCI owns 20%. NCI share is:",
         "choices": [
-            "Relevant equity at consolidation",
-            "External cash sales",
-            "Tax expense only",
-            "Office rent"
+            "P36,000",
+            "P20,000",
+            "P144,000",
+            "P180,000"
         ],
-        "answer": "Relevant equity at consolidation",
-        "explanation": "The investment and corresponding subsidiary equity are intragroup balances.",
+        "answer": "P36,000",
+        "explanation": "P180,000×20% = P36,000.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "elimination"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE"
     },
     {
         "id": 1289,
@@ -41292,39 +41674,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A product sells for P50 with variable cost P30. Contribution margin per unit is:",
+        "question": "Selling price is P80, variable cost P50, and fixed cost P180,000. Break-even units are:",
         "choices": [
-            "P20",
-            "P30",
-            "P50",
-            "P80"
+            "6,000",
+            "3,600",
+            "4,500",
+            "9,000"
         ],
-        "answer": "P20",
-        "explanation": "Contribution margin equals selling price less variable cost: P50 − P30 = P20.",
+        "answer": "6,000",
+        "explanation": "Unit contribution is P30; P180,000÷P30 = 6,000.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "cvp"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE"
     },
     {
         "id": 1300,
@@ -41341,18 +41730,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Fixed costs are P120,000 and contribution margin per unit is P30. Break-even units are:",
+        "question": "A product yields P24 contribution and uses 3 constrained machine hours. Contribution per constrained hour is:",
         "choices": [
-            "2,000",
-            "3,000",
-            "4,000",
-            "5,000"
+            "P8",
+            "P3",
+            "P21",
+            "P72"
         ],
-        "answer": "4,000",
-        "explanation": "Break-even volume is fixed costs divided by unit contribution: P120,000/P30 = 4,000.",
+        "answer": "P8",
+        "explanation": "P24÷3 = P8 per constrained hour.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -41370,18 +41786,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A manager can avoid a cost by rejecting a special order. That avoidable cost is:",
+        "question": "Actual material cost is P54,000 versus a P50,000 standard at actual output. The spending difference is:",
         "choices": [
-            "Relevant to the decision",
-            "Always sunk",
-            "Never measurable",
-            "A financing cost"
+            "P4,000 unfavorable",
+            "P4,000 favorable",
+            "P50,000 favorable",
+            "P104,000 unfavorable"
         ],
-        "answer": "Relevant to the decision",
-        "explanation": "A future cost that differs between alternatives is relevant.",
+        "answer": "P4,000 unfavorable",
+        "explanation": "Actual cost exceeds standard cost by P4,000.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -41399,38 +41842,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A flexible budget adjusts expected costs for actual activity. It helps isolate:",
+        "question": "A budgeted receipt of P90,000 is delayed one month while payments of P65,000 remain due. The immediate cash gap is:",
         "choices": [
-            "Activity-level effects from spending effects",
-            "Only tax penalties",
-            "Share-price changes",
-            "Audit opinions"
+            "P65,000",
+            "P25,000",
+            "P90,000",
+            "P155,000"
         ],
-        "answer": "Activity-level effects from spending effects",
-        "explanation": "Flexible budgets compare costs at the actual activity level.",
+        "answer": "P65,000",
+        "explanation": "Until the receipt arrives, the payment must be funded.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "budgeting"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE"
     },
     {
         "id": 1303,
@@ -41447,20 +41898,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A favorable material price variance may coexist with an unfavorable usage variance. The combination suggests:",
+        "question": "A project costs P200,000 and returns P260,000 before considering timing. Undiscounted return over cost is:",
         "choices": [
-            "Cheaper material may have caused greater usage",
-            "All materials were perfect",
-            "No variance exists",
-            "Labor was omitted"
+            "30%",
+            "23.1%",
+            "60%",
+            "130%"
         ],
-        "answer": "Cheaper material may have caused greater usage",
-        "explanation": "Price and usage variances measure different effects and may move in opposite directions.",
+        "answer": "30%",
+        "explanation": "Gain is P60,000; P60,000÷P200,000 = 30%.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1304,
@@ -41477,18 +41954,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A project requires P100,000 now and returns P120,000 later without considering timing. The missing decision factor is:",
+        "question": "Product A contributes P40 and product B P25. A mix of 3 A and 2 B contributes per five units:",
         "choices": [
-            "Time value of money",
-            "Inventory count",
-            "Audit sampling",
-            "Sales return"
+            "P170",
+            "P90",
+            "P145",
+            "P190"
         ],
-        "answer": "Time value of money",
-        "explanation": "Investment decisions compare cash flows with their timing and risk.",
+        "answer": "P170",
+        "explanation": "3×P40 + 2×P25 = P170.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -41506,38 +42010,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A scarce machine hour can make one product more valuable than another when ranked by:",
+        "question": "Avoidable cost is P18 per unit for 4,000 units. Total avoidable cost is:",
         "choices": [
-            "Contribution per constrained hour",
-            "Selling price alone",
-            "Fixed cost total alone",
-            "Number of employees"
+            "P72,000",
+            "P22,000",
+            "P54,000",
+            "An amount inconsistent with the supplied data"
         ],
-        "answer": "Contribution per constrained hour",
-        "explanation": "The constraint should be evaluated using contribution generated per scarce unit.",
+        "answer": "P72,000",
+        "explanation": "P18×4,000 = P72,000.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "constraints"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE"
     },
     {
         "id": 1306,
@@ -41554,18 +42066,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A cost already incurred cannot be changed by a new decision. It is:",
+        "question": "A department has actual output 12,000 units at P6 variable cost plus P40,000 fixed cost. Total cost is:",
         "choices": [
-            "Sunk cost",
-            "Relevant avoidable cost",
-            "Opportunity benefit",
-            "Incremental revenue"
+            "P112,000",
+            "P72,000",
+            "P46,000",
+            "P152,000"
         ],
-        "answer": "Sunk cost",
-        "explanation": "Sunk costs do not differ between current alternatives.",
+        "answer": "P112,000",
+        "explanation": "12,000×P6 + P40,000 = P112,000.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -41583,20 +42122,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A budget variance investigation should begin with the variance that is:",
+        "question": "A project has present value of inflows P480,000 and initial cost P500,000. NPV is:",
         "choices": [
-            "Material and potentially actionable",
-            "Smallest regardless of cause",
-            "Always favorable",
-            "Already corrected"
+            "P20,000 negative",
+            "P20,000 positive",
+            "P480,000 negative",
+            "P980,000 negative"
         ],
-        "answer": "Material and potentially actionable",
-        "explanation": "Materiality and controllability help prioritize investigation.",
+        "answer": "P20,000 negative",
+        "explanation": "P480,000 − P500,000 = −P20,000.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1308,
@@ -41613,38 +42178,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A responsibility center manager controls revenues and costs but not invested assets. It is a:",
+        "question": "A cost center spends P96,000 for 8,000 service units. Cost per unit is:",
         "choices": [
-            "Profit center",
-            "Investment center",
-            "Cost center only",
-            "Treasury"
+            "P12",
+            "P8",
+            "P88",
+            "P104"
         ],
-        "answer": "Profit center",
-        "explanation": "A profit center is accountable for revenues and costs; investment centers also control assets.",
+        "answer": "P12",
+        "explanation": "P96,000÷8,000 = P12.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "responsibility"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE"
     },
     {
         "id": 1309,
@@ -42010,39 +42583,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "An auditor tests whether recorded sales occurred. The assertion is:",
+        "question": "A sample finds 6 exceptions in 120 tested controls. The observed exception rate is:",
         "choices": [
-            "Occurrence",
-            "Completeness",
-            "Cutoff only",
-            "Classification only"
+            "5%",
+            "0.5%",
+            "6%",
+            "20%"
         ],
-        "answer": "Occurrence",
-        "explanation": "Occurrence asks whether recorded transactions actually happened.",
+        "answer": "5%",
+        "explanation": "6÷120 = 0.05, or 5%.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "assertions"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STANDARD_DEPENDENT"
     },
     {
         "id": 1320,
@@ -42059,18 +42639,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A control separates custody of cash from recordkeeping. Its primary purpose is to reduce:",
+        "question": "Planning materiality is P100,000 and an identified error is P18,000. Five similar errors would total:",
         "choices": [
-            "Opportunity for concealment and error",
-            "All business risk",
-            "Market volatility",
-            "Tax rates"
+            "P90,000",
+            "P18,000",
+            "P82,000",
+            "P118,000"
         ],
-        "answer": "Opportunity for concealment and error",
-        "explanation": "Segregation of duties reduces incompatible control responsibilities.",
+        "answer": "P90,000",
+        "explanation": "P18,000×5 = P90,000, below the stated threshold.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -42088,18 +42695,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "Audit risk includes the possibility that the auditor:",
+        "question": "Inventory records show 1,000 units; observation finds 960. The shortage is:",
         "choices": [
-            "Expresses an inappropriate opinion",
-            "Finds every error",
-            "Prepares management accounts",
-            "Guarantees solvency"
+            "40 units",
+            "4 units",
+            "60 units",
+            "960 units"
         ],
-        "answer": "Expresses an inappropriate opinion",
-        "explanation": "Audit risk concerns an inappropriate opinion on materially misstated statements.",
+        "answer": "40 units",
+        "explanation": "1,000 − 960 = 40 units.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -42117,38 +42751,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Materiality affects audit planning because it helps determine:",
+        "question": "An auditor selects 25 invoices from a population of 500. The sample is what percentage?",
         "choices": [
-            "The significance of possible misstatements",
-            "The client’s selling price",
-            "The tax filing date",
-            "The bank interest rate"
+            "5%",
+            "2.5%",
+            "10%",
+            "20%"
         ],
-        "answer": "The significance of possible misstatements",
-        "explanation": "Materiality guides the nature, timing, and extent of audit work.",
+        "answer": "5%",
+        "explanation": "25÷500 = 5%.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "materiality"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STANDARD_DEPENDENT"
     },
     {
         "id": 1323,
@@ -42165,20 +42807,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "An external confirmation is most directly useful for testing:",
+        "question": "Receivables are P300,000 and confirmed balances total P240,000. The unconfirmed amount is:",
         "choices": [
-            "A receivable balance",
-            "The existence of an internal policy",
-            "The auditor’s vacation",
-            "A depreciation method alone"
+            "P60,000",
+            "P40,000",
+            "P240,000",
+            "P540,000"
         ],
-        "answer": "A receivable balance",
-        "explanation": "Confirmation obtains evidence from an independent external party about the receivable.",
+        "answer": "P60,000",
+        "explanation": "P300,000 − P240,000 = P60,000.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1324,
@@ -42195,18 +42863,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A physical inventory observation primarily provides evidence about:",
+        "question": "Three detected misstatements are P12,000, P9,000, and P14,000. Their aggregate is:",
         "choices": [
-            "Existence and condition",
-            "Future sales price",
-            "Management integrity alone",
-            "Tax residency"
+            "P35,000",
+            "P23,000",
+            "P26,000",
+            "P44,000"
         ],
-        "answer": "Existence and condition",
-        "explanation": "Observation helps assess whether inventory is present and its condition.",
+        "answer": "P35,000",
+        "explanation": "12,000+9,000+14,000 = P35,000.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -42224,38 +42919,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "If controls are unreliable, the auditor generally responds by:",
+        "question": "A control test has 2 failures in 80 selections. The observed failure rate is:",
         "choices": [
-            "Increasing substantive procedures as appropriate",
-            "Ignoring the risk",
-            "Issuing an automatic clean opinion",
-            "Deleting the ledger"
+            "2.5%",
+            "0.25%",
+            "4%",
+            "8%"
         ],
-        "answer": "Increasing substantive procedures as appropriate",
-        "explanation": "Weak controls may require more direct substantive evidence.",
+        "answer": "2.5%",
+        "explanation": "2÷80 = 2.5%.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "control-risk"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STANDARD_DEPENDENT"
     },
     {
         "id": 1326,
@@ -42272,18 +42975,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Analytical procedures identify an unexpected margin change. The auditor should first:",
+        "question": "A payable population has 40 items; 8 are tested and 1 is unsupported. The sample exception rate is:",
         "choices": [
-            "Investigate the variance with appropriate evidence",
-            "Assume fraud",
-            "Change the client’s numbers",
-            "Ignore it because it is only a ratio"
+            "12.5%",
+            "2.5%",
+            "8%",
+            "25%"
         ],
-        "answer": "Investigate the variance with appropriate evidence",
-        "explanation": "An unexpected relationship is an inquiry trigger, not proof of a misstatement.",
+        "answer": "12.5%",
+        "explanation": "1÷8 = 12.5%.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -42301,20 +43031,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "An auditor’s independence is threatened by reviewing work the auditor prepared. The safeguard is to:",
+        "question": "An audit plan allocates 18 hours to controls and 30 hours to substantive work. Total planned hours are:",
         "choices": [
-            "Remove or mitigate the self-review threat",
-            "Accept it without evaluation",
-            "Hide the relationship",
-            "Increase the audit fee"
+            "48 hours",
+            "12 hours",
+            "30 hours",
+            "54 hours"
         ],
-        "answer": "Remove or mitigate the self-review threat",
-        "explanation": "Self-review threats require an appropriate safeguard or withdrawal from the role.",
+        "answer": "48 hours",
+        "explanation": "18+30 = 48 hours.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1328,
@@ -42331,38 +43087,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Sampling risk is the risk that a sample conclusion differs from the conclusion for:",
+        "question": "Cash is P1,250,000 and confirmed bank balance is P1,190,000 before reconciling items. Difference is:",
         "choices": [
-            "The entire population",
-            "The auditor’s budget",
-            "The tax authority",
-            "A different client"
+            "P60,000",
+            "P40,000",
+            "An amount inconsistent with the supplied data",
+            "P2,440,000"
         ],
-        "answer": "The entire population",
-        "explanation": "Sampling risk arises because only part of the population is tested.",
+        "answer": "P60,000",
+        "explanation": "P1,250,000 − P1,190,000 = P60,000.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "sampling"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STANDARD_DEPENDENT"
     },
     {
         "id": 1329,
@@ -42728,39 +43492,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A valid contract requires consent, object, and:",
+        "question": "A contract price is P200,000 and the buyer pays P50,000 upfront. The unpaid balance is:",
         "choices": [
-            "Cause",
-            "Profit",
-            "A bank loan",
-            "An audit opinion"
+            "P150,000",
+            "P50,000",
+            "P200,000",
+            "P250,000"
         ],
-        "answer": "Cause",
-        "explanation": "Cause is the third essential element of a contract.",
+        "answer": "P150,000",
+        "explanation": "P200,000 − P50,000 = P150,000.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "contracts"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE"
     },
     {
         "id": 1340,
@@ -42777,18 +43548,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A corporation has a legal personality distinct from its shareholders. This means:",
+        "question": "A corporation has 5 directors, and 3 vote for a motion. The fraction voting for it is:",
         "choices": [
-            "Corporate obligations are generally distinct from shareholder obligations",
-            "Shareholders own every corporate asset personally",
-            "The corporation cannot contract",
-            "All debts are employee debts"
+            "60%",
+            "40%",
+            "50%",
+            "80%"
         ],
-        "answer": "Corporate obligations are generally distinct from shareholder obligations",
-        "explanation": "Separate personality distinguishes the corporation’s rights and obligations.",
+        "answer": "60%",
+        "explanation": "3÷5 = 60%.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -42806,18 +43604,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A negotiable instrument’s transfer by endorsement generally concerns:",
+        "question": "A partnership has assets P900,000 and obligations P350,000. Net equity before distribution is:",
         "choices": [
-            "Negotiation of the instrument",
-            "Depreciation of equipment",
-            "Inventory count",
-            "Payroll tax"
+            "P550,000",
+            "P350,000",
+            "P900,000",
+            "P1,250,000"
         ],
-        "answer": "Negotiation of the instrument",
-        "explanation": "Endorsement can transfer an instrument according to its legal form.",
+        "answer": "P550,000",
+        "explanation": "Assets less obligations equals P550,000.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -42835,38 +43660,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "An agent acts within authority for a disclosed principal. The resulting contract generally binds:",
+        "question": "A buyer receives 4 of 5 ordered units. The undelivered portion is:",
         "choices": [
-            "The principal and the other contracting party",
-            "Only the agent personally",
-            "The auditor",
-            "No one"
+            "20%",
+            "4%",
+            "25%",
+            "80%"
         ],
-        "answer": "The principal and the other contracting party",
-        "explanation": "An authorized agent connects the principal to the third party.",
+        "answer": "20%",
+        "explanation": "One of five units is undelivered: 1÷5 = 20%.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "agency"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE"
     },
     {
         "id": 1343,
@@ -42883,20 +43716,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A creditor accepts a new debtor and releases the old debtor. This is an example of:",
+        "question": "A company authorizes P72,000 across 6 equal monthly payments. Each payment is:",
         "choices": [
-            "Novation",
-            "Compensation",
-            "Deposit",
-            "Lease"
+            "P12,000",
+            "P6,000",
+            "P18,000",
+            "P432,000"
         ],
-        "answer": "Novation",
-        "explanation": "Novation replaces an obligation or party with the required consent.",
+        "answer": "P12,000",
+        "explanation": "P72,000÷6 = P12,000.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1344,
@@ -42913,18 +43772,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A contract clause is unclear. Interpretation should first seek:",
+        "question": "A document has 4 required signatures and 3 are present. Completion is:",
         "choices": [
-            "The parties’ intended meaning from the contract and circumstances",
-            "The most expensive outcome",
-            "A random dictionary entry",
-            "The auditor’s preference"
+            "75%",
+            "25%",
+            "66.7%",
+            "133%"
         ],
-        "answer": "The parties’ intended meaning from the contract and circumstances",
-        "explanation": "Contract interpretation seeks the parties’ intent using the agreement and context.",
+        "answer": "75%",
+        "explanation": "3÷4 = 75%.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -42942,38 +43828,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A corporation’s board approves a transaction outside its authority. The issue concerns:",
+        "question": "A principal owes P480,000 in four equal installments. Each installment is:",
         "choices": [
-            "Corporate power and authority",
-            "Inventory valuation",
-            "Audit sampling",
-            "Cash conversion"
+            "P120,000",
+            "P40,000",
+            "P96,000",
+            "P192,000"
         ],
-        "answer": "Corporate power and authority",
-        "explanation": "Corporate acts must be evaluated against the entity’s powers and authorized decision makers.",
+        "answer": "P120,000",
+        "explanation": "P480,000÷4 = P120,000.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "governance"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE"
     },
     {
         "id": 1346,
@@ -42990,18 +43884,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A seller transfers ownership and possession for a price. The transaction is a:",
+        "question": "A transaction involves P300,000 consideration and P90,000 costs. Net amount is:",
         "choices": [
-            "Sale",
-            "Donation",
-            "Agency only",
-            "Mortgage only"
+            "P210,000",
+            "P90,000",
+            "P300,000",
+            "P390,000"
         ],
-        "answer": "Sale",
-        "explanation": "Sale involves transfer of ownership for a price.",
+        "answer": "P210,000",
+        "explanation": "P300,000 − P90,000 = P210,000.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -43019,20 +43940,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A debtor’s obligation is secured by a property interest. The security primarily protects:",
+        "question": "A board reviews 7 of 10 contracts. The unreviewed proportion is:",
         "choices": [
-            "The creditor’s claim",
-            "The employee’s leave",
-            "The tax rate",
-            "The audit opinion"
+            "30%",
+            "7%",
+            "An amount inconsistent with the supplied data",
+            "70%"
         ],
-        "answer": "The creditor’s claim",
-        "explanation": "Security supports enforcement of the creditor’s obligation.",
+        "answer": "30%",
+        "explanation": "Three of ten remain: 30%.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1348,
@@ -43049,38 +43996,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Professional independence is relevant to a CPA because it supports:",
+        "question": "A corporation has 12,000 shares and an investor owns 3,000. Ownership is:",
         "choices": [
-            "Objective professional judgment",
-            "Guaranteed client profit",
-            "Avoidance of all business risk",
-            "Automatic tax exemption"
+            "25%",
+            "12.5%",
+            "30%",
+            "75%"
         ],
-        "answer": "Objective professional judgment",
-        "explanation": "Independence protects objective judgment in professional work.",
+        "answer": "25%",
+        "explanation": "3,000÷12,000 = 25%.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "professional-law"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STABLE"
     },
     {
         "id": 1349,
@@ -43446,39 +44401,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A tax is imposed by public authority to raise revenue and fund public purposes. It is primarily a:",
+        "question": "A taxpayer has gross receipts P500,000 and documented allowable deductions P180,000. The resulting base before other rules is:",
         "choices": [
-            "Compulsory contribution",
-            "Voluntary donation",
-            "Private dividend",
-            "Loan repayment"
+            "P320,000",
+            "P180,000",
+            "P500,000",
+            "P680,000"
         ],
-        "answer": "Compulsory contribution",
-        "explanation": "Taxes are compulsory contributions imposed under law for public purposes.",
+        "answer": "P320,000",
+        "explanation": "P500,000 − P180,000 = P320,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "tax-basics"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STANDARD_DEPENDENT"
     },
     {
         "id": 1360,
@@ -43495,18 +44457,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A taxpayer keeps invoices and transaction records to support a reported deduction. The records provide:",
+        "question": "Output tax is P42,000 and allowable input tax is P28,000. The difference is:",
         "choices": [
-            "Substantiation for the tax position",
-            "Automatic tax exemption",
-            "A new liability",
-            "An audit opinion"
+            "P14,000",
+            "P14,000 credit",
+            "P28,000 payable",
+            "P70,000 payable"
         ],
-        "answer": "Substantiation for the tax position",
-        "explanation": "Records support the factual and legal basis of a claimed tax treatment.",
+        "answer": "P14,000",
+        "explanation": "Output less input equals P14,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -43524,18 +44513,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A business tax calculation begins with identifying the transaction’s:",
+        "question": "Payroll has 8 employees paid P25,000 each. Total payroll is:",
         "choices": [
-            "Applicable tax base and governing rule",
-            "Office paint color",
-            "Employee preference",
-            "Audit firm size"
+            "P200,000",
+            "P33,000",
+            "P175,000",
+            "P225,000"
         ],
-        "answer": "Applicable tax base and governing rule",
-        "explanation": "Correct computation starts with the base and rule that govern the transaction.",
+        "answer": "P200,000",
+        "explanation": "8×P25,000 = P200,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -43553,38 +44569,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A taxpayer separates personal and business expenses before filing. This improves:",
+        "question": "A taxpayer remits P36,000 in three equal installments. Each is:",
         "choices": [
-            "Accurate classification of deductible and nondeductible amounts",
-            "Guaranteed refund",
-            "Avoidance of recordkeeping",
-            "Automatic exemption"
+            "P12,000",
+            "P9,000",
+            "P18,000",
+            "P108,000"
         ],
-        "answer": "Accurate classification of deductible and nondeductible amounts",
-        "explanation": "Proper classification supports a defensible return.",
+        "answer": "P12,000",
+        "explanation": "P36,000÷3 = P12,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "deductions"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STANDARD_DEPENDENT"
     },
     {
         "id": 1363,
@@ -43601,20 +44625,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A withholding agent remits tax withheld from a payment. The remittance represents:",
+        "question": "A tax computation starts at P900,000 and removes a verified P120,000 adjustment. Adjusted base is:",
         "choices": [
-            "Collection on behalf of the government",
-            "A dividend to the payee",
-            "An inventory purchase",
-            "A bank loan"
+            "P780,000",
+            "P120,000",
+            "P900,000",
+            "P1,020,000"
         ],
-        "answer": "Collection on behalf of the government",
-        "explanation": "Withholding collects tax at source for later remittance.",
+        "answer": "P780,000",
+        "explanation": "P900,000 − P120,000 = P780,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1364,
@@ -43631,18 +44681,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A VAT-registered business compares output tax with allowable input tax. The comparison determines:",
+        "question": "A business records 15 taxable sales of P4,000 each. Total sales are:",
         "choices": [
-            "Net VAT payable or credit under the applicable rules",
-            "Employee salary",
-            "Corporate share capital",
-            "Audit materiality"
+            "P60,000",
+            "P19,000",
+            "P45,000",
+            "P64,000"
         ],
-        "answer": "Net VAT payable or credit under the applicable rules",
-        "explanation": "Output and allowable input tax are compared under VAT rules.",
+        "answer": "P60,000",
+        "explanation": "15×P4,000 = P60,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -43660,38 +44737,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A tax return contains an arithmetic error discovered before filing. The responsible response is to:",
+        "question": "A taxpayer has three supported expenses of P18,000, P22,000, and P10,000. Total is:",
         "choices": [
-            "Correct it using the applicable filing process",
-            "Submit knowingly without review",
-            "Delete source records",
-            "Change unrelated transactions"
+            "P50,000",
+            "P32,000",
+            "P40,000",
+            "P60,000"
         ],
-        "answer": "Correct it using the applicable filing process",
-        "explanation": "Review and correction improve accuracy before filing.",
+        "answer": "P50,000",
+        "explanation": "18,000+22,000+10,000 = P50,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "filing"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STANDARD_DEPENDENT"
     },
     {
         "id": 1366,
@@ -43708,18 +44793,45 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A tax exemption is claimed without a legal basis. The claim should be:",
+        "question": "A return reports P640,000 while the reconciled ledger supports P625,000. Difference is:",
         "choices": [
-            "Rejected or supported by the applicable authority",
-            "Accepted because it is convenient",
-            "Recorded as revenue",
-            "Treated as a dividend"
+            "P15,000",
+            "P5,000",
+            "An amount inconsistent with the supplied data",
+            "P1,265,000"
         ],
-        "answer": "Rejected or supported by the applicable authority",
-        "explanation": "Exemptions require legal support; convenience is not sufficient.",
+        "answer": "P15,000",
+        "explanation": "P640,000 − P625,000 = P15,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -43737,20 +44849,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A taxpayer receives a notice requiring records. The taxpayer should:",
+        "question": "A withholding schedule lists P7,500 monthly for four months. Total withheld is:",
         "choices": [
-            "Review the notice and respond through the applicable lawful process",
-            "Destroy records",
-            "Ignore every deadline",
-            "Alter invoices"
+            "P30,000",
+            "P11,500",
+            "An amount inconsistent with the supplied data",
+            "P75,000"
         ],
-        "answer": "Review the notice and respond through the applicable lawful process",
-        "explanation": "A notice should be handled through the stated lawful process with records preserved.",
+        "answer": "P30,000",
+        "explanation": "4×P7,500 = P30,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Primary input",
+                        "See stem"
+                    ],
+                    [
+                        "Decision",
+                        "Compute and compare the alternatives"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1368,
@@ -43767,38 +44905,46 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A tax rate changes after a transaction date. The accountant must first determine:",
+        "question": "A transaction’s tax base is P250,000 and the applicable verified rate is 4%. Tax is:",
         "choices": [
-            "Which law and effective date govern the transaction",
-            "Which rate looks fairest",
-            "The auditor’s favorite rate",
-            "The company logo"
+            "P10,000",
+            "P6,250",
+            "An amount inconsistent with the supplied data",
+            "P100,000"
         ],
-        "answer": "Which law and effective date govern the transaction",
-        "explanation": "Tax treatment depends on the governing rule and effective date.",
+        "answer": "P10,000",
+        "explanation": "P250,000×0.04 = P10,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
+                "type": "equation",
+                "value": "Relevant amount = supplied inputs combined using the stated relationship",
+                "fallback": "Use the supplied figures and stated relationship."
+            },
+            {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Primary input",
+                        "See stem"
                     ],
                     [
-                        "Decision point",
-                        "current-law"
+                        "Decision",
+                        "Compute and compare the alternatives"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "source_sensitivity": "STANDARD_DEPENDENT"
     },
     {
         "id": 1369,
