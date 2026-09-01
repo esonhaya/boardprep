@@ -13,10 +13,10 @@ use App\Services\Shared\QuestionCoverageService;
 
 $questions = App::storage()->all('questions');
 $ids = array_map(static fn(array $question): string => (string) ($question['id'] ?? ''), $questions);
-if (count($questions) !== 220 || count(array_unique($ids)) !== 220) {
+if (count($questions) !== 499 || count(array_unique($ids)) !== 499) {
     throw new RuntimeException('canonical question identities were not preserved');
 }
-foreach (range(1, 190) as $id) {
+foreach (range(1, 258) as $id) {
     if (!in_array((string) $id, $ids, true)) {
         throw new RuntimeException("existing question identity {$id} was lost");
     }
@@ -24,10 +24,10 @@ foreach (range(1, 190) as $id) {
 
 $let = QuestionEligibilityService::eligible($questions, 'let');
 $cse = QuestionEligibilityService::eligible($questions, 'civil-service');
-if (count($let) !== 190 || count($cse) !== 130) {
+if (count($let) !== 454 || count($cse) !== 168) {
     throw new RuntimeException('explicit exam eligibility counts are incorrect');
 }
-if (count(array_unique(array_map(static fn(array $q): string => (string) $q['id'], $cse))) !== 130) {
+if (count(array_unique(array_map(static fn(array $q): string => (string) $q['id'], $cse))) !== 168) {
     throw new RuntimeException('CSE eligibility contains duplicate canonical records');
 }
 $analytical = array_values(array_filter(
@@ -53,7 +53,7 @@ foreach ($verbal as $question) {
 
 $letView = BoardViewService::find('let');
 $cseView = BoardViewService::find('civil-service');
-if (($letView['available_questions'] ?? 0) !== 190 || ($cseView['available_questions'] ?? 0) !== 130) {
+if (($letView['available_questions'] ?? 0) !== 454 || ($cseView['available_questions'] ?? 0) !== 168) {
     throw new RuntimeException('board availability is not derived from eligibility');
 }
 $coverage = QuestionCoverageService::analyzeRepository()['blueprints'] ?? [];
@@ -71,7 +71,7 @@ foreach ($expectedBoards as $boardId) {
         throw new RuntimeException("missing registered board: {$boardId}");
     }
 }
-$foundationCounts = ['criminologist' => 25, 'nursing' => 20, 'psychometrician' => 20];
+$foundationCounts = ['criminologist' => 48, 'nursing' => 20, 'psychometrician' => 20];
 foreach ($foundationCounts as $boardId => $count) {
     $view = BoardViewService::find($boardId);
     if (($view['available_questions'] ?? 0) !== $count

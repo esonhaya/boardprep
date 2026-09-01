@@ -56,6 +56,38 @@ final class ExamIntelligenceService
         return ['valid' => $invalid === [], 'invalid' => array_values(array_unique($invalid)), 'total' => count(self::all())];
     }
 
+    /** Resolve a factual claim using explicit source authority, never signal volume. */
+    public static function resolveFact(array $signals): ?array
+    {
+        $signals = array_values(array_filter($signals, 'is_array'));
+        usort($signals, static function (array $left, array $right): int {
+            $rank = static fn(array $signal): int => match ((string) ($signal['authority'] ?? $signal['signal_type'] ?? '')) {
+                'CURRENT_OFFICIAL', 'OFFICIAL_SCOPE', 'OFFICIAL_WEIGHT' => 6,
+                'OLDER_OFFICIAL' => 5,
+                'CORROBORATED_SECONDARY', 'REVIEW_CENTER_SIGNAL' => 4,
+                'SINGLE_SECONDARY' => 3,
+                'COMMUNITY_REPORT' => 2,
+                default => 1,
+            };
+            return $rank($right) <=> $rank($left);
+        });
+        return $signals[0] ?? null;
+    }
+
+    public static function hasFactConflict(array $signals): bool
+    {
+        $claims = [];
+        foreach ($signals as $signal) {
+            if (!is_array($signal) || !array_key_exists('claim', $signal)) {
+                continue;
+            }
+            $claims[(string) ($signal['authority'] ?? $signal['signal_type'] ?? 'EDITORIAL')][] = (string) $signal['claim'];
+        }
+        $official = array_merge($claims['CURRENT_OFFICIAL'] ?? [], $claims['OFFICIAL_SCOPE'] ?? [], $claims['OFFICIAL_WEIGHT'] ?? []);
+        $secondary = array_merge($claims['CORROBORATED_SECONDARY'] ?? [], $claims['REVIEW_CENTER_SIGNAL'] ?? [], $claims['SINGLE_SECONDARY'] ?? []);
+        return $official !== [] && $secondary !== [] && array_diff($official, $secondary) !== [];
+    }
+
     private static function normalize(string $exam): string
     {
         $exam = strtolower(trim($exam));

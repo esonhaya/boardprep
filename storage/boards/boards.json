@@ -9,7 +9,8 @@
         "visual": {"accent": "emerald", "secondary_accent": "blue", "icon": "let"},
         "settings": {
             "passing_score": 75,
-            "default_mode": "practice"
+            "default_mode": "practice",
+            "readiness": {"minimum_questions": 80, "minimum_subjects": 5}
         }
     },
     {
@@ -22,7 +23,8 @@
         "visual": {"accent": "blue", "secondary_accent": "gold", "icon": "cse"},
         "settings": {
             "passing_score": 80,
-            "default_mode": "practice"
+            "default_mode": "practice",
+            "readiness": {"minimum_questions": 100, "minimum_subjects": 3}
         }
     }
 ]

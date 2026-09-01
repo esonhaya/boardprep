@@ -9,6 +9,89 @@
         "version": 1,
         "status": "active",
         "questionCount": 100,
+        "variants": {
+            "elementary": {
+                "label": "Elementary without specialization",
+                "official_structure": "General Education 40%; Professional Education 60%",
+                "official_weights": {
+                    "general_education": 40,
+                    "professional_education": 60
+                },
+                "specialization_status": "NOT_APPLICABLE"
+            },
+            "secondary": {
+                "label": "Secondary",
+                "official_structure": "General Education 20%; Professional Education 40%; Specialization 40%",
+                "official_weights": {
+                    "general_education": 20,
+                    "professional_education": 40,
+                    "specialization": 40
+                },
+                "specialization_status": "FOUNDATION"
+            },
+            "specialization-aware": {
+                "label": "Elementary with required specialization",
+                "official_structure": "General Education 20%; Professional Education 40%; Specialization 40%",
+                "official_weights": {
+                    "general_education": 20,
+                    "professional_education": 40,
+                    "specialization": 40
+                },
+                "specialization_status": "FOUNDATION"
+            }
+        },
+        "official_areas": [
+            {
+                "id": "purposive-communication-english",
+                "name": "Purposive Communication in English",
+                "taxonomy_subject": "english"
+            },
+            {
+                "id": "malayuning-komunikasyon-filipino",
+                "name": "Malayuning Komunikasyon sa Wikang Filipino",
+                "taxonomy_subject": "filipino"
+            },
+            {
+                "id": "philippine-history-society",
+                "name": "Readings in Philippine History and Society",
+                "taxonomy_subject": "social-studies"
+            },
+            {
+                "id": "life-works-rizal",
+                "name": "Life and Works of Rizal",
+                "taxonomy_subject": "social-studies"
+            },
+            {
+                "id": "contemporary-world",
+                "name": "The Contemporary World",
+                "taxonomy_subject": "social-studies"
+            },
+            {
+                "id": "art-appreciation",
+                "name": "Art Appreciation",
+                "taxonomy_subject": "social-studies"
+            },
+            {
+                "id": "science-technology",
+                "name": "Science and Technology",
+                "taxonomy_subject": "science"
+            },
+            {
+                "id": "mathematics",
+                "name": "Mathematics",
+                "taxonomy_subject": "mathematics"
+            },
+            {
+                "id": "ethics",
+                "name": "Ethics",
+                "taxonomy_subject": "social-studies"
+            },
+            {
+                "id": "understanding-self",
+                "name": "Understanding the Self",
+                "taxonomy_subject": "social-studies"
+            }
+        ],
         "difficulty": {
             "easy": 30,
             "medium": 50,

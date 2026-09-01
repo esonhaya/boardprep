@@ -7,6 +7,7 @@ use App\Core\App;
 use App\Core\Request;
 use App\Services\Question\QuestionQualityService;
 use App\Services\Shared\TaxonomyIntegrityService;
+use App\Services\Study\LETContentCoverageService;
 class DeveloperToolsController extends BaseDeveloperController
 {
     public static function index(): void
@@ -90,7 +91,8 @@ class DeveloperToolsController extends BaseDeveloperController
                     "draft" => $statuses["draft"] ?? 0,
                     "archived" => $statuses["archived"] ?? 0,
                     "taxonomyComplete" => $complete,
-                ]
+                ],
+                "letCoverage" => LETContentCoverageService::report()
 
             ],
 

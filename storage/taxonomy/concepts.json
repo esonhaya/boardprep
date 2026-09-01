@@ -1967,41 +1967,732 @@
             "common_misconceptions": []
         }
     },
-    {"id":"filipino-gramatika-wastong-gamit","topic_id":"filipino-gramatika","code":"WG","name":"Wastong Gamit"},
-    {"id":"filipino-pagbasa-pangunahing-diwan","topic_id":"filipino-pagbasa","code":"PD","name":"Pangunahing Diwa"},
-    {"id":"math-number-sense-operations","topic_id":"math-number-sense","code":"OP","name":"Operations with Whole Numbers"},
-    {"id":"math-algebra-linear-equations","topic_id":"math-algebra","code":"LE","name":"Linear Equations"},
-    {"id":"science-biology-cells","topic_id":"science-biology","code":"CELL","name":"Cellular Structures"},
-    {"id":"science-inquiry-evidence","topic_id":"science-inquiry","code":"EV","name":"Evidence and Conclusions"},
-    {"id":"social-history-primary-sources","topic_id":"social-history","code":"PS","name":"Primary Sources"},
-    {"id":"social-civics-public-good","topic_id":"social-civics","code":"PG","name":"Public Good"},
-    {"id":"prof-development-readiness","topic_id":"prof-development","code":"LR","name":"Readiness and Development"},
-    {"id":"prof-curriculum-alignment","topic_id":"prof-curriculum","code":"CA","name":"Curriculum Alignment"},
-    {"id":"prof-assessment-validity","topic_id":"prof-assessment","code":"VA","name":"Validity and Reliability"},
-    {"id":"prof-management-routines","topic_id":"prof-management","code":"RT","name":"Classroom Routines"},
-    {"id":"prof-technology-access","topic_id":"prof-technology","code":"TA","name":"Accessible Digital Learning"},
-    {"id":"prof-facilitation-scaffolding","topic_id":"prof-facilitation","code":"SC","name":"Scaffolding and Transfer"},
-    {"id":"english-inference-evidence","topic_id":"english-inference","code":"EE","name":"Evidence-Based Inference"},
-    {"id":"analytical-assumption-identification","topic_id":"analytical-assumptions","code":"AI","name":"Identifying Assumptions"},
-    {"id":"analytical-conclusion-validity","topic_id":"analytical-assumptions","code":"CV","name":"Testing Conclusions"},
-    {"id":"analytical-analogy-structure","topic_id":"analytical-analogy","code":"AS","name":"Relationship Structure"},
-    {"id":"analytical-sequence-rule","topic_id":"analytical-sequences","code":"SR","name":"Sequence Rules"},
-    {"id":"analytical-data-comparison","topic_id":"analytical-data","code":"DC","name":"Quantitative Comparison"}
-    ,{"id":"cle-jurisprudence-principles","topic_id":"cle-jurisprudence-basics","code":"CJP","name":"Jurisprudence Principles"}
-    ,{"id":"cle-administration-accountability","topic_id":"cle-law-administration","code":"LAA","name":"Accountability in Administration"}
-    ,{"id":"cle-investigation-evidence","topic_id":"cle-investigation-methods","code":"IME","name":"Evidence Handling"}
-    ,{"id":"cle-forensic-integrity","topic_id":"cle-forensic-evidence","code":"FI","name":"Evidence Integrity"}
-    ,{"id":"cle-theory-application","topic_id":"cle-criminology-theory","code":"CTA","name":"Theory Application"}
-    ,{"id":"cle-corrections-rehabilitation","topic_id":"cle-correctional-systems","code":"CR","name":"Rehabilitation"}
-    ,{"id":"nle-safe-care","topic_id":"nle-foundations","code":"NSC","name":"Safe Care"}
-    ,{"id":"nle-prevention","topic_id":"nle-health-promotion","code":"NPV","name":"Prevention"}
-    ,{"id":"nle-family-support","topic_id":"nle-family-care","code":"NFS","name":"Family Support"}
-    ,{"id":"nle-clinical-judgment","topic_id":"nle-clinical-care","code":"NCJ","name":"Clinical Judgment"}
-    ,{"id":"nle-therapeutic-communication","topic_id":"nle-therapeutic-care","code":"NTC","name":"Therapeutic Communication"}
-    ,{"id":"nle-practice-standards","topic_id":"nle-ethical-practice","code":"NPS","name":"Practice Standards"}
-    ,{"id":"ple-valid-measurement","topic_id":"ple-measurement","code":"PVM","name":"Valid Measurement"}
-    ,{"id":"ple-clinical-classification","topic_id":"ple-clinical-foundations","code":"PCC","name":"Clinical Classification"}
-    ,{"id":"ple-workplace-behavior","topic_id":"ple-workplace","code":"PWB","name":"Workplace Behavior"}
-    ,{"id":"ple-personality-traits","topic_id":"ple-personality-models","code":"PPT","name":"Personality Traits"}
-    ,{"id":"ple-ethical-boundaries","topic_id":"ple-professional-ethics","code":"PEB","name":"Ethical Boundaries"}
+    {
+        "id": "filipino-gramatika-wastong-gamit",
+        "topic_id": "filipino-gramatika",
+        "code": "WG",
+        "name": "Wastong Gamit"
+    },
+    {
+        "id": "filipino-pagbasa-pangunahing-diwan",
+        "topic_id": "filipino-pagbasa",
+        "code": "PD",
+        "name": "Pangunahing Diwa"
+    },
+    {
+        "id": "math-number-sense-operations",
+        "topic_id": "math-number-sense",
+        "code": "OP",
+        "name": "Operations with Whole Numbers"
+    },
+    {
+        "id": "math-algebra-linear-equations",
+        "topic_id": "math-algebra",
+        "code": "LE",
+        "name": "Linear Equations"
+    },
+    {
+        "id": "science-biology-cells",
+        "topic_id": "science-biology",
+        "code": "CELL",
+        "name": "Cellular Structures"
+    },
+    {
+        "id": "science-inquiry-evidence",
+        "topic_id": "science-inquiry",
+        "code": "EV",
+        "name": "Evidence and Conclusions"
+    },
+    {
+        "id": "social-history-primary-sources",
+        "topic_id": "social-history",
+        "code": "PS",
+        "name": "Primary Sources"
+    },
+    {
+        "id": "social-civics-public-good",
+        "topic_id": "social-civics",
+        "code": "PG",
+        "name": "Public Good"
+    },
+    {
+        "id": "prof-development-readiness",
+        "topic_id": "prof-development",
+        "code": "LR",
+        "name": "Readiness and Development"
+    },
+    {
+        "id": "prof-curriculum-alignment",
+        "topic_id": "prof-curriculum",
+        "code": "CA",
+        "name": "Curriculum Alignment"
+    },
+    {
+        "id": "prof-assessment-validity",
+        "topic_id": "prof-assessment",
+        "code": "VA",
+        "name": "Validity and Reliability"
+    },
+    {
+        "id": "prof-management-routines",
+        "topic_id": "prof-management",
+        "code": "RT",
+        "name": "Classroom Routines"
+    },
+    {
+        "id": "prof-technology-access",
+        "topic_id": "prof-technology",
+        "code": "TA",
+        "name": "Accessible Digital Learning"
+    },
+    {
+        "id": "prof-facilitation-scaffolding",
+        "topic_id": "prof-facilitation",
+        "code": "SC",
+        "name": "Scaffolding and Transfer"
+    },
+    {
+        "id": "english-inference-evidence",
+        "topic_id": "english-inference",
+        "code": "EE",
+        "name": "Evidence-Based Inference"
+    },
+    {
+        "id": "analytical-assumption-identification",
+        "topic_id": "analytical-assumptions",
+        "code": "AI",
+        "name": "Identifying Assumptions"
+    },
+    {
+        "id": "analytical-conclusion-validity",
+        "topic_id": "analytical-assumptions",
+        "code": "CV",
+        "name": "Testing Conclusions"
+    },
+    {
+        "id": "analytical-analogy-structure",
+        "topic_id": "analytical-analogy",
+        "code": "AS",
+        "name": "Relationship Structure"
+    },
+    {
+        "id": "analytical-sequence-rule",
+        "topic_id": "analytical-sequences",
+        "code": "SR",
+        "name": "Sequence Rules"
+    },
+    {
+        "id": "analytical-data-comparison",
+        "topic_id": "analytical-data",
+        "code": "DC",
+        "name": "Quantitative Comparison"
+    },
+    {
+        "id": "cle-jurisprudence-principles",
+        "topic_id": "cle-jurisprudence-basics",
+        "code": "CJP",
+        "name": "Jurisprudence Principles"
+    },
+    {
+        "id": "cle-administration-accountability",
+        "topic_id": "cle-law-administration",
+        "code": "LAA",
+        "name": "Accountability in Administration"
+    },
+    {
+        "id": "cle-investigation-evidence",
+        "topic_id": "cle-investigation-methods",
+        "code": "IME",
+        "name": "Evidence Handling"
+    },
+    {
+        "id": "cle-forensic-integrity",
+        "topic_id": "cle-forensic-evidence",
+        "code": "FI",
+        "name": "Evidence Integrity"
+    },
+    {
+        "id": "cle-theory-application",
+        "topic_id": "cle-criminology-theory",
+        "code": "CTA",
+        "name": "Theory Application"
+    },
+    {
+        "id": "cle-corrections-rehabilitation",
+        "topic_id": "cle-correctional-systems",
+        "code": "CR",
+        "name": "Rehabilitation"
+    },
+    {
+        "id": "nle-safe-care",
+        "topic_id": "nle-foundations",
+        "code": "NSC",
+        "name": "Safe Care"
+    },
+    {
+        "id": "nle-prevention",
+        "topic_id": "nle-health-promotion",
+        "code": "NPV",
+        "name": "Prevention"
+    },
+    {
+        "id": "nle-family-support",
+        "topic_id": "nle-family-care",
+        "code": "NFS",
+        "name": "Family Support"
+    },
+    {
+        "id": "nle-clinical-judgment",
+        "topic_id": "nle-clinical-care",
+        "code": "NCJ",
+        "name": "Clinical Judgment"
+    },
+    {
+        "id": "nle-therapeutic-communication",
+        "topic_id": "nle-therapeutic-care",
+        "code": "NTC",
+        "name": "Therapeutic Communication"
+    },
+    {
+        "id": "nle-practice-standards",
+        "topic_id": "nle-ethical-practice",
+        "code": "NPS",
+        "name": "Practice Standards"
+    },
+    {
+        "id": "ple-valid-measurement",
+        "topic_id": "ple-measurement",
+        "code": "PVM",
+        "name": "Valid Measurement"
+    },
+    {
+        "id": "ple-clinical-classification",
+        "topic_id": "ple-clinical-foundations",
+        "code": "PCC",
+        "name": "Clinical Classification"
+    },
+    {
+        "id": "ple-workplace-behavior",
+        "topic_id": "ple-workplace",
+        "code": "PWB",
+        "name": "Workplace Behavior"
+    },
+    {
+        "id": "ple-personality-traits",
+        "topic_id": "ple-personality-models",
+        "code": "PPT",
+        "name": "Personality Traits"
+    },
+    {
+        "id": "ple-ethical-boundaries",
+        "topic_id": "ple-professional-ethics",
+        "code": "PEB",
+        "name": "Ethical Boundaries"
+    },
+    {
+        "id": "let-rizal-context",
+        "topic_id": "let-rizal-works",
+        "code": "RZC",
+        "name": "Historical Context"
+    },
+    {
+        "id": "let-global-local-effects",
+        "topic_id": "let-global-interdependence",
+        "code": "GLE",
+        "name": "Local and Global Effects"
+    },
+    {
+        "id": "let-art-evidence",
+        "topic_id": "let-art-interpretation",
+        "code": "ARE",
+        "name": "Evidence-Based Interpretation"
+    },
+    {
+        "id": "let-ethical-duties",
+        "topic_id": "let-ethical-reasoning",
+        "code": "ED",
+        "name": "Duties and Consequences"
+    },
+    {
+        "id": "let-self-identity",
+        "topic_id": "let-self-concept",
+        "code": "SID",
+        "name": "Identity and Social Influence"
+    },
+    {
+        "id": "piaget-stages",
+        "topic_id": "learning-theories",
+        "code": "PIAGE",
+        "name": "Piaget and Cognitive Development",
+        "description": "Piaget and Cognitive Development applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Piaget and Cognitive Development"
+            ]
+        }
+    },
+    {
+        "id": "piaget-development",
+        "topic_id": "learning-theories",
+        "code": "PIAGE",
+        "name": "Developmentally Appropriate Learning",
+        "description": "Developmentally Appropriate Learning applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Developmentally Appropriate Learning"
+            ]
+        }
+    },
+    {
+        "id": "vygotsky-zpd",
+        "topic_id": "learning-theories",
+        "code": "VYGOT",
+        "name": "Zone of Proximal Development",
+        "description": "Zone of Proximal Development applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Zone of Proximal Development"
+            ]
+        }
+    },
+    {
+        "id": "vygotsky-scaffolding",
+        "topic_id": "learning-theories",
+        "code": "VYGOT",
+        "name": "Scaffolding",
+        "description": "Scaffolding applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Scaffolding"
+            ]
+        }
+    },
+    {
+        "id": "vygotsky-social-learning",
+        "topic_id": "learning-theories",
+        "code": "VYGOT",
+        "name": "Social Mediation",
+        "description": "Social Mediation applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Social Mediation"
+            ]
+        }
+    },
+    {
+        "id": "erikson-competence",
+        "topic_id": "learning-theories",
+        "code": "ERIKS",
+        "name": "Psychosocial Competence",
+        "description": "Psychosocial Competence applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Psychosocial Competence"
+            ]
+        }
+    },
+    {
+        "id": "erikson-identity",
+        "topic_id": "learning-theories",
+        "code": "ERIKS",
+        "name": "Identity Development",
+        "description": "Identity Development applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Identity Development"
+            ]
+        }
+    },
+    {
+        "id": "kohlberg-moral-reasoning",
+        "topic_id": "learning-theories",
+        "code": "KOHLB",
+        "name": "Moral Reasoning",
+        "description": "Moral Reasoning applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Moral Reasoning"
+            ]
+        }
+    },
+    {
+        "id": "bronfenbrenner-ecology",
+        "topic_id": "learning-theories",
+        "code": "BRONF",
+        "name": "Ecological Systems",
+        "description": "Ecological Systems applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Ecological Systems"
+            ]
+        }
+    },
+    {
+        "id": "pavlov-classical-conditioning",
+        "topic_id": "learning-theories",
+        "code": "PAVLO",
+        "name": "Classical Conditioning",
+        "description": "Classical Conditioning applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Classical Conditioning"
+            ]
+        }
+    },
+    {
+        "id": "skinner-operant-conditioning",
+        "topic_id": "learning-theories",
+        "code": "SKINN",
+        "name": "Operant Conditioning",
+        "description": "Operant Conditioning applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Operant Conditioning"
+            ]
+        }
+    },
+    {
+        "id": "thorndike-law-effect",
+        "topic_id": "learning-theories",
+        "code": "THORN",
+        "name": "Law of Effect",
+        "description": "Law of Effect applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Law of Effect"
+            ]
+        }
+    },
+    {
+        "id": "watson-behaviorism",
+        "topic_id": "learning-theories",
+        "code": "WATSO",
+        "name": "Behaviorist Orientation",
+        "description": "Behaviorist Orientation applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Behaviorist Orientation"
+            ]
+        }
+    },
+    {
+        "id": "bruner-discovery",
+        "topic_id": "learning-theories",
+        "code": "BRUNE",
+        "name": "Discovery Learning",
+        "description": "Discovery Learning applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Discovery Learning"
+            ]
+        }
+    },
+    {
+        "id": "bruner-representation",
+        "topic_id": "learning-theories",
+        "code": "BRUNE",
+        "name": "Modes of Representation",
+        "description": "Modes of Representation applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Modes of Representation"
+            ]
+        }
+    },
+    {
+        "id": "maslow-needs",
+        "topic_id": "learning-theories",
+        "code": "MASLO",
+        "name": "Needs and Learning",
+        "description": "Needs and Learning applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Needs and Learning"
+            ]
+        }
+    },
+    {
+        "id": "rogers-humanistic",
+        "topic_id": "learning-theories",
+        "code": "ROGER",
+        "name": "Humanistic Learning",
+        "description": "Humanistic Learning applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Humanistic Learning"
+            ]
+        }
+    },
+    {
+        "id": "gardner-multiple-intelligences",
+        "topic_id": "learning-theories",
+        "code": "GARDN",
+        "name": "Multiple Intelligences",
+        "description": "Multiple Intelligences applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Multiple Intelligences"
+            ]
+        }
+    },
+    {
+        "id": "bloom-cognitive-processes",
+        "topic_id": "learning-theories",
+        "code": "BLOOM",
+        "name": "Cognitive Processes",
+        "description": "Cognitive Processes applied to classroom learning.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Cognitive Processes"
+            ]
+        }
+    },
+    {
+        "id": "inclusive-access",
+        "topic_id": "inclusive-practice",
+        "code": "INCLU",
+        "name": "Accessible Learning",
+        "description": "Accessible Learning in inclusive classroom practice.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Accessible Learning"
+            ]
+        }
+    },
+    {
+        "id": "inclusive-differentiation",
+        "topic_id": "inclusive-practice",
+        "code": "INCLU",
+        "name": "Differentiated Instruction",
+        "description": "Differentiated Instruction in inclusive classroom practice.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Differentiated Instruction"
+            ]
+        }
+    },
+    {
+        "id": "inclusive-accommodation",
+        "topic_id": "inclusive-practice",
+        "code": "INCLU",
+        "name": "Accommodation and Access",
+        "description": "Accommodation and Access in inclusive classroom practice.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Accommodation and Access"
+            ]
+        }
+    },
+    {
+        "id": "inclusive-modification",
+        "topic_id": "inclusive-practice",
+        "code": "INCLU",
+        "name": "Learning Target Modification",
+        "description": "Learning Target Modification in inclusive classroom practice.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Learning Target Modification"
+            ]
+        }
+    },
+    {
+        "id": "inclusive-participation",
+        "topic_id": "inclusive-practice",
+        "code": "INCLU",
+        "name": "Inclusive Participation",
+        "description": "Inclusive Participation in inclusive classroom practice.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Inclusive Participation"
+            ]
+        }
+    },
+    {
+        "id": "inclusive-barriers",
+        "topic_id": "inclusive-practice",
+        "code": "INCLU",
+        "name": "Barriers to Learning",
+        "description": "Barriers to Learning in inclusive classroom practice.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Barriers to Learning"
+            ]
+        }
+    },
+    {
+        "id": "inclusive-equity",
+        "topic_id": "inclusive-practice",
+        "code": "INCLU",
+        "name": "Equity and Fairness",
+        "description": "Equity and Fairness in inclusive classroom practice.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Equity and Fairness"
+            ]
+        }
+    },
+    {
+        "id": "inclusive-collaboration",
+        "topic_id": "inclusive-practice",
+        "code": "INCLU",
+        "name": "Collaborative Support",
+        "description": "Collaborative Support in inclusive classroom practice.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Collaborative Support"
+            ]
+        }
+    },
+    {
+        "id": "inclusive-assessment",
+        "topic_id": "inclusive-practice",
+        "code": "INCLU",
+        "name": "Accessible Assessment",
+        "description": "Accessible Assessment in inclusive classroom practice.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Accessible Assessment"
+            ]
+        }
+    },
+    {
+        "id": "inclusive-respect",
+        "topic_id": "inclusive-practice",
+        "code": "INCLU",
+        "name": "Respectful Practice",
+        "description": "Respectful Practice in inclusive classroom practice.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Respectful Practice"
+            ]
+        }
+    },
+    {
+        "id": "inclusive-universal-design",
+        "topic_id": "inclusive-practice",
+        "code": "INCLU",
+        "name": "Universal Design for Learning",
+        "description": "Universal Design for Learning in inclusive classroom practice.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Universal Design for Learning"
+            ]
+        }
+    },
+    {
+        "id": "inclusive-adaptation",
+        "topic_id": "inclusive-practice",
+        "code": "INCLU",
+        "name": "Instructional Adaptation",
+        "description": "Instructional Adaptation in inclusive classroom practice.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Instructional Adaptation"
+            ]
+        }
+    },
+    {
+        "id": "inclusive-family",
+        "topic_id": "inclusive-practice",
+        "code": "INCLU",
+        "name": "Family Collaboration",
+        "description": "Family Collaboration in inclusive classroom practice.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Family Collaboration"
+            ]
+        }
+    },
+    {
+        "id": "inclusive-peer-support",
+        "topic_id": "inclusive-practice",
+        "code": "INCLU",
+        "name": "Peer Support",
+        "description": "Peer Support in inclusive classroom practice.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Peer Support"
+            ]
+        }
+    },
+    {
+        "id": "inclusive-classroom",
+        "topic_id": "inclusive-practice",
+        "code": "INCLU",
+        "name": "Inclusive Classroom Climate",
+        "description": "Inclusive Classroom Climate in inclusive classroom practice.",
+        "learning": {
+            "difficulty": "medium",
+            "mastery_threshold": 80,
+            "keywords": [
+                "Inclusive Classroom Climate"
+            ]
+        }
+    }
 ]
