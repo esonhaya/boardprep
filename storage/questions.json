@@ -34386,5 +34386,5377 @@
         "answer": "collaborative conflict management",
         "explanation": "Exploring interests and constraints supports collaborative problem solving.",
         "subject": "psychology-foundations"
+    },
+    {
+        "id": 1137,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "For a body in static equilibrium, the algebraic sum of forces in each direction is:",
+        "choices": [
+            "zero",
+            "equal to the mass",
+            "always positive",
+            "equal to the largest force"
+        ],
+        "answer": "zero",
+        "explanation": "Equilibrium requires translational force balance.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "M = F × d",
+                "fallback": "M = F × d with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1138,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A 4 kN force acts 3 m from a pivot at right angles. Its moment magnitude is:",
+        "choices": [
+            "12 kN·m",
+            "1.33 kN·m",
+            "7 kN·m",
+            "16 kN·m"
+        ],
+        "answer": "12 kN·m",
+        "explanation": "Moment equals force times perpendicular distance.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1139,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "Two equal and opposite collinear forces have what resultant effect on a rigid body?",
+        "choices": [
+            "a couple if their lines are separated",
+            "a single axial force",
+            "zero moment and zero force always",
+            "pure translation"
+        ],
+        "answer": "a couple if their lines are separated",
+        "explanation": "Separated equal forces create a couple; collinear forces may cancel.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1140,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A truss member carrying tension primarily experiences:",
+        "choices": [
+            "pulling axial force",
+            "transverse bending only",
+            "fluid pressure",
+            "torsional buckling only"
+        ],
+        "answer": "pulling axial force",
+        "explanation": "Tension is an axial pulling action.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "P = ρgh",
+                "fallback": "P = ρgh with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1141,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "The internal action that resists sliding between adjacent beam layers is:",
+        "choices": [
+            "shear",
+            "axial compression",
+            "temperature",
+            "bearing pressure"
+        ],
+        "answer": "shear",
+        "explanation": "Beam shear resists relative sliding across a section.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1142,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "For a prismatic bar under uniform axial tension, normal stress is calculated as:",
+        "choices": [
+            "P/A",
+            "PL/AE",
+            "M/I",
+            "VQ/It"
+        ],
+        "answer": "P/A",
+        "explanation": "Axial force divided by area gives average normal stress.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1143,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A steel rod lengthens elastically under load. The ratio of stress to strain is:",
+        "choices": [
+            "Young’s modulus",
+            "Poisson ratio",
+            "section modulus",
+            "specific weight"
+        ],
+        "answer": "Young’s modulus",
+        "explanation": "Young’s modulus relates uniaxial stress and strain in the elastic range.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Q = A × v",
+                "fallback": "Q = A × v with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1144,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A beam’s neutral axis is the line where longitudinal bending stress is:",
+        "choices": [
+            "zero",
+            "maximum compression",
+            "maximum tension",
+            "equal to shear stress"
+        ],
+        "answer": "zero",
+        "explanation": "Longitudinal bending stress changes sign through the neutral axis.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1145,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "Increasing a rectangular beam’s depth substantially improves its bending capacity because:",
+        "choices": [
+            "section modulus increases strongly with depth",
+            "weight becomes zero",
+            "shear disappears",
+            "the material changes"
+        ],
+        "answer": "section modulus increases strongly with depth",
+        "explanation": "Depth increases the geometric resistance to bending.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1146,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A simply supported beam under a central point load has its largest bending moment:",
+        "choices": [
+            "at midspan",
+            "at the left support only",
+            "at the right support only",
+            "outside the beam"
+        ],
+        "answer": "at midspan",
+        "explanation": "The span center is where the moment peaks for this symmetric case.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "A = b × h",
+                "fallback": "A = b × h with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1147,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A determinate structure can be solved using:",
+        "choices": [
+            "equilibrium equations alone",
+            "material color",
+            "soil permeability only",
+            "a project schedule"
+        ],
+        "answer": "equilibrium equations alone",
+        "explanation": "Static determinacy means equilibrium is sufficient.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "chart",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1148,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A member with both ends pinned cannot resist an applied end moment because:",
+        "choices": [
+            "a pin permits rotation",
+            "the member has no mass",
+            "pins increase torsion",
+            "bending is always zero"
+        ],
+        "answer": "a pin permits rotation",
+        "explanation": "Ideal pins release moment while transmitting forces.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1149,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "Torsional shear stress in a circular shaft increases with:",
+        "choices": [
+            "distance from the center",
+            "lower torque only",
+            "zero radius",
+            "absence of rotation"
+        ],
+        "answer": "distance from the center",
+        "explanation": "For a shaft, torsional shear stress grows toward the outer radius.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "i = Δh / L",
+                "fallback": "i = Δh / L with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1150,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A ductile material’s yield point marks the onset of:",
+        "choices": [
+            "significant permanent deformation",
+            "zero strain",
+            "instant fracture in every case",
+            "fluid flow"
+        ],
+        "answer": "significant permanent deformation",
+        "explanation": "Yield indicates departure from fully elastic behavior.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1151,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A column’s slenderness is important because a slender member is more susceptible to:",
+        "choices": [
+            "buckling",
+            "surface staining",
+            "hydrostatic uplift",
+            "thermal insulation"
+        ],
+        "answer": "buckling",
+        "explanation": "Slender compression members may buckle before crushing.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1152,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "If the effective length of an ideal pinned column increases, its Euler buckling load:",
+        "choices": [
+            "decreases",
+            "increases without limit",
+            "stays exactly constant",
+            "becomes a tensile load"
+        ],
+        "answer": "decreases",
+        "explanation": "Euler critical load varies inversely with effective-length squared.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "σ = P / A",
+                "fallback": "σ = P / A with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1153,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A reinforced-concrete beam commonly places tensile reinforcement near the:",
+        "choices": [
+            "tension face",
+            "neutral axis only",
+            "compression face regardless of loading",
+            "support soil"
+        ],
+        "answer": "tension face",
+        "explanation": "Steel is placed where tensile demand is expected.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1154,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "Concrete is strong in compression but weak in tension, so reinforcement primarily:",
+        "choices": [
+            "carries tensile force",
+            "reduces all dead load",
+            "eliminates curing",
+            "replaces aggregate"
+        ],
+        "answer": "carries tensile force",
+        "explanation": "Reinforcing steel supplements concrete’s limited tensile capacity.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1155,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A short tied concrete column under concentric compression is primarily checked for:",
+        "choices": [
+            "axial capacity and stability",
+            "paint adhesion",
+            "water velocity",
+            "survey closure"
+        ],
+        "answer": "axial capacity and stability",
+        "explanation": "Column design considers compression resistance and stability.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "FS = capacity / demand",
+                "fallback": "FS = capacity / demand with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1156,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A steel tension connection with bolts should be checked for:",
+        "choices": [
+            "member and connection limit states",
+            "soil settlement only",
+            "water viscosity",
+            "concrete slump only"
+        ],
+        "answer": "member and connection limit states",
+        "explanation": "Both the connected member and connection can govern strength.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1157,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A gusset plate transfers force between a truss member and joint. Its role is to:",
+        "choices": [
+            "distribute connection forces",
+            "measure rainfall",
+            "prevent all deflection",
+            "classify soil"
+        ],
+        "answer": "distribute connection forces",
+        "explanation": "Gussets provide the force-transfer interface at the joint.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1158,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A footing spreads column load over soil primarily to:",
+        "choices": [
+            "reduce bearing pressure",
+            "increase column stress",
+            "remove drainage",
+            "create torsion"
+        ],
+        "answer": "reduce bearing pressure",
+        "explanation": "A larger area lowers average contact pressure.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "M = F × d",
+                "fallback": "M = F × d with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1159,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "If a footing load is unchanged and its area doubles, average bearing pressure:",
+        "choices": [
+            "is halved",
+            "is doubled",
+            "is unchanged by definition",
+            "becomes tensile"
+        ],
+        "answer": "is halved",
+        "explanation": "Pressure equals load divided by area.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1160,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A factor of safety compares a capacity with:",
+        "choices": [
+            "the corresponding demand",
+            "the concrete color",
+            "the survey date",
+            "the room temperature only"
+        ],
+        "answer": "the corresponding demand",
+        "explanation": "Safety compares resistance or capacity with applied demand.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1161,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A load combination is used because structures must be assessed under:",
+        "choices": [
+            "simultaneous applicable actions",
+            "one arbitrary load only",
+            "no environmental actions",
+            "construction paint loads only"
+        ],
+        "answer": "simultaneous applicable actions",
+        "explanation": "Combinations represent concurrent design actions.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "P = ρgh",
+                "fallback": "P = ρgh with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1162,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A deflection limit is mainly concerned with:",
+        "choices": [
+            "serviceability",
+            "chemical composition only",
+            "soil classification",
+            "survey bearing"
+        ],
+        "answer": "serviceability",
+        "explanation": "Deflection is generally a serviceability criterion.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1163,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A strain gauge measures:",
+        "choices": [
+            "deformation per unit length",
+            "force directly without calibration",
+            "soil density",
+            "water depth"
+        ],
+        "answer": "deformation per unit length",
+        "explanation": "Strain gauges sense deformation and require interpretation/calibration.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1164,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A concrete cylinder test is commonly used to estimate:",
+        "choices": [
+            "compressive strength",
+            "steel yield strain only",
+            "pipe discharge",
+            "bearing azimuth"
+        ],
+        "answer": "compressive strength",
+        "explanation": "Compression testing evaluates concrete compressive resistance.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Q = A × v",
+                "fallback": "Q = A × v with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1165,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "Poor curing of concrete most directly threatens:",
+        "choices": [
+            "strength development and durability",
+            "survey orientation",
+            "beam span geometry",
+            "soil gradation"
+        ],
+        "answer": "strength development and durability",
+        "explanation": "Curing controls hydration and resulting concrete properties.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1166,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A stress concentration occurs near:",
+        "choices": [
+            "a notch or abrupt geometry change",
+            "a uniform prismatic region only",
+            "a free field",
+            "a constant pressure tank"
+        ],
+        "answer": "a notch or abrupt geometry change",
+        "explanation": "Abrupt geometry changes intensify local stress.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1167,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A shear-force diagram helps an engineer locate changes in:",
+        "choices": [
+            "internal shear along a member",
+            "soil moisture only",
+            "concrete color",
+            "survey north"
+        ],
+        "answer": "internal shear along a member",
+        "explanation": "The diagram tracks internal shear response along the span.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "A = b × h",
+                "fallback": "A = b × h with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1168,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A bending-moment diagram’s slope over a span is related to:",
+        "choices": [
+            "shear force",
+            "concrete density only",
+            "bearing capacity",
+            "water temperature"
+        ],
+        "answer": "shear force",
+        "explanation": "Shear and moment diagrams are linked by differential equilibrium.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1169,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A structure’s load path describes how loads travel to:",
+        "choices": [
+            "the foundation and ground",
+            "the project office",
+            "the nearest drain only",
+            "the paint layer"
+        ],
+        "answer": "the foundation and ground",
+        "explanation": "A safe structure transfers actions continuously to the ground.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1170,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A pinned support in a planar model commonly provides:",
+        "choices": [
+            "two reaction components",
+            "three moment reactions",
+            "no reaction",
+            "a distributed soil stress"
+        ],
+        "answer": "two reaction components",
+        "explanation": "A pin resists translation in two planar directions but releases rotation.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "i = Δh / L",
+                "fallback": "i = Δh / L with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1171,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "Prestressing concrete before service loading introduces:",
+        "choices": [
+            "compression that can offset tensile stress",
+            "only additional cracking",
+            "zero internal force",
+            "soil friction"
+        ],
+        "answer": "compression that can offset tensile stress",
+        "explanation": "Prestress counteracts anticipated tensile effects.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1172,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A steel beam lateral restraint primarily reduces risk of:",
+        "choices": [
+            "lateral-torsional buckling",
+            "concrete carbonation",
+            "pipe cavitation",
+            "soil piping"
+        ],
+        "answer": "lateral-torsional buckling",
+        "explanation": "Lateral restraint improves stability of bending members.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1173,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A reliable structural interpretation begins by identifying:",
+        "choices": [
+            "geometry, supports, loads, and materials",
+            "the contractor’s logo",
+            "weather after demolition",
+            "paint sequence"
+        ],
+        "answer": "geometry, supports, loads, and materials",
+        "explanation": "Those inputs define the structural model.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "σ = P / A",
+                "fallback": "σ = P / A with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1174,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "The area under a distributed-load diagram represents:",
+        "choices": [
+            "the equivalent resultant force",
+            "the beam’s modulus",
+            "the soil void ratio",
+            "the support settlement"
+        ],
+        "answer": "the equivalent resultant force",
+        "explanation": "Integrating load intensity over length gives resultant force.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1175,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A connection designed for ductile behavior should avoid:",
+        "choices": [
+            "brittle failure before yielding",
+            "all inspection",
+            "load transfer",
+            "redundancy"
+        ],
+        "answer": "brittle failure before yielding",
+        "explanation": "Ductile detailing seeks warning and redistribution before brittle failure.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1176,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A construction material test result should be interpreted with:",
+        "choices": [
+            "sampling, procedure, and acceptance context",
+            "the highest number alone",
+            "no units",
+            "a random color code"
+        ],
+        "answer": "sampling, procedure, and acceptance context",
+        "explanation": "Test results require method and context, not isolated numbers.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "FS = capacity / demand",
+                "fallback": "FS = capacity / demand with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1177,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "The derivative of distance with respect to time represents:",
+        "choices": [
+            "velocity",
+            "acceleration squared",
+            "work",
+            "density"
+        ],
+        "answer": "velocity",
+        "explanation": "Velocity is the time rate of change of position.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "chart",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1178,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "Integrating a velocity function over time gives:",
+        "choices": [
+            "change in position",
+            "instantaneous acceleration",
+            "mass density",
+            "area pressure"
+        ],
+        "answer": "change in position",
+        "explanation": "Integration accumulates velocity into displacement.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1179,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "For a right triangle with legs 3 and 4, the hypotenuse is:",
+        "choices": [
+            "5",
+            "6",
+            "7",
+            "12"
+        ],
+        "answer": "5",
+        "explanation": "The Pythagorean relation gives 3²+4²=5².",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "M = F × d",
+                "fallback": "M = F × d with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1180,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A survey benchmark is used as a reference for:",
+        "choices": [
+            "elevation",
+            "concrete strength",
+            "traffic volume",
+            "soil chemistry"
+        ],
+        "answer": "elevation",
+        "explanation": "A benchmark provides a known elevation reference.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1181,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "In leveling, a backsight is normally taken to:",
+        "choices": [
+            "establish instrument elevation from a known point",
+            "measure traffic speed",
+            "set concrete slump",
+            "find pipe friction"
+        ],
+        "answer": "establish instrument elevation from a known point",
+        "explanation": "The backsight connects the instrument setup to known elevation.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1182,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A traverse closure error indicates:",
+        "choices": [
+            "inconsistency between computed and expected closing position",
+            "perfect fieldwork",
+            "zero distance",
+            "a bridge load"
+        ],
+        "answer": "inconsistency between computed and expected closing position",
+        "explanation": "Closure checks reveal accumulated survey discrepancy.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "P = ρgh",
+                "fallback": "P = ρgh with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1183,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "Azimuth is commonly measured clockwise from:",
+        "choices": [
+            "north",
+            "southwest only",
+            "the vertical datum",
+            "sea level"
+        ],
+        "answer": "north",
+        "explanation": "Azimuth convention begins at north and turns clockwise.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1184,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A coordinate table is most useful for computing:",
+        "choices": [
+            "traverse position and area",
+            "concrete hydration",
+            "pipe viscosity",
+            "beam yield stress"
+        ],
+        "answer": "traverse position and area",
+        "explanation": "Coordinates support geometric layout and area calculations.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1185,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "If a map scale is 1:1000, 1 cm on the map represents:",
+        "choices": [
+            "10 m on the ground",
+            "1 m",
+            "1000 m",
+            "0.001 m"
+        ],
+        "answer": "10 m on the ground",
+        "explanation": "One centimetre times 1000 equals 1000 cm or 10 m.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Q = A × v",
+                "fallback": "Q = A × v with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1186,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A quantity takeoff should be based first on:",
+        "choices": [
+            "measured scope and drawings",
+            "an unverified allowance",
+            "the contractor’s slogan",
+            "weather probability"
+        ],
+        "answer": "measured scope and drawings",
+        "explanation": "Measured scope provides the basis for quantities.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1187,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A concrete pour schedule should coordinate:",
+        "choices": [
+            "crew, materials, equipment, and sequence",
+            "only paint colors",
+            "soil taxonomy only",
+            "exam dates"
+        ],
+        "answer": "crew, materials, equipment, and sequence",
+        "explanation": "Coordination prevents resource and sequence conflicts.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1188,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "The critical path in a schedule is the sequence that determines:",
+        "choices": [
+            "minimum project duration",
+            "lowest concrete strength",
+            "survey north",
+            "pipe diameter"
+        ],
+        "answer": "minimum project duration",
+        "explanation": "Delay on the critical path delays completion.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "A = b × h",
+                "fallback": "A = b × h with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1189,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A bar chart schedule is useful for showing:",
+        "choices": [
+            "activities against time",
+            "soil particle size",
+            "beam stress distribution",
+            "water pressure"
+        ],
+        "answer": "activities against time",
+        "explanation": "It displays planned activities across calendar time.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1190,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A productivity rate relates completed output to:",
+        "choices": [
+            "resource input and time",
+            "concrete color",
+            "latitude only",
+            "a legal title"
+        ],
+        "answer": "resource input and time",
+        "explanation": "Productivity compares output with resources and duration.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1191,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "The safest construction response to an unplanned hazard is to:",
+        "choices": [
+            "control the hazard before proceeding",
+            "ignore it if work is late",
+            "remove warning signs",
+            "increase speed"
+        ],
+        "answer": "control the hazard before proceeding",
+        "explanation": "Hazard control takes priority over schedule pressure.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "i = Δh / L",
+                "fallback": "i = Δh / L with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1192,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A traffic count collected at regular intervals provides evidence about:",
+        "choices": [
+            "traffic demand patterns",
+            "concrete modulus",
+            "soil cohesion",
+            "beam curvature"
+        ],
+        "answer": "traffic demand patterns",
+        "explanation": "Counts describe use of the transport facility.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1193,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "Traffic flow is commonly expressed as vehicles per:",
+        "choices": [
+            "unit time",
+            "unit length squared only",
+            "kilogram",
+            "degree"
+        ],
+        "answer": "unit time",
+        "explanation": "Flow is a rate of vehicle passage over time.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1194,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A road curve’s superelevation is intended mainly to:",
+        "choices": [
+            "help counter lateral acceleration",
+            "increase rainfall",
+            "reduce lane width",
+            "measure soil pH"
+        ],
+        "answer": "help counter lateral acceleration",
+        "explanation": "Cross slope helps balance lateral motion on a curve.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "σ = P / A",
+                "fallback": "σ = P / A with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1195,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "Sight distance is important because drivers need:",
+        "choices": [
+            "adequate distance to perceive and respond",
+            "higher concrete strength",
+            "a deeper footing",
+            "more survey points only"
+        ],
+        "answer": "adequate distance to perceive and respond",
+        "explanation": "Road geometry must allow perception and response.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1196,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A pavement layer’s function should be evaluated with respect to:",
+        "choices": [
+            "load transfer, drainage, and durability",
+            "paint selection only",
+            "office layout",
+            "river salinity"
+        ],
+        "answer": "load transfer, drainage, and durability",
+        "explanation": "Pavement performance depends on structural and environmental functions.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1197,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A simple project cost estimate should identify:",
+        "choices": [
+            "quantities, unit costs, and assumptions",
+            "only a total with no basis",
+            "weather alone",
+            "a random contingency"
+        ],
+        "answer": "quantities, unit costs, and assumptions",
+        "explanation": "Transparent estimates show basis and assumptions.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "FS = capacity / demand",
+                "fallback": "FS = capacity / demand with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1198,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "Present value is used to compare cash flows occurring:",
+        "choices": [
+            "at different times",
+            "only at the same instant",
+            "without interest",
+            "only in kind"
+        ],
+        "answer": "at different times",
+        "explanation": "Time value of money brings cash flows to a common basis.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1199,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "If a future amount is discounted, its present value is generally:",
+        "choices": [
+            "less than the undiscounted amount",
+            "greater in every case",
+            "unrelated to rate",
+            "negative automatically"
+        ],
+        "answer": "less than the undiscounted amount",
+        "explanation": "Positive discounting reduces a future amount’s present equivalent.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1200,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A construction method statement should explain:",
+        "choices": [
+            "how work will be performed safely and sequentially",
+            "only the invoice number",
+            "the final paint color",
+            "a soil name"
+        ],
+        "answer": "how work will be performed safely and sequentially",
+        "explanation": "It communicates method, sequence, resources, and controls.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "M = F × d",
+                "fallback": "M = F × d with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1201,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A material delivery inspection should compare received goods with:",
+        "choices": [
+            "specification, quantity, and condition",
+            "a social-media post",
+            "the project logo",
+            "a different project"
+        ],
+        "answer": "specification, quantity, and condition",
+        "explanation": "Inspection verifies compliance and condition at receipt.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1202,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A slump test primarily indicates concrete:",
+        "choices": [
+            "workability consistency",
+            "compressive strength directly",
+            "steel area",
+            "soil bearing"
+        ],
+        "answer": "workability consistency",
+        "explanation": "Slump is a field indicator of fresh concrete workability.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1203,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A site layout control line provides:",
+        "choices": [
+            "a reference for positioning work",
+            "a water-treatment dose",
+            "a traffic count",
+            "a beam moment"
+        ],
+        "answer": "a reference for positioning work",
+        "explanation": "Control lines guide accurate construction placement.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "P = ρgh",
+                "fallback": "P = ρgh with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1204,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A change order should be evaluated for its effect on:",
+        "choices": [
+            "scope, cost, time, and quality",
+            "only handwriting",
+            "the survey compass brand",
+            "soil color"
+        ],
+        "answer": "scope, cost, time, and quality",
+        "explanation": "Changes can affect the project’s principal constraints.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1205,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A quality-control record is valuable because it:",
+        "choices": [
+            "documents inspection and corrective action",
+            "replaces all testing",
+            "hides deviations",
+            "sets traffic signals"
+        ],
+        "answer": "documents inspection and corrective action",
+        "explanation": "Records provide traceability for quality decisions.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1206,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "When a drawing conflicts with field conditions, the engineer should first:",
+        "choices": [
+            "document and clarify the discrepancy",
+            "guess and build immediately",
+            "erase the drawing",
+            "continue without notice"
+        ],
+        "answer": "document and clarify the discrepancy",
+        "explanation": "Clarification prevents uncontrolled construction assumptions.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Q = A × v",
+                "fallback": "Q = A × v with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1207,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A transition curve is used to:",
+        "choices": [
+            "introduce curvature gradually",
+            "eliminate all drainage",
+            "increase sudden lateral acceleration",
+            "measure concrete age"
+        ],
+        "answer": "introduce curvature gradually",
+        "explanation": "Gradual curvature improves vehicle comfort and control.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "chart",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1208,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A road drainage inlet is intended to:",
+        "choices": [
+            "collect surface runoff",
+            "increase pavement pore pressure",
+            "store survey stakes",
+            "support a beam"
+        ],
+        "answer": "collect surface runoff",
+        "explanation": "Inlets intercept runoff and protect the roadway.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1209,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "The unit weight of a material is weight per:",
+        "choices": [
+            "unit volume",
+            "unit mass only",
+            "unit time",
+            "unit angle"
+        ],
+        "answer": "unit volume",
+        "explanation": "Unit weight is force divided by volume.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "A = b × h",
+                "fallback": "A = b × h with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1210,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A dimensional check on an area calculation should produce:",
+        "choices": [
+            "square units",
+            "linear units only",
+            "cubic units always",
+            "no units"
+        ],
+        "answer": "square units",
+        "explanation": "Area has dimensions of length squared.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1211,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "For a rectangular slab 4 m by 3 m, area is:",
+        "choices": [
+            "12 m²",
+            "7 m",
+            "14 m³",
+            "1 m²"
+        ],
+        "answer": "12 m²",
+        "explanation": "Area is length times width.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1212,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A field notebook should record observations with:",
+        "choices": [
+            "location, time, units, and conditions",
+            "memory alone",
+            "unlabeled numbers",
+            "only a final opinion"
+        ],
+        "answer": "location, time, units, and conditions",
+        "explanation": "Traceable field notes support later verification.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "i = Δh / L",
+                "fallback": "i = Δh / L with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1213,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A survey adjustment distributes closure error to:",
+        "choices": [
+            "produce a consistent network under stated assumptions",
+            "change elevations randomly",
+            "remove all observations",
+            "replace the datum"
+        ],
+        "answer": "produce a consistent network under stated assumptions",
+        "explanation": "Adjustment applies a defined error-distribution method.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1214,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A project risk register should pair each risk with:",
+        "choices": [
+            "likelihood, consequence, and response",
+            "a color only",
+            "an unrelated quantity",
+            "no owner"
+        ],
+        "answer": "likelihood, consequence, and response",
+        "explanation": "Risk management needs assessment and response ownership.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1215,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "Construction sequencing is improved when dependencies are:",
+        "choices": [
+            "identified before scheduling",
+            "ignored until completion",
+            "replaced by slogans",
+            "kept undocumented"
+        ],
+        "answer": "identified before scheduling",
+        "explanation": "Dependencies determine feasible activity order.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "σ = P / A",
+                "fallback": "σ = P / A with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1216,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A transportation alternative should be compared using:",
+        "choices": [
+            "performance criteria and stakeholder constraints",
+            "one preferred answer only",
+            "no baseline",
+            "paint durability only"
+        ],
+        "answer": "performance criteria and stakeholder constraints",
+        "explanation": "Alternatives need consistent criteria and constraints.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1217,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A material’s thermal expansion matters when:",
+        "choices": [
+            "temperature change is restrained",
+            "the material has no dimensions",
+            "only rainfall changes",
+            "survey north shifts"
+        ],
+        "answer": "temperature change is restrained",
+        "explanation": "Restraint can convert expansion into stress.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1218,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "Density is mass divided by:",
+        "choices": [
+            "volume",
+            "area",
+            "time",
+            "pressure"
+        ],
+        "answer": "volume",
+        "explanation": "Density is mass per unit volume.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "FS = capacity / demand",
+                "fallback": "FS = capacity / demand with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1219,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "Pressure at a point in a static fluid increases with:",
+        "choices": [
+            "depth below the free surface",
+            "surface color",
+            "pipe length only",
+            "soil grain shape"
+        ],
+        "answer": "depth below the free surface",
+        "explanation": "Hydrostatic pressure rises with depth.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1220,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "The resultant hydrostatic force on a plane surface acts through the:",
+        "choices": [
+            "center of pressure",
+            "free surface always",
+            "lowest pipe outlet",
+            "centroid of the tank wall always"
+        ],
+        "answer": "center of pressure",
+        "explanation": "The center of pressure accounts for pressure variation with depth.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1221,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "Buoyant force equals the weight of:",
+        "choices": [
+            "displaced fluid",
+            "the container",
+            "the object’s paint",
+            "the water surface"
+        ],
+        "answer": "displaced fluid",
+        "explanation": "Archimedes’ principle relates buoyancy to displaced fluid weight.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "M = F × d",
+                "fallback": "M = F × d with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1222,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "Continuity for steady incompressible flow requires discharge to equal:",
+        "choices": [
+            "area times average velocity",
+            "pressure divided by density",
+            "mass times elevation",
+            "head times viscosity"
+        ],
+        "answer": "area times average velocity",
+        "explanation": "Discharge Q equals cross-sectional area times velocity.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1223,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "If pipe area decreases while discharge remains constant, average velocity:",
+        "choices": [
+            "increases",
+            "decreases to zero",
+            "is unrelated",
+            "becomes pressure"
+        ],
+        "answer": "increases",
+        "explanation": "Continuity requires velocity to rise as area falls.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1224,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "Bernoulli reasoning relates pressure, velocity, and:",
+        "choices": [
+            "elevation head",
+            "soil plasticity only",
+            "concrete slump",
+            "survey closure"
+        ],
+        "answer": "elevation head",
+        "explanation": "The energy equation includes pressure, velocity, and elevation terms.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "P = ρgh",
+                "fallback": "P = ρgh with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1225,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "Head loss in a real pipe represents:",
+        "choices": [
+            "energy dissipated by resistance",
+            "new energy created",
+            "zero friction",
+            "soil cohesion"
+        ],
+        "answer": "energy dissipated by resistance",
+        "explanation": "Friction and fittings dissipate mechanical energy.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1226,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A piezometer measures fluid:",
+        "choices": [
+            "pressure head",
+            "soil grain diameter",
+            "beam curvature",
+            "traffic density"
+        ],
+        "answer": "pressure head",
+        "explanation": "Fluid level in a piezometer indicates pressure head.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1227,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A pump in a pipeline generally adds:",
+        "choices": [
+            "energy head",
+            "soil voids",
+            "negative discharge always",
+            "survey error"
+        ],
+        "answer": "energy head",
+        "explanation": "A pump supplies energy to the flowing fluid.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Q = A × v",
+                "fallback": "Q = A × v with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1228,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "Laminar or turbulent classification of pipe flow commonly uses:",
+        "choices": [
+            "Reynolds number",
+            "concrete slump",
+            "bearing capacity",
+            "azimuth"
+        ],
+        "answer": "Reynolds number",
+        "explanation": "Reynolds number compares inertial and viscous effects.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1229,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A watershed is an area that drains toward:",
+        "choices": [
+            "a common outlet",
+            "a beam support",
+            "a soil laboratory only",
+            "a survey benchmark"
+        ],
+        "answer": "a common outlet",
+        "explanation": "Topography directs watershed runoff to a shared outlet.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1230,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A detention basin reduces downstream peak flow by:",
+        "choices": [
+            "temporarily storing runoff",
+            "increasing imperviousness",
+            "removing all rainfall",
+            "raising pipe velocity"
+        ],
+        "answer": "temporarily storing runoff",
+        "explanation": "Storage spreads runoff over time and lowers the peak.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "A = b × h",
+                "fallback": "A = b × h with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1231,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "Permeability describes how readily water can:",
+        "choices": [
+            "flow through connected soil voids",
+            "increase concrete strength",
+            "change survey bearing",
+            "carry beam moment"
+        ],
+        "answer": "flow through connected soil voids",
+        "explanation": "Permeability concerns fluid movement through pores.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1232,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "Effective stress in saturated soil is total stress minus:",
+        "choices": [
+            "pore-water pressure",
+            "dry unit weight",
+            "shear strain",
+            "ground elevation"
+        ],
+        "answer": "pore-water pressure",
+        "explanation": "Pore pressure carries part of total stress, leaving effective stress.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1233,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A soil with high void ratio has relatively more:",
+        "choices": [
+            "void space compared with solids",
+            "cement paste",
+            "steel reinforcement",
+            "pipe pressure"
+        ],
+        "answer": "void space compared with solids",
+        "explanation": "Void ratio compares void volume with solid volume.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "i = Δh / L",
+                "fallback": "i = Δh / L with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1234,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "Compaction primarily reduces soil:",
+        "choices": [
+            "air voids",
+            "mineral identity",
+            "particle gravity",
+            "water’s density"
+        ],
+        "answer": "air voids",
+        "explanation": "Mechanical compaction expels air and increases dry density.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1235,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "Consolidation settlement occurs mainly as saturated fine soil:",
+        "choices": [
+            "expels pore water over time",
+            "gains air instantly",
+            "melts",
+            "becomes steel"
+        ],
+        "answer": "expels pore water over time",
+        "explanation": "Time-dependent drainage causes consolidation settlement.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1236,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "Shear strength of soil resists:",
+        "choices": [
+            "sliding along a potential surface",
+            "all settlement",
+            "rainfall evaporation",
+            "survey misclosure"
+        ],
+        "answer": "sliding along a potential surface",
+        "explanation": "Shear strength governs resistance to soil sliding.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "σ = P / A",
+                "fallback": "σ = P / A with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1237,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "An increase in pore pressure generally reduces effective stress and may:",
+        "choices": [
+            "reduce shear resistance",
+            "increase dry density instantly",
+            "eliminate seepage",
+            "increase cement content"
+        ],
+        "answer": "reduce shear resistance",
+        "explanation": "Higher pore pressure reduces the stress carried by the soil skeleton.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "chart",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1238,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A soil classification system helps communicate:",
+        "choices": [
+            "engineering behavior and material identity",
+            "a project’s final cost only",
+            "beam reinforcement",
+            "pipe discharge"
+        ],
+        "answer": "engineering behavior and material identity",
+        "explanation": "Classification organizes soils for engineering interpretation.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1239,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "Seepage through an embankment becomes concerning when it causes:",
+        "choices": [
+            "internal erosion or piping",
+            "higher concrete slump",
+            "better survey closure",
+            "zero pore pressure"
+        ],
+        "answer": "internal erosion or piping",
+        "explanation": "Uncontrolled seepage can remove soil particles and weaken the embankment.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "FS = capacity / demand",
+                "fallback": "FS = capacity / demand with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1240,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A flow net is used to estimate seepage and:",
+        "choices": [
+            "pore-pressure distribution",
+            "steel yield stress",
+            "traffic demand",
+            "concrete temperature only"
+        ],
+        "answer": "pore-pressure distribution",
+        "explanation": "Flow nets represent seepage paths and equipotential changes.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1241,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "Bearing capacity is the ability of soil to support:",
+        "choices": [
+            "foundation load without unacceptable failure",
+            "water color",
+            "survey equipment",
+            "traffic signs only"
+        ],
+        "answer": "foundation load without unacceptable failure",
+        "explanation": "Foundation bearing capacity concerns support and failure.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1242,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A wider footing under the same load generally reduces:",
+        "choices": [
+            "contact pressure",
+            "soil area",
+            "foundation width",
+            "all settlement automatically"
+        ],
+        "answer": "contact pressure",
+        "explanation": "Load spread reduces average pressure, though it does not guarantee no settlement.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "M = F × d",
+                "fallback": "M = F × d with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1243,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "Lateral earth pressure acts on a retaining wall because soil exerts:",
+        "choices": [
+            "sideways stress",
+            "only vertical tension",
+            "pipe discharge",
+            "beam torsion"
+        ],
+        "answer": "sideways stress",
+        "explanation": "Retained soil applies lateral stress to the wall.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1244,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A drainage layer behind a retaining wall helps reduce:",
+        "choices": [
+            "water pressure",
+            "concrete hydration",
+            "survey distance",
+            "traffic speed"
+        ],
+        "answer": "water pressure",
+        "explanation": "Drainage relieves hydrostatic pressure behind the wall.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1245,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "Slope stability analysis compares driving forces with:",
+        "choices": [
+            "resisting forces",
+            "rainfall color",
+            "beam area",
+            "pipe diameter only"
+        ],
+        "answer": "resisting forces",
+        "explanation": "Stability depends on the balance of driving and resisting actions.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "P = ρgh",
+                "fallback": "P = ρgh with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1246,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A slip surface in a slope is a surface along which soil may:",
+        "choices": [
+            "shear and move",
+            "gain cement",
+            "measure elevation",
+            "become impermeable"
+        ],
+        "answer": "shear and move",
+        "explanation": "Failure movement develops along a shear surface.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1247,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A soil sample for moisture determination should be:",
+        "choices": [
+            "sealed promptly to preserve water content",
+            "left open in the sun",
+            "mixed with concrete",
+            "unlabeled"
+        ],
+        "answer": "sealed promptly to preserve water content",
+        "explanation": "Sealing prevents evaporation before weighing.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1248,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A grain-size curve helps identify the distribution of:",
+        "choices": [
+            "particle sizes",
+            "pore pressures only",
+            "beam moments",
+            "pump energy"
+        ],
+        "answer": "particle sizes",
+        "explanation": "Gradation describes particle-size distribution.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Q = A × v",
+                "fallback": "Q = A × v with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1249,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "Hydraulic gradient is head loss divided by:",
+        "choices": [
+            "flow length",
+            "pipe area only",
+            "soil mass",
+            "water density"
+        ],
+        "answer": "flow length",
+        "explanation": "Gradient is change in head per length.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1250,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A confined aquifer is bounded by layers of relatively low:",
+        "choices": [
+            "permeability",
+            "traffic volume",
+            "concrete strength",
+            "bearing angle"
+        ],
+        "answer": "permeability",
+        "explanation": "Confining layers restrict vertical groundwater movement.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1251,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "Water supply demand analysis should consider:",
+        "choices": [
+            "population, per-capita use, and losses",
+            "soil color only",
+            "beam span only",
+            "survey instrument brand"
+        ],
+        "answer": "population, per-capita use, and losses",
+        "explanation": "Demand estimates include use and distribution losses.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "A = b × h",
+                "fallback": "A = b × h with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1252,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "Cavitation risk increases when local pressure falls near:",
+        "choices": [
+            "vapor pressure",
+            "atmospheric mass",
+            "soil cohesion",
+            "concrete yield"
+        ],
+        "answer": "vapor pressure",
+        "explanation": "Pressure near vapor pressure can cause vapor bubbles and damage.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1253,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A stilling basin reduces flow energy by promoting:",
+        "choices": [
+            "controlled turbulence and dissipation",
+            "higher pipe pressure",
+            "soil compaction",
+            "survey closure"
+        ],
+        "answer": "controlled turbulence and dissipation",
+        "explanation": "Hydraulic structures dissipate excess energy in a controlled zone.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1254,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "An aquifer recharge area is important because it:",
+        "choices": [
+            "allows water to enter groundwater storage",
+            "blocks all infiltration",
+            "raises beam load",
+            "sets road alignment"
+        ],
+        "answer": "allows water to enter groundwater storage",
+        "explanation": "Recharge depends on infiltration into the groundwater system.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "i = Δh / L",
+                "fallback": "i = Δh / L with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1255,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "A settlement difference between adjacent footings is called:",
+        "choices": [
+            "differential settlement",
+            "uniform pressure",
+            "hydraulic radius",
+            "elastic modulus"
+        ],
+        "answer": "differential settlement",
+        "explanation": "Differential settlement is unequal movement between supports.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1256,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "easy",
+        "question": "The hydraulic radius of an open channel is flow area divided by:",
+        "choices": [
+            "wetted perimeter",
+            "freeboard",
+            "bed slope",
+            "discharge"
+        ],
+        "answer": "wetted perimeter",
+        "explanation": "That ratio is the hydraulic radius definition.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+            }
+        ]
+    },
+    {
+        "id": 1257,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A geotechnical investigation should be planned to identify:",
+        "choices": [
+            "soil layers, groundwater, and variability",
+            "only the property owner",
+            "paint sequence",
+            "traffic signals"
+        ],
+        "answer": "soil layers, groundwater, and variability",
+        "explanation": "Subsurface investigation reduces uncertainty in design.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "σ = P / A",
+                "fallback": "σ = P / A with consistent engineering units"
+            }
+        ]
+    },
+    {
+        "id": 1258,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A soil improvement method should be selected after considering:",
+        "choices": [
+            "soil behavior, objective, and site constraints",
+            "one method for every soil",
+            "color alone",
+            "no verification"
+        ],
+        "answer": "soil behavior, objective, and site constraints",
+        "explanation": "Treatment must match the mechanism and site need.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Parameter",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Given quantity",
+                        "4 m"
+                    ],
+                    [
+                        "Reference quantity",
+                        "3 m"
+                    ]
+                ]
+            }
+        ]
     }
 ]

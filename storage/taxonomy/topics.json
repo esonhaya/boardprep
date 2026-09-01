@@ -954,5 +954,23 @@
         "code": "LD",
         "name": "Lifespan Development",
         "description": "Developmental change and continuity across the lifespan."
+    },
+    {
+        "id": "structural-mechanics",
+        "domain_id": "ce-structural",
+        "code": "STRU",
+        "name": "Structural Mechanics"
+    },
+    {
+        "id": "applied-engineering",
+        "domain_id": "ce-applied",
+        "code": "APPL",
+        "name": "Applied Engineering Methods"
+    },
+    {
+        "id": "hydraulics-geotechnical",
+        "domain_id": "ce-hydraulics-geotech",
+        "code": "HYDR",
+        "name": "Hydraulics and Geotechnical Methods"
     }
 ]

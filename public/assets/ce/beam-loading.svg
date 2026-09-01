@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" role="img" aria-labelledby="title desc">
+<title id="title">Simply supported beam with central load</title>
+<desc id="desc">A horizontal beam rests on two triangular supports and carries a downward point load at its center.</desc>
+<line x1="100" y1="80" x2="500" y2="80" stroke="#173b67" stroke-width="8"/>
+<path d="M100 88l-22 35h44zM500 88l-22 35h44z" fill="#d9e5ff" stroke="#173b67" stroke-width="3"/>
+<line x1="300" y1="18" x2="300" y2="72" stroke="#b42318" stroke-width="4"/><path d="M290 60l10 18 10-18" fill="none" stroke="#b42318" stroke-width="4"/>
+<text x="315" y="35" font-family="sans-serif" font-size="20" fill="#173b67">P</text>
+</svg>

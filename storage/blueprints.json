@@ -340,34 +340,33 @@
         "status": "active",
         "questionCount": 80,
         "foundation": true,
-        "official_weighting": false,
+        "official_weighting": true,
         "sections": [
             {
-                "id": "applied-mathematics",
-                "name": "Applied Mathematics",
-                "target_percent": null
+                "id": "ce-structural",
+                "name": "Principles of Structural Analysis and Design",
+                "target_percent": 35
             },
             {
-                "id": "structural-engineering",
-                "name": "Structural Engineering",
-                "target_percent": null
+                "id": "ce-applied",
+                "name": "Applied Mathematics, Surveying, Transportation and Construction",
+                "target_percent": 35
             },
             {
-                "id": "geotechnical-and-hydraulics",
-                "name": "Geotechnical and Hydraulics",
-                "target_percent": null
-            },
-            {
-                "id": "construction-and-transportation",
-                "name": "Construction and Transportation",
-                "target_percent": null
+                "id": "ce-hydraulics-geotech",
+                "name": "Hydraulics and Principles of Geotechnical Engineering",
+                "target_percent": 30
             }
         ],
-        "label": "Foundation scope only; official weighting unavailable in the current repository record.",
-        "source_id": "prc-civil-engineering-board-page",
-        "source_version": "official PRC reference",
-        "official_structure": "Official subject areas are represented for future content planning; no unsupported internal weighting is claimed.",
-        "official_weights": null,
+        "label": "Current official CELE relative weights from the March 2026 PRC examination program.",
+        "source_id": "prc-cele-program-march-2026",
+        "source_version": "March 2026 revised examination program",
+        "official_structure": "Principles of Structural Analysis and Design 35%; Applied Mathematics, Surveying, Transportation and Construction 35%; Hydraulics and Principles of Geotechnical Engineering 30%.",
+        "official_weights": {
+            "ce-structural": 35,
+            "ce-applied": 35,
+            "ce-hydraulics-geotech": 30
+        },
         "internal_targets": false
     },
     {
