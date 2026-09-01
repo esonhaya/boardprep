@@ -146,7 +146,7 @@ final class HttpTest
             $simulator->request('GET', '/question-inspector', ['id' => '1']),
             $passed,
             $failed,
-            'Question Information'
+            'Question summary'
         );
 
         $this->testExpectedStatus(
