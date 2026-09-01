@@ -34408,24 +34408,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "For a body in static equilibrium, the algebraic sum of forces in each direction is:",
+        "difficulty": "medium",
+        "question": "A simply supported beam carries a 10 kN point load at midspan over 6 m. What is the reaction at each support?",
         "choices": [
-            "zero",
-            "equal to the mass",
-            "always positive",
-            "equal to the largest force"
+            "5 kN",
+            "10 kN",
+            "3 kN",
+            "60 kN"
         ],
-        "answer": "zero",
-        "explanation": "Equilibrium requires translational force balance.",
+        "answer": "5 kN",
+        "explanation": "Symmetry gives equal reactions: (10 kN)/2 = 5 kN.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "M = F × d",
-                "fallback": "M = F × d with consistent engineering units"
+                "value": "Engineering relationship with supplied units",
+                "fallback": "Use the stated engineering relationship and units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1138,
@@ -34449,35 +34451,25 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "A 4 kN force acts 3 m from a pivot at right angles. Its moment magnitude is:",
+        "question": "A 12 kN force acts perpendicular to a lever arm 2.5 m long. Find the moment about the pivot.",
         "choices": [
-            "12 kN·m",
-            "1.33 kN·m",
-            "7 kN·m",
-            "16 kN·m"
+            "30 kN·m",
+            "4.8 kN·m",
+            "14.5 kN·m",
+            "24 kN·m"
         ],
-        "answer": "12 kN·m",
-        "explanation": "Moment equals force times perpendicular distance.",
+        "answer": "30 kN·m",
+        "explanation": "The moment is Fd = 12 × 2.5 = 30 kN·m.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Engineering relationship with supplied units",
+                "fallback": "Use the stated engineering relationship and units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1139,
@@ -34501,23 +34493,25 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "Two equal and opposite collinear forces have what resultant effect on a rigid body?",
+        "question": "A steel bar carries 60 kN over an area of 300 mm². Its average normal stress is:",
         "choices": [
-            "a couple if their lines are separated",
-            "a single axial force",
-            "zero moment and zero force always",
-            "pure translation"
+            "200 MPa",
+            "20 MPa",
+            "180 MPa",
+            "18,000 MPa"
         ],
-        "answer": "a couple if their lines are separated",
-        "explanation": "Separated equal forces create a couple; collinear forces may cancel.",
+        "answer": "200 MPa",
+        "explanation": "Convert 60 kN to 60,000 N; 60,000/300 = 200 N/mm² = 200 MPa.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
-                "type": "figure",
-                "asset": "assets/ce/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+                "type": "equation",
+                "value": "σ = P/A",
+                "fallback": "Engineering equation with supplied units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1140,
@@ -34541,23 +34535,25 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "A truss member carrying tension primarily experiences:",
+        "question": "A 2 m steel bar has strain 0.0015. What is its elastic elongation?",
         "choices": [
-            "pulling axial force",
-            "transverse bending only",
-            "fluid pressure",
-            "torsional buckling only"
+            "3 mm",
+            "0.3 mm",
+            "30 mm",
+            "1.5 mm"
         ],
-        "answer": "pulling axial force",
-        "explanation": "Tension is an axial pulling action.",
+        "answer": "3 mm",
+        "explanation": "Elongation = strain × length = 0.0015 × 2000 mm = 3 mm.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "P = ρgh",
-                "fallback": "P = ρgh with consistent engineering units"
+                "value": "Engineering relationship with supplied units",
+                "fallback": "Use the stated engineering relationship and units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1141,
@@ -34580,36 +34576,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "The internal action that resists sliding between adjacent beam layers is:",
+        "difficulty": "hard",
+        "question": "A rectangular section is 100 mm wide and 200 mm deep. Its second moment of area about the centroidal horizontal axis is:",
         "choices": [
-            "shear",
-            "axial compression",
-            "temperature",
-            "bearing pressure"
+            "66.7 × 10^6 mm⁴",
+            "2.0 × 10^6 mm⁴",
+            "133.3 × 10^6 mm⁴",
+            "6.67 × 10^3 mm⁴"
         ],
-        "answer": "shear",
-        "explanation": "Beam shear resists relative sliding across a section.",
+        "answer": "66.7 × 10^6 mm⁴",
+        "explanation": "For a rectangle I = bd³/12 = 100(200³)/12 = 66.7 million mm⁴.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Engineering relationship with supplied units",
+                "fallback": "Use the stated engineering relationship and units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1142,
@@ -34632,24 +34618,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "For a prismatic bar under uniform axial tension, normal stress is calculated as:",
+        "difficulty": "hard",
+        "question": "A beam has bending moment 8 kN·m and section modulus 400 cm³. The bending stress is:",
         "choices": [
-            "P/A",
-            "PL/AE",
-            "M/I",
-            "VQ/It"
+            "20 MPa",
+            "2 MPa",
+            "200 MPa",
+            "3.2 MPa"
         ],
-        "answer": "P/A",
-        "explanation": "Axial force divided by area gives average normal stress.",
+        "answer": "20 MPa",
+        "explanation": "8 kN·m = 8,000,000 N·mm and 400 cm³ = 400,000 mm³; σ=M/Z=20 MPa.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
-                "type": "figure",
-                "asset": "assets/ce/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+                "type": "equation",
+                "value": "σ = M/Z",
+                "fallback": "Engineering equation with supplied units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1143,
@@ -34672,24 +34660,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A steel rod lengthens elastically under load. The ratio of stress to strain is:",
+        "difficulty": "medium",
+        "question": "A circular shaft transmits 600 N·m through a radius of 25 mm. The torque force couple at the rim is:",
         "choices": [
-            "Young’s modulus",
-            "Poisson ratio",
-            "section modulus",
-            "specific weight"
+            "24 kN",
+            "15 kN",
+            "1.5 kN",
+            "240 N"
         ],
-        "answer": "Young’s modulus",
-        "explanation": "Young’s modulus relates uniaxial stress and strain in the elastic range.",
+        "answer": "24 kN",
+        "explanation": "T = Fr, so F = 600/0.025 = 24,000 N.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "Q = A × v",
-                "fallback": "Q = A × v with consistent engineering units"
+                "value": "Engineering relationship with supplied units",
+                "fallback": "Use the stated engineering relationship and units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1144,
@@ -34713,35 +34703,25 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "A beam’s neutral axis is the line where longitudinal bending stress is:",
+        "question": "A pinned planar truss joint has 8 kN horizontal and 6 kN vertical force components. Resultant force is:",
         "choices": [
-            "zero",
-            "maximum compression",
-            "maximum tension",
-            "equal to shear stress"
+            "10 kN",
+            "14 kN",
+            "2 kN",
+            "48 kN"
         ],
-        "answer": "zero",
-        "explanation": "Longitudinal bending stress changes sign through the neutral axis.",
+        "answer": "10 kN",
+        "explanation": "The resultant is √(8²+6²) = 10 kN.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Engineering relationship with supplied units",
+                "fallback": "Use the stated engineering relationship and units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1145,
@@ -34765,23 +34745,25 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "Increasing a rectangular beam’s depth substantially improves its bending capacity because:",
+        "question": "A 4 m column carries 120 kN and has area 0.006 m². Average compressive stress is:",
         "choices": [
-            "section modulus increases strongly with depth",
-            "weight becomes zero",
-            "shear disappears",
-            "the material changes"
+            "20 MPa",
+            "0.02 MPa",
+            "720 MPa",
+            "2 MPa"
         ],
-        "answer": "section modulus increases strongly with depth",
-        "explanation": "Depth increases the geometric resistance to bending.",
+        "answer": "20 MPa",
+        "explanation": "Stress = 120,000 N / 0.006 m² = 20,000,000 Pa = 20 MPa.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
-                "type": "figure",
-                "asset": "assets/ce/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+                "type": "equation",
+                "value": "σ = P/A",
+                "fallback": "Engineering equation with supplied units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1146,
@@ -34804,24 +34786,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A simply supported beam under a central point load has its largest bending moment:",
+        "difficulty": "medium",
+        "question": "A footing carries 900 kN on soil allowable pressure 150 kPa. Minimum plan area is:",
         "choices": [
-            "at midspan",
-            "at the left support only",
-            "at the right support only",
-            "outside the beam"
+            "6 m²",
+            "0.167 m²",
+            "1350 m²",
+            "750 m²"
         ],
-        "answer": "at midspan",
-        "explanation": "The span center is where the moment peaks for this symmetric case.",
+        "answer": "6 m²",
+        "explanation": "Area = load/pressure = 900 kN ÷ 150 kN/m² = 6 m².",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "A = b × h",
-                "fallback": "A = b × h with consistent engineering units"
+                "value": "Engineering relationship with supplied units",
+                "fallback": "Use the stated engineering relationship and units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1147,
@@ -34844,36 +34828,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A determinate structure can be solved using:",
+        "difficulty": "medium",
+        "question": "A simply supported beam has a 4 kN/m uniform load over 5 m. Each support reaction is:",
         "choices": [
-            "equilibrium equations alone",
-            "material color",
-            "soil permeability only",
-            "a project schedule"
+            "10 kN",
+            "4 kN",
+            "20 kN",
+            "2.5 kN"
         ],
-        "answer": "equilibrium equations alone",
-        "explanation": "Static determinacy means equilibrium is sufficient.",
+        "answer": "10 kN",
+        "explanation": "Total load is 4×5=20 kN; symmetry gives 10 kN per support.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
-                "type": "chart",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Engineering relationship with supplied units",
+                "fallback": "Use the stated engineering relationship and units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1148,
@@ -34896,24 +34870,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A member with both ends pinned cannot resist an applied end moment because:",
+        "difficulty": "hard",
+        "question": "A 2.4 m beam carries a 5 kN load 0.8 m from the left support. The right reaction is:",
         "choices": [
-            "a pin permits rotation",
-            "the member has no mass",
-            "pins increase torsion",
-            "bending is always zero"
+            "1.67 kN",
+            "3.33 kN",
+            "5 kN",
+            "4 kN"
         ],
-        "answer": "a pin permits rotation",
-        "explanation": "Ideal pins release moment while transmitting forces.",
+        "answer": "1.67 kN",
+        "explanation": "Taking moments about the left: R_B(2.4)=5(0.8), so R_B=1.67 kN.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
-                "type": "figure",
-                "asset": "assets/ce/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+                "type": "equation",
+                "value": "ΣM_A = 0",
+                "fallback": "Engineering equation with supplied units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1149,
@@ -34937,23 +34913,25 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "Torsional shear stress in a circular shaft increases with:",
+        "question": "A material has stress 150 MPa and elastic modulus 75 GPa. Its strain is:",
         "choices": [
-            "distance from the center",
-            "lower torque only",
-            "zero radius",
-            "absence of rotation"
+            "0.002",
+            "0.5",
+            "11250",
+            "2.0"
         ],
-        "answer": "distance from the center",
-        "explanation": "For a shaft, torsional shear stress grows toward the outer radius.",
+        "answer": "0.002",
+        "explanation": "Convert 75 GPa to 75,000 MPa; strain = 150/75,000 = 0.002.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "i = Δh / L",
-                "fallback": "i = Δh / L with consistent engineering units"
+                "value": "Engineering relationship with supplied units",
+                "fallback": "Use the stated engineering relationship and units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1150,
@@ -34976,36 +34954,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A ductile material’s yield point marks the onset of:",
+        "difficulty": "hard",
+        "question": "A two-member truss carries a 10 kN vertical joint load symmetrically at 45°. Force in each inclined member is:",
         "choices": [
-            "significant permanent deformation",
-            "zero strain",
-            "instant fracture in every case",
-            "fluid flow"
+            "7.07 kN compression",
+            "5 kN compression",
+            "10 kN tension",
+            "14.14 kN tension"
         ],
-        "answer": "significant permanent deformation",
-        "explanation": "Yield indicates departure from fully elastic behavior.",
+        "answer": "7.07 kN compression",
+        "explanation": "2F sin45°=10, so F=7.07 kN; the members push upward in compression.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Engineering relationship with supplied units",
+                "fallback": "Use the stated engineering relationship and units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1151,
@@ -35029,23 +34997,25 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "A column’s slenderness is important because a slender member is more susceptible to:",
+        "question": "A steel column’s Euler load is proportional to 1/L². If its effective length doubles, the ideal buckling load becomes:",
         "choices": [
-            "buckling",
-            "surface staining",
-            "hydrostatic uplift",
-            "thermal insulation"
+            "one-fourth",
+            "one-half",
+            "double",
+            "four times"
         ],
-        "answer": "buckling",
-        "explanation": "Slender compression members may buckle before crushing.",
+        "answer": "one-fourth",
+        "explanation": "The inverse-square relation gives 1/(2L)² = one-fourth of the original.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
-                "type": "figure",
-                "asset": "assets/ce/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+                "type": "equation",
+                "value": "Pcr ∝ 1/L²",
+                "fallback": "Engineering equation with supplied units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1152,
@@ -35068,24 +35038,39 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "If the effective length of an ideal pinned column increases, its Euler buckling load:",
+        "difficulty": "easy",
+        "question": "A concrete cylinder fails at 450 kN and has cross-sectional area 15,000 mm². Compressive strength is:",
         "choices": [
-            "decreases",
-            "increases without limit",
-            "stays exactly constant",
-            "becomes a tensile load"
+            "30 MPa",
+            "3 MPa",
+            "300 MPa",
+            "6.75 MPa"
         ],
-        "answer": "decreases",
-        "explanation": "Euler critical load varies inversely with effective-length squared.",
+        "answer": "30 MPa",
+        "explanation": "450,000 N ÷ 15,000 mm² = 30 N/mm² = 30 MPa.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "σ = P / A",
-                "fallback": "σ = P / A with consistent engineering units"
+                "type": "table",
+                "columns": [
+                    "Given",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Input",
+                        "4 m"
+                    ],
+                    [
+                        "Reference",
+                        "3 m"
+                    ]
+                ],
+                "value": "f_c = P/A"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1153,
@@ -36164,36 +36149,39 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "The derivative of distance with respect to time represents:",
+        "difficulty": "medium",
+        "question": "A vehicle travels 180 km in 3 h, then 60 km in 1 h. Its average speed for the trip is:",
         "choices": [
-            "velocity",
-            "acceleration squared",
-            "work",
-            "density"
+            "60 km/h",
+            "55 km/h",
+            "45 km/h",
+            "75 km/h"
         ],
-        "answer": "velocity",
-        "explanation": "Velocity is the time rate of change of position.",
+        "answer": "60 km/h",
+        "explanation": "Total distance 240 km divided by total time 4 h gives 60 km/h.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
-                "type": "chart",
+                "type": "table",
                 "columns": [
-                    "Parameter",
+                    "Given",
                     "Value"
                 ],
                 "rows": [
                     [
-                        "Given quantity",
+                        "Input",
                         "4 m"
                     ],
                     [
-                        "Reference quantity",
+                        "Reference",
                         "3 m"
                     ]
-                ]
+                ],
+                "value": "v_avg = total distance / total time"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1178,
@@ -36216,24 +36204,27 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "Integrating a velocity function over time gives:",
+        "difficulty": "medium",
+        "question": "A map uses scale 1:2500. A measured line is 7.2 cm. Ground distance is:",
         "choices": [
-            "change in position",
-            "instantaneous acceleration",
-            "mass density",
-            "area pressure"
+            "180 m",
+            "28.8 m",
+            "18 m",
+            "1,800 m"
         ],
-        "answer": "change in position",
-        "explanation": "Integration accumulates velocity into displacement.",
+        "answer": "180 m",
+        "explanation": "7.2 cm × 2500 = 18,000 cm = 180 m.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "figure",
                 "asset": "assets/ce/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+                "alt": "BoardPrep engineering diagram supporting the calculation",
+                "value": "ground = map × scale"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1179,
@@ -36256,24 +36247,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "For a right triangle with legs 3 and 4, the hypotenuse is:",
+        "difficulty": "hard",
+        "question": "A level has backsight 1.425 m on elevation 100.000 m and foresight 2.110 m. Next elevation is:",
         "choices": [
-            "5",
-            "6",
-            "7",
-            "12"
+            "99.315 m",
+            "103.535 m",
+            "100.685 m",
+            "98.575 m"
         ],
-        "answer": "5",
-        "explanation": "The Pythagorean relation gives 3²+4²=5².",
+        "answer": "99.315 m",
+        "explanation": "HI=101.425 m; next elevation=101.425−2.110=99.315 m.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "M = F × d",
-                "fallback": "M = F × d with consistent engineering units"
+                "value": "HI = Elev + BS; Elev_next = HI − FS",
+                "fallback": "Engineering equation with supplied units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1180,
@@ -36297,35 +36290,38 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "A survey benchmark is used as a reference for:",
+        "question": "A closed traverse has coordinate departures 120 m east and 50 m west. The net departure is:",
         "choices": [
-            "elevation",
-            "concrete strength",
-            "traffic volume",
-            "soil chemistry"
+            "70 m east",
+            "170 m east",
+            "70 m west",
+            "2.4 m east"
         ],
-        "answer": "elevation",
-        "explanation": "A benchmark provides a known elevation reference.",
+        "answer": "70 m east",
+        "explanation": "East is positive: 120−50 = 70 m east.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "table",
                 "columns": [
-                    "Parameter",
+                    "Given",
                     "Value"
                 ],
                 "rows": [
                     [
-                        "Given quantity",
+                        "Input",
                         "4 m"
                     ],
                     [
-                        "Reference quantity",
+                        "Reference",
                         "3 m"
                     ]
-                ]
+                ],
+                "value": "Σ departure = east − west"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1181,
@@ -36348,24 +36344,27 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "In leveling, a backsight is normally taken to:",
+        "difficulty": "easy",
+        "question": "A rectangular excavation is 12 m long, 4 m wide, and 1.5 m deep. Volume is:",
         "choices": [
-            "establish instrument elevation from a known point",
-            "measure traffic speed",
-            "set concrete slump",
-            "find pipe friction"
+            "72 m³",
+            "48 m³",
+            "18 m³",
+            "288 m³"
         ],
-        "answer": "establish instrument elevation from a known point",
-        "explanation": "The backsight connects the instrument setup to known elevation.",
+        "answer": "72 m³",
+        "explanation": "Volume = 12×4×1.5 = 72 m³.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "figure",
                 "asset": "assets/ce/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+                "alt": "BoardPrep engineering diagram supporting the calculation",
+                "value": "V = LWH"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1182,
@@ -36388,24 +36387,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A traverse closure error indicates:",
+        "difficulty": "easy",
+        "question": "A concrete mix needs 360 kg cement per cubic metre. For 18 m³, cement required is:",
         "choices": [
-            "inconsistency between computed and expected closing position",
-            "perfect fieldwork",
-            "zero distance",
-            "a bridge load"
+            "6,480 kg",
+            "380 kg",
+            "378 kg",
+            "20 kg"
         ],
-        "answer": "inconsistency between computed and expected closing position",
-        "explanation": "Closure checks reveal accumulated survey discrepancy.",
+        "answer": "6,480 kg",
+        "explanation": "Multiply unit quantity by volume: 360×18 = 6,480 kg.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "P = ρgh",
-                "fallback": "P = ρgh with consistent engineering units"
+                "value": "total = unit rate × quantity",
+                "fallback": "Engineering equation with supplied units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1183,
@@ -36428,36 +36429,39 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "Azimuth is commonly measured clockwise from:",
+        "difficulty": "medium",
+        "question": "A crew places 48 m³ in 6 h. At the same rate, eight hours produces:",
         "choices": [
-            "north",
-            "southwest only",
-            "the vertical datum",
-            "sea level"
+            "64 m³",
+            "56 m³",
+            "48 m³",
+            "384 m³"
         ],
-        "answer": "north",
-        "explanation": "Azimuth convention begins at north and turns clockwise.",
+        "answer": "64 m³",
+        "explanation": "Rate is 8 m³/h; 8 h gives 64 m³.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "table",
                 "columns": [
-                    "Parameter",
+                    "Given",
                     "Value"
                 ],
                 "rows": [
                     [
-                        "Given quantity",
+                        "Input",
                         "4 m"
                     ],
                     [
-                        "Reference quantity",
+                        "Reference",
                         "3 m"
                     ]
-                ]
+                ],
+                "value": "rate = output/time"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1184,
@@ -36480,24 +36484,27 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A coordinate table is most useful for computing:",
+        "difficulty": "medium",
+        "question": "A project has direct cost PHP 800,000 and 12% overhead. Total before profit is:",
         "choices": [
-            "traverse position and area",
-            "concrete hydration",
-            "pipe viscosity",
-            "beam yield stress"
+            "PHP 896,000",
+            "PHP 812,000",
+            "PHP 960,000",
+            "PHP 704,000"
         ],
-        "answer": "traverse position and area",
-        "explanation": "Coordinates support geometric layout and area calculations.",
+        "answer": "PHP 896,000",
+        "explanation": "Overhead is 0.12×800,000=96,000; total is PHP896,000.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "figure",
                 "asset": "assets/ce/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+                "alt": "BoardPrep engineering diagram supporting the calculation",
+                "value": "total = direct(1 + 0.12)"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1185,
@@ -36520,24 +36527,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "If a map scale is 1:1000, 1 cm on the map represents:",
+        "difficulty": "easy",
+        "question": "An alternative saves PHP 50,000 annually for 3 years with no discounting. Total nominal saving is:",
         "choices": [
-            "10 m on the ground",
-            "1 m",
-            "1000 m",
-            "0.001 m"
+            "PHP 150,000",
+            "PHP 53,000",
+            "PHP 16,667",
+            "PHP 500,000"
         ],
-        "answer": "10 m on the ground",
-        "explanation": "One centimetre times 1000 equals 1000 cm or 10 m.",
+        "answer": "PHP 150,000",
+        "explanation": "Adding the three annual savings gives PHP50,000×3 = PHP150,000.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "Q = A × v",
-                "fallback": "Q = A × v with consistent engineering units"
+                "value": "saving = annual × years",
+                "fallback": "Engineering equation with supplied units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1186,
@@ -36560,36 +36569,39 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A quantity takeoff should be based first on:",
+        "difficulty": "medium",
+        "question": "A survey angle is 35° and the next line turns right by 90°. The next azimuth is:",
         "choices": [
-            "measured scope and drawings",
-            "an unverified allowance",
-            "the contractor’s slogan",
-            "weather probability"
+            "125°",
+            "55°",
+            "90°",
+            "305°"
         ],
-        "answer": "measured scope and drawings",
-        "explanation": "Measured scope provides the basis for quantities.",
+        "answer": "125°",
+        "explanation": "A right turn adds 90°: 35°+90°=125°.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "table",
                 "columns": [
-                    "Parameter",
+                    "Given",
                     "Value"
                 ],
                 "rows": [
                     [
-                        "Given quantity",
+                        "Input",
                         "4 m"
                     ],
                     [
-                        "Reference quantity",
+                        "Reference",
                         "3 m"
                     ]
-                ]
+                ],
+                "value": "azimuth_next = azimuth + turn"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1187,
@@ -36612,24 +36624,27 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A concrete pour schedule should coordinate:",
+        "difficulty": "medium",
+        "question": "Traffic counts for three hours are 420, 510, and 570 vehicles. Mean hourly volume is:",
         "choices": [
-            "crew, materials, equipment, and sequence",
-            "only paint colors",
-            "soil taxonomy only",
-            "exam dates"
+            "500 vehicles/h",
+            "450 vehicles/h",
+            "510 vehicles/h",
+            "1,500 vehicles/h"
         ],
-        "answer": "crew, materials, equipment, and sequence",
-        "explanation": "Coordination prevents resource and sequence conflicts.",
+        "answer": "500 vehicles/h",
+        "explanation": "(420+510+570)/3 = 1,500/3 = 500 vehicles/h.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "figure",
                 "asset": "assets/ce/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+                "alt": "BoardPrep engineering diagram supporting the calculation",
+                "value": "mean = Σx/n"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1188,
@@ -36652,24 +36667,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "The critical path in a schedule is the sequence that determines:",
+        "difficulty": "hard",
+        "question": "A road segment is 2 km long and carries 1,200 vehicles per hour. If average speed is 40 km/h, density is:",
         "choices": [
-            "minimum project duration",
-            "lowest concrete strength",
-            "survey north",
-            "pipe diameter"
+            "30 vehicles/km",
+            "60 vehicles/km",
+            "600 vehicles/km",
+            "20 vehicles/km"
         ],
-        "answer": "minimum project duration",
-        "explanation": "Delay on the critical path delays completion.",
+        "answer": "30 vehicles/km",
+        "explanation": "Density = flow/speed = 1,200/40 = 30 vehicles/km.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "A = b × h",
-                "fallback": "A = b × h with consistent engineering units"
+                "value": "k = q/v",
+                "fallback": "Engineering equation with supplied units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1189,
@@ -36692,36 +36709,39 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A bar chart schedule is useful for showing:",
+        "difficulty": "medium",
+        "question": "A 5% grade rises 2.5 m. Approximate horizontal length is:",
         "choices": [
-            "activities against time",
-            "soil particle size",
-            "beam stress distribution",
-            "water pressure"
+            "50 m",
+            "125 m",
+            "2.5 m",
+            "0.05 m"
         ],
-        "answer": "activities against time",
-        "explanation": "It displays planned activities across calendar time.",
+        "answer": "50 m",
+        "explanation": "Grade = rise/run; run = 2.5/0.05 = 50 m.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "table",
                 "columns": [
-                    "Parameter",
+                    "Given",
                     "Value"
                 ],
                 "rows": [
                     [
-                        "Given quantity",
+                        "Input",
                         "4 m"
                     ],
                     [
-                        "Reference quantity",
+                        "Reference",
                         "3 m"
                     ]
-                ]
+                ],
+                "value": "grade = rise/run"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1190,
@@ -36745,23 +36765,26 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "A productivity rate relates completed output to:",
+        "question": "A rectangular pavement area is 80 m by 6 m. At 0.15 m thickness, volume is:",
         "choices": [
-            "resource input and time",
-            "concrete color",
-            "latitude only",
-            "a legal title"
+            "72 m³",
+            "480 m³",
+            "7.2 m³",
+            "86 m³"
         ],
-        "answer": "resource input and time",
-        "explanation": "Productivity compares output with resources and duration.",
+        "answer": "72 m³",
+        "explanation": "Volume = 80×6×0.15 = 72 m³.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "figure",
                 "asset": "assets/ce/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+                "alt": "BoardPrep engineering diagram supporting the calculation",
+                "value": "V = LWH"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1191,
@@ -36785,23 +36808,25 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "The safest construction response to an unplanned hazard is to:",
+        "question": "A machine costs PHP 1,200,000 and has salvage PHP 200,000 after 10 years. Straight-line annual depreciation is:",
         "choices": [
-            "control the hazard before proceeding",
-            "ignore it if work is late",
-            "remove warning signs",
-            "increase speed"
+            "PHP 100,000",
+            "PHP 120,000",
+            "PHP 20,000",
+            "PHP 1,000,000"
         ],
-        "answer": "control the hazard before proceeding",
-        "explanation": "Hazard control takes priority over schedule pressure.",
+        "answer": "PHP 100,000",
+        "explanation": "Depreciation=(1,200,000−200,000)/10 = PHP100,000 per year.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "i = Δh / L",
-                "fallback": "i = Δh / L with consistent engineering units"
+                "value": "D=(cost−salvage)/life",
+                "fallback": "Engineering equation with supplied units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1192,
@@ -36825,35 +36850,38 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "A traffic count collected at regular intervals provides evidence about:",
+        "question": "A leveling run has observed rise 3.80 m and fall 1.25 m. Net elevation change is:",
         "choices": [
-            "traffic demand patterns",
-            "concrete modulus",
-            "soil cohesion",
-            "beam curvature"
+            "2.55 m rise",
+            "5.05 m rise",
+            "2.55 m fall",
+            "0.33 m rise"
         ],
-        "answer": "traffic demand patterns",
-        "explanation": "Counts describe use of the transport facility.",
+        "answer": "2.55 m rise",
+        "explanation": "Net change is rise minus fall: 3.80−1.25 = 2.55 m rise.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "table",
                 "columns": [
-                    "Parameter",
+                    "Given",
                     "Value"
                 ],
                 "rows": [
                     [
-                        "Given quantity",
+                        "Input",
                         "4 m"
                     ],
                     [
-                        "Reference quantity",
+                        "Reference",
                         "3 m"
                     ]
-                ]
+                ],
+                "value": "ΔE = rise − fall"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1193,
@@ -37973,23 +38001,38 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "Density is mass divided by:",
+        "question": "Water has density 1000 kg/m³ and occupies 0.8 m³. Its mass is:",
         "choices": [
-            "volume",
-            "area",
-            "time",
-            "pressure"
+            "800 kg",
+            "1,250 kg",
+            "800,000 kg",
+            "80 kg"
         ],
-        "answer": "volume",
-        "explanation": "Density is mass per unit volume.",
+        "answer": "800 kg",
+        "explanation": "Mass=density×volume=1000×0.8=800 kg.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "FS = capacity / demand",
-                "fallback": "FS = capacity / demand with consistent engineering units"
+                "type": "table",
+                "columns": [
+                    "Given",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Input",
+                        "4 m"
+                    ],
+                    [
+                        "Reference",
+                        "3 m"
+                    ]
+                ],
+                "value": "m = ρV"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1219,
@@ -38013,35 +38056,26 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "Pressure at a point in a static fluid increases with:",
+        "question": "Water pressure at 3 m depth using γ=9.81 kN/m³ is:",
         "choices": [
-            "depth below the free surface",
-            "surface color",
-            "pipe length only",
-            "soil grain shape"
+            "29.43 kPa",
+            "3.27 kPa",
+            "9.81 kPa",
+            "294.3 kPa"
         ],
-        "answer": "depth below the free surface",
-        "explanation": "Hydrostatic pressure rises with depth.",
+        "answer": "29.43 kPa",
+        "explanation": "Hydrostatic pressure γh = 9.81×3 = 29.43 kPa.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "BoardPrep engineering diagram supporting the calculation",
+                "value": "p = γh"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1220,
@@ -38065,23 +38099,25 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "The resultant hydrostatic force on a plane surface acts through the:",
+        "question": "A 2 m² vertical gate has centroid depth 4 m. Using γ=9.81 kN/m³, resultant force is:",
         "choices": [
-            "center of pressure",
-            "free surface always",
-            "lowest pipe outlet",
-            "centroid of the tank wall always"
+            "78.48 kN",
+            "19.62 kN",
+            "39.24 kN",
+            "7.85 kN"
         ],
-        "answer": "center of pressure",
-        "explanation": "The center of pressure accounts for pressure variation with depth.",
+        "answer": "78.48 kN",
+        "explanation": "Force = γhA = 9.81×4×2 = 78.48 kN.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "figure",
-                "asset": "assets/ce/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+                "type": "equation",
+                "value": "F = γ h A",
+                "fallback": "Engineering equation with supplied units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1221,
@@ -38105,23 +38141,38 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "Buoyant force equals the weight of:",
+        "question": "A tank displaces 0.35 m³ of water. With γ=9.81 kN/m³, buoyant force is:",
         "choices": [
-            "displaced fluid",
-            "the container",
-            "the object’s paint",
-            "the water surface"
+            "3.434 kN",
+            "0.0357 kN",
+            "28.03 kN",
+            "9.81 kN"
         ],
-        "answer": "displaced fluid",
-        "explanation": "Archimedes’ principle relates buoyancy to displaced fluid weight.",
+        "answer": "3.434 kN",
+        "explanation": "Buoyancy equals displaced-fluid weight: 9.81×0.35 = 3.434 kN.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "M = F × d",
-                "fallback": "M = F × d with consistent engineering units"
+                "type": "table",
+                "columns": [
+                    "Given",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Input",
+                        "4 m"
+                    ],
+                    [
+                        "Reference",
+                        "3 m"
+                    ]
+                ],
+                "value": "F_B = γV"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1222,
@@ -38145,35 +38196,26 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "Continuity for steady incompressible flow requires discharge to equal:",
+        "question": "A pipe carries 0.6 m³/s through area 0.12 m². Average velocity is:",
         "choices": [
-            "area times average velocity",
-            "pressure divided by density",
-            "mass times elevation",
-            "head times viscosity"
+            "5 m/s",
+            "0.2 m/s",
+            "7.2 m/s",
+            "0.72 m/s"
         ],
-        "answer": "area times average velocity",
-        "explanation": "Discharge Q equals cross-sectional area times velocity.",
+        "answer": "5 m/s",
+        "explanation": "Continuity gives v=Q/A=0.6/0.12=5 m/s.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "BoardPrep engineering diagram supporting the calculation",
+                "value": "Q = Av"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1223,
@@ -38197,23 +38239,25 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "If pipe area decreases while discharge remains constant, average velocity:",
+        "question": "Flow of 0.4 m³/s enters a 0.08 m² pipe and exits an area 0.05 m². Exit velocity is:",
         "choices": [
-            "increases",
-            "decreases to zero",
-            "is unrelated",
-            "becomes pressure"
+            "8 m/s",
+            "5 m/s",
+            "0.32 m/s",
+            "20 m/s"
         ],
-        "answer": "increases",
-        "explanation": "Continuity requires velocity to rise as area falls.",
+        "answer": "8 m/s",
+        "explanation": "Q is constant; v_exit=0.4/0.05=8 m/s.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "figure",
-                "asset": "assets/ce/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+                "type": "equation",
+                "value": "v₂ = Q/A₂",
+                "fallback": "Engineering equation with supplied units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1224,
@@ -38236,24 +38280,39 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "Bernoulli reasoning relates pressure, velocity, and:",
+        "difficulty": "hard",
+        "question": "A pump raises 0.02 m³/s of water through 15 m. Ignoring losses, hydraulic power is:",
         "choices": [
-            "elevation head",
-            "soil plasticity only",
-            "concrete slump",
-            "survey closure"
+            "2.943 kW",
+            "0.294 kW",
+            "29.43 kW",
+            "300 kW"
         ],
-        "answer": "elevation head",
-        "explanation": "The energy equation includes pressure, velocity, and elevation terms.",
+        "answer": "2.943 kW",
+        "explanation": "Power=γQH=9.81×0.02×15=2.943 kW.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "P = ρgh",
-                "fallback": "P = ρgh with consistent engineering units"
+                "type": "table",
+                "columns": [
+                    "Given",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Input",
+                        "4 m"
+                    ],
+                    [
+                        "Reference",
+                        "3 m"
+                    ]
+                ],
+                "value": "P = γQH"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1225,
@@ -38277,35 +38336,26 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "Head loss in a real pipe represents:",
+        "question": "A pipe has pressure head 12 m, velocity head 3 m, and elevation head 5 m at one section. Total head is:",
         "choices": [
-            "energy dissipated by resistance",
-            "new energy created",
-            "zero friction",
-            "soil cohesion"
+            "20 m",
+            "15 m",
+            "36 m",
+            "4 m"
         ],
-        "answer": "energy dissipated by resistance",
-        "explanation": "Friction and fittings dissipate mechanical energy.",
+        "answer": "20 m",
+        "explanation": "Total head is the sum: 12+3+5=20 m.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "BoardPrep engineering diagram supporting the calculation",
+                "value": "H = hp + hv + z"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1226,
@@ -38328,24 +38378,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A piezometer measures fluid:",
+        "difficulty": "hard",
+        "question": "Soil has total volume 0.50 m³ and solid volume 0.30 m³. Void ratio is:",
         "choices": [
-            "pressure head",
-            "soil grain diameter",
-            "beam curvature",
-            "traffic density"
+            "0.667",
+            "0.40",
+            "1.667",
+            "0.20"
         ],
-        "answer": "pressure head",
-        "explanation": "Fluid level in a piezometer indicates pressure head.",
+        "answer": "0.667",
+        "explanation": "Void volume=0.50−0.30=0.20; e=0.20/0.30=0.667.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "figure",
-                "asset": "assets/ce/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+                "type": "equation",
+                "value": "e = Vv/Vs",
+                "fallback": "Engineering equation with supplied units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1227,
@@ -38369,23 +38421,38 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "A pump in a pipeline generally adds:",
+        "question": "A saturated soil has total stress 180 kPa and pore pressure 70 kPa. Effective stress is:",
         "choices": [
-            "energy head",
-            "soil voids",
-            "negative discharge always",
-            "survey error"
+            "110 kPa",
+            "250 kPa",
+            "70 kPa",
+            "2.57 kPa"
         ],
-        "answer": "energy head",
-        "explanation": "A pump supplies energy to the flowing fluid.",
+        "answer": "110 kPa",
+        "explanation": "Effective stress equals total stress minus pore pressure: 180−70=110 kPa.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Q = A × v",
-                "fallback": "Q = A × v with consistent engineering units"
+                "type": "table",
+                "columns": [
+                    "Given",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Input",
+                        "4 m"
+                    ],
+                    [
+                        "Reference",
+                        "3 m"
+                    ]
+                ],
+                "value": "σ′ = σ − u"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1228,
@@ -38408,36 +38475,27 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "Laminar or turbulent classification of pipe flow commonly uses:",
+        "difficulty": "easy",
+        "question": "A soil sample weighs 18 kN in volume 1.2 m³. Its total unit weight is:",
         "choices": [
-            "Reynolds number",
-            "concrete slump",
-            "bearing capacity",
-            "azimuth"
+            "15 kN/m³",
+            "21.6 kN/m³",
+            "0.067 kN/m³",
+            "16.8 kN/m³"
         ],
-        "answer": "Reynolds number",
-        "explanation": "Reynolds number compares inertial and viscous effects.",
+        "answer": "15 kN/m³",
+        "explanation": "Unit weight=weight/volume=18/1.2=15 kN/m³.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "BoardPrep engineering diagram supporting the calculation",
+                "value": "γ = W/V"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1229,
@@ -38460,24 +38518,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A watershed is an area that drains toward:",
+        "difficulty": "medium",
+        "question": "A dry soil mass is 1,600 kg and water mass is 240 kg. Water content is:",
         "choices": [
-            "a common outlet",
-            "a beam support",
-            "a soil laboratory only",
-            "a survey benchmark"
+            "15%",
+            "6.7%",
+            "85%",
+            "1,840%"
         ],
-        "answer": "a common outlet",
-        "explanation": "Topography directs watershed runoff to a shared outlet.",
+        "answer": "15%",
+        "explanation": "Water content=(240/1600)×100=15%.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "figure",
-                "asset": "assets/ce/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+                "type": "equation",
+                "value": "w = Mw/Ms",
+                "fallback": "Engineering equation with supplied units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1230,
@@ -38501,23 +38561,38 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "A detention basin reduces downstream peak flow by:",
+        "question": "A compacted soil has wet mass 1,950 kg, water mass 250 kg, and volume 1.0 m³. Dry unit mass density is:",
         "choices": [
-            "temporarily storing runoff",
-            "increasing imperviousness",
-            "removing all rainfall",
-            "raising pipe velocity"
+            "1,700 kg/m³",
+            "1,950 kg/m³",
+            "250 kg/m³",
+            "2,200 kg/m³"
         ],
-        "answer": "temporarily storing runoff",
-        "explanation": "Storage spreads runoff over time and lowers the peak.",
+        "answer": "1,700 kg/m³",
+        "explanation": "Dry mass=1,950−250=1,700 kg; divide by 1 m³.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "A = b × h",
-                "fallback": "A = b × h with consistent engineering units"
+                "type": "table",
+                "columns": [
+                    "Given",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Input",
+                        "4 m"
+                    ],
+                    [
+                        "Reference",
+                        "3 m"
+                    ]
+                ],
+                "value": "ρd=(Mwet−Mw)/V"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1231,
@@ -38541,35 +38616,26 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "Permeability describes how readily water can:",
+        "question": "A footing load is 600 kN over 4 m². Average contact pressure is:",
         "choices": [
-            "flow through connected soil voids",
-            "increase concrete strength",
-            "change survey bearing",
-            "carry beam moment"
+            "150 kPa",
+            "2,400 kPa",
+            "0.0067 kPa",
+            "600 kPa"
         ],
-        "answer": "flow through connected soil voids",
-        "explanation": "Permeability concerns fluid movement through pores.",
+        "answer": "150 kPa",
+        "explanation": "Pressure=load/area=600/4=150 kPa.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "BoardPrep engineering diagram supporting the calculation",
+                "value": "q = P/A"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1232,
@@ -38592,24 +38658,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "Effective stress in saturated soil is total stress minus:",
+        "difficulty": "hard",
+        "question": "A retaining wall has water depth 2 m behind it. The triangular water-force resultant per metre width is:",
         "choices": [
-            "pore-water pressure",
-            "dry unit weight",
-            "shear strain",
-            "ground elevation"
+            "19.62 kN/m",
+            "39.24 kN/m",
+            "9.81 kN/m",
+            "4.905 kN/m"
         ],
-        "answer": "pore-water pressure",
-        "explanation": "Pore pressure carries part of total stress, leaving effective stress.",
+        "answer": "19.62 kN/m",
+        "explanation": "F=½γh²b=0.5×9.81×2²×1=19.62 kN/m.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "figure",
-                "asset": "assets/ce/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+                "type": "equation",
+                "value": "F = 1/2 γ h² b",
+                "fallback": "Engineering equation with supplied units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1233,
@@ -38633,23 +38701,38 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "A soil with high void ratio has relatively more:",
+        "question": "A soil layer is 3 m thick with unit weight 18 kN/m³. Vertical overburden stress at its base is:",
         "choices": [
-            "void space compared with solids",
-            "cement paste",
-            "steel reinforcement",
-            "pipe pressure"
+            "54 kPa",
+            "6 kPa",
+            "21 kPa",
+            "162 kPa"
         ],
-        "answer": "void space compared with solids",
-        "explanation": "Void ratio compares void volume with solid volume.",
+        "answer": "54 kPa",
+        "explanation": "Stress=unit weight×depth=18×3=54 kPa.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "i = Δh / L",
-                "fallback": "i = Δh / L with consistent engineering units"
+                "type": "table",
+                "columns": [
+                    "Given",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Input",
+                        "4 m"
+                    ],
+                    [
+                        "Reference",
+                        "3 m"
+                    ]
+                ],
+                "value": "σv = γz"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1234,
@@ -38673,35 +38756,26 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "Compaction primarily reduces soil:",
+        "question": "A seepage head drops 6 m over a flow length of 30 m. Hydraulic gradient is:",
         "choices": [
-            "air voids",
-            "mineral identity",
-            "particle gravity",
-            "water’s density"
+            "0.20",
+            "5.0",
+            "36",
+            "0.02"
         ],
-        "answer": "air voids",
-        "explanation": "Mechanical compaction expels air and increases dry density.",
+        "answer": "0.20",
+        "explanation": "Gradient=Δh/L=6/30=0.20.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "BoardPrep engineering diagram supporting the calculation",
+                "value": "i = Δh/L"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1235,
@@ -38724,24 +38798,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "Consolidation settlement occurs mainly as saturated fine soil:",
+        "difficulty": "easy",
+        "question": "A channel has flow area 3 m² and wetted perimeter 5 m. Hydraulic radius is:",
         "choices": [
-            "expels pore water over time",
-            "gains air instantly",
-            "melts",
-            "becomes steel"
+            "0.6 m",
+            "1.67 m",
+            "15 m",
+            "2 m"
         ],
-        "answer": "expels pore water over time",
-        "explanation": "Time-dependent drainage causes consolidation settlement.",
+        "answer": "0.6 m",
+        "explanation": "Hydraulic radius=A/P=3/5=0.6 m.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "figure",
-                "asset": "assets/ce/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
+                "type": "equation",
+                "value": "R = A/P",
+                "fallback": "Engineering equation with supplied units"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false
     },
     {
         "id": 1236,
@@ -38764,24 +38840,39 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "Shear strength of soil resists:",
+        "difficulty": "medium",
+        "question": "A 10 m soil column settles 24 mm under a load increment. Settlement strain is:",
         "choices": [
-            "sliding along a potential surface",
-            "all settlement",
-            "rainfall evaporation",
-            "survey misclosure"
+            "0.0024",
+            "0.024",
+            "2.4",
+            "0.00024"
         ],
-        "answer": "sliding along a potential surface",
-        "explanation": "Shear strength governs resistance to soil sliding.",
+        "answer": "0.0024",
+        "explanation": "Strain=0.024 m/10 m=0.0024.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "σ = P / A",
-                "fallback": "σ = P / A with consistent engineering units"
+                "type": "table",
+                "columns": [
+                    "Given",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Input",
+                        "4 m"
+                    ],
+                    [
+                        "Reference",
+                        "3 m"
+                    ]
+                ],
+                "value": "εs = settlement/thickness"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1237,
@@ -38805,35 +38896,26 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "An increase in pore pressure generally reduces effective stress and may:",
+        "question": "A soil’s cohesion is 20 kPa and friction term is 30 kPa at the stated stress. Shear strength is:",
         "choices": [
-            "reduce shear resistance",
-            "increase dry density instantly",
-            "eliminate seepage",
-            "increase cement content"
+            "50 kPa",
+            "10 kPa",
+            "600 kPa",
+            "30 kPa"
         ],
-        "answer": "reduce shear resistance",
-        "explanation": "Higher pore pressure reduces the stress carried by the soil skeleton.",
+        "answer": "50 kPa",
+        "explanation": "Mohr-Coulomb form gives τ=c plus friction term: 20+30=50 kPa.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "chart",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "figure",
+                "asset": "assets/ce/beam-loading.svg",
+                "alt": "BoardPrep engineering diagram supporting the calculation",
+                "value": "τ = c + friction term"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true
     },
     {
         "id": 1238,
