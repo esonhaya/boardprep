@@ -39856,7 +39856,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A machine costs P240,000, has a P40,000 residual value, and a four-year life. What is first-year straight-line depreciation?",
+        "question": "Which amount is supported by the schedule?",
         "choices": [
             "P50,000",
             "P40,000",
@@ -39871,31 +39871,40 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A machine costs P240,000, has a P40,000 residual value, and a four-year life. What is first-year straight-line depreciation?"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
+                    ],
+                    [
+                        "Context",
+                        "The result must be interpreted together with the period or transaction described."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": true,
-        "source_sensitivity": "STABLE"
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1260,
@@ -39912,7 +39921,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A receivable schedule has P80,000 current and P20,000 over 90 days. If the allowance rates are 2% and 10%, respectively, the allowance is:",
+        "question": "What conclusion follows after reviewing the schedule?",
         "choices": [
             "P3,600",
             "P2,000",
@@ -39930,28 +39939,37 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A receivable schedule has P80,000 current and P20,000 over 90 days. If the allowance rates are 2% and 10%, respectively, the allowance is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
+                    ],
+                    [
+                        "Context",
+                        "The result must be interpreted together with the period or transaction described."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1261,
@@ -39968,7 +39986,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "Cost is P75,000 and accumulated depreciation is P30,000. The carrying amount is:",
+        "question": "Which result should be reported from these records?",
         "choices": [
             "P45,000",
             "P30,000",
@@ -39986,28 +40004,37 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "Cost is P75,000 and accumulated depreciation is P30,000. The carrying amount is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
+                    ],
+                    [
+                        "Context",
+                        "The result must be interpreted together with the period or transaction described."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1262,
@@ -40024,7 +40051,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A P12,000 annual insurance payment covers 12 months; four months have elapsed. The prepaid balance is:",
+        "question": "Which option correctly interprets the supplied data?",
         "choices": [
             "P8,000",
             "P4,000",
@@ -40039,31 +40066,40 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A P12,000 annual insurance payment covers 12 months; four months have elapsed. The prepaid balance is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
+                    ],
+                    [
+                        "Context",
+                        "The result must be interpreted together with the period or transaction described."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": false,
-        "source_sensitivity": "STABLE"
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1263,
@@ -40080,7 +40116,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A sale of P150,000 includes a P30,000 performance obligation not yet satisfied. Revenue recognized now is:",
+        "question": "What amount or treatment follows from the information shown?",
         "choices": [
             "P120,000",
             "P30,000",
@@ -40098,28 +40134,37 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A sale of P150,000 includes a P30,000 performance obligation not yet satisfied. Revenue recognized now is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
+                    ],
+                    [
+                        "Context",
+                        "The result must be interpreted together with the period or transaction described."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1264,
@@ -40136,7 +40181,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A payable of P90,000 is settled with a P5,000 discount. Cash paid is:",
+        "question": "Which decision is supported by the figures?",
         "choices": [
             "P85,000",
             "P5,000",
@@ -40154,28 +40199,37 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A payable of P90,000 is settled with a P5,000 discount. Cash paid is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
+                    ],
+                    [
+                        "Context",
+                        "The result must be interpreted together with the period or transaction described."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1265,
@@ -40192,7 +40246,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "Beginning inventory is P40,000; purchases P110,000; ending inventory P35,000. Cost of goods sold is:",
+        "question": "What is the most defensible result from this schedule?",
         "choices": [
             "P115,000",
             "P75,000",
@@ -40207,31 +40261,40 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "Beginning inventory is P40,000; purchases P110,000; ending inventory P35,000. Cost of goods sold is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
+                    ],
+                    [
+                        "Context",
+                        "The result must be interpreted together with the period or transaction described."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": true,
-        "source_sensitivity": "STABLE"
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1266,
@@ -40248,7 +40311,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Cash from operations is P210,000 and investing cash flow is negative P80,000. Combined net cash from these two categories is:",
+        "question": "Which statement accurately uses the supplied records?",
         "choices": [
             "P130,000",
             "P80,000",
@@ -40266,28 +40329,37 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "Cash from operations is P210,000 and investing cash flow is negative P80,000. Combined net cash from these two categories is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
+                    ],
+                    [
+                        "Context",
+                        "The result must be interpreted together with the period or transaction described."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1267,
@@ -40304,7 +40376,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A P500,000 bond is issued at 98. The proceeds are:",
+        "question": "Which amount is supported by the schedule?",
         "choices": [
             "P490,000",
             "P480,000",
@@ -40322,28 +40394,37 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A P500,000 bond is issued at 98. The proceeds are:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
+                    ],
+                    [
+                        "Context",
+                        "The result must be interpreted together with the period or transaction described."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1268,
@@ -40360,7 +40441,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Current assets are P360,000 and current liabilities P180,000. The current ratio is:",
+        "question": "What conclusion follows after reviewing the schedule?",
         "choices": [
             "2.0:1",
             "0.5:1",
@@ -40375,31 +40456,40 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "Current assets are P360,000 and current liabilities P180,000. The current ratio is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
+                    ],
+                    [
+                        "Context",
+                        "The result must be interpreted together with the period or transaction described."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": false,
-        "source_sensitivity": "STABLE"
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1269,
@@ -40765,7 +40855,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A parent owns 75% of a subsidiary reporting P400,000 profit. Ignoring other adjustments, profit attributable to the parent is:",
+        "question": "What amount or treatment follows from the information shown?",
         "choices": [
             "P300,000",
             "P100,000",
@@ -40780,31 +40870,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A parent owns 75% of a subsidiary reporting P400,000 profit. Ignoring other adjustments, profit attributable to the parent is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": true,
-        "source_sensitivity": "STABLE"
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1280,
@@ -40821,7 +40916,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "An intercompany sale includes P20,000 profit; half remains in ending inventory. Consolidation eliminates unrealized profit of:",
+        "question": "Which decision is supported by the figures?",
         "choices": [
             "P10,000",
             "P5,000",
@@ -40839,28 +40934,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "An intercompany sale includes P20,000 profit; half remains in ending inventory. Consolidation eliminates unrealized profit of:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1281,
@@ -40877,7 +40977,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A branch receives goods billed at P60,000 and sells 80% externally. Goods remaining at billed amount are:",
+        "question": "What is the most defensible result from this schedule?",
         "choices": [
             "P12,000",
             "P8,000",
@@ -40895,28 +40995,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A branch receives goods billed at P60,000 and sells 80% externally. Goods remaining at billed amount are:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1282,
@@ -40933,7 +41038,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Consideration is P900,000 and identifiable net assets are P760,000. The residual before other adjustments is:",
+        "question": "Which statement accurately uses the supplied records?",
         "choices": [
             "P140,000",
             "P90,000",
@@ -40948,31 +41053,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "Consideration is P900,000 and identifiable net assets are P760,000. The residual before other adjustments is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": false,
-        "source_sensitivity": "STABLE"
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1283,
@@ -40989,7 +41099,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "Partners share residual profit 3:2. On P250,000 residual profit, the first partner receives:",
+        "question": "Which amount is supported by the schedule?",
         "choices": [
             "P150,000",
             "P100,000",
@@ -41007,28 +41117,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "Partners share residual profit 3:2. On P250,000 residual profit, the first partner receives:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1284,
@@ -41045,7 +41160,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A foreign balance of USD10,000 is translated at P56 per dollar. The peso amount is:",
+        "question": "What conclusion follows after reviewing the schedule?",
         "choices": [
             "P560,000",
             "P46,000",
@@ -41063,28 +41178,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A foreign balance of USD10,000 is translated at P56 per dollar. The peso amount is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1285,
@@ -41101,7 +41221,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A subsidiary has assets P1,000,000 and liabilities P400,000. Net assets are:",
+        "question": "Which result should be reported from these records?",
         "choices": [
             "P600,000",
             "P400,000",
@@ -41116,31 +41236,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A subsidiary has assets P1,000,000 and liabilities P400,000. Net assets are:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": true,
-        "source_sensitivity": "STABLE"
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1286,
@@ -41157,7 +41282,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A partnership capital balance is P420,000 before a P70,000 authorized withdrawal. Remaining capital is:",
+        "question": "Which option correctly interprets the supplied data?",
         "choices": [
             "P350,000",
             "P70,000",
@@ -41175,28 +41300,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A partnership capital balance is P420,000 before a P70,000 authorized withdrawal. Remaining capital is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1287,
@@ -41213,7 +41343,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A parent’s receivable from its subsidiary is P45,000 and the subsidiary’s payable agrees. Consolidated balance is:",
+        "question": "What amount or treatment follows from the information shown?",
         "choices": [
             "P0",
             "P45,000",
@@ -41231,28 +41361,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A parent’s receivable from its subsidiary is P45,000 and the subsidiary’s payable agrees. Consolidated balance is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1288,
@@ -41269,7 +41404,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A subsidiary earns P180,000 after tax; NCI owns 20%. NCI share is:",
+        "question": "Which decision is supported by the figures?",
         "choices": [
             "P36,000",
             "P20,000",
@@ -41284,31 +41419,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A subsidiary earns P180,000 after tax; NCI owns 20%. NCI share is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": false,
-        "source_sensitivity": "STABLE"
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1289,
@@ -41674,7 +41814,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "Selling price is P80, variable cost P50, and fixed cost P180,000. Break-even units are:",
+        "question": "Which amount is supported by the schedule?",
         "choices": [
             "6,000",
             "3,600",
@@ -41689,31 +41829,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "Selling price is P80, variable cost P50, and fixed cost P180,000. Break-even units are:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": true,
-        "source_sensitivity": "STABLE"
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1300,
@@ -41730,7 +41875,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A product yields P24 contribution and uses 3 constrained machine hours. Contribution per constrained hour is:",
+        "question": "What conclusion follows after reviewing the schedule?",
         "choices": [
             "P8",
             "P3",
@@ -41748,28 +41893,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A product yields P24 contribution and uses 3 constrained machine hours. Contribution per constrained hour is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1301,
@@ -41786,7 +41936,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "Actual material cost is P54,000 versus a P50,000 standard at actual output. The spending difference is:",
+        "question": "Which result should be reported from these records?",
         "choices": [
             "P4,000 unfavorable",
             "P4,000 favorable",
@@ -41804,28 +41954,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "Actual material cost is P54,000 versus a P50,000 standard at actual output. The spending difference is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1302,
@@ -41842,7 +41997,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A budgeted receipt of P90,000 is delayed one month while payments of P65,000 remain due. The immediate cash gap is:",
+        "question": "Which option correctly interprets the supplied data?",
         "choices": [
             "P65,000",
             "P25,000",
@@ -41857,31 +42012,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A budgeted receipt of P90,000 is delayed one month while payments of P65,000 remain due. The immediate cash gap is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": false,
-        "source_sensitivity": "STABLE"
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1303,
@@ -41898,7 +42058,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A project costs P200,000 and returns P260,000 before considering timing. Undiscounted return over cost is:",
+        "question": "What amount or treatment follows from the information shown?",
         "choices": [
             "30%",
             "23.1%",
@@ -41916,28 +42076,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A project costs P200,000 and returns P260,000 before considering timing. Undiscounted return over cost is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1304,
@@ -41954,7 +42119,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "Product A contributes P40 and product B P25. A mix of 3 A and 2 B contributes per five units:",
+        "question": "Which decision is supported by the figures?",
         "choices": [
             "P170",
             "P90",
@@ -41972,28 +42137,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "Product A contributes P40 and product B P25. A mix of 3 A and 2 B contributes per five units:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1305,
@@ -42010,7 +42180,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "Avoidable cost is P18 per unit for 4,000 units. Total avoidable cost is:",
+        "question": "What is the most defensible result from this schedule?",
         "choices": [
             "P72,000",
             "P22,000",
@@ -42025,31 +42195,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "Avoidable cost is P18 per unit for 4,000 units. Total avoidable cost is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": true,
-        "source_sensitivity": "STABLE"
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1306,
@@ -42066,7 +42241,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A department has actual output 12,000 units at P6 variable cost plus P40,000 fixed cost. Total cost is:",
+        "question": "Which statement accurately uses the supplied records?",
         "choices": [
             "P112,000",
             "P72,000",
@@ -42084,28 +42259,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A department has actual output 12,000 units at P6 variable cost plus P40,000 fixed cost. Total cost is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1307,
@@ -42122,7 +42302,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A project has present value of inflows P480,000 and initial cost P500,000. NPV is:",
+        "question": "Which amount is supported by the schedule?",
         "choices": [
             "P20,000 negative",
             "P20,000 positive",
@@ -42140,28 +42320,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A project has present value of inflows P480,000 and initial cost P500,000. NPV is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1308,
@@ -42178,7 +42363,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A cost center spends P96,000 for 8,000 service units. Cost per unit is:",
+        "question": "What conclusion follows after reviewing the schedule?",
         "choices": [
             "P12",
             "P8",
@@ -42193,31 +42378,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A cost center spends P96,000 for 8,000 service units. Cost per unit is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": false,
-        "source_sensitivity": "STABLE"
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1309,
@@ -42583,7 +42773,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A sample finds 6 exceptions in 120 tested controls. The observed exception rate is:",
+        "question": "What amount or treatment follows from the information shown?",
         "choices": [
             "5%",
             "0.5%",
@@ -42598,31 +42788,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A sample finds 6 exceptions in 120 tested controls. The observed exception rate is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": true,
-        "source_sensitivity": "STANDARD_DEPENDENT"
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1320,
@@ -42639,7 +42834,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Planning materiality is P100,000 and an identified error is P18,000. Five similar errors would total:",
+        "question": "Which decision is supported by the figures?",
         "choices": [
             "P90,000",
             "P18,000",
@@ -42657,28 +42852,33 @@
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "Planning materiality is P100,000 and an identified error is P18,000. Five similar errors would total:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1321,
@@ -42695,7 +42895,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "Inventory records show 1,000 units; observation finds 960. The shortage is:",
+        "question": "What is the most defensible result from this schedule?",
         "choices": [
             "40 units",
             "4 units",
@@ -42713,28 +42913,33 @@
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "Inventory records show 1,000 units; observation finds 960. The shortage is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1322,
@@ -42751,7 +42956,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "An auditor selects 25 invoices from a population of 500. The sample is what percentage?",
+        "question": "Which statement accurately uses the supplied records?",
         "choices": [
             "5%",
             "2.5%",
@@ -42766,31 +42971,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "An auditor selects 25 invoices from a population of 500. The sample is what percentage?"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": false,
-        "source_sensitivity": "STANDARD_DEPENDENT"
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1323,
@@ -42807,7 +43017,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "Receivables are P300,000 and confirmed balances total P240,000. The unconfirmed amount is:",
+        "question": "Which amount is supported by the schedule?",
         "choices": [
             "P60,000",
             "P40,000",
@@ -42825,28 +43035,33 @@
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "Receivables are P300,000 and confirmed balances total P240,000. The unconfirmed amount is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1324,
@@ -42863,7 +43078,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "Three detected misstatements are P12,000, P9,000, and P14,000. Their aggregate is:",
+        "question": "What conclusion follows after reviewing the schedule?",
         "choices": [
             "P35,000",
             "P23,000",
@@ -42881,28 +43096,33 @@
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "Three detected misstatements are P12,000, P9,000, and P14,000. Their aggregate is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1325,
@@ -42919,7 +43139,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A control test has 2 failures in 80 selections. The observed failure rate is:",
+        "question": "Which result should be reported from these records?",
         "choices": [
             "2.5%",
             "0.25%",
@@ -42934,31 +43154,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A control test has 2 failures in 80 selections. The observed failure rate is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": true,
-        "source_sensitivity": "STANDARD_DEPENDENT"
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1326,
@@ -42975,7 +43200,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A payable population has 40 items; 8 are tested and 1 is unsupported. The sample exception rate is:",
+        "question": "Which option correctly interprets the supplied data?",
         "choices": [
             "12.5%",
             "2.5%",
@@ -42993,28 +43218,33 @@
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A payable population has 40 items; 8 are tested and 1 is unsupported. The sample exception rate is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1327,
@@ -43031,7 +43261,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "An audit plan allocates 18 hours to controls and 30 hours to substantive work. Total planned hours are:",
+        "question": "What amount or treatment follows from the information shown?",
         "choices": [
             "48 hours",
             "12 hours",
@@ -43049,28 +43279,33 @@
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "An audit plan allocates 18 hours to controls and 30 hours to substantive work. Total planned hours are:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1328,
@@ -43087,7 +43322,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Cash is P1,250,000 and confirmed bank balance is P1,190,000 before reconciling items. Difference is:",
+        "question": "Which decision is supported by the figures?",
         "choices": [
             "P60,000",
             "P40,000",
@@ -43102,31 +43337,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "Cash is P1,250,000 and confirmed bank balance is P1,190,000 before reconciling items. Difference is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": false,
-        "source_sensitivity": "STANDARD_DEPENDENT"
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1329,
@@ -43492,7 +43732,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A contract price is P200,000 and the buyer pays P50,000 upfront. The unpaid balance is:",
+        "question": "Which amount is supported by the schedule?",
         "choices": [
             "P150,000",
             "P50,000",
@@ -43507,31 +43747,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A contract price is P200,000 and the buyer pays P50,000 upfront. The unpaid balance is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": true,
-        "source_sensitivity": "STABLE"
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1340,
@@ -43548,7 +43793,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A corporation has 5 directors, and 3 vote for a motion. The fraction voting for it is:",
+        "question": "What conclusion follows after reviewing the schedule?",
         "choices": [
             "60%",
             "40%",
@@ -43566,28 +43811,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A corporation has 5 directors, and 3 vote for a motion. The fraction voting for it is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1341,
@@ -43604,7 +43854,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A partnership has assets P900,000 and obligations P350,000. Net equity before distribution is:",
+        "question": "Which result should be reported from these records?",
         "choices": [
             "P550,000",
             "P350,000",
@@ -43622,28 +43872,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A partnership has assets P900,000 and obligations P350,000. Net equity before distribution is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1342,
@@ -43660,7 +43915,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A buyer receives 4 of 5 ordered units. The undelivered portion is:",
+        "question": "Which option correctly interprets the supplied data?",
         "choices": [
             "20%",
             "4%",
@@ -43675,31 +43930,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A buyer receives 4 of 5 ordered units. The undelivered portion is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": false,
-        "source_sensitivity": "STABLE"
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1343,
@@ -43716,7 +43976,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A company authorizes P72,000 across 6 equal monthly payments. Each payment is:",
+        "question": "What amount or treatment follows from the information shown?",
         "choices": [
             "P12,000",
             "P6,000",
@@ -43734,28 +43994,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A company authorizes P72,000 across 6 equal monthly payments. Each payment is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1344,
@@ -43772,7 +44037,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A document has 4 required signatures and 3 are present. Completion is:",
+        "question": "Which decision is supported by the figures?",
         "choices": [
             "75%",
             "25%",
@@ -43790,28 +44055,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A document has 4 required signatures and 3 are present. Completion is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1345,
@@ -43828,7 +44098,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A principal owes P480,000 in four equal installments. Each installment is:",
+        "question": "What is the most defensible result from this schedule?",
         "choices": [
             "P120,000",
             "P40,000",
@@ -43843,31 +44113,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A principal owes P480,000 in four equal installments. Each installment is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": true,
-        "source_sensitivity": "STABLE"
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1346,
@@ -43884,7 +44159,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A transaction involves P300,000 consideration and P90,000 costs. Net amount is:",
+        "question": "Which statement accurately uses the supplied records?",
         "choices": [
             "P210,000",
             "P90,000",
@@ -43902,28 +44177,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A transaction involves P300,000 consideration and P90,000 costs. Net amount is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1347,
@@ -43940,7 +44220,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A board reviews 7 of 10 contracts. The unreviewed proportion is:",
+        "question": "Which amount is supported by the schedule?",
         "choices": [
             "30%",
             "7%",
@@ -43958,28 +44238,33 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A board reviews 7 of 10 contracts. The unreviewed proportion is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1348,
@@ -43996,7 +44281,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A corporation has 12,000 shares and an investor owns 3,000. Ownership is:",
+        "question": "What conclusion follows after reviewing the schedule?",
         "choices": [
             "25%",
             "12.5%",
@@ -44011,31 +44296,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A corporation has 12,000 shares and an investor owns 3,000. Ownership is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": false,
-        "source_sensitivity": "STABLE"
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1349,
@@ -44401,7 +44691,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A taxpayer has gross receipts P500,000 and documented allowable deductions P180,000. The resulting base before other rules is:",
+        "question": "What amount or treatment follows from the information shown?",
         "choices": [
             "P320,000",
             "P180,000",
@@ -44416,31 +44706,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A taxpayer has gross receipts P500,000 and documented allowable deductions P180,000. The resulting base before other rules is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": true,
-        "source_sensitivity": "STANDARD_DEPENDENT"
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1360,
@@ -44457,7 +44752,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Output tax is P42,000 and allowable input tax is P28,000. The difference is:",
+        "question": "Which decision is supported by the figures?",
         "choices": [
             "P14,000",
             "P14,000 credit",
@@ -44475,28 +44770,33 @@
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "Output tax is P42,000 and allowable input tax is P28,000. The difference is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1361,
@@ -44513,7 +44813,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "Payroll has 8 employees paid P25,000 each. Total payroll is:",
+        "question": "What is the most defensible result from this schedule?",
         "choices": [
             "P200,000",
             "P33,000",
@@ -44531,28 +44831,33 @@
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "Payroll has 8 employees paid P25,000 each. Total payroll is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1362,
@@ -44569,7 +44874,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A taxpayer remits P36,000 in three equal installments. Each is:",
+        "question": "Which statement accurately uses the supplied records?",
         "choices": [
             "P12,000",
             "P9,000",
@@ -44584,31 +44889,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A taxpayer remits P36,000 in three equal installments. Each is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": false,
-        "source_sensitivity": "STANDARD_DEPENDENT"
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
     },
     {
         "id": 1363,
@@ -44625,7 +44935,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A tax computation starts at P900,000 and removes a verified P120,000 adjustment. Adjusted base is:",
+        "question": "Which amount is supported by the schedule?",
         "choices": [
             "P780,000",
             "P120,000",
@@ -44643,28 +44953,33 @@
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A tax computation starts at P900,000 and removes a verified P120,000 adjustment. Adjusted base is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1364,
@@ -44681,7 +44996,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A business records 15 taxable sales of P4,000 each. Total sales are:",
+        "question": "What conclusion follows after reviewing the schedule?",
         "choices": [
             "P60,000",
             "P19,000",
@@ -44699,28 +45014,33 @@
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A business records 15 taxable sales of P4,000 each. Total sales are:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1365,
@@ -44737,7 +45057,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A taxpayer has three supported expenses of P18,000, P22,000, and P10,000. Total is:",
+        "question": "Which result should be reported from these records?",
         "choices": [
             "P50,000",
             "P32,000",
@@ -44752,31 +45072,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A taxpayer has three supported expenses of P18,000, P22,000, and P10,000. Total is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": true,
-        "source_sensitivity": "STANDARD_DEPENDENT"
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1366,
@@ -44793,7 +45118,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A return reports P640,000 while the reconciled ledger supports P625,000. Difference is:",
+        "question": "Which option correctly interprets the supplied data?",
         "choices": [
             "P15,000",
             "P5,000",
@@ -44811,28 +45136,33 @@
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A return reports P640,000 while the reconciled ledger supports P625,000. Difference is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1367,
@@ -44849,7 +45179,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A withholding schedule lists P7,500 monthly for four months. Total withheld is:",
+        "question": "What amount or treatment follows from the information shown?",
         "choices": [
             "P30,000",
             "P11,500",
@@ -44867,28 +45197,33 @@
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A withholding schedule lists P7,500 monthly for four months. Total withheld is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
-        ]
+        ],
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1368,
@@ -44905,7 +45240,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A transaction’s tax base is P250,000 and the applicable verified rate is 4%. Tax is:",
+        "question": "Which decision is supported by the figures?",
         "choices": [
             "P10,000",
             "P6,250",
@@ -44920,31 +45255,36 @@
         ],
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "Relevant amount = supplied inputs combined using the stated relationship",
-                "fallback": "Use the supplied figures and stated relationship."
-            },
-            {
                 "type": "table",
                 "columns": [
-                    "Input",
-                    "Value"
+                    "Schedule item",
+                    "Information"
                 ],
                 "rows": [
                     [
-                        "Primary input",
-                        "See stem"
+                        "Case facts",
+                        "A transaction’s tax base is P250,000 and the applicable verified rate is 4%. Tax is:"
                     ],
                     [
-                        "Decision",
-                        "Compute and compare the alternatives"
+                        "Answer focus",
+                        "Apply the relevant accounting relationship to the supplied facts."
                     ]
                 ]
+            },
+            {
+                "type": "equation",
+                "value": "Result = apply the stated relationship to the schedule",
+                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
         "multistep": false,
-        "source_sensitivity": "STANDARD_DEPENDENT"
+        "source_sensitivity": "STANDARD_DEPENDENT",
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
     },
     {
         "id": 1369,
