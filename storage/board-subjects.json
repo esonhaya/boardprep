@@ -39,25 +39,45 @@
         "id": "let-filipino",
         "board_id": "let",
         "subject_id": "filipino",
-        "settings": {"track":"general-education","required":true,"sort_order":4,"blueprint_weight":10}
+        "settings": {
+            "track": "general-education",
+            "required": true,
+            "sort_order": 4,
+            "blueprint_weight": 10
+        }
     },
     {
         "id": "let-mathematics",
         "board_id": "let",
         "subject_id": "mathematics",
-        "settings": {"track":"general-education","required":true,"sort_order":5,"blueprint_weight":10}
+        "settings": {
+            "track": "general-education",
+            "required": true,
+            "sort_order": 5,
+            "blueprint_weight": 10
+        }
     },
     {
         "id": "let-science",
         "board_id": "let",
         "subject_id": "science",
-        "settings": {"track":"general-education","required":true,"sort_order":6,"blueprint_weight":10}
+        "settings": {
+            "track": "general-education",
+            "required": true,
+            "sort_order": 6,
+            "blueprint_weight": 10
+        }
     },
     {
         "id": "let-social-studies",
         "board_id": "let",
         "subject_id": "social-studies",
-        "settings": {"track":"general-education","required":true,"sort_order":7,"blueprint_weight":10}
+        "settings": {
+            "track": "general-education",
+            "required": true,
+            "sort_order": 7,
+            "blueprint_weight": 10
+        }
     },
     {
         "id": "cse-verbal-ability",
@@ -102,8 +122,268 @@
             "sort_order": 4
         }
     },
-    {"id":"cse-analytical-logical","board_id":"civil-service","subject_id":"analytical-logical","settings":{"role":"general","required":true,"sort_order":4,"blueprint_weight":30}},
-    {"id":"cle-criminal-foundations","board_id":"criminologist","subject_id":"criminal-justice-foundations","settings":{"role":"general","required":true,"sort_order":1,"blueprint_weight":100}},
-    {"id":"nle-nursing-foundations","board_id":"nursing","subject_id":"nursing-foundations","settings":{"role":"general","required":true,"sort_order":1,"blueprint_weight":100}},
-    {"id":"ple-psychology-foundations","board_id":"psychometrician","subject_id":"psychology-foundations","settings":{"role":"general","required":true,"sort_order":1,"blueprint_weight":100}}
+    {
+        "id": "cse-analytical-logical",
+        "board_id": "civil-service",
+        "subject_id": "analytical-logical",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 4,
+            "blueprint_weight": 30
+        }
+    },
+    {
+        "id": "cle-criminal-foundations",
+        "board_id": "criminologist",
+        "subject_id": "criminal-justice-foundations",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 1,
+            "blueprint_weight": 100
+        }
+    },
+    {
+        "id": "nle-nursing-foundations",
+        "board_id": "nursing",
+        "subject_id": "nursing-foundations",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 1,
+            "blueprint_weight": 100
+        }
+    },
+    {
+        "id": "ple-psychology-foundations",
+        "board_id": "psychometrician",
+        "subject_id": "psychology-foundations",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 1,
+            "blueprint_weight": 100
+        }
+    },
+    {
+        "id": "civil-engineering-civil-engineering-applied-mathematics",
+        "board_id": "civil-engineering",
+        "subject_id": "civil-engineering-applied-mathematics",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 1,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "civil-engineering-civil-engineering-structural-engineering",
+        "board_id": "civil-engineering",
+        "subject_id": "civil-engineering-structural-engineering",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 2,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "civil-engineering-civil-engineering-geotechnical-and-hydraulics",
+        "board_id": "civil-engineering",
+        "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 3,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "civil-engineering-civil-engineering-construction-and-transportation",
+        "board_id": "civil-engineering",
+        "subject_id": "civil-engineering-construction-and-transportation",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 4,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "cpa-cpa-auditing",
+        "board_id": "cpa",
+        "subject_id": "cpa-auditing",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 1,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "cpa-cpa-financial-accounting",
+        "board_id": "cpa",
+        "subject_id": "cpa-financial-accounting",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 2,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "cpa-cpa-management-services",
+        "board_id": "cpa",
+        "subject_id": "cpa-management-services",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 3,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "cpa-cpa-taxation",
+        "board_id": "cpa",
+        "subject_id": "cpa-taxation",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 4,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "cpa-cpa-regulatory-framework",
+        "board_id": "cpa",
+        "subject_id": "cpa-regulatory-framework",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 5,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "cpa-cpa-advanced-accounting",
+        "board_id": "cpa",
+        "subject_id": "cpa-advanced-accounting",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 6,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "mechanical-engineering-mechanical-engineering-mathematics",
+        "board_id": "mechanical-engineering",
+        "subject_id": "mechanical-engineering-mathematics",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 1,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "mechanical-engineering-mechanical-engineering-engineering-sciences",
+        "board_id": "mechanical-engineering",
+        "subject_id": "mechanical-engineering-engineering-sciences",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 2,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "mechanical-engineering-mechanical-engineering-mechanical-engineering-professional-subjects",
+        "board_id": "mechanical-engineering",
+        "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 3,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "registered-electrical-engineering-registered-electrical-engineering-mathematics",
+        "board_id": "registered-electrical-engineering",
+        "subject_id": "registered-electrical-engineering-mathematics",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 1,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "registered-electrical-engineering-registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+        "board_id": "registered-electrical-engineering",
+        "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 2,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "registered-electrical-engineering-registered-electrical-engineering-electrical-engineering-professional-subjects",
+        "board_id": "registered-electrical-engineering",
+        "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 3,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "architecture-architecture-history-and-theory",
+        "board_id": "architecture",
+        "subject_id": "architecture-history-and-theory",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 1,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "architecture-architecture-planning-and-practice",
+        "board_id": "architecture",
+        "subject_id": "architecture-planning-and-practice",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 2,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "architecture-architecture-utilities-and-construction",
+        "board_id": "architecture",
+        "subject_id": "architecture-utilities-and-construction",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 3,
+            "official_weighting": null
+        }
+    },
+    {
+        "id": "architecture-architecture-architectural-design-and-site-planning",
+        "board_id": "architecture",
+        "subject_id": "architecture-architectural-design-and-site-planning",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 4,
+            "official_weighting": null
+        }
+    }
 ]

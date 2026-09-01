@@ -103,5 +103,125 @@
                 "minimum_subjects": 3
             }
         }
+    },
+    {
+        "id": "civil-engineering",
+        "organization_id": "prc",
+        "code": "CE",
+        "name": "Civil Engineers Licensure Examination",
+        "description": "Civil engineering foundation preparation with official-scope references and no inferred weighting.",
+        "visual": {
+            "accent": "blue-collar",
+            "secondary_accent": "blue",
+            "icon": "civil-engineering"
+        },
+        "status": "active",
+        "settings": {
+            "passing_score": 75,
+            "default_mode": "practice",
+            "portfolio_tier": "launch-foundation",
+            "readiness": {
+                "minimum_questions": 80,
+                "minimum_subjects": 4
+            },
+            "official_weighting_status": "UNAVAILABLE",
+            "readiness_label": "FOUNDATION / BLUEPRINT ONLY"
+        }
+    },
+    {
+        "id": "cpa",
+        "organization_id": "prc",
+        "code": "CPA",
+        "name": "Licensure Examination for Certified Public Accountants",
+        "description": "Accountancy foundation preparation with official LECPA scope references and no inferred weighting.",
+        "visual": {
+            "accent": "gold",
+            "secondary_accent": "blue",
+            "icon": "cpa"
+        },
+        "status": "active",
+        "settings": {
+            "passing_score": 75,
+            "default_mode": "practice",
+            "portfolio_tier": "launch-foundation",
+            "readiness": {
+                "minimum_questions": 80,
+                "minimum_subjects": 6
+            },
+            "official_weighting_status": "UNAVAILABLE",
+            "readiness_label": "FOUNDATION / BLUEPRINT ONLY"
+        }
+    },
+    {
+        "id": "mechanical-engineering",
+        "organization_id": "prc",
+        "code": "ME",
+        "name": "Registered Mechanical Engineer Licensure Examination",
+        "description": "Mechanical engineering foundation preparation with official syllabus references and no inferred weighting.",
+        "visual": {
+            "accent": "orange",
+            "secondary_accent": "blue",
+            "icon": "mechanical-engineering"
+        },
+        "status": "active",
+        "settings": {
+            "passing_score": 75,
+            "default_mode": "practice",
+            "portfolio_tier": "launch-foundation",
+            "readiness": {
+                "minimum_questions": 80,
+                "minimum_subjects": 3
+            },
+            "official_weighting_status": "UNAVAILABLE",
+            "readiness_label": "FOUNDATION / BLUEPRINT ONLY"
+        }
+    },
+    {
+        "id": "registered-electrical-engineering",
+        "organization_id": "prc",
+        "code": "REE",
+        "name": "Registered Electrical Engineer Licensure Examination",
+        "description": "Electrical engineering foundation preparation with official syllabus references and no inferred weighting.",
+        "visual": {
+            "accent": "indigo",
+            "secondary_accent": "blue",
+            "icon": "electrical-engineering"
+        },
+        "status": "active",
+        "settings": {
+            "passing_score": 75,
+            "default_mode": "practice",
+            "portfolio_tier": "launch-foundation",
+            "readiness": {
+                "minimum_questions": 80,
+                "minimum_subjects": 3
+            },
+            "official_weighting_status": "UNAVAILABLE",
+            "readiness_label": "FOUNDATION / BLUEPRINT ONLY"
+        }
+    },
+    {
+        "id": "architecture",
+        "organization_id": "prc",
+        "code": "ARCH",
+        "name": "Architect Licensure Examination",
+        "description": "Architecture foundation preparation with official program references and no inferred weighting.",
+        "visual": {
+            "accent": "slate",
+            "secondary_accent": "blue",
+            "icon": "architecture"
+        },
+        "status": "active",
+        "settings": {
+            "passing_score": 75,
+            "default_mode": "practice",
+            "portfolio_tier": "launch-foundation",
+            "readiness": {
+                "minimum_questions": 80,
+                "minimum_subjects": 4
+            },
+            "official_weighting_status": "UNAVAILABLE",
+            "readiness_label": "FOUNDATION / BLUEPRINT ONLY"
+        }
     }
 ]

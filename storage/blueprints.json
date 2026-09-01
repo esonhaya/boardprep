@@ -324,5 +324,210 @@
         "official_structure": "Psychological assessment, abnormal, industrial-organizational, personality, and professional practice areas are represented as foundation sections.",
         "official_weights": null,
         "internal_targets": true
+    },
+    {
+        "id": "portfolio-civil-engineering-v1",
+        "scope": "board",
+        "board_id": "civil-engineering",
+        "board": "civil-engineering",
+        "subject": "civil-engineering-foundation",
+        "name": "Civil Engineers Licensure Examination BoardPrep Foundation Scope",
+        "version": 1,
+        "status": "active",
+        "questionCount": 80,
+        "foundation": true,
+        "official_weighting": false,
+        "sections": [
+            {
+                "id": "applied-mathematics",
+                "name": "Applied Mathematics",
+                "target_percent": null
+            },
+            {
+                "id": "structural-engineering",
+                "name": "Structural Engineering",
+                "target_percent": null
+            },
+            {
+                "id": "geotechnical-and-hydraulics",
+                "name": "Geotechnical and Hydraulics",
+                "target_percent": null
+            },
+            {
+                "id": "construction-and-transportation",
+                "name": "Construction and Transportation",
+                "target_percent": null
+            }
+        ],
+        "label": "Foundation scope only; official weighting unavailable in the current repository record.",
+        "source_id": "prc-civil-engineering-board-page",
+        "source_version": "official PRC reference",
+        "official_structure": "Official subject areas are represented for future content planning; no unsupported internal weighting is claimed.",
+        "official_weights": null,
+        "internal_targets": false
+    },
+    {
+        "id": "portfolio-cpa-v1",
+        "scope": "board",
+        "board_id": "cpa",
+        "board": "cpa",
+        "subject": "cpa-foundation",
+        "name": "Licensure Examination for Certified Public Accountants BoardPrep Foundation Scope",
+        "version": 1,
+        "status": "active",
+        "questionCount": 80,
+        "foundation": true,
+        "official_weighting": false,
+        "sections": [
+            {
+                "id": "auditing",
+                "name": "Auditing",
+                "target_percent": null
+            },
+            {
+                "id": "financial-accounting",
+                "name": "Financial Accounting",
+                "target_percent": null
+            },
+            {
+                "id": "management-services",
+                "name": "Management Services",
+                "target_percent": null
+            },
+            {
+                "id": "taxation",
+                "name": "Taxation",
+                "target_percent": null
+            },
+            {
+                "id": "regulatory-framework",
+                "name": "Regulatory Framework",
+                "target_percent": null
+            },
+            {
+                "id": "advanced-accounting",
+                "name": "Advanced Accounting",
+                "target_percent": null
+            }
+        ],
+        "label": "Foundation scope only; official weighting unavailable in the current repository record.",
+        "source_id": "prc-accountancy-board-page",
+        "source_version": "official PRC reference",
+        "official_structure": "Official subject areas are represented for future content planning; no unsupported internal weighting is claimed.",
+        "official_weights": null,
+        "internal_targets": false
+    },
+    {
+        "id": "portfolio-mechanical-engineering-v1",
+        "scope": "board",
+        "board_id": "mechanical-engineering",
+        "board": "mechanical-engineering",
+        "subject": "mechanical-engineering-foundation",
+        "name": "Registered Mechanical Engineer Licensure Examination BoardPrep Foundation Scope",
+        "version": 1,
+        "status": "active",
+        "questionCount": 80,
+        "foundation": true,
+        "official_weighting": false,
+        "sections": [
+            {
+                "id": "mathematics",
+                "name": "Mathematics",
+                "target_percent": null
+            },
+            {
+                "id": "engineering-sciences",
+                "name": "Engineering Sciences",
+                "target_percent": null
+            },
+            {
+                "id": "mechanical-engineering-professional-subjects",
+                "name": "Mechanical Engineering Professional Subjects",
+                "target_percent": null
+            }
+        ],
+        "label": "Foundation scope only; official weighting unavailable in the current repository record.",
+        "source_id": "prc-mechanical-engineering-board-page",
+        "source_version": "official PRC reference",
+        "official_structure": "Official subject areas are represented for future content planning; no unsupported internal weighting is claimed.",
+        "official_weights": null,
+        "internal_targets": false
+    },
+    {
+        "id": "portfolio-registered-electrical-engineering-v1",
+        "scope": "board",
+        "board_id": "registered-electrical-engineering",
+        "board": "registered-electrical-engineering",
+        "subject": "registered-electrical-engineering-foundation",
+        "name": "Registered Electrical Engineer Licensure Examination BoardPrep Foundation Scope",
+        "version": 1,
+        "status": "active",
+        "questionCount": 80,
+        "foundation": true,
+        "official_weighting": false,
+        "sections": [
+            {
+                "id": "mathematics",
+                "name": "Mathematics",
+                "target_percent": null
+            },
+            {
+                "id": "engineering-sciences-and-allied-subjects",
+                "name": "Engineering Sciences and Allied Subjects",
+                "target_percent": null
+            },
+            {
+                "id": "electrical-engineering-professional-subjects",
+                "name": "Electrical Engineering Professional Subjects",
+                "target_percent": null
+            }
+        ],
+        "label": "Foundation scope only; official weighting unavailable in the current repository record.",
+        "source_id": "prc-electrical-engineering-board-page",
+        "source_version": "official PRC reference",
+        "official_structure": "Official subject areas are represented for future content planning; no unsupported internal weighting is claimed.",
+        "official_weights": null,
+        "internal_targets": false
+    },
+    {
+        "id": "portfolio-architecture-v1",
+        "scope": "board",
+        "board_id": "architecture",
+        "board": "architecture",
+        "subject": "architecture-foundation",
+        "name": "Architect Licensure Examination BoardPrep Foundation Scope",
+        "version": 1,
+        "status": "active",
+        "questionCount": 80,
+        "foundation": true,
+        "official_weighting": false,
+        "sections": [
+            {
+                "id": "history-and-theory",
+                "name": "History and Theory",
+                "target_percent": null
+            },
+            {
+                "id": "planning-and-practice",
+                "name": "Planning and Practice",
+                "target_percent": null
+            },
+            {
+                "id": "utilities-and-construction",
+                "name": "Utilities and Construction",
+                "target_percent": null
+            },
+            {
+                "id": "architectural-design-and-site-planning",
+                "name": "Architectural Design and Site Planning",
+                "target_percent": null
+            }
+        ],
+        "label": "Foundation scope only; official weighting unavailable in the current repository record.",
+        "source_id": "prc-architecture-exam-program-2024",
+        "source_version": "official PRC reference",
+        "official_structure": "Official subject areas are represented for future content planning; no unsupported internal weighting is claimed.",
+        "official_weights": null,
+        "internal_targets": false
     }
 ]

@@ -1123,7 +1123,7 @@
     {
         "id": "environmental-public-interest-foundation",
         "title": "Environmental and Public-Interest Foundations",
-        "summary": "A focused civic review note on stewardship, public welfare, and constitutional responsibility toward the nation\u2019s resources.",
+        "summary": "A focused civic review note on stewardship, public welfare, and constitutional responsibility toward the nation’s resources.",
         "notes": [
             {
                 "heading": "Public interest",
@@ -1837,11 +1837,11 @@
     {
         "id": "nle-nursing-process",
         "title": "Nursing Process and Clinical Judgment",
-        "summary": "Integrated Nursing licensure review across NP I\u2013V.",
+        "summary": "Integrated Nursing licensure review across NP I–V.",
         "notes": [
             {
                 "heading": "Integrated practice",
-                "body": "Connect assessment, intervention, patient teaching, documentation, medication safety, and evaluation to the client\u2019s changing condition."
+                "body": "Connect assessment, intervention, patient teaching, documentation, medication safety, and evaluation to the client’s changing condition."
             }
         ],
         "source_ids": [
@@ -1866,11 +1866,11 @@
     {
         "id": "nle-pharmacology-safety",
         "title": "Pharmacology and Medication Safety",
-        "summary": "Integrated Nursing licensure review across NP I\u2013V.",
+        "summary": "Integrated Nursing licensure review across NP I–V.",
         "notes": [
             {
                 "heading": "Integrated practice",
-                "body": "Connect assessment, intervention, patient teaching, documentation, medication safety, and evaluation to the client\u2019s changing condition."
+                "body": "Connect assessment, intervention, patient teaching, documentation, medication safety, and evaluation to the client’s changing condition."
             }
         ],
         "source_ids": [
@@ -1895,11 +1895,11 @@
     {
         "id": "nle-integrated-safety",
         "title": "Patient Safety, Communication, and Teamwork",
-        "summary": "Integrated Nursing licensure review across NP I\u2013V.",
+        "summary": "Integrated Nursing licensure review across NP I–V.",
         "notes": [
             {
                 "heading": "Integrated practice",
-                "body": "Connect assessment, intervention, patient teaching, documentation, medication safety, and evaluation to the client\u2019s changing condition."
+                "body": "Connect assessment, intervention, patient teaching, documentation, medication safety, and evaluation to the client’s changing condition."
             }
         ],
         "source_ids": [
@@ -2119,6 +2119,176 @@
         },
         "taxonomy": {
             "subject_id": "nursing-foundations"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "portfolio-civil-engineering-foundation",
+        "title": "Civil Engineers Licensure Examination Foundation Orientation",
+        "summary": "A concise scope map for Civil Engineers Licensure Examination using the registered official PRC reference.",
+        "notes": [
+            {
+                "heading": "Current status",
+                "body": "This is a blueprint-only foundation. Study-ready practice will require exam-specific authored content and verified current scope."
+            },
+            {
+                "heading": "Practice boundary",
+                "body": "No generic questions are assigned to this exam without direct blueprint evidence."
+            }
+        ],
+        "source_ids": [
+            "prc-civil-engineering-board-page"
+        ],
+        "exams": [
+            "civil-engineering"
+        ],
+        "exam_focus": {
+            "civil-engineering": {
+                "priority": "foundation",
+                "official_scope_status": "official reference; weighting unavailable",
+                "readiness": "FOUNDATION"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "civil-engineering-foundation"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "portfolio-cpa-foundation",
+        "title": "Licensure Examination for Certified Public Accountants Foundation Orientation",
+        "summary": "A concise scope map for Licensure Examination for Certified Public Accountants using the registered official PRC reference.",
+        "notes": [
+            {
+                "heading": "Current status",
+                "body": "This is a blueprint-only foundation. Study-ready practice will require exam-specific authored content and verified current scope."
+            },
+            {
+                "heading": "Practice boundary",
+                "body": "No generic questions are assigned to this exam without direct blueprint evidence."
+            }
+        ],
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "exams": [
+            "cpa"
+        ],
+        "exam_focus": {
+            "cpa": {
+                "priority": "foundation",
+                "official_scope_status": "official reference; weighting unavailable",
+                "readiness": "FOUNDATION"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "cpa-foundation"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "portfolio-mechanical-engineering-foundation",
+        "title": "Registered Mechanical Engineer Licensure Examination Foundation Orientation",
+        "summary": "A concise scope map for Registered Mechanical Engineer Licensure Examination using the registered official PRC reference.",
+        "notes": [
+            {
+                "heading": "Current status",
+                "body": "This is a blueprint-only foundation. Study-ready practice will require exam-specific authored content and verified current scope."
+            },
+            {
+                "heading": "Practice boundary",
+                "body": "No generic questions are assigned to this exam without direct blueprint evidence."
+            }
+        ],
+        "source_ids": [
+            "prc-mechanical-engineering-board-page"
+        ],
+        "exams": [
+            "mechanical-engineering"
+        ],
+        "exam_focus": {
+            "mechanical-engineering": {
+                "priority": "foundation",
+                "official_scope_status": "official reference; weighting unavailable",
+                "readiness": "FOUNDATION"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "mechanical-engineering-foundation"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "portfolio-registered-electrical-engineering-foundation",
+        "title": "Registered Electrical Engineer Licensure Examination Foundation Orientation",
+        "summary": "A concise scope map for Registered Electrical Engineer Licensure Examination using the registered official PRC reference.",
+        "notes": [
+            {
+                "heading": "Current status",
+                "body": "This is a blueprint-only foundation. Study-ready practice will require exam-specific authored content and verified current scope."
+            },
+            {
+                "heading": "Practice boundary",
+                "body": "No generic questions are assigned to this exam without direct blueprint evidence."
+            }
+        ],
+        "source_ids": [
+            "prc-electrical-engineering-board-page"
+        ],
+        "exams": [
+            "registered-electrical-engineering"
+        ],
+        "exam_focus": {
+            "registered-electrical-engineering": {
+                "priority": "foundation",
+                "official_scope_status": "official reference; weighting unavailable",
+                "readiness": "FOUNDATION"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "registered-electrical-engineering-foundation"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-01"
+    },
+    {
+        "id": "portfolio-architecture-foundation",
+        "title": "Architect Licensure Examination Foundation Orientation",
+        "summary": "A concise scope map for Architect Licensure Examination using the registered official PRC reference.",
+        "notes": [
+            {
+                "heading": "Current status",
+                "body": "This is a blueprint-only foundation. Study-ready practice will require exam-specific authored content and verified current scope."
+            },
+            {
+                "heading": "Practice boundary",
+                "body": "No generic questions are assigned to this exam without direct blueprint evidence."
+            }
+        ],
+        "source_ids": [
+            "prc-architecture-exam-program-2024"
+        ],
+        "exams": [
+            "architecture"
+        ],
+        "exam_focus": {
+            "architecture": {
+                "priority": "foundation",
+                "official_scope_status": "official reference; weighting unavailable",
+                "readiness": "FOUNDATION"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "architecture-foundation"
         },
         "status": "published",
         "version": 1,
