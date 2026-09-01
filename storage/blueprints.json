@@ -290,12 +290,17 @@
         "status": "active",
         "questionCount": 80,
         "foundation": true,
-        "official_weighting": false,
+        "official_weighting": true,
         "sections": [
             {
                 "id": "psychological-assessment",
                 "name": "Psychological Assessment",
-                "target_percent": 30
+                "target_percent": 40
+            },
+            {
+                "id": "developmental-psychology",
+                "name": "Developmental Psychology",
+                "target_percent": 20
             },
             {
                 "id": "abnormal-psychology",
@@ -304,25 +309,20 @@
             },
             {
                 "id": "industrial-organizational",
-                "name": "Industrial and Organizational Psychology",
-                "target_percent": 15
-            },
-            {
-                "id": "personality",
-                "name": "Theories of Personality",
+                "name": "Industrial-Organizational Psychology",
                 "target_percent": 20
-            },
-            {
-                "id": "professional-practice",
-                "name": "Professional Practice and Ethics",
-                "target_percent": 15
             }
         ],
-        "label": "BoardPrep foundation coverage targets; not official PRC weighting.",
+        "label": "Current official PRC weighting represented from the registered source.",
         "source_id": "prc-psychometrician-enhanced-tos-2023",
         "source_version": "Resolution No. 02 s. 2023",
-        "official_structure": "Psychological assessment, abnormal, industrial-organizational, personality, and professional practice areas are represented as foundation sections.",
-        "official_weights": null,
+        "official_structure": "Psychological Assessment 40%; Developmental Psychology 20%; Abnormal Psychology 20%; Industrial-Organizational Psychology 20%.",
+        "official_weights": {
+            "psychological_assessment": 40,
+            "developmental_psychology": 20,
+            "abnormal_psychology": 20,
+            "industrial_organizational": 20
+        },
         "internal_targets": true
     },
     {

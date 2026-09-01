@@ -970,31 +970,172 @@
             "estimated_study_minutes": 120,
             "mastery_threshold": 80
         }
+    },
+    {
+        "id": "english-reading-comprehension",
+        "subject_id": "english",
+        "code": "ERC",
+        "name": "Reading Comprehension",
+        "description": "Evidence-based reading and interpretation for English learners."
+    },
+    {
+        "id": "analytical-reasoning",
+        "subject_id": "analytical-logical",
+        "code": "AR",
+        "name": "Analytical Reasoning",
+        "description": "Patterns, assumptions, conclusions, and structured inference."
+    },
+    {
+        "id": "logical-sequences",
+        "subject_id": "analytical-logical",
+        "code": "LS",
+        "name": "Logical Sequences",
+        "description": "Order, relationships, and rule-based sequence problems."
+    },
+    {
+        "id": "quantitative-relationships",
+        "subject_id": "analytical-logical",
+        "code": "QR",
+        "name": "Quantitative Relationships",
+        "description": "Data interpretation and comparisons using quantitative information."
+    },
+    {
+        "id": "cle-criminal-jurisprudence",
+        "subject_id": "criminal-justice-foundations",
+        "code": "CJ",
+        "name": "Criminal Jurisprudence and Procedure"
+    },
+    {
+        "id": "cle-law-enforcement",
+        "subject_id": "criminal-justice-foundations",
+        "code": "LEA",
+        "name": "Law Enforcement Administration"
+    },
+    {
+        "id": "cle-investigation",
+        "subject_id": "criminal-justice-foundations",
+        "code": "INV",
+        "name": "Crime Detection and Investigation"
+    },
+    {
+        "id": "cle-forensics",
+        "subject_id": "criminal-justice-foundations",
+        "code": "FOR",
+        "name": "Criminalistics and Forensic Science"
+    },
+    {
+        "id": "cle-criminology",
+        "subject_id": "criminal-justice-foundations",
+        "code": "CRM",
+        "name": "Criminology"
+    },
+    {
+        "id": "cle-corrections",
+        "subject_id": "criminal-justice-foundations",
+        "code": "COR",
+        "name": "Correctional Administration"
+    },
+    {
+        "id": "nle-practice",
+        "subject_id": "nursing-foundations",
+        "code": "NP",
+        "name": "Nursing Practice"
+    },
+    {
+        "id": "nle-community-health",
+        "subject_id": "nursing-foundations",
+        "code": "CH",
+        "name": "Community Health"
+    },
+    {
+        "id": "nle-maternal-child",
+        "subject_id": "nursing-foundations",
+        "code": "MCN",
+        "name": "Maternal and Child Nursing"
+    },
+    {
+        "id": "nle-medical-surgical",
+        "subject_id": "nursing-foundations",
+        "code": "MSN",
+        "name": "Medical-Surgical Nursing"
+    },
+    {
+        "id": "nle-mental-health",
+        "subject_id": "nursing-foundations",
+        "code": "MHN",
+        "name": "Mental Health Nursing"
+    },
+    {
+        "id": "nle-professional-ethics",
+        "subject_id": "nursing-foundations",
+        "code": "PE",
+        "name": "Professional and Ethical Practice"
+    },
+    {
+        "id": "ple-assessment",
+        "subject_id": "psychology-foundations",
+        "code": "PA",
+        "name": "Psychological Assessment"
+    },
+    {
+        "id": "ple-abnormal",
+        "subject_id": "psychology-foundations",
+        "code": "ABP",
+        "name": "Abnormal Psychology"
+    },
+    {
+        "id": "ple-industrial",
+        "subject_id": "psychology-foundations",
+        "code": "IOP",
+        "name": "Industrial and Organizational Psychology"
+    },
+    {
+        "id": "ple-personality",
+        "subject_id": "psychology-foundations",
+        "code": "PER",
+        "name": "Theories of Personality"
+    },
+    {
+        "id": "ple-professional-practice",
+        "subject_id": "psychology-foundations",
+        "code": "PPP",
+        "name": "Professional Practice and Ethics"
+    },
+    {
+        "id": "let-rizal",
+        "subject_id": "social-studies",
+        "code": "RIZ",
+        "name": "Life and Works of Rizal"
+    },
+    {
+        "id": "let-contemporary-world",
+        "subject_id": "social-studies",
+        "code": "CW",
+        "name": "The Contemporary World"
+    },
+    {
+        "id": "let-art-appreciation",
+        "subject_id": "social-studies",
+        "code": "ART",
+        "name": "Art Appreciation"
+    },
+    {
+        "id": "let-ethics",
+        "subject_id": "social-studies",
+        "code": "ETH",
+        "name": "Ethics"
+    },
+    {
+        "id": "let-understanding-self",
+        "subject_id": "social-studies",
+        "code": "SELF",
+        "name": "Understanding the Self"
+    },
+    {
+        "id": "ple-developmental",
+        "subject_id": "psychology-foundations",
+        "code": "DEV",
+        "name": "Developmental Psychology",
+        "description": "Lifespan development, developmental processes, and contextual influences."
     }
-    ,{"id":"english-reading-comprehension","subject_id":"english","code":"ERC","name":"Reading Comprehension","description":"Evidence-based reading and interpretation for English learners."},
-    {"id":"analytical-reasoning","subject_id":"analytical-logical","code":"AR","name":"Analytical Reasoning","description":"Patterns, assumptions, conclusions, and structured inference."},
-    {"id":"logical-sequences","subject_id":"analytical-logical","code":"LS","name":"Logical Sequences","description":"Order, relationships, and rule-based sequence problems."},
-    {"id":"quantitative-relationships","subject_id":"analytical-logical","code":"QR","name":"Quantitative Relationships","description":"Data interpretation and comparisons using quantitative information."}
-    ,{"id":"cle-criminal-jurisprudence","subject_id":"criminal-justice-foundations","code":"CJ","name":"Criminal Jurisprudence and Procedure"}
-    ,{"id":"cle-law-enforcement","subject_id":"criminal-justice-foundations","code":"LEA","name":"Law Enforcement Administration"}
-    ,{"id":"cle-investigation","subject_id":"criminal-justice-foundations","code":"INV","name":"Crime Detection and Investigation"}
-    ,{"id":"cle-forensics","subject_id":"criminal-justice-foundations","code":"FOR","name":"Criminalistics and Forensic Science"}
-    ,{"id":"cle-criminology","subject_id":"criminal-justice-foundations","code":"CRM","name":"Criminology"}
-    ,{"id":"cle-corrections","subject_id":"criminal-justice-foundations","code":"COR","name":"Correctional Administration"}
-    ,{"id":"nle-practice","subject_id":"nursing-foundations","code":"NP","name":"Nursing Practice"}
-    ,{"id":"nle-community-health","subject_id":"nursing-foundations","code":"CH","name":"Community Health"}
-    ,{"id":"nle-maternal-child","subject_id":"nursing-foundations","code":"MCN","name":"Maternal and Child Nursing"}
-    ,{"id":"nle-medical-surgical","subject_id":"nursing-foundations","code":"MSN","name":"Medical-Surgical Nursing"}
-    ,{"id":"nle-mental-health","subject_id":"nursing-foundations","code":"MHN","name":"Mental Health Nursing"}
-    ,{"id":"nle-professional-ethics","subject_id":"nursing-foundations","code":"PE","name":"Professional and Ethical Practice"}
-    ,{"id":"ple-assessment","subject_id":"psychology-foundations","code":"PA","name":"Psychological Assessment"}
-    ,{"id":"ple-abnormal","subject_id":"psychology-foundations","code":"ABP","name":"Abnormal Psychology"}
-    ,{"id":"ple-industrial","subject_id":"psychology-foundations","code":"IOP","name":"Industrial and Organizational Psychology"}
-    ,{"id":"ple-personality","subject_id":"psychology-foundations","code":"PER","name":"Theories of Personality"}
-    ,{"id":"ple-professional-practice","subject_id":"psychology-foundations","code":"PPP","name":"Professional Practice and Ethics"},
-    {"id":"let-rizal","subject_id":"social-studies","code":"RIZ","name":"Life and Works of Rizal"},
-    {"id":"let-contemporary-world","subject_id":"social-studies","code":"CW","name":"The Contemporary World"},
-    {"id":"let-art-appreciation","subject_id":"social-studies","code":"ART","name":"Art Appreciation"},
-    {"id":"let-ethics","subject_id":"social-studies","code":"ETH","name":"Ethics"},
-    {"id":"let-understanding-self","subject_id":"social-studies","code":"SELF","name":"Understanding the Self"}
 ]
