@@ -7,6 +7,7 @@ namespace App\Services\Question;
 final class StructuredContentService
 {
     private const TYPES = ['text', 'equation', 'table', 'figure', 'chart'];
+    private const FIGURE_EXTENSIONS = ['svg', 'png', 'jpg', 'jpeg', 'webp'];
 
     public static function validate(array $question): array
     {
@@ -31,14 +32,21 @@ final class StructuredContentService
             } elseif ($type === 'table' || $type === 'chart') {
                 self::validateTable($block, $index, $errors);
             } elseif ($type === 'figure') {
-                if (trim((string) ($block['asset'] ?? '')) === '') {
+                $asset = trim((string) ($block['asset'] ?? ''));
+                if ($asset === '') {
                     $errors[] = "Missing figure asset {$index}";
                 }
                 if (trim((string) ($block['alt'] ?? '')) === '') {
                     $errors[] = "Missing figure alt text {$index}";
                 }
-                if (str_contains((string) ($block['asset'] ?? ''), '<') || str_contains((string) ($block['asset'] ?? ''), '://') || str_contains((string) ($block['asset'] ?? ''), '..')) {
+                if (self::unsafeFigureAsset($asset)) {
                     $errors[] = "Unsafe figure asset {$index}";
+                } elseif (!is_file(self::assetPath($asset))) {
+                    $errors[] = "Missing figure file {$index}";
+                }
+                $extension = strtolower((string) pathinfo($asset, PATHINFO_EXTENSION));
+                if (!in_array($extension, self::FIGURE_EXTENSIONS, true)) {
+                    $errors[] = "Unsupported figure type {$index}";
                 }
             }
         }
@@ -84,12 +92,28 @@ final class StructuredContentService
             } elseif ($type === 'figure') {
                 $asset = htmlspecialchars((string) ($block['asset'] ?? ''), ENT_QUOTES, 'UTF-8');
                 $alt = htmlspecialchars((string) ($block['alt'] ?? ''), ENT_QUOTES, 'UTF-8');
-                $assetPath = dirname(__DIR__, 3) . '/public/' . ltrim((string) ($block['asset'] ?? ''), '/');
+                $assetPath = self::assetPath((string) ($block['asset'] ?? ''));
                 $html .= '<figure class="question-figure">' . (is_file($assetPath) ? '<img src="/' . ltrim($asset, '/') . '" alt="' . $alt . '">' : '<p role="status">Figure unavailable: ' . $alt . '</p>');
                 if (trim((string) ($block['caption'] ?? '')) !== '') $html .= '<figcaption>' . htmlspecialchars((string) $block['caption'], ENT_QUOTES, 'UTF-8') . '</figcaption>';
                 $html .= '</figure>';
             }
         }
         return $html;
+    }
+
+    private static function assetPath(string $asset): string
+    {
+        return dirname(__DIR__, 3) . '/public/' . ltrim($asset, '/');
+    }
+
+    private static function unsafeFigureAsset(string $asset): bool
+    {
+        return $asset === ''
+            || str_starts_with($asset, '/')
+            || str_contains($asset, '\\')
+            || str_contains($asset, '<')
+            || str_contains($asset, '://')
+            || str_contains($asset, '..')
+            || preg_match('/[\x00-\x1F\x7F]/', $asset) === 1;
     }
 }
