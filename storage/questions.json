@@ -49462,15 +49462,15 @@
         "createdAt": "2026-09-02T00:00:00+00:00",
         "updatedAt": "2026-09-02T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A 20-tooth pinion rotates at 1,800 rpm and drives a 60-tooth gear. Neglecting slip, what is the driven-gear speed?",
+        "question": "A gear transmits 300 N·m of torque at a pitch radius of 150 mm. What tangential tooth force acts at the pitch circle?",
         "choices": [
-            "600 rpm",
-            "1,800 rpm",
-            "5,400 rpm",
-            "60 rpm"
+            "2,000 N",
+            "450 N",
+            "20,000 N",
+            "200 N"
         ],
-        "answer": "600 rpm",
-        "explanation": "For an external gear pair, n₂ = n₁N₁\/N₂ = 1,800(20\/60) = 600 rpm. Reversing the tooth ratio gives 5,400 rpm.",
+        "answer": "2,000 N",
+        "explanation": "Tangential force is F_t = T/r = 300/0.150 = 2,000 N. Using diameter instead of radius gives 1,000 N, which is not listed.",
         "subject": "Mechanical Engineering Mechanical Engineering Professional Subjects",
         "numeric": true,
         "multistep": false,
@@ -49532,15 +49532,15 @@
         "createdAt": "2026-09-02T00:00:00+00:00",
         "updatedAt": "2026-09-02T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A linear spring has stiffness 20 N\/mm and is compressed 15 mm. How much elastic energy is stored?",
+        "question": "A multi-plate clutch has four friction surfaces, coefficient of friction 0.30, axial force 1,000 N, and effective friction radius 0.10 m. What torque capacity follows from T = nμWR?",
         "choices": [
-            "2.25 J",
-            "22.5 J",
-            "4.50 J",
-            "0.150 J"
+            "120 N·m",
+            "30 N·m",
+            "300 N·m",
+            "12 N·m"
         ],
-        "answer": "2.25 J",
-        "explanation": "U = ½kx² = ½(20 N\/mm)(15 mm)² = 2,250 N·mm = 2.25 J. Omitting the one-half gives 4.50 J.",
+        "answer": "120 N·m",
+        "explanation": "T = nμWR = 4(0.30)(1,000)(0.10) = 120 N·m. Omitting the number of friction surfaces gives 30 N·m.",
         "subject": "Mechanical Engineering Mechanical Engineering Professional Subjects",
         "numeric": true,
         "multistep": false,
@@ -49549,8 +49549,8 @@
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "U = ½kx²",
-                "fallback": "Use k in N\/mm, then convert N·mm to joules."
+                "value": "T = nμWR",
+                "fallback": "Use the supplied number of friction surfaces, coefficient, force, and radius."
             }
         ],
         "unit_sensitive": true,

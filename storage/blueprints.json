@@ -429,22 +429,22 @@
         "name": "Registered Mechanical Engineer Licensure Examination BoardPrep Foundation Scope",
         "version": 1,
         "status": "active",
-        "questionCount": 80,
+        "questionCount": 120,
         "foundation": true,
         "official_weighting": false,
         "sections": [
             {
-                "id": "mathematics",
+                "id": "mechanical-engineering-mathematics",
                 "name": "Mathematics",
                 "target_percent": null
             },
             {
-                "id": "engineering-sciences",
+                "id": "mechanical-engineering-engineering-sciences",
                 "name": "Engineering Sciences",
                 "target_percent": null
             },
             {
-                "id": "mechanical-engineering-professional-subjects",
+                "id": "mechanical-engineering-mechanical-engineering-professional-subjects",
                 "name": "Mechanical Engineering Professional Subjects",
                 "target_percent": null
             }
