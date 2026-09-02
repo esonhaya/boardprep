@@ -35246,7 +35246,7 @@
             }
         ],
         "numeric": true,
-        "multistep": true,
+        "multistep": false,
         "cognitive_intent": "analyze",
         "unit_sensitive": true,
         "table_dependent": false,
@@ -35300,7 +35300,7 @@
         "unit_sensitive": true,
         "table_dependent": false,
         "data_interpretation": false,
-        "long_scenario": true
+        "long_scenario": false
     },
     {
         "id": 1158,
@@ -39148,7 +39148,8 @@
             "subject_id": "civil-engineering-geotechnical-and-hydraulics",
             "domain_id": "ce-hydraulics-geotech",
             "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39163,17 +39164,30 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "A soil classification system helps communicate:",
+        "question": "A soil classification system is most useful because it standardizes communication about a soil's engineering behavior and likely properties.",
         "choices": [
-            "engineering behavior and material identity",
-            "a project’s final cost only",
-            "beam reinforcement",
-            "pipe discharge"
+            "It groups soils using measurable index properties",
+            "It proves the soil is safe for every foundation",
+            "It replaces site investigation",
+            "It determines concrete strength"
         ],
-        "answer": "engineering behavior and material identity",
-        "explanation": "Classification organizes soils for engineering interpretation.",
+        "answer": "It groups soils using measurable index properties",
+        "explanation": "Classification organizes soils by measured properties such as grain size and plasticity; it informs screening but does not replace design investigation.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": []
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "Classification organizes soils by measured properties such as grain size and plasticity; it informs screening but does not replace design investigation."
+            }
+        ],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "understand",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1239,
@@ -39182,7 +39196,8 @@
             "subject_id": "civil-engineering-geotechnical-and-hydraulics",
             "domain_id": "ce-hydraulics-geotech",
             "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39197,23 +39212,30 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "Seepage through an embankment becomes concerning when it causes:",
+        "question": "Water flows through a soil layer with hydraulic gradient 0.04, permeability 2.0×10^-5 m\/s, and cross-sectional area 12 m2. What volume passes in one day?",
         "choices": [
-            "internal erosion or piping",
-            "higher concrete slump",
-            "better survey closure",
-            "zero pore pressure"
+            "0.0096 m3\/day",
+            "0.829 m3\/day",
+            "8.29 m3\/day",
+            "82.9 m3\/day"
         ],
-        "answer": "internal erosion or piping",
-        "explanation": "Uncontrolled seepage can remove soil particles and weaken the embankment.",
+        "answer": "0.829 m3\/day",
+        "explanation": "Darcy discharge is Q=kiA=(2.0×10^-5)(0.04)(12)=9.6×10^-6 m3\/s. Multiplying by 86,400 s\/day gives 0.829 m3\/day.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "FS = capacity \/ demand",
-                "fallback": "FS = capacity \/ demand with consistent engineering units"
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "Darcy discharge is Q=kiA=(2.0×10^-5)(0.04)(12)=9.6×10^-6 m3\/s. Multiplying by 86,400 s\/day gives 0.829 m3\/day."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": true
     },
     {
         "id": 1240,
@@ -39222,7 +39244,8 @@
             "subject_id": "civil-engineering-geotechnical-and-hydraulics",
             "domain_id": "ce-hydraulics-geotech",
             "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39236,36 +39259,32 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A flow net is used to estimate seepage and:",
+        "difficulty": "hard",
+        "question": "For the flow-net geometry shown, estimate total seepage discharge through the 3 m width using q=kH(Nf\/Nd).",
         "choices": [
-            "pore-pressure distribution",
-            "steel yield stress",
-            "traffic demand",
-            "concrete temperature only"
+            "6.00×10^-5 m3\/s",
+            "2.40×10^-4 m3\/s",
+            "1.20×10^-4 m3\/s",
+            "1.44×10^-3 m3\/s"
         ],
-        "answer": "pore-pressure distribution",
-        "explanation": "Flow nets represent seepage paths and equipotential changes.",
+        "answer": "1.20×10^-4 m3\/s",
+        "explanation": "Read k=2.0×10^-5 m\/s, H=6 m, Nf=4 and Nd=12 from the figure. q=kH(Nf\/Nd)=2.0×10^-5(6)(4\/12)=4.0×10^-5 m2\/s per metre width; with the 3 m width shown, Q=1.20×10^-4 m3\/s. The keyed value uses the stated width.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "figure",
+                "asset": "assets\/ce\/flow-net-profile.svg",
+                "alt": "Flow-net geometry with head loss, flow-channel, and equipotential counts",
+                "caption": "Flow-net seepage geometry"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": true
     },
     {
         "id": 1241,
@@ -39274,7 +39293,8 @@
             "subject_id": "civil-engineering-geotechnical-and-hydraulics",
             "domain_id": "ce-hydraulics-geotech",
             "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39289,17 +39309,30 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "Bearing capacity is the ability of soil to support:",
+        "question": "Which observation best indicates general-shear bearing failure rather than a punching mechanism?",
         "choices": [
-            "foundation load without unacceptable failure",
-            "water color",
-            "survey equipment",
-            "traffic signs only"
+            "Failure occurs only in the footing steel",
+            "Only local compression beneath the center",
+            "No soil displacement at all",
+            "A distinct continuous failure surface reaches the ground surface"
         ],
-        "answer": "foundation load without unacceptable failure",
-        "explanation": "Foundation bearing capacity concerns support and failure.",
+        "answer": "A distinct continuous failure surface reaches the ground surface",
+        "explanation": "General shear failure forms a defined slip surface extending toward the ground surface, unlike localized punching.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": []
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "General shear failure forms a defined slip surface extending toward the ground surface, unlike localized punching."
+            }
+        ],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "understand",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1242,
@@ -39308,7 +39341,8 @@
             "subject_id": "civil-engineering-geotechnical-and-hydraulics",
             "domain_id": "ce-hydraulics-geotech",
             "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39323,23 +39357,30 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "A wider footing under the same load generally reduces:",
+        "question": "A clay has liquid limit 52% and plastic limit 24%. What is its plasticity index?",
         "choices": [
-            "contact pressure",
-            "soil area",
-            "foundation width",
-            "all settlement automatically"
+            "76%",
+            "28%",
+            "2.17%",
+            "0.46%"
         ],
-        "answer": "contact pressure",
-        "explanation": "Load spread reduces average pressure, though it does not guarantee no settlement.",
+        "answer": "28%",
+        "explanation": "Plasticity index is PI=LL−PL=52−24=28 percentage points.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "M = F × d",
-                "fallback": "M = F × d with consistent engineering units"
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "Plasticity index is PI=LL−PL=52−24=28 percentage points."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1243,
@@ -39348,7 +39389,8 @@
             "subject_id": "civil-engineering-geotechnical-and-hydraulics",
             "domain_id": "ce-hydraulics-geotech",
             "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39362,36 +39404,32 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "Lateral earth pressure acts on a retaining wall because soil exerts:",
+        "difficulty": "medium",
+        "question": "The retaining-wall geometry shown has a triangular lateral pressure distribution with resultant 90 kN per metre of wall. Where does the resultant act above the base?",
         "choices": [
-            "sideways stress",
-            "only vertical tension",
-            "pipe discharge",
-            "beam torsion"
+            "1.5 m",
+            "0.5 m",
+            "1.0 m",
+            "2.0 m"
         ],
-        "answer": "sideways stress",
-        "explanation": "Retained soil applies lateral stress to the wall.",
+        "answer": "1.0 m",
+        "explanation": "A triangular pressure diagram has its resultant at one-third of the height from the larger-pressure end. With the 3 m wall height shown, the location is 3\/3=1.0 m above the base.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "figure",
+                "asset": "assets\/ce\/retaining-pressure.svg",
+                "alt": "Retaining-wall pressure triangle with wall height and resultant callout",
+                "caption": "Lateral pressure geometry"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": true
     },
     {
         "id": 1244,
@@ -39400,7 +39438,8 @@
             "subject_id": "civil-engineering-geotechnical-and-hydraulics",
             "domain_id": "ce-hydraulics-geotech",
             "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39414,18 +39453,47 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A drainage layer behind a retaining wall helps reduce:",
+        "difficulty": "medium",
+        "question": "The permeability tests below were performed on three soil specimens. Which specimen gives the greatest Darcy discharge under the same gradient and area?",
         "choices": [
-            "water pressure",
-            "concrete hydration",
-            "survey distance",
-            "traffic speed"
+            "All are equal",
+            "Specimen A",
+            "Specimen B",
+            "Specimen C"
         ],
-        "answer": "water pressure",
-        "explanation": "Drainage relieves hydrostatic pressure behind the wall.",
+        "answer": "Specimen C",
+        "explanation": "For equal gradient and area, Darcy discharge is proportional to permeability. Specimen C has the greatest k and therefore the greatest discharge.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": []
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Specimen",
+                    "Permeability k"
+                ],
+                "rows": [
+                    [
+                        "A",
+                        "1.0×10^-6 m\/s"
+                    ],
+                    [
+                        "B",
+                        "4.0×10^-6 m\/s"
+                    ],
+                    [
+                        "C",
+                        "8.0×10^-6 m\/s"
+                    ]
+                ]
+            }
+        ],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": false,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1245,
@@ -39434,7 +39502,8 @@
             "subject_id": "civil-engineering-geotechnical-and-hydraulics",
             "domain_id": "ce-hydraulics-geotech",
             "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39449,23 +39518,30 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "Slope stability analysis compares driving forces with:",
+        "question": "For a rapidly loaded saturated clay foundation, which analysis assumption is commonly appropriate for the immediate response?",
         "choices": [
-            "resisting forces",
-            "rainfall color",
-            "beam area",
-            "pipe diameter only"
+            "Undrained behavior because pore water cannot drain during rapid loading",
+            "Fully drained behavior in every case",
+            "Zero total stress",
+            "No pore pressure can develop"
         ],
-        "answer": "resisting forces",
-        "explanation": "Stability depends on the balance of driving and resisting actions.",
+        "answer": "Undrained behavior because pore water cannot drain during rapid loading",
+        "explanation": "Rapid loading limits drainage, so an undrained short-term analysis is commonly used; long-term consolidation is a separate condition.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "P = ρgh",
-                "fallback": "P = ρgh with consistent engineering units"
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "Rapid loading limits drainage, so an undrained short-term analysis is commonly used; long-term consolidation is a separate condition."
             }
-        ]
+        ],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1246,
@@ -39474,7 +39550,8 @@
             "subject_id": "civil-engineering-geotechnical-and-hydraulics",
             "domain_id": "ce-hydraulics-geotech",
             "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39488,36 +39565,47 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A slip surface in a slope is a surface along which soil may:",
+        "difficulty": "medium",
+        "question": "The direct-shear results below are approximately linear. What cohesion intercept follows from the listed failure stresses?",
         "choices": [
-            "shear and move",
-            "gain cement",
-            "measure elevation",
-            "become impermeable"
+            "0 kPa",
+            "20 kPa",
+            "50 kPa",
+            "70 kPa"
         ],
-        "answer": "shear and move",
-        "explanation": "Failure movement develops along a shear surface.",
+        "answer": "20 kPa",
+        "explanation": "Using the first and third points, slope=(95−45)\/(150−50)=0.50 and intercept c=45−0.50(50)=20 kPa. Both the friction slope and cohesion intercept are needed to describe the line.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
                 "type": "table",
                 "columns": [
-                    "Parameter",
-                    "Value"
+                    "Normal stress",
+                    "Shear stress at failure"
                 ],
                 "rows": [
                     [
-                        "Given quantity",
-                        "4 m"
+                        "50 kPa",
+                        "45 kPa"
                     ],
                     [
-                        "Reference quantity",
-                        "3 m"
+                        "100 kPa",
+                        "70 kPa"
+                    ],
+                    [
+                        "150 kPa",
+                        "95 kPa"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true
     },
     {
         "id": 1247,
@@ -39526,7 +39614,8 @@
             "subject_id": "civil-engineering-geotechnical-and-hydraulics",
             "domain_id": "ce-hydraulics-geotech",
             "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39541,17 +39630,46 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "A soil sample for moisture determination should be:",
+        "question": "A soil has porosity n=0.35. What void ratio e follows from e=n\/(1−n)?",
         "choices": [
-            "sealed promptly to preserve water content",
-            "left open in the sun",
-            "mixed with concrete",
-            "unlabeled"
+            "1.350",
+            "0.350",
+            "0.538",
+            "0.650"
         ],
-        "answer": "sealed promptly to preserve water content",
-        "explanation": "Sealing prevents evaporation before weighing.",
+        "answer": "0.538",
+        "explanation": "e=0.35\/(1−0.35)=0.35\/0.65=0.538. Porosity and void ratio are related but are not numerically identical.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": []
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Percent finer",
+                    "Particle size"
+                ],
+                "rows": [
+                    [
+                        "10%",
+                        "0.20 mm"
+                    ],
+                    [
+                        "30%",
+                        "0.45 mm"
+                    ],
+                    [
+                        "60%",
+                        "1.20 mm"
+                    ]
+                ]
+            }
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": true,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1248,
@@ -39560,7 +39678,8 @@
             "subject_id": "civil-engineering-geotechnical-and-hydraulics",
             "domain_id": "ce-hydraulics-geotech",
             "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39574,24 +39693,31 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A grain-size curve helps identify the distribution of:",
+        "difficulty": "medium",
+        "question": "For a soil with specific gravity Gs=2.65 and void ratio e=0.65, use ic=(Gs−1)\/(1+e). What critical hydraulic gradient is indicated?",
         "choices": [
-            "particle sizes",
-            "pore pressures only",
-            "beam moments",
-            "pump energy"
+            "2.65",
+            "1.72",
+            "0.61",
+            "1.00"
         ],
-        "answer": "particle sizes",
-        "explanation": "Gradation describes particle-size distribution.",
+        "answer": "1.00",
+        "explanation": "ic=(2.65−1)\/(1+0.65)=1.65\/1.65=1.00. This threshold is dimensionless because it is a head gradient.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "Q = A × v",
-                "fallback": "Q = A × v with consistent engineering units"
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "ic=(2.65−1)\/(1+0.65)=1.65\/1.65=1.00. This threshold is dimensionless because it is a head gradient."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1249,
@@ -39600,7 +39726,8 @@
             "subject_id": "civil-engineering-geotechnical-and-hydraulics",
             "domain_id": "ce-hydraulics-geotech",
             "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39614,36 +39741,25 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "Hydraulic gradient is head loss divided by:",
+        "difficulty": "hard",
+        "question": "A rectangular channel is 3 m wide, carries 6 m3\/s at depth 0.80 m, and uses g=9.81 m\/s2. Determine its specific energy and classify the flow using yc=(q2\/g)^(1\/3).",
         "choices": [
-            "flow length",
-            "pipe area only",
-            "soil mass",
-            "water density"
+            "E=1.12 m and subcritical",
+            "E=0.80 m and supercritical",
+            "E=2.50 m and critical",
+            "E=1.12 m and supercritical"
         ],
-        "answer": "flow length",
-        "explanation": "Gradient is change in head per length.",
+        "answer": "E=1.12 m and subcritical",
+        "explanation": "Velocity is V=6\/(3×0.8)=2.5 m\/s, so E=0.8+6.25\/19.62=1.12 m. Unit discharge q=2 m2\/s gives yc=(4\/9.81)^(1\/3)=0.742 m; since y>yc, flow is subcritical.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
-            }
-        ]
+        "content_blocks": [],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": true
     },
     {
         "id": 1250,
@@ -39652,7 +39768,8 @@
             "subject_id": "civil-engineering-geotechnical-and-hydraulics",
             "domain_id": "ce-hydraulics-geotech",
             "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39666,27 +39783,35 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A confined aquifer is bounded by layers of relatively low:",
+        "difficulty": "hard",
+        "question": "A water-supply population is 20,000 people. Demand is 180 L\/person-day, distribution losses add 15%, and a balancing tank must cover two days of average production. What storage volume is required?",
         "choices": [
-            "permeability",
-            "traffic volume",
-            "concrete strength",
-            "bearing angle"
+            "4,140 m3",
+            "8,280 m3",
+            "7,200 m3",
+            "9,522 m3"
         ],
-        "answer": "permeability",
-        "explanation": "Confining layers restrict vertical groundwater movement.",
+        "answer": "8,280 m3",
+        "explanation": "Base demand=20,000(180)=3,600,000 L\/day=3,600 m3\/day. Production including losses is 3,600(1.15)=4,140 m3\/day; two days requires 2(4,140)=8,280 m3.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": []
+        "content_blocks": [],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": true
     },
     {
         "id": 1251,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
-            "domain_id": "ce-hydraulics-geotech",
-            "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39700,33 +39825,42 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "Water supply demand analysis should consider:",
+        "difficulty": "hard",
+        "question": "The hydrograph shown has ordinates at equal one-hour intervals. Which interval contributes the greatest runoff volume above the stated baseflow?",
         "choices": [
-            "population, per-capita use, and losses",
-            "soil color only",
-            "beam span only",
-            "survey instrument brand"
+            "0–1 h",
+            "1–2 h",
+            "2–3 h",
+            "3–4 h"
         ],
-        "answer": "population, per-capita use, and losses",
-        "explanation": "Demand estimates include use and distribution losses.",
-        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "answer": "2–3 h",
+        "explanation": "Runoff volume is the area under the excess-flow hydrograph. After subtracting baseflow, the 2–3 h interval has the largest average excess discharge and therefore the largest one-hour trapezoidal area.",
+        "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "A = b × h",
-                "fallback": "A = b × h with consistent engineering units"
+                "type": "figure",
+                "asset": "assets\/ce\/runoff-hydrograph.svg",
+                "alt": "Runoff hydrograph with equal time intervals and a marked baseflow line",
+                "caption": "Runoff hydrograph"
             }
-        ]
+        ],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1252,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
-            "domain_id": "ce-hydraulics-geotech",
-            "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39741,44 +39875,40 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "Cavitation risk increases when local pressure falls near:",
+        "question": "For a rectangular channel, Q=8 m3\/s, width=4 m, and depth=1 m. What mean velocity follows from continuity?",
         "choices": [
-            "vapor pressure",
-            "atmospheric mass",
-            "soil cohesion",
-            "concrete yield"
+            "32 m\/s",
+            "8.0 m\/s",
+            "0.5 m\/s",
+            "2.0 m\/s"
         ],
-        "answer": "vapor pressure",
-        "explanation": "Pressure near vapor pressure can cause vapor bubbles and damage.",
-        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "answer": "2.0 m\/s",
+        "explanation": "Area=by=4(1)=4 m2; V=Q\/A=8\/4=2.0 m\/s.",
+        "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "equation",
+                "value": "V = Q\/(b y)",
+                "fallback": "Divide discharge by rectangular flow area."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1253,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
-            "domain_id": "ce-hydraulics-geotech",
-            "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39793,26 +39923,40 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "A stilling basin reduces flow energy by promoting:",
+        "question": "A steel beam section has bending moment 45 kN·m and section modulus 300,000 mm3. What elastic bending stress results?",
         "choices": [
-            "controlled turbulence and dissipation",
-            "higher pipe pressure",
-            "soil compaction",
-            "survey closure"
+            "150 MPa",
+            "15 MPa",
+            "1,350 MPa",
+            "0.15 MPa"
         ],
-        "answer": "controlled turbulence and dissipation",
-        "explanation": "Hydraulic structures dissipate excess energy in a controlled zone.",
-        "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": []
+        "answer": "150 MPa",
+        "explanation": "Convert M=45 kN·m=45,000,000 N·mm. Stress=M\/S=45,000,000\/300,000=150 N\/mm2=150 MPa.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "Convert M=45 kN·m=45,000,000 N·mm. Stress=M\/S=45,000,000\/300,000=150 N\/mm2=150 MPa."
+            }
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1254,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
-            "domain_id": "ce-hydraulics-geotech",
-            "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39826,33 +39970,41 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "An aquifer recharge area is important because it:",
+        "difficulty": "hard",
+        "question": "A steel member has alternating stress 120 MPa, mean stress 80 MPa, endurance strength 240 MPa, and tensile strength 600 MPa. Using Goodman, what utilization ratio results?",
         "choices": [
-            "allows water to enter groundwater storage",
-            "blocks all infiltration",
-            "raises beam load",
-            "sets road alignment"
+            "0.500",
+            "0.633",
+            "0.133",
+            "1.633"
         ],
-        "answer": "allows water to enter groundwater storage",
-        "explanation": "Recharge depends on infiltration into the groundwater system.",
-        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "answer": "0.633",
+        "explanation": "Goodman utilization is σa\/Se+σm\/Sut=120\/240+80\/600=0.500+0.133=0.633. A value below one passes this simplified fatigue check.",
+        "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "i = Δh \/ L",
-                "fallback": "i = Δh \/ L with consistent engineering units"
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "Goodman utilization is σa\/Se+σm\/Sut=120\/240+80\/600=0.500+0.133=0.633. A value below one passes this simplified fatigue check."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": true
     },
     {
         "id": 1255,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
-            "domain_id": "ce-hydraulics-geotech",
-            "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39866,45 +40018,41 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A settlement difference between adjacent footings is called:",
+        "difficulty": "hard",
+        "question": "Which nondestructive examination is most directly suited to finding surface-breaking cracks in a nonporous metal part?",
         "choices": [
-            "differential settlement",
-            "uniform pressure",
-            "hydraulic radius",
-            "elastic modulus"
+            "A sieve analysis",
+            "A slump test",
+            "Dye penetrant testing",
+            "A consolidation test"
         ],
-        "answer": "differential settlement",
-        "explanation": "Differential settlement is unequal movement between supports.",
-        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "answer": "Dye penetrant testing",
+        "explanation": "Penetrant inspection reveals surface-breaking discontinuities on suitable nonporous surfaces; the other tests address unrelated properties.",
+        "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "Penetrant inspection reveals surface-breaking discontinuities on suitable nonporous surfaces; the other tests address unrelated properties."
             }
-        ]
+        ],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "understand",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1256,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
-            "domain_id": "ce-hydraulics-geotech",
-            "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39919,26 +40067,40 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "The hydraulic radius of an open channel is flow area divided by:",
+        "question": "For a structure exposed to chloride-rich marine conditions, which material-selection response best addresses reinforcement corrosion risk?",
         "choices": [
-            "wetted perimeter",
-            "freeboard",
-            "bed slope",
-            "discharge"
+            "Ignore curing because steel is protected forever",
+            "Use the thinnest possible cover",
+            "Increase water-cement ratio",
+            "Use durable concrete with low permeability and adequate cover"
         ],
-        "answer": "wetted perimeter",
-        "explanation": "That ratio is the hydraulic radius definition.",
-        "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": []
+        "answer": "Use durable concrete with low permeability and adequate cover",
+        "explanation": "Low permeability, adequate cover, and proper curing limit chloride ingress and corrosion risk; no single measure eliminates durability design.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "Low permeability, adequate cover, and proper curing limit chloride ingress and corrosion risk; no single measure eliminates durability design."
+            }
+        ],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1257,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
-            "domain_id": "ce-hydraulics-geotech",
-            "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39953,32 +40115,34 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "A geotechnical investigation should be planned to identify:",
+        "question": "A storm-sewer catchment has runoff coefficient C=0.70, rainfall intensity i=80 mm\/h, and area A=2 ha. Using Q=0.00278CiA, what peak runoff is estimated?",
         "choices": [
-            "soil layers, groundwater, and variability",
-            "only the property owner",
-            "paint sequence",
-            "traffic signals"
+            "0.0311 m3\/s",
+            "0.311 m3\/s",
+            "3.11 m3\/s",
+            "0.00311 m3\/s"
         ],
-        "answer": "soil layers, groundwater, and variability",
-        "explanation": "Subsurface investigation reduces uncertainty in design.",
-        "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": [
-            {
-                "type": "equation",
-                "value": "σ = P \/ A",
-                "fallback": "σ = P \/ A with consistent engineering units"
-            }
-        ]
+        "answer": "0.0311 m3\/s",
+        "explanation": "The rational-method coefficient gives Q=0.00278(0.70)(80)(2)=0.0311 m3\/s. The factor includes the conversion of hectares and millimetres per hour to cubic metres per second.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1258,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
-            "domain_id": "ce-hydraulics-geotech",
-            "topic_id": "hydraulics-geotechnical",
-            "concept_id": "hydro-geotech-foundations"
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -39992,36 +40156,25 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A soil improvement method should be selected after considering:",
+        "difficulty": "hard",
+        "question": "A fillet-welded joint transfers 120 kN through two weld lines with total effective length 400 mm. If allowable weld shear stress is 150 MPa, what effective throat is required?",
         "choices": [
-            "soil behavior, objective, and site constraints",
-            "one method for every soil",
-            "color alone",
-            "no verification"
+            "0.5 mm",
+            "2.0 mm",
+            "5.0 mm",
+            "8.0 mm"
         ],
-        "answer": "soil behavior, objective, and site constraints",
-        "explanation": "Treatment must match the mechanism and site need.",
-        "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
-            }
-        ]
+        "answer": "2.0 mm",
+        "explanation": "Required throat t follows P=τtL. Thus t=120,000\/[150(400)]=2.0 mm. The total weld length must be used, not one weld line.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1259,
