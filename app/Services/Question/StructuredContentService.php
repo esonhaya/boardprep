@@ -48,6 +48,9 @@ final class StructuredContentService
                 if (!in_array($extension, self::FIGURE_EXTENSIONS, true)) {
                     $errors[] = "Unsupported figure type {$index}";
                 }
+                if (in_array($extension, ['png', 'jpg', 'jpeg', 'webp'], true)) {
+                    self::validateRasterProvenance($block, $index, $errors);
+                }
             }
         }
         return $errors;
@@ -115,5 +118,32 @@ final class StructuredContentService
             || str_contains($asset, '://')
             || str_contains($asset, '..')
             || preg_match('/[\x00-\x1F\x7F]/', $asset) === 1;
+    }
+
+    private static function validateRasterProvenance(array $block, int|string $index, array &$errors): void
+    {
+        $provenance = $block['provenance'] ?? null;
+        if (!is_array($provenance)) {
+            $errors[] = "Missing raster provenance {$index}";
+            return;
+        }
+
+        $status = strtoupper(trim((string) ($provenance['status'] ?? '')));
+        $allowedStatuses = ['VERIFIED', 'INTERNAL', 'PUBLIC_DOMAIN', 'LICENSED'];
+        if (!in_array($status, $allowedStatuses, true)) {
+            $errors[] = "Invalid raster provenance status {$index}";
+        }
+        if (trim((string) ($provenance['creator'] ?? '')) === '') {
+            $errors[] = "Missing raster creator {$index}";
+        }
+        if ($status !== 'INTERNAL' && trim((string) ($provenance['source_url'] ?? '')) === '') {
+            $errors[] = "Missing raster source URL {$index}";
+        }
+        if ($status !== 'INTERNAL' && trim((string) ($provenance['license'] ?? '')) === '') {
+            $errors[] = "Missing raster license {$index}";
+        }
+        if ($status === 'LICENSED' && trim((string) ($provenance['attribution'] ?? '')) === '') {
+            $errors[] = "Missing raster attribution {$index}";
+        }
     }
 }

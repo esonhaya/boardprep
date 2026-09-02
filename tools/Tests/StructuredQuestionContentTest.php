@@ -13,5 +13,11 @@ foreach ([['type'=>'table','columns'=>['A','B'],'rows'=>[['1']]],['type'=>'figur
 if (StructuredContentService::validate($base+['content_blocks'=>'invalid'])===[]) throw new RuntimeException('non-array blocks accepted');
 $missing=StructuredContentService::render($base+['content_blocks'=>[['type'=>'figure','asset'=>'assets/missing.webp','alt'=>'A missing educational photograph']]]);
 if (!str_contains($missing,'Figure unavailable: A missing educational photograph') || str_contains($missing,'<img')) throw new RuntimeException('missing figure fallback failed');
+$rasterWithoutProvenance=StructuredContentService::validate($base+['content_blocks'=>[['type'=>'figure','asset'=>'assets/missing.webp','alt'=>'An unidentified clinical finding']]]);
+if (!in_array('Missing raster provenance 0',$rasterWithoutProvenance,true)) throw new RuntimeException('raster provenance requirement missing');
+$rasterWithInternalProvenance=StructuredContentService::validate($base+['content_blocks'=>[['type'=>'figure','asset'=>'assets/missing.webp','alt'=>'An internally authored clinical diagram','provenance'=>['status'=>'INTERNAL','creator'=>'BoardPrep']]]]);
+if (in_array('Missing raster provenance 0',$rasterWithInternalProvenance,true) || !in_array('Missing figure file 0',$rasterWithInternalProvenance,true)) throw new RuntimeException('internal raster provenance contract failed');
+$licensedWithoutAttribution=StructuredContentService::validate($base+['content_blocks'=>[['type'=>'figure','asset'=>'assets/missing.webp','alt'=>'A sourced clinical photograph','provenance'=>['status'=>'LICENSED','creator'=>'Example Archive','source_url'=>'https://example.test/image','license'=>'CC BY']]]]);
+if (!in_array('Missing raster attribution 0',$licensedWithoutAttribution,true)) throw new RuntimeException('licensed raster attribution requirement missing');
 if (StructuredContentService::validate($base) !== [] || QuestionValidationService::validate($base)['valid'] !== true) throw new RuntimeException('text-only compatibility failed');
 echo "[PASS] Structured equation, unit-safe text, table/chart, figure validation/rendering, and legacy compatibility verified.\n";
