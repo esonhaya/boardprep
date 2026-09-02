@@ -50979,5 +50979,1213 @@
         "table_dependent": true,
         "data_interpretation": true,
         "long_scenario": true
+    },
+    {
+        "id": 1499,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iv-medication"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "The diagram marks three locations on the upper arm. Which labeled location is the appropriate intramuscular deltoid site?",
+        "choices": [
+            "A",
+            "B",
+            "C",
+            "The elbow crease"
+        ],
+        "answer": "A",
+        "explanation": "The deltoid site is centered in the thickest mid-deltoid area, marked A. The elbow crease and other unlabeled points are not appropriate injection landmarks.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets\/nursing\/landmark-deltoid.svg",
+                "alt": "Upper arm with three labeled landmarks and a mid-deltoid callout",
+                "caption": "Use the labeled landmarks to select the injection site."
+            }
+        ],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1500,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iv-medication"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "In the hip-landmark diagram, which point identifies the center of the triangle used to locate a ventrogluteal intramuscular injection?",
+        "choices": [
+            "A",
+            "B",
+            "C",
+            "The midpoint of the thigh"
+        ],
+        "answer": "C",
+        "explanation": "The ventrogluteal site is located within the triangle formed by the relevant bony landmarks; the central point C represents the injection area. A and B are boundary landmarks, not the center.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets\/nursing\/landmark-ventrogluteal.svg",
+                "alt": "Hip diagram with three labeled bony landmarks",
+                "caption": "Use the labeled triangle landmarks to identify the injection area."
+            }
+        ],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1501,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-maternal-child",
+            "topic_id": "nle-maternal-child",
+            "concept_id": "nle-np-ii-prenatal"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "The fetal orientation shown has the head toward the maternal left and the trunk extending toward the right. Which description best matches the diagram?",
+        "choices": [
+            "Longitudinal lie with cephalic presentation",
+            "Transverse lie with shoulder presentation",
+            "Longitudinal lie with breech presentation",
+            "Oblique lie with no presenting part"
+        ],
+        "answer": "Longitudinal lie with cephalic presentation",
+        "explanation": "The fetal long axis is aligned with the maternal long axis and the head is the presenting end. A transverse shoulder presentation would place the long axis across the uterus.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets\/nursing\/fetal-lie-presentation.svg",
+                "alt": "Uterus containing a fetus with the head at the maternal left",
+                "caption": "The diagram shows fetal lie and presenting end without answer labels."
+            }
+        ],
+        "cognitive_intent": "understand"
+    },
+    {
+        "id": 1502,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-maternal-child",
+            "topic_id": "nle-maternal-child",
+            "concept_id": "nle-np-ii-labor"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "During a labor assessment, the fetal head is oriented as shown relative to the maternal pelvis. Which assessment should the nurse prioritize next?",
+        "choices": [
+            "Correlate the position with fetal heart-rate findings and labor progress",
+            "Assume the position proves adequate descent",
+            "Begin pushing regardless of cervical dilation",
+            "Apply fundal pressure to rotate the fetus"
+        ],
+        "answer": "Correlate the position with fetal heart-rate findings and labor progress",
+        "explanation": "A position diagram must be interpreted with the fetal response and descent. It does not by itself justify pushing, fundal pressure, or an assumption of adequate progress.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets\/nursing\/fetal-position.svg",
+                "alt": "Fetal head orientation within the maternal pelvis with pelvic reference points",
+                "caption": "Interpret the orientation together with the clinical assessment."
+            }
+        ],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1503,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-maternal-child",
+            "topic_id": "nle-maternal-child",
+            "concept_id": "nle-np-ii-newborn"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A newborn is being placed for routine care. Which position is represented by the diagram and best supports airway alignment while the infant is observed?",
+        "choices": [
+            "Supine with the head in neutral alignment",
+            "Prone with the face turned into the mattress",
+            "Trendelenburg with the neck hyperextended",
+            "Sitting unsupported with the chin on the chest"
+        ],
+        "answer": "Supine with the head in neutral alignment",
+        "explanation": "The shown flat surface and neutral head alignment support observation and an open airway. Prone sleep and extreme neck positions increase risk and are not routine safe positioning.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets\/nursing\/patient-positioning.svg",
+                "alt": "Patient position with head elevated and knees supported",
+                "caption": "Use the body alignment shown to identify the safest positioning principle."
+            }
+        ],
+        "cognitive_intent": "apply"
+    },
+    {
+        "id": 1504,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-oxygenation"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A client with acute dyspnea is being positioned before oxygen therapy is reassessed. Which position is shown and is most appropriate to improve chest expansion?",
+        "choices": [
+            "High-Fowler position",
+            "Flat supine position",
+            "Prone position",
+            "Lithotomy position"
+        ],
+        "answer": "High-Fowler position",
+        "explanation": "Elevating the head and trunk reduces diaphragmatic pressure and supports lung expansion. Flat or unrelated procedural positions do not address the immediate respiratory need.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets\/nursing\/patient-positioning.svg",
+                "alt": "Patient with the head and trunk elevated and knees supported",
+                "caption": "Identify the position from the head and trunk alignment."
+            }
+        ],
+        "cognitive_intent": "apply"
+    },
+    {
+        "id": 1505,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-perioperative"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "The diagram shows a client lying laterally with the upper leg flexed. For which assessment is this position most directly useful?",
+        "choices": [
+            "Rectal or perineal examination",
+            "Routine posterior chest auscultation only",
+            "Intravenous insertion in the antecubital fossa",
+            "Measurement of standing balance"
+        ],
+        "answer": "Rectal or perineal examination",
+        "explanation": "The side-lying Sims-type position exposes the rectal and perineal area while supporting the client. It is not selected for standing balance or an unrelated arm procedure.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets\/nursing\/sims-position.svg",
+                "alt": "Side-lying patient with the upper leg flexed",
+                "caption": "Use the body position and leg flexion to identify the examination purpose."
+            }
+        ],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1506,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-infection"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A client requires urinary catheterization using the setup shown. Which action preserves the sterile system?",
+        "choices": [
+            "Keep the collection bag below bladder level without allowing the tubing or field to touch nonsterile surfaces",
+            "Place the collection bag on the bed beside the client for easy access",
+            "Disconnect the tubing briefly to verify urine flow",
+            "Rest the catheter tip on the edge of the sterile field"
+        ],
+        "answer": "Keep the collection bag below bladder level without allowing the tubing or field to touch nonsterile surfaces",
+        "explanation": "The diagram shows a closed drainage path with the bag below the bladder. Keeping the system closed and dependent reduces contamination and backflow; placing it on the bed or disconnecting it breaks safe technique.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets\/nursing\/catheter-setup.svg",
+                "alt": "Sterile field connected to a collection bag positioned below the bladder",
+                "caption": "Use the setup relationships to select the infection-prevention action."
+            }
+        ],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1507,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-infection"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "The PPE sequence shown is used before entering a room requiring contact precautions. Which item is donned last?",
+        "choices": [
+            "Gloves",
+            "Gown",
+            "Mask",
+            "Eye protection"
+        ],
+        "answer": "Gloves",
+        "explanation": "Gloves are donned last so they cover the gown cuffs and reduce contamination during the final step. The exact sequence shown distinguishes the items rather than relying on color.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets\/nursing\/ppe-sequence.svg",
+                "alt": "Four numbered PPE donning steps: gown, mask, eye protection, gloves",
+                "caption": "Read the numbered sequence to determine the final item."
+            }
+        ],
+        "cognitive_intent": "understand"
+    },
+    {
+        "id": 1508,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-perioperative"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "The side-lying client has pressure points labeled A, B, and C. Which nursing action best reduces injury risk before leaving the client in this position?",
+        "choices": [
+            "Pad and reassess each bony contact point, keeping alignment supported",
+            "Place a firm object directly under every labeled point",
+            "Leave the client unsupported because side-lying removes pressure",
+            "Massage reddened skin vigorously to restore circulation"
+        ],
+        "answer": "Pad and reassess each bony contact point, keeping alignment supported",
+        "explanation": "The labeled contacts identify areas needing off-loading and skin reassessment. Hard objects and vigorous massage can injure tissue, while unsupported alignment increases pressure and shear.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets\/nursing\/pressure-repositioning.svg",
+                "alt": "Side-lying patient with three labeled contact points",
+                "caption": "Use the labeled contact points to plan pressure protection."
+            }
+        ],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1509,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-maternal-child",
+            "topic_id": "nle-maternal-child",
+            "concept_id": "nle-np-ii-newborn"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "Which sleep arrangement shown supports current safe-sleep teaching for a healthy infant?",
+        "choices": [
+            "Supine on a firm, flat surface without loose bedding",
+            "Prone on a soft pillow with a blanket over the face",
+            "Side-lying with rolled towels around the body",
+            "Supine in an inclined seat for overnight sleep"
+        ],
+        "answer": "Supine on a firm, flat surface without loose bedding",
+        "explanation": "The diagram depicts a firm, flat sleep surface and supine orientation. Pillows, loose bedding, prone sleep, and routine overnight seating increase avoidable risk.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets\/nursing\/infant-safe-sleep.svg",
+                "alt": "Infant lying supine on a firm flat surface",
+                "caption": "Use the surface and infant orientation shown to evaluate safe sleep."
+            }
+        ],
+        "cognitive_intent": "apply"
+    },
+    {
+        "id": 1510,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-oxygenation"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "The tube path shown ends in the stomach. Before using the tube for feeding, which verification is required?",
+        "choices": [
+            "Confirm placement using the facility-approved method before introducing the feeding",
+            "Inject feeding immediately because the tube exits through the nose",
+            "Advance the tube until the client coughs",
+            "Rely only on the external length mark"
+        ],
+        "answer": "Confirm placement using the facility-approved method before introducing the feeding",
+        "explanation": "The schematic shows the intended route but cannot prove bedside placement. Verification by the approved method is required before feeding; symptoms or an external mark alone are insufficient.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets\/nursing\/ng-tube-position.svg",
+                "alt": "Schematic nasogastric tube path ending in the stomach",
+                "caption": "Use the anatomical course to identify why bedside placement verification remains necessary."
+            }
+        ],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1511,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-fluids"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A client’s intake and output record is shown. What is the net fluid balance for the 8-hour shift?",
+        "choices": [
+            "+250 mL",
+            "−250 mL",
+            "+1,750 mL",
+            "−1,750 mL"
+        ],
+        "answer": "+250 mL",
+        "explanation": "Total intake is 1,500 mL and total output is 1,250 mL. Net balance is intake minus output: 1,500 − 1,250 = +250 mL.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Record",
+                    "Volume"
+                ],
+                "rows": [
+                    [
+                        "Oral intake",
+                        "900 mL"
+                    ],
+                    [
+                        "IV intake",
+                        "600 mL"
+                    ],
+                    [
+                        "Urine output",
+                        "1,000 mL"
+                    ],
+                    [
+                        "Emesis",
+                        "250 mL"
+                    ]
+                ]
+            }
+        ],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1512,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-oxygenation"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A client’s four-hour vital-sign trend is recorded below. Which finding requires the most immediate nursing response?",
+        "choices": [
+            "Respiratory rate rising from 20 to 30\/min with falling oxygen saturation",
+            "Temperature changing from 37.0°C to 37.2°C",
+            "Pulse changing from 82 to 88\/min",
+            "Blood pressure changing from 124\/76 to 120\/74 mmHg"
+        ],
+        "answer": "Respiratory rate rising from 20 to 30\/min with falling oxygen saturation",
+        "explanation": "The combined respiratory-rate increase and oxygen-saturation decline indicate worsening oxygenation and require prompt assessment and escalation. The other changes are comparatively minor in isolation.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Time",
+                    "Respiratory rate",
+                    "Oxygen saturation"
+                ],
+                "rows": [
+                    [
+                        "08:00",
+                        "20\/min",
+                        "97%"
+                    ],
+                    [
+                        "10:00",
+                        "24\/min",
+                        "95%"
+                    ],
+                    [
+                        "12:00",
+                        "30\/min",
+                        "90%"
+                    ]
+                ]
+            }
+        ],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1513,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-maternal-child",
+            "topic_id": "nle-maternal-child",
+            "concept_id": "nle-np-ii-development"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "The growth record below is reviewed at a well-child visit. Which interpretation is most appropriate?",
+        "choices": [
+            "The pattern should be plotted and assessed over time rather than judged from one value",
+            "The lowest value proves acute malnutrition",
+            "The highest value proves the child is overweight",
+            "No follow-up is needed when one value is within range"
+        ],
+        "answer": "The pattern should be plotted and assessed over time rather than judged from one value",
+        "explanation": "Growth assessment depends on a plotted trend and the child’s age, sex, and clinical context. One isolated measurement cannot establish a diagnosis or eliminate follow-up.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Visit age",
+                    "Weight-for-age percentile"
+                ],
+                "rows": [
+                    [
+                        "2 months",
+                        "55th"
+                    ],
+                    [
+                        "4 months",
+                        "48th"
+                    ],
+                    [
+                        "6 months",
+                        "32nd"
+                    ]
+                ]
+            }
+        ],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1514,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-maternal-child",
+            "topic_id": "nle-maternal-child",
+            "concept_id": "nle-np-ii-postpartum"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A postpartum client saturates a perineal pad in 15 minutes and has a boggy fundus. What is the nurse’s priority action?",
+        "choices": [
+            "Massage the fundus while assessing the client and calling for help per protocol",
+            "Offer oral fluids and reassess in two hours",
+            "Ambulate the client to improve circulation",
+            "Document the finding as an expected postpartum change"
+        ],
+        "answer": "Massage the fundus while assessing the client and calling for help per protocol",
+        "explanation": "Heavy bleeding with a boggy uterus suggests uterine atony. Immediate fundal assessment\/massage and escalation address the life-threatening priority; delay and ambulation are unsafe.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1515,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-fluids"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A client receiving IV potassium reports burning at the site; the area is cool and swollen. What should the nurse do first?",
+        "choices": [
+            "Stop the infusion and assess the IV site before further action",
+            "Increase the rate to dilute the medication",
+            "Apply pressure and continue the infusion",
+            "Flush forcefully to clear the catheter"
+        ],
+        "answer": "Stop the infusion and assess the IV site before further action",
+        "explanation": "Coolness and swelling suggest infiltration or another IV complication. Stopping the infusion prevents additional harm while the site is assessed; increasing or forcefully flushing is unsafe.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1516,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-oxygenation"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "Four clients arrive for assessment. Which client should the nurse see first?",
+        "choices": [
+            "A client with new stridor and increasing work of breathing",
+            "A client requesting a routine dressing change",
+            "A client reporting chronic mild back pain",
+            "A client awaiting discharge paperwork"
+        ],
+        "answer": "A client with new stridor and increasing work of breathing",
+        "explanation": "Stridor with increased work of breathing signals possible airway obstruction. Airway threats take priority over routine care, chronic symptoms, and paperwork.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1517,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iv-medication"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "Before administering a high-alert insulin dose, the nurse finds that the current glucose value and the medication order do not match. What is the safest action?",
+        "choices": [
+            "Hold administration and clarify the discrepancy using the required verification process",
+            "Give the ordered dose and document the mismatch afterward",
+            "Ask the client to choose the dose",
+            "Delete the order from the medication record"
+        ],
+        "answer": "Hold administration and clarify the discrepancy using the required verification process",
+        "explanation": "A mismatch involving a high-alert medication is a preventable safety risk. The nurse should pause and clarify through the approved process rather than independently changing or administering the dose.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1518,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-mental-health",
+            "topic_id": "nle-mental-health",
+            "concept_id": "nle-np-v-therapeutic"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A client says, “I am terrified about what will happen.” Which response is most therapeutic?",
+        "choices": [
+            "“Tell me what worries you most right now.”",
+            "“There is nothing to worry about.”",
+            "“You should think positively.”",
+            "“I know exactly how you feel.”"
+        ],
+        "answer": "“Tell me what worries you most right now.”",
+        "explanation": "The open-ended response acknowledges the emotion and invites assessment. False reassurance, advice, and claiming identical experience can close communication.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "apply"
+    },
+    {
+        "id": 1519,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-infection"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A client with suspected airborne infection must be transported for an essential diagnostic test. Which plan best reduces transmission?",
+        "choices": [
+            "Place the client in the required source control and use the prescribed isolation\/transport precautions",
+            "Remove all precautions because the client leaves the room",
+            "Transport through the busiest waiting area to shorten the route",
+            "Ask the client to walk unmasked if breathing is difficult"
+        ],
+        "answer": "Place the client in the required source control and use the prescribed isolation\/transport precautions",
+        "explanation": "Essential transport does not eliminate infection controls. Source control and the facility’s prescribed precautions reduce exposure; removing them or using crowded routes increases risk.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1520,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iv-fluids"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A conscious client with diabetes is sweating, shaky, and able to swallow; the bedside glucose is 52 mg\/dL. What is the priority intervention?",
+        "choices": [
+            "Give the rapid-acting carbohydrate specified by protocol and recheck as directed",
+            "Administer the scheduled long-acting insulin",
+            "Restrict oral intake until the next meal",
+            "Place the client flat and leave to obtain the chart"
+        ],
+        "answer": "Give the rapid-acting carbohydrate specified by protocol and recheck as directed",
+        "explanation": "Symptoms and glucose indicate hypoglycemia in a client able to swallow. Rapid carbohydrate treats the immediate problem, followed by reassessment; insulin and delayed feeding worsen risk.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1521,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-oxygenation"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A client after a stroke coughs repeatedly during a sip of water and has a wet voice. Which action is priority?",
+        "choices": [
+            "Stop oral intake and initiate the prescribed swallowing-safety evaluation",
+            "Offer larger sips to clear the throat",
+            "Place the client supine and continue the meal",
+            "Document the cough as expected"
+        ],
+        "answer": "Stop oral intake and initiate the prescribed swallowing-safety evaluation",
+        "explanation": "Coughing and a wet voice suggest aspiration risk. Stopping intake protects the airway while swallowing is evaluated; larger sips and continued feeding increase danger.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1522,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-immunity"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A hospitalized client has fever, new confusion, respiratory rate 28\/min, and a falling blood pressure. Which nursing response is most appropriate?",
+        "choices": [
+            "Escalate immediately while supporting airway, breathing, circulation, and obtaining ordered assessments",
+            "Wait for the next scheduled vital-sign round",
+            "Give an antipyretic and reassess tomorrow",
+            "Encourage ambulation to improve blood pressure"
+        ],
+        "answer": "Escalate immediately while supporting airway, breathing, circulation, and obtaining ordered assessments",
+        "explanation": "The combination suggests possible sepsis or shock and requires immediate escalation with ABC support and ordered evaluation. Treating fever alone or delaying reassessment misses the threat.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1523,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-maternal-child",
+            "topic_id": "nle-maternal-child",
+            "concept_id": "nle-np-ii-newborn"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A newborn’s temperature is falling after bathing. Which action best addresses the immediate problem?",
+        "choices": [
+            "Dry the newborn, replace wet linens, provide skin-to-skin or approved warming, and reassess",
+            "Repeat the bath with cooler water",
+            "Place the newborn uncovered near an air vent",
+            "Delay feeding and observation until the next shift"
+        ],
+        "answer": "Dry the newborn, replace wet linens, provide skin-to-skin or approved warming, and reassess",
+        "explanation": "Evaporative heat loss is reduced by drying, warm linens, and approved warming measures. Exposure and delay increase cold stress.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "apply"
+    },
+    {
+        "id": 1524,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-maternal-child",
+            "topic_id": "nle-maternal-child",
+            "concept_id": "nle-np-ii-labor"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A laboring client has recurrent late fetal heart-rate decelerations. Which initial nursing action is most appropriate while escalating the finding?",
+        "choices": [
+            "Reposition the client laterally, assess the tracing and maternal status, and notify the appropriate clinician",
+            "Encourage pushing to shorten labor",
+            "Place the client supine and increase oxytocin",
+            "Ignore the pattern if the baseline rate is normal"
+        ],
+        "answer": "Reposition the client laterally, assess the tracing and maternal status, and notify the appropriate clinician",
+        "explanation": "Late decelerations can indicate impaired uteroplacental oxygen exchange. Lateral positioning, assessment, and escalation address the concern; supine positioning and increasing oxytocin can worsen it.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1525,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-community-health",
+            "topic_id": "nle-community-health",
+            "concept_id": "nle-np-i-epidemiology"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A community clinic sees a sudden cluster of vomiting illness among people who attended the same event. What should the nurse do first in the investigation?",
+        "choices": [
+            "Verify the cluster and construct a time, place, and person description while initiating required reporting",
+            "Announce the confirmed source before collecting data",
+            "Close every facility in the municipality without assessment",
+            "Count only clients who required admission"
+        ],
+        "answer": "Verify the cluster and construct a time, place, and person description while initiating required reporting",
+        "explanation": "Early outbreak investigation establishes whether an excess exists and characterizes it by time, place, and person. A source should not be declared before evidence is collected.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1526,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-community-health",
+            "topic_id": "nle-community-health",
+            "concept_id": "nle-np-i-disaster"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "After an earthquake, which person should receive the most urgent triage attention?",
+        "choices": [
+            "A person with severe respiratory distress and uncontrolled bleeding",
+            "A person with a minor arm abrasion who is walking",
+            "A person asking where the registration desk is",
+            "A person with a closed bruise and stable vital signs"
+        ],
+        "answer": "A person with severe respiratory distress and uncontrolled bleeding",
+        "explanation": "Immediate threats to airway, breathing, and circulation take priority in disaster triage. Minor and stable findings can wait for reassessment.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1527,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-mental-health",
+            "topic_id": "nle-mental-health",
+            "concept_id": "nle-np-v-teamwork"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A client is being discharged with a new inhaler. Which teaching method best checks whether the client can use it safely?",
+        "choices": [
+            "Ask the client to demonstrate the technique and correct errors",
+            "Ask whether the client understands and accept “yes” as sufficient",
+            "Give the written instructions without discussion",
+            "Demonstrate once while the client watches silently"
+        ],
+        "answer": "Ask the client to demonstrate the technique and correct errors",
+        "explanation": "Teach-back through demonstration verifies performance rather than assumed understanding. Written material and passive agreement do not show that the client can use the device correctly.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "apply"
+    },
+    {
+        "id": 1528,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-mental-health",
+            "topic_id": "nle-mental-health",
+            "concept_id": "nle-np-v-therapeutic"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A competent adult asks the nurse not to share a sensitive diagnosis with a visiting relative. What is the appropriate response?",
+        "choices": [
+            "Respect the client’s confidentiality and share information only with authorized consent or a valid care need",
+            "Tell the relative because family members have an automatic right to all information",
+            "Post the diagnosis where the care team can see it",
+            "Ask another visitor to explain the diagnosis"
+        ],
+        "answer": "Respect the client’s confidentiality and share information only with authorized consent or a valid care need",
+        "explanation": "The client controls disclosure of personal health information except where law or a legitimate care need requires otherwise. Family relationship alone does not authorize disclosure.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "apply"
     }
 ]
