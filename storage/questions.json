@@ -35079,7 +35079,8 @@
             "subject_id": "civil-engineering-structural-engineering",
             "domain_id": "ce-structural",
             "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35092,37 +35093,33 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A reinforced-concrete beam commonly places tensile reinforcement near the:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "The RC beam cross-section shown is under positive midspan bending. Which labeled zone should contain the principal longitudinal tension reinforcement?",
         "choices": [
-            "tension face",
-            "neutral axis only",
-            "compression face regardless of loading",
-            "support soil"
+            "Zone B at the bottom of the section",
+            "Zone A at the top of the section",
+            "The neutral axis only",
+            "Outside the concrete section"
         ],
-        "answer": "tension face",
-        "explanation": "Steel is placed where tensile demand is expected.",
+        "answer": "Zone B at the bottom of the section",
+        "explanation": "For positive sagging moment, the lower fibers are in tension, so the main longitudinal bars belong in Zone B. The compression zone is at the top and the neutral axis has approximately zero longitudinal stress.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "figure",
+                "asset": "assets\/ce\/rc-beam-section.svg",
+                "alt": "Rectangular reinforced-concrete beam section with top Zone A, bottom Zone B, and a neutral-axis marker",
+                "caption": "Beam section under positive bending"
             }
-        ]
+        ],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1154,
@@ -35131,7 +35128,8 @@
             "subject_id": "civil-engineering-structural-engineering",
             "domain_id": "ce-structural",
             "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35144,19 +35142,26 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "Concrete is strong in compression but weak in tension, so reinforcement primarily:",
+        "question": "Why are longitudinal steel bars placed in the tension region of a reinforced-concrete beam?",
         "choices": [
-            "carries tensile force",
-            "reduces all dead load",
-            "eliminates curing",
-            "replaces aggregate"
+            "Steel carries tensile force that concrete carries poorly",
+            "Steel prevents all concrete compression",
+            "Steel eliminates shear in the beam",
+            "Steel is placed only to increase concrete density"
         ],
-        "answer": "carries tensile force",
-        "explanation": "Reinforcing steel supplements concrete’s limited tensile capacity.",
+        "answer": "Steel carries tensile force that concrete carries poorly",
+        "explanation": "Concrete is effective in compression but has limited tensile capacity. Longitudinal reinforcement bridges tensile demand after cracking while concrete carries much of the compression.",
         "subject": "civil-engineering-structural-engineering",
-        "content_blocks": []
+        "content_blocks": [],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1155,
@@ -35165,7 +35170,8 @@
             "subject_id": "civil-engineering-structural-engineering",
             "domain_id": "ce-structural",
             "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35178,25 +35184,26 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A short tied concrete column under concentric compression is primarily checked for:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "For a short tied reinforced-concrete column under concentric axial compression, which limit state is the primary design concern?",
         "choices": [
-            "axial capacity and stability",
-            "paint adhesion",
-            "water velocity",
-            "survey closure"
+            "Axial compression capacity of the concrete-steel section",
+            "Tensile cracking from a transverse point load only",
+            "Pavement skid resistance",
+            "Open-channel critical depth"
         ],
-        "answer": "axial capacity and stability",
-        "explanation": "Column design considers compression resistance and stability.",
+        "answer": "Axial compression capacity of the concrete-steel section",
+        "explanation": "With a short, concentric member, the first-order design check concerns axial resistance of the composite concrete and reinforcement section; slenderness and bending become separate concerns when present.",
         "subject": "civil-engineering-structural-engineering",
-        "content_blocks": [
-            {
-                "type": "equation",
-                "value": "FS = capacity \/ demand",
-                "fallback": "FS = capacity \/ demand with consistent engineering units"
-            }
-        ]
+        "content_blocks": [],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1156,
@@ -35205,7 +35212,8 @@
             "subject_id": "civil-engineering-structural-engineering",
             "domain_id": "ce-structural",
             "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35218,37 +35226,32 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A steel tension connection with bolts should be checked for:",
+        "question": "A bolted steel tension plate has gross area 1,200 mm², a bolt-hole deduction of 240 mm², and yield strength 250 MPa. Its nominal gross-yield and net-section-yield capacities are 300 kN and 240 kN, respectively. Which check governs?",
         "choices": [
-            "member and connection limit states",
-            "soil settlement only",
-            "water viscosity",
-            "concrete slump only"
+            "Net-section yielding at 240 kN",
+            "Gross-section yielding at 300 kN",
+            "Neither, because bolt holes increase net area",
+            "Concrete bearing failure"
         ],
-        "answer": "member and connection limit states",
-        "explanation": "Both the connected member and connection can govern strength.",
+        "answer": "Net-section yielding at 240 kN",
+        "explanation": "Net area is 1,200−240=960 mm²; its yield capacity is 960(250)=240,000 N=240 kN. The smaller capacity governs before gross yielding.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "equation",
+                "value": "A_net = A_gross − A_holes; P_y = A·F_y",
+                "fallback": "Subtract the hole deduction before applying yield strength."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1157,
@@ -35257,7 +35260,8 @@
             "subject_id": "civil-engineering-structural-engineering",
             "domain_id": "ce-structural",
             "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35270,19 +35274,33 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A gusset plate transfers force between a truss member and joint. Its role is to:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "In the pin-jointed truss shown, a 10 kN downward load acts at joint B. Which member is a zero-force member under the stated idealized loading and supports?",
         "choices": [
-            "distribute connection forces",
-            "measure rainfall",
-            "prevent all deflection",
-            "classify soil"
+            "Member BC",
+            "Member AB",
+            "Both AB and BC",
+            "The support at A"
         ],
-        "answer": "distribute connection forces",
-        "explanation": "Gussets provide the force-transfer interface at the joint.",
+        "answer": "Member BC",
+        "explanation": "At joint B, AB is vertical and carries the 10 kN vertical load, while BC is horizontal and has no horizontal load to balance. Joint equilibrium therefore gives force BC=0 for this geometry.",
         "subject": "civil-engineering-structural-engineering",
-        "content_blocks": []
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets\/ce\/truss-zero-force.svg",
+                "alt": "Pin-jointed triangular truss with vertical member AB, horizontal member BC, a downward load at joint B, and supports at A and C",
+                "caption": "Idealized truss geometry and loading"
+            }
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": true
     },
     {
         "id": 1158,
@@ -35291,7 +35309,8 @@
             "subject_id": "civil-engineering-structural-engineering",
             "domain_id": "ce-structural",
             "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35304,25 +35323,32 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A footing spreads column load over soil primarily to:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A 1,200 kN service load is carried by a rectangular footing 2.5 m wide and 3.0 m long. What average soil pressure acts beneath the footing?",
         "choices": [
-            "reduce bearing pressure",
-            "increase column stress",
-            "remove drainage",
-            "create torsion"
+            "160 kPa",
+            "400 kPa",
+            "1,440 kPa",
+            "40 kPa"
         ],
-        "answer": "reduce bearing pressure",
-        "explanation": "A larger area lowers average contact pressure.",
+        "answer": "160 kPa",
+        "explanation": "Area=2.5(3.0)=7.5 m². Average pressure q=P\/A=1,200\/7.5=160 kN\/m²=160 kPa.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "M = F × d",
-                "fallback": "M = F × d with consistent engineering units"
+                "value": "q = P\/(BL)",
+                "fallback": "Divide load in kN by footing area in m² to obtain kPa."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1159,
@@ -35331,7 +35357,8 @@
             "subject_id": "civil-engineering-structural-engineering",
             "domain_id": "ce-structural",
             "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35344,37 +35371,32 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "If a footing load is unchanged and its area doubles, average bearing pressure:",
+        "question": "A rectangular reinforced-concrete beam section is 300 mm wide and 500 mm effective depth. It contains three 200 mm² tension bars. What tensile reinforcement ratio is provided?",
         "choices": [
-            "is halved",
-            "is doubled",
-            "is unchanged by definition",
-            "becomes tensile"
+            "0.40%",
+            "0.13%",
+            "1.20%",
+            "40.0%"
         ],
-        "answer": "is halved",
-        "explanation": "Pressure equals load divided by area.",
+        "answer": "0.40%",
+        "explanation": "First sum the steel area: As=3(200)=600 mm². The provided ratio is ρ=As/(bd)=600/[300(500)]=0.004, or 0.40%. The 0.13% option uses one bar, while 1.20% omits the conversion from decimal to percent.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "equation",
+                "value": "rho = As\/(b d)",
+                "fallback": "Divide total tension-steel area by beam width times effective depth."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1160,
@@ -35383,7 +35405,8 @@
             "subject_id": "civil-engineering-structural-engineering",
             "domain_id": "ce-structural",
             "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35396,28 +35419,42 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A factor of safety compares a capacity with:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A column has an estimated ultimate capacity of 1,050 kN and a factored design load of 700 kN. What capacity-to-demand factor is available before any code-specific reduction factor?",
         "choices": [
-            "the corresponding demand",
-            "the concrete color",
-            "the survey date",
-            "the room temperature only"
+            "1.50",
+            "0.67",
+            "350",
+            "1,750"
         ],
-        "answer": "the corresponding demand",
-        "explanation": "Safety compares resistance or capacity with applied demand.",
+        "answer": "1.50",
+        "explanation": "The capacity-to-demand ratio is 1,050\/700=1.50. The reciprocal 0.67 is demand divided by capacity, not the requested factor.",
         "subject": "civil-engineering-structural-engineering",
-        "content_blocks": []
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "n = capacity\/demand",
+                "fallback": "Divide the stated capacity by the stated design demand."
+            }
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1161,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-structural-engineering",
-            "domain_id": "ce-structural",
-            "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35430,34 +35467,36 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A load combination is used because structures must be assessed under:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "Why are load combinations used in structural design rather than checking each service load in isolation?",
         "choices": [
-            "simultaneous applicable actions",
-            "one arbitrary load only",
-            "no environmental actions",
-            "construction paint loads only"
+            "Different actions can occur together and produce a more critical demand",
+            "They guarantee that no load ever acts on the structure",
+            "They replace the need to identify the load path",
+            "They apply only to surveying measurements"
         ],
-        "answer": "simultaneous applicable actions",
-        "explanation": "Combinations represent concurrent design actions.",
-        "subject": "civil-engineering-structural-engineering",
-        "content_blocks": [
-            {
-                "type": "equation",
-                "value": "P = ρgh",
-                "fallback": "P = ρgh with consistent engineering units"
-            }
-        ]
+        "answer": "Different actions can occur together and produce a more critical demand",
+        "explanation": "Dead, live, wind, seismic, and other actions may coexist. Combinations represent plausible simultaneous demands for the relevant limit state.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1162,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-structural-engineering",
-            "domain_id": "ce-structural",
-            "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35470,46 +35509,42 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A deflection limit is mainly concerned with:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A simply supported beam has span 4 m, center load 8 kN, elastic modulus 200 GPa, and second moment 3.0×10⁻⁵ m⁴. Using δ=PL³\/(48EI), what midspan deflection results?",
         "choices": [
-            "serviceability",
-            "chemical composition only",
-            "soil classification",
-            "survey bearing"
+            "1.78 mm",
+            "17.8 mm",
+            "0.178 mm",
+            "178 mm"
         ],
-        "answer": "serviceability",
-        "explanation": "Deflection is generally a serviceability criterion.",
-        "subject": "civil-engineering-structural-engineering",
+        "answer": "1.78 mm",
+        "explanation": "δ=8,000(4³)\/(48·200×10⁹·3.0×10⁻⁵)=0.00178 m=1.78 mm. The large alternatives reflect omitted powers of ten or unit conversion errors.",
+        "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "equation",
+                "value": "δ = PL³\/(48EI)",
+                "fallback": "Use SI units for load, length, modulus, and second moment."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1163,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-structural-engineering",
-            "domain_id": "ce-structural",
-            "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35522,28 +35557,62 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A strain gauge measures:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A strain-gauge test produced the readings below. At which load does the response first depart from the initial linear strain trend?",
         "choices": [
-            "deformation per unit length",
-            "force directly without calibration",
-            "soil density",
-            "water depth"
+            "10 kN",
+            "20 kN",
+            "30 kN",
+            "The response remains linear"
         ],
-        "answer": "deformation per unit length",
-        "explanation": "Strain gauges sense deformation and require interpretation\/calibration.",
-        "subject": "civil-engineering-structural-engineering",
-        "content_blocks": []
+        "answer": "30 kN",
+        "explanation": "The first two increments are 50 microstrain per 10 kN, while the 20-to-30 kN increment is 70 microstrain. The 30 kN reading is therefore the first point indicating nonlinearity.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Load",
+                    "Measured strain"
+                ],
+                "rows": [
+                    [
+                        "0 kN",
+                        "0 με"
+                    ],
+                    [
+                        "10 kN",
+                        "50 με"
+                    ],
+                    [
+                        "20 kN",
+                        "100 με"
+                    ],
+                    [
+                        "30 kN",
+                        "170 με"
+                    ]
+                ]
+            }
+        ],
+        "numeric": false,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": false,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true
     },
     {
         "id": 1164,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-structural-engineering",
-            "domain_id": "ce-structural",
-            "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35556,34 +35625,42 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A concrete cylinder test is commonly used to estimate:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A concrete cylinder fails under a 450 kN axial load and has diameter 150 mm. What compressive stress is indicated? Use π=3.1416.",
         "choices": [
-            "compressive strength",
-            "steel yield strain only",
-            "pipe discharge",
-            "bearing azimuth"
+            "25.5 MPa",
+            "2.55 MPa",
+            "57.3 MPa",
+            "0.0255 MPa"
         ],
-        "answer": "compressive strength",
-        "explanation": "Compression testing evaluates concrete compressive resistance.",
-        "subject": "civil-engineering-structural-engineering",
+        "answer": "25.5 MPa",
+        "explanation": "Area=πd²\/4=3.1416(150²)\/4=17,671 mm². Stress=450,000\/17,671=25.5 N\/mm²=25.5 MPa.",
+        "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "Q = A × v",
-                "fallback": "Q = A × v with consistent engineering units"
+                "value": "σ = P\/(πd²\/4)",
+                "fallback": "Use load in N and diameter in mm to obtain N\/mm²."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1165,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-structural-engineering",
-            "domain_id": "ce-structural",
-            "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35596,46 +35673,36 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "Poor curing of concrete most directly threatens:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "Poor curing of a concrete member most directly increases the risk of:",
         "choices": [
-            "strength development and durability",
-            "survey orientation",
-            "beam span geometry",
-            "soil gradation"
+            "insufficient strength development and shrinkage cracking",
+            "greater steel yield strength",
+            "perfectly uniform hydration",
+            "increased soil bearing capacity"
         ],
-        "answer": "strength development and durability",
-        "explanation": "Curing controls hydration and resulting concrete properties.",
-        "subject": "civil-engineering-structural-engineering",
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
-            }
-        ]
+        "answer": "insufficient strength development and shrinkage cracking",
+        "explanation": "Curing preserves moisture and temperature conditions needed for hydration. Poor curing can reduce strength development and increase cracking risk.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1166,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-structural-engineering",
-            "domain_id": "ce-structural",
-            "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35648,28 +35715,42 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A stress concentration occurs near:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A steel plate carries a 90 kN tensile load through a net area of 600 mm². A hole edge produces a stress-concentration factor Kt=2.0. What local elastic peak stress is estimated?",
         "choices": [
-            "a notch or abrupt geometry change",
-            "a uniform prismatic region only",
-            "a free field",
-            "a constant pressure tank"
+            "300 MPa",
+            "150 MPa",
+            "90 MPa",
+            "1,200 MPa"
         ],
-        "answer": "a notch or abrupt geometry change",
-        "explanation": "Abrupt geometry changes intensify local stress.",
-        "subject": "civil-engineering-structural-engineering",
-        "content_blocks": []
+        "answer": "300 MPa",
+        "explanation": "Nominal stress=90,000\/600=150 MPa. Peak elastic stress=Ktσ_nom=2(150)=300 MPa. Ignoring Kt gives the nominal rather than local value.",
+        "subject": "civil-engineering-applied-mathematics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "σ_peak = Kt(P\/A_net)",
+                "fallback": "Compute nominal net-section stress, then multiply by the concentration factor."
+            }
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1167,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-structural-engineering",
-            "domain_id": "ce-structural",
-            "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35682,34 +35763,43 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A shear-force diagram helps an engineer locate changes in:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "The shear-force diagram shown is for a simply supported beam. At which station is the bending moment maximum?",
         "choices": [
-            "internal shear along a member",
-            "soil moisture only",
-            "concrete color",
-            "survey north"
+            "x=1 m",
+            "x=3 m",
+            "x=5 m",
+            "At the right support only"
         ],
-        "answer": "internal shear along a member",
-        "explanation": "The diagram tracks internal shear response along the span.",
-        "subject": "civil-engineering-structural-engineering",
+        "answer": "x=3 m",
+        "explanation": "Bending moment is extremal where shear changes sign. The diagram crosses from positive to negative shear at x=3 m, so the maximum positive moment occurs there.",
+        "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "A = b × h",
-                "fallback": "A = b × h with consistent engineering units"
+                "type": "figure",
+                "asset": "assets\/ce\/shear-diagram.svg",
+                "alt": "Shear-force diagram along a beam with stations at one, three, and five metres and positive and negative regions",
+                "caption": "Shear-force diagram used to locate the moment extremum"
             }
-        ]
+        ],
+        "numeric": false,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1168,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-structural-engineering",
-            "domain_id": "ce-structural",
-            "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "subject_id": "civil-engineering-applied-mathematics",
+            "domain_id": "ce-applied",
+            "topic_id": "applied-engineering",
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35722,46 +35812,42 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A bending-moment diagram’s slope over a span is related to:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A beam’s bending-moment function is M(x)=12x−2x² kN·m for 0≤x≤6 m. Where is the positive bending moment maximum?",
         "choices": [
-            "shear force",
-            "concrete density only",
-            "bearing capacity",
-            "water temperature"
+            "x=0 m",
+            "x=3 m",
+            "x=6 m",
+            "x=12 m"
         ],
-        "answer": "shear force",
-        "explanation": "Shear and moment diagrams are linked by differential equilibrium.",
-        "subject": "civil-engineering-structural-engineering",
+        "answer": "x=3 m",
+        "explanation": "Set the shear, dM\/dx=12−4x, equal to zero: x=3 m. M is zero at both ends and positive inside, confirming the stationary point is the maximum.",
+        "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "equation",
+                "value": "V=dM\/dx=0 at an interior moment extremum",
+                "fallback": "Differentiate the supplied moment function and check the interval endpoints."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1169,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-structural-engineering",
-            "domain_id": "ce-structural",
-            "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35774,28 +35860,42 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A structure’s load path describes how loads travel to:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A soil layer has total vertical stress 180 kPa and pore-water pressure 70 kPa. If a surcharge adds 30 kPa total stress without changing pore pressure immediately, what is the immediate effective stress?",
         "choices": [
-            "the foundation and ground",
-            "the project office",
-            "the nearest drain only",
-            "the paint layer"
+            "140 kPa",
+            "110 kPa",
+            "280 kPa",
+            "80 kPa"
         ],
-        "answer": "the foundation and ground",
-        "explanation": "A safe structure transfers actions continuously to the ground.",
-        "subject": "civil-engineering-structural-engineering",
-        "content_blocks": []
+        "answer": "140 kPa",
+        "explanation": "Effective stress is σ′=σ−u. New total stress is 180+30=210 kPa, so σ′=210−70=140 kPa. The surcharge is not subtracted from stress.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "σ′ = (σ + Δσ) − u",
+                "fallback": "Add the stated total-stress increment, then subtract pore pressure."
+            }
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1170,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-structural-engineering",
-            "domain_id": "ce-structural",
-            "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35808,34 +35908,36 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A pinned support in a planar model commonly provides:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "What is the main purpose of a drainage layer behind a retaining wall?",
         "choices": [
-            "two reaction components",
-            "three moment reactions",
-            "no reaction",
-            "a distributed soil stress"
+            "Reduce water pressure that would otherwise add lateral load",
+            "Increase pore pressure behind the wall",
+            "Prevent all soil friction",
+            "Replace the wall footing"
         ],
-        "answer": "two reaction components",
-        "explanation": "A pin resists translation in two planar directions but releases rotation.",
-        "subject": "civil-engineering-structural-engineering",
-        "content_blocks": [
-            {
-                "type": "equation",
-                "value": "i = Δh \/ L",
-                "fallback": "i = Δh \/ L with consistent engineering units"
-            }
-        ]
+        "answer": "Reduce water pressure that would otherwise add lateral load",
+        "explanation": "Drainage relieves hydrostatic pressure behind the wall. Without it, water pressure can substantially increase lateral demand and overturning risk.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1171,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-structural-engineering",
-            "domain_id": "ce-structural",
-            "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35848,46 +35950,42 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Prestressing concrete before service loading introduces:",
+        "question": "A 3 m-wide rectangular channel carries 12 m³\/s at mean velocity 2 m\/s. First determine the required flow area and then assess whether a 2 m flow depth is compatible with that area.",
         "choices": [
-            "compression that can offset tensile stress",
-            "only additional cracking",
-            "zero internal force",
-            "soil friction"
+            "Required area 6 m²; 2 m depth is compatible",
+            "Required area 24 m²; 2 m depth is incompatible",
+            "Required area 0.167 m²; 2 m depth is incompatible",
+            "Required area 6 m²; 2 m depth is impossible"
         ],
-        "answer": "compression that can offset tensile stress",
-        "explanation": "Prestress counteracts anticipated tensile effects.",
-        "subject": "civil-engineering-structural-engineering",
+        "answer": "Required area 6 m²; 2 m depth is compatible",
+        "explanation": "Continuity gives A=Q\/V=12\/2=6 m². A 3 m width at 2 m depth also gives A=3(2)=6 m², so the stated depth is geometrically compatible.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "equation",
+                "value": "A=Q\/V; A=by",
+                "fallback": "Use continuity, then compare the required area with width times depth."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": true
     },
     {
         "id": 1172,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-structural-engineering",
-            "domain_id": "ce-structural",
-            "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35900,28 +35998,42 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A steel beam lateral restraint primarily reduces risk of:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A slope has a 120 kN downslope driving force and resisting shear forces of 180 kN along the potential slip surface. A 20 kN seepage force acts downslope. What factor of safety results?",
         "choices": [
-            "lateral-torsional buckling",
-            "concrete carbonation",
-            "pipe cavitation",
-            "soil piping"
+            "1.29",
+            "1.50",
+            "0.71",
+            "2.50"
         ],
-        "answer": "lateral-torsional buckling",
-        "explanation": "Lateral restraint improves stability of bending members.",
-        "subject": "civil-engineering-structural-engineering",
-        "content_blocks": []
+        "answer": "1.29",
+        "explanation": "Total driving force=120+20=140 kN. Factor of safety=180\/140=1.286≈1.29. Omitting seepage overestimates stability and gives 1.50.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "FS = resisting force\/(driving force + seepage force)",
+                "fallback": "Include the downslope seepage force in the driving demand."
+            }
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1173,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-structural-engineering",
-            "domain_id": "ce-structural",
-            "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35934,34 +36046,42 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A reliable structural interpretation begins by identifying:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A soil has cohesion c=20 kPa, friction angle φ=30°, and effective normal stress σ′=100 kPa. Using τ_f=c+σ′tanφ, what shear strength is available?",
         "choices": [
-            "geometry, supports, loads, and materials",
-            "the contractor’s logo",
-            "weather after demolition",
-            "paint sequence"
+            "77.7 kPa",
+            "50.0 kPa",
+            "57.7 kPa",
+            "34.1 kPa"
         ],
-        "answer": "geometry, supports, loads, and materials",
-        "explanation": "Those inputs define the structural model.",
-        "subject": "civil-engineering-structural-engineering",
+        "answer": "77.7 kPa",
+        "explanation": "τ_f=20+100tan30°=20+57.7=77.7 kPa. Using total stress without the stated effective stress would apply the wrong strength model.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "σ = P \/ A",
-                "fallback": "σ = P \/ A with consistent engineering units"
+                "value": "τ_f = c + σ′tanφ",
+                "fallback": "Use effective normal stress and the supplied friction angle."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1174,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-structural-engineering",
-            "domain_id": "ce-structural",
-            "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -35974,46 +36094,57 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "The area under a distributed-load diagram represents:",
+        "question": "The following construction records compare two earthwork crews. Which crew has the higher productivity?",
         "choices": [
-            "the equivalent resultant force",
-            "the beam’s modulus",
-            "the soil void ratio",
-            "the support settlement"
+            "Crew A",
+            "Crew B",
+            "They are equal",
+            "Productivity cannot be compared"
         ],
-        "answer": "the equivalent resultant force",
-        "explanation": "Integrating load intensity over length gives resultant force.",
-        "subject": "civil-engineering-structural-engineering",
+        "answer": "Crew B",
+        "explanation": "Crew A places 96\/8=12 m³\/h. Crew B places 135\/9=15 m³\/h. Therefore Crew B has the higher measured productivity.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
                 "type": "table",
                 "columns": [
-                    "Parameter",
-                    "Value"
+                    "Crew",
+                    "Quantity placed",
+                    "Hours"
                 ],
                 "rows": [
                     [
-                        "Given quantity",
-                        "4 m"
+                        "A",
+                        "96 m³",
+                        "8 h"
                     ],
                     [
-                        "Reference quantity",
-                        "3 m"
+                        "B",
+                        "135 m³",
+                        "9 h"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1175,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-structural-engineering",
-            "domain_id": "ce-structural",
-            "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -36026,28 +36157,42 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A connection designed for ductile behavior should avoid:",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A seepage analysis indicates an exit gradient of 1.05 at the downstream toe, while the soil’s critical gradient is 0.90. What engineering conclusion is most appropriate?",
         "choices": [
-            "brittle failure before yielding",
-            "all inspection",
-            "load transfer",
-            "redundancy"
+            "Piping or boiling is possible because the exit gradient exceeds critical",
+            "The soil is unquestionably stable because the gradient is positive",
+            "The gradient proves the soil has zero permeability",
+            "Only settlement, never seepage, requires review"
         ],
-        "answer": "brittle failure before yielding",
-        "explanation": "Ductile detailing seeks warning and redistribution before brittle failure.",
-        "subject": "civil-engineering-structural-engineering",
-        "content_blocks": []
+        "answer": "Piping or boiling is possible because the exit gradient exceeds critical",
+        "explanation": "When the exit gradient exceeds the critical gradient, effective stress near the exit can approach zero and internal erosion or boiling may occur. The condition requires mitigation or further analysis.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Compare i_exit with i_critical",
+                "fallback": "Interpret the measured exit gradient against the supplied critical threshold."
+            }
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1176,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-structural-engineering",
-            "domain_id": "ce-structural",
-            "topic_id": "structural-mechanics",
-            "concept_id": "structural-foundations"
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -36060,25 +36205,48 @@
         "helpfulExplanation": 0,
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-03T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A construction material test result should be interpreted with:",
+        "question": "A compaction test produced the following results. Which water content should be selected as the test’s optimum water content?",
         "choices": [
-            "sampling, procedure, and acceptance context",
-            "the highest number alone",
-            "no units",
-            "a random color code"
+            "10%",
+            "14%",
+            "18%",
+            "The lowest water content"
         ],
-        "answer": "sampling, procedure, and acceptance context",
-        "explanation": "Test results require method and context, not isolated numbers.",
-        "subject": "civil-engineering-structural-engineering",
+        "answer": "14%",
+        "explanation": "The optimum water content is associated with the maximum dry density. The table shows the peak dry density of 1.86 Mg\/m³ at 14% water content.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "FS = capacity \/ demand",
-                "fallback": "FS = capacity \/ demand with consistent engineering units"
+                "type": "table",
+                "columns": [
+                    "Water content",
+                    "Dry density"
+                ],
+                "rows": [
+                    [
+                        "10%",
+                        "1.72 Mg\/m³"
+                    ],
+                    [
+                        "14%",
+                        "1.86 Mg\/m³"
+                    ],
+                    [
+                        "18%",
+                        "1.80 Mg\/m³"
+                    ]
+                ]
             }
-        ]
+        ],
+        "numeric": false,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": false,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true
     },
     {
         "id": 1177,
