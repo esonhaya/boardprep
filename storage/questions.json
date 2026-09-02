@@ -37394,15 +37394,15 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "A road base is 240 m long, 6 m wide, and 0.20 m thick. Allow 8% waste. What volume should be ordered?",
+        "question": "Four dump trucks each carry 12 m³, complete one cycle every 30 minutes, and operate 8 hours per day at 75% utilization. What effective daily hauling capacity is available?",
         "choices": [
-            "311.0 m3",
-            "288.0 m3",
-            "311.0 m2",
-            "259.2 m3"
+            "576 m³\/day",
+            "384 m³\/day",
+            "768 m³\/day",
+            "96 m³\/day"
         ],
-        "answer": "311.0 m3",
-        "explanation": "Base=240(6)(.20)=288 m3; order=288(1.08)=311.04 m3.",
+        "answer": "576 m³\/day",
+        "explanation": "There are (8×60)\/30 = 16 cycles per day. Gross capacity is 4×12×16 = 768 m³\/day; applying 75% utilization gives 768×0.75 = 576 m³\/day.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
@@ -37490,15 +37490,15 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "A road carries 1,800 vehicles\/hour at 60 km\/h. Assuming q=kv, what is density?",
+        "question": "A signal approach has a saturation flow of 1,800 veh\/h and an effective green time of 30 s in a 60 s cycle. If demand is 800 veh\/h, which conclusion follows?",
         "choices": [
-            "0.03 vehicles\/km",
-            "30 vehicles\/h",
-            "30 vehicles\/km",
-            "108,000 vehicles\/km"
+            "Capacity is 900 veh\/h, leaving 100 veh\/h of reserve",
+            "Capacity is 1,800 veh\/h, leaving 1,000 veh\/h of reserve",
+            "Capacity is 400 veh\/h, so demand exceeds capacity by 400 veh\/h",
+            "Capacity is 900 veh\/h, so demand exceeds capacity by 100 veh\/h"
         ],
-        "answer": "30 vehicles\/km",
-        "explanation": "k=q\/v=1,800\/60=30 vehicles\/km.",
+        "answer": "Capacity is 900 veh\/h, leaving 100 veh\/h of reserve",
+        "explanation": "Signal capacity is s(g\/C) = 1,800(30\/60) = 900 veh\/h. Since demand is 800 veh\/h, the approach has 100 veh\/h of reserve capacity.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
@@ -39629,46 +39629,46 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A soil has porosity n=0.35. What void ratio e follows from e=n\/(1−n)?",
+        "difficulty": "easy",
+        "question": "An oedometer test gives the void ratios below. Over which stress interval does the largest reduction in void ratio occur?",
         "choices": [
-            "1.350",
-            "0.350",
-            "0.538",
-            "0.650"
+            "100–200 kPa",
+            "0–50 kPa",
+            "50–100 kPa",
+            "The reduction is the same in every interval"
         ],
-        "answer": "0.538",
-        "explanation": "e=0.35\/(1−0.35)=0.35\/0.65=0.538. Porosity and void ratio are related but are not numerically identical.",
+        "answer": "100–200 kPa",
+        "explanation": "The reductions are 0.06 from 0–50 kPa, 0.06 from 50–100 kPa, and 0.12 from 100–200 kPa. The last interval therefore shows the greatest compression response.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
                 "type": "table",
                 "columns": [
-                    "Percent finer",
-                    "Particle size"
+                    "Applied vertical stress",
+                    "Void ratio"
                 ],
                 "rows": [
                     [
-                        "10%",
-                        "0.20 mm"
+                        "50 kPa",
+                        "0.90"
                     ],
                     [
-                        "30%",
-                        "0.45 mm"
+                        "100 kPa",
+                        "0.84"
                     ],
                     [
-                        "60%",
-                        "1.20 mm"
+                        "200 kPa",
+                        "0.72"
                     ]
                 ]
             }
         ],
-        "numeric": true,
+        "numeric": false,
         "multistep": false,
         "cognitive_intent": "apply",
         "unit_sensitive": true,
         "table_dependent": true,
-        "data_interpretation": false,
+        "data_interpretation": true,
         "long_scenario": false
     },
     {
@@ -39875,15 +39875,15 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "For a rectangular channel, Q=8 m3\/s, width=4 m, and depth=1 m. What mean velocity follows from continuity?",
+        "question": "An open channel is 4 m wide, 1 m deep, and carries 8 m³\/s. Using Fr = V\/√(g y) with g = 9.81 m\/s², what flow classification follows?",
         "choices": [
-            "32 m\/s",
-            "8.0 m\/s",
-            "0.5 m\/s",
-            "2.0 m\/s"
+            "Fr = 0.64, subcritical",
+            "Fr = 2.00, critical",
+            "Fr = 0.32, supercritical",
+            "Fr = 9.81, subcritical"
         ],
-        "answer": "2.0 m\/s",
-        "explanation": "Area=by=4(1)=4 m2; V=Q\/A=8\/4=2.0 m\/s.",
+        "answer": "Fr = 0.64, subcritical",
+        "explanation": "The flow area is 4×1 = 4 m², so V = Q\/A = 8\/4 = 2 m\/s. Thus Fr = 2\/√(9.81×1) = 0.64; because Fr<1, the flow is subcritical.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
@@ -40117,13 +40117,13 @@
         "difficulty": "medium",
         "question": "A storm-sewer catchment has runoff coefficient C=0.70, rainfall intensity i=80 mm\/h, and area A=2 ha. Using Q=0.00278CiA, what peak runoff is estimated?",
         "choices": [
-            "0.0311 m3\/s",
-            "0.311 m3\/s",
-            "3.11 m3\/s",
-            "0.00311 m3\/s"
+            "0.311 m³\/s",
+            "0.0311 m³\/s",
+            "3.11 m³\/s",
+            "0.00311 m³\/s"
         ],
-        "answer": "0.0311 m3\/s",
-        "explanation": "The rational-method coefficient gives Q=0.00278(0.70)(80)(2)=0.0311 m3\/s. The factor includes the conversion of hectares and millimetres per hour to cubic metres per second.",
+        "answer": "0.311 m³\/s",
+        "explanation": "The rational-method discharge is Q = CiA = 0.70×0.00278×80×2 = 0.311 m³\/s, using the supplied conversion of 80 mm\/h over 2 hectares.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [],
         "numeric": true,
