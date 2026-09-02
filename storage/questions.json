@@ -1858,7 +1858,7 @@
         "topic": "Curriculum Planning",
         "concept": "Curriculum Alignment",
         "difficulty": "easy",
-        "question": "Curriculum alignment means that objectives, instruction, and assessment are:",
+        "question": "A teacher compares an outcome, the learning activity, and the assessment before a unit begins. Which condition shows that the curriculum is aligned?",
         "choices": [
             "Consistent with one another",
             "All equally difficult",
@@ -1866,7 +1866,7 @@
             "Based only on textbook order"
         ],
         "answer": "Consistent with one another",
-        "explanation": "Alignment connects intended learning, learning experiences, and evidence of learning.",
+        "explanation": "Alignment is demonstrated when the intended outcome, learning experience, and assessment ask learners to perform the same kind of work. A mismatch between them weakens the evidence of learning.",
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
@@ -1920,12 +1920,12 @@
         "topic": "Curriculum Planning",
         "concept": "Curriculum Alignment",
         "difficulty": "medium",
-        "question": "What should guide the selection of learning activities?",
+        "question": "A teacher is choosing between a worksheet and a community-budget simulation for an outcome requiring learners to apply proportional reasoning. What should guide the decision?",
         "choices": [
+            "The teacher's convenience only",
             "The intended competencies and learner context",
             "The activity's decoration alone",
-            "The number of worksheets",
-            "The teacher's convenience only"
+            "The number of worksheets"
         ],
         "answer": "The intended competencies and learner context",
         "explanation": "Activities should help learners practise the intended outcomes in a suitable context.",
@@ -1951,11 +1951,11 @@
         "topic": "Curriculum Planning",
         "concept": "Curriculum Alignment",
         "difficulty": "hard",
-        "question": "When an assessment measures recall but the objective requires analysis, the main issue is weak:",
+        "question": "A history objective requires learners to evaluate the credibility of sources, but the final test asks only for dates. The main curriculum problem is weak:",
         "choices": [
-            "Alignment",
             "Attendance",
             "Class size",
+            "Alignment",
             "Scheduling"
         ],
         "answer": "Alignment",
@@ -2013,18 +2013,21 @@
         "topic": "Assessment Principles",
         "concept": "Validity and Reliability",
         "difficulty": "easy",
-        "question": "Validity asks whether an assessment measures what it is intended to measure. Which quality complements it by addressing consistency?",
+        "question": "Two teachers use the same performance task and rubric, but their scores differ widely for similar work. Which assessment quality should they investigate first?",
         "choices": [
-            "Reliability",
-            "Popularity",
             "Speed",
-            "Difficulty alone"
+            "Difficulty alone",
+            "Popularity",
+            "Reliability"
         ],
         "answer": "Reliability",
         "explanation": "Reliability concerns consistency of measurement across comparable conditions.",
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
+        "content_blocks": [{"type":"table","columns":["Learner group","Correct comparison items","Common error"],"rows":[["A","8 of 10","Treats larger denominator as larger fraction"],["B","9 of 10","No consistent error"],["C","4 of 10","Adds numerators and denominators"]]}],
+        "table_dependent": true,
+        "data_interpretation": true,
         "let_area": "Professional Education"
     },
     {
@@ -2044,18 +2047,21 @@
         "topic": "Assessment Principles",
         "concept": "Validity and Reliability",
         "difficulty": "medium",
-        "question": "Which assessment is most appropriate for checking understanding during instruction?",
+        "question": "A teacher wants evidence during a lesson so that tomorrow’s instruction can respond to misconceptions. Which assessment purpose is being used?",
         "choices": [
             "Formative assessment",
+            "Attendance record",
             "Final grading only",
-            "Entrance ranking",
-            "Attendance record"
+            "Entrance ranking"
         ],
         "answer": "Formative assessment",
         "explanation": "Formative assessment provides information while learning is still underway.",
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
+        "content_blocks": [{"type":"table","columns":["Prompt","Accurate claim","Evidence cited"],"rows":[["A","12 of 20","3 of 5 responses"],["B","9 of 20","1 of 4 responses"],["C","15 of 20","2 of 5 responses"]]}],
+        "table_dependent": true,
+        "data_interpretation": true,
         "let_area": "Professional Education"
     },
     {
@@ -2075,10 +2081,10 @@
         "topic": "Assessment Principles",
         "concept": "Validity and Reliability",
         "difficulty": "medium",
-        "question": "A rubric improves assessment communication when its criteria are:",
+        "question": "Learners receive a rubric before a performance task and use its criteria to revise their drafts. Why does this improve assessment communication?",
         "choices": [
-            "Clear and connected to the task",
             "Hidden until after grading",
+            "Clear and connected to the task",
             "Different for every learner",
             "Based on handwriting only"
         ],
@@ -2106,11 +2112,11 @@
         "topic": "Assessment Principles",
         "concept": "Validity and Reliability",
         "difficulty": "hard",
-        "question": "Using multiple forms of evidence to judge a competency strengthens:",
+        "question": "A competency includes planning, performing, and explaining a task. The teacher uses the product, observation notes, and an oral defense before deciding whether it was achieved. This strengthens:",
         "choices": [
-            "Triangulation",
             "Guessing",
             "Subjectivity",
+            "Triangulation",
             "Test speed"
         ],
         "answer": "Triangulation",
@@ -2118,6 +2124,9 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
+        "content_blocks": [{"type":"table","columns":["Evidence source","What it shows"],"rows":[["Design product","Chosen variables and procedure"],["Oral explanation","Reasoning behind controls"],["Revision record","Response to evidence and feedback"]]}],
+        "table_dependent": true,
+        "data_interpretation": true,
         "let_area": "Professional Education"
     },
     {
@@ -2168,12 +2177,12 @@
         "topic": "Facilitating Learning",
         "concept": "Scaffolding and Transfer",
         "difficulty": "easy",
-        "question": "Questioning that asks learners to explain evidence encourages:",
+        "question": "After a learner gives an answer, the teacher asks which evidence supports it and how the evidence rules out an alternative. This questioning primarily encourages:",
         "choices": [
-            "Higher-order thinking",
+            "Avoidance of reasoning",
             "Silent copying",
             "Random recall",
-            "Avoidance of reasoning"
+            "Higher-order thinking"
         ],
         "answer": "Higher-order thinking",
         "explanation": "Explaining evidence requires learners to reason beyond repeating an answer.",
@@ -2199,7 +2208,7 @@
         "topic": "Facilitating Learning",
         "concept": "Scaffolding and Transfer",
         "difficulty": "medium",
-        "question": "Collaborative learning is most productive when learners have:",
+        "question": "In a group inquiry, each learner must contribute evidence to a shared conclusion and explain a designated role. What feature makes this collaborative learning productive?",
         "choices": [
             "A shared goal and accountable roles",
             "No task or purpose",
@@ -2230,10 +2239,10 @@
         "topic": "Facilitating Learning",
         "concept": "Scaffolding and Transfer",
         "difficulty": "medium",
-        "question": "A teacher models a process, guides practice, then gradually withdraws help. This is:",
+        "question": "A teacher models a difficult process, prompts the first attempts, and removes prompts as learners demonstrate control. This support pattern is:",
         "choices": [
-            "Scaffolding",
             "Drill without feedback",
+            "Scaffolding",
             "Summative grading",
             "Unplanned instruction"
         ],
@@ -2261,12 +2270,12 @@
         "topic": "Facilitating Learning",
         "concept": "Scaffolding and Transfer",
         "difficulty": "hard",
-        "question": "Which teacher action best supports transfer of learning?",
+        "question": "Learners can use a method in a worksheet but not in a new community problem. Which teacher action best supports transfer of learning?",
         "choices": [
-            "Connecting a new skill to varied real situations",
-            "Repeating one example only",
             "Avoiding application tasks",
-            "Assessing memorization alone"
+            "Assessing memorization alone",
+            "Connecting a new skill to varied real situations",
+            "Repeating one example only"
         ],
         "answer": "Connecting a new skill to varied real situations",
         "explanation": "Varied application helps learners use knowledge beyond the original example.",
@@ -2292,12 +2301,12 @@
         "topic": "Learning Environment",
         "concept": "Classroom Routines",
         "difficulty": "easy",
-        "question": "A predictable opening routine primarily helps learners:",
+        "question": "After a predictable opening routine is taught and rehearsed, learners begin independent work with fewer repeated directions. The routine primarily helps learners:",
         "choices": [
-            "Begin work efficiently",
+            "Choose grades",
             "Avoid all interaction",
             "Skip objectives",
-            "Choose grades"
+            "Begin work efficiently"
         ],
         "answer": "Begin work efficiently",
         "explanation": "Predictable routines reduce transition time and clarify how learning begins.",
@@ -2323,7 +2332,7 @@
         "topic": "Learning Environment",
         "concept": "Classroom Routines",
         "difficulty": "medium",
-        "question": "The most constructive response to a minor disruption is usually:",
+        "question": "A learner whispers during a short explanation, responds to a quiet cue, and resumes listening. What is the most constructive response to this minor disruption?",
         "choices": [
             "A calm, proportionate redirection",
             "Public humiliation",
@@ -2385,12 +2394,12 @@
         "topic": "Learning Environment",
         "concept": "Classroom Routines",
         "difficulty": "hard",
-        "question": "A teacher reviewing behavior patterns before changing a routine is using:",
+        "question": "A teacher records when off-task behavior occurs, changes one transition step, and compares the next week’s observations. This approach is best described as:",
         "choices": [
-            "Evidence-informed management",
-            "Punishment by assumption",
             "Random grouping",
-            "Instructional avoidance"
+            "Evidence-informed management",
+            "Instructional avoidance",
+            "Punishment by assumption"
         ],
         "answer": "Evidence-informed management",
         "explanation": "Reviewing patterns supports a targeted response rather than an assumption.",
@@ -2416,12 +2425,12 @@
         "topic": "Technology for Learning",
         "concept": "Accessible Digital Learning",
         "difficulty": "easy",
-        "question": "Technology improves learning when it is selected because it:",
+        "question": "A teacher rejects an attractive app because it adds no practice or feedback for the stated objective. Technology improves learning when it is selected because it:",
         "choices": [
-            "Supports a clear learning purpose",
+            "Replaces every interaction",
             "Looks impressive alone",
-            "Adds more screen time",
-            "Replaces every interaction"
+            "Supports a clear learning purpose",
+            "Adds more screen time"
         ],
         "answer": "Supports a clear learning purpose",
         "explanation": "Tools should serve the learning objective and learner context.",
@@ -2447,12 +2456,12 @@
         "topic": "Technology for Learning",
         "concept": "Accessible Digital Learning",
         "difficulty": "medium",
-        "question": "Which feature most directly improves accessibility of a recorded lesson?",
+        "question": "A recorded lesson contains important spoken directions that some learners cannot access during playback. Which feature most directly improves accessibility?",
         "choices": [
-            "Captions or a transcript",
             "Decorative animation only",
             "Autoplay at maximum volume",
-            "Text embedded too small to read"
+            "Text embedded too small to read",
+            "Captions or a transcript"
         ],
         "answer": "Captions or a transcript",
         "explanation": "Captions and transcripts provide an alternative access route to spoken content.",
@@ -7646,12 +7655,12 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A child conserves number when objects are spread farther apart. Which interpretation is most consistent with Piaget?",
+        "question": "A child explains that spreading counters farther apart does not change how many there are and can justify the answer by counting. Which interpretation is most consistent with Piaget?",
         "choices": [
             "The child is showing concrete operational reasoning",
+            "The child is relying on classical conditioning",
             "The child is using formal hypotheses",
-            "The child has reached sensorimotor object permanence",
-            "The child is relying on classical conditioning"
+            "The child has reached sensorimotor object permanence"
         ],
         "answer": "The child is showing concrete operational reasoning",
         "explanation": "Conservation is characteristic of concrete operational thinking; spacing no longer changes the child’s judgment of quantity.",
@@ -7791,10 +7800,10 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "A learner solves a problem independently with one example but solves a harder version after targeted prompts. The harder version is most likely within the learner’s:",
+        "question": "A learner first needs targeted prompts for a harder task, then begins applying the strategy independently on a related task. The harder task was most likely within the learner’s:",
         "choices": [
-            "Zone of proximal development",
             "Sensorimotor schema",
+            "Zone of proximal development",
             "Fixed ability level",
             "Operant conditioning schedule"
         ],
@@ -7849,12 +7858,12 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "Which teacher action would most clearly place a task outside a learner’s productive ZPD?",
+        "question": "A teacher assigns a complex task with no attainable entry point or guidance, then treats failure as proof of low ability. Which action most clearly places the task outside a productive ZPD?",
         "choices": [
-            "Giving a complex task with no attainable entry point or guidance",
-            "Offering a hint after observing the learner’s first attempt",
             "Pairing the learner with a more capable peer",
-            "Removing prompts after the learner demonstrates mastery"
+            "Removing prompts after the learner demonstrates mastery",
+            "Giving a complex task with no attainable entry point or guidance",
+            "Offering a hint after observing the learner’s first attempt"
         ],
         "answer": "Giving a complex task with no attainable entry point or guidance",
         "explanation": "A task with no reachable entry point cannot be made productive merely by increasing difficulty; assistance must connect to emerging capability.",
@@ -8226,12 +8235,12 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "A teacher wants to reduce anxiety associated with oral recitation and begins with brief, supportive speaking tasks before longer presentations. Which principle is most relevant?",
+        "question": "A learner avoids oral reporting after being laughed at. The teacher begins with brief supportive speaking tasks and increases the audience only after success. Which principle is most relevant?",
         "choices": [
-            "Gradual exposure with new positive associations",
+            "Cognitive disequilibrium only",
             "Response cost",
             "Law of effect through punishment",
-            "Cognitive disequilibrium only"
+            "Gradual exposure with new positive associations"
         ],
         "answer": "Gradual exposure with new positive associations",
         "explanation": "Gradual supportive exposure can weaken an anxious association while pairing speaking with safety and success.",
