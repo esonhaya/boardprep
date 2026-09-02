@@ -21,6 +21,9 @@ $legacy->replace('attempts', [
     ['id' => 'legacy-1', 'date' => '2026-01-01', 'mode' => 'practice', 'score' => 2],
     ['id' => 'stable-1', 'date' => '2026-01-02', 'mode' => 'exam', 'score' => 4],
 ]);
+$legacy->replace('weakness', [
+    ['id' => 'Hydraulics', 'correct' => 3, 'wrong' => 1],
+]);
 
 try {
     $pdo = new PDO('sqlite:' . $path, null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
@@ -57,16 +60,18 @@ try {
     } catch (StorageException $exception) {
     }
     $import = (new LegacyCollectionImporter())->import($legacy, $storage, 'attempts');
-    if ($import['imported'] !== 2 || $import['invalid'] !== 0) {
+    $weaknessImport = (new LegacyCollectionImporter())->import($legacy, $storage, 'weakness');
+    if ($import['imported'] !== 2 || $import['invalid'] !== 0 || $weaknessImport['imported'] !== 1) {
         throw new RuntimeException('legacy import did not preserve valid records');
     }
     $rerun = (new LegacyCollectionImporter())->import($legacy, $storage, 'attempts');
-    if ($rerun['imported'] !== 0 || $rerun['existing'] !== 2) {
+    $weaknessRerun = (new LegacyCollectionImporter())->import($legacy, $storage, 'weakness');
+    if ($rerun['imported'] !== 0 || $rerun['existing'] !== 2 || $weaknessRerun['imported'] !== 0 || $weaknessRerun['existing'] !== 1) {
         throw new RuntimeException('legacy import was not idempotent');
     }
-    $router = new StorageRouter(new JsonStorage($root . '/content'), ['attempts' => $storage]);
+    $router = new StorageRouter(new JsonStorage($root . '/content'), ['attempts' => $storage, 'weakness' => $storage]);
     $router->create('content', ['id' => 'json-1', 'value' => 'canonical']);
-    if (!$router->exists('content', 'json-1') || !$router->exists('attempts', 'a1')) {
+    if (!$router->exists('content', 'json-1') || !$router->exists('attempts', 'a1') || !$router->exists('weakness', 'Hydraulics')) {
         throw new RuntimeException('scoped production storage routing failed');
     }
     unset($storage, $pdo);

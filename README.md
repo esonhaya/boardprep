@@ -37,16 +37,16 @@ with a generic HTTP 500 and a detailed server-log entry if storage is
 unavailable. Back up this directory before deployment or migration. MySQL does
 not use this filesystem store.
 
-For SQLite, initialize the schema and import legacy attempts without deleting
-the JSON source:
+For SQLite, initialize the schema and import legacy mutable user state without
+deleting the JSON source:
 
 ```sh
 DB_DRIVER=sqlite DB_SQLITE_PATH=/absolute/path/to/boardprep.sqlite \
 php tools/db-migrate.php
 ```
 
-Only the mutable `attempts` collection is routed to SQLite in this foundation;
-canonical questions, study material, taxonomy, and other curated collections
+The mutable `attempts` and `weakness` collections are routed to SQLite in this
+foundation; canonical questions, study material, taxonomy, and other curated collections
 remain source-controlled/file-backed until a dedicated migration contract is
 approved. Keep the database outside `public/` and include it in deployment
 backups. A verified SQLite backup should use a quiescent application state (or

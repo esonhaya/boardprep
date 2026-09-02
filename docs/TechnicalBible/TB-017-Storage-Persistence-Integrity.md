@@ -18,7 +18,7 @@ Repositories should use ordinary CRUD when changing individual records. Services
 
 ## Backend parity
 
-The MySQL adapter implements the same generic replacement contract transactionally for database-backed repositories. SQLite now provides the same repository seam for the mutable `attempts` proof domain; a storage router keeps curated questions, study material, and taxonomy on their established JSON-backed path. SQLite migrations are numbered and recorded in `schema_migrations`, and `php tools/db-migrate.php` imports legacy attempt records idempotently without deleting their JSON source. Test storage mirrors the generic contract so service and repository tests exercise equivalent replacement semantics.
+The MySQL adapter implements the same generic replacement contract transactionally for database-backed repositories. SQLite now provides the same repository seam for mutable `attempts` and `weakness` state; a storage router keeps curated questions, study material, and taxonomy on their established JSON-backed path. SQLite migrations are numbered and recorded in `schema_migrations`, and `php tools/db-migrate.php` imports legacy mutable records idempotently without deleting their JSON source. Test storage mirrors the generic contract so service and repository tests exercise equivalent replacement semantics.
 
 ## Runtime artifacts
 

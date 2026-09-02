@@ -79,7 +79,10 @@ class Database
             }
             $this->sqliteStorage = new SqliteStorage($this->connection);
             $json = $this->jsonStorage($config['path'] ?? null);
-            $this->storage = new StorageRouter($json, ['attempts' => $this->sqliteStorage]);
+            $this->storage = new StorageRouter($json, [
+                'attempts' => $this->sqliteStorage,
+                'weakness' => $this->sqliteStorage,
+            ]);
         } else {
             $this->storage = $this->jsonStorage($config['path'] ?? null);
         }
@@ -105,14 +108,14 @@ class Database
     }
 
     /** @return array{existing:int, imported:int, skipped:int, invalid:int} */
-    public function importLegacyAttempts(): array
+    public function importLegacyCollection(string $collection): array
     {
         if ($this->sqliteStorage === null) {
-            throw new RuntimeException('Legacy attempt import requires DB_DRIVER=sqlite.');
+            throw new RuntimeException('Legacy collection import requires DB_DRIVER=sqlite.');
         }
         $config = App::config('database', []);
         $source = new JsonStorage($config['path']);
-        return (new LegacyCollectionImporter())->import($source, $this->sqliteStorage, 'attempts');
+        return (new LegacyCollectionImporter())->import($source, $this->sqliteStorage, $collection);
     }
 
     private function prepareStorageDirectory(string $path): void
