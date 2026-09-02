@@ -11,8 +11,11 @@ ignored and must never be committed. The supported local default is
 Process environment variables take precedence over values in `.env`.
 
 `APP_TIMEZONE` must be a PHP timezone identifier such as `UTC` or
-`Asia/Manila`. MySQL is optional; selecting `DB_DRIVER=mysql` requires the
-`pdo_mysql` extension and the documented `DB_*` connection settings.
+`Asia/Manila`. SQLite is supported for the mutable attempts proof domain and
+requires `pdo_sqlite`; set `DB_DRIVER=sqlite` and optionally
+`DB_SQLITE_PATH=/absolute/path/to/boardprep.sqlite`. MySQL remains optional;
+selecting `DB_DRIVER=mysql` requires the `pdo_mysql` extension and the
+documented `DB_*` connection settings.
 
 `APP_ENV` must be `production`, `development`, or `testing`. Production rejects
 `APP_DEBUG=true`; developer authoring and Doctor HTTP routes are available only
@@ -33,6 +36,21 @@ creates a missing storage directory and collection files, then fails startup
 with a generic HTTP 500 and a detailed server-log entry if storage is
 unavailable. Back up this directory before deployment or migration. MySQL does
 not use this filesystem store.
+
+For SQLite, initialize the schema and import legacy attempts without deleting
+the JSON source:
+
+```sh
+DB_DRIVER=sqlite DB_SQLITE_PATH=/absolute/path/to/boardprep.sqlite \
+php tools/db-migrate.php
+```
+
+Only the mutable `attempts` collection is routed to SQLite in this foundation;
+canonical questions, study material, taxonomy, and other curated collections
+remain source-controlled/file-backed until a dedicated migration contract is
+approved. Keep the database outside `public/` and include it in deployment
+backups. A verified SQLite backup should use a quiescent application state (or
+SQLite's backup API); restore with the application stopped and rerun migrations.
 
 For a production-style local smoke test, use a temporary storage directory and
 the repository's built-in-server router:

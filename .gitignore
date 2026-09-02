@@ -15,3 +15,6 @@ Thumbs.db
 
 # Storage mutation coordination
 storage/.storage.lock
+storage/runtime/
+*.sqlite
+*.sqlite-*

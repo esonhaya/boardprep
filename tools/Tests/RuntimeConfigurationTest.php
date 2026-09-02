@@ -45,14 +45,19 @@ if ($status === 0 || !str_contains($output, 'APP_TIMEZONE')) {
     exit("[FAIL] invalid timezone did not fail clearly.\n");
 }
 
+$sqlite = sys_get_temp_dir() . '/boardprep-runtime-' . bin2hex(random_bytes(6)) . '.sqlite';
 [$status, $output] = runBootstrap($php, $script, [
     'APP_ENV' => 'testing',
     'APP_TIMEZONE' => 'UTC',
     'DB_DRIVER' => 'sqlite',
+    'APP_STORAGE_PATH' => $storage,
+    'DB_SQLITE_PATH' => $sqlite,
 ]);
-if ($status === 0 || !str_contains($output, 'DB_DRIVER')) {
-    exit("[FAIL] invalid storage driver did not fail clearly.\n");
+if ($status !== 0 || !is_file($sqlite)) {
+    exit("[FAIL] SQLite bootstrap failed: {$output}\n");
 }
+@unlink($sqlite);
+@rmdir($storage);
 
 [$status, $output] = runBootstrap($php, $script, [
     'APP_ENV' => 'production',

@@ -23,6 +23,13 @@ return [
             dirname(__DIR__) . '/storage'
         ),
 
+        'sqlite_path' => Environment::get(
+            'DB_SQLITE_PATH',
+            dirname(__DIR__) . '/storage/runtime/boardprep.sqlite'
+        ),
+
+        'migration_path' => dirname(__DIR__) . '/database/migrations',
+
         'host' => Environment::get('DB_HOST', '127.0.0.1'),
 
         'port' => Environment::get('DB_PORT', '3306'),
