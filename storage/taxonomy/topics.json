@@ -2365,4 +2365,45 @@
         "code": "CPA",
         "name": "Cpa Taxation Compliance"
     }
+        "id": "science-chemistry-matter",
+        "domain_id": "chemistry",
+        "code": "CHEM",
+        "name": "Matter and Chemical Relationships"
+    },
+    {
+        "id": "science-physics-motion",
+        "domain_id": "physics",
+        "code": "PHYS",
+        "name": "Motion, Force, and Energy"
+    },
+    {
+        "id": "science-electricity-circuits",
+        "domain_id": "physics",
+        "code": "ELEC",
+        "name": "Electric Circuits"
+    },
+    {
+        "id": "science-optics-rays",
+        "domain_id": "physics",
+        "code": "OPT",
+        "name": "Light and Ray Models"
+    },
+    {
+        "id": "science-earth-processes",
+        "domain_id": "earth-science",
+        "code": "EARTH",
+        "name": "Earth Processes and Layers"
+    },
+    {
+        "id": "science-ecology-systems",
+        "domain_id": "environmental-science",
+        "code": "ECO",
+        "name": "Ecosystems and Environment"
+    },
+    {
+        "id": "science-data-graphs",
+        "domain_id": "scientific-inquiry",
+        "code": "DATA",
+        "name": "Scientific Data Interpretation"
+    }
 ]
