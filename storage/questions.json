@@ -35381,7 +35381,7 @@
             "40.0%"
         ],
         "answer": "0.40%",
-        "explanation": "First sum the steel area: As=3(200)=600 mm². The provided ratio is ρ=As/(bd)=600/[300(500)]=0.004, or 0.40%. The 0.13% option uses one bar, while 1.20% omits the conversion from decimal to percent.",
+        "explanation": "First sum the steel area: As=3(200)=600 mm². The provided ratio is ρ=As\/(bd)=600\/[300(500)]=0.004, or 0.40%. The 0.13% option uses one bar, while 1.20% omits the conversion from decimal to percent.",
         "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
@@ -36975,7 +36975,8 @@
             "subject_id": "civil-engineering-applied-mathematics",
             "domain_id": "ce-applied",
             "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -36989,18 +36990,51 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "Traffic flow is commonly expressed as vehicles per:",
+        "difficulty": "medium",
+        "question": "A leveling record is summarized below. What elevation should be assigned to TP2?",
         "choices": [
-            "unit time",
-            "unit length squared only",
-            "kilogram",
-            "degree"
+            "98.325 m",
+            "99.150 m",
+            "100.000 m",
+            "101.250 m"
         ],
-        "answer": "unit time",
-        "explanation": "Flow is a rate of vehicle passage over time.",
+        "answer": "98.325 m",
+        "explanation": "HI=101.250; TP1=99.150; second HI=100.000; TP2=98.325 m.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": []
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Station",
+                    "BS",
+                    "FS"
+                ],
+                "rows": [
+                    [
+                        "BM1",
+                        "1.250 m",
+                        "—"
+                    ],
+                    [
+                        "TP1",
+                        "0.850 m",
+                        "2.100 m"
+                    ],
+                    [
+                        "TP2",
+                        "—",
+                        "1.675 m"
+                    ]
+                ]
+            }
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true
     },
     {
         "id": 1194,
@@ -37009,7 +37043,8 @@
             "subject_id": "civil-engineering-applied-mathematics",
             "domain_id": "ce-applied",
             "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37024,23 +37059,31 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "A road curve’s superelevation is intended mainly to:",
+        "question": "For the horizontal curve shown, what tangent length is required? Use T=R tan(Δ\/2).",
         "choices": [
-            "help counter lateral acceleration",
-            "increase rainfall",
-            "reduce lane width",
-            "measure soil pH"
+            "109.2 m",
+            "54.6 m",
+            "52.3 m",
+            "75.0 m"
         ],
-        "answer": "help counter lateral acceleration",
-        "explanation": "Cross slope helps balance lateral motion on a curve.",
+        "answer": "54.6 m",
+        "explanation": "The figure gives R=150 m and Δ=40°; T=150 tan20°=54.6 m.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "σ = P \/ A",
-                "fallback": "σ = P \/ A with consistent engineering units"
+                "type": "figure",
+                "asset": "assets\/ce\/curve-geometry.svg",
+                "alt": "Horizontal curve with tangent lines, central angle, and radius callout",
+                "caption": "Horizontal curve geometry"
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1195,
@@ -37049,7 +37092,8 @@
             "subject_id": "civil-engineering-applied-mathematics",
             "domain_id": "ce-applied",
             "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37063,36 +37107,31 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "Sight distance is important because drivers need:",
+        "difficulty": "medium",
+        "question": "The materials laboratory reports Mix A at 320 kg\/m3 and 25 MPa, Mix B at 360 kg\/m3 and 31 MPa, and Mix C at 400 kg\/m3 and 34 MPa. Which satisfies 28 MPa while using least cement?",
         "choices": [
-            "adequate distance to perceive and respond",
-            "higher concrete strength",
-            "a deeper footing",
-            "more survey points only"
+            "Mix C",
+            "Mix A",
+            "Mix B",
+            "No mix"
         ],
-        "answer": "adequate distance to perceive and respond",
-        "explanation": "Road geometry must allow perception and response.",
+        "answer": "Mix B",
+        "explanation": "A fails 28 MPa; B and C pass, and B uses less cement.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Select the least cement content meeting the strength requirement",
+                "fallback": "Compare each reported strength with 28 MPa, then select the lowest compliant cement content."
             }
-        ]
+        ],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1196,
@@ -37101,7 +37140,8 @@
             "subject_id": "civil-engineering-applied-mathematics",
             "domain_id": "ce-applied",
             "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37115,18 +37155,32 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A pavement layer’s function should be evaluated with respect to:",
+        "difficulty": "hard",
+        "question": "The vertical profile shown has a +2% approach grade and a −1% departure grade. What curve is required?",
         "choices": [
-            "load transfer, drainage, and durability",
-            "paint selection only",
-            "office layout",
-            "river salinity"
+            "Spiral transition",
+            "Sag vertical curve",
+            "Circular horizontal curve",
+            "Crest vertical curve"
         ],
-        "answer": "load transfer, drainage, and durability",
-        "explanation": "Pavement performance depends on structural and environmental functions.",
+        "answer": "Crest vertical curve",
+        "explanation": "The profile changes from rising to falling, forming a crest curve controlling sight distance.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": []
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets\/ce\/vertical-profile.svg",
+                "alt": "Road profile changing from uphill grade to downhill grade",
+                "caption": "Vertical alignment profile"
+            }
+        ],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1197,
@@ -37135,7 +37189,8 @@
             "subject_id": "civil-engineering-applied-mathematics",
             "domain_id": "ce-applied",
             "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37149,24 +37204,46 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A simple project cost estimate should identify:",
+        "difficulty": "medium",
+        "question": "Two earthwork crews report the production and labor below. Which has lower direct labor cost per cubic metre?",
         "choices": [
-            "quantities, unit costs, and assumptions",
-            "only a total with no basis",
-            "weather alone",
-            "a random contingency"
+            "Crew A",
+            "Crew B",
+            "Same cost",
+            "Insufficient data"
         ],
-        "answer": "quantities, unit costs, and assumptions",
-        "explanation": "Transparent estimates show basis and assumptions.",
+        "answer": "Crew B",
+        "explanation": "A costs 5(180)(10)\/120=75\/m3; B costs 4(220)(12)\/150=70.40\/m3.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
-                "type": "equation",
-                "value": "FS = capacity \/ demand",
-                "fallback": "FS = capacity \/ demand with consistent engineering units"
+                "type": "table",
+                "columns": [
+                    "Crew",
+                    "Production",
+                    "Crew labor"
+                ],
+                "rows": [
+                    [
+                        "A",
+                        "120 m3 in 10 h",
+                        "5 workers at PHP180\/h"
+                    ],
+                    [
+                        "B",
+                        "150 m3 in 12 h",
+                        "4 workers at PHP220\/h"
+                    ]
+                ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true
     },
     {
         "id": 1198,
@@ -37175,7 +37252,8 @@
             "subject_id": "civil-engineering-applied-mathematics",
             "domain_id": "ce-applied",
             "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37189,36 +37267,61 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "Present value is used to compare cash flows occurring:",
+        "difficulty": "hard",
+        "question": "The activity data below use finish-to-start relationships. Which path controls completion and duration?",
         "choices": [
-            "at different times",
-            "only at the same instant",
-            "without interest",
-            "only in kind"
+            "A-B-D, 9 days",
+            "A-B-D, 11 days",
+            "A-C-E, 11 days",
+            "A-C-E, 9 days"
         ],
-        "answer": "at different times",
-        "explanation": "Time value of money brings cash flows to a common basis.",
+        "answer": "A-C-E, 11 days",
+        "explanation": "A-B-D=9 days; A-C-E=11 days, so A-C-E controls.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "table",
                 "columns": [
-                    "Parameter",
-                    "Value"
+                    "Activity",
+                    "Duration",
+                    "Predecessor"
                 ],
                 "rows": [
                     [
-                        "Given quantity",
-                        "4 m"
+                        "A",
+                        "3 days",
+                        "—"
                     ],
                     [
-                        "Reference quantity",
-                        "3 m"
+                        "B",
+                        "4 days",
+                        "A"
+                    ],
+                    [
+                        "C",
+                        "5 days",
+                        "A"
+                    ],
+                    [
+                        "D",
+                        "2 days",
+                        "B"
+                    ],
+                    [
+                        "E",
+                        "3 days",
+                        "C"
                     ]
                 ]
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true
     },
     {
         "id": 1199,
@@ -37227,7 +37330,8 @@
             "subject_id": "civil-engineering-applied-mathematics",
             "domain_id": "ce-applied",
             "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37241,18 +37345,31 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "If a future amount is discounted, its present value is generally:",
+        "difficulty": "medium",
+        "question": "An upgrade costs PHP100,000 and returns PHP30,000 each year for four years. At 10%, use P\/A=3.170. What is NPV?",
         "choices": [
-            "less than the undiscounted amount",
-            "greater in every case",
-            "unrelated to rate",
-            "negative automatically"
+            "−PHP100,000",
+            "PHP4,900",
+            "PHP95,100",
+            "−PHP4,900"
         ],
-        "answer": "less than the undiscounted amount",
-        "explanation": "Positive discounting reduces a future amount’s present equivalent.",
+        "answer": "−PHP4,900",
+        "explanation": "Present worth=30,000(3.170)=95,100; NPV=95,100−100,000=−4,900.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": []
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "Present worth=30,000(3.170)=95,100; NPV=95,100−100,000=−4,900."
+            }
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1200,
@@ -37261,7 +37378,8 @@
             "subject_id": "civil-engineering-applied-mathematics",
             "domain_id": "ce-applied",
             "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37275,24 +37393,31 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A construction method statement should explain:",
+        "difficulty": "medium",
+        "question": "A road base is 240 m long, 6 m wide, and 0.20 m thick. Allow 8% waste. What volume should be ordered?",
         "choices": [
-            "how work will be performed safely and sequentially",
-            "only the invoice number",
-            "the final paint color",
-            "a soil name"
+            "311.0 m3",
+            "288.0 m3",
+            "311.0 m2",
+            "259.2 m3"
         ],
-        "answer": "how work will be performed safely and sequentially",
-        "explanation": "It communicates method, sequence, resources, and controls.",
+        "answer": "311.0 m3",
+        "explanation": "Base=240(6)(.20)=288 m3; order=288(1.08)=311.04 m3.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "M = F × d",
-                "fallback": "M = F × d with consistent engineering units"
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "Base=240(6)(.20)=288 m3; order=288(1.08)=311.04 m3."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1201,
@@ -37301,7 +37426,8 @@
             "subject_id": "civil-engineering-applied-mathematics",
             "domain_id": "ce-applied",
             "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37315,36 +37441,31 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A material delivery inspection should compare received goods with:",
+        "difficulty": "hard",
+        "question": "Two construction alternatives have equivalent annual cost factors. Which is cheaper?",
         "choices": [
-            "specification, quantity, and condition",
-            "a social-media post",
-            "the project logo",
-            "a different project"
+            "Alternative A",
+            "Alternative B",
+            "Same EAC",
+            "Cannot compare"
         ],
-        "answer": "specification, quantity, and condition",
-        "explanation": "Inspection verifies compliance and condition at receipt.",
+        "answer": "Alternative B",
+        "explanation": "A=500,000(.15)+60,000=135,000; B=650,000(.15)+35,000=132,500\/year.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "A=500,000(.15)+60,000=135,000; B=650,000(.15)+35,000=132,500\/year."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": true
     },
     {
         "id": 1202,
@@ -37353,7 +37474,8 @@
             "subject_id": "civil-engineering-applied-mathematics",
             "domain_id": "ce-applied",
             "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37367,18 +37489,31 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A slump test primarily indicates concrete:",
+        "difficulty": "medium",
+        "question": "A road carries 1,800 vehicles\/hour at 60 km\/h. Assuming q=kv, what is density?",
         "choices": [
-            "workability consistency",
-            "compressive strength directly",
-            "steel area",
-            "soil bearing"
+            "0.03 vehicles\/km",
+            "30 vehicles\/h",
+            "30 vehicles\/km",
+            "108,000 vehicles\/km"
         ],
-        "answer": "workability consistency",
-        "explanation": "Slump is a field indicator of fresh concrete workability.",
+        "answer": "30 vehicles\/km",
+        "explanation": "k=q\/v=1,800\/60=30 vehicles\/km.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": []
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "k=q\/v=1,800\/60=30 vehicles\/km."
+            }
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1203,
@@ -37387,7 +37522,8 @@
             "subject_id": "civil-engineering-applied-mathematics",
             "domain_id": "ce-applied",
             "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37402,23 +37538,30 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "A site layout control line provides:",
+        "question": "Why is field density testing important after compacting a pavement subgrade?",
         "choices": [
-            "a reference for positioning work",
-            "a water-treatment dose",
-            "a traffic count",
-            "a beam moment"
+            "It replaces all laboratory testing",
+            "It measures rainfall infiltration",
+            "It determines concrete setting time",
+            "It verifies achieved compaction meets the requirement"
         ],
-        "answer": "a reference for positioning work",
-        "explanation": "Control lines guide accurate construction placement.",
+        "answer": "It verifies achieved compaction meets the requirement",
+        "explanation": "It compares in-place density with the specified requirement for stiffness and settlement control.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "P = ρgh",
-                "fallback": "P = ρgh with consistent engineering units"
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "It compares in-place density with the specified requirement for stiffness and settlement control."
             }
-        ]
+        ],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "understand",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1204,
@@ -37427,7 +37570,8 @@
             "subject_id": "civil-engineering-applied-mathematics",
             "domain_id": "ce-applied",
             "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37441,36 +37585,31 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A change order should be evaluated for its effect on:",
+        "difficulty": "easy",
+        "question": "Before approving a construction method statement, which content best controls execution risk?",
         "choices": [
-            "scope, cost, time, and quality",
-            "only handwriting",
-            "the survey compass brand",
-            "soil color"
+            "Planned sequence, resources, inspection points, and safety controls",
+            "Only supplier brands",
+            "Number of pages",
+            "Aesthetic preferences"
         ],
-        "answer": "scope, cost, time, and quality",
-        "explanation": "Changes can affect the project’s principal constraints.",
+        "answer": "Planned sequence, resources, inspection points, and safety controls",
+        "explanation": "The statement connects sequence, resources, hold points, and hazards.",
         "subject": "civil-engineering-applied-mathematics",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "The statement connects sequence, resources, hold points, and hazards."
             }
-        ]
+        ],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1205,
@@ -37479,7 +37618,8 @@
             "subject_id": "civil-engineering-applied-mathematics",
             "domain_id": "ce-applied",
             "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "concept_id": "applied-foundations",
+            "subject": "civil-engineering-applied-mathematics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37493,27 +37633,41 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A quality-control record is valuable because it:",
+        "difficulty": "medium",
+        "question": "A change order increases excavation from 120 m3 to 145 m3 at PHP2,500\/m3. What direct adjustment applies?",
         "choices": [
-            "documents inspection and corrective action",
-            "replaces all testing",
-            "hides deviations",
-            "sets traffic signals"
+            "PHP362,500 increase",
+            "PHP62,500 increase",
+            "PHP300,000 decrease",
+            "No adjustment"
         ],
-        "answer": "documents inspection and corrective action",
-        "explanation": "Records provide traceability for quality decisions.",
+        "answer": "PHP62,500 increase",
+        "explanation": "Increase=25 m3; 25(2,500)=PHP62,500.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": []
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "Increase=25 m3; 25(2,500)=PHP62,500."
+            }
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": true
     },
     {
         "id": 1206,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-applied-mathematics",
-            "domain_id": "ce-applied",
-            "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37527,33 +37681,41 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "When a drawing conflicts with field conditions, the engineer should first:",
+        "difficulty": "hard",
+        "question": "A welded force is offset from the weld-group centroid. Which additional effect must be included?",
         "choices": [
-            "document and clarify the discrepancy",
-            "guess and build immediately",
-            "erase the drawing",
-            "continue without notice"
+            "Reduction of force to zero",
+            "Only temperature change",
+            "A moment caused by eccentricity",
+            "Soil consolidation pressure"
         ],
-        "answer": "document and clarify the discrepancy",
-        "explanation": "Clarification prevents uncontrolled construction assumptions.",
-        "subject": "civil-engineering-applied-mathematics",
+        "answer": "A moment caused by eccentricity",
+        "explanation": "The offset force produces M=Pe in addition to direct force.",
+        "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "Q = A × v",
-                "fallback": "Q = A × v with consistent engineering units"
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "The offset force produces M=Pe in addition to direct force."
             }
-        ]
+        ],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1207,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-applied-mathematics",
-            "domain_id": "ce-applied",
-            "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37567,45 +37729,41 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A transition curve is used to:",
+        "difficulty": "hard",
+        "question": "A pin-ended steel column has E=200 GPa, I=8.0×10^-6 m4, and L=3.0 m. Using Pcr=π2EI\/L2, what load is predicted?",
         "choices": [
-            "introduce curvature gradually",
-            "eliminate all drainage",
-            "increase sudden lateral acceleration",
-            "measure concrete age"
+            "17.54 kN",
+            "584.7 kN",
+            "5,262 kN",
+            "1,754 kN"
         ],
-        "answer": "introduce curvature gradually",
-        "explanation": "Gradual curvature improves vehicle comfort and control.",
-        "subject": "civil-engineering-applied-mathematics",
+        "answer": "1,754 kN",
+        "explanation": "π2(200×10^9)(8×10^-6)\/3^2=1.754×10^6 N=1,754 kN.",
+        "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
-                "type": "chart",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "π2(200×10^9)(8×10^-6)\/3^2=1.754×10^6 N=1,754 kN."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1208,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-applied-mathematics",
-            "domain_id": "ce-applied",
-            "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37620,26 +37778,40 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "A road drainage inlet is intended to:",
+        "question": "A steel web has shear area 1,800 mm2 and Fy=250 MPa. Using V=0.6FyAw, what resistance results?",
         "choices": [
-            "collect surface runoff",
-            "increase pavement pore pressure",
-            "store survey stakes",
-            "support a beam"
+            "270 kN",
+            "450 kN",
+            "2.70 kN",
+            "270 MPa"
         ],
-        "answer": "collect surface runoff",
-        "explanation": "Inlets intercept runoff and protect the roadway.",
-        "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": []
+        "answer": "270 kN",
+        "explanation": "0.6(250)(1,800)=270,000 N=270 kN.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "0.6(250)(1,800)=270,000 N=270 kN."
+            }
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1209,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-applied-mathematics",
-            "domain_id": "ce-applied",
-            "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37653,33 +37825,41 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "The unit weight of a material is weight per:",
+        "difficulty": "hard",
+        "question": "A connection transfers 40 kN shear and 12 kN tension. What resultant must it resist if orthogonal?",
         "choices": [
-            "unit volume",
-            "unit mass only",
-            "unit time",
-            "unit angle"
+            "52.0 kN",
+            "41.8 kN",
+            "28.0 kN",
+            "480 kN"
         ],
-        "answer": "unit volume",
-        "explanation": "Unit weight is force divided by volume.",
-        "subject": "civil-engineering-applied-mathematics",
+        "answer": "41.8 kN",
+        "explanation": "R=sqrt(40^2+12^2)=41.76 kN=41.8 kN; direct addition is incorrect.",
+        "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "A = b × h",
-                "fallback": "A = b × h with consistent engineering units"
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "R=sqrt(40^2+12^2)=41.76 kN=41.8 kN; direct addition is incorrect."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": true
     },
     {
         "id": 1210,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-applied-mathematics",
-            "domain_id": "ce-applied",
-            "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37693,45 +37873,41 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "easy",
-        "question": "A dimensional check on an area calculation should produce:",
+        "difficulty": "medium",
+        "question": "For a bar fy=420 MPa, diameter 20 mm, bond stress 2.5 MPa, use ld=fy db\/(4τbd). What length is required?",
         "choices": [
-            "square units",
-            "linear units only",
-            "cubic units always",
-            "no units"
+            "8,400 mm",
+            "210 mm",
+            "840 mm",
+            "42 mm"
         ],
-        "answer": "square units",
-        "explanation": "Area has dimensions of length squared.",
-        "subject": "civil-engineering-applied-mathematics",
+        "answer": "840 mm",
+        "explanation": "ld=(420)(20)\/(4)(2.5)=840 mm; stress units cancel, leaving length.",
+        "subject": "civil-engineering-structural-engineering",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "ld=(420)(20)\/(4)(2.5)=840 mm; stress units cancel, leaving length."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
     },
     {
         "id": 1211,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-applied-mathematics",
-            "domain_id": "ce-applied",
-            "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "subject_id": "civil-engineering-structural-engineering",
+            "domain_id": "ce-structural",
+            "topic_id": "structural-mechanics",
+            "concept_id": "structural-foundations",
+            "subject": "civil-engineering-structural-engineering"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37746,26 +37922,40 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "For a rectangular slab 4 m by 3 m, area is:",
+        "question": "For repeated seismic reversals, which material behavior is most valuable?",
         "choices": [
-            "12 m²",
-            "7 m",
-            "14 m³",
-            "1 m²"
+            "Strength independent of detailing",
+            "Abrupt brittle fracture",
+            "Zero deformation",
+            "Ductile yielding with stable energy dissipation"
         ],
-        "answer": "12 m²",
-        "explanation": "Area is length times width.",
-        "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": []
+        "answer": "Ductile yielding with stable energy dissipation",
+        "explanation": "Ductility permits controlled inelastic deformation and energy dissipation before collapse.",
+        "subject": "civil-engineering-structural-engineering",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "Ductility permits controlled inelastic deformation and energy dissipation before collapse."
+            }
+        ],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "understand",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1212,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-applied-mathematics",
-            "domain_id": "ce-applied",
-            "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37779,33 +37969,41 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A field notebook should record observations with:",
+        "difficulty": "hard",
+        "question": "A pump delivers 0.080 m3\/s through 18 m head at 75% efficiency. Use P=ρgQH\/η, ρ=1000, g=9.81. What power is required?",
         "choices": [
-            "location, time, units, and conditions",
-            "memory alone",
-            "unlabeled numbers",
-            "only a final opinion"
+            "18.8 kW",
+            "14.1 kW",
+            "25.1 kW",
+            "1.88 kW"
         ],
-        "answer": "location, time, units, and conditions",
-        "explanation": "Traceable field notes support later verification.",
-        "subject": "civil-engineering-applied-mathematics",
+        "answer": "18.8 kW",
+        "explanation": "Hydraulic power=14.13 kW; divide by .75 gives shaft power 18.84 kW.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "i = Δh \/ L",
-                "fallback": "i = Δh \/ L with consistent engineering units"
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "Hydraulic power=14.13 kW; divide by .75 gives shaft power 18.84 kW."
             }
-        ]
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": true
     },
     {
         "id": 1213,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-applied-mathematics",
-            "domain_id": "ce-applied",
-            "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37820,44 +38018,41 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "A survey adjustment distributes closure error to:",
+        "question": "The hydraulic-grade-line profile shown gives levels at three pipe sections. At which section is pressure head lowest relative to the centerline?",
         "choices": [
-            "produce a consistent network under stated assumptions",
-            "change elevations randomly",
-            "remove all observations",
-            "replace the datum"
+            "Section A",
+            "Section C",
+            "Section B",
+            "All sections equal"
         ],
-        "answer": "produce a consistent network under stated assumptions",
-        "explanation": "Adjustment applies a defined error-distribution method.",
-        "subject": "civil-engineering-applied-mathematics",
+        "answer": "Section C",
+        "explanation": "Pressure head is HGL elevation minus centerline elevation; the smallest difference is at C.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
+                "type": "figure",
+                "asset": "assets\/ce\/hydraulic-grade-line.svg",
+                "alt": "Pipe profile with centerline and hydraulic-grade line at Sections A, B, and C",
+                "caption": "Hydraulic grade line profile"
             }
-        ]
+        ],
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1214,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-applied-mathematics",
-            "domain_id": "ce-applied",
-            "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37872,26 +38067,152 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "medium",
-        "question": "A project risk register should pair each risk with:",
+        "question": "A sieve analysis gives particle sizes below. What uniformity coefficient Cu=D60\/D10 is indicated?",
         "choices": [
-            "likelihood, consequence, and response",
-            "a color only",
-            "an unrelated quantity",
-            "no owner"
+            "0.17",
+            "1.0",
+            "6.0",
+            "60.0"
         ],
-        "answer": "likelihood, consequence, and response",
-        "explanation": "Risk management needs assessment and response ownership.",
-        "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": []
+        "answer": "6.0",
+        "explanation": "D10=.20 mm and D60=1.20 mm; Cu=1.20\/.20=6.0.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Percent finer",
+                    "Particle size"
+                ],
+                "rows": [
+                    [
+                        "10%",
+                        "0.20 mm"
+                    ],
+                    [
+                        "30%",
+                        "0.45 mm"
+                    ],
+                    [
+                        "60%",
+                        "1.20 mm"
+                    ]
+                ]
+            }
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1215,
         "taxonomy": {
             "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-applied-mathematics",
-            "domain_id": "ce-applied",
-            "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "hard",
+        "question": "A 4 m clay layer has e0=.80 and void-ratio decrease .12. Using S=HΔe\/(1+e0), what settlement is predicted?",
+        "choices": [
+            "0.480 m",
+            "0.030 m",
+            "3.84 m",
+            "0.267 m"
+        ],
+        "answer": "0.267 m",
+        "explanation": "Strain=.12\/1.80=.0667; settlement=4(.0667)=.267 m.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "Strain=.12\/1.80=.0667; settlement=4(.0667)=.267 m."
+            }
+        ],
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "apply",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": true
+    },
+    {
+        "id": 1216,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
+        },
+        "board": "civil-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-01T15:07:04+00:00",
+        "updatedAt": "2026-09-01T15:07:04+00:00",
+        "difficulty": "medium",
+        "question": "A footing has ultimate capacity 600 kN and FS=3; service load is 180 kN. What conclusion follows?",
+        "choices": [
+            "Allowable 200 kN, so service load passes",
+            "Allowable 1,800 kN, so settlement is impossible",
+            "Allowable 200 kN, so footing fails",
+            "No allowable capacity can be calculated"
+        ],
+        "answer": "Allowable 200 kN, so service load passes",
+        "explanation": "Allowable=600\/3=200 kN; 180 passes this bearing check, while settlement is separate.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the stated engineering relationship.",
+                "fallback": "Allowable=600\/3=200 kN; 180 passes this bearing check, while settlement is separate."
+            }
+        ],
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1217,
+        "taxonomy": {
+            "board_id": "civil-engineering",
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics",
+            "domain_id": "ce-hydraulics-geotech",
+            "topic_id": "hydraulics-geotechnical",
+            "concept_id": "hydro-geotech-foundations",
+            "subject": "civil-engineering-geotechnical-and-hydraulics"
         },
         "board": "civil-engineering",
         "status": "active",
@@ -37906,109 +38227,30 @@
         "createdAt": "2026-09-01T15:07:04+00:00",
         "updatedAt": "2026-09-01T15:07:04+00:00",
         "difficulty": "easy",
-        "question": "Construction sequencing is improved when dependencies are:",
+        "question": "Why is a drainage blanket provided where excess pore pressure is a concern?",
         "choices": [
-            "identified before scheduling",
-            "ignored until completion",
-            "replaced by slogans",
-            "kept undocumented"
+            "It seals soil against all water",
+            "It provides a preferential drainage path and reduces pore pressure",
+            "It intentionally increases pore pressure",
+            "It eliminates stability analysis"
         ],
-        "answer": "identified before scheduling",
-        "explanation": "Dependencies determine feasible activity order.",
-        "subject": "civil-engineering-applied-mathematics",
+        "answer": "It provides a preferential drainage path and reduces pore pressure",
+        "explanation": "Improved drainage reduces excess pore pressure and increases effective stress; it does not replace stability analysis.",
+        "subject": "civil-engineering-geotechnical-and-hydraulics",
         "content_blocks": [
             {
                 "type": "equation",
-                "value": "σ = P \/ A",
-                "fallback": "σ = P \/ A with consistent engineering units"
+                "value": "Drainage reduces excess pore pressure",
+                "fallback": "Improved drainage reduces excess pore pressure and increases effective stress."
             }
-        ]
-    },
-    {
-        "id": 1216,
-        "taxonomy": {
-            "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-applied-mathematics",
-            "domain_id": "ce-applied",
-            "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
-        },
-        "board": "civil-engineering",
-        "status": "active",
-        "source": "BoardPrep-authored",
-        "timesUsed": 0,
-        "timesCorrect": 0,
-        "timesIncorrect": 0,
-        "bookmarks": 0,
-        "reports": 0,
-        "helpfulExplanation": 0,
-        "notHelpfulExplanation": 0,
-        "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A transportation alternative should be compared using:",
-        "choices": [
-            "performance criteria and stakeholder constraints",
-            "one preferred answer only",
-            "no baseline",
-            "paint durability only"
         ],
-        "answer": "performance criteria and stakeholder constraints",
-        "explanation": "Alternatives need consistent criteria and constraints.",
-        "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Parameter",
-                    "Value"
-                ],
-                "rows": [
-                    [
-                        "Given quantity",
-                        "4 m"
-                    ],
-                    [
-                        "Reference quantity",
-                        "3 m"
-                    ]
-                ]
-            }
-        ]
-    },
-    {
-        "id": 1217,
-        "taxonomy": {
-            "board_id": "civil-engineering",
-            "subject_id": "civil-engineering-applied-mathematics",
-            "domain_id": "ce-applied",
-            "topic_id": "applied-engineering",
-            "concept_id": "applied-foundations"
-        },
-        "board": "civil-engineering",
-        "status": "active",
-        "source": "BoardPrep-authored",
-        "timesUsed": 0,
-        "timesCorrect": 0,
-        "timesIncorrect": 0,
-        "bookmarks": 0,
-        "reports": 0,
-        "helpfulExplanation": 0,
-        "notHelpfulExplanation": 0,
-        "createdAt": "2026-09-01T15:07:04+00:00",
-        "updatedAt": "2026-09-01T15:07:04+00:00",
-        "difficulty": "medium",
-        "question": "A material’s thermal expansion matters when:",
-        "choices": [
-            "temperature change is restrained",
-            "the material has no dimensions",
-            "only rainfall changes",
-            "survey north shifts"
-        ],
-        "answer": "temperature change is restrained",
-        "explanation": "Restraint can convert expansion into stress.",
-        "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": []
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "understand",
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
     },
     {
         "id": 1218,
