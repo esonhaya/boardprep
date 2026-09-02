@@ -35156,13 +35156,7 @@
         "answer": "carries tensile force",
         "explanation": "Reinforcing steel supplements concrete’s limited tensile capacity.",
         "subject": "civil-engineering-structural-engineering",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1155,
@@ -35288,13 +35282,7 @@
         "answer": "distribute connection forces",
         "explanation": "Gussets provide the force-transfer interface at the joint.",
         "subject": "civil-engineering-structural-engineering",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1158,
@@ -35420,13 +35408,7 @@
         "answer": "the corresponding demand",
         "explanation": "Safety compares resistance or capacity with applied demand.",
         "subject": "civil-engineering-structural-engineering",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1161,
@@ -35552,13 +35534,7 @@
         "answer": "deformation per unit length",
         "explanation": "Strain gauges sense deformation and require interpretation\/calibration.",
         "subject": "civil-engineering-structural-engineering",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1164,
@@ -35684,13 +35660,7 @@
         "answer": "a notch or abrupt geometry change",
         "explanation": "Abrupt geometry changes intensify local stress.",
         "subject": "civil-engineering-structural-engineering",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1167,
@@ -35816,13 +35786,7 @@
         "answer": "the foundation and ground",
         "explanation": "A safe structure transfers actions continuously to the ground.",
         "subject": "civil-engineering-structural-engineering",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1170,
@@ -35948,13 +35912,7 @@
         "answer": "lateral-torsional buckling",
         "explanation": "Lateral restraint improves stability of bending members.",
         "subject": "civil-engineering-structural-engineering",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1173,
@@ -36080,13 +36038,7 @@
         "answer": "brittle failure before yielding",
         "explanation": "Ductile detailing seeks warning and redistribution before brittle failure.",
         "subject": "civil-engineering-structural-engineering",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1176,
@@ -36215,14 +36167,7 @@
         "answer": "180 m",
         "explanation": "7.2 cm × 2500 = 18,000 cm = 180 m.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "BoardPrep engineering diagram supporting the calculation",
-                "value": "ground = map × scale"
-            }
-        ],
+        "content_blocks": [],
         "numeric": true,
         "multistep": true
     },
@@ -36355,14 +36300,7 @@
         "answer": "72 m³",
         "explanation": "Volume = 12×4×1.5 = 72 m³.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "BoardPrep engineering diagram supporting the calculation",
-                "value": "V = LWH"
-            }
-        ],
+        "content_blocks": [],
         "numeric": true,
         "multistep": true
     },
@@ -36495,14 +36433,7 @@
         "answer": "PHP 896,000",
         "explanation": "Overhead is 0.12×800,000=96,000; total is PHP896,000.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "BoardPrep engineering diagram supporting the calculation",
-                "value": "total = direct(1 + 0.12)"
-            }
-        ],
+        "content_blocks": [],
         "numeric": true,
         "multistep": true
     },
@@ -36635,14 +36566,7 @@
         "answer": "500 vehicles\/h",
         "explanation": "(420+510+570)\/3 = 1,500\/3 = 500 vehicles\/h.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "BoardPrep engineering diagram supporting the calculation",
-                "value": "mean = Σx\/n"
-            }
-        ],
+        "content_blocks": [],
         "numeric": true,
         "multistep": true
     },
@@ -36775,14 +36699,7 @@
         "answer": "72 m³",
         "explanation": "Volume = 80×6×0.15 = 72 m³.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "BoardPrep engineering diagram supporting the calculation",
-                "value": "V = LWH"
-            }
-        ],
+        "content_blocks": [],
         "numeric": true,
         "multistep": true
     },
@@ -36915,13 +36832,7 @@
         "answer": "unit time",
         "explanation": "Flow is a rate of vehicle passage over time.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1194,
@@ -37047,13 +36958,7 @@
         "answer": "load transfer, drainage, and durability",
         "explanation": "Pavement performance depends on structural and environmental functions.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1197,
@@ -37179,13 +37084,7 @@
         "answer": "less than the undiscounted amount",
         "explanation": "Positive discounting reduces a future amount’s present equivalent.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1200,
@@ -37311,13 +37210,7 @@
         "answer": "workability consistency",
         "explanation": "Slump is a field indicator of fresh concrete workability.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1203,
@@ -37443,13 +37336,7 @@
         "answer": "documents inspection and corrective action",
         "explanation": "Records provide traceability for quality decisions.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1206,
@@ -37575,13 +37462,7 @@
         "answer": "collect surface runoff",
         "explanation": "Inlets intercept runoff and protect the roadway.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1209,
@@ -37707,13 +37588,7 @@
         "answer": "12 m²",
         "explanation": "Area is length times width.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1212,
@@ -37839,13 +37714,7 @@
         "answer": "likelihood, consequence, and response",
         "explanation": "Risk management needs assessment and response ownership.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1215,
@@ -37971,13 +37840,7 @@
         "answer": "temperature change is restrained",
         "explanation": "Restraint can convert expansion into stress.",
         "subject": "civil-engineering-applied-mathematics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1218,
@@ -38066,14 +37929,7 @@
         "answer": "29.43 kPa",
         "explanation": "Hydrostatic pressure γh = 9.81×3 = 29.43 kPa.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "BoardPrep engineering diagram supporting the calculation",
-                "value": "p = γh"
-            }
-        ],
+        "content_blocks": [],
         "numeric": true,
         "multistep": false
     },
@@ -38206,14 +38062,7 @@
         "answer": "5 m\/s",
         "explanation": "Continuity gives v=Q\/A=0.6\/0.12=5 m\/s.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "BoardPrep engineering diagram supporting the calculation",
-                "value": "Q = Av"
-            }
-        ],
+        "content_blocks": [],
         "numeric": true,
         "multistep": false
     },
@@ -38346,14 +38195,7 @@
         "answer": "20 m",
         "explanation": "Total head is the sum: 12+3+5=20 m.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "BoardPrep engineering diagram supporting the calculation",
-                "value": "H = hp + hv + z"
-            }
-        ],
+        "content_blocks": [],
         "numeric": true,
         "multistep": true
     },
@@ -38486,14 +38328,7 @@
         "answer": "15 kN\/m³",
         "explanation": "Unit weight=weight\/volume=18\/1.2=15 kN\/m³.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "BoardPrep engineering diagram supporting the calculation",
-                "value": "γ = W\/V"
-            }
-        ],
+        "content_blocks": [],
         "numeric": true,
         "multistep": false
     },
@@ -38626,14 +38461,7 @@
         "answer": "150 kPa",
         "explanation": "Pressure=load\/area=600\/4=150 kPa.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "BoardPrep engineering diagram supporting the calculation",
-                "value": "q = P\/A"
-            }
-        ],
+        "content_blocks": [],
         "numeric": true,
         "multistep": false
     },
@@ -38766,14 +38594,7 @@
         "answer": "0.20",
         "explanation": "Gradient=Δh\/L=6\/30=0.20.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "BoardPrep engineering diagram supporting the calculation",
-                "value": "i = Δh\/L"
-            }
-        ],
+        "content_blocks": [],
         "numeric": true,
         "multistep": false
     },
@@ -38906,14 +38727,7 @@
         "answer": "50 kPa",
         "explanation": "Mohr-Coulomb form gives τ=c plus friction term: 20+30=50 kPa.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "BoardPrep engineering diagram supporting the calculation",
-                "value": "τ = c + friction term"
-            }
-        ],
+        "content_blocks": [],
         "numeric": true,
         "multistep": true
     },
@@ -38949,13 +38763,7 @@
         "answer": "engineering behavior and material identity",
         "explanation": "Classification organizes soils for engineering interpretation.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1239,
@@ -39081,13 +38889,7 @@
         "answer": "foundation load without unacceptable failure",
         "explanation": "Foundation bearing capacity concerns support and failure.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1242,
@@ -39213,13 +39015,7 @@
         "answer": "water pressure",
         "explanation": "Drainage relieves hydrostatic pressure behind the wall.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1245,
@@ -39345,13 +39141,7 @@
         "answer": "sealed promptly to preserve water content",
         "explanation": "Sealing prevents evaporation before weighing.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1248,
@@ -39477,13 +39267,7 @@
         "answer": "permeability",
         "explanation": "Confining layers restrict vertical groundwater movement.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1251,
@@ -39609,13 +39393,7 @@
         "answer": "controlled turbulence and dissipation",
         "explanation": "Hydraulic structures dissipate excess energy in a controlled zone.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1254,
@@ -39741,13 +39519,7 @@
         "answer": "wetted perimeter",
         "explanation": "That ratio is the hydraulic radius definition.",
         "subject": "civil-engineering-geotechnical-and-hydraulics",
-        "content_blocks": [
-            {
-                "type": "figure",
-                "asset": "assets\/ce\/beam-loading.svg",
-                "alt": "A BoardPrep-authored engineering loading diagram showing a beam, supports, and a downward load"
-            }
-        ]
+        "content_blocks": []
     },
     {
         "id": 1257,
@@ -49470,7 +49242,7 @@
             "200 N"
         ],
         "answer": "2,000 N",
-        "explanation": "Tangential force is F_t = T/r = 300/0.150 = 2,000 N. Using diameter instead of radius gives 1,000 N, which is not listed.",
+        "explanation": "Tangential force is F_t = T\/r = 300\/0.150 = 2,000 N. Using diameter instead of radius gives 1,000 N, which is not listed.",
         "subject": "Mechanical Engineering Mechanical Engineering Professional Subjects",
         "numeric": true,
         "multistep": false,
