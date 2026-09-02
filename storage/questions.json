@@ -52187,5 +52187,1232 @@
         "subject": "nursing-foundations",
         "content_blocks": [],
         "cognitive_intent": "apply"
+    },
+    {
+        "id": 1529,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iv-medication"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "The medication administration record shows a scheduled antibiotic was not given and the next dose is due soon. What should the nurse do first?",
+        "choices": [
+            "Assess the reason and client status, then verify the order and notify the prescriber or pharmacist as required",
+            "Double the next dose to replace the missed dose",
+            "Document the dose as given to keep the record complete",
+            "Ask the client to decide whether the missed dose matters"
+        ],
+        "answer": "Assess the reason and client status, then verify the order and notify the prescriber or pharmacist as required",
+        "explanation": "A missed medication requires assessment and order-specific follow-up before any replacement dose. Doubling or falsifying the record can cause harm.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Time",
+                    "Medication record"
+                ],
+                "rows": [
+                    [
+                        "08:00",
+                        "antibiotic ordered; not documented as administered"
+                    ],
+                    [
+                        "12:00",
+                        "next scheduled dose"
+                    ],
+                    [
+                        "11:30",
+                        "client reports new nausea"
+                    ]
+                ]
+            }
+        ],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1530,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-immunity"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "The laboratory trend is reviewed for a client receiving chemotherapy. Which finding requires the most urgent protective response?",
+        "choices": [
+            "Hemoglobin changing from 104 to 101 g\/L without symptoms",
+            "Absolute neutrophil count falling to 0.7 ×10⁹\/L with a new temperature of 38.1°C",
+            "Platelets changing from 180 to 170 ×10⁹\/L",
+            "Albumin changing from 38 to 36 g\/L"
+        ],
+        "answer": "Absolute neutrophil count falling to 0.7 ×10⁹\/L with a new temperature of 38.1°C",
+        "explanation": "Severe neutropenia combined with fever creates an urgent infection risk and requires immediate assessment and escalation. The other trends do not carry the same immediate threat.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Time",
+                    "ANC (×10⁹\/L)",
+                    "Temperature"
+                ],
+                "rows": [
+                    [
+                        "Day 1",
+                        "1.8",
+                        "37.0°C"
+                    ],
+                    [
+                        "Day 3",
+                        "1.1",
+                        "37.4°C"
+                    ],
+                    [
+                        "Day 5",
+                        "0.7",
+                        "38.1°C"
+                    ]
+                ]
+            }
+        ],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1531,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-oxygenation"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A client’s neurologic observations are recorded after a head injury. Which pattern should prompt immediate escalation?",
+        "choices": [
+            "Stable orientation with a headache rated 3\/10",
+            "Pulse decreasing from 88 to 82\/min with warm skin",
+            "A new drop in level of consciousness with unequal pupils",
+            "One unchanged bruise at the IV site"
+        ],
+        "answer": "A new drop in level of consciousness with unequal pupils",
+        "explanation": "A deteriorating level of consciousness and unequal pupils suggest worsening neurologic status and possible rising intracranial pressure. This requires immediate escalation, not routine observation.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Time",
+                    "Level of consciousness",
+                    "Pupils"
+                ],
+                "rows": [
+                    [
+                        "10:00",
+                        "oriented",
+                        "equal\/reactive"
+                    ],
+                    [
+                        "12:00",
+                        "drowsy",
+                        "equal\/reactive"
+                    ],
+                    [
+                        "14:00",
+                        "responds to voice",
+                        "unequal"
+                    ]
+                ]
+            }
+        ],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1532,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-maternal-child",
+            "topic_id": "nle-maternal-child",
+            "concept_id": "nle-np-ii-postpartum"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A postpartum client’s observations are shown. Which interpretation is most concerning?",
+        "choices": [
+            "A falling pulse with decreasing lochia indicates expected recovery",
+            "The temperature trend rules out any uterine complication",
+            "Mild fatigue alone confirms severe blood loss",
+            "Fever, uterine tenderness, and foul-smelling lochia suggest a postpartum infection requiring prompt evaluation"
+        ],
+        "answer": "Fever, uterine tenderness, and foul-smelling lochia suggest a postpartum infection requiring prompt evaluation",
+        "explanation": "The combined trend of fever, uterine tenderness, and malodorous lochia is concerning for postpartum infection and requires prompt assessment. It is not explained by normal fatigue or a blood-loss pattern.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Time",
+                    "Temperature",
+                    "Uterine finding",
+                    "Lochia"
+                ],
+                "rows": [
+                    [
+                        "08:00",
+                        "37.2°C",
+                        "firm, nontender",
+                        "normal"
+                    ],
+                    [
+                        "10:00",
+                        "38.0°C",
+                        "tender",
+                        "increased"
+                    ],
+                    [
+                        "12:00",
+                        "38.6°C",
+                        "tender",
+                        "foul-smelling"
+                    ]
+                ]
+            }
+        ],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1533,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-community-health",
+            "topic_id": "nle-community-health",
+            "concept_id": "nle-np-i-prevention"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A community vaccination team reviews the coverage data below. Which area should receive the first outreach priority?",
+        "choices": [
+            "Area B, because its low coverage is concentrated among infants despite adequate adult coverage",
+            "Area A, because its adult coverage is highest",
+            "Area C, because its total population is largest regardless of coverage",
+            "All areas are equivalent because the overall mean is similar"
+        ],
+        "answer": "Area B, because its low coverage is concentrated among infants despite adequate adult coverage",
+        "explanation": "Outreach should target the subgroup with the most consequential coverage gap, not simply the largest population or overall mean. The table identifies infants in Area B as the priority.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Area",
+                    "Infant coverage",
+                    "Adult coverage"
+                ],
+                "rows": [
+                    [
+                        "A",
+                        "91%",
+                        "64%"
+                    ],
+                    [
+                        "B",
+                        "58%",
+                        "89%"
+                    ],
+                    [
+                        "C",
+                        "78%",
+                        "70%"
+                    ]
+                ]
+            }
+        ],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1534,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-fluids"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A client with renal impairment has the electrolyte trend below. Which action is safest?",
+        "choices": [
+            "Offer a high-potassium snack to correct the laboratory value",
+            "Hold the potassium-containing medication and promptly notify the prescriber while assessing cardiac status",
+            "Administer the scheduled potassium without review",
+            "Restrict all fluids solely because potassium is elevated"
+        ],
+        "answer": "Hold the potassium-containing medication and promptly notify the prescriber while assessing cardiac status",
+        "explanation": "A rising potassium level in renal impairment can create dysrhythmia risk. The nurse should pause potassium exposure, assess the client, and escalate; dietary or fluid changes require an individualized order.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Time",
+                    "Potassium",
+                    "Creatinine"
+                ],
+                "rows": [
+                    [
+                        "Yesterday",
+                        "4.8 mmol\/L",
+                        "180 µmol\/L"
+                    ],
+                    [
+                        "Today",
+                        "6.1 mmol\/L",
+                        "220 µmol\/L"
+                    ]
+                ]
+            }
+        ],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1535,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-fluids"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "An IV prescription is 1,000 mL over 8 hours using an electronic pump. What rate should the nurse program?",
+        "choices": [
+            "80 mL\/h",
+            "128 mL\/h",
+            "125 mL\/h",
+            "8,000 mL\/h"
+        ],
+        "answer": "125 mL\/h",
+        "explanation": "Rate equals volume divided by time: 1,000 mL ÷ 8 h = 125 mL\/h. The other values result from reversing or multiplying the inputs.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "apply"
+    },
+    {
+        "id": 1536,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iv-medication"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A prescribed medication dose is 0.25 mg\/kg for a client weighing 68 kg. What dose should be prepared?",
+        "choices": [
+            "2.72 mg",
+            "68.25 mg",
+            "272 mg",
+            "17 mg"
+        ],
+        "answer": "17 mg",
+        "explanation": "Multiply the ordered dose by weight: 0.25 mg\/kg × 68 kg = 17 mg. The units cancel correctly; 2.72 mg reflects an incorrect decimal operation.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "apply"
+    },
+    {
+        "id": 1537,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-maternal-child",
+            "topic_id": "nle-maternal-child",
+            "concept_id": "nle-np-ii-newborn"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A liquid medicine is prescribed at 15 mg\/kg for a child weighing 18 kg. The solution contains 75 mg\/mL. What volume is required?",
+        "choices": [
+            "3.6 mL",
+            "0.24 mL",
+            "1.2 mL",
+            "13.5 mL"
+        ],
+        "answer": "3.6 mL",
+        "explanation": "The required dose is 15×18 = 270 mg. At 75 mg\/mL, volume is 270÷75 = 3.6 mL. The dose must be calculated before converting to volume.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "apply"
+    },
+    {
+        "id": 1538,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iv-medication"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "The order is for 375 mg of a medication supplied as 250 mg\/5 mL. Which volume should the nurse draw up after the required verification?",
+        "choices": [
+            "1.5 mL",
+            "7.5 mL",
+            "5.0 mL",
+            "12.5 mL"
+        ],
+        "answer": "7.5 mL",
+        "explanation": "The concentration is 50 mg\/mL. Therefore 375 mg ÷ 50 mg\/mL = 7.5 mL. Using 375 as the volume or using 250 mg as 250 mg\/mL gives the distractors.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "apply"
+    },
+    {
+        "id": 1539,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-fluids"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A 60-kg client produces 240 mL of urine in 8 hours. What is the average urine output in mL\/kg\/h?",
+        "choices": [
+            "2 mL\/kg\/h",
+            "4 mL\/kg\/h",
+            "0.5 mL\/kg\/h",
+            "30 mL\/kg\/h"
+        ],
+        "answer": "0.5 mL\/kg\/h",
+        "explanation": "First divide volume by time: 240÷8 = 30 mL\/h. Then divide by weight: 30÷60 = 0.5 mL\/kg\/h. Both stages are required for the weight-adjusted rate.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "apply"
+    },
+    {
+        "id": 1540,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-maternal-child",
+            "topic_id": "nle-maternal-child",
+            "concept_id": "nle-np-ii-prenatal"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A pregnant client reports severe headache, visual disturbance, and right-upper-quadrant pain. Blood pressure is higher than the client’s previous readings. What is the priority response?",
+        "choices": [
+            "Reassure the client that headache is expected in pregnancy",
+            "Encourage vigorous walking to lower the pressure",
+            "Delay assessment until the next routine prenatal visit",
+            "Assess promptly, reduce stimulation, and notify the appropriate clinician for urgent evaluation"
+        ],
+        "answer": "Assess promptly, reduce stimulation, and notify the appropriate clinician for urgent evaluation",
+        "explanation": "The combined symptoms and changing blood pressure require urgent assessment for a serious hypertensive complication. Reassurance or delay could miss deterioration.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1541,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-oxygenation"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A client with diabetes has glucose 420 mg\/dL, repeated vomiting, deep rapid respirations, and positive urine ketones. What should the nurse do first?",
+        "choices": [
+            "Assess airway, breathing, circulation, and urgently escalate for suspected ketoacidosis",
+            "Give the scheduled long-acting insulin and leave the client to rest",
+            "Offer a high-carbohydrate meal without further assessment",
+            "Restrict all fluids until the glucose normalizes"
+        ],
+        "answer": "Assess airway, breathing, circulation, and urgently escalate for suspected ketoacidosis",
+        "explanation": "Marked hyperglycemia with vomiting, ketones, and deep rapid respirations suggests a metabolic emergency. ABC assessment and urgent escalation are needed; food, fluid restriction, or unsupervised insulin does not address the immediate risk.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1542,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-oxygenation"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A client receiving opioids has pH 7.28, PaCO₂ 60 mmHg, HCO₃⁻ 26 mEq\/L, increasing drowsiness, and shallow respirations. Which interpretation is best?",
+        "choices": [
+            "Metabolic alkalosis requiring an antacid",
+            "Acute respiratory acidosis with hypoventilation requiring immediate respiratory assessment and escalation",
+            "Fully compensated respiratory acidosis requiring no action",
+            "Metabolic acidosis caused by excess bicarbonate loss"
+        ],
+        "answer": "Acute respiratory acidosis with hypoventilation requiring immediate respiratory assessment and escalation",
+        "explanation": "The low pH and elevated PaCO₂ with near-normal bicarbonate indicate acute respiratory acidosis from hypoventilation. Drowsiness and shallow breathing make this an urgent airway and breathing problem.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1543,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iv-coordination"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A nursing assistant reports that a postoperative client is newly dizzy, pale, and asking to stand. Which assignment response is safest?",
+        "choices": [
+            "Ask the assistant to ambulate the client slowly to test tolerance",
+            "Ask the assistant to give an ordered analgesic independently",
+            "Tell the assistant to keep the client seated, remain with the client, and notify the nurse immediately",
+            "Tell the assistant to document the symptoms after the client walks"
+        ],
+        "answer": "Tell the assistant to keep the client seated, remain with the client, and notify the nurse immediately",
+        "explanation": "A new change in status requires licensed-nurse assessment and fall prevention. The assistant should not test ambulation or independently administer medication.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1544,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-perioperative"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "Which client should the nurse assess first at shift change?",
+        "choices": [
+            "A client requesting a fresh blanket with stable observations",
+            "A client awaiting routine discharge instructions",
+            "A client with chronic pain at the usual baseline",
+            "A client two hours after surgery with increasing abdominal distention and a falling blood pressure"
+        ],
+        "answer": "A client two hours after surgery with increasing abdominal distention and a falling blood pressure",
+        "explanation": "A new postoperative abdominal change with hypotension may represent bleeding or another acute complication. Stable comfort and discharge requests can wait.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1545,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-maternal-child",
+            "topic_id": "nle-maternal-child",
+            "concept_id": "nle-np-ii-labor"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A client receiving magnesium sulfate becomes lethargic, has respirations of 10\/min, and has absent patellar reflexes. Which action is most appropriate?",
+        "choices": [
+            "Stop the infusion, support breathing, and notify the clinician immediately for possible toxicity",
+            "Increase the infusion because lethargy is expected",
+            "Ambulate the client to stimulate the reflexes",
+            "Give an oral sedative and reassess later"
+        ],
+        "answer": "Stop the infusion, support breathing, and notify the clinician immediately for possible toxicity",
+        "explanation": "Respiratory depression and absent reflexes are warning signs of magnesium toxicity. The infusion must be stopped while breathing is supported and urgent help is obtained; increasing it is unsafe.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1546,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-maternal-child",
+            "topic_id": "nle-maternal-child",
+            "concept_id": "nle-np-ii-newborn"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A newborn is jittery, feeding poorly, and has a low bedside glucose reading. Which sequence is safest?",
+        "choices": [
+            "Delay treatment until a confirmatory result returns regardless of symptoms",
+            "Assess airway and clinical status, follow the neonatal hypoglycemia protocol, provide the indicated treatment, and recheck",
+            "Give plain water and repeat the bath later",
+            "Document the reading without assessing feeding or temperature"
+        ],
+        "answer": "Assess airway and clinical status, follow the neonatal hypoglycemia protocol, provide the indicated treatment, and recheck",
+        "explanation": "Symptoms plus a low reading require prompt assessment and protocol-based treatment with reassessment. Delaying or giving water does not address the newborn’s clinical risk.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1547,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-mental-health",
+            "topic_id": "nle-mental-health",
+            "concept_id": "nle-np-v-crisis"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A client says, “Everyone would be better off without me,” has stopped eating, and gave a friend a bag of medications. What is the priority nursing action?",
+        "choices": [
+            "Promise to keep the statement secret and leave the client alone to rest",
+            "Tell the client to focus on positive thoughts",
+            "Stay with the client, remove immediate means when safe, and initiate urgent suicide-risk assessment and support",
+            "Schedule a routine counseling appointment next month"
+        ],
+        "answer": "Stay with the client, remove immediate means when safe, and initiate urgent suicide-risk assessment and support",
+        "explanation": "The statement, behavior change, and medication transfer indicate an immediate safety concern. Continuous safety support and urgent assessment take priority over secrecy, reassurance, or delay.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1548,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-mental-health",
+            "topic_id": "nle-mental-health",
+            "concept_id": "nle-np-v-therapeutic"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A client with mania speaks rapidly, has slept two hours in three days, and begins spending money impulsively. Which response is most therapeutic?",
+        "choices": [
+            "Argue about each unrealistic statement until the client agrees",
+            "Provide a crowded group activity to use the excess energy",
+            "Allow unlimited activity because the behavior is creative",
+            "Use brief clear limits, reduce stimulation, assess safety, and offer one focused choice at a time"
+        ],
+        "answer": "Use brief clear limits, reduce stimulation, assess safety, and offer one focused choice at a time",
+        "explanation": "Mania requires a low-stimulation, structured approach with safety assessment and concise communication. Arguing, crowding, or removing all limits can increase risk.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1549,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-community-health",
+            "topic_id": "nle-community-health",
+            "concept_id": "nle-np-i-disaster"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A community assessment compares household water access and diarrhea reports. Which action should receive first priority?",
+        "choices": [
+            "Investigate and address the high-risk water source serving Area B while arranging care for symptomatic residents",
+            "Distribute the same intervention to every area without comparing exposure",
+            "Focus only on the area with the largest population",
+            "Wait until every household has a laboratory-confirmed case"
+        ],
+        "answer": "Investigate and address the high-risk water source serving Area B while arranging care for symptomatic residents",
+        "explanation": "Area B combines the lowest safe-water access with the highest diarrhea rate, making the shared water exposure the priority for investigation and intervention. A population-only approach would ignore the strongest observed association.",
+        "subject": "nursing-foundations",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Area",
+                    "Households with safe water",
+                    "Reported diarrhea cases"
+                ],
+                "rows": [
+                    [
+                        "A",
+                        "92%",
+                        "4"
+                    ],
+                    [
+                        "B",
+                        "48%",
+                        "19"
+                    ],
+                    [
+                        "C",
+                        "81%",
+                        "7"
+                    ]
+                ]
+            }
+        ],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1550,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-community-health",
+            "topic_id": "nle-community-health",
+            "concept_id": "nle-np-i-epidemiology"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A tuberculosis contact investigation finds that several household contacts have symptoms but have not completed evaluation. What is the most appropriate next step?",
+        "choices": [
+            "Publish the names of symptomatic contacts to increase compliance",
+            "Prioritize symptom screening and linkage to diagnostic evaluation while maintaining confidentiality",
+            "Close the clinic until every contact is evaluated",
+            "Count only contacts who already completed treatment"
+        ],
+        "answer": "Prioritize symptom screening and linkage to diagnostic evaluation while maintaining confidentiality",
+        "explanation": "Symptomatic contacts need timely assessment and linkage to care. Public disclosure violates confidentiality and counting only completed cases misses people needing evaluation.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1551,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-mental-health",
+            "topic_id": "nle-mental-health",
+            "concept_id": "nle-np-v-teamwork"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A competent adult refuses a recommended procedure after the nurse explains its purpose and risks. What should the nurse do next?",
+        "choices": [
+            "Threaten discharge unless the client agrees",
+            "Ask family to consent on the client’s behalf automatically",
+            "Assess understanding and decision-making, respect the refusal, document it, and notify the appropriate clinician",
+            "Proceed because the procedure is recommended"
+        ],
+        "answer": "Assess understanding and decision-making, respect the refusal, document it, and notify the appropriate clinician",
+        "explanation": "Informed refusal requires checking understanding and capacity, respecting the client’s decision, documenting it, and communicating with the care team. A recommendation does not remove autonomy.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1552,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iv-medication"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "During medication reconciliation, the home list contains two drugs with the same therapeutic purpose and the client reports taking both. What is the safest nursing action?",
+        "choices": [
+            "Delete one medication from the list based on the nurse’s preference",
+            "Tell the client to stop both medications immediately",
+            "Record both as current orders without verification",
+            "Withhold assumptions, verify the list against current orders and the client’s use, and clarify discrepancies before administration"
+        ],
+        "answer": "Withhold assumptions, verify the list against current orders and the client’s use, and clarify discrepancies before administration",
+        "explanation": "Duplicate therapy may be intentional or harmful; reconciliation requires verification with the client and prescribing team before changes. Independent deletion or stopping is unsafe.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1553,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-fluids"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A client with heart failure has increasing daily weight, new crackles, and decreasing urine output despite the prescribed diuretic. Which conclusion is most appropriate?",
+        "choices": [
+            "The combined trend suggests worsening fluid retention and requires prompt reassessment and escalation",
+            "The weight change is irrelevant if the client denies pain",
+            "The crackles prove a respiratory infection without further assessment",
+            "The urine output is expected whenever a diuretic is prescribed"
+        ],
+        "answer": "The combined trend suggests worsening fluid retention and requires prompt reassessment and escalation",
+        "explanation": "Weight gain, crackles, and falling urine output together indicate deteriorating fluid status. The nurse should assess and escalate rather than isolate one finding or assume an unrelated diagnosis.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1554,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iv-medication"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A nurse catches a wrong-dose selection before administration; the client is unharmed. What response best supports safety?",
+        "choices": [
+            "Hide the event because no harm occurred",
+            "Report the near miss through the safety process and examine how the selection error occurred",
+            "Administer the dose anyway because it was already selected",
+            "Blame the client for not checking the syringe"
+        ],
+        "answer": "Report the near miss through the safety process and examine how the selection error occurred",
+        "explanation": "Near-miss reporting supports system learning and prevention even when no harm reaches the client. Concealment prevents correction of the contributing conditions.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1555,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical",
+            "topic_id": "nle-medical-surgical",
+            "concept_id": "nle-np-iii-perioperative"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A bedbound client has nonblanching redness over the sacrum and poor oral intake. Which plan is most appropriate?",
+        "choices": [
+            "Massage the reddened area vigorously every hour",
+            "Use a donut ring and keep the client in one position",
+            "Off-load the area, establish scheduled repositioning and skin checks, and address nutrition and moisture",
+            "Wait for an open wound before starting prevention"
+        ],
+        "answer": "Off-load the area, establish scheduled repositioning and skin checks, and address nutrition and moisture",
+        "explanation": "Nonblanching redness is an early pressure injury warning. Pressure redistribution, reassessment, moisture control, and nutrition support are needed before tissue breakdown progresses.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1556,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-maternal-child",
+            "topic_id": "nle-maternal-child",
+            "concept_id": "nle-np-ii-postpartum"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A breastfeeding parent reports severe nipple pain, and the newborn makes clicking sounds with brief feeds. What should the nurse do first?",
+        "choices": [
+            "Tell the parent to stop breastfeeding permanently",
+            "Advise increasing feeding intervals without observing",
+            "Assume the pain proves an infection",
+            "Observe a feeding and assess latch and transfer before recommending a change"
+        ],
+        "answer": "Observe a feeding and assess latch and transfer before recommending a change",
+        "explanation": "Pain and clicking can reflect ineffective latch or transfer, but direct observation is needed before teaching or referral. Stopping feeding or assuming infection is premature.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1557,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-maternal-child",
+            "topic_id": "nle-maternal-child",
+            "concept_id": "nle-np-ii-development"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A toddler has repeated vomiting, dry mucous membranes, lethargy, and fewer wet diapers than usual. Which nursing priority is best?",
+        "choices": [
+            "Assess perfusion and hydration promptly, begin ordered rehydration support, and monitor response",
+            "Offer a large solid meal before assessing hydration",
+            "Restrict fluids to prevent further vomiting",
+            "Wait for the next routine appointment"
+        ],
+        "answer": "Assess perfusion and hydration promptly, begin ordered rehydration support, and monitor response",
+        "explanation": "The combined findings indicate possible significant dehydration. Perfusion and hydration assessment followed by ordered support and reassessment are urgent; delaying or restricting fluid is unsafe.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "analyze"
+    },
+    {
+        "id": 1558,
+        "taxonomy": {
+            "board_id": "nursing",
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-mental-health",
+            "topic_id": "nle-mental-health",
+            "concept_id": "nle-np-v-therapeutic"
+        },
+        "board": "nursing",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-02T00:00:00+00:00",
+        "updatedAt": "2026-09-02T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A family asks the nurse to avoid discussing prognosis with a client who is alert and asks directly, “What is happening to me?” What is the best response?",
+        "choices": [
+            "Promise the family that the client will not be told",
+            "Ask the client what information they want and support an honest, appropriate discussion with the care team",
+            "Change the subject whenever the client asks",
+            "Give a detailed prognosis without assessing the client’s preferences"
+        ],
+        "answer": "Ask the client what information they want and support an honest, appropriate discussion with the care team",
+        "explanation": "The alert client’s preferences guide disclosure. The nurse should assess what the client wants to know and coordinate an honest, appropriate conversation rather than conceal information or overwhelm the client.",
+        "subject": "nursing-foundations",
+        "content_blocks": [],
+        "cognitive_intent": "apply"
     }
 ]
