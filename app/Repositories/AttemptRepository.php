@@ -32,10 +32,14 @@ class AttemptRepository extends BaseRepository
         ]);
     }
 
-    public function bySessionId(string $sessionId): ?array
+    public function bySessionId(string $sessionId, ?string $userId = null): ?array
     {
         foreach ($this->all() as $attempt) {
             if (!is_array($attempt)) {
+                continue;
+            }
+
+            if ($userId !== null && (string) ($attempt['user_id'] ?? '') !== $userId) {
                 continue;
             }
 

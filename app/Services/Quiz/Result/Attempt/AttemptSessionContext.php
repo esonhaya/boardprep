@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Services\Quiz\Result\Attempt;
 
+use App\Services\Learning\LearnerIdentityService;
+
 final class AttemptSessionContext
 {
     public static function fromSession(array $session): array
@@ -12,7 +14,7 @@ final class AttemptSessionContext
 
         return [
             "session_id" => $sessionId,
-            "user_id" => $sessionId !== "" ? "session:" . $sessionId : "",
+            "user_id" => LearnerIdentityService::current(),
             "board" => AttemptValueReader::text($session["board"] ?? null),
             "subject" => AttemptValueReader::text($session["subject"] ?? null),
             "domain" => AttemptValueReader::text($session["domain"] ?? null),

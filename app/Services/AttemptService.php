@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Repositories\AttemptRepository;
+use App\Services\Learning\LearnerIdentityService;
 
 class AttemptService
 {
@@ -17,12 +18,16 @@ class AttemptService
         array $attempt
     ): array {
         $attempt = $this->normalizeAttempt($attempt);
+        $attempt['user_id'] = LearnerIdentityService::current();
         $sessionId = is_scalar($attempt['session_id'] ?? null)
             ? trim((string) $attempt['session_id'])
             : '';
 
         if ($sessionId !== '') {
-            $existing = $this->attempts->bySessionId($sessionId);
+            $existing = $this->attempts->bySessionId(
+                $sessionId,
+                $attempt['user_id']
+            );
             if ($existing !== null) {
                 return $existing;
             }

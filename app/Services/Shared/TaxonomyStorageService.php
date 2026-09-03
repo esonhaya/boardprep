@@ -10,6 +10,9 @@ final class TaxonomyStorageService
 {
     private const ROOT = __DIR__ . '/../../../storage';
 
+    /** @var array<string, array> */
+    private static array $cache = [];
+
     private static function storage(): JsonStorage
     {
         return new JsonStorage(self::ROOT);
@@ -17,7 +20,11 @@ final class TaxonomyStorageService
 
     private static function load(string $collection): array
     {
-        return array_values(array_filter(
+        if (array_key_exists($collection, self::$cache)) {
+            return self::$cache[$collection];
+        }
+
+        return self::$cache[$collection] = array_values(array_filter(
             self::storage()->all($collection),
             'is_array'
         ));
@@ -27,6 +34,7 @@ final class TaxonomyStorageService
     {
         $records = array_values(array_filter($data, 'is_array'));
         self::storage()->replace($collection, $records);
+        unset(self::$cache[$collection]);
     }
 
     public static function boards(): array

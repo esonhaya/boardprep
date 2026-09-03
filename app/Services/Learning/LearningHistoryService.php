@@ -14,7 +14,7 @@ final class LearningHistoryService
         $attempts =
             App::container()
                 ->get(AttemptRepository::class)
-                ->all();
+                ->byUser(LearnerIdentityService::current());
 
         return self::recentFrom($attempts, $limit);
     }

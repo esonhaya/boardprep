@@ -12,6 +12,7 @@ final class WeaknessStorageService
 
     public static function all(): array
     {
+        $userId = LearnerIdentityService::current();
         $records = App::storage()->all(self::COLLECTION);
         $weakness = [];
 
@@ -20,7 +21,11 @@ final class WeaknessStorageService
                 continue;
             }
 
-            $rawTopic = $record['id'] ?? '';
+            if ((string) ($record['user_id'] ?? '') !== $userId) {
+                continue;
+            }
+
+            $rawTopic = $record['topic'] ?? '';
             if (!is_scalar($rawTopic)) {
                 continue;
             }
@@ -49,7 +54,12 @@ final class WeaknessStorageService
 
     public static function save(array $data): void
     {
-        $records = [];
+        $userId = LearnerIdentityService::current();
+        $records = array_values(array_filter(
+            App::storage()->all(self::COLLECTION),
+            static fn(mixed $record): bool => is_array($record)
+                && (string) ($record['user_id'] ?? '') !== $userId
+        ));
 
         foreach ($data as $topic => $stats) {
             $topic = trim((string) $topic);
@@ -58,7 +68,9 @@ final class WeaknessStorageService
             }
 
             $records[] = [
-                'id' => $topic,
+                'id' => self::recordId($userId, $topic),
+                'user_id' => $userId,
+                'topic' => $topic,
                 'correct' => max(0, (int) ($stats['correct'] ?? 0)),
                 'wrong' => max(0, (int) ($stats['wrong'] ?? 0)),
             ];
@@ -69,6 +81,19 @@ final class WeaknessStorageService
 
     public static function clear(): void
     {
-        App::storage()->replace(self::COLLECTION, []);
+        $userId = LearnerIdentityService::current();
+        App::storage()->replace(
+            self::COLLECTION,
+            array_values(array_filter(
+                App::storage()->all(self::COLLECTION),
+                static fn(mixed $record): bool => is_array($record)
+                    && (string) ($record['user_id'] ?? '') !== $userId
+            ))
+        );
+    }
+
+    private static function recordId(string $userId, string $topic): string
+    {
+        return $userId . '|' . $topic;
     }
 }

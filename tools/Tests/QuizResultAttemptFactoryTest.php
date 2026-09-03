@@ -5,6 +5,8 @@ declare(strict_types=1);
 require_once dirname(__DIR__, 2) . "/app/Core/Autoloader.php";
 \App\Core\Autoloader::register();
 
+$_SESSION = [];
+
 $session = [
     "id" => "session-395",
     "board" => "LET",
@@ -25,7 +27,8 @@ $attempt = QuizResultAttemptFactory::create(
 
 assert(str_starts_with($attempt["id"], "attempt-"));
 assert($attempt["session_id"] === "session-395");
-assert($attempt["user_id"] === "session:session-395");
+assert(str_starts_with($attempt["user_id"], "learner-"));
+assert($attempt["user_id"] !== $attempt["session_id"]);
 assert($attempt["question_count"] === 2);
 assert($attempt["score"] === 4);
 assert((float) $attempt["percentage"] === 80.0);
