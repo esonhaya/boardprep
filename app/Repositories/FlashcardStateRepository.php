@@ -96,7 +96,7 @@ final class FlashcardStateRepository extends BaseRepository
             'lapses' => 0,
             'state' => 'new',
             'suspended' => false,
-            'algorithm_version' => 'sm2-like-v1',
+            'algorithm_version' => 'sm2-lite-v1',
             'created_at' => $existing['created_at'] ?? $now,
             'updated_at' => $now,
         ], $existing ?? [], $data);
