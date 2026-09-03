@@ -12278,15 +12278,26 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Basahin ang tala: Ipinagpaliban ang pagtatanim dahil sa malakas na ulan at itinakda ang bagong araw kapag ligtas na ang lupa. Anong ugnayan ng ideya ang ipinakikita?",
+        "question": "Sinusuri ng isang pangkat ang epekto ng ulan sa pagpapaliban ng pagtatanim. Ayon sa talaan, aling interpretasyon ang wastong nabuo matapos kalkulahin at ihambing ang bahagdan ng mga naantalang taniman?",
         "choices": [
-            "Sanhi at bunga",
-            "Paghahambing",
-            "Pagbibigay-kahulugan",
-            "Pag-uuri"
+            "Pareho ang 25% na pagkaantala sa Bukid A at B, ngunit mas mababa ang Bukid C sa 12.5%; kaya hindi sapat ang kabuuang bilang upang ihambing ang epekto ng ulan.",
+            "Pinakamalaki ang epekto sa Bukid B dahil apat ang naantalang taniman nito, higit sa tatlo sa Bukid C.",
+            "Pare-pareho ang epekto sa tatlong bukid dahil iisa ang sanhi ng pagkaantala.",
+            "Mas malaki ang epekto sa Bukid C dahil mas marami ang kabuuang taniman nito."
         ],
-        "answer": "Sanhi at bunga",
-        "explanation": "Ang pag-ulan ang sanhi at ang pagpapaliban ng gawain ang bunga. Kaya sanhi at bunga ang malinaw na ugnayan.",
+        "answer": "Pareho ang 25% na pagkaantala sa Bukid A at B, ngunit mas mababa ang Bukid C sa 12.5%; kaya hindi sapat ang kabuuang bilang upang ihambing ang epekto ng ulan.",
+        "explanation": "Kunin muna ang rate: A ay 5/20 = 25%, B ay 4/16 = 25%, at C ay 3/24 = 12.5%. Sa paghahambing ng bahagdan, makikitang magkapareho ang A at B at mas mababa ang C; mas makabuluhan ito kaysa paghahambing ng hilaw na bilang dahil magkakaiba ang kabuuang taniman.",
+        "content_blocks": [
+            {
+                "type": "table",
+                "title": "Tanimang naantala ng ulan",
+                "columns": ["Bukid", "Kabuuang taniman", "Naantalang taniman"],
+                "rows": [["A", "20", "5"], ["B", "16", "4"], ["C", "24", "3"]]
+            }
+        ],
+        "table_dependent": true,
+        "numeric": true,
+        "multistep": true,
         "cognitive_intent": "analyze",
         "let_area": "Malayuning Komunikasyon sa Wikang Filipino"
     },
@@ -12428,15 +12439,26 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Sinabi ng mag-aaral na mali ang datos dahil hindi ito tugma sa kaniyang opinyon. Anong pagsusuri sa pinagmulan at ebidensiya ang dapat niyang gawin?",
+        "question": "Sinabi ng isang editoryal na mas mapagkakatiwalaan ang ulat na may mas maraming impormasyong nakalap. Ayon sa talaan, aling pagsusuri sa ebidensiya ang pinakamakatwiran?",
         "choices": [
-            "Suriin ang pinagmulan at ebidensiya ng datos sa halip na ihambing ito sa pansariling opinyon.",
-            "Tanggapin ang opinyon bilang kapalit ng ebidensiya.",
-            "Itapon ang datos kapag hindi ito kanais-nais.",
-            "Baguhin ang datos upang umayon sa mambabasa."
+            "Ang Ulat A ay may 75% na nakumpirmang pahayag (9/12), samantalang ang Ulat B ay 87.5% (7/8); mas mataas ang bahagdan ng B, ngunit dapat ding isaalang-alang ang mas maliit nitong saklaw.",
+            "Mas mapagkakatiwalaan ang Ulat A dahil siyam ang nakumpirmang pahayag, higit sa pito ng Ulat B.",
+            "Parehong 50% ang pagiging mapagkakatiwalaan dahil kalahati lamang ng mga pahayag ang hindi nakumpirma.",
+            "Hindi maaaring gamitin ang talaan dahil ang bilang ng pahayag ay hindi kailanman mahalaga sa pagsusuri."
         ],
-        "answer": "Suriin ang pinagmulan at ebidensiya ng datos sa halip na ihambing ito sa pansariling opinyon.",
-        "explanation": "Sa pagsusuri ng pahayag, dapat tingnan ang kredibilidad at ebidensiya ng datos. Hindi sapat ang personal na pagsang-ayon o pagtutol.",
+        "answer": "Ang Ulat A ay may 75% na nakumpirmang pahayag (9/12), samantalang ang Ulat B ay 87.5% (7/8); mas mataas ang bahagdan ng B, ngunit dapat ding isaalang-alang ang mas maliit nitong saklaw.",
+        "explanation": "Kalkulahin ang nakumpirmang bahagi: 9 ÷ 12 = 75% para sa A at 7 ÷ 8 = 87.5% para sa B. Mas mataas ang rate ng B, ngunit ang walong pahayag lamang ay mas maliit na basehan kaysa labindalawa; kaya hindi sapat ang raw count o pansariling opinyon para sa ganap na hatol.",
+        "content_blocks": [
+            {
+                "type": "table",
+                "title": "Pagpapatibay ng mga pahayag",
+                "columns": ["Ulat", "Kabuuang pahayag", "Nakumpirma sa hiwalay na tala"],
+                "rows": [["A", "12", "9"], ["B", "8", "7"]]
+            }
+        ],
+        "table_dependent": true,
+        "numeric": true,
+        "multistep": true,
         "cognitive_intent": "evaluate",
         "let_area": "Malayuning Komunikasyon sa Wikang Filipino"
     },
@@ -12553,15 +12575,26 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "Bago pumili ng patakaran sa plastik, kailangang timbangin ang benepisyo, suliranin, at alternatibo. Aling pahayag ang nagpapakita ng maingat na pagsusuri?",
+        "question": "Dalawang mungkahi sa pagbabawas ng plastik ang inihambing sa talaan. Aling pasya ang may sapat na batayan kung layunin ang parehong porsiyentong pagbawas sa pinakamababang gastos?",
         "choices": [
-            "Timbangin ang mga benepisyo, posibleng suliranin, at praktikal na alternatibo bago pumili.",
-            "Piliin ang pinakamahigpit na mungkahi dahil mas mabuti ang tunog nito.",
-            "Tanggihan ang parehong mungkahi dahil mahirap ang pagbabago.",
-            "Sundin ang opinyon ng pinakamatanda nang walang tanong."
+            "Piliin ang Mungkahi B: parehong 20% ang ibinaba ng A at B, ngunit mas mababa ang gastos ng B na ₱9,000 kaysa ₱15,000.",
+            "Piliin ang Mungkahi A dahil 50 kilo ang nabawas dito, higit sa 36 kilo ng B.",
+            "Piliin ang Mungkahi A dahil mas malaki ang dating konsumo nito kahit mas mataas ang gastos.",
+            "Parehong hindi mapipili dahil hindi maaaring kalkulahin ang porsiyentong pagbabago mula sa talaan."
         ],
-        "answer": "Timbangin ang mga benepisyo, posibleng suliranin, at praktikal na alternatibo bago pumili.",
-        "explanation": "Ang pagsusuri ay nangangailangan ng pagtimbang sa ebidensiya, epekto, at maaaring alternatibo, hindi lamang sa lakas ng pananalita.",
+        "answer": "Piliin ang Mungkahi B: parehong 20% ang ibinaba ng A at B, ngunit mas mababa ang gastos ng B na ₱9,000 kaysa ₱15,000.",
+        "explanation": "Para sa A, 250−200 = 50 at 50/250 = 20%; para sa B, 180−144 = 36 at 36/180 = 20%. Dahil magkapareho ang porsiyentong epekto, ihambing ang gastos: ₱9,000 ay mas mababa sa ₱15,000. Kaya B ang mas matipid na alternatibo sa itinakdang layunin.",
+        "content_blocks": [
+            {
+                "type": "table",
+                "title": "Mga mungkahi sa pagbabawas ng plastik",
+                "columns": ["Mungkahi", "Dating konsumo (kg/buwan)", "Bagong konsumo (kg/buwan)", "Gastos"],
+                "rows": [["A", "250", "200", "₱15,000"], ["B", "180", "144", "₱9,000"]]
+            }
+        ],
+        "table_dependent": true,
+        "numeric": true,
+        "multistep": true,
         "cognitive_intent": "evaluate",
         "let_area": "Malayuning Komunikasyon sa Wikang Filipino"
     },
@@ -12678,15 +12711,26 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "Magkaiba ang salaysay ng magsasaka at opisyal tungkol sa pangyayari. Paano dapat suriin ang posisyon, karanasan, at ebidensiya ng bawat isa?",
+        "question": "Magkaiba ang salaysay ng magsasaka at opisyal tungkol sa isang pangyayari. Ayon sa talaan, aling konklusyon ang pinakamaingat matapos ihambing ang bahagdan ng pahayag na nasusuportahan ng magkahiwalay na saksi?",
         "choices": [
-            "Ihambing ang posisyon, karanasan, at ebidensiya ng bawat tagapagsalaysay.",
-            "Piliin agad ang opisyal dahil mas mataas ang posisyon niya.",
-            "Ipagpalagay na pareho ang pananaw ng lahat ng tauhan.",
-            "Ituring na kathang-isip ang salaysay dahil may pagkakaiba."
+            "Mas mataas ang suportang rate ng salaysay ng opisyal (75% o 12/16) kaysa magsasaka (70% o 14/20), ngunit hindi nito awtomatikong pinatutunayang tama ang lahat ng detalye.",
+            "Mas matibay ang salaysay ng magsasaka dahil 14 ang nasuportahang pahayag, higit sa 12 ng opisyal.",
+            "Pareho ang bigat ng salaysay dahil parehong may mga pahayag na nasuportahan.",
+            "Dapat piliin ang opisyal nang walang pagkukuwenta dahil mas mataas ang kaniyang posisyon."
         ],
-        "answer": "Ihambing ang posisyon, karanasan, at ebidensiya ng bawat tagapagsalaysay.",
-        "explanation": "Ang pananaw ay nakaaapekto sa pagpili at pagbibigay-kahulugan sa impormasyon. Kailangang ihambing ang konteksto at ebidensiya ng mga salaysay.",
+        "answer": "Mas mataas ang suportang rate ng salaysay ng opisyal (75% o 12/16) kaysa magsasaka (70% o 14/20), ngunit hindi nito awtomatikong pinatutunayang tama ang lahat ng detalye.",
+        "explanation": "Kalkulahin ang suportang rate: 14 ÷ 20 = 70% para sa magsasaka at 12 ÷ 16 = 75% para sa opisyal. Mas mataas ang normalized rate ng opisyal, ngunit kailangang isama sa interpretasyon ang posisyon, karanasan, saklaw, at limitasyon ng ebidensiya; hindi sapat ang raw count o ranggo lamang.",
+        "content_blocks": [
+            {
+                "type": "table",
+                "title": "Paghahambing ng mga salaysay",
+                "columns": ["Tagapagsalaysay", "Kabuuang pahayag", "Nasusuportahan ng hiwalay na saksi"],
+                "rows": [["Magsasaka", "20", "14"], ["Opisyal", "16", "12"]]
+            }
+        ],
+        "table_dependent": true,
+        "numeric": true,
+        "multistep": true,
         "cognitive_intent": "analyze",
         "let_area": "Malayuning Komunikasyon sa Wikang Filipino"
     },
