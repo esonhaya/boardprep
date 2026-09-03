@@ -3422,7 +3422,7 @@
         "topic": "Expressions and Equations",
         "concept": "Linear Equations",
         "difficulty": "hard",
-        "question": "A supply audit lists 4 equal kits, 3 loose markers, and 21 items total. The council checks both the equation and the value of y before ordering more materials. Which value is justified by the evidence?",
+        "question": "A supply audit lists 4 equal kits, 3 loose markers, and 27 items total. The council checks both the equation and the value of y before ordering more materials. Which value is justified by the evidence?",
         "choices": [
             "5",
             "6",
@@ -3455,7 +3455,7 @@
         "topic": "Number Sense and Operations",
         "concept": "Operations with Whole Numbers",
         "difficulty": "medium",
-        "question": "A school store records a 20% discount and a sale price of 240 pesos. The treasurer reverses the percentage operation to check the original price. What amount should the audit report?",
+        "question": "A school store records a 20% discount and a sale price of 240 pesos. The treasurer first identifies the 80% remaining, then reverses it to check the original price. What amount should the audit report?",
         "choices": [
             "288 pesos",
             "300 pesos",
@@ -3463,7 +3463,7 @@
             "360 pesos"
         ],
         "answer": "300 pesos",
-       "explanation": "After a 20% discount, 80% is 240; 240 divided by .8 is 300.",
+        "explanation": "The sale price is 80% of the original: 240 ÷ 0.80 = 300 pesos; multiplying 300 by 0.80 verifies the recorded sale price.",
         "content_blocks": [{"type":"table","columns":["Item","Sale price","Discount"],"rows":[["Book","240 pesos","20%"]]}],
         "table_dependent": true,
         "timesUsed": 0,
@@ -3488,7 +3488,7 @@
         "topic": "Number Sense and Operations",
         "concept": "Operations with Whole Numbers",
         "difficulty": "easy",
-        "question": "Two outreach teams visit on repeating 4-day and 6-day schedules. They meet today, and the coordinator needs the next common visit date rather than either team's next visit. After how many days will they meet again?",
+        "question": "Two outreach teams visit on repeating 4-day and 6-day schedules. The coordinator lists each schedule, identifies the first shared day after today, and checks that neither team shares an earlier day. After how many days will they meet again?",
         "choices": [
             "8",
             "10",
@@ -3496,7 +3496,7 @@
             "24"
         ],
         "answer": "12",
-       "explanation": "Twelve is the smallest positive number divisible by both 4 and 6.",
+        "explanation": "The first shared day is the least common multiple: multiples of 4 are 4, 8, 12 and multiples of 6 are 6, 12, so the next meeting is after 12 days.",
         "content_blocks": [{"type":"table","columns":["Team","Visit interval (days)","Next shared visit"],"rows":[["A","4","?"],["B","6","?"]]}],
         "table_dependent": true,
         "timesUsed": 0,
@@ -3521,7 +3521,7 @@
         "topic": "Expressions and Equations",
         "concept": "Linear Equations",
         "difficulty": "hard",
-        "question": "A fundraiser's ledger represents the same total as 3a+2 and 2a+11. The auditor subtracts the variable term before isolating the fixed value. What value balances both records?",
+        "question": "A fundraiser's ledger represents the same total as 3a+2 and 2a+11. The auditor equates the records, isolates a, and substitutes the result into both sides. What value balances both records?",
         "choices": [
             "7",
             "8",
@@ -3529,7 +3529,7 @@
             "10"
         ],
         "answer": "9",
-       "explanation": "Subtracting 2a and 2 gives a=9.",
+        "explanation": "Equating the records gives 3a+2=2a+11; subtracting 2a and 2 leaves a=9, and both expressions then equal 29.",
         "content_blocks": [{"type":"table","columns":["Ledger line","Units","Fixed amount","Total"],"rows":[["Fundraiser","3","2 pesos","2a+11 pesos"]]}],
         "table_dependent": true,
         "timesUsed": 0,
@@ -3554,7 +3554,7 @@
         "topic": "Number Sense and Operations",
         "concept": "Operations with Whole Numbers",
         "difficulty": "medium",
-        "question": "An inventory keeps red and blue markers in a 2:3 ratio. The clerk verifies the scale factor from 15 blue markers before recording the red count. How many red markers should be recorded?",
+        "question": "An inventory keeps red and blue markers in a 2:3 ratio. The clerk divides the 15 blue markers into equal ratio groups, applies the red part, and checks the resulting pair against 2:3. How many red markers should be recorded?",
         "choices": [
             "6",
             "8",
@@ -3562,7 +3562,7 @@
             "12"
         ],
         "answer": "10",
-       "explanation": "The scale factor is 5, so 2 times 5 is 10 red markers.",
+        "explanation": "Fifteen blue markers represent five groups of three; applying the two-red part to those groups gives 2×5=10, which preserves the 2:3 ratio.",
         "content_blocks": [{"type":"table","columns":["Marker","Red","Blue","Ratio"],"rows":[["Inventory","?","15","2:3"]]}],
         "table_dependent": true,
         "timesUsed": 0,
@@ -3933,7 +3933,7 @@
         "topic": "Philippine History",
         "concept": "Primary Sources",
         "difficulty": "easy",
-        "question": "A diary written during an event by a participant and a later textbook describe the same meeting. The research claim concerns what was directly observed at the meeting. Which evidence should carry that claim?",
+        "question": "A diary written during an event by a participant and a later textbook describe the same meeting. The researcher checks when each was created and limits the claim to what was directly observed. Which evidence should carry that claim?",
         "choices": [
             "A diary written by a participant",
             "A textbook summary",
@@ -3966,7 +3966,7 @@
         "topic": "Philippine History",
         "concept": "Primary Sources",
         "difficulty": "medium",
-        "question": "Two accounts agree on when a protest occurred but disagree about why the crowd acted. Before choosing a cause, what should the historian compare in both accounts?",
+        "question": "Two accounts agree on when a protest occurred but disagree about why the crowd acted. The historian compares each author's evidence and perspective before choosing a cause. What should be compared first?",
         "choices": [
             "To check evidence and perspective",
             "To avoid reading details",
@@ -3999,7 +3999,7 @@
         "topic": "Philippine History",
         "concept": "Primary Sources",
         "difficulty": "hard",
-        "question": "An official wrote a report while defending a policy and used selective examples. Which factor must a historian examine before treating the report's conclusion as complete?",
+        "question": "An official wrote a report while defending a policy and used selective examples. A second account presents cases the report omitted. Which factor must a historian examine before accepting the official conclusion?",
         "choices": [
             "Context",
             "Font size",
@@ -4030,7 +4030,7 @@
         "topic": "Citizenship and Government",
         "concept": "Public Good",
         "difficulty": "easy",
-        "question": "Residents follow a safety rule, review evidence, and submit a constructive recommendation at a public forum. Which civic interpretation best fits all three actions?",
+        "question": "At a public forum, residents follow a safety rule, review project evidence, and submit a constructive recommendation. Which interpretation best accounts for their conduct?",
         "choices": [
             "Following laws and participating constructively",
             "Spreading unverified claims",
@@ -4061,7 +4061,7 @@
         "topic": "Citizenship and Government",
         "concept": "Public Good",
         "difficulty": "medium",
-        "question": "A town's streetlights benefit passersby even when individual users cannot be excluded. Which feature of the arrangement explains why it is a public good?",
+        "question": "A town compares streetlights with a pay-per-use service: the lights benefit passersby, while the service restricts nonpaying users. Which feature explains the streetlights' public-good character?",
         "choices": [
             "Difficult to exclude people from using",
             "Owned by one classroom",
@@ -4092,7 +4092,7 @@
         "topic": "Citizenship and Government",
         "concept": "Public Good",
         "difficulty": "hard",
-        "question": "A school board reviews a superintendent's decision before implementation. How does this second review protect the quality of public decision-making?",
+        "question": "A school board reviews a superintendent's decision before implementation and checks its evidence. How does this second review protect public decision-making?",
         "choices": [
             "They limit concentration of power",
             "They remove all disagreement",
@@ -4123,15 +4123,28 @@
         "topic": "Citizenship and Government",
         "concept": "Public Good",
         "difficulty": "medium",
-        "question": "A proposed policy affects renters, homeowners, and vendors differently. Which evidence should citizens compare before judging whether the policy is fair?",
+        "question": "A council compares a proposed policy using the recorded groups below. Which conclusion is supported after calculating and comparing each group's benefit proportion?",
         "choices": [
-            "Evidence and its effects on affected groups",
-            "Rumor alone",
-            "Popularity of a slogan",
-            "The loudest opinion"
+            "Homeowners have the largest benefit proportion, at 70%",
+            "Renters have the largest benefit proportion, at 65%",
+            "Vendors have the largest benefit proportion, at 60%",
+            "All three groups have the same benefit proportion"
         ],
-        "answer": "Evidence and its effects on affected groups",
-        "explanation": "Civic judgment should consider evidence, consequences, and affected communities.",
+        "answer": "Homeowners have the largest benefit proportion, at 70%",
+        "explanation": "The table requires a proportion rather than a raw-count comparison: renters are 18/30 = 60%, homeowners are 35/50 = 70%, and vendors are 10/20 = 50%. Thus homeowners have the largest share benefiting; the conclusion follows from comparing normalized rates, not from the largest group size.",
+        "content_blocks": [
+            {
+                "type": "table",
+                "title": "Recorded policy effects",
+                "columns": ["Group", "People affected", "People benefiting"],
+                "rows": [
+                    ["Renters", "30", "18"],
+                    ["Homeowners", "50", "35"],
+                    ["Vendors", "20", "10"]
+                ]
+            }
+        ],
+        "table_dependent": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
@@ -4154,7 +4167,7 @@
         "topic": "Philippine History",
         "concept": "Primary Sources",
         "difficulty": "easy",
-        "question": "A researcher must show whether a relief program came before an attendance change. Which representation best preserves the evidence needed for that temporal claim?",
+        "question": "A researcher must show whether a relief program came before an attendance change, without claiming that sequence alone proves causation. Which representation best preserves the temporal evidence?",
         "choices": [
             "Sequence of events",
             "Reliability of every claim",
@@ -4185,7 +4198,7 @@
         "topic": "Philippine History",
         "concept": "Primary Sources",
         "difficulty": "medium",
-        "question": "A learner interprets a past decision using the information and constraints available to people at that time. What practice prevents judging the past only by present standards?",
+        "question": "A learner reconstructs a past decision using the information and constraints available at that time, then separates those facts from present-day judgment. What practice is being used?",
         "choices": [
             "Time and circumstances",
             "Modern preferences only",
@@ -4216,7 +4229,7 @@
         "topic": "Citizenship and Government",
         "concept": "Public Good",
         "difficulty": "easy",
-        "question": "A local office applies one published procedure to both supporters and critics. Which principle is demonstrated by the equal process?",
+        "question": "A local office applies one published procedure to supporters and critics, but records different evidence-based outcomes. Which principle is demonstrated by the equal process?",
         "choices": [
             "Laws apply through established rules",
             "Leaders are above all law",
@@ -4247,7 +4260,7 @@
         "topic": "Citizenship and Government",
         "concept": "Public Good",
         "difficulty": "hard",
-        "question": "A class chooses between two community projects after hearing reasons and examining evidence from affected groups. Which process best describes the decision?",
+        "question": "A class compares two community projects, hears reasons from affected groups, and records why its selected option addresses the evidence. Which process best describes the decision?",
         "choices": [
             "Hear reasons and consider evidence",
             "Vote before hearing any view",
@@ -4278,7 +4291,7 @@
         "topic": "Philippine History",
         "concept": "Primary Sources",
         "difficulty": "medium",
-        "question": "A museum label was written years after an event by a scholar who did not witness it. What limitation should learners consider when using the label as evidence?",
+        "question": "A museum label was written years after an event by a scholar who did not witness it, while a contemporaneous diary is also available. What limitation should learners consider?",
         "choices": [
             "Secondary source",
             "Primary artifact",
@@ -4309,7 +4322,7 @@
         "topic": "Citizenship and Government",
         "concept": "Public Good",
         "difficulty": "medium",
-        "question": "Residents study a proposal, attend a consultation, and submit a reasoned recommendation. Which action demonstrates informed civic participation?",
+        "question": "Residents study a proposal, attend a consultation, and submit a reasoned recommendation that cites the proposal's likely effects. Which action demonstrates informed civic participation?",
         "choices": [
             "Joining informed community action",
             "Avoiding all public issues",
@@ -4340,7 +4353,7 @@
         "topic": "Philippine History",
         "concept": "Primary Sources",
         "difficulty": "hard",
-        "question": "Two eyewitnesses disagree about where an event began. Before resolving the conflict, what should the historian compare about their accounts?",
+        "question": "Two eyewitnesses disagree about where an event began. The historian maps their positions and times of arrival before resolving the conflict. What should be compared?",
         "choices": [
             "Compare their evidence and context",
             "Choose the longer account",
@@ -4373,7 +4386,7 @@
         "topic": "Citizenship and Government",
         "concept": "Public Good",
         "difficulty": "easy",
-        "question": "Residents submit access evidence, and the council changes a draft plan in response. What does this sequence demonstrate about public consultation?",
+        "question": "Residents submit access evidence, the council examines it, and the draft plan changes in response. What does this sequence demonstrate about public consultation?",
         "choices": [
             "Affected perspectives",
             "Only the decision maker",
