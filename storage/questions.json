@@ -11247,15 +11247,27 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "Two viewers give different readings of the same contemporary artwork, each citing visible details and different experiences. Which conclusion is most defensible?",
+        "question": "Two viewers defend different readings of a contemporary artwork. The evidence log records their cited details and contextual sources. If a defensible reading must cite at least three visible details and two relevant contextual sources, which conclusion follows?",
         "choices": [
-            "Interpretation can vary, but stronger readings remain accountable to evidence and context.",
-            "Only the first viewer can have a valid interpretation.",
-            "Any interpretation is equally supported even without evidence.",
-            "Audience experience never contributes to meaning."
+            "Viewer B is better supported: 3 visible details plus 3 contextual sources meet both thresholds, while A's 4 details and 1 source do not.",
+            "Viewer A is stronger because four visible details always outweigh any contextual evidence.",
+            "Both readings meet the rule because their combined evidence totals are at least five items.",
+            "Neither reading can be assessed because audience experience has no place in interpretation."
         ],
-        "answer": "Interpretation can vary, but stronger readings remain accountable to evidence and context.",
-        "explanation": "Art interpretation is not arbitrary: viewers may differ, but claims should be supported by the work and relevant context.",
+        "answer": "Viewer B is better supported: 3 visible details plus 3 contextual sources meet both thresholds, while A's 4 details and 1 source do not.",
+        "explanation": "The rule has two separate tests, not one combined total. A meets the visible-detail threshold but fails the contextual-source threshold; B meets both with 3 and 3. The conclusion still allows differing readings, but ranks support by evidence and context rather than by preference.",
+        "content_blocks": [
+            {
+                "type": "table",
+                "title": "Interpretation evidence log",
+                "columns": ["Viewer", "Visible details cited", "Relevant context sources"],
+                "rows": [["A", "4", "1"], ["B", "3", "3"]]
+            }
+        ],
+        "table_dependent": true,
+        "numeric": true,
+        "data_interpretation": true,
+        "multistep": true,
         "cognitive_intent": "evaluate",
         "let_area": "Art Appreciation"
     },
@@ -11272,15 +11284,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A work combines woven fibers with projected light. What does the combination most clearly demonstrate?",
+        "question": "An artist's statement explains why a work combines woven fibers with projected light. Which interpretation best connects the stated purpose to the mixed media?",
         "choices": [
-            "Artists can select and combine media to serve an intended sensory or conceptual effect.",
-            "Media determine meaning automatically without artistic decisions.",
-            "The work has no medium because it uses more than one material.",
-            "Projection is a principle of design rather than a material or process."
+            "The work has no medium because an artwork may use only one material to have meaning.",
+            "The materials are selected and combined to make changing light interact with a tactile surface, supporting the work's stated idea of memory shifting over time.",
+            "The projected light determines the meaning automatically, so the artist's stated purpose is unnecessary.",
+            "Projection is only a design principle and cannot be part of an artistic process or medium."
         ],
-        "answer": "Artists can select and combine media to serve an intended sensory or conceptual effect.",
-        "explanation": "Material and technological choices are part of the artistic process and can shape both the experience and the ideas of a work.",
+        "answer": "The materials are selected and combined to make changing light interact with a tactile surface, supporting the work's stated idea of memory shifting over time.",
+        "explanation": "The statement supplies an intended concept, while the fibers and moving light supply corresponding sensory evidence. Reading the relationship between purpose and material choices is stronger than treating either medium as automatic or denying a mixed medium.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Artist statement",
+                "value": "The artist describes woven fibers as a record of inherited memory and projected light as a changing present. The light moves across the fibers so that some patterns appear and disappear as viewers walk past."
+            }
+        ],
+        "passage_dependent": true,
+        "multistep": true,
         "cognitive_intent": "interpret",
         "let_area": "Art Appreciation"
     },
@@ -11297,16 +11318,17 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "A repeated motif creates a visual beat that leads the eye across a textile. Which principle is most evident?",
+        "question": "A textile repeats a leaf motif at regular intervals, then shifts the final three motifs closer together near a border. What should a formal analysis identify?",
         "choices": [
-            "Rhythm or pattern",
-            "Isolation",
-            "Scale without repetition",
-            "Subject matter"
+            "The motif is isolated because repetition prevents any visual relationship among forms.",
+            "Only scale is involved, since spacing cannot affect visual movement.",
+            "Repetition establishes rhythm, while the changed spacing accelerates the eye's movement toward the border.",
+            "The leaf subject alone explains the composition, so arrangement need not be considered."
         ],
-        "answer": "Rhythm or pattern",
-        "explanation": "Repetition creates pattern and rhythm, producing a visual beat and guiding the eye across the surface.",
-        "cognitive_intent": "classify",
+        "answer": "Repetition establishes rhythm, while the changed spacing accelerates the eye's movement toward the border.",
+        "explanation": "The regular leaf sequence supplies repetition and visual rhythm. The closer spacing near the edge changes that beat and guides movement, so the answer accounts for two observable operations rather than naming pattern alone.",
+        "multistep": true,
+        "cognitive_intent": "analyze",
         "let_area": "Art Appreciation"
     },
     {
@@ -11322,15 +11344,27 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A Philippine textile is displayed with information about the community that made it and the occasions for which it is used. Why does this context matter?",
+        "question": "A museum compares how often two textiles are documented in ceremonial use before interpreting their social function. Which conclusion is best supported by the records?",
         "choices": [
-            "It can explain cultural significance and function that cannot be inferred from appearance alone.",
-            "It proves that visual elements have no importance.",
-            "It turns the textile into a different medium.",
-            "It guarantees that every viewer will interpret it identically."
+            "Both textiles have identical functions because each appears in at least one ceremony.",
+            "The records are irrelevant because appearance alone always determines cultural significance.",
+            "Textile A is more ceremonial because 9 recorded uses is more than B's 8, regardless of different observation totals.",
+            "Textile B has the higher ceremonial-use rate at 50% versus A's 37.5%, but use records add contextual evidence rather than fixing one universal meaning."
         ],
-        "answer": "It can explain cultural significance and function that cannot be inferred from appearance alone.",
-        "explanation": "Use and community meaning add evidence about function and significance, while interpretation can still vary among audiences.",
+        "answer": "Textile B has the higher ceremonial-use rate at 50% versus A's 37.5%, but use records add contextual evidence rather than fixing one universal meaning.",
+        "explanation": "A's rate is 9/24 = 37.5%, while B's is 8/16 = 50%. Comparing rates avoids treating the larger raw count as proof. The records also show why community use and occasion provide contextual evidence that complements, rather than replaces, formal observation.",
+        "content_blocks": [
+            {
+                "type": "table",
+                "title": "Documented textile use",
+                "columns": ["Textile", "Documented occasions", "Ceremonial occasions"],
+                "rows": [["A", "24", "9"], ["B", "16", "8"]]
+            }
+        ],
+        "table_dependent": true,
+        "numeric": true,
+        "data_interpretation": true,
+        "multistep": true,
         "cognitive_intent": "analyze",
         "let_area": "Art Appreciation"
     },
@@ -11347,15 +11381,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A learner says asymmetrical balance means a composition is disorderly. Which correction is accurate?",
+        "question": "A learner calls a poster disorderly because one large blue form is countered by several small warm forms rather than a mirror image. Which correction is accurate?",
         "choices": [
-            "Unequal forms can still balance through differences in size, color, placement, or visual weight.",
-            "Balance requires identical forms on both sides.",
-            "Asymmetry refers only to rough texture.",
-            "A composition cannot balance if its subject is figurative."
+            "Asymmetrical balance can organize unequal forms when their visual weights counter one another through size, color, and placement.",
+            "Balance requires identical forms on both sides, so the poster cannot be organized.",
+            "Asymmetry describes rough texture only and has no relation to visual weight.",
+            "A figurative subject prevents balance because only geometric subjects can be arranged."
         ],
-        "answer": "Unequal forms can still balance through differences in size, color, placement, or visual weight.",
-        "explanation": "Asymmetrical balance organizes unequal elements so their visual weights counter one another; it is not the same as accidental disorder.",
+        "answer": "Asymmetrical balance can organize unequal forms when their visual weights counter one another through size, color, and placement.",
+        "explanation": "The poster does not mirror forms, but balance concerns perceived weight and stability. A large cool form can be countered by multiple smaller warm forms; size, color, and placement must be read together before calling the arrangement disorderly.",
+        "multistep": true,
         "cognitive_intent": "diagnose",
         "let_area": "Art Appreciation"
     },
@@ -11372,15 +11407,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "A ceramic artist leaves fingerprints visible instead of smoothing the surface. What can an informed viewer infer?",
+        "question": "A ceramic critic's note links visible fingerprints to the artist's decision to preserve evidence of hand-building. Which inference is most defensible?",
         "choices": [
-            "The material process may be intentionally used as expressive evidence of touch, labor, or making.",
-            "The marks automatically prove the work is unfinished.",
-            "Texture has no relationship to artistic meaning.",
-            "Visible process changes the subject into a principle of design."
+            "The fingerprints automatically prove that the artist abandoned an unfinished work.",
+            "The surface records touch and labor as an intentional part of the work's meaning, although the inference remains grounded in the note and visible marks.",
+            "Texture cannot contribute to meaning because only depicted subjects communicate ideas.",
+            "The visible process changes the ceramic subject into a design principle and removes material meaning."
         ],
-        "answer": "The material process may be intentionally used as expressive evidence of touch, labor, or making.",
-        "explanation": "Surface texture can communicate process and presence. Viewers should interpret the choice in relation to the work rather than assume imperfection.",
+        "answer": "The surface records touch and labor as an intentional part of the work's meaning, although the inference remains grounded in the note and visible marks.",
+        "explanation": "The fingerprints are observable formal evidence and the critic's note supplies contextual evidence about intent. Together they support an interpretation of touch and labor; neither the marks alone nor a reflexive claim of unfinished work is warranted.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Ceramic critic's note",
+                "value": "The vessel was hand-built, and the artist chose not to smooth the fingerprints before firing. The critic argues that the marks keep the maker's labor visible rather than disguising the process behind a polished surface."
+            }
+        ],
+        "passage_dependent": true,
+        "multistep": true,
         "cognitive_intent": "infer",
         "let_area": "Art Appreciation"
     },
@@ -11397,16 +11441,17 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "Which feature is an example of value rather than color hue?",
+        "question": "A designer converts a colored draft to grayscale before checking whether the focal figure still separates from its background. Which feature is being tested?",
         "choices": [
-            "A gradual change from pale gray to deep black",
-            "A shift from blue to green",
-            "A rough stone surface",
-            "An empty area around a figure"
+            "A shift from blue to green, because hue names a color family.",
+            "A rough stone surface, because texture describes tactile or visual surface quality.",
+            "A gradual change from pale gray to deep black, because value concerns relative lightness and darkness.",
+            "An empty area around a figure, because space concerns interval and placement."
         ],
-        "answer": "A gradual change from pale gray to deep black",
-        "explanation": "Value describes relative lightness and darkness. Hue names color families, texture describes surface, and space describes area or distance.",
-        "cognitive_intent": "classify",
+        "answer": "A gradual change from pale gray to deep black, because value concerns relative lightness and darkness.",
+        "explanation": "The grayscale test removes hue while retaining lightness and darkness. If the figure still separates, the relevant formal relationship is value; hue, texture, and surrounding space describe different properties and do not answer the stated test.",
+        "multistep": true,
+        "cognitive_intent": "apply",
         "let_area": "Art Appreciation"
     },
     {
@@ -11422,15 +11467,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "An artwork commissioned for a public memorial is judged only by whether it looks pleasing. What important consideration is missing?",
+        "question": "A public memorial is praised for pleasing colors, but residents ask whether it acknowledges the event and welcomes affected families. What should an evaluation add?",
         "choices": [
-            "Its public function, historical context, and relationship to the community it addresses.",
-            "The fact that all public art must be abstract.",
-            "The requirement that a memorial use only one medium.",
-            "The assumption that audience and purpose are unrelated."
+            "Require abstraction, because representational memorials cannot serve a public function.",
+            "Require one medium, because mixed media cannot communicate commemoration.",
+            "Exclude audience and purpose, because aesthetic pleasure is the only defensible criterion.",
+            "Consider the memorial's social purpose, historical context, audience, and relationship to the community alongside formal appeal."
         ],
-        "answer": "Its public function, historical context, and relationship to the community it addresses.",
-        "explanation": "A memorial has social and commemorative functions, so interpretation should include context and audience as well as formal appeal.",
+        "answer": "Consider the memorial's social purpose, historical context, audience, and relationship to the community alongside formal appeal.",
+        "explanation": "The residents' questions identify function, history, and audience as relevant evidence beyond color preference. A public memorial can be judged aesthetically, but its commemorative and community-facing responsibilities must also be examined.",
+        "multistep": true,
         "cognitive_intent": "evaluate",
         "let_area": "Art Appreciation"
     },
@@ -11447,15 +11493,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "A contemporary artist reworks a traditional pattern using recycled plastic and digital fabrication. Which reading is best supported?",
+        "question": "An artist's exhibition note pairs a traditional pattern with recycled plastic and digital fabrication. Which reading best connects continuity, material choice, and present conditions?",
         "choices": [
-            "The work can connect cultural continuity with new materials and questions about present conditions.",
-            "Using new technology necessarily erases the traditional pattern's meaning.",
-            "Traditional expression cannot be contemporary by definition.",
-            "Material choice is unrelated to cultural interpretation."
+            "The work can preserve a recognizable cultural form while using new materials to raise questions about consumption and current life.",
+            "Digital fabrication necessarily erases the traditional pattern because old and new forms cannot coexist.",
+            "A traditional pattern cannot be contemporary even when its material and setting change.",
+            "Recycled plastic is only a technical choice and cannot contribute to cultural interpretation."
         ],
-        "answer": "The work can connect cultural continuity with new materials and questions about present conditions.",
-        "explanation": "The work may create dialogue between inherited form, contemporary process, and environmental concerns; the interpretation should be grounded in its evidence and context.",
+        "answer": "The work can preserve a recognizable cultural form while using new materials to raise questions about consumption and current life.",
+        "explanation": "The note gives evidence for continuity (the recognizable pattern), process (digital fabrication), and present concern (recycled material and consumption). Considering those elements together supports dialogue between inherited form and contemporary conditions rather than an automatic erasure claim.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Exhibition note",
+                "value": "The artist keeps the pattern's repeating structure but cuts it in recycled plastic with a digital tool. The note says the work asks how inherited visual language can respond to present-day consumption."
+            }
+        ],
+        "passage_dependent": true,
+        "multistep": true,
         "cognitive_intent": "synthesize",
         "let_area": "Art Appreciation"
     },
@@ -11472,15 +11527,26 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "When comparing two portraits, one uses compressed space and the other uses open space, what can the viewer reasonably examine?",
+        "question": "A portrait study compares compressed and open spatial arrangements with viewer ratings of intimacy. Which conclusion uses both formal and audience evidence appropriately?",
         "choices": [
-            "How spatial organization changes intimacy, distance, or the subject's relationship to the viewer.",
-            "Which portrait has the more valuable frame regardless of the image.",
-            "Why space is only a physical room and never a compositional element.",
-            "Why different spatial choices make comparison impossible."
+            "The open portrait must be more intimate because open space always creates closeness for viewers.",
+            "The compressed portrait received the higher intimacy rating, suggesting that spatial organization may shape perceived distance without proving it is the only cause.",
+            "The rating makes formal analysis unnecessary because audience response alone determines meaning.",
+            "The portraits cannot be compared because different spatial choices have no interpretable relationship."
         ],
-        "answer": "How spatial organization changes intimacy, distance, or the subject's relationship to the viewer.",
-        "explanation": "Space is an element that can shape perceived distance and relationships, making it useful for visual comparison and interpretation.",
+        "answer": "The compressed portrait received the higher intimacy rating, suggesting that spatial organization may shape perceived distance without proving it is the only cause.",
+        "explanation": "The compressed arrangement has a mean intimacy rating of (4 + 5 + 4)/3 = 4.3, compared with (2 + 3 + 2)/3 = 2.3 for the open arrangement. The result supports a cautious association between spatial organization and perceived intimacy; it does not eliminate other formal or audience factors.",
+        "content_blocks": [
+            {
+                "type": "table",
+                "title": "Portrait audience responses",
+                "columns": ["Arrangement", "Viewer 1 intimacy", "Viewer 2 intimacy", "Viewer 3 intimacy"],
+                "rows": [["Compressed", "4", "5", "4"], ["Open", "2", "3", "2"]]
+            }
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "multistep": true,
         "cognitive_intent": "compare",
         "let_area": "Art Appreciation"
     },
@@ -11773,15 +11839,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "A person intends to help but carelessly ignores a known safety warning, causing injury. Which analysis is most complete?",
+        "question": "An incident report says a volunteer intended to help, ignored a clearly posted safety warning, and caused a preventable injury. Which ethical analysis is most complete?",
         "choices": [
-            "Good intention matters, but foreseeable consequences and negligence also matter.",
-            "The intention makes the harm ethically irrelevant.",
-            "Only the outcome matters, so intention never matters.",
-            "Accidents are never connected to responsibility."
+            "Excuse the conduct because a helpful intention makes any safety violation ethically acceptable.",
+            "Judge only the injury and ignore intention, risk awareness, and the possibility of repair.",
+            "Consider the good intention, the foreseeable risk, the negligent choice, the injury, and the volunteer's duty to disclose and repair the harm.",
+            "Call it morally irrelevant because an unintended injury can never involve responsibility."
         ],
-        "answer": "Good intention matters, but foreseeable consequences and negligence also matter.",
-        "explanation": "Ethical judgment can consider intention, avoidable risk, and consequences together. A benevolent aim does not erase negligence.",
+        "answer": "Consider the good intention, the foreseeable risk, the negligent choice, the injury, and the volunteer's duty to disclose and repair the harm.",
+        "explanation": "The report supplies both a benevolent aim and a known warning that was ignored. A complete judgment connects intention with foreseeability, negligent action, actual harm, and the responsibility to disclose and repair rather than treating one factor as decisive.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Incident report",
+                "value": "A volunteer moved equipment through an area marked unsafe because a spill had not been cleaned. The volunteer wanted to finish the community event on time, but someone slipped, was injured, and required medical attention."
+            }
+        ],
+        "passage_dependent": true,
+        "multistep": true,
         "cognitive_intent": "evaluate",
         "let_area": "Ethics"
     },
@@ -11798,15 +11873,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A teacher discovers that a grading error raised one student's score and lowered another's. What is the fairest response?",
+        "question": "A teacher discovers that one grading error raised Student A's score and lowered Student B's score. Which response applies fairness without exposing either student's private record?",
         "choices": [
-            "Correct both records transparently using the same standard and explain the remedy.",
-            "Keep the error because changing grades is inconvenient.",
-            "Correct only the lower score to avoid conflict.",
-            "Ask students to negotiate privately who deserves the points."
+            "Leave both scores unchanged because consistency means preserving the first result.",
+            "Correct only Student B's score because the lower result is the visible problem.",
+            "Ask the students to negotiate the points, making the remedy depend on pressure or agreement.",
+            "Recheck the shared rubric, correct both records using the same rule, and explain the process privately to each student."
         ],
-        "answer": "Correct both records transparently using the same standard and explain the remedy.",
-        "explanation": "Fairness requires applying a consistent correction to everyone affected, with transparency about the process rather than shifting the burden to students.",
+        "answer": "Recheck the shared rubric, correct both records using the same rule, and explain the process privately to each student.",
+        "explanation": "The error affects two records in opposite directions, so applying the rubric to both is necessary for equal treatment. Private explanations preserve dignity and confidentiality while making the corrective standard transparent.",
+        "multistep": true,
         "cognitive_intent": "apply",
         "let_area": "Ethics"
     },
@@ -11823,15 +11899,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Why is a refusal to participate in a harmful group practice an example of moral courage?",
+        "question": "A group pressures a member to mock a new participant, but the member names the harm and refuses to join despite likely ridicule. Why is this moral courage?",
         "choices": [
-            "It acts on a justified ethical commitment despite social pressure.",
-            "It proves that every disagreement is morally courageous.",
-            "It avoids responsibility by letting others decide.",
-            "It shows that consequences never matter."
+            "The member accepts social cost in order to act on a justified concern for dignity rather than conforming to a harmful norm.",
+            "Every disagreement is moral courage, even when it is unsupported or causes avoidable harm.",
+            "The member avoids responsibility because refusing to join means no ethical choice was made.",
+            "Moral courage requires ignoring all consequences once a person has stated a belief."
         ],
-        "answer": "It acts on a justified ethical commitment despite social pressure.",
-        "explanation": "Moral courage involves maintaining an ethical commitment when conformity would be easier or safer, while still considering evidence and consequences.",
+        "answer": "The member accepts social cost in order to act on a justified concern for dignity rather than conforming to a harmful norm.",
+        "explanation": "The case includes a harmful practice, a reason grounded in dignity, and a foreseeable social cost. Refusal therefore shows courage in service of an ethical commitment; disagreement alone or disregard for consequences would not establish that conclusion.",
+        "multistep": true,
         "cognitive_intent": "interpret",
         "let_area": "Ethics"
     },
@@ -11848,15 +11925,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "Which statement best distinguishes a moral principle from a personal preference?",
+        "question": "A student says, “I dislike group projects,” while also saying, “People should receive credit only for work they actually contribute.” Which comparison is accurate?",
         "choices": [
-            "A principle gives a reason meant to guide conduct beyond one immediate desire.",
-            "A principle is simply whatever a person happens to enjoy.",
-            "A preference must always be binding on everyone.",
-            "A principle cannot be discussed or justified."
+            "Both statements are preferences because no statement about conduct can be examined or justified.",
+            "The first is a universal moral principle because it expresses a strong personal feeling.",
+            "The first is a preference about experience; the second proposes a justifiable rule for conduct that can be applied to others as well.",
+            "The second is only a preference because principles cannot apply across different cases."
         ],
-        "answer": "A principle gives a reason meant to guide conduct beyond one immediate desire.",
-        "explanation": "Moral principles offer reasons for conduct and can be examined for consistency and fairness; preferences are individual likes or choices.",
+        "answer": "The first is a preference about experience; the second proposes a justifiable rule for conduct that can be applied to others as well.",
+        "explanation": "Disliking group work reports a personal reaction. The credit statement gives a reasoned standard about fair conduct and invites consistency across people, which is why it functions as a moral principle rather than a mere preference.",
+        "multistep": true,
         "cognitive_intent": "distinguish",
         "let_area": "Ethics"
     },
@@ -11873,15 +11951,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "A public official must choose between a lawful action that protects rights and a popular action that scapegoats a minority. Which ethical priority is strongest?",
+        "question": "A public official faces popular pressure to scapegoat a minority, while a lawful policy protects equal rights. Which conclusion follows from the rights-based review excerpt?",
         "choices": [
-            "Protect rights and equal standing even when popularity favors discrimination.",
-            "Follow majority approval regardless of harm.",
-            "Treat minority rights as optional during controversy.",
-            "Avoid making any decision so responsibility disappears."
+            "Adopt the popular policy because majority approval makes unequal treatment ethically sufficient.",
+            "Suspend minority rights until public opinion becomes unanimous.",
+            "Choose the rights-protecting policy and explain why equal standing constrains popular action even during controversy.",
+            "Avoid deciding so that the official cannot be blamed for either outcome."
         ],
-        "answer": "Protect rights and equal standing even when popularity favors discrimination.",
-        "explanation": "Respect for rights and equal justice constrains what may be done to people, even when a popular reaction pressures decision-makers otherwise.",
+        "answer": "Choose the rights-protecting policy and explain why equal standing constrains popular action even during controversy.",
+        "explanation": "The excerpt makes equal rights the governing constraint and identifies scapegoating as unequal treatment. A rights-based analysis therefore protects the minority and justifies the decision publicly rather than treating popularity as permission to remove equal standing.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Rights-based review excerpt",
+                "value": "The review states that public power must respect equal protection and may not assign blame to a group merely because it is unpopular. It recommends evidence-based measures that apply the same rights standard to every affected person."
+            }
+        ],
+        "passage_dependent": true,
+        "multistep": true,
         "cognitive_intent": "evaluate",
         "let_area": "Ethics"
     },
@@ -11898,15 +11985,25 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A volunteer makes a mistake, reports it promptly, and helps repair the effects. Which value is most evident?",
+        "question": "A volunteer audit records the number of mistakes disclosed within a day and whether a repair plan was completed. What ethical conclusion is best supported by the figures?",
         "choices": [
-            "Responsibility",
-            "Secrecy",
-            "Self-interest",
-            "Moral perfection"
+            "Secrecy is the strongest value because three undisclosed mistakes were not publicly discussed.",
+            "Moral perfection is proven because every mistake was repaired and no uncertainty remains.",
+            "The figures cannot inform ethics because only intentions, never actions, matter.",
+            "The 80% disclosure rate (12/15) and 10 completed repairs show responsibility, while the undisclosed cases still require follow-up."
         ],
-        "answer": "Responsibility",
-        "explanation": "Responsibility includes acknowledging one's action, communicating relevant harm, and participating in reasonable repair rather than hiding the mistake.",
+        "answer": "The 80% disclosure rate (12/15) and 10 completed repairs show responsibility, while the undisclosed cases still require follow-up.",
+        "explanation": "The disclosure rate is 12/15 = 80%, and 10 repairs were completed. Those actions support responsibility, but the three undisclosed mistakes prevent a claim of complete compliance and identify a remaining accountability task.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Volunteer audit",
+                "value": "During one month, the volunteer team logged 15 mistakes. Twelve were disclosed within one day, and repair plans were completed for 10 of the 15. Three mistakes were not disclosed promptly."
+            }
+        ],
+        "numeric": true,
+        "data_interpretation": true,
+        "multistep": true,
         "cognitive_intent": "infer",
         "let_area": "Ethics"
     },
@@ -11923,16 +12020,17 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "When two duties conflict, what is a sound first step in ethical decision-making?",
+        "question": "When a promise conflicts with a duty to prevent harm, which first step produces a defensible ethical analysis?",
         "choices": [
-            "Identify the stakeholders, duties, likely harms, and reasons supporting each option.",
-            "Choose the option that is most convenient.",
-            "Assume the newest demand automatically overrides all others.",
-            "Decide based only on which person speaks most loudly."
+            "Map the affected stakeholders, clarify each duty, gather relevant facts, and compare the likely harms before choosing.",
+            "Choose whichever option is most convenient and describe convenience as the stronger duty.",
+            "Assume the newest demand automatically overrides every prior promise or obligation.",
+            "Let the loudest speaker decide because volume is evidence of moral priority."
         ],
-        "answer": "Identify the stakeholders, duties, likely harms, and reasons supporting each option.",
-        "explanation": "Ethical deliberation requires clarifying the competing values and foreseeable effects before selecting and justifying a course of action.",
-        "cognitive_intent": "sequence",
+        "answer": "Map the affected stakeholders, clarify each duty, gather relevant facts, and compare the likely harms before choosing.",
+        "explanation": "A conflict cannot be judged responsibly until the people affected, obligations, facts, and foreseeable effects are identified. This sequence makes the eventual choice justifiable instead of substituting convenience, recency, or volume for ethical reasons.",
+        "multistep": true,
+        "cognitive_intent": "analyze",
         "let_area": "Ethics"
     },
     {
@@ -11948,15 +12046,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A person claims, “If everyone benefits from my lie, lying is always right.” What is the main weakness in this claim?",
+        "question": "A person argues, “If my lie benefits everyone this time, lying is always right.” Which critique best diagnoses the reasoning?",
         "choices": [
-            "It ignores duties, rights, trust, and whether the predicted benefit is reliable.",
-            "It proves that consequences never matter.",
-            "It correctly makes intention irrelevant in every case.",
-            "It shows that ethical reasoning needs no evidence."
+            "It is sound because a favorable result in one case establishes a rule for every future case.",
+            "It treats one predicted benefit as a universal rule and ignores duties, rights, trust, and uncertainty about consequences.",
+            "It proves that consequences never matter in ethical reasoning.",
+            "It shows that a claim needs no evidence if the speaker expects people to benefit."
         ],
-        "answer": "It ignores duties, rights, trust, and whether the predicted benefit is reliable.",
-        "explanation": "Outcomes matter in consequentialist reasoning, but predictions can be uncertain and other ethical considerations—such as rights and trust—may also constrain action.",
+        "answer": "It treats one predicted benefit as a universal rule and ignores duties, rights, trust, and uncertainty about consequences.",
+        "explanation": "The argument moves from a single forecast to an absolute rule. Even a consequentialist must examine whether the benefit is reliable and distributed fairly, while other frameworks may recognize duties, rights, and trust that a favorable prediction does not erase.",
+        "multistep": true,
         "cognitive_intent": "diagnose",
         "let_area": "Ethics"
     },
@@ -11973,15 +12072,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "Which response shows respect for another person's autonomy in a group decision?",
+        "question": "A group must decide whether to share a member's story. The deliberation note records the member's concerns and available alternatives. Which response respects autonomy?",
         "choices": [
-            "Give the person relevant information and allow a voluntary, informed choice.",
-            "Pressure the person until the group gets its preferred answer.",
-            "Withhold alternatives to make agreement easier.",
-            "Treat silence as permanent consent."
+            "Describe only the benefits and continue asking until the member agrees with the group.",
+            "Withhold alternatives because a fully informed choice might slow the meeting.",
+            "Explain the audience, risks, and alternatives, then let the member decide freely without treating silence as consent.",
+            "Treat the member's silence as permanent permission to share the story."
         ],
-        "answer": "Give the person relevant information and allow a voluntary, informed choice.",
-        "explanation": "Autonomy requires meaningful information and freedom from coercion, not merely the absence of a spoken objection.",
+        "answer": "Explain the audience, risks, and alternatives, then let the member decide freely without treating silence as consent.",
+        "explanation": "The note identifies a decision that affects the member personally. Meaningful information, alternatives, and freedom from pressure are necessary for voluntary choice; silence or partial disclosure cannot substitute for consent.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Deliberation note",
+                "value": "The group can share the story publicly, share a de-identified version, or keep it private. The member says public sharing may affect employment and asks what each option would involve."
+            }
+        ],
+        "passage_dependent": true,
+        "multistep": true,
         "cognitive_intent": "apply",
         "let_area": "Ethics"
     },
@@ -11998,15 +12106,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "A decision is legal but uses a loophole to shift serious risks onto people with little power. What should an ethical review add?",
+        "question": "A company uses a legal loophole to shift a serious environmental risk onto a community with little bargaining power. What should an ethical review add to the legal analysis?",
         "choices": [
-            "Examine justice, responsibility, and harm rather than treating legality as the whole analysis.",
-            "Conclude that legality automatically makes the decision ethical.",
-            "Ignore affected people because they lack bargaining power.",
-            "Replace evidence with the decision-maker's reputation."
+            "Conclude that the loophole settles the ethical question because legal permission is always moral permission.",
+            "Ignore the community because limited bargaining power means it has no relevant interests.",
+            "Replace evidence about risk with the company's good reputation.",
+            "Examine who bears the risk, whether the distribution is just, what responsibility the company has, and how harm could be prevented or repaired."
         ],
-        "answer": "Examine justice, responsibility, and harm rather than treating legality as the whole analysis.",
-        "explanation": "Law and ethics overlap but are not identical. Ethical review asks who bears risks, whether treatment is fair, and whether responsibility is being avoided.",
+        "answer": "Examine who bears the risk, whether the distribution is just, what responsibility the company has, and how harm could be prevented or repaired.",
+        "explanation": "Legality answers a compliance question, not the entire ethical question. Identifying the burdened community, distribution of risk, corporate responsibility, and available safeguards tests justice and harm rather than allowing a loophole to conceal them.",
+        "multistep": true,
         "cognitive_intent": "synthesize",
         "let_area": "Ethics"
     },
@@ -12297,15 +12406,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "Why can comparing oneself with carefully selected images online affect self-evaluation?",
+        "question": "A media-literacy passage describes a learner comparing an ordinary week with carefully selected images from other people's best moments. Which conclusion best follows?",
         "choices": [
-            "Selective social comparison can create an unrealistic standard and influence self-esteem.",
-            "Online images provide complete and neutral evidence about everyone's life.",
-            "Comparison has no relationship to self-perception.",
-            "Self-esteem is determined only by physical appearance."
+            "Comparing curated highlights with an unedited life can create an unrealistic standard and influence self-evaluation, so the evidence should be interpreted cautiously.",
+            "The images provide complete and neutral evidence about other people's lives, making the learner's negative comparison objectively accurate.",
+            "Online comparison cannot affect self-perception because a screen separates the people involved.",
+            "The passage proves that self-esteem is determined only by physical appearance."
         ],
-        "answer": "Selective social comparison can create an unrealistic standard and influence self-esteem.",
-        "explanation": "People often compare their ordinary experiences with others' curated presentations, which can distort judgment and affect self-esteem.",
+        "answer": "Comparing curated highlights with an unedited life can create an unrealistic standard and influence self-evaluation, so the evidence should be interpreted cautiously.",
+        "explanation": "The passage contrasts selective presentation with an ordinary, unedited experience. That mismatch can distort the comparison standard and affect self-evaluation; it does not justify treating online images as complete evidence or reducing self-esteem to appearance.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Media-literacy passage",
+                "value": "The learner posts routine school days privately but sees classmates' edited images of awards, trips, and celebrations. After comparing the two sets, the learner concludes that everyone else is consistently more successful."
+            }
+        ],
+        "passage_dependent": true,
+        "multistep": true,
         "cognitive_intent": "analyze",
         "let_area": "Understanding the Self"
     },
@@ -12322,15 +12440,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A family encourages a child to ask questions, while a peer group rewards cooperation. What does this suggest about development of the self?",
+        "question": "A developmental case records a family's encouragement of questions and a peer group's praise for cooperation. What interpretation best accounts for both environments?",
         "choices": [
-            "Person and environment interact: relationships provide influences that the learner interprets and responds to.",
-            "Environment determines identity mechanically without personal interpretation.",
-            "The self develops without social relationships.",
-            "Only one setting can influence a person at a time."
+            "The environments mechanically determine identity, so the learner's interpretation and agency are irrelevant.",
+            "The learner's developing self is shaped through interaction: relationships provide influences that the learner interprets and integrates across settings.",
+            "The self develops without relationships because inner traits are the only meaningful evidence.",
+            "Only the most recent setting can influence the learner, so the family context no longer matters."
         ],
-        "answer": "Person and environment interact: relationships provide influences that the learner interprets and responds to.",
-        "explanation": "Development reflects reciprocal interaction between personal characteristics and social environments, not a one-way or isolated process.",
+        "answer": "The learner's developing self is shaped through interaction: relationships provide influences that the learner interprets and integrates across settings.",
+        "explanation": "The case supplies two social influences and leaves room for the child's response to them. A reciprocal interpretation connects environment with personal meaning-making, avoiding both mechanical determinism and the unsupported claim that development occurs apart from relationships.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Developmental case",
+                "value": "At home, adults invite the child to explain how a toy works. At school, friends praise the child for sharing materials and coordinating play. The child says both asking questions and cooperating feel important in different activities."
+            }
+        ],
+        "passage_dependent": true,
+        "multistep": true,
         "cognitive_intent": "interpret",
         "let_area": "Understanding the Self"
     },
@@ -12347,15 +12474,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "Which action is strongest evidence of self-awareness?",
+        "question": "A learner's four-week reflection log records recurring irritation before group presentations and a deliberate pause to identify its cause before responding. Which action is strongest evidence of self-awareness?",
         "choices": [
-            "Notice an emotional reaction, consider its cause, and choose a response deliberately.",
-            "Assume every reaction is caused by other people.",
-            "Avoid feedback to protect a positive image.",
-            "Treat a temporary feeling as a permanent identity."
+            "Assume every reaction is caused by other people and stop examining the learner's own interpretation.",
+            "Avoid feedback so that the learner's preferred self-image remains undisturbed.",
+            "Notice the recurring reaction, investigate its possible trigger, and choose a response deliberately rather than treating the feeling as a fixed identity.",
+            "Treat the four-week pattern as proof of a permanent personality and rule out change."
         ],
-        "answer": "Notice an emotional reaction, consider its cause, and choose a response deliberately.",
-        "explanation": "Self-awareness involves observing one's thoughts, feelings, and behavior and examining them before acting, rather than denying or overgeneralizing them.",
+        "answer": "Notice the recurring reaction, investigate its possible trigger, and choose a response deliberately rather than treating the feeling as a fixed identity.",
+        "explanation": "The log provides repeated behavioral evidence and the learner's pause adds reflective examination. Self-awareness is shown by connecting reaction to possible cause and selecting a response; it is not blame, avoidance, or a permanent label.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Reflection log",
+                "value": "Across four weeks, the learner noted irritation before 8 of 10 group presentations. In the final three entries, the learner paused, identified fear of being unprepared as a possible trigger, and asked for a rehearsal."
+            }
+        ],
+        "data_interpretation": true,
+        "multistep": true,
         "cognitive_intent": "apply",
         "let_area": "Understanding the Self"
     },
@@ -12372,15 +12508,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A learner chooses a service project because it aligns with a deeply held value of fairness. This shows that:",
+        "question": "A learner compares two service projects, explains why one better expresses a deeply held value of fairness, and accepts the less prestigious option. What does this show?",
         "choices": [
-            "Values can guide choices and become part of a person's developing identity.",
-            "Values are unrelated to behavior.",
-            "Identity is only a list of inherited labels.",
-            "A single choice permanently fixes all future values."
+            "Values are unrelated to behavior because only rewards explain a person's decisions.",
+            "Identity is only a list of inherited labels and cannot include chosen commitments.",
+            "One service choice permanently fixes every future value and makes reflection unnecessary.",
+            "Values can guide behavior and become part of a developing identity through reflective choices."
         ],
-        "answer": "Values can guide choices and become part of a person's developing identity.",
-        "explanation": "Values influence goals and decisions and may be integrated into identity, while identity remains open to development and reflection.",
+        "answer": "Values can guide behavior and become part of a developing identity through reflective choices.",
+        "explanation": "The learner compares alternatives, explains a value-based reason, and chooses despite lower prestige. That sequence connects an internal value with behavior and identity development without claiming that one choice permanently determines all future values.",
+        "multistep": true,
         "cognitive_intent": "infer",
         "let_area": "Understanding the Self"
     },
@@ -12397,15 +12534,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "Two people respond differently to the same criticism because they interpret its intent and relevance differently. Which explanation is strongest?",
+        "question": "A social-psychology passage describes two learners receiving the same criticism: one treats it as specific coaching, while the other hears a judgment about worth. Which explanation is strongest?",
         "choices": [
-            "Individual differences and prior self-beliefs mediate how social feedback is experienced.",
-            "The same event must produce the same self-perception in everyone.",
-            "Personality tests alone can explain every response.",
-            "Interpretation has no role in behavior."
+            "The same criticism must produce the same self-perception in everyone because social feedback has one objective effect.",
+            "A personality label alone explains both reactions, making the learners' interpretations irrelevant.",
+            "Their prior self-beliefs and interpretations mediate the feedback, so the same event can produce different responses without proving either response is fixed.",
+            "Interpretation cannot influence behavior because only the speaker's intention matters."
         ],
-        "answer": "Individual differences and prior self-beliefs mediate how social feedback is experienced.",
-        "explanation": "People bring different experiences, beliefs, and expectations to social situations, so the same feedback can have different effects.",
+        "answer": "Their prior self-beliefs and interpretations mediate the feedback, so the same event can produce different responses without proving either response is fixed.",
+        "explanation": "The passage holds the external criticism constant but changes how each learner interprets its intent and relevance. Those differences in self-belief and meaning-making explain the contrasting responses without resorting to a complete diagnostic or deterministic label.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Social-psychology passage",
+                "value": "The instructor used the same words about a missed citation for two learners. One had previously asked for writing feedback and revised the paragraph; the other had recently been mocked for mistakes and stopped participating after hearing the comment."
+            }
+        ],
+        "passage_dependent": true,
+        "multistep": true,
         "cognitive_intent": "compare",
         "let_area": "Understanding the Self"
     },
@@ -12422,15 +12568,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A learner writes a journal entry identifying a recurring avoidance pattern and plans a small change. The activity primarily supports:",
+        "question": "A learner's journal identifies a recurring avoidance trigger, records its short-term payoff, and plans one manageable alternative for the next week. What process is primarily supported?",
         "choices": [
-            "Reflective self-regulation",
-            "Social conformity",
-            "Physical development only",
-            "A fixed measurement of personality"
+            "Social conformity, because private planning is meaningful only when peers approve it.",
+            "Reflective self-regulation: examining a pattern and using that understanding to guide a planned change.",
+            "Physical development only, because avoidance cannot involve thoughts, goals, or behavior.",
+            "A fixed measurement of personality, because a journal should assign a permanent label."
         ],
-        "answer": "Reflective self-regulation",
-        "explanation": "Reflection becomes self-regulation when a person examines a pattern and uses that understanding to plan an intentional change.",
+        "answer": "Reflective self-regulation: examining a pattern and using that understanding to guide a planned change.",
+        "explanation": "The learner identifies a trigger, considers what maintains the behavior, and selects a manageable next action. Those linked reflective and behavioral steps support self-regulation rather than conformity, bodily development alone, or a permanent personality label.",
+        "multistep": true,
         "cognitive_intent": "apply",
         "let_area": "Understanding the Self"
     },
@@ -12447,15 +12594,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "Which claim about individual differences is most defensible?",
+        "question": "A small learner survey reports varied study preferences across age, work schedule, and family responsibilities. Which claim is justified without stereotyping the respondents?",
         "choices": [
-            "People can differ in abilities, experiences, values, and contexts without one difference defining their total worth.",
-            "A single trait predicts every behavior in every setting.",
-            "Differences should be treated as deficits automatically.",
-            "Culture makes all individuals in a group identical."
+            "The most common preference predicts every respondent's behavior in every setting.",
+            "A less common response should automatically be treated as a deficit requiring correction.",
+            "The responses show that individual differences can reflect abilities, experiences, values, and contexts; no single survey feature defines a person's total worth.",
+            "Shared culture makes all respondents psychologically identical despite the varied responses."
         ],
-        "answer": "People can differ in abilities, experiences, values, and contexts without one difference defining their total worth.",
-        "explanation": "Individual differences are multidimensional and contextual. Recognizing them should not become a simplistic ranking of human worth.",
+        "answer": "The responses show that individual differences can reflect abilities, experiences, values, and contexts; no single survey feature defines a person's total worth.",
+        "explanation": "The survey varies across several life conditions and records preferences rather than ranking people. The cautious conclusion recognizes multidimensional, contextual difference and avoids turning a frequency or group membership into a universal prediction or value judgment.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Learner survey summary",
+                "value": "Respondents reported different preferred study times: some selected early morning, others late evening, and others short sessions between work or caregiving duties. The survey did not measure ability or academic worth."
+            }
+        ],
+        "data_interpretation": true,
+        "multistep": true,
         "cognitive_intent": "evaluate",
         "let_area": "Understanding the Self"
     },
@@ -12472,15 +12628,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A person feels pressure to meet a family role but negotiates a way to pursue a personally meaningful goal responsibly. What is this an example of?",
+        "question": "An identity narrative describes pressure to fulfill a family role, a conversation about responsibilities, and a plan for pursuing a meaningful goal without abandoning needed support. What is this an example of?",
         "choices": [
-            "Balancing relational expectations with personal agency in identity formation.",
-            "Rejecting all relationships as obstacles to identity.",
-            "Proving that family influence is always harmful.",
-            "Showing that personal identity never changes."
+            "Rejecting relationships as obstacles, because pursuing a personal goal requires ending family responsibilities.",
+            "Proving that family influence is always harmful regardless of the actual conversation or plan.",
+            "Showing that identity never changes once a family role has been assigned.",
+            "Balancing relational expectations with personal agency through negotiated identity development."
         ],
-        "answer": "Balancing relational expectations with personal agency in identity formation.",
-        "explanation": "Identity can develop through dialogue between social responsibilities and personal agency rather than through total compliance or total rejection.",
+        "answer": "Balancing relational expectations with personal agency through negotiated identity development.",
+        "explanation": "The narrative includes an external expectation, reflective dialogue, and a responsible plan that preserves both connection and agency. That evidence supports negotiated identity development, not total compliance, rejection, or a fixed self.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Identity narrative",
+                "value": "A learner is expected to help with a family business after graduation. The learner discusses a part-time arrangement, explains a goal of studying environmental planning, and agrees to provide weekend support while pursuing the program."
+            }
+        ],
+        "passage_dependent": true,
+        "multistep": true,
         "cognitive_intent": "analyze",
         "let_area": "Understanding the Self"
     },
@@ -12497,15 +12662,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "Which conclusion best integrates psychological and social dimensions of the self?",
+        "question": "A case study combines a learner's private values and emotions with roles, relationships, and institutional expectations. Which conclusion best integrates the evidence?",
         "choices": [
-            "Self-understanding includes inner beliefs and feelings as well as roles, relationships, and social contexts.",
-            "The psychological self is real only when social influence is absent.",
-            "The social self is merely a public mask with no personal meaning.",
-            "One dimension can explain every action completely."
+            "The psychological self is real only when social influence is absent from the learner's life.",
+            "The social self is merely a public mask and has no relationship to personal meaning or values.",
+            "Either the psychological or social dimension alone must explain every action completely.",
+            "Self-understanding connects inner beliefs and feelings with roles, relationships, and social contexts; each dimension can affect the others."
         ],
-        "answer": "Self-understanding includes inner beliefs and feelings as well as roles, relationships, and social contexts.",
-        "explanation": "A fuller account connects inner experience with relationships and contexts; neither dimension alone explains the whole person.",
+        "answer": "Self-understanding connects inner beliefs and feelings with roles, relationships, and social contexts; each dimension can affect the others.",
+        "explanation": "The case deliberately supplies both internal experience and social positioning. An integrated conclusion preserves their interaction and avoids treating either the private or social self as the only complete explanation.",
+        "multistep": true,
         "cognitive_intent": "synthesize",
         "let_area": "Understanding the Self"
     },
@@ -12522,15 +12688,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A learner notices that a close friend's expectations influence a college choice and decides to examine personal goals before answering. What does this show?",
+        "question": "A learner notices a close friend's expectations shaping a college choice, lists personal goals, and asks whether the choice would still fit without that pressure. What does this show?",
         "choices": [
-            "Self-awareness can help distinguish personal values from social influence.",
-            "Social influence always determines identity without reflection.",
-            "Personal identity develops only when relationships are rejected.",
-            "Self-concept is limited to physical appearance."
+            "Social influence always determines identity, so examining personal goals cannot change the decision.",
+            "Reflective self-awareness can distinguish personal values from social influence while still recognizing that relationships matter.",
+            "Personal identity develops only when relationships are rejected and friends have no legitimate influence.",
+            "Self-concept is limited to physical appearance and cannot include goals or relationships."
         ],
-        "answer": "Self-awareness can help distinguish personal values from social influence.",
-        "explanation": "Recognizing a friend's influence and examining one's own goals demonstrates self-awareness. Relationships matter, but reflection allows a person to assess rather than simply adopt outside expectations.",
+        "answer": "Reflective self-awareness can distinguish personal values from social influence while still recognizing that relationships matter.",
+        "explanation": "The learner identifies an external influence, articulates personal goals, and tests the decision against a counterfactual. That sequence demonstrates reflective self-awareness without pretending that a relationship must be rejected or that social influence is mechanically decisive.",
+        "multistep": true,
         "cognitive_intent": "apply",
         "let_area": "Understanding the Self"
     },
