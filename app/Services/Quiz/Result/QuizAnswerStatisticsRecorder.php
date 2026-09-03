@@ -25,7 +25,13 @@ final class QuizAnswerStatisticsRecorder
             if (!is_array($question) || !is_scalar($question["id"] ?? null)) {
                 continue;
             }
-            $topics[trim((string) $question["id"])] = $question["topic"] ?? "General";
+            $taxonomy = is_array($question["taxonomy"] ?? null)
+                ? $question["taxonomy"]
+                : [];
+            $topics[trim((string) $question["id"])] =
+                $question["topic"]
+                ?? $taxonomy["topic_id"]
+                ?? "General";
         }
 
         return array_map(

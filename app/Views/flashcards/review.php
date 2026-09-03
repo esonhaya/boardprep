@@ -2,8 +2,10 @@
 $filters = is_array($filters ?? null) ? $filters : ['include_new' => true];
 $card = is_array($card ?? null) ? $card : null;
 $selection = is_array($selection ?? null) ? $selection : [];
+$mode = in_array(($mode ?? 'normal'), ['normal', 'weakness', 'missed'], true) ? ($mode ?? 'normal') : 'normal';
 $revealed = ($revealed ?? false) === true;
 $query = ['include_new' => !empty($filters['include_new']) ? 1 : 0];
+if ($mode !== 'normal') { $query['mode'] = $mode; }
 foreach (['board', 'subject', 'topic'] as $name) {
     if (isset($filters[$name]) && is_string($filters[$name]) && $filters[$name] !== '__invalid__') {
         $query[$name] = $filters[$name];

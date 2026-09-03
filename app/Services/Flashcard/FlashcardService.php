@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\Flashcard;
 
 use App\Repositories\FlashcardStateRepository;
+use App\Services\Learning\WeaknessService;
 use DateTimeImmutable;
 use InvalidArgumentException;
 
@@ -73,8 +74,6 @@ final class FlashcardService
         int $limit = 20,
         ?DateTimeImmutable $now = null
     ): array {
-        $dueCount = 0;
-        $newCount = 0;
         if ($limit < 1) {
             throw new InvalidArgumentException('Due-card limit must be positive.');
         }
@@ -99,67 +98,74 @@ final class FlashcardService
             }
         }
 
-        $candidates = [];
-        foreach ($this->derivation->all() as $card) {
-            if (!$this->matchesFilters($card, $filters)) {
+        return $this->selectFromCards(
+            $this->derivation->all($filters),
+            $states,
+            $includeNew,
+            false,
+            $limit,
+            $now
+        );
+    }
+
+    /** @return array{cards:list<array<string,mixed>>,due_count:int,new_count:int,total_count:int} */
+    public function selectionForQuestionIds(array $questionIds, int $limit = 20, ?DateTimeImmutable $now = null): array
+    {
+        $cards = [];
+        $seen = [];
+        foreach ($questionIds as $questionId) {
+            if (!is_scalar($questionId)) {
                 continue;
             }
-
-            $state = $states[$card['card_key']] ?? null;
-            if (is_array($state) && ($state['suspended'] ?? false) === true) {
+            $id = trim((string) $questionId);
+            if ($id === '' || isset($seen[$id])) {
                 continue;
             }
-
-            $group = null;
-            $dueTimestamp = PHP_INT_MAX;
-            if ($state === null || $this->isNewState($state)) {
-                if (!$includeNew) {
-                    continue;
-                }
-                $group = 2;
-            } elseif ($this->isDue($state, $now)) {
-                $nextDue = $this->dateFrom($state['next_due_at'] ?? null);
-                $dueTimestamp = $nextDue?->getTimestamp() ?? $now->getTimestamp();
-                $group = $dueTimestamp < $now->getTimestamp() ? 0 : 1;
+            $seen[$id] = true;
+            $card = $this->derivation->forQuestionId($id);
+            if ($card !== null) {
+                $cards[] = $card;
             }
-
-            if ($group === null) {
-                continue;
-            }
-
-            if ($group === 2) {
-                $newCount++;
-            } else {
-                $dueCount++;
-            }
-
-            $card['review_state'] = $this->publicState(
-                $state ?? $this->scheduler->newState(
-                    $card['card_key'],
-                    $card['question_id'],
-                    $card['card_type']
-                )
-            );
-            $candidates[] = [$group, $dueTimestamp, (string) $card['card_key'], $card];
         }
 
-        usort($candidates, static function (array $left, array $right): int {
-            return ($left[0] <=> $right[0])
-                ?: ($left[1] <=> $right[1])
-                ?: strcmp($left[2], $right[2]);
-        });
+        return $this->selectFromCards(
+            $cards,
+            $this->statesByKey(),
+            true,
+            true,
+            $limit,
+            $now ?? new DateTimeImmutable('now')
+        );
+    }
 
-        $cards = array_values(array_map(
-            static fn(array $candidate): array => $candidate[3],
-            array_slice($candidates, 0, min($limit, 100))
+    /** @return array{cards:list<array<string,mixed>>,due_count:int,new_count:int,total_count:int} */
+    public function weaknessSelection(int $limit = 20, ?DateTimeImmutable $now = null): array
+    {
+        $weakTopics = $this->weakTopics();
+        if ($weakTopics === []) {
+            return $this->emptySelection();
+        }
+
+        $cards = array_values(array_filter(
+            $this->derivation->all(),
+            static fn(array $card): bool => isset($weakTopics[(string) ($card['topic'] ?? '')])
         ));
 
-        return [
-            'cards' => $cards,
-            'due_count' => $dueCount,
-            'new_count' => $newCount,
-            'total_count' => count($candidates),
-        ];
+        return $this->selectFromCards(
+            $cards,
+            $this->statesByKey(),
+            true,
+            false,
+            $limit,
+            $now ?? new DateTimeImmutable('now')
+        );
+    }
+
+    public function isWeaknessCard(string $cardKey): bool
+    {
+        $card = $this->card($cardKey);
+
+        return isset($this->weakTopics()[(string) ($card['topic'] ?? '')]);
     }
 
     /** @return array<string,mixed>|null */
@@ -213,15 +219,109 @@ final class FlashcardService
         return $card;
     }
 
-    private function matchesFilters(array $card, array $filters): bool
+    /** @return array<string,array<string,mixed>> */
+    private function statesByKey(): array
     {
-        foreach ($filters as $name => $value) {
-            if ((string) ($card[$name] ?? '') !== trim((string) $value)) {
-                return false;
+        $states = [];
+        foreach ($this->states->all() as $state) {
+            $key = (string) ($state['card_key'] ?? '');
+            if ($key !== '') {
+                $states[$key] = $state;
             }
         }
 
-        return true;
+        return $states;
+    }
+
+    /** @return array<string,bool> */
+    private function weakTopics(): array
+    {
+        $topics = [];
+        foreach (WeaknessService::all() as $topic => $stats) {
+            if (is_array($stats) && (int) ($stats['accuracy'] ?? 100) < 70) {
+                $topics[(string) $topic] = true;
+            }
+        }
+
+        return $topics;
+    }
+
+    /** @return array{cards:list<array<string,mixed>>,due_count:int,new_count:int,total_count:int} */
+    private function selectFromCards(
+        array $cards,
+        array $states,
+        bool $includeNew,
+        bool $includeFuture,
+        int $limit,
+        DateTimeImmutable $now
+    ): array {
+        if ($limit < 1) {
+            throw new InvalidArgumentException('Due-card limit must be positive.');
+        }
+
+        $candidates = [];
+        $dueCount = 0;
+        $newCount = 0;
+        foreach ($cards as $card) {
+            if (!is_array($card)) {
+                continue;
+            }
+            $state = $states[(string) ($card['card_key'] ?? '')] ?? null;
+            if (is_array($state) && ($state['suspended'] ?? false) === true) {
+                continue;
+            }
+
+            $group = null;
+            $dueTimestamp = PHP_INT_MAX;
+            if ($state === null || $this->isNewState($state)) {
+                if (!$includeNew) {
+                    continue;
+                }
+                $group = 2;
+                $newCount++;
+            } else {
+                $nextDue = $this->dateFrom($state['next_due_at'] ?? null);
+                $dueTimestamp = $nextDue?->getTimestamp() ?? $now->getTimestamp();
+                if ($this->isDue($state, $now)) {
+                    $group = $dueTimestamp < $now->getTimestamp() ? 0 : 1;
+                    $dueCount++;
+                } elseif ($includeFuture) {
+                    $group = 3;
+                }
+            }
+            if ($group === null) {
+                continue;
+            }
+
+            $card['review_state'] = $this->publicState(
+                $state ?? $this->scheduler->newState(
+                    $card['card_key'],
+                    $card['question_id'],
+                    $card['card_type']
+                )
+            );
+            $candidates[] = [$group, $dueTimestamp, (string) $card['card_key'], $card];
+        }
+
+        usort($candidates, static fn(array $left, array $right): int =>
+            ($left[0] <=> $right[0]) ?: ($left[1] <=> $right[1]) ?: strcmp($left[2], $right[2])
+        );
+
+        return [
+            'cards' => array_values(array_map(
+                static fn(array $candidate): array => $candidate[3],
+                array_slice($candidates, 0, min($limit, 100))
+            )),
+            'due_count' => $dueCount,
+            'new_count' => $newCount,
+            'total_count' => count($candidates),
+        ];
+    }
+
+    /** @return array{cards:list<array<string,mixed>>,due_count:int,new_count:int,total_count:int} */
+    private function emptySelection(): array
+    {
+        return ['cards' => [], 'due_count' => 0, 'new_count' => 0, 'total_count' => 0];
     }
 
     private function isNewState(array $state): bool

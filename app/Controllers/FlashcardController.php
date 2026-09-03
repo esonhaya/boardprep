@@ -9,6 +9,7 @@ use App\Core\Request;
 use App\Core\Response;
 use App\Core\View;
 use App\Services\Flashcard\FlashcardService;
+use App\Services\Quiz\Result\QuizAnswerStatisticsPlan;
 use App\Services\Shared\CsrfTokenService;
 use App\Services\Shared\TaxonomyStorageService;
 
@@ -22,7 +23,7 @@ final class FlashcardController
 
         if ($error === null) {
             try {
-                $selection = self::service()->dueSelection($parsed['filters'], 10);
+                $selection = self::selection($parsed['mode'], $parsed['filters']);
             } catch (\Throwable) {
                 $error = 'Flashcards are temporarily unavailable. Please try again.';
             }
@@ -43,6 +44,7 @@ final class FlashcardController
             'boards' => $boards,
             'subjects' => $subjects,
             'topics' => $topics,
+            'mode' => $parsed['mode'],
             'selection' => $selection,
             'error' => $error,
         ]);
@@ -52,6 +54,7 @@ final class FlashcardController
     {
         $parsed = self::filters(Request::query());
         $filters = $parsed['filters'];
+        $mode = $parsed['mode'];
         $card = null;
         $selection = self::emptySelection();
         $error = $parsed['error'];
@@ -65,11 +68,11 @@ final class FlashcardController
                         throw new \InvalidArgumentException('Missing flashcard.');
                     }
                     $card = self::service()->card((string) $rawCardKey);
-                    if (!self::matches($card, $filters)) {
+                    if (!self::matches($card, $filters) || !self::allowedInMode($card, $mode)) {
                         throw new \InvalidArgumentException('Flashcard does not match the selected filters.');
                     }
                 } else {
-                    $selection = self::service()->dueSelection($filters, 10);
+                    $selection = self::selection($mode, $filters);
                     $card = $selection['cards'][0] ?? null;
                 }
             } catch (\Throwable) {
@@ -80,6 +83,7 @@ final class FlashcardController
         View::render('flashcards/review', [
             'pageTitle' => 'Review Flashcards | BoardPrep',
             'filters' => $filters,
+            'mode' => $mode,
             'card' => $card,
             'revealed' => $revealed,
             'selection' => $selection,
@@ -92,7 +96,8 @@ final class FlashcardController
     {
         $parsed = self::filters(Request::input());
         $filters = $parsed['filters'];
-        $redirect = self::reviewUrl($filters);
+        $mode = $parsed['mode'];
+        $redirect = self::reviewUrl($filters, $mode);
 
         if ($parsed['error'] !== null) {
             \SessionService::flash('error', (string) $parsed['error']);
@@ -112,6 +117,10 @@ final class FlashcardController
         }
 
         try {
+            $card = self::service()->card(trim((string) $cardKey));
+            if (!self::matches($card, $filters) || !self::allowedInMode($card, $mode)) {
+                throw new \InvalidArgumentException('Card is not in the selected review set.');
+            }
             self::service()->review(trim((string) $cardKey), trim((string) $rating));
             \SessionService::flash('success', 'Review saved.');
         } catch (\Throwable) {
@@ -119,6 +128,43 @@ final class FlashcardController
         }
 
         Response::redirect($redirect, 303);
+    }
+
+    public static function missed(): void
+    {
+        $result = \QuizResultSessionReader::read();
+        if (!\SessionService::has('attempt_persisted') || $result['questions'] === []) {
+            \SessionService::flash('error', 'That quiz result is unavailable or expired.');
+            Response::redirect('/quiz?action=result', 303);
+        }
+
+        $plan = QuizAnswerStatisticsPlan::build($result['questions'], $result['answers']);
+        $missed = [];
+        foreach ($plan as $entry) {
+            if (($entry['correct'] ?? null) === false) {
+                $missed[] = (string) ($entry['question_id'] ?? '');
+            }
+        }
+        $missed = array_values(array_filter($missed));
+        if ($missed === []) {
+            \SessionService::flash('info', 'There are no missed eligible concepts in this quiz.');
+            Response::redirect('/quiz?action=result', 303);
+        }
+
+        $quizSession = $result['session'];
+        $quizSessionId = is_scalar($quizSession['id'] ?? null)
+            ? trim((string) $quizSession['id'])
+            : '';
+        if ($quizSessionId === '') {
+            \SessionService::flash('error', 'That quiz result is unavailable or expired.');
+            Response::redirect('/quiz?action=result', 303);
+        }
+
+        \SessionService::set('flashcard_missed_scope', [
+            'quiz_session_id' => $quizSessionId,
+            'question_ids' => $missed,
+        ]);
+        Response::redirect('/flashcards/review?mode=missed', 303);
     }
 
     private static function service(): FlashcardService
@@ -131,6 +177,7 @@ final class FlashcardController
     {
         $input = is_array($input) ? $input : [];
         $filters = ['include_new' => true];
+        $mode = 'normal';
         $error = null;
         try {
             $allowed = [
@@ -143,6 +190,13 @@ final class FlashcardController
                 'filters' => ['include_new' => false, 'board' => '__invalid__'],
                 'error' => 'Flashcard filters are temporarily unavailable. Please try again.',
             ];
+        }
+
+        if (array_key_exists('mode', $input)) {
+            if (!is_scalar($input['mode']) || !in_array((string) $input['mode'], ['normal', 'weakness', 'missed'], true)) {
+                return ['filters' => $filters, 'mode' => 'normal', 'error' => 'Please choose a valid flashcard review mode.'];
+            }
+            $mode = (string) $input['mode'];
         }
 
         foreach (['board', 'subject', 'topic'] as $name) {
@@ -172,7 +226,53 @@ final class FlashcardController
             }
         }
 
-        return ['filters' => $filters, 'error' => $error];
+        return ['filters' => $filters, 'mode' => $mode, 'error' => $error];
+    }
+
+    /** @return array{cards:list<array<string,mixed>>,due_count:int,new_count:int,total_count:int} */
+    private static function selection(string $mode, array $filters): array
+    {
+        if ($mode === 'missed') {
+            return self::service()->selectionForQuestionIds(self::missedQuestionIds(), 10);
+        }
+        if ($mode === 'weakness') {
+            return self::service()->weaknessSelection(10);
+        }
+
+        return self::service()->dueSelection($filters, 10);
+    }
+
+    /** @return list<string> */
+    private static function missedQuestionIds(): array
+    {
+        $scope = \SessionService::get('flashcard_missed_scope', []);
+        if (!is_array($scope) || !is_array($scope['question_ids'] ?? null)) {
+            return [];
+        }
+        $session = \SessionService::get('quiz_session', []);
+        $sessionId = is_array($session) && is_scalar($session['id'] ?? null)
+            ? (string) $session['id']
+            : '';
+        if ($sessionId === '' || $sessionId !== (string) ($scope['quiz_session_id'] ?? '')) {
+            return [];
+        }
+
+        return array_values(array_filter(array_map(
+            static fn(mixed $id): string => is_scalar($id) ? trim((string) $id) : '',
+            $scope['question_ids']
+        )));
+    }
+
+    private static function allowedInMode(array $card, string $mode): bool
+    {
+        if ($mode === 'missed') {
+            return in_array((string) ($card['question_id'] ?? ''), self::missedQuestionIds(), true);
+        }
+        if ($mode === 'weakness') {
+            return self::service()->isWeaknessCard((string) ($card['card_key'] ?? ''));
+        }
+
+        return true;
     }
 
     /** @param list<array<string,mixed>> $records */
@@ -208,13 +308,13 @@ final class FlashcardController
         return true;
     }
 
-    private static function reviewUrl(array $filters): string
+    private static function reviewUrl(array $filters, string $mode = 'normal'): string
     {
-        return '/flashcards/review?' . http_build_query(self::queryValues($filters));
+        return '/flashcards/review?' . http_build_query(self::queryValues($filters, $mode));
     }
 
     /** @return array<string,string|int> */
-    private static function queryValues(array $filters): array
+    private static function queryValues(array $filters, string $mode = 'normal'): array
     {
         $query = [];
         foreach (['board', 'subject', 'topic'] as $name) {
@@ -223,6 +323,9 @@ final class FlashcardController
             }
         }
         $query['include_new'] = !empty($filters['include_new']) ? 1 : 0;
+        if ($mode !== 'normal') {
+            $query['mode'] = $mode;
+        }
 
         return $query;
     }

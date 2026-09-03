@@ -122,7 +122,8 @@ final class QuizFlowController
                 'review' => $result['review'] ?? [],
                 'actions' => QuizResultActionService::build(
                     $session,
-                    $summary
+                    $summary,
+                    $result['review'] ?? []
                 ),
             ]
         );

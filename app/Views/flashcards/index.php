@@ -4,7 +4,9 @@ $selection = is_array($selection ?? null) ? $selection : [];
 $boards = is_array($boards ?? null) ? $boards : [];
 $subjects = is_array($subjects ?? null) ? $subjects : [];
 $topics = is_array($topics ?? null) ? $topics : [];
+$mode = in_array(($mode ?? 'normal'), ['normal', 'weakness', 'missed'], true) ? ($mode ?? 'normal') : 'normal';
 $query = ['include_new' => !empty($filters['include_new']) ? 1 : 0];
+if ($mode !== 'normal') { $query['mode'] = $mode; }
 foreach (['board', 'subject', 'topic'] as $name) {
     if (isset($filters[$name]) && is_string($filters[$name]) && $filters[$name] !== '__invalid__') {
         $query[$name] = $filters[$name];
@@ -30,7 +32,7 @@ $totalCount = (int) ($selection['total_count'] ?? 0);
             <div class="flashcard-checkbox"><label for="flashcard-include-new"><input id="flashcard-include-new" type="checkbox" name="include_new" value="1" <?= !empty($filters['include_new']) ? 'checked' : '' ?>> Include new cards</label></div>
             <button type="submit">Apply filters</button>
         </form>
-        <p class="muted-note">Due reviews are shown first. New cards are included only when selected.</p>
+        <p class="muted-note"><?= $mode === 'weakness' ? 'Weak-topic mode uses your learner-scoped weakness history.' : ($mode === 'missed' ? 'This focused set comes from the completed quiz in your current learner session.' : 'Due reviews are shown first. New cards are included only when selected.') ?></p>
     </section>
 
     <section class="ui-metric-grid flashcard-metrics" aria-label="Flashcard availability">

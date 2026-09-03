@@ -83,6 +83,7 @@ $router->get(
 );
 
 $router->get('/flashcards', [FlashcardController::class, 'index']);
+$router->get('/flashcards/missed', [FlashcardController::class, 'missed']);
 $router->get('/flashcards/review', [FlashcardController::class, 'review']);
 $router->post('/flashcards/review', [FlashcardController::class, 'submitReview']);
 

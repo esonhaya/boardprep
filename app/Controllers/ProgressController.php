@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\Core\View;
 use App\Services\Learning\LearningHistoryService;
 use App\Services\Learning\StudyDashboardService;
+use App\Services\Learning\WeaknessService;
 use App\Support\Presentation\PreviewCollection;
 
 final class ProgressController
@@ -28,6 +29,7 @@ final class ProgressController
                 "streak" => $dashboard["streak"],
                 "insight" => $dashboard["insight"],
                 "recommendations" => $dashboard["recommendations"],
+                "weaknesses" => WeaknessService::all(),
             ]
         );
     }

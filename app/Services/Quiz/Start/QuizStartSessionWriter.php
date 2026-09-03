@@ -18,6 +18,7 @@ final class QuizStartSessionWriter
             'attempt_persisted',
             'quiz_completed',
             'quiz_result',
+            'flashcard_missed_scope',
         ] as $key) {
             \SessionService::remove($key);
         }

@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\Core\View;
 use App\Services\Learning\LearningHistoryService;
 use App\Services\Learning\StudyDashboardService;
+use App\Services\Learning\WeaknessService;
 use App\Support\Presentation\PreviewCollection;
 
 final class DashboardController
@@ -21,6 +22,7 @@ final class DashboardController
                 "dashboard" => StudyDashboardService::build($attempts),
                 "history" => PreviewCollection::items($attempts),
                 "historyHasMore" => PreviewCollection::hasMore($attempts),
+                "weaknesses" => WeaknessService::all(),
             ]
         );
     }

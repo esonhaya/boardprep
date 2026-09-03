@@ -28,11 +28,14 @@ final class FlashcardDerivationService
         return $question === null ? null : $this->derive($question);
     }
 
-    public function all(): array
+    public function all(array $filters = []): array
     {
         $cards = [];
 
         foreach ($this->questions->all() as $question) {
+            if (!$this->matchesFilters($question, $filters)) {
+                continue;
+            }
             $card = $this->derive($question);
             if ($card !== null) {
                 $cards[] = $card;
@@ -40,6 +43,25 @@ final class FlashcardDerivationService
         }
 
         return $cards;
+    }
+
+    private function matchesFilters(array $question, array $filters): bool
+    {
+        $taxonomy = is_array($question['taxonomy'] ?? null)
+            ? $question['taxonomy']
+            : [];
+
+        foreach (['board', 'subject', 'topic'] as $name) {
+            if (!array_key_exists($name, $filters)) {
+                continue;
+            }
+            $actual = (string) ($taxonomy[$name . '_id'] ?? $question[$name] ?? '');
+            if ($actual !== trim((string) $filters[$name])) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public function derive(array $question): ?array

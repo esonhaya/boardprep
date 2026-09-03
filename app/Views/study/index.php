@@ -10,6 +10,8 @@ $insight = $dashboard["insight"] ?? [];
 $recommendations = $dashboard["recommendations"] ?? [];
 $studyPlan = $dashboard["studyPlan"] ?? [];
 $history = $history ?? [];
+$weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
+$weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
 ?>
 
 <h1>Study Dashboard</h1>
@@ -17,6 +19,8 @@ $history = $history ?? [];
 <p>
     Your personalized study view, built from your completed quiz history.
 </p>
+
+<p><a class="button" href="/flashcards">Review flashcards</a><?php if (!empty($weaknesses)): ?> <a class="button button-outline" href="/flashcards/review?mode=weakness">Review weak topics</a><?php endif; ?></p>
 
 <hr>
 

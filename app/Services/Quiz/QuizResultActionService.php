@@ -8,7 +8,7 @@ use App\Services\Quiz\ResultAction\QuizResultActionContext;
 
 final class QuizResultActionService
 {
-    public static function build(array $session = [], array $summary = []): array
+    public static function build(array $session = [], array $summary = [], array $review = []): array
     {
         $context = QuizResultActionContext::fromSession($session);
         $params = [
@@ -25,11 +25,24 @@ final class QuizResultActionService
 
         [$primaryLabel, $primaryReason] = self::primaryCopy((float) ($summary['percentage'] ?? 0));
 
-        return [
+        $actions = [
             ['label' => $primaryLabel, 'reason' => $primaryReason, 'url' => '/quiz?' . http_build_query($params)],
             ['label' => 'Back to Study Dashboard', 'reason' => 'Use your study plan and recommendations for the next step.', 'url' => '/study'],
             ['label' => 'View Progress', 'reason' => 'See how this result changed your learning history.', 'url' => '/progress'],
         ];
+
+        foreach ($review as $item) {
+            if (is_array($item) && ($item['correct'] ?? false) === false) {
+                array_splice($actions, 1, 0, [[
+                    'label' => 'Review missed concepts',
+                    'reason' => 'Turn the concepts you missed into a focused flashcard review.',
+                    'url' => '/flashcards/missed',
+                ]]);
+                break;
+            }
+        }
+
+        return $actions;
     }
 
     private static function primaryCopy(float $percentage): array
