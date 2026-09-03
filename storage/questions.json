@@ -10253,16 +10253,28 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A phone assembled from components made in several countries illustrates which dimension of globalization most directly?",
+        "question": "A trade analyst compares two phones before judging how widely each production network crosses borders. Which conclusion follows from the supplied counts?",
         "choices": [
-            "Economic globalization through cross-border production and trade.",
-            "Cultural globalization caused only by local festivals.",
-            "Political globalization limited to one municipal council.",
-            "Environmental change with no human or economic connections."
+            "Phone X has 9 cross-border touchpoints (5 suppliers plus 4 markets), equal to Y's 9, but X spreads more of its network across production.",
+            "Phone Y is more globally integrated because six markets must always outweigh five supplier countries.",
+            "Phone X has only five international links because final markets are not part of globalization.",
+            "The phones cannot be compared because production and distribution are unrelated processes."
         ],
-        "answer": "Economic globalization through cross-border production and trade.",
-        "explanation": "Multinational production links firms, workers, materials, and markets across borders, making the example primarily economic and interdependent.",
-        "cognitive_intent": "classify",
+        "answer": "Phone X has 9 cross-border touchpoints (5 suppliers plus 4 markets), equal to Y's 9, but X spreads more of its network across production.",
+        "explanation": "Adding the two relevant categories gives X 5 + 4 = 9 and Y 3 + 6 = 9. The equal totals do not erase the structural difference: X has more supplier-country links, while Y reaches more markets. That pattern is economic globalization through cross-border production and trade.",
+        "content_blocks": [
+            {
+                "type": "table",
+                "title": "Cross-border phone networks",
+                "columns": ["Phone", "Supplier countries", "Markets outside assembly country"],
+                "rows": [["X", "5", "4"], ["Y", "3", "6"]]
+            }
+        ],
+        "table_dependent": true,
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
+        "cognitive_intent": "analyze",
         "let_area": "The Contemporary World"
     },
     {
@@ -10278,15 +10290,27 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A port closure delays food packaging, raises costs, and affects retailers in another country. What does this reveal?",
+        "question": "After a port closure, an analyst calculates each product's shipping-cost increase before identifying the strongest price shock. What does the comparison show?",
         "choices": [
-            "Global supply chains transmit local disruptions across connected economies.",
-            "International trade prevents all local consequences.",
-            "A supply chain is only a domestic sequence of retail decisions.",
-            "Price changes prove that countries are economically isolated."
+            "Rice is most affected because its absolute increase of 10 is larger than medicine's relative increase.",
+            "Electronics has the largest relative increase at 30%, so the disruption transmits unevenly through interdependent supply chains.",
+            "All products are affected equally because they use the same port.",
+            "No cross-border effect can be inferred because the table lists prices rather than quantities."
         ],
-        "answer": "Global supply chains transmit local disruptions across connected economies.",
-        "explanation": "The disruption travels through linked stages of production and distribution, showing interdependence rather than isolation.",
+        "answer": "Electronics has the largest relative increase at 30%, so the disruption transmits unevenly through interdependent supply chains.",
+        "explanation": "The increases are 10/40 = 25% for rice, 16/80 = 20% for medicine, and 30/100 = 30% for electronics. Comparing percentages rather than pesos identifies electronics as the largest relative shock and supports the conclusion that connected economies transmit effects unevenly.",
+        "content_blocks": [
+            {
+                "type": "table",
+                "title": "Prices before and after a port closure",
+                "columns": ["Product", "Before", "After"],
+                "rows": [["Rice", "40", "50"], ["Medicine", "80", "96"], ["Electronics", "100", "130"]]
+            }
+        ],
+        "table_dependent": true,
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
         "cognitive_intent": "analyze",
         "let_area": "The Contemporary World"
     },
@@ -10303,16 +10327,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "Which situation is a pull factor in migration?",
+        "question": "Read the migration bulletin, then separate the condition attracting a worker from the condition pushing a worker away. Which is the pull factor?",
         "choices": [
-            "A worker is attracted by a job with better wages and safer working conditions abroad.",
-            "A typhoon destroys the worker's home community.",
-            "Conflict forces a family to leave its residence.",
-            "A lack of local employment pushes a graduate away."
+            "The origin community's closure of its only clinic.",
+            "The worker's fear after repeated threats in the origin community.",
+            "The destination's verified offer of a nursing job with predictable wages.",
+            "The worker's loss of transport while leaving the origin community."
         ],
-        "answer": "A worker is attracted by a job with better wages and safer working conditions abroad.",
-        "explanation": "A pull factor attracts migrants to a destination; the other examples describe pressures that push people from their origin.",
-        "cognitive_intent": "classify",
+        "answer": "The destination's verified offer of a nursing job with predictable wages.",
+        "explanation": "The bulletin distinguishes destination conditions from origin hardships. A verified job and wages draw the worker toward the destination, making them a pull factor; the clinic closure and threats are push conditions.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Migration bulletin",
+                "value": "A rural clinic closed after funding ended, and several residents reported threats. A hospital in another country advertised nursing posts with predictable wages and housing assistance."
+            }
+        ],
+        "passage_dependent": true,
+        "cognitive_intent": "apply",
         "let_area": "The Contemporary World"
     },
     {
@@ -10328,15 +10360,27 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "How can remittances affect a migrant's community of origin?",
+        "question": "A development officer compares how widely remittances reach households and what local activity follows. Which interpretation is best supported by the data?",
         "choices": [
-            "They can support household needs and investment while also creating dependence on overseas income.",
-            "They always eliminate inequality in the receiving country.",
-            "They prevent families from maintaining any local ties.",
-            "They are payments made only between governments."
+            "Community B has broader household reach because 100 recipient households is more than A's 80.",
+            "The communities have identical effects because both receive remittances from abroad.",
+            "Community A cannot support development because its enterprise count is lower than B's.",
+            "Community A reaches about 66.7% of households versus B's 50%, while B supports more enterprises in total; remittances can have different kinds of local effects."
         ],
-        "answer": "They can support household needs and investment while also creating dependence on overseas income.",
-        "explanation": "Remittances may improve household resources and finance education or enterprise, but their effects are not automatically equal or permanent.",
+        "answer": "Community A reaches about 66.7% of households versus B's 50%, while B supports more enterprises in total; remittances can have different kinds of local effects.",
+        "explanation": "The household reach is 80/120 = 66.7% in A and 100/200 = 50% in B. B nevertheless records 15 enterprises versus A's 12. The two measures support a differentiated conclusion about household coverage and local investment rather than a claim that one community benefits in every respect.",
+        "content_blocks": [
+            {
+                "type": "table",
+                "title": "Remittance indicators",
+                "columns": ["Community", "Households", "Receiving households", "Supported enterprises"],
+                "rows": [["A", "120", "80", "12"], ["B", "200", "100", "15"]]
+            }
+        ],
+        "table_dependent": true,
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
         "cognitive_intent": "evaluate",
         "let_area": "The Contemporary World"
     },
@@ -10353,15 +10397,27 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "A country loses trained nurses to overseas employment but later benefits when some return with new skills. Which interpretation is strongest?",
+        "question": "A labor researcher compares return rates with the number of returning nurses before evaluating whether migration produced only a loss. Which conclusion is strongest?",
         "choices": [
-            "Migration can involve both brain drain and brain circulation, depending on movement and knowledge transfer.",
-            "Any migration of skilled workers has only one permanent effect.",
-            "Remittances and skills can never benefit the origin country.",
-            "Brain drain refers only to movement of untrained workers."
+            "Island C benefits most in every respect because 20 returnees is the largest count.",
+            "Island A has the highest return rate because 15 returnees is more than B's 14.",
+            "The data prove that overseas employment never harms the origin health system.",
+            "Island B has the highest return rate at 35%, while C has the largest number returned; migration can involve both initial loss and later skill circulation."
         ],
-        "answer": "Migration can involve both brain drain and brain circulation, depending on movement and knowledge transfer.",
-        "explanation": "The same migration system may create shortages in one period and later produce skills, networks, or investment through return and circulation.",
+        "answer": "Island B has the highest return rate at 35%, while C has the largest number returned; migration can involve both initial loss and later skill circulation.",
+        "explanation": "Return rates are A: 15/60 = 25%, B: 14/40 = 35%, and C: 20/100 = 20%. B leads proportionally, but C contributes the largest absolute number of returnees. The two measures show why migration should be assessed as possible brain drain followed by uneven skill circulation, not as a single one-direction effect.",
+        "content_blocks": [
+            {
+                "type": "table",
+                "title": "Nurse migration and return",
+                "columns": ["Island", "Nurses employed abroad", "Nurses returned"],
+                "rows": [["A", "60", "15"], ["B", "40", "14"], ["C", "100", "20"]]
+            }
+        ],
+        "table_dependent": true,
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
         "cognitive_intent": "analyze",
         "let_area": "The Contemporary World"
     },
@@ -10378,15 +10434,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Why is climate change a transnational issue?",
+        "question": "A climate brief reports that emissions from several countries contribute to warming while drought and flooding affect communities across borders. Which reasoning best explains the classification?",
         "choices": [
-            "Emissions and impacts cross borders, so effective responses require coordination among countries and communities.",
-            "Each country can fully contain atmospheric effects within its territory.",
-            "Climate concerns involve culture but never economies or health.",
-            "International cooperation would make environmental action less relevant."
+            "Only the country with the highest emissions has a legitimate role in responding.",
+            "The distributed sources and cross-border effects require coordinated action even though impacts are experienced locally.",
+            "The issue is transnational only when every country experiences identical weather.",
+            "Local adaptation makes international cooperation unnecessary."
         ],
-        "answer": "Emissions and impacts cross borders, so effective responses require coordination among countries and communities.",
-        "explanation": "The atmosphere and climate impacts are interconnected, while responsibility and vulnerability are distributed unevenly across places.",
+        "answer": "The distributed sources and cross-border effects require coordinated action even though impacts are experienced locally.",
+        "explanation": "The brief links multiple emitting countries to effects that cross national boundaries. That evidence supports the transnational classification: local adaptation remains important, but no single community can address the distributed causes and shared consequences alone.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Climate brief",
+                "value": "The report attributes 42% of the measured emissions to Country A, 33% to Country B, and 25% to other countries. It records drought in one region and flooding downstream across a national boundary."
+            }
+        ],
+        "passage_dependent": true,
+        "data_interpretation": true,
         "cognitive_intent": "interpret",
         "let_area": "The Contemporary World"
     },
@@ -10403,15 +10468,23 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "What is a reasonable role for the United Nations in a global issue?",
+        "question": "An outbreak-response charter assigns local clinics to deliver care but asks an international body to coordinate compatible reporting. What role is most consistent with that division?",
         "choices": [
-            "Provide a forum for cooperation, shared standards, and coordinated action among member states.",
-            "Replace every national government in domestic decision-making.",
-            "Guarantee that all disputes have identical solutions.",
-            "Restrict international discussion to cultural festivals."
+            "Take over every clinic and impose one local treatment regardless of context.",
+            "Allow each country to withhold outbreak information to protect its reputation.",
+            "Coordinate information, standards, and assistance so countries can act together without removing their local responsibilities.",
+            "Limit the response to issuing symbolic statements with no coordination."
         ],
-        "answer": "Provide a forum for cooperation, shared standards, and coordinated action among member states.",
-        "explanation": "The UN can convene states, coordinate programs, and support common norms, but it does not simply replace national governments.",
+        "answer": "Coordinate information, standards, and assistance so countries can act together without removing their local responsibilities.",
+        "explanation": "The charter assigns delivery to local clinics but gives the international body a coordinating function. The best answer preserves that distinction: shared reporting and assistance address a cross-border problem while local authorities retain context-sensitive implementation.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Outbreak-response charter",
+                "value": "Member states retain responsibility for clinics and public communication. The coordinating body will align case definitions, circulate verified alerts, and organize requests for supplies across borders."
+            }
+        ],
+        "passage_dependent": true,
         "cognitive_intent": "apply",
         "let_area": "The Contemporary World"
     },
@@ -10428,15 +10501,27 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "ASEAN regional cooperation is best understood as an effort to:",
+        "question": "A regional-economy report compares the share of imports obtained from neighboring partners before and after a cooperation agreement. What inference is justified?",
         "choices": [
-            "Address shared regional interests through dialogue and cooperation while members retain national governments.",
-            "Create one government that abolishes all member-state identities.",
-            "Prevent all movement of goods and people within the region.",
-            "Replace local communities with multinational corporations."
+            "Economy A integrated more because 52 partner imports is greater than Economy B's 39, regardless of their totals.",
+            "The agreement had no measurable effect because total imports also increased.",
+            "Regional cooperation requires national identities and governments to disappear.",
+            "Both economies increased the partner share from 40% to about 43.3%, supporting stronger regional integration without implying identical economies."
         ],
-        "answer": "Address shared regional interests through dialogue and cooperation while members retain national governments.",
-        "explanation": "Regional cooperation builds mechanisms for shared interests without making the participating states a single country.",
+        "answer": "Both economies increased the partner share from 40% to about 43.3%, supporting stronger regional integration without implying identical economies.",
+        "explanation": "For A, the share moves from 40/100 = 40% to 52/120 = 43.3%. For B, it moves from 30/75 = 40% to 39/90 = 43.3%. Comparing proportions reveals a common integration trend, while the data do not support erasing national differences.",
+        "content_blocks": [
+            {
+                "type": "table",
+                "title": "Imports from regional partners",
+                "columns": ["Economy", "Before: partner/total", "After: partner/total"],
+                "rows": [["A", "40/100", "52/120"], ["B", "30/75", "39/90"]]
+            }
+        ],
+        "table_dependent": true,
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
         "cognitive_intent": "interpret",
         "let_area": "The Contemporary World"
     },
@@ -10453,15 +10538,27 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "A company advertises the same product worldwide but adapts its packaging to local languages and customs. Which conclusion is best?",
+        "question": "A firm tests translated packaging in two markets and compares sales rates before deciding whether a global product was simply copied locally. Which conclusion is best supported?",
         "choices": [
-            "Global circulation can combine standardization with cultural adaptation and hybridization.",
-            "Globalization always produces identical cultural practices.",
-            "Local culture disappears whenever an international firm operates.",
-            "The example concerns only physical geography, not culture."
+            "Translated packaging reaches 60% versus 40% in Market 1 and 50% versus 30% in Market 2, illustrating global reach adjusted to local context.",
+            "The untranslated version is more effective because its raw sales in Market 2 exceed the translated version's raw sales in Market 1.",
+            "The data prove translation alone caused every sales difference and no other factor matters.",
+            "Local adaptation means the firm is no longer participating in a global market."
         ],
-        "answer": "Global circulation can combine standardization with cultural adaptation and hybridization.",
-        "explanation": "The common product reflects global integration, while local adaptation shows that cultural exchange can produce hybrid forms rather than uniformity.",
+        "answer": "Translated packaging reaches 60% versus 40% in Market 1 and 50% versus 30% in Market 2, illustrating global reach adjusted to local context.",
+        "explanation": "The translated version sells 18/30 = 60% in Market 1 and 14/28 = 50% in Market 2, compared with 10/25 = 40% and 9/30 = 30% for the untranslated versions. The normalized comparison supports an association, not a claim that translation is the only cause. It demonstrates local adaptation within globalization.",
+        "content_blocks": [
+            {
+                "type": "table",
+                "title": "Packaging test results",
+                "columns": ["Market/version", "Purchases", "Visitors"],
+                "rows": [["1 translated", "18", "30"], ["1 untranslated", "10", "25"], ["2 translated", "14", "28"], ["2 untranslated", "9", "30"]]
+            }
+        ],
+        "table_dependent": true,
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
         "cognitive_intent": "analyze",
         "let_area": "The Contemporary World"
     },
@@ -10478,16 +10575,25 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Digital globalization is most evident when:",
+        "question": "A platform report claims that one short video doubled cross-border engagement. After reading the method note, which response best evaluates the claim?",
         "choices": [
-            "A remote team in different countries collaborates through shared online platforms and real-time communication.",
-            "A neighborhood meeting uses only face-to-face conversation.",
-            "A farmer exchanges seeds with a nearby relative without digital networks.",
-            "A local road is repaired using materials from the same town."
+            "Accept the claim as universal because a doubled engagement rate cannot be affected by sampling.",
+            "Treat the result as a preliminary digital-globalization signal because the report used a small self-selected sample; check a broader sample and independent analytics.",
+            "Reject the claim solely because digital media cannot connect people across national borders.",
+            "Conclude that the video caused cultural agreement in every country where it was viewed."
         ],
-        "answer": "A remote team in different countries collaborates through shared online platforms and real-time communication.",
-        "explanation": "Cross-border digital communication and collaboration connect people and work across distance, which is a defining feature of digital globalization.",
-        "cognitive_intent": "classify",
+        "answer": "Treat the result as a preliminary digital-globalization signal because the report used a small self-selected sample; check a broader sample and independent analytics.",
+        "explanation": "The method note limits the claim: a small self-selected sample may not represent all users, and engagement does not by itself prove cultural agreement. The responsible interpretation recognizes a cross-border digital connection while requiring corroboration before generalizing.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Platform method note",
+                "value": "The platform compared 200 accounts that volunteered for a campaign with their own previous week. It reported a 100% increase in cross-border comments but did not report nonparticipants or independent traffic data."
+            }
+        ],
+        "passage_dependent": true,
+        "data_interpretation": true,
+        "cognitive_intent": "evaluate",
         "let_area": "The Contemporary World"
     },
     {
@@ -10503,15 +10609,25 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Why can globalization produce unequal outcomes within the same country?",
+        "question": "A labor brief compares two sectors after trade expands. Calculate each wage change, then use the accompanying employment note to identify the most defensible conclusion about unequal globalization. ",
         "choices": [
-            "Access to capital, technology, skills, and bargaining power differs among regions and groups.",
-            "Global connections distribute all benefits equally by definition.",
-            "Local institutions never influence global economic outcomes.",
-            "Inequality disappears when a country exports goods."
+            "Retail benefited more because its wage increase of 900 pesos is larger than the service sector's percentage increase.",
+            "The figures prove globalization caused every wage change and local institutions played no role.",
+            "Export services rose 20% in wages while local retail rose 5%; unequal access to skills and bargaining power can distribute gains unevenly.",
+            "Equal employment totals would be required before any difference in outcomes could be discussed."
         ],
-        "answer": "Access to capital, technology, skills, and bargaining power differs among regions and groups.",
-        "explanation": "Global integration creates opportunities, but groups with different resources and protections experience its costs and benefits differently.",
+        "answer": "Export services rose 20% in wages while local retail rose 5%; unequal access to skills and bargaining power can distribute gains unevenly.",
+        "explanation": "Service wages increase by 4,000/20,000 = 20%, while retail wages increase by 900/18,000 = 5%. The normalized comparison shows different gains; the employment note also identifies unequal training and bargaining power as plausible mechanisms, without claiming that the figures alone prove causation.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Labor brief",
+                "value": "Export services: average monthly wage 20,000 to 24,000 pesos; workers with digital certification increased from 40% to 60%. Local retail: 18,000 to 18,900 pesos; certified workers remained at 20%."
+            }
+        ],
+        "numeric": true,
+        "data_interpretation": true,
+        "multistep": true,
         "cognitive_intent": "analyze",
         "let_area": "The Contemporary World"
     },
@@ -10528,15 +10644,25 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "A proposed infrastructure project increases exports but displaces a vulnerable community and damages a watershed. Which evaluation is most consistent with sustainable development?",
+        "question": "An infrastructure review compares two designs. Compute each design's watershed-protection cost per hectare, then apply a social safeguard before recommending a sustainable option.",
         "choices": [
-            "Assess economic gains alongside social inclusion and environmental limits across generations.",
-            "Approve the project because economic growth always outweighs all other concerns.",
-            "Reject every infrastructure project regardless of evidence.",
-            "Measure success only by short-term export volume."
+            "Design B is automatically best because a lower total cost is always more sustainable, even if fewer hectares are protected.",
+            "Design A should proceed without consultation because a 15% export gain settles the ethical question.",
+            "Neither design can be evaluated because environmental and social effects cannot be considered together.",
+            "Design A costs 80,000 pesos per protected hectare but still displaces 80 families; its efficiency does not excuse missing safeguards and participation."
         ],
-        "answer": "Assess economic gains alongside social inclusion and environmental limits across generations.",
-        "explanation": "Sustainable development requires balancing economic, social, and environmental considerations rather than treating one indicator as sufficient.",
+        "answer": "Design A costs 80,000 pesos per protected hectare but still displaces 80 families; its efficiency does not excuse missing safeguards and participation.",
+        "explanation": "Design A's protection cost is 48,000,000/600 = 80,000 pesos per hectare; B's is 30,000,000/300 = 100,000. That calculation shows A's environmental efficiency, but its 80 displaced families and export trade-off remain material. Sustainable development requires mitigation, consent processes, and intergenerational environmental limits alongside economic results.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Infrastructure review",
+                "value": "Design A costs 48,000,000 pesos, protects 600 hectares, raises exports 15%, and displaces 80 families. Design B costs 30,000,000 pesos, protects 300 hectares, raises exports 10%, and displaces no families."
+            }
+        ],
+        "numeric": true,
+        "data_interpretation": true,
+        "multistep": true,
         "cognitive_intent": "evaluate",
         "let_area": "The Contemporary World"
     },
@@ -10553,15 +10679,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Which statement best distinguishes global interdependence from simple globalization?",
+        "question": "Two linked observations describe a fertilizer shortage in one country and a later food-price increase in another. Which interpretation distinguishes interdependence from the mere existence of global connections?",
         "choices": [
-            "Interdependence emphasizes mutual effects among connected actors, including shared vulnerability and responsibility.",
-            "Interdependence means countries have no local institutions.",
-            "Globalization describes only cultural festivals, while interdependence describes only trade.",
-            "The two ideas require countries to become politically identical."
+            "The observations show a mutual effect and shared vulnerability: a decision or disruption in one place changes options elsewhere.",
+            "The second country is not interdependent because it can still set a local food policy.",
+            "Any international contact is interdependence even when no actor affects another.",
+            "Interdependence requires all countries to share one government and one market."
         ],
-        "answer": "Interdependence emphasizes mutual effects among connected actors, including shared vulnerability and responsibility.",
-        "explanation": "Globalization names expanding cross-border connections; interdependence highlights how decisions and disruptions in one place affect others.",
+        "answer": "The observations show a mutual effect and shared vulnerability: a decision or disruption in one place changes options elsewhere.",
+        "explanation": "The paired observations provide evidence of consequence, not merely contact. Interdependence focuses on how the shortage alters another country's food conditions and how responses may affect both sides; local policy can remain while the relationship persists.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Paired observations",
+                "value": "Country P restricted fertilizer exports during a domestic shortage. Within two months, Country Q reported higher input costs and reduced planting. Q then sought alternative suppliers, which raised demand in a third market."
+            }
+        ],
+        "passage_dependent": true,
+        "data_interpretation": true,
         "cognitive_intent": "compare",
         "let_area": "The Contemporary World"
     },
@@ -10578,15 +10713,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "A Filipino worker participates in a diaspora association that funds a school project in the Philippines. This illustrates:",
+        "question": "A diaspora survey records both financial support and remote mentoring. Which conclusion uses the two measures without treating migrants as detached from their communities?",
         "choices": [
-            "Transnational ties linking migration, community identity, and development across borders.",
-            "A complete break between migrants and their communities of origin.",
-            "A purely local activity with no cross-border relationship.",
-            "The removal of all cultural exchange from migration."
+            "Financial support is the only meaningful tie because mentoring involves no money.",
+            "Financial transfers reach 60% of members and mentoring reaches 40%, showing distinct but overlapping transnational contributions to community development.",
+            "The association proves every migrant has the same relationship with the origin community.",
+            "The survey describes local charity only because the school is located in the Philippines."
         ],
-        "answer": "Transnational ties linking migration, community identity, and development across borders.",
-        "explanation": "The association maintains social and material connections across countries, showing that migration can create transnational communities.",
+        "answer": "Financial transfers reach 60% of members and mentoring reaches 40%, showing distinct but overlapping transnational contributions to community development.",
+        "explanation": "The survey reports 60 of 100 members sending funds and 40 of 100 mentoring remotely. Those proportions describe different forms of cross-border participation; they do not justify ranking money as the only meaningful connection or generalizing to every migrant.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Diaspora survey",
+                "value": "Among 100 association members, 60 reported sending funds for school materials and 40 reported mentoring teachers online. Some members reported both activities, so the categories are not mutually exclusive."
+            }
+        ],
+        "data_interpretation": true,
+        "multistep": true,
         "cognitive_intent": "infer",
         "let_area": "The Contemporary World"
     },
@@ -10603,15 +10747,23 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Which response is most appropriate when a pandemic or disaster crosses national borders?",
+        "question": "A disaster-response memo separates urgent actions that every partner must coordinate from measures that each community should adapt. Which response follows the memo?",
         "choices": [
-            "Share information and coordinate resources while adapting measures to local conditions.",
-            "Withhold data so each country must work without evidence.",
-            "Assume one country can solve the issue without external effects.",
-            "Treat cooperation as unnecessary once borders are closed."
+            "Use one identical evacuation procedure even where hazards, languages, and clinic capacity differ.",
+            "Let each jurisdiction conceal data until its own response is complete.",
+            "Share verified case information and supplies across borders, then adapt evacuation and care procedures to local risks and capacity.",
+            "Close borders and end all coordination because local action is sufficient."
         ],
-        "answer": "Share information and coordinate resources while adapting measures to local conditions.",
-        "explanation": "Transnational risks require information and coordinated capacity, even though implementation must account for local conditions.",
+        "answer": "Share verified case information and supplies across borders, then adapt evacuation and care procedures to local risks and capacity.",
+        "explanation": "The memo assigns a shared layer—verified information and resource coordination—and a local layer—procedures matched to hazards and capacity. Combining both prevents fragmented action without pretending that every community faces the same conditions.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Disaster-response memo",
+                "value": "Partners will publish a common daily case definition and pool scarce protective equipment. Each locality will choose evacuation routes and clinic triage rules after assessing its terrain, language needs, and available staff."
+            }
+        ],
+        "passage_dependent": true,
         "cognitive_intent": "apply",
         "let_area": "The Contemporary World"
     },
@@ -10628,16 +10780,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A local musician combines a Philippine instrument with a global electronic genre and develops a new sound. Which concept fits best?",
+        "question": "A sound review describes a kulintang pattern retained beneath a sampled electronic rhythm. Which interpretation best connects the audible evidence to cultural change?",
         "choices": [
-            "Cultural hybridization through interaction between local and global cultural forms.",
-            "Cultural isolation because no exchange occurred.",
-            "Cultural homogenization in the sense that all music became identical.",
-            "Economic interdependence with no cultural dimension."
+            "The electronic rhythm erases the local tradition because any new technology destroys older meaning.",
+            "The work is cultural homogenization because combining two forms makes all music identical.",
+            "The example is economic only because recording software is a commercial product.",
+            "The local rhythmic pattern and imported production method are recombined, so the work shows cultural hybridization rather than simple replacement."
         ],
-        "answer": "Cultural hybridization through interaction between local and global cultural forms.",
-        "explanation": "The new form emerges from combining cultural resources, demonstrating hybridization rather than simple replacement or sameness.",
-        "cognitive_intent": "classify",
+        "answer": "The local rhythmic pattern and imported production method are recombined, so the work shows cultural hybridization rather than simple replacement.",
+        "explanation": "The review identifies two audible components and their interaction: the kulintang pattern persists while the electronic method changes its setting and texture. That evidence supports a hybrid form, not isolation or a claim that all music has become the same.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Sound review",
+                "value": "The recording opens with a recognizable kulintang cycle. A producer then layers a globally circulating electronic beat without removing the cycle; the final section alternates the two textures."
+            }
+        ],
+        "multistep": true,
+        "cognitive_intent": "interpret",
         "let_area": "The Contemporary World"
     },
     {
@@ -10653,15 +10813,15 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "What does global citizenship most reasonably require of a learner?",
+        "question": "A learner joins a neighborhood waste project after comparing local practices with two other countries' policies. Which action best demonstrates global citizenship?",
         "choices": [
-            "Recognize shared responsibilities and different perspectives while acting on issues that connect local and global communities.",
-            "Abandon local identity in favor of one uniform culture.",
-            "Treat every global problem as someone else's responsibility.",
-            "Assume personal opinion is sufficient evidence about other societies."
+            "Use evidence from different contexts, listen to affected groups, and take a locally workable action while recognizing shared responsibility.",
+            "Copy the policy with the highest international reputation without checking local waste conditions.",
+            "Avoid acting locally because only national governments can have global responsibility.",
+            "Declare the learner's preferred practice universally correct without examining other perspectives."
         ],
-        "answer": "Recognize shared responsibilities and different perspectives while acting on issues that connect local and global communities.",
-        "explanation": "Global citizenship adds ethical awareness and informed participation across boundaries; it does not require erasing local belonging.",
+        "answer": "Use evidence from different contexts, listen to affected groups, and take a locally workable action while recognizing shared responsibility.",
+        "explanation": "The action joins comparative learning with local participation and respect for different perspectives. Global citizenship is therefore shown through informed responsibility across scales, not through copying, withdrawal, or erasing local identity.",
         "cognitive_intent": "evaluate",
         "let_area": "The Contemporary World"
     },
@@ -10678,15 +10838,23 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A Philippine business follows an international labor standard and works with a regional supplier network. What does this show?",
+        "question": "A labor-audit excerpt describes a Philippine business correcting a supplier's unsafe schedule after consulting workers and reporting progress under a regional standard. What does this show?",
         "choices": [
-            "Philippine actors participate in global governance and regional economic systems through standards and cooperation.",
-            "Global systems affect only governments, never businesses or workers.",
-            "Regional systems require businesses to stop serving local communities.",
-            "International standards eliminate every local policy choice."
+            "The business has surrendered all responsibility because an international standard makes local consultation unnecessary.",
+            "Businesses participate in transnational governance when shared standards, worker voice, and regional supply relationships shape a local correction.",
+            "A regional supplier network matters only for shipping prices, not labor conditions.",
+            "The audit proves every supplier in the region already follows the same practice."
         ],
-        "answer": "Philippine actors participate in global governance and regional economic systems through standards and cooperation.",
-        "explanation": "Businesses and workers can be shaped by shared standards and regional networks, showing Philippine participation in wider systems.",
+        "answer": "Businesses participate in transnational governance when shared standards, worker voice, and regional supply relationships shape a local correction.",
+        "explanation": "The excerpt connects a local workplace decision to a regional standard and a cross-border supplier relationship, while retaining worker consultation and business accountability. It supports participation in wider systems without claiming that standards remove local judgment or guarantee universal compliance.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Labor-audit excerpt",
+                "value": "Workers reported that a supplier routinely scheduled shifts beyond the agreed limit. The Philippine buyer required a revised schedule, documented worker consultation, and submitted a progress report under the regional labor standard."
+            }
+        ],
+        "passage_dependent": true,
         "cognitive_intent": "interpret",
         "let_area": "The Contemporary World"
     },
@@ -10703,15 +10871,23 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "Which claim about migration is most defensible?",
+        "question": "A policy brief lists higher household income for some migrants, recruitment debt for others, and labor shortages in one origin sector. Which claim is most defensible?",
         "choices": [
-            "Migration can bring opportunities and costs to origin and destination communities, depending on policies and conditions.",
-            "Migration has one identical effect on every person and place.",
-            "Migrants influence only destination economies, never families of origin.",
-            "Migration is caused exclusively by personal preference."
+            "The higher income figure proves migration is beneficial for every household and sector.",
+            "Recruitment debt is irrelevant if the destination has a labor shortage.",
+            "Migration outcomes differ across people and communities, so policy must consider opportunity, debt, rights, and origin-sector effects together.",
+            "The brief proves personal choice has no role because structural conditions are mentioned."
         ],
-        "answer": "Migration can bring opportunities and costs to origin and destination communities, depending on policies and conditions.",
-        "explanation": "Migration outcomes vary with labor markets, rights, family strategies, and public policy; a single universal effect is misleading.",
+        "answer": "Migration outcomes differ across people and communities, so policy must consider opportunity, debt, rights, and origin-sector effects together.",
+        "explanation": "The brief contains benefits and costs at household and community levels. Considering all of them avoids the error of treating one favorable indicator as universal and supports a conditional, policy-sensitive conclusion.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Migration policy brief",
+                "value": "Interviews found that some households used overseas wages for education, while others began with recruitment debt. An origin hospital also reported vacancies after experienced staff departed."
+            }
+        ],
+        "passage_dependent": true,
         "cognitive_intent": "evaluate",
         "let_area": "The Contemporary World"
     },
@@ -10728,15 +10904,25 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "A country imports solar panels, depends on overseas minerals, and joins a climate partnership. What should an analyst conclude?",
+        "question": "A supply-chain profile links imported solar panels to overseas minerals and a climate partnership. Which conclusion best integrates the technological, economic, and political evidence?",
         "choices": [
-            "Environmental action is embedded in technological, economic, and political interdependence.",
-            "Environmental policy is separate from trade and international cooperation.",
-            "Imports make domestic environmental choices impossible.",
-            "Climate partnerships remove the need to examine supply chains."
+            "Solar technology is automatically sustainable because its use produces no economic or political questions.",
+            "Joining a partnership makes the country independent of overseas materials.",
+            "Imported components prove domestic environmental policy has no meaningful choices.",
+            "The transition depends on mineral supply, trade relationships, and negotiated cooperation, so environmental action is interdependent and needs supply-chain scrutiny."
         ],
-        "answer": "Environmental action is embedded in technological, economic, and political interdependence.",
-        "explanation": "The scenario connects technology, resource extraction, trade, and cooperation, illustrating why global issues require systems thinking.",
+        "answer": "The transition depends on mineral supply, trade relationships, and negotiated cooperation, so environmental action is interdependent and needs supply-chain scrutiny.",
+        "explanation": "The profile names three linked conditions: technology requires materials, materials move through trade, and climate goals are coordinated politically. A systems conclusion therefore examines labor and environmental effects along the supply chain instead of assuming that a partnership or product label settles the issue.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Supply-chain profile",
+                "value": "The country imports 70% of its solar-panel inputs, relies on an overseas mineral corridor, and signs a partnership requiring annual emissions reporting. The profile also notes that mining communities have requested stronger water safeguards."
+            }
+        ],
+        "passage_dependent": true,
+        "data_interpretation": true,
+        "multistep": true,
         "cognitive_intent": "synthesize",
         "let_area": "The Contemporary World"
     },
@@ -10778,16 +10964,25 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "A drawing uses a repeated dark contour to make a figure appear energetic. Which element is doing the most immediate work?",
+        "question": "A critic's note describes a figure built from repeated dark contours and rising diagonals. Which interpretation uses the formal evidence rather than merely naming an element?",
         "choices": [
-            "Line",
-            "Value",
-            "Texture",
-            "Space"
+            "The lines' repetition and direction create visual energy, so the form supports the critic's reading of movement.",
+            "The work must be calm because dark marks always reduce movement in a figure.",
+            "The subject's identity alone proves the intended emotion, regardless of how it is drawn.",
+            "The marks are texture only, so direction and contour cannot affect interpretation."
         ],
-        "answer": "Line",
-        "explanation": "Line can suggest direction, movement, energy, and contour. Value concerns lightness and darkness, while texture concerns surface quality.",
-        "cognitive_intent": "classify",
+        "answer": "The lines' repetition and direction create visual energy, so the form supports the critic's reading of movement.",
+        "explanation": "The note supplies two linked formal observations: repeated contours and rising diagonals. Both are properties of line that guide the eye and imply motion, so the interpretation explains how form supports meaning instead of stopping at the label line.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Critic's note",
+                "value": "The figure is not outlined once. Several dark contours overlap its edges, and diagonal strokes rise from the lower left toward the face. The critic calls the pose urgent rather than still."
+            }
+        ],
+        "passage_dependent": true,
+        "multistep": true,
+        "cognitive_intent": "evaluate",
         "let_area": "Art Appreciation"
     },
     {
@@ -10803,15 +10998,15 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "In a poster, a small bright red circle stands against a field of muted gray shapes. How does contrast function?",
+        "question": "In a poster, a small bright red circle stands against muted gray shapes and sits beside the only open area. How should a viewer explain the circle's visual emphasis?",
         "choices": [
-            "It creates emphasis by making the circle visually dominant.",
-            "It removes all focal points from the composition.",
-            "It changes the medium from paint to photography.",
-            "It establishes texture without affecting attention."
+            "The circle cannot be a focal point because it occupies less area than the gray field.",
+            "Color contrast and isolation make the circle a focal point, so the eye reaches it before the quieter forms.",
+            "The red color changes the poster's medium rather than its visual organization.",
+            "The open area cancels contrast because empty space cannot influence attention."
         ],
-        "answer": "It creates emphasis by making the circle visually dominant.",
-        "explanation": "Strong color and value contrast separates the circle from its surroundings, directing the viewer's attention toward it.",
+        "answer": "Color contrast and isolation make the circle a focal point, so the eye reaches it before the quieter forms.",
+        "explanation": "The circle differs in hue and intensity from the gray field, and the surrounding open area separates it from competing forms. Considering both contrast and placement explains emphasis more fully than relying on size alone.",
         "cognitive_intent": "analyze",
         "let_area": "Art Appreciation"
     },
@@ -10828,15 +11023,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A sculptor carves wood rather than modeling clay. In this comparison, wood and clay are primarily examples of:",
+        "question": "A sculptor tests wood and clay for a hollow vessel whose surface should retain either grain or hand-pressed marks. What should the comparison examine first?",
         "choices": [
-            "Mediums or materials used to make the artwork.",
-            "Subjects depicted by the artwork.",
-            "Principles such as balance and rhythm.",
-            "Audience interpretations of the artwork."
+            "Which material names the subject, since medium and subject are interchangeable.",
+            "Which material guarantees a more valuable artwork regardless of the artist's choices.",
+            "How the audience's opinion replaces any need to inspect the material.",
+            "How each medium's physical constraints and surface qualities shape the vessel's form and meaning."
         ],
-        "answer": "Mediums or materials used to make the artwork.",
-        "explanation": "Medium refers to the material used to produce a work. Subject is what the work depicts, while principles describe organization.",
+        "answer": "How each medium's physical constraints and surface qualities shape the vessel's form and meaning.",
+        "explanation": "Wood and clay are media, but the task asks for an analytical comparison. Wood can preserve grain and requires carving, while clay permits modeling and records pressure differently; those properties can affect both form and the viewer's interpretation.",
+        "multistep": true,
         "cognitive_intent": "distinguish",
         "let_area": "Art Appreciation"
     },
@@ -10853,16 +11049,17 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "A composition places visual weight evenly on both sides of a central axis. Which principle is most apparent?",
+        "question": "One version of a shrine image mirrors its visual weight across a central axis; another balances a large form with several smaller forms. Which comparison is most accurate?",
         "choices": [
-            "Symmetrical balance",
-            "Random texture",
-            "Linear perspective",
-            "Cultural context"
+            "Both must be symmetrical because balance requires mirror images on every side.",
+            "The first demonstrates linear perspective because an axis always indicates depth.",
+            "Neither can be balanced unless every object has the same physical size.",
+            "The first uses symmetrical balance, while the second may use asymmetrical balance if the unequal forms still counter one another visually."
         ],
-        "answer": "Symmetrical balance",
-        "explanation": "Equal or mirrored visual weight around an axis creates symmetrical balance; the other choices describe different ideas.",
-        "cognitive_intent": "classify",
+        "answer": "The first uses symmetrical balance, while the second may use asymmetrical balance if the unequal forms still counter one another visually.",
+        "explanation": "Mirroring around an axis identifies symmetry. Balance, however, concerns perceived visual weight rather than identical objects; a large form can be countered by several smaller forms, producing asymmetrical balance when the composition remains stable.",
+        "multistep": true,
+        "cognitive_intent": "compare",
         "let_area": "Art Appreciation"
     },
     {
@@ -10878,15 +11075,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A poster places its largest form near the top and repeats smaller forms below it. Which principle helps organize the viewer's attention and visual movement?",
+        "question": "A poster leads the eye from a large headline at the top to three progressively smaller repeated symbols below. Which analysis best explains its organization?",
         "choices": [
-            "Hierarchy and movement through variation in scale and placement.",
-            "Unity achieved by removing every difference in size.",
-            "Texture created solely by the paper's physical surface.",
-            "Medium determined by the position of the forms."
+            "Uniformity prevents hierarchy because every repeated symbol must attract equal attention.",
+            "Scale establishes hierarchy and repetition creates a path of visual movement from the headline through the symbols.",
+            "The paper's texture determines the order in which the viewer reads the forms.",
+            "The location of a form identifies the medium rather than organizing attention."
         ],
-        "answer": "Hierarchy and movement through variation in scale and placement.",
-        "explanation": "Differences in scale establish visual hierarchy, while placement can guide movement through the composition.",
+        "answer": "Scale establishes hierarchy and repetition creates a path of visual movement from the headline through the symbols.",
+        "explanation": "The large headline receives initial emphasis through scale and placement. Repeated, decreasing symbols then connect the lower sequence, so the answer accounts for both priority and the route the eye is likely to follow.",
+        "multistep": true,
         "cognitive_intent": "analyze",
         "let_area": "Art Appreciation"
     },
@@ -10903,15 +11101,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Why is it useful to distinguish form from content when interpreting art?",
+        "question": "An exhibition note says a work's rough edges and compressed figures express crowded urban life. Which reading shows why form and content should be distinguished?",
         "choices": [
-            "Form concerns how a work is made and organized, while content concerns what it expresses or addresses.",
-            "Form is the artist's name, while content is the artwork's price.",
-            "Form and content are identical terms with no interpretive value.",
-            "Content refers only to the material used to produce a work."
+            "The urban subject makes the rough edges irrelevant because content determines every visual choice automatically.",
+            "Form refers to the work's price and content refers to the gallery where it is shown.",
+            "The material alone is the content, so no idea or experience can be expressed.",
+            "The rough edges and compressed figures are formal choices, while crowded urban life is the subject or idea they help communicate."
         ],
-        "answer": "Form concerns how a work is made and organized, while content concerns what it expresses or addresses.",
-        "explanation": "The distinction lets viewers connect observable choices—such as color or composition—to ideas, experiences, or subjects communicated by the work.",
+        "answer": "The rough edges and compressed figures are formal choices, while crowded urban life is the subject or idea they help communicate.",
+        "explanation": "The exhibition note links observable construction to an addressed experience. Separating form from content lets the viewer identify the evidence (roughness and compression) and then explain its possible expressive role without treating the two terms as synonyms.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Exhibition note",
+                "value": "The artist left rough edges visible and compressed the figures into a narrow band. The note connects those decisions to the experience of crowded urban life, but invites viewers to test the connection against the work."
+            }
+        ],
+        "passage_dependent": true,
+        "multistep": true,
         "cognitive_intent": "distinguish",
         "let_area": "Art Appreciation"
     },
@@ -10928,15 +11135,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "A community mural uses local plants, patterns, and a history of migration. What should an interpreter consider before assigning meaning?",
+        "question": "A mural combines local plants with a boat pattern. A maker interview links the boat to migration, while a visitor reads it as tourism. Which interpretive method is strongest?",
         "choices": [
-            "The work's visual evidence together with its cultural context, makers, purpose, and audience.",
-            "Only the viewer's first emotional reaction.",
-            "Only whether the mural uses realistic proportions.",
-            "The assumption that symbols have one universal meaning."
+            "Choose the tourism reading because a visitor's first response always overrides maker context.",
+            "Reject the migration reading because symbols cannot have more than one cultural association.",
+            "Decide from realistic proportion alone, since context cannot affect visual meaning.",
+            "Compare the visible plants and boat with the maker's context, stated purpose, and audience evidence before weighing the competing readings."
         ],
-        "answer": "The work's visual evidence together with its cultural context, makers, purpose, and audience.",
-        "explanation": "Meaning is supported by formal features and context. Cultural symbols should not be treated as having one interpretation detached from the community.",
+        "answer": "Compare the visible plants and boat with the maker's context, stated purpose, and audience evidence before weighing the competing readings.",
+        "explanation": "The boat is visual evidence, the interview supplies maker context, and the visitor supplies an audience response. A defensible interpretation considers all three and explains why one reading is better supported; it neither treats symbols as universal nor discards context.",
+        "multistep": true,
         "cognitive_intent": "evaluate",
         "let_area": "Art Appreciation"
     },
@@ -10953,15 +11161,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "An artwork made to document a ceremony for future generations primarily performs which function?",
+        "question": "A community commissions an image of a ceremony, identifies the participants, and stores copies for descendants. Which function best fits the combined purpose?",
         "choices": [
-            "Record-keeping or cultural documentation",
-            "Camouflage",
-            "Mathematical measurement",
-            "Private decoration with no audience"
+            "Camouflage, because recording a ceremony hides the community's identity.",
+            "Mathematical measurement, because every image records physical proportions.",
+            "Private decoration with no audience, because a commission cannot communicate publicly.",
+            "Cultural documentation that preserves a shared memory for later audiences."
         ],
-        "answer": "Record-keeping or cultural documentation",
-        "explanation": "The stated purpose is to preserve and communicate cultural memory, so documentation is the most direct function.",
+        "answer": "Cultural documentation that preserves a shared memory for later audiences.",
+        "explanation": "The commission identifies a ceremony, its participants, and future recipients. Those details establish a communicative archival purpose, so documentation is more precise than decoration or a function unrelated to cultural memory.",
+        "multistep": true,
         "cognitive_intent": "infer",
         "let_area": "Art Appreciation"
     },
@@ -10978,15 +11187,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A viewer claims that an abstract painting has no content because it contains no recognizable objects. What is the best response?",
+        "question": "An abstract painting has no recognizable objects, but its title names separation and its repeated broken forms interrupt a shared color field. Which response best tests the viewer's claim?",
         "choices": [
-            "Content can include ideas, emotions, relationships, or experiences communicated through nonrepresentational form.",
-            "Content exists only when an artwork copies a photograph.",
-            "Abstract works contain only materials and no expressive choices.",
-            "Interpretation is impossible unless every shape names an object."
+            "The title and broken repetition provide evidence of an idea, so content can be communicated through nonrepresentational formal choices.",
+            "The work has no content because only recognizable objects can refer to an experience.",
+            "The title is irrelevant because abstract art cannot use relationships or ideas.",
+            "The color field proves a single emotional meaning that needs no interpretation."
         ],
-        "answer": "Content can include ideas, emotions, relationships, or experiences communicated through nonrepresentational form.",
-        "explanation": "Content is not limited to literal depiction. Color, rhythm, scale, and other formal decisions can communicate or invite ideas and feelings.",
+        "answer": "The title and broken repetition provide evidence of an idea, so content can be communicated through nonrepresentational formal choices.",
+        "explanation": "The title offers contextual evidence and the broken repeated forms offer observable evidence. Together they support an interpretation about separation without requiring literal depiction, while still leaving room to test rather than impose a single emotional meaning.",
+        "multistep": true,
         "cognitive_intent": "diagnose",
         "let_area": "Art Appreciation"
     },
@@ -11003,15 +11213,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A photographer chooses a low viewpoint and a narrow frame to make a building appear imposing. Which statement best analyzes the work?",
+        "question": "A photo review says a civic building looks imposing because the camera is below it and excludes the surrounding street. Which analysis best connects the technique to the interpretation?",
         "choices": [
-            "The artistic process and formal choices shape the viewer's perception of the subject.",
-            "The building's subject makes composition irrelevant.",
-            "The camera is the content rather than the medium.",
-            "A viewpoint can affect texture but never meaning."
+            "The building's public function determines the meaning regardless of viewpoint or framing.",
+            "The low viewpoint enlarges the building and the narrow frame removes scale cues, together supporting an impression of authority.",
+            "The camera is the content, so the building's visual treatment need not be analyzed.",
+            "Viewpoint changes only texture and cannot influence the viewer's sense of power."
         ],
-        "answer": "The artistic process and formal choices shape the viewer's perception of the subject.",
-        "explanation": "Framing and viewpoint are formal decisions that influence how the subject is experienced and interpreted.",
+        "answer": "The low viewpoint enlarges the building and the narrow frame removes scale cues, together supporting an impression of authority.",
+        "explanation": "The low camera angle changes apparent scale, and excluding the street removes ordinary comparison points. Considering both choices explains why the building can appear authoritative; the subject alone does not produce that effect independently of form.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Photo review",
+                "value": "The photographer stood below the entrance and cropped out pedestrians, trees, and the neighboring shops. The review says the resulting image makes the civic building seem larger and more commanding than it felt at street level."
+            }
+        ],
+        "passage_dependent": true,
+        "multistep": true,
         "cognitive_intent": "analyze",
         "let_area": "Art Appreciation"
     },
@@ -11278,15 +11497,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A student finds a lost wallet and can identify its owner. Which action most clearly respects the owner's property right?",
+        "question": "A student finds a wallet, confirms the owner's identity from the ID, and has access to a school office that can contact the owner. Which sequence best respects the property right?",
         "choices": [
-            "Keep the cash but return the empty wallet.",
-            "Return the wallet through a reliable channel without taking its contents.",
-            "Post the owner's personal details publicly before deciding.",
-            "Give the wallet to a friend who needs money."
+            "Photograph the ID for a public post, remove the cash, and leave the wallet at the office.",
+            "Return only the ID because property rights apply to identification but not to money.",
+            "Secure the wallet, use the reliable private contact channel, and return all contents without publicizing personal details.",
+            "Ask a friend whether the cash is needed, then keep it if the friend agrees."
         ],
-        "answer": "Return the wallet through a reliable channel without taking its contents.",
-        "explanation": "Returning the wallet and its contents recognizes another person's right to property. Need does not cancel the obligation to avoid taking what is not yours.",
+        "answer": "Secure the wallet, use the reliable private contact channel, and return all contents without publicizing personal details.",
+        "explanation": "The identity check makes private contact possible, and the office provides a reliable route. Returning every item respects ownership; avoiding a public ID post also protects privacy while completing the restitution.",
+        "multistep": true,
         "cognitive_intent": "apply",
         "let_area": "Ethics"
     },
@@ -11303,15 +11523,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A class representative promises to use student funds for a project, then quietly spends part of the money on a personal purchase. Which ethical failure is clearest?",
+        "question": "A class representative's ledger shows that money entrusted for a project was used for a personal purchase. After reading the representative's explanation, which response best identifies and addresses the ethical failure?",
         "choices": [
-            "A conflict between accountability and convenience.",
-            "A harmless exercise of private autonomy.",
-            "A virtue of generosity toward oneself.",
-            "A consequence that cannot affect trust."
+            "Keep the purchase secret because the representative can repay it whenever convenient.",
+            "Call it generosity because the representative personally benefited from the class's money.",
+            "Ignore the ledger because ethical responsibility begins only when a legal case is filed.",
+            "Recognize misuse of entrusted funds, disclose it to the class, restore the amount, and accept an impartial review."
         ],
-        "answer": "A conflict between accountability and convenience.",
-        "explanation": "The representative has a duty to account for entrusted funds. Personal convenience does not override the responsibility created by the promise and role.",
+        "answer": "Recognize misuse of entrusted funds, disclose it to the class, restore the amount, and accept an impartial review.",
+        "explanation": "The ledger establishes that the money was entrusted for a stated purpose, while the explanation confirms a personal use. Disclosure, restoration, and review address accountability and rebuild trust; private repayment alone would conceal the breach from those affected.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Class-fund record",
+                "value": "The approved budget reserved 4,000 pesos for project materials. The ledger records 1,200 pesos spent on a representative's personal transport, with no prior class authorization. The representative says repayment is possible next month."
+            }
+        ],
+        "passage_dependent": true,
+        "multistep": true,
         "cognitive_intent": "analyze",
         "let_area": "Ethics"
     },
@@ -11328,16 +11557,17 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "A person tells the truth even though doing so will cause embarrassment, because honesty is a duty. This reasoning is closest to:",
+        "question": "A student must report an honest error even though disclosure will embarrass a friend. If the student says the duty applies even when the outcome is unpleasant, which framework and action fit best?",
         "choices": [
-            "Consequentialism",
-            "Deontological ethics",
-            "Relativism",
-            "Aesthetic judgment"
+            "Deontological reasoning; report the error truthfully while limiting unnecessary humiliation.",
+            "Consequentialism; conceal the error whenever concealment produces less embarrassment.",
+            "Relativism; use whichever rule benefits the student's friendship in that moment.",
+            "Aesthetic judgment; choose the response that sounds most graceful."
         ],
-        "answer": "Deontological ethics",
-        "explanation": "Deontological reasoning evaluates the obligation to act according to a duty, while consequentialism focuses primarily on results.",
-        "cognitive_intent": "classify",
+        "answer": "Deontological reasoning; report the error truthfully while limiting unnecessary humiliation.",
+        "explanation": "The stated reason is a duty to honesty rather than a forecast of the best result, which identifies deontology. Applying it does not require cruelty: the error can be reported through an appropriate channel while preserving the friend's dignity.",
+        "multistep": true,
+        "cognitive_intent": "apply",
         "let_area": "Ethics"
     },
     {
@@ -11353,15 +11583,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A charity can either fund one highly effective treatment or distribute small amounts to many people with little measurable effect. A consequentialist would primarily ask:",
+        "question": "A charity compares two plans with credible outcome estimates: one produces a large benefit for one patient, while the other produces smaller total benefit for many patients. What would a consequentialist do first?",
         "choices": [
-            "Which choice produces the best overall results?",
-            "Which choice makes the donor feel most admired?",
-            "Which choice follows a rule regardless of outcomes?",
-            "Which choice displays the donor's preferred personality?"
+            "Choose the plan that follows a duty regardless of the estimated outcomes.",
+            "Compare the expected overall benefits and relevant harms, then choose the plan with the stronger aggregate outcome.",
+            "Choose the plan that makes the donor appear most compassionate, regardless of effects.",
+            "Avoid comparing outcomes because moral reasoning cannot consider consequences."
         ],
-        "answer": "Which choice produces the best overall results?",
-        "explanation": "Consequentialist reasoning compares likely outcomes and seeks the greatest overall benefit; it is distinct from rule-based or virtue-focused reasoning.",
+        "answer": "Compare the expected overall benefits and relevant harms, then choose the plan with the stronger aggregate outcome.",
+        "explanation": "The case supplies outcome estimates, so a consequentialist first compares their likely benefits and harms across affected people. That two-stage comparison differs from obeying a rule regardless of results or choosing for the donor's image.",
+        "multistep": true,
         "cognitive_intent": "compare",
         "let_area": "Ethics"
     },
@@ -11378,15 +11609,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A learner returns borrowed equipment on time even when no one is checking. Which virtue is most directly shown?",
+        "question": "A learner returns borrowed equipment on time both when supervised and when unsupervised, and reports a small defect instead of hiding it. Which virtue-based interpretation is strongest?",
         "choices": [
-            "Integrity",
-            "Popularity",
-            "Cleverness",
-            "Independence from all relationships"
+            "Popularity, because the learner is guaranteed approval from every classmate.",
+            "Independence from all relationships, because virtue requires ignoring shared responsibilities.",
+            "Integrity, because the learner's responsible conduct is consistent and includes honest disclosure.",
+            "Cleverness, because avoiding detection is the main moral achievement."
         ],
-        "answer": "Integrity",
-        "explanation": "Returning the equipment without surveillance shows integrity: consistent responsible conduct even when external punishment is absent.",
+        "answer": "Integrity, because the learner's responsible conduct is consistent and includes honest disclosure.",
+        "explanation": "The repeated behavior under different conditions shows a stable character disposition, and reporting the defect shows honesty toward the equipment's owner. Together those details support integrity rather than popularity or rule evasion.",
+        "multistep": true,
         "cognitive_intent": "infer",
         "let_area": "Ethics"
     },
@@ -11403,15 +11635,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "A policy treats every applicant identically, but one requirement excludes people with a documented barrier unrelated to the job. Which ethical concern should be examined?",
+        "question": "A hiring panel discovers that an identical test requirement screens out qualified applicants because of a documented barrier unrelated to the job. What should an ethical review do?",
         "choices": [
-            "Whether formal sameness produces substantive unfairness.",
-            "Whether fairness always means ignoring relevant differences.",
-            "Whether justice requires selecting friends first.",
-            "Whether equal treatment makes evidence unnecessary."
+            "Keep the requirement automatically because identical treatment is always substantively fair.",
+            "Set the requirement aside only for applicants personally known to the panel.",
+            "Discard all evidence about barriers because fairness forbids considering context.",
+            "Test whether the requirement is job-relevant, examine its disparate effect, and consider an equally valid accessible alternative."
         ],
-        "answer": "Whether formal sameness produces substantive unfairness.",
-        "explanation": "Justice asks whether a rule distributes opportunities fairly in context. Treating everyone identically can still create an avoidable barrier.",
+        "answer": "Test whether the requirement is job-relevant, examine its disparate effect, and consider an equally valid accessible alternative.",
+        "explanation": "The identical rule is not enough to establish justice because its relevance and effect must be examined. Reviewing evidence and alternatives addresses substantive fairness without replacing a valid qualification with favoritism.",
+        "multistep": true,
         "cognitive_intent": "evaluate",
         "let_area": "Ethics"
     },
@@ -11428,15 +11661,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A researcher may publish a participant's identifiable story or remove identifying details and obtain renewed permission. Which response best protects autonomy?",
+        "question": "A research team wants to change a participant's anonymous interview into an identifiable story. After reading the consent note, which action best protects autonomy?",
         "choices": [
-            "Publish immediately because participation waives all control.",
-            "Remove identifiers and seek informed permission for the changed use.",
-            "Let the researcher decide without explaining the new use.",
-            "Ask another participant to decide for the person."
+            "Keep the account de-identified unless the participant receives a clear explanation and freely renews permission for identification.",
+            "Publish the name immediately because the original interview automatically covers every later use.",
+            "Ask the researcher's supervisor to consent in the participant's place without contacting them.",
+            "Remove only the first name while leaving enough details for neighbors to identify the participant."
         ],
-        "answer": "Remove identifiers and seek informed permission for the changed use.",
-        "explanation": "Respect for autonomy requires meaningful information and voluntary permission. De-identification reduces risk but does not remove the need to address a materially changed use.",
+        "answer": "Keep the account de-identified unless the participant receives a clear explanation and freely renews permission for identification.",
+        "explanation": "Identifiability is a material change in use. De-identification reduces disclosure risk, but publication with a name requires understandable information and voluntary renewed consent from the person whose story is being used.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Consent note",
+                "value": "The participant agreed to an anonymous classroom study and was told that quotations would omit names. The team now wants to include the participant's name, village, and employer in a public article."
+            }
+        ],
+        "passage_dependent": true,
+        "multistep": true,
         "cognitive_intent": "apply",
         "let_area": "Ethics"
     },
@@ -11453,15 +11695,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A friend asks you to conceal plagiarism because revealing it may damage the friend's future. What makes the dilemma ethically difficult?",
+        "question": "A friend asks for concealment of copied work, while the class relies on honest assessment. Which reasoning process best handles the conflict?",
         "choices": [
-            "Loyalty and concern for harm compete with honesty and fairness to others.",
-            "There is no ethical issue when friendship is involved.",
-            "The only relevant value is avoiding embarrassment.",
-            "Academic rules apply only when a teacher is watching."
+            "Protect the friendship by concealing the work and disregard effects on classmates.",
+            "Identify loyalty and concern for the friend's future, identify fairness and honesty toward classmates, then seek a truthful corrective route with the least avoidable harm.",
+            "Report publicly before checking facts because punishment always resolves a dilemma.",
+            "Follow whichever response avoids immediate discomfort, since competing duties cannot be compared."
         ],
-        "answer": "Loyalty and concern for harm compete with honesty and fairness to others.",
-        "explanation": "The situation involves competing values: loyalty and compassion on one side, and honesty, fairness, and responsibility to the learning community on the other.",
+        "answer": "Identify loyalty and concern for the friend's future, identify fairness and honesty toward classmates, then seek a truthful corrective route with the least avoidable harm.",
+        "explanation": "The dilemma has affected parties beyond the friend: classmates and the learning community depend on fair assessment. Naming both sets of duties and choosing a proportionate corrective route is more responsible than secrecy, public shaming, or avoiding the conflict.",
+        "multistep": true,
         "cognitive_intent": "analyze",
         "let_area": "Ethics"
     },
@@ -11478,15 +11721,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "Which question best tests ethical consistency?",
+        "question": "A person excuses a shortcut for a close friend but condemns the same shortcut when a stranger uses it. Which question most directly tests the person's ethical consistency?",
         "choices": [
-            "Would I accept the same principle if it affected someone else rather than me?",
-            "Can I defend my action by saying I wanted to do it?",
-            "Did my action receive immediate praise?",
-            "Can a rule be ignored whenever it is inconvenient?"
+            "Did the close friend thank me for making the exception?",
+            "Can I describe the shortcut using a more favorable word?",
+            "Would I accept the same rule if the identities and relationships were reversed?",
+            "Would the shortcut be acceptable whenever I can keep it hidden?"
         ],
-        "answer": "Would I accept the same principle if it affected someone else rather than me?",
-        "explanation": "Consistency requires applying a moral principle impartially rather than changing the standard to protect one's own interests.",
+        "answer": "Would I accept the same rule if the identities and relationships were reversed?",
+        "explanation": "Reversing the identities exposes whether the standard depends on favoritism. An impartial rule should remain acceptable when the friend becomes a stranger and the stranger receives the same treatment.",
+        "multistep": true,
         "cognitive_intent": "interpret",
         "let_area": "Ethics"
     },
@@ -11503,15 +11747,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A community leader accepts a supplier's expensive gift while evaluating bids from that supplier. What is the strongest concern?",
+        "question": "While evaluating supplier bids, a community leader receives an expensive gift from one bidder. Which sequence best protects impartiality and public trust?",
         "choices": [
-            "The gift may compromise impartial judgment or create an appearance of impropriety.",
-            "The gift proves the supplier is always the best choice.",
-            "Accepting gifts eliminates the leader's responsibility to compare bids.",
-            "A conflict of interest exists only after a bribe is legally proven."
+            "Keep the gift private, choose the supplier, and disclose it only if someone complains.",
+            "Accept all bidders' gifts so that partiality appears balanced.",
+            "Wait for legal proof of bribery before managing the apparent conflict.",
+            "Disclose and return or properly surrender the gift, recuse from the affected decision, and use the published bid criteria."
         ],
-        "answer": "The gift may compromise impartial judgment or create an appearance of impropriety.",
-        "explanation": "An undisclosed benefit can influence, or appear to influence, a decision. Ethical responsibility includes managing conflicts before trust is damaged.",
+        "answer": "Disclose and return or properly surrender the gift, recuse from the affected decision, and use the published bid criteria.",
+        "explanation": "The gift creates a direct conflict while the leader has decision power. Disclosure, removal of the benefit, recusal, and transparent criteria reduce both actual influence and the appearance that the bid was chosen for a private advantage.",
+        "multistep": true,
         "cognitive_intent": "diagnose",
         "let_area": "Ethics"
     },
@@ -11778,16 +12023,17 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "A learner describes herself as persistent at school but shy in unfamiliar groups. This description primarily expresses:",
+        "question": "A learner lists persistence in school and shyness in unfamiliar groups, then checks whether both descriptions fit recent behavior. What is she primarily examining?",
         "choices": [
-            "Self-concept",
-            "Self-esteem",
-            "A fixed diagnosis",
-            "A physical trait only"
+            "Self-concept: beliefs about personal characteristics across different contexts.",
+            "Self-esteem: a single judgment of worth that makes context irrelevant.",
+            "A clinical diagnosis that can be inferred from two ordinary descriptions.",
+            "The physical self, because persistence and shyness are bodily traits only."
         ],
-        "answer": "Self-concept",
-        "explanation": "Self-concept is the set of beliefs and descriptions a person holds about who they are across situations.",
-        "cognitive_intent": "classify",
+        "answer": "Self-concept: beliefs about personal characteristics across different contexts.",
+        "explanation": "The learner is organizing beliefs about her characteristics and checking them against behavior in two settings. That is self-concept reflection; the information is not enough for a diagnosis and does not primarily evaluate worth or the body.",
+        "multistep": true,
+        "cognitive_intent": "analyze",
         "let_area": "Understanding the Self"
     },
     {
@@ -11803,15 +12049,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Someone says, “I failed this task, so I am incapable of learning.” Which distinction is most helpful?",
+        "question": "A reflection note describes one failed task, a revised study plan, and later improvement. Which distinction best prevents the learner from turning one event into a global self-judgment?",
         "choices": [
-            "A specific performance can inform self-reflection without defining the whole self.",
-            "Self-esteem is identical to one test score.",
-            "Identity cannot change after any failure.",
-            "Self-awareness means avoiding feedback."
+            "Treat the first score as a permanent measure of identity and ignore the later improvement.",
+            "Separate the specific performance from the whole self, use the evidence to revise strategy, and reassess capability after practice.",
+            "Protect self-esteem by avoiding any feedback about the task.",
+            "Assume a changed strategy proves that the learner's identity was false before the failure."
         ],
-        "answer": "A specific performance can inform self-reflection without defining the whole self.",
-        "explanation": "Self-reflection separates an event or behavior from a global judgment about personal worth or ability, allowing learning and revision.",
+        "answer": "Separate the specific performance from the whole self, use the evidence to revise strategy, and reassess capability after practice.",
+        "explanation": "The note contains an event, a behavioral response, and new evidence. Treating the failed task as information rather than a total identity claim supports learning and keeps self-evaluation proportionate to the available evidence.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Reflection note",
+                "value": "After scoring low on a map-reading task, the learner identified missed instructions, practiced with worked examples, and scored higher on a comparable task two weeks later."
+            }
+        ],
+        "passage_dependent": true,
+        "multistep": true,
         "cognitive_intent": "diagnose",
         "let_area": "Understanding the Self"
     },
@@ -11828,15 +12083,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A teenager changes clothing and speech across family, school, and peer settings while retaining a sense of continuity. What does this illustrate?",
+        "question": "A teenager uses formal speech at school, relaxed speech with friends, and family clothing at home, while describing the same long-term values. Which interpretation is strongest?",
         "choices": [
-            "Identity is expressed in social contexts without necessarily becoming entirely different in each one.",
-            "Identity must be identical in every setting to be authentic.",
-            "Social roles prove that a person has no stable self.",
-            "Culture has no influence on identity expression."
+            "Authenticity requires identical speech and clothing in every setting.",
+            "Changing presentation proves that the teenager has no stable identity.",
+            "Self-expression is adjusted to social contexts while continuity in values helps integrate the different roles.",
+            "The social settings cannot influence expression because identity is formed in isolation."
         ],
-        "answer": "Identity is expressed in social contexts without necessarily becoming entirely different in each one.",
-        "explanation": "People adapt how they express themselves to context while integrating multiple roles into an ongoing identity.",
+        "answer": "Self-expression is adjusted to social contexts while continuity in values helps integrate the different roles.",
+        "explanation": "The examples show contextual presentation, while the stated long-term values provide evidence of continuity. Considering both avoids equating adaptation with inauthenticity or assuming that one role exhausts the self.",
+        "multistep": true,
         "cognitive_intent": "interpret",
         "let_area": "Understanding the Self"
     },
@@ -11853,15 +12109,15 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "Which statement describes self-esteem rather than self-concept?",
+        "question": "A learner reports her roles, preferred study setting, and a belief that she can improve after mistakes. Which statement is an evaluation of worth rather than a description of identity or preference?",
         "choices": [
-            "“I value myself even though I am still improving in mathematics.”",
-            "“I am a sibling, learner, and volunteer.”",
-            "“I prefer quiet places when studying.”",
-            "“My family speaks two languages at home.”"
+            "I am a sibling, learner, and volunteer.",
+            "I prefer quiet places when studying.",
+            "My family speaks two languages at home.",
+            "I respect my own worth even while my mathematics skills are developing."
         ],
-        "answer": "“I value myself even though I am still improving in mathematics.”",
-        "explanation": "Self-esteem concerns evaluation of one's worth, whereas the other statements describe roles, preferences, or background elements of self-concept.",
+        "answer": "I respect my own worth even while my mathematics skills are developing.",
+        "explanation": "The selected statement evaluates personal worth while acknowledging a specific area of growth, which is self-esteem. The other statements supply roles, preferences, or social background that describe aspects of self-concept.",
         "cognitive_intent": "distinguish",
         "let_area": "Understanding the Self"
     },
@@ -11878,15 +12134,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A student adopts a career goal after comparing family expectations with personal interests. What process is most evident?",
+        "question": "A student maps family expectations, interviews someone in a preferred field, and chooses a career goal that fits both personal interests and practical responsibilities. What process is most evident?",
         "choices": [
-            "Identity development through reflection and negotiation of social influence.",
-            "Identity as an unchangeable trait present at birth.",
-            "Self-awareness as complete obedience to others.",
-            "Individuality as the absence of relationships."
+            "Identity development through reflective exploration and negotiation of social influence.",
+            "An unchangeable identity trait, because career goals cannot be revised after family advice.",
+            "Self-awareness as obedience, because personal interests should never modify expectations.",
+            "Individuality as isolation, because responsible goals cannot include family obligations."
         ],
-        "answer": "Identity development through reflection and negotiation of social influence.",
-        "explanation": "Identity develops through interaction between personal values and social contexts; reflection helps a person examine rather than merely copy expectations.",
+        "answer": "Identity development through reflective exploration and negotiation of social influence.",
+        "explanation": "The student first examines outside expectations, gathers new experience, and integrates that evidence with personal interests and responsibilities. That sequence shows active identity development rather than automatic obedience or isolation.",
+        "multistep": true,
         "cognitive_intent": "analyze",
         "let_area": "Understanding the Self"
     },
@@ -11903,15 +12160,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A peer group praises risk-taking and mocks caution, so a learner begins acting more recklessly. This is an example of:",
+        "question": "A peer group praises risky dares and mocks caution. A learner notices the change, compares it with previous choices, and decides whether to keep participating. What process is shown?",
         "choices": [
-            "Social influence on behavior and self-presentation.",
-            "A purely biological change with no social context.",
-            "Self-concept operating independently of feedback.",
-            "Evidence that peers determine every choice completely."
+            "A purely biological change, because peer approval cannot affect behavior.",
+            "Social influence shaping behavior and self-presentation while reflection preserves the learner's agency.",
+            "Self-concept operating independently of feedback from a reference group.",
+            "Proof that peers determine every choice and personal judgment is impossible."
         ],
-        "answer": "Social influence on behavior and self-presentation.",
-        "explanation": "Peers can shape norms, behavior, and how a person presents the self, although social influence does not eliminate individual agency.",
+        "answer": "Social influence shaping behavior and self-presentation while reflection preserves the learner's agency.",
+        "explanation": "The group's praise and ridicule create a social norm, and the learner's changed behavior shows its influence. The learner's later comparison and decision show that influence affects choices without mechanically determining every choice.",
+        "multistep": true,
         "cognitive_intent": "infer",
         "let_area": "Understanding the Self"
     },
@@ -11928,15 +12186,24 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "A person feels proud of a cultural community but also questions one of its traditions. Which conclusion is most defensible?",
+        "question": "A cultural-identity narrative describes pride in a community, a question about one tradition, and a respectful conversation with elders. Which conclusion is best supported?",
         "choices": [
-            "Social identity can provide belonging while personal reflection allows critical evaluation.",
-            "Belonging requires uncritical agreement with every group practice.",
-            "Questioning a tradition proves the person has no social identity.",
-            "Personal identity is formed without culture or relationships."
+            "Belonging requires uncritical agreement with every practice associated with the group.",
+            "Questioning one tradition proves the person has no social identity.",
+            "Belonging and critical reflection can coexist when the person evaluates a practice without denying the community connection.",
+            "The conversation shows that personal identity is formed without culture or relationships."
         ],
-        "answer": "Social identity can provide belonging while personal reflection allows critical evaluation.",
-        "explanation": "Social identity and critical self-reflection can coexist. Membership influences identity without removing the ability to evaluate values and practices.",
+        "answer": "Belonging and critical reflection can coexist when the person evaluates a practice without denying the community connection.",
+        "explanation": "The narrative provides three pieces of evidence: affiliation, questioning, and respectful engagement. Together they support an identity that includes belonging and evaluation; neither uncritical conformity nor rejection of culture follows from the account.",
+        "content_blocks": [
+            {
+                "type": "text",
+                "label": "Identity narrative",
+                "value": "The writer says a community's celebrations are central to family life, but questions a tradition that assigns roles by age. After speaking with elders, the writer supports keeping the celebration while proposing a more inclusive role system."
+            }
+        ],
+        "passage_dependent": true,
+        "multistep": true,
         "cognitive_intent": "evaluate",
         "let_area": "Understanding the Self"
     },
@@ -11953,15 +12220,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A learner receives specific feedback, changes a study strategy, and becomes more confident after improvement. What relationship is shown?",
+        "question": "After specific feedback, a learner changes a study strategy, observes improvement, and volunteers for a harder task. Which relationship is most clearly shown?",
         "choices": [
-            "Behavior, feedback, and self-perception can influence one another over time.",
-            "Self-esteem always causes performance and cannot be affected by experience.",
-            "Behavior is unrelated to beliefs about the self.",
-            "Feedback changes identity permanently after one event."
+            "Self-perception always causes performance and cannot be changed by experience or feedback.",
+            "Behavior is unrelated to beliefs about capability because only fixed traits matter.",
+            "One feedback event permanently determines the learner's identity.",
+            "Feedback informs behavior, improved performance strengthens perceived capability, and that perception can influence later effort."
         ],
-        "answer": "Behavior, feedback, and self-perception can influence one another over time.",
-        "explanation": "Experience and feedback can alter behavior and beliefs about capability, while those beliefs can in turn influence future effort.",
+        "answer": "Feedback informs behavior, improved performance strengthens perceived capability, and that perception can influence later effort.",
+        "explanation": "The sequence begins with evidence-based feedback, moves through a changed strategy and observed result, and ends in increased challenge-taking. That pattern supports reciprocal influence over time without claiming a permanent identity change from one event.",
+        "multistep": true,
         "cognitive_intent": "analyze",
         "let_area": "Understanding the Self"
     },
@@ -11978,16 +12246,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "Which example most directly concerns the physical self?",
+        "question": "A learner tracks how sleep, pain, and body image affect participation in sports, while also noting reactions to criticism. Which part of the reflection most directly concerns the physical self?",
         "choices": [
-            "How a person understands and responds to their body and appearance.",
-            "How a person interprets a moral dilemma.",
-            "How a person organizes a community project.",
-            "How a person chooses a research method."
+            "The learner's understanding of bodily condition, appearance, and health-related experience.",
+            "The learner's judgment about which moral duty should guide a decision.",
+            "The learner's plan for assigning tasks in a community project.",
+            "The learner's choice between survey and interview methods."
         ],
-        "answer": "How a person understands and responds to their body and appearance.",
-        "explanation": "The physical self concerns bodily experience, appearance, health, and related self-perceptions; the other options emphasize moral, social, or academic activity.",
-        "cognitive_intent": "classify",
+        "answer": "The learner's understanding of bodily condition, appearance, and health-related experience.",
+        "explanation": "Sleep, pain, body image, and health are direct evidence about bodily experience and its self-perception. The other options may matter to the whole person but concern moral judgment, social organization, or research choices instead.",
+        "cognitive_intent": "apply",
         "let_area": "Understanding the Self"
     },
     {
@@ -12003,15 +12271,16 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A student curates different profiles for family, classmates, and a public platform. What concept helps explain this behavior?",
+        "question": "A student chooses different disclosures for family, classmates, and a public platform, then reviews whether each profile matches the intended audience. What concept best explains the behavior?",
         "choices": [
-            "The digital self is shaped by audience, platform, and choices about self-presentation.",
-            "The digital self is unrelated to identity because online actions are unreal.",
-            "One online profile must reveal the complete person.",
-            "Digital identity is determined only by technology companies."
+            "Online actions are unrelated to identity because anything digital is unreal.",
+            "The digital self is shaped by audience, platform, and deliberate self-presentation choices, though no profile is the whole person.",
+            "One profile must reveal the complete person because context cannot affect self-presentation.",
+            "Technology companies alone determine digital identity regardless of user choices or audiences."
         ],
-        "answer": "The digital self is shaped by audience, platform, and choices about self-presentation.",
-        "explanation": "Online self-presentation is influenced by context and audience. Digital activity is part of identity expression but does not exhaust the whole self.",
+        "answer": "The digital self is shaped by audience, platform, and deliberate self-presentation choices, though no profile is the whole person.",
+        "explanation": "The student's audience-specific disclosures demonstrate contextual self-presentation, and the review step shows agency. The qualification that no profile is complete prevents a digital trace from being mistaken for the entire self.",
+        "multistep": true,
         "cognitive_intent": "apply",
         "let_area": "Understanding the Self"
     },
