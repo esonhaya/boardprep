@@ -52,12 +52,29 @@ final class FlashcardService
         return $transition['result'];
     }
 
+    /** @return array<string,mixed> */
+    public function card(string $cardKey, ?string $questionId = null): array
+    {
+        return $this->resolveCard($cardKey, $questionId);
+    }
+
     /** @return list<array<string,mixed>> */
     public function dueCards(
         array $filters = [],
         int $limit = 20,
         ?DateTimeImmutable $now = null
     ): array {
+        return $this->dueSelection($filters, $limit, $now)['cards'];
+    }
+
+    /** @return array{cards:list<array<string,mixed>>,due_count:int,new_count:int,total_count:int} */
+    public function dueSelection(
+        array $filters = [],
+        int $limit = 20,
+        ?DateTimeImmutable $now = null
+    ): array {
+        $dueCount = 0;
+        $newCount = 0;
         if ($limit < 1) {
             throw new InvalidArgumentException('Due-card limit must be positive.');
         }
@@ -110,6 +127,12 @@ final class FlashcardService
                 continue;
             }
 
+            if ($group === 2) {
+                $newCount++;
+            } else {
+                $dueCount++;
+            }
+
             $card['review_state'] = $this->publicState(
                 $state ?? $this->scheduler->newState(
                     $card['card_key'],
@@ -126,10 +149,17 @@ final class FlashcardService
                 ?: strcmp($left[2], $right[2]);
         });
 
-        return array_values(array_map(
+        $cards = array_values(array_map(
             static fn(array $candidate): array => $candidate[3],
             array_slice($candidates, 0, min($limit, 100))
         ));
+
+        return [
+            'cards' => $cards,
+            'due_count' => $dueCount,
+            'new_count' => $newCount,
+            'total_count' => count($candidates),
+        ];
     }
 
     /** @return array<string,mixed>|null */

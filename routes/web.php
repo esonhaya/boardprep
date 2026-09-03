@@ -7,6 +7,7 @@ use App\Controllers\BlueprintController;
 use App\Controllers\BlueprintHealthController;
 use App\Controllers\CoverageController;
 use App\Controllers\DashboardController;
+use App\Controllers\FlashcardController;
 use App\Controllers\DeveloperToolsController;
 use App\Controllers\DoctorDashboardController;
 use App\Controllers\DoctorRunController;
@@ -80,6 +81,10 @@ $router->get(
     "/progress",
     [ProgressController::class, "index"]
 );
+
+$router->get('/flashcards', [FlashcardController::class, 'index']);
+$router->get('/flashcards/review', [FlashcardController::class, 'review']);
+$router->post('/flashcards/review', [FlashcardController::class, 'submitReview']);
 
 if (App::config('environment') !== 'production') {
 
