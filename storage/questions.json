@@ -3422,7 +3422,7 @@
         "topic": "Expressions and Equations",
         "concept": "Linear Equations",
         "difficulty": "hard",
-        "question": "Solve 4y - 3 = 21.",
+       "question": "A student council has 4 equal supply kits and 3 loose markers, for 21 items in all. If y is the number in each kit, which equation and value correctly model the inventory?",
         "choices": [
             "5",
             "6",
@@ -3430,7 +3430,9 @@
             "8"
         ],
         "answer": "6",
-        "explanation": "Adding 3 gives 4y=24, then dividing by 4 gives y=6.",
+       "explanation": "Adding 3 gives 4y=24, then dividing by 4 gives y=6.",
+        "content_blocks": [{"type":"table","columns":["Group","Equal kits","Loose items","Total"],"rows":[["Supply kit","4","3","21"]]}],
+        "table_dependent": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
@@ -3453,7 +3455,7 @@
         "topic": "Number Sense and Operations",
         "concept": "Operations with Whole Numbers",
         "difficulty": "medium",
-        "question": "A book costs 240 pesos after a 20% discount. What was its original price?",
+       "question": "A school store marks a book 20% below its original price and sells it for 240 pesos. To check the cashier's computation, what original price should the council record?",
         "choices": [
             "288 pesos",
             "300 pesos",
@@ -3461,7 +3463,9 @@
             "360 pesos"
         ],
         "answer": "300 pesos",
-        "explanation": "After a 20% discount, 80% is 240; 240 divided by .8 is 300.",
+       "explanation": "After a 20% discount, 80% is 240; 240 divided by .8 is 300.",
+        "content_blocks": [{"type":"table","columns":["Item","Sale price","Discount"],"rows":[["Book","240 pesos","20%"]]}],
+        "table_dependent": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
@@ -3484,7 +3488,7 @@
         "topic": "Number Sense and Operations",
         "concept": "Operations with Whole Numbers",
         "difficulty": "easy",
-        "question": "What is the least common multiple of 4 and 6?",
+       "question": "Two outreach teams visit every 4 and 6 days. After visiting together today, on which day interval will their schedules next coincide?",
         "choices": [
             "8",
             "10",
@@ -3492,7 +3496,9 @@
             "24"
         ],
         "answer": "12",
-        "explanation": "Twelve is the smallest positive number divisible by both 4 and 6.",
+       "explanation": "Twelve is the smallest positive number divisible by both 4 and 6.",
+        "content_blocks": [{"type":"table","columns":["Team","Visit interval (days)","Next shared visit"],"rows":[["A","4","?"],["B","6","?"]]}],
+        "table_dependent": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
@@ -3515,7 +3521,7 @@
         "topic": "Expressions and Equations",
         "concept": "Linear Equations",
         "difficulty": "hard",
-        "question": "If 3a + 2 = 2a + 11, what is a?",
+       "question": "A fundraiser's ledger shows that three units plus 2 pesos equals two units plus 11 pesos. What value must the unit have for the ledger to balance?",
         "choices": [
             "7",
             "8",
@@ -3523,7 +3529,9 @@
             "10"
         ],
         "answer": "9",
-        "explanation": "Subtracting 2a and 2 gives a=9.",
+       "explanation": "Subtracting 2a and 2 gives a=9.",
+        "content_blocks": [{"type":"table","columns":["Ledger line","Units","Fixed amount","Total"],"rows":[["Fundraiser","3","2 pesos","2a+11 pesos"]]}],
+        "table_dependent": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
@@ -3546,7 +3554,7 @@
         "topic": "Number Sense and Operations",
         "concept": "Operations with Whole Numbers",
         "difficulty": "medium",
-        "question": "A ratio of red to blue markers is 2:3. If there are 15 blue markers, how many are red?",
+       "question": "A materials box keeps red and blue markers in a 2:3 ratio. If the 15 blue markers are counted, how many red markers should the inventory include?",
         "choices": [
             "6",
             "8",
@@ -3554,7 +3562,9 @@
             "12"
         ],
         "answer": "10",
-        "explanation": "The scale factor is 5, so 2 times 5 is 10 red markers.",
+       "explanation": "The scale factor is 5, so 2 times 5 is 10 red markers.",
+        "content_blocks": [{"type":"table","columns":["Marker","Red","Blue","Ratio"],"rows":[["Inventory","?","15","2:3"]]}],
+        "table_dependent": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
@@ -3923,7 +3933,7 @@
         "topic": "Philippine History",
         "concept": "Primary Sources",
         "difficulty": "easy",
-        "question": "A learner researching a historical event should prioritize which source for direct evidence?",
+       "question": "A diary written by a participant and a later textbook both describe an event. The research question asks what the participant directly observed. Which source should anchor that claim?",
         "choices": [
             "A diary written by a participant",
             "A textbook summary",
@@ -3931,7 +3941,9 @@
             "A modern review"
         ],
         "answer": "A diary written by a participant",
-        "explanation": "A participant's diary is direct evidence from the period being studied.",
+       "explanation": "A participant's diary is direct evidence from the period being studied.",
+        "content_blocks": [{"type":"table","columns":["Source","Created","Relation to event"],"rows":[["A diary","during event","participant account"],["Textbook","later","scholarly synthesis"]]}],
+        "table_dependent": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
@@ -3954,7 +3966,7 @@
         "topic": "Philippine History",
         "concept": "Primary Sources",
         "difficulty": "medium",
-        "question": "Why should historians compare several sources?",
+       "question": "Two accounts of a protest agree on the date but differ about the crowd's motive. What should a historian do before choosing an explanation?",
         "choices": [
             "To check evidence and perspective",
             "To avoid reading details",
@@ -3962,7 +3974,9 @@
             "To replace documentation"
         ],
         "answer": "To check evidence and perspective",
-        "explanation": "Comparing sources can reveal corroboration, gaps, and differing perspectives.",
+       "explanation": "Comparing sources can reveal corroboration, gaps, and differing perspectives.",
+        "content_blocks": [{"type":"table","columns":["Account","Agrees on","Differs on"],"rows":[["A","date","crowd motive"],["B","date","crowd motive"]]}],
+        "table_dependent": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
@@ -3985,7 +3999,7 @@
         "topic": "Philippine History",
         "concept": "Primary Sources",
         "difficulty": "hard",
-        "question": "A historian should treat a source's author perspective as a factor in evaluating its:",
+        "question": "A source was written by an official defending a policy during the event. Which factor should the historian examine when judging what the account can support?",
         "choices": [
             "Context",
             "Font size",
@@ -4016,7 +4030,7 @@
         "topic": "Citizenship and Government",
         "concept": "Public Good",
         "difficulty": "easy",
-        "question": "Which action best demonstrates responsible citizenship?",
+        "question": "A community forum requires residents to follow safety rules while submitting evidence about a proposed project. Which interpretation best describes this conduct?",
         "choices": [
             "Following laws and participating constructively",
             "Spreading unverified claims",
@@ -4047,7 +4061,7 @@
         "topic": "Citizenship and Government",
         "concept": "Public Good",
         "difficulty": "medium",
-        "question": "A public good is generally available to many people and is:",
+        "question": "A town maintains a streetlight system that benefits passersby, including people who did not pay directly. Which feature makes it a public good?",
         "choices": [
             "Difficult to exclude people from using",
             "Owned by one classroom",
@@ -4078,7 +4092,7 @@
         "topic": "Citizenship and Government",
         "concept": "Public Good",
         "difficulty": "hard",
-        "question": "Why are checks and balances important in government?",
+        "question": "A school board can review a superintendent's decision before it takes effect. What democratic purpose does this arrangement serve?",
         "choices": [
             "They limit concentration of power",
             "They remove all disagreement",
@@ -4109,7 +4123,7 @@
         "topic": "Citizenship and Government",
         "concept": "Public Good",
         "difficulty": "medium",
-        "question": "When citizens evaluate a policy, the strongest basis is:",
+        "question": "A proposed policy has different effects on renters, homeowners, and vendors. What evidence should citizens prioritize when evaluating it?",
         "choices": [
             "Evidence and its effects on affected groups",
             "Rumor alone",
@@ -4140,7 +4154,7 @@
         "topic": "Philippine History",
         "concept": "Primary Sources",
         "difficulty": "easy",
-        "question": "A timeline is most useful for showing the:",
+        "question": "A researcher must explain whether a relief program preceded a later change in attendance. Which tool best establishes the order of events?",
         "choices": [
             "Sequence of events",
             "Reliability of every claim",
@@ -4171,7 +4185,7 @@
         "topic": "Philippine History",
         "concept": "Primary Sources",
         "difficulty": "medium",
-        "question": "Historical empathy means trying to understand people in light of their:",
+        "question": "A learner interprets a past decision using the information and constraints people faced at that time. What historical practice is being used?",
         "choices": [
             "Time and circumstances",
             "Modern preferences only",
@@ -4202,7 +4216,7 @@
         "topic": "Citizenship and Government",
         "concept": "Public Good",
         "difficulty": "easy",
-        "question": "The rule of law means that:",
+        "question": "A local office applies the same published procedure to supporters and critics. Which principle is illustrated?",
         "choices": [
             "Laws apply through established rules",
             "Leaders are above all law",
@@ -4233,7 +4247,7 @@
         "topic": "Citizenship and Government",
         "concept": "Public Good",
         "difficulty": "hard",
-        "question": "A deliberative classroom decision is strongest when participants:",
+        "question": "A class must choose between two community projects. Which decision process best demonstrates deliberation?",
         "choices": [
             "Hear reasons and consider evidence",
             "Vote before hearing any view",
@@ -4264,7 +4278,7 @@
         "topic": "Philippine History",
         "concept": "Primary Sources",
         "difficulty": "medium",
-        "question": "A source created after an event by someone who did not witness it is usually a:",
+        "question": "A museum label was written decades after an event by a scholar who did not witness it. How should learners classify the label's evidence?",
         "choices": [
             "Secondary source",
             "Primary artifact",
@@ -4295,7 +4309,7 @@
         "topic": "Citizenship and Government",
         "concept": "Public Good",
         "difficulty": "medium",
-        "question": "Civic participation includes:",
+        "question": "Residents study a proposal, attend a consultation, and submit a reasoned recommendation. Which action is civic participation?",
         "choices": [
             "Joining informed community action",
             "Avoiding all public issues",
@@ -4326,7 +4340,7 @@
         "topic": "Philippine History",
         "concept": "Primary Sources",
         "difficulty": "hard",
-        "question": "When two accounts conflict, a historian should first:",
+       "question": "Two eyewitness accounts conflict about where an event began. What should the historian compare first?",
         "choices": [
             "Compare their evidence and context",
             "Choose the longer account",
@@ -4334,7 +4348,9 @@
             "Use the most recent opinion"
         ],
         "answer": "Compare their evidence and context",
-        "explanation": "Critical comparison helps assess corroboration, purpose, and reliability.",
+       "explanation": "Critical comparison helps assess corroboration, purpose, and reliability.",
+        "content_blocks": [{"type":"table","columns":["Account","Writer","Evidence to compare"],"rows":[["A","eyewitness","location"],["B","eyewitness","location"]]}],
+        "table_dependent": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
@@ -4357,7 +4373,7 @@
         "topic": "Citizenship and Government",
         "concept": "Public Good",
         "difficulty": "easy",
-        "question": "Public consultation improves a decision by including:",
+       "question": "Residents provide accessibility evidence, and the council changes a draft plan. What does this show about consultation?",
         "choices": [
             "Affected perspectives",
             "Only the decision maker",
@@ -4365,7 +4381,9 @@
             "No public feedback"
         ],
         "answer": "Affected perspectives",
-        "explanation": "Consultation helps decision makers understand needs and likely effects.",
+       "explanation": "Consultation helps decision makers understand needs and likely effects.",
+        "content_blocks": [{"type":"table","columns":["Consultation stage","Evidence supplied","Plan result"],"rows":[["Draft","resident access evidence","location revised"]]}],
+        "table_dependent": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
@@ -9697,7 +9715,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Why was fiction a powerful vehicle for Rizal's criticism of nineteenth-century Philippine society?",
+        "question": "A class compares a novel's characters with documented abuses of the period. Why can fiction communicate social criticism powerfully in this task?",
         "choices": [
             "It could connect social abuses to recognizable human experiences.",
             "It guaranteed that colonial officials would interpret every passage favorably.",
@@ -9722,7 +9740,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A reader notices that Noli Me Tangere exposes abuses while still imagining moral and social reform. Which interpretation fits this emphasis?",
+        "question": "Readers note that Noli exposes abuses while its characters still pursue education and reform. Which interpretation best fits those combined details?",
         "choices": [
             "The novel links national awakening with a reformist critique of colonial society.",
             "The novel argues that education and civic action are always useless.",
@@ -9747,7 +9765,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "What important shift in outlook distinguishes El Filibusterismo from Noli Me Tangere?",
+        "question": "A comparison chart shows Noli emphasizing exposure of injustice and Fili emphasizing revenge after reform fails. What shift should learners infer?",
         "choices": [
             "It is darker about the consequences of oppression and the limits of gradual reform.",
             "It abandons social criticism in favor of a purely autobiographical narrative.",
@@ -9772,7 +9790,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "In a novel, a student is denied a fair opportunity because a powerful institution protects its own authority. What broader issue does this situation represent in Rizal's fiction?",
+        "question": "A student is denied schooling because an institution protects its authority. Which broader social issue does this fictional case help learners analyze?",
         "choices": [
             "Institutional privilege can turn education and law into instruments of social control.",
             "Individual effort always determines access to education.",
@@ -9797,7 +9815,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "Which development most directly helped Rizal compare Philippine conditions with reform ideas abroad?",
+        "question": "A lesson pairs Rizal's observations in the Philippines with reform debates he encountered abroad. Which development made that comparison possible?",
         "choices": [
             "His travels exposed him to other political and intellectual environments.",
             "His travels isolated him from debates about society and government.",
@@ -9822,7 +9840,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Why was the Propaganda Movement significant to Rizal's intellectual work?",
+        "question": "A learner traces how essays and correspondence connected Filipino reform advocates. Why was that network significant to Rizal's work?",
         "choices": [
             "It created a network for arguing for reforms, representation, and recognition of Filipino rights.",
             "It was primarily a military campaign to seize colonial offices.",
@@ -9847,7 +9865,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Which action best reflects a reformist strategy associated with Rizal?",
+        "question": "A class must choose an action addressing injustice without assuming violence is the only response. Which option reflects a reformist strategy associated with Rizal?",
         "choices": [
             "Use education, writing, and civic organization to expose injustice and build public consciousness.",
             "Use violence as the first response to every disagreement.",
@@ -9872,7 +9890,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "A class compares Noli's focus on social exposure with Fili's sharper treatment of revenge and political frustration. What conclusion is best supported?",
+        "question": "After comparing the two novels' treatments of injustice, what conclusion is supported about ignored grievances?",
         "choices": [
             "The novels together trace how unaddressed injustice can intensify from critique into crisis.",
             "The novels have identical tones and make no claims about social change.",
@@ -9897,7 +9915,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "What does La Liga Filipina most clearly demonstrate about Rizal's civic thinking?",
+        "question": "A community group studies La Liga Filipina's proposed cooperation and mutual aid. What civic idea is most evident?",
         "choices": [
             "He valued peaceful cooperation and mutual aid as foundations for national improvement.",
             "He believed civic groups should serve only colonial officials.",
@@ -9922,7 +9940,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Rizal's work as a physician and community organizer in Dapitan is evidence of which broader orientation?",
+        "question": "A case study combines Rizal's medical work with his community projects in Dapitan. What broader orientation does the evidence support?",
         "choices": [
             "National service could be expressed through practical education, health work, and community development.",
             "Public service required abandoning scientific knowledge.",
@@ -9947,7 +9965,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Why is the friar-controlled institution in Noli a useful object of social analysis?",
+        "question": "Learners map how a powerful institution affects education, justice, and family life in Noli. Why is this useful social analysis?",
         "choices": [
             "It illustrates how concentrated institutional power can affect education, justice, and personal life.",
             "It proves that all religious belief is identical to political abuse.",
@@ -9972,7 +9990,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A learner says Rizal's nationalism means rejecting all ideas from outside the Philippines. Which correction is most defensible?",
+        "question": "A student claims nationalism requires rejecting ideas from other countries. Which response best uses Rizal's example?",
         "choices": [
             "His nationalism involved critical learning, civic dignity, and applying useful ideas to Philippine conditions.",
             "Nationalism requires refusing education obtained abroad.",
@@ -9997,7 +10015,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "Why should a teacher avoid presenting Rizal as either a flawless saint or merely a political agitator?",
+        "question": "A teacher asks learners to evaluate Rizal's choices within colonial constraints rather than praise or condemn him absolutely. Why is this approach stronger?",
         "choices": [
             "Historical understanding requires examining his choices, ideas, limits, and context as a person in a colonial society.",
             "Historical figures are best understood through praise without evidence.",
@@ -10022,7 +10040,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "What is the most defensible significance of Noli Me Tangere in Philippine history?",
+        "question": "A class examines how Noli circulated criticism of social conditions beyond one author's private experience. What historical significance is supported?",
         "choices": [
             "It helped make social criticism and national consciousness part of a wider public conversation.",
             "It served only as a private diary with no social audience.",
@@ -10047,7 +10065,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "A student treats Crisostomo Ibarra's plans for education as proof that Rizal opposed learning. What is wrong with that reading?",
+        "question": "A student treats Ibarra's education plans as evidence against learning itself. Which correction follows from the character's actions?",
         "choices": [
             "It confuses criticism of obstructed education with rejection of education itself.",
             "It assumes every character speaks as Rizal's exact spokesperson.",
@@ -10072,7 +10090,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Which cause-and-effect relationship best captures the social criticism shared by Rizal's novels?",
+        "question": "A cause map links institutional abuse to fear, silence, unequal opportunity, and unrest. Which relationship best explains the pattern?",
         "choices": [
             "Abuse of authority produces fear, silence, and unequal opportunities, which can deepen public unrest.",
             "Public unrest is caused only by a lack of personal ambition.",
@@ -10097,7 +10115,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "How can Rizal's trial and execution be taught responsibly in a LET classroom?",
+        "question": "A teacher presents trial records, context, and later interpretations without inventing quotations. Why is this a responsible way to teach Rizal's execution?",
         "choices": [
             "As a colonial power-and-justice context whose symbolic impact contributed to nationalist memory, using evidence and avoiding invented quotations.",
             "As proof that every later political event had one simple cause.",
@@ -10122,7 +10140,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "What does the contrast between reform and revolution in Rizal's works invite learners to examine?",
+        "question": "A class compares characters who seek gradual reform with those who turn toward revolt. What issue should learners investigate?",
         "choices": [
             "How persistent injustice can narrow perceived choices and create tension between gradual change and drastic action.",
             "Why political change is unrelated to social conditions.",
@@ -10147,7 +10165,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "Which classroom activity best develops historical understanding of Rizal's relevance today?",
+        "question": "Learners compare a novel's social criticism with a documented present-day civic concern and identify limits of the analogy. Why is this activity valuable?",
         "choices": [
             "Compare a novel's social issue with a documented present-day civic concern, stating where the analogy ends.",
             "Ask learners to memorize every date in Rizal's travels.",
@@ -10172,7 +10190,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Why is it misleading to read Rizal's novels only as stories about individual villains?",
+        "question": "A class analyzes how institutions shape characters' choices rather than blaming one villain. What interpretation does this support?",
         "choices": [
             "Their characters also represent systems, relationships, and social conditions that shape personal conduct.",
             "The novels contain no individual characters or conflicts.",
@@ -12247,7 +12265,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Basahin ang pahayag: “Dahil maulan, ipinagpaliban ng barangay ang pagtatanim ng puno.” Ano ang ugnayan ng mga ideya?",
+        "question": "Basahin ang konteksto: Ipinagpaliban ang pagtatanim dahil sa malakas na ulan, at itinakda ang bagong araw kapag ligtas na ang lupa. Anong ugnayan ng ideya ang dapat tukuyin?",
         "choices": [
             "Sanhi at bunga",
             "Paghahambing",
@@ -12272,7 +12290,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "Alin ang pinakamabisang tesis para sa sanaysay tungkol sa pagbabasa?",
+        "question": "Sa sanaysay, binanggit ang paglawak ng pang-unawa at pagsusuri bilang bunga ng pagbabasa. Aling tesis ang pinakanaaayon sa ebidensiyang ito?",
         "choices": [
             "Mahalaga ang pagbabasa dahil napalalawak nito ang pag-unawa at kakayahang magsuri.",
             "Ang pagbabasa ay isang bagay.",
@@ -12297,7 +12315,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Sa pangungusap na “Ipinamahagi ng mga mag-aaral ang mga aklat sa mga bata,” ano ang wastong gamit ng pandiwa?",
+        "question": "Sa ulat ng pamamahagi, ang mga mag-aaral ang tagaganap at ang mga aklat ang layon. Aling pahayag ang wastong nagsusuri sa pandiwa?",
         "choices": [
             "Ipinamahagi dahil ang mga aklat ang binigyang-diin na layon.",
             "Ipinamahagi dahil ang mga bata ang paksa ng pandiwa.",
@@ -12322,7 +12340,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Nais ng isang tagapagsalita na hikayatin ang kabataan na magbasa. Aling pambungad ang angkop sa layuning ito?",
+        "question": "Nais hikayatin ng tagapagsalita ang kabataan sa pamamagitan ng tanong na mag-uugnay ng pagbasa sa sariling karanasan. Aling pambungad ang angkop?",
         "choices": [
             "“Ano ang isang ideyang natutuhan mo sa huling aklat na binasa mo?”",
             "“Walang saysay ang pagbabasa at hindi na ito kailangang pag-usapan.”",
@@ -12347,7 +12365,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "Aling salita ang pinakamalapit ang kahulugan sa “masinop” sa kontekstong “Masinop siyang gumamit ng tubig”?",
+        "question": "Sa kontekstong gumagamit ng tubig nang may pag-iingat upang maiwasan ang aksaya, ano ang pinakamalapit na kahulugan ng “masinop”?",
         "choices": [
             "Maingat",
             "Mabilis",
@@ -12372,7 +12390,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Sa isang talata, paulit-ulit na ginagamit ang “ito” ngunit hindi malinaw kung anong pangngalan ang tinutukoy. Anong suliranin ang kailangang ayusin?",
+        "question": "Sa isang ulat, hindi matukoy kung ang “ito” ay tumutukoy sa plano o sa datos. Anong suliranin sa pagsulat ang dapat ayusin muna?",
         "choices": [
             "Kohesyong gramatikal at malinaw na reperensiya",
             "Pagpili ng pamagat lamang",
@@ -12397,7 +12415,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Sinabi ng isang mag-aaral, “Mali ang datos dahil hindi ito tugma sa aking opinyon.” Ano ang pinakamainam na puna?",
+        "question": "Hindi sapat na sabihing mali ang datos dahil salungat ito sa opinyon. Ano ang wastong hakbang sa pagsusuri ng pahayag ng mag-aaral?",
         "choices": [
             "Suriin ang pinagmulan at ebidensiya ng datos sa halip na ihambing ito sa pansariling opinyon.",
             "Tanggapin ang opinyon bilang kapalit ng ebidensiya.",
@@ -12422,7 +12440,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "Alin ang pinakamabisang ayos ng talata tungkol sa paghahanda sa lindol?",
+        "question": "Ang talata ay kailangang maghanda sa lindol: tukuyin ang panganib, ilahad ang hakbang, at magbigay ng paalala. Aling ayos ang lohikal?",
         "choices": [
             "Ipakilala ang panganib, ilahad ang mga hakbang, at magbigay ng paalala sa pagsasagawa.",
             "Magbigay ng konklusyon bago tukuyin ang paksa at mga hakbang.",
@@ -12447,7 +12465,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Ang salitang “bahay” ay ginamit sa impormal na usapan, ngunit “tahanan” ang ginamit sa seremonyal na talumpati. Ano ang ipinakikita nito?",
+        "question": "Sa impormal na usapan ginagamit ang “bahay,” samantalang “tahanan” ang pinili sa seremonyal na talumpati. Anong kasanayan ang ipinakikita?",
         "choices": [
             "Naaangkop ang pagpili ng salita sa konteksto at antas ng pormalidad.",
             "Magkapareho ang lahat ng rehistro sa anumang sitwasyon.",
@@ -12472,7 +12490,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "Alin ang pangungusap na may wastong gamit ng “nang”?",
+        "question": "Sa ulat ng klase, kailangang ilarawan kung paano nagsalita ang mag-aaral. Aling pangungusap ang wastong gumagamit ng “nang”?",
         "choices": [
             "Nagsalita siya nang malinaw sa harap ng klase.",
             "Nang libro ay nasa mesa.",
@@ -12497,7 +12515,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Sa pagbasa ng editoryal, ano ang pinakamainam na batayan upang matukoy ang pangunahing paninindigan?",
+        "question": "Sa editoryal, may tesis, mga dahilan, at konklusyon. Paano dapat tukuyin ang pangunahing paninindigan?",
         "choices": [
             "Ugnayan ng tesis, mga dahilan, at konklusyon ng manunulat.",
             "Pinakamahabang salita sa unang pangungusap.",
@@ -12522,7 +12540,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "May dalawang mungkahi sa klase: bawasan ang plastik at ipagbawal agad ang lahat ng lalagyan. Aling pahayag ang nagpapakita ng maingat na pagsusuri?",
+        "question": "Bago magpasya sa patakaran sa plastik, kailangang timbangin ang benepisyo, suliranin, at alternatibo. Aling pahayag ang maingat?",
         "choices": [
             "Timbangin ang mga benepisyo, posibleng suliranin, at praktikal na alternatibo bago pumili.",
             "Piliin ang pinakamahigpit na mungkahi dahil mas mabuti ang tunog nito.",
@@ -12547,7 +12565,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Aling pangungusap ang may pinakamabisang tono para sa pormal na liham ng kahilingan?",
+        "question": "Sa pormal na liham, nais humiling ng pagbabago nang hindi nag-uutos. Aling tono ang pinakamabisang gamitin?",
         "choices": [
             "Magalang po naming hinihiling na maisaalang-alang ang mungkahing ito.",
             "Uy, pakiayos naman agad ito.",
@@ -12572,7 +12590,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "Ano ang ipinahihiwatig ng salitang “subalit” sa isang talata?",
+        "question": "Sa talata, sinundan ng “subalit” ang isang pahayag ng magkaibang ideya. Ano ang ipinahihiwatig nito?",
         "choices": [
             "May pagsalungat o pagkakaiba sa pagitan ng mga ideya.",
             "May idinaragdag na halimbawa.",
@@ -12597,7 +12615,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Sa pahayag na “Dahil sa mabilis na pagkalat ng maling balita, kailangang suriin ang pinagmulan bago magbahagi,” ano ang pangunahing layunin?",
+        "question": "Ang pahayag tungkol sa maling balita ay nag-uugnay ng suliranin sa payong suriin ang pinagmulan. Ano ang pangunahing layunin?",
         "choices": [
             "Magbigay ng payo batay sa isang suliranin.",
             "Magkuwento ng kathang-isip na tauhan.",
@@ -12622,7 +12640,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Aling rebisyon ang pinakamalinaw sa pangungusap na “Nakita ni Ana si Liza habang naglalakad siya”?",
+        "question": "Sa pangungusap tungkol kina Ana at Liza, kailangang malaman kung sino ang naglalakad. Aling rebisyon ang pinakamalinaw?",
         "choices": [
             "Habang naglalakad si Ana, nakita niya si Liza.",
             "Nakita niya siya habang naglalakad siya.",
@@ -12647,7 +12665,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "hard",
-        "question": "Binasa ng isang mag-aaral ang salaysay mula sa pananaw ng magsasaka at napansin niyang naiiba ito sa salaysay ng opisyal. Ano ang dapat niyang gawin?",
+        "question": "Magkaiba ang salaysay ng magsasaka at opisyal tungkol sa pangyayari. Anong pagsusuri ang dapat unahin?",
         "choices": [
             "Ihambing ang posisyon, karanasan, at ebidensiya ng bawat tagapagsalaysay.",
             "Piliin agad ang opisyal dahil mas mataas ang posisyon niya.",
@@ -12672,7 +12690,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Alin ang halimbawa ng kohesyon sa pamamagitan ng pag-uulit ng pangunahing termino?",
+        "question": "Nais panatilihin ng manunulat ang paksa sa dalawang pangungusap sa pamamagitan ng pag-uulit ng pangunahing termino. Alin ang halimbawa?",
         "choices": [
             "Mahalaga ang kalinisan. Ang kalinisan ay nagsisimula sa sariling tahanan.",
             "Mahalaga ang kalinisan. Ngunit bukas ay maulan.",
@@ -12697,7 +12715,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "easy",
-        "question": "Alin ang pinakamainam na tanong para sa literal na pag-unawa sa binasang teksto?",
+        "question": "Kung ang sagot ay tuwirang makikita sa binasang teksto, anong uri ng tanong ang dapat buuin?",
         "choices": [
             "Sino ang nagsagawa ng unang hakbang ayon sa teksto?",
             "Ano ang maaaring maging kahulugan nito sa hinaharap?",
@@ -12722,7 +12740,7 @@
         "status": "active",
         "source": "BoardPrep-authored",
         "difficulty": "medium",
-        "question": "Sa pagsulat ng buod, alin ang dapat unahin?",
+        "question": "Sa pagbubuod ng ulat, ano ang dapat tukuyin bago piliin ang mahahalagang detalye?",
         "choices": [
             "Tukuyin ang pangunahing ideya at piling mahahalagang detalye bago paikliin ang teksto.",
             "Kopyahin ang bawat pangungusap upang walang mawala.",
