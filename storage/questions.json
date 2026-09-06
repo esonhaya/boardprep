@@ -41094,16 +41094,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "hard",
-        "question": "Which amount is supported by the schedule?",
+        "difficulty": "medium",
+        "question": "At reporting date, utilities incurred are P18,000, insurance expired is P7,000, and a P12,000 customer deposit is earned. What expense is recognized?",
         "choices": [
-            "P50,000",
-            "P40,000",
-            "P60,000",
-            "P70,000"
+            "P25,000",
+            "P18,000",
+            "P12,000",
+            "P37,000"
         ],
-        "answer": "P50,000",
-        "explanation": "(P240,000 − P40,000) ÷ 4 = P50,000.",
+        "answer": "P25,000",
+        "explanation": "Expense is P18,000 + P7,000 = P25,000; the earned deposit affects revenue.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -41112,28 +41112,23 @@
             {
                 "type": "table",
                 "columns": [
-                    "Schedule item",
-                    "Information"
+                    "Adjustment",
+                    "Amount"
                 ],
                 "rows": [
                     [
-                        "Case facts",
-                        "A machine costs P240,000, has a P40,000 residual value, and a four-year life. What is first-year straight-line depreciation?"
+                        "Utilities incurred",
+                        "P18,000"
                     ],
                     [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
+                        "Insurance expired",
+                        "P7,000"
                     ],
                     [
-                        "Context",
-                        "The result must be interpreted together with the period or transaction described."
+                        "Deposit earned",
+                        "P12,000"
                     ]
                 ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
@@ -41142,7 +41137,7 @@
         "table_dependent": true,
         "data_interpretation": true,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "long"
     },
     {
@@ -41159,55 +41154,50 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "What conclusion follows after reviewing the schedule?",
+        "difficulty": "hard",
+        "question": "An allowance ledger opens at P24,000 credit, records P8,000 write-offs, and requires P36,000 credit at close. What expense is needed?",
         "choices": [
-            "P3,600",
-            "P2,000",
-            "P2,400",
-            "P10,000"
+            "P12,000",
+            "P20,000",
+            "P28,000",
+            "P44,000"
         ],
-        "answer": "P3,600",
-        "explanation": "P80,000×2% plus P20,000×10% equals P3,600.",
+        "answer": "P20,000",
+        "explanation": "Expense = closing allowance − opening allowance + write-offs = P36,000 − P24,000 + P8,000.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "numeric": true,
-        "multistep": false,
+        "multistep": true,
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
                 "type": "table",
                 "columns": [
-                    "Schedule item",
-                    "Information"
+                    "Allowance item",
+                    "Amount"
                 ],
                 "rows": [
                     [
-                        "Case facts",
-                        "A receivable schedule has P80,000 current and P20,000 over 90 days. If the allowance rates are 2% and 10%, respectively, the allowance is:"
+                        "Opening credit",
+                        "P24,000"
                     ],
                     [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
+                        "Write-offs",
+                        "P8,000"
                     ],
                     [
-                        "Context",
-                        "The result must be interpreted together with the period or transaction described."
+                        "Required closing credit",
+                        "P36,000"
                     ]
                 ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "table_dependent": true,
         "data_interpretation": true,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "long"
     },
     {
@@ -41224,16 +41214,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "Which result should be reported from these records?",
+        "difficulty": "medium",
+        "question": "Under FIFO, 100 units cost P40 and 80 units cost P45. After selling 120 units, what is ending inventory?",
         "choices": [
-            "P45,000",
-            "P30,000",
-            "P75,000",
-            "P105,000"
+            "P2,400",
+            "P3,600",
+            "P2,700",
+            "P7,200"
         ],
-        "answer": "P45,000",
-        "explanation": "Carrying amount equals cost less accumulated depreciation.",
+        "answer": "P2,700",
+        "explanation": "FIFO leaves 60 units from the P45 layer: 60 × P45 = P2,700.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -41243,34 +41233,13 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "Cost is P75,000 and accumulated depreciation is P30,000. The carrying amount is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ],
-                    [
-                        "Context",
-                        "The result must be interpreted together with the period or transaction described."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Ending inventory = 60 × P45",
+                "fallback": "Issue the older layer first, then value the remaining layer."
             }
         ],
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": true,
         "cognitive_intent": "apply",
         "scenario_length": "long"
@@ -41290,52 +41259,31 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Which option correctly interprets the supplied data?",
+        "question": "Equipment costs P480,000, has P30,000 residual value, and a five-year life. What is its carrying amount after two straight-line years?",
         "choices": [
-            "P8,000",
-            "P4,000",
-            "P6,000",
-            "P12,000"
+            "P210,000",
+            "P330,000",
+            "P390,000",
+            "P300,000"
         ],
-        "answer": "P8,000",
-        "explanation": "Eight months remain, so P12,000×8\/12 = P8,000.",
+        "answer": "P300,000",
+        "explanation": "Annual depreciation is P90,000; carrying amount is P480,000 − 2(P90,000) = P300,000.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A P12,000 annual insurance payment covers 12 months; four months have elapsed. The prepaid balance is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ],
-                    [
-                        "Context",
-                        "The result must be interpreted together with the period or transaction described."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Carrying amount = 480,000 − 2[(480,000−30,000)÷5]",
+                "fallback": "Apply straight-line depreciation before removing two years."
             }
         ],
         "numeric": true,
         "multistep": false,
         "source_sensitivity": "STABLE",
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": true,
         "cognitive_intent": "apply",
         "scenario_length": "long"
@@ -41354,16 +41302,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "What amount or treatment follows from the information shown?",
+        "difficulty": "hard",
+        "question": "A P600,000 contract has stand-alone prices of P500,000 and P300,000. How much is allocated to the first obligation?",
         "choices": [
-            "P120,000",
-            "P30,000",
-            "P150,000",
-            "P180,000"
+            "P375,000",
+            "P300,000",
+            "P400,000",
+            "P500,000"
         ],
-        "answer": "P120,000",
-        "explanation": "Only the satisfied P120,000 portion is recognized.",
+        "answer": "P375,000",
+        "explanation": "Allocation is P600,000 × 500,000\/(500,000+300,000) = P375,000.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -41373,36 +41321,15 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A sale of P150,000 includes a P30,000 performance obligation not yet satisfied. Revenue recognized now is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ],
-                    [
-                        "Context",
-                        "The result must be interpreted together with the period or transaction described."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Allocation = 600,000 × 500,000 ÷ 800,000",
+                "fallback": "Use relative stand-alone selling prices."
             }
         ],
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -41419,16 +41346,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "hard",
-        "question": "Which decision is supported by the figures?",
+        "difficulty": "medium",
+        "question": "A probable provision has a P80,000–P120,000 range and no amount is more likely. What amount is recognized under the stated rule?",
         "choices": [
-            "P85,000",
-            "P5,000",
-            "P90,000",
-            "P95,000"
+            "P40,000",
+            "P80,000",
+            "P100,000",
+            "P120,000"
         ],
-        "answer": "P85,000",
-        "explanation": "Settlement cash equals the payable less discount.",
+        "answer": "P80,000",
+        "explanation": "With no most-likely amount, the stated lower-end measurement is P80,000.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -41436,38 +41363,11 @@
         "numeric": true,
         "multistep": false,
         "source_sensitivity": "STABLE",
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A payable of P90,000 is settled with a P5,000 discount. Cash paid is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ],
-                    [
-                        "Context",
-                        "The result must be interpreted together with the period or transaction described."
-                    ]
-                ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
-            }
-        ],
-        "table_dependent": true,
+        "content_blocks": [],
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "evaluate",
         "scenario_length": "standard"
     },
     {
@@ -41484,55 +41384,34 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "What is the most defensible result from this schedule?",
+        "difficulty": "hard",
+        "question": "An asset has P240,000 carrying amount and four years remaining. After this year, the remaining life is revised to two years. What is next year’s depreciation?",
         "choices": [
-            "P115,000",
-            "P75,000",
-            "P110,000",
-            "P185,000"
+            "P60,000",
+            "P80,000",
+            "P90,000",
+            "P120,000"
         ],
-        "answer": "P115,000",
-        "explanation": "COGS = beginning inventory + purchases − ending inventory.",
+        "answer": "P90,000",
+        "explanation": "Current depreciation is P60,000, leaving P180,000; P180,000 ÷ 2 = P90,000.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "Beginning inventory is P40,000; purchases P110,000; ending inventory P35,000. Cost of goods sold is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ],
-                    [
-                        "Context",
-                        "The result must be interpreted together with the period or transaction described."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Next depreciation = (240,000−60,000)÷2",
+                "fallback": "Apply the revised estimate prospectively."
             }
         ],
         "numeric": true,
         "multistep": true,
         "source_sensitivity": "STABLE",
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -41550,54 +41429,53 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Which statement accurately uses the supplied records?",
+        "question": "Cash flows are operating inflows P420,000, operating outflows P280,000, investing outflows P90,000, and financing inflows P40,000. What is the net increase?",
         "choices": [
+            "P50,000",
             "P130,000",
-            "P80,000",
-            "P210,000",
-            "P290,000"
+            "P190,000",
+            "P90,000"
         ],
-        "answer": "P130,000",
-        "explanation": "P210,000 − P80,000 = P130,000.",
+        "answer": "P90,000",
+        "explanation": "Net change = 420,000 − 280,000 − 90,000 + 40,000 = P90,000.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "numeric": true,
-        "multistep": false,
+        "multistep": true,
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
                 "type": "table",
                 "columns": [
-                    "Schedule item",
-                    "Information"
+                    "Section",
+                    "Cash flow"
                 ],
                 "rows": [
                     [
-                        "Case facts",
-                        "Cash from operations is P210,000 and investing cash flow is negative P80,000. Combined net cash from these two categories is:"
+                        "Operating inflows",
+                        "P420,000"
                     ],
                     [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
+                        "Operating outflows",
+                        "(P280,000)"
                     ],
                     [
-                        "Context",
-                        "The result must be interpreted together with the period or transaction described."
+                        "Investing",
+                        "(P90,000)"
+                    ],
+                    [
+                        "Financing",
+                        "P40,000"
                     ]
                 ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "table_dependent": true,
-        "data_interpretation": false,
+        "data_interpretation": true,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "interpret",
         "scenario_length": "standard"
     },
     {
@@ -41615,54 +41493,49 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "Which amount is supported by the schedule?",
+        "question": "A liability schedule lists trade payables P390,000, current loan P80,000, and accrued interest P30,000. Which amount is trade payables?",
         "choices": [
-            "P490,000",
-            "P480,000",
-            "P498,000",
-            "P510,000"
+            "P390,000",
+            "P420,000",
+            "P470,000",
+            "P500,000"
         ],
-        "answer": "P490,000",
-        "explanation": "98% of P500,000 equals P490,000.",
+        "answer": "P390,000",
+        "explanation": "Only supplier balances are trade payables; the loan and interest remain separate liabilities.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "numeric": true,
-        "multistep": true,
+        "multistep": false,
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
                 "type": "table",
                 "columns": [
-                    "Schedule item",
-                    "Information"
+                    "Liability",
+                    "Amount"
                 ],
                 "rows": [
                     [
-                        "Case facts",
-                        "A P500,000 bond is issued at 98. The proceeds are:"
+                        "Trade payables",
+                        "P390,000"
                     ],
                     [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
+                        "Current loan",
+                        "P80,000"
                     ],
                     [
-                        "Context",
-                        "The result must be interpreted together with the period or transaction described."
+                        "Accrued interest",
+                        "P30,000"
                     ]
                 ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "table_dependent": true,
-        "data_interpretation": false,
+        "data_interpretation": true,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "classify",
         "scenario_length": "standard"
     },
     {
@@ -41679,55 +41552,34 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "What conclusion follows after reviewing the schedule?",
+        "difficulty": "hard",
+        "question": "Current assets are P600,000 and current liabilities P300,000. Paying a P60,000 trade payable with cash produces what current ratio?",
         "choices": [
-            "2.0:1",
             "0.5:1",
+            "2.25:1",
             "1.5:1",
             "3.0:1"
         ],
-        "answer": "2.0:1",
-        "explanation": "P360,000 ÷ P180,000 = 2.0.",
+        "answer": "2.25:1",
+        "explanation": "Both balances fall to P540,000 and P240,000; the resulting current ratio is exactly 2.25:1.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "Current assets are P360,000 and current liabilities P180,000. The current ratio is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ],
-                    [
-                        "Context",
-                        "The result must be interpreted together with the period or transaction described."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Ratio = (600,000−60,000)÷(300,000−60,000)",
+                "fallback": "Update both numerator and denominator."
             }
         ],
         "numeric": true,
-        "multistep": false,
+        "multistep": true,
         "source_sensitivity": "STABLE",
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -42094,15 +41946,15 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "What amount or treatment follows from the information shown?",
+        "question": "A partnership earns P360,000. A receives salary P120,000 and B P80,000; interest is 10% on capitals P400,000 and P200,000; residual is 3:2. A’s allocation is:",
         "choices": [
-            "P300,000",
-            "P100,000",
-            "P325,000",
-            "P400,000"
+            "P160,000",
+            "P200,000",
+            "P220,000",
+            "P260,000"
         ],
-        "answer": "P300,000",
-        "explanation": "P400,000×75% = P300,000.",
+        "answer": "P220,000",
+        "explanation": "Allowances are P260,000; residual P100,000 gives A P60,000. A total is P220,000.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -42111,24 +41963,27 @@
             {
                 "type": "table",
                 "columns": [
-                    "Schedule item",
-                    "Information"
+                    "Input",
+                    "A",
+                    "B"
                 ],
                 "rows": [
                     [
-                        "Case facts",
-                        "A parent owns 75% of a subsidiary reporting P400,000 profit. Ignoring other adjustments, profit attributable to the parent is:"
+                        "Salary",
+                        "P120,000",
+                        "P80,000"
                     ],
                     [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
+                        "Capital",
+                        "P400,000",
+                        "P200,000"
+                    ],
+                    [
+                        "Residual ratio",
+                        "3",
+                        "2"
                     ]
                 ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
@@ -42137,7 +41992,7 @@
         "table_dependent": true,
         "data_interpretation": true,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "long"
     },
     {
@@ -42154,16 +42009,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "Which decision is supported by the figures?",
+        "difficulty": "easy",
+        "question": "A subsidiary earns P60,000 and NCI owns 20%. What profit is attributable to NCI?",
         "choices": [
-            "P10,000",
-            "P5,000",
-            "P20,000",
-            "P40,000"
+            "P8,000",
+            "P48,000",
+            "P60,000",
+            "P12,000"
         ],
-        "answer": "P10,000",
-        "explanation": "Only the half still inside the group is unrealized: P20,000×1\/2.",
+        "answer": "P12,000",
+        "explanation": "NCI share is 20% × P60,000 = P12,000.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -42173,30 +42028,13 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "An intercompany sale includes P20,000 profit; half remains in ending inventory. Consolidation eliminates unrealized profit of:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "NCI share = 20% × 60,000",
+                "fallback": "Apply the ownership percentage."
             }
         ],
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": true,
         "cognitive_intent": "apply",
         "scenario_length": "long"
@@ -42215,16 +42053,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "What is the most defensible result from this schedule?",
+        "difficulty": "hard",
+        "question": "Inventory costing P80,000 is sold within a group for P100,000; 40% remains at year-end. What profit is eliminated?",
         "choices": [
-            "P12,000",
             "P8,000",
-            "P48,000",
-            "P60,000"
+            "P4,000",
+            "P20,000",
+            "P40,000"
         ],
-        "answer": "P12,000",
-        "explanation": "Twenty percent remains: P60,000×20%.",
+        "answer": "P8,000",
+        "explanation": "Intragroup profit is P20,000; the unsold portion is P20,000 × 40% = P8,000.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -42234,32 +42072,15 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A branch receives goods billed at P60,000 and sells 80% externally. Goods remaining at billed amount are:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Elimination = (100,000−80,000)×40%",
+                "fallback": "Isolate the ending unsold margin."
             }
         ],
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "long"
     },
     {
@@ -42277,48 +42098,31 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Which statement accurately uses the supplied records?",
+        "question": "Consideration in a combination is P900,000 and identifiable net assets are P760,000 fair value. What goodwill results?",
         "choices": [
-            "P140,000",
             "P90,000",
+            "P140,000",
             "P160,000",
             "P1,660,000"
         ],
         "answer": "P140,000",
-        "explanation": "P900,000 − P760,000 = P140,000.",
+        "explanation": "Goodwill is P900,000 − P760,000 = P140,000.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "Consideration is P900,000 and identifiable net assets are P760,000. The residual before other adjustments is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Goodwill = 900,000−760,000",
+                "fallback": "Subtract identifiable net assets."
             }
         ],
         "numeric": true,
         "multistep": false,
         "source_sensitivity": "STABLE",
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": true,
         "cognitive_intent": "apply",
         "scenario_length": "long"
@@ -42337,16 +42141,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "Which amount is supported by the schedule?",
+        "difficulty": "medium",
+        "question": "Head office transfers goods costing P120,000 at a billed amount P150,000; 20% remains at year-end. What loading is unrealized?",
         "choices": [
-            "P150,000",
-            "P100,000",
-            "P125,000",
-            "P200,000"
+            "P4,000",
+            "P24,000",
+            "P6,000",
+            "P30,000"
         ],
-        "answer": "P150,000",
-        "explanation": "Three-fifths of P250,000 is P150,000.",
+        "answer": "P6,000",
+        "explanation": "Loading is P30,000; 20% of it is P6,000.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -42356,32 +42160,15 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "Partners share residual profit 3:2. On P250,000 residual profit, the first partner receives:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Loading = (150,000−120,000)×20%",
+                "fallback": "Apply the ending percentage to the transfer margin."
             }
         ],
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -42399,50 +42186,33 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "What conclusion follows after reviewing the schedule?",
+        "question": "A USD20,000 payable was recorded at P56 and remeasured at P58 per dollar. What exchange loss results?",
         "choices": [
-            "P560,000",
-            "P46,000",
-            "An amount inconsistent with the supplied data",
-            "P5,600,000"
+            "P20,000 gain",
+            "P40,000 gain",
+            "P80,000 loss",
+            "P40,000 loss"
         ],
-        "answer": "P560,000",
-        "explanation": "10,000×56 = P560,000.",
+        "answer": "P40,000 loss",
+        "explanation": "The liability increases by USD20,000 × P2 = P40,000 loss.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "numeric": true,
-        "multistep": false,
+        "multistep": true,
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A foreign balance of USD10,000 is translated at P56 per dollar. The peso amount is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Loss = 20,000×(58−56)",
+                "fallback": "A higher peso settlement amount is a loss."
             }
         ],
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -42460,47 +42230,30 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "Which result should be reported from these records?",
+        "question": "Liquidation proceeds are P800,000 and liabilities paid are P300,000. Ignoring costs, what remains for owners?",
         "choices": [
-            "P600,000",
-            "P400,000",
-            "P1,000,000",
-            "P1,400,000"
+            "P500,000",
+            "P300,000",
+            "P800,000",
+            "P1,100,000"
         ],
-        "answer": "P600,000",
-        "explanation": "Net assets equal assets less liabilities.",
+        "answer": "P500,000",
+        "explanation": "Owners receive proceeds after creditors: P800,000 − P300,000 = P500,000.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A subsidiary has assets P1,000,000 and liabilities P400,000. Net assets are:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Residual cash = 800,000−300,000",
+                "fallback": "Pay liabilities before distribution."
             }
         ],
         "numeric": true,
-        "multistep": true,
+        "multistep": false,
         "source_sensitivity": "STABLE",
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
         "cognitive_intent": "apply",
@@ -42521,47 +42274,30 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Which option correctly interprets the supplied data?",
+        "question": "An investor owns 40% of an associate that reports P250,000 profit. What equity-method share is recognized?",
         "choices": [
-            "P350,000",
-            "P70,000",
-            "P490,000",
-            "P420,000"
+            "P60,000",
+            "P100,000",
+            "P150,000",
+            "P250,000"
         ],
-        "answer": "P350,000",
-        "explanation": "Withdrawal reduces capital by P70,000.",
+        "answer": "P100,000",
+        "explanation": "Investor share is 40% × P250,000 = P100,000.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "numeric": true,
-        "multistep": false,
+        "multistep": true,
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A partnership capital balance is P420,000 before a P70,000 authorized withdrawal. Remaining capital is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Share = 40%×250,000",
+                "fallback": "Apply ownership to associate profit."
             }
         ],
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
         "cognitive_intent": "apply",
@@ -42581,51 +42317,34 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "What amount or treatment follows from the information shown?",
+        "difficulty": "medium",
+        "question": "A subsidiary earns P300,000 and NCI owns 30%. What is parent-attributable profit?",
         "choices": [
-            "P0",
-            "P45,000",
             "P90,000",
-            "P135,000"
+            "P300,000",
+            "P210,000",
+            "P390,000"
         ],
-        "answer": "P0",
-        "explanation": "Reciprocal intragroup balances are eliminated.",
+        "answer": "P210,000",
+        "explanation": "NCI is P90,000; parent share is P300,000 − P90,000 = P210,000.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "numeric": true,
-        "multistep": true,
+        "multistep": false,
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A parent’s receivable from its subsidiary is P45,000 and the subsidiary’s payable agrees. Consolidated balance is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Parent share = 300,000×(1−30%)",
+                "fallback": "Remove NCI from total profit."
             }
         ],
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -42642,51 +42361,34 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "Which decision is supported by the figures?",
+        "difficulty": "easy",
+        "question": "A group has reciprocal principal balances P75,000 and reciprocal interest balances P6,000. What total is eliminated?",
         "choices": [
-            "P36,000",
-            "P20,000",
-            "P144,000",
-            "P180,000"
+            "P69,000",
+            "P75,000",
+            "P87,000",
+            "P81,000"
         ],
-        "answer": "P36,000",
-        "explanation": "P180,000×20% = P36,000.",
+        "answer": "P81,000",
+        "explanation": "Eliminate both reciprocal balances: P75,000 + P6,000 = P81,000.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A subsidiary earns P180,000 after tax; NCI owns 20%. NCI share is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Elimination = 75,000+6,000",
+                "fallback": "Combine principal and interest eliminations."
             }
         ],
         "numeric": true,
-        "multistep": false,
+        "multistep": true,
         "source_sensitivity": "STABLE",
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -43052,16 +42754,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "hard",
-        "question": "Which amount is supported by the schedule?",
+        "difficulty": "medium",
+        "question": "A product sells for P80, variable cost is P50, and fixed cost is P240,000. What is break-even volume?",
         "choices": [
-            "6,000",
-            "3,600",
-            "4,500",
-            "9,000"
+            "8,000 units",
+            "4,000 units",
+            "6,000 units",
+            "12,000 units"
         ],
-        "answer": "6,000",
-        "explanation": "Unit contribution is P30; P180,000÷P30 = 6,000.",
+        "answer": "8,000 units",
+        "explanation": "Unit contribution is P30; P240,000 ÷ P30 = 8,000 units.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -43070,24 +42772,23 @@
             {
                 "type": "table",
                 "columns": [
-                    "Schedule item",
-                    "Information"
+                    "CVP input",
+                    "Amount"
                 ],
                 "rows": [
                     [
-                        "Case facts",
-                        "Selling price is P80, variable cost P50, and fixed cost P180,000. Break-even units are:"
+                        "Selling price",
+                        "P80"
                     ],
                     [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
+                        "Variable cost",
+                        "P50"
+                    ],
+                    [
+                        "Fixed costs",
+                        "P240,000"
                     ]
                 ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
@@ -43096,7 +42797,7 @@
         "table_dependent": true,
         "data_interpretation": true,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "long"
     },
     {
@@ -43113,51 +42814,34 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "What conclusion follows after reviewing the schedule?",
+        "difficulty": "hard",
+        "question": "A special order is 2,000 units at P18; variable cost is P12 and setup cost P6,000. What incremental profit results?",
         "choices": [
-            "P8",
-            "P3",
-            "P21",
-            "P72"
+            "P0",
+            "P6,000",
+            "P12,000",
+            "P18,000"
         ],
-        "answer": "P8",
-        "explanation": "P24÷3 = P8 per constrained hour.",
+        "answer": "P6,000",
+        "explanation": "Contribution is P12,000; after setup cost, profit is P6,000.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "numeric": true,
-        "multistep": false,
+        "multistep": true,
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A product yields P24 contribution and uses 3 constrained machine hours. Contribution per constrained hour is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Profit = 2,000(18−12)−6,000",
+                "fallback": "Include only incremental revenue and costs."
             }
         ],
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "long"
     },
     {
@@ -43174,16 +42858,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "Which result should be reported from these records?",
+        "difficulty": "medium",
+        "question": "Standard material price is P5 per kilogram. Actual purchase is 430 kilograms at P6. What price variance results?",
         "choices": [
-            "P4,000 unfavorable",
-            "P4,000 favorable",
-            "P50,000 favorable",
-            "P104,000 unfavorable"
+            "P430 favorable",
+            "P2,150 unfavorable",
+            "P430 unfavorable",
+            "P2,580 favorable"
         ],
-        "answer": "P4,000 unfavorable",
-        "explanation": "Actual cost exceeds standard cost by P4,000.",
+        "answer": "P430 unfavorable",
+        "explanation": "430 × (P6−P5) = P430 unfavorable because actual price is higher.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -43193,32 +42877,15 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "Actual material cost is P54,000 versus a P50,000 standard at actual output. The spending difference is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Variance = 430×(6−5)",
+                "fallback": "Price above standard is unfavorable."
             }
         ],
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "long"
     },
     {
@@ -43236,15 +42903,15 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Which option correctly interprets the supplied data?",
+        "question": "A budget plans 4,000 units at P80, variable cost P50 per unit, and fixed costs P90,000. What operating income is budgeted?",
         "choices": [
-            "P65,000",
-            "P25,000",
+            "P20,000",
             "P90,000",
-            "P155,000"
+            "P120,000",
+            "P30,000"
         ],
-        "answer": "P65,000",
-        "explanation": "Until the receipt arrives, the payment must be funded.",
+        "answer": "P30,000",
+        "explanation": "Sales P320,000 less variable P200,000 and fixed P90,000 leaves P30,000.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -43253,24 +42920,27 @@
             {
                 "type": "table",
                 "columns": [
-                    "Schedule item",
-                    "Information"
+                    "Budget item",
+                    "Amount"
                 ],
                 "rows": [
                     [
-                        "Case facts",
-                        "A budgeted receipt of P90,000 is delayed one month while payments of P65,000 remain due. The immediate cash gap is:"
+                        "Units",
+                        "4,000"
                     ],
                     [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
+                        "Price",
+                        "P80"
+                    ],
+                    [
+                        "Variable cost",
+                        "P50\/unit"
+                    ],
+                    [
+                        "Fixed costs",
+                        "P90,000"
                     ]
                 ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
@@ -43279,7 +42949,7 @@
         "table_dependent": true,
         "data_interpretation": true,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "long"
     },
     {
@@ -43296,16 +42966,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "What amount or treatment follows from the information shown?",
+        "difficulty": "hard",
+        "question": "Product A contributes P30 with 2,000 units; B contributes P50 with 1,000 units. What is weighted-average contribution?",
         "choices": [
-            "30%",
-            "23.1%",
-            "60%",
-            "130%"
+            "P36.67",
+            "P30.00",
+            "P40.00",
+            "P50.00"
         ],
-        "answer": "30%",
-        "explanation": "Gain is P60,000; P60,000÷P200,000 = 30%.",
+        "answer": "P36.67",
+        "explanation": "Total contribution P110,000 ÷ 3,000 units = P36.666..., rounded to P36.67 per unit.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -43315,32 +42985,15 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A project costs P200,000 and returns P260,000 before considering timing. Undiscounted return over cost is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Average = (30×2,000+50×1,000)÷3,000",
+                "fallback": "Weight contribution by sales mix."
             }
         ],
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -43357,16 +43010,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "hard",
-        "question": "Which decision is supported by the figures?",
+        "difficulty": "medium",
+        "question": "An investment of P200,000 produces equal annual cash inflows of P90,000. Ignoring time value, what is payback?",
         "choices": [
-            "P170",
-            "P90",
-            "P145",
-            "P190"
+            "1.11 years",
+            "2.22 years",
+            "2.00 years",
+            "3.22 years"
         ],
-        "answer": "P170",
-        "explanation": "3×P40 + 2×P25 = P170.",
+        "answer": "2.22 years",
+        "explanation": "Payback is P200,000 ÷ P90,000 = 2.222..., rounded to 2.22 years.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -43376,29 +43029,12 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "Product A contributes P40 and product B P25. A mix of 3 A and 2 B contributes per five units:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Payback = 200,000÷90,000",
+                "fallback": "Divide investment by annual inflow."
             }
         ],
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
         "cognitive_intent": "apply",
@@ -43418,51 +43054,34 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "What is the most defensible result from this schedule?",
+        "difficulty": "hard",
+        "question": "Capacity is 600 machine-hours. A contributes P40 using two hours; B contributes P50 using five. Which plan is best if demand is sufficient?",
         "choices": [
-            "P72,000",
-            "P22,000",
-            "P54,000",
-            "An amount inconsistent with the supplied data"
+            "Produce 120 units of B for P6,000",
+            "Split hours equally for P9,000",
+            "Produce 300 units of A for P12,000 contribution",
+            "Produce 600 units of A for P24,000"
         ],
-        "answer": "P72,000",
-        "explanation": "P18×4,000 = P72,000.",
+        "answer": "Produce 300 units of A for P12,000 contribution",
+        "explanation": "A yields P20 per constrained hour versus B at P10; 600 hours produce 300 A units and P12,000.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "Avoidable cost is P18 per unit for 4,000 units. Total avoidable cost is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Hourly contribution: A=40÷2; B=50÷5",
+                "fallback": "Rank contribution per scarce hour."
             }
         ],
         "numeric": true,
         "multistep": true,
         "source_sensitivity": "STABLE",
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "evaluate",
         "scenario_length": "standard"
     },
     {
@@ -43480,15 +43099,15 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Which statement accurately uses the supplied records?",
+        "question": "Avoidable in-house cost is P140,000; supplier price is P110,000; allocated fixed P30,000 continues either way. What is buying’s saving?",
         "choices": [
-            "P112,000",
-            "P72,000",
-            "P46,000",
-            "P152,000"
+            "P0",
+            "P20,000",
+            "P60,000",
+            "P30,000"
         ],
-        "answer": "P112,000",
-        "explanation": "12,000×P6 + P40,000 = P112,000.",
+        "answer": "P30,000",
+        "explanation": "Compare avoidable keep cost with buy price: P140,000 − P110,000 = P30,000.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -43498,32 +43117,15 @@
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A department has actual output 12,000 units at P6 variable cost plus P40,000 fixed cost. Total cost is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Saving = 140,000−110,000",
+                "fallback": "Exclude unavoidable allocated cost."
             }
         ],
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "evaluate",
         "scenario_length": "standard"
     },
     {
@@ -43541,15 +43143,15 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "Which amount is supported by the schedule?",
+        "question": "Sales are P500,000, variable costs P320,000, and controllable fixed costs P60,000. What controllable margin results?",
         "choices": [
-            "P20,000 negative",
-            "P20,000 positive",
-            "P480,000 negative",
-            "P980,000 negative"
+            "P120,000",
+            "P60,000",
+            "P180,000",
+            "P440,000"
         ],
-        "answer": "P20,000 negative",
-        "explanation": "P480,000 − P500,000 = −P20,000.",
+        "answer": "P120,000",
+        "explanation": "Controllable margin is P500,000 − P320,000 − P60,000 = P120,000.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -43561,30 +43163,29 @@
             {
                 "type": "table",
                 "columns": [
-                    "Schedule item",
-                    "Information"
+                    "Data",
+                    "Amount"
                 ],
                 "rows": [
                     [
-                        "Case facts",
-                        "A project has present value of inflows P480,000 and initial cost P500,000. NPV is:"
+                        "Sales",
+                        "P500,000"
                     ],
                     [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
+                        "Variable costs",
+                        "P320,000"
+                    ],
+                    [
+                        "Controllable fixed",
+                        "P60,000"
                     ]
                 ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "table_dependent": true,
-        "data_interpretation": false,
+        "data_interpretation": true,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -43601,51 +43202,34 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "What conclusion follows after reviewing the schedule?",
+        "difficulty": "hard",
+        "question": "An ABC pool has P120,000 for 100 setups and P80,000 for 160 inspections. Product A uses 30 setups and 40 inspections. What overhead is assigned?",
         "choices": [
-            "P12",
-            "P8",
-            "P88",
-            "P104"
+            "P36,000",
+            "P56,000",
+            "P50,000",
+            "P76,000"
         ],
-        "answer": "P12",
-        "explanation": "P96,000÷8,000 = P12.",
+        "answer": "P56,000",
+        "explanation": "Rates are P1,200 and P500; assignment is 30×P1,200 + 40×P500 = P56,000.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A cost center spends P96,000 for 8,000 service units. Cost per unit is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Assigned = (120,000÷100)×30+(80,000÷160)×40",
+                "fallback": "Compute each activity rate before assignment."
             }
         ],
         "numeric": true,
-        "multistep": false,
+        "multistep": true,
         "source_sensitivity": "STABLE",
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -44012,50 +43596,33 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "What amount or treatment follows from the information shown?",
+        "question": "Inherent risk is .60, control risk .50, and desired audit risk .03. What detection risk is required?",
         "choices": [
-            "5%",
-            "0.5%",
+            "3%",
             "6%",
-            "20%"
+            "10%",
+            "30%"
         ],
-        "answer": "5%",
-        "explanation": "6÷120 = 0.05, or 5%.",
+        "answer": "10%",
+        "explanation": "Detection risk = .03 ÷ (.60×.50) = .10, or 10%.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A sample finds 6 exceptions in 120 tested controls. The observed exception rate is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "DR = .03÷(.60×.50)",
+                "fallback": "Solve the audit-risk relationship."
             }
         ],
         "numeric": true,
         "multistep": true,
         "source_sensitivity": "STANDARD_DEPENDENT",
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "long"
     },
     {
@@ -44073,50 +43640,49 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Which decision is supported by the figures?",
+        "question": "Revenue is P10,000,000; supplied materiality benchmark is 2%; performance materiality is 75% of overall materiality. What is performance materiality?",
         "choices": [
-            "P90,000",
-            "P18,000",
-            "P82,000",
-            "P118,000"
+            "P100,000",
+            "P200,000",
+            "P250,000",
+            "P150,000"
         ],
-        "answer": "P90,000",
-        "explanation": "P18,000×5 = P90,000, below the stated threshold.",
+        "answer": "P150,000",
+        "explanation": "Overall materiality is P200,000; 75% gives P150,000.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "numeric": true,
-        "multistep": false,
+        "multistep": true,
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
                 "type": "table",
                 "columns": [
-                    "Schedule item",
-                    "Information"
+                    "Input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Case facts",
-                        "Planning materiality is P100,000 and an identified error is P18,000. Five similar errors would total:"
+                        "Revenue",
+                        "P10,000,000"
                     ],
                     [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
+                        "Benchmark",
+                        "2%"
+                    ],
+                    [
+                        "Performance factor",
+                        "75%"
                     ]
                 ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "table_dependent": true,
         "data_interpretation": true,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "long"
     },
     {
@@ -44134,48 +43700,31 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "What is the most defensible result from this schedule?",
+        "question": "A systematic sample covers 1,000 items with a planned sample of 40. What sampling interval is used?",
         "choices": [
-            "40 units",
-            "4 units",
-            "60 units",
-            "960 units"
+            "25 items",
+            "20 items",
+            "40 items",
+            "960 items"
         ],
-        "answer": "40 units",
-        "explanation": "1,000 − 960 = 40 units.",
+        "answer": "25 items",
+        "explanation": "Interval = 1,000 ÷ 40 = 25 items.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "numeric": true,
-        "multistep": true,
+        "multistep": false,
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "Inventory records show 1,000 units; observation finds 960. The shortage is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Interval = 1,000÷40",
+                "fallback": "Divide population by sample size."
             }
         ],
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": true,
         "cognitive_intent": "apply",
         "scenario_length": "long"
@@ -44195,50 +43744,33 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Which statement accurately uses the supplied records?",
+        "question": "Four exceptions occur in a confirmation sample of 80 receivables. What observed exception rate is considered?",
         "choices": [
-            "5%",
             "2.5%",
-            "10%",
+            "5%",
+            "4%",
             "20%"
         ],
         "answer": "5%",
-        "explanation": "25÷500 = 5%.",
+        "explanation": "Exception rate = 4 ÷ 80 = 5%; nature and projection require further evaluation.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "An auditor selects 25 invoices from a population of 500. The sample is what percentage?"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Rate = 4÷80",
+                "fallback": "Compute the observed rate before qualitative assessment."
             }
         ],
         "numeric": true,
-        "multistep": false,
+        "multistep": true,
         "source_sensitivity": "STANDARD_DEPENDENT",
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "interpret",
         "scenario_length": "long"
     },
     {
@@ -44255,51 +43787,34 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "Which amount is supported by the schedule?",
+        "difficulty": "medium",
+        "question": "The inventory ledger is P600,000, including P40,000 of goods consigned by another entity. What owned inventory remains?",
         "choices": [
-            "P60,000",
             "P40,000",
-            "P240,000",
-            "P540,000"
+            "P600,000",
+            "P560,000",
+            "P640,000"
         ],
-        "answer": "P60,000",
-        "explanation": "P300,000 − P240,000 = P60,000.",
+        "answer": "P560,000",
+        "explanation": "Exclude goods owned by another entity: P600,000 − P40,000 = P560,000.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "numeric": true,
-        "multistep": true,
+        "multistep": false,
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "Receivables are P300,000 and confirmed balances total P240,000. The unconfirmed amount is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Owned inventory = 600,000−40,000",
+                "fallback": "Use ownership rather than physical custody."
             }
         ],
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "classify",
         "scenario_length": "standard"
     },
     {
@@ -44316,51 +43831,34 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "hard",
-        "question": "What conclusion follows after reviewing the schedule?",
+        "difficulty": "medium",
+        "question": "Expected administrative expense is P420,000; recorded expense is P455,000; investigation threshold is P20,000. What variance is investigated?",
         "choices": [
-            "P35,000",
-            "P23,000",
-            "P26,000",
-            "P44,000"
+            "P15,000",
+            "P20,000",
+            "P875,000",
+            "P35,000"
         ],
         "answer": "P35,000",
-        "explanation": "12,000+9,000+14,000 = P35,000.",
+        "explanation": "Variance is P455,000 − P420,000 = P35,000, above threshold.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "numeric": true,
-        "multistep": false,
+        "multistep": true,
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "Three detected misstatements are P12,000, P9,000, and P14,000. Their aggregate is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Variance = 455,000−420,000",
+                "fallback": "Compare recorded and expected expense."
             }
         ],
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -44378,7 +43876,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "Which result should be reported from these records?",
+        "question": "A control test finds 40 deviations in 1,600 transactions. What observed deviation rate results?",
         "choices": [
             "2.5%",
             "0.25%",
@@ -44386,42 +43884,25 @@
             "8%"
         ],
         "answer": "2.5%",
-        "explanation": "2÷80 = 2.5%.",
+        "explanation": "Observed rate = 40 ÷ 1,600 = 2.5%.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A control test has 2 failures in 80 selections. The observed failure rate is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Rate = 40÷1,600",
+                "fallback": "Express deviations as a percentage tested."
             }
         ],
         "numeric": true,
-        "multistep": true,
+        "multistep": false,
         "source_sensitivity": "STANDARD_DEPENDENT",
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "interpret",
         "scenario_length": "standard"
     },
     {
@@ -44438,51 +43919,50 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "Which option correctly interprets the supplied data?",
+        "difficulty": "hard",
+        "question": "A P100,000 sample from a P600,000 population contains P8,000 error. What simple projected error results?",
         "choices": [
-            "12.5%",
-            "2.5%",
-            "8%",
-            "25%"
+            "P8,000",
+            "P48,000",
+            "P40,000",
+            "P56,000"
         ],
-        "answer": "12.5%",
-        "explanation": "1÷8 = 12.5%.",
+        "answer": "P48,000",
+        "explanation": "Sample error rate is 8%; 8% × P600,000 = P48,000.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "numeric": true,
-        "multistep": false,
+        "multistep": true,
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
                 "type": "table",
                 "columns": [
-                    "Schedule item",
-                    "Information"
+                    "Projection input",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Case facts",
-                        "A payable population has 40 items; 8 are tested and 1 is unsupported. The sample exception rate is:"
+                        "Population",
+                        "P600,000"
                     ],
                     [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
+                        "Sample",
+                        "P100,000"
+                    ],
+                    [
+                        "Sample error",
+                        "P8,000"
                     ]
                 ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "table_dependent": true,
-        "data_interpretation": false,
+        "data_interpretation": true,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -44499,51 +43979,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "What amount or treatment follows from the information shown?",
+        "difficulty": "medium",
+        "question": "Which procedure most directly addresses existence of a material receivables balance?",
         "choices": [
-            "48 hours",
-            "12 hours",
-            "30 hours",
-            "54 hours"
+            "Recalculate depreciation expense",
+            "Inspect unused purchase orders",
+            "Send positive confirmations to selected customers",
+            "Compare payroll with tax filings"
         ],
-        "answer": "48 hours",
-        "explanation": "18+30 = 48 hours.",
+        "answer": "Send positive confirmations to selected customers",
+        "explanation": "External customer confirmations address whether recorded receivables exist; the other procedures address different matters.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": true,
-        "multistep": true,
+        "numeric": false,
+        "multistep": false,
         "source_sensitivity": "STANDARD_DEPENDENT",
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "An audit plan allocates 18 hours to controls and 30 hours to substantive work. Total planned hours are:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
-            }
-        ],
-        "table_dependent": true,
+        "content_blocks": [],
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "evaluate",
         "scenario_length": "standard"
     },
     {
@@ -44560,51 +44017,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "Which decision is supported by the figures?",
+        "difficulty": "hard",
+        "question": "An uncorrected misstatement is P60,000, materiality P50,000, and the effect is material but not pervasive. What response is indicated?",
         "choices": [
-            "P60,000",
-            "P40,000",
-            "An amount inconsistent with the supplied data",
-            "P2,440,000"
+            "Unmodified opinion without disclosure",
+            "Adverse opinion automatically",
+            "Disclaimer automatically",
+            "Qualified opinion"
         ],
-        "answer": "P60,000",
-        "explanation": "P1,250,000 − P1,190,000 = P60,000.",
+        "answer": "Qualified opinion",
+        "explanation": "Material but not pervasive misstatement supports a qualified opinion; pervasive effects would require a different response.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "Cash is P1,250,000 and confirmed bank balance is P1,190,000 before reconciling items. Difference is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
-            }
-        ],
-        "numeric": true,
-        "multistep": false,
+        "content_blocks": [],
+        "numeric": false,
+        "multistep": true,
         "source_sensitivity": "STANDARD_DEPENDENT",
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "evaluate",
         "scenario_length": "standard"
     },
     {
@@ -44970,16 +44404,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "hard",
-        "question": "Which amount is supported by the schedule?",
+        "difficulty": "medium",
+        "question": "An offer is communicated January 10, revocation January 12, and acceptance January 13. Under these supplied facts, what is the strongest conclusion?",
         "choices": [
-            "P150,000",
-            "P50,000",
-            "P200,000",
-            "P250,000"
+            "No contract formed because revocation preceded acceptance",
+            "Contract formed automatically January 10",
+            "Acceptance always defeats revocation",
+            "A completed sale exists"
         ],
-        "answer": "P150,000",
-        "explanation": "P200,000 − P50,000 = P150,000.",
+        "answer": "No contract formed because revocation preceded acceptance",
+        "explanation": "The supplied sequence places revocation before acceptance; no jurisdiction-specific deadline is asserted.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -44988,33 +44422,32 @@
             {
                 "type": "table",
                 "columns": [
-                    "Schedule item",
-                    "Information"
+                    "Event",
+                    "Date"
                 ],
                 "rows": [
                     [
-                        "Case facts",
-                        "A contract price is P200,000 and the buyer pays P50,000 upfront. The unpaid balance is:"
+                        "Offer",
+                        "January 10"
                     ],
                     [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
+                        "Revocation",
+                        "January 12"
+                    ],
+                    [
+                        "Acceptance",
+                        "January 13"
                     ]
                 ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
-        "numeric": true,
+        "numeric": false,
         "multistep": true,
         "source_sensitivity": "STABLE",
         "table_dependent": true,
         "data_interpretation": true,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "long"
     },
     {
@@ -45031,51 +44464,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "What conclusion follows after reviewing the schedule?",
+        "difficulty": "hard",
+        "question": "Bylaws require board approval before a major asset sale, but management signed without a resolution. What should the accountant first verify?",
         "choices": [
-            "60%",
-            "40%",
-            "50%",
-            "80%"
+            "Whether the asset has a new color",
+            "Whether authority was obtained or later properly ratified",
+            "Whether the buyer changed its logo",
+            "Whether the sale is revenue"
         ],
-        "answer": "60%",
-        "explanation": "3÷5 = 60%.",
+        "answer": "Whether authority was obtained or later properly ratified",
+        "explanation": "Authority under the supplied governance rule must be verified before treating the transaction as authorized.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": true,
+        "numeric": false,
         "multistep": false,
         "source_sensitivity": "STABLE",
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A corporation has 5 directors, and 3 vote for a motion. The fraction voting for it is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
-            }
-        ],
-        "table_dependent": true,
-        "data_interpretation": true,
+        "content_blocks": [],
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "evaluate",
         "scenario_length": "long"
     },
     {
@@ -45092,51 +44502,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "Which result should be reported from these records?",
+        "difficulty": "medium",
+        "question": "An agent acts outside authority, but the principal accepts the goods and records them as its own. What effect may follow?",
         "choices": [
-            "P550,000",
-            "P350,000",
-            "P900,000",
-            "P1,250,000"
+            "The transaction is always void",
+            "The agent is always the buyer",
+            "The principal’s conduct may ratify the transaction",
+            "The goods become a dividend"
         ],
-        "answer": "P550,000",
-        "explanation": "Assets less obligations equals P550,000.",
+        "answer": "The principal’s conduct may ratify the transaction",
+        "explanation": "Acceptance of the benefit can indicate ratification, subject to governing facts and law.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": true,
+        "numeric": false,
         "multistep": true,
         "source_sensitivity": "STABLE",
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A partnership has assets P900,000 and obligations P350,000. Net equity before distribution is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
-            }
-        ],
-        "table_dependent": true,
-        "data_interpretation": true,
+        "content_blocks": [],
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "evaluate",
         "scenario_length": "long"
     },
     {
@@ -45154,50 +44541,27 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Which option correctly interprets the supplied data?",
+        "question": "A holder gives value, acts in good faith, and has no notice of a defense. Which status is supported?",
         "choices": [
-            "20%",
-            "4%",
-            "25%",
-            "80%"
+            "Unpaid agent",
+            "Warehouse custodian",
+            "Ordinary debtor",
+            "Holder in due course"
         ],
-        "answer": "20%",
-        "explanation": "One of five units is undelivered: 1÷5 = 20%.",
+        "answer": "Holder in due course",
+        "explanation": "Value, good faith, and no notice are the supplied characteristics of holder-in-due-course status.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A buyer receives 4 of 5 ordered units. The undelivered portion is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
-            }
-        ],
-        "numeric": true,
+        "content_blocks": [],
+        "numeric": false,
         "multistep": false,
         "source_sensitivity": "STABLE",
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "evaluate",
         "scenario_length": "long"
     },
     {
@@ -45214,51 +44578,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "What amount or treatment follows from the information shown?",
+        "difficulty": "hard",
+        "question": "A contract states that risk passes when conforming goods are delivered to the carrier. Damage occurs in transit after delivery. Who bears risk under the term?",
         "choices": [
-            "P12,000",
-            "P6,000",
-            "P18,000",
-            "P432,000"
+            "The buyer",
+            "The seller forever",
+            "The carrier as buyer",
+            "The auditor"
         ],
-        "answer": "P12,000",
-        "explanation": "P72,000÷6 = P12,000.",
+        "answer": "The buyer",
+        "explanation": "The supplied term allocates transit risk at delivery to the carrier.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": true,
+        "numeric": false,
         "multistep": true,
         "source_sensitivity": "STABLE",
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A company authorizes P72,000 across 6 equal monthly payments. Each payment is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
-            }
-        ],
-        "table_dependent": true,
-        "data_interpretation": true,
+        "content_blocks": [],
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -45275,51 +44616,50 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "hard",
-        "question": "Which decision is supported by the figures?",
+        "difficulty": "medium",
+        "question": "A director owns a supplier proposed for a large related-party contract. Which response protects decision integrity?",
         "choices": [
-            "75%",
-            "25%",
-            "66.7%",
-            "133%"
+            "Let the interested director approve alone",
+            "Disclosure, independent review, and documented approval by disinterested decision-makers",
+            "Hide the relationship from minutes",
+            "Record it as unrelated"
         ],
-        "answer": "75%",
-        "explanation": "3÷4 = 75%.",
+        "answer": "Disclosure, independent review, and documented approval by disinterested decision-makers",
+        "explanation": "The conflict requires disclosure and independent governance review with documentation.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": true,
+        "numeric": false,
         "multistep": false,
         "source_sensitivity": "STABLE",
         "content_blocks": [
             {
                 "type": "table",
                 "columns": [
-                    "Schedule item",
-                    "Information"
+                    "Governance fact",
+                    "Implication"
                 ],
                 "rows": [
                     [
-                        "Case facts",
-                        "A document has 4 required signatures and 3 are present. Completion is:"
+                        "Director owns supplier",
+                        "Related-party risk"
                     ],
                     [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
+                        "Large contract",
+                        "Independent review"
+                    ],
+                    [
+                        "Interested vote",
+                        "Document conflict"
                     ]
                 ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "table_dependent": true,
-        "data_interpretation": false,
+        "data_interpretation": true,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "evaluate",
         "scenario_length": "standard"
     },
     {
@@ -45336,51 +44676,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "What is the most defensible result from this schedule?",
+        "difficulty": "hard",
+        "question": "A partner uses partnership funds for a personal obligation without authorization. What is the strongest response?",
         "choices": [
-            "P120,000",
-            "P40,000",
-            "P96,000",
-            "P192,000"
+            "Treat it as partnership expense",
+            "Record customer revenue",
+            "Require accounting for the use and assess fiduciary breach",
+            "Ignore it if cash remains"
         ],
-        "answer": "P120,000",
-        "explanation": "P480,000÷4 = P120,000.",
+        "answer": "Require accounting for the use and assess fiduciary breach",
+        "explanation": "Personal use requires accountability and may breach fiduciary duties; cash availability is irrelevant.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A principal owes P480,000 in four equal installments. Each installment is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
-            }
-        ],
-        "numeric": true,
+        "content_blocks": [],
+        "numeric": false,
         "multistep": true,
         "source_sensitivity": "STABLE",
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "evaluate",
         "scenario_length": "standard"
     },
     {
@@ -45397,51 +44714,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "Which statement accurately uses the supplied records?",
+        "difficulty": "hard",
+        "question": "Two creditors claim collateral; the first is properly perfected and the second only has an unperfected agreement. Which issue is decisive?",
         "choices": [
-            "P210,000",
-            "P90,000",
-            "P300,000",
-            "P390,000"
+            "Which has a newer logo",
+            "Which agreement has more pages",
+            "Whether the debtor has revenue",
+            "Priority under perfection and applicable priority rules"
         ],
-        "answer": "P210,000",
-        "explanation": "P300,000 − P90,000 = P210,000.",
+        "answer": "Priority under perfection and applicable priority rules",
+        "explanation": "The supplied facts make perfection and priority the decisive analysis without inventing a jurisdiction-specific deadline.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": true,
+        "numeric": false,
         "multistep": false,
         "source_sensitivity": "STABLE",
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A transaction involves P300,000 consideration and P90,000 costs. Net amount is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
-            }
-        ],
-        "table_dependent": true,
+        "content_blocks": [],
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -45458,51 +44752,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "Which amount is supported by the schedule?",
+        "difficulty": "medium",
+        "question": "A CPA owed a duty, failed a required review, and the client suffered loss caused by that failure. Which elements are present?",
         "choices": [
-            "30%",
-            "7%",
-            "An amount inconsistent with the supplied data",
-            "70%"
+            "Duty, breach, causation, and damage",
+            "Only duty with no injury",
+            "A tax exemption and dividend",
+            "A contract price and inventory count"
         ],
-        "answer": "30%",
-        "explanation": "Three of ten remain: 30%.",
+        "answer": "Duty, breach, causation, and damage",
+        "explanation": "The facts establish the core negligence sequence: duty, breach, causation, and damage.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": true,
+        "numeric": false,
         "multistep": true,
         "source_sensitivity": "STABLE",
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A board reviews 7 of 10 contracts. The unreviewed proportion is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
-            }
-        ],
-        "table_dependent": true,
+        "content_blocks": [],
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -45519,51 +44790,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "What conclusion follows after reviewing the schedule?",
+        "difficulty": "easy",
+        "question": "A professional has confidential client records; no authorization or supplied exception permits disclosure. What should happen?",
         "choices": [
-            "25%",
-            "12.5%",
-            "30%",
-            "75%"
+            "Publish it for convenience",
+            "Protect the information from disclosure",
+            "Sell it to a competitor",
+            "Post it with the engagement letter"
         ],
-        "answer": "25%",
-        "explanation": "3,000÷12,000 = 25%.",
+        "answer": "Protect the information from disclosure",
+        "explanation": "Confidential information is protected absent authorization or an applicable exception.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A corporation has 12,000 shares and an investor owns 3,000. Ownership is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
-            }
-        ],
-        "numeric": true,
+        "content_blocks": [],
+        "numeric": false,
         "multistep": false,
         "source_sensitivity": "STABLE",
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "evaluate",
         "scenario_length": "standard"
     },
     {
@@ -45929,16 +45177,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "hard",
-        "question": "What amount or treatment follows from the information shown?",
+        "difficulty": "medium",
+        "question": "Using the supplied tax schedule, what taxable base remains after allowable costs are deducted from receipts?",
         "choices": [
-            "P320,000",
             "P180,000",
             "P500,000",
+            "P320,000",
             "P680,000"
         ],
         "answer": "P320,000",
-        "explanation": "P500,000 − P180,000 = P320,000.",
+        "explanation": "P500,000 − P180,000 = P320,000; the exercise supplies the treatment.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -45947,24 +45195,23 @@
             {
                 "type": "table",
                 "columns": [
-                    "Schedule item",
-                    "Information"
+                    "Tax input",
+                    "Amount"
                 ],
                 "rows": [
                     [
-                        "Case facts",
-                        "A taxpayer has gross receipts P500,000 and documented allowable deductions P180,000. The resulting base before other rules is:"
+                        "Gross receipts",
+                        "P500,000"
                     ],
                     [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
+                        "Allowable costs",
+                        "P180,000"
+                    ],
+                    [
+                        "Other adjustment",
+                        "0"
                     ]
                 ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
@@ -45973,7 +45220,7 @@
         "table_dependent": true,
         "data_interpretation": true,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "long"
     },
     {
@@ -45990,16 +45237,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "Which decision is supported by the figures?",
+        "difficulty": "easy",
+        "question": "A payment base is P200,000 and the exercise supplies a 7% withholding rate. What is withheld?",
         "choices": [
-            "P14,000",
-            "P14,000 credit",
-            "P28,000 payable",
-            "P70,000 payable"
+            "P7,000",
+            "P13,000",
+            "P21,000",
+            "P14,000"
         ],
         "answer": "P14,000",
-        "explanation": "Output less input equals P14,000.",
+        "explanation": "P200,000 × 7% = P14,000; the rate is an exercise assumption.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -46009,30 +45256,13 @@
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "Output tax is P42,000 and allowable input tax is P28,000. The difference is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Withholding = 200,000×7%",
+                "fallback": "Apply the supplied rate."
             }
         ],
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": true,
         "cognitive_intent": "apply",
         "scenario_length": "long"
@@ -46051,16 +45281,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "What is the most defensible result from this schedule?",
+        "difficulty": "hard",
+        "question": "A VAT exercise supplies a 12% rate, taxable sales P1,500,000, and input credits P30,000. What net amount is payable?",
         "choices": [
-            "P200,000",
-            "P33,000",
-            "P175,000",
-            "P225,000"
+            "P150,000",
+            "P30,000",
+            "P180,000",
+            "P210,000"
         ],
-        "answer": "P200,000",
-        "explanation": "8×P25,000 = P200,000.",
+        "answer": "P150,000",
+        "explanation": "Output tax P180,000 less P30,000 credit = P150,000; the rate is supplied only for this exercise.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -46070,32 +45300,15 @@
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "Payroll has 8 employees paid P25,000 each. Total payroll is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Net = (1,500,000×12%)−30,000",
+                "fallback": "Compute output tax, then subtract credit."
             }
         ],
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "long"
     },
     {
@@ -46113,15 +45326,15 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Which statement accurately uses the supplied records?",
+        "question": "A schedule reports gross income P240,000 and allowable expenses P90,000. What taxable income remains before other adjustments?",
         "choices": [
-            "P12,000",
-            "P9,000",
-            "P18,000",
-            "P108,000"
+            "P90,000",
+            "P150,000",
+            "P180,000",
+            "P330,000"
         ],
-        "answer": "P12,000",
-        "explanation": "P36,000÷3 = P12,000.",
+        "answer": "P150,000",
+        "explanation": "P240,000 − P90,000 = P150,000 under the supplied assumptions.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -46130,33 +45343,32 @@
             {
                 "type": "table",
                 "columns": [
-                    "Schedule item",
-                    "Information"
+                    "Computation",
+                    "Amount"
                 ],
                 "rows": [
                     [
-                        "Case facts",
-                        "A taxpayer remits P36,000 in three equal installments. Each is:"
+                        "Gross income",
+                        "P240,000"
                     ],
                     [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
+                        "Allowable expenses",
+                        "P90,000"
+                    ],
+                    [
+                        "Other adjustments",
+                        "0"
                     ]
                 ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
-        "multistep": false,
+        "multistep": true,
         "source_sensitivity": "STANDARD_DEPENDENT",
         "table_dependent": true,
         "data_interpretation": true,
         "long_scenario": true,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "long"
     },
     {
@@ -46173,49 +45385,32 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "Which amount is supported by the schedule?",
+        "difficulty": "medium",
+        "question": "Gross payroll is P900,000 and the exercise supplies a 5% withholding rate. What is withheld?",
         "choices": [
-            "P780,000",
-            "P120,000",
-            "P900,000",
-            "P1,020,000"
+            "P18,000",
+            "P90,000",
+            "P45,000",
+            "P945,000"
         ],
-        "answer": "P780,000",
-        "explanation": "P900,000 − P120,000 = P780,000.",
+        "answer": "P45,000",
+        "explanation": "P900,000 × 5% = P45,000; this is a supplied exercise rate.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "numeric": true,
-        "multistep": true,
+        "multistep": false,
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A tax computation starts at P900,000 and removes a verified P120,000 adjustment. Adjusted base is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Withholding = 900,000×5%",
+                "fallback": "Use the supplied base and rate."
             }
         ],
-        "table_dependent": true,
-        "data_interpretation": true,
+        "table_dependent": false,
+        "data_interpretation": false,
         "long_scenario": false,
         "cognitive_intent": "apply",
         "scenario_length": "standard"
@@ -46235,50 +45430,33 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "What conclusion follows after reviewing the schedule?",
+        "question": "Ledger taxable income is P480,000 and an omitted allowable adjustment is P60,000. What corrected base results?",
         "choices": [
-            "P60,000",
-            "P19,000",
-            "P45,000",
-            "P64,000"
+            "P360,000",
+            "P480,000",
+            "P540,000",
+            "P420,000"
         ],
-        "answer": "P60,000",
-        "explanation": "15×P4,000 = P60,000.",
+        "answer": "P420,000",
+        "explanation": "P480,000 − P60,000 = P420,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "numeric": true,
-        "multistep": false,
+        "multistep": true,
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A business records 15 taxable sales of P4,000 each. Total sales are:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Corrected base = 480,000−60,000",
+                "fallback": "Reconcile before applying any rate."
             }
         ],
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -46296,47 +45474,30 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "Which result should be reported from these records?",
+        "question": "A return shows tax due P50,000 and documented payments P32,000. What balance remains payable?",
         "choices": [
-            "P50,000",
+            "P18,000",
+            "P8,000",
             "P32,000",
-            "P40,000",
-            "P60,000"
+            "P82,000"
         ],
-        "answer": "P50,000",
-        "explanation": "18,000+22,000+10,000 = P50,000.",
+        "answer": "P18,000",
+        "explanation": "P50,000 − P32,000 = P18,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A taxpayer has three supported expenses of P18,000, P22,000, and P10,000. Total is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Balance = 50,000−32,000",
+                "fallback": "Credit documented payments."
             }
         ],
         "numeric": true,
-        "multistep": true,
+        "multistep": false,
         "source_sensitivity": "STANDARD_DEPENDENT",
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
         "cognitive_intent": "apply",
@@ -46357,15 +45518,15 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Which option correctly interprets the supplied data?",
+        "question": "A transfer has gross value P1,200,000 and documented exempt value P300,000 under the exercise assumptions. What taxable base remains?",
         "choices": [
-            "P15,000",
-            "P5,000",
-            "An amount inconsistent with the supplied data",
-            "P1,265,000"
+            "P300,000",
+            "P900,000",
+            "P1,200,000",
+            "P1,500,000"
         ],
-        "answer": "P15,000",
-        "explanation": "P640,000 − P625,000 = P15,000.",
+        "answer": "P900,000",
+        "explanation": "P1,200,000 − P300,000 = P900,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -46375,32 +45536,15 @@
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A return reports P640,000 while the reconciled ledger supports P625,000. Difference is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Taxable base = 1,200,000−300,000",
+                "fallback": "Remove the supplied exempt portion."
             }
         ],
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -46417,16 +45561,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "What amount or treatment follows from the information shown?",
+        "difficulty": "hard",
+        "question": "An exercise supplies a tax base of P120,000 and a 25% rate. What tax results?",
         "choices": [
-            "P30,000",
             "P11,500",
-            "An amount inconsistent with the supplied data",
+            "P25,000",
+            "P30,000",
             "P75,000"
         ],
         "answer": "P30,000",
-        "explanation": "4×P7,500 = P30,000.",
+        "explanation": "P120,000 × 25% = P30,000; the rate is supplied, not asserted current law.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -46436,32 +45580,15 @@
         "source_sensitivity": "STANDARD_DEPENDENT",
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Schedule item",
-                    "Information"
-                ],
-                "rows": [
-                    [
-                        "Case facts",
-                        "A withholding schedule lists P7,500 monthly for four months. Total withheld is:"
-                    ],
-                    [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
-                    ]
-                ]
-            },
-            {
                 "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
+                "value": "Tax = 120,000×25%",
+                "fallback": "Apply only the stated exercise rate."
             }
         ],
-        "table_dependent": true,
+        "table_dependent": false,
         "data_interpretation": false,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "analyze",
         "scenario_length": "standard"
     },
     {
@@ -46479,15 +45606,15 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Which decision is supported by the figures?",
+        "question": "A ledger reports sales P800,000 while a draft return reports P760,000. What difference must be resolved before filing?",
         "choices": [
-            "P10,000",
-            "P6,250",
-            "An amount inconsistent with the supplied data",
-            "P100,000"
+            "P20,000",
+            "P80,000",
+            "P1,560,000",
+            "P40,000"
         ],
-        "answer": "P10,000",
-        "explanation": "P250,000×0.04 = P10,000.",
+        "answer": "P40,000",
+        "explanation": "P800,000 − P760,000 = P40,000; investigate before filing.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -46496,33 +45623,32 @@
             {
                 "type": "table",
                 "columns": [
-                    "Schedule item",
-                    "Information"
+                    "Record",
+                    "Sales"
                 ],
                 "rows": [
                     [
-                        "Case facts",
-                        "A transaction’s tax base is P250,000 and the applicable verified rate is 4%. Tax is:"
+                        "Ledger",
+                        "P800,000"
                     ],
                     [
-                        "Answer focus",
-                        "Apply the relevant accounting relationship to the supplied facts."
+                        "Draft return",
+                        "P760,000"
+                    ],
+                    [
+                        "Difference",
+                        "Reconcile before filing"
                     ]
                 ]
-            },
-            {
-                "type": "equation",
-                "value": "Result = apply the stated relationship to the schedule",
-                "fallback": "Use the schedule, then apply the relationship described in the case facts."
             }
         ],
         "numeric": true,
-        "multistep": false,
+        "multistep": true,
         "source_sensitivity": "STANDARD_DEPENDENT",
         "table_dependent": true,
-        "data_interpretation": false,
+        "data_interpretation": true,
         "long_scenario": false,
-        "cognitive_intent": "apply",
+        "cognitive_intent": "evaluate",
         "scenario_length": "standard"
     },
     {
