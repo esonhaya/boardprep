@@ -41597,18 +41597,48 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "An entity buys goods for P80,000 on credit and later pays the supplier. Which entry records the purchase initially?",
+        "question": "A customer pays P120,000 for a 12-month service contract beginning October 1. What revenue is recognized by December 31?",
         "choices": [
-            "Debit inventory; credit accounts payable",
-            "Debit expense; credit cash",
-            "Debit accounts payable; credit inventory",
-            "Debit cash; credit revenue"
+            "P120,000",
+            "P90,000",
+            "P10,000",
+            "P30,000"
         ],
-        "answer": "Debit inventory; credit accounts payable",
-        "explanation": "The credit purchase increases inventory and creates a payable.",
+        "answer": "P30,000",
+        "explanation": "Three of twelve months were delivered: P120,000 × 3/12 = P30,000; P90,000 remains a contract liability.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "analyze",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Case fact",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Cash received",
+                        "P120,000"
+                    ],
+                    [
+                        "Service delivered",
+                        "October–December"
+                    ],
+                    [
+                        "Task",
+                        "Allocate delivered months"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -41626,18 +41656,48 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A financial statement reader compares profit with operating cash flow. A persistent large gap most directly invites review of:",
+        "question": "Inventory has 100 units at P40 and 60 units at P55. Under periodic weighted average, what unit cost is used?",
         "choices": [
-            "Noncash accruals and working-capital changes",
-            "The entity logo",
-            "Share certificate color",
-            "The audit office address"
+            "P47.50",
+            "P45.63",
+            "P49.38",
+            "P55.00"
         ],
-        "answer": "Noncash accruals and working-capital changes",
-        "explanation": "Profit includes accrual effects; operating cash flow reflects cash and working-capital movements.",
+        "answer": "P45.63",
+        "explanation": "Total cost is P7,300 for 160 units; P7,300/160 = P45.625, rounded to P45.63.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "apply",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Case fact",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Beginning layer",
+                        "100 units at P40"
+                    ],
+                    [
+                        "Purchase layer",
+                        "60 units at P55"
+                    ],
+                    [
+                        "Task",
+                        "Compute weighted average"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -41654,16 +41714,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "When an asset is impaired, the recoverable amount is compared with its:",
+        "difficulty": "medium",
+        "question": "An asset has carrying amount P980,000 and recoverable amount P845,000. What impairment loss is recognized?",
         "choices": [
-            "Original invoice number",
-            "Carrying amount",
-            "Tax identification number",
-            "Supplier rating"
+            "P845,000",
+            "P980,000",
+            "P135,000",
+            "P2,825,000"
         ],
-        "answer": "Carrying amount",
-        "explanation": "An impairment loss arises when carrying amount exceeds recoverable amount.",
+        "answer": "P135,000",
+        "explanation": "The loss is carrying amount less recoverable amount: P980,000 − P845,000 = P135,000.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -41672,22 +41732,32 @@
             {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Case fact",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Carrying amount",
+                        "P980,000"
                     ],
                     [
-                        "Decision point",
-                        "impairment"
+                        "Recoverable amount",
+                        "P845,000"
+                    ],
+                    [
+                        "Task",
+                        "Measure excess"
                     ]
                 ]
             }
         ],
-        "numeric": false
+        "numeric": true,
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long"
     },
     {
         "id": 1272,
@@ -41703,19 +41773,33 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "A lease arrangement gives the customer control of the right to use an identified asset for a period. The accounting focus is the:",
+        "difficulty": "hard",
+        "question": "A three-year lease has annual year-end payments of P180,000. The supplied present-value factor is 2.4869. What initial liability is measured?",
         "choices": [
-            "Right-of-use asset and lease liability",
-            "Customer deposit only",
-            "Supplier inventory only",
-            "Share capital"
+            "P447,642",
+            "P540,000",
+            "P72,000",
+            "P1,342,926"
         ],
-        "answer": "Right-of-use asset and lease liability",
-        "explanation": "Control of an identified right to use generally gives rise to a right-of-use asset and obligation.",
+        "answer": "P447,642",
+        "explanation": "Present value is P180,000 × 2.4869 = P447,642; the supplied factor already captures timing.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "apply",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
+            }
         ]
     },
     {
@@ -41732,19 +41816,53 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "Which presentation improves faithful representation of a material accounting policy?",
+        "difficulty": "medium",
+        "question": "Cash flows are share proceeds P500,000, equipment purchase P180,000, customer collections P720,000, and dividends P60,000. What is net financing cash flow?",
         "choices": [
-            "Omitting it to reduce length",
-            "Describing the policy and relevant judgments clearly",
-            "Replacing it with an advertisement",
-            "Reporting only the tax treatment"
+            "P500,000",
+            "P560,000",
+            "P1,280,000",
+            "P440,000"
         ],
-        "answer": "Describing the policy and relevant judgments clearly",
-        "explanation": "Material policies and judgments help users understand reported amounts.",
+        "answer": "P440,000",
+        "explanation": "Financing cash flow is P500,000 − P60,000 = P440,000; the other items are operating or investing.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "analyze",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Case fact",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Share proceeds",
+                        "P500,000 financing"
+                    ],
+                    [
+                        "Equipment",
+                        "P180,000 investing"
+                    ],
+                    [
+                        "Collections",
+                        "P720,000 operating"
+                    ],
+                    [
+                        "Dividends",
+                        "P60,000 financing"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -41762,38 +41880,33 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A receivable is objectively uncollectible after previously being estimated as doubtful. The write-off primarily:",
+        "question": "An aging analysis requires an allowance of P18,000; the account already has a P4,000 credit. What bad-debt expense is recorded?",
         "choices": [
-            "Creates new revenue",
-            "Removes the receivable and related allowance without creating a new loss",
-            "Increases cash",
-            "Increases inventory"
+            "P18,000",
+            "P14,000",
+            "P22,000",
+            "P4,000"
         ],
-        "answer": "Removes the receivable and related allowance without creating a new loss",
-        "explanation": "The allowance already recognized absorbs the write-off; the receivable is removed.",
+        "answer": "P14,000",
+        "explanation": "Only the increase needed is recorded: P18,000 − P4,000 = P14,000.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Accounting cue",
-                    "Treatment"
-                ],
-                "rows": [
-                    [
-                        "Core principle",
-                        "Apply the current authoritative rule"
-                    ],
-                    [
-                        "Decision point",
-                        "allowance"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
             }
-        ]
+        ],
+        "cognitive_intent": "apply",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long"
     },
     {
         "id": 1275,
@@ -41809,21 +41922,54 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "Which ratio is most directly used to examine short-term liquidity?",
+        "difficulty": "medium",
+        "question": "Current assets are P900,000, current liabilities P450,000, and inventory P300,000. Which interpretation is supported?",
         "choices": [
-            "Current ratio",
-            "Gross margin only",
-            "Debt-service coverage for a bond",
-            "Inventory turnover only"
+            "Current ratio 0.5; inventory 66.7%",
+            "Current ratio 2.0; inventory 66.7%",
+            "Current ratio 2.0; inventory 33.3% of current assets",
+            "Current ratio 1.5; inventory 33.3%"
         ],
-        "answer": "Current ratio",
-        "explanation": "The current ratio compares current assets with current liabilities.",
+        "answer": "Current ratio 2.0; inventory 33.3% of current assets",
+        "explanation": "P900,000/P450,000 = 2.0 and P300,000/P900,000 = 33.3%; both measures support the first interpretation.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": true,
+        "cognitive_intent": "synthesize",
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Case fact",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Current assets",
+                        "P900,000"
+                    ],
+                    [
+                        "Current liabilities",
+                        "P450,000"
+                    ],
+                    [
+                        "Inventory",
+                        "P300,000"
+                    ],
+                    [
+                        "Task",
+                        "Interpret both ratios"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1276,
@@ -41840,19 +41986,27 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A company issues ordinary shares for cash. The transaction increases:",
+        "question": "A company issues shares for P400,000, declares a P50,000 dividend, then pays it. Which sequence is correct?",
         "choices": [
-            "Assets and equity",
-            "Expenses and liabilities",
-            "Inventory and revenue",
-            "Only retained earnings"
+            "Issue increases revenue; declaration increases retained earnings; payment creates expense",
+            "Issue decreases equity; declaration creates an asset; payment increases retained earnings",
+            "Issue affects liabilities only; declaration changes cash immediately; payment increases equity",
+            "Issue increases contributed equity; declaration reduces retained earnings and creates a payable; payment settles it"
         ],
-        "answer": "Assets and equity",
-        "explanation": "Cash increases assets and the share issue increases contributed equity.",
+        "answer": "Issue increases contributed equity; declaration reduces retained earnings and creates a payable; payment settles it",
+        "explanation": "The issue raises contributed equity; declaration creates the dividend liability and reduces retained earnings; payment settles that liability.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
-        ]
+        ],
+        "cognitive_intent": "analyze",
+        "numeric": false,
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": []
     },
     {
         "id": 1277,
@@ -41868,39 +42022,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "An asset is reclassified from held for sale after criteria cease to be met. The next step is to:",
+        "difficulty": "hard",
+        "question": "A machine purchase was expensed as repairs at P260,000 although it will be used five years. What correction is appropriate?",
         "choices": [
-            "Continue the held-for-sale measurement blindly",
-            "Apply the applicable continuing-use measurement basis",
-            "Erase the asset",
-            "Record it as revenue"
+            "Debit equipment and credit repairs expense for P260,000, then record depreciation",
+            "Debit repairs expense and credit equipment",
+            "Debit accumulated depreciation and credit cash",
+            "Debit revenue and credit equipment"
         ],
-        "answer": "Apply the applicable continuing-use measurement basis",
-        "explanation": "Once criteria cease, the continuing-use basis applies under the relevant standard.",
+        "answer": "Debit equipment and credit repairs expense for P260,000, then record depreciation",
+        "explanation": "The durable asset was expensed. Capitalize it, remove the erroneous expense, and record depreciation for use.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Accounting cue",
-                    "Treatment"
-                ],
-                "rows": [
-                    [
-                        "Core principle",
-                        "Apply the current authoritative rule"
-                    ],
-                    [
-                        "Decision point",
-                        "classification"
-                    ]
-                ]
-            }
-        ]
+        "content_blocks": [],
+        "cognitive_intent": "diagnose",
+        "numeric": false,
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long"
     },
     {
         "id": 1278,
@@ -41916,20 +42059,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "Which item is a qualitative characteristic of useful financial information?",
+        "difficulty": "easy",
+        "question": "A customer enters bankruptcy after year-end but was already in severe difficulty before year-end. What review response is most appropriate?",
         "choices": [
-            "Relevance",
-            "Guaranteed profit",
-            "Tax secrecy",
-            "Unlimited detail"
+            "Ignore it because it occurred after year-end",
+            "Consider whether the later bankruptcy evidences a year-end receivable condition",
+            "Recognize bankruptcy as current-period revenue",
+            "Reclassify receivables as inventory"
         ],
-        "answer": "Relevance",
-        "explanation": "Relevance helps information influence user decisions.",
+        "answer": "Consider whether the later bankruptcy evidences a year-end receivable condition",
+        "explanation": "The later event may provide evidence about a condition existing at year-end, so the receivable estimate should be reassessed.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
-        ]
+        ],
+        "cognitive_intent": "evaluate",
+        "numeric": false,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard",
+        "content_blocks": []
     },
     {
         "id": 1279,
@@ -42406,18 +42557,52 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A partnership agreement allocates interest on capital before residual profit. The accountant should first:",
+        "question": "A parent sells inventory costing P80,000 to a subsidiary for P100,000; half remains unsold. What unrealized profit is eliminated?",
         "choices": [
-            "Apply the agreement’s allocation sequence",
-            "Divide all profit equally regardless of agreement",
-            "Record the interest as an asset",
-            "Ignore capital balances"
+            "P20,000",
+            "P40,000",
+            "P10,000",
+            "P50,000"
         ],
-        "answer": "Apply the agreement’s allocation sequence",
-        "explanation": "The governing agreement determines the allocation sequence.",
+        "answer": "P10,000",
+        "explanation": "Intercompany profit is P20,000; half remains in inventory, so P10,000 is unrealized.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "analyze",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Case fact",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Seller cost",
+                        "P80,000"
+                    ],
+                    [
+                        "Transfer price",
+                        "P100,000"
+                    ],
+                    [
+                        "Unsold",
+                        "50%"
+                    ],
+                    [
+                        "Task",
+                        "Eliminate ending profit"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -42435,18 +42620,52 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A subsidiary sells equipment to its parent and the equipment remains in use. Consolidation must consider unrealized gain and:",
+        "question": "A business combination transfers cash P900,000 and shares P300,000; identifiable net assets are P1,050,000. What goodwill is recognized?",
         "choices": [
-            "The asset’s group carrying amount and depreciation",
-            "Only the seller’s invoice",
-            "A new external customer",
-            "No depreciation"
+            "P1,050,000",
+            "P1,200,000",
+            "P0",
+            "P150,000"
         ],
-        "answer": "The asset’s group carrying amount and depreciation",
-        "explanation": "The group must reverse unrealized gain and adjust subsequent depreciation.",
+        "answer": "P150,000",
+        "explanation": "Consideration is P1,200,000; less P1,050,000 fair value of net assets gives P150,000 goodwill.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "apply",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Case fact",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Cash",
+                        "P900,000"
+                    ],
+                    [
+                        "Shares",
+                        "P300,000"
+                    ],
+                    [
+                        "Net assets",
+                        "P1,050,000"
+                    ],
+                    [
+                        "Task",
+                        "Measure excess"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -42463,40 +42682,34 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "A change in a foreign exchange rate changes the translated amount of a foreign operation. The change is primarily a:",
+        "difficulty": "medium",
+        "question": "An investor owns 30% of an associate reporting profit P240,000 and dividends P60,000. What is the net equity-method increase?",
         "choices": [
-            "Translation effect",
-            "New sale",
-            "Physical inventory count",
-            "Partner admission"
+            "P54,000",
+            "P72,000",
+            "P18,000",
+            "P240,000"
         ],
-        "answer": "Translation effect",
-        "explanation": "Currency translation changes can arise without a new transaction.",
+        "answer": "P54,000",
+        "explanation": "Recognize 30% of profit P72,000 and reduce for 30% of dividends P18,000: net P54,000.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Accounting cue",
-                    "Treatment"
-                ],
-                "rows": [
-                    [
-                        "Core principle",
-                        "Apply the current authoritative rule"
-                    ],
-                    [
-                        "Decision point",
-                        "translation"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
             }
         ],
-        "numeric": false
+        "numeric": true,
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long"
     },
     {
         "id": 1292,
@@ -42512,19 +42725,33 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "When identifiable assets and liabilities are measured in an acquisition, the purpose is to determine:",
+        "difficulty": "hard",
+        "question": "A foreign subsidiary has a FC100,000 payable; the rate changes from P50 to P52 per FC1. What exchange loss arises?",
         "choices": [
-            "The acquisition-date net assets and residual consideration",
-            "The parent’s payroll",
-            "A branch petty-cash limit",
-            "A sales commission"
+            "P100,000",
+            "P200,000",
+            "P5,200,000",
+            "P52,000"
         ],
-        "answer": "The acquisition-date net assets and residual consideration",
-        "explanation": "Acquisition accounting measures identifiable net assets before determining residual goodwill.",
+        "answer": "P200,000",
+        "explanation": "The liability rises from P5,000,000 to P5,200,000, producing a P200,000 exchange loss.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "apply",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
+            }
         ]
     },
     {
@@ -42541,19 +42768,33 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "A partner withdraws under an agreement requiring settlement of the partner’s capital. The settlement affects:",
+        "difficulty": "hard",
+        "question": "Profit is P600,000 and shares are 200,000. Conversion adds 40,000 shares and P60,000 after-tax profit. What diluted EPS results?",
         "choices": [
-            "Partnership equity and the withdrawing partner’s claim",
-            "External revenue only",
-            "Inventory quantity only",
-            "Audit evidence only"
+            "P3.00",
+            "P2.50",
+            "P2.75",
+            "P0.33"
         ],
-        "answer": "Partnership equity and the withdrawing partner’s claim",
-        "explanation": "Withdrawal settles an equity interest and changes remaining partnership capital.",
+        "answer": "P2.75",
+        "explanation": "Diluted EPS is (P600,000 + P60,000)/(200,000 + 40,000) = P2.75.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "apply",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
+            }
         ]
     },
     {
@@ -42570,39 +42811,34 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "hard",
-        "question": "A subsidiary declares a dividend to its parent. In consolidation, the intragroup dividend is:",
+        "difficulty": "medium",
+        "question": "An investment bought for P520,000 is classified at fair value through profit or loss; reporting-date fair value is P545,000. What effect is appropriate?",
         "choices": [
-            "Eliminated",
-            "Reported as external group revenue",
-            "Added to inventory",
-            "Converted to goodwill"
+            "Recognize a P25,000 fair-value gain in profit or loss",
+            "Recognize a P25,000 loss in other assets",
+            "Defer all change until disposal",
+            "Increase contributed equity by P25,000"
         ],
-        "answer": "Eliminated",
-        "explanation": "The group cannot earn income from a transfer within itself.",
+        "answer": "Recognize a P25,000 fair-value gain in profit or loss",
+        "explanation": "The classification puts the P545,000 − P520,000 increase, P25,000, in profit or loss.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Accounting cue",
-                    "Treatment"
-                ],
-                "rows": [
-                    [
-                        "Core principle",
-                        "Apply the current authoritative rule"
-                    ],
-                    [
-                        "Decision point",
-                        "dividends"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
             }
-        ]
+        ],
+        "cognitive_intent": "analyze",
+        "numeric": true,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard"
     },
     {
         "id": 1295,
@@ -42618,21 +42854,34 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "A branch records goods received from head office. The receiving entry should preserve:",
+        "difficulty": "medium",
+        "question": "A deductible temporary difference is P300,000 and the supplied enacted rate is 25%. What deferred tax asset is indicated?",
         "choices": [
-            "The inter-office account and inventory recognition",
-            "Only a customer receivable",
-            "A share issue",
-            "An audit qualification"
+            "P75,000",
+            "P300,000",
+            "P25,000",
+            "P120,000"
         ],
-        "answer": "The inter-office account and inventory recognition",
-        "explanation": "Branch records must reconcile goods and reciprocal inter-office balances.",
+        "answer": "P75,000",
+        "explanation": "P300,000 × 25% = P75,000; no external rate is substituted.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": true,
+        "cognitive_intent": "apply",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
+            }
+        ]
     },
     {
         "id": 1296,
@@ -42648,20 +42897,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "A group has an intercompany payable and receivable of equal amount. Consolidation should:",
+        "difficulty": "easy",
+        "question": "A parent owns 45% but directs relevant activities because the remaining ownership is widely dispersed. What reporting consequence follows?",
         "choices": [
-            "Eliminate both balances",
-            "Double both balances",
-            "Record them as revenue",
-            "Classify them as PPE"
+            "Never consolidate below 50%",
+            "Consolidate the investee, subject to the stated control assessment",
+            "Treat it only as inventory",
+            "Recognize only dividend income"
         ],
-        "answer": "Eliminate both balances",
-        "explanation": "Reciprocal intragroup balances do not represent claims against outsiders.",
+        "answer": "Consolidate the investee, subject to the stated control assessment",
+        "explanation": "Control depends on the ability to direct relevant activities, not an automatic 50% threshold.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
-        ]
+        ],
+        "cognitive_intent": "evaluate",
+        "numeric": false,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard",
+        "content_blocks": []
     },
     {
         "id": 1297,
@@ -42677,39 +42934,34 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "A noncontrolling shareholder receives a share of subsidiary profit. The consolidated presentation recognizes:",
+        "difficulty": "medium",
+        "question": "A partnership admits a partner contributing P180,000; existing agreed capital is P540,000. Which conclusion is supported?",
         "choices": [
-            "Profit attributable to NCI separately from parent-attributable profit",
-            "Only parent profit",
-            "A liability to every customer",
-            "No subsidiary profit"
+            "The contribution is revenue and creates no capital",
+            "Post-admission capital is P360,000",
+            "Post-admission capital is P720,000 and the new partner has P180,000 capital",
+            "The contribution reduces partnership capital"
         ],
-        "answer": "Profit attributable to NCI separately from parent-attributable profit",
-        "explanation": "Consolidated profit is allocated between parent owners and NCI.",
+        "answer": "Post-admission capital is P720,000 and the new partner has P180,000 capital",
+        "explanation": "The contribution adds to capital: P540,000 + P180,000 = P720,000.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Accounting cue",
-                    "Treatment"
-                ],
-                "rows": [
-                    [
-                        "Core principle",
-                        "Apply the current authoritative rule"
-                    ],
-                    [
-                        "Decision point",
-                        "profit-attribution"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
             }
-        ]
+        ],
+        "cognitive_intent": "analyze",
+        "numeric": true,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard"
     },
     {
         "id": 1298,
@@ -42725,19 +42977,33 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "A partnership changes its profit-sharing agreement prospectively. Future allocations should follow:",
+        "difficulty": "easy",
+        "question": "A segment has revenue P2.0m, variable costs P1.2m, and avoidable fixed costs P0.5m. What profit contribution is lost if closed?",
         "choices": [
-            "The revised agreement for the applicable period",
-            "The original agreement forever",
-            "Equal division in all cases",
-            "The auditor’s preference"
+            "P0.3 million",
+            "P0.8 million",
+            "P0.5 million",
+            "P1.2 million"
         ],
-        "answer": "The revised agreement for the applicable period",
-        "explanation": "The valid agreement governs allocation after the change.",
+        "answer": "P0.3 million",
+        "explanation": "Contribution after avoidable costs is P2.0m − P1.2m − P0.5m = P0.3m.",
         "subject": "Cpa Advanced Accounting",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "decide",
+        "numeric": true,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
+            }
         ]
     },
     {
@@ -43247,18 +43513,32 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A cost increases in total as activity increases but remains constant per unit. It is:",
+        "question": "A product sells for P80, variable cost is P50, and fixed costs are P600,000. What unit sales break even?",
         "choices": [
-            "Variable cost",
-            "Fixed cost per period",
-            "Sunk cost",
-            "Allocated equity"
+            "20,000 units",
+            "12,000 units",
+            "30,000 units",
+            "7,500 units"
         ],
-        "answer": "Variable cost",
-        "explanation": "Variable cost behavior changes in total with activity while unit cost is stable.",
+        "answer": "20,000 units",
+        "explanation": "Contribution is P30 per unit; P600,000/P30 = 20,000 units.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "apply",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
+            }
         ]
     },
     {
@@ -43276,18 +43556,52 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A project’s discounted cash inflows exceed its initial outlay. Its net present value is:",
+        "question": "A special order is 4,000 units at P42; variable cost is P30 and avoidable setup is P20,000. What incremental profit results?",
         "choices": [
-            "Positive",
-            "Always zero",
-            "Negative",
-            "Not computable because cash flows exist"
+            "P48,000",
+            "P28,000",
+            "P168,000",
+            "P20,000"
         ],
-        "answer": "Positive",
-        "explanation": "Positive NPV means discounted benefits exceed the investment.",
+        "answer": "P28,000",
+        "explanation": "Revenue P168,000 less variable cost P120,000 and setup P20,000 gives P28,000.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "analyze",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Case fact",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Units",
+                        "4,000"
+                    ],
+                    [
+                        "Price",
+                        "P42"
+                    ],
+                    [
+                        "Variable cost",
+                        "P30"
+                    ],
+                    [
+                        "Setup",
+                        "P20,000"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -43304,16 +43618,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "A make-or-buy analysis should exclude allocated fixed costs that:",
+        "difficulty": "hard",
+        "question": "A standard permits 2.5 kg per unit at P12. Output is 1,000 units using 2,700 kg at P13. What is material price variance?",
         "choices": [
-            "Continue under either option",
-            "Can be avoided by buying",
-            "Vary with the decision",
-            "Are future cash costs"
+            "P2,500 unfavorable",
+            "P2,700 favorable",
+            "P2,700 unfavorable",
+            "P2,500 favorable"
         ],
-        "answer": "Continue under either option",
-        "explanation": "Unavoidable costs do not differentiate make from buy.",
+        "answer": "P2,700 unfavorable",
+        "explanation": "Actual quantity × (standard price − actual price) = 2,700 × (P12 − P13) = P2,700 unfavorable.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -43322,22 +43636,36 @@
             {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Case fact",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Standard price",
+                        "P12/kg"
                     ],
                     [
-                        "Decision point",
-                        "make-buy"
+                        "Actual price",
+                        "P13/kg"
+                    ],
+                    [
+                        "Actual quantity",
+                        "2,700 kg"
+                    ],
+                    [
+                        "Task",
+                        "Price variance"
                     ]
                 ]
             }
         ],
-        "numeric": false
+        "numeric": true,
+        "cognitive_intent": "apply",
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long"
     },
     {
         "id": 1312,
@@ -43354,18 +43682,32 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A standard cost is best used as:",
+        "question": "An activity pool costs P360,000 for 12,000 inspections; Product X uses 800. What pool cost is assigned?",
         "choices": [
-            "A benchmark for analyzing performance",
-            "A substitute for all actual records",
-            "A tax rate",
-            "A legal penalty"
+            "P30,000",
+            "P360,000",
+            "P45,000",
+            "P24,000"
         ],
-        "answer": "A benchmark for analyzing performance",
-        "explanation": "Standards provide a benchmark against which actual performance is analyzed.",
+        "answer": "P24,000",
+        "explanation": "The rate is P30 per inspection; 800 × P30 = P24,000.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "apply",
+        "numeric": true,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
+            }
         ]
     },
     {
@@ -43382,19 +43724,33 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "When sales mix changes, total contribution may change even if total units do not. The reason is:",
+        "difficulty": "medium",
+        "question": "A component costs P58 externally; internal variable cost is P42 plus avoidable fixed cost P9. What is relevant internal cost?",
         "choices": [
-            "Products have different unit contributions",
-            "Fixed cost disappears",
-            "Revenue is always constant",
-            "Labor becomes sunk"
+            "P51",
+            "P42",
+            "P58",
+            "P9"
         ],
-        "answer": "Products have different unit contributions",
-        "explanation": "A different mix changes the weighted contribution per unit.",
+        "answer": "P51",
+        "explanation": "Relevant internal cost is P42 + P9 = P51; unavoidable costs do not change.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "decide",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
+            }
         ]
     },
     {
@@ -43412,15 +43768,15 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A manager rejects a project because it uses space that could earn rent. The forgone rent is:",
+        "question": "A cash budget begins at P100,000, collections are P420,000, payments P460,000, and minimum cash P80,000. What borrowing is needed?",
         "choices": [
-            "An opportunity cost",
-            "A sunk cost",
-            "A committed historical cost",
-            "A noncash tax"
+            "P40,000",
+            "P20,000",
+            "P80,000",
+            "P0"
         ],
-        "answer": "An opportunity cost",
-        "explanation": "Opportunity cost is the benefit forgone by choosing one alternative.",
+        "answer": "P20,000",
+        "explanation": "Cash before financing is P60,000; P20,000 borrowing reaches the P80,000 minimum.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -43429,21 +43785,36 @@
             {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Case fact",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Beginning cash",
+                        "P100,000"
                     ],
                     [
-                        "Decision point",
-                        "opportunity-cost"
+                        "Collections",
+                        "P420,000"
+                    ],
+                    [
+                        "Payments",
+                        "P460,000"
+                    ],
+                    [
+                        "Minimum",
+                        "P80,000"
                     ]
                 ]
             }
-        ]
+        ],
+        "cognitive_intent": "analyze",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long"
     },
     {
         "id": 1315,
@@ -43459,21 +43830,34 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "A cash budget shows a shortfall next month. The first planning response is to:",
+        "difficulty": "medium",
+        "question": "A project costs P300,000 and returns P120,000 each year for three years. The supplied present-value factor is 2.4018. What is PV of inflows?",
         "choices": [
-            "Evaluate timing of receipts, payments, and financing needs",
-            "Delete all expenses without analysis",
-            "Record the shortfall as revenue",
-            "Ignore the forecast"
+            "P360,000",
+            "P720,540",
+            "P288,216",
+            "P120,000"
         ],
-        "answer": "Evaluate timing of receipts, payments, and financing needs",
-        "explanation": "A cash budget supports timing and financing decisions.",
+        "answer": "P288,216",
+        "explanation": "P120,000 × 2.4018 = P288,216; the requested measure excludes the initial cost.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": true,
+        "cognitive_intent": "apply",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
+            }
+        ]
     },
     {
         "id": 1316,
@@ -43489,19 +43873,33 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "A performance measure encourages excessive inventory because managers are rewarded for output only. The design flaw is:",
+        "difficulty": "easy",
+        "question": "Machine hour A contributes P30 using 2 hours; B contributes P24 using 1 hour. Which should receive the constrained hour?",
         "choices": [
-            "A dysfunctional incentive",
-            "A perfect control",
-            "A neutral standard",
-            "A favorable tax rule"
+            "A, because unit contribution is P30",
+            "A, because it uses more hours",
+            "Either, because total contribution is irrelevant",
+            "B, because it contributes P24 per constrained hour"
         ],
-        "answer": "A dysfunctional incentive",
-        "explanation": "Measures can cause dysfunctional behavior when they reward one objective at the expense of the whole system.",
+        "answer": "B, because it contributes P24 per constrained hour",
+        "explanation": "A yields P15 per hour; B yields P24, so B uses the scarce hour better.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "decide",
+        "numeric": true,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
+            }
         ]
     },
     {
@@ -43519,15 +43917,15 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A cost driver should be selected because it:",
+        "question": "A quality report shows prevention P40,000, appraisal P25,000, internal failure P60,000, external failure P75,000. Which conclusion follows?",
         "choices": [
-            "Causally explains resource consumption",
-            "Is the most convenient label",
-            "Always has the largest amount",
-            "Is chosen after reporting"
+            "Prevention is the largest category",
+            "Total quality cost is P65,000",
+            "External failure is irrelevant",
+            "Failure costs total P135,000 and exceed prevention plus appraisal costs of P65,000"
         ],
-        "answer": "Causally explains resource consumption",
-        "explanation": "A cost driver should have a defensible cause-and-effect relationship.",
+        "answer": "Failure costs total P135,000 and exceed prevention plus appraisal costs of P65,000",
+        "explanation": "Failure costs are P135,000 versus P65,000 for prevention plus appraisal.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -43536,21 +43934,36 @@
             {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Case fact",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Prevention",
+                        "P40,000"
                     ],
                     [
-                        "Decision point",
-                        "activity-based"
+                        "Appraisal",
+                        "P25,000"
+                    ],
+                    [
+                        "Internal failure",
+                        "P60,000"
+                    ],
+                    [
+                        "External failure",
+                        "P75,000"
                     ]
                 ]
             }
-        ]
+        ],
+        "cognitive_intent": "synthesize",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long"
     },
     {
         "id": 1318,
@@ -43567,19 +43980,27 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Sensitivity analysis changes one assumption while observing its effect. It helps assess:",
+        "question": "A manager rejects a profitable project because it would consume machine hours needed for a project with greater contribution per constrained hour. Is the principle sound?",
         "choices": [
-            "Risk around a decision model",
-            "Whether invoices exist",
-            "Legal ownership",
-            "Physical depreciation"
+            "No; accounting profit always controls",
+            "Yes; opportunity cost and the constrained resource should be considered",
+            "No; machine hours have no economic value",
+            "Yes, but only because sunk costs are maximized"
         ],
-        "answer": "Risk around a decision model",
-        "explanation": "Sensitivity analysis shows how conclusions respond to uncertain assumptions.",
+        "answer": "Yes; opportunity cost and the constrained resource should be considered",
+        "explanation": "A scarce resource has opportunity cost; contribution per constrained hour is the relevant comparison.",
         "subject": "Cpa Management Services",
         "source_ids": [
             "prc-accountancy-board-page"
-        ]
+        ],
+        "cognitive_intent": "evaluate",
+        "numeric": false,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard",
+        "content_blocks": []
     },
     {
         "id": 1319,
@@ -44056,18 +44477,52 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "Management refuses access to necessary evidence. The auditor should consider:",
+        "question": "Inherent and control risk are high, and desired audit risk is below 5%. What planning response is appropriate?",
         "choices": [
-            "The effect on scope and the audit opinion",
-            "Treating missing evidence as proof",
-            "Issuing statements personally",
-            "Ignoring the limitation"
+            "Reduce substantive work because risk is known",
+            "Rely only on management representation",
+            "Increase substantive procedures and obtain more persuasive evidence",
+            "Eliminate analytical procedures"
         ],
-        "answer": "The effect on scope and the audit opinion",
-        "explanation": "A scope limitation may affect the opinion if sufficient evidence cannot be obtained.",
+        "answer": "Increase substantive procedures and obtain more persuasive evidence",
+        "explanation": "High assessed risk requires lower detection risk through more extensive, persuasive evidence.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "evaluate",
+        "numeric": false,
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Case fact",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Inherent risk",
+                        "High"
+                    ],
+                    [
+                        "Control risk",
+                        "High"
+                    ],
+                    [
+                        "Desired audit risk",
+                        "Below 5%"
+                    ],
+                    [
+                        "Response",
+                        "Lower detection risk"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -44085,18 +44540,32 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "Going-concern indicators require the auditor to:",
+        "question": "An auditor tests 80 invoices and finds a 2.5% misstatement rate. Using the observed rate as a simple projection, what rate is indicated?",
         "choices": [
-            "Evaluate management’s assessment and relevant evidence",
-            "Guarantee future funding",
-            "Automatically close the entity",
-            "Remove all liabilities"
+            "0.0325%",
+            "20%",
+            "25%",
+            "2.5%"
         ],
-        "answer": "Evaluate management’s assessment and relevant evidence",
-        "explanation": "The auditor evaluates conditions and management’s plans using evidence.",
+        "answer": "2.5%",
+        "explanation": "The simple projected rate remains 2.5%; multiplying a rate by sample size would not express a rate.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "analyze",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
+            }
         ]
     },
     {
@@ -44113,16 +44582,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "A written representation from management is:",
+        "difficulty": "medium",
+        "question": "A reconciliation shows an unrecorded bank charge P6,000 and an outstanding check P40,000. Which requires a book adjustment?",
         "choices": [
-            "Evidence but not a substitute for other required evidence",
-            "Always sufficient alone",
-            "Never useful",
-            "A bank confirmation"
+            "The P6,000 service charge",
+            "The P40,000 outstanding check",
+            "Both items equally",
+            "Neither item"
         ],
-        "answer": "Evidence but not a substitute for other required evidence",
-        "explanation": "Representations support other evidence but do not replace it.",
+        "answer": "The P6,000 service charge",
+        "explanation": "The service charge is absent from the books; an outstanding check is already recorded by the entity.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -44131,22 +44600,32 @@
             {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Case fact",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Service charge",
+                        "P6,000, not recorded"
                     ],
                     [
-                        "Decision point",
-                        "representations"
+                        "Outstanding check",
+                        "P40,000, already recorded"
+                    ],
+                    [
+                        "Task",
+                        "Select book adjustment"
                     ]
                 ]
             }
         ],
-        "numeric": false
+        "numeric": true,
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long"
     },
     {
         "id": 1332,
@@ -44162,20 +44641,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "An auditor assessing whether payables are complete may examine:",
+        "difficulty": "hard",
+        "question": "Inventory observation finds supplier-owned consigned goods mixed with owned goods. What is the strongest response?",
         "choices": [
-            "Subsequent cash disbursements and unmatched receiving reports",
-            "Only sales invoices",
-            "Employee leave forms",
-            "The office layout"
+            "Count all goods as entity inventory",
+            "Trace ownership records and exclude supplier-owned goods from the entity inventory count",
+            "Ignore ownership because goods are on site",
+            "Record the goods as revenue"
         ],
-        "answer": "Subsequent cash disbursements and unmatched receiving reports",
-        "explanation": "After-date payments and receiving records can reveal unrecorded obligations.",
+        "answer": "Trace ownership records and exclude supplier-owned goods from the entity inventory count",
+        "explanation": "Physical location does not establish ownership; trace terms and exclude supplier-owned goods.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
-        ]
+        ],
+        "cognitive_intent": "diagnose",
+        "numeric": false,
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": []
     },
     {
         "id": 1333,
@@ -44191,20 +44678,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "A fraud risk assessment changes the audit plan when:",
+        "difficulty": "medium",
+        "question": "A customer confirms a balance materially lower than the receivable ledger. Which follow-up is best?",
         "choices": [
-            "Identified risks require different procedures",
-            "The client requests fewer tests",
-            "The auditor wants a shorter report",
-            "No evidence exists"
+            "Accept the ledger because it is internal",
+            "Delete the confirmation",
+            "Investigate subsequent cash, shipping documents, credits, and the customer response",
+            "Increase the receivable to the ledger balance"
         ],
-        "answer": "Identified risks require different procedures",
-        "explanation": "Risk assessment drives responsive audit procedures.",
+        "answer": "Investigate subsequent cash, shipping documents, credits, and the customer response",
+        "explanation": "The discrepancy requires investigation using external and internal evidence, including receipts and credit memos.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
-        ]
+        ],
+        "cognitive_intent": "diagnose",
+        "numeric": false,
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": []
     },
     {
         "id": 1334,
@@ -44220,39 +44715,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "hard",
-        "question": "An audit report communicates the auditor’s conclusion about:",
+        "difficulty": "easy",
+        "question": "Revenue increased 8%, receivables 45%, and cash collections fell. What risk is most directly indicated?",
         "choices": [
-            "The financial statements under the applicable reporting framework",
-            "Management’s marketing plan",
-            "Every future event",
-            "The tax authority’s budget"
+            "Guaranteed improvement in credit quality",
+            "No risk because revenue increased",
+            "Only a payroll classification issue",
+            "Possible revenue-recognition or collectibility issues requiring targeted procedures"
         ],
-        "answer": "The financial statements under the applicable reporting framework",
-        "explanation": "The opinion addresses whether the financial statements are presented under the applicable framework.",
+        "answer": "Possible revenue-recognition or collectibility issues requiring targeted procedures",
+        "explanation": "Receivables outpacing revenue while collections fall warrants testing for collectibility or premature revenue.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Accounting cue",
-                    "Treatment"
-                ],
-                "rows": [
-                    [
-                        "Core principle",
-                        "Apply the current authoritative rule"
-                    ],
-                    [
-                        "Decision point",
-                        "reporting"
-                    ]
-                ]
-            }
-        ]
+        "content_blocks": [],
+        "cognitive_intent": "evaluate",
+        "numeric": false,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard"
     },
     {
         "id": 1335,
@@ -44268,21 +44752,50 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "Audit documentation should allow an experienced reviewer to understand:",
+        "difficulty": "medium",
+        "question": "A required independent journal-entry review has only a signed checklist, with no evidence of examination. What conclusion is clearest?",
         "choices": [
-            "Work performed, evidence obtained, and conclusions",
-            "Only the invoice total",
-            "The auditor’s personal opinions",
-            "The client’s future profits"
+            "The control is not operating effectively because the evidence does not show substantive review",
+            "The control is effective because a signature exists",
+            "The control eliminates all audit risk",
+            "The issue affects inventory only"
         ],
-        "answer": "Work performed, evidence obtained, and conclusions",
-        "explanation": "Documentation supports review and shows how conclusions were reached.",
+        "answer": "The control is not operating effectively because the evidence does not show substantive review",
+        "explanation": "A signature alone does not show the required review occurred; operating effectiveness is unsupported.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": false,
+        "cognitive_intent": "evaluate",
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Case fact",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Required control",
+                        "Independent journal-entry review"
+                    ],
+                    [
+                        "Observed evidence",
+                        "Checklist signature only"
+                    ],
+                    [
+                        "Assessment",
+                        "Determine operating effectiveness"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1336,
@@ -44298,20 +44811,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "A test of details selects individual transactions to evaluate:",
+        "difficulty": "hard",
+        "question": "Management refuses a written representation on a material estimate and no alternative evidence exists. What concern arises?",
         "choices": [
-            "Recorded amounts or attributes directly",
-            "Only staff morale",
-            "The firm’s rent",
-            "A macroeconomic forecast"
+            "An automatic clean opinion",
+            "A scope limitation affecting sufficient appropriate evidence",
+            "A reason to increase revenue",
+            "A routine clerical matter"
         ],
-        "answer": "Recorded amounts or attributes directly",
-        "explanation": "Tests of details inspect transaction-level evidence.",
+        "answer": "A scope limitation affecting sufficient appropriate evidence",
+        "explanation": "Without the representation or alternative evidence, the auditor may be unable to support the material estimate.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
-        ]
+        ],
+        "cognitive_intent": "diagnose",
+        "numeric": false,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard",
+        "content_blocks": []
     },
     {
         "id": 1337,
@@ -44328,38 +44849,27 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "An estimate uses significant management assumptions. The auditor should focus on:",
+        "question": "A later bankruptcy confirms a major customer was insolvent before year-end. What should the auditor consider?",
         "choices": [
-            "Methods, assumptions, data, and possible bias",
-            "Only the final rounded number",
-            "The client logo",
-            "Unrelated cash receipts"
+            "Whether all subsequent events are ignored",
+            "Whether it increases year-end sales",
+            "Whether the event evidences a year-end condition requiring adjustment",
+            "Whether it should be recorded as inventory"
         ],
-        "answer": "Methods, assumptions, data, and possible bias",
-        "explanation": "Estimation uncertainty and management bias affect audit risk.",
+        "answer": "Whether the event evidences a year-end condition requiring adjustment",
+        "explanation": "The later filing may evidence a pre-existing condition; adjustment or disclosure must be evaluated.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Accounting cue",
-                    "Treatment"
-                ],
-                "rows": [
-                    [
-                        "Core principle",
-                        "Apply the current authoritative rule"
-                    ],
-                    [
-                        "Decision point",
-                        "estimates"
-                    ]
-                ]
-            }
-        ]
+        "content_blocks": [],
+        "cognitive_intent": "evaluate",
+        "numeric": false,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard"
     },
     {
         "id": 1338,
@@ -44376,19 +44886,27 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "An assurance engagement requires an appropriate subject matter and:",
+        "question": "External confirmation conflicts with management’s schedule. Which evidence characteristic is most relevant?",
         "choices": [
-            "Suitable criteria for evaluation",
-            "A guaranteed favorable conclusion",
-            "No evidence",
-            "Only a verbal promise"
+            "The schedule is always superior because management prepared it",
+            "Hide the conflict from the file",
+            "The conflict automatically proves fraud",
+            "Reliability and corroboration, followed by investigation of the contradiction"
         ],
-        "answer": "Suitable criteria for evaluation",
-        "explanation": "Criteria allow the practitioner to evaluate the subject matter consistently.",
+        "answer": "Reliability and corroboration, followed by investigation of the contradiction",
+        "explanation": "The auditor assesses reliability and investigates contradictory evidence; neither source permits ignoring the conflict.",
         "subject": "Cpa Auditing",
         "source_ids": [
             "prc-accountancy-board-page"
-        ]
+        ],
+        "cognitive_intent": "synthesize",
+        "numeric": false,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard",
+        "content_blocks": []
     },
     {
         "id": 1339,
@@ -44828,19 +45346,53 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "hard",
-        "question": "A partner uses partnership property for personal benefit without authority. The concern is:",
+        "difficulty": "medium",
+        "question": "A written contract identifies goods, price, delivery, and signatures. One party claims no agreement because performance has not started. What conclusion is strongest?",
         "choices": [
-            "Breach of fiduciary responsibility",
-            "Normal depreciation",
-            "A cash equivalent",
-            "A valid dividend"
+            "Documented mutual assent and definite terms support an agreement, subject to applicable law",
+            "No contract exists before delivery",
+            "A signature makes every term irrelevant",
+            "Only payment creates assent"
         ],
-        "answer": "Breach of fiduciary responsibility",
-        "explanation": "Partners must respect duties owed to the partnership.",
+        "answer": "Documented mutual assent and definite terms support an agreement, subject to applicable law",
+        "explanation": "Definite written terms and mutual assent support formation; nonperformance does not by itself erase the agreement.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "evaluate",
+        "numeric": false,
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Case fact",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Subject",
+                        "Identified goods"
+                    ],
+                    [
+                        "Price and timing",
+                        "Stated"
+                    ],
+                    [
+                        "Assent",
+                        "Both signed"
+                    ],
+                    [
+                        "Dispute",
+                        "Performance not started"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -44858,19 +45410,27 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A corporation’s records should support accountability through:",
+        "question": "An agent is authorized to buy supplies up to P100,000 but signs P140,000; the supplier knows the written limit. What is the principal’s position?",
         "choices": [
-            "Accurate authorization and documentation",
-            "Unrecorded side agreements",
-            "Personal mixing of funds",
-            "Deletion of minutes"
+            "The principal is always bound by any signature",
+            "The principal can contest the excess because the supplier knew the agent exceeded authority",
+            "The agent’s funds bind the principal",
+            "The limit is irrelevant after shipment"
         ],
-        "answer": "Accurate authorization and documentation",
-        "explanation": "Records and authorization make corporate actions reviewable.",
+        "answer": "The principal can contest the excess because the supplier knew the agent exceeded authority",
+        "explanation": "Supplier knowledge of the express limit supports contesting the unauthorized excess.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
-        ]
+        ],
+        "cognitive_intent": "apply",
+        "numeric": false,
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": []
     },
     {
         "id": 1351,
@@ -44886,16 +45446,16 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "A contract is void because its object is unlawful. The defect concerns:",
+        "difficulty": "hard",
+        "question": "A negotiable instrument holder gives value, acts in good faith, and has no notice of a defense. What status is indicated?",
         "choices": [
-            "The object of the contract",
-            "The auditor’s materiality",
-            "The cash budget",
-            "The inventory count"
+            "Unauthorized possessor in every case",
+            "Employee with no rights",
+            "Holder in due course, subject to governing instrument rules",
+            "Guarantor automatically"
         ],
-        "answer": "The object of the contract",
-        "explanation": "An unlawful object prevents a valid contractual obligation.",
+        "answer": "Holder in due course, subject to governing instrument rules",
+        "explanation": "Value, good faith, and lack of notice are the supplied indicators of holder-in-due-course status.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
@@ -44904,22 +45464,36 @@
             {
                 "type": "table",
                 "columns": [
-                    "Accounting cue",
-                    "Treatment"
+                    "Case fact",
+                    "Value"
                 ],
                 "rows": [
                     [
-                        "Core principle",
-                        "Apply the current authoritative rule"
+                        "Value",
+                        "Given"
                     ],
                     [
-                        "Decision point",
-                        "validity"
+                        "Good faith",
+                        "Present"
+                    ],
+                    [
+                        "Notice of defense",
+                        "None"
+                    ],
+                    [
+                        "Task",
+                        "Assess holder status"
                     ]
                 ]
             }
         ],
-        "numeric": false
+        "numeric": false,
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long"
     },
     {
         "id": 1352,
@@ -44936,19 +45510,27 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A party fails to perform a substantial contractual obligation. The other party may examine:",
+        "question": "A board approves a transaction benefiting a director, who neither discloses the conflict nor abstains. What issue is raised?",
         "choices": [
-            "Available remedies under the governing law and agreement",
-            "Only the tax return",
-            "The office lease",
-            "A marketing slogan"
+            "A routine dividend declaration",
+            "A transaction immune from review",
+            "A payroll withholding issue",
+            "A conflict-of-interest and disclosure concern requiring independent review"
         ],
-        "answer": "Available remedies under the governing law and agreement",
-        "explanation": "Material nonperformance can trigger contractual remedies.",
+        "answer": "A conflict-of-interest and disclosure concern requiring independent review",
+        "explanation": "The undisclosed personal interest requires conflict disclosure and independent review.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
-        ]
+        ],
+        "cognitive_intent": "diagnose",
+        "numeric": false,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard",
+        "content_blocks": []
     },
     {
         "id": 1353,
@@ -44964,20 +45546,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "A corporate officer receives a personal benefit from a transaction involving the corporation. The central governance issue is:",
+        "difficulty": "medium",
+        "question": "A partner signs an ordinary-course supply contract; the supplier has no notice of an internal restriction. What conclusion is defensible?",
         "choices": [
-            "Conflict of interest",
-            "Inventory turnover",
-            "Bank reconciliation",
-            "Depreciation"
+            "The partnership may be bound because the act appears within ordinary business authority",
+            "The contract is void because all partners must sign",
+            "The supplier becomes a partner",
+            "The contract is necessarily personal"
         ],
-        "answer": "Conflict of interest",
-        "explanation": "Personal benefit may compromise loyalty and requires disclosure and proper review.",
+        "answer": "The partnership may be bound because the act appears within ordinary business authority",
+        "explanation": "An ordinary-course act presents apparent authority to a third party without notice of an internal restriction.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
-        ]
+        ],
+        "cognitive_intent": "evaluate",
+        "numeric": false,
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": []
     },
     {
         "id": 1354,
@@ -44994,38 +45584,33 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A document signed by an authorized representative is evaluated for:",
+        "question": "A company issues 10,000 shares at P25 and repurchases 2,000 at P28. Ignoring costs, what is net cash change?",
         "choices": [
-            "Authority, consent, and applicable formal requirements",
-            "The weather",
-            "Employee attendance",
-            "Product color"
+            "P250,000 increase",
+            "P194,000 increase",
+            "P56,000 decrease",
+            "P306,000 increase"
         ],
-        "answer": "Authority, consent, and applicable formal requirements",
-        "explanation": "Authority and formal validity are central to an executed legal document.",
+        "answer": "P194,000 increase",
+        "explanation": "Cash in is P250,000 and cash out is P56,000; net increase is P194,000.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Accounting cue",
-                    "Treatment"
-                ],
-                "rows": [
-                    [
-                        "Core principle",
-                        "Apply the current authoritative rule"
-                    ],
-                    [
-                        "Decision point",
-                        "formalities"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
             }
-        ]
+        ],
+        "cognitive_intent": "apply",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long"
     },
     {
         "id": 1355,
@@ -45042,20 +45627,27 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A partnership agreement allocates losses differently from profits. The accountant should:",
+        "question": "A buyer receives goods materially failing written specifications and promptly documents the defect. What is the best first response?",
         "choices": [
-            "Apply the valid agreement to each allocation",
-            "Assume losses always equal profits",
-            "Ignore the agreement",
-            "Allocate by invoice number"
+            "Resell as conforming without notice",
+            "Destroy the goods and waive remedies",
+            "Notify the seller and invoke the contract’s inspection, rejection, or cure process",
+            "Treat the defect as a dividend"
         ],
-        "answer": "Apply the valid agreement to each allocation",
-        "explanation": "Different valid allocation clauses should be applied as written.",
+        "answer": "Notify the seller and invoke the contract’s inspection, rejection, or cure process",
+        "explanation": "Prompt notice preserves the buyer’s contractual inspection, rejection, or cure remedies.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": false,
+        "cognitive_intent": "decide",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": []
     },
     {
         "id": 1356,
@@ -45071,20 +45663,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "A corporation publishes misleading financial information. The relevant concern is:",
+        "difficulty": "easy",
+        "question": "A loan agreement gives a cure period for a covenant breach, and the borrower is still within it. What should the creditor do first?",
         "choices": [
-            "Accountability for truthful corporate reporting",
-            "A normal cash flow",
-            "A payroll adjustment",
-            "A physical count"
+            "Ignore the agreement and accelerate immediately",
+            "Treat the breach as a tax refund",
+            "Cancel unrelated contracts",
+            "Apply the agreement’s cure-period procedure before declaring final default"
         ],
-        "answer": "Accountability for truthful corporate reporting",
-        "explanation": "Corporate reporting must not mislead users.",
+        "answer": "Apply the agreement’s cure-period procedure before declaring final default",
+        "explanation": "The specified cure period is part of the contract and should be followed before final-default action.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
-        ]
+        ],
+        "cognitive_intent": "evaluate",
+        "numeric": false,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard",
+        "content_blocks": []
     },
     {
         "id": 1357,
@@ -45100,39 +45700,28 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "A buyer discovers a material defect that was concealed. The buyer should assess:",
+        "difficulty": "medium",
+        "question": "A buyer discovers a latent defect that substantially defeats the agreed purpose of delivered goods. What response best preserves the buyer’s contractual remedy?",
         "choices": [
-            "The legal effect of concealment and available remedies",
-            "Only the seller’s logo",
-            "The audit sampling interval",
-            "A depreciation method"
+            "Notify the seller promptly, document the defect, and invoke the applicable cure, rejection, or remedy process",
+            "Conceal the defect and resell the goods as conforming",
+            "Destroy the goods without notice and waive the contract remedies",
+            "Record the defect as a dividend"
         ],
-        "answer": "The legal effect of concealment and available remedies",
-        "explanation": "Concealment can affect consent and remedies under applicable law.",
+        "answer": "Notify the seller promptly, document the defect, and invoke the applicable cure, rejection, or remedy process",
+        "explanation": "Prompt notice and documentation preserve the buyer’s ability to use the contract’s inspection, rejection, cure, or other applicable remedy process; concealment or destruction would undermine that position.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Accounting cue",
-                    "Treatment"
-                ],
-                "rows": [
-                    [
-                        "Core principle",
-                        "Apply the current authoritative rule"
-                    ],
-                    [
-                        "Decision point",
-                        "sales-remedies"
-                    ]
-                ]
-            }
-        ]
+        "content_blocks": [],
+        "cognitive_intent": "synthesize",
+        "numeric": false,
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long"
     },
     {
         "id": 1358,
@@ -45149,19 +45738,27 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A CPA receives confidential client information. Professional duty generally requires:",
+        "question": "A regulator requests transaction records, but a retention policy deleted them. What is the strongest response?",
         "choices": [
-            "Protecting confidentiality subject to lawful or professional exceptions",
-            "Publishing it for convenience",
-            "Selling it to competitors",
-            "Ignoring all requests"
+            "Create replacement records with invented dates",
+            "Disclose the limitation accurately, preserve remaining evidence, and assess the compliance consequence",
+            "Claim records were never required without checking",
+            "Delete related emails"
         ],
-        "answer": "Protecting confidentiality subject to lawful or professional exceptions",
-        "explanation": "Confidentiality is a core professional responsibility with limited lawful exceptions.",
+        "answer": "Disclose the limitation accurately, preserve remaining evidence, and assess the compliance consequence",
+        "explanation": "The company must not recreate evidence deceptively; it should disclose, preserve what remains, and assess consequences.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
             "prc-accountancy-board-page"
-        ]
+        ],
+        "cognitive_intent": "diagnose",
+        "numeric": false,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard",
+        "content_blocks": []
     },
     {
         "id": 1359,
@@ -45666,18 +46263,52 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "A deductible expense must be ordinary and properly supported under the applicable rule. The key issue is:",
+        "question": "Sales are P1,000,000, allowable deductions P350,000, and the problem supplies a 20% rate. What tax is computed?",
         "choices": [
-            "Whether both qualification and substantiation are met",
-            "Whether it is the largest expense",
-            "Whether cash was kept at home",
-            "Whether it is popular"
+            "P200,000",
+            "P350,000",
+            "P130,000",
+            "P650,000"
         ],
-        "answer": "Whether both qualification and substantiation are met",
-        "explanation": "A deduction requires both legal qualification and adequate support.",
+        "answer": "P130,000",
+        "explanation": "Taxable base is P650,000; at the supplied 20% rate, tax is P130,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "apply",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Case fact",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Sales",
+                        "P1,000,000"
+                    ],
+                    [
+                        "Deductions",
+                        "P350,000"
+                    ],
+                    [
+                        "Supplied rate",
+                        "20%"
+                    ],
+                    [
+                        "Task",
+                        "Compute supplied base"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -45695,18 +46326,32 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A tax computation uses gross receipts but omits an allowable adjustment. Before finalizing, the accountant should:",
+        "question": "Output tax is P180,000 and allowable input tax P125,000. What net amount is payable?",
         "choices": [
-            "Reconcile the base and all applicable adjustments",
-            "Guess the final liability",
-            "Ignore source documents",
-            "Record the difference as equity"
+            "P305,000",
+            "P125,000",
+            "P180,000",
+            "P55,000"
         ],
-        "answer": "Reconcile the base and all applicable adjustments",
-        "explanation": "Reconciliation reduces omissions and supports the computed base.",
+        "answer": "P55,000",
+        "explanation": "Net tax is output less allowable input: P180,000 − P125,000 = P55,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "apply",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
+            }
         ]
     },
     {
@@ -45723,40 +46368,34 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "A taxpayer’s business and personal accounts are mixed. The primary tax risk is:",
+        "difficulty": "medium",
+        "question": "Gross receipts are P900,000, documented expenses P240,000, and the supplied rate is 15%. What tax follows?",
         "choices": [
-            "Unreliable classification and substantiation",
-            "Automatic audit exemption",
-            "Lower accounting risk",
-            "Guaranteed deduction"
+            "P99,000",
+            "P135,000",
+            "P36,000",
+            "P1,140,000"
         ],
-        "answer": "Unreliable classification and substantiation",
-        "explanation": "Mixed accounts make business purpose and amount harder to establish.",
+        "answer": "P99,000",
+        "explanation": "The supplied base is P660,000; P660,000 × 15% = P99,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Accounting cue",
-                    "Treatment"
-                ],
-                "rows": [
-                    [
-                        "Core principle",
-                        "Apply the current authoritative rule"
-                    ],
-                    [
-                        "Decision point",
-                        "records"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
             }
         ],
-        "numeric": false
+        "numeric": true,
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long"
     },
     {
         "id": 1372,
@@ -45772,19 +46411,49 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "A tax authority’s assessment is disputed. The taxpayer should use:",
+        "difficulty": "hard",
+        "question": "Withholding bases are compensation P400,000 at 5% and professional fees P150,000 at 10%. What total is withheld?",
         "choices": [
-            "The remedies and periods provided by applicable law",
-            "An informal social-media poll",
-            "A changed invoice",
-            "A personal dividend"
+            "P27,500",
+            "P35,000",
+            "P20,000",
+            "P55,000"
         ],
-        "answer": "The remedies and periods provided by applicable law",
-        "explanation": "Tax disputes are governed by prescribed remedies and periods.",
+        "answer": "P35,000",
+        "explanation": "P20,000 on compensation plus P15,000 on fees equals P35,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "apply",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Case fact",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Compensation",
+                        "P400,000 at 5%"
+                    ],
+                    [
+                        "Professional fees",
+                        "P150,000 at 10%"
+                    ],
+                    [
+                        "Task",
+                        "Total withholding"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -45801,19 +46470,33 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "A transfer may be subject to a transaction tax. The accountant should identify:",
+        "difficulty": "medium",
+        "question": "An employer provides a benefit worth P80,000; the problem supplies a 30% rate and says the full value is taxable. What tax results?",
         "choices": [
-            "The nature of transfer and applicable statutory treatment",
-            "Only the buyer’s age",
-            "The office rent",
-            "The audit opinion"
+            "P80,000",
+            "P56,000",
+            "P24,000",
+            "P110,000"
         ],
-        "answer": "The nature of transfer and applicable statutory treatment",
-        "explanation": "Transaction type determines which tax rules may apply.",
+        "answer": "P24,000",
+        "explanation": "Under the supplied assumption, P80,000 × 30% = P24,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "apply",
+        "numeric": true,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
+            }
         ]
     },
     {
@@ -45831,38 +46514,33 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "hard",
-        "question": "An employer withholds tax based on employee payroll information. The essential control is:",
+        "question": "An estate has assets P8,000,000, deductions P2,500,000, and a supplied rate of 6%. What base and tax result?",
         "choices": [
-            "Accurate computation, remittance, and records",
-            "Deleting payroll after payment",
-            "Using one rate forever",
-            "Ignoring employee data"
+            "P8,000,000 base and P480,000 tax",
+            "P2,500,000 base and P150,000 tax",
+            "P5,500,000 base and P55,000 tax",
+            "P5,500,000 base and P330,000 tax"
         ],
-        "answer": "Accurate computation, remittance, and records",
-        "explanation": "Withholding compliance requires accurate calculations, remittance, and records.",
+        "answer": "P5,500,000 base and P330,000 tax",
+        "explanation": "Base is P5,500,000; at 6%, tax is P330,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
         "content_blocks": [
             {
-                "type": "table",
-                "columns": [
-                    "Accounting cue",
-                    "Treatment"
-                ],
-                "rows": [
-                    [
-                        "Core principle",
-                        "Apply the current authoritative rule"
-                    ],
-                    [
-                        "Decision point",
-                        "payroll-tax"
-                    ]
-                ]
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
             }
-        ]
+        ],
+        "cognitive_intent": "analyze",
+        "numeric": true,
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": true,
+        "scenario_length": "long"
     },
     {
         "id": 1375,
@@ -45878,21 +46556,34 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "easy",
-        "question": "A tax planning proposal relies on a fabricated invoice. The professional should:",
+        "difficulty": "medium",
+        "question": "A donor transfers property P1,200,000; the supplied exemption is P200,000 and rate is 4%. What tax is computed?",
         "choices": [
-            "Reject the false support and advise lawful compliance",
-            "Use it if the amount is small",
-            "Hide it from the client",
-            "Record it as capital"
+            "P40,000",
+            "P48,000",
+            "P8,000",
+            "P1,000,000"
         ],
-        "answer": "Reject the false support and advise lawful compliance",
-        "explanation": "False documentation is unethical and cannot support a tax position.",
+        "answer": "P40,000",
+        "explanation": "Taxable base is P1,000,000; at 4%, computed tax is P40,000.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "numeric": false
+        "numeric": true,
+        "cognitive_intent": "apply",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Apply the supplied accounting relationship to the stated facts.",
+                "fallback": "Use the supplied facts and stated accounting rule."
+            }
+        ]
     },
     {
         "id": 1376,
@@ -45908,19 +46599,49 @@
         "source": "BoardPrep-authored",
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
-        "difficulty": "medium",
-        "question": "An accountant compares a filed return with the ledger and finds a mismatch. The next step is to:",
+        "difficulty": "easy",
+        "question": "A taxpayer receives an assessment based on an unsupported expense deduction. What response best addresses it?",
         "choices": [
-            "Reconcile the difference and correct the source if needed",
-            "Choose the lower number without analysis",
-            "Delete the ledger",
-            "Assume the return is correct"
+            "Claim every expense without documentation",
+            "Provide contemporaneous records and reconcile the deduction to the transaction facts",
+            "Destroy the invoices",
+            "Replace the deduction with personal spending"
         ],
-        "answer": "Reconcile the difference and correct the source if needed",
-        "explanation": "Reconciliation identifies the source and supports an accurate correction.",
+        "answer": "Provide contemporaneous records and reconcile the deduction to the transaction facts",
+        "explanation": "A defensible position connects the expense to transaction records and the applicable assumptions.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
+        ],
+        "cognitive_intent": "diagnose",
+        "numeric": false,
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": true,
+        "long_scenario": true,
+        "scenario_length": "long",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Case fact",
+                    "Value"
+                ],
+                "rows": [
+                    [
+                        "Assessment issue",
+                        "Unsupported deduction"
+                    ],
+                    [
+                        "Needed evidence",
+                        "Contemporaneous records"
+                    ],
+                    [
+                        "Task",
+                        "Reconcile to transaction"
+                    ]
+                ]
+            }
         ]
     },
     {
@@ -45938,38 +46659,27 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A taxpayer asks whether a rule still applies in the current filing period. The accountant should:",
+        "question": "A tax computation uses a rate from a different period than the stated period. What is the first correction?",
         "choices": [
-            "Verify the current authoritative rule before advising",
-            "Rely on a decade-old rate",
-            "Guess from memory",
-            "Use a reviewer advertisement"
+            "Use the highest rate regardless of period",
+            "Ignore the period because rates are interchangeable",
+            "Use the rate supplied for the stated period and document the assumption",
+            "Change the base to match the wrong rate"
         ],
-        "answer": "Verify the current authoritative rule before advising",
-        "explanation": "Time-sensitive tax advice requires current authoritative verification.",
+        "answer": "Use the rate supplied for the stated period and document the assumption",
+        "explanation": "Rates are period-sensitive; use the stated-period rate and document the supplied assumption.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
         ],
-        "content_blocks": [
-            {
-                "type": "table",
-                "columns": [
-                    "Accounting cue",
-                    "Treatment"
-                ],
-                "rows": [
-                    [
-                        "Core principle",
-                        "Apply the current authoritative rule"
-                    ],
-                    [
-                        "Decision point",
-                        "current-law"
-                    ]
-                ]
-            }
-        ]
+        "content_blocks": [],
+        "cognitive_intent": "evaluate",
+        "numeric": false,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard"
     },
     {
         "id": 1378,
@@ -45986,19 +46696,27 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A business retains tax records according to the applicable requirement. The purpose is to:",
+        "question": "A company records a tax provision before measuring the temporary difference or applying the supplied rate. What control response is best?",
         "choices": [
-            "Support compliance, auditability, and substantiation",
-            "Guarantee no tax is due",
-            "Replace financial statements",
-            "Create a dividend"
+            "Approve because estimates need no support",
+            "Record the provision as revenue",
+            "Delete the supporting schedule",
+            "Reconcile the temporary difference, supplied rate, and supporting schedule before finalizing"
         ],
-        "answer": "Support compliance, auditability, and substantiation",
-        "explanation": "Retained records support compliance and later verification.",
+        "answer": "Reconcile the temporary difference, supplied rate, and supporting schedule before finalizing",
+        "explanation": "A tax provision requires a measured difference, applicable rate, and reconciled support before approval.",
         "subject": "Cpa Taxation",
         "source_ids": [
             "prc-accountancy-board-page"
-        ]
+        ],
+        "cognitive_intent": "synthesize",
+        "numeric": false,
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "long_scenario": false,
+        "scenario_length": "standard",
+        "content_blocks": []
     },
     {
         "id": 1379,
