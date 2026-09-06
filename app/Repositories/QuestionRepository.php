@@ -9,6 +9,8 @@ use App\Contracts\StorageInterface;
 class QuestionRepository extends BaseRepository
 {
     protected string $collection = 'questions';
+    /** @var array<string, array>|null */
+    private ?array $byId = null;
 
     public function __construct(
         StorageInterface $storage
@@ -26,14 +28,38 @@ class QuestionRepository extends BaseRepository
 
     public function find(string $id): ?array
     {
-        foreach ($this->all() as $record) {
-            $recordId = $record['id'] ?? null;
-            if (is_scalar($recordId) && (string) $recordId === $id) {
-                return $record;
+        if ($this->byId === null) {
+            $this->byId = [];
+            foreach ($this->all() as $record) {
+                $recordId = $record['id'] ?? null;
+                if (is_scalar($recordId)
+                    && !array_key_exists((string) $recordId, $this->byId)) {
+                    $this->byId[(string) $recordId] = $record;
+                }
             }
         }
 
-        return null;
+        return $this->byId[$id] ?? null;
+    }
+
+    public function create(array $data): array
+    {
+        $created = parent::create($data);
+        $this->byId = null;
+        return $created;
+    }
+
+    public function update(string $id, array $data): ?array
+    {
+        $updated = parent::update($id, $data);
+        $this->byId = null;
+        return $updated;
+    }
+
+    public function replaceAll(array $records): void
+    {
+        parent::replaceAll($records);
+        $this->byId = null;
     }
 
     public function where(array $criteria): array

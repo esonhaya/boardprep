@@ -7,7 +7,6 @@ namespace App\Services\Flashcard;
 use App\Core\App;
 use App\Repositories\QuestionRepository;
 use App\Services\Shared\QuestionValidationService;
-use App\Services\Study\StudyLibraryService;
 
 final class FlashcardDerivationService
 {
@@ -28,12 +27,16 @@ final class FlashcardDerivationService
         return $question === null ? null : $this->derive($question);
     }
 
-    public function all(array $filters = []): array
+    public function all(array $filters = [], array $topicIds = []): array
     {
         $cards = [];
+        $topicIds = array_fill_keys(array_values(array_filter(
+            array_map(static fn(mixed $id): string => is_scalar($id) ? trim((string) $id) : '', $topicIds)
+        )), true);
 
         foreach ($this->questions->all() as $question) {
-            if (!$this->matchesFilters($question, $filters)) {
+            if (!$this->matchesFilters($question, $filters)
+                || ($topicIds !== [] && !isset($topicIds[$this->topicId($question)]))) {
                 continue;
             }
             $card = $this->derive($question);
@@ -43,6 +46,15 @@ final class FlashcardDerivationService
         }
 
         return $cards;
+    }
+
+    private function topicId(array $question): string
+    {
+        $taxonomy = is_array($question['taxonomy'] ?? null)
+            ? $question['taxonomy']
+            : [];
+
+        return (string) ($taxonomy['topic_id'] ?? $question['topic'] ?? '');
     }
 
     private function matchesFilters(array $question, array $filters): bool
@@ -175,7 +187,11 @@ final class FlashcardDerivationService
     {
         if ($this->studyMaterials === null) {
             $this->studyMaterials = [];
-            foreach (StudyLibraryService::all() as $material) {
+            foreach (App::storage()->all('study-materials') as $material) {
+                if (!is_array($material)
+                    || ($material['status'] ?? 'published') !== 'published') {
+                    continue;
+                }
                 $this->studyMaterials[(string) ($material['id'] ?? '')] = $material;
             }
         }

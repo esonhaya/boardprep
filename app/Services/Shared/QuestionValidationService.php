@@ -58,21 +58,18 @@ final class QuestionValidationService
     private static function validateCanonicalTaxonomy(array $taxonomy, array &$errors): void
     {
         $collections = [
-            'board_id' => TaxonomyStorageService::boards(),
-            'subject_id' => TaxonomyStorageService::subjects(),
-            'domain_id' => TaxonomyStorageService::domains(),
-            'topic_id' => TaxonomyStorageService::topics(),
-            'concept_id' => TaxonomyStorageService::concepts(),
+            'board_id' => 'boards',
+            'subject_id' => 'subjects',
+            'domain_id' => 'taxonomy/domains',
+            'topic_id' => 'taxonomy/topics',
+            'concept_id' => 'taxonomy/concepts',
         ];
-        foreach ($collections as $field => $records) {
+        foreach ($collections as $field => $collection) {
             $value = $taxonomy[$field] ?? null;
             if (!self::nonEmptyScalar($value)) {
                 continue;
             }
-            $found = array_filter($records, static fn(mixed $record): bool =>
-                is_array($record) && ($record['id'] ?? null) === (string) $value
-            );
-            if ($found === []) {
+            if (TaxonomyStorageService::find($collection, (string) $value) === null) {
                 $errors[] = 'Invalid ' . str_replace('_id', '', $field);
             }
         }
@@ -83,13 +80,16 @@ final class QuestionValidationService
     private static function validateTaxonomyHierarchy(array $taxonomy, array &$errors): void
     {
         $links = [
-            ['records' => TaxonomyStorageService::domains(), 'id' => 'domain_id', 'parent' => 'subject_id'],
-            ['records' => TaxonomyStorageService::topics(), 'id' => 'topic_id', 'parent' => 'domain_id'],
-            ['records' => TaxonomyStorageService::concepts(), 'id' => 'concept_id', 'parent' => 'topic_id'],
+            ['collection' => 'taxonomy/domains', 'id' => 'domain_id', 'parent' => 'subject_id'],
+            ['collection' => 'taxonomy/topics', 'id' => 'topic_id', 'parent' => 'domain_id'],
+            ['collection' => 'taxonomy/concepts', 'id' => 'concept_id', 'parent' => 'topic_id'],
         ];
 
         foreach ($links as $link) {
-            $record = self::taxonomyRecord($link['records'], (string) ($taxonomy[$link['id']] ?? ''));
+            $record = TaxonomyStorageService::find(
+                $link['collection'],
+                (string) ($taxonomy[$link['id']] ?? '')
+            );
             if ($record !== null
                 && (string) ($record[$link['parent']] ?? '') !== (string) ($taxonomy[$link['parent']] ?? '')) {
                 $errors[] = 'Inconsistent taxonomy hierarchy';
@@ -97,28 +97,16 @@ final class QuestionValidationService
             }
         }
 
-        $relations = TaxonomyStorageService::boardSubjects();
-        if ($relations === []) {
+        if (TaxonomyStorageService::boardSubjects() === []) {
             return;
         }
-        foreach ($relations as $relation) {
-            if (is_array($relation)
-                && (string) ($relation['board_id'] ?? '') === (string) ($taxonomy['board_id'] ?? '')
-                && (string) ($relation['subject_id'] ?? '') === (string) ($taxonomy['subject_id'] ?? '')) {
-                return;
-            }
+        if (TaxonomyStorageService::hasBoardSubject(
+            (string) ($taxonomy['board_id'] ?? ''),
+            (string) ($taxonomy['subject_id'] ?? '')
+        )) {
+            return;
         }
         $errors[] = 'Inconsistent board and subject taxonomy';
-    }
-
-    private static function taxonomyRecord(array $records, string $id): ?array
-    {
-        foreach ($records as $record) {
-            if (is_array($record) && (string) ($record['id'] ?? '') === $id) {
-                return $record;
-            }
-        }
-        return null;
     }
 
     private static function validateQuestion(array $question, array &$errors): void

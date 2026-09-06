@@ -13,6 +13,9 @@ final class TaxonomyStorageService
     /** @var array<string, array> */
     private static array $cache = [];
 
+    /** @var array<string, array<string, array>> */
+    private static array $indexCache = [];
+
     private static function storage(): JsonStorage
     {
         return new JsonStorage(self::ROOT);
@@ -35,6 +38,44 @@ final class TaxonomyStorageService
         $records = array_values(array_filter($data, 'is_array'));
         self::storage()->replace($collection, $records);
         unset(self::$cache[$collection]);
+        unset(self::$indexCache[$collection]);
+    }
+
+    public static function find(string $collection, string $id): ?array
+    {
+        if (!array_key_exists($collection, self::$indexCache)) {
+            self::$indexCache[$collection] = [];
+            foreach (self::load($collection) as $record) {
+                if (is_scalar($record['id'] ?? null)) {
+                    $recordId = (string) $record['id'];
+                    if (!array_key_exists($recordId, self::$indexCache[$collection])) {
+                        self::$indexCache[$collection][$recordId] = $record;
+                    }
+                }
+            }
+        }
+
+        return self::$indexCache[$collection][$id] ?? null;
+    }
+
+    public static function hasBoardSubject(string $boardId, string $subjectId): bool
+    {
+        $key = 'board-subjects:' . $boardId . ':' . $subjectId;
+        if (array_key_exists($key, self::$indexCache)) {
+            return self::$indexCache[$key] !== [];
+        }
+
+        foreach (self::boardSubjects() as $relation) {
+            if (is_array($relation)
+                && (string) ($relation['board_id'] ?? '') === $boardId
+                && (string) ($relation['subject_id'] ?? '') === $subjectId) {
+                self::$indexCache[$key] = ['found' => $relation];
+                return true;
+            }
+        }
+
+        self::$indexCache[$key] = [];
+        return false;
     }
 
     public static function boards(): array

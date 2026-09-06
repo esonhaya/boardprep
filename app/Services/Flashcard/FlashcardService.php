@@ -146,10 +146,7 @@ final class FlashcardService
             return $this->emptySelection();
         }
 
-        $cards = array_values(array_filter(
-            $this->derivation->all(),
-            static fn(array $card): bool => isset($weakTopics[(string) ($card['topic'] ?? '')])
-        ));
+        $cards = $this->derivation->all([], array_keys($weakTopics));
 
         return $this->selectFromCards(
             $cards,
