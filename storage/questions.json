@@ -32677,16 +32677,52 @@
         "createdAt": "2026-09-01T14:32:00+00:00",
         "updatedAt": "2026-09-01T14:32:00+00:00",
         "difficulty": "hard",
-        "question": "A psychologist combines interview, observation, and test data before forming an assessment opinion. This illustrates:",
+        "question": "An assessment team reviews the evidence matrix below before writing a report. Which conclusion is most defensible?",
         "choices": [
-            "multimethod assessment",
-            "single-score diagnosis",
-            "random assignment",
-            "response bias"
+            "The converging interview, observation, and test evidence supports a cautious interpretation, while each source\u2019s limits remain relevant.",
+            "The test score overrides the interview and observation because numbers are always objective.",
+            "Any disagreement between sources proves that the client was deceptive.",
+            "The three sources together establish a diagnosis without considering context or functioning."
         ],
-        "answer": "multimethod assessment",
-        "explanation": "Multiple sources can provide complementary evidence and reduce reliance on one measure.",
-        "subject": "psychology-foundations"
+        "answer": "The converging interview, observation, and test evidence supports a cautious interpretation, while each source\u2019s limits remain relevant.",
+        "explanation": "The matrix shows convergence on strengths and a concern, but every source has limits. Responsible synthesis integrates the sources without allowing one score or an unsupported diagnosis to dominate.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false,
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Source",
+                    "Strength",
+                    "Limitation"
+                ],
+                "rows": [
+                    [
+                        "Interview",
+                        "reports sleep difficulty",
+                        "self-report context"
+                    ],
+                    [
+                        "Observation",
+                        "slow task initiation",
+                        "brief setting"
+                    ],
+                    [
+                        "Cognitive test",
+                        "relative processing weakness",
+                        "norm fit must be checked"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1053,
@@ -32709,17 +32745,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:32:00+00:00",
         "updatedAt": "2026-09-01T14:32:00+00:00",
-        "difficulty": "easy",
-        "question": "A client gives socially desirable answers on a personality inventory. Which issue may affect interpretation?",
+        "difficulty": "medium",
+        "question": "A personality inventory shows unusually favorable responses, while collateral information describes repeated difficulty that the inventory does not capture. What should the examiner consider first?",
         "choices": [
-            "response bias",
-            "test-retest reliability",
-            "content sampling",
-            "base rate"
+            "The collateral information must be false because the inventory is standardized.",
+            "Response bias or impression management may be limiting the score\u2019s interpretability.",
+            "The score proves the person has no difficulties.",
+            "The discrepancy establishes malingering."
         ],
-        "answer": "response bias",
-        "explanation": "A response style can distort scores even when administration is standardized.",
-        "subject": "psychology-foundations"
+        "answer": "Response bias or impression management may be limiting the score\u2019s interpretability.",
+        "explanation": "Unusually favorable responding can reduce the validity of self-report interpretation. Collateral information should be evaluated as additional evidence, not used to assign a motive automatically.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false
     },
     {
         "id": 1054,
@@ -32742,17 +32787,48 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:32:00+00:00",
         "updatedAt": "2026-09-01T14:32:00+00:00",
-        "difficulty": "medium",
-        "question": "A test predicts later job performance better than chance in a relevant sample. What evidence is present?",
+        "difficulty": "hard",
+        "question": "A selection study compares two predictors with later job performance. Which conclusion follows from the table?",
         "choices": [
-            "criterion-related validity",
-            "face validity only",
-            "inter-rater reliability",
-            "norming error"
+            "Predictor B is invalid because its correlation is positive but smaller.",
+            "The correlations prove either predictor causes job performance.",
+            "Predictor A has stronger criterion-related association in this sample, but subgroup validity and practical limits still need review.",
+            "The table establishes content validity for both predictors."
         ],
-        "answer": "criterion-related validity",
-        "explanation": "Association with a relevant outcome supports criterion-related validity.",
-        "subject": "psychology-foundations"
+        "answer": "Predictor A has stronger criterion-related association in this sample, but subgroup validity and practical limits still need review.",
+        "explanation": "Predictor A\u2019s correlation with the criterion is .62 versus .28 for Predictor B. This is evidence relevant to criterion-related validity, not proof of causation or universal validity.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "numeric": true,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": true,
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Predictor",
+                    "Criterion correlation",
+                    "Sample size"
+                ],
+                "rows": [
+                    [
+                        "A",
+                        ".62",
+                        "140"
+                    ],
+                    [
+                        "B",
+                        ".28",
+                        "140"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1055,
@@ -32775,17 +32851,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:32:00+00:00",
         "updatedAt": "2026-09-01T14:32:00+00:00",
-        "difficulty": "medium",
-        "question": "A short test is used to make a high-stakes decision without evidence for that population. What is the best professional concern?",
+        "difficulty": "hard",
+        "question": "A 12-item inventory is used for a high-stakes decision with a population not represented in its validation studies. What is the strongest professional concern?",
         "choices": [
-            "the inference may exceed the instrument’s validity evidence",
-            "short tests are always invalid",
-            "high stakes eliminate error",
-            "the score needs no context"
+            "A short instrument is always invalid regardless of its purpose.",
+            "High stakes eliminate measurement error if the score is standardized.",
+            "The score needs no context because it came from a published inventory.",
+            "The inference may exceed the instrument\u2019s evidence for reliability, validity, and the intended population."
         ],
-        "answer": "the inference may exceed the instrument’s validity evidence",
-        "explanation": "The strength of an inference must match the instrument’s evidence and use.",
-        "subject": "psychology-foundations"
+        "answer": "The inference may exceed the instrument\u2019s evidence for reliability, validity, and the intended population.",
+        "explanation": "Length alone does not determine quality, but a high-stakes inference requires evidence appropriate to the population and decision. The instrument\u2019s limits should be stated and corroborating evidence considered.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": true,
+        "research_method_application": true
     },
     {
         "id": 1056,
@@ -32808,17 +32893,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:32:00+00:00",
         "updatedAt": "2026-09-01T14:32:00+00:00",
-        "difficulty": "hard",
-        "question": "An examiner explains the purpose and limits of a voluntary assessment before beginning. This supports:",
+        "difficulty": "easy",
+        "question": "Before a voluntary assessment, the examiner explains the purpose, procedures, foreseeable limits, use of results, and the client\u2019s option to ask questions. Which principle is most directly supported?",
         "choices": [
-            "informed consent",
-            "item discrimination",
-            "randomization",
-            "criterion contamination"
+            "Informed consent",
+            "Item discrimination",
+            "Randomization",
+            "Criterion contamination"
         ],
-        "answer": "informed consent",
-        "explanation": "Consent requires understandable information about purpose, limits, and participation.",
-        "subject": "psychology-foundations"
+        "answer": "Informed consent",
+        "explanation": "Informed consent requires understandable information about the assessment and a meaningful opportunity to agree or decline. It is different from a psychometric property of the test.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": true,
+        "research_method_application": false
     },
     {
         "id": 1057,
@@ -32841,17 +32935,58 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:32:00+00:00",
         "updatedAt": "2026-09-01T14:32:00+00:00",
-        "difficulty": "easy",
-        "question": "A test item is answered correctly by almost everyone, including low scorers. What may be limited?",
+        "difficulty": "hard",
+        "question": "An item-analysis table is reviewed before an achievement test is revised. Which item is the clearest priority for review?",
         "choices": [
-            "confidentiality",
-            "item discrimination",
-            "predictive validity",
-            "test security"
+            "Item 1, because a .52 facility is always unacceptable.",
+            "Item 3, because its .95 facility and .04 point-biserial suggest it is too easy and poorly discriminating.",
+            "Item 2, because a positive point-biserial can never be used.",
+            "Item 4, because a .68 facility proves the item is biased."
         ],
-        "answer": "item discrimination",
-        "explanation": "An item that does not distinguish performance levels may have limited discrimination.",
-        "subject": "psychology-foundations"
+        "answer": "Item 3, because its .95 facility and .04 point-biserial suggest it is too easy and poorly discriminating.",
+        "explanation": "Item 3 is answered correctly by 95% of examinees and has almost no relationship with total performance. That combination warrants review, although content and subgroup evidence should also be examined.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "numeric": true,
+        "professional_judgment": false,
+        "ethics_scope_application": false,
+        "research_method_application": true,
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Item",
+                    "Facility p",
+                    "Point-biserial"
+                ],
+                "rows": [
+                    [
+                        "1",
+                        ".52",
+                        ".31"
+                    ],
+                    [
+                        "2",
+                        ".68",
+                        ".27"
+                    ],
+                    [
+                        "3",
+                        ".95",
+                        ".04"
+                    ],
+                    [
+                        "4",
+                        ".44",
+                        ".29"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1058,
@@ -32875,16 +33010,25 @@
         "createdAt": "2026-09-01T14:32:00+00:00",
         "updatedAt": "2026-09-01T14:32:00+00:00",
         "difficulty": "medium",
-        "question": "A report states that one score proves a person\u2019s ability in every setting. What is the error?",
+        "question": "A report says an examinee\u2019s standard score proves the same level of ability in every setting. What is the principal interpretive error?",
         "choices": [
-            "using a norm group",
-            "overgeneralizing a score beyond its context and evidence",
-            "reporting a confidence interval",
-            "protecting confidentiality"
+            "It uses a norm-referenced score instead of a raw score.",
+            "It reports a confidence interval around a score.",
+            "It generalizes one score beyond its norm group, measurement error, and evidence-supported context.",
+            "It protects the examinee\u2019s confidentiality too carefully."
         ],
-        "answer": "overgeneralizing a score beyond its context and evidence",
-        "explanation": "Scores support bounded interpretations, not unlimited claims.",
-        "subject": "psychology-foundations"
+        "answer": "It generalizes one score beyond its norm group, measurement error, and evidence-supported context.",
+        "explanation": "A score is interpreted relative to its measure, norms, error, and purpose. Generalizing it to every setting exceeds what one score can support.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false
     },
     {
         "id": 1059,
@@ -32907,17 +33051,51 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:32:00+00:00",
         "updatedAt": "2026-09-01T14:32:00+00:00",
-        "difficulty": "medium",
-        "question": "A client\u2019s score changes after fatigue, pain, and distraction during testing. What should the examiner consider?",
+        "difficulty": "hard",
+        "question": "The same examinee is tested twice under the conditions shown. Which conclusion is most appropriate?",
         "choices": [
-            "the score as a permanent trait",
-            "testing conditions as possible sources of measurement error",
-            "automatic malingering",
-            "content validity only"
+            "The lower score proves a permanent loss of ability.",
+            "The higher score proves the examinee was deceptive later.",
+            "The condition table establishes content validity.",
+            "The lower second score should be interpreted cautiously because fatigue and distraction may add measurement error."
         ],
-        "answer": "testing conditions as possible sources of measurement error",
-        "explanation": "State and situational factors can add error and should be documented and considered.",
-        "subject": "psychology-foundations"
+        "answer": "The lower second score should be interpreted cautiously because fatigue and distraction may add measurement error.",
+        "explanation": "The score fell when fatigue and distraction increased. Those conditions are plausible sources of transient error, so the difference should not be treated as a stable trait change without more evidence.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "numeric": true,
+        "professional_judgment": false,
+        "ethics_scope_application": false,
+        "research_method_application": true,
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Administration",
+                    "Score",
+                    "Fatigue",
+                    "Distraction"
+                ],
+                "rows": [
+                    [
+                        "1",
+                        "86",
+                        "low",
+                        "low"
+                    ],
+                    [
+                        "2",
+                        "76",
+                        "high",
+                        "moderate"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1060,
@@ -32940,17 +33118,48 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:32:00+00:00",
         "updatedAt": "2026-09-01T14:32:00+00:00",
-        "difficulty": "hard",
-        "question": "An objective inventory uses keyed response alternatives, while a projective method uses ambiguous stimuli. What is the key distinction?",
+        "difficulty": "medium",
+        "question": "The comparison table describes two assessment formats. Which distinction is supported?",
         "choices": [
-            "whether either method needs interpretation",
-            "the structure of the response task",
-            "whether both can have evidence",
-            "whether clients can speak"
+            "The objective format constrains response scoring more directly, while the ambiguous-stimulus format requires broader interpretive judgment.",
+            "Only the ambiguous-stimulus format can have reliability evidence.",
+            "Objective formats never require professional interpretation.",
+            "The table proves that one format is valid for every purpose."
         ],
-        "answer": "the structure of the response task",
-        "explanation": "Objective tasks constrain responses more than ambiguous-stimulus methods.",
-        "subject": "psychology-foundations"
+        "answer": "The objective format constrains response scoring more directly, while the ambiguous-stimulus format requires broader interpretive judgment.",
+        "explanation": "Keyed response alternatives constrain scoring, whereas ambiguous stimuli require more interpretive judgment. Neither format is automatically valid for every purpose; evidence must match the intended use.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "case_interpretation": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false,
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Format",
+                    "Response task",
+                    "Scoring implication"
+                ],
+                "rows": [
+                    [
+                        "Objective inventory",
+                        "select keyed alternatives",
+                        "more constrained scoring"
+                    ],
+                    [
+                        "Ambiguous-stimulus method",
+                        "respond to less-structured stimuli",
+                        "greater interpretive judgment"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1061,
@@ -32973,17 +33182,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:32:00+00:00",
         "updatedAt": "2026-09-01T14:32:00+00:00",
-        "difficulty": "easy",
-        "question": "A client\u2019s score is shared in a public group chat without permission. Which principle is violated?",
+        "difficulty": "medium",
+        "question": "An assessment result is posted in a public group chat without the client\u2019s permission. Which response is most appropriate?",
         "choices": [
-            "standardization",
-            "confidentiality",
-            "item difficulty",
-            "convergent validity"
+            "Assume public posting is acceptable once the score is accurate.",
+            "Treat it as a confidentiality breach, document the incident, and follow the applicable privacy and reporting procedure.",
+            "Delete the record and avoid documenting the event.",
+            "Share more details so the original post has proper context."
         ],
-        "answer": "confidentiality",
-        "explanation": "Unauthorized disclosure violates confidentiality.",
-        "subject": "psychology-foundations"
+        "answer": "Treat it as a confidentiality breach, document the incident, and follow the applicable privacy and reporting procedure.",
+        "explanation": "An identifiable assessment result requires privacy protection. The incident should be handled through the applicable confidentiality, documentation, and reporting procedures rather than concealed or expanded.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": true,
+        "research_method_application": false
     },
     {
         "id": 1062,
@@ -33698,17 +33916,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "hard",
-        "question": "A child becomes more independent in dressing but still seeks help with unfamiliar tasks. What does this show?",
+        "difficulty": "medium",
+        "question": "A child independently dresses but requests help with unfamiliar fasteners and then succeeds after a demonstration. What interpretation best fits the evidence?",
         "choices": [
-            "complete developmental independence",
-            "growing autonomy with continuing need for support",
-            "loss of attachment",
-            "abnormal dependence by itself"
+            "The child has complete independence because one task was completed alone.",
+            "The request for help proves abnormal dependence.",
+            "Autonomy is developing, while task novelty and graduated support still affect performance.",
+            "The demonstration makes the later performance meaningless."
         ],
-        "answer": "growing autonomy with continuing need for support",
-        "explanation": "Autonomy develops gradually and coexists with appropriate support-seeking.",
-        "subject": "psychology-foundations"
+        "answer": "Autonomy is developing, while task novelty and graduated support still affect performance.",
+        "explanation": "Performance varies by task familiarity and support. Independent dressing shows a capability, while help with a novel fastener identifies an opportunity for supported learning rather than a diagnosis.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false
     },
     {
         "id": 1078,
@@ -33731,17 +33958,53 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "easy",
-        "question": "A researcher compares children at ages 4, 8, and 12 once each. What design is this?",
+        "difficulty": "medium",
+        "question": "The design table describes how each group is observed. Which label is correct?",
         "choices": [
-            "longitudinal",
-            "cross-sectional",
-            "single-case experimental",
-            "randomized clinical trial"
+            "All three are randomized trials because children are measured more than once.",
+            "The first is longitudinal because it includes several age groups.",
+            "The third is a case report because cohorts are observed at different times.",
+            "The first is cross-sectional, the second is longitudinal, and the third is a sequential design."
         ],
-        "answer": "cross-sectional",
-        "explanation": "Comparing age groups at one time is cross-sectional.",
-        "subject": "psychology-foundations"
+        "answer": "The first is cross-sectional, the second is longitudinal, and the third is a sequential design.",
+        "explanation": "Cross-sectional studies compare age groups at one time, longitudinal studies follow the same individuals, and sequential designs combine cohort and longitudinal comparisons.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "case_interpretation": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "numeric": false,
+        "professional_judgment": false,
+        "ethics_scope_application": false,
+        "research_method_application": true,
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Design",
+                    "Participants",
+                    "Observation schedule"
+                ],
+                "rows": [
+                    [
+                        "A",
+                        "ages 4, 8, 12",
+                        "each age measured once"
+                    ],
+                    [
+                        "B",
+                        "same children",
+                        "measured at ages 4, 8, 12"
+                    ],
+                    [
+                        "C",
+                        "two cohorts",
+                        "each cohort followed twice"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1079,
@@ -33764,17 +34027,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "medium",
-        "question": "The same children are assessed every two years from age 4 to 12. What design is this?",
+        "difficulty": "hard",
+        "question": "A longitudinal study reports higher vocabulary scores at each later wave, but one-third of the lowest-scoring children leave before the final wave. What threat must be considered?",
         "choices": [
-            "cross-sectional",
-            "longitudinal",
-            "case-control",
-            "naturalistic observation only"
+            "Attrition may make the apparent growth pattern look stronger than growth in the original sample.",
+            "Repeated measurement proves that age caused the change.",
+            "The missing children increase reliability automatically.",
+            "The final wave is cross-sectional because some participants left."
         ],
-        "answer": "longitudinal",
-        "explanation": "Repeated assessment of the same participants is longitudinal.",
-        "subject": "psychology-foundations"
+        "answer": "Attrition may make the apparent growth pattern look stronger than growth in the original sample.",
+        "explanation": "Selective attrition can change who remains in the sample. The later mean may overstate growth if lower-scoring participants are disproportionately lost.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "numeric": true,
+        "professional_judgment": false,
+        "ethics_scope_application": false,
+        "research_method_application": true
     },
     {
         "id": 1080,
@@ -33797,17 +34069,53 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "medium",
-        "question": "A child\u2019s temperament affects how caregivers respond, and those responses affect later behavior. What does this illustrate?",
+        "difficulty": "hard",
+        "question": "The table shows later social participation for children with different temperaments and caregiving responses. Which interpretation is best?",
         "choices": [
-            "fixed maturation only",
-            "person-environment interaction",
-            "genetic determinism",
-            "measurement invariance"
+            "Caregiving has exactly the same effect for every temperament.",
+            "The pattern is consistent with a person-environment interaction: temperament and caregiving jointly relate to the outcome.",
+            "Temperament alone determines later social participation.",
+            "The table proves that one caregiving style causes the outcome in every family."
         ],
-        "answer": "person-environment interaction",
-        "explanation": "Development can reflect reciprocal interaction between person and environment.",
-        "subject": "psychology-foundations"
+        "answer": "The pattern is consistent with a person-environment interaction: temperament and caregiving jointly relate to the outcome.",
+        "explanation": "The difference between supportive and controlling responses varies by temperament group, which is consistent with an interaction. The observational table does not establish a universal causal effect.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "numeric": true,
+        "professional_judgment": false,
+        "ethics_scope_application": false,
+        "research_method_application": true,
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Temperament",
+                    "Supportive care",
+                    "Controlling care"
+                ],
+                "rows": [
+                    [
+                        "Flexible",
+                        "82",
+                        "68"
+                    ],
+                    [
+                        "Cautious",
+                        "74",
+                        "70"
+                    ],
+                    [
+                        "Reactive",
+                        "79",
+                        "55"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1081,
@@ -33830,17 +34138,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "hard",
-        "question": "A young adult changes goals after caring for an ill parent. Which conclusion is most appropriate?",
+        "difficulty": "medium",
+        "question": "A young adult changes educational goals after becoming a caregiver for a parent, then resumes training when support becomes available. What conclusion is most defensible?",
         "choices": [
-            "adult development stops after adolescence",
-            "developmental pathways can be redirected by life experiences",
-            "one event determines personality permanently",
-            "social roles never affect identity"
+            "Adult development ends when a person leaves adolescence.",
+            "The caregiving event permanently determines identity.",
+            "Developmental pathways can be redirected by life events and resources without being fixed permanently by one event.",
+            "Social roles cannot affect development once traits are established."
         ],
-        "answer": "developmental pathways can be redirected by life experiences",
-        "explanation": "Life experiences can alter goals and developmental pathways.",
-        "subject": "psychology-foundations"
+        "answer": "Developmental pathways can be redirected by life events and resources without being fixed permanently by one event.",
+        "explanation": "The sequence illustrates changing pathways in response to life context and available support. It does not show that one event permanently fixes identity or ability.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false
     },
     {
         "id": 1082,
@@ -33863,17 +34180,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "easy",
-        "question": "A child performs well with prompts but not independently. What should an educator infer?",
+        "difficulty": "hard",
+        "question": "A child solves a puzzle after graduated prompts but not independently. Which assessment decision is most useful?",
         "choices": [
-            "the child has mastered the skill completely",
-            "prompts make measurement impossible",
-            "support may reveal emerging capability, but independent performance remains different",
-            "the child cannot learn"
+            "Report mastery because prompted performance is always equivalent to independent performance.",
+            "Discard the observation because support invalidates all assessment.",
+            "Conclude that the child cannot learn the task.",
+            "Record assisted and independent performance separately to distinguish current mastery from emerging capability."
         ],
-        "answer": "support may reveal emerging capability, but independent performance remains different",
-        "explanation": "Supported performance and independent mastery should be distinguished.",
-        "subject": "psychology-foundations"
+        "answer": "Record assisted and independent performance separately to distinguish current mastery from emerging capability.",
+        "explanation": "Assisted performance can reveal learning potential, while independent performance describes current unaided mastery. Reporting both preserves the distinction.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false
     },
     {
         "id": 1083,
@@ -33897,16 +34223,25 @@
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
         "difficulty": "medium",
-        "question": "A caregiver expects every child to reach milestones on the same birthday. What misconception is present?",
+        "question": "A caregiver expects every child to reach a milestone on the same birthday and interprets normal variation as failure. What should an assessor explain?",
         "choices": [
-            "development is viewed as lifelong",
-            "culture is considered important",
-            "developmental timing is treated as rigid rather than variable",
-            "individual differences are recognized"
+            "Developmental timing varies, so interpretation should use ranges, context, and functional evidence rather than one rigid date.",
+            "Milestones are irrelevant to development.",
+            "Every delay proves a disorder.",
+            "The caregiver\u2019s expectation is a valid norm for all children."
         ],
-        "answer": "developmental timing is treated as rigid rather than variable",
-        "explanation": "Milestones are guides; timing varies within broad developmental patterns.",
-        "subject": "psychology-foundations"
+        "answer": "Developmental timing varies, so interpretation should use ranges, context, and functional evidence rather than one rigid date.",
+        "explanation": "Developmental milestones are interpreted as patterns and ranges, with context and functioning considered. A single rigid date is not sufficient for a diagnosis.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": true,
+        "research_method_application": false
     },
     {
         "id": 1084,
@@ -33930,16 +34265,25 @@
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
         "difficulty": "medium",
-        "question": "A late adolescent\u2019s peer group changes while family values remain influential. What does this illustrate?",
+        "question": "An adolescent\u2019s goals reflect both peer feedback and continuing family values, with different choices in school and home settings. What does this pattern illustrate?",
         "choices": [
-            "peers replace all relationships",
-            "family influence ends at puberty",
-            "multiple social contexts contribute to development",
-            "identity is biologically fixed"
+            "Peers replace family influence completely during adolescence.",
+            "Multiple social contexts can contribute to development, and their influence may vary by setting.",
+            "Family values end at puberty.",
+            "Identity is fixed independently of social experience."
         ],
-        "answer": "multiple social contexts contribute to development",
-        "explanation": "Development reflects overlapping social contexts rather than one exclusive influence.",
-        "subject": "psychology-foundations"
+        "answer": "Multiple social contexts can contribute to development, and their influence may vary by setting.",
+        "explanation": "The pattern shows that peer and family contexts can both matter, with setting shaping which influence is visible. It does not support an all-or-none claim.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false
     },
     {
         "id": 1085,
@@ -33962,17 +34306,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "hard",
-        "question": "An older adult learns to use a new communication app after practice. Which principle applies?",
+        "difficulty": "easy",
+        "question": "An older adult initially struggles with a communication application but reaches the task criterion after structured practice. What principle is supported?",
         "choices": [
-            "development ends in adulthood",
-            "aging eliminates adaptation",
-            "plasticity and continued capacity for learning",
-            "technology determines cognition"
+            "Adult learning is impossible once processing slows.",
+            "Successful practice proves that all abilities remain unchanged with age.",
+            "Plasticity and continued capacity for learning can remain evident in later adulthood.",
+            "The result establishes a neurocognitive diagnosis."
         ],
-        "answer": "plasticity and continued capacity for learning",
-        "explanation": "Lifespan development includes continued learning and adaptation.",
-        "subject": "psychology-foundations"
+        "answer": "Plasticity and continued capacity for learning can remain evident in later adulthood.",
+        "explanation": "Improvement to a defined criterion after practice demonstrates learning in this task. It supports plasticity without implying that every ability is unchanged or that a diagnosis follows.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false
     },
     {
         "id": 1086,
@@ -33995,17 +34348,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "easy",
-        "question": "A child\u2019s behavior differs at home and school because expectations differ. What should assessment include?",
+        "difficulty": "medium",
+        "question": "A child follows classroom directions but becomes confused during a noisy home routine. What should an assessment include?",
         "choices": [
-            "only the most difficult setting",
-            "a diagnosis from one report",
-            "both contexts and the demands within each",
-            "the child\u2019s height alone"
+            "Only the setting with the poorer performance.",
+            "A diagnosis based on the home report alone.",
+            "No contextual information because behavior should be identical everywhere.",
+            "Both settings, their demands, and informant perspectives before concluding that a broad impairment is present."
         ],
-        "answer": "both contexts and the demands within each",
-        "explanation": "Contextual comparison prevents overgeneralizing from one setting.",
-        "subject": "psychology-foundations"
+        "answer": "Both settings, their demands, and informant perspectives before concluding that a broad impairment is present.",
+        "explanation": "Different demands can change observed performance. Comparing settings and informants helps distinguish context-specific difficulty from pervasive impairment.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false
     },
     {
         "id": 1087,
@@ -34701,16 +35063,25 @@
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
         "difficulty": "hard",
-        "question": "A client with mania makes risky financial decisions. What intervention principle applies?",
+        "question": "A client experiencing mania proposes selling essential assets to fund an impulsive venture. What is the most appropriate immediate assessment response?",
         "choices": [
-            "encourage more spending",
-            "argue about every idea",
-            "protect immediate safety and set clear, respectful limits",
-            "leave all decisions unaddressed"
+            "Assess immediate safety and decision-making risk, involve appropriate supports under consent and applicable protocol, and refer within scope.",
+            "Encourage the investment to respect autonomy without further assessment.",
+            "Argue until the client accepts the examiner\u2019s opinion.",
+            "Provide medication instructions without prescribing authority."
         ],
-        "answer": "protect immediate safety and set clear, respectful limits",
-        "explanation": "Risk reduction and clear limits are appropriate when judgment and activity are impaired.",
-        "subject": "psychology-foundations"
+        "answer": "Assess immediate safety and decision-making risk, involve appropriate supports under consent and applicable protocol, and refer within scope.",
+        "explanation": "Potentially harmful financial decisions require risk assessment, respectful limits, appropriate support, and referral. The response must remain within professional scope and applicable procedures.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": true,
+        "research_method_application": false
     },
     {
         "id": 1103,
@@ -34733,17 +35104,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "easy",
-        "question": "A client shows repetitive handwashing and recognizes it is excessive. Which feature is notable?",
+        "difficulty": "medium",
+        "question": "A client recognizes that repetitive washing is excessive but cannot stop despite distress and lost time. What conclusion is best supported?",
         "choices": [
-            "insight rules out distress",
-            "the behavior is always voluntary",
-            "insight may be present despite compulsive behavior",
-            "the client cannot be assessed"
+            "Insight rules out clinically significant impairment.",
+            "Insight can be present even when compulsive behavior remains impairing and warrants further assessment.",
+            "The behavior is voluntary because the client can describe it.",
+            "The score alone establishes a diagnosis."
         ],
-        "answer": "insight may be present despite compulsive behavior",
-        "explanation": "Awareness of excess does not eliminate the distress or impairment of compulsions.",
-        "subject": "psychology-foundations"
+        "answer": "Insight can be present even when compulsive behavior remains impairing and warrants further assessment.",
+        "explanation": "Awareness of excessiveness does not eliminate distress or functional impairment. The pattern supports further assessment, not a diagnosis from one feature alone.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false
     },
     {
         "id": 1104,
@@ -34767,16 +35147,56 @@
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
         "difficulty": "medium",
-        "question": "A teenager has irritability after a major family change but continues activities and improves with support. What should guide interpretation?",
+        "question": "The table summarizes a teenager\u2019s functioning after a major family change. What should guide interpretation?",
         "choices": [
-            "irritability alone",
-            "an adult diagnosis immediately",
-            "developmental context, duration, and functional change",
-            "the family\u2019s preferred label"
+            "Any irritability establishes a disorder.",
+            "Improvement means the initial distress was fabricated.",
+            "The short-lived irritability with preserved functioning calls for contextual monitoring rather than an immediate disorder conclusion.",
+            "The table alone determines treatment."
         ],
-        "answer": "developmental context, duration, and functional change",
-        "explanation": "Symptoms require context and course before diagnostic conclusions.",
-        "subject": "psychology-foundations"
+        "answer": "The short-lived irritability with preserved functioning calls for contextual monitoring rather than an immediate disorder conclusion.",
+        "explanation": "The symptom occurred in context, lasted briefly, and functioning remained largely intact. Duration, impairment, and additional evidence should guide interpretation.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "case_interpretation": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "numeric": true,
+        "professional_judgment": true,
+        "ethics_scope_application": true,
+        "research_method_application": false,
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Time",
+                    "Irritability",
+                    "School attendance",
+                    "Peer contact"
+                ],
+                "rows": [
+                    [
+                        "Week 1",
+                        "high",
+                        "full",
+                        "maintained"
+                    ],
+                    [
+                        "Week 3",
+                        "low",
+                        "full",
+                        "maintained"
+                    ],
+                    [
+                        "Week 6",
+                        "low",
+                        "full",
+                        "maintained"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1105,
@@ -34799,17 +35219,57 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "medium",
-        "question": "A client describes nightmares and startle responses after a disaster. What is a useful follow-up?",
+        "difficulty": "hard",
+        "question": "The symptom timeline below follows a client after a disaster. Which next step is most appropriate?",
         "choices": [
-            "promise that symptoms are harmless",
-            "avoid the topic",
-            "ask about duration, avoidance, functioning, and safety",
-            "diagnose from one nightmare"
+            "Diagnose immediately because nightmares are present.",
+            "Ignore the symptoms because they followed a real event.",
+            "Promise that the symptoms will resolve without monitoring.",
+            "Clarify duration, avoidance, functioning, safety, and available support before drawing a diagnostic conclusion."
         ],
-        "answer": "ask about duration, avoidance, functioning, and safety",
-        "explanation": "A trauma assessment considers several symptom dimensions and impact.",
-        "subject": "psychology-foundations"
+        "answer": "Clarify duration, avoidance, functioning, safety, and available support before drawing a diagnostic conclusion.",
+        "explanation": "Nightmares and startle responses require contextual assessment. The timeline supports asking about persistence, impairment, safety, and support, not an automatic diagnosis.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "numeric": true,
+        "professional_judgment": true,
+        "ethics_scope_application": true,
+        "research_method_application": false,
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Time after event",
+                    "Nightmares",
+                    "Startle",
+                    "Work attendance"
+                ],
+                "rows": [
+                    [
+                        "Day 3",
+                        "2",
+                        "high",
+                        "full"
+                    ],
+                    [
+                        "Week 3",
+                        "4",
+                        "high",
+                        "reduced"
+                    ],
+                    [
+                        "Month 3",
+                        "1",
+                        "moderate",
+                        "full"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1106,
@@ -34832,17 +35292,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "hard",
-        "question": "A client with anxiety asks whether avoiding all social contact will cure the fear. What is the best response?",
+        "difficulty": "medium",
+        "question": "A client with anxiety asks whether avoiding every social situation will remove fear. Which response is most appropriate?",
         "choices": [
-            "recommend permanent isolation",
-            "say fear is a choice",
-            "explore avoidance and connect the client with appropriate professional support",
-            "promise a cure"
+            "Explore the avoidance, assess impairment and safety, and connect the client with an appropriately qualified professional rather than promising a cure.",
+            "Recommend permanent isolation as the safest treatment.",
+            "Say fear is simply a voluntary choice.",
+            "Guarantee that one technique will eliminate the fear."
         ],
-        "answer": "explore avoidance and connect the client with appropriate professional support",
-        "explanation": "Avoidance can maintain impairment; support should be informed and professional.",
-        "subject": "psychology-foundations"
+        "answer": "Explore the avoidance, assess impairment and safety, and connect the client with an appropriately qualified professional rather than promising a cure.",
+        "explanation": "Avoidance can maintain difficulty, but assessment and treatment planning require context and qualified care. A psychometrician should not promise a cure or prescribe beyond scope.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": true,
+        "research_method_application": false
     },
     {
         "id": 1107,
@@ -34865,17 +35334,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "easy",
-        "question": "A client\u2019s unusual belief is shared by a cultural group. What should assessment consider?",
+        "difficulty": "hard",
+        "question": "A client\u2019s unusual belief is shared by the client\u2019s cultural and religious community and does not cause distress or impairment. What should the assessor do?",
         "choices": [
-            "the belief as abnormal automatically",
-            "only a test score",
-            "the assessor\u2019s personal values",
-            "cultural context before labeling the belief as psychopathology"
+            "Label any unusual belief abnormal regardless of context.",
+            "Consider cultural context, distress, and impairment before labeling the belief psychopathology.",
+            "Use the assessor\u2019s personal values as the diagnostic standard.",
+            "Ignore all contextual information because beliefs cannot be assessed."
         ],
-        "answer": "cultural context before labeling the belief as psychopathology",
-        "explanation": "Cultural context is essential to avoid misclassifying culturally shared beliefs.",
-        "subject": "psychology-foundations"
+        "answer": "Consider cultural context, distress, and impairment before labeling the belief psychopathology.",
+        "explanation": "Cultural context is essential. Unusualness alone does not establish psychopathology when the belief is shared and non-impairing in the relevant context.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": true,
+        "research_method_application": false
     },
     {
         "id": 1108,
@@ -34898,17 +35376,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "medium",
-        "question": "A client with substance use asks for help but fears judgment. Which response is appropriate?",
+        "difficulty": "hard",
+        "question": "A client discloses substance use and asks for help but fears being judged. What is the best first response within an assessment role?",
         "choices": [
-            "threaten punishment",
-            "promise secrecy from all care providers",
-            "dismiss the request",
-            "use nonjudgmental questions and discuss available support"
+            "Threaten punishment to force disclosure.",
+            "Promise secrecy from every provider under every circumstance.",
+            "Use nonjudgmental questions, clarify confidentiality limits, assess immediate safety, and connect the client with appropriate support.",
+            "Dismiss the request because substance use invalidates self-report."
         ],
-        "answer": "use nonjudgmental questions and discuss available support",
-        "explanation": "Nonjudgmental engagement improves assessment and access to appropriate help.",
-        "subject": "psychology-foundations"
+        "answer": "Use nonjudgmental questions, clarify confidentiality limits, assess immediate safety, and connect the client with appropriate support.",
+        "explanation": "A respectful response supports accurate information and safety while making confidentiality limits clear. Referral or coordination should follow competence and applicable procedures.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": true,
+        "research_method_application": false
     },
     {
         "id": 1109,
@@ -34931,17 +35418,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "medium",
-        "question": "A client has low mood after a medical diagnosis but remains engaged in care. What should be assessed?",
+        "difficulty": "hard",
+        "question": "A client reports low mood after receiving a serious medical diagnosis but remains engaged in care and maintains relationships. Which assessment is most appropriate?",
         "choices": [
-            "whether sadness is forbidden",
-            "a disorder based on one feeling",
-            "only sleep duration",
-            "the emotional response, coping, duration, and impairment"
+            "Assign a disorder from the low mood alone.",
+            "Ignore the medical context because mood scores are independent.",
+            "Conclude that maintained relationships disprove distress.",
+            "Examine the emotional response, duration, coping, and impairment before distinguishing an adjustment reaction from a broader disorder pattern."
         ],
-        "answer": "the emotional response, coping, duration, and impairment",
-        "explanation": "Adjustment and disorder require attention to course, context, and impairment.",
-        "subject": "psychology-foundations"
+        "answer": "Examine the emotional response, duration, coping, and impairment before distinguishing an adjustment reaction from a broader disorder pattern.",
+        "explanation": "Medical context, duration, coping, and impairment help determine what the score and report mean. One emotion does not establish or rule out a diagnosis.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": true,
+        "research_method_application": false
     },
     {
         "id": 1110,
@@ -34964,17 +35460,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "hard",
-        "question": "A client\u2019s report conflicts with family observations. What is the best next step?",
+        "difficulty": "medium",
+        "question": "A client\u2019s report conflicts with a family member\u2019s observation about daily functioning. What is the best next step?",
         "choices": [
-            "choose the loudest report",
-            "discard the client\u2019s account",
-            "diagnose immediately",
-            "clarify each perspective and gather additional information"
+            "Clarify each perspective, examine setting and timing, and gather additional information before making a broad conclusion.",
+            "Choose the report with the more severe description.",
+            "Discard the client\u2019s account because collateral reports are objective.",
+            "Diagnose immediately because disagreement proves denial."
         ],
-        "answer": "clarify each perspective and gather additional information",
-        "explanation": "Multiple perspectives should be clarified rather than treated as automatically true or false.",
-        "subject": "psychology-foundations"
+        "answer": "Clarify each perspective, examine setting and timing, and gather additional information before making a broad conclusion.",
+        "explanation": "Informant disagreement can reflect different settings, opportunities, or perspectives. It should guide further assessment rather than determine a diagnosis by itself.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false
     },
     {
         "id": 1111,
@@ -34997,17 +35502,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "question": "A client asks the practitioner to guarantee a diagnosis after one interview. What is the ethical response?",
         "choices": [
-            "provide certainty to reassure",
-            "use a label without evidence",
-            "refuse all future evaluation",
-            "explain the limits of one interview and the need for appropriate assessment"
+            "Provide certainty to reassure the client.",
+            "Explain the limits of one interview and the need for appropriate corroborating assessment before making a conclusion.",
+            "Use a diagnostic label without sufficient evidence.",
+            "Refuse all future evaluation so no error is possible."
         ],
-        "answer": "explain the limits of one interview and the need for appropriate assessment",
-        "explanation": "Professional interpretation must match the evidence available.",
-        "subject": "psychology-foundations"
+        "answer": "Explain the limits of one interview and the need for appropriate corroborating assessment before making a conclusion.",
+        "explanation": "A single interview may be informative but is not automatically sufficient for a diagnostic conclusion. Explaining limits supports informed, safe assessment.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": true,
+        "research_method_application": false
     },
     {
         "id": 1112,
@@ -35732,16 +36246,56 @@
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
         "difficulty": "hard",
-        "question": "Employees interpret a reorganization differently because leaders provide inconsistent messages. Which factor is affected?",
+        "question": "The table compares communication clarity, perceived role understanding, and turnover after a reorganization. Which interpretation is most defensible?",
         "choices": [
-            "test norms",
-            "motor learning",
-            "selection validity",
-            "organizational communication and change understanding"
+            "Turnover proves that communication caused every resignation.",
+            "High role understanding is irrelevant once turnover is observed.",
+            "The department with lower clarity and role understanding may need communication and change-support review; the table does not prove causation.",
+            "The department with more employees must have poorer communication."
         ],
-        "answer": "organizational communication and change understanding",
-        "explanation": "Consistent communication helps employees understand organizational change.",
-        "subject": "psychology-foundations"
+        "answer": "The department with lower clarity and role understanding may need communication and change-support review; the table does not prove causation.",
+        "explanation": "The pattern identifies a plausible organizational issue for follow-up. Cross-sectional department data can guide inquiry but do not prove that communication alone caused turnover.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "numeric": true,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": true,
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Department",
+                    "Clarity / 5",
+                    "Role understanding / 5",
+                    "Turnover"
+                ],
+                "rows": [
+                    [
+                        "A",
+                        "4.4",
+                        "4.2",
+                        "6%"
+                    ],
+                    [
+                        "B",
+                        "2.8",
+                        "3.0",
+                        "15%"
+                    ],
+                    [
+                        "C",
+                        "3.9",
+                        "3.7",
+                        "8%"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1128,
@@ -35764,17 +36318,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "easy",
-        "question": "A job applicant is asked about a disability unrelated to essential job functions. What concern arises?",
+        "difficulty": "hard",
+        "question": "A job applicant is asked about a disability that is unrelated to the essential functions of the job. What should an assessor flag?",
         "choices": [
-            "better construct validity",
-            "improved job analysis",
-            "normal recruitment",
-            "fairness, relevance, and ethical boundaries in selection"
+            "The question improves construct validity automatically.",
+            "The question is harmless because all applicants can be asked anything.",
+            "The applicant\u2019s answer proves job performance.",
+            "The question may create a fairness and relevance problem because it is not tied to essential job requirements or appropriate accommodation processes."
         ],
-        "answer": "fairness, relevance, and ethical boundaries in selection",
-        "explanation": "Selection questions should be relevant and ethically appropriate.",
-        "subject": "psychology-foundations"
+        "answer": "The question may create a fairness and relevance problem because it is not tied to essential job requirements or appropriate accommodation processes.",
+        "explanation": "Selection information should be job-related and handled through appropriate fairness and accommodation procedures. An unrelated disability question can create an ethical and legal concern.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": true,
+        "research_method_application": false
     },
     {
         "id": 1129,
@@ -35798,16 +36361,47 @@
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
         "difficulty": "medium",
-        "question": "A manager rewards speed even when quality falls. What performance-management problem is illustrated?",
+        "question": "The performance table shows that speed increased while quality declined after a new incentive. What should the organization examine?",
         "choices": [
-            "high intrinsic motivation",
-            "valid feedback",
-            "role clarity",
-            "the incentive criterion is misaligned with the desired outcome"
+            "The incentive criterion is misaligned with the desired outcome and should be evaluated using both speed and quality.",
+            "The incentive is successful because speed is the only valid criterion.",
+            "Quality decline proves that employees lack motivation.",
+            "The table proves the incentive caused every individual\u2019s decline."
         ],
-        "answer": "the incentive criterion is misaligned with the desired outcome",
-        "explanation": "Rewards can direct behavior toward an incomplete or distorted criterion.",
-        "subject": "psychology-foundations"
+        "answer": "The incentive criterion is misaligned with the desired outcome and should be evaluated using both speed and quality.",
+        "explanation": "The two indicators move in opposite directions, suggesting that rewarding speed alone may undermine quality. Further design and causal evaluation are needed.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "numeric": true,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": true,
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Period",
+                    "Units per hour",
+                    "Quality pass rate"
+                ],
+                "rows": [
+                    [
+                        "Before incentive",
+                        "18",
+                        "96%"
+                    ],
+                    [
+                        "After incentive",
+                        "25",
+                        "88%"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1130,
@@ -35830,17 +36424,54 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "medium",
-        "question": "An employee reports exhaustion, cynicism, and reduced effectiveness. Which work factor should be explored?",
+        "difficulty": "hard",
+        "question": "The table shows exhaustion, cynicism, workload, and recovery access for two teams. What is the best next step?",
         "choices": [
-            "test anxiety only",
-            "job title alone",
-            "personality certainty",
-            "occupational stress and available recovery/resources"
+            "Diagnose every employee in Team B from the mean scores.",
+            "Explore job demands, recovery resources, and organizational conditions before attributing the pattern to individual personality.",
+            "Ignore workload because only symptom scores matter.",
+            "Tell Team B to work faster to solve exhaustion."
         ],
-        "answer": "occupational stress and available recovery/resources",
-        "explanation": "The pattern warrants attention to work demands, recovery, and resources.",
-        "subject": "psychology-foundations"
+        "answer": "Explore job demands, recovery resources, and organizational conditions before attributing the pattern to individual personality.",
+        "explanation": "Team B shows higher exhaustion and cynicism alongside heavier workload and less recovery access. Organizational conditions should be examined before individualizing the problem or diagnosing from means.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": true,
+        "table_dependent": true,
+        "numeric": true,
+        "professional_judgment": true,
+        "ethics_scope_application": true,
+        "research_method_application": true,
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Team",
+                    "Exhaustion / 5",
+                    "Cynicism / 5",
+                    "Workload / 5",
+                    "Recovery access / 5"
+                ],
+                "rows": [
+                    [
+                        "A",
+                        "2.1",
+                        "1.8",
+                        "2.7",
+                        "4.0"
+                    ],
+                    [
+                        "B",
+                        "4.0",
+                        "3.7",
+                        "4.4",
+                        "2.1"
+                    ]
+                ]
+            }
+        ]
     },
     {
         "id": 1131,
@@ -35863,17 +36494,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "hard",
-        "question": "A new employee learns informal rules by observing experienced coworkers. What process is involved?",
+        "difficulty": "easy",
+        "question": "A new employee learns informal rules by observing experienced coworkers and receiving feedback from the team. Which process is illustrated?",
         "choices": [
-            "criterion contamination",
-            "projective assessment",
-            "random sampling",
-            "organizational socialization"
+            "Criterion contamination in a selection test.",
+            "Random sampling from a workforce.",
+            "Organizational socialization through observation, interaction, and feedback.",
+            "Projective interpretation of personality."
         ],
-        "answer": "organizational socialization",
-        "explanation": "Observation and participation can transmit informal organizational norms.",
-        "subject": "psychology-foundations"
+        "answer": "Organizational socialization through observation, interaction, and feedback.",
+        "explanation": "Learning shared norms and role expectations through interaction is organizational socialization. It is distinct from test validity or sampling.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false
     },
     {
         "id": 1132,
@@ -35897,16 +36537,25 @@
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
         "difficulty": "easy",
-        "question": "A supervisor rates everyone near the middle despite clear differences. Which appraisal error is likely?",
+        "question": "A supervisor\u2019s ratings cluster near the middle despite clear differences in observed performance. Which appraisal problem is most likely?",
         "choices": [
-            "central-tendency bias",
-            "halo effect only",
-            "criterion validity",
-            "randomization"
+            "Halo effect, which requires one global positive impression.",
+            "Criterion validity, which is an appraisal outcome rather than this response pattern.",
+            "Randomization, which would create equal ratings by design.",
+            "Central-tendency bias, which compresses ratings toward the middle."
         ],
-        "answer": "central-tendency bias",
-        "explanation": "Clustering ratings around the middle is central-tendency bias.",
-        "subject": "psychology-foundations"
+        "answer": "Central-tendency bias, which compresses ratings toward the middle.",
+        "explanation": "Avoiding high and low ratings and clustering near the midpoint is central-tendency bias. It can reduce the usefulness of performance distinctions.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false
     },
     {
         "id": 1133,
@@ -35930,16 +36579,25 @@
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
         "difficulty": "medium",
-        "question": "A performance rating is strongly influenced by one impressive recent project. Which error is likely?",
+        "question": "A supervisor\u2019s annual rating is dominated by one impressive project completed last month, although earlier work was mixed. Which error should be reviewed?",
         "choices": [
-            "recency or halo influence",
-            "job analysis",
-            "test-retest reliability",
-            "content sampling"
+            "Recency influence, possibly amplified by halo, because recent performance is receiving disproportionate weight.",
+            "Job analysis, because the supervisor observed the work.",
+            "Test-retest reliability, because ratings are not tests.",
+            "Content sampling, because all performance must be ignored."
         ],
-        "answer": "recency or halo influence",
-        "explanation": "One salient event can distort evaluation of broader performance.",
-        "subject": "psychology-foundations"
+        "answer": "Recency influence, possibly amplified by halo, because recent performance is receiving disproportionate weight.",
+        "explanation": "Recent events can disproportionately affect a summary rating. Reviewing performance across the full period and using anchored criteria can reduce recency influence.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false
     },
     {
         "id": 1134,
@@ -35963,16 +36621,25 @@
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
         "difficulty": "medium",
-        "question": "A company asks employees to complete a climate survey but never shares findings or actions. What risk follows?",
+        "question": "A company collects a climate survey but shares neither findings nor action plans. What product risk should the organization anticipate?",
         "choices": [
-            "reduced trust and participation in future feedback",
-            "increased procedural justice automatically",
-            "better validity by silence",
-            "higher role clarity"
+            "Automatically improved procedural justice because responses were collected.",
+            "Reduced trust and future participation because employees may view feedback as having no consequence.",
+            "Higher validity because silence prevents response bias.",
+            "Improved role clarity because no findings were discussed."
         ],
-        "answer": "reduced trust and participation in future feedback",
-        "explanation": "Feedback systems need credible follow-through to sustain trust.",
-        "subject": "psychology-foundations"
+        "answer": "Reduced trust and future participation because employees may view feedback as having no consequence.",
+        "explanation": "Feedback systems need credible follow-through. Without communication or action, employees may lose trust and be less willing to participate honestly in future surveys.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false
     },
     {
         "id": 1135,
@@ -35995,17 +36662,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "hard",
-        "question": "A training objective says employees will “understand safety” but gives no observable criterion. What should be improved?",
+        "difficulty": "medium",
+        "question": "A training objective says employees will \u201cunderstand safety\u201d but gives no observable criterion. What is the strongest improvement?",
         "choices": [
-            "state a measurable behavior or performance outcome",
-            "remove the training",
-            "use personality labels",
-            "measure attendance only"
+            "Measure attendance only because understanding cannot be assessed.",
+            "Replace the objective with a personality label.",
+            "Specify an observable behavior and performance standard that can be assessed after training.",
+            "Remove all performance criteria to avoid pressure."
         ],
-        "answer": "state a measurable behavior or performance outcome",
-        "explanation": "Observable outcomes make training design and evaluation clearer.",
-        "subject": "psychology-foundations"
+        "answer": "Specify an observable behavior and performance standard that can be assessed after training.",
+        "explanation": "An observable behavior and criterion make the objective measurable and connect training evaluation to the intended performance outcome.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false
     },
     {
         "id": 1136,
@@ -36028,17 +36704,26 @@
         "notHelpfulExplanation": 0,
         "createdAt": "2026-09-01T14:36:31+00:00",
         "updatedAt": "2026-09-01T14:36:31+00:00",
-        "difficulty": "easy",
-        "question": "A manager resolves conflict by inviting each member to describe interests and constraints. Which approach is shown?",
+        "difficulty": "medium",
+        "question": "A manager resolves a team conflict by asking each member to describe interests, constraints, and acceptable options before agreeing on a plan. Which approach is illustrated?",
         "choices": [
-            "collaborative conflict management",
-            "avoidance",
-            "forced competition",
-            "personal diagnosis"
+            "Avoidance, because the conflict is discussed.",
+            "Forced competition, because options are compared.",
+            "Personal diagnosis, because the manager asks about constraints.",
+            "Collaborative conflict management that seeks a workable solution through shared information."
         ],
-        "answer": "collaborative conflict management",
-        "explanation": "Exploring interests and constraints supports collaborative problem solving.",
-        "subject": "psychology-foundations"
+        "answer": "Collaborative conflict management that seeks a workable solution through shared information.",
+        "explanation": "The manager is gathering perspectives and jointly constructing a solution. That is collaborative problem solving, not avoidance, competition, or diagnosis.",
+        "subject": "psychology-foundations",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "case_interpretation": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "numeric": false,
+        "professional_judgment": true,
+        "ethics_scope_application": false,
+        "research_method_application": false
     },
     {
         "id": 1137,
