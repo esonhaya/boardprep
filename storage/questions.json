@@ -54559,8 +54559,8 @@
         "difficulty": "easy",
         "question": "A feeder model gives 2x + y = 11 and x − y = 1, where x and y are branch currents in amperes. What is x?",
         "choices": [
-            "3 A",
             "4 A",
+            "3 A",
             "5 A",
             "6 A"
         ],
@@ -54600,8 +54600,8 @@
         "difficulty": "easy",
         "question": "A panel has 6 indicators drawing 0.35 A each plus a 1.2 A controller. What supply current is required before a design margin?",
         "choices": [
-            "2.10 A",
             "3.30 A",
+            "2.10 A",
             "4.13 A",
             "5.25 A"
         ],
@@ -54643,8 +54643,8 @@
         "choices": [
             "17",
             "20",
-            "23",
-            "26"
+            "26",
+            "23"
         ],
         "answer": "23",
         "explanation": "First x=7. Then y=3(7)+2=23.",
@@ -54682,8 +54682,8 @@
         "difficulty": "medium",
         "question": "A protection setting satisfies R+2S=18 and 3R−S=5. Which pair satisfies both?",
         "choices": [
-            "R=2,S=8",
             "R=4,S=7",
+            "R=2,S=8",
             "R=5,S=6.5",
             "R=6,S=6"
         ],
@@ -54725,8 +54725,8 @@
         "choices": [
             "3.5 units",
             "4.0 units",
-            "5.0 units",
-            "6.875 units"
+            "6.875 units",
+            "5.0 units"
         ],
         "answer": "5.0 units",
         "explanation": "Solve 5.5=0.8x+1.5. The remaining 4.0 V gives x=5.0 units.",
@@ -54766,8 +54766,8 @@
         "choices": [
             "1",
             "2",
-            "3",
-            "6"
+            "6",
+            "3"
         ],
         "answer": "3",
         "explanation": "The derivative is 2x−6. Setting it to zero gives x=3; the positive second derivative confirms a minimum.",
@@ -54846,8 +54846,8 @@
         "difficulty": "hard",
         "question": "What is the product (2+j3)(4−j)?",
         "choices": [
-            "5+j10",
             "11+j10",
+            "5+j10",
             "11−j10",
             "8+j12"
         ],
@@ -54887,8 +54887,8 @@
         "difficulty": "hard",
         "question": "A phasor has magnitude 10 and angle 30°. Which rectangular form is closest?",
         "choices": [
-            "5.00+j8.66",
             "8.66+j5.00",
+            "5.00+j8.66",
             "10.00+j30.00",
             "8.66−j5.00"
         ],
@@ -54928,8 +54928,8 @@
         "difficulty": "hard",
         "question": "The impedance of a load is 6+j8 Ω. What are its magnitude and angle?",
         "choices": [
-            "8 Ω,36.9°",
             "10 Ω,53.1°",
+            "8 Ω,36.9°",
             "14 Ω,45°",
             "10 Ω,36.9°"
         ],
@@ -54970,9 +54970,9 @@
         "question": "A transfer factor 2∠20° is multiplied by 5∠−50°. What is the result?",
         "choices": [
             "7∠−30°",
-            "10∠−30°",
             "10∠70°",
-            "3∠−30°"
+            "3∠−30°",
+            "10∠−30°"
         ],
         "answer": "10∠−30°",
         "explanation": "Magnitudes multiply and angles add: 2×5=10 and 20°−50°=−30°.",
@@ -55012,8 +55012,8 @@
         "choices": [
             "I,45°",
             "II,135°",
-            "III,−135°",
-            "IV,−45°"
+            "IV,−45°",
+            "III,−135°"
         ],
         "answer": "III,−135°",
         "explanation": "Both components are negative, so it is in quadrant III; atan2 gives −135°.",
@@ -55088,8 +55088,8 @@
         "choices": [
             "8 m\/s",
             "12 m\/s",
-            "14 m\/s",
-            "16 m\/s"
+            "16 m\/s",
+            "14 m\/s"
         ],
         "answer": "14 m\/s",
         "explanation": "v=ds\/dt=6t+2; at t=2, v=14 m\/s.",
@@ -55129,8 +55129,8 @@
         "choices": [
             "6 C",
             "12 C",
-            "18 C",
-            "36 C"
+            "36 C",
+            "18 C"
         ],
         "answer": "18 C",
         "explanation": "q=∫₀³4t dt=2t²|₀³=18 C.",
@@ -55169,9 +55169,9 @@
         "question": "An RC circuit has R=2 kΩ and C=5 μF. What is its time constant?",
         "choices": [
             "0.001 s",
-            "0.010 s",
             "0.100 s",
-            "10 s"
+            "10 s",
+            "0.010 s"
         ],
         "answer": "0.010 s",
         "explanation": "τ=RC=(2000)(5×10⁻⁶)=0.010 s.",
@@ -56067,8 +56067,8 @@
         "choices": [
             "5 N",
             "12 N",
-            "20 N",
-            "40 N"
+            "40 N",
+            "20 N"
         ],
         "answer": "20 N",
         "explanation": "Newton's second law gives F=ma=20 N.",
@@ -56106,8 +56106,8 @@
         "difficulty": "hard",
         "question": "A 100 N force acts 2 m from a pivot. What opposing force at 4 m balances the moment?",
         "choices": [
-            "25 N",
             "50 N",
+            "25 N",
             "100 N",
             "200 N"
         ],
@@ -56149,8 +56149,8 @@
         "choices": [
             "10 MPa",
             "50 MPa",
-            "100 MPa",
-            "400 MPa"
+            "400 MPa",
+            "100 MPa"
         ],
         "answer": "100 MPa",
         "explanation": "Stress=F\/A=100 MPa.",
@@ -56188,8 +56188,8 @@
         "difficulty": "hard",
         "question": "A 0.6 mm extension occurs over a 300 mm gauge length. What is the strain?",
         "choices": [
-            "0.0002",
             "0.002",
+            "0.0002",
             "0.02",
             "2"
         ],
@@ -56231,8 +56231,8 @@
         "choices": [
             "0.12 mm",
             "0.60 mm",
-            "1.20 mm",
-            "12.0 mm"
+            "12.0 mm",
+            "1.20 mm"
         ],
         "answer": "1.20 mm",
         "explanation": "ΔL=αLΔT=1.20 mm.",
@@ -56272,8 +56272,8 @@
         "choices": [
             "4.18 kJ",
             "20.9 kJ",
-            "41.8 kJ",
-            "83.6 kJ"
+            "83.6 kJ",
+            "41.8 kJ"
         ],
         "answer": "41.8 kJ",
         "explanation": "Q=mcΔT=41.8 kJ.",
@@ -56313,8 +56313,8 @@
         "choices": [
             "48 W",
             "240 W",
-            "480 W",
-            "960 W"
+            "960 W",
+            "480 W"
         ],
         "answer": "480 W",
         "explanation": "Q̇=kAΔT\/L=480 W.",
@@ -56393,8 +56393,8 @@
         "difficulty": "medium",
         "question": "What gauge pressure is produced by 5 m of water with ρ=1000 kg\/m³ and g=9.81 m\/s²?",
         "choices": [
-            "4.905 kPa",
             "49.05 kPa",
+            "4.905 kPa",
             "98.1 kPa",
             "490.5 kPa"
         ],
@@ -56436,8 +56436,8 @@
         "choices": [
             "19.6 N",
             "98.1 N",
-            "196.2 N",
-            "1,962 N"
+            "1,962 N",
+            "196.2 N"
         ],
         "answer": "196.2 N",
         "explanation": "F_b=ρgV=196.2 N.",
@@ -56475,8 +56475,8 @@
         "difficulty": "medium",
         "question": "A silicon diode drops 0.7 V from a 12 V source through 1 kΩ. What current flows?",
         "choices": [
-            "0.70 mA",
             "11.3 mA",
+            "0.70 mA",
             "12.0 mA",
             "17.1 mA"
         ],
@@ -56557,8 +56557,8 @@
         "difficulty": "hard",
         "question": "What is the −3 dB cutoff of an RC filter with R=1 kΩ and C=0.1 μF?",
         "choices": [
-            "159 Hz",
             "1,592 Hz",
+            "159 Hz",
             "15.9 kHz",
             "159 kHz"
         ],
@@ -56639,8 +56639,8 @@
         "difficulty": "easy",
         "question": "A 12-bit ADC spans 0 to 5 V. What is one least-significant-bit voltage step?",
         "choices": [
-            "0.122 mV",
             "1.22 mV",
+            "0.122 mV",
             "12.2 mV",
             "20.0 mV"
         ],
@@ -56739,9 +56739,9 @@
         "question": "A 12 V reading has ±0.1 V uncertainty and a 2 A reading has ±0.02 A uncertainty. What is approximate worst-case relative uncertainty in V\/I?",
         "choices": [
             "0.17%",
-            "1.83%",
             "2.17%",
-            "10.0%"
+            "10.0%",
+            "1.83%"
         ],
         "answer": "1.83%",
         "explanation": "Add relative uncertainties: 0.1\/12+0.02\/2≈1.83%.",
@@ -56821,9 +56821,9 @@
         "question": "A logger records 20°C→1.0 V, 40°C→2.2 V, and 60°C→3.6 V. Which conclusion is supported?",
         "choices": [
             "Sensitivity is constant at 0.04 V\/°C",
-            "The response is nonlinear across the range",
             "The sensor has zero output at 0°C",
-            "The 40°C point must be discarded"
+            "The 40°C point must be discarded",
+            "The response is nonlinear across the range"
         ],
         "answer": "The response is nonlinear across the range",
         "explanation": "Successive slopes are 0.06 and 0.07 V\/°C, so the response is nonlinear.",
@@ -57595,8 +57595,8 @@
         "choices": [
             "5 V",
             "10 V",
-            "20 V",
-            "40 V"
+            "40 V",
+            "20 V"
         ],
         "answer": "20 V",
         "explanation": "The series resistance is 10 Ω; V=IR=20 V.",
@@ -57640,8 +57640,8 @@
         "difficulty": "medium",
         "question": "What is the equivalent resistance of 6 Ω in parallel with 3 Ω?",
         "choices": [
-            "1 Ω",
             "2 Ω",
+            "1 Ω",
             "4.5 Ω",
             "9 Ω"
         ],
@@ -57683,8 +57683,8 @@
         "choices": [
             "4 A",
             "6 A",
-            "8 A",
-            "10 A"
+            "10 A",
+            "8 A"
         ],
         "answer": "8 A",
         "explanation": "Current divides inversely with resistance: I₂Ω=12(4\/(2+4))=8 A.",
@@ -57722,8 +57722,8 @@
         "difficulty": "medium",
         "question": "A Thevenin source has V_th=12 V and R_th=6 Ω. What load gives maximum power transfer?",
         "choices": [
-            "2 Ω",
             "6 Ω",
+            "2 Ω",
             "12 Ω",
             "18 Ω"
         ],
@@ -57765,8 +57765,8 @@
         "choices": [
             "1 W",
             "3 W",
-            "6 W",
-            "12 W"
+            "12 W",
+            "6 W"
         ],
         "answer": "6 W",
         "explanation": "The load current is 1 A; P_L=I²R_L=6 W.",
@@ -57804,8 +57804,8 @@
         "difficulty": "hard",
         "question": "A 24 V source feeds a 2 Ω load through 0.5 Ω source resistance. What load current results?",
         "choices": [
-            "4.8 A",
             "9.6 A",
+            "4.8 A",
             "12 A",
             "48 A"
         ],
@@ -57847,8 +57847,8 @@
         "choices": [
             "0.5 A",
             "1.0 A",
-            "1.5 A",
-            "3.5 A"
+            "3.5 A",
+            "1.5 A"
         ],
         "answer": "1.5 A",
         "explanation": "KCL requires 2+1.5+I=5, so I=1.5 A.",
@@ -57935,8 +57935,8 @@
         "choices": [
             "0.113 A",
             "1.13 A",
-            "2.26 A",
-            "4.52 A"
+            "4.52 A",
+            "2.26 A"
         ],
         "answer": "2.26 A",
         "explanation": "I=ωCV=2.26 A.",
@@ -57976,8 +57976,8 @@
         "choices": [
             "12.0 V",
             "37.7 V",
-            "75.4 V",
-            "120 V"
+            "120 V",
+            "75.4 V"
         ],
         "answer": "75.4 V",
         "explanation": "X_L=37.7 Ω; V=X_LI=75.4 V.",
@@ -58015,8 +58015,8 @@
         "difficulty": "medium",
         "question": "A load consumes 4 kW at 5 kVA. What power-factor magnitude is indicated?",
         "choices": [
-            "0.20",
             "0.80",
+            "0.20",
             "1.25",
             "5.00"
         ],
@@ -58052,8 +58052,8 @@
         "choices": [
             "1.15 kvar",
             "3.85 kvar",
-            "6.92 kvar",
-            "10.00 kvar"
+            "10.00 kvar",
+            "6.92 kvar"
         ],
         "answer": "6.92 kvar",
         "explanation": "Q_c=P[tan(cos⁻¹0.70)−tan(cos⁻¹0.95)]≈6.92 kvar.",
@@ -58091,8 +58091,8 @@
         "difficulty": "medium",
         "question": "A balanced three-phase load draws 10 A at 400 V line-to-line and pf=0.8. What real power is consumed?",
         "choices": [
-            "3.20 kW",
             "5.54 kW",
+            "3.20 kW",
             "8.00 kW",
             "9.60 kW"
         ],
@@ -58132,8 +58132,8 @@
         "difficulty": "medium",
         "question": "A balanced 15 kW three-phase load operates at 415 V line-to-line and pf=0.9. What line current is required?",
         "choices": [
-            "15.0 A",
             "23.2 A",
+            "15.0 A",
             "39.8 A",
             "58.6 A"
         ],
@@ -58215,9 +58215,9 @@
         "question": "A 415 V line-to-line wye system has what phase-to-neutral voltage magnitude?",
         "choices": [
             "138.3 V",
-            "239.6 V",
             "415 V",
-            "718.8 V"
+            "718.8 V",
+            "239.6 V"
         ],
         "answer": "239.6 V",
         "explanation": "For balanced wye, V_phase=V_L\/√3≈239.6 V.",
@@ -58256,9 +58256,9 @@
         "question": "A 230 V rms source supplies 10 A at a 30° lagging current angle. What is real power?",
         "choices": [
             "1,150 W",
-            "1,992 W",
             "2,300 W",
-            "3,980 W"
+            "3,980 W",
+            "1,992 W"
         ],
         "answer": "1,992 W",
         "explanation": "P=VIcos30°=1,992 W.",
@@ -58339,8 +58339,8 @@
         "choices": [
             "0.1",
             "1",
-            "10",
-            "100"
+            "100",
+            "10"
         ],
         "answer": "10",
         "explanation": "The ideal turns ratio equals the voltage ratio: 1200\/120=10.",
