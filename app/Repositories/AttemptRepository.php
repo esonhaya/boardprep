@@ -24,6 +24,21 @@ class AttemptRepository extends BaseRepository
         ]);
     }
 
+    public function findForLearner(
+        string $attemptId,
+        string $learnerId
+    ): ?array {
+        $attempt = $this->find($attemptId);
+
+        if ($attempt === null
+            || !is_scalar($attempt['user_id'] ?? null)
+            || (string) $attempt['user_id'] !== $learnerId) {
+            return null;
+        }
+
+        return $attempt;
+    }
+
     public function byMode(
         string $mode
     ): array {

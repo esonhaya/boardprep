@@ -22,7 +22,7 @@ final class QuizResultAttemptFactory
     ): array {
         $questionSet = AttemptQuestionSet::fromQuestions($questions);
 
-        return AttemptRecordFactory::create(
+        $attempt = AttemptRecordFactory::create(
             AttemptSessionContext::fromSession($session),
             $questionSet,
             AttemptScoreSummary::fromSummary(
@@ -30,5 +30,14 @@ final class QuizResultAttemptFactory
                 $questionSet["question_count"]
             )
         );
+
+        $attempt['review'] = is_array($summary['results'] ?? null)
+            ? array_values(array_filter(
+                $summary['results'],
+                static fn (mixed $result): bool => is_array($result)
+            ))
+            : [];
+
+        return $attempt;
     }
 }

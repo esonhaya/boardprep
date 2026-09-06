@@ -22,7 +22,18 @@ $session = [
 $attempt = QuizResultAttemptFactory::create(
     $session,
     [["id" => 1], ["id" => 2]],
-    ["score" => 4, "total" => 5, "percentage" => 80, "results" => []]
+    [
+        "score" => 4,
+        "total" => 5,
+        "percentage" => 80,
+        "results" => [
+            [
+                "question" => ["id" => "q1"],
+                "userAnswer" => "A",
+                "correct" => true,
+            ],
+        ],
+    ]
 );
 
 assert(str_starts_with($attempt["id"], "attempt-"));
@@ -33,5 +44,7 @@ assert($attempt["question_count"] === 2);
 assert($attempt["score"] === 4);
 assert((float) $attempt["percentage"] === 80.0);
 assert($attempt["completed"] === true);
+assert(count($attempt["review"]) === 1);
+assert($attempt["review"][0]["question"]["id"] === "q1");
 
 echo "[PASS] QuizResultAttemptFactory assertions verified.\n";

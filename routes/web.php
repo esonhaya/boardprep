@@ -57,6 +57,11 @@ $router->get(
 );
 
 $router->get(
+    "/history/result",
+    [HistoryController::class, "result"]
+);
+
+$router->get(
     "/quiz",
     [QuizFlowController::class, "handle"]
 );

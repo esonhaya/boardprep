@@ -3,10 +3,14 @@
 $summary = $summary ?? [];
 $review = $review ?? [];
 $actions = $actions ?? [];
+$historical = ($historical ?? false) === true;
+$completedAt = is_string($completedAt ?? null) ? $completedAt : null;
+$historicalContext = is_array($historicalContext ?? null) ? $historicalContext : [];
+$reviewUnavailable = ($reviewUnavailable ?? false) === true;
 
 ?>
 
-<section class="page-header"><div><h1>Quiz Result</h1><p>Review what you know and choose your next useful step.</p></div></section>
+<section class="page-header"><div><h1><?= $historical ? 'Historical Quiz Result' : 'Quiz Result' ?></h1><p>Review what you know and choose your next useful step.</p><?php if ($historical): ?><p class="muted-note"><?php $context = array_values(array_filter([(string) ($historicalContext['board'] ?? ''), (string) ($historicalContext['subject'] ?? ''), (string) ($historicalContext['mode'] ?? '')])); ?><?= htmlspecialchars(implode(' · ', $context)) ?><?php if ($completedAt !== null): ?> · Completed <?= htmlspecialchars(\App\Support\Presentation\UiFormatter::formatDateTime($completedAt)) ?><?php endif; ?></p><?php endif; ?></div></section>
 
 <div class="result-summary">
     <h2>
@@ -40,9 +44,10 @@ $actions = $actions ?? [];
 </section>
 <?php endif; ?>
 
-<h2>
-    Answer Review
-</h2>
+<?php if ($reviewUnavailable): ?>
+<div class="empty-state"><h2>Detailed review is unavailable</h2><p>This attempt's score is preserved, but its question-by-question details were not saved.</p><p><a class="button button-outline" href="/history">Back to History</a></p></div>
+<?php else: ?>
+<h2>Answer Review</h2>
 
 <?php foreach ($review as $index => $item): ?>
 <article class="question-review <?= !empty($item["correct"]) ? "is-correct" : "is-incorrect" ?>">
@@ -92,3 +97,4 @@ $actions = $actions ?? [];
 
 <hr>
 <?php endforeach; ?>
+<?php endif; ?>

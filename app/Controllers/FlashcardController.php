@@ -9,6 +9,7 @@ use App\Core\Request;
 use App\Core\Response;
 use App\Core\View;
 use App\Services\Flashcard\FlashcardService;
+use App\Services\Quiz\HistoricalQuizResultService;
 use App\Services\Quiz\Result\QuizAnswerStatisticsPlan;
 use App\Services\Shared\CsrfTokenService;
 use App\Services\Shared\TaxonomyStorageService;
@@ -132,32 +133,49 @@ final class FlashcardController
 
     public static function missed(): void
     {
-        $result = \QuizResultSessionReader::read();
-        if (!\SessionService::has('attempt_persisted') || $result['questions'] === []) {
-            \SessionService::flash('error', 'That quiz result is unavailable or expired.');
-            Response::redirect('/quiz?action=result', 303);
+        $historicalAttemptId = Request::query('attempt_id');
+        $historicalResult = is_scalar($historicalAttemptId)
+            ? HistoricalQuizResultService::findForLearner((string) $historicalAttemptId)
+            : null;
+
+        if ($historicalAttemptId !== null) {
+            if ($historicalResult === null) {
+                \SessionService::flash('error', 'That quiz result is unavailable or no longer belongs to this learner.');
+                Response::redirect('/history', 303);
+            }
+            $missed = HistoricalQuizResultService::missedQuestionIds(
+                $historicalResult['review']
+            );
+            $quizSessionId = 'historical-' . $historicalResult['attempt']['id'];
+        } else {
+            $result = \QuizResultSessionReader::read();
+            if (!\SessionService::has('attempt_persisted') || $result['questions'] === []) {
+                \SessionService::flash('error', 'That quiz result is unavailable or expired.');
+                Response::redirect('/quiz?action=result', 303);
+            }
+
+            $plan = QuizAnswerStatisticsPlan::build($result['questions'], $result['answers']);
+            $missed = [];
+            foreach ($plan as $entry) {
+                if (($entry['correct'] ?? null) === false) {
+                    $missed[] = (string) ($entry['question_id'] ?? '');
+                }
+            }
+            $missed = array_values(array_filter($missed));
+            $quizSession = $result['session'];
+            $quizSessionId = is_scalar($quizSession['id'] ?? null)
+                ? trim((string) $quizSession['id'])
+                : '';
         }
 
-        $plan = QuizAnswerStatisticsPlan::build($result['questions'], $result['answers']);
-        $missed = [];
-        foreach ($plan as $entry) {
-            if (($entry['correct'] ?? null) === false) {
-                $missed[] = (string) ($entry['question_id'] ?? '');
-            }
-        }
-        $missed = array_values(array_filter($missed));
         if ($missed === []) {
             \SessionService::flash('info', 'There are no missed eligible concepts in this quiz.');
-            Response::redirect('/quiz?action=result', 303);
+            Response::redirect($historicalAttemptId !== null ? '/history' : '/quiz?action=result', 303);
         }
 
-        $quizSession = $result['session'];
-        $quizSessionId = is_scalar($quizSession['id'] ?? null)
-            ? trim((string) $quizSession['id'])
-            : '';
         if ($quizSessionId === '') {
             \SessionService::flash('error', 'That quiz result is unavailable or expired.');
-            Response::redirect('/quiz?action=result', 303);
+            Response::redirect($historicalAttemptId !== null ? '/history' : '/quiz?action=result', 303);
         }
 
         \SessionService::set('flashcard_missed_scope', [
