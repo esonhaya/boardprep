@@ -1,190 +1,98 @@
-function updateDifficulty(changed)
-{
+const DIFFICULTIES = ["easy", "medium", "hard"];
 
-    let values = {
-
-        easy:
-            Number(
-                document.getElementById("easy").value
-            ),
-
-        medium:
-            Number(
-                document.getElementById("medium").value
-            ),
-
-        hard:
-            Number(
-                document.getElementById("hard").value
-            )
-
-    };
-
-
-    let total =
-        values.easy +
-        values.medium +
-        values.hard;
-
-
-    if(total > 100)
-    {
-
-        let excess =
-            total - 100;
-
-
-        let others =
-        [
-            "easy",
-            "medium",
-            "hard"
-        ]
-        .filter(
-            item => item !== changed
-        );
-
-
-        for(
-            let item of others
-        )
-        {
-
-            let reduce =
-                Math.min(
-                    values[item],
-                    excess
-                );
-
-
-            values[item] -= reduce;
-
-            excess -= reduce;
-
-
-            if(excess <= 0)
-            {
-                break;
-            }
-
-        }
-
-    }
-
-
-    for(
-        let key in values
-    )
-    {
-
-        document.getElementById(key).value =
-            values[key];
-
-
-        document.getElementById(key + "Input").value =
-            values[key];
-
-    }
-
-
-    document.getElementById("easyValue").innerHTML =
-        values.easy;
-
-
-    document.getElementById("mediumValue").innerHTML =
-        values.medium;
-
-
-    document.getElementById("hardValue").innerHTML =
-        values.hard;
-
-
-    let finalTotal =
-        values.easy +
-        values.medium +
-        values.hard;
-
-
-    document.getElementById("total").innerHTML =
-        finalTotal;
-
-
-    document.getElementById("status").innerHTML =
-        finalTotal === 100
-        ? "✅"
-        : "❌";
-
-
-    document.getElementById("submitButton").disabled =
-        finalTotal !== 100;
-
+function wholeNumber(value) {
+    const text = String(value).trim();
+    return /^\+?\d+$/.test(text) ? Number(text) : null;
 }
 
+function largestRemainder(total, weights, keys) {
+    const weightTotal = weights.reduce((sum, value) => sum + value, 0);
+    const result = {};
+    const remainders = [];
+    let allocated = 0;
 
+    keys.forEach((key, index) => {
+        const exact = weightTotal > 0
+            ? total * weights[index] / weightTotal
+            : total / keys.length;
+        const whole = Math.floor(exact);
+        result[key] = whole;
+        remainders.push({key, remainder: exact - whole, index});
+        allocated += whole;
+    });
 
-[
-    "easy",
-    "medium",
-    "hard"
+    remainders.sort((left, right) =>
+        right.remainder - left.remainder || left.index - right.index
+    );
+    for (let index = 0; index < total - allocated; index += 1) {
+        result[remainders[index].key] += 1;
+    }
+    return result;
+}
 
-]
-.forEach(
-function(id)
-{
-
-    document
-    .getElementById(id)
-    .addEventListener(
-        "input",
-        function()
-        {
-
-            updateDifficulty(id);
-
-        }
+function redistribute(values, changed) {
+    const others = DIFFICULTIES.filter(item => item !== changed);
+    const remaining = 100 - values[changed];
+    const redistributed = largestRemainder(
+        remaining,
+        others.map(item => values[item]),
+        others
     );
 
-});
+    others.forEach(item => {
+        values[item] = redistributed[item];
+    });
+    return values;
+}
 
+function renderDifficulty(values) {
+    DIFFICULTIES.forEach(key => {
+        document.getElementById(key).value = values[key];
+        document.getElementById(key + "Input").value = values[key];
+        document.getElementById(key + "Value").textContent = values[key];
+        document.getElementById(key).setAttribute("aria-valuenow", values[key]);
+        document.getElementById(key + "Input").setAttribute("aria-invalid", "false");
+    });
 
+    document.getElementById("total").textContent = 100;
+    document.getElementById("status").textContent = "Valid allocation.";
+    document.getElementById("status").className = "form-help";
+    document.getElementById("submitButton").disabled = false;
+}
 
-[
-    "easyInput",
-    "mediumInput",
-    "hardInput"
+function renderInvalid(changed, message) {
+    const input = document.getElementById(changed + "Input");
+    input.setAttribute("aria-invalid", "true");
+    document.getElementById("status").textContent = message;
+    document.getElementById("status").className = "form-error";
+    document.getElementById("submitButton").disabled = true;
+}
 
-]
-.forEach(
-function(id)
-{
+function updateDifficulty(changed, source = "slider") {
+    const raw = source === "number"
+        ? document.getElementById(changed + "Input").value
+        : document.getElementById(changed).value;
+    const requested = wholeNumber(raw);
 
-    document
-    .getElementById(id)
-    .addEventListener(
+    if (requested === null || requested < 0 || requested > 100) {
+        renderInvalid(changed, "Enter a whole number from 0 to 100.");
+        return;
+    }
+
+    const values = {};
+    DIFFICULTIES.forEach(key => {
+        values[key] = wholeNumber(document.getElementById(key).value) ?? 0;
+    });
+    values[changed] = requested;
+    renderDifficulty(redistribute(values, changed));
+}
+
+DIFFICULTIES.forEach(id => {
+    document.getElementById(id).addEventListener("input", () => updateDifficulty(id));
+    document.getElementById(id + "Input").addEventListener(
         "input",
-        function()
-        {
-
-            let slider =
-                id.replace(
-                    "Input",
-                    ""
-                );
-
-
-            document
-            .getElementById(slider)
-            .value =
-                this.value;
-
-
-            updateDifficulty(slider);
-
-        }
+        () => updateDifficulty(id, "number")
     );
-
 });
-
-
 
 updateDifficulty("easy");

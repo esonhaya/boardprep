@@ -21,6 +21,15 @@
 
 <?php endif; ?>
 
+<?php
+$old = is_array($old ?? null) ? $old : [];
+$difficulty = [
+    'easy' => $old['easy'] ?? 40,
+    'medium' => $old['medium'] ?? 50,
+    'hard' => $old['hard'] ?? 10,
+];
+?>
+
 
 <form method="POST" action="/blueprints/save">
 
@@ -37,6 +46,7 @@ Board
 
 <option
 value="<?= htmlspecialchars($board["id"]) ?>"
+<?= (($old['board'] ?? '') === ($board['id'] ?? '')) ? 'selected' : '' ?>
 >
 
 <?= htmlspecialchars($board["name"]) ?>
@@ -64,6 +74,7 @@ Subject
 
 <option
 value="<?= htmlspecialchars($subject["id"]) ?>"
+<?= (($old['subject'] ?? '') === ($subject['id'] ?? '')) ? 'selected' : '' ?>
 >
 
 <?= htmlspecialchars($subject["name"]) ?>
@@ -90,6 +101,7 @@ type="text"
 id="blueprint-name"
 name="name"
 placeholder="LET English Professional"
+value="<?= htmlspecialchars((string) ($old['name'] ?? '')) ?>"
 required
 >
 
@@ -108,7 +120,7 @@ Question Count
 type="number"
 id="blueprint-count"
 name="questionCount"
-value="150"
+value="<?= htmlspecialchars((string) ($old['questionCount'] ?? 150)) ?>"
 min="1"
 required
 >
@@ -125,7 +137,7 @@ Difficulty Distribution
 
 <label for="easy">
 Easy:
-<span id="easyValue">40</span>%
+<span id="easyValue"><?= htmlspecialchars((string) $difficulty['easy']) ?></span>%
 </label>
 
 <br>
@@ -137,7 +149,7 @@ id="easy"
 name="easy"
 min="0"
 max="100"
-value="40"
+value="<?= htmlspecialchars((string) $difficulty['easy']) ?>"
 >
 
 <input
@@ -145,7 +157,7 @@ type="number"
 id="easyInput"
 min="0"
 max="100"
-value="40"
+value="<?= htmlspecialchars((string) $difficulty['easy']) ?>"
 >
 
 
@@ -155,7 +167,7 @@ value="40"
 
 <label for="medium">
 Medium:
-<span id="mediumValue">50</span>%
+<span id="mediumValue"><?= htmlspecialchars((string) $difficulty['medium']) ?></span>%
 </label>
 
 <br>
@@ -167,7 +179,7 @@ id="medium"
 name="medium"
 min="0"
 max="100"
-value="50"
+value="<?= htmlspecialchars((string) $difficulty['medium']) ?>"
 >
 
 <input
@@ -175,7 +187,7 @@ type="number"
 id="mediumInput"
 min="0"
 max="100"
-value="50"
+value="<?= htmlspecialchars((string) $difficulty['medium']) ?>"
 >
 
 
@@ -185,7 +197,7 @@ value="50"
 
 <label for="hard">
 Hard:
-<span id="hardValue">10</span>%
+<span id="hardValue"><?= htmlspecialchars((string) $difficulty['hard']) ?></span>%
 </label>
 
 <br>
@@ -197,7 +209,7 @@ id="hard"
 name="hard"
 min="0"
 max="100"
-value="10"
+value="<?= htmlspecialchars((string) $difficulty['hard']) ?>"
 >
 
 <input
@@ -205,7 +217,7 @@ type="number"
 id="hardInput"
 min="0"
 max="100"
-value="10"
+value="<?= htmlspecialchars((string) $difficulty['hard']) ?>"
 >
 
 
@@ -217,15 +229,17 @@ value="10"
 
 Total:
 
-<span id="total">
+<output id="total" aria-live="polite">
 100
-</span>%
+</output>%
 
-<span id="status">
-✅
+<span id="status" role="status" aria-live="polite">
+Valid allocation.
 </span>
 
 </h3>
+
+<p class="form-help">Adjusting one value redistributes the remaining percentage. The total must equal 100%.</p>
 
 
 

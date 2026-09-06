@@ -11,23 +11,22 @@ final class BlueprintIntegrityValidator
 
         $errors = [];
 
-        $boardTotal = 0;
-
-        foreach (
-            $boardBlueprint["subjects"] ?? []
-            as $subject
-        ) {
-
-            $boardTotal +=
-                (int) ($subject["percentage"] ?? 0);
-
+        $boardSubjects = is_array($boardBlueprint["subjects"] ?? null)
+            ? $boardBlueprint["subjects"]
+            : [];
+        $boardAllocations = [];
+        foreach ($boardSubjects as $subject) {
+            if (is_array($subject) && array_key_exists('subject', $subject)) {
+                $boardAllocations[(string) $subject['subject']] = $subject['percentage'] ?? null;
+            }
         }
 
-        if ($boardTotal !== 100) {
-
-            $errors[] =
-                "Board Blueprint subject percentages must total 100.";
-
+        $boardErrors = \App\Services\Shared\BlueprintValidator::allocationErrors(
+            $boardAllocations,
+            array_keys($boardAllocations)
+        );
+        if (count($boardAllocations) !== count($boardSubjects) || $boardErrors !== []) {
+            $errors[] = "Board Blueprint subject percentages must total 100.";
         }
 
         foreach (
@@ -35,38 +34,29 @@ final class BlueprintIntegrityValidator
             as $name => $blueprint
         ) {
 
-            $domainTotal = 0;
-
-            foreach (
-                $blueprint["domains"] ?? []
-                as $domain
-            ) {
-
-                $domainTotal +=
-                    (int) ($domain["percentage"] ?? 0);
-
+            $domains = is_array($blueprint["domains"] ?? null)
+                ? $blueprint["domains"]
+                : [];
+            $domainAllocations = [];
+            foreach ($domains as $domain) {
+                if (is_array($domain) && array_key_exists('domain', $domain)) {
+                    $domainAllocations[(string) $domain['domain']] = $domain['percentage'] ?? null;
+                }
             }
 
-            if ($domainTotal !== 100) {
-
-                $errors[] =
-                    "{$name}: domain percentages must total 100.";
-
+            if (count($domainAllocations) !== count($domains) ||
+                \App\Services\Shared\BlueprintValidator::allocationErrors(
+                $domainAllocations,
+                array_keys($domainAllocations)
+            ) !== []) {
+                $errors[] = "{$name}: domain percentages must total 100.";
             }
 
-            $difficultyTotal =
-                array_sum(
-                    $blueprint["difficulty"] ?? []
-                );
-
-            if (
-                !empty($blueprint["difficulty"]) &&
-                $difficultyTotal !== 100
-            ) {
-
-                $errors[] =
-                    "{$name}: difficulty percentages must total 100.";
-
+            if (!empty($blueprint["difficulty"]) &&
+                \App\Services\Shared\BlueprintValidator::allocationErrors(
+                    $blueprint["difficulty"]
+                ) !== []) {
+                $errors[] = "{$name}: difficulty percentages must total 100.";
             }
 
         }

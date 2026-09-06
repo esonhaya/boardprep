@@ -13,6 +13,14 @@ final class BlueprintCreationService
         BlueprintRepository $repository,
         array $data
     ): array {
+        $inputErrors = BlueprintValidator::creationInputErrors($data);
+        if ($inputErrors !== []) {
+            return [
+                'success' => false,
+                'errors' => $inputErrors,
+            ];
+        }
+
         $input = BlueprintCreationInput::from($data);
         $candidate = BlueprintRecordFactory::build($input, 1);
         $validation = BlueprintValidator::validate($candidate);
