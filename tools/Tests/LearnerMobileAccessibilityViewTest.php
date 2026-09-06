@@ -15,8 +15,8 @@ $checks = [
     'primary navigation identifies landmark and current page' => str_contains($layout, 'aria-label="Primary navigation"')
         && str_contains($layout, 'aria-current="page"'),
     'document title is escaped' => str_contains($layout, 'htmlspecialchars((string) ($pageTitle'),
-    'quiz settings labels are explicitly associated' => preg_match_all('/<label for="quiz-[^"]+">/', $settings) === 4
-        && preg_match_all('/id="quiz-[^"]+"/', $settings) === 5,
+    'quiz settings labels are explicitly associated' => preg_match_all('/<label for="quiz-[^"]+">/', $settings) === 6
+        && preg_match_all('/id="quiz-[^"]+"/', $settings) === 6,
     'answer choices use a labelled fieldset and full-size labels' => str_contains($quiz, '<fieldset class="quiz-choices">')
         && str_contains($quiz, '<legend>Choose one answer</legend>')
         && str_contains($quiz, 'class="quiz-choice" for="answer-'),

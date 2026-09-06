@@ -42,7 +42,7 @@ $totalCount = (int) ($selection['total_count'] ?? 0);
     </section>
 
     <?php if ($totalCount === 0): ?>
-        <div class="empty-state"><h2>No cards ready for this focus</h2><p>Try including new cards or removing a restrictive filter.</p><a href="/study">Return to study</a></div>
+        <div class="empty-state"><h2>No cards ready for this focus</h2><p>Try including new cards or removing a restrictive filter.</p><p><a class="button button-outline" href="/study">Return to study</a> <a class="button button-outline" href="/dashboard">Dashboard</a></p></div>
     <?php else: ?>
         <section class="card flashcard-start-panel"><p class="eyebrow">Ready when you are</p><h2>Review one card at a time</h2><p>Answer from memory, reveal the explanation, then choose the rating that best matches your recall.</p><a class="button button-green" href="<?= htmlspecialchars($reviewUrl, ENT_QUOTES, 'UTF-8') ?>">Review now</a></section>
     <?php endif; ?>

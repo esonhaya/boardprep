@@ -11,7 +11,6 @@ $recommendations = $dashboard["recommendations"] ?? [];
 $studyPlan = $dashboard["studyPlan"] ?? [];
 $history = $history ?? [];
 $weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
-$weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
 ?>
 
 <h1>Study Dashboard</h1>
@@ -57,6 +56,7 @@ $weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
 
     <?php if (empty($studyPlan)): ?>
         <p>Complete a quiz to build your personalized study plan.</p>
+        <p><a class="button button-outline" href="/quiz">Start a practice quiz</a></p>
     <?php else: ?>
         <?php foreach ($studyPlan as $index => $item): ?>
             <?php
@@ -118,6 +118,7 @@ $weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
 
     <?php if (empty($recommendations)): ?>
         <p>Complete a quiz to receive personalized recommendations.</p>
+        <p><a class="button button-outline" href="/quiz">Start a practice quiz</a></p>
     <?php else: ?>
         <?php foreach ($recommendations as $recommendation): ?>
             <?php
@@ -166,6 +167,7 @@ $weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
     <h2>Subject Performance</h2>
     <?php if ($subjects === []): ?>
         <p>No subject performance is available yet.</p>
+        <p><a class="button button-outline" href="/quiz">Start a practice quiz</a></p>
     <?php else: ?>
         <?php foreach ($subjects as $subject): ?>
             <p><strong><?= htmlspecialchars((string) $subject["subject"]) ?></strong> — <?= (int) $subject["average"] ?>% average · <?= (int) $subject["attempts"] ?> attempt<?= ((int) $subject["attempts"]) === 1 ? "" : "s" ?></p>
@@ -177,6 +179,7 @@ $weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
 
     <?php if (empty($topics)): ?>
         <p>No topic performance is available yet.</p>
+        <p><a class="button button-outline" href="/quiz">Start a practice quiz</a></p>
     <?php else: ?>
         <?php foreach ($topics as $topic): ?>
             <article>
@@ -200,6 +203,7 @@ $weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
 
     <?php if (empty($history)): ?>
         <p>No completed quizzes yet.</p>
+        <p><a class="button button-outline" href="/quiz">Start a practice quiz</a></p>
     <?php else: ?>
         <?php foreach ($history as $attempt): ?>
             <?php require dirname(__DIR__) . "/history/attempt.php"; ?>

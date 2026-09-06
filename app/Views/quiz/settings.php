@@ -110,7 +110,7 @@ Review Mode
 
 
 
-<label>
+<label for="quiz-adaptive">
 
 <input
 id="quiz-adaptive"

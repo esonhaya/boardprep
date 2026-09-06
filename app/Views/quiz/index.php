@@ -24,6 +24,8 @@ Mode:
 No question available.
 </p>
 
+<p><a class="button button-outline" href="/quiz">Return to practice setup</a></p>
+
 <?php exit; ?>
 
 <?php endif; ?>

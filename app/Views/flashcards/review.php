@@ -17,13 +17,13 @@ $reviewUrl = '/flashcards/review?' . $filterQuery;
 <div class="flashcard-review-page">
     <section class="page-header">
         <div><p class="eyebrow">Flashcard review</p><h1><?= $revealed ? 'Check your reasoning' : 'Recall before revealing' ?></h1><p>Use your memory first, then rate how well the card came back.</p></div>
-        <a class="button button-outline" href="/flashcards?<?= htmlspecialchars($filterQuery, ENT_QUOTES, 'UTF-8') ?>">Back to flashcards</a>
+        <div class="page-actions"><a class="button button-outline" href="/flashcards?<?= htmlspecialchars($filterQuery, ENT_QUOTES, 'UTF-8') ?>">Back to flashcards</a><a class="button button-outline" href="/progress">Progress</a><a class="button button-outline" href="/dashboard">Dashboard</a></div>
     </section>
 
     <?php if (($error ?? null) !== null): ?><p class="alert alert-danger" role="alert"><?= htmlspecialchars((string) $error, ENT_QUOTES, 'UTF-8') ?></p><?php endif; ?>
 
     <?php if ($card === null): ?>
-        <div class="empty-state"><h2>No review card is available</h2><p>There are no due cards matching this focus. Include new cards or adjust the filters to continue.</p><a href="/flashcards?<?= htmlspecialchars($filterQuery, ENT_QUOTES, 'UTF-8') ?>">Adjust flashcards</a></div>
+        <div class="empty-state"><h2>No review card is available</h2><p>There are no due cards matching this focus. Include new cards or adjust the filters to continue.</p><p><a class="button button-outline" href="/flashcards?<?= htmlspecialchars($filterQuery, ENT_QUOTES, 'UTF-8') ?>">Adjust flashcards</a> <a class="button button-outline" href="/progress">View progress</a></p></div>
     <?php else: ?>
         <article class="card flashcard-card">
             <div class="flashcard-context"><span><?= htmlspecialchars((string) ($card['board'] ?? ''), ENT_QUOTES, 'UTF-8') ?></span><span><?= htmlspecialchars((string) ($card['subject'] ?? ''), ENT_QUOTES, 'UTF-8') ?></span><span><?= htmlspecialchars((string) ($card['topic'] ?? ''), ENT_QUOTES, 'UTF-8') ?></span></div>
