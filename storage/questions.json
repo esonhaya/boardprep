@@ -54541,5 +54541,5126 @@
         "let_area": "Science and Technology",
         "cognitive_intent": "analyze",
         "multistep": true
+    },
+    {
+        "id": 1569,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-algebra",
+            "concept_id": "ree-concept-ree-math-algebra"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A feeder model gives 2x + y = 11 and x − y = 1, where x and y are branch currents in amperes. What is x?",
+        "choices": [
+            "3 A",
+            "4 A",
+            "5 A",
+            "6 A"
+        ],
+        "answer": "4 A",
+        "explanation": "Subtracting the second equation from the first gives x = 4; substituting back gives y = 3.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "2x + y = 11; x − y = 1",
+                "fallback": "Subtracting the second equation from the first gives x = 4; substituting back gives y = 3."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1570,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-algebra",
+            "concept_id": "ree-concept-ree-math-algebra"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A panel has 6 indicators drawing 0.35 A each plus a 1.2 A controller. What supply current is required before a design margin?",
+        "choices": [
+            "2.10 A",
+            "3.30 A",
+            "4.13 A",
+            "5.25 A"
+        ],
+        "answer": "3.30 A",
+        "explanation": "The indicator load is 6(0.35)=2.10 A. Adding the controller gives 3.30 A.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "I_total=6(0.35 A)+1.2 A",
+                "fallback": "The indicator load is 6(0.35)=2.10 A. Adding the controller gives 3.30 A."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1571,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-algebra",
+            "concept_id": "ree-concept-ree-math-algebra"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A sensor output is y=3x+2 and x=4z−1. What is y when z=2?",
+        "choices": [
+            "17",
+            "20",
+            "23",
+            "26"
+        ],
+        "answer": "23",
+        "explanation": "First x=7. Then y=3(7)+2=23.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "y=3(4z−1)+2",
+                "fallback": "First x=7. Then y=3(7)+2=23."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1572,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-algebra",
+            "concept_id": "ree-concept-ree-math-algebra"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A protection setting satisfies R+2S=18 and 3R−S=5. Which pair satisfies both?",
+        "choices": [
+            "R=2,S=8",
+            "R=4,S=7",
+            "R=5,S=6.5",
+            "R=6,S=6"
+        ],
+        "answer": "R=4,S=7",
+        "explanation": "For R=4 and S=7, 4+14=18 and 12−7=5.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "R+2S=18; 3R−S=5",
+                "fallback": "For R=4 and S=7, 4+14=18 and 12−7=5."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1573,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-algebra",
+            "concept_id": "ree-concept-ree-math-algebra"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A calibration curve has slope 0.8 V\/unit and intercept 1.5 V. What input produces 5.5 V?",
+        "choices": [
+            "3.5 units",
+            "4.0 units",
+            "5.0 units",
+            "6.875 units"
+        ],
+        "answer": "5.0 units",
+        "explanation": "Solve 5.5=0.8x+1.5. The remaining 4.0 V gives x=5.0 units.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "x=(5.5−1.5)\/0.8",
+                "fallback": "Solve 5.5=0.8x+1.5. The remaining 4.0 V gives x=5.0 units."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1574,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-algebra",
+            "concept_id": "ree-concept-ree-math-algebra"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A loss model is L(x)=x²−6x+13. At what x is the loss minimized?",
+        "choices": [
+            "1",
+            "2",
+            "3",
+            "6"
+        ],
+        "answer": "3",
+        "explanation": "The derivative is 2x−6. Setting it to zero gives x=3; the positive second derivative confirms a minimum.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "dL\/dx=2x−6",
+                "fallback": "The derivative is 2x−6. Setting it to zero gives x=3; the positive second derivative confirms a minimum."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1575,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-complex",
+            "concept_id": "ree-concept-ree-math-complex"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "What is the rectangular form of (3+j4)+(2−j)?",
+        "choices": [
+            "5+j3",
+            "1+j5",
+            "5−j3",
+            "−5+j3"
+        ],
+        "answer": "5+j3",
+        "explanation": "Add real and imaginary parts separately: 3+2=5 and 4−1=3.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "(a+jb)+(c+jd)=(a+c)+j(b+d)",
+                "fallback": "Add real and imaginary parts separately: 3+2=5 and 4−1=3."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1576,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-complex",
+            "concept_id": "ree-concept-ree-math-complex"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "What is the product (2+j3)(4−j)?",
+        "choices": [
+            "5+j10",
+            "11+j10",
+            "11−j10",
+            "8+j12"
+        ],
+        "answer": "11+j10",
+        "explanation": "Expansion gives 8−2j+12j−3j²=11+j10 because j²=−1.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "(2+j3)(4−j)=11+j10",
+                "fallback": "Expansion gives 8−2j+12j−3j²=11+j10 because j²=−1."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1577,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-complex",
+            "concept_id": "ree-concept-ree-math-complex"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A phasor has magnitude 10 and angle 30°. Which rectangular form is closest?",
+        "choices": [
+            "5.00+j8.66",
+            "8.66+j5.00",
+            "10.00+j30.00",
+            "8.66−j5.00"
+        ],
+        "answer": "8.66+j5.00",
+        "explanation": "Use x=10cos30°=8.66 and y=10sin30°=5.00.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "z=10(cos30°+j sin30°)",
+                "fallback": "Use x=10cos30°=8.66 and y=10sin30°=5.00."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1578,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-complex",
+            "concept_id": "ree-concept-ree-math-complex"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "The impedance of a load is 6+j8 Ω. What are its magnitude and angle?",
+        "choices": [
+            "8 Ω,36.9°",
+            "10 Ω,53.1°",
+            "14 Ω,45°",
+            "10 Ω,36.9°"
+        ],
+        "answer": "10 Ω,53.1°",
+        "explanation": "The magnitude is √(6²+8²)=10 Ω and the angle is atan(8\/6)=53.1°.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "|Z|=√(R²+X²); θ=atan(X\/R)",
+                "fallback": "The magnitude is √(6²+8²)=10 Ω and the angle is atan(8\/6)=53.1°."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1579,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-complex",
+            "concept_id": "ree-concept-ree-math-complex"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A transfer factor 2∠20° is multiplied by 5∠−50°. What is the result?",
+        "choices": [
+            "7∠−30°",
+            "10∠−30°",
+            "10∠70°",
+            "3∠−30°"
+        ],
+        "answer": "10∠−30°",
+        "explanation": "Magnitudes multiply and angles add: 2×5=10 and 20°−50°=−30°.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "(r₁∠θ₁)(r₂∠θ₂)=r₁r₂∠(θ₁+θ₂)",
+                "fallback": "Magnitudes multiply and angles add: 2×5=10 and 20°−50°=−30°."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1580,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-complex",
+            "concept_id": "ree-concept-ree-math-complex"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "For z=−4−j4, in which quadrant and at what principal angle does it lie?",
+        "choices": [
+            "I,45°",
+            "II,135°",
+            "III,−135°",
+            "IV,−45°"
+        ],
+        "answer": "III,−135°",
+        "explanation": "Both components are negative, so it is in quadrant III; atan2 gives −135°.",
+        "subject": "REE Mathematics",
+        "numeric": false,
+        "multistep": true,
+        "cognitive_intent": "evaluate",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [],
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1581,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-complex",
+            "concept_id": "ree-concept-ree-math-complex"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "For z=5+j12, what is |z|²?",
+        "choices": [
+            "13",
+            "17",
+            "119",
+            "169"
+        ],
+        "answer": "169",
+        "explanation": "The squared magnitude is 5²+12²=169.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "|z|²=Re(z)²+Im(z)²",
+                "fallback": "The squared magnitude is 5²+12²=169."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1582,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-calculus",
+            "concept_id": "ree-concept-ree-math-calculus"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A sensor position is s(t)=3t²+2t metres. What is velocity at t=2 s?",
+        "choices": [
+            "8 m\/s",
+            "12 m\/s",
+            "14 m\/s",
+            "16 m\/s"
+        ],
+        "answer": "14 m\/s",
+        "explanation": "v=ds\/dt=6t+2; at t=2, v=14 m\/s.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "v(t)=ds\/dt=6t+2",
+                "fallback": "v=ds\/dt=6t+2; at t=2, v=14 m\/s."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1583,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-calculus",
+            "concept_id": "ree-concept-ree-math-calculus"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A current ramp is i(t)=4t A for 0≤t≤3 s. What charge flows?",
+        "choices": [
+            "6 C",
+            "12 C",
+            "18 C",
+            "36 C"
+        ],
+        "answer": "18 C",
+        "explanation": "q=∫₀³4t dt=2t²|₀³=18 C.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "q=∫₀³4t dt",
+                "fallback": "q=∫₀³4t dt=2t²|₀³=18 C."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1584,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-calculus",
+            "concept_id": "ree-concept-ree-math-calculus"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "An RC circuit has R=2 kΩ and C=5 μF. What is its time constant?",
+        "choices": [
+            "0.001 s",
+            "0.010 s",
+            "0.100 s",
+            "10 s"
+        ],
+        "answer": "0.010 s",
+        "explanation": "τ=RC=(2000)(5×10⁻⁶)=0.010 s.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "τ=RC",
+                "fallback": "τ=RC=(2000)(5×10⁻⁶)=0.010 s."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1585,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-calculus",
+            "concept_id": "ree-concept-ree-math-calculus"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A capacitor charging from zero reaches what fraction after one time constant?",
+        "choices": [
+            "36.8%",
+            "50.0%",
+            "63.2%",
+            "86.5%"
+        ],
+        "answer": "63.2%",
+        "explanation": "The response is 1−e⁻¹≈0.632 after t=τ.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "v_C(τ)\/V_final=1−e⁻¹",
+                "fallback": "The response is 1−e⁻¹≈0.632 after t=τ."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1586,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-calculus",
+            "concept_id": "ree-concept-ree-math-calculus"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "An RL circuit has L=0.40 H and R=20 Ω. What is its time constant?",
+        "choices": [
+            "0.002 s",
+            "0.020 s",
+            "0.20 s",
+            "8.0 s"
+        ],
+        "answer": "0.020 s",
+        "explanation": "For an RL circuit τ=L\/R=0.40\/20=0.020 s.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "τ=L\/R",
+                "fallback": "For an RL circuit τ=L\/R=0.40\/20=0.020 s."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1587,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-calculus",
+            "concept_id": "ree-concept-ree-math-calculus"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A first-order response has a pole at s=−5 rad\/s. What time constant follows?",
+        "choices": [
+            "0.05 s",
+            "0.20 s",
+            "5 s",
+            "25 s"
+        ],
+        "answer": "0.20 s",
+        "explanation": "For a pole at −1\/τ, τ=1\/5=0.20 s.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "s_p=−1\/τ",
+                "fallback": "For a pole at −1\/τ, τ=1\/5=0.20 s."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1588,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-calculus",
+            "concept_id": "ree-concept-ree-math-calculus"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A sinusoidal voltage has peak value 170 V. What is its RMS value?",
+        "choices": [
+            "85.0 V",
+            "120.2 V",
+            "170 V",
+            "240.4 V"
+        ],
+        "answer": "120.2 V",
+        "explanation": "V_rms=V_peak\/√2=170\/√2≈120.2 V.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "V_rms=V_peak\/√2",
+                "fallback": "V_rms=V_peak\/√2=170\/√2≈120.2 V."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1589,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-calculus",
+            "concept_id": "ree-concept-ree-math-calculus"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "What angular frequency corresponds to a 60 Hz waveform?",
+        "choices": [
+            "60 rad\/s",
+            "188.5 rad\/s",
+            "377.0 rad\/s",
+            "1200 rad\/s"
+        ],
+        "answer": "377.0 rad\/s",
+        "explanation": "ω=2πf=2π(60)≈377 rad\/s.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "ω=2πf",
+                "fallback": "ω=2πf=2π(60)≈377 rad\/s."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1590,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-probability",
+            "concept_id": "ree-concept-ree-math-probability"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "Independent components have failure probabilities 0.02 and 0.03. What is the probability at least one fails?",
+        "choices": [
+            "0.0006",
+            "0.0200",
+            "0.0494",
+            "0.0500"
+        ],
+        "answer": "0.0494",
+        "explanation": "Use the complement: 1−(0.98)(0.97)=0.0494.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "P(A∪B)=1−(1−P(A))(1−P(B))",
+                "fallback": "Use the complement: 1−(0.98)(0.97)=0.0494."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1591,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-probability",
+            "concept_id": "ree-concept-ree-math-probability"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A discrete load is 2, 4, or 8 kW with probabilities 0.2, 0.5, and 0.3. What is its expected load?",
+        "choices": [
+            "3.8 kW",
+            "4.8 kW",
+            "5.2 kW",
+            "6.0 kW"
+        ],
+        "answer": "4.8 kW",
+        "explanation": "E[X]=2(0.2)+4(0.5)+8(0.3)=4.8 kW.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "E[X]=Σxp(x)",
+                "fallback": "E[X]=2(0.2)+4(0.5)+8(0.3)=4.8 kW."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1592,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-probability",
+            "concept_id": "ree-concept-ree-math-probability"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "Four measured currents are 10,12,14,18 A. What is their arithmetic mean?",
+        "choices": [
+            "12 A",
+            "13 A",
+            "13.5 A",
+            "14 A"
+        ],
+        "answer": "13.5 A",
+        "explanation": "The mean is (10+12+14+18)\/4=13.5 A.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "x̄=Σx\/n",
+                "fallback": "The mean is (10+12+14+18)\/4=13.5 A."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Sample",
+                    "Current (A)"
+                ],
+                "rows": [
+                    [
+                        "1",
+                        "10"
+                    ],
+                    [
+                        "2",
+                        "12"
+                    ],
+                    [
+                        "3",
+                        "14"
+                    ],
+                    [
+                        "4",
+                        "18"
+                    ]
+                ]
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1593,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-probability",
+            "concept_id": "ree-concept-ree-math-probability"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A normally distributed measurement has mean 70 and standard deviation 10. What is the z-score for 85?",
+        "choices": [
+            "0.67",
+            "1.0",
+            "1.5",
+            "2.0"
+        ],
+        "answer": "1.5",
+        "explanation": "z=(85−70)\/10=1.5.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "z=(x−μ)\/σ",
+                "fallback": "z=(85−70)\/10=1.5."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1594,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-probability",
+            "concept_id": "ree-concept-ree-math-probability"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "For a binomial process with n=3 and p=0.2, what is P(X=2)?",
+        "choices": [
+            "0.024",
+            "0.096",
+            "0.128",
+            "0.384"
+        ],
+        "answer": "0.096",
+        "explanation": "P(X=2)=C(3,2)(0.2)²(0.8)=0.096.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "P(X=k)=C(n,k)p^k(1−p)^(n−k)",
+                "fallback": "P(X=2)=C(3,2)(0.2)²(0.8)=0.096."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1595,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-probability",
+            "concept_id": "ree-concept-ree-math-probability"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "For a normal distribution, approximately what fraction lies within ±1.96 standard deviations?",
+        "choices": [
+            "68%",
+            "90%",
+            "95%",
+            "99.7%"
+        ],
+        "answer": "95%",
+        "explanation": "The conventional normal approximation is about 95% within ±1.96σ.",
+        "subject": "REE Mathematics",
+        "numeric": false,
+        "multistep": true,
+        "cognitive_intent": "evaluate",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [],
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1596,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-probability",
+            "concept_id": "ree-concept-ree-math-probability"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A test has sensitivity 0.90, prevalence 0.10, and false-positive rate 0.05. What is P(condition|positive)?",
+        "choices": [
+            "0.10",
+            "0.50",
+            "0.667",
+            "0.900"
+        ],
+        "answer": "0.667",
+        "explanation": "Bayes' rule gives 0.90(0.10)\/[0.90(0.10)+0.05(0.90)]=0.667.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "P(C|+)=P(+|C)P(C)\/P(+)",
+                "fallback": "Bayes' rule gives 0.90(0.10)\/[0.90(0.10)+0.05(0.90)]=0.667."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1597,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-discrete",
+            "concept_id": "ree-concept-ree-math-discrete"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "The first ten terms of 3,6,9,... are summed. What is the result?",
+        "choices": [
+            "90",
+            "150",
+            "165",
+            "180"
+        ],
+        "answer": "165",
+        "explanation": "The tenth term is 30; S=10(3+30)\/2=165.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "S_n=n(a₁+a_n)\/2",
+                "fallback": "The tenth term is 30; S=10(3+30)\/2=165."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1598,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-discrete",
+            "concept_id": "ree-concept-ree-math-discrete"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "What is the sum of 1+0.5+0.25+… to infinity?",
+        "choices": [
+            "1",
+            "1.5",
+            "2",
+            "4"
+        ],
+        "answer": "2",
+        "explanation": "S∞=a\/(1−r)=1\/(1−0.5)=2.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "S∞=a\/(1−r)",
+                "fallback": "S∞=a\/(1−r)=1\/(1−0.5)=2."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1599,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-discrete",
+            "concept_id": "ree-concept-ree-math-discrete"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A voltage gain of 10 corresponds to what magnitude ratio in decibels?",
+        "choices": [
+            "10 dB",
+            "20 dB",
+            "30 dB",
+            "40 dB"
+        ],
+        "answer": "20 dB",
+        "explanation": "For voltage ratios, dB=20log₁₀(10)=20 dB.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "G_dB=20log₁₀(V₂\/V₁)",
+                "fallback": "For voltage ratios, dB=20log₁₀(10)=20 dB."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1600,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-discrete",
+            "concept_id": "ree-concept-ree-math-discrete"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A load power ratio is 100:1. What is the corresponding power gain?",
+        "choices": [
+            "10 dB",
+            "20 dB",
+            "40 dB",
+            "100 dB"
+        ],
+        "answer": "20 dB",
+        "explanation": "For power, dB=10log₁₀(100)=20 dB.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "G_dB=10log₁₀(P₂\/P₁)",
+                "fallback": "For power, dB=10log₁₀(100)=20 dB."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1601,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-discrete",
+            "concept_id": "ree-concept-ree-math-discrete"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A project costs 10,000 units two years from now. At 5% annual discounting, what is its present worth?",
+        "choices": [
+            "8,640",
+            "9,070",
+            "9,500",
+            "10,500"
+        ],
+        "answer": "9,070",
+        "explanation": "PV=10000\/(1.05)²≈9070.29, which rounds to 9,070.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "PV=F\/(1+i)^n",
+                "fallback": "PV=10000\/(1.05)²≈9070.29, which rounds to 9,070."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1602,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-discrete",
+            "concept_id": "ree-concept-ree-math-discrete"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A process has fixed cost 500 and contribution margin 25 per unit. What is the break-even quantity?",
+        "choices": [
+            "10 units",
+            "20 units",
+            "25 units",
+            "50 units"
+        ],
+        "answer": "20 units",
+        "explanation": "Break-even quantity=500\/25=20 units.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Q_BE=F\/C",
+                "fallback": "Break-even quantity=500\/25=20 units."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1603,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-discrete",
+            "concept_id": "ree-concept-ree-math-discrete"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A table gives y=10 at x=2 and y=18 at x=4. What is y at x=3 by linear interpolation?",
+        "choices": [
+            "12",
+            "13",
+            "14",
+            "16"
+        ],
+        "answer": "14",
+        "explanation": "x=3 is halfway between 2 and 4, so y=10+(18−10)\/2=14.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "y=y₁+(x−x₁)(y₂−y₁)\/(x₂−x₁)",
+                "fallback": "x=3 is halfway between 2 and 4, so y=10+(18−10)\/2=14."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "x",
+                    "y"
+                ],
+                "rows": [
+                    [
+                        "2",
+                        "10"
+                    ],
+                    [
+                        "4",
+                        "18"
+                    ]
+                ]
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1604,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-discrete",
+            "concept_id": "ree-concept-ree-math-discrete"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A matrix has rows [2,1] and [3,4]. What is its determinant?",
+        "choices": [
+            "3",
+            "5",
+            "8",
+            "11"
+        ],
+        "answer": "5",
+        "explanation": "det(A)=2(4)−1(3)=5.",
+        "subject": "REE Mathematics",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "det(A)=ad−bc",
+                "fallback": "det(A)=2(4)−1(3)=5."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1605,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-mechanics",
+            "concept_id": "ree-concept-ree-allied-mechanics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A 10 kg instrument carriage accelerates at 2 m\/s². What net force acts on it?",
+        "choices": [
+            "5 N",
+            "12 N",
+            "20 N",
+            "40 N"
+        ],
+        "answer": "20 N",
+        "explanation": "Newton's second law gives F=ma=20 N.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "F=ma",
+                "fallback": "Newton's second law gives F=ma=20 N."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1606,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-mechanics",
+            "concept_id": "ree-concept-ree-allied-mechanics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A 100 N force acts 2 m from a pivot. What opposing force at 4 m balances the moment?",
+        "choices": [
+            "25 N",
+            "50 N",
+            "100 N",
+            "200 N"
+        ],
+        "answer": "50 N",
+        "explanation": "Equate moments: 100(2)=F(4), so F=50 N.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "ΣM=0",
+                "fallback": "Equate moments: 100(2)=F(4), so F=50 N."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1607,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-mechanics",
+            "concept_id": "ree-concept-ree-allied-mechanics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A 20 kN tensile force acts on a 200 mm² support. What is the average stress?",
+        "choices": [
+            "10 MPa",
+            "50 MPa",
+            "100 MPa",
+            "400 MPa"
+        ],
+        "answer": "100 MPa",
+        "explanation": "Stress=F\/A=100 MPa.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "σ=F\/A",
+                "fallback": "Stress=F\/A=100 MPa."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1608,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-mechanics",
+            "concept_id": "ree-concept-ree-allied-mechanics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A 0.6 mm extension occurs over a 300 mm gauge length. What is the strain?",
+        "choices": [
+            "0.0002",
+            "0.002",
+            "0.02",
+            "2"
+        ],
+        "answer": "0.002",
+        "explanation": "Strain is extension\/original length=0.002.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "ε=ΔL\/L",
+                "fallback": "Strain is extension\/original length=0.002."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1609,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-mechanics",
+            "concept_id": "ree-concept-ree-allied-mechanics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A 2 m copper busbar has α=12×10⁻⁶\/°C. How much does it expand for a 50°C rise?",
+        "choices": [
+            "0.12 mm",
+            "0.60 mm",
+            "1.20 mm",
+            "12.0 mm"
+        ],
+        "answer": "1.20 mm",
+        "explanation": "ΔL=αLΔT=1.20 mm.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "ΔL=αLΔT",
+                "fallback": "ΔL=αLΔT=1.20 mm."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1610,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-thermal",
+            "concept_id": "ree-concept-ree-allied-thermal"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "How much heat raises 0.5 kg with c=4.18 kJ\/kg·K by 20 K?",
+        "choices": [
+            "4.18 kJ",
+            "20.9 kJ",
+            "41.8 kJ",
+            "83.6 kJ"
+        ],
+        "answer": "41.8 kJ",
+        "explanation": "Q=mcΔT=41.8 kJ.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Q=mcΔT",
+                "fallback": "Q=mcΔT=41.8 kJ."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1611,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-thermal",
+            "concept_id": "ree-concept-ree-allied-thermal"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A slab has k=0.8 W\/m·K, area 2 m², thickness 0.1 m, and ΔT=30 K. What heat rate conducts?",
+        "choices": [
+            "48 W",
+            "240 W",
+            "480 W",
+            "960 W"
+        ],
+        "answer": "480 W",
+        "explanation": "Q̇=kAΔT\/L=480 W.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Q̇=kAΔT\/L",
+                "fallback": "Q̇=kAΔT\/L=480 W."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1612,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-thermal",
+            "concept_id": "ree-concept-ree-allied-thermal"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "Two moles of ideal gas occupy 0.05 m³ at 300 K. What pressure results?",
+        "choices": [
+            "99.8 kPa",
+            "199.5 kPa",
+            "997.7 kPa",
+            "1,995 kPa"
+        ],
+        "answer": "99.8 kPa",
+        "explanation": "P=nRT\/V≈99.8 kPa.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "PV=nRT",
+                "fallback": "P=nRT\/V≈99.8 kPa."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1613,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-thermal",
+            "concept_id": "ree-concept-ree-allied-thermal"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "What gauge pressure is produced by 5 m of water with ρ=1000 kg\/m³ and g=9.81 m\/s²?",
+        "choices": [
+            "4.905 kPa",
+            "49.05 kPa",
+            "98.1 kPa",
+            "490.5 kPa"
+        ],
+        "answer": "49.05 kPa",
+        "explanation": "p=ρgh=49.05 kPa.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "p=ρgh",
+                "fallback": "p=ρgh=49.05 kPa."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1614,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-thermal",
+            "concept_id": "ree-concept-ree-allied-thermal"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "What buoyant force acts on a body displacing 0.020 m³ of water?",
+        "choices": [
+            "19.6 N",
+            "98.1 N",
+            "196.2 N",
+            "1,962 N"
+        ],
+        "answer": "196.2 N",
+        "explanation": "F_b=ρgV=196.2 N.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "F_b=ρgV",
+                "fallback": "F_b=ρgV=196.2 N."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1615,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-electronics",
+            "concept_id": "ree-concept-ree-allied-electronics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A silicon diode drops 0.7 V from a 12 V source through 1 kΩ. What current flows?",
+        "choices": [
+            "0.70 mA",
+            "11.3 mA",
+            "12.0 mA",
+            "17.1 mA"
+        ],
+        "answer": "11.3 mA",
+        "explanation": "The resistor voltage is 11.3 V, so I=11.3 mA.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "I=(V_s−V_D)\/R",
+                "fallback": "The resistor voltage is 11.3 V, so I=11.3 mA."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1616,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-electronics",
+            "concept_id": "ree-concept-ree-allied-electronics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "An ideal non-inverting amplifier has R_f=10 kΩ and R_g=2 kΩ. What is its gain?",
+        "choices": [
+            "4",
+            "5",
+            "6",
+            "12"
+        ],
+        "answer": "6",
+        "explanation": "A_v=1+R_f\/R_g=6.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "A_v=1+R_f\/R_g",
+                "fallback": "A_v=1+R_f\/R_g=6."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1617,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-electronics",
+            "concept_id": "ree-concept-ree-allied-electronics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "What is the −3 dB cutoff of an RC filter with R=1 kΩ and C=0.1 μF?",
+        "choices": [
+            "159 Hz",
+            "1,592 Hz",
+            "15.9 kHz",
+            "159 kHz"
+        ],
+        "answer": "1,592 Hz",
+        "explanation": "f_c=1\/(2πRC)≈1,592 Hz.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "f_c=1\/(2πRC)",
+                "fallback": "f_c=1\/(2πRC)≈1,592 Hz."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1618,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-electronics",
+            "concept_id": "ree-concept-ree-allied-electronics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A transistor has β=100 and base current 20 μA. What collector current is predicted?",
+        "choices": [
+            "0.02 mA",
+            "0.20 mA",
+            "2.0 mA",
+            "20 mA"
+        ],
+        "answer": "2.0 mA",
+        "explanation": "I_C=βI_B=2.0 mA.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "I_C=βI_B",
+                "fallback": "I_C=βI_B=2.0 mA."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1619,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-electronics",
+            "concept_id": "ree-concept-ree-allied-electronics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A 12-bit ADC spans 0 to 5 V. What is one least-significant-bit voltage step?",
+        "choices": [
+            "0.122 mV",
+            "1.22 mV",
+            "12.2 mV",
+            "20.0 mV"
+        ],
+        "answer": "1.22 mV",
+        "explanation": "5\/4096≈1.22 mV.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "LSB=V_range\/2^N",
+                "fallback": "5\/4096≈1.22 mV."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1620,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-instrumentation",
+            "concept_id": "ree-concept-ree-allied-instrumentation"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A sensor is calibrated at 1 V for 10 units and 3 V for 30 units. What output is expected at 20 units?",
+        "choices": [
+            "1.0 V",
+            "1.5 V",
+            "2.0 V",
+            "2.5 V"
+        ],
+        "answer": "2.0 V",
+        "explanation": "The linear midpoint output is 2.0 V.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "V=V₁+(x−x₁)(V₂−V₁)\/(x₂−x₁)",
+                "fallback": "The linear midpoint output is 2.0 V."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Input units",
+                    "Output (V)"
+                ],
+                "rows": [
+                    [
+                        "10",
+                        "1"
+                    ],
+                    [
+                        "30",
+                        "3"
+                    ]
+                ]
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1621,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-instrumentation",
+            "concept_id": "ree-concept-ree-allied-instrumentation"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A 12 V reading has ±0.1 V uncertainty and a 2 A reading has ±0.02 A uncertainty. What is approximate worst-case relative uncertainty in V\/I?",
+        "choices": [
+            "0.17%",
+            "1.83%",
+            "2.17%",
+            "10.0%"
+        ],
+        "answer": "1.83%",
+        "explanation": "Add relative uncertainties: 0.1\/12+0.02\/2≈1.83%.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "δ(V\/I)\/(V\/I)≈δV\/V+δI\/I",
+                "fallback": "Add relative uncertainties: 0.1\/12+0.02\/2≈1.83%."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1622,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-instrumentation",
+            "concept_id": "ree-concept-ree-allied-instrumentation"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A 2 kHz signal is sampled uniformly. What is the minimum ideal sampling frequency boundary?",
+        "choices": [
+            "1 kHz",
+            "2 kHz",
+            "4 kHz",
+            "8 kHz"
+        ],
+        "answer": "4 kHz",
+        "explanation": "The Nyquist boundary is twice the highest frequency.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "f_s≥2f_max",
+                "fallback": "The Nyquist boundary is twice the highest frequency."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1623,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-instrumentation",
+            "concept_id": "ree-concept-ree-allied-instrumentation"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A logger records 20°C→1.0 V, 40°C→2.2 V, and 60°C→3.6 V. Which conclusion is supported?",
+        "choices": [
+            "Sensitivity is constant at 0.04 V\/°C",
+            "The response is nonlinear across the range",
+            "The sensor has zero output at 0°C",
+            "The 40°C point must be discarded"
+        ],
+        "answer": "The response is nonlinear across the range",
+        "explanation": "Successive slopes are 0.06 and 0.07 V\/°C, so the response is nonlinear.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "slope=ΔV\/ΔT",
+                "fallback": "Successive slopes are 0.06 and 0.07 V\/°C, so the response is nonlinear."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Temperature (°C)",
+                    "Output (V)"
+                ],
+                "rows": [
+                    [
+                        "20",
+                        "1.0"
+                    ],
+                    [
+                        "40",
+                        "2.2"
+                    ],
+                    [
+                        "60",
+                        "3.6"
+                    ]
+                ]
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1624,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-instrumentation",
+            "concept_id": "ree-concept-ree-allied-instrumentation"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "An oscilloscope shows four equal periods in 20 ms. What is its frequency?",
+        "choices": [
+            "20 Hz",
+            "50 Hz",
+            "80 Hz",
+            "200 Hz"
+        ],
+        "answer": "200 Hz",
+        "explanation": "One period is 5 ms; f=200 Hz.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "f=1\/T",
+                "fallback": "One period is 5 ms; f=200 Hz."
+            },
+            {
+                "type": "figure",
+                "asset": "assets\/ree\/ree-waveform.svg",
+                "alt": "Sampled sinusoidal waveform with marked samples",
+                "caption": "A representative sampled waveform"
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1625,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-electronics",
+            "concept_id": "ree-concept-ree-allied-electronics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A 0.10 H inductor carries 5 A. How much magnetic energy is stored?",
+        "choices": [
+            "0.25 J",
+            "1.25 J",
+            "2.50 J",
+            "5.00 J"
+        ],
+        "answer": "1.25 J",
+        "explanation": "W=½LI²=1.25 J.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "W_L=½LI²",
+                "fallback": "W=½LI²=1.25 J."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1626,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-electronics",
+            "concept_id": "ree-concept-ree-allied-electronics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A 100 μF capacitor is charged to 100 V. How much energy is stored?",
+        "choices": [
+            "0.05 J",
+            "0.50 J",
+            "5.0 J",
+            "50 J"
+        ],
+        "answer": "0.50 J",
+        "explanation": "W=½CV²=0.50 J.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "W_C=½CV²",
+                "fallback": "W=½CV²=0.50 J."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1627,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-electronics",
+            "concept_id": "ree-concept-ree-allied-electronics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A magnetic core has B=0.4 T over an effective area of 0.020 m². What flux crosses it?",
+        "choices": [
+            "0.008 Wb",
+            "0.020 Wb",
+            "0.40 Wb",
+            "20 Wb"
+        ],
+        "answer": "0.008 Wb",
+        "explanation": "Φ=BA=0.008 Wb.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Φ=BA",
+                "fallback": "Φ=BA=0.008 Wb."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1628,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-electronics",
+            "concept_id": "ree-concept-ree-allied-electronics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A 100-turn coil experiences a flux change rate of 0.02 Wb\/s. What induced emf magnitude results?",
+        "choices": [
+            "0.02 V",
+            "0.2 V",
+            "2.0 V",
+            "200 V"
+        ],
+        "answer": "2.0 V",
+        "explanation": "|e|=N|dΦ\/dt|=2.0 V.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "|e|=N|dΦ\/dt|",
+                "fallback": "|e|=N|dΦ\/dt|=2.0 V."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1629,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-electronics",
+            "concept_id": "ree-concept-ree-allied-electronics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A conductor of length 2 m carries 4 A perpendicular to a 0.5 T field. What magnetic force acts?",
+        "choices": [
+            "1 N",
+            "2 N",
+            "4 N",
+            "8 N"
+        ],
+        "answer": "4 N",
+        "explanation": "F=BIL=4 N.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "F=BIL",
+                "fallback": "F=BIL=4 N."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1630,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-electronics",
+            "concept_id": "ree-concept-ree-allied-electronics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "An ideal full-wave bridge is supplied with 120 V rms. What average DC output is expected?",
+        "choices": [
+            "54.0 V",
+            "76.4 V",
+            "108.0 V",
+            "169.7 V"
+        ],
+        "answer": "108.0 V",
+        "explanation": "V_avg=2V_m\/π≈108 V.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "V_avg=2V_m\/π",
+                "fallback": "V_avg=2V_m\/π≈108 V."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1631,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-electronics",
+            "concept_id": "ree-concept-ree-allied-electronics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "An ideal PWM converter applies 24 V with duty ratio 0.35. What average output is predicted?",
+        "choices": [
+            "6.0 V",
+            "8.4 V",
+            "15.6 V",
+            "24.0 V"
+        ],
+        "answer": "8.4 V",
+        "explanation": "For an ideal buck, V_avg=DV_in=8.4 V.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "V_o=DV_in",
+                "fallback": "For an ideal buck, V_avg=DV_in=8.4 V."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1632,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-electronics",
+            "concept_id": "ree-concept-ree-allied-electronics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A first-order system reaches what fraction of a step after 2τ?",
+        "choices": [
+            "63.2%",
+            "75.0%",
+            "86.5%",
+            "95.0%"
+        ],
+        "answer": "86.5%",
+        "explanation": "The response fraction is 1−e⁻²≈86.5%.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "y(2τ)\/y_final=1−e⁻²",
+                "fallback": "The response fraction is 1−e⁻²≈86.5%."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1633,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-electronics",
+            "concept_id": "ree-concept-ree-allied-electronics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "An amplifier has open-loop gain 100 and feedback factor 0.09. What closed-loop gain follows?",
+        "choices": [
+            "0.90",
+            "9.0",
+            "10.0",
+            "90.0"
+        ],
+        "answer": "10.0",
+        "explanation": "A_cl=100\/(1+100×0.09)=10.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "A_cl=A\/(1+Aβ)",
+                "fallback": "A_cl=100\/(1+100×0.09)=10."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1634,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-thermal",
+            "concept_id": "ree-concept-ree-allied-thermal"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A heat-exchanger test records outlet temperatures. Which run has the greatest temperature rise?",
+        "choices": [
+            "Run A",
+            "Run B",
+            "Run C",
+            "Runs A and C tie"
+        ],
+        "answer": "Run B",
+        "explanation": "The rises are 20 K, 30 K, and 25 K respectively.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "evaluate",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Run",
+                    "Inlet (°C)",
+                    "Outlet (°C)"
+                ],
+                "rows": [
+                    [
+                        "A",
+                        "40",
+                        "60"
+                    ],
+                    [
+                        "B",
+                        "40",
+                        "70"
+                    ],
+                    [
+                        "C",
+                        "50",
+                        "75"
+                    ]
+                ]
+            }
+        ],
+        "unit_sensitive": false,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1635,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-mechanics",
+            "concept_id": "ree-concept-ree-allied-mechanics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A wire has ρ=1.7×10⁻⁸ Ωm, length 10 m, and area 2 mm². What is its resistance?",
+        "choices": [
+            "0.0085 Ω",
+            "0.085 Ω",
+            "0.85 Ω",
+            "8.5 Ω"
+        ],
+        "answer": "0.085 Ω",
+        "explanation": "R=ρL\/A=0.085 Ω.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "R=ρL\/A",
+                "fallback": "R=ρL\/A=0.085 Ω."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1636,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-mechanics",
+            "concept_id": "ree-concept-ree-allied-mechanics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A copper winding is 10.0 Ω at 20°C with α=0.0039\/°C. What is its resistance at 70°C?",
+        "choices": [
+            "10.20 Ω",
+            "11.95 Ω",
+            "13.90 Ω",
+            "19.50 Ω"
+        ],
+        "answer": "11.95 Ω",
+        "explanation": "R=10[1+0.0039(50)]=11.95 Ω.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "R_T=R_0[1+α(T−T₀)]",
+                "fallback": "R=10[1+0.0039(50)]=11.95 Ω."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1637,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-safety",
+            "concept_id": "ree-concept-ree-allied-safety"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A person contacts 60 V through an estimated 2 kΩ body path. What current is implied?",
+        "choices": [
+            "3 mA",
+            "30 mA",
+            "120 mA",
+            "2 A"
+        ],
+        "answer": "30 mA",
+        "explanation": "Ohm's law gives I=30 mA.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "I=V\/R",
+                "fallback": "Ohm's law gives I=30 mA."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1638,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-safety",
+            "concept_id": "ree-concept-ree-allied-safety"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A worker must open an energized panel to replace a protective device. Which first action best controls the hazard?",
+        "choices": [
+            "Increase the fuse rating",
+            "De-energize, isolate, and verify absence of voltage",
+            "Wear only cotton gloves",
+            "Measure resistance while energized"
+        ],
+        "answer": "De-energize, isolate, and verify absence of voltage",
+        "explanation": "The safe sequence is de-energization, isolation\/lockout, and verification.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": false,
+        "multistep": true,
+        "cognitive_intent": "evaluate",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [],
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1639,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-safety",
+            "concept_id": "ree-concept-ree-allied-safety"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "An instrument input resistance is comparable to a sensor's source resistance. What error is most likely?",
+        "choices": [
+            "Loading changes the measured voltage",
+            "The signal frequency doubles",
+            "The sensor becomes ideal",
+            "The instrument creates zero current"
+        ],
+        "answer": "Loading changes the measured voltage",
+        "explanation": "Comparable resistances form a divider and load the sensor.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "evaluate",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [],
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1640,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-mechanics",
+            "concept_id": "ree-concept-ree-allied-mechanics"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A simply supported beam carries a centered 600 N load. What reaction does each support provide?",
+        "choices": [
+            "100 N",
+            "200 N",
+            "300 N",
+            "600 N"
+        ],
+        "answer": "300 N",
+        "explanation": "Symmetry shares the centered load equally: each reaction is 600\/2=300 N.",
+        "subject": "REE Engineering Sciences and Allied Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "R_A=R_B=W\/2",
+                "fallback": "Symmetry shares the centered load equally: each reaction is 600\/2=300 N."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1641,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-circuits",
+            "concept_id": "ree-concept-ree-pro-circuits"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A 2 A current flows through 4 Ω and 6 Ω series resistors. What is the total voltage?",
+        "choices": [
+            "5 V",
+            "10 V",
+            "20 V",
+            "40 V"
+        ],
+        "answer": "20 V",
+        "explanation": "The series resistance is 10 Ω; V=IR=20 V.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "V=I(R₁+R₂)",
+                "fallback": "The series resistance is 10 Ω; V=IR=20 V."
+            },
+            {
+                "type": "figure",
+                "asset": "assets\/ree\/ree-circuit-ladder.svg",
+                "alt": "Source feeding circuit branches through resistive elements",
+                "caption": "Circuit topology used for the analysis"
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1642,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-circuits",
+            "concept_id": "ree-concept-ree-pro-circuits"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "What is the equivalent resistance of 6 Ω in parallel with 3 Ω?",
+        "choices": [
+            "1 Ω",
+            "2 Ω",
+            "4.5 Ω",
+            "9 Ω"
+        ],
+        "answer": "2 Ω",
+        "explanation": "R_eq=R₁R₂\/(R₁+R₂)=2 Ω.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "R_eq=R₁R₂\/(R₁+R₂)",
+                "fallback": "R_eq=R₁R₂\/(R₁+R₂)=2 Ω."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1643,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-circuits",
+            "concept_id": "ree-concept-ree-pro-circuits"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A 12 A current enters parallel branches of 2 Ω and 4 Ω. How much flows through the 2 Ω branch?",
+        "choices": [
+            "4 A",
+            "6 A",
+            "8 A",
+            "10 A"
+        ],
+        "answer": "8 A",
+        "explanation": "Current divides inversely with resistance: I₂Ω=12(4\/(2+4))=8 A.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "I₂Ω=I_T R₄Ω\/(R₂Ω+R₄Ω)",
+                "fallback": "Current divides inversely with resistance: I₂Ω=12(4\/(2+4))=8 A."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1644,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-circuits",
+            "concept_id": "ree-concept-ree-pro-circuits"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A Thevenin source has V_th=12 V and R_th=6 Ω. What load gives maximum power transfer?",
+        "choices": [
+            "2 Ω",
+            "6 Ω",
+            "12 Ω",
+            "18 Ω"
+        ],
+        "answer": "6 Ω",
+        "explanation": "Maximum power transfer occurs when R_L=R_th=6 Ω.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "R_L=R_th",
+                "fallback": "Maximum power transfer occurs when R_L=R_th=6 Ω."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1645,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-circuits",
+            "concept_id": "ree-concept-ree-pro-circuits"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "For a 12 V Thevenin source with R_th=6 Ω and matched load, what load power is delivered?",
+        "choices": [
+            "1 W",
+            "3 W",
+            "6 W",
+            "12 W"
+        ],
+        "answer": "6 W",
+        "explanation": "The load current is 1 A; P_L=I²R_L=6 W.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "P_L=V_th²\/(4R_th)",
+                "fallback": "The load current is 1 A; P_L=I²R_L=6 W."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1646,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-circuits",
+            "concept_id": "ree-concept-ree-pro-circuits"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A 24 V source feeds a 2 Ω load through 0.5 Ω source resistance. What load current results?",
+        "choices": [
+            "4.8 A",
+            "9.6 A",
+            "12 A",
+            "48 A"
+        ],
+        "answer": "9.6 A",
+        "explanation": "The total resistance is 2.5 Ω, so I=24\/2.5=9.6 A.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "I=V\/(R_s+R_L)",
+                "fallback": "The total resistance is 2.5 Ω, so I=24\/2.5=9.6 A."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1647,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-circuits",
+            "concept_id": "ree-concept-ree-pro-circuits"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A node receives 5 A and sends 2 A and 1.5 A through two branches. What current leaves through a third branch?",
+        "choices": [
+            "0.5 A",
+            "1.0 A",
+            "1.5 A",
+            "3.5 A"
+        ],
+        "answer": "1.5 A",
+        "explanation": "KCL requires 2+1.5+I=5, so I=1.5 A.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "ΣI_in=ΣI_out",
+                "fallback": "KCL requires 2+1.5+I=5, so I=1.5 A."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1648,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-ac",
+            "concept_id": "ree-concept-ree-pro-ac"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A load has R=8 Ω and X=6 Ω inductive. What are |Z| and its angle?",
+        "choices": [
+            "10 Ω,36.9°",
+            "10 Ω,53.1°",
+            "14 Ω,36.9°",
+            "14 Ω,53.1°"
+        ],
+        "answer": "10 Ω,36.9°",
+        "explanation": "|Z|=10 Ω and θ=atan(6\/8)=36.9°.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Z=R+jX",
+                "fallback": "|Z|=10 Ω and θ=atan(6\/8)=36.9°."
+            },
+            {
+                "type": "figure",
+                "asset": "assets\/ree\/ree-phasor.svg",
+                "alt": "Voltage and current phasors with a phase angle",
+                "caption": "Phasor relationship for an AC load"
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1649,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-ac",
+            "concept_id": "ree-concept-ree-pro-ac"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A 50 μF capacitor is connected to 120 V rms at 60 Hz. What current magnitude flows?",
+        "choices": [
+            "0.113 A",
+            "1.13 A",
+            "2.26 A",
+            "4.52 A"
+        ],
+        "answer": "2.26 A",
+        "explanation": "I=ωCV=2.26 A.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "I_C=ωCV",
+                "fallback": "I=ωCV=2.26 A."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1650,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-ac",
+            "concept_id": "ree-concept-ree-pro-ac"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A 0.10 H inductor carries 2 A rms at 60 Hz. What is its inductive voltage magnitude?",
+        "choices": [
+            "12.0 V",
+            "37.7 V",
+            "75.4 V",
+            "120 V"
+        ],
+        "answer": "75.4 V",
+        "explanation": "X_L=37.7 Ω; V=X_LI=75.4 V.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "V_L=ωLI",
+                "fallback": "X_L=37.7 Ω; V=X_LI=75.4 V."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1651,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-ac",
+            "concept_id": "ree-concept-ree-pro-ac"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A load consumes 4 kW at 5 kVA. What power-factor magnitude is indicated?",
+        "choices": [
+            "0.20",
+            "0.80",
+            "1.25",
+            "5.00"
+        ],
+        "answer": "0.80",
+        "explanation": "The power-factor magnitude is P\/S=4\/5=0.80. Leading or lagging needs reactive-power information.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": false,
+        "multistep": true,
+        "cognitive_intent": "evaluate",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [],
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1652,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-ac",
+            "concept_id": "ree-concept-ree-pro-ac"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A 10 kW load has pf=0.70 lagging. Approximately how much capacitive VAR is needed to correct it to pf=0.95?",
+        "choices": [
+            "1.15 kvar",
+            "3.85 kvar",
+            "6.92 kvar",
+            "10.00 kvar"
+        ],
+        "answer": "6.92 kvar",
+        "explanation": "Q_c=P[tan(cos⁻¹0.70)−tan(cos⁻¹0.95)]≈6.92 kvar.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Q_c=P(tanφ₁−tanφ₂)",
+                "fallback": "Q_c=P[tan(cos⁻¹0.70)−tan(cos⁻¹0.95)]≈6.92 kvar."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1653,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-ac",
+            "concept_id": "ree-concept-ree-pro-ac"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A balanced three-phase load draws 10 A at 400 V line-to-line and pf=0.8. What real power is consumed?",
+        "choices": [
+            "3.20 kW",
+            "5.54 kW",
+            "8.00 kW",
+            "9.60 kW"
+        ],
+        "answer": "5.54 kW",
+        "explanation": "P=√3V_LI_Lpf=5.54 kW.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "P=√3V_LI_Lpf",
+                "fallback": "P=√3V_LI_Lpf=5.54 kW."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1654,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-ac",
+            "concept_id": "ree-concept-ree-pro-ac"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A balanced 15 kW three-phase load operates at 415 V line-to-line and pf=0.9. What line current is required?",
+        "choices": [
+            "15.0 A",
+            "23.2 A",
+            "39.8 A",
+            "58.6 A"
+        ],
+        "answer": "23.2 A",
+        "explanation": "I=P\/(√3V_Lpf)≈23.2 A.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "I=P\/(√3V_Lpf)",
+                "fallback": "I=P\/(√3V_Lpf)≈23.2 A."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1655,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-ac",
+            "concept_id": "ree-concept-ree-pro-ac"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A delta-connected load has 30 A in each phase. What line-current magnitude results?",
+        "choices": [
+            "10.0 A",
+            "17.3 A",
+            "30.0 A",
+            "52.0 A"
+        ],
+        "answer": "52.0 A",
+        "explanation": "For balanced delta, I_L=√3I_phase=52.0 A.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "I_L=√3I_φ",
+                "fallback": "For balanced delta, I_L=√3I_phase=52.0 A."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1656,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-ac",
+            "concept_id": "ree-concept-ree-pro-ac"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A 415 V line-to-line wye system has what phase-to-neutral voltage magnitude?",
+        "choices": [
+            "138.3 V",
+            "239.6 V",
+            "415 V",
+            "718.8 V"
+        ],
+        "answer": "239.6 V",
+        "explanation": "For balanced wye, V_phase=V_L\/√3≈239.6 V.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "V_φ=V_L\/√3",
+                "fallback": "For balanced wye, V_phase=V_L\/√3≈239.6 V."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1657,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-ac",
+            "concept_id": "ree-concept-ree-pro-ac"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A 230 V rms source supplies 10 A at a 30° lagging current angle. What is real power?",
+        "choices": [
+            "1,150 W",
+            "1,992 W",
+            "2,300 W",
+            "3,980 W"
+        ],
+        "answer": "1,992 W",
+        "explanation": "P=VIcos30°=1,992 W.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "P=VIcosφ",
+                "fallback": "P=VIcos30°=1,992 W."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1658,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-ac",
+            "concept_id": "ree-concept-ree-pro-ac"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "Balanced phase currents are 8∠0°, 8∠−120°, and 8∠120° A. What is their phasor sum?",
+        "choices": [
+            "0 A",
+            "8 A",
+            "16 A",
+            "24 A"
+        ],
+        "answer": "0 A",
+        "explanation": "Three equal balanced phasors 120° apart cancel vectorially.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "I_A+I_B+I_C=0",
+                "fallback": "Three equal balanced phasors 120° apart cancel vectorially."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1659,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-machines",
+            "concept_id": "ree-concept-ree-pro-machines"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "An ideal transformer has 1200 primary turns and 120 secondary turns. What is V_p\/V_s?",
+        "choices": [
+            "0.1",
+            "1",
+            "10",
+            "100"
+        ],
+        "answer": "10",
+        "explanation": "The ideal turns ratio equals the voltage ratio: 1200\/120=10.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "V_p\/V_s=N_p\/N_s",
+                "fallback": "The ideal turns ratio equals the voltage ratio: 1200\/120=10."
+            },
+            {
+                "type": "figure",
+                "asset": "assets\/ree\/ree-transformer.svg",
+                "alt": "Primary and secondary transformer coils separated by a core",
+                "caption": "Transformer representation"
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1660,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-machines",
+            "concept_id": "ree-concept-ree-pro-machines"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "An ideal 1200:120 V transformer supplies a 5 A secondary load. What primary current is drawn?",
+        "choices": [
+            "0.05 A",
+            "0.5 A",
+            "5 A",
+            "50 A"
+        ],
+        "answer": "0.5 A",
+        "explanation": "Power balance gives I_p=I_s\/10=0.5 A.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "I_p\/I_s=N_s\/N_p",
+                "fallback": "Power balance gives I_p=I_s\/10=0.5 A."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1661,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-machines",
+            "concept_id": "ree-concept-ree-pro-machines"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A transformer delivers 9.5 kW from a 10.0 kW input. What is its efficiency?",
+        "choices": [
+            "5%",
+            "90.5%",
+            "95.0%",
+            "105.3%"
+        ],
+        "answer": "95.0%",
+        "explanation": "η=9.5\/10.0=95%.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "η=P_out\/P_in",
+                "fallback": "η=9.5\/10.0=95%."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1662,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-machines",
+            "concept_id": "ree-concept-ree-pro-machines"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A transformer terminal voltage falls from 240 V no-load to 230 V full-load. What is approximate regulation?",
+        "choices": [
+            "2.17%",
+            "4.35%",
+            "10.0%",
+            "104.3%"
+        ],
+        "answer": "4.35%",
+        "explanation": "VR=(240−230)\/230×100=4.35%.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "VR=(V_nl−V_fl)\/V_fl",
+                "fallback": "VR=(240−230)\/230×100=4.35%."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1663,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-machines",
+            "concept_id": "ree-concept-ree-pro-machines"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A 4-pole induction motor operates from 60 Hz. What is synchronous speed?",
+        "choices": [
+            "900 rpm",
+            "1,200 rpm",
+            "1,800 rpm",
+            "3,600 rpm"
+        ],
+        "answer": "1,800 rpm",
+        "explanation": "n_s=120f\/P=1,800 rpm.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "n_s=120f\/P",
+                "fallback": "n_s=120f\/P=1,800 rpm."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1664,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-machines",
+            "concept_id": "ree-concept-ree-pro-machines"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A motor has synchronous speed 1,800 rpm and rotor speed 1,710 rpm. What is slip?",
+        "choices": [
+            "2%",
+            "5%",
+            "10%",
+            "95%"
+        ],
+        "answer": "5%",
+        "explanation": "s=(1800−1710)\/1800=5%.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "s=(n_s−n_r)\/n_s",
+                "fallback": "s=(1800−1710)\/1800=5%."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1665,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-machines",
+            "concept_id": "ree-concept-ree-pro-machines"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "An induction motor has slip 0.04 on a 60 Hz supply. What is rotor-current frequency?",
+        "choices": [
+            "0.24 Hz",
+            "2.4 Hz",
+            "15 Hz",
+            "60 Hz"
+        ],
+        "answer": "2.4 Hz",
+        "explanation": "f_r=sf_s=0.04(60)=2.4 Hz.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "f_r=sf_s",
+                "fallback": "f_r=sf_s=0.04(60)=2.4 Hz."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1666,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-machines",
+            "concept_id": "ree-concept-ree-pro-machines"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A motor delivers 15 kW at 1,500 rpm. What shaft torque is produced?",
+        "choices": [
+            "47.7 N·m",
+            "95.5 N·m",
+            "143.2 N·m",
+            "225.0 N·m"
+        ],
+        "answer": "95.5 N·m",
+        "explanation": "ω=157.1 rad\/s; T=P\/ω≈95.5 N·m.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "T=P\/ω",
+                "fallback": "ω=157.1 rad\/s; T=P\/ω≈95.5 N·m."
+            },
+            {
+                "type": "figure",
+                "asset": "assets\/ree\/ree-motor-curve.svg",
+                "alt": "Motor torque decreasing with increasing speed",
+                "caption": "Torque-speed characteristic"
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1667,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-power",
+            "concept_id": "ree-concept-ree-pro-power"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "An 80 A feeder has loop resistance 0.12 Ω. What voltage drop occurs?",
+        "choices": [
+            "0.96 V",
+            "4.8 V",
+            "9.6 V",
+            "80 V"
+        ],
+        "answer": "9.6 V",
+        "explanation": "ΔV=IR=9.6 V.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "ΔV=IR",
+                "fallback": "ΔV=IR=9.6 V."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1668,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-power",
+            "concept_id": "ree-concept-ree-pro-power"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "The 9.6 V drop in a 240 V feeder corresponds to what percentage?",
+        "choices": [
+            "2%",
+            "4%",
+            "9.6%",
+            "24%"
+        ],
+        "answer": "4%",
+        "explanation": "Percentage drop=9.6\/240×100=4%.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "%ΔV=ΔV\/V_nom×100",
+                "fallback": "Percentage drop=9.6\/240×100=4%."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1669,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-power",
+            "concept_id": "ree-concept-ree-pro-power"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A line carries 100 A through 0.05 Ω resistance. What copper loss occurs?",
+        "choices": [
+            "50 W",
+            "500 W",
+            "5 kW",
+            "50 kW"
+        ],
+        "answer": "500 W",
+        "explanation": "Loss is I²R=500 W.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "P_loss=I²R",
+                "fallback": "Loss is I²R=500 W."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1670,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-power",
+            "concept_id": "ree-concept-ree-pro-power"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "For a 100 MVA, 13.8 kV three-phase base, what is base impedance using line quantities?",
+        "choices": [
+            "0.019 Ω",
+            "0.190 Ω",
+            "1.904 Ω",
+            "19.04 Ω"
+        ],
+        "answer": "1.904 Ω",
+        "explanation": "Z_base=13,800²\/100,000,000=1.904 Ω.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "Z_base=V_base²\/S_base",
+                "fallback": "Z_base=13,800²\/100,000,000=1.904 Ω."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1671,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-power",
+            "concept_id": "ree-concept-ree-pro-power"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A per-unit Thevenin reactance is 0.20 pu at 1 pu voltage. What fault current magnitude follows?",
+        "choices": [
+            "0.20 pu",
+            "1 pu",
+            "5 pu",
+            "20 pu"
+        ],
+        "answer": "5 pu",
+        "explanation": "I_fault=1\/0.20=5 pu.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "I_fault=V_th\/X_th",
+                "fallback": "I_fault=1\/0.20=5 pu."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1672,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-power",
+            "concept_id": "ree-concept-ree-pro-power"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A 400:5 CT carries 240 A primary current. What secondary current should the relay receive?",
+        "choices": [
+            "0.3 A",
+            "3.0 A",
+            "48 A",
+            "960 A"
+        ],
+        "answer": "3.0 A",
+        "explanation": "The ratio is 80:1, so secondary current is 3 A.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "I_s=I_p(N_s\/N_p)",
+                "fallback": "The ratio is 80:1, so secondary current is 3 A."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1673,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-power",
+            "concept_id": "ree-concept-ree-pro-power"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A feeder schedule lists 30,20,50 kW connected loads and a 60 kW maximum demand. What demand factor applies?",
+        "choices": [
+            "0.50",
+            "0.60",
+            "0.75",
+            "1.67"
+        ],
+        "answer": "0.60",
+        "explanation": "Connected load is 100 kW; demand factor=0.60.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "DF=P_max\/P_connected",
+                "fallback": "Connected load is 100 kW; demand factor=0.60."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Load",
+                    "Connected (kW)"
+                ],
+                "rows": [
+                    [
+                        "A",
+                        "30"
+                    ],
+                    [
+                        "B",
+                        "20"
+                    ],
+                    [
+                        "C",
+                        "50"
+                    ]
+                ]
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1674,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-power",
+            "concept_id": "ree-concept-ree-pro-power"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "Individual maximum demands total 120 kW while the group maximum is 90 kW. What diversity factor applies?",
+        "choices": [
+            "0.75",
+            "1.00",
+            "1.33",
+            "2.10"
+        ],
+        "answer": "1.33",
+        "explanation": "Diversity factor=120\/90=1.33.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "DFiv=ΣP_ind,max\/P_group,max",
+                "fallback": "Diversity factor=120\/90=1.33."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Quantity",
+                    "Value (kW)"
+                ],
+                "rows": [
+                    [
+                        "Individual maxima sum",
+                        "120"
+                    ],
+                    [
+                        "Group maximum",
+                        "90"
+                    ]
+                ]
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1675,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-power",
+            "concept_id": "ree-concept-ree-pro-power"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A load averages 60 kW during a period whose maximum demand is 100 kW. What is its load factor?",
+        "choices": [
+            "0.40",
+            "0.60",
+            "1.00",
+            "1.67"
+        ],
+        "answer": "0.60",
+        "explanation": "Load factor=60\/100=0.60.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "LF=P_avg\/P_max",
+                "fallback": "Load factor=60\/100=0.60."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1676,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-power",
+            "concept_id": "ree-concept-ree-pro-power"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A 50 kW load operates for 8 h. How much energy does it consume?",
+        "choices": [
+            "58 kWh",
+            "400 kWh",
+            "4,000 kWh",
+            "6.25 kWh"
+        ],
+        "answer": "400 kWh",
+        "explanation": "E=Pt=400 kWh.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "E=Pt",
+                "fallback": "E=Pt=400 kWh."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Period",
+                    "Power (kW)",
+                    "Duration (h)"
+                ],
+                "rows": [
+                    [
+                        "Day",
+                        "50",
+                        "8"
+                    ]
+                ]
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1677,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-power",
+            "concept_id": "ree-concept-ree-pro-power"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A 60 Hz system has a fifth-harmonic component. What frequency is that component?",
+        "choices": [
+            "12 Hz",
+            "60 Hz",
+            "300 Hz",
+            "360 Hz"
+        ],
+        "answer": "300 Hz",
+        "explanation": "The fifth harmonic is 300 Hz.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "f_h=hf_1",
+                "fallback": "The fifth harmonic is 300 Hz."
+            },
+            {
+                "type": "figure",
+                "asset": "assets\/ree\/ree-waveform.svg",
+                "alt": "Periodic waveform with sample markers",
+                "caption": "Waveform context for harmonic interpretation"
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1678,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-power",
+            "concept_id": "ree-concept-ree-pro-power"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A single-line diagram places a breaker between a transformer and a feeder. What is the breaker's primary protection role?",
+        "choices": [
+            "Provide a controlled interruption during a fault",
+            "Increase transformer turns ratio",
+            "Measure insulation resistance continuously",
+            "Convert AC to DC"
+        ],
+        "answer": "Provide a controlled interruption during a fault",
+        "explanation": "The breaker interrupts fault or load current when commanded by protection.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": false,
+        "multistep": true,
+        "cognitive_intent": "evaluate",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets\/ree\/ree-single-line.svg",
+                "alt": "Source, transformer, breaker, feeder, and load in a single-line diagram",
+                "caption": "Single-line protection context"
+            }
+        ],
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1679,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-controls",
+            "concept_id": "ree-concept-ree-pro-controls"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A relay coordination table gives times 0.18 s, 0.32 s, and 0.55 s at the same fault current. Which device is fastest?",
+        "choices": [
+            "Device A at 0.18 s",
+            "Device B at 0.32 s",
+            "Device C at 0.55 s",
+            "All are equal"
+        ],
+        "answer": "Device A at 0.18 s",
+        "explanation": "At the same current, the smallest operating time is fastest.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": false,
+        "multistep": false,
+        "cognitive_intent": "evaluate",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Device",
+                    "Operating time (s)"
+                ],
+                "rows": [
+                    [
+                        "A",
+                        "0.18"
+                    ],
+                    [
+                        "B",
+                        "0.32"
+                    ],
+                    [
+                        "C",
+                        "0.55"
+                    ]
+                ]
+            },
+            {
+                "type": "figure",
+                "asset": "assets\/ree\/ree-relay-curve.svg",
+                "alt": "Two descending relay time-current curves",
+                "caption": "Relay coordination characteristic"
+            }
+        ],
+        "unit_sensitive": false,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1680,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-controls",
+            "concept_id": "ree-concept-ree-pro-controls"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "easy",
+        "question": "A breaker must interrupt a prospective fault current of 12 kA. Which minimum interrupting rating is adequate?",
+        "choices": [
+            "6 kA",
+            "10 kA",
+            "12 kA",
+            "15 kA"
+        ],
+        "answer": "15 kA",
+        "explanation": "The rating must exceed the prospective fault current; 15 kA is adequate.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": false,
+        "multistep": true,
+        "cognitive_intent": "evaluate",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [],
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1681,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-controls",
+            "concept_id": "ree-concept-ree-pro-controls"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A grounding conductor must carry fault current until protective clearing. Which property is most important for sizing?",
+        "choices": [
+            "Adequate thermal and fault-current withstand",
+            "Matching enclosure paint",
+            "Maximizing normal load voltage",
+            "Making the circuit open normally"
+        ],
+        "answer": "Adequate thermal and fault-current withstand",
+        "explanation": "The grounding path must safely carry fault current until clearing.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": false,
+        "multistep": true,
+        "cognitive_intent": "evaluate",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [],
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1682,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-controls",
+            "concept_id": "ree-concept-ree-pro-controls"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A feedback loop has a reference, summing junction, controller, plant, and feedback path. Which block shapes the error response before the plant?",
+        "choices": [
+            "The controller",
+            "The load conductor",
+            "The grounding electrode",
+            "The meter enclosure"
+        ],
+        "answer": "The controller",
+        "explanation": "The controller processes the error and determines the command applied to the plant.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": false,
+        "multistep": true,
+        "cognitive_intent": "evaluate",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "figure",
+                "asset": "assets\/ree\/ree-control-block.svg",
+                "alt": "Reference, controller, plant, and feedback path",
+                "caption": "Closed-loop control block diagram"
+            }
+        ],
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1683,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-controls",
+            "concept_id": "ree-concept-ree-pro-controls"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A buck converter has ideal input 24 V and duty ratio 0.40. What average output is expected?",
+        "choices": [
+            "4.8 V",
+            "9.6 V",
+            "14.4 V",
+            "24 V"
+        ],
+        "answer": "9.6 V",
+        "explanation": "V_o=DV_in=9.6 V.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "V_o=DV_in",
+                "fallback": "V_o=DV_in=9.6 V."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1684,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-controls",
+            "concept_id": "ree-concept-ree-pro-controls"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "An ideal boost converter has 24 V input and duty ratio 0.40. What output is predicted?",
+        "choices": [
+            "14.4 V",
+            "24 V",
+            "40 V",
+            "60 V"
+        ],
+        "answer": "40 V",
+        "explanation": "V_o=24\/(1−0.40)=40 V.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": false,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "V_o=V_in\/(1−D)",
+                "fallback": "V_o=24\/(1−0.40)=40 V."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1685,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-controls",
+            "concept_id": "ree-concept-ree-pro-controls"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A waveform has significant energy at 3 kHz. What is the minimum Nyquist sampling boundary?",
+        "choices": [
+            "1.5 kHz",
+            "3 kHz",
+            "6 kHz",
+            "9 kHz"
+        ],
+        "answer": "6 kHz",
+        "explanation": "The boundary is twice the highest component: 6 kHz.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "f_s≥2f_max",
+                "fallback": "The boundary is twice the highest component: 6 kHz."
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1686,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-controls",
+            "concept_id": "ree-concept-ree-pro-controls"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A distribution panel has a 100 A main and branch demands of 40 A, 35 A, and 25 A. Which statement is supported?",
+        "choices": [
+            "The branch sum is 100 A before diversity allowances",
+            "The branch sum is 25 A",
+            "The main must be below 25 A",
+            "The branch currents cannot be measured"
+        ],
+        "answer": "The branch sum is 100 A before diversity allowances",
+        "explanation": "The listed branch demands sum to 100 A; diversity adjustments need separate evidence.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "ΣI_branch=40+35+25",
+                "fallback": "The listed branch demands sum to 100 A; diversity adjustments need separate evidence."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Branch",
+                    "Demand (A)"
+                ],
+                "rows": [
+                    [
+                        "1",
+                        "40"
+                    ],
+                    [
+                        "2",
+                        "35"
+                    ],
+                    [
+                        "3",
+                        "25"
+                    ]
+                ]
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false
+    },
+    {
+        "id": 1687,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-controls",
+            "concept_id": "ree-concept-ree-pro-controls"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A protective relay curve shows operating time decreasing as current multiple increases. What does inverse-time behavior provide?",
+        "choices": [
+            "Faster clearing for larger faults while allowing coordination at lower multiples",
+            "Constant time for every fault",
+            "Higher load voltage during a fault",
+            "Automatic power-factor correction"
+        ],
+        "answer": "Faster clearing for larger faults while allowing coordination at lower multiples",
+        "explanation": "Inverse-time protection accelerates clearing for larger faults while preserving coordination margins.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": false,
+        "multistep": true,
+        "cognitive_intent": "evaluate",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [],
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "data_interpretation": false,
+        "long_scenario": false
+    },
+    {
+        "id": 1688,
+        "taxonomy": {
+            "board_id": "registered-electrical-engineering",
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-controls",
+            "concept_id": "ree-concept-ree-pro-controls"
+        },
+        "board": "registered-electrical-engineering",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "createdAt": "2026-09-06T00:00:00+00:00",
+        "updatedAt": "2026-09-06T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A 230 V single-phase heater draws 8 A for 5 h. What energy is consumed?",
+        "choices": [
+            "0.92 kWh",
+            "1.84 kWh",
+            "9.20 kWh",
+            "40.0 kWh"
+        ],
+        "answer": "9.20 kWh",
+        "explanation": "Power is 1.84 kW; energy=1.84(5)=9.20 kWh.",
+        "subject": "REE Electrical Engineering Professional Subjects",
+        "numeric": true,
+        "multistep": true,
+        "cognitive_intent": "analyze",
+        "source_sensitivity": "STABLE",
+        "content_blocks": [
+            {
+                "type": "equation",
+                "value": "E=VIt",
+                "fallback": "Power is 1.84 kW; energy=1.84(5)=9.20 kWh."
+            },
+            {
+                "type": "table",
+                "columns": [
+                    "Voltage (V)",
+                    "Current (A)",
+                    "Time (h)"
+                ],
+                "rows": [
+                    [
+                        "230",
+                        "8",
+                        "5"
+                    ]
+                ]
+            }
+        ],
+        "unit_sensitive": true,
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": false
     }
 ]
