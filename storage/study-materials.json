@@ -2644,16 +2644,30 @@
     },
     {
         "id": "ce-489--tructural-echanics-and-esign",
-        "title": "Structural Mechanics and Design",
-        "summary": "Structured Civil Engineering review aligned with the registered PRC scope source.",
+        "title": "Structural Analysis and Statics",
+        "summary": "Concept-focused Civil Engineering review covering governing relationships, assumptions, units, interpretation, and common reasoning errors for Structural Analysis and Statics.",
         "notes": [
-            {
-                "heading": "Study focus",
-                "body": "Work from supplied data, units, equations, and engineering assumptions; verify dimensional consistency before selecting an answer."
-            }
+            [
+                "Equilibrium and reactions",
+                "Isolate the structure, identify support constraints and all external actions, then apply force and moment equilibrium. Symmetry may simplify reactions, but only after the load and support geometry are verified."
+            ],
+            [
+                "Beams and diagrams",
+                "Distributed loads reduce to resultants for reactions; shear is the derivative of moment, so a smooth interior moment extremum occurs where shear is zero. Preserve sign conventions consistently."
+            ],
+            [
+                "Trusses and resultants",
+                "At ideal pin joints, resolve member forces along member axes. Zero-force rules require the stated joint loading and connectivity; they are not visual guesses."
+            ],
+            [
+                "Stability and deformation",
+                "Euler buckling is an ideal elastic model sensitive to effective length. Deflection formulas require their stated load, support, small-deformation, and prismatic-member assumptions."
+            ]
         ],
         "source_ids": [
-            "prc-civil-engineering-board-page"
+            "prc-civil-engineering-board-page",
+            "mit-structural-analysis-member-systems",
+            "openstax-university-physics-volume-1"
         ],
         "exams": [
             "civil-engineering"
@@ -2668,21 +2682,35 @@
             "subject_id": "civil-engineering-structural-engineering"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "ce-489--trength-of-aterials",
-        "title": "Strength of Materials",
-        "summary": "Structured Civil Engineering review aligned with the registered PRC scope source.",
+        "title": "Strength and Mechanics of Materials",
+        "summary": "Concept-focused Civil Engineering review covering governing relationships, assumptions, units, interpretation, and common reasoning errors for Strength and Mechanics of Materials.",
         "notes": [
-            {
-                "heading": "Study focus",
-                "body": "Work from supplied data, units, equations, and engineering assumptions; verify dimensional consistency before selecting an answer."
-            }
+            [
+                "Stress, strain, and stiffness",
+                "Average normal stress is axial force divided by area; elastic strain is stress divided by modulus and elongation is strain times original length. Keep force and area units compatible."
+            ],
+            [
+                "Section response",
+                "The centroidal second moment for a rectangle is bd cubed over 12 about the axis parallel to b. Elastic bending stress equals moment divided by section modulus at the extreme fiber."
+            ],
+            [
+                "Combined and local effects",
+                "A hole reduces net area and can raise local elastic stress through a stated concentration factor. Offset loads add moments; fatigue models combine mean and alternating stress only under their declared assumptions."
+            ],
+            [
+                "Material interpretation",
+                "Concrete cylinder strength is failure load divided by specimen area. Ductility, stiffness, fatigue resistance, and strength describe different behaviors and should not be substituted for one another."
+            ]
         ],
         "source_ids": [
-            "prc-civil-engineering-board-page"
+            "prc-civil-engineering-board-page",
+            "openstax-university-physics-volume-1",
+            "mit-structural-engineering-design-notes"
         ],
         "exams": [
             "civil-engineering"
@@ -2697,21 +2725,35 @@
             "subject_id": "civil-engineering-structural-engineering"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "ce-489--pplied-athematics-for-",
-        "title": "Applied Mathematics for CE",
-        "summary": "Structured Civil Engineering review aligned with the registered PRC scope source.",
+        "title": "Applied Mathematics for Civil Engineering",
+        "summary": "Concept-focused Civil Engineering review covering governing relationships, assumptions, units, interpretation, and common reasoning errors for Applied Mathematics for Civil Engineering.",
         "notes": [
-            {
-                "heading": "Study focus",
-                "body": "Work from supplied data, units, equations, and engineering assumptions; verify dimensional consistency before selecting an answer."
-            }
+            [
+                "Model setup",
+                "Translate geometry, rates, percentages, and unit scales into one consistent system before calculating. Check dimensions and estimate the expected magnitude."
+            ],
+            [
+                "Optimization and calculus",
+                "Differentiate a continuous response to locate candidate extrema, then check the allowed interval and endpoints. Integrate rates over the stated interval to obtain accumulated quantities."
+            ],
+            [
+                "Ratios and scaling",
+                "Map scale, grade, productivity, density, and utilization are ratios with different denominators. Write the numerator and denominator labels before inserting values."
+            ],
+            [
+                "Data interpretation",
+                "Use tables and trends as evidence within their measured range. A departure from linearity, uncertainty interval, or limiting constraint must be interpreted rather than merely copied."
+            ]
         ],
         "source_ids": [
-            "prc-civil-engineering-board-page"
+            "prc-civil-engineering-board-page",
+            "openstax-calculus-volume-1",
+            "nist-semtech-engineering-statistics-handbook"
         ],
         "exams": [
             "civil-engineering"
@@ -2723,24 +2765,37 @@
             }
         },
         "taxonomy": {
-            "subject_id": "civil-engineering-structural-engineering"
+            "subject_id": "civil-engineering-applied-mathematics"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "ce-489--urveying-and-ayout",
-        "title": "Surveying and Layout",
-        "summary": "Structured Civil Engineering review aligned with the registered PRC scope source.",
+        "title": "Surveying, Leveling, and Layout",
+        "summary": "Concept-focused Civil Engineering review covering governing relationships, assumptions, units, interpretation, and common reasoning errors for Surveying, Leveling, and Layout.",
         "notes": [
-            {
-                "heading": "Study focus",
-                "body": "Work from supplied data, units, equations, and engineering assumptions; verify dimensional consistency before selecting an answer."
-            }
+            [
+                "Scale and direction",
+                "Convert map length using the representative fraction and compatible units. Distinguish azimuth from an interior or deflection angle before applying a turn."
+            ],
+            [
+                "Leveling",
+                "Height of instrument equals known elevation plus backsight; the next elevation equals height of instrument minus foresight. Arithmetic closure checks observations but does not identify every field blunder."
+            ],
+            [
+                "Traverse components",
+                "Resolve each line into latitude and departure with consistent signs; algebraic sums show closure error or net displacement, depending on whether the traverse is intended to close."
+            ],
+            [
+                "Field control",
+                "Protect benchmarks, record observations in sequence, repeat critical checks, and connect layout to a documented datum rather than an assumed local reference."
+            ]
         ],
         "source_ids": [
-            "prc-civil-engineering-board-page"
+            "prc-civil-engineering-board-page",
+            "noaa-geodetic-leveling-manual"
         ],
         "exams": [
             "civil-engineering"
@@ -2752,24 +2807,37 @@
             }
         },
         "taxonomy": {
-            "subject_id": "civil-engineering-structural-engineering"
+            "subject_id": "civil-engineering-applied-mathematics"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "ce-489--ransportation-and-ighway-ngineering",
         "title": "Transportation and Highway Engineering",
-        "summary": "Structured Civil Engineering review aligned with the registered PRC scope source.",
+        "summary": "Concept-focused Civil Engineering review covering governing relationships, assumptions, units, interpretation, and common reasoning errors for Transportation and Highway Engineering.",
         "notes": [
-            {
-                "heading": "Study focus",
-                "body": "Work from supplied data, units, equations, and engineering assumptions; verify dimensional consistency before selecting an answer."
-            }
+            [
+                "Traffic stream variables",
+                "Flow, speed, and density satisfy q=kv under a consistent macroscopic model. Average values and observation intervals must refer to the same traffic stream."
+            ],
+            [
+                "Signals and capacity",
+                "An idealized approach capacity can be estimated from saturation flow times effective-green ratio; compare demand with that capacity before inferring oversaturation."
+            ],
+            [
+                "Horizontal alignment",
+                "For a simple circular curve, tangent length is R tan(delta/2) with delta in the angle convention expected by the calculation."
+            ],
+            [
+                "Grades and profiles",
+                "Percent grade is rise over horizontal run times 100. A change from positive to negative grade forms a crest profile; the reverse forms a sag profile."
+            ]
         ],
         "source_ids": [
-            "prc-civil-engineering-board-page"
+            "prc-civil-engineering-board-page",
+            "fhwa-traffic-flow-theory"
         ],
         "exams": [
             "civil-engineering"
@@ -2781,24 +2849,37 @@
             }
         },
         "taxonomy": {
-            "subject_id": "civil-engineering-structural-engineering"
+            "subject_id": "civil-engineering-applied-mathematics"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "ce-489--onstruction-anagement-and-uantity",
-        "title": "Construction Management and Quantity",
-        "summary": "Structured Civil Engineering review aligned with the registered PRC scope source.",
+        "title": "Construction Quantities and Productivity",
+        "summary": "Concept-focused Civil Engineering review covering governing relationships, assumptions, units, interpretation, and common reasoning errors for Construction Quantities and Productivity.",
         "notes": [
-            {
-                "heading": "Study focus",
-                "body": "Work from supplied data, units, equations, and engineering assumptions; verify dimensional consistency before selecting an answer."
-            }
+            [
+                "Quantity takeoff",
+                "Compute geometric quantities in consistent dimensions, then apply material rates. Separate direct quantity changes from overhead, profit, waste, and contractual adjustments unless supplied."
+            ],
+            [
+                "Productivity",
+                "Productivity is output divided by the relevant labor, equipment, or elapsed-time input. Compare crews on the same basis and include utilization when converting theoretical to effective capacity."
+            ],
+            [
+                "Method control",
+                "A workable method statement connects sequence, resources, interfaces, hazards, quality checks, and acceptance responsibilities; a schedule alone does not control execution risk."
+            ],
+            [
+                "Records and change",
+                "Document measured quantities, assumptions, approvals, and affected work. A unit-price quantity change uses the supported incremental quantity before other contract effects are considered."
+            ]
         ],
         "source_ids": [
-            "prc-civil-engineering-board-page"
+            "prc-civil-engineering-board-page",
+            "fhwa-construction-program-management-inspection"
         ],
         "exams": [
             "civil-engineering"
@@ -2810,24 +2891,38 @@
             }
         },
         "taxonomy": {
-            "subject_id": "civil-engineering-structural-engineering"
+            "subject_id": "civil-engineering-applied-mathematics"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "ce-489--luid-echanics-and-ydraulics",
-        "title": "Fluid Mechanics and Hydraulics",
-        "summary": "Structured Civil Engineering review aligned with the registered PRC scope source.",
+        "title": "Fluid Mechanics, Pipe Flow, and Open Channels",
+        "summary": "Concept-focused Civil Engineering review covering governing relationships, assumptions, units, interpretation, and common reasoning errors for Fluid Mechanics, Pipe Flow, and Open Channels.",
         "notes": [
-            {
-                "heading": "Study focus",
-                "body": "Work from supplied data, units, equations, and engineering assumptions; verify dimensional consistency before selecting an answer."
-            }
+            [
+                "Hydrostatics",
+                "Pressure head and pressure use p=gamma h; resultant hydrostatic force on a plane area uses pressure at its centroid. Buoyancy equals displaced-fluid weight."
+            ],
+            [
+                "Continuity and energy",
+                "For incompressible steady flow, discharge equals area times mean velocity. Total head combines elevation, pressure, and velocity heads, while losses reduce available head along real systems."
+            ],
+            [
+                "Pumps",
+                "Hydraulic power is rho g Q H; required shaft power divides hydraulic power by efficiency. Cavitation assessment requires suction-side pressure and vapor-pressure context."
+            ],
+            [
+                "Open channels",
+                "Hydraulic radius is area divided by wetted perimeter. Froude number and specific energy distinguish subcritical, critical, and supercritical states under the stated section assumptions."
+            ]
         ],
         "source_ids": [
-            "prc-civil-engineering-board-page"
+            "prc-civil-engineering-board-page",
+            "openstax-university-physics-volume-1",
+            "usace-hydraulic-design-open-channel"
         ],
         "exams": [
             "civil-engineering"
@@ -2839,24 +2934,37 @@
             }
         },
         "taxonomy": {
-            "subject_id": "civil-engineering-structural-engineering"
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "ce-489--oil-echanics-and-oundations",
-        "title": "Soil Mechanics and Foundations",
-        "summary": "Structured Civil Engineering review aligned with the registered PRC scope source.",
+        "title": "Soil Properties, Effective Stress, and Seepage",
+        "summary": "Concept-focused Civil Engineering review covering governing relationships, assumptions, units, interpretation, and common reasoning errors for Soil Properties, Effective Stress, and Seepage.",
         "notes": [
-            {
-                "heading": "Study focus",
-                "body": "Work from supplied data, units, equations, and engineering assumptions; verify dimensional consistency before selecting an answer."
-            }
+            [
+                "Phase relationships",
+                "Water content is water mass over dry-soil mass; void ratio is void volume over solid volume. Unit weight, density, porosity, and void ratio are related but not interchangeable."
+            ],
+            [
+                "Classification and compaction",
+                "Grain-size measures and Atterberg limits support standardized classification. A compaction curve identifies maximum dry unit weight and its corresponding optimum water content for the specified effort."
+            ],
+            [
+                "Effective stress and strength",
+                "Effective stress is total stress minus pore pressure. Mohr–Coulomb strength combines cohesion and effective-normal-stress friction under the stated drained or undrained model."
+            ],
+            [
+                "Seepage",
+                "Darcy discharge is permeability times hydraulic gradient times area. Exit gradients near or above critical values indicate piping or heave concern, not a guaranteed failure time."
+            ]
         ],
         "source_ids": [
-            "prc-civil-engineering-board-page"
+            "prc-civil-engineering-board-page",
+            "fhwa-soils-foundations-reference"
         ],
         "exams": [
             "civil-engineering"
@@ -2868,24 +2976,37 @@
             }
         },
         "taxonomy": {
-            "subject_id": "civil-engineering-structural-engineering"
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "ce-489--eotechnical-ettlement-and-tability",
-        "title": "Geotechnical Settlement and Stability",
-        "summary": "Structured Civil Engineering review aligned with the registered PRC scope source.",
+        "title": "Foundations, Settlement, and Stability",
+        "summary": "Concept-focused Civil Engineering review covering governing relationships, assumptions, units, interpretation, and common reasoning errors for Foundations, Settlement, and Stability.",
         "notes": [
-            {
-                "heading": "Study focus",
-                "body": "Work from supplied data, units, equations, and engineering assumptions; verify dimensional consistency before selecting an answer."
-            }
+            [
+                "Bearing and contact pressure",
+                "Average footing pressure is service load divided by plan area. Allowable-capacity comparisons must keep service and ultimate bases distinct and use the stated safety factor."
+            ],
+            [
+                "Settlement",
+                "Consolidation settlement follows compressibility, layer thickness, stress history, drainage, and time. A void-ratio relation is valid only with the defined initial condition and strain convention."
+            ],
+            [
+                "Slopes and retaining systems",
+                "Factor of safety compares available resistance with driving actions on the assumed mechanism. Water pressure and seepage alter both loading and effective stress, so drainage can be structurally significant."
+            ],
+            [
+                "Failure interpretation",
+                "General shear commonly shows a defined failure surface and ground heave; punching is more localized. Rapid loading of saturated clay is often assessed with an undrained model when drainage cannot occur."
+            ]
         ],
         "source_ids": [
-            "prc-civil-engineering-board-page"
+            "prc-civil-engineering-board-page",
+            "fhwa-soils-foundations-reference"
         ],
         "exams": [
             "civil-engineering"
@@ -2897,24 +3018,38 @@
             }
         },
         "taxonomy": {
-            "subject_id": "civil-engineering-structural-engineering"
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "ce-489--ngineering-ata-and-alculations",
-        "title": "Engineering Data and Calculations",
-        "summary": "Structured Civil Engineering review aligned with the registered PRC scope source.",
+        "title": "Civil Engineering Data and Laboratory Interpretation",
+        "summary": "Concept-focused Civil Engineering review covering governing relationships, assumptions, units, interpretation, and common reasoning errors for Civil Engineering Data and Laboratory Interpretation.",
         "notes": [
-            {
-                "heading": "Study focus",
-                "body": "Work from supplied data, units, equations, and engineering assumptions; verify dimensional consistency before selecting an answer."
-            }
+            [
+                "Tables and trends",
+                "Identify controlled and measured variables, units, and the comparison basis before selecting a trend. Do not infer causation or extrapolate beyond the supplied data without support."
+            ],
+            [
+                "Laboratory response",
+                "Initial linearity can establish a reference slope; departure, scatter, and outliers require checking calibration, specimen behavior, and repeatability before assigning a mechanism."
+            ],
+            [
+                "Derived parameters",
+                "Compute ratios such as permeability comparisons, strength slopes, or intercepts from consistent test conditions. A larger input does not imply a larger response when another governing factor changes."
+            ],
+            [
+                "Reporting",
+                "Retain significant figures appropriate to the data, state assumptions, and distinguish observed results from model-based interpretation."
+            ]
         ],
         "source_ids": [
-            "prc-civil-engineering-board-page"
+            "prc-civil-engineering-board-page",
+            "nist-semtech-engineering-statistics-handbook",
+            "fhwa-field-materials-manual"
         ],
         "exams": [
             "civil-engineering"
@@ -2926,24 +3061,39 @@
             }
         },
         "taxonomy": {
-            "subject_id": "civil-engineering-structural-engineering"
+            "subject_id": "civil-engineering-applied-mathematics"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "ce-489--onstruction-afety-and-uality",
-        "title": "Construction Safety and Quality",
-        "summary": "Structured Civil Engineering review aligned with the registered PRC scope source.",
+        "title": "Construction Safety, Materials, and Quality",
+        "summary": "Concept-focused Civil Engineering review covering governing relationships, assumptions, units, interpretation, and common reasoning errors for Construction Safety, Materials, and Quality.",
         "notes": [
-            {
-                "heading": "Study focus",
-                "body": "Work from supplied data, units, equations, and engineering assumptions; verify dimensional consistency before selecting an answer."
-            }
+            [
+                "Quality control and assurance",
+                "Field tests verify that placed work meets the project basis; they supplement process control rather than substitute for documented requirements and representative sampling."
+            ],
+            [
+                "Concrete and durability",
+                "Curing preserves moisture and temperature conditions needed for hydration. Marine chloride exposure calls for a coherent durability strategy addressing permeability, cover, cracking, materials, and detailing without inventing a universal limit."
+            ],
+            [
+                "Execution safety",
+                "Method review should identify sequence, temporary conditions, interfaces, hazards, controls, hold points, and responsibilities. Compliance values come from the governing project and jurisdiction, not generic study notes."
+            ],
+            [
+                "Evidence and decisions",
+                "Investigate nonconforming or unusual results before assigning cause. Use calibrated tests, traceable records, and acceptance criteria appropriate to the work."
+            ]
         ],
         "source_ids": [
-            "prc-civil-engineering-board-page"
+            "prc-civil-engineering-board-page",
+            "fhwa-field-materials-manual",
+            "fhwa-construction-program-management-inspection",
+            "nist-semtech-engineering-statistics-handbook"
         ],
         "exams": [
             "civil-engineering"
@@ -2955,24 +3105,37 @@
             }
         },
         "taxonomy": {
-            "subject_id": "civil-engineering-structural-engineering"
+            "subject_id": "civil-engineering-applied-mathematics"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "ce-489--ater-upply-and-rainage",
-        "title": "Water Supply and Drainage",
-        "summary": "Structured Civil Engineering review aligned with the registered PRC scope source.",
+        "title": "Hydrology, Water Supply, and Drainage",
+        "summary": "Concept-focused Civil Engineering review covering governing relationships, assumptions, units, interpretation, and common reasoning errors for Hydrology, Water Supply, and Drainage.",
         "notes": [
-            {
-                "heading": "Study focus",
-                "body": "Work from supplied data, units, equations, and engineering assumptions; verify dimensional consistency before selecting an answer."
-            }
+            [
+                "Demand and storage",
+                "Convert per-capita demand and population to daily volume, then apply explicitly stated losses and balancing duration. Keep demand, production, and storage periods distinct."
+            ],
+            [
+                "Runoff estimation",
+                "The rational method combines runoff coefficient, rainfall intensity, and drainage area with a unit-conversion constant; it assumes the supplied intensity and catchment representation are appropriate."
+            ],
+            [
+                "Hydrographs",
+                "Runoff volume over an interval is area under discharge above the selected baseflow. With equal intervals, compare average excess ordinates rather than one peak alone."
+            ],
+            [
+                "Drainage reasoning",
+                "Drainage systems manage collection, conveyance, storage, and safe discharge. Capacity conclusions require the relevant storm, boundary conditions, losses, and downstream controls."
+            ]
         ],
         "source_ids": [
-            "prc-civil-engineering-board-page"
+            "prc-civil-engineering-board-page",
+            "usgs-manual-surface-water-hydrology"
         ],
         "exams": [
             "civil-engineering"
@@ -2984,24 +3147,38 @@
             }
         },
         "taxonomy": {
-            "subject_id": "civil-engineering-structural-engineering"
+            "subject_id": "civil-engineering-geotechnical-and-hydraulics"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "ce-489--tructural-esting-and-nterpretation",
-        "title": "Structural Testing and Interpretation",
-        "summary": "Structured Civil Engineering review aligned with the registered PRC scope source.",
+        "title": "Structural Testing and Nondestructive Evaluation",
+        "summary": "Concept-focused Civil Engineering review covering governing relationships, assumptions, units, interpretation, and common reasoning errors for Structural Testing and Nondestructive Evaluation.",
         "notes": [
-            {
-                "heading": "Study focus",
-                "body": "Work from supplied data, units, equations, and engineering assumptions; verify dimensional consistency before selecting an answer."
-            }
+            [
+                "Test planning",
+                "Define the property, expected response, load range, instrumentation, and acceptance basis before testing. Calibration and repeatability are prerequisites to interpreting small differences."
+            ],
+            [
+                "Response interpretation",
+                "Compare measured response with the initial trend and an appropriate model; nonlinearity can indicate several mechanisms and should not be assigned a cause without corroboration."
+            ],
+            [
+                "Nondestructive methods",
+                "Liquid penetrant reveals surface-breaking discontinuities in suitable nonporous materials; other methods are selected for subsurface, volumetric, or material-specific targets."
+            ],
+            [
+                "Limits of evidence",
+                "An indication is not automatically a defect, and a nondetection is not proof of absence. Method sensitivity, access, geometry, preparation, and operator procedure bound conclusions."
+            ]
         ],
         "source_ids": [
-            "prc-civil-engineering-board-page"
+            "prc-civil-engineering-board-page",
+            "nist-semtech-engineering-statistics-handbook",
+            "mit-structural-engineering-design-notes"
         ],
         "exams": [
             "civil-engineering"
@@ -3016,21 +3193,35 @@
             "subject_id": "civil-engineering-structural-engineering"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "ce-489--ngineering-conomics-and-cheduling",
-        "title": "Engineering Economics and Scheduling",
-        "summary": "Structured Civil Engineering review aligned with the registered PRC scope source.",
+        "title": "Engineering Economics and Project Scheduling",
+        "summary": "Concept-focused Civil Engineering review covering governing relationships, assumptions, units, interpretation, and common reasoning errors for Engineering Economics and Project Scheduling.",
         "notes": [
-            {
-                "heading": "Study focus",
-                "body": "Work from supplied data, units, equations, and engineering assumptions; verify dimensional consistency before selecting an answer."
-            }
+            [
+                "Economic equivalence",
+                "Compare cash flows at a common time using the stated interest rate and timing convention. NPV subtracts the initial investment from discounted benefits and costs."
+            ],
+            [
+                "Cost models",
+                "Straight-line depreciation spreads depreciable basis over service life; equivalent annual cost converts alternatives to a common annual basis. These models do not replace technical feasibility checks."
+            ],
+            [
+                "Network scheduling",
+                "A finish-to-start network duration follows the longest controlling path. Recalculate path floats after duration or logic changes rather than assuming the original critical path remains controlling."
+            ],
+            [
+                "Decision records",
+                "State analysis period, price basis, included costs, assumptions, and uncertainty. Nominal undiscounted totals and present worth answer different questions."
+            ]
         ],
         "source_ids": [
-            "prc-civil-engineering-board-page"
+            "prc-civil-engineering-board-page",
+            "ualberta-introduction-engineering-economics",
+            "fhwa-construction-program-management-inspection"
         ],
         "exams": [
             "civil-engineering"
@@ -3042,24 +3233,37 @@
             }
         },
         "taxonomy": {
-            "subject_id": "civil-engineering-structural-engineering"
+            "subject_id": "civil-engineering-applied-mathematics"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "ce-489--ntegrated-ractice",
-        "title": "CE Integrated Practice",
-        "summary": "Structured Civil Engineering review aligned with the registered PRC scope source.",
+        "title": "Reinforced Concrete, Steel, and Connections",
+        "summary": "Concept-focused Civil Engineering review covering governing relationships, assumptions, units, interpretation, and common reasoning errors for Reinforced Concrete, Steel, and Connections.",
         "notes": [
-            {
-                "heading": "Study focus",
-                "body": "Work from supplied data, units, equations, and engineering assumptions; verify dimensional consistency before selecting an answer."
-            }
+            [
+                "Reinforced-concrete behavior",
+                "Concrete is strong in compression but weak in tension, so longitudinal reinforcement crosses tensile regions and develops force through bond. Reinforcement ratio uses steel area divided by the stated concrete reference area."
+            ],
+            [
+                "Members and limit states",
+                "Beam, column, and connection behavior depends on load path and failure mode. Keep service demand, factored demand, nominal capacity, and any explicitly supplied reduction separate."
+            ],
+            [
+                "Steel members and connections",
+                "Gross yielding, net-section behavior, shear, tension, weld throat, eccentricity, and resultant actions are distinct checks. Use only the resistance expression and factors supplied or authoritatively specified."
+            ],
+            [
+                "Ductility and seismic response",
+                "Repeated reversals favor stable inelastic deformation and energy dissipation. Ductility does not mean unlimited deformation or remove the need for strength and detailing checks."
+            ]
         ],
         "source_ids": [
-            "prc-civil-engineering-board-page"
+            "prc-civil-engineering-board-page",
+            "mit-structural-engineering-design-notes"
         ],
         "exams": [
             "civil-engineering"
@@ -3074,8 +3278,8 @@
             "subject_id": "civil-engineering-structural-engineering"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "cpa-material-1",
