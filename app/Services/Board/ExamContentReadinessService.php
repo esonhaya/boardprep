@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Services\Board;
 
+use App\Services\Question\QuestionEligibilityIndex;
+
 /**
  * Computes repository readiness from eligible content, not configured rows.
  */
@@ -13,16 +15,19 @@ final class ExamContentReadinessService
         array $board,
         array $questions,
         array $boardSubjects,
-        ?array $blueprint = null
+        ?array $blueprint = null,
+        ?array $eligibleQuestions = null,
+        ?QuestionEligibilityIndex $eligibilityIndex = null,
+        ?array $eligibilityByQuestionId = null
     ): array {
         $boardId = strtolower((string) ($board['id'] ?? ''));
         $boardCode = strtolower((string) ($board['code'] ?? ''));
-        $eligible = array_values(array_filter($questions, static function (array $question) use ($boardId, $boardCode): bool {
+        $eligible = $eligibleQuestions ?? array_values(array_filter($questions, static function (array $question) use ($boardId, $boardCode, $eligibilityIndex): bool {
             if (strtolower((string) ($question['status'] ?? 'active')) === 'archived') {
                 return false;
             }
-            return \App\Services\Question\QuestionEligibilityService::forExam($question, $boardId) !== null
-                || ($boardCode !== '' && \App\Services\Question\QuestionEligibilityService::forExam($question, $boardCode) !== null);
+            return \App\Services\Question\QuestionEligibilityService::forExam($question, $boardId, $eligibilityIndex) !== null
+                || ($boardCode !== '' && \App\Services\Question\QuestionEligibilityService::forExam($question, $boardCode, $eligibilityIndex) !== null);
         }));
 
         $relations = [];
@@ -40,8 +45,11 @@ final class ExamContentReadinessService
         $complete = 0;
         foreach ($eligible as $question) {
             $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
-            $eligibility = \App\Services\Question\QuestionEligibilityService::forExam($question, $boardId)
-                ?? \App\Services\Question\QuestionEligibilityService::forExam($question, $boardCode);
+            $questionId = (string) ($question['id'] ?? '');
+            $eligibility = $eligibilityByQuestionId !== null && array_key_exists($questionId, $eligibilityByQuestionId)
+                ? $eligibilityByQuestionId[$questionId]
+                : (\App\Services\Question\QuestionEligibilityService::forExam($question, $boardId, $eligibilityIndex)
+                    ?? \App\Services\Question\QuestionEligibilityService::forExam($question, $boardCode, $eligibilityIndex));
             $subjectId = (string) ($eligibility['subject_id'] ?? '');
             if ($subjectId !== '' && ($relations === [] || isset($relations[$subjectId]) || in_array($subjectId, $blueprintSubjects, true))) {
                 $subjectIds[$subjectId] = true;

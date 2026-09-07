@@ -10,6 +10,8 @@ use App\Repositories\BoardSubjectRepository;
 use App\Repositories\SubjectRepository;
 use App\Repositories\QuestionRepository;
 use App\Repositories\BlueprintRepository;
+use App\Services\Question\QuestionEligibilityIndex;
+use App\Services\Question\QuestionEligibilityService;
 
 final class BoardViewService
 {
@@ -18,9 +20,10 @@ final class BoardViewService
         $boards = App::container()
             ->get(BoardRepository::class)
             ->all();
+        $context = self::context();
 
         return array_map(
-            [self::class, "withSubjects"],
+            static fn(array $board): array => self::withSubjects($board, $context),
             $boards
         );
     }
@@ -36,28 +39,58 @@ final class BoardViewService
             return null;
         }
 
-        return self::withSubjects($board);
+        return self::withSubjects($board, self::context());
+    }
+
+    /** @return array{relations: array, subjects: array<string, array>, questions: array, blueprints: array, eligibility: QuestionEligibilityIndex} */
+    private static function context(): array
+    {
+        $boardSubjects = App::container()
+            ->get(BoardSubjectRepository::class)
+            ->all();
+        $subjects = [];
+        foreach (App::container()->get(SubjectRepository::class)->all() as $subject) {
+            if (!is_array($subject)) {
+                continue;
+            }
+            $id = (string) ($subject['id'] ?? '');
+            if ($id !== '' && !array_key_exists($id, $subjects)) {
+                $subjects[$id] = $subject;
+            }
+        }
+
+        $questions = App::container()->get(QuestionRepository::class)->all();
+        $blueprints = App::container()->get(BlueprintRepository::class)->all();
+        $eligibility = new QuestionEligibilityIndex(
+            App::storage()->all('question-eligibility'),
+            $blueprints
+        );
+
+        return [
+            'relations' => $boardSubjects,
+            'subjects' => $subjects,
+            'questions' => $questions,
+            'blueprints' => $blueprints,
+            'eligibility' => $eligibility,
+        ];
     }
 
     private static function withSubjects(
-        array $board
+        array $board,
+        array $context
     ): array {
-        $relations = App::container()
-            ->get(BoardSubjectRepository::class)
-            ->where([
-                "board_id" => $board["id"],
-            ]);
-
-        $subjects = App::container()
-            ->get(SubjectRepository::class);
+        $relations = array_values(array_filter(
+            $context['relations'],
+            static fn(mixed $relation): bool => is_array($relation)
+                && ($relation['board_id'] ?? null) === ($board['id'] ?? null)
+        ));
+        $subjects = $context['subjects'];
 
         $board["subjects"] = array_values(
             array_filter(
                 array_map(
                     static function (array $relation) use ($subjects): ?array {
-                        $subject = $subjects->find(
-                            (string) ($relation["subject_id"] ?? "")
-                        );
+                        $subject = $subjects[(string) ($relation["subject_id"] ?? "")] ?? null;
 
                         if ($subject === null) {
                             return null;
@@ -75,21 +108,28 @@ final class BoardViewService
             )
         );
 
-        $allQuestions = App::container()->get(QuestionRepository::class)->all();
+        $allQuestions = $context['questions'];
+        $eligibilityIndex = $context['eligibility'];
         $boardId = strtolower((string) ($board["id"] ?? ""));
         $boardCode = strtolower((string) ($board["code"] ?? ""));
-        $questions = array_values(array_filter($allQuestions, static function (array $question) use ($boardId, $boardCode): bool {
+        $eligibilityByQuestionId = [];
+        $questions = [];
+        foreach ($allQuestions as $question) {
             if (strtolower((string) ($question["status"] ?? "active")) === "archived") {
-                return false;
+                continue;
             }
-            return \App\Services\Question\QuestionEligibilityService::forExam($question, $boardId) !== null
-                || ($boardCode !== '' && \App\Services\Question\QuestionEligibilityService::forExam($question, $boardCode) !== null);
-        }));
+            $eligibility = QuestionEligibilityService::forExam($question, $boardId, $eligibilityIndex)
+                ?? ($boardCode !== '' ? QuestionEligibilityService::forExam($question, $boardCode, $eligibilityIndex) : null);
+            if ($eligibility === null) {
+                continue;
+            }
+            $questions[] = $question;
+            $eligibilityByQuestionId[(string) ($question['id'] ?? '')] = $eligibility;
+        }
         $availableSubjectIds = [];
         $questionCountsBySubject = [];
         foreach ($questions as $question) {
-            $eligibility = \App\Services\Question\QuestionEligibilityService::forExam($question, $boardId)
-                ?? \App\Services\Question\QuestionEligibilityService::forExam($question, $boardCode);
+            $eligibility = $eligibilityByQuestionId[(string) ($question['id'] ?? '')] ?? null;
             $subjectId = trim((string) ($eligibility['subject_id'] ?? ''));
             if ($subjectId !== "") {
                 $availableSubjectIds[$subjectId] = true;
@@ -103,12 +143,25 @@ final class BoardViewService
         unset($subject);
         $board["available_questions"] = count($questions);
         $board["available_subjects"] = count($availableSubjectIds);
-        $blueprint = App::container()->get(BlueprintRepository::class)->board((string) $board['id']);
+        $blueprint = null;
+        foreach ($context['blueprints'] as $candidate) {
+            if (!is_array($candidate)
+                || ($candidate['scope'] ?? null) !== 'board'
+                || ($candidate['board_id'] ?? null) !== (string) $board['id']
+                || ($candidate['status'] ?? null) !== \App\Constants\Status::ACTIVE) {
+                continue;
+            }
+            $blueprint = $candidate;
+            break;
+        }
         $readiness = ExamContentReadinessService::evaluate(
             $board,
             $allQuestions,
             $relations,
-            $blueprint
+            $blueprint,
+            $questions,
+            $eligibilityIndex,
+            $eligibilityByQuestionId
         );
         $board["content_readiness"] = $readiness;
         $board["study_status"] = $readiness['status'] === 'STUDY_READY' ? "ready" : "coming_soon";

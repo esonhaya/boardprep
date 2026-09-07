@@ -51,8 +51,16 @@ final class QuestionEligibilityService
         App::storage()->replace('question-eligibility', $records);
     }
 
-    public static function forExam(array $question, string $exam): ?array
+    public static function forExam(
+        array $question,
+        string $exam,
+        ?QuestionEligibilityIndex $index = null
+    ): ?array
     {
+        if ($index !== null) {
+            return $index->forExam($question, $exam);
+        }
+
         $exam = self::normalize($exam);
         $id = (string) ($question['id'] ?? '');
         foreach (App::storage()->all('question-eligibility') as $entry) {
