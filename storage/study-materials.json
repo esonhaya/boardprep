@@ -2,24 +2,24 @@
     {
         "id": "constitution-review-foundation",
         "title": "1987 Philippine Constitution: Review Foundation",
-        "summary": "A concise map of constitutional principles, rights, government structure, and accountability for focused review.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for 1987 philippine constitution: review foundation.",
         "notes": [
-            {
-                "heading": "Principles and state policies",
-                "body": "Review the constitutional commitment to a democratic and republican state, the rule of law, human dignity, social justice, and integrity in public service."
-            },
-            {
-                "heading": "Bill of Rights and due process",
-                "body": "Focus on the protection of individual liberty, equal protection, due process, and safeguards against unreasonable government action."
-            },
-            {
-                "heading": "Government structure",
-                "body": "Distinguish the legislative, executive, and judicial functions, and understand why separation of powers and checks and balances matter."
-            },
-            {
-                "heading": "Accountability and public trust",
-                "body": "Public office is a public trust. Accountability, constitutional commissions, elections, and responsible citizenship connect authority with service to the people."
-            }
+            [
+                "Principles and state policies",
+                "Read constitutional principles as frameworks for evaluating public action, rights, social justice, and accountability rather than as isolated slogans."
+            ],
+            [
+                "Rights and due process",
+                "Distinguish liberty, equal protection, due process, and safeguards against unreasonable government action; apply the principle to the facts supplied."
+            ],
+            [
+                "Government structure",
+                "Separate legislative, executive, and judicial functions and use checks and balances to explain institutional decisions."
+            ],
+            [
+                "Evidence and civic judgment",
+                "Compare claims with records, identify affected rights and interests, and avoid treating an attractive outcome as proof of legality."
+            ]
         ],
         "source_ids": [
             "1987-philippine-constitution"
@@ -68,30 +68,30 @@
             "concept_id": "social-civics-public-good"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-08-31"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "ra-6713-review-foundation",
         "title": "RA 6713: Public-Service Ethics Review",
-        "summary": "A source-backed review outline of the Code of Conduct and Ethical Standards for Public Officials and Employees.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for ra 6713: public-service ethics review.",
         "notes": [
-            {
-                "heading": "Purpose and public interest",
-                "body": "The law promotes a high standard of ethics and treats public office as a responsibility to serve the public interest."
-            },
-            {
-                "heading": "Norms of conduct",
-                "body": "Review commitment to public interest, professionalism, justness and sincerity, political neutrality, responsiveness, nationalism and patriotism, commitment to democracy, and simple living."
-            },
-            {
-                "heading": "Duties and transparency",
-                "body": "Focus on duties to respond to the public, process documents properly, and disclose relevant business interests and financial connections as required."
-            },
-            {
-                "heading": "Prohibited acts and accountability",
-                "body": "Understand that conflicts of interest, prohibited transactions, and violations of the law can create administrative and legal accountability."
-            }
+            [
+                "Public trust",
+                "RA 6713 frames public service as responsibility to the public interest; use that duty when evaluating conduct."
+            ],
+            [
+                "Norms of conduct",
+                "Apply professionalism, justness, sincerity, political neutrality, responsiveness, and simple living to the supplied scenario."
+            ],
+            [
+                "Conflicts and transparency",
+                "Distinguish a disclosure duty, a conflict, and a prohibited transaction; do not infer a legal violation without the stated facts."
+            ],
+            [
+                "Accountability",
+                "A defensible response preserves records, follows the proper channel, protects confidentiality, and avoids retaliation or favoritism."
+            ]
         ],
         "source_ids": [
             "republic-act-6713"
@@ -131,8 +131,8 @@
             "concept_id": "social-civics-public-good"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-08-31"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "human-rights-review-foundation",
@@ -209,19 +209,27 @@
     {
         "id": "let-learning-theories-review",
         "title": "Learning Theories: Classroom Applications",
-        "summary": "A concise review of major learning theories and how teachers apply them to classroom decisions.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for learning theories: classroom applications.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Distinguish behaviorist, cognitive, constructivist, humanist, and sociocultural views of learning."
-            },
-            {
-                "heading": "Practice next",
-                "body": "Choose the theory that best explains a classroom scenario, then justify the instructional response."
-            }
+            [
+                "Learning lenses",
+                "Behaviorist, cognitive, constructivist, humanist, and sociocultural views emphasize different mechanisms; choose the lens that explains the observed evidence."
+            ],
+            [
+                "Classroom application",
+                "A theory is useful when it predicts what learners will do and suggests a matching instructional response."
+            ],
+            [
+                "Evidence limits",
+                "Do not label a learner or lesson from one behavior; compare the context, task, feedback, and prior knowledge."
+            ],
+            [
+                "Common contrasts",
+                "Scaffolding, reinforcement, discovery, and social mediation are related but not interchangeable teaching explanations."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "openstax-psychology-2e"
         ],
         "exams": [
             "let"
@@ -244,25 +252,34 @@
             "concept_id": "learning-theories-behaviorism"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-child-development-review",
         "title": "Child and Adolescent Development",
-        "summary": "Review developmental patterns, learner differences, and age-appropriate classroom support.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for child and adolescent development.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Connect cognitive, social, emotional, and moral development to observable learner behavior."
-            },
-            {
-                "heading": "Common confusion",
-                "body": "Developmental stages guide planning but do not define every learner or replace observation."
-            }
+            [
+                "Development and variation",
+                "Cognitive, social, emotional, and moral development inform planning but do not define every learner or establish a fixed ceiling."
+            ],
+            [
+                "Readiness",
+                "Use observed prerequisite knowledge and the task demand to adjust support, representation, pacing, or complexity."
+            ],
+            [
+                "Agency and access",
+                "Offer meaningful ways to demonstrate learning while preserving the intended competency and high expectations."
+            ],
+            [
+                "Evidence-based response",
+                "Combine work samples, observation, and learner explanation before inferring a developmental need."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "openstax-psychology-2e",
+            "deped-ppst-do-42-2017"
         ],
         "exams": [
             "let"
@@ -285,25 +302,34 @@
             "concept_id": "developmental-stages-cognitive"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-teaching-profession-review",
         "title": "Teaching Profession and Professional Standards",
-        "summary": "Review teacher roles, professional responsibility, school culture, and standards-based practice.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for teaching profession and professional standards.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Connect professional judgment with learner welfare, collaboration, standards, and accountability."
-            },
-            {
-                "heading": "Practice next",
-                "body": "Evaluate the most ethical and learner-centered response to a professional scenario."
-            }
+            [
+                "Professional judgment",
+                "Start with learner welfare, evidence, duties, and the relevant policy before selecting an action."
+            ],
+            [
+                "Collaboration",
+                "Use respectful consultation and documented roles when working with families, colleagues, and community partners."
+            ],
+            [
+                "Boundaries",
+                "Separate legitimate professional support from favoritism, conflicts of interest, privacy breaches, or dependency."
+            ],
+            [
+                "Accountability",
+                "Reflect on outcomes, seek feedback, and use the applicable professional standard rather than personal preference alone."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
         ],
         "exams": [
             "let"
@@ -327,25 +353,34 @@
             "concept_id": "professional-responsibility-teacher-role"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-education-laws-review",
         "title": "Philippine Education Laws and Policy",
-        "summary": "A study map for education policy, governance, teacher responsibility, and learner protection.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for philippine education laws and policy.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Read education laws as frameworks for rights, duties, governance, and accountability."
-            },
-            {
-                "heading": "Common confusion",
-                "body": "A policy goal does not remove the need to follow due process and professional standards."
-            }
+            [
+                "Law as framework",
+                "Education laws establish rights, duties, governance, and accountability; they do not answer every classroom question mechanically."
+            ],
+            [
+                "Scope and hierarchy",
+                "Distinguish statute, department order, professional standard, school rule, and editorial guidance before claiming a requirement."
+            ],
+            [
+                "Due process",
+                "A policy goal must be implemented through fair notice, appropriate authority, and a documented process."
+            ],
+            [
+                "Current claims",
+                "Use the registered primary source for rule-dependent assertions and avoid invented deadlines, penalties, or universal procedures."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "republic-act-10533",
+            "republic-act-7836"
         ],
         "exams": [
             "let"
@@ -368,25 +403,34 @@
             "concept_id": "education-policy-governance"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-code-of-ethics-review",
         "title": "Code of Ethics for Professional Teachers",
-        "summary": "Practice ethical reasoning about learners, colleagues, families, and the profession.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for code of ethics for professional teachers.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Prioritize learner welfare, integrity, fairness, confidentiality, and responsible professional relationships."
-            },
-            {
-                "heading": "Practice next",
-                "body": "For each scenario, identify the duty, affected stakeholder, and least harmful lawful response."
-            }
+            [
+                "Learner welfare",
+                "Ethical teaching protects dignity, safety, fairness, confidentiality, and access while preserving professional responsibility."
+            ],
+            [
+                "Stakeholder reasoning",
+                "Identify the learner, family, colleague, institution, and public interests before deciding."
+            ],
+            [
+                "Boundaries and conflicts",
+                "Do not accept benefits or disclose information in ways that compromise impartiality or trust."
+            ],
+            [
+                "Proportionate response",
+                "Choose the least harmful defensible action, document concerns, and use the proper reporting or consultation route."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "republic-act-7836",
+            "republic-act-6713"
         ],
         "exams": [
             "let"
@@ -409,25 +453,34 @@
             "concept_id": "professional-conduct-ethical-judgment"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-curriculum-review",
         "title": "Curriculum Development and Alignment",
-        "summary": "Review curriculum elements, alignment, sequencing, implementation, and evaluation.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for curriculum development and alignment.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Align intended outcomes, learning experiences, resources, and assessment evidence."
-            },
-            {
-                "heading": "Common confusion",
-                "body": "A list of topics is not a complete curriculum until purposes, sequence, experiences, and evaluation are connected."
-            }
+            [
+                "Alignment",
+                "Connect intended outcome, learning experience, resource, sequence, and assessment evidence."
+            ],
+            [
+                "Backward planning",
+                "Start with the competency and acceptable evidence, then select activities that practice the required reasoning."
+            ],
+            [
+                "Sequence and transfer",
+                "Place prerequisites before complex applications and check whether learners can use the idea in a new context."
+            ],
+            [
+                "Contextualization",
+                "Local examples may improve access when they preserve conceptual accuracy and the stated learning goal."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "republic-act-10533",
+            "deped-ppst-do-42-2017"
         ],
         "exams": [
             "let"
@@ -450,25 +503,33 @@
             "concept_id": "curriculum-alignment-outcomes"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-assessment-review",
         "title": "Assessment of Learning",
-        "summary": "Review validity, reliability, formative use, feedback, and assessment choices.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for assessment of learning.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Match assessment method to the competency and interpret evidence cautiously."
-            },
-            {
-                "heading": "Practice next",
-                "body": "Select the assessment that gives the most valid evidence for the stated learning outcome."
-            }
+            [
+                "Purpose",
+                "Formative assessment gathers evidence during learning so instruction and feedback can respond; summative assessment evaluates achievement at a defined point."
+            ],
+            [
+                "Validity and reliability",
+                "Validity concerns whether evidence supports the intended interpretation; reliability concerns consistency. One does not guarantee the other."
+            ],
+            [
+                "Evidence quality",
+                "Use aligned tasks, clear criteria, multiple evidence sources when the competency is complex, and transparent feedback."
+            ],
+            [
+                "Actionable feedback",
+                "Name the observed issue, connect it to the criterion, and give a feasible next step for revision."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "deped-classroom-assessment-do-8-2015"
         ],
         "exams": [
             "let"
@@ -492,25 +553,34 @@
             "concept_id": "assessment-validity-content"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-teaching-strategies-review",
         "title": "Teaching Strategies and Facilitation",
-        "summary": "Choose learner-centered methods, questioning, scaffolding, and differentiated activities.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for teaching strategies and facilitation.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Start with the outcome and learner context before selecting a method."
-            },
-            {
-                "heading": "Practice next",
-                "body": "Compare direct instruction, inquiry, collaboration, and scaffolding in realistic classroom situations."
-            }
+            [
+                "Outcome first",
+                "Select direct instruction, inquiry, collaboration, modeling, or practice based on the objective and learner context."
+            ],
+            [
+                "Scaffolding",
+                "Provide temporary prompts or representations, monitor control, and remove support as independence develops."
+            ],
+            [
+                "Transfer",
+                "Vary examples, ask learners to explain choices, and connect practice to a novel but related problem."
+            ],
+            [
+                "Inquiry and collaboration",
+                "Require evidence, roles, shared accountability, and reflection; grouping alone is not collaborative learning."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
         ],
         "exams": [
             "let"
@@ -533,25 +603,34 @@
             "concept_id": "instructional-strategies-scaffolding"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-classroom-management-review",
         "title": "Classroom Management and Support",
-        "summary": "Review preventive routines, positive support, and fair responses to classroom behavior.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for classroom management and support.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Use clear expectations, relationships, observation, and proportional responses."
-            },
-            {
-                "heading": "Common confusion",
-                "body": "Punishment alone is not a classroom-management system; investigate causes and teach replacement behavior."
-            }
+            [
+                "Preventive systems",
+                "Teach routines, transitions, expectations, and replacement behaviors so learning time is protected."
+            ],
+            [
+                "Proportional response",
+                "Address minor disruption quietly and briefly, investigate patterns, and reserve stronger intervention for demonstrated need."
+            ],
+            [
+                "Norms and relationships",
+                "Make expectations observable, co-construct meaning where appropriate, and reinforce respectful participation."
+            ],
+            [
+                "Evidence cycle",
+                "Record when behavior occurs, change one condition, and compare observations before claiming an intervention worked."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
         ],
         "exams": [
             "let"
@@ -574,25 +653,33 @@
             "concept_id": "behavior-support-positive"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-edtech-review",
         "title": "Educational Technology for Learning",
-        "summary": "Evaluate technology choices for access, learning purpose, safety, and evidence.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for educational technology for learning.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Technology is useful when it improves the learning task, feedback, accessibility, or collaboration."
-            },
-            {
-                "heading": "Practice next",
-                "body": "Choose tools by learning purpose and learner access rather than novelty."
-            }
+            [
+                "Purpose and fit",
+                "Technology improves learning when it adds meaningful practice, feedback, representation, access, or collaboration for the target objective."
+            ],
+            [
+                "Accessibility",
+                "Provide captions or transcripts, readable controls, alternatives, and adequate access for the intended learners."
+            ],
+            [
+                "Privacy and safety",
+                "Check data collection, permissions, platform requirements, and an offline or non-digital alternative before assignment."
+            ],
+            [
+                "Cognitive load",
+                "If tool navigation displaces the concept, simplify the workflow or choose a tool that keeps attention on the learning task."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "deped-ppst-do-42-2017"
         ],
         "exams": [
             "let"
@@ -615,25 +702,34 @@
             "concept_id": "technology-integration-purpose"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-inclusive-education-review",
         "title": "Inclusive Education and Learner Diversity",
-        "summary": "Plan equitable participation and instructional adaptations for diverse learners.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for inclusive education and learner diversity.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Identify barriers, preserve high expectations, and provide appropriate access and support."
-            },
-            {
-                "heading": "Practice next",
-                "body": "Distinguish accommodation, differentiation, collaboration, and referral in classroom scenarios."
-            }
+            [
+                "Barrier-focused planning",
+                "Identify barriers in the task, environment, communication, or assessment rather than treating difference as learner deficit."
+            ],
+            [
+                "Access with rigor",
+                "Accommodation changes access; it need not lower the competency or expectation being assessed."
+            ],
+            [
+                "Differentiation",
+                "Vary support, representation, process, or extension using evidence of need while preserving a shared purpose."
+            ],
+            [
+                "Partnership",
+                "Consult learners, families, specialists, and community supports within privacy and role boundaries."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "deped-ppst-do-42-2017",
+            "republic-act-10533"
         ],
         "exams": [
             "let"
@@ -657,25 +753,33 @@
             "concept_id": "instructional-adaptations-access"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-ppst-review",
         "title": "PPST and Professional Development",
-        "summary": "Connect professional standards with reflective practice, collaboration, and continuous improvement.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for ppst and professional development.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Use standards as a framework for evidence, reflection, planning, and professional growth."
-            },
-            {
-                "heading": "Practice next",
-                "body": "Select evidence and development actions that respond to an identified practice need."
-            }
+            [
+                "Standards as evidence",
+                "Use PPST domains and career-stage expectations to frame observation, reflection, planning, and professional growth."
+            ],
+            [
+                "Focused improvement",
+                "Set a specific practice goal, collect relevant evidence, try a bounded change, and review its effect on learners."
+            ],
+            [
+                "Professional learning",
+                "Collaborative inquiry is stronger when colleagues examine learner work, agree on evidence, and follow up."
+            ],
+            [
+                "Developmental stance",
+                "Standards guide support and growth; they are not a reason to stereotype teachers or learners."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "deped-ppst-do-42-2017"
         ],
         "exams": [
             "let"
@@ -699,25 +803,33 @@
             "concept_id": "professional-development-reflection"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-english-communication-review",
         "title": "English Communication Essentials",
-        "summary": "Practice purposeful reading, writing, grammar in context, and professional communication.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for english communication essentials.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Interpret purpose, audience, evidence, structure, and language choices together."
-            },
-            {
-                "heading": "Practice next",
-                "body": "Revise communication for clarity, coherence, audience, and appropriate register."
-            }
+            [
+                "Purpose and audience",
+                "Interpret purpose, audience, evidence, structure, and language choices together."
+            ],
+            [
+                "Clarity and cohesion",
+                "Resolve reference, modifier, agreement, parallelism, and transition problems by checking the relationship between ideas."
+            ],
+            [
+                "Evidence and limits",
+                "Distinguish sample size, source perspective, association, and causal claims; state only what the supplied evidence supports."
+            ],
+            [
+                "Revision practice",
+                "Prefer precise, coherent, audience-appropriate wording over a merely shorter or more formal sentence."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "purdue-owl-writing"
         ],
         "exams": [
             "let"
@@ -741,25 +853,34 @@
             "concept_id": "communication-context-audience"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-filipino-communication-review",
         "title": "Komunikasyong Filipino",
-        "summary": "Balikan ang gamit ng wika, pagbasa, pagsulat, at angkop na pagpapahayag.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for komunikasyong filipino.",
         "notes": [
-            {
-                "heading": "Dapat malaman",
-                "body": "Suriin ang layunin, tagatanggap, konteksto, at anyo bago pumili ng pahayag."
-            },
-            {
-                "heading": "Magsanay",
-                "body": "Piliin ang malinaw at angkop na pagpapahayag sa akademiko at pang-araw-araw na sitwasyon."
-            }
+            [
+                "Layunin at konteksto",
+                "Suriin ang layunin, tagatanggap, konteksto, at anyo bago pumili ng pahayag."
+            ],
+            [
+                "Kohesyon at linaw",
+                "Ayusin ang malabong reperensiya, ugnayan ng ideya, at wastong pang-ugnay upang maging malinaw ang teksto."
+            ],
+            [
+                "Ebidensiya at hinuha",
+                "Ihiwalay ang tuwirang datos sa maingat na hinuha at iwasan ang higit sa sinusuportahan ng tala."
+            ],
+            [
+                "Pormal na pagpapahayag",
+                "Piliin ang angkop na tono, bokabularyo, at ayos ayon sa sitwasyon nang hindi isinasakripisyo ang linaw."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "prc-let-enhanced-tos-2025",
+            "purdue-owl-writing"
         ],
         "exams": [
             "let"
@@ -783,25 +904,33 @@
             "concept_id": "functional-language-register"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-philippine-history-review",
         "title": "Philippine History and Society",
-        "summary": "Interpret historical evidence, change, continuity, and Philippine social experience.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for philippine history and society.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Distinguish evidence from interpretation and relate events to context and consequences."
-            },
-            {
-                "heading": "Practice next",
-                "body": "Compare sources and explain how perspective affects a historical claim."
-            }
+            [
+                "Primary and secondary evidence",
+                "Compare who created a source, when, for what purpose, and what it can directly establish."
+            ],
+            [
+                "Context and chronology",
+                "Place claims in time and distinguish sequence from cause; a later summary does not automatically override a contemporaneous record."
+            ],
+            [
+                "Corroboration",
+                "Look for independent evidence, omissions, perspective, and the limits of each source before concluding."
+            ],
+            [
+                "Historical interpretation",
+                "Explain how evidence supports an interpretation while acknowledging uncertainty and competing readings."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "nhcp-rizal-memory-collection"
         ],
         "exams": [
             "let"
@@ -824,25 +953,33 @@
             "concept_id": "philippine-history-and-culture-context"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-rizal-review",
         "title": "Life and Works of Rizal",
-        "summary": "Study Rizal through historical context, ideas, works, and influence rather than isolated trivia.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for life and works of rizal.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Connect selected works and experiences to the social and political context of nineteenth-century Philippines."
-            },
-            {
-                "heading": "Practice next",
-                "body": "Explain how a text or action reflects an idea and its historical setting."
-            }
+            [
+                "Text and context",
+                "Connect Rizal’s works and actions with their nineteenth-century Philippine setting without reducing them to slogans."
+            ],
+            [
+                "Source reading",
+                "Distinguish the author’s words, later commentary, and institutional memory; compare provenance before drawing conclusions."
+            ],
+            [
+                "Ideas and consequences",
+                "Explain how a text or action reflects an idea and how audiences or conditions shaped its significance."
+            ],
+            [
+                "Historical care",
+                "Avoid invented quotations, exact motives, or unsupported claims when the supplied evidence is limited."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "nhcp-rizal-memory-collection"
         ],
         "exams": [
             "let"
@@ -866,25 +1003,34 @@
             "concept_id": "philippine-history-and-culture-context"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-contemporary-world-review",
         "title": "The Contemporary World",
-        "summary": "Connect globalization, interdependence, local issues, and Philippine participation.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for the contemporary world.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Analyze how people, institutions, economies, and information connect across places."
-            },
-            {
-                "heading": "Practice next",
-                "body": "Identify a local effect of a global process and distinguish evidence from broad generalization."
-            }
+            [
+                "Interdependence",
+                "Analyze connections among people, institutions, economies, information, and places without assuming that correlation proves a single cause."
+            ],
+            [
+                "Local-global reasoning",
+                "Trace a concrete local effect of a wider process and identify the evidence needed to support the link."
+            ],
+            [
+                "Institutions and power",
+                "Ask who benefits, who bears costs, and which rules or resources shape the outcome."
+            ],
+            [
+                "Responsible claims",
+                "Use scale, time, and source limits to avoid broad generalizations about cultures or populations."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "1987-philippine-constitution",
+            "ncca-culture-arts-foundation"
         ],
         "exams": [
             "let"
@@ -907,25 +1053,33 @@
             "concept_id": "global-interdependence-local-global"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-art-appreciation-review",
         "title": "Art Appreciation",
-        "summary": "Interpret artistic form, medium, context, and meaning without reducing art to memorized names.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for art appreciation.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Use observable elements, medium, context, and audience response when interpreting an artwork."
-            },
-            {
-                "heading": "Practice next",
-                "body": "Support an interpretation with features of the work rather than unsupported preference."
-            }
+            [
+                "Observation before judgment",
+                "Describe elements, medium, composition, and technique before evaluating or interpreting an artwork."
+            ],
+            [
+                "Context and audience",
+                "Use historical, cultural, maker, and audience context as evidence, not as a substitute for examining the work."
+            ],
+            [
+                "Interpretive support",
+                "A defensible interpretation points to observable features and acknowledges alternative readings where appropriate."
+            ],
+            [
+                "Cultural respect",
+                "Treat Philippine and other traditions as meaningful cultural expressions rather than ranking them by unsupported preference."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "ncca-culture-arts-foundation"
         ],
         "exams": [
             "let"
@@ -949,25 +1103,35 @@
             "concept_id": "literary-analysis-evidence"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-science-technology-review",
         "title": "Science and Technology in Society",
-        "summary": "Apply scientific reasoning to natural phenomena, environment, resources, and technology choices.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for science and technology in society.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Separate observation, evidence, explanation, prediction, and responsible technological use."
-            },
-            {
-                "heading": "Practice next",
-                "body": "Evaluate a claim by asking what evidence would support or challenge it."
-            }
+            [
+                "Evidence and models",
+                "Separate observation, measurement, explanation, prediction, and claim; ask what evidence would support or challenge a model."
+            ],
+            [
+                "Core science",
+                "Use conservation, diffusion, ecology, genetics, motion, energy, electricity, optics, and earth-science relationships with stated assumptions."
+            ],
+            [
+                "Experimental reasoning",
+                "Identify variables, controls, randomization, repeated measures, and the limits of an inference."
+            ],
+            [
+                "Technology and society",
+                "Evaluate benefits, risks, access, and environmental or ethical effects rather than treating novelty as proof of progress."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "openstax-biology-2e",
+            "openstax-chemistry-2e",
+            "openstax-university-physics-volume-1"
         ],
         "exams": [
             "let"
@@ -991,25 +1155,33 @@
             "concept_id": "evidence-and-explanation-scientific"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-mathematics-essentials-review",
         "title": "Mathematics Essentials",
-        "summary": "Use arithmetic, algebra, data, measurement, and quantitative reasoning in practical contexts.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for mathematics essentials.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Translate a situation into quantities, operations, representations, and a reasonableness check."
-            },
-            {
-                "heading": "Practice next",
-                "body": "Explain the strategy and units, not only the final numerical answer."
-            }
+            [
+                "Representation",
+                "Translate a situation into quantities, operations, equations, tables, or diagrams before calculating."
+            ],
+            [
+                "Rates and proportions",
+                "Label numerator, denominator, units, and reference quantity; distinguish percent change from percentage points."
+            ],
+            [
+                "Reasonableness",
+                "Estimate, preserve units, check signs and bounds, and substitute the result back into the stated relationship."
+            ],
+            [
+                "Data interpretation",
+                "Use mean, range, probability, ratios, and patterns only within the information and assumptions supplied."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "openstax-calculus-volume-1"
         ],
         "exams": [
             "let"
@@ -1033,25 +1205,34 @@
             "concept_id": "mathematical-modeling-representation"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-ethics-review",
         "title": "Ethics and Moral Reasoning",
-        "summary": "Analyze ethical concepts, competing duties, consequences, and responsible choices.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for ethics and moral reasoning.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Identify stakeholders, duties, relevant facts, harms, and principles before choosing an action."
-            },
-            {
-                "heading": "Common confusion",
-                "body": "A personally preferred outcome is not automatically the ethically strongest justification."
-            }
+            [
+                "Structured deliberation",
+                "Identify stakeholders, relevant facts, duties, harms, rights, and feasible alternatives before choosing."
+            ],
+            [
+                "Autonomy and fairness",
+                "Respect informed choice and apply comparable standards consistently while considering unequal impacts."
+            ],
+            [
+                "Public and professional ethics",
+                "Legality is a floor, not the whole analysis; public trust, confidentiality, environmental stewardship, and accountability may add duties."
+            ],
+            [
+                "Justification",
+                "A strong ethical answer explains why the action is proportionate and defensible, not merely why it feels desirable."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "1987-philippine-constitution",
+            "republic-act-6713"
         ],
         "exams": [
             "let"
@@ -1075,25 +1256,33 @@
             "concept_id": "ethical-reasoning-duties"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "let-understanding-self-review",
         "title": "Understanding the Self",
-        "summary": "Review identity, development, social influence, and reflective self-understanding.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for understanding the self.",
         "notes": [
-            {
-                "heading": "What to know",
-                "body": "Relate self-concept to development, relationships, culture, and social context without overgeneralizing."
-            },
-            {
-                "heading": "Practice next",
-                "body": "Interpret a scenario using evidence about identity and context rather than assumptions."
-            }
+            [
+                "Self-concept and identity",
+                "Relate self-description to behavior, roles, relationships, culture, and development without turning one event into a global label."
+            ],
+            [
+                "Reflection",
+                "Use recurring evidence, specific feedback, and a planned alternative to convert experience into learning."
+            ],
+            [
+                "Agency and context",
+                "Recognize social influence and structural context while preserving the learner’s capacity for informed choice."
+            ],
+            [
+                "Respectful interpretation",
+                "Avoid stereotypes about age, culture, personality, or preference; describe what the supplied evidence supports."
+            ]
         ],
         "source_ids": [
-            "boardprep-blueprint-targets"
+            "openstax-psychology-2e"
         ],
         "exams": [
             "let"
@@ -1117,30 +1306,30 @@
             "concept_id": "self-concept-identity"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "environmental-public-interest-foundation",
         "title": "Environmental and Public-Interest Foundations",
-        "summary": "A focused civic review note on stewardship, public welfare, and constitutional responsibility toward the nation’s resources.",
+        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for environmental and public-interest foundations.",
         "notes": [
-            {
-                "heading": "Public interest",
-                "body": "Government policy should be understood through the common good, stewardship of national resources, and responsibility to present and future citizens."
-            },
-            {
-                "heading": "Constitutional connection",
-                "body": "Review environmental and patrimonial principles as public-interest concepts rather than as a prediction of particular examination items."
-            },
-            {
-                "heading": "Study application",
-                "body": "When answering a civic scenario, identify the public resource, the affected community, and the lawful responsibility involved."
-            },
-            {
-                "heading": "Environmental practice",
-                "body": "Connect stewardship and sustainable development with pollution prevention, ecological waste management, and public participation."
-            }
+            [
+                "Public interest",
+                "Connect constitutional stewardship, common good, and responsibility to present and future communities."
+            ],
+            [
+                "Environmental law",
+                "Use the registered Clean Air and Ecological Solid Waste laws for the scope they actually establish; do not invent penalties or procedures."
+            ],
+            [
+                "Evidence and participation",
+                "Identify affected resources and communities, compare impacts, and include lawful public participation where the scenario supports it."
+            ],
+            [
+                "Sustainable judgment",
+                "Balance feasible action, prevention, accountability, and long-term effects rather than treating one short-term metric as decisive."
+            ]
         ],
         "source_ids": [
             "1987-philippine-constitution",
@@ -1189,8 +1378,8 @@
             "concept_id": "social-civics-public-good"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-08-31"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "cse-verbal-foundation",
