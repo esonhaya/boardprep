@@ -3566,19 +3566,29 @@
     {
         "id": "me-material-1",
         "title": "Engineering mathematics",
-        "summary": "Structured Mechanical Engineering preparation unit aligned with the registered PRC syllabus reference.",
+        "summary": "Concept-focused Mechanical Engineering review for engineering mathematics, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Review the governing relationship, units, assumptions, and common engineering error patterns."
+                "heading": "Model selection and units",
+                "body": "Translate the stated geometry or physical relation into variables first, keep units consistent, and test whether the requested result is a value, rate, vector magnitude, or dimensionless quantity."
             },
             {
-                "heading": "Practice",
-                "body": "Use the linked ME practice items to apply the concept."
+                "heading": "Calculus and optimization",
+                "body": "Derivatives give instantaneous rates and locate candidate extrema; definite integrals accumulate a rate over an interval. Verify endpoints and physical constraints before accepting an optimum."
+            },
+            {
+                "heading": "Linear algebra and system behavior",
+                "body": "A determinant tests singularity for a square system, while eigenvectors identify directions whose orientation is preserved by a linear transformation. Pole location and residual patterns diagnose dynamic stability and model inadequacy."
+            },
+            {
+                "heading": "Data and uncertainty",
+                "body": "Use averages only for the intended population, interpret confidence-interval width as uncertainty rather than error, and treat convergence or residual patterns as evidence about a method rather than proof of the underlying model."
             }
         ],
         "source_ids": [
-            "prc-mechanical-engineering-board-page"
+            "prc-mechanical-engineering-board-page",
+            "openstax-calculus-volume-1",
+            "nist-semtech-engineering-statistics-handbook"
         ],
         "exams": [
             "mechanical-engineering"
@@ -3587,25 +3597,35 @@
             "subject_id": "mechanical-engineering-mathematics"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-02"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "me-material-2",
         "title": "Engineering sciences",
-        "summary": "Structured Mechanical Engineering preparation unit aligned with the registered PRC syllabus reference.",
+        "summary": "Concept-focused Mechanical Engineering review for engineering sciences, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Review the governing relationship, units, assumptions, and common engineering error patterns."
+                "heading": "Dimensional reasoning",
+                "body": "Mechanical power has dimensions of energy per time, so force times velocity and torque times angular speed are consistent forms. Dimensional agreement is necessary but does not by itself validate a model."
             },
             {
-                "heading": "Practice",
-                "body": "Use the linked ME practice items to apply the concept."
+                "heading": "Electrical response",
+                "body": "For series AC resistance and inductive reactance, combine perpendicular impedance components by magnitude; distinguish impedance from resistance and keep phase behavior separate from scalar addition."
+            },
+            {
+                "heading": "Measurement response",
+                "body": "Calibration points support linearity only over the observed range. Examine slope, scatter, uncertainty, and residual pattern before extrapolating or claiming exact behavior."
+            },
+            {
+                "heading": "Engineering evidence",
+                "body": "When an input property has wide measured spread, propagate or bound that uncertainty and obtain representative data when the decision is sensitive; do not hide variability behind a single nominal value."
             }
         ],
         "source_ids": [
-            "prc-mechanical-engineering-board-page"
+            "prc-mechanical-engineering-board-page",
+            "openstax-university-physics-volume-2",
+            "nist-semtech-engineering-statistics-handbook"
         ],
         "exams": [
             "mechanical-engineering"
@@ -3614,25 +3634,34 @@
             "subject_id": "mechanical-engineering-engineering-sciences"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-02"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "me-material-3",
         "title": "Statics and dynamics",
-        "summary": "Structured Mechanical Engineering preparation unit aligned with the registered PRC syllabus reference.",
+        "summary": "Concept-focused Mechanical Engineering review for statics and dynamics, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Review the governing relationship, units, assumptions, and common engineering error patterns."
+                "heading": "Free-body discipline",
+                "body": "Isolate the body, show every external force and couple, choose axes, and only then write equilibrium or motion equations. A missing action cannot be repaired by later algebra."
             },
             {
-                "heading": "Practice",
-                "body": "Use the linked ME practice items to apply the concept."
+                "heading": "Work, impulse, and momentum",
+                "body": "Net work changes kinetic energy; external impulse changes momentum. Conservation statements apply only after defining a system and checking the corresponding external transfer."
+            },
+            {
+                "heading": "Rotation and mechanisms",
+                "body": "Torque is force times perpendicular moment arm. Angular acceleration follows change in angular velocity over time, while natural frequency reflects the ratio of stiffness to inertia."
+            },
+            {
+                "heading": "Two-dimensional motion",
+                "body": "Resolve projectile velocity into orthogonal components, use the same elapsed time for each direction, and apply level-ground range relations only when their stated assumptions hold."
             }
         ],
         "source_ids": [
-            "prc-mechanical-engineering-board-page"
+            "prc-mechanical-engineering-board-page",
+            "openstax-university-physics-volume-1"
         ],
         "exams": [
             "mechanical-engineering"
@@ -3641,25 +3670,35 @@
             "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-02"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "me-material-4",
         "title": "Mechanics of materials",
-        "summary": "Structured Mechanical Engineering preparation unit aligned with the registered PRC syllabus reference.",
+        "summary": "Concept-focused Mechanical Engineering review for mechanics of materials, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Review the governing relationship, units, assumptions, and common engineering error patterns."
+                "heading": "Stress and strain",
+                "body": "Average axial stress is load divided by area. Elastic modulus is the initial stress–strain slope, Poisson ratio connects lateral and axial strain, and thermal strain is alpha times temperature change when expansion is free."
             },
             {
-                "heading": "Practice",
-                "body": "Use the linked ME practice items to apply the concept."
+                "heading": "Combined loading",
+                "body": "At a critical point, superpose compatible axial and bending normal stresses with their signs; do not compare either component alone with a limit when both act simultaneously."
+            },
+            {
+                "heading": "Bending and deflection",
+                "body": "Section modulus converts bending moment to extreme-fiber stress. Energy methods can obtain selected deflections without integrating the entire elastic curve when their assumptions are satisfied."
+            },
+            {
+                "heading": "Columns and joints",
+                "body": "Euler load varies inversely with effective-length squared for the ideal elastic column. Weld throat area, load path, and stress type must be identified before calculating joint demand."
             }
         ],
         "source_ids": [
-            "prc-mechanical-engineering-board-page"
+            "prc-mechanical-engineering-board-page",
+            "openstax-university-physics-volume-1",
+            "open-mechanical-design-manufacturing"
         ],
         "exams": [
             "mechanical-engineering"
@@ -3668,25 +3707,34 @@
             "subject_id": "mechanical-engineering-mathematics"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-02"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "me-material-5",
         "title": "Fluid mechanics",
-        "summary": "Structured Mechanical Engineering preparation unit aligned with the registered PRC syllabus reference.",
+        "summary": "Concept-focused Mechanical Engineering review for fluid mechanics, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Review the governing relationship, units, assumptions, and common engineering error patterns."
+                "heading": "Flow conservation",
+                "body": "Volumetric flow is mean velocity times area for a filled section. A momentum balance uses mass flow and the vector change in velocity to obtain the force associated with a turning jet."
             },
             {
-                "heading": "Practice",
-                "body": "Use the linked ME practice items to apply the concept."
+                "heading": "Pressure, buoyancy, and losses",
+                "body": "Hydrostatic gauge pressure is rho g h; buoyancy equals displaced-fluid weight. Darcy loss scales with friction factor, length-to-diameter ratio, and velocity head."
+            },
+            {
+                "heading": "Internal-flow interpretation",
+                "body": "Reynolds number identifies the applicable regime; fully developed circular-pipe laminar flow has a parabolic profile whose centerline speed is twice the mean. Property trends must be read from supplied data without inferring an unrelated regime."
+            },
+            {
+                "heading": "Pumps and similarity",
+                "body": "Read a pump curve as head versus flow for a stated configuration. For unchanged diameter under ideal affinity laws, flow scales with speed, head with speed squared, and power with speed cubed; cavitation symptoms prompt an available-suction-head check."
             }
         ],
         "source_ids": [
-            "prc-mechanical-engineering-board-page"
+            "prc-mechanical-engineering-board-page",
+            "openstax-university-physics-volume-1"
         ],
         "exams": [
             "mechanical-engineering"
@@ -3695,25 +3743,35 @@
             "subject_id": "mechanical-engineering-engineering-sciences"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-02"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "me-material-6",
         "title": "Thermal science",
-        "summary": "Structured Mechanical Engineering preparation unit aligned with the registered PRC syllabus reference.",
+        "summary": "Concept-focused Mechanical Engineering review for thermal science, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Review the governing relationship, units, assumptions, and common engineering error patterns."
+                "heading": "Energy accounting",
+                "body": "For a closed system, heat added minus work done by the system gives the internal-energy change under the stated sign convention. For steady devices, use the control-volume energy balance and retain only terms the problem permits neglecting."
             },
             {
-                "heading": "Practice",
-                "body": "Use the linked ME practice items to apply the concept."
+                "heading": "Properties and ideal gases",
+                "body": "An ideal gas of fixed mass obeys pressure proportional to absolute temperature at fixed volume. A throttling device is modeled as approximately constant enthalpy only under steady, adiabatic, negligible-work and negligible kinetic/potential-change assumptions."
+            },
+            {
+                "heading": "Entropy and compression",
+                "body": "Friction and other irreversibilities generate entropy. Intercooling between compression stages reduces required work by lowering the specific volume entering a later stage."
+            },
+            {
+                "heading": "Cycles and combustion",
+                "body": "Thermal efficiency is net work divided by heat input. Ideal Otto and Diesel models differ in their heat-addition process, and combustion accounting begins with a balanced fuel–oxidizer reaction before energy calculations."
             }
         ],
         "source_ids": [
-            "prc-mechanical-engineering-board-page"
+            "prc-mechanical-engineering-board-page",
+            "ubc-introduction-engineering-thermodynamics",
+            "openstax-university-physics-volume-2"
         ],
         "exams": [
             "mechanical-engineering"
@@ -3722,25 +3780,35 @@
             "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-02"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "me-material-7",
         "title": "Heat transfer",
-        "summary": "Structured Mechanical Engineering preparation unit aligned with the registered PRC syllabus reference.",
+        "summary": "Concept-focused Mechanical Engineering review for heat transfer, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Review the governing relationship, units, assumptions, and common engineering error patterns."
+                "heading": "Resistance networks",
+                "body": "For one-dimensional steady heat flow, series thermal resistances add and heat rate equals the driving temperature difference divided by total resistance."
             },
             {
-                "heading": "Practice",
-                "body": "Use the linked ME practice items to apply the concept."
+                "heading": "Convection and extended surfaces",
+                "body": "Convection rate is hA times the surface-to-fluid temperature difference. Fins help when the extra effective area more than offsets their temperature decline and contact limitations."
+            },
+            {
+                "heading": "Radiation",
+                "body": "Ideal blackbody emissive power is proportional to absolute temperature to the fourth power; Celsius values cannot be substituted into that relation."
+            },
+            {
+                "heading": "Heat exchangers",
+                "body": "A cold stream can approach but not exceed the hot inlet temperature in an ordinary passive exchanger. Use Q=UA times the log-mean temperature difference when U, area, flow arrangement, and terminal temperatures support that model."
             }
         ],
         "source_ids": [
-            "prc-mechanical-engineering-board-page"
+            "prc-mechanical-engineering-board-page",
+            "openstax-university-physics-volume-2",
+            "ubc-introduction-engineering-thermodynamics"
         ],
         "exams": [
             "mechanical-engineering"
@@ -3749,25 +3817,35 @@
             "subject_id": "mechanical-engineering-mathematics"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-02"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "me-material-8",
         "title": "Power systems",
-        "summary": "Structured Mechanical Engineering preparation unit aligned with the registered PRC syllabus reference.",
+        "summary": "Concept-focused Mechanical Engineering review for power systems, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Review the governing relationship, units, assumptions, and common engineering error patterns."
+                "heading": "Shaft power",
+                "body": "Rotating mechanical power is torque times angular speed; convert revolutions per minute to radians per second before multiplying."
             },
             {
-                "heading": "Practice",
-                "body": "Use the linked ME practice items to apply the concept."
+                "heading": "Turbines and cycles",
+                "body": "For an adiabatic turbine with negligible kinetic and potential changes, specific work follows the enthalpy drop. For a complete cycle, net work divided by heat input gives thermal efficiency."
+            },
+            {
+                "heading": "Boiler auxiliaries",
+                "body": "An economizer recovers exhaust-gas energy to preheat feedwater, reducing the fuel energy needed for the same steam duty without treating the recovered heat as free work."
+            },
+            {
+                "heading": "Performance boundaries",
+                "body": "State idealizations explicitly, distinguish shaft output from thermal input, and retain device efficiency when converting between fluid power and required shaft power."
             }
         ],
         "source_ids": [
-            "prc-mechanical-engineering-board-page"
+            "prc-mechanical-engineering-board-page",
+            "ubc-introduction-engineering-thermodynamics",
+            "open-mechanical-design-manufacturing"
         ],
         "exams": [
             "mechanical-engineering"
@@ -3776,25 +3854,35 @@
             "subject_id": "mechanical-engineering-engineering-sciences"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-02"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "me-material-9",
         "title": "Refrigeration and HVAC",
-        "summary": "Structured Mechanical Engineering preparation unit aligned with the registered PRC syllabus reference.",
+        "summary": "Concept-focused Mechanical Engineering review for refrigeration and hvac, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Review the governing relationship, units, assumptions, and common engineering error patterns."
+                "heading": "Refrigeration performance",
+                "body": "Refrigerator COP is heat removed from the cold space divided by work input; it is not a thermal efficiency and may exceed one."
             },
             {
-                "heading": "Practice",
-                "body": "Use the linked ME practice items to apply the concept."
+                "heading": "Moist-air interpretation",
+                "body": "At fixed dry-bulb temperature, increasing humidity ratio generally raises relative humidity. Sensible heat ratio equals sensible load divided by total sensible-plus-latent load."
+            },
+            {
+                "heading": "Compressor capacity",
+                "body": "Volumetric efficiency relates actual intake volume to ideal displacement; divide actual delivered intake volume by volumetric efficiency to infer required ideal displacement."
+            },
+            {
+                "heading": "Humidity control",
+                "body": "When temperature is acceptable but moisture is excessive, prioritize latent cooling or dehumidification rather than adding sensible cooling that does not address the moisture load."
             }
         ],
         "source_ids": [
-            "prc-mechanical-engineering-board-page"
+            "prc-mechanical-engineering-board-page",
+            "ubc-introduction-engineering-thermodynamics",
+            "openstax-university-physics-volume-2"
         ],
         "exams": [
             "mechanical-engineering"
@@ -3803,25 +3891,35 @@
             "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-02"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "me-material-10",
         "title": "Machine design",
-        "summary": "Structured Mechanical Engineering preparation unit aligned with the registered PRC syllabus reference.",
+        "summary": "Concept-focused Mechanical Engineering review for machine design, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Review the governing relationship, units, assumptions, and common engineering error patterns."
+                "heading": "Design against failure",
+                "body": "Select criteria for the actual load history: endurance behavior for repeated stress, instability for slender columns, contact or wear for interfaces, and yielding or fracture for peak stress."
             },
             {
-                "heading": "Practice",
-                "body": "Use the linked ME practice items to apply the concept."
+                "heading": "Shafts, springs, and clutches",
+                "body": "Use the stated torsion relation with torque and diameter in compatible units. Spring energy is one-half kx squared; ideal multi-surface clutch capacity scales with surface count, friction coefficient, axial force, and effective radius."
+            },
+            {
+                "heading": "Fatigue models",
+                "body": "Mean and alternating stress must be combined using the specified fatigue relation. A Goodman calculation is a model-based safety factor, not proof of infinite life."
+            },
+            {
+                "heading": "Brakes, welds, and materials",
+                "body": "Hot brake fade indicates temperature-dependent loss of friction. Weld demand uses effective throat area, while material choice weighs environment, strength, manufacturability, and life-cycle degradation rather than one property alone."
             }
         ],
         "source_ids": [
-            "prc-mechanical-engineering-board-page"
+            "prc-mechanical-engineering-board-page",
+            "open-mechanical-design-manufacturing",
+            "openstax-university-physics-volume-1"
         ],
         "exams": [
             "mechanical-engineering"
@@ -3830,25 +3928,34 @@
             "subject_id": "mechanical-engineering-mathematics"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-02"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "me-material-11",
         "title": "Machine elements",
-        "summary": "Structured Mechanical Engineering preparation unit aligned with the registered PRC syllabus reference.",
+        "summary": "Concept-focused Mechanical Engineering review for machine elements, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Review the governing relationship, units, assumptions, and common engineering error patterns."
+                "heading": "Gear kinematics and force",
+                "body": "For an external gear pair, speed varies inversely with tooth count. Tangential pitch-line force equals transmitted torque divided by pitch radius, with torque and radius in consistent units."
             },
             {
-                "heading": "Practice",
-                "body": "Use the linked ME practice items to apply the concept."
+                "heading": "Belts and chains",
+                "body": "Belt traction depends on friction and wrap together with usable tension. Chain speed follows sprocket teeth times pitch times revolutions per unit time, converted to the requested linear unit."
+            },
+            {
+                "heading": "Bearings and lubrication",
+                "body": "Bearing selection considers equivalent load and accumulated duty, while overheating also requires checking lubricant viscosity, supply, contamination, alignment, and generated heat."
+            },
+            {
+                "heading": "Power-transmission checks",
+                "body": "Trace torque, speed, force, and power through the component interfaces; distinguish kinematic ratios from capacity limits and efficiency losses."
             }
         ],
         "source_ids": [
-            "prc-mechanical-engineering-board-page"
+            "prc-mechanical-engineering-board-page",
+            "open-mechanical-design-manufacturing"
         ],
         "exams": [
             "mechanical-engineering"
@@ -3857,25 +3964,35 @@
             "subject_id": "mechanical-engineering-engineering-sciences"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-02"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "me-material-12",
         "title": "Manufacturing processes",
-        "summary": "Structured Mechanical Engineering preparation unit aligned with the registered PRC syllabus reference.",
+        "summary": "Concept-focused Mechanical Engineering review for manufacturing processes, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Review the governing relationship, units, assumptions, and common engineering error patterns."
+                "heading": "Cutting rate and power",
+                "body": "Ideal cutting power is cutting force times cutting speed. Turning speed is circumference times revolutions per unit time, and linear feed is feed per revolution times rotational speed."
             },
             {
-                "heading": "Practice",
-                "body": "Use the linked ME practice items to apply the concept."
+                "heading": "CNC setup",
+                "body": "A workpiece datum establishes the coordinate reference that connects the programmed tool path to the actual part; verify fixturing and offsets before execution."
+            },
+            {
+                "heading": "Tolerance accumulation",
+                "body": "For worst-case end-to-end dimensions, add nominal lengths and add absolute tolerances for the extreme bounds unless a statistical assembly model is explicitly specified."
+            },
+            {
+                "heading": "Process choice",
+                "body": "Match machine, tool, material, geometry, finish, tolerance, and production volume; a computed speed or feed remains subject to machine and tooling limits."
             }
         ],
         "source_ids": [
-            "prc-mechanical-engineering-board-page"
+            "prc-mechanical-engineering-board-page",
+            "open-manufacturing-processes-4-5",
+            "open-mechanical-design-manufacturing"
         ],
         "exams": [
             "mechanical-engineering"
@@ -3884,25 +4001,35 @@
             "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-02"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "me-material-13",
         "title": "Industrial engineering",
-        "summary": "Structured Mechanical Engineering preparation unit aligned with the registered PRC syllabus reference.",
+        "summary": "Concept-focused Mechanical Engineering review for industrial engineering, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Review the governing relationship, units, assumptions, and common engineering error patterns."
+                "heading": "Flow and bottlenecks",
+                "body": "System throughput cannot sustainably exceed its slowest required station. Identify the longest cycle time, then compare it with takt or required cycle time derived from available production time and demand."
             },
             {
-                "heading": "Practice",
-                "body": "Use the linked ME practice items to apply the concept."
+                "heading": "Inventory decisions",
+                "body": "EOQ balances annual ordering and holding costs under its simplifying assumptions; use the supplied demand, order cost, and unit holding cost without treating the result as universally optimal."
+            },
+            {
+                "heading": "Pull production",
+                "body": "A kanban authorizes replenishment or movement based on downstream consumption, limiting work in process rather than serving as a forecast-only production order."
+            },
+            {
+                "heading": "Capacity and improvement",
+                "body": "Measure acceptable output over actual operating time, locate the binding constraint, and improve or rebalance it before optimizing non-bottleneck stations."
             }
         ],
         "source_ids": [
-            "prc-mechanical-engineering-board-page"
+            "prc-mechanical-engineering-board-page",
+            "open-manufacturing-processes-4-5",
+            "nist-semtech-engineering-statistics-handbook"
         ],
         "exams": [
             "mechanical-engineering"
@@ -3911,25 +4038,35 @@
             "subject_id": "mechanical-engineering-mathematics"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-02"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "me-material-14",
         "title": "Maintenance and quality",
-        "summary": "Structured Mechanical Engineering preparation unit aligned with the registered PRC syllabus reference.",
+        "summary": "Concept-focused Mechanical Engineering review for maintenance and quality, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Review the governing relationship, units, assumptions, and common engineering error patterns."
+                "heading": "Reliability models",
+                "body": "For a constant failure rate, exponential reliability is R(t)=exp(-lambda t), with MTBF=1/lambda. Use the model only when its assumptions are stated and interpret sparse failure intervals cautiously."
             },
             {
-                "heading": "Practice",
-                "body": "Use the linked ME practice items to apply the concept."
+                "heading": "Condition and preventive maintenance",
+                "body": "Trending vibration can justify investigation before a threshold is crossed. Planned inspection and lubrication are preventive actions; condition evidence can refine timing without guaranteeing failure prediction."
+            },
+            {
+                "heading": "Process quality",
+                "body": "Greater spread reduces capability even when the mean stays centered. A point beyond three-sigma control limits signals special-cause investigation, not automatic proof of a specific cause."
+            },
+            {
+                "heading": "Safe intervention",
+                "body": "Before guard removal, isolate hazardous energy, control stored energy, and verify the safe state under the applicable procedure; production urgency does not replace energy control."
             }
         ],
         "source_ids": [
-            "prc-mechanical-engineering-board-page"
+            "prc-mechanical-engineering-board-page",
+            "nist-semtech-engineering-statistics-handbook",
+            "open-mechanical-design-manufacturing"
         ],
         "exams": [
             "mechanical-engineering"
@@ -3938,25 +4075,34 @@
             "subject_id": "mechanical-engineering-engineering-sciences"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-02"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "me-material-15",
         "title": "Engineering economics",
-        "summary": "Structured Mechanical Engineering preparation unit aligned with the registered PRC syllabus reference.",
+        "summary": "Concept-focused Mechanical Engineering review for engineering economics, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Review the governing relationship, units, assumptions, and common engineering error patterns."
+                "heading": "Cash-flow comparison",
+                "body": "Compare alternatives on a common time basis and include relevant acquisition, operating, energy, maintenance, and residual cash flows rather than choosing by first cost alone."
             },
             {
-                "heading": "Practice",
-                "body": "Use the linked ME practice items to apply the concept."
+                "heading": "Present worth",
+                "body": "Discount future cash flows to the selected comparison date. For a uniform end-of-period series, multiply the recurring amount by the supplied present-worth factor when its rate and number of periods match."
+            },
+            {
+                "heading": "Economic assumptions",
+                "body": "State the analysis period, interest rate, timing convention, and included costs. A numerical result is conditional on those assumptions rather than an intrinsic property of the machine."
+            },
+            {
+                "heading": "Decision interpretation",
+                "body": "Prefer the economically favorable feasible alternative after technical, safety, and service requirements are met; a lower modeled cost does not excuse a design that fails those requirements."
             }
         ],
         "source_ids": [
-            "prc-mechanical-engineering-board-page"
+            "prc-mechanical-engineering-board-page",
+            "ualberta-introduction-engineering-economics"
         ],
         "exams": [
             "mechanical-engineering"
@@ -3965,8 +4111,8 @@
             "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-02"
+        "version": 2,
+        "updated_at": "2026-09-07"
     },
     {
         "id": "ree-material-mathematics",
