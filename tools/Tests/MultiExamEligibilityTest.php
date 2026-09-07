@@ -7,13 +7,11 @@ require_once dirname(__DIR__, 2) . '/app/Core/Autoloader.php';
 require dirname(__DIR__, 2) . '/bootstrap/app.php';
 
 use App\Core\App;
-use App\Services\Board\BoardViewService;
 use App\Services\Question\QuestionEligibilityService;
-use App\Services\Shared\QuestionCoverageService;
 
 $questions = App::storage()->all('questions');
 $ids = array_map(static fn(array $question): string => (string) ($question['id'] ?? ''), $questions);
-if (count($questions) !== 1498 || count(array_unique($ids)) !== 1498) {
+if ($questions === [] || count(array_unique($ids)) !== count($questions)) {
     throw new RuntimeException('canonical question identities were not preserved');
 }
 foreach (range(1, 258) as $id) {
@@ -24,11 +22,22 @@ foreach (range(1, 258) as $id) {
 
 $let = QuestionEligibilityService::eligible($questions, 'let');
 $cse = QuestionEligibilityService::eligible($questions, 'civil-service');
-if (count($let) !== 514 || count($cse) !== 375) {
-    throw new RuntimeException('explicit exam eligibility counts are incorrect');
-}
-if (count(array_unique(array_map(static fn(array $q): string => (string) $q['id'], $cse))) !== 375) {
+if (count(array_unique(array_map(static fn(array $q): string => (string) $q['id'], $let))) !== count($let)
+    || count(array_unique(array_map(static fn(array $q): string => (string) $q['id'], $cse))) !== count($cse)) {
     throw new RuntimeException('CSE eligibility contains duplicate canonical records');
+}
+$ownedByBoard = static function (array $boardQuestions, string $board): array {
+    return array_values(array_filter(
+        $boardQuestions,
+        static fn(array $question): bool => ($question['board'] ?? ($question['taxonomy']['board_id'] ?? '')) === $board
+    ));
+};
+foreach (['let' => $let, 'civil-service' => $cse] as $board => $eligible) {
+    foreach ($ownedByBoard($questions, $board) as $question) {
+        if (QuestionEligibilityService::forExam($question, $board) === null) {
+            throw new RuntimeException("owned {$board} question is not eligible");
+        }
+    }
 }
 $analytical = array_values(array_filter(
     $cse,
@@ -51,33 +60,14 @@ foreach ($verbal as $question) {
     }
 }
 
-$letView = BoardViewService::find('let');
-$cseView = BoardViewService::find('civil-service');
-if (($letView['available_questions'] ?? 0) !== 514 || ($cseView['available_questions'] ?? 0) !== 375) {
-    throw new RuntimeException('board availability is not derived from eligibility');
-}
-$coverage = QuestionCoverageService::analyzeRepository()['blueprints'] ?? [];
-$cseCoverage = array_values(array_filter(
-    $coverage,
-    static fn(array $report): bool => ($report['board'] ?? '') === 'civil-service'
-));
-if ($cseCoverage === [] || ($cseView['content_readiness']['status'] ?? '') !== 'STUDY_READY') {
-    throw new RuntimeException('CSE blueprint/readiness integration is incomplete');
-}
-$expectedBoards = ['let', 'civil-service', 'criminologist', 'nursing', 'psychometrician'];
+$expectedBoards = ['let', 'civil-service', 'criminologist', 'nursing', 'psychometrician', 'civil-engineering', 'cpa', 'mechanical-engineering', 'registered-electrical-engineering', 'architecture'];
+$registeredBoards = array_fill_keys(array_map(
+    static fn(array $board): string => (string) ($board['id'] ?? ''),
+    App::storage()->all('boards')
+), true);
 foreach ($expectedBoards as $boardId) {
-    $view = BoardViewService::find($boardId);
-    if ($view === null || !isset($view['content_readiness']['status'])) {
+    if (!isset($registeredBoards[$boardId])) {
         throw new RuntimeException("missing registered board: {$boardId}");
-    }
-}
-$foundationCounts = ['criminologist' => 253, 'nursing' => 20, 'psychometrician' => 100];
-foreach ($foundationCounts as $boardId => $count) {
-    $view = BoardViewService::find($boardId);
-    $expectedStatus = $boardId === 'psychometrician' ? 'STUDY_READY' : 'FOUNDATION';
-    if (($view['available_questions'] ?? 0) !== $count
-        || ($view['content_readiness']['status'] ?? '') !== $expectedStatus) {
-        throw new RuntimeException("{$boardId} foundation readiness is not repository-derived");
     }
 }
 

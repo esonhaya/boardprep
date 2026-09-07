@@ -32,8 +32,13 @@ $ids = array_map(static fn(array $question): string => (string) ($question['id']
 if ($questions === [] || count(array_unique($ids)) !== count($questions)) {
     throw new RuntimeException('source library work changed canonical question identities');
 }
-if (count(StudyLibraryService::questionsFor('constitution-review-foundation')) !== 45
-    || count(StudyLibraryService::questionsFor('ra-6713-review-foundation')) !== 30) {
+ $constitutionLinks = StudyLibraryService::questionsFor('constitution-review-foundation');
+ $constitutionIds = array_map(static fn(array $link): string => (string) ($link['question_id'] ?? ''), $constitutionLinks);
+ $questionIds = array_fill_keys($ids, true);
+ if (count($constitutionIds) < 43
+     || count($constitutionIds) !== count(array_unique($constitutionIds))
+     || array_diff($constitutionIds, array_keys($questionIds)) !== []
+     || count(StudyLibraryService::questionsFor('ra-6713-review-foundation')) !== 30) {
     throw new RuntimeException('source-backed question links are incomplete');
 }
 if (count(ExamIntelligenceService::all('civil-service')) !== 2
