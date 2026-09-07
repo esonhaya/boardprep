@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\Core\App;
 use App\Core\Request;
 use App\Core\Response;
 use App\Core\View;
@@ -11,6 +12,7 @@ use App\Services\Quiz\QuizResultActionService;
 use App\Services\Quiz\Start\QuizStartSessionWriter;
 use App\Services\Quiz\Start\QuizStartInputNormalizer;
 use App\Services\Board\BoardViewService;
+use App\Services\Shared\CsrfTokenService;
 
 final class QuizFlowController
 {
@@ -25,6 +27,13 @@ final class QuizFlowController
         }
 
         $action = trim((string) $rawAction);
+
+        if ($method === 'POST'
+            && App::config('environment') === 'production'
+            && !CsrfTokenService::valid(Request::input('csrf_token'))) {
+            \SessionService::flash('error', 'Your quiz form expired. Please try again.');
+            Response::redirect('/quiz');
+        }
 
         $allowed = $method === 'POST'
             ? ['start', 'submit', 'next', 'finish']

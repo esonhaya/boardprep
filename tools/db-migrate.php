@@ -13,7 +13,7 @@ try {
     }
     $applied = $database->migrate();
     $imports = [];
-    foreach (['attempts', 'weakness'] as $collection) {
+    foreach (['attempts', 'weakness', 'flashcard_state', 'question-statistics'] as $collection) {
         $imports[$collection] = $database->importLegacyCollection($collection);
     }
     echo 'Migrations applied: ' . count($applied) . "\n";

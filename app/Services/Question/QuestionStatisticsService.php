@@ -6,6 +6,7 @@ namespace App\Services\Question;
 
 use App\Core\App;
 use App\Repositories\QuestionRepository;
+use App\Repositories\QuestionStatisticsRepository;
 
 class QuestionStatisticsService
 {
@@ -28,7 +29,10 @@ class QuestionStatisticsService
     public static function recordAnswers(array $entries): void
     {
         App::container()
-            ->get(QuestionRepository::class)
-            ->updateStatistics($entries);
+            ->get(QuestionStatisticsRepository::class)
+            ->recordAnswers(
+                $entries,
+                App::container()->get(QuestionRepository::class)->all()
+            );
     }
 }

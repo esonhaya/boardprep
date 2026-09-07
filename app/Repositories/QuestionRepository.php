@@ -20,10 +20,36 @@ class QuestionRepository extends BaseRepository
 
     public function all(): array
     {
-        return array_values(array_filter(
+        $questions = array_values(array_filter(
             $this->storage->all($this->collection),
             'is_array'
         ));
+
+        $statistics = [];
+        foreach ($this->storage->all('question-statistics') as $record) {
+            if (is_array($record) && is_scalar($record['id'] ?? null)) {
+                $statistics[(string) $record['id']] = $record;
+            }
+        }
+
+        return array_map(
+            static function (array $question) use ($statistics): array {
+                $id = (string) ($question['id'] ?? '');
+                $statistic = $statistics[$id] ?? null;
+                if (!is_array($statistic)) {
+                    return $question;
+                }
+
+                foreach (['timesUsed', 'timesCorrect', 'timesIncorrect', 'updatedAt'] as $field) {
+                    if (array_key_exists($field, $statistic)) {
+                        $question[$field] = $statistic[$field];
+                    }
+                }
+
+                return $question;
+            },
+            $questions
+        );
     }
 
     public function find(string $id): ?array
@@ -159,31 +185,6 @@ class QuestionRepository extends BaseRepository
 
     public function updateStatistics(array $entries): void
     {
-        $correctById = [];
-        foreach ($entries as $entry) {
-            $id = is_scalar($entry['question_id'] ?? null)
-                ? trim((string) $entry['question_id'])
-                : '';
-            if ($id !== '') {
-                $correctById[$id][] = $entry['correct'] ?? null;
-            }
-        }
-
-        $ids = [];
-        foreach ($correctById as $id => $results) {
-            array_push($ids, ...array_fill(0, count($results), $id));
-        }
-
-        $this->storage->updateBatch(
-            $this->collection,
-            $ids,
-            static function (array $question) use (&$correctById): array {
-                $id = (string) $question['id'];
-                return \App\Services\Question\Statistics\QuestionStatisticsUpdater::apply(
-                    $question,
-                    array_shift($correctById[$id])
-                );
-            }
-        );
+        (new QuestionStatisticsRepository($this->storage))->recordAnswers($entries, $this->all());
     }
 }

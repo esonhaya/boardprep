@@ -1,4 +1,4 @@
-<?php $flash = \SessionService::consumeFlash(); ?>
+<?php $flash = \SessionService::consumeFlash(); $csrfToken = \App\Services\Shared\CsrfTokenService::token(); ?>
 
 <?php if (is_array($flash) && ($flash['type'] ?? '') === 'error'): ?>
 <p role="alert">
@@ -24,6 +24,8 @@ type="hidden"
 name="action"
 value="start"
 >
+
+<input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
 
 <input
 type="hidden"

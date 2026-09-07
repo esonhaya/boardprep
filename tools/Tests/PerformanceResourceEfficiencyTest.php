@@ -33,22 +33,39 @@ try {
         JSON_THROW_ON_ERROR
     );
 
-    if (($records[0]['timesUsed'] ?? null) !== 4
-        || ($records[0]['timesCorrect'] ?? null) !== 2
-        || ($records[0]['timesIncorrect'] ?? null) !== 0) {
+    if (($records[0]['timesUsed'] ?? null) !== 2
+        || ($records[0]['timesCorrect'] ?? null) !== 1
+        || ($records[1]['timesUsed'] ?? null) !== 4
+        || ($records[1]['timesIncorrect'] ?? null) !== 3
+        || ($records[2] ?? null) !== 'malformed legacy row') {
+        throw new RuntimeException('canonical question content was mutated by statistics recording');
+    }
+
+    $statistics = json_decode(
+        file_get_contents($directory . '/question-statistics.json'),
+        true,
+        512,
+        JSON_THROW_ON_ERROR
+    );
+    $byId = [];
+    foreach ($statistics as $statistic) {
+        $byId[$statistic['id']] = $statistic;
+    }
+
+    if (($byId['q1']['timesUsed'] ?? null) !== 4
+        || ($byId['q1']['timesCorrect'] ?? null) !== 2
+        || ($byId['q1']['timesIncorrect'] ?? null) !== 0) {
         throw new RuntimeException('batched duplicate question statistics changed behavior');
     }
-    if (($records[1]['timesUsed'] ?? null) !== 5
-        || ($records[1]['timesIncorrect'] ?? null) !== 4) {
+    if (($byId['q2']['timesUsed'] ?? null) !== 5
+        || ($byId['q2']['timesIncorrect'] ?? null) !== 4) {
         throw new RuntimeException('batched incorrect statistics changed behavior');
-    }
-    if (($records[2] ?? null) !== 'malformed legacy row') {
-        throw new RuntimeException('batched statistics discarded malformed legacy data');
     }
 } finally {
     @unlink($directory . '/questions.json');
+    @unlink($directory . '/question-statistics.json');
     @unlink($directory . '/.storage.lock');
     @rmdir($directory);
 }
 
-echo "[PASS] Quiz statistics batch one question-bank mutation without changing counters.\n";
+echo "[PASS] Quiz statistics batch updates mutable statistics without mutating canonical questions.\n";

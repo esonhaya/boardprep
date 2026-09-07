@@ -24,6 +24,9 @@ $legacy->replace('attempts', [
 $legacy->replace('weakness', [
     ['id' => 'Hydraulics', 'correct' => 3, 'wrong' => 1],
 ]);
+$legacy->replace('flashcard_state', [
+    ['id' => 'learner-card', 'user_id' => 'learner-1', 'rating' => 'good'],
+]);
 
 try {
     $pdo = new PDO('sqlite:' . $path, null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
@@ -61,17 +64,28 @@ try {
     }
     $import = (new LegacyCollectionImporter())->import($legacy, $storage, 'attempts');
     $weaknessImport = (new LegacyCollectionImporter())->import($legacy, $storage, 'weakness');
-    if ($import['imported'] !== 2 || $import['invalid'] !== 0 || $weaknessImport['imported'] !== 1) {
+    $flashcardImport = (new LegacyCollectionImporter())->import($legacy, $storage, 'flashcard_state');
+    if ($import['imported'] !== 2 || $import['invalid'] !== 0 || $weaknessImport['imported'] !== 1
+        || $flashcardImport['imported'] !== 1) {
         throw new RuntimeException('legacy import did not preserve valid records');
     }
     $rerun = (new LegacyCollectionImporter())->import($legacy, $storage, 'attempts');
     $weaknessRerun = (new LegacyCollectionImporter())->import($legacy, $storage, 'weakness');
-    if ($rerun['imported'] !== 0 || $rerun['existing'] !== 2 || $weaknessRerun['imported'] !== 0 || $weaknessRerun['existing'] !== 1) {
+    $flashcardRerun = (new LegacyCollectionImporter())->import($legacy, $storage, 'flashcard_state');
+    if ($rerun['imported'] !== 0 || $rerun['existing'] !== 2 || $weaknessRerun['imported'] !== 0
+        || $weaknessRerun['existing'] !== 1 || $flashcardRerun['imported'] !== 0
+        || $flashcardRerun['existing'] !== 1) {
         throw new RuntimeException('legacy import was not idempotent');
     }
-    $router = new StorageRouter(new JsonStorage($root . '/content'), ['attempts' => $storage, 'weakness' => $storage]);
+    $router = new StorageRouter(new JsonStorage($root . '/content'), [
+        'attempts' => $storage,
+        'weakness' => $storage,
+        'flashcard_state' => $storage,
+        'question-statistics' => $storage,
+    ]);
     $router->create('content', ['id' => 'json-1', 'value' => 'canonical']);
-    if (!$router->exists('content', 'json-1') || !$router->exists('attempts', 'a1') || !$router->exists('weakness', 'Hydraulics')) {
+    if (!$router->exists('content', 'json-1') || !$router->exists('attempts', 'a1')
+        || !$router->exists('weakness', 'Hydraulics') || !$router->exists('flashcard_state', 'learner-card')) {
         throw new RuntimeException('scoped production storage routing failed');
     }
     unset($storage, $pdo);

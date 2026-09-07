@@ -1,5 +1,6 @@
 <?php
 
+$csrfToken = \App\Services\Shared\CsrfTokenService::token();
 $question = $question ?? null;
 $current = $current ?? 0;
 $total = $total ?? 0;
@@ -93,6 +94,8 @@ name="action"
 value="finish"
 >
 
+<input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
+
 <button type="submit">
 Finish Quiz
 </button>
@@ -104,6 +107,9 @@ Finish Quiz
 
 
 <form method="POST" action="/quiz?action=next">
+
+<input type="hidden" name="action" value="next">
+<input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
 
 <button type="submit">
 Next Question
@@ -127,6 +133,9 @@ type="hidden"
 name="question_id"
 value="<?= htmlspecialchars((string) ($question["id"] ?? "")) ?>"
 >
+
+<input type="hidden" name="action" value="submit">
+<input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') ?>">
 
 
 <fieldset class="quiz-choices">

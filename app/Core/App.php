@@ -82,10 +82,16 @@ class App
             throw new \RuntimeException('APP_ENV must be production, development, or testing.');
         }
 
-        if ($environment === 'production' && filter_var(
+        $debug = filter_var(
             Environment::get('APP_DEBUG', 'false'),
-            FILTER_VALIDATE_BOOLEAN
-        )) {
+            FILTER_VALIDATE_BOOLEAN,
+            FILTER_NULL_ON_FAILURE
+        );
+        if ($debug === null) {
+            throw new \RuntimeException('APP_DEBUG must be a boolean value.');
+        }
+
+        if ($environment === 'production' && $debug) {
             throw new \RuntimeException('APP_DEBUG must be false when APP_ENV=production.');
         }
 

@@ -69,4 +69,14 @@ if ($status === 0 || !str_contains($output, 'APP_DEBUG')) {
     exit("[FAIL] production debug mode was accepted.\n");
 }
 
+[$status, $output] = runBootstrap($php, $script, [
+    'APP_ENV' => 'testing',
+    'APP_DEBUG' => 'not-a-boolean',
+    'APP_TIMEZONE' => 'UTC',
+    'DB_DRIVER' => 'json',
+]);
+if ($status === 0 || !str_contains($output, 'APP_DEBUG')) {
+    exit("[FAIL] malformed debug configuration was accepted.\n");
+}
+
 echo "[PASS] runtime configuration and clean-process bootstrap verified.\n";

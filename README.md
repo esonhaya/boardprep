@@ -45,8 +45,11 @@ DB_DRIVER=sqlite DB_SQLITE_PATH=/absolute/path/to/boardprep.sqlite \
 php tools/db-migrate.php
 ```
 
-The mutable `attempts` and `weakness` collections are routed to SQLite in this
-foundation; canonical questions, study material, taxonomy, and other curated collections
+The migration command is idempotent and imports existing JSON-backed attempts,
+weakness, flashcard state, and question-statistics records when present.
+
+The mutable `attempts`, `weakness`, `flashcard_state`, and `question-statistics`
+collections are routed to SQLite in this foundation; canonical questions, study material, taxonomy, and other curated collections
 remain source-controlled/file-backed until a dedicated migration contract is
 approved. Keep the database outside `public/` and include it in deployment
 backups. A verified SQLite backup should use a quiescent application state (or
