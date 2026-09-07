@@ -3804,8 +3804,8 @@
         "domain_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
         "code": "ME",
         "name": "Mechanical Engineering Topic 3-40"
-    }
-    ,{
+    },
+    {
         "id": "science-chemistry-matter",
         "domain_id": "chemistry",
         "code": "CHEM",
@@ -3846,8 +3846,7 @@
         "domain_id": "scientific-inquiry",
         "code": "DATA",
         "name": "Scientific Data Interpretation"
-    }
-,
+    },
     {
         "id": "ree-math-algebra",
         "domain_id": "ree-mathematics",
@@ -3937,5 +3936,23 @@
         "domain_id": "electrical-engineering-professional-subjects",
         "code": "REE",
         "name": "Protection, control, and utilization"
+    },
+    {
+        "id": "cse-constitutional-civics",
+        "domain_id": "philippine-government",
+        "code": "CSC",
+        "name": "Constitutional and Civic Principles"
+    },
+    {
+        "id": "cse-public-service-ethics",
+        "domain_id": "public-service-awareness",
+        "code": "PSE",
+        "name": "Public Service Ethics"
+    },
+    {
+        "id": "cse-reading-comprehension-topic",
+        "domain_id": "cse-reading-comprehension-domain",
+        "code": "CSERC",
+        "name": "Civil Service Reading Comprehension"
     }
 ]

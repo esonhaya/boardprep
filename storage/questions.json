@@ -15651,13 +15651,13 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "philippine-government",
+            "topic_id": "cse-constitutional-civics",
+            "concept_id": "cse-constitutional-principles"
         },
         "difficulty": "easy",
-        "question": "The Constitution describes the Philippines as what kind of state?",
+        "question": "An orientation slide calls the Philippines a hereditary monarchy. Which replacement accurately states the constitutional form of the State?",
         "choices": [
             "A democratic and republican State",
             "A hereditary monarchy",
@@ -15669,7 +15669,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 501,
@@ -15705,16 +15710,16 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "philippine-government",
+            "topic_id": "cse-constitutional-civics",
+            "concept_id": "cse-constitutional-principles"
         },
         "difficulty": "medium",
-        "question": "A government office takes a person's property without notice or a chance to be heard. Which constitutional principle is most directly implicated?",
+        "question": "A licensing office cancels a permit without notice or an opportunity to respond. Which constitutional principle should guide the reviewer’s first concern?",
         "choices": [
-            "Due process",
             "Suffrage",
+            "Due process",
             "Local autonomy",
             "National territory"
         ],
@@ -15723,7 +15728,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 503,
@@ -15732,17 +15742,17 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "philippine-government",
+            "topic_id": "cse-constitutional-civics",
+            "concept_id": "cse-constitutional-principles"
         },
         "difficulty": "medium",
-        "question": "Equal protection is best illustrated when a public rule:",
+        "question": "A benefits rule uses the same relevant eligibility criteria for every similarly situated applicant. Which option best describes the constitutional value demonstrated?",
         "choices": [
-            "Uses relevant distinctions and applies fairly to people in the same situation.",
             "Treats every difference as irrelevant in every context.",
             "Favors officials because they administer the rule.",
+            "Uses relevant distinctions and applies fairly to people in the same situation.",
             "Applies only to people who can afford representation."
         ],
         "answer": "Uses relevant distinctions and applies fairly to people in the same situation.",
@@ -15750,7 +15760,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 504,
@@ -15786,25 +15801,30 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "philippine-government",
+            "topic_id": "cse-constitutional-civics",
+            "concept_id": "cse-constitutional-principles"
         },
         "difficulty": "medium",
-        "question": "What is the civic significance of constitutional rights?",
+        "question": "A civic workshop compares enforceable constitutional protections with personal preferences. Which option best states why the protections matter?",
         "choices": [
-            "They limit government power and protect conditions for human dignity and participation.",
             "They guarantee that every personal preference must be funded by government.",
             "They apply only during elections.",
-            "They remove all duties from citizens."
+            "They remove all duties from citizens.",
+            "They limit government power and protect conditions for human dignity and participation."
         ],
         "answer": "They limit government power and protect conditions for human dignity and participation.",
         "explanation": "Rights protect people against unjustified state action and support participation; they are not identical to unlimited preferences or an absence of civic duties.",
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 506,
@@ -15840,13 +15860,13 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "philippine-government",
+            "topic_id": "cse-constitutional-civics",
+            "concept_id": "cse-constitutional-principles"
         },
         "difficulty": "medium",
-        "question": "Why does the Constitution separate legislative, executive, and judicial functions?",
+        "question": "A proposed ordinance lets one office write, enforce, and finally adjudicate its own rules without external review. Which constitutional design principle identifies the concern?",
         "choices": [
             "To distribute governmental power and create institutional accountability.",
             "To ensure that only one branch makes all public decisions.",
@@ -15858,7 +15878,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 508,
@@ -15867,16 +15892,16 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "philippine-government",
+            "topic_id": "cse-constitutional-civics",
+            "concept_id": "cse-constitutional-principles"
         },
         "difficulty": "easy",
-        "question": "Which civic act is most closely connected with suffrage?",
+        "question": "A citizen is deciding among several civic activities. Which listed act directly exercises suffrage?",
         "choices": [
-            "Casting a vote in a lawful election",
             "Paying a private debt",
+            "Casting a vote in a lawful election",
             "Obtaining a professional license",
             "Choosing a personal belief"
         ],
@@ -15885,7 +15910,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 509,
@@ -15921,17 +15951,17 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "philippine-government",
+            "topic_id": "cse-constitutional-civics",
+            "concept_id": "cse-constitutional-principles"
         },
         "difficulty": "hard",
-        "question": "Which statement best explains why constitutional rights may have lawful limits?",
+        "question": "A city applies a neutral safety restriction to a public event and leaves an effective alternative channel. Which statement best frames the rights analysis?",
         "choices": [
-            "Rights operate within a legal order that must balance individual protection with the rights and welfare of others.",
             "Any official may limit a right whenever criticism is inconvenient.",
             "A right ceases to exist whenever another person disagrees.",
+            "Rights operate within a legal order that must balance individual protection with the rights and welfare of others.",
             "Rights are only suggestions with no legal significance."
         ],
         "answer": "Rights operate within a legal order that must balance individual protection with the rights and welfare of others.",
@@ -15939,7 +15969,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 511,
@@ -15975,25 +16010,30 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "philippine-government",
+            "topic_id": "cse-constitutional-civics",
+            "concept_id": "cse-constitutional-principles"
         },
         "difficulty": "medium",
-        "question": "Why is citizenship more than a label on an identity document?",
+        "question": "A naturalization seminar asks participants to distinguish legal status from civic participation. Which answer best explains the broader significance of citizenship?",
         "choices": [
-            "It carries legal membership and civic relationships involving rights and responsibilities.",
             "It guarantees that a person may disregard all laws.",
             "It is determined only by wealth or occupation.",
-            "It removes the need to participate in public life."
+            "It removes the need to participate in public life.",
+            "It carries legal membership and civic relationships involving rights and responsibilities."
         ],
         "answer": "It carries legal membership and civic relationships involving rights and responsibilities.",
         "explanation": "Citizenship connects legal membership with civic rights, duties, and participation; it is not a license for lawlessness or political indifference.",
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 513,
@@ -16056,13 +16096,13 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "philippine-government",
+            "topic_id": "cse-constitutional-civics",
+            "concept_id": "cse-constitutional-principles"
         },
         "difficulty": "hard",
-        "question": "Which conclusion follows from the constitutional principle that sovereignty resides in the people?",
+        "question": "A mayor argues that electoral victory places government authority beyond public accountability. Which conclusion follows from popular sovereignty?",
         "choices": [
             "Government authority is exercised through constitutional institutions on behalf of the people.",
             "Officials may exercise authority without legal limits once elected.",
@@ -16074,7 +16114,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 516,
@@ -16083,16 +16128,16 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "philippine-government",
+            "topic_id": "cse-constitutional-civics",
+            "concept_id": "cse-constitutional-principles"
         },
         "difficulty": "medium",
-        "question": "Why are constitutional commissions designed with a degree of independence?",
+        "question": "A procurement dispute involves an oversight body that must decide without direction from the agency being reviewed. Why is institutional independence relevant?",
         "choices": [
-            "To help perform specialized accountability functions without ordinary political pressure controlling every decision.",
             "To make them superior to the Constitution.",
+            "To help perform specialized accountability functions without ordinary political pressure controlling every decision.",
             "To prevent any public review of their work.",
             "To allow them to exercise legislative, executive, and judicial power at once."
         ],
@@ -16101,7 +16146,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 517,
@@ -16191,17 +16241,17 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "public-service-awareness",
+            "topic_id": "cse-public-service-ethics",
+            "concept_id": "cse-ethical-public-service"
         },
         "difficulty": "easy",
-        "question": "Under RA 6713, public officials and employees are expected to place what above personal interest?",
+        "question": "An employee must choose between accelerating a relative’s request and following the published queue. Under RA 6713, what should take priority?",
         "choices": [
-            "The public interest",
             "Private convenience",
             "Political popularity",
+            "The public interest",
             "Family preference"
         ],
         "answer": "The public interest",
@@ -16209,7 +16259,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 521,
@@ -16218,25 +16273,30 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "public-service-awareness",
+            "topic_id": "cse-public-service-ethics",
+            "concept_id": "cse-ethical-public-service"
         },
         "difficulty": "medium",
-        "question": "A government employee gives a clear explanation and processes a request without unnecessary delay. Which norm is most directly shown?",
+        "question": "A records officer explains a deficiency clearly and completes a corrected request without avoidable delay. Which public-service norm is most directly applied?",
         "choices": [
-            "Responsiveness to the public",
             "Political neutrality through silence",
             "Simple living",
-            "Private entrepreneurship"
+            "Private entrepreneurship",
+            "Responsiveness to the public"
         ],
         "answer": "Responsiveness to the public",
         "explanation": "Prompt, respectful, and understandable service reflects responsiveness and commitment to public service.",
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 522,
@@ -16245,13 +16305,13 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "public-service-awareness",
+            "topic_id": "cse-public-service-ethics",
+            "concept_id": "cse-ethical-public-service"
         },
         "difficulty": "medium",
-        "question": "An official refuses to use government resources for a campaign because the office must serve citizens regardless of political affiliation. Which norm applies?",
+        "question": "A supervisor asks staff to use an official vehicle for partisan campaign work. Which public-service norm supports refusing the instruction?",
         "choices": [
             "Political neutrality",
             "Personal loyalty",
@@ -16263,7 +16323,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 523,
@@ -16272,16 +16337,16 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "public-service-awareness",
+            "topic_id": "cse-public-service-ethics",
+            "concept_id": "cse-ethical-public-service"
         },
         "difficulty": "easy",
-        "question": "Which conduct best reflects professionalism under RA 6713?",
+        "question": "A technical officer discovers an error in a public report shortly before release. Which conduct best reflects professionalism?",
         "choices": [
-            "Perform duties competently, respectfully, and without unnecessary delay.",
             "Use office hours primarily for personal business.",
+            "Perform duties competently, respectfully, and without unnecessary delay.",
             "Give priority to people who offer gifts.",
             "Avoid learning the rules governing the position."
         ],
@@ -16290,7 +16355,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 524,
@@ -16299,17 +16369,17 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "public-service-awareness",
+            "topic_id": "cse-public-service-ethics",
+            "concept_id": "cse-ethical-public-service"
         },
         "difficulty": "medium",
-        "question": "A public employee is offered an expensive benefit by a person whose application the employee will evaluate. What is the most responsible response?",
+        "question": "A vendor offers an expensive benefit to the employee who will score its pending application. What is the most responsible response?",
         "choices": [
-            "Decline or properly report the benefit and avoid allowing it to influence the decision.",
             "Accept it because the application may still be denied.",
             "Accept it privately so no one feels offended.",
+            "Decline or properly report the benefit and avoid allowing it to influence the decision.",
             "Ask for a larger benefit to make the decision fair."
         ],
         "answer": "Decline or properly report the benefit and avoid allowing it to influence the decision.",
@@ -16317,7 +16387,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 525,
@@ -16326,25 +16401,30 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "public-service-awareness",
+            "topic_id": "cse-public-service-ethics",
+            "concept_id": "cse-ethical-public-service"
         },
         "difficulty": "hard",
-        "question": "An official has a private financial interest in a contract under review. What should guide the official's next step?",
+        "question": "An evaluator owns shares in a company competing for the contract under review. What should guide the evaluator’s next step?",
         "choices": [
-            "Disclose and manage the conflict through the applicable rules before participating.",
             "Keep the interest secret if the contract benefits the community.",
             "Vote first and disclose only if challenged.",
-            "Transfer the benefit to a friend and continue silently."
+            "Transfer the benefit to a friend and continue silently.",
+            "Disclose and manage the conflict through the applicable rules before participating."
         ],
         "answer": "Disclose and manage the conflict through the applicable rules before participating.",
         "explanation": "Disclosure and recusal or other lawful management protect impartiality and public trust when private interests intersect with official duties.",
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 526,
@@ -16353,13 +16433,13 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "public-service-awareness",
+            "topic_id": "cse-public-service-ethics",
+            "concept_id": "cse-ethical-public-service"
         },
         "difficulty": "medium",
-        "question": "A clerk treats a walk-in citizen and a politically connected applicant according to the same published process. This best demonstrates:",
+        "question": "A clerk receives complete applications from an ordinary walk-in client and a politically connected client. Which principle supports applying the same published process?",
         "choices": [
             "Justness and sincerity in public service",
             "Political favoritism",
@@ -16371,7 +16451,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 527,
@@ -16380,16 +16465,16 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "public-service-awareness",
+            "topic_id": "cse-public-service-ethics",
+            "concept_id": "cse-ethical-public-service"
         },
         "difficulty": "easy",
-        "question": "What does commitment to democracy require of a public servant in daily work?",
+        "question": "A public servant disagrees with a lawful program but must administer it fairly while using proper channels for concerns. Which value is being applied?",
         "choices": [
-            "Respect lawful institutions and serve the public without undermining constitutional participation.",
             "Use office authority to silence all criticism.",
+            "Respect lawful institutions and serve the public without undermining constitutional participation.",
             "Treat elections as permission for personal gain.",
             "Serve only the group that supported the official."
         ],
@@ -16398,7 +16483,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 528,
@@ -16434,17 +16524,17 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "public-service-awareness",
+            "topic_id": "cse-public-service-ethics",
+            "concept_id": "cse-ethical-public-service"
         },
         "difficulty": "medium",
-        "question": "Which action most clearly reflects simple living in the context of public ethics?",
+        "question": "An official is choosing between modest, explainable spending and conspicuous purchases inconsistent with lawful income. Which option best reflects simple living?",
         "choices": [
-            "Avoid using public position to obtain lavish personal advantages.",
             "Refuse every lawful salary or benefit.",
             "Hide personal assets from required disclosure.",
+            "Avoid using public position to obtain lavish personal advantages.",
             "Accept private gifts as long as they are expensive."
         ],
         "answer": "Avoid using public position to obtain lavish personal advantages.",
@@ -16452,7 +16542,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 530,
@@ -16488,25 +16583,30 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "public-service-awareness",
+            "topic_id": "cse-public-service-ethics",
+            "concept_id": "cse-ethical-public-service"
         },
         "difficulty": "medium",
-        "question": "Why is courtesy part of ethical public service rather than merely a matter of personality?",
+        "question": "A citizen becomes frustrated after receiving contradictory instructions from two counters. Why is courteous, clear assistance an ethical public-service duty?",
         "choices": [
-            "Respectful communication protects dignity and helps citizens understand and access services.",
             "Courtesy allows officials to ignore accuracy.",
             "Courtesy requires granting every request.",
-            "Courtesy is needed only for influential citizens."
+            "Courtesy is needed only for influential citizens.",
+            "Respectful communication protects dignity and helps citizens understand and access services."
         ],
         "answer": "Respectful communication protects dignity and helps citizens understand and access services.",
         "explanation": "Courtesy supports dignified and accessible service while remaining compatible with accurate, lawful decisions.",
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 532,
@@ -16542,13 +16642,13 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "public-service-awareness",
+            "topic_id": "cse-public-service-ethics",
+            "concept_id": "cse-ethical-public-service"
         },
         "difficulty": "medium",
-        "question": "Which statement best captures nationalism and patriotism as public-service norms?",
+        "question": "A procurement team compares imported and local goods using lawful quality and value criteria rather than slogans. Which statement best captures responsible patriotism?",
         "choices": [
             "Serve the country conscientiously and protect public resources rather than pursuing private or foreign advantage.",
             "Treat every foreign person as an enemy.",
@@ -16560,7 +16660,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 534,
@@ -16596,16 +16701,16 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "public-service-awareness",
+            "topic_id": "cse-public-service-ethics",
+            "concept_id": "cse-ethical-public-service"
         },
         "difficulty": "easy",
-        "question": "What is the strongest basis for describing human rights as universal?",
+        "question": "A local policy attempts to deny basic protection to a disfavored group. Which basis most strongly supports treating human rights as universal?",
         "choices": [
-            "They arise from the inherent dignity of every person rather than from social status.",
             "They belong only to citizens with public office.",
+            "They arise from the inherent dignity of every person rather than from social status.",
             "They are rewards granted to people with high income.",
             "They apply only when a government finds them convenient."
         ],
@@ -16614,7 +16719,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 536,
@@ -16677,17 +16787,17 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "public-service-awareness",
+            "topic_id": "cse-public-service-ethics",
+            "concept_id": "cse-ethical-public-service"
         },
         "difficulty": "easy",
-        "question": "Which example is primarily a civil or political right?",
+        "question": "A rights officer classifies several complaints. Which listed example primarily concerns a civil or political right?",
         "choices": [
-            "Peacefully expressing a view about public policy",
             "Receiving a scholarship from a private club",
             "Choosing a favorite meal",
+            "Peacefully expressing a view about public policy",
             "Buying a decorative item"
         ],
         "answer": "Peacefully expressing a view about public policy",
@@ -16695,7 +16805,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 539,
@@ -16812,25 +16927,30 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "public-service-awareness",
+            "topic_id": "cse-public-service-ethics",
+            "concept_id": "cse-ethical-public-service"
         },
         "difficulty": "easy",
-        "question": "Freedom of religion most clearly protects a person's ability to:",
+        "question": "A licensing rule favors one religion and penalizes a person for changing belief. Which protected freedom is most directly implicated?",
         "choices": [
-            "Hold or change religious beliefs without coercion by the state.",
             "Force every neighbor to adopt the same belief.",
             "Avoid all generally applicable laws.",
-            "Use public office to favor a private doctrine."
+            "Use public office to favor a private doctrine.",
+            "Hold or change religious beliefs without coercion by the state."
         ],
         "answer": "Hold or change religious beliefs without coercion by the state.",
         "explanation": "Freedom of religion protects belief and practice against coercion, but it does not create a general power to coerce others or evade all laws.",
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 544,
@@ -16920,13 +17040,13 @@
         "source": "BoardPrep-authored",
         "taxonomy": {
             "board_id": "civil-service",
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "public-service-awareness",
+            "topic_id": "cse-public-service-ethics",
+            "concept_id": "cse-ethical-public-service"
         },
         "difficulty": "easy",
-        "question": "Economic and social rights are concerned in part with access to:",
+        "question": "A budget review examines access to schooling, health services, housing, and decent work. Which category of rights is most directly involved?",
         "choices": [
             "Conditions such as education, health, work, and an adequate standard of living.",
             "Only the right to criticize a public official.",
@@ -16938,7 +17058,12 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Readings in Philippine History and Society"
+        "let_area": "Readings in Philippine History and Society",
+        "subject": "general-information",
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": true
     },
     {
         "id": 548,
@@ -17691,7 +17816,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "In “the archivist was meticulous,” meticulous most nearly means:",
+        "question": "A records supervisor writes, “The archivist was meticulous: she checked every label twice and documented each discrepancy.” In this context, what does meticulous most nearly mean?",
         "choices": [
             "careless",
             "thorough",
@@ -17700,7 +17825,12 @@
         ],
         "answer": "thorough",
         "explanation": "Meticulous describes careful attention to detail, so thorough fits the sentence.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 576,
@@ -17724,16 +17854,21 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A notice says the schedule is provisional. What does provisional signal?",
+        "question": "A notice says, “The timetable is provisional and will be confirmed after venue inspection.” What does provisional signal in context?",
         "choices": [
             "final",
-            "temporary pending confirmation",
             "secret",
+            "temporary pending confirmation",
             "legally required"
         ],
         "answer": "temporary pending confirmation",
         "explanation": "Provisional information may change before it becomes final.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 577,
@@ -17757,16 +17892,21 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "The supervisor asked for a concise report. Which report meets that request?",
+        "question": "A manager asks for a concise report that preserves the finding and omits irrelevant history. Which option best satisfies the request?",
         "choices": [
-            "a brief focused summary",
             "a long historical essay",
             "a list without findings",
-            "an unrelated narrative"
+            "an unrelated narrative",
+            "a brief focused summary"
         ],
         "answer": "a brief focused summary",
         "explanation": "Concise means expressed in few words while retaining the needed point.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 578,
@@ -17790,7 +17930,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "If a policy is “equitable,” it aims primarily at:",
+        "question": "A benefits office revises identical treatment because applicants face materially different barriers. If the new policy is equitable, what does it primarily seek?",
         "choices": [
             "fair treatment",
             "faster printing",
@@ -17799,7 +17939,12 @@
         ],
         "answer": "fair treatment",
         "explanation": "Equitable decisions consider fairness rather than simply giving everyone identical outcomes.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 579,
@@ -17823,7 +17968,7 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "In context, “mitigate” a risk means to:",
+        "question": "The risk register directs the team to mitigate flooding harm before the rainy season. What action does mitigate call for?",
         "choices": [
             "increase it",
             "reduce its effects",
@@ -17832,7 +17977,12 @@
         ],
         "answer": "reduce its effects",
         "explanation": "To mitigate is to lessen severity or impact, not to eliminate every possibility.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 580,
@@ -18367,8 +18517,8 @@
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-paragraph-organization"
         },
         "board": "civil-service",
@@ -18386,22 +18536,27 @@
         "difficulty": "medium",
         "question": "Arrange the ideas: 1 gather evidence, 2 state a conclusion, 3 define the question, 4 evaluate evidence.",
         "choices": [
-            "3-1-4-2",
             "1-3-2-4",
             "4-3-1-2",
+            "3-1-4-2",
             "3-4-1-2"
         ],
         "answer": "3-1-4-2",
         "explanation": "A sound inquiry defines its question, gathers and evaluates evidence, then concludes.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 597,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-paragraph-organization"
         },
         "board": "civil-service",
@@ -18419,22 +18574,27 @@
         "difficulty": "medium",
         "question": "Which opening best introduces a paragraph about reducing paper use?",
         "choices": [
-            "Paper reduction can lower waste and operating costs.",
             "The printer is beside the window.",
             "Many offices have chairs.",
-            "Yesterday was warm."
+            "Yesterday was warm.",
+            "Paper reduction can lower waste and operating costs."
         ],
         "answer": "Paper reduction can lower waste and operating costs.",
         "explanation": "The first sentence states the paragraph’s controlling idea.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 598,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-paragraph-organization"
         },
         "board": "civil-service",
@@ -18459,15 +18619,20 @@
         ],
         "answer": "claim followed by support",
         "explanation": "Examples function as supporting details for the opening claim.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 599,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-paragraph-organization"
         },
         "board": "civil-service",
@@ -18492,15 +18657,20 @@
         ],
         "answer": "consequently",
         "explanation": "Consequently signals an effect that follows from a preceding cause.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 600,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-reading-comprehension"
         },
         "board": "civil-service",
@@ -18519,21 +18689,26 @@
         "question": "Read: “The pilot group reduced processing time after the checklist was introduced, but no comparison group was used.” What is the strongest conclusion?",
         "choices": [
             "The checklist proves causation.",
-            "The result is promising but causation is not established.",
             "The checklist had no effect.",
+            "The result is promising but causation is not established.",
             "All offices will obtain the same result."
         ],
         "answer": "The result is promising but causation is not established.",
         "explanation": "Without a comparison group, the observed improvement cannot by itself prove causation.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 601,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-reading-comprehension"
         },
         "board": "civil-service",
@@ -18551,22 +18726,27 @@
         "difficulty": "medium",
         "question": "Read: “Mina checked the source, compared two accounts, and marked the claim as uncertain.” What habit is shown?",
         "choices": [
-            "evidence-based evaluation",
             "memorization",
             "avoidance of sources",
-            "uncritical agreement"
+            "uncritical agreement",
+            "evidence-based evaluation"
         ],
         "answer": "evidence-based evaluation",
         "explanation": "Checking and comparing sources before qualifying a claim reflects critical reading.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 602,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-reading-comprehension"
         },
         "board": "civil-service",
@@ -18591,15 +18771,20 @@
         ],
         "answer": "chronological development",
         "explanation": "The events are presented in time and development order.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 603,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-reading-comprehension"
         },
         "board": "civil-service",
@@ -18617,22 +18802,27 @@
         "difficulty": "medium",
         "question": "An author lists costs and benefits before recommending a policy. The purpose is chiefly to:",
         "choices": [
-            "weigh alternatives",
             "entertain with fiction",
+            "weigh alternatives",
             "define a word",
             "give directions for travel"
         ],
         "answer": "weigh alternatives",
         "explanation": "Costs and benefits provide evidence for evaluating a policy choice.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 604,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-reading-comprehension"
         },
         "board": "civil-service",
@@ -18650,22 +18840,27 @@
         "difficulty": "medium",
         "question": "A writer calls a proposal “a modest but useful step.” The tone is:",
         "choices": [
-            "cautiously favorable",
             "angrily hostile",
             "celebratory and absolute",
+            "cautiously favorable",
             "indifferent"
         ],
         "answer": "cautiously favorable",
         "explanation": "Modest limits the claim while useful signals approval.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 605,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-reading-comprehension"
         },
         "board": "civil-service",
@@ -18683,22 +18878,27 @@
         "difficulty": "hard",
         "question": "Which evidence best supports the claim that a training program improved accuracy?",
         "choices": [
-            "before-and-after error rates with a comparable group",
             "a participant’s favorite color",
             "the room size",
-            "the trainer’s job title"
+            "the trainer’s job title",
+            "before-and-after error rates with a comparable group"
         ],
         "answer": "before-and-after error rates with a comparable group",
         "explanation": "Comparable accuracy data directly tests the claimed improvement.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 606,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-reading-comprehension"
         },
         "board": "civil-service",
@@ -18716,22 +18916,27 @@
         "difficulty": "hard",
         "question": "A passage says a rule applies only when three conditions are met. A case satisfies two. What follows?",
         "choices": [
-            "the rule definitely applies",
             "the passage does not establish that the rule applies",
+            "the rule definitely applies",
             "the rule is unconstitutional",
             "the case is irrelevant"
         ],
         "answer": "the passage does not establish that the rule applies",
         "explanation": "Meeting only two stated conditions leaves the rule’s application unsupported.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 607,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-reading-comprehension"
         },
         "board": "civil-service",
@@ -18756,15 +18961,20 @@
         ],
         "answer": "The figures require verification before publication.",
         "explanation": "Formal reports use precise, professional wording.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 608,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-reading-comprehension"
         },
         "board": "civil-service",
@@ -18782,22 +18992,27 @@
         "difficulty": "easy",
         "question": "Choose the best completion: “The memo was revised ____ the first draft omitted the deadline.”",
         "choices": [
-            "because",
             "despite",
             "whereas",
+            "because",
             "until"
         ],
         "answer": "because",
         "explanation": "The omission explains why revision was needed.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 609,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-reading-comprehension"
         },
         "board": "civil-service",
@@ -18815,22 +19030,27 @@
         "difficulty": "medium",
         "question": "Which sentence has a logical comparison?",
         "choices": [
-            "The revised process is faster than the old process.",
             "The revised process is faster than before it was implemented.",
             "The process is faster than efficiently.",
-            "The process faster is old."
+            "The process faster is old.",
+            "The revised process is faster than the old process."
         ],
         "answer": "The revised process is faster than the old process.",
         "explanation": "The comparison matches two comparable processes.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 610,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-reading-comprehension"
         },
         "board": "civil-service",
@@ -18855,15 +19075,20 @@
         ],
         "answer": "an unsupported inference",
         "explanation": "A claim not grounded in the passage goes beyond the available evidence.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 611,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-reading-comprehension"
         },
         "board": "civil-service",
@@ -18881,22 +19106,27 @@
         "difficulty": "easy",
         "question": "Which question tests an author’s purpose?",
         "choices": [
-            "Why did the author include the example?",
             "How many letters are in the title?",
+            "Why did the author include the example?",
             "Who printed the page?",
             "What color is the margin?"
         ],
         "answer": "Why did the author include the example?",
         "explanation": "Purpose asks what communicative function a detail serves.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 612,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-reading-comprehension"
         },
         "board": "civil-service",
@@ -18914,22 +19144,27 @@
         "difficulty": "easy",
         "question": "In a paragraph, every sentence explains one central claim. This demonstrates:",
         "choices": [
-            "coherence",
             "contradiction",
             "fragmentation",
+            "coherence",
             "ambiguity"
         ],
         "answer": "coherence",
         "explanation": "Related sentences arranged around one controlling idea create coherence.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 613,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-reading-comprehension"
         },
         "board": "civil-service",
@@ -18948,21 +19183,26 @@
         "question": "Select the correct sentence:",
         "choices": [
             "Neither report contain the required table.",
-            "Neither report contains the required table.",
             "Neither reports contains required table.",
-            "Neither report containing the table."
+            "Neither report containing the table.",
+            "Neither report contains the required table."
         ],
         "answer": "Neither report contains the required table.",
         "explanation": "Neither is singular in formal agreement, so contains is correct.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 614,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-reading-comprehension"
         },
         "board": "civil-service",
@@ -18980,22 +19220,27 @@
         "difficulty": "medium",
         "question": "Which phrase is least redundant?",
         "choices": [
+            "plans",
             "advance planning",
             "future plans",
-            "plans",
             "end result"
         ],
         "answer": "plans",
         "explanation": "Plans already convey intended future action without an unnecessary duplicate.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 615,
         "taxonomy": {
             "board_id": "civil-service",
             "subject_id": "verbal-ability",
-            "domain_id": "reading-comprehension",
-            "topic_id": "reading-comprehension",
+            "domain_id": "cse-reading-comprehension-domain",
+            "topic_id": "cse-reading-comprehension-topic",
             "concept_id": "cse-reading-comprehension"
         },
         "board": "civil-service",
@@ -19013,14 +19258,19 @@
         "difficulty": "medium",
         "question": "A reader distinguishes what the passage states from what it suggests. This is:",
         "choices": [
-            "literal and inferential reading",
             "alphabetizing",
+            "literal and inferential reading",
             "copyediting only",
             "summarizing without evidence"
         ],
         "answer": "literal and inferential reading",
         "explanation": "The distinction separates explicit information from warranted implications.",
-        "subject": "verbal-ability"
+        "subject": "verbal-ability",
+        "passage_dependent": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": false,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 616,
@@ -19044,16 +19294,37 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "What is 18% of 250?",
+        "question": "Using the supplied figures, what amount equals the stated percentage of the base?",
         "choices": [
             "35",
-            "45",
             "50",
+            "45",
             "55"
         ],
         "answer": "45",
         "explanation": "0.18 × 250 = 45.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Base amount",
+                    "Rate"
+                ],
+                "rows": [
+                    [
+                        "250",
+                        "18%"
+                    ]
+                ]
+            }
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 617,
@@ -19077,16 +19348,37 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A price of 800 is reduced by 15%. What is the sale price?",
+        "question": "Using the table, what is the price after the discount?",
         "choices": [
-            "680",
             "700",
             "720",
-            "785"
+            "785",
+            "680"
         ],
         "answer": "680",
         "explanation": "The discount is 120, so 800 − 120 = 680.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Listed price",
+                    "Discount"
+                ],
+                "rows": [
+                    [
+                        "800",
+                        "15%"
+                    ]
+                ]
+            }
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 618,
@@ -19110,16 +19402,37 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A ratio of red to blue files is 3:5. If there are 24 red files, how many blue files are there?",
+        "question": "How many blue files are implied by the supplied ratio?",
         "choices": [
+            "40",
             "30",
             "36",
-            "40",
             "45"
         ],
         "answer": "40",
         "explanation": "The scale factor is 8, so 5 × 8 = 40 blue files.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Red files",
+                    "Red:Blue ratio"
+                ],
+                "rows": [
+                    [
+                        "24",
+                        "3:5"
+                    ]
+                ]
+            }
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 619,
@@ -19143,16 +19456,37 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "What is 3/4 + 2/3?",
+        "question": "What is the sum of the two recorded fractions?",
         "choices": [
             "5/7",
-            "13/12",
             "17/12",
+            "13/12",
             "19/12"
         ],
         "answer": "17/12",
         "explanation": "Using denominator 12 gives 9/12 + 8/12 = 17/12.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "First fraction",
+                    "Second fraction"
+                ],
+                "rows": [
+                    [
+                        "3/4",
+                        "2/3"
+                    ]
+                ]
+            }
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 620,
@@ -19176,16 +19510,39 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A clerk processes 48 forms in 6 hours. At the same rate, how many in 9 hours?",
+        "question": "At the same documented rate, how many forms are projected for nine hours?",
         "choices": [
             "60",
-            "72",
             "78",
+            "72",
             "96"
         ],
         "answer": "72",
         "explanation": "The rate is 8 forms per hour; 8 × 9 = 72.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Forms processed",
+                    "Hours used",
+                    "Projected hours"
+                ],
+                "rows": [
+                    [
+                        "48",
+                        "6",
+                        "9"
+                    ]
+                ]
+            }
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 621,
@@ -19209,16 +19566,37 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "What is 2.75 + 1.6?",
+        "question": "What total should the clerk record for the two entries?",
         "choices": [
             "3.35",
             "4.25",
-            "4.35",
-            "4.95"
+            "4.95",
+            "4.35"
         ],
         "answer": "4.35",
         "explanation": "Aligning decimals gives 2.75 + 1.60 = 4.35.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Ledger entry A",
+                    "Ledger entry B"
+                ],
+                "rows": [
+                    [
+                        "2.75",
+                        "1.60"
+                    ]
+                ]
+            }
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 622,
@@ -19242,16 +19620,37 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A budget of 1,200 has 35% allocated to supplies. How much is allocated?",
+        "question": "How much of the budget is allocated to supplies?",
         "choices": [
+            "420",
             "320",
             "400",
-            "420",
             "450"
         ],
         "answer": "420",
         "explanation": "0.35 × 1,200 = 420.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Budget",
+                    "Supply allocation"
+                ],
+                "rows": [
+                    [
+                        "1,200",
+                        "35%"
+                    ]
+                ]
+            }
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 623,
@@ -19275,16 +19674,37 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "If 5 notebooks cost 175, what is the unit cost?",
+        "question": "What is the cost per notebook?",
         "choices": [
             "25",
-            "30",
             "35",
+            "30",
             "40"
         ],
         "answer": "35",
         "explanation": "Dividing 175 by 5 gives 35 per notebook.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Notebooks",
+                    "Total cost"
+                ],
+                "rows": [
+                    [
+                        "5",
+                        "175"
+                    ]
+                ]
+            }
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 624,
@@ -19308,16 +19728,37 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "easy",
-        "question": "A team completed 7 of 10 tasks. What percentage is complete?",
+        "question": "What percentage of assigned tasks is complete?",
         "choices": [
             "60%",
-            "70%",
             "80%",
+            "70%",
             "75%"
         ],
         "answer": "70%",
         "explanation": "Seven divided by ten equals 0.70, or 70%.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Completed tasks",
+                    "Assigned tasks"
+                ],
+                "rows": [
+                    [
+                        "7",
+                        "10"
+                    ]
+                ]
+            }
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 625,
@@ -19341,16 +19782,37 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "What is 4.2 ÷ 0.6?",
+        "question": "How many equal groups does the supplied quantity contain?",
         "choices": [
             "0.7",
             "6",
-            "7",
-            "70"
+            "70",
+            "7"
         ],
         "answer": "7",
         "explanation": "Multiplying both numbers by 10 gives 42 ÷ 6 = 7.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Quantity",
+                    "Group size"
+                ],
+                "rows": [
+                    [
+                        "4.2",
+                        "0.6"
+                    ]
+                ]
+            }
+        ],
+        "table_dependent": true,
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 626,
@@ -19376,14 +19838,19 @@
         "difficulty": "medium",
         "question": "Which is greatest?",
         "choices": [
-            "0.62",
             "5/8",
+            "0.62",
             "61%",
             "0.6"
         ],
         "answer": "5/8",
         "explanation": "Five-eighths equals 0.625, greater than 0.62, 0.61, and 0.60.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 627,
@@ -19410,13 +19877,18 @@
         "question": "An amount rises from 500 to 575. What is the percentage increase?",
         "choices": [
             "10%",
-            "12%",
             "15%",
+            "12%",
             "20%"
         ],
         "answer": "15%",
         "explanation": "The increase is 75; 75 ÷ 500 = 0.15.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 628,
@@ -19443,13 +19915,18 @@
         "question": "A worker earns 640 for 8 hours. What is the hourly rate?",
         "choices": [
             "70",
-            "80",
             "90",
+            "80",
             "100"
         ],
         "answer": "80",
         "explanation": "640 divided by 8 equals 80 per hour.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 629,
@@ -19477,12 +19954,17 @@
         "choices": [
             "35",
             "42",
-            "49",
-            "84"
+            "84",
+            "49"
         ],
         "answer": "49",
         "explanation": "Evaluate the parentheses first: 7 × 7 = 49.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 630,
@@ -19508,14 +19990,19 @@
         "difficulty": "hard",
         "question": "A tank is 3/5 full. After adding 20 liters it is 4/5 full. What is the tank capacity?",
         "choices": [
+            "100 L",
             "60 L",
             "80 L",
-            "100 L",
             "120 L"
         ],
         "answer": "100 L",
         "explanation": "The added 20 liters represent 1/5 of capacity, so capacity is 100 liters.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 631,
@@ -19548,7 +20035,12 @@
         ],
         "answer": "24",
         "explanation": "The sequence increases by 5 each time.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 632,
@@ -19581,7 +20073,12 @@
         ],
         "answer": "48",
         "explanation": "Each term is multiplied by 2.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 633,
@@ -19608,13 +20105,18 @@
         "question": "What is missing: 2, 5, 10, 17, 26, …?",
         "choices": [
             "35",
-            "37",
             "39",
-            "42"
+            "42",
+            "37"
         ],
         "answer": "37",
         "explanation": "The differences are 3, 5, 7, 9, then 11.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 634,
@@ -19647,7 +20149,12 @@
         ],
         "answer": "29",
         "explanation": "After 26 the alternating +3 operation gives 29.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 635,
@@ -19674,13 +20181,18 @@
         "question": "Which number breaks the pattern 6, 12, 18, 25, 30?",
         "choices": [
             "12",
-            "18",
             "25",
+            "18",
             "30"
         ],
         "answer": "25",
         "explanation": "The other terms are multiples of 6; 25 is not.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 636,
@@ -19706,14 +20218,19 @@
         "difficulty": "medium",
         "question": "A sequence starts at 81 and divides by 3 each time. What is the fourth term?",
         "choices": [
-            "3",
             "9",
             "27",
+            "3",
             "81"
         ],
         "answer": "3",
         "explanation": "The terms are 81, 27, 9, and 3.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 637,
@@ -19741,12 +20258,17 @@
         "choices": [
             "19",
             "20",
-            "21",
-            "24"
+            "24",
+            "21"
         ],
         "answer": "21",
         "explanation": "Adding four to 17 yields 21.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 638,
@@ -19772,14 +20294,19 @@
         "difficulty": "easy",
         "question": "The pattern 1, 4, 9, 16 is based on:",
         "choices": [
-            "prime numbers",
             "square numbers",
+            "prime numbers",
             "powers of 3",
             "odd numbers"
         ],
         "answer": "square numbers",
         "explanation": "The terms are 1², 2², 3², and 4².",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 639,
@@ -19806,13 +20333,18 @@
         "question": "What is the next term: 2, 3, 5, 8, 13, …?",
         "choices": [
             "18",
-            "20",
             "21",
+            "20",
             "26"
         ],
         "answer": "21",
         "explanation": "Each term is the sum of the preceding two terms.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 640,
@@ -19839,13 +20371,18 @@
         "question": "A register shows 100, 90, 81, 73.8. Which rule is most consistent?",
         "choices": [
             "subtract 10 always",
-            "multiply successively by 0.9, 0.9, then about 0.91",
             "add 9 always",
+            "multiply successively by 0.9, 0.9, then about 0.91",
             "divide by 2"
         ],
         "answer": "multiply successively by 0.9, 0.9, then about 0.91",
         "explanation": "The first two changes preserve a 10% reduction and the last is approximately similar.",
-        "subject": "numerical-ability"
+        "subject": "numerical-ability",
+        "data_interpretation": true,
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 641,
@@ -20234,14 +20771,18 @@
         "difficulty": "hard",
         "question": "A city proposes a crossing because many pupils cross the road. Which assumption is necessary?",
         "choices": [
-            "the crossing can improve pedestrian safety",
             "all pupils own cars",
             "roads never need signs",
-            "the city has no budget"
+            "the city has no budget",
+            "the crossing can improve pedestrian safety"
         ],
         "answer": "the crossing can improve pedestrian safety",
         "explanation": "The proposal depends on the crossing addressing the safety problem.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 653,
@@ -20274,7 +20815,11 @@
         ],
         "answer": "File R has a label.",
         "explanation": "The conclusion applies the stated universal rule to File R.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 654,
@@ -20300,14 +20845,18 @@
         "difficulty": "hard",
         "question": "A report claims a workshop improved accuracy because scores rose. What evidence most challenges the claim?",
         "choices": [
-            "scores also rose in an untrained comparison group",
             "the room was larger",
+            "scores also rose in an untrained comparison group",
             "the trainer used slides",
             "participants arrived early"
         ],
         "answer": "scores also rose in an untrained comparison group",
         "explanation": "A similar rise without training weakens the claim that training caused the change.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 655,
@@ -20333,14 +20882,18 @@
         "difficulty": "easy",
         "question": "Some permits are urgent. All urgent permits are reviewed today. What conclusion is valid?",
         "choices": [
-            "some permits are reviewed today",
             "all permits are urgent",
             "no permits are reviewed",
+            "some permits are reviewed today",
             "all reviewed permits are urgent"
         ],
         "answer": "some permits are reviewed today",
         "explanation": "The urgent permits form a subset that is reviewed today.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 656,
@@ -20366,14 +20919,18 @@
         "difficulty": "medium",
         "question": "A manager says flexible hours increase productivity because one employee improved. The main weakness is:",
         "choices": [
-            "the evidence is too limited to generalize",
             "flexible hours are impossible",
             "productivity cannot be measured",
-            "one employee proves every case"
+            "one employee proves every case",
+            "the evidence is too limited to generalize"
         ],
         "answer": "the evidence is too limited to generalize",
         "explanation": "One example does not establish a general causal pattern.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 657,
@@ -20406,7 +20963,11 @@
         ],
         "answer": "the policy requirement is not shown to be met",
         "explanation": "The stated condition requires two signatures, which the record lacks.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 658,
@@ -20432,14 +20993,18 @@
         "difficulty": "hard",
         "question": "A survey finds fewer errors after a checklist, but staff also received new equipment. What is a competing explanation?",
         "choices": [
-            "the equipment contributed to the improvement",
             "the checklist was never used",
+            "the equipment contributed to the improvement",
             "errors are imaginary",
             "surveys cannot contain data"
         ],
         "answer": "the equipment contributed to the improvement",
         "explanation": "A simultaneous change could also explain the observed reduction.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 659,
@@ -20465,14 +21030,18 @@
         "difficulty": "medium",
         "question": "A conclusion is supported only if the sample represents the target group. This is an assumption about:",
         "choices": [
-            "representativeness",
             "alphabetical order",
             "spelling",
+            "representativeness",
             "office size"
         ],
         "answer": "representativeness",
         "explanation": "Generalizing from a sample requires it to represent the population.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 660,
@@ -20498,14 +21067,18 @@
         "difficulty": "medium",
         "question": "A notice recommends extending hours because visitors arrive after closing. Which fact strengthens it?",
         "choices": [
-            "attendance records show repeated late arrivals",
             "the office has blue walls",
             "the notice uses a large font",
-            "some staff prefer mornings"
+            "some staff prefer mornings",
+            "attendance records show repeated late arrivals"
         ],
         "answer": "attendance records show repeated late arrivals",
         "explanation": "Repeated records directly support the need for extended hours.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 661,
@@ -20538,7 +21111,11 @@
         ],
         "answer": "not shown to be approved",
         "explanation": "The stated rule says approved requests have numbers; absence of one defeats the basis for approval.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": true,
+        "professional_judgment": false
     },
     {
         "id": 662,
@@ -20895,13 +21472,17 @@
         "question": "What comes next: A, C, F, J, O, …?",
         "choices": [
             "S",
-            "T",
             "U",
+            "T",
             "V"
         ],
         "answer": "U",
         "explanation": "The jumps are +2, +3, +4, +5, then +6, reaching U.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 673,
@@ -20928,13 +21509,17 @@
         "question": "If ▲ means +2 and ■ means ×3, what is ■(▲4)?",
         "choices": [
             "14",
-            "18",
             "20",
+            "18",
             "24"
         ],
         "answer": "18",
         "explanation": "First ▲4 = 6; then ■6 = 18.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 674,
@@ -20960,14 +21545,18 @@
         "difficulty": "medium",
         "question": "Five files are ordered oldest to newest. P is before M, M before N, and N before Q. Which is possible?",
         "choices": [
-            "P-M-N-Q",
             "M-P-N-Q",
             "Q-N-M-P",
-            "P-N-M-Q"
+            "P-N-M-Q",
+            "P-M-N-Q"
         ],
         "answer": "P-M-N-Q",
         "explanation": "The stated pairwise order is preserved only by P-M-N-Q among the choices.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 675,
@@ -20993,14 +21582,18 @@
         "difficulty": "medium",
         "question": "A symbol sequence alternates circle, square, triangle. What is position 8?",
         "choices": [
-            "circle",
             "square",
+            "circle",
             "triangle",
             "none"
         ],
         "answer": "square",
         "explanation": "Positions 1,4,7 are circles; 2,5,8 are squares.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 676,
@@ -21027,13 +21620,17 @@
         "question": "A code changes +4, then +7, then +10. Starting at 5, the fourth value is:",
         "choices": [
             "16",
-            "22",
             "26",
+            "22",
             "30"
         ],
         "answer": "26",
         "explanation": "The values are 5, 9, 16, and 26.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 677,
@@ -21060,13 +21657,17 @@
         "question": "If every blue card is filed before every green card, which order is possible?",
         "choices": [
             "blue 2, green 1, blue 1, green 2",
-            "blue 1, blue 2, green 1, green 2",
             "green 1, blue 1, blue 2, green 2",
+            "blue 1, blue 2, green 1, green 2",
             "green 2, green 1, blue 2, blue 1"
         ],
         "answer": "blue 1, blue 2, green 1, green 2",
         "explanation": "All blue cards precede all green cards in that order.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 678,
@@ -21093,13 +21694,17 @@
         "question": "A, B, and C each speak once. A is before B and C is after A. Who can speak second?",
         "choices": [
             "A only",
-            "B or C",
             "C only",
-            "no one"
+            "no one",
+            "B or C"
         ],
         "answer": "B or C",
         "explanation": "A must be first; either B or C can occupy the second position.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 679,
@@ -21132,7 +21737,11 @@
         ],
         "answer": "n²+n",
         "explanation": "For n=1,2,3,4, n²+n gives 2,6,12,20.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 680,
@@ -21158,14 +21767,18 @@
         "difficulty": "easy",
         "question": "A row has red tiles in positions 1, 3, 5 and blue tiles in even positions. Position 9 is:",
         "choices": [
-            "red",
             "blue",
+            "red",
             "green",
             "undetermined"
         ],
         "answer": "red",
         "explanation": "Odd positions follow the red pattern.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 681,
@@ -21192,13 +21805,17 @@
         "question": "If the code rule reverses the order of the first two symbols, ABCD becomes:",
         "choices": [
             "ABCD",
-            "BACD",
             "CDAB",
+            "BACD",
             "DCBA"
         ],
         "answer": "BACD",
         "explanation": "Only the first pair is reversed, producing BACD.",
-        "subject": "analytical-logical"
+        "subject": "analytical-logical",
+        "cognitive_intent": "analyze",
+        "multistep": true,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 682,
@@ -21556,12 +22173,16 @@
         "choices": [
             "Santos, Ana",
             "Santiago, Ben",
-            "Salazar, Dee",
-            "Sarmiento, Cal"
+            "Sarmiento, Cal",
+            "Salazar, Dee"
         ],
         "answer": "Salazar, Dee",
         "explanation": "Compare the surname prefixes: Salazar precedes Santiago, Santos, and Sarmiento.",
-        "subject": "clerical-ability"
+        "subject": "clerical-ability",
+        "cognitive_intent": "analyze",
+        "multistep": false,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 693,
@@ -21587,14 +22208,18 @@
         "difficulty": "easy",
         "question": "For numeric filing, which number is first?",
         "choices": [
-            "105",
             "15",
+            "105",
             "51",
             "150"
         ],
         "answer": "15",
         "explanation": "Numeric filing compares numerical value, so 15 is smallest.",
-        "subject": "clerical-ability"
+        "subject": "clerical-ability",
+        "cognitive_intent": "analyze",
+        "multistep": false,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 694,
@@ -21620,14 +22245,18 @@
         "difficulty": "medium",
         "question": "Which pair is in correct alphabetical order?",
         "choices": [
-            "Dela Cruz, Dizon",
             "Dizon, Dela Cruz",
+            "Dela Cruz, Dizon",
             "Garcia, Cruz",
             "Cruz, Garcia"
         ],
         "answer": "Dela Cruz, Dizon",
         "explanation": "“De” precedes “Di” when the surnames are compared letter by letter.",
-        "subject": "clerical-ability"
+        "subject": "clerical-ability",
+        "cognitive_intent": "analyze",
+        "multistep": false,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 695,
@@ -21660,7 +22289,11 @@
         ],
         "answer": "2024-09-05",
         "explanation": "Within the same year and month, day 3 precedes day 5.",
-        "subject": "clerical-ability"
+        "subject": "clerical-ability",
+        "cognitive_intent": "analyze",
+        "multistep": false,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 696,
@@ -21686,14 +22319,18 @@
         "difficulty": "medium",
         "question": "Which practice best prevents misfiling?",
         "choices": [
-            "verify the complete identifier before placing the record",
             "file by color only",
             "remove labels",
-            "sort from memory without checking"
+            "sort from memory without checking",
+            "verify the complete identifier before placing the record"
         ],
         "answer": "verify the complete identifier before placing the record",
         "explanation": "Checking the full identifier reduces errors from similar names or numbers.",
-        "subject": "clerical-ability"
+        "subject": "clerical-ability",
+        "cognitive_intent": "analyze",
+        "multistep": false,
+        "case_interpretation": false,
+        "professional_judgment": false
     },
     {
         "id": 697,

@@ -2727,13 +2727,13 @@
     },
     {
         "id": "cse-paragraph-organization",
-        "topic_id": "reading-comprehension",
+        "topic_id": "cse-reading-comprehension-topic",
         "code": "CPO",
         "name": "Paragraph Organization"
     },
     {
         "id": "cse-reading-comprehension",
-        "topic_id": "reading-comprehension",
+        "topic_id": "cse-reading-comprehension-topic",
         "code": "CRC",
         "name": "Reading Comprehension"
     },
@@ -5994,8 +5994,8 @@
         "topic_id": "me-repair-topic-3-40",
         "code": "ME",
         "name": "Mechanical Engineering Concept 3-40"
-    }
-    ,{
+    },
+    {
         "id": "science-chemistry-matter-particles",
         "topic_id": "science-chemistry-matter",
         "code": "CHEM",
@@ -6042,8 +6042,7 @@
         "topic_id": "science-data-graphs",
         "code": "DATA",
         "name": "Evidence, Trends, and Variables"
-    }
-,
+    },
     {
         "id": "ree-concept-ree-math-algebra",
         "topic_id": "ree-math-algebra",
@@ -6133,5 +6132,17 @@
         "topic_id": "ree-pro-controls",
         "code": "REE",
         "name": "Protection, control, and utilization Applications"
+    },
+    {
+        "id": "cse-constitutional-principles",
+        "topic_id": "cse-constitutional-civics",
+        "code": "CCP",
+        "name": "Constitutional Principles"
+    },
+    {
+        "id": "cse-ethical-public-service",
+        "topic_id": "cse-public-service-ethics",
+        "code": "EPS",
+        "name": "Ethical Public Service"
     }
 ]

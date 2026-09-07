@@ -1209,8 +1209,7 @@
         "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
         "code": "ME",
         "name": "Mechanical Engineering Mechanical Engineering Professional Subjects"
-    }
-,
+    },
     {
         "id": "engineering-sciences-and-allied-subjects",
         "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
@@ -1222,12 +1221,18 @@
         "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
         "code": "REE",
         "name": "Electrical Engineering Professional Subjects"
-    }
-,
+    },
     {
         "id": "ree-mathematics",
         "subject_id": "registered-electrical-engineering-mathematics",
         "code": "REE",
         "name": "Registered Electrical Engineering Mathematics"
+    },
+    {
+        "id": "cse-reading-comprehension-domain",
+        "subject_id": "verbal-ability",
+        "code": "CSERC",
+        "name": "Civil Service Reading Comprehension",
+        "description": "Interpreting and evaluating supplied public-service and general passages."
     }
 ]
