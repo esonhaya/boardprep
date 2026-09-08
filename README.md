@@ -83,6 +83,27 @@ Run it before human acceptance testing. The manual checklist is in
 `docs/HUMAN_TESTER_READINESS.md`; ordinary Doctor runs intentionally do not run
 the full persona suite.
 
+### Browser acceptance
+
+The Playwright acceptance harness runs the real PHP built-in server against an
+isolated committed-tree fixture and covers mobile (390x844) and desktop
+(1366x768) Chromium projects. It captures screenshots, checks console/page and
+request failures, verifies rendered images, checks page-level overflow, and
+drives representative quiz, study, flashcard, progress, and history journeys.
+
+```sh
+npm ci
+npm run test:browser
+```
+
+On a workstation or CI runner with Chromium available, install the browser
+once with `npm run test:browser:install`. Optional visual baselines can be
+created or refreshed with `npm run test:browser:update-snapshots`; baseline
+comparisons are enabled for that command with a conservative pixel threshold.
+The local Termux/Android runtime reports `BROWSER_ACCEPTANCE=DEPENDENCY_MISSING`
+without changing application data; CI installs Chromium and treats browser
+failures as blocking.
+
 ## Release-candidate acceptance
 
 The single human acceptance entry point is

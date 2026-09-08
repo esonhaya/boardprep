@@ -18,3 +18,8 @@ storage/.storage.lock
 storage/runtime/
 *.sqlite
 *.sqlite-*
+
+# Browser acceptance output
+node_modules/
+test-results/
+playwright-report/

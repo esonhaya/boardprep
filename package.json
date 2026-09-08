@@ -1,0 +1,33 @@
+{
+  "name": "boardprep",
+  "version": "1.0.0",
+  "description": "BoardPrep is a PHP application with a file-backed JSON store by default. It requires PHP 8.1 or newer and a readable, writable storage directory.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Use the PHP test suite or npm run test:browser\"",
+    "test:browser": "node tools/run-browser-tests.cjs",
+    "test:browser:mobile": "node tools/run-browser-tests.cjs --project=mobile",
+    "test:browser:desktop": "node tools/run-browser-tests.cjs --project=desktop",
+    "test:browser:update-snapshots": "node tools/run-browser-tests.cjs --update-snapshots",
+    "test:browser:install": "playwright install chromium"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esonhaya/boardprep.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/esonhaya/boardprep/issues"
+  },
+  "homepage": "https://github.com/esonhaya/boardprep#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
+  }
+}
