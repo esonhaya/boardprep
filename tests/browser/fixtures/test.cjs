@@ -2,28 +2,69 @@ const fs = require('node:fs');
 
 const { test: base, expect } = require('@playwright/test');
 
+function isKnownOptionalBrowserResponse(error) {
+  let url;
+  try {
+    url = new URL(error.url);
+  } catch {
+    return false;
+  }
+
+  // Chromium may request this optional browser chrome asset even though the
+  // application does not declare a favicon. Other 4xx/5xx responses fail.
+  return error.status === 404
+    && url.pathname === '/favicon.ico'
+    && error.resourceType === 'image';
+}
+
 function installDiagnostics(page) {
   const diagnostics = {
     consoleErrors: [],
     pageErrors: [],
     failedRequests: [],
+    httpErrors: [],
+    allowedHttpErrors: [],
     brokenImages: [],
   };
 
   page.on('console', (message) => {
     if (message.type() === 'error') {
-      diagnostics.consoleErrors.push(message.text());
+      diagnostics.consoleErrors.push({
+        message: message.text(),
+        type: message.type(),
+        pageUrl: page.url(),
+        location: message.location(),
+      });
     }
   });
   page.on('pageerror', (error) => {
-    diagnostics.pageErrors.push(String(error));
+    diagnostics.pageErrors.push({
+      message: String(error),
+      pageUrl: page.url(),
+    });
   });
   page.on('requestfailed', (request) => {
     diagnostics.failedRequests.push({
       url: request.url(),
       method: request.method(),
+      resourceType: request.resourceType(),
+      pageUrl: page.url(),
       error: request.failure()?.errorText || 'request failed',
     });
+  });
+  page.on('response', (response) => {
+    if (response.status() >= 400) {
+      diagnostics.httpErrors.push({
+        url: response.url(),
+        status: response.status(),
+        resourceType: response.request().resourceType(),
+        pageUrl: page.url(),
+      });
+      const error = diagnostics.httpErrors.at(-1);
+      if (isKnownOptionalBrowserResponse(error)) {
+        diagnostics.allowedHttpErrors.push(error);
+      }
+    }
   });
 
   return diagnostics;
@@ -42,6 +83,16 @@ async function assertPageHealthy(page, testInfo, name, options = {}) {
 
   const diagnostics = page.__boardPrepDiagnostics;
   diagnostics.brokenImages.push(...brokenImages);
+  for (const expected of options.allowHttpErrors || []) {
+    for (const error of diagnostics.httpErrors) {
+      if (error.status === expected.status
+        && error.url === expected.url
+        && error.resourceType === expected.resourceType
+        && !diagnostics.allowedHttpErrors.includes(error)) {
+        diagnostics.allowedHttpErrors.push(error);
+      }
+    }
+  }
 
   if (overflow.width > overflow.viewport + 2) {
     throw new Error(`Material page overflow on ${name}: ${overflow.width}px > ${overflow.viewport}px`);
@@ -105,8 +156,17 @@ const test = base.extend({
         diagnostics.consoleErrors.length > 0
         || diagnostics.pageErrors.length > 0
         || diagnostics.failedRequests.length > 0
+        || diagnostics.httpErrors.some((error) => !diagnostics.allowedHttpErrors.includes(error))
       )) {
-        throw new Error(`Browser diagnostics reported errors: ${JSON.stringify(diagnostics)}`);
+        throw new Error(`Browser diagnostics reported errors: ${JSON.stringify({
+          page: page.url(),
+          consoleErrors: diagnostics.consoleErrors,
+          pageErrors: diagnostics.pageErrors,
+          failedRequests: diagnostics.failedRequests,
+          httpErrors: diagnostics.httpErrors.filter(
+            (error) => !diagnostics.allowedHttpErrors.includes(error)
+          ),
+        })}`);
       }
     }
   },
