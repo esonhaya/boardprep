@@ -24,7 +24,7 @@ error log while learner-facing production responses remain generic.
 
 ## Deployment and runtime
 
-Use PHP 8.1 or newer with the `json` and `session` extensions. Configure the web
+Use PHP 8.1 or newer with the `json`, `session`, and `PDO` extensions. Configure the web
 server document root as `public/`, deny directory listing, serve existing files
 directly, and send every other request to `public/index.php`. Never expose the
 repository root: `.env`, `app/`, `config/`, `database/`, `storage/`, and `tools/`
@@ -34,8 +34,11 @@ For the default JSON driver, `APP_STORAGE_PATH` must point to durable storage
 that the PHP process can read, write, and create files/directories in. BoardPrep
 creates a missing storage directory and collection files, then fails startup
 with a generic HTTP 500 and a detailed server-log entry if storage is
-unavailable. Back up this directory before deployment or migration. MySQL does
-not use this filesystem store.
+unavailable. JSON uses locked atomic writes, but remains a file-backed,
+single-instance deployment profile and is not a substitute for a transactional
+multi-instance database. Use SQLite for the recommended local production
+profile. Back up this directory before deployment or migration. MySQL does not
+use this filesystem store.
 
 For SQLite, initialize the schema and import legacy mutable user state without
 deleting the JSON source:
