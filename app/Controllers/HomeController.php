@@ -6,6 +6,7 @@ namespace App\Controllers;
 
 use App\Core\View;
 use App\Core\App;
+use App\Core\Request;
 use App\Repositories\QuestionRepository;
 use App\Services\Board\BoardViewService;
 
@@ -25,6 +26,22 @@ class HomeController extends BaseController
 
     public static function exams(): void
     {
-        View::render("home/exams", ["pageTitle" => "Choose an examination", "boards" => BoardViewService::all()]);
+        $boards = BoardViewService::all();
+        $examCode = Request::queryString('exam');
+        if ($examCode !== '') {
+            foreach ($boards as $board) {
+                if (strcasecmp((string) ($board['code'] ?? ''), $examCode) !== 0) {
+                    continue;
+                }
+
+                View::render('home/exam', [
+                    'pageTitle' => (string) ($board['name'] ?? 'Examination'),
+                    'board' => $board,
+                ]);
+                return;
+            }
+        }
+
+        View::render("home/exams", ["pageTitle" => "Choose an examination", "boards" => $boards]);
     }
 }
