@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 use App\Core\App;
 use App\Core\Request;
-use App\Services\Question\QuestionQualityService;
+use App\Services\Shared\ContentIntegrityService;
 use App\Services\Shared\TaxonomyIntegrityService;
 use App\Services\Study\LETContentCoverageService;
 class DeveloperToolsController extends BaseDeveloperController
@@ -54,7 +54,22 @@ class DeveloperToolsController extends BaseDeveloperController
 
         }
 
-        $quality = QuestionQualityService::analyze();
+        $contentIntegrity = ContentIntegrityService::analyzeRepository();
+        $portfolio = $contentIntegrity['portfolio'];
+        $integrityIssueCount = array_sum(array_map('count', array_filter($contentIntegrity['failures'] ?? [], 'is_array')));
+        $quality = [
+            'healthScore' => $portfolio['status'] === 'FAIL' ? 0 : 100,
+            'report' => (object) [
+                'statistics' => (object) [
+                    'totalQuestions' => $portfolio['total_canonical'],
+                    'totalIssues' => $integrityIssueCount,
+                    'errors' => $integrityIssueCount,
+                    'warnings' => 0,
+                    'infos' => 0,
+                ],
+            ],
+            'issues' => [],
+        ];
         $questions = App::storage()->all('questions');
         $complete = 0;
         $statuses = [];
@@ -92,7 +107,8 @@ class DeveloperToolsController extends BaseDeveloperController
                     "archived" => $statuses["archived"] ?? 0,
                     "taxonomyComplete" => $complete,
                 ],
-                "letCoverage" => LETContentCoverageService::report()
+                "letCoverage" => LETContentCoverageService::report(),
+                "contentIntegrity" => $contentIntegrity
 
             ],
 

@@ -114,35 +114,45 @@ final class FlashcardDerivationService
 
     private function eligible(array $question): bool
     {
+        return $this->derivationStatus($question)['derivable'];
+    }
+
+    /**
+     * Exposes the existing derivation gates to integrity tooling without
+     * changing which questions can become cards.
+     *
+     * @return array{derivable:bool, justified:bool, reason:string}
+     */
+    public function derivationStatus(array $question): array
+    {
         $status = strtolower((string) ($question['status'] ?? 'active'));
         if ($status === 'archived' || !in_array($status, ['active', 'approved'], true)) {
-            return false;
+            return ['derivable' => false, 'justified' => true, 'reason' => 'inactive'];
         }
         if (!QuestionValidationService::validate($question)['valid']) {
-            return false;
+            return ['derivable' => false, 'justified' => true, 'reason' => 'invalid-question'];
         }
         if (!is_scalar($question['answer'] ?? null) || trim((string) $question['answer']) === '') {
-            return false;
+            return ['derivable' => false, 'justified' => true, 'reason' => 'missing-answer'];
         }
         if ($this->rationale($question) === '') {
-            return false;
+            return ['derivable' => false, 'justified' => true, 'reason' => 'missing-rationale'];
         }
         if (!is_array($question['taxonomy'] ?? null)
             || trim((string) ($question['taxonomy']['concept_id'] ?? '')) === '') {
-            return false;
+            return ['derivable' => false, 'justified' => true, 'reason' => 'missing-concept'];
         }
 
         $intent = strtolower(trim((string) ($question['cognitive_intent'] ?? '')));
-        $lowValueIntent = ['recall', 'remember', 'recognize', 'classify'];
-        if (in_array($intent, $lowValueIntent, true)
+        if (in_array($intent, ['recall', 'remember', 'recognize', 'classify'], true)
             && ($question['multistep'] ?? false) !== true
             && ($question['data_interpretation'] ?? false) !== true
             && ($question['passage_dependent'] ?? false) !== true
             && ($question['content_blocks'] ?? []) === []) {
-            return false;
+            return ['derivable' => false, 'justified' => true, 'reason' => 'low-value-intent'];
         }
 
-        return true;
+        return ['derivable' => true, 'justified' => true, 'reason' => ''];
     }
 
     private function archetype(array $question): string
