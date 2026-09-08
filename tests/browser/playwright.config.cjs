@@ -20,7 +20,8 @@ module.exports = defineConfig({
     video: 'retain-on-failure',
   },
   webServer: {
-    command: 'node tests/browser/server.cjs',
+    command: 'node server.cjs',
+    cwd: __dirname,
     url: 'http://127.0.0.1:4173/',
     timeout: 120_000,
     reuseExistingServer: false,
