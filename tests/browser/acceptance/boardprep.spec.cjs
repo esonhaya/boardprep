@@ -60,6 +60,13 @@ async function startQuiz(page, {
   await page.locator('input[name="topic"]').evaluate((input, value) => {
     input.value = value;
   }, topic);
+  const countSelect = page.locator('#quiz-count');
+  await countSelect.evaluate((select, value) => {
+    if (![...select.options].some((option) => option.value === value)) {
+      select.add(new Option(value, value));
+    }
+    select.value = value;
+  }, count);
   await page.locator('#quiz-difficulty').selectOption(difficulty);
   await page.getByRole('button', { name: 'Start quiz' }).click();
   await expect(page.locator('.quiz-question')).toBeVisible();
@@ -124,7 +131,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
   test('dashboard navigation and mobile menu are usable', async ({ page }, testInfo) => {
     await page.goto('/dashboard');
     await expect(page.locator('h1')).toHaveText('Welcome back');
-    for (const href of ['/exams', '/history', '/flashcards', '/progress', '/study-library']) {
+    for (const href of ['/exams', '/history', '/flashcards', '/progress', '/quiz']) {
       await expect(page.locator(`a[href="${href}"]:visible`).first()).toBeVisible();
     }
     const menu = page.locator('.mobile-menu-button');
