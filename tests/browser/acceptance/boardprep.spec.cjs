@@ -5,7 +5,7 @@ const {
   test,
   expect,
   assertPageHealthy,
-  assertKeyboardFocus,
+  tabToKeyboardFocus,
 } = require('../fixtures/test.cjs');
 
 const boards = [
@@ -142,16 +142,19 @@ test.describe('BoardPrep learner browser acceptance', () => {
       await expect(page.locator('#learner-nav')).toHaveClass(/is-open/);
       const mobileExamsLink = page.locator('#learner-nav a[href="/exams"]');
       await expect(mobileExamsLink).toBeVisible();
-      await assertKeyboardFocus(page, mobileExamsLink);
-      await menu.click();
-      await expect(menu).toHaveAttribute('aria-expanded', 'false');
+      await tabToKeyboardFocus(page, mobileExamsLink);
+      await assertPageHealthy(page, testInfo, 'dashboard');
+      await page.keyboard.press('Enter');
+      await expect(page).toHaveURL(/\/exams/);
     } else {
       await expect(menu).toBeHidden();
       const desktopExamsLink = page.locator('#learner-nav a[href="/exams"]');
       await expect(desktopExamsLink).toBeVisible();
-      await assertKeyboardFocus(page, desktopExamsLink);
+      await tabToKeyboardFocus(page, desktopExamsLink);
+      await assertPageHealthy(page, testInfo, 'dashboard');
+      await page.keyboard.press('Enter');
+      await expect(page).toHaveURL(/\/exams/);
     }
-    await assertPageHealthy(page, testInfo, 'dashboard');
   });
 
   test('all populated board details render without browser failures', async ({ page }, testInfo) => {
@@ -260,7 +263,9 @@ test.describe('BoardPrep learner browser acceptance', () => {
       allowHttpErrors: [{
         status: 404,
         url: page.url(),
+        pageUrl: page.url(),
         resourceType: 'document',
+        consoleMessage: /^Failed to load resource: the server responded with a status of 404\b/,
       }],
     });
   });

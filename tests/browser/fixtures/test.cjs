@@ -1,21 +1,11 @@
 const fs = require('node:fs');
 
 const { test: base, expect } = require('@playwright/test');
-
-function isKnownOptionalBrowserResponse(error) {
-  let url;
-  try {
-    url = new URL(error.url);
-  } catch {
-    return false;
-  }
-
-  // Chromium may request this optional browser chrome asset even though the
-  // application does not declare a favicon. Other 4xx/5xx responses fail.
-  return error.status === 404
-    && url.pathname === '/favicon.ico'
-    && error.resourceType === 'image';
-}
+const {
+  isKnownOptionalBrowserResponse,
+  matchesExpectedHttpError,
+  matchesExpectedConsoleError,
+} = require('./diagnostics.cjs');
 
 function installDiagnostics(page) {
   const diagnostics = {
@@ -24,6 +14,8 @@ function installDiagnostics(page) {
     failedRequests: [],
     httpErrors: [],
     allowedHttpErrors: [],
+    expectedHttpErrors: [],
+    allowedConsoleErrors: [],
     brokenImages: [],
   };
 
@@ -70,6 +62,22 @@ function installDiagnostics(page) {
   return diagnostics;
 }
 
+function markExpectedConsoleErrors(diagnostics) {
+  for (const expected of diagnostics.expectedHttpErrors) {
+    const matchingResponse = diagnostics.httpErrors.some(
+      (error) => matchesExpectedHttpError(error, expected)
+    );
+    if (!matchingResponse) continue;
+
+    for (const error of diagnostics.consoleErrors) {
+      if (matchesExpectedConsoleError(error, expected)
+        && !diagnostics.allowedConsoleErrors.includes(error)) {
+        diagnostics.allowedConsoleErrors.push(error);
+      }
+    }
+  }
+}
+
 async function assertPageHealthy(page, testInfo, name, options = {}) {
   await page.waitForLoadState('domcontentloaded');
 
@@ -85,14 +93,16 @@ async function assertPageHealthy(page, testInfo, name, options = {}) {
   diagnostics.brokenImages.push(...brokenImages);
   for (const expected of options.allowHttpErrors || []) {
     for (const error of diagnostics.httpErrors) {
-      if (error.status === expected.status
-        && error.url === expected.url
-        && error.resourceType === expected.resourceType
+      if (matchesExpectedHttpError(error, expected)
         && !diagnostics.allowedHttpErrors.includes(error)) {
         diagnostics.allowedHttpErrors.push(error);
       }
     }
+    if (!diagnostics.expectedHttpErrors.includes(expected)) {
+      diagnostics.expectedHttpErrors.push(expected);
+    }
   }
+  markExpectedConsoleErrors(diagnostics);
 
   if (overflow.width > overflow.viewport + 2) {
     throw new Error(`Material page overflow on ${name}: ${overflow.width}px > ${overflow.viewport}px`);
@@ -127,16 +137,32 @@ async function assertPageHealthy(page, testInfo, name, options = {}) {
   return { overflow, diagnostics };
 }
 
-async function assertKeyboardFocus(page, locator) {
-  await locator.focus();
-  await expect(locator).toBeFocused();
-  const visible = await locator.evaluate((element) => {
-    const style = window.getComputedStyle(element);
-    return style.outlineStyle !== 'none'
-      || style.boxShadow !== 'none'
-      || element.matches(':focus-visible');
+async function tabToKeyboardFocus(page, locator, maxTabs = 30) {
+  await page.evaluate(() => {
+    // Establish a deterministic starting point; the target is reached only
+    // through real keyboard Tab events below.
+    const body = document.body;
+    body.setAttribute('tabindex', '-1');
+    body.focus({ preventScroll: true });
+    body.removeAttribute('tabindex');
   });
-  expect(visible).toBeTruthy();
+
+  for (let index = 0; index < maxTabs; index += 1) {
+    await page.keyboard.press('Tab');
+    if (await locator.evaluate((element) => element === document.activeElement)) {
+      const visible = await locator.evaluate((element) => {
+        const style = window.getComputedStyle(element);
+        return element.matches(':focus-visible')
+          && (style.outlineStyle !== 'none' || style.boxShadow !== 'none');
+      });
+      expect(visible).toBeTruthy();
+      return;
+    }
+  }
+
+  throw new Error(`Keyboard Tab traversal did not reach ${await locator.evaluate(
+    (element) => element.outerHTML.slice(0, 160)
+  )}`);
 }
 
 const test = base.extend({
@@ -146,6 +172,7 @@ const test = base.extend({
     try {
       await use(page);
     } finally {
+      markExpectedConsoleErrors(diagnostics);
       const reportPath = testInfo.outputPath('browser-diagnostics.json');
       fs.writeFileSync(reportPath, JSON.stringify(diagnostics, null, 2));
       await testInfo.attach('browser diagnostics', {
@@ -153,14 +180,18 @@ const test = base.extend({
         contentType: 'application/json',
       });
       if (testInfo.status === 'passed' && (
-        diagnostics.consoleErrors.length > 0
+        diagnostics.consoleErrors.some(
+          (error) => !diagnostics.allowedConsoleErrors.includes(error)
+        )
         || diagnostics.pageErrors.length > 0
         || diagnostics.failedRequests.length > 0
         || diagnostics.httpErrors.some((error) => !diagnostics.allowedHttpErrors.includes(error))
       )) {
         throw new Error(`Browser diagnostics reported errors: ${JSON.stringify({
           page: page.url(),
-          consoleErrors: diagnostics.consoleErrors,
+          consoleErrors: diagnostics.consoleErrors.filter(
+            (error) => !diagnostics.allowedConsoleErrors.includes(error)
+          ),
           pageErrors: diagnostics.pageErrors,
           failedRequests: diagnostics.failedRequests,
           httpErrors: diagnostics.httpErrors.filter(
@@ -176,5 +207,5 @@ module.exports = {
   test,
   expect,
   assertPageHealthy,
-  assertKeyboardFocus,
+  tabToKeyboardFocus,
 };
