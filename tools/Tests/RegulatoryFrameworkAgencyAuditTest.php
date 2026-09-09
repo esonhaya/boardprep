@@ -45,6 +45,8 @@ foreach ($report['semantic_audit']['questions'] ?? [] as $row) {
 $assert(($semantic['1341']['recommended_action'] ?? '') === 'NO_ACTION', 'Agency ratification row retained a repair action');
 $assert(($semantic['1350']['recommended_action'] ?? '') === 'NO_ACTION', 'Agency authority row retained a repair action');
 $assert(($semantic['1342']['topic_id'] ?? '') === 'cpa-regulatory-framework-validity', 'Question 1342 was not moved to validity');
+$assert(($semantic['1358']['topic_id'] ?? '') === 'cpa-regulatory-framework-records', 'Question 1358 was not moved to records');
+$assert(!in_array('cpa|cpa-regulatory-framework|cpa-regulatory-framework-confidentiality', array_column($report['priorities'] ?? [], 'target'), true), 'Confidentiality remained a false singleton priority');
 
 $response = (new HttpSimulator(dirname(__DIR__, 2) . '/public/index.php'))->request('GET', '/developer/content-intelligence');
 $html = (string) ($response['output'] ?? '');
