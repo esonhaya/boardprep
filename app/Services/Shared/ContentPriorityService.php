@@ -33,6 +33,7 @@ final class ContentPriorityService
         'study-materials',
         'study-question-links',
         'sources',
+        'content-fit-audits',
     ];
 
     private const MIN_USAGE_SAMPLE = 5;
@@ -86,6 +87,7 @@ final class ContentPriorityService
         $concepts = self::index($collections['taxonomy/concepts'] ?? []);
         $materials = self::index($collections['study-materials'] ?? []);
         $sources = self::index($collections['sources'] ?? []);
+        $fitAudits = self::questionFitIndex($collections['content-fit-audits'] ?? []);
         $links = self::records($collections['study-question-links'] ?? []);
         $eligible = self::eligibilityIndex($collections['question-eligibility'] ?? [], $boards);
         $blueprints = self::records($collections['blueprints'] ?? []);
@@ -180,6 +182,9 @@ final class ContentPriorityService
             $integrity,
             $collections['board-subjects'] ?? []
         );
+        $semantic = self::applySemanticSignals($depth, $questionRows, $fitAudits, $materials);
+        $depth = $semantic['depth'];
+        $semanticQuestionRows = self::semanticQuestionRows($questionRows, $fitAudits, $materials);
         $weakness = self::weaknessReport($questionRows, $collections['weakness'] ?? [], $collections['attempts'] ?? []);
         $studyDepth = self::studyDepthReport($depth, $materials, $sources, $linkByMaterial);
         $priorities = array_merge(
@@ -224,9 +229,17 @@ final class ContentPriorityService
             'study_depth' => $studyDepth,
             'exposure' => $exposure,
             'weakness' => $weakness,
+            'semantic_audit' => [
+                'questions' => $semanticQuestionRows,
+                'management_services' => array_values(array_filter(
+                    $semanticQuestionRows,
+                    static fn(array $row): bool => ($row['subject_id'] ?? '') === 'cpa-management-services'
+                )),
+            ],
             'priorities' => array_slice($priorities, 0, self::MAX_RECOMMENDATIONS),
             'warnings' => [
                 'semantic_concept_fit' => 'Manual/editorial quality gate; usage and structural signals are automated.',
+                'semantic_content_fit' => $semantic['warnings'],
                 'integrity' => $integrity['warnings'] ?? [],
             ],
             'runtime' => [
@@ -314,6 +327,141 @@ final class ContentPriorityService
             }
         }
         return $index;
+    }
+
+    /** @return array<string,array<string,mixed>> */
+    private static function questionFitIndex(mixed $records): array
+    {
+        $index = [];
+        foreach (self::records($records) as $record) {
+            $id = self::scalar($record['question_id'] ?? null);
+            if ($id !== '' && !isset($index[$id])) {
+                $index[$id] = $record;
+            }
+        }
+        return $index;
+    }
+
+    /**
+     * Applies explicit editorial fit audits and technical-support metadata to
+     * the same groups used by the priority engine. Unknown records remain
+     * unknown; the report never treats an absent audit as verified.
+     *
+     * @return array{depth:array<string,array<string,array<string,mixed>>>,warnings:array<int,array<string,mixed>>}
+     */
+    private static function applySemanticSignals(array $depth, array $rows, array $fitAudits, array $materials): array
+    {
+        $warnings = [];
+        foreach ($depth as $level => &$groups) {
+            foreach ($groups as &$group) {
+                $questionIds = array_map('strval', $group['question_ids'] ?? []);
+                $fitStates = [];
+                foreach ($questionIds as $questionId) {
+                    $fitStates[] = strtoupper(self::scalar($fitAudits[$questionId]['fit_classification'] ?? null));
+                }
+                $fitStates = array_values(array_filter($fitStates));
+                if (in_array('MISMATCH', $fitStates, true) || in_array('TAXONOMY_GAP', $fitStates, true)) {
+                    $fit = 'MISMATCH';
+                } elseif (in_array('AMBIGUOUS', $fitStates, true) || in_array('WEAK_BUT_DEFENSIBLE', $fitStates, true)) {
+                    $fit = 'QUESTIONABLE';
+                } elseif ($fitStates !== [] && count(array_unique($fitStates)) === 1 && $fitStates[0] === 'CORRECT') {
+                    $fit = 'VERIFIED';
+                } else {
+                    $fit = 'UNKNOWN';
+                }
+                $source = self::sourceSupportForGroup($group, $materials);
+                $group['content_fit_state'] = $fit;
+                $group['source_support_state'] = $source;
+                if ($fit === 'MISMATCH') {
+                    $warnings[] = ['target' => $group['id'], 'level' => $level, 'code' => 'REVIEW_TAXONOMY_CONTENT_FIT', 'question_ids' => $questionIds];
+                }
+                if ($source === 'WEAK' || $source === 'NONE') {
+                    $warnings[] = ['target' => $group['id'], 'level' => $level, 'code' => 'SOURCE_SUPPORT_GAP', 'question_ids' => $questionIds];
+                }
+            }
+            unset($group);
+        }
+        unset($groups);
+        return ['depth' => $depth, 'warnings' => $warnings];
+    }
+
+    private static function sourceSupportForGroup(array $group, array $materials): string
+    {
+        $materialIds = array_map('strval', $group['study_material_ids'] ?? []);
+        if ($materialIds === []) {
+            return 'NONE';
+        }
+        $states = [];
+        foreach ($materialIds as $materialId) {
+            $material = $materials[$materialId] ?? null;
+            if (!is_array($material)) {
+                continue;
+            }
+            $supportedTopics = array_map('strval', is_array($material['supported_topic_ids'] ?? null) ? $material['supported_topic_ids'] : []);
+            $topicId = self::scalar($group['topic_id'] ?? null);
+            if ($topicId !== '' && $supportedTopics !== [] && !in_array($topicId, $supportedTopics, true)) {
+                continue;
+            }
+            $state = strtoupper(self::scalar($material['technical_support_state'] ?? null));
+            $states[] = in_array($state, ['STRONG', 'ADEQUATE'], true) ? $state : 'WEAK';
+        }
+        if (in_array('STRONG', $states, true)) {
+            return 'STRONG';
+        }
+        if (in_array('ADEQUATE', $states, true)) {
+            return 'ADEQUATE';
+        }
+        return $states === [] ? 'WEAK' : 'WEAK';
+    }
+
+    /**
+     * Provides question-level semantic review state for developer drilldown.
+     * This is deliberately metadata-driven; unknown questions remain unknown.
+     */
+    private static function semanticQuestionRows(array $rows, array $fitAudits, array $materials): array
+    {
+        $result = [];
+        foreach ($rows as $row) {
+            $questionId = self::scalar($row['id'] ?? null);
+            if ($questionId === '') {
+                continue;
+            }
+            $audit = is_array($fitAudits[$questionId] ?? null) ? $fitAudits[$questionId] : [];
+            $classification = strtoupper(self::scalar($audit['fit_classification'] ?? null));
+            $fit = $classification === 'MISMATCH' || $classification === 'TAXONOMY_GAP'
+                ? 'MISMATCH'
+                : (in_array($classification, ['AMBIGUOUS', 'WEAK_BUT_DEFENSIBLE'], true)
+                    ? 'QUESTIONABLE'
+                    : ($classification === 'CORRECT' ? 'VERIFIED' : 'UNKNOWN'));
+            $materialIds = [];
+            foreach ($row['links'] ?? [] as $link) {
+                $materialId = self::scalar($link['material_id'] ?? null);
+                if ($materialId !== '' && !in_array($materialId, $materialIds, true)) {
+                    $materialIds[] = $materialId;
+                }
+            }
+            $source = self::sourceSupportForGroup([
+                'topic_id' => $row['topic_id'] ?? '',
+                'study_material_ids' => $materialIds,
+            ], $materials);
+            $action = $fit === 'MISMATCH'
+                ? 'REVIEW_TAXONOMY_CONTENT_FIT'
+                : (($source === 'WEAK' || $source === 'NONE') ? 'STRENGTHEN_STUDY_SUPPORT' : 'NO_ACTION');
+            $result[] = [
+                'question_id' => $questionId,
+                'board_id' => $row['board_id'] ?? '',
+                'subject_id' => $row['subject_id'] ?? '',
+                'topic_id' => $row['topic_id'] ?? '',
+                'concept_id' => $row['concept_id'] ?? '',
+                'actual_concept' => $audit['actual_concept'] ?? null,
+                'audit_classification' => $classification !== '' ? $classification : 'UNKNOWN',
+                'content_fit_state' => $fit,
+                'source_support_state' => $source,
+                'recommended_action' => $action,
+                'study_material_ids' => $materialIds,
+            ];
+        }
+        return $result;
     }
 
     private static function depthReport(
@@ -744,7 +892,18 @@ final class ContentPriorityService
         }
         foreach ($depth['topics'] as $key => $group) {
             if (($group['question_count'] ?? 0) <= 1) {
-                $items[] = self::priority(70, $key, 'topic', ['SCARCITY' => 'very-high', 'LOW_DIVERSITY' => ($group['signals']['low_diversity'] ?? false) ? 'possible' : 'none'], ['questions' => $group['question_count'], 'resources' => $group['study_resource_count']], 'ADD_QUESTIONS', $group['question_ids'] ?? []);
+                $fit = strtoupper((string) ($group['content_fit_state'] ?? 'UNKNOWN'));
+                $source = strtoupper((string) ($group['source_support_state'] ?? 'UNKNOWN'));
+                $reasons = [
+                    'SCARCITY' => 'very-high',
+                    'LOW_DIVERSITY' => ($group['signals']['low_diversity'] ?? false) ? 'possible' : 'none',
+                    'REVIEW_TAXONOMY_CONTENT_FIT' => $fit === 'MISMATCH' ? 'required' : 'none',
+                    'SOURCE_SUPPORT_GAP' => in_array($source, ['WEAK', 'NONE'], true) ? $source : 'none',
+                ];
+                $action = $fit === 'MISMATCH'
+                    ? 'REVIEW_TAXONOMY_CONTENT_FIT'
+                    : (in_array($source, ['WEAK', 'NONE'], true) ? 'STRENGTHEN_STUDY_SUPPORT' : 'ADD_QUESTIONS');
+                $items[] = self::priority(70, $key, 'topic', $reasons, ['questions' => $group['question_count'], 'resources' => $group['study_resource_count'], 'content_fit_state' => $fit, 'source_support_state' => $source], $action, $group['question_ids'] ?? []);
             }
         }
         foreach ($exposure['high_exposure'] as $id) {

@@ -3756,6 +3756,132 @@
         "updated_at": "2026-09-01"
     },
     {
+        "id": "cpa-management-cost-cvp-foundation",
+        "title": "Cost Behavior, CVP, Sales Mix, and Sensitivity",
+        "summary": "Technical management-accounting foundation for fixed and variable cost behavior, contribution analysis, break-even reasoning, sales mix, and decision sensitivity.",
+        "notes": [
+            {"heading": "Cost behavior", "body": "Separate fixed, variable, and mixed cost behavior using the facts supplied. A contribution margin is sales less variable cost; fixed costs are then considered in operating-income and break-even analysis."},
+            {"heading": "CVP and mix reasoning", "body": "Use unit contribution, contribution margin ratio, margin of safety, and weighted contribution consistently. When products have different margins, preserve the stated sales mix before drawing a break-even conclusion."},
+            {"heading": "Sensitivity", "body": "Test how a stated change in volume, price, variable cost, or fixed cost changes the decision. A sensitivity result is conditional on the supplied assumptions; it does not establish an outcome outside them."}
+        ],
+        "source_ids": ["openstax-principles-managerial-accounting", "prc-accountancy-board-page"],
+        "exams": ["cpa"],
+        "taxonomy": {"subject_id": "cpa-management-services"},
+        "supported_topic_ids": ["cpa-management-services-cvp", "cpa-management-services-cost-behavior", "cpa-management-services-sales-mix", "cpa-management-services-sensitivity"],
+        "technical_support_state": "ADEQUATE",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-09"
+    },
+    {
+        "id": "cpa-management-relevant-decisions-foundation",
+        "title": "Relevant Costs and Short-Term Decisions",
+        "summary": "Decision-focused coverage of avoidable, opportunity, and sunk costs for make-or-buy, special-order, and constrained-resource decisions.",
+        "notes": [
+            {"heading": "Relevant information", "body": "Include only future revenues and costs that differ between alternatives. Unavoidable past or allocated amounts do not become relevant merely because they appear in a full-cost report."},
+            {"heading": "Decision comparisons", "body": "For make-or-buy and special-order decisions, compare incremental effects and identify capacity consequences. An opportunity cost is the contribution sacrificed when a scarce resource is committed elsewhere; a sunk cost is not recoverable and is excluded."},
+            {"heading": "Constraints", "body": "When a resource is limiting, compare contribution per unit of the constrained resource and check demand and feasibility before selecting the mix."}
+        ],
+        "source_ids": ["openstax-principles-managerial-accounting", "prc-accountancy-board-page"],
+        "exams": ["cpa"],
+        "taxonomy": {"subject_id": "cpa-management-services"},
+        "supported_topic_ids": ["cpa-management-services-relevant-costing", "cpa-management-services-sunk-cost", "cpa-management-services-make-buy", "cpa-management-services-opportunity-cost", "cpa-management-services-constraints"],
+        "technical_support_state": "ADEQUATE",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-09"
+    },
+    {
+        "id": "cpa-management-budgeting-foundation",
+        "title": "Operating and Cash Budgeting",
+        "summary": "Technical coverage for operating budgets, flexible planning, cash forecasts, and financing requirements.",
+        "notes": [
+            {"heading": "Operating budgets", "body": "Build sales, production, and cost expectations from the stated volume and price assumptions. Keep operating-income calculations separate from cash timing."},
+            {"heading": "Cash planning", "body": "A cash budget begins with opening cash, adds expected collections, subtracts expected payments, and compares the result with the required minimum. Financing is the amount needed to close an actual shortfall, not the full payment total."},
+            {"heading": "Interpretation", "body": "A budget is a decision model under stated assumptions. Investigate deviations by separating volume, price, timing, and controllability rather than treating every variance as an error."}
+        ],
+        "source_ids": ["openstax-principles-managerial-accounting", "prc-accountancy-board-page"],
+        "exams": ["cpa"],
+        "taxonomy": {"subject_id": "cpa-management-services"},
+        "supported_topic_ids": ["cpa-management-services-budgeting", "cpa-management-services-cash-budget"],
+        "technical_support_state": "ADEQUATE",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-09"
+    },
+    {
+        "id": "cpa-management-variance-foundation",
+        "title": "Standard Costs and Variance Analysis",
+        "summary": "Concept-fit support for standard quantities and prices, price and usage variances, and careful favorable/unfavorable interpretation.",
+        "notes": [
+            {"heading": "Variance inputs", "body": "Identify the standard and actual quantity, price, rate, or hours before calculating a variance. State whether the comparison uses the quantity purchased, quantity used, or flexible-budget activity level."},
+            {"heading": "Direction and interpretation", "body": "A cost above its standard is unfavorable when the same basis is used. A variance is a signal for investigation; it does not by itself establish responsibility or cause."},
+            {"heading": "Decision use", "body": "Combine variance amounts with operational context and controllability before recommending corrective action."}
+        ],
+        "source_ids": ["openstax-principles-managerial-accounting", "prc-accountancy-board-page"],
+        "exams": ["cpa"],
+        "taxonomy": {"subject_id": "cpa-management-services"},
+        "supported_topic_ids": ["cpa-management-services-variance", "cpa-management-services-standard-costing"],
+        "technical_support_state": "ADEQUATE",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-09"
+    },
+    {
+        "id": "cpa-management-performance-foundation",
+        "title": "Responsibility, Control, Performance, and Quality Costs",
+        "summary": "Managerial performance support for controllability, responsibility centers, performance measures, and cost-of-quality analysis.",
+        "notes": [
+            {"heading": "Responsibility and control", "body": "Evaluate a manager using revenues and costs the manager can reasonably influence. Distinguish a controllable margin from a full segment result when the question identifies controllability."},
+            {"heading": "Performance measures", "body": "Use operational and financial measures together, identify the decision context, and avoid treating one metric as proof of overall performance."},
+            {"heading": "Cost of quality", "body": "Classify prevention, appraisal, internal-failure, and external-failure costs before comparing them. A cost-of-quality report describes process and quality performance; it is not activity-based costing unless cost pools and drivers are supplied."}
+        ],
+        "source_ids": ["openstax-principles-managerial-accounting", "prc-accountancy-board-page"],
+        "exams": ["cpa"],
+        "taxonomy": {"subject_id": "cpa-management-services"},
+        "supported_topic_ids": ["cpa-management-services-control", "cpa-management-services-responsibility", "cpa-management-services-performance"],
+        "technical_support_state": "ADEQUATE",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-09"
+    },
+    {
+        "id": "cpa-management-investment-foundation",
+        "title": "Capital Budgeting and Present Value",
+        "summary": "Decision support for payback, present value, net present value, and the distinction between cash-flow measures.",
+        "notes": [
+            {"heading": "Investment measures", "body": "Payback compares the initial investment with periodic cash inflows and ignores time value when the question says so. Present value discounts future cash flows using the supplied factor or rate."},
+            {"heading": "NPV reasoning", "body": "Net present value is the present value of future cash inflows and outflows, including the initial investment. Keep a requested present-value subtotal distinct from NPV."},
+            {"heading": "Judgment", "body": "Use only the cash flows and assumptions supplied. A positive or negative result supports the stated decision rule but does not establish facts beyond the model."}
+        ],
+        "source_ids": ["openstax-principles-managerial-accounting", "prc-accountancy-board-page"],
+        "exams": ["cpa"],
+        "taxonomy": {"subject_id": "cpa-management-services"},
+        "supported_topic_ids": ["cpa-management-services-capital-budgeting", "cpa-management-services-npv"],
+        "technical_support_state": "ADEQUATE",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-09"
+    },
+    {
+        "id": "cpa-management-activity-based-foundation",
+        "title": "Activity-Based Costing and Cost Drivers",
+        "summary": "Technical foundation for activity pools, cost-driver rates, product assignments, and comparison with broad-volume allocation.",
+        "notes": [
+            {"heading": "Pools and drivers", "body": "Group overhead by activity, identify the driver that explains resource use, calculate a pool rate, and assign cost from the product’s actual driver usage. Do not substitute a broad production volume when the activity driver is stated."},
+            {"heading": "Allocation reasoning", "body": "Compute each activity rate separately before summing assignments. The assigned amount is a product-cost estimate for the supplied activities, not proof that the product caused every organizational cost."},
+            {"heading": "Interpretation", "body": "Compare ABC and traditional allocations only when both bases and the relevant volumes are supplied. Use the resulting information to investigate product or customer profitability rather than treating allocation as a cash cost."}
+        ],
+        "source_ids": ["openstax-principles-managerial-accounting", "prc-accountancy-board-page"],
+        "exams": ["cpa"],
+        "taxonomy": {"subject_id": "cpa-management-services"},
+        "supported_topic_ids": ["cpa-management-services-activity-based"],
+        "technical_support_state": "ADEQUATE",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-09"
+    },
+    {
         "id": "cpa-material-10",
         "title": "Auditing foundations",
         "summary": "Structured CPA preparation unit aligned with the current PRC LECPA scope.",
