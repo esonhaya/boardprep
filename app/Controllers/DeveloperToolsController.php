@@ -11,6 +11,18 @@ use App\Services\Shared\TaxonomyIntegrityService;
 use App\Services\Study\LETContentCoverageService;
 class DeveloperToolsController extends BaseDeveloperController
 {
+    public static function contentIntelligence(): void
+    {
+        self::renderDeveloper(
+            'developer/content-intelligence',
+            [
+                'pageTitle' => 'Content Intelligence',
+                'contentPriorities' => ContentPriorityService::analyzeRepository(),
+            ],
+            false
+        );
+    }
+
     public static function index(): void
     {
 

@@ -98,6 +98,10 @@ $router->get(
     "/developer",
     [DeveloperToolsController::class, "index"]
 );
+$router->get(
+    "/developer/content-intelligence",
+    [DeveloperToolsController::class, "contentIntelligence"]
+);
 $router->get("/developer/study-library", [StudyLibraryController::class, "developer"]);
 
 $router->get(

@@ -14,12 +14,13 @@ $assert = static function (bool $condition, string $message): void {
     }
 };
 
-$question = static function (string $id, string $subject, string $topic, array $usage = [], bool $noCard = false): array {
+$question = static function (string $id, string $subject, string $topic, array $usage = [], bool $noCard = false, string $domain = 'domain-a'): array {
     return [
         'id' => $id,
         'taxonomy' => [
             'board_id' => 'alpha',
             'subject_id' => $subject,
+            'domain_id' => $domain,
             'topic_id' => $topic,
             'concept_id' => $topic . '-concept',
         ],
@@ -66,7 +67,14 @@ $collections = [
     ],
     'study-question-links' => [['id' => 'link-q-high', 'question_id' => 'q-high', 'material_id' => 'material-a']],
     'sources' => [['id' => 'source-a', 'title' => 'Fixture source']],
-    'blueprints' => [],
+    'blueprints' => [[
+        'id' => 'blueprint-alpha',
+        'board_id' => 'alpha',
+        'sections' => [
+            ['id' => 'section-a', 'domain_id' => 'domain-a', 'target_percent' => 80],
+            ['id' => 'section-b', 'domain_id' => 'domain-b', 'target_percent' => 20],
+        ],
+    ]],
 ];
 
 $integrity = ['portfolio' => ['status' => 'PASS'], 'warnings' => []];
@@ -88,6 +96,13 @@ $assert(in_array('material-orphan', $report['study_depth']['orphan_materials'], 
 $assert($report['priorities'] !== [], 'priority candidates were not produced');
 $assert($report['priorities'] === $repeat['priorities'], 'priority ordering was not deterministic');
 $assert(in_array('SCARCITY', $report['priorities'][0]['reason_codes'], true), 'priority reason code was not explainable');
+$blueprintPriority = array_values(array_filter(
+    $report['priorities'],
+    static fn(array $priority): bool => ($priority['target'] ?? '') === 'alpha' && ($priority['level'] ?? '') === 'board'
+))[0] ?? null;
+$assert(is_array($blueprintPriority), 'domain-based blueprint priority was not produced');
+$assert(($blueprintPriority['priority'] ?? null) === 40.0, 'domain-based blueprint gap was calculated from the wrong taxonomy level');
+$assert(in_array('BLUEPRINT_SCARCITY', $blueprintPriority['reason_codes'] ?? [], true), 'blueprint priority did not identify its reason');
 $assert(count($report['boards']) === 1 && $report['boards']['alpha']['question_count'] === 6, 'board summary was not aggregated');
 $assert($report['runtime']['n_plus_one_found'] === false, 'fixture reported an unexpected N+1 scan');
 
@@ -103,5 +118,16 @@ $controller = file_get_contents(dirname(__DIR__, 2) . '/app/Controllers/Develope
 $view = file_get_contents(dirname(__DIR__, 2) . '/app/Views/developer/dashboard.php');
 $assert($controller !== false && str_contains($controller, 'ContentPriorityService'), 'Developer Tools controller does not consume the shared service');
 $assert($view !== false && str_contains($view, 'Content Investment Priorities'), 'Developer Tools view does not render priorities');
+
+require_once dirname(__DIR__) . '/Doctor/Project/BoardPrep/Simulation/HttpSimulator.php';
+$simulator = new \Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator(dirname(__DIR__, 2) . '/public/index.php');
+$reportResponse = $simulator->request('GET', '/developer/content-intelligence');
+$assert(($reportResponse['status'] ?? 0) === 200, 'Content Intelligence report route did not render');
+$assert(($reportResponse['exitCode'] ?? 1) === 0, 'Content Intelligence report route exited with an error');
+$assert(str_contains((string) ($reportResponse['output'] ?? ''), 'Content Intelligence'), 'Content Intelligence report title was not rendered');
+$assert(str_contains((string) ($reportResponse['output'] ?? ''), 'Content Priorities'), 'Content Intelligence priority section was not rendered');
+$assert(str_contains((string) ($reportResponse['output'] ?? ''), 'psychometrician'), 'Content Intelligence report omitted a registered board');
+$assert(str_contains((string) ($reportResponse['output'] ?? ''), 'PASS_WITH_JUSTIFIED_EXCLUSIONS'), 'Content Intelligence report omitted the integrity status');
+$assert(!str_contains((string) ($reportResponse['output'] ?? ''), '>UNKNOWN<'), 'Content Intelligence report failed to map board integrity results');
 
 echo "[PASS] Content depth, usage signals, deterministic priorities, and Developer Tools contract verified.\n";

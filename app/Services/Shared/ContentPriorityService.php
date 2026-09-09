@@ -89,6 +89,7 @@ final class ContentPriorityService
         $links = self::records($collections['study-question-links'] ?? []);
         $eligible = self::eligibilityIndex($collections['question-eligibility'] ?? [], $boards);
         $blueprints = self::records($collections['blueprints'] ?? []);
+        $domainCounts = [];
 
         $linkByQuestion = [];
         $linkByMaterial = [];
@@ -124,6 +125,7 @@ final class ContentPriorityService
             $subjectId = self::scalar($taxonomy['subject_id'] ?? $question['subject'] ?? null);
             $topicId = self::scalar($taxonomy['topic_id'] ?? $question['topic'] ?? null);
             $conceptId = self::scalar($taxonomy['concept_id'] ?? $question['concept'] ?? null);
+            $domainId = self::scalar($taxonomy['domain_id'] ?? $question['domain'] ?? null);
             $timesUsed = max(0, (int) ($question['timesUsed'] ?? 0));
             $correct = max(0, (int) ($question['timesCorrect'] ?? 0));
             $incorrect = max(0, (int) ($question['timesIncorrect'] ?? 0));
@@ -132,6 +134,7 @@ final class ContentPriorityService
                 'question_id' => $id,
                 'board_id' => $boardId,
                 'subject_id' => $subjectId,
+                'domain_id' => $domainId,
                 'topic_id' => $topicId,
                 'concept_id' => $conceptId,
                 'times_used' => $used,
@@ -139,6 +142,9 @@ final class ContentPriorityService
                 'times_incorrect' => $incorrect,
                 'accuracy' => $used > 0 ? round($correct / $used * 100, 1) : null,
             ];
+            if ($boardId !== '' && $domainId !== '') {
+                $domainCounts[$boardId][$domainId] = ($domainCounts[$boardId][$domainId] ?? 0) + 1;
+            }
             $questionRows[] = [
                 'id' => $id,
                 'board_id' => $boardId,
@@ -177,7 +183,7 @@ final class ContentPriorityService
         $weakness = self::weaknessReport($questionRows, $collections['weakness'] ?? [], $collections['attempts'] ?? []);
         $studyDepth = self::studyDepthReport($depth, $materials, $sources, $linkByMaterial);
         $priorities = array_merge(
-            self::boardPriorities($depth['boards'], $depth['subjects'], $blueprints),
+            self::boardPriorities($depth['boards'], $depth['subjects'], $blueprints, $domainCounts),
             self::priorities($depth, $weakness, $exposure, $studyDepth, $integrity)
         );
         usort($priorities, static fn(array $a, array $b): int => ($b['priority'] <=> $a['priority']) ?: strcmp($a['target'], $b['target']));
@@ -558,7 +564,7 @@ final class ContentPriorityService
         return $result;
     }
 
-    private static function boardPriorities(array $boards, array $subjects, array $blueprints): array
+    private static function boardPriorities(array $boards, array $subjects, array $blueprints, array $domainCounts): array
     {
         $items = [];
         foreach ($boards as $boardId => $board) {
@@ -573,11 +579,15 @@ final class ContentPriorityService
                         continue;
                     }
                     $weightedSections++;
-                    $ids = is_array($section['subjects'] ?? null) ? $section['subjects'] : [$section['id'] ?? ''];
                     $actual = 0;
-                    foreach ($subjects as $subject) {
-                        if ($subject['board_id'] === $boardId && in_array($subject['subject_id'], $ids, true)) {
-                            $actual += (int) ($subject['question_count'] ?? 0);
+                    if (self::scalar($section['domain_id'] ?? null) !== '') {
+                        $actual = (int) ($domainCounts[$boardId][self::scalar($section['domain_id'])] ?? 0);
+                    } else {
+                        $ids = is_array($section['subjects'] ?? null) ? $section['subjects'] : [$section['id'] ?? ''];
+                        foreach ($subjects as $subject) {
+                            if ($subject['board_id'] === $boardId && in_array($subject['subject_id'], $ids, true)) {
+                                $actual += (int) ($subject['question_count'] ?? 0);
+                            }
                         }
                     }
                     $actualPercent = ($board['question_count'] ?? 0) > 0 ? $actual / $board['question_count'] * 100 : 0;
