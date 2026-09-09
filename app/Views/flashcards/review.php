@@ -13,11 +13,22 @@ foreach (['board', 'subject', 'topic'] as $name) {
 }
 $filterQuery = http_build_query($query);
 $reviewUrl = '/flashcards/review?' . $filterQuery;
+$taxonomyLabel = static function (string $collection, mixed $id): string {
+    $value = is_scalar($id) ? trim((string) $id) : '';
+    if ($value === '') {
+        return '';
+    }
+    $record = \App\Services\Shared\TaxonomyStorageService::find($collection, $value);
+    $name = is_array($record) && is_scalar($record['name'] ?? null) ? trim((string) $record['name']) : '';
+    return $name !== '' ? $name : $value;
+};
+$boardLabel = $taxonomyLabel('boards', $card['board'] ?? '');
+$subjectLabel = $taxonomyLabel('subjects', $card['subject'] ?? '');
+$topicLabel = $taxonomyLabel('topics', $card['topic'] ?? '');
 ?>
 <div class="flashcard-review-page">
     <section class="page-header">
         <div><p class="eyebrow">Flashcard review</p><h1><?= $revealed ? 'Check your reasoning' : 'Recall before revealing' ?></h1><p>Use your memory first, then rate how well the card came back.</p></div>
-        <div class="page-actions"><a class="button button-outline" href="/flashcards?<?= htmlspecialchars($filterQuery, ENT_QUOTES, 'UTF-8') ?>">Back to flashcards</a><a class="button button-outline" href="/progress">Progress</a><a class="button button-outline" href="/dashboard">Dashboard</a></div>
     </section>
 
     <?php if (($error ?? null) !== null): ?><p class="alert alert-danger" role="alert"><?= htmlspecialchars((string) $error, ENT_QUOTES, 'UTF-8') ?></p><?php endif; ?>
@@ -26,7 +37,7 @@ $reviewUrl = '/flashcards/review?' . $filterQuery;
         <div class="empty-state"><h2>No review card is available</h2><p>There are no due cards matching this focus. Include new cards or adjust the filters to continue.</p><p><a class="button button-outline" href="/flashcards?<?= htmlspecialchars($filterQuery, ENT_QUOTES, 'UTF-8') ?>">Adjust flashcards</a> <a class="button button-outline" href="/progress">View progress</a></p></div>
     <?php else: ?>
         <article class="card flashcard-card">
-            <div class="flashcard-context"><span><?= htmlspecialchars((string) ($card['board'] ?? ''), ENT_QUOTES, 'UTF-8') ?></span><span><?= htmlspecialchars((string) ($card['subject'] ?? ''), ENT_QUOTES, 'UTF-8') ?></span><span><?= htmlspecialchars((string) ($card['topic'] ?? ''), ENT_QUOTES, 'UTF-8') ?></span></div>
+            <div class="flashcard-context"><span><small>Exam</small><?= htmlspecialchars($boardLabel, ENT_QUOTES, 'UTF-8') ?></span><span><small>Subject</small><?= htmlspecialchars($subjectLabel, ENT_QUOTES, 'UTF-8') ?></span><span><small>Topic</small><?= htmlspecialchars($topicLabel, ENT_QUOTES, 'UTF-8') ?></span></div>
             <p class="eyebrow">Prompt</p>
             <h2 class="flashcard-prompt"><?= htmlspecialchars((string) ($card['prompt'] ?? ''), ENT_QUOTES, 'UTF-8') ?></h2>
             <?= \App\Services\Question\StructuredContentService::render($card) ?>
@@ -42,6 +53,7 @@ $reviewUrl = '/flashcards/review?' . $filterQuery;
                 <section aria-labelledby="flashcard-rating-heading"><p class="eyebrow">How did it feel?</p><h3 id="flashcard-rating-heading">Rate your recall</h3><div class="flashcard-rating-grid"><?php foreach ([['again', 'Again', 'Forgot it'], ['hard', 'Hard', 'Needed effort'], ['good', 'Good', 'Remembered'], ['easy', 'Easy', 'Very easy']] as $rating): ?><form method="POST" action="/flashcards/review"><input type="hidden" name="csrf_token" value="<?= htmlspecialchars((string) ($csrfToken ?? ''), ENT_QUOTES, 'UTF-8') ?>"><input type="hidden" name="card_key" value="<?= htmlspecialchars((string) ($card['card_key'] ?? ''), ENT_QUOTES, 'UTF-8') ?>"><?php foreach ($query as $key => $value): ?><input type="hidden" name="<?= htmlspecialchars((string) $key, ENT_QUOTES, 'UTF-8') ?>" value="<?= htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8') ?>"><?php endforeach; ?><input type="hidden" name="rating" value="<?= $rating[0] ?>"><button type="submit" class="flashcard-rating flashcard-rating-<?= $rating[0] ?>"><strong><?= $rating[1] ?></strong><span><?= $rating[2] ?></span></button></form><?php endforeach; ?></div></section>
             <?php endif; ?>
         </article>
+        <nav class="flashcard-context-navigation" aria-label="Flashcard navigation"><a class="button button-outline" href="/flashcards?<?= htmlspecialchars($filterQuery, ENT_QUOTES, 'UTF-8') ?>">Back to flashcards</a><a class="button button-outline" href="/progress">Progress</a><a class="button button-outline" href="/dashboard">Dashboard</a></nav>
         <?php if (!$revealed && ((int) ($selection['total_count'] ?? 0)) > 0): ?><p class="flashcard-progress" aria-live="polite">Due: <?= (int) ($selection['due_count'] ?? 0) ?> · New: <?= (int) ($selection['new_count'] ?? 0) ?></p><?php endif; ?>
     <?php endif; ?>
 </div>

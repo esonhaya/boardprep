@@ -13,16 +13,14 @@ $reviewUnavailable = ($reviewUnavailable ?? false) === true;
 <section class="page-header"><div><h1><?= $historical ? 'Historical Quiz Result' : 'Quiz Result' ?></h1><p>Review what you know and choose your next useful step.</p><?php if ($historical): ?><p class="muted-note"><?php $context = array_values(array_filter([(string) ($historicalContext['board'] ?? ''), (string) ($historicalContext['subject'] ?? ''), (string) ($historicalContext['mode'] ?? '')])); ?><?= htmlspecialchars(implode(' · ', $context)) ?><?php if ($completedAt !== null): ?> · Completed <?= htmlspecialchars(\App\Support\Presentation\UiFormatter::formatDateTime($completedAt)) ?><?php endif; ?></p><?php endif; ?></div></section>
 
 <div class="result-summary">
-    <h2>
-        Score:
-        <?= $summary["score"] ?? 0 ?>
-        /
-        <?= $summary["total"] ?? 0 ?>
-    </h2>
-
-    <h3>
-        <?= $summary["percentage"] ?? 0 ?>%
-    </h3>
+    <div class="result-score">
+        <p class="eyebrow">Score</p>
+        <h2><?= $summary["score"] ?? 0 ?> / <?= $summary["total"] ?? 0 ?></h2>
+    </div>
+    <div class="result-percentage">
+        <p class="eyebrow">Accuracy</p>
+        <h3><?= $summary["percentage"] ?? 0 ?>%</h3>
+    </div>
 </div>
 
 <?php if (!empty($actions)): ?>
@@ -61,38 +59,36 @@ $reviewUnavailable = ($reviewUnavailable ?? false) === true;
         <?= \App\Services\Question\StructuredContentService::render($item["question"]) ?>
     <?php endif; ?>
 
-    <p>
-        Your Answer:
-        <strong>
-            <?= htmlspecialchars(
+    <div class="answer-review">
+        <div class="answer-review-selected">
+            <p class="answer-label">Your answer</p>
+            <strong class="answer-value"><?= htmlspecialchars(
                 ($item["answered"] ?? false)
                     ? (string) ($item["userAnswer"] ?? '')
                     : "No answer"
-            ) ?>
-        </strong>
-    </p>
+            ) ?></strong>
+        </div>
 
-    <?php if (!empty($item["correct"])): ?>
-        <p class="answer-status"><strong>Correct answer</strong></p>
-    <?php else: ?>
-        <p class="answer-status"><strong>Incorrect answer</strong></p>
+        <?php if (!empty($item["correct"])): ?>
+            <p class="answer-status answer-status-correct"><strong>Correct answer</strong></p>
+        <?php else: ?>
+            <p class="answer-status answer-status-incorrect"><strong>Incorrect answer</strong></p>
 
-        <p>
-            Correct Answer:
-            <strong>
-                <?= htmlspecialchars(
+            <div class="answer-review-correct">
+                <p class="answer-label">Correct answer</p>
+                <strong class="answer-value"><?= htmlspecialchars(
                     $item["question"]["answer"] ?? ""
-                ) ?>
-            </strong>
-        </p>
-    <?php endif; ?>
+                ) ?></strong>
+            </div>
+        <?php endif; ?>
 
-    <p>
-        Explanation:
-        <?= htmlspecialchars(
-            $item["question"]["explanation"] ?? ""
-        ) ?>
-    </p>
+        <div class="answer-review-explanation">
+            <p class="answer-label">Explanation</p>
+            <p><?= htmlspecialchars(
+                $item["question"]["explanation"] ?? ""
+            ) ?></p>
+        </div>
+    </div>
 </article>
 
 <hr>

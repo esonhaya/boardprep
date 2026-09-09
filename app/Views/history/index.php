@@ -3,15 +3,14 @@ $history = $history ?? [];
 $summary = $summary ?? [];
 ?>
 
-<section class="page-header"><div><h1>Quiz history</h1><p>Completed quizzes, newest first.</p></div><a class="button" href="/quiz">Start practice</a></section>
+<div class="history-page">
+<section class="page-header"><div><p class="eyebrow">Learning history</p><h1>Quiz history</h1><p>Completed quizzes, newest first.</p></div><a class="button" href="/quiz">Start practice</a></section>
 
-<p>
-    Completed Quizzes: <strong><?= (int) ($summary["completedAttempts"] ?? 0) ?></strong> ·
-    Average Score: <strong><?= (int) ($summary["averageScore"] ?? 0) ?>%</strong> ·
-    Best Score: <strong><?= (int) ($summary["bestScore"] ?? 0) ?>%</strong>
-</p>
-
-<hr>
+<section class="history-summary" aria-label="Quiz summary">
+    <div><span class="stat-label">Completed quizzes</span><strong><?= (int) ($summary["completedAttempts"] ?? 0) ?></strong></div>
+    <div><span class="stat-label">Average score</span><strong><?= (int) ($summary["averageScore"] ?? 0) ?>%</strong></div>
+    <div><span class="stat-label">Best score</span><strong><?= (int) ($summary["bestScore"] ?? 0) ?>%</strong></div>
+</section>
 
 <?php if ($history === []): ?>
     <div class="empty-state"><p>No completed quizzes yet.</p>
@@ -29,3 +28,4 @@ $summary = $summary ?? [];
     <a href="/progress">Progress</a>
     <a href="/study">Study Plan</a>
 </nav>
+</div>
