@@ -48482,18 +48482,19 @@
         "createdAt": "2026-09-01T00:00:00+00:00",
         "updatedAt": "2026-09-01T00:00:00+00:00",
         "difficulty": "medium",
-        "question": "A probable provision has a P80,000–P120,000 range and no amount is more likely. What amount is recognized under the stated rule?",
+        "question": "A company has a single probable obligation. The most likely settlement outcome is P100,000, with reasonably possible outcomes ranging from P80,000 to P120,000. What amount should be recognized as the provision?",
         "choices": [
             "P40,000",
             "P80,000",
             "P100,000",
             "P120,000"
         ],
-        "answer": "P80,000",
-        "explanation": "With no most-likely amount, the stated lower-end measurement is P80,000.",
+        "answer": "P100,000",
+        "explanation": "Under IAS 37, a provision is measured at the best estimate of the expenditure required to settle the present obligation. For this single obligation, the stated most likely outcome is P100,000; the range describes uncertainty but does not justify selecting the lower endpoint.",
         "subject": "Cpa Financial Accounting",
         "source_ids": [
-            "prc-accountancy-board-page"
+            "prc-accountancy-board-page",
+            "ifrs-ias-37-provisions"
         ],
         "numeric": true,
         "multistep": false,
@@ -48679,8 +48680,8 @@
             "board_id": "cpa",
             "subject_id": "cpa-financial-accounting",
             "domain_id": "cpa-financial-accounting",
-            "topic_id": "cpa-financial-accounting-intangibles",
-            "concept_id": "cpa-financial-accounting-intangibles-core"
+            "topic_id": "cpa-financial-accounting-analysis",
+            "concept_id": "cpa-financial-accounting-analysis-core"
         },
         "board": "cpa",
         "status": "active",
