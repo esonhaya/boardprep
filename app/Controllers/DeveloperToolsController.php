@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 use App\Core\App;
 use App\Core\Request;
+use App\Services\Shared\ContentPriorityService;
 use App\Services\Shared\ContentIntegrityService;
 use App\Services\Shared\TaxonomyIntegrityService;
 use App\Services\Study\LETContentCoverageService;
@@ -54,7 +55,8 @@ class DeveloperToolsController extends BaseDeveloperController
 
         }
 
-        $contentIntegrity = ContentIntegrityService::analyzeRepository();
+        $contentPriorities = ContentPriorityService::analyzeRepository();
+        $contentIntegrity = $contentPriorities['integrity'] ?? ContentIntegrityService::analyzeRepository();
         $portfolio = $contentIntegrity['portfolio'];
         $integrityIssueCount = array_sum(array_map('count', array_filter($contentIntegrity['failures'] ?? [], 'is_array')));
         $quality = [
@@ -108,7 +110,8 @@ class DeveloperToolsController extends BaseDeveloperController
                     "taxonomyComplete" => $complete,
                 ],
                 "letCoverage" => LETContentCoverageService::report(),
-                "contentIntegrity" => $contentIntegrity
+                "contentIntegrity" => $contentIntegrity,
+                "contentPriorities" => $contentPriorities
 
             ],
 

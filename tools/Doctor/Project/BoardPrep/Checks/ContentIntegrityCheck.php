@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tools\Doctor\Project\BoardPrep\Checks;
 
 use App\Services\Shared\ContentIntegrityService;
+use App\Services\Shared\ContentPriorityService;
 use Tools\Doctor\Contracts\CheckInterface;
 use Tools\Doctor\DTO\CheckResult;
 
@@ -12,7 +13,8 @@ final class ContentIntegrityCheck implements CheckInterface
 {
     public function run(): CheckResult
     {
-        $report = ContentIntegrityService::analyzeRepository();
+        $priorityReport = ContentPriorityService::analyzeRepository();
+        $report = $priorityReport['integrity'] ?? ContentIntegrityService::analyzeRepository();
         $portfolio = $report['portfolio'];
         $status = $portfolio['status'] === 'FAIL' ? 'FAIL' : 'PASS';
         $details = [
@@ -53,6 +55,23 @@ final class ContentIntegrityCheck implements CheckInterface
             }
             $details[] = 'WARNING=' . $metric . ': ' . implode(', ', array_map('strval', (array) $ids));
         }
+        if (($priorityReport['priorities'] ?? []) !== []) {
+            $top = $priorityReport['priorities'][0];
+            $details[] = sprintf(
+                'CONTENT_PRIORITY=%s TARGET=%s ACTION=%s REASONS=%s.',
+                $top['priority'],
+                $top['target'],
+                $top['recommended_action'],
+                implode(',', $top['reason_codes'])
+            );
+        } else {
+            $details[] = 'CONTENT_PRIORITY=NONE actionable content-investment candidate.';
+        }
+        $details[] = sprintf(
+            'CONTENT_PRIORITY_RUNTIME_MS=%s; %d candidate(s) ranked from shared depth, usage, study, and blueprint signals.',
+            $priorityReport['runtime']['total_runtime_ms'] ?? 'unknown',
+            count($priorityReport['priorities'] ?? [])
+        );
         $defectCount = array_sum(array_map('count', array_filter($report['failures'], 'is_array')));
 
         return new CheckResult(
