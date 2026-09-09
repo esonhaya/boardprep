@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Services\Learning;
 
+use App\Services\Shared\TaxonomyStorageService;
+
 final class StudyInsightService
 {
     public static function build(
@@ -42,7 +44,7 @@ final class StudyInsightService
         foreach (array_slice($weakestTopics, 0, 2) as $topic) {
             if (!empty($topic["topic"])) {
                 $insights[] =
-                    "Prioritize " . $topic["topic"] .
+                    "Prioritize " . TaxonomyStorageService::label('taxonomy/topics', $topic["topic"]) .
                     " (" . (int) ($topic["average"] ?? 0) . "% average).";
             }
         }

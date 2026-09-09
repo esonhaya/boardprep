@@ -182,7 +182,10 @@ test.describe('BoardPrep learner browser acceptance', () => {
     });
     await expect(page.locator('.quiz-meta')).toContainText('Question 1 / 5');
     await completeQuiz(page, true);
-    await expect(page.locator('.result-summary')).toContainText('Score:');
+    await expect(page.locator('.result-score .eyebrow')).toHaveText('Score');
+    await expect(page.locator('.result-score h2')).toHaveText(/\d+\s*\/\s*\d+/);
+    await expect(page.locator('.result-percentage .eyebrow')).toHaveText('Accuracy');
+    await expect(page.locator('.result-percentage h3')).toHaveText(/\d+%/);
     await assertPageHealthy(page, testInfo, 'quiz-result');
 
     await expect(page.getByRole('link', { name: 'Review missed concepts' })).toBeVisible();

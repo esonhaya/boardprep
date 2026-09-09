@@ -1,6 +1,9 @@
 <?php
 $date = \App\Services\Learning\LearningHistoryService::dateOf($attempt);
-$topic = \App\Services\Learning\LearningHistoryService::topicOf($attempt);
+$topic = \App\Services\Shared\TaxonomyStorageService::label(
+    'taxonomy/topics',
+    \App\Services\Learning\LearningHistoryService::topicOf($attempt)
+);
 $mode = is_scalar($attempt["mode"] ?? null) ? (string) $attempt["mode"] : "practice";
 $score = (int) ($attempt["score"] ?? 0);
 $total = (int) ($attempt["total"] ?? 0);

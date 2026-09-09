@@ -11,6 +11,7 @@ $recommendations = $dashboard["recommendations"] ?? [];
 $studyPlan = $dashboard["studyPlan"] ?? [];
 $history = $history ?? [];
 $weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
+$taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Services\Shared\TaxonomyStorageService::label($collection, $id);
 ?>
 
 <h1>Study Dashboard</h1>
@@ -70,13 +71,13 @@ $weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
             <article class="study-plan-item">
                 <h3>
                     <?= $index + 1 ?>.
-                    <?= htmlspecialchars($topic) ?>
+                    <?= htmlspecialchars($taxonomyLabel('taxonomy/topics', $topic)) ?>
                 </h3>
 
                 <p>
                     <?= htmlspecialchars($type) ?>
                     —
-                    <?= htmlspecialchars($subject) ?>
+                    <?= htmlspecialchars($taxonomyLabel('subjects', $subject)) ?>
 
                     <?php if ($average !== null): ?>
                         — Current average:
@@ -151,7 +152,7 @@ $weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
     <?php else: ?>
         <?php foreach ($weakest as $topic): ?>
             <article>
-                <h3><?= htmlspecialchars((string) ($topic["topic"] ?? "General")) ?></h3>
+                <h3><?= htmlspecialchars($taxonomyLabel('taxonomy/topics', $topic["topic"] ?? "General")) ?></h3>
                 <p>
                     Average:
                     <strong><?= (int) ($topic["average"] ?? 0) ?>%</strong>
@@ -170,7 +171,7 @@ $weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
         <p><a class="button button-outline" href="/quiz">Start a practice quiz</a></p>
     <?php else: ?>
         <?php foreach ($subjects as $subject): ?>
-            <p><strong><?= htmlspecialchars((string) $subject["subject"]) ?></strong> — <?= (int) $subject["average"] ?>% average · <?= (int) $subject["attempts"] ?> attempt<?= ((int) $subject["attempts"]) === 1 ? "" : "s" ?></p>
+            <p><strong><?= htmlspecialchars($taxonomyLabel('subjects', $subject["subject"])) ?></strong> — <?= (int) $subject["average"] ?>% average · <?= (int) $subject["attempts"] ?> attempt<?= ((int) $subject["attempts"]) === 1 ? "" : "s" ?></p>
         <?php endforeach; ?>
     <?php endif; ?>
 
@@ -183,7 +184,7 @@ $weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
     <?php else: ?>
         <?php foreach ($topics as $topic): ?>
             <article>
-                <h3><?= htmlspecialchars((string) ($topic["topic"] ?? "General")) ?><?php if (($topic["subject"] ?? "") !== ""): ?> (<?= htmlspecialchars((string) $topic["subject"]) ?>)<?php endif; ?></h3>
+                <h3><?= htmlspecialchars($taxonomyLabel('taxonomy/topics', $topic["topic"] ?? "General")) ?><?php if (($topic["subject"] ?? "") !== ""): ?> (<?= htmlspecialchars($taxonomyLabel('subjects', $topic["subject"])) ?>)<?php endif; ?></h3>
                 <p>
                     Average: <?= (int) ($topic["average"] ?? 0) ?>%
                     —

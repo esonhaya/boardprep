@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Services\Learning;
 
+use App\Services\Shared\TaxonomyStorageService;
+
 final class StudyPlanService
 {
     public static function build(array $dashboard): array
@@ -65,7 +67,7 @@ final class StudyPlanService
             "action" => StudyActionService::url($spec),
             "label" => $topic === "General"
                 ? "Start a practice quiz"
-                : "Practice " . $topic,
+                : "Practice " . TaxonomyStorageService::label('taxonomy/topics', $topic),
         ];
     }
 

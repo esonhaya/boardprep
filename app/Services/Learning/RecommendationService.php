@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Services\Learning;
 
+use App\Services\Shared\TaxonomyStorageService;
+
 final class RecommendationService
 {
     public static function generate(array $analytics, array $weaknesses): array
@@ -64,7 +66,7 @@ final class RecommendationService
         $recommendations = [];
         foreach ($unique as $weakness) {
             if ((int) ($weakness["accuracy"] ?? 100) < 70) {
-                $recommendations[] = "Review: " . $weakness["topic"];
+                $recommendations[] = "Review: " . TaxonomyStorageService::label('taxonomy/topics', $weakness["topic"]);
             }
         }
 

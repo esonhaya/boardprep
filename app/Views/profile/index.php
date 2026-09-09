@@ -1,3 +1,5 @@
+<?php $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Services\Shared\TaxonomyStorageService::label($collection, $id); ?>
+
 <h1>Learning Profile</h1>
 
 <hr>
@@ -50,7 +52,7 @@
 <?php if (!empty($subjects)): ?>
 <h3>By Subject</h3>
 <?php foreach ($subjects as $subject): ?>
-<p><strong><?= htmlspecialchars((string) $subject["subject"]) ?></strong> — <?= (int) $subject["average"] ?>% average</p>
+<p><strong><?= htmlspecialchars($taxonomyLabel('subjects', $subject["subject"])) ?></strong> — <?= (int) $subject["average"] ?>% average</p>
 <?php endforeach; ?>
 <?php endif; ?>
 
@@ -59,7 +61,7 @@
 <?php else: ?>
 <?php foreach (array_slice($topics, 0, 5) as $topic): ?>
 <p>
-    <strong><?= htmlspecialchars((string) $topic["topic"]) ?></strong>
+    <strong><?= htmlspecialchars($taxonomyLabel('taxonomy/topics', $topic["topic"])) ?></strong>
     —
     <?= (int) $topic["average"] ?>% average
     /
@@ -80,7 +82,7 @@
 <div class="record-card">
     <strong><?= htmlspecialchars(ucfirst((string) ($item["mode"] ?? "practice"))) ?></strong>
     —
-    <?= htmlspecialchars((string) ($item["topic"] ?? "General")) ?>
+    <?= htmlspecialchars($taxonomyLabel('taxonomy/topics', $item["topic"] ?? "General")) ?>
     <br>
     Score:
     <?= (int) ($item["score"] ?? 0) ?>/<?= (int) ($item["total"] ?? 0) ?>

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\Learning\Recommendation;
 
 use App\Services\Learning\StudyActionService;
+use App\Services\Shared\TaxonomyStorageService;
 
 final class StudyRecommendationFactory
 {
@@ -17,15 +18,16 @@ final class StudyRecommendationFactory
 
         $subject = self::text($topic['subject'] ?? '');
         $action = StudyActionService::quizForTopic($name, $subject);
+        $displayName = TaxonomyStorageService::label('taxonomy/topics', $name);
 
         return [
             'type' => 'topic',
-            'title' => "Review {$name}",
+            'title' => "Review {$displayName}",
             'reason' => 'Current average: ' . (int) ($topic['average'] ?? 0) . '%',
             'topic' => $name,
             'subject' => $action['subject'],
             'action' => StudyActionService::url($action),
-            'label' => "Practice {$name}",
+            'label' => "Practice {$displayName}",
         ];
     }
 

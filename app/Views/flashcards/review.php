@@ -13,18 +13,9 @@ foreach (['board', 'subject', 'topic'] as $name) {
 }
 $filterQuery = http_build_query($query);
 $reviewUrl = '/flashcards/review?' . $filterQuery;
-$taxonomyLabel = static function (string $collection, mixed $id): string {
-    $value = is_scalar($id) ? trim((string) $id) : '';
-    if ($value === '') {
-        return '';
-    }
-    $record = \App\Services\Shared\TaxonomyStorageService::find($collection, $value);
-    $name = is_array($record) && is_scalar($record['name'] ?? null) ? trim((string) $record['name']) : '';
-    return $name !== '' ? $name : $value;
-};
-$boardLabel = $taxonomyLabel('boards', $card['board'] ?? '');
-$subjectLabel = $taxonomyLabel('subjects', $card['subject'] ?? '');
-$topicLabel = $taxonomyLabel('topics', $card['topic'] ?? '');
+$boardLabel = \App\Services\Shared\TaxonomyStorageService::label('boards', $card['board'] ?? '');
+$subjectLabel = \App\Services\Shared\TaxonomyStorageService::label('subjects', $card['subject'] ?? '');
+$topicLabel = \App\Services\Shared\TaxonomyStorageService::label('taxonomy/topics', $card['topic'] ?? '');
 ?>
 <div class="flashcard-review-page">
     <section class="page-header">

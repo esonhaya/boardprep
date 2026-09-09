@@ -7,10 +7,11 @@ $historical = ($historical ?? false) === true;
 $completedAt = is_string($completedAt ?? null) ? $completedAt : null;
 $historicalContext = is_array($historicalContext ?? null) ? $historicalContext : [];
 $reviewUnavailable = ($reviewUnavailable ?? false) === true;
+$taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Services\Shared\TaxonomyStorageService::label($collection, $id);
 
 ?>
 
-<section class="page-header"><div><h1><?= $historical ? 'Historical Quiz Result' : 'Quiz Result' ?></h1><p>Review what you know and choose your next useful step.</p><?php if ($historical): ?><p class="muted-note"><?php $context = array_values(array_filter([(string) ($historicalContext['board'] ?? ''), (string) ($historicalContext['subject'] ?? ''), (string) ($historicalContext['mode'] ?? '')])); ?><?= htmlspecialchars(implode(' · ', $context)) ?><?php if ($completedAt !== null): ?> · Completed <?= htmlspecialchars(\App\Support\Presentation\UiFormatter::formatDateTime($completedAt)) ?><?php endif; ?></p><?php endif; ?></div></section>
+<section class="page-header"><div><h1><?= $historical ? 'Historical Quiz Result' : 'Quiz Result' ?></h1><p>Review what you know and choose your next useful step.</p><?php if ($historical): ?><p class="muted-note"><?php $context = array_values(array_filter([$taxonomyLabel('boards', $historicalContext['board'] ?? ''), $taxonomyLabel('subjects', $historicalContext['subject'] ?? ''), \App\Support\Presentation\UiFormatter::statusLabel((string) ($historicalContext['mode'] ?? ''))])); ?><?= htmlspecialchars(implode(' · ', $context)) ?><?php if ($completedAt !== null): ?> · Completed <?= htmlspecialchars(\App\Support\Presentation\UiFormatter::formatDateTime($completedAt)) ?><?php endif; ?></p><?php endif; ?></div></section>
 
 <div class="result-summary">
     <div class="result-score">

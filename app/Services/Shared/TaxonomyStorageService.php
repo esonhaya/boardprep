@@ -58,6 +58,33 @@ final class TaxonomyStorageService
         return self::$indexCache[$collection][$id] ?? null;
     }
 
+    public static function label(string $collection, mixed $id): string
+    {
+        $value = is_scalar($id) ? trim((string) $id) : '';
+        if ($value === '') {
+            return '';
+        }
+
+        $record = self::find($collection, $value);
+        if ($record === null) {
+            foreach (self::load($collection) as $candidate) {
+                if (is_scalar($candidate['code'] ?? null)
+                    && strcasecmp((string) $candidate['code'], $value) === 0) {
+                    $record = $candidate;
+                    break;
+                }
+            }
+        }
+
+        $name = is_array($record) && is_scalar($record['name'] ?? null)
+            ? trim((string) $record['name'])
+            : '';
+
+        return $name !== ''
+            ? $name
+            : ucwords(str_replace(['_', '-'], ' ', $value));
+    }
+
     public static function hasBoardSubject(string $boardId, string $subjectId): bool
     {
         $key = 'board-subjects:' . $boardId . ':' . $subjectId;
