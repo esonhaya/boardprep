@@ -122,7 +122,7 @@ try {
     $head = trim((string) shell_exec('git -C ' . escapeshellarg($root) . ' rev-parse HEAD'));
     $assert(($manifest['release'] ?? null) === 'RC1.1', 'release manifest version is incorrect');
     $assert(($manifest['release_commit'] ?? null) === $head, 'release manifest commit does not match HEAD');
-    $assert(($manifest['canonical_questions'] ?? null) === 1808, 'release manifest canonical count changed');
+    $assert(($manifest['canonical_questions'] ?? null) === 1828, 'release manifest canonical count changed');
     $assert(($manifest['registered_boards'] ?? null) === 10, 'release manifest board count changed');
 
     $zipOne->close();
@@ -149,12 +149,12 @@ PHP;
     $integrity = json_decode(trim($result), true, 512, JSON_THROW_ON_ERROR);
     $portfolio = $integrity['portfolio'] ?? [];
     foreach ([
-        'total_canonical' => 1808,
-        'total_eligible' => 1808,
-        'total_linked' => 1808,
+        'total_canonical' => 1828,
+        'total_eligible' => 1828,
+        'total_linked' => 1828,
         'total_invalid_links' => 0,
         'total_invalid_taxonomy_refs' => 0,
-        'total_derivable_cards' => 1790,
+        'total_derivable_cards' => 1810,
         'total_justified_exclusions' => 18,
         'total_accidental_non_derivable' => 0,
         'total_card_key_collisions' => 0,

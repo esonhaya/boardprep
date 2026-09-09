@@ -72771,5 +72771,994 @@
                 "caption": "Diagram for spatial relationship analysis."
             }
         ]
+    },
+    {
+        "id": 1809,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-partnerships",
+            "concept_id": "cpa-advanced-accounting-partnerships-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A partnership has capitals of P300,000 for A and P200,000 for B. A new partner contributes P150,000 for a 20% interest in total capital. Under the bonus method, what amount is credited as a bonus to the old partners before they share it?",
+        "choices": [
+            "P20,000",
+            "P10,000",
+            "P30,000",
+            "P50,000"
+        ],
+        "answer": "P20,000",
+        "explanation": "Total capital after admission is P650,000, so the new partner's 20% capital interest is P130,000. The P150,000 contribution exceeds that interest by P20,000, which is the bonus credited to the old partners.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "analyze",
+        "scenario_length": "long"
+    },
+    {
+        "id": 1810,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-consolidation",
+            "concept_id": "cpa-advanced-accounting-consolidation-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "At acquisition, a parent pays P900,000 for a subsidiary and measures the noncontrolling interest at P180,000. The fair value of identifiable net assets is P760,000. Using the full-goodwill approach, what goodwill is recognized?",
+        "choices": [
+            "P140,000",
+            "P320,000",
+            "P180,000",
+            "P1,080,000"
+        ],
+        "answer": "P320,000",
+        "explanation": "Full goodwill is consideration transferred plus the fair value of NCI less the fair value of identifiable net assets: P900,000 + P180,000 \u2212 P760,000 = P320,000.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Acquisition item",
+                    "Amount"
+                ],
+                "rows": [
+                    [
+                        "Consideration transferred",
+                        "P900,000"
+                    ],
+                    [
+                        "Fair value of NCI",
+                        "P180,000"
+                    ],
+                    [
+                        "Identifiable net assets at fair value",
+                        "P760,000"
+                    ]
+                ]
+            }
+        ],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "analyze",
+        "scenario_length": "long"
+    },
+    {
+        "id": 1811,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-intercompany",
+            "concept_id": "cpa-advanced-accounting-intercompany-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A parent bills a subsidiary P60,000 for an internal service. At year-end, the subsidiary has prepaid P20,000 of the charge and the parent has recognized all P60,000 as revenue. What amount must be deferred in consolidated reporting?",
+        "choices": [
+            "P0",
+            "P40,000",
+            "P20,000",
+            "P60,000"
+        ],
+        "answer": "P20,000",
+        "explanation": "The subsidiary has not received the remaining service, so the P20,000 prepaid portion is not external group revenue at year-end. Consolidation defers that amount and eliminates the reciprocal internal revenue and expense effect.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "analyze",
+        "scenario_length": "long"
+    },
+    {
+        "id": 1812,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-combinations",
+            "concept_id": "cpa-advanced-accounting-combinations-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "In a business combination, the buyer transfers cash of P1,050,000 and shares with a fair value of P150,000. It also pays P40,000 of separate advisory fees. The fair value of identifiable net assets is P1,100,000. Ignoring tax, what goodwill is recognized?",
+        "choices": [
+            "P140,000",
+            "P150,000",
+            "P180,000",
+            "P100,000"
+        ],
+        "answer": "P100,000",
+        "explanation": "Consideration is P1,200,000, excluding the separately paid advisory fees. Goodwill is P1,200,000 \u2212 P1,100,000 = P100,000.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "analyze",
+        "scenario_length": "long"
+    },
+    {
+        "id": 1813,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-branch",
+            "concept_id": "cpa-advanced-accounting-branch-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A home office invoices goods to a branch at P125,000 when their cost is P100,000. One-half of the goods remains unsold at year-end. What unrealized loading is removed from the branch inventory?",
+        "choices": [
+            "P12,500",
+            "P25,000",
+            "P50,000",
+            "P6,250"
+        ],
+        "answer": "P12,500",
+        "explanation": "The invoice loading is P25,000. Because one-half remains unsold, the unrealized loading is P25,000 \u00d7 50% = P12,500.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Branch inventory fact",
+                    "Amount or share"
+                ],
+                "rows": [
+                    [
+                        "Cost to home office",
+                        "P100,000"
+                    ],
+                    [
+                        "Invoice amount",
+                        "P125,000"
+                    ],
+                    [
+                        "Unsold at year-end",
+                        "50%"
+                    ]
+                ]
+            }
+        ],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "analyze",
+        "scenario_length": "long"
+    },
+    {
+        "id": 1814,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-foreign-currency",
+            "concept_id": "cpa-advanced-accounting-foreign-currency-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A company records a USD30,000 payable at P55 per dollar. At reporting date the rate is P57. What exchange loss is recognized before settlement?",
+        "choices": [
+            "P30,000",
+            "P60,000",
+            "P90,000",
+            "P1,710,000"
+        ],
+        "answer": "P60,000",
+        "explanation": "The payable increases by USD30,000 \u00d7 (P57 \u2212 P55) = P60,000, producing an exchange loss for the liability holder.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
+    },
+    {
+        "id": 1815,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-liquidation",
+            "concept_id": "cpa-advanced-accounting-liquidation-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "During liquidation, assets are realized for P1,200,000. Liabilities paid total P450,000 and liquidation expenses total P50,000. Ignoring partner priorities, what amount remains for owners?",
+        "choices": [
+            "P650,000",
+            "P750,000",
+            "P700,000",
+            "P1,150,000"
+        ],
+        "answer": "P700,000",
+        "explanation": "The amount available after realization costs and liabilities is P1,200,000 \u2212 P450,000 \u2212 P50,000 = P700,000.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "apply",
+        "scenario_length": "long"
+    },
+    {
+        "id": 1816,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-joint-arrangements",
+            "concept_id": "cpa-advanced-accounting-joint-arrangements-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "An arrangement gives each party direct rights to specified assets and direct obligations for specified liabilities. The parties share decisions about the relevant activities. Which accounting conclusion best fits these facts?",
+        "choices": [
+            "Recognize only a single investment balance",
+            "Recognize only the arrangement's dividends",
+            "Recognize only the arrangement's net profit",
+            "Recognize the party's share of the relevant assets, liabilities, income, and expenses"
+        ],
+        "answer": "Recognize the party's share of the relevant assets, liabilities, income, and expenses",
+        "explanation": "Direct rights to assets and obligations for liabilities indicate a joint-operation-type accounting outcome: the party recognizes its share of the underlying items rather than only a single net investment.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [],
+        "numeric": false,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "evaluate",
+        "scenario_length": "long",
+        "professional_judgment": true
+    },
+    {
+        "id": 1817,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-nci",
+            "concept_id": "cpa-advanced-accounting-nci-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A subsidiary reports profit of P300,000 and the noncontrolling interest owns 30% of the subsidiary's ordinary equity. Ignoring preference claims and tax, what profit is attributable to NCI?",
+        "choices": [
+            "P90,000",
+            "P210,000",
+            "P30,000",
+            "P300,000"
+        ],
+        "answer": "P90,000",
+        "explanation": "NCI's share is 30% of the subsidiary profit: P300,000 \u00d7 30% = P90,000.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
+    },
+    {
+        "id": 1818,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-elimination",
+            "concept_id": "cpa-advanced-accounting-elimination-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A parent reports an intercompany loan receivable of P400,000 and accrued interest receivable of P18,000. The subsidiary reports the matching payable and interest expense. What total amount is eliminated from the consolidated statement of financial position and profit or loss balances?",
+        "choices": [
+            "P400,000",
+            "P418,000",
+            "P436,000",
+            "P18,000"
+        ],
+        "answer": "P418,000",
+        "explanation": "Both reciprocal principal and accrued interest balances are internal: P400,000 + P18,000 = P418,000.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Reciprocal balance",
+                    "Amount"
+                ],
+                "rows": [
+                    [
+                        "Loan principal",
+                        "P400,000"
+                    ],
+                    [
+                        "Accrued interest",
+                        "P18,000"
+                    ]
+                ]
+            }
+        ],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "analyze",
+        "scenario_length": "long"
+    },
+    {
+        "id": 1819,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-profit-allocation",
+            "concept_id": "cpa-advanced-accounting-profit-allocation-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A partnership reports P500,000 profit before removing an unrealized intercompany profit of P40,000. After adjustment, partners A and B share profit 3:2. What amount is allocated to A?",
+        "choices": [
+            "P240,000",
+            "P260,000",
+            "P276,000",
+            "P300,000"
+        ],
+        "answer": "P276,000",
+        "explanation": "Adjusted profit is P460,000. A's 3/5 share is P460,000 \u00d7 3/5 = P276,000.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "analyze",
+        "scenario_length": "long"
+    },
+    {
+        "id": 1820,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-fixed-assets",
+            "concept_id": "cpa-advanced-accounting-fixed-assets-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A parent transfers equipment with a carrying amount of P600,000 to a subsidiary for P750,000. The equipment has five years of remaining life and the transfer occurs at the start of the year. At year-end, by how much is the subsidiary's equipment carrying amount overstated in consolidated reporting?",
+        "choices": [
+            "P90,000",
+            "P100,000",
+            "P110,000",
+            "P120,000"
+        ],
+        "answer": "P120,000",
+        "explanation": "The internal gain is P150,000, while the subsidiary's depreciation exceeds group depreciation by P30,000 (P150,000 \u00f7 5). Net overstatement is P150,000 \u2212 P30,000 = P120,000.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "analyze",
+        "scenario_length": "long"
+    },
+    {
+        "id": 1821,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-translation",
+            "concept_id": "cpa-advanced-accounting-translation-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "When translating a foreign operation for consolidation, which rate is ordinarily used for revenue transactions recognized throughout the period when no significant rate fluctuation is stated?",
+        "choices": [
+            "The period's average rate",
+            "The reporting-date closing rate",
+            "The historical rate for contributed capital",
+            "The rate on the date the parent was incorporated"
+        ],
+        "answer": "The period's average rate",
+        "explanation": "Income and expense transactions occurring throughout a period are translated using a rate that approximates the transaction-date rates, commonly the period average when the facts do not indicate significant fluctuation.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [],
+        "numeric": false,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "evaluate",
+        "scenario_length": "long",
+        "professional_judgment": true
+    },
+    {
+        "id": 1822,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-measurement",
+            "concept_id": "cpa-advanced-accounting-measurement-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "An acquired inventory item is measured at P500,000 at acquisition and is later sold for P460,000. Ignoring selling costs, what loss is recognized when it is sold?",
+        "choices": [
+            "P20,000",
+            "P40,000",
+            "P60,000",
+            "P500,000"
+        ],
+        "answer": "P40,000",
+        "explanation": "The loss on sale is the difference between the measured carrying amount and proceeds: P500,000 \u2212 P460,000 = P40,000.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
+    },
+    {
+        "id": 1823,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-withdrawal",
+            "concept_id": "cpa-advanced-accounting-withdrawal-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A retiring partner's capital balance is P200,000, but the partnership pays P240,000. The P40,000 bonus is charged to the remaining partners in a 3:2 ratio. What amount is charged to the partner receiving the 2/5 share?",
+        "choices": [
+            "P8,000",
+            "P12,000",
+            "P16,000",
+            "P40,000"
+        ],
+        "answer": "P16,000",
+        "explanation": "The partner receiving 2/5 of the bonus is charged P40,000 \u00d7 2/5 = P16,000.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard"
+    },
+    {
+        "id": 1824,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-dividends",
+            "concept_id": "cpa-advanced-accounting-dividends-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A company has 10,000 cumulative preference shares of P100 each with a 6% annual dividend and 50,000 ordinary shares. Preference dividends were unpaid for two years. If total dividends declared are P180,000, how much is available for ordinary shareholders?",
+        "choices": [
+            "P60,000",
+            "P120,000",
+            "P180,000",
+            "P0"
+        ],
+        "answer": "P0",
+        "explanation": "Annual preference dividends are P60,000. Two years of arrears plus the current year require P180,000, exhausting the declared dividend and leaving nothing for ordinary shareholders.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "analyze",
+        "scenario_length": "long"
+    },
+    {
+        "id": 1825,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-branch-inventory",
+            "concept_id": "cpa-advanced-accounting-branch-inventory-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "A branch sells goods for P300,000. Goods were sent by the home office at an invoice amount of P240,000, which represents 120% of cost. What gross profit does the branch report before any unrealized-loading adjustment?",
+        "choices": [
+            "P100,000",
+            "P40,000",
+            "P60,000",
+            "P200,000"
+        ],
+        "answer": "P100,000",
+        "explanation": "The invoice amount of P240,000 is 120% of cost, so cost is P200,000. Gross profit is sales P300,000 \u2212 cost P200,000 = P100,000.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": false,
+        "cognitive_intent": "analyze",
+        "scenario_length": "standard"
+    },
+    {
+        "id": 1826,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-intercompany-balances",
+            "concept_id": "cpa-advanced-accounting-intercompany-balances-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "An investor holds 48% of voting rights in an investee. The remaining shares are widely dispersed, no other holder has more than 1%, and the investor directs relevant activities in practice. Which conclusion is best supported?",
+        "choices": [
+            "Control is impossible because ownership is below 50%",
+            "Control may exist because practical power and exposure to variable returns are present",
+            "Only the cost method is permitted",
+            "The investee must be treated as a joint operation"
+        ],
+        "answer": "Control may exist because practical power and exposure to variable returns are present",
+        "explanation": "A percentage below 50% does not alone settle control. The facts require evaluating practical power over relevant activities together with exposure to variable returns and the ability to affect them.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [],
+        "numeric": false,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "evaluate",
+        "scenario_length": "long",
+        "professional_judgment": true
+    },
+    {
+        "id": 1827,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-profit-attribution",
+            "concept_id": "cpa-advanced-accounting-profit-attribution-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "hard",
+        "question": "A subsidiary reports profit of P420,000 and declares P30,000 of preference dividends payable entirely to NCI. NCI owns 30% of the remaining ordinary equity. What amount of the subsidiary's profit is attributable to NCI?",
+        "choices": [
+            "P117,000",
+            "P126,000",
+            "P147,000",
+            "P294,000"
+        ],
+        "answer": "P147,000",
+        "explanation": "After the P30,000 preference claim, ordinary profit is P390,000. NCI receives P30,000 plus 30% of P390,000, or P30,000 + P117,000 = P147,000.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [
+            {
+                "type": "table",
+                "columns": [
+                    "Subsidiary profit item",
+                    "Amount or share"
+                ],
+                "rows": [
+                    [
+                        "Reported profit",
+                        "P420,000"
+                    ],
+                    [
+                        "Preference dividends payable to NCI",
+                        "P30,000"
+                    ],
+                    [
+                        "NCI share of ordinary equity",
+                        "30%"
+                    ]
+                ]
+            }
+        ],
+        "numeric": true,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": true,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "analyze",
+        "scenario_length": "long"
+    },
+    {
+        "id": 1828,
+        "taxonomy": {
+            "board_id": "cpa",
+            "subject_id": "cpa-advanced-accounting",
+            "domain_id": "cpa-advanced-accounting",
+            "topic_id": "cpa-advanced-accounting-agreement",
+            "concept_id": "cpa-advanced-accounting-agreement-core"
+        },
+        "board": "cpa",
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-09-09T00:00:00+00:00",
+        "updatedAt": "2026-09-09T00:00:00+00:00",
+        "difficulty": "medium",
+        "question": "Two parties have an arrangement in which they have direct rights to the assets and direct obligations for the liabilities of the arrangement, rather than rights only to its net assets. How should the arrangement be classified for this analysis?",
+        "choices": [
+            "A joint venture",
+            "An associate",
+            "A passive financial investment",
+            "A joint operation"
+        ],
+        "answer": "A joint operation",
+        "explanation": "Direct rights to assets and direct obligations for liabilities indicate a joint operation rather than an arrangement in which parties have rights only to net assets.",
+        "subject": "Cpa Advanced Accounting",
+        "source_ids": [
+            "prc-accountancy-board-page"
+        ],
+        "content_blocks": [],
+        "numeric": false,
+        "multistep": true,
+        "source_sensitivity": "STABLE",
+        "table_dependent": false,
+        "data_interpretation": true,
+        "long_scenario": true,
+        "cognitive_intent": "evaluate",
+        "scenario_length": "long",
+        "professional_judgment": true
     }
+
 ]
