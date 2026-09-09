@@ -52148,8 +52148,8 @@
             "board_id": "cpa",
             "subject_id": "cpa-regulatory-framework",
             "domain_id": "cpa-regulatory-framework",
-            "topic_id": "cpa-regulatory-framework-commercial-law",
-            "concept_id": "cpa-regulatory-framework-commercial-law-core"
+            "topic_id": "cpa-regulatory-framework-agency",
+            "concept_id": "cpa-regulatory-framework-agency-core"
         },
         "board": "cpa",
         "status": "active",
@@ -52168,7 +52168,8 @@
         "explanation": "Acceptance of the benefit can indicate ratification, subject to governing facts and law.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
-            "prc-accountancy-board-page"
+            "prc-accountancy-board-page",
+            "philippines-civil-code-agency"
         ],
         "numeric": false,
         "multistep": true,
@@ -52186,8 +52187,8 @@
             "board_id": "cpa",
             "subject_id": "cpa-regulatory-framework",
             "domain_id": "cpa-regulatory-framework",
-            "topic_id": "cpa-regulatory-framework-agency",
-            "concept_id": "cpa-regulatory-framework-agency-core"
+            "topic_id": "cpa-regulatory-framework-validity",
+            "concept_id": "cpa-regulatory-framework-validity-core"
         },
         "board": "cpa",
         "status": "active",
@@ -52537,8 +52538,8 @@
             "board_id": "cpa",
             "subject_id": "cpa-regulatory-framework",
             "domain_id": "cpa-regulatory-framework",
-            "topic_id": "cpa-regulatory-framework-records",
-            "concept_id": "cpa-regulatory-framework-records-core"
+            "topic_id": "cpa-regulatory-framework-agency",
+            "concept_id": "cpa-regulatory-framework-agency-core"
         },
         "board": "cpa",
         "status": "active",
@@ -52557,7 +52558,8 @@
         "explanation": "Supplier knowledge of the express limit supports contesting the unauthorized excess.",
         "subject": "Cpa Regulatory Framework",
         "source_ids": [
-            "prc-accountancy-board-page"
+            "prc-accountancy-board-page",
+            "philippines-civil-code-agency"
         ],
         "cognitive_intent": "apply",
         "numeric": false,

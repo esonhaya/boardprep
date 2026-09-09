@@ -5293,14 +5293,6 @@
         ]
     },
     {
-        "id": "study-link-cpa491-678",
-        "material_id": "cpa-material-12",
-        "question_id": "1342",
-        "source_ids": [
-            "prc-accountancy-board-page"
-        ]
-    },
-    {
         "id": "study-link-cpa491-679",
         "material_id": "cpa-material-12",
         "question_id": "1344",
@@ -5349,14 +5341,6 @@
         ]
     },
     {
-        "id": "study-link-cpa491-685",
-        "material_id": "cpa-material-13",
-        "question_id": "1350",
-        "source_ids": [
-            "prc-accountancy-board-page"
-        ]
-    },
-    {
         "id": "study-link-cpa491-686",
         "material_id": "cpa-material-14",
         "question_id": "1346",
@@ -5368,14 +5352,6 @@
         "id": "study-link-cpa491-687",
         "material_id": "cpa-material-14",
         "question_id": "1348",
-        "source_ids": [
-            "prc-accountancy-board-page"
-        ]
-    },
-    {
-        "id": "study-link-cpa491-688",
-        "material_id": "cpa-material-14",
-        "question_id": "1350",
         "source_ids": [
             "prc-accountancy-board-page"
         ]
@@ -9445,10 +9421,11 @@
         ]
     },
     {
-        "id": "link-cpa-1341-depth",
-        "material_id": "cpa-material-14",
+        "id": "link-cpa-1341-agency-foundation",
+        "material_id": "cpa-regulatory-agency-foundation",
         "question_id": "1341",
         "source_ids": [
+            "philippines-civil-code-agency",
             "prc-accountancy-board-page"
         ]
     },
@@ -15547,5 +15524,6 @@
     {"id":"study-link-cpa-ms-1877","material_id":"cpa-management-variance-foundation","question_id":"1877","source_ids":["openstax-principles-managerial-accounting","prc-accountancy-board-page"]},
     {"id":"study-link-cpa-ms-1878","material_id":"cpa-management-relevant-decisions-foundation","question_id":"1878","source_ids":["openstax-principles-managerial-accounting","prc-accountancy-board-page"]},
     {"id":"study-link-cpa-ms-1879","material_id":"cpa-management-budgeting-foundation","question_id":"1879","source_ids":["openstax-principles-managerial-accounting","prc-accountancy-board-page"]},
-    {"id":"study-link-cpa-ms-1880","material_id":"cpa-management-investment-foundation","question_id":"1880","source_ids":["openstax-principles-managerial-accounting","prc-accountancy-board-page"]}
+    {"id":"study-link-cpa-ms-1880","material_id":"cpa-management-investment-foundation","question_id":"1880","source_ids":["openstax-principles-managerial-accounting","prc-accountancy-board-page"]},
+    {"id":"link-cpa-1350-agency-foundation","material_id":"cpa-regulatory-agency-foundation","question_id":"1350","source_ids":["philippines-civil-code-agency","prc-accountancy-board-page"]}
 ]

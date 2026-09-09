@@ -5384,5 +5384,46 @@
         "status": "published",
         "version": 1,
         "updated_at": "2026-09-07"
+    },
+    {
+        "id": "cpa-regulatory-agency-foundation",
+        "title": "Agency: Authority, Ratification, and Principal-Agent Effects",
+        "summary": "Concept-fit Philippine agency-law foundation for evaluating representation, express and implied authority, ratification, and the effect of known authority limits on the principal.",
+        "notes": [
+            {
+                "heading": "Agency and authority",
+                "body": "Analyze whether a person acts in representation with the principal's consent or authority. Distinguish express authority, implied authority from conduct, and a third party's knowledge of an express limit before concluding whether the principal is bound."
+            },
+            {
+                "heading": "Ratification",
+                "body": "When an unauthorized act is presented, assess the principal's subsequent conduct and acceptance of the benefit under the governing agency provisions. Acceptance may support ratification, but the conclusion remains tied to the supplied facts and applicable law."
+            },
+            {
+                "heading": "Source boundary",
+                "body": "These notes are a concise study aid based on the cited Philippine Civil Code provisions; consult the primary text for the complete rule and exceptions."
+            }
+        ],
+        "source_ids": [
+            "philippines-civil-code-agency",
+            "prc-accountancy-board-page"
+        ],
+        "supported_topic_ids": [
+            "cpa-regulatory-framework-agency"
+        ],
+        "supported_concept_ids": [
+            "cpa-regulatory-framework-agency-core"
+        ],
+        "technical_support_state": "ADEQUATE",
+        "exams": [
+            "cpa"
+        ],
+        "taxonomy": {
+            "subject_id": "cpa-regulatory-framework",
+            "topic_id": "cpa-regulatory-framework-agency",
+            "concept_id": "cpa-regulatory-framework-agency-core"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-10"
     }
 ]
