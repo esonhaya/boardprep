@@ -3479,18 +3479,31 @@
                 "heading": "Study focus",
                 "body": "Apply the governing accounting, auditing, legal, or tax principle to concise practice problems."
             },
-            {
-                "heading": "Provision measurement",
-                "body": "A provision is measured at the best estimate of the expenditure required to settle the present obligation. For a single obligation, the most likely outcome may be the best estimate, while the other possible outcomes still inform the overall measurement."
-            },
-            {
-                "heading": "Practice",
-                "body": "Use the linked CPA question set to test interpretation and computation."
+        {
+            "heading": "Provision measurement",
+            "body": "A provision is measured at the best estimate of the expenditure required to settle the present obligation. For a single obligation, the most likely outcome may be the best estimate, while the other possible outcomes still inform the overall measurement."
+        },
+        {
+            "heading": "Financial reporting applications",
+            "body": "Apply accrual accounting at the reporting date: recognize earned income and incurred expenses in the period, reverse only when the entity's policy and records support it, and explain the resulting effect on assets, liabilities, equity, and profit. Distinguish a change in estimate, which is applied prospectively, from a material prior-period error, which is corrected with the comparative information required by the reporting framework."
+        },
+        {
+            "heading": "Presentation and interpretation",
+            "body": "Read financial statement relationships rather than isolated ratios. Analyze liquidity, classification, cash-flow reconciliation, equity transactions, and the effect of adjustments using the underlying recognition and measurement evidence."
+        },
+        {
+            "heading": "Practice",
+            "body": "Use the linked CPA question set to test interpretation and computation."
             }
         ],
-        "source_ids": [
-            "prc-accountancy-board-page",
-            "ifrs-ias-37-provisions"
+    "source_ids": [
+        "prc-accountancy-board-page",
+        "ifrs-ias-37-provisions",
+        "ifrs-ias-8-accounting-policies-estimates-errors",
+        "ifrs-ias-7-cash-flow-statements",
+        "ifrs-ias-1-presentation",
+        "ifrs-ias-32-financial-instruments-presentation",
+        "ifrs-conceptual-framework"
         ],
         "exams": [
             "cpa"
@@ -3507,17 +3520,31 @@
         "title": "Assets and liabilities",
         "summary": "Structured CPA preparation unit aligned with the current PRC LECPA scope.",
         "notes": [
-            {
-                "heading": "Study focus",
-                "body": "Apply the governing accounting, auditing, legal, or tax principle to concise practice problems."
-            },
-            {
-                "heading": "Practice",
-                "body": "Use the linked CPA question set to test interpretation and computation."
+        {
+            "heading": "Study focus",
+            "body": "Apply the governing accounting, auditing, legal, or tax principle to concise practice problems."
+        },
+        {
+            "heading": "Recognition and measurement",
+            "body": "For financial assets, inventory, property, plant and equipment, impairment, allowances, and intangible assets, identify the recognized amount from the supplied evidence and separate capitalized costs, expense, loss, and subsequent measurement. Use the applicable standard's measurement basis rather than a shortcut based only on the account label."
+        },
+        {
+            "heading": "Assets and liabilities in context",
+            "body": "Trace cutoff, classification, contract timing, and subsequent information through the statements. A table or aging schedule is evidence for the accounting analysis only when its rows are used to calculate or evaluate the required adjustment."
+        },
+        {
+            "heading": "Practice",
+            "body": "Use the linked CPA question set to test interpretation and computation."
             }
         ],
-        "source_ids": [
-            "prc-accountancy-board-page"
+    "source_ids": [
+        "prc-accountancy-board-page",
+        "ifrs-ifrs-9-financial-instruments",
+        "ifrs-ias-2-inventories",
+        "ifrs-ias-16-property-plant-equipment",
+        "ifrs-ias-1-presentation",
+        "ifrs-ias-36-impairment",
+        "ifrs-ias-38-intangible-assets"
         ],
         "exams": [
             "cpa"
@@ -3534,17 +3561,27 @@
         "title": "Revenue and leases",
         "summary": "Structured CPA preparation unit aligned with the current PRC LECPA scope.",
         "notes": [
-            {
-                "heading": "Study focus",
-                "body": "Apply the governing accounting, auditing, legal, or tax principle to concise practice problems."
-            },
-            {
-                "heading": "Practice",
-                "body": "Use the linked CPA question set to test interpretation and computation."
+        {
+            "heading": "Study focus",
+            "body": "Apply the governing accounting, auditing, legal, or tax principle to concise practice problems."
+        },
+        {
+            "heading": "Revenue and lease applications",
+            "body": "Identify distinct performance obligations and recognize revenue when the relevant obligation is satisfied. For a lessee, build the initial right-of-use asset from the measured lease liability and the directly attributable adjustments supported by the facts, then analyze subsequent expense and carrying amount."
+        },
+        {
+            "heading": "Transaction timing",
+            "body": "Use the contract, delivery, payment, and service dates to determine the reporting-period effect. Do not recognize a cash receipt, invoice, or payment as income or expense without identifying the underlying performance or consumption."
+        },
+        {
+            "heading": "Practice",
+            "body": "Use the linked CPA question set to test interpretation and computation."
             }
         ],
-        "source_ids": [
-            "prc-accountancy-board-page"
+    "source_ids": [
+        "prc-accountancy-board-page",
+        "ifrs-ifrs-15-revenue",
+        "ifrs-ifrs-16-leases"
         ],
         "exams": [
             "cpa"

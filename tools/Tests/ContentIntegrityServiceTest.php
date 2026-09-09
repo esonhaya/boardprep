@@ -34,9 +34,9 @@ $assert = static function (bool $condition, string $message): void {
 };
 
 $clean = ContentIntegrityService::analyze($collections);
-$assert($clean['portfolio']['total_canonical'] === 1848, 'clean canonical count changed');
-$assert($clean['portfolio']['total_eligible'] === 1848, 'clean eligibility total changed');
-$assert($clean['portfolio']['total_derivable_cards'] === 1830, 'clean flashcard derivation changed');
+$assert($clean['portfolio']['total_canonical'] === 1868, 'clean canonical count changed');
+$assert($clean['portfolio']['total_eligible'] === 1868, 'clean eligibility total changed');
+$assert($clean['portfolio']['total_derivable_cards'] === 1850, 'clean flashcard derivation changed');
 $assert($clean['portfolio']['total_justified_exclusions'] === 18, 'justified exclusions were not preserved');
 $assert($clean['portfolio']['total_accidental_non_derivable'] === 0, 'clean portfolio has accidental exclusions');
 $assert($clean['portfolio']['status'] !== 'FAIL', 'clean portfolio failed integrity');
@@ -109,7 +109,7 @@ unset($missingEligibility, $invalidEligibility, $unlinked, $invalidLink, $duplic
 gc_collect_cycles();
 
 $doctor = (new ContentIntegrityCheck())->run();
-$assert($doctor->status === 'PASS' && str_contains(implode("\n", $doctor->details), '1848'), 'Doctor did not consume the clean integrity report');
+$assert($doctor->status === 'PASS' && str_contains(implode("\n", $doctor->details), '1868'), 'Doctor did not consume the clean integrity report');
 echo "[PASS] Doctor consumer verified\n";
 
 $dashboard = (new HttpSimulator(dirname(__DIR__, 2) . '/public/index.php'))->request('GET', '/developer');

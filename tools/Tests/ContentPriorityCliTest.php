@@ -14,7 +14,7 @@ if (!is_string($output) || trim($output) === '') {
     throw new RuntimeException('content-priorities JSON CLI returned no output');
 }
 $report = json_decode($output, true, 512, JSON_THROW_ON_ERROR);
-if (($report['portfolio']['question_count'] ?? 0) !== 1848
+if (($report['portfolio']['question_count'] ?? 0) !== 1868
     || count($report['boards'] ?? []) !== 10
     || ($report['portfolio']['integrity_status'] ?? '') !== 'PASS_WITH_JUSTIFIED_EXCLUSIONS'
     || count($report['priorities'] ?? []) > 10) {
