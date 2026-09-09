@@ -580,8 +580,15 @@ final class ContentPriorityService
                     }
                     $weightedSections++;
                     $actual = 0;
-                    if (self::scalar($section['domain_id'] ?? null) !== '') {
-                        $actual = (int) ($domainCounts[$boardId][self::scalar($section['domain_id'])] ?? 0);
+                    $sectionDomain = self::scalar($section['domain_id'] ?? null);
+                    if ($sectionDomain === '') {
+                        $sectionId = self::scalar($section['id'] ?? null);
+                        if ($sectionId !== '' && isset($domainCounts[$boardId][$sectionId])) {
+                            $sectionDomain = $sectionId;
+                        }
+                    }
+                    if ($sectionDomain !== '') {
+                        $actual = (int) ($domainCounts[$boardId][$sectionDomain] ?? 0);
                     } else {
                         $ids = is_array($section['subjects'] ?? null) ? $section['subjects'] : [$section['id'] ?? ''];
                         foreach ($subjects as $subject) {

@@ -103,6 +103,23 @@ $blueprintPriority = array_values(array_filter(
 $assert(is_array($blueprintPriority), 'domain-based blueprint priority was not produced');
 $assert(($blueprintPriority['priority'] ?? null) === 40.0, 'domain-based blueprint gap was calculated from the wrong taxonomy level');
 $assert(in_array('BLUEPRINT_SCARCITY', $blueprintPriority['reason_codes'] ?? [], true), 'blueprint priority did not identify its reason');
+
+$sectionIdCollections = $collections;
+$sectionIdCollections['blueprints'] = [[
+    'id' => 'blueprint-section-ids',
+    'board_id' => 'alpha',
+    'sections' => [
+        ['id' => 'domain-a', 'target_percent' => 80],
+        ['id' => 'domain-b', 'target_percent' => 20],
+    ],
+]];
+$sectionIdReport = ContentPriorityService::analyze($sectionIdCollections, $integrity, $derive);
+$sectionIdPriority = array_values(array_filter(
+    $sectionIdReport['priorities'],
+    static fn(array $priority): bool => ($priority['target'] ?? '') === 'alpha' && ($priority['level'] ?? '') === 'board'
+))[0] ?? null;
+$assert(is_array($sectionIdPriority), 'domain section ID blueprint priority was not produced');
+$assert(($sectionIdPriority['priority'] ?? null) === 40.0, 'domain section IDs were not matched to their board domain counts');
 $assert(count($report['boards']) === 1 && $report['boards']['alpha']['question_count'] === 6, 'board summary was not aggregated');
 $assert($report['runtime']['n_plus_one_found'] === false, 'fixture reported an unexpected N+1 scan');
 
