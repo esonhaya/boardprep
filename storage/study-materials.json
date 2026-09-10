@@ -5386,6 +5386,80 @@
         "updated_at": "2026-09-07"
     },
     {
+        "id": "cpa-regulatory-civil-code-foundation",
+        "title": "Philippine Civil Code: Obligations, Contracts, Sales, and Remedies",
+        "summary": "Concept-fit legal foundation for contract formation, obligations, sales, validity, remedies, and partnership relationships under the Philippine Civil Code.",
+        "notes": [
+            {"heading":"Application boundary","body":"Analyze the supplied consent, authority, performance, breach, and remedy facts before drawing a legal conclusion. Do not treat a general label or a business practice as proof of a statutory result."},
+            {"heading":"Contracts and obligations","body":"Use the parties' assent, definite subject, consideration, contractual terms, and timing to evaluate formation and performance. Separate a contractual obligation from a remedy that may follow a proven breach."},
+            {"heading":"Sales and remedies","body":"Use the supplied delivery, conformity, notice, and defect facts to identify the next legally supported response. A remedy depends on the contract and applicable law; avoid unsupported absolute outcomes."},
+            {"heading":"Source boundary","body":"These notes are a concise study aid based on Republic Act No. 386. Consult the primary text and applicable jurisprudence for the complete rule and exceptions."}
+        ],
+        "source_ids": ["philippines-civil-code-business-law","prc-accountancy-board-page"],
+        "supported_topic_ids": ["cpa-regulatory-framework-contracts","cpa-regulatory-framework-obligations","cpa-regulatory-framework-interpretation","cpa-regulatory-framework-sales","cpa-regulatory-framework-partnership-law","cpa-regulatory-framework-partnerships","cpa-regulatory-framework-validity","cpa-regulatory-framework-remedies","cpa-regulatory-framework-sales-remedies"],
+        "supported_concept_ids": ["cpa-regulatory-framework-contracts-core","cpa-regulatory-framework-obligations-core","cpa-regulatory-framework-interpretation-core","cpa-regulatory-framework-sales-core","cpa-regulatory-framework-partnership-law-core","cpa-regulatory-framework-partnerships-core","cpa-regulatory-framework-validity-core","cpa-regulatory-framework-remedies-core","cpa-regulatory-framework-sales-remedies-core"],
+        "technical_support_state": "ADEQUATE",
+        "exams": ["cpa"],
+        "taxonomy": {"subject_id":"cpa-regulatory-framework"},
+        "status":"published","version":1,"updated_at":"2026-09-10"
+    },
+    {
+        "id": "cpa-regulatory-corporate-foundation",
+        "title": "Philippine Corporate Authority and Governance",
+        "summary": "Technical study foundation for corporate powers, board authority, share transactions, formalities, and governance decisions.",
+        "notes": [
+            {"heading":"Authority and governance","body":"Distinguish the corporation's separate legal authority from the internal approval and documentation required by its governing documents and applicable law. Verify authority and ratification rather than assuming a management signature is sufficient."},
+            {"heading":"Corporate transactions","body":"Analyze the stated board action, shareholder or officer role, transaction purpose, and conflict facts. Do not infer a current statutory threshold or approval rule unless the source and facts supply it."},
+            {"heading":"Source boundary","body":"These notes summarize selected applications of Republic Act No. 11232 and are not a substitute for the statute, implementing rules, or official guidance."}
+        ],
+        "source_ids": ["philippines-revised-corporation-code","prc-accountancy-board-page"],
+        "supported_topic_ids": ["cpa-regulatory-framework-corporate-law","cpa-regulatory-framework-governance","cpa-regulatory-framework-formalities"],
+        "supported_concept_ids": ["cpa-regulatory-framework-corporate-law-core","cpa-regulatory-framework-governance-core","cpa-regulatory-framework-formalities-core"],
+        "technical_support_state":"ADEQUATE","exams":["cpa"],"taxonomy":{"subject_id":"cpa-regulatory-framework"},"status":"published","version":1,"updated_at":"2026-09-10"
+    },
+    {
+        "id": "cpa-regulatory-commercial-instruments-foundation",
+        "title": "Negotiable Instruments and Commercial Security",
+        "summary": "Concept-fit support for negotiable-instrument status, presentment, notice, defenses, and priority analysis.",
+        "notes": [
+            {"heading":"Instrument analysis","body":"Start with the instrument's form, transfer, value, good faith, notice, and presentment facts. Separate holder status from the ultimate enforceability or priority conclusion."},
+            {"heading":"Evidence and defenses","body":"A favorable holder-status fact does not erase every defense or procedural requirement. Identify the supplied issue and apply the relevant statutory condition without adding unstated facts."},
+            {"heading":"Source boundary","body":"These notes summarize selected applications of Act No. 2031. Consult the primary Negotiable Instruments Law for complete requirements and exceptions."}
+        ],
+        "source_ids":["philippines-negotiable-instruments-law","philippines-civil-code-business-law"],
+        "supported_topic_ids":["cpa-regulatory-framework-commercial-law","cpa-regulatory-framework-security","cpa-regulatory-framework-validity"],
+        "supported_concept_ids":["cpa-regulatory-framework-commercial-law-core","cpa-regulatory-framework-security-core","cpa-regulatory-framework-validity-core"],
+        "technical_support_state":"ADEQUATE","exams":["cpa"],"taxonomy":{"subject_id":"cpa-regulatory-framework"},"status":"published","version":1,"updated_at":"2026-09-10"
+    },
+    {
+        "id": "cpa-regulatory-professional-foundation",
+        "title": "Philippine Accountancy Practice, Records, and Confidentiality",
+        "summary": "Professional and statutory foundation for accountancy practice, working papers, records, confidentiality, disclosure, and professional responsibility.",
+        "notes": [
+            {"heading":"Professional scope","body":"Apply the Accountancy Act and professional standards to the supplied role, document, and duty facts. Do not treat every business record as a privileged document or every request as an automatic disclosure exception."},
+            {"heading":"Records and confidentiality","body":"Distinguish ownership and retention of working papers, client authorization, lawful compulsory production, and other professional duties. The correct response should preserve evidence and state the applicable limitation accurately."},
+            {"heading":"Source boundary","body":"These notes are based on Republic Act No. 9298 and the Philippine professional ethics adoption material. Consult the primary law and current professional requirements for complete treatment."}
+        ],
+        "source_ids":["philippines-accountancy-act","philippine-cpa-code-of-ethics","prc-accountancy-board-page"],
+        "supported_topic_ids":["cpa-regulatory-framework-professional-law","cpa-regulatory-framework-records","cpa-regulatory-framework-confidentiality","cpa-regulatory-framework-disclosure"],
+        "supported_concept_ids":["cpa-regulatory-framework-professional-law-core","cpa-regulatory-framework-records-core","cpa-regulatory-framework-confidentiality-core","cpa-regulatory-framework-disclosure-core"],
+        "technical_support_state":"STRONG","exams":["cpa"],"taxonomy":{"subject_id":"cpa-regulatory-framework"},"status":"published","version":1,"updated_at":"2026-09-10"
+    },
+    {
+        "id": "cpa-regulatory-ethics-governance-foundation",
+        "title": "Professional Ethics, Conflicts, and Disclosure",
+        "summary": "Application-focused support for integrity, objectivity, conflicts of interest, authorized disclosure, and independent decision-making.",
+        "notes": [
+            {"heading":"Conflict analysis","body":"Identify the threat to integrity or objectivity, disclose the relevant relationship, and evaluate safeguards or independent review. A conflict signal requires analysis; it does not by itself prove misconduct."},
+            {"heading":"Disclosure decisions","body":"Separate authorized disclosure, disclosure required by law or professional duty, and inappropriate disclosure. State the facts needed for a conclusion rather than inventing an exception."},
+            {"heading":"Source boundary","body":"These notes are based on the Philippine Code of Ethics adoption material and Republic Act No. 9298. They are a study aid, not a replacement for the current professional code."}
+        ],
+        "source_ids":["philippine-cpa-code-of-ethics","philippines-accountancy-act","prc-accountancy-board-page"],
+        "supported_topic_ids":["cpa-regulatory-framework-conflict","cpa-regulatory-framework-disclosure","cpa-regulatory-framework-interpretation","cpa-regulatory-framework-governance"],
+        "supported_concept_ids":["cpa-regulatory-framework-conflict-core","cpa-regulatory-framework-disclosure-core","cpa-regulatory-framework-interpretation-core","cpa-regulatory-framework-governance-core"],
+        "technical_support_state":"STRONG","exams":["cpa"],"taxonomy":{"subject_id":"cpa-regulatory-framework"},"status":"published","version":1,"updated_at":"2026-09-10"
+    },
+    {
         "id": "cpa-regulatory-agency-foundation",
         "title": "Agency: Authority, Ratification, and Principal-Agent Effects",
         "summary": "Concept-fit Philippine agency-law foundation for evaluating representation, express and implied authority, ratification, and the effect of known authority limits on the principal.",
