@@ -68,7 +68,16 @@ if (($readiness['status'] ?? '') !== 'STUDY_READY' || ($readiness['taxonomy_comp
     throw new RuntimeException('LET readiness did not reflect validated content');
 }
 $cse = BoardViewService::find('civil-service')['content_readiness'] ?? [];
-if (($cse['eligible_questions'] ?? 0) !== 489) {
+$cseEligibleIds = [];
+foreach (App::storage()->all('question-eligibility') as $entry) {
+    $exams = array_map('strtolower', array_map('strval', $entry['exam_ids'] ?? []));
+    if (in_array('civil-service', $exams, true) || in_array('cse', $exams, true)) {
+        foreach ($entry['question_ids'] ?? [] as $questionId) {
+            $cseEligibleIds[(string) $questionId] = true;
+        }
+    }
+}
+if (($cse['eligible_questions'] ?? 0) !== count($cseEligibleIds)) {
     throw new RuntimeException('shared CSE eligibility is not reflected in board readiness');
 }
 $coverage = QuestionCoverageService::analyzeRepository();

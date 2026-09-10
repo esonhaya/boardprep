@@ -34,11 +34,15 @@ if ($questions === [] || count(array_unique($ids)) !== count($questions)) {
 }
  $constitutionLinks = StudyLibraryService::questionsFor('constitution-review-foundation');
  $constitutionIds = array_map(static fn(array $link): string => (string) ($link['question_id'] ?? ''), $constitutionLinks);
+ $raLinks = StudyLibraryService::questionsFor('ra-6713-review-foundation');
+ $raIds = array_map(static fn(array $link): string => (string) ($link['question_id'] ?? ''), $raLinks);
  $questionIds = array_fill_keys($ids, true);
  if (count($constitutionIds) < 43
      || count($constitutionIds) !== count(array_unique($constitutionIds))
      || array_diff($constitutionIds, array_keys($questionIds)) !== []
-     || count(StudyLibraryService::questionsFor('ra-6713-review-foundation')) !== 30) {
+     || $raIds === []
+     || count($raIds) !== count(array_unique($raIds))
+     || array_diff($raIds, array_keys($questionIds)) !== []) {
     throw new RuntimeException('source-backed question links are incomplete');
 }
 if (count(ExamIntelligenceService::all('civil-service')) !== 2
