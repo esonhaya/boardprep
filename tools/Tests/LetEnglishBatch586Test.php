@@ -30,7 +30,7 @@ foreach ($new as $question) {
 $assert($positions === [12, 12, 12, 12], 'New answer positions are not balanced');
 $assert(count(array_unique($passages)) === 12, 'New wave did not use distinct original passages');
 $report = ContentPriorityService::analyzeRepository();
-$assert(($report['portfolio']['question_count'] ?? 0) === 2017, 'Portfolio count did not update');
+$assert(($report['portfolio']['question_count'] ?? 0) === 2083, 'Portfolio count did not update after the grammar wave');
 $english = array_filter($report['content_depth']['topics'] ?? [], static fn(array $row): bool => ($row['board_id'] ?? '') === 'let' && ($row['subject_id'] ?? '') === 'english');
 $target = array_values(array_filter($english, static fn(array $row): bool => ($row['topic_id'] ?? '') === 'english-inference'));
 $assert(count($target) === 1 && ($target[0]['question_count'] ?? 0) === 5, 'English inference depth did not update');
