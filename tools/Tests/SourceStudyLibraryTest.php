@@ -24,7 +24,7 @@ if ($constitution === null || $ra === null || ($constitution['sources'][0]['sour
 }
 $cse = StudyLibraryService::all('civil-service');
 $let = StudyLibraryService::all('let');
-if (count($cse) !== 8 || count($let) !== 25 || !isset($constitution['exam_focus']['civil-service'])) {
+if (count($cse) !== 8 || count($let) !== 26 || !isset($constitution['exam_focus']['civil-service'])) {
     throw new RuntimeException('exam-specific study focus mapping is incomplete');
 }
 $questions = \App\Core\App::storage()->all('questions');
