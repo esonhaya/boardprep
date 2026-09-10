@@ -856,5 +856,70 @@
         "status": "official_reference",
         "confidence": "authoritative_reference",
         "notes": "Primary Philippine legal text for agency formation, authority, ratification, and related principal-agent rules; BoardPrep notes paraphrase the applicable provisions."
+    },
+    {
+        "id": "philippines-national-internal-revenue-code",
+        "title": "National Internal Revenue Code of 1997, as amended",
+        "source_type": "PRIMARY_LAW",
+        "authority": "Bureau of Internal Revenue; official Tax Code publication",
+        "url": "https://www.bir.gov.ph/tax-code",
+        "publication_date": "1997-01-01",
+        "retrieved_at": "2026-09-10",
+        "version": "NIRC 1997 as amended by current cited legislation",
+        "status": "official_reference",
+        "confidence": "authoritative_reference",
+        "notes": "Primary tax-law reference. Rate, threshold, and effective-date claims require checking the current amendments and implementing issuances before authoring."
+    },
+    {
+        "id": "philippines-ease-of-paying-taxes-act",
+        "title": "Ease of Paying Taxes Act implementation reference",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "Bureau of Internal Revenue; Revenue Regulations No. 7-2024",
+        "url": "https://bir-cdn.bir.gov.ph/BIR/pdf/RR%207-2024%20%28final%29.pdf",
+        "publication_date": "2024-04-11",
+        "retrieved_at": "2026-09-10",
+        "version": "RR No. 7-2024 implementing RA No. 11976",
+        "status": "official_reference",
+        "confidence": "authoritative_reference",
+        "notes": "Official implementation guidance for registration, invoicing, records, and related compliance concepts."
+    },
+    {
+        "id": "bir-tax-issuances-reference",
+        "title": "Bureau of Internal Revenue Tax Code and Issuances Reference",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "Bureau of Internal Revenue",
+        "url": "https://www.bir.gov.ph/bir-archive",
+        "publication_date": null,
+        "retrieved_at": "2026-09-10",
+        "version": "Current official tax issuances index",
+        "status": "official_reference",
+        "confidence": "authoritative_reference",
+        "notes": "Use the current BIR issuance for effective dates, procedural details, and amendments; this index is not itself a substitute for a specific issuance."
+    },
+    {
+        "id": "bir-taxpayer-filing-forms-reference",
+        "title": "BIR Taxpayer Filing and Remittance Form Instructions",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "Bureau of Internal Revenue eFPS",
+        "url": "https://efps.bir.gov.ph/eFPSIssuancesAndRulingsPage.html",
+        "publication_date": null,
+        "retrieved_at": "2026-09-10",
+        "version": "Official form and filing instructions index",
+        "status": "official_reference",
+        "confidence": "authoritative_reference",
+        "notes": "Procedural reference for filing, remittance, withholding, and form-selection scenarios; applicable current issuances control."
+    },
+    {
+        "id": "bir-digital-services-vat-guidance",
+        "title": "VAT on Digital Services Implementation Guidance",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "Bureau of Internal Revenue; Revenue Regulations No. 3-2025",
+        "url": "https://bir-cdn.bir.gov.ph/BIR/pdf/RR%20No.%203-2025.pdf",
+        "publication_date": "2025-01-16",
+        "retrieved_at": "2026-09-10",
+        "version": "RR No. 3-2025 implementing RA No. 12023",
+        "status": "official_reference",
+        "confidence": "authoritative_reference",
+        "notes": "Specific current guidance for digital-service VAT scope and implementation; do not generalize it to physical-goods imports."
     }
 ]

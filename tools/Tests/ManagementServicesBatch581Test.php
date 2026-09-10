@@ -66,7 +66,7 @@ foreach ($expectedTopics as $id => $topic) {
 }
 
 $report = ContentPriorityService::analyzeRepository();
-$assert(($report['portfolio']['question_count'] ?? 0) === 1921, 'portfolio count did not include the Regulatory Framework depth wave');
+$assert(($report['portfolio']['question_count'] ?? 0) === 1969, 'portfolio count did not include the Taxation depth wave');
 $assert(($report['integrity']['portfolio']['total_invalid_links'] ?? 1) === 0, 'new wave introduced invalid links');
 $assert(($report['integrity']['portfolio']['total_invalid_taxonomy_refs'] ?? 1) === 0, 'new wave introduced invalid taxonomy references');
 $assert(($report['integrity']['portfolio']['total_invalid_answer_keys'] ?? 1) === 0, 'new wave introduced invalid answer keys');

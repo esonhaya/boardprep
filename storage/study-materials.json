@@ -5499,5 +5499,75 @@
         "status": "published",
         "version": 1,
         "updated_at": "2026-09-10"
+    },
+    {
+        "id": "cpa-tax-income-foundation",
+        "title": "Philippine Taxable Income, Bases, Deductions, and Exclusions",
+        "summary": "Concept-fit support for tracing receipts and adjustments to the supplied taxable base while separating substantiation, deductions, exclusions, and period assumptions.",
+        "notes": [
+            {"heading":"Build the tax base","body":"Start with the taxpayer and period, identify included receipts, then apply only the deductions or exclusions supported by the facts and governing rule. A supplied exercise rate is not evidence of a current statutory rate."},
+            {"heading":"Substantiation and reconciliation","body":"Reconcile accounting records to the tax schedule and verify documentary support before accepting an adjustment. Keep recognition, classification, and computation as separate decisions."},
+            {"heading":"Source boundary","body":"Use the current National Internal Revenue Code and applicable BIR issuances for live-law rates, thresholds, effective dates, and exceptions."}
+        ],
+        "source_ids":["philippines-national-internal-revenue-code","bir-tax-issuances-reference"],
+        "supported_topic_ids":["cpa-taxation-tax-basics","cpa-taxation-substantiation","cpa-taxation-tax-base","cpa-taxation-deductions","cpa-taxation-exemptions","cpa-taxation-current-law","cpa-taxation-reconciliation"],
+        "supported_concept_ids":["cpa-taxation-tax-basics-core","cpa-taxation-substantiation-core","cpa-taxation-tax-base-core","cpa-taxation-deductions-core","cpa-taxation-exemptions-core","cpa-taxation-current-law-core","cpa-taxation-reconciliation-core"],
+        "technical_support_state":"ADEQUATE","exams":["cpa"],"taxonomy":{"subject_id":"cpa-taxation"},"status":"published","version":1,"updated_at":"2026-09-10"
+    },
+    {
+        "id": "cpa-tax-business-taxes-foundation",
+        "title": "Philippine Business Taxes, VAT, and Withholding Analysis",
+        "summary": "Concept-fit support for separating VAT output/input analysis, withholding roles, business-tax classification, and supplied transaction data.",
+        "notes": [
+            {"heading":"Classify before computing","body":"Identify the transaction, taxpayer role, tax base, and whether an amount is output tax, input credit, withholding, or a separate business tax before calculating."},
+            {"heading":"Withholding and VAT","body":"A withholding agent's remittance obligation and the payee's tax position are related but not interchangeable. Follow the applicable current Code section and BIR issuance."},
+            {"heading":"Source boundary","body":"Current rates and digital-service rules require the current Tax Code amendments and BIR implementation guidance."}
+        ],
+        "source_ids":["philippines-national-internal-revenue-code","bir-taxpayer-filing-forms-reference","bir-digital-services-vat-guidance"],
+        "supported_topic_ids":["cpa-taxation-tax-base","cpa-taxation-withholding","cpa-taxation-vat","cpa-taxation-payroll-tax"],
+        "supported_concept_ids":["cpa-taxation-tax-base-core","cpa-taxation-withholding-core","cpa-taxation-vat-core","cpa-taxation-payroll-tax-core"],
+        "technical_support_state":"ADEQUATE","exams":["cpa"],"taxonomy":{"subject_id":"cpa-taxation"},"status":"published","version":1,"updated_at":"2026-09-10"
+    },
+    {
+        "id": "cpa-tax-transfer-taxes-foundation",
+        "title": "Philippine Transfer Taxes and Exemption Analysis",
+        "summary": "Concept-fit support for estate and donor transfer-tax bases, exclusions, documentary evidence, and fact-specific exemption analysis.",
+        "notes": [
+            {"heading":"Construct the transfer base","body":"Separate the gross transfer or estate value from deductions and legally supported exclusions. Do not assume that a label such as gift or inheritance resolves the tax treatment without checking the transaction facts."},
+            {"heading":"Evidence matters","body":"Use the stated ownership, date, relationship, valuation, and documentary facts; unsupported exemptions should be investigated rather than applied automatically."},
+            {"heading":"Source boundary","body":"Transfer-tax rates, thresholds, and exemptions are time-sensitive and must be checked against the current Code and BIR issuances."}
+        ],
+        "source_ids":["philippines-national-internal-revenue-code","bir-tax-issuances-reference"],
+        "supported_topic_ids":["cpa-taxation-transfer-tax","cpa-taxation-exemptions"],
+        "supported_concept_ids":["cpa-taxation-transfer-tax-core","cpa-taxation-exemptions-core"],
+        "technical_support_state":"ADEQUATE","exams":["cpa"],"taxonomy":{"subject_id":"cpa-taxation"},"status":"published","version":1,"updated_at":"2026-09-10"
+    },
+    {
+        "id": "cpa-tax-administration-remedies-foundation",
+        "title": "Philippine Tax Filing, Records, Administration, and Remedies",
+        "summary": "Concept-fit support for registration, filing, records, assessments, taxpayer responses, substantiation, and administrative remedies.",
+        "notes": [
+            {"heading":"Procedural sequence","body":"First identify the notice, taxpayer action, controlling period, and procedural record. Then determine the available response under the current Code and implementing issuance; do not infer a deadline from an unstated fact."},
+            {"heading":"Records and substantiation","body":"A return, invoice, ledger, and supporting document answer different evidentiary questions. Preserve the record and reconcile inconsistencies before recommending a filing or protest response."},
+            {"heading":"Source boundary","body":"Use the National Internal Revenue Code, current BIR issuances, and official filing instructions for live procedural requirements."}
+        ],
+        "source_ids":["philippines-national-internal-revenue-code","philippines-ease-of-paying-taxes-act","bir-tax-issuances-reference","bir-taxpayer-filing-forms-reference"],
+        "supported_topic_ids":["cpa-taxation-substantiation","cpa-taxation-filing","cpa-taxation-administration","cpa-taxation-records","cpa-taxation-remedies","cpa-taxation-compliance"],
+        "supported_concept_ids":["cpa-taxation-substantiation-core","cpa-taxation-filing-core","cpa-taxation-administration-core","cpa-taxation-records-core","cpa-taxation-remedies-core","cpa-taxation-compliance-core"],
+        "technical_support_state":"ADEQUATE","exams":["cpa"],"taxonomy":{"subject_id":"cpa-taxation"},"status":"published","version":1,"updated_at":"2026-09-10"
+    },
+    {
+        "id": "cpa-tax-professional-research-foundation",
+        "title": "Philippine Tax Research, Ethics, and Current-Law Controls",
+        "summary": "Concept-fit support for researching current tax authority, documenting assumptions, handling uncertainty, and maintaining professional judgment in tax work.",
+        "notes": [
+            {"heading":"Current-law control","body":"A technically correct calculation under an old rate or period is not a current-law conclusion. Record the effective date, authority level, and assumptions used."},
+            {"heading":"Professional judgment","body":"When records conflict or the law is unsettled, identify the missing authority, escalate appropriately, and avoid presenting an unsupported absolute answer to a client."},
+            {"heading":"Source boundary","body":"The BIR Tax Code page, current BIR issuances, and official filing materials are the starting points; secondary summaries require verification."}
+        ],
+        "source_ids":["philippines-national-internal-revenue-code","bir-tax-issuances-reference","bir-taxpayer-filing-forms-reference"],
+        "supported_topic_ids":["cpa-taxation-ethics","cpa-taxation-current-law","cpa-taxation-reconciliation","cpa-taxation-compliance"],
+        "supported_concept_ids":["cpa-taxation-ethics-core","cpa-taxation-current-law-core","cpa-taxation-reconciliation-core","cpa-taxation-compliance-core"],
+        "technical_support_state":"ADEQUATE","exams":["cpa"],"taxonomy":{"subject_id":"cpa-taxation"},"status":"published","version":1,"updated_at":"2026-09-10"
     }
 ]
