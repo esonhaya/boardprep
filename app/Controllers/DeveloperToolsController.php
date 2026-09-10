@@ -13,11 +13,21 @@ class DeveloperToolsController extends BaseDeveloperController
 {
     public static function contentIntelligence(): void
     {
+        $query = Request::query();
+        $filters = [];
+        foreach (['board_id', 'subject_id', 'topic_id', 'severity', 'issue_code', 'detection_type', 'id_from', 'id_to'] as $key) {
+            if (is_scalar($query[$key] ?? null) && trim((string) $query[$key]) !== '') {
+                $filters[$key] = trim((string) $query[$key]);
+            }
+        }
+        if (is_scalar($query['question_ids'] ?? null)) {
+            $filters['question_ids'] = array_values(array_filter(array_map('trim', explode(',', (string) $query['question_ids']))));
+        }
         self::renderDeveloper(
             'developer/content-intelligence',
             [
                 'pageTitle' => 'Content Intelligence',
-                'contentPriorities' => ContentPriorityService::analyzeRepository(),
+                'contentPriorities' => ContentPriorityService::analyzeRepository($filters),
             ],
             false
         );

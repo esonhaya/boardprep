@@ -142,6 +142,7 @@ $reportResponse = $simulator->request('GET', '/developer/content-intelligence');
 $assert(($reportResponse['status'] ?? 0) === 200, 'Content Intelligence report route did not render');
 $assert(($reportResponse['exitCode'] ?? 1) === 0, 'Content Intelligence report route exited with an error');
 $assert(str_contains((string) ($reportResponse['output'] ?? ''), 'Content Intelligence'), 'Content Intelligence report title was not rendered');
+$assert(str_contains((string) ($reportResponse['output'] ?? ''), 'Portfolio QA'), 'Content Intelligence report omitted the shared QA queue');
 $assert(str_contains((string) ($reportResponse['output'] ?? ''), 'Content Priorities'), 'Content Intelligence priority section was not rendered');
 $assert(str_contains((string) ($reportResponse['output'] ?? ''), 'psychometrician'), 'Content Intelligence report omitted a registered board');
 $assert(str_contains((string) ($reportResponse['output'] ?? ''), 'PASS_WITH_JUSTIFIED_EXCLUSIONS'), 'Content Intelligence report omitted the integrity status');

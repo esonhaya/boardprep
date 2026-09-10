@@ -40,7 +40,7 @@ final class ContentPriorityService
 
     private const MAX_RECOMMENDATIONS = 10;
 
-    public static function analyzeRepository(): array
+    public static function analyzeRepository(array $qaFilters = []): array
     {
         $started = microtime(true);
         $collections = [];
@@ -69,6 +69,9 @@ final class ContentPriorityService
             $integrity,
             static fn(array $question): ?array => $derivedCards[self::scalar($question['id'] ?? null)] ?? null
         );
+        // QA consumes this already-loaded projection and integrity result; it
+        // must not trigger a second repository parse for developer tooling.
+        $report['qa'] = ContentQaService::analyze($collections, $integrity, $qaFilters, $report);
         $report['runtime']['total_runtime_ms'] = round((microtime(true) - $started) * 1000, 2);
         $report['runtime']['collection_reads'] = $reads;
         return $report;
