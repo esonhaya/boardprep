@@ -219,6 +219,26 @@ $router->post(
     [QuestionEditorController::class, "restore"]
 );
 
+$router->post(
+    "/question-editor/share",
+    [QuestionEditorController::class, "share"]
+);
+
+$router->post(
+    "/question-editor/placement",
+    [QuestionEditorController::class, "placement"]
+);
+
+$router->post(
+    "/question-editor/unshare",
+    [QuestionEditorController::class, "unshare"]
+);
+
+$router->post(
+    "/question-editor/duplicate",
+    [QuestionEditorController::class, "duplicate"]
+);
+
 $router->get(
     "/question-export",
     [QuestionExportController::class, "export"]

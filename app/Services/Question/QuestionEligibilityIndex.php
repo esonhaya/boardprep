@@ -36,6 +36,16 @@ final class QuestionEligibilityIndex
                     if (is_array($override['subject_ids'] ?? null)) {
                         $questionEntry['subject_ids'] = $override['subject_ids'];
                     }
+                    if (is_array($override['placements'] ?? null)) {
+                        if (!is_array($questionEntry['subject_ids'] ?? null)) {
+                            $questionEntry['subject_ids'] = [];
+                        }
+                        foreach ($override['placements'] as $boardId => $placement) {
+                            if (is_array($placement) && is_scalar($placement['subject_id'] ?? null)) {
+                                $questionEntry['subject_ids'][(string) $boardId] = (string) $placement['subject_id'];
+                            }
+                        }
+                    }
                 }
                 $this->entriesByQuestion[(string) $questionId][] = $questionEntry;
             }
@@ -67,12 +77,14 @@ final class QuestionEligibilityIndex
             }
 
             $subjects = is_array($entry['subject_ids'] ?? null) ? $entry['subject_ids'] : [];
+            $placements = is_array($entry['placements'] ?? null) ? $entry['placements'] : [];
+            $placement = is_array($placements[$exam] ?? null) ? $placements[$exam] : [];
             return [
                 'exam_id' => $exam,
                 'subject_id' => $this->resolvedSubject(
                     $question,
                     $exam,
-                    (string) ($subjects[$exam] ?? $entry['subject_id'] ?? '')
+                    (string) ($placement['subject_id'] ?? $subjects[$exam] ?? $entry['subject_id'] ?? '')
                 ),
             ];
         }

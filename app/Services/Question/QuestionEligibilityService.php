@@ -5,9 +5,473 @@ declare(strict_types=1);
 namespace App\Services\Question;
 
 use App\Core\App;
+use App\Services\Shared\TaxonomyStorageService;
 
 final class QuestionEligibilityService
 {
+    /**
+     * Return the effective board placements used by the admin editor.
+     *
+     * Eligibility records may still be grouped for storage.  This method
+     * presents the question-level result without exposing that storage detail
+     * to the editor.
+     */
+    public static function editorMappings(array $question): array
+    {
+        $id = (string) ($question['id'] ?? '');
+        $mappings = [];
+
+        foreach (App::storage()->all('question-eligibility') as $entry) {
+            if (!is_array($entry) || !self::containsId($entry['question_ids'] ?? [], $id)) {
+                continue;
+            }
+
+            $override = is_array($entry['question_mappings'][$id] ?? null)
+                ? $entry['question_mappings'][$id]
+                : [];
+            $examIds = is_array($override['exam_ids'] ?? null)
+                ? $override['exam_ids']
+                : ($entry['exam_ids'] ?? []);
+            $subjectIds = is_array($override['subject_ids'] ?? null)
+                ? $override['subject_ids']
+                : ($entry['subject_ids'] ?? []);
+            $placements = is_array($override['placements'] ?? null)
+                ? $override['placements']
+                : [];
+
+            foreach ($examIds as $examId) {
+                if (!is_scalar($examId)) {
+                    continue;
+                }
+                $boardId = self::normalize((string) $examId);
+                if ($boardId === '' || isset($mappings[$boardId])) {
+                    continue;
+                }
+                $placement = is_array($placements[$boardId] ?? null)
+                    ? $placements[$boardId]
+                    : [];
+                $taxonomy = is_array($question['taxonomy'] ?? null)
+                    ? $question['taxonomy']
+                    : [];
+                $isCanonicalBoard = self::normalize((string) ($taxonomy['board_id'] ?? $question['board'] ?? '')) === $boardId;
+                $subjectId = self::scalarString($placement['subject_id'] ?? ($subjectIds[$examId] ?? $subjectIds[$boardId] ?? ''));
+                if ($subjectId === '' && $isCanonicalBoard) {
+                    $subjectId = self::scalarString($taxonomy['subject_id'] ?? $question['subject_id'] ?? '');
+                }
+                $mappings[$boardId] = self::editorMapping(
+                    $boardId,
+                    $subjectId,
+                    $placement,
+                    $isCanonicalBoard ? $taxonomy : []
+                );
+            }
+        }
+
+        if ($mappings === []) {
+            $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+            $boardId = self::normalize((string) ($taxonomy['board_id'] ?? $question['board'] ?? ''));
+            if ($boardId !== '') {
+                $mappings[$boardId] = self::editorMapping(
+                    $boardId,
+                    (string) ($taxonomy['subject_id'] ?? $question['subject_id'] ?? ''),
+                    [],
+                    $taxonomy
+                );
+            }
+        }
+
+        return array_values($mappings);
+    }
+
+    /**
+     * Data for the board-aware editor selectors.  The taxonomy records are
+     * the same records used by authoring and validation; no editor taxonomy
+     * is maintained here.
+     */
+    public static function editorOptions(array $question = []): array
+    {
+        $existing = [];
+        foreach (self::editorMappings($question) as $mapping) {
+            $existing[(string) ($mapping['board_id'] ?? '')] = true;
+        }
+
+        $boards = [];
+        foreach (TaxonomyStorageService::boards() as $board) {
+            if (!is_array($board) || !is_scalar($board['id'] ?? null)) {
+                continue;
+            }
+            $id = self::normalize((string) $board['id']);
+            $boards[] = [
+                'id' => $id,
+                'name' => (string) ($board['name'] ?? $id),
+                'eligible' => isset($existing[$id]),
+            ];
+        }
+
+        $subjects = [];
+        foreach (TaxonomyStorageService::boardSubjects() as $relation) {
+            if (!is_array($relation) || !is_scalar($relation['board_id'] ?? null) || !is_scalar($relation['subject_id'] ?? null)) {
+                continue;
+            }
+            $boardId = self::normalize((string) $relation['board_id']);
+            $subjectId = (string) $relation['subject_id'];
+            $subjects[] = [
+                'board_id' => $boardId,
+                'id' => $subjectId,
+                'name' => TaxonomyStorageService::label('subjects', $subjectId),
+            ];
+        }
+
+        $blueprintNodes = [];
+        foreach ($boards as $board) {
+            $blueprintNodes[$board['id']] = self::blueprintNodes($board['id']);
+        }
+
+        return [
+            'boards' => $boards,
+            'subjects' => $subjects,
+            'blueprint_nodes' => $blueprintNodes,
+            'domains' => TaxonomyStorageService::domains(),
+            'topics' => TaxonomyStorageService::topics(),
+            'concepts' => TaxonomyStorageService::concepts(),
+        ];
+    }
+
+    /**
+     * Deterministic validation for an admin-selected board placement.
+     * Semantic academic judgment remains with the administrator.
+     */
+    public static function validateMapping(array $question, array $input, bool $allowExistingBoard = false): array
+    {
+        $boardId = self::normalize(self::inputString($input, ['target_board', 'board']));
+        $subjectId = self::inputString($input, ['target_subject', 'subject']);
+        $domainId = self::inputString($input, ['target_domain', 'domain']);
+        $topicId = self::inputString($input, ['target_topic', 'topic']);
+        $conceptId = self::inputString($input, ['target_concept', 'concept']);
+        $blueprintNode = self::inputString($input, ['blueprint_node', 'target_blueprint_node']);
+        $errors = [];
+
+        if ($boardId === '' || TaxonomyStorageService::find('boards', $boardId) === null) {
+            $errors['INVALID_BOARD'] = 'Select a configured target board.';
+        }
+        if ($subjectId === '' || TaxonomyStorageService::find('subjects', $subjectId) === null) {
+            $errors['INVALID_SUBJECT_FOR_BOARD'] = 'Select a valid subject for the target board.';
+        } elseif ($boardId !== '' && !TaxonomyStorageService::hasBoardSubject($boardId, $subjectId)) {
+            $errors['INVALID_SUBJECT_FOR_BOARD'] = 'The selected subject is not configured for this board.';
+        }
+
+        $domain = $domainId === '' ? null : TaxonomyStorageService::find('taxonomy/domains', $domainId);
+        $topic = $topicId === '' ? null : TaxonomyStorageService::find('taxonomy/topics', $topicId);
+        $concept = $conceptId === '' ? null : TaxonomyStorageService::find('taxonomy/concepts', $conceptId);
+        if ($domainId !== '' && $domain === null) {
+            $errors['INVALID_TOPIC_FOR_BOARD'] = 'The selected domain is not a configured taxonomy node.';
+        } elseif ($domain !== null && (string) ($domain['subject_id'] ?? '') !== $subjectId) {
+            $errors['INVALID_TOPIC_FOR_BOARD'] = 'The selected domain is outside the target subject.';
+        }
+        if ($topicId !== '' && $topic === null) {
+            $errors['INVALID_CONCEPT_FOR_BOARD'] = 'The selected topic is not a configured taxonomy node.';
+        } elseif ($topic !== null && (string) ($topic['domain_id'] ?? '') !== $domainId) {
+            $errors['INVALID_CONCEPT_FOR_BOARD'] = 'The selected topic is outside the selected domain.';
+        }
+        if ($conceptId !== '' && $concept === null) {
+            $errors['INVALID_CONCEPT_FOR_BOARD'] = 'The selected concept is not a configured taxonomy node.';
+        } elseif ($concept !== null && (string) ($concept['topic_id'] ?? '') !== $topicId) {
+            $errors['INVALID_CONCEPT_FOR_BOARD'] = 'The selected concept is outside the selected topic.';
+        }
+
+        if ($blueprintNode === '') {
+            $blueprintNode = $conceptId !== '' ? $conceptId : ($domainId !== '' ? $domainId : $subjectId);
+        }
+        if ($boardId !== '' && !self::blueprintContains($boardId, $blueprintNode, $subjectId)) {
+            $errors['INVALID_BLUEPRINT_PLACEMENT'] = 'The selected placement is not part of the target board blueprint.';
+        }
+
+        $existingBoards = array_map(
+            static fn(array $mapping): string => (string) ($mapping['board_id'] ?? ''),
+            self::editorMappings($question)
+        );
+        if (!$allowExistingBoard && in_array($boardId, $existingBoards, true)) {
+            $errors['DUPLICATE_BOARD_MAPPING'] = 'This question is already shared with the selected board.';
+        }
+        if ($allowExistingBoard && !in_array($boardId, $existingBoards, true)) {
+            $errors['MISSING_REQUIRED_MAPPING_METADATA'] = 'The question has no mapping for the selected board.';
+        }
+
+        return [
+            'valid' => $errors === [],
+            'errors' => $errors,
+            'mapping' => [
+                'board_id' => $boardId,
+                'subject_id' => $subjectId,
+                'domain_id' => $domainId,
+                'topic_id' => $topicId,
+                'concept_id' => $conceptId,
+                'blueprint_node' => $blueprintNode,
+            ],
+        ];
+    }
+
+    public static function addMapping(array $question, array $input): array
+    {
+        $validation = self::validateMapping($question, $input);
+        if (($validation['valid'] ?? false) !== true) {
+            return $validation;
+        }
+        self::writeQuestionMapping($question, $validation['mapping'], false);
+        return $validation;
+    }
+
+    public static function updateMapping(array $question, array $input): array
+    {
+        $validation = self::validateMapping($question, $input, true);
+        if (($validation['valid'] ?? false) !== true) {
+            return $validation;
+        }
+        self::writeQuestionMapping($question, $validation['mapping'], true);
+        return $validation;
+    }
+
+    public static function removeMapping(array $question, string $boardId): array
+    {
+        $boardId = self::normalize($boardId);
+        $mappings = self::editorMappings($question);
+        $matching = array_values(array_filter(
+            $mappings,
+            static fn(array $mapping): bool => ($mapping['board_id'] ?? '') === $boardId
+        ));
+        if ($matching === []) {
+            return ['valid' => false, 'errors' => ['INVALID_BOARD' => 'The question is not eligible for that board.']];
+        }
+        if (count($mappings) <= 1) {
+            return ['valid' => false, 'errors' => ['LAST_BOARD_UNSHARE_PROTECTED' => 'This is the question\'s only board eligibility. Archive or delete the question instead.']];
+        }
+
+        $id = (string) ($question['id'] ?? '');
+        $records = App::storage()->all('question-eligibility');
+        foreach ($records as &$entry) {
+            if (!is_array($entry) || !self::containsId($entry['question_ids'] ?? [], $id)) {
+                continue;
+            }
+            $override = is_array($entry['question_mappings'][$id] ?? null)
+                ? $entry['question_mappings'][$id]
+                : [];
+            $effectiveExams = is_array($override['exam_ids'] ?? null) ? $override['exam_ids'] : ($entry['exam_ids'] ?? []);
+            $effectiveSubjects = is_array($override['subject_ids'] ?? null) ? $override['subject_ids'] : ($entry['subject_ids'] ?? []);
+            $effectiveExams = array_values(array_filter($effectiveExams, static fn(mixed $value): bool => self::normalize((string) $value) !== $boardId));
+            foreach (array_keys($effectiveSubjects) as $subjectBoard) {
+                if (self::normalize((string) $subjectBoard) === $boardId) {
+                    unset($effectiveSubjects[$subjectBoard]);
+                }
+            }
+            $placements = is_array($override['placements'] ?? null) ? $override['placements'] : [];
+            unset($placements[$boardId]);
+            $entry['question_mappings'][$id] = array_merge($override, [
+                'exam_ids' => $effectiveExams,
+                'subject_ids' => $effectiveSubjects,
+                'placements' => $placements,
+            ]);
+            App::storage()->replace('question-eligibility', $records);
+            return ['valid' => true, 'removed' => $boardId];
+        }
+
+        return ['valid' => false, 'errors' => ['INVALID_BOARD' => 'The question eligibility record could not be located.']];
+    }
+
+    private static function writeQuestionMapping(array $question, array $mapping, bool $update): void
+    {
+        $id = (string) ($question['id'] ?? '');
+        if ($id === '') {
+            return;
+        }
+        $boardId = (string) ($mapping['board_id'] ?? '');
+        $records = App::storage()->all('question-eligibility');
+
+        foreach ($records as &$entry) {
+            if (!is_array($entry) || !self::containsId($entry['question_ids'] ?? [], $id)) {
+                continue;
+            }
+            $override = is_array($entry['question_mappings'][$id] ?? null)
+                ? $entry['question_mappings'][$id]
+                : [];
+            $examIds = is_array($override['exam_ids'] ?? null) ? $override['exam_ids'] : ($entry['exam_ids'] ?? []);
+            $subjectIds = is_array($override['subject_ids'] ?? null) ? $override['subject_ids'] : ($entry['subject_ids'] ?? []);
+            $placements = is_array($override['placements'] ?? null) ? $override['placements'] : [];
+            if (!$update) {
+                $examIds[] = $boardId;
+            }
+            $examIds = self::uniqueNormalizedIds($examIds);
+            $subjectIds[$boardId] = (string) ($mapping['subject_id'] ?? '');
+            $placements[$boardId] = $mapping;
+            $entry['question_mappings'][$id] = array_merge($override, [
+                'exam_ids' => $examIds,
+                'subject_ids' => $subjectIds,
+                'placements' => $placements,
+            ]);
+            App::storage()->replace('question-eligibility', $records);
+            return;
+        }
+
+        $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+        $sourceBoard = self::normalize((string) ($taxonomy['board_id'] ?? $question['board'] ?? ''));
+        $sourceSubject = (string) ($taxonomy['subject_id'] ?? $question['subject_id'] ?? '');
+        $examIds = self::uniqueNormalizedIds([$sourceBoard, $boardId]);
+        $subjectIds = array_filter([
+            $sourceBoard => $sourceSubject,
+            $boardId => (string) ($mapping['subject_id'] ?? ''),
+        ], static fn(string $subject): bool => $subject !== '');
+        $records[] = [
+            'id' => 'eligibility-question-' . preg_replace('/[^a-z0-9-]+/i', '-', $id),
+            'question_ids' => [$id],
+            'exam_ids' => $examIds,
+            'subject_ids' => $subjectIds,
+            'question_mappings' => [
+                $id => [
+                    'exam_ids' => $examIds,
+                    'subject_ids' => $subjectIds,
+                    'placements' => [$boardId => $mapping],
+                ],
+            ],
+        ];
+        App::storage()->replace('question-eligibility', $records);
+    }
+
+    private static function editorMapping(
+        string $boardId,
+        string $subjectId,
+        array $placement,
+        array $canonicalTaxonomy
+    ): array {
+        $domainId = self::scalarString($placement['domain_id'] ?? ($canonicalTaxonomy['domain_id'] ?? ''));
+        $topicId = self::scalarString($placement['topic_id'] ?? ($canonicalTaxonomy['topic_id'] ?? ''));
+        $conceptId = self::scalarString($placement['concept_id'] ?? ($canonicalTaxonomy['concept_id'] ?? ''));
+        $blueprintNode = self::scalarString($placement['blueprint_node'] ?? '');
+        if ($blueprintNode === '') {
+            $blueprintNode = $conceptId !== '' ? $conceptId : ($domainId !== '' ? $domainId : $subjectId);
+        }
+
+        return [
+            'board_id' => $boardId,
+            'board_name' => TaxonomyStorageService::label('boards', $boardId),
+            'subject_id' => $subjectId,
+            'subject_name' => TaxonomyStorageService::label('subjects', $subjectId),
+            'domain_id' => $domainId,
+            'domain_name' => TaxonomyStorageService::label('taxonomy/domains', $domainId),
+            'topic_id' => $topicId,
+            'topic_name' => TaxonomyStorageService::label('taxonomy/topics', $topicId),
+            'concept_id' => $conceptId,
+            'concept_name' => TaxonomyStorageService::label('taxonomy/concepts', $conceptId),
+            'blueprint_node' => $blueprintNode,
+            'blueprint_name' => self::blueprintLabel($boardId, $blueprintNode),
+        ];
+    }
+
+    private static function blueprintContains(string $boardId, string $node, string $subjectId): bool
+    {
+        if ($node === '') {
+            return false;
+        }
+        foreach (App::storage()->all('blueprints') as $blueprint) {
+            if (!is_array($blueprint)
+                || self::normalize((string) ($blueprint['board_id'] ?? $blueprint['board'] ?? '')) !== $boardId
+                || (($blueprint['status'] ?? 'active') !== 'active')) {
+                continue;
+            }
+            foreach (($blueprint['sections'] ?? []) as $section) {
+                if (!is_array($section)) {
+                    continue;
+                }
+                $sectionNodes = [
+                    (string) ($section['id'] ?? ''),
+                    (string) ($section['domain_id'] ?? ''),
+                ];
+                if (in_array($node, $sectionNodes, true)
+                    && (!is_array($section['subjects'] ?? null) || in_array($subjectId, $section['subjects'], true))) {
+                    return true;
+                }
+            }
+            foreach (($blueprint['official_areas'] ?? []) as $area) {
+                if (!is_array($area)) {
+                    continue;
+                }
+                if ($node === (string) ($area['id'] ?? '')
+                    || ($subjectId !== '' && $node === (string) ($area['taxonomy_subject'] ?? ''))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private static function blueprintNodes(string $boardId): array
+    {
+        $nodes = [];
+        foreach (App::storage()->all('blueprints') as $blueprint) {
+            if (!is_array($blueprint)
+                || self::normalize((string) ($blueprint['board_id'] ?? $blueprint['board'] ?? '')) !== $boardId
+                || (($blueprint['status'] ?? 'active') !== 'active')) {
+                continue;
+            }
+            foreach (array_merge((array) ($blueprint['sections'] ?? []), (array) ($blueprint['official_areas'] ?? [])) as $item) {
+                if (!is_array($item)) {
+                    continue;
+                }
+                $id = self::scalarString($item['id'] ?? ($item['taxonomy_subject'] ?? ''));
+                if ($id !== '') {
+                    $nodes[$id] = [
+                        'id' => $id,
+                        'name' => (string) ($item['name'] ?? $id),
+                    ];
+                }
+            }
+        }
+        return array_values($nodes);
+    }
+
+    private static function blueprintLabel(string $boardId, string $node): string
+    {
+        foreach (App::storage()->all('blueprints') as $blueprint) {
+            if (!is_array($blueprint) || self::normalize((string) ($blueprint['board_id'] ?? $blueprint['board'] ?? '')) !== $boardId) {
+                continue;
+            }
+            foreach (array_merge((array) ($blueprint['sections'] ?? []), (array) ($blueprint['official_areas'] ?? [])) as $item) {
+                if (is_array($item) && ((string) ($item['id'] ?? '') === $node || (string) ($item['taxonomy_subject'] ?? '') === $node)) {
+                    return (string) ($item['name'] ?? $node);
+                }
+            }
+        }
+        return TaxonomyStorageService::label('subjects', $node);
+    }
+
+    private static function uniqueNormalizedIds(array $ids): array
+    {
+        $result = [];
+        foreach ($ids as $id) {
+            if (!is_scalar($id)) {
+                continue;
+            }
+            $normalized = self::normalize((string) $id);
+            if ($normalized !== '' && !in_array($normalized, $result, true)) {
+                $result[] = $normalized;
+            }
+        }
+        return $result;
+    }
+
+    private static function inputString(array $input, array $keys): string
+    {
+        foreach ($keys as $key) {
+            if (array_key_exists($key, $input) && is_scalar($input[$key])) {
+                return trim((string) $input[$key]);
+            }
+        }
+        return '';
+    }
+
+    private static function scalarString(mixed $value): string
+    {
+        return is_scalar($value) ? trim((string) $value) : '';
+    }
+
     public static function metadata(array $question): array
     {
         $id = (string) ($question['id'] ?? '');
@@ -19,6 +483,7 @@ final class QuestionEligibilityService
                     return [
                         'exam_ids' => array_values($override['exam_ids'] ?? []),
                         'subject_ids' => is_array($override['subject_ids'] ?? null) ? $override['subject_ids'] : [],
+                        'placements' => is_array($override['placements'] ?? null) ? $override['placements'] : [],
                     ];
                 }
                 return [
@@ -48,6 +513,9 @@ final class QuestionEligibilityService
             if (is_array($record['question_mappings'][$id] ?? null)) {
                 $record['question_mappings'][$id]['exam_ids'] = $examIds;
                 $record['question_mappings'][$id]['subject_ids'] = is_array($metadata['subject_ids'] ?? null) ? $metadata['subject_ids'] : [];
+                if (is_array($metadata['placements'] ?? null)) {
+                    $record['question_mappings'][$id]['placements'] = $metadata['placements'];
+                }
                 App::storage()->replace('question-eligibility', $records);
                 return;
             }
@@ -61,6 +529,7 @@ final class QuestionEligibilityService
             'question_ids' => [$id],
             'exam_ids' => $examIds,
             'subject_ids' => is_array($metadata['subject_ids'] ?? null) ? $metadata['subject_ids'] : [],
+            'placements' => is_array($metadata['placements'] ?? null) ? $metadata['placements'] : [],
         ];
         App::storage()->replace('question-eligibility', $records);
     }
@@ -92,9 +561,11 @@ final class QuestionEligibilityService
                     ? $override['subject_ids']
                     : ($entry['subject_ids'] ?? []);
                 $subjects = is_array($subjectIds) ? $subjectIds : [];
+                $placements = is_array($override['placements'] ?? null) ? $override['placements'] : [];
+                $placement = is_array($placements[$exam] ?? null) ? $placements[$exam] : [];
                 return [
                     'exam_id' => $exam,
-                    'subject_id' => self::resolvedSubject($question, $exam, (string) ($subjects[$exam] ?? $entry['subject_id'] ?? '')),
+                    'subject_id' => self::resolvedSubject($question, $exam, (string) ($placement['subject_id'] ?? $subjects[$exam] ?? $entry['subject_id'] ?? '')),
                 ];
             }
         }

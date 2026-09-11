@@ -322,6 +322,8 @@ Edit
 
 <form class="inline-form" method="POST" action="/question-editor/archive?id=<?= urlencode((string) $question["id"]) ?>" onsubmit="return confirm('Archive this question?')">
 
+<input type="hidden" name="_csrf" value="<?= htmlspecialchars((string) ($csrfToken ?? ''), ENT_QUOTES, 'UTF-8') ?>">
+
 <button type="submit">
 
 Archive
@@ -333,6 +335,8 @@ Archive
 <?php else: ?>
 
 <form class="inline-form" method="POST" action="/question-editor/restore?id=<?= urlencode((string) $question["id"]) ?>" onsubmit="return confirm('Restore this question?')">
+
+<input type="hidden" name="_csrf" value="<?= htmlspecialchars((string) ($csrfToken ?? ''), ENT_QUOTES, 'UTF-8') ?>">
 
 <button type="submit">
 

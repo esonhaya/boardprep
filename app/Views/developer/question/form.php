@@ -29,6 +29,8 @@ $topics =
 $concepts =
     $concepts ?? [];
 
+$csrfToken = $csrfToken ?? '';
+
 ?>
 
 <section class="page-header"><div><h1>
@@ -40,6 +42,8 @@ $concepts =
 
 ?></h1><p>Author a clear, reliable question for the BoardPrep repository.</p></div></section>
 
+<?php if (($duplicateSourceNotice ?? '') !== ''): ?><p class="form-warning" role="status"><?= htmlspecialchars((string) $duplicateSourceNotice, ENT_QUOTES, 'UTF-8') ?> This is a draft; saving it will create a new canonical question. NEW_CANONICAL_ID=will be created · INDEPENDENT_QUESTION=YES</p><?php endif; ?>
+
 <?php
 
 require __DIR__
@@ -47,6 +51,8 @@ require __DIR__
     . "/partials/duplicates.php";
 
 ?>
+
+<?php if ($isEdit): require __DIR__ . "/partials/eligibility.php"; endif; ?>
 
 <form
 
@@ -65,6 +71,8 @@ $isEdit
 ?>"
 
 >
+
+<input type="hidden" name="_csrf" value="<?= htmlspecialchars((string) $csrfToken) ?>">
 
 <?php if ($returnUrl !== ''): ?><input type="hidden" name="return" value="<?= htmlspecialchars($returnUrl) ?>"><?php endif; ?>
 
