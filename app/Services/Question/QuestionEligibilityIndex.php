@@ -15,7 +15,13 @@ final class QuestionEligibilityIndex
     /** @var array<string, array<int, array>> */
     private array $blueprintsByBoard = [];
 
-    public function __construct(array $entries, array $blueprints = [])
+    /** @var array<string, array<int, array>> */
+    private array $derivedByQuestion = [];
+
+    /** @var array<string, array<string, array<int, array>>> */
+    private array $overridesByQuestionBoard = [];
+
+    public function __construct(array $entries, array $blueprints = [], array $derivedEntries = [], array $overrides = [])
     {
         foreach ($entries as $entry) {
             if (!is_array($entry) || !is_array($entry['question_ids'] ?? null)) {
@@ -60,12 +66,34 @@ final class QuestionEligibilityIndex
                 $this->blueprintsByBoard[$boardId][] = $blueprint;
             }
         }
+
+        foreach ($derivedEntries as $entry) {
+            if (is_array($entry) && ($entry['record_type'] ?? '') === 'RELATIONSHIP') {
+                $this->derivedByQuestion[(string) ($entry['question_id'] ?? '')][] = $entry;
+            }
+        }
+        foreach ($overrides as $override) {
+            if (!is_array($override)) {
+                continue;
+            }
+            $questionId = (string) ($override['question_id'] ?? '');
+            $board = self::normalize((string) ($override['board_id'] ?? ''));
+            if ($questionId !== '' && $board !== '') {
+                $this->overridesByQuestionBoard[$questionId][$board][] = $override;
+            }
+        }
     }
 
     public function forExam(array $question, string $exam): ?array
     {
         $exam = self::normalize($exam);
         $id = (string) ($question['id'] ?? '');
+        $overrides = $this->overridesByQuestionBoard[$id][$exam] ?? [];
+        foreach ($overrides as $override) {
+            if (($override['override_type'] ?? '') === 'EXCLUDE') {
+                return null;
+            }
+        }
 
         foreach ($this->entriesByQuestion[$id] ?? [] as $entry) {
             $exams = array_map(
@@ -86,6 +114,29 @@ final class QuestionEligibilityIndex
                     $exam,
                     (string) ($placement['subject_id'] ?? $subjects[$exam] ?? $entry['subject_id'] ?? '')
                 ),
+            ];
+        }
+
+        foreach ($overrides as $override) {
+            if (($override['override_type'] ?? '') === 'INCLUDE' && is_array($override['placement'] ?? null)) {
+                return [
+                    'exam_id' => $exam,
+                    'subject_id' => (string) ($override['placement']['subject_id'] ?? ''),
+                    'eligibility_source' => 'MANUAL_INCLUDE',
+                ];
+            }
+        }
+
+        foreach ($this->derivedByQuestion[$id] ?? [] as $entry) {
+            if (self::normalize((string) ($entry['target_board'] ?? '')) !== $exam) {
+                continue;
+            }
+            $placement = is_array($entry['target_placement'] ?? null) ? $entry['target_placement'] : [];
+            return [
+                'exam_id' => $exam,
+                'subject_id' => (string) ($placement['subject_id'] ?? ''),
+                'eligibility_source' => 'CONCEPT_INHERITED',
+                'relationship_id' => (string) ($entry['id'] ?? ''),
             ];
         }
 

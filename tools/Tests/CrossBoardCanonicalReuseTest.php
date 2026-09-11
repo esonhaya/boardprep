@@ -10,6 +10,7 @@ use App\Core\App;
 use App\Services\Board\BoardViewService;
 use App\Services\Question\QuestionEligibilityIndex;
 use App\Services\Question\QuestionEligibilityService;
+use App\Services\Question\QuestionReuseEligibilityResolver;
 
 $assert = static function (bool $condition, string $message): void {
     if (!$condition) {
@@ -29,7 +30,9 @@ $assert(is_array($shared) && is_array($architectureOnly), 'cross-board fixture q
 
 $index = new QuestionEligibilityIndex(
     App::storage()->all('question-eligibility'),
-    App::storage()->all('blueprints')
+    App::storage()->all('blueprints'),
+    QuestionReuseEligibilityResolver::productionDerivedRelationships(),
+    App::storage()->all('question-reuse-overrides')
 );
 $letMapping = QuestionEligibilityService::forExam($shared, 'let', $index);
 $cseMapping = QuestionEligibilityService::forExam($shared, 'civil-service', $index);

@@ -1,0 +1,388 @@
+[
+    {
+        "id": "batch610-bounded-production-config",
+        "record_type": "CONFIG",
+        "batch": 610,
+        "production_enabled": true,
+        "global_inheritance_enabled": false,
+        "scope": "EXPLICIT_RELATIONSHIPS_ONLY",
+        "provenance": [
+            {
+                "type": "BATCH610_CALIBRATION",
+                "reference": "batch-610-cohort-let-civil-service",
+                "note": "Production derivation is enabled only for the explicit relationship records in this collection.",
+                "verified_status": "VERIFIED"
+            }
+        ]
+    },
+    {
+        "id": "derived-batch610-422-civil-service",
+        "record_type": "RELATIONSHIP",
+        "batch": 610,
+        "question_id": 422,
+        "source_board": "let",
+        "target_board": "civil-service",
+        "concept_id": "filipino-pagbasa-pangunahing-diwan",
+        "question_required_depth": 2,
+        "target_supported_depth": 3,
+        "context_decision": "NEUTRAL",
+        "coverage_id": "coverage-66c4d284c481c6468040371e2ee7763b0ac58669ff6b4b04f5355b10bd8bfe1a",
+        "target_placement": {
+            "board_id": "civil-service",
+            "subject_id": "verbal-ability",
+            "domain_id": "",
+            "topic_id": "",
+            "concept_id": "filipino-pagbasa-pangunahing-diwan",
+            "blueprint_node": "verbal-ability"
+        },
+        "eligibility_source": "CONCEPT_INHERITED",
+        "provenance": [
+            {
+                "type": "BATCH610_CALIBRATION",
+                "reference": "batch-610-cohort-let-civil-service",
+                "note": "Same global concept, known depth compatibility, neutral context, valid Civil Service placement, and validated study support.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "source_support": {
+            "decision": "PASS",
+            "link_ids": [
+                "study-link-let-422"
+            ],
+            "rationale": "Existing linked study material and source references cover the generic reading\/grammar competency independently of board ownership."
+        }
+    },
+    {
+        "id": "derived-batch610-423-civil-service",
+        "record_type": "RELATIONSHIP",
+        "batch": 610,
+        "question_id": 423,
+        "source_board": "let",
+        "target_board": "civil-service",
+        "concept_id": "filipino-pagbasa-pangunahing-diwan",
+        "question_required_depth": 3,
+        "target_supported_depth": 3,
+        "context_decision": "NEUTRAL",
+        "coverage_id": "coverage-66c4d284c481c6468040371e2ee7763b0ac58669ff6b4b04f5355b10bd8bfe1a",
+        "target_placement": {
+            "board_id": "civil-service",
+            "subject_id": "verbal-ability",
+            "domain_id": "",
+            "topic_id": "",
+            "concept_id": "filipino-pagbasa-pangunahing-diwan",
+            "blueprint_node": "verbal-ability"
+        },
+        "eligibility_source": "CONCEPT_INHERITED",
+        "provenance": [
+            {
+                "type": "BATCH610_CALIBRATION",
+                "reference": "batch-610-cohort-let-civil-service",
+                "note": "Same global concept, known depth compatibility, neutral context, valid Civil Service placement, and validated study support.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "source_support": {
+            "decision": "PASS",
+            "link_ids": [
+                "study-link-let-423"
+            ],
+            "rationale": "Existing linked study material and source references cover the generic reading\/grammar competency independently of board ownership."
+        }
+    },
+    {
+        "id": "derived-batch610-425-civil-service",
+        "record_type": "RELATIONSHIP",
+        "batch": 610,
+        "question_id": 425,
+        "source_board": "let",
+        "target_board": "civil-service",
+        "concept_id": "filipino-pagbasa-pangunahing-diwan",
+        "question_required_depth": 2,
+        "target_supported_depth": 3,
+        "context_decision": "NEUTRAL",
+        "coverage_id": "coverage-66c4d284c481c6468040371e2ee7763b0ac58669ff6b4b04f5355b10bd8bfe1a",
+        "target_placement": {
+            "board_id": "civil-service",
+            "subject_id": "verbal-ability",
+            "domain_id": "",
+            "topic_id": "",
+            "concept_id": "filipino-pagbasa-pangunahing-diwan",
+            "blueprint_node": "verbal-ability"
+        },
+        "eligibility_source": "CONCEPT_INHERITED",
+        "provenance": [
+            {
+                "type": "BATCH610_CALIBRATION",
+                "reference": "batch-610-cohort-let-civil-service",
+                "note": "Same global concept, known depth compatibility, neutral context, valid Civil Service placement, and validated study support.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "source_support": {
+            "decision": "PASS",
+            "link_ids": [
+                "study-link-let-425"
+            ],
+            "rationale": "Existing linked study material and source references cover the generic reading\/grammar competency independently of board ownership."
+        }
+    },
+    {
+        "id": "derived-batch610-428-civil-service",
+        "record_type": "RELATIONSHIP",
+        "batch": 610,
+        "question_id": 428,
+        "source_board": "let",
+        "target_board": "civil-service",
+        "concept_id": "filipino-pagbasa-pangunahing-diwan",
+        "question_required_depth": 2,
+        "target_supported_depth": 3,
+        "context_decision": "NEUTRAL",
+        "coverage_id": "coverage-66c4d284c481c6468040371e2ee7763b0ac58669ff6b4b04f5355b10bd8bfe1a",
+        "target_placement": {
+            "board_id": "civil-service",
+            "subject_id": "verbal-ability",
+            "domain_id": "",
+            "topic_id": "",
+            "concept_id": "filipino-pagbasa-pangunahing-diwan",
+            "blueprint_node": "verbal-ability"
+        },
+        "eligibility_source": "CONCEPT_INHERITED",
+        "provenance": [
+            {
+                "type": "BATCH610_CALIBRATION",
+                "reference": "batch-610-cohort-let-civil-service",
+                "note": "Same global concept, known depth compatibility, neutral context, valid Civil Service placement, and validated study support.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "source_support": {
+            "decision": "PASS",
+            "link_ids": [
+                "study-link-let-428"
+            ],
+            "rationale": "Existing linked study material and source references cover the generic reading\/grammar competency independently of board ownership."
+        }
+    },
+    {
+        "id": "derived-batch610-430-civil-service",
+        "record_type": "RELATIONSHIP",
+        "batch": 610,
+        "question_id": 430,
+        "source_board": "let",
+        "target_board": "civil-service",
+        "concept_id": "filipino-pagbasa-pangunahing-diwan",
+        "question_required_depth": 2,
+        "target_supported_depth": 3,
+        "context_decision": "NEUTRAL",
+        "coverage_id": "coverage-66c4d284c481c6468040371e2ee7763b0ac58669ff6b4b04f5355b10bd8bfe1a",
+        "target_placement": {
+            "board_id": "civil-service",
+            "subject_id": "verbal-ability",
+            "domain_id": "",
+            "topic_id": "",
+            "concept_id": "filipino-pagbasa-pangunahing-diwan",
+            "blueprint_node": "verbal-ability"
+        },
+        "eligibility_source": "CONCEPT_INHERITED",
+        "provenance": [
+            {
+                "type": "BATCH610_CALIBRATION",
+                "reference": "batch-610-cohort-let-civil-service",
+                "note": "Same global concept, known depth compatibility, neutral context, valid Civil Service placement, and validated study support.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "source_support": {
+            "decision": "PASS",
+            "link_ids": [
+                "study-link-let-430"
+            ],
+            "rationale": "Existing linked study material and source references cover the generic reading\/grammar competency independently of board ownership."
+        }
+    },
+    {
+        "id": "derived-batch610-433-civil-service",
+        "record_type": "RELATIONSHIP",
+        "batch": 610,
+        "question_id": 433,
+        "source_board": "let",
+        "target_board": "civil-service",
+        "concept_id": "filipino-pagbasa-pangunahing-diwan",
+        "question_required_depth": 3,
+        "target_supported_depth": 3,
+        "context_decision": "NEUTRAL",
+        "coverage_id": "coverage-66c4d284c481c6468040371e2ee7763b0ac58669ff6b4b04f5355b10bd8bfe1a",
+        "target_placement": {
+            "board_id": "civil-service",
+            "subject_id": "verbal-ability",
+            "domain_id": "",
+            "topic_id": "",
+            "concept_id": "filipino-pagbasa-pangunahing-diwan",
+            "blueprint_node": "verbal-ability"
+        },
+        "eligibility_source": "CONCEPT_INHERITED",
+        "provenance": [
+            {
+                "type": "BATCH610_CALIBRATION",
+                "reference": "batch-610-cohort-let-civil-service",
+                "note": "Same global concept, known depth compatibility, neutral context, valid Civil Service placement, and validated study support.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "source_support": {
+            "decision": "PASS",
+            "link_ids": [
+                "study-link-let-433"
+            ],
+            "rationale": "Existing linked study material and source references cover the generic reading\/grammar competency independently of board ownership."
+        }
+    },
+    {
+        "id": "derived-batch610-434-civil-service",
+        "record_type": "RELATIONSHIP",
+        "batch": 610,
+        "question_id": 434,
+        "source_board": "let",
+        "target_board": "civil-service",
+        "concept_id": "filipino-pagbasa-pangunahing-diwan",
+        "question_required_depth": 2,
+        "target_supported_depth": 3,
+        "context_decision": "NEUTRAL",
+        "coverage_id": "coverage-66c4d284c481c6468040371e2ee7763b0ac58669ff6b4b04f5355b10bd8bfe1a",
+        "target_placement": {
+            "board_id": "civil-service",
+            "subject_id": "verbal-ability",
+            "domain_id": "",
+            "topic_id": "",
+            "concept_id": "filipino-pagbasa-pangunahing-diwan",
+            "blueprint_node": "verbal-ability"
+        },
+        "eligibility_source": "CONCEPT_INHERITED",
+        "provenance": [
+            {
+                "type": "BATCH610_CALIBRATION",
+                "reference": "batch-610-cohort-let-civil-service",
+                "note": "Same global concept, known depth compatibility, neutral context, valid Civil Service placement, and validated study support.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "source_support": {
+            "decision": "PASS",
+            "link_ids": [
+                "study-link-let-434"
+            ],
+            "rationale": "Existing linked study material and source references cover the generic reading\/grammar competency independently of board ownership."
+        }
+    },
+    {
+        "id": "derived-batch610-438-civil-service",
+        "record_type": "RELATIONSHIP",
+        "batch": 610,
+        "question_id": 438,
+        "source_board": "let",
+        "target_board": "civil-service",
+        "concept_id": "filipino-pagbasa-pangunahing-diwan",
+        "question_required_depth": 2,
+        "target_supported_depth": 3,
+        "context_decision": "NEUTRAL",
+        "coverage_id": "coverage-66c4d284c481c6468040371e2ee7763b0ac58669ff6b4b04f5355b10bd8bfe1a",
+        "target_placement": {
+            "board_id": "civil-service",
+            "subject_id": "verbal-ability",
+            "domain_id": "",
+            "topic_id": "",
+            "concept_id": "filipino-pagbasa-pangunahing-diwan",
+            "blueprint_node": "verbal-ability"
+        },
+        "eligibility_source": "CONCEPT_INHERITED",
+        "provenance": [
+            {
+                "type": "BATCH610_CALIBRATION",
+                "reference": "batch-610-cohort-let-civil-service",
+                "note": "Same global concept, known depth compatibility, neutral context, valid Civil Service placement, and validated study support.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "source_support": {
+            "decision": "PASS",
+            "link_ids": [
+                "study-link-let-438"
+            ],
+            "rationale": "Existing linked study material and source references cover the generic reading\/grammar competency independently of board ownership."
+        }
+    },
+    {
+        "id": "derived-batch610-439-civil-service",
+        "record_type": "RELATIONSHIP",
+        "batch": 610,
+        "question_id": 439,
+        "source_board": "let",
+        "target_board": "civil-service",
+        "concept_id": "filipino-pagbasa-pangunahing-diwan",
+        "question_required_depth": 1,
+        "target_supported_depth": 3,
+        "context_decision": "NEUTRAL",
+        "coverage_id": "coverage-66c4d284c481c6468040371e2ee7763b0ac58669ff6b4b04f5355b10bd8bfe1a",
+        "target_placement": {
+            "board_id": "civil-service",
+            "subject_id": "verbal-ability",
+            "domain_id": "",
+            "topic_id": "",
+            "concept_id": "filipino-pagbasa-pangunahing-diwan",
+            "blueprint_node": "verbal-ability"
+        },
+        "eligibility_source": "CONCEPT_INHERITED",
+        "provenance": [
+            {
+                "type": "BATCH610_CALIBRATION",
+                "reference": "batch-610-cohort-let-civil-service",
+                "note": "Same global concept, known depth compatibility, neutral context, valid Civil Service placement, and validated study support.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "source_support": {
+            "decision": "PASS",
+            "link_ids": [
+                "study-link-let-439"
+            ],
+            "rationale": "Existing linked study material and source references cover the generic reading\/grammar competency independently of board ownership."
+        }
+    },
+    {
+        "id": "derived-batch610-440-civil-service",
+        "record_type": "RELATIONSHIP",
+        "batch": 610,
+        "question_id": 440,
+        "source_board": "let",
+        "target_board": "civil-service",
+        "concept_id": "filipino-pagbasa-pangunahing-diwan",
+        "question_required_depth": 2,
+        "target_supported_depth": 3,
+        "context_decision": "NEUTRAL",
+        "coverage_id": "coverage-66c4d284c481c6468040371e2ee7763b0ac58669ff6b4b04f5355b10bd8bfe1a",
+        "target_placement": {
+            "board_id": "civil-service",
+            "subject_id": "verbal-ability",
+            "domain_id": "",
+            "topic_id": "",
+            "concept_id": "filipino-pagbasa-pangunahing-diwan",
+            "blueprint_node": "verbal-ability"
+        },
+        "eligibility_source": "CONCEPT_INHERITED",
+        "provenance": [
+            {
+                "type": "BATCH610_CALIBRATION",
+                "reference": "batch-610-cohort-let-civil-service",
+                "note": "Same global concept, known depth compatibility, neutral context, valid Civil Service placement, and validated study support.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "source_support": {
+            "decision": "PASS",
+            "link_ids": [
+                "study-link-let-440"
+            ],
+            "rationale": "Existing linked study material and source references cover the generic reading\/grammar competency independently of board ownership."
+        }
+    }
+]

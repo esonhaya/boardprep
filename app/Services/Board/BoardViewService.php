@@ -63,7 +63,9 @@ final class BoardViewService
         $blueprints = App::container()->get(BlueprintRepository::class)->all();
         $eligibility = new QuestionEligibilityIndex(
             App::storage()->all('question-eligibility'),
-            $blueprints
+            $blueprints,
+            \App\Services\Question\QuestionReuseEligibilityResolver::productionDerivedRelationships(),
+            App::storage()->all('question-reuse-overrides')
         );
 
         return [

@@ -5883,9 +5883,9 @@
         "id": "question-reuse-221",
         "question_id": "221",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -5917,6 +5917,12 @@
                     "reference": "221",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -5925,9 +5931,9 @@
         "id": "question-reuse-222",
         "question_id": "222",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -5959,6 +5965,12 @@
                     "reference": "222",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -6795,9 +6807,9 @@
         "id": "question-reuse-246",
         "question_id": "246",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -6829,6 +6841,12 @@
                     "reference": "246",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -6837,9 +6855,9 @@
         "id": "question-reuse-247",
         "question_id": "247",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -6871,6 +6889,12 @@
                     "reference": "247",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -6879,9 +6903,9 @@
         "id": "question-reuse-248",
         "question_id": "248",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -6913,6 +6937,12 @@
                     "reference": "248",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -6921,9 +6951,9 @@
         "id": "question-reuse-249",
         "question_id": "249",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -6955,6 +6985,12 @@
                     "reference": "249",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -6963,9 +6999,9 @@
         "id": "question-reuse-250",
         "question_id": "250",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -6997,6 +7033,12 @@
                     "reference": "250",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -7005,9 +7047,9 @@
         "id": "question-reuse-251",
         "question_id": "251",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -7039,6 +7081,12 @@
                     "reference": "251",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -7047,9 +7095,9 @@
         "id": "question-reuse-252",
         "question_id": "252",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -7081,6 +7129,12 @@
                     "reference": "252",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -7089,9 +7143,9 @@
         "id": "question-reuse-253",
         "question_id": "253",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -7123,6 +7177,12 @@
                     "reference": "253",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -7131,9 +7191,9 @@
         "id": "question-reuse-254",
         "question_id": "254",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -7165,6 +7225,12 @@
                     "reference": "254",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -7173,9 +7239,9 @@
         "id": "question-reuse-255",
         "question_id": "255",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -7207,6 +7273,12 @@
                     "reference": "255",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -7215,9 +7287,9 @@
         "id": "question-reuse-256",
         "question_id": "256",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -7249,6 +7321,12 @@
                     "reference": "256",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -7257,9 +7335,9 @@
         "id": "question-reuse-257",
         "question_id": "257",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -7291,6 +7369,12 @@
                     "reference": "257",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -7299,9 +7383,9 @@
         "id": "question-reuse-258",
         "question_id": "258",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -7333,6 +7417,12 @@
                     "reference": "258",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -11253,10 +11343,10 @@
         "id": "question-reuse-422",
         "question_id": "422",
         "reuse": {
-            "reuse_policy": "REVIEW",
-            "required_depth": "UNKNOWN",
+            "reuse_policy": "AUTO",
+            "required_depth": 2,
             "context_mode": "NEUTRAL",
-            "metadata_status": "INFERRED",
+            "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
                     "type": "LEGACY_MIGRATION",
@@ -11268,6 +11358,12 @@
                     "type": "BATCH608_AUDIT",
                     "reference": "c9a436f3b6b03ebdfb99e1ff8c690d55258d1d7619591f084fa38209f7e05520",
                     "note": "Context\/reuse classification follows the deterministic Batch 608 audit.",
+                    "verified_status": "VERIFIED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-cohort-let-civil-service",
+                    "note": "Depth and generic context were manually verified for the bounded first production cohort.",
                     "verified_status": "VERIFIED"
                 }
             ]
@@ -11277,10 +11373,10 @@
         "id": "question-reuse-423",
         "question_id": "423",
         "reuse": {
-            "reuse_policy": "REVIEW",
-            "required_depth": "UNKNOWN",
+            "reuse_policy": "AUTO",
+            "required_depth": 3,
             "context_mode": "NEUTRAL",
-            "metadata_status": "INFERRED",
+            "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
                     "type": "LEGACY_MIGRATION",
@@ -11292,6 +11388,12 @@
                     "type": "BATCH608_AUDIT",
                     "reference": "c9a436f3b6b03ebdfb99e1ff8c690d55258d1d7619591f084fa38209f7e05520",
                     "note": "Context\/reuse classification follows the deterministic Batch 608 audit.",
+                    "verified_status": "VERIFIED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-cohort-let-civil-service",
+                    "note": "Depth and generic context were manually verified for the bounded first production cohort.",
                     "verified_status": "VERIFIED"
                 }
             ]
@@ -11325,10 +11427,10 @@
         "id": "question-reuse-425",
         "question_id": "425",
         "reuse": {
-            "reuse_policy": "REVIEW",
-            "required_depth": "UNKNOWN",
+            "reuse_policy": "AUTO",
+            "required_depth": 2,
             "context_mode": "NEUTRAL",
-            "metadata_status": "INFERRED",
+            "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
                     "type": "LEGACY_MIGRATION",
@@ -11340,6 +11442,12 @@
                     "type": "BATCH608_AUDIT",
                     "reference": "c9a436f3b6b03ebdfb99e1ff8c690d55258d1d7619591f084fa38209f7e05520",
                     "note": "Context\/reuse classification follows the deterministic Batch 608 audit.",
+                    "verified_status": "VERIFIED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-cohort-let-civil-service",
+                    "note": "Depth and generic context were manually verified for the bounded first production cohort.",
                     "verified_status": "VERIFIED"
                 }
             ]
@@ -11397,10 +11505,10 @@
         "id": "question-reuse-428",
         "question_id": "428",
         "reuse": {
-            "reuse_policy": "REVIEW",
-            "required_depth": "UNKNOWN",
+            "reuse_policy": "AUTO",
+            "required_depth": 2,
             "context_mode": "NEUTRAL",
-            "metadata_status": "INFERRED",
+            "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
                     "type": "LEGACY_MIGRATION",
@@ -11412,6 +11520,12 @@
                     "type": "BATCH608_AUDIT",
                     "reference": "c9a436f3b6b03ebdfb99e1ff8c690d55258d1d7619591f084fa38209f7e05520",
                     "note": "Context\/reuse classification follows the deterministic Batch 608 audit.",
+                    "verified_status": "VERIFIED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-cohort-let-civil-service",
+                    "note": "Depth and generic context were manually verified for the bounded first production cohort.",
                     "verified_status": "VERIFIED"
                 }
             ]
@@ -11445,10 +11559,10 @@
         "id": "question-reuse-430",
         "question_id": "430",
         "reuse": {
-            "reuse_policy": "REVIEW",
-            "required_depth": "UNKNOWN",
+            "reuse_policy": "AUTO",
+            "required_depth": 2,
             "context_mode": "NEUTRAL",
-            "metadata_status": "INFERRED",
+            "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
                     "type": "LEGACY_MIGRATION",
@@ -11460,6 +11574,12 @@
                     "type": "BATCH608_AUDIT",
                     "reference": "c9a436f3b6b03ebdfb99e1ff8c690d55258d1d7619591f084fa38209f7e05520",
                     "note": "Context\/reuse classification follows the deterministic Batch 608 audit.",
+                    "verified_status": "VERIFIED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-cohort-let-civil-service",
+                    "note": "Depth and generic context were manually verified for the bounded first production cohort.",
                     "verified_status": "VERIFIED"
                 }
             ]
@@ -11517,10 +11637,10 @@
         "id": "question-reuse-433",
         "question_id": "433",
         "reuse": {
-            "reuse_policy": "REVIEW",
-            "required_depth": "UNKNOWN",
+            "reuse_policy": "AUTO",
+            "required_depth": 3,
             "context_mode": "NEUTRAL",
-            "metadata_status": "INFERRED",
+            "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
                     "type": "LEGACY_MIGRATION",
@@ -11532,6 +11652,12 @@
                     "type": "BATCH608_AUDIT",
                     "reference": "c9a436f3b6b03ebdfb99e1ff8c690d55258d1d7619591f084fa38209f7e05520",
                     "note": "Context\/reuse classification follows the deterministic Batch 608 audit.",
+                    "verified_status": "VERIFIED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-cohort-let-civil-service",
+                    "note": "Depth and generic context were manually verified for the bounded first production cohort.",
                     "verified_status": "VERIFIED"
                 }
             ]
@@ -11541,10 +11667,10 @@
         "id": "question-reuse-434",
         "question_id": "434",
         "reuse": {
-            "reuse_policy": "REVIEW",
-            "required_depth": "UNKNOWN",
+            "reuse_policy": "AUTO",
+            "required_depth": 2,
             "context_mode": "NEUTRAL",
-            "metadata_status": "INFERRED",
+            "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
                     "type": "LEGACY_MIGRATION",
@@ -11556,6 +11682,12 @@
                     "type": "BATCH608_AUDIT",
                     "reference": "c9a436f3b6b03ebdfb99e1ff8c690d55258d1d7619591f084fa38209f7e05520",
                     "note": "Context\/reuse classification follows the deterministic Batch 608 audit.",
+                    "verified_status": "VERIFIED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-cohort-let-civil-service",
+                    "note": "Depth and generic context were manually verified for the bounded first production cohort.",
                     "verified_status": "VERIFIED"
                 }
             ]
@@ -11637,10 +11769,10 @@
         "id": "question-reuse-438",
         "question_id": "438",
         "reuse": {
-            "reuse_policy": "REVIEW",
-            "required_depth": "UNKNOWN",
+            "reuse_policy": "AUTO",
+            "required_depth": 2,
             "context_mode": "NEUTRAL",
-            "metadata_status": "INFERRED",
+            "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
                     "type": "LEGACY_MIGRATION",
@@ -11652,6 +11784,12 @@
                     "type": "BATCH608_AUDIT",
                     "reference": "c9a436f3b6b03ebdfb99e1ff8c690d55258d1d7619591f084fa38209f7e05520",
                     "note": "Context\/reuse classification follows the deterministic Batch 608 audit.",
+                    "verified_status": "VERIFIED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-cohort-let-civil-service",
+                    "note": "Depth and generic context were manually verified for the bounded first production cohort.",
                     "verified_status": "VERIFIED"
                 }
             ]
@@ -11661,10 +11799,10 @@
         "id": "question-reuse-439",
         "question_id": "439",
         "reuse": {
-            "reuse_policy": "REVIEW",
-            "required_depth": "UNKNOWN",
+            "reuse_policy": "AUTO",
+            "required_depth": 1,
             "context_mode": "NEUTRAL",
-            "metadata_status": "INFERRED",
+            "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
                     "type": "LEGACY_MIGRATION",
@@ -11676,6 +11814,12 @@
                     "type": "BATCH608_AUDIT",
                     "reference": "c9a436f3b6b03ebdfb99e1ff8c690d55258d1d7619591f084fa38209f7e05520",
                     "note": "Context\/reuse classification follows the deterministic Batch 608 audit.",
+                    "verified_status": "VERIFIED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-cohort-let-civil-service",
+                    "note": "Depth and generic context were manually verified for the bounded first production cohort.",
                     "verified_status": "VERIFIED"
                 }
             ]
@@ -11685,10 +11829,10 @@
         "id": "question-reuse-440",
         "question_id": "440",
         "reuse": {
-            "reuse_policy": "REVIEW",
-            "required_depth": "UNKNOWN",
+            "reuse_policy": "AUTO",
+            "required_depth": 2,
             "context_mode": "NEUTRAL",
-            "metadata_status": "INFERRED",
+            "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
                     "type": "LEGACY_MIGRATION",
@@ -11700,6 +11844,12 @@
                     "type": "BATCH608_AUDIT",
                     "reference": "c9a436f3b6b03ebdfb99e1ff8c690d55258d1d7619591f084fa38209f7e05520",
                     "note": "Context\/reuse classification follows the deterministic Batch 608 audit.",
+                    "verified_status": "VERIFIED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-cohort-let-civil-service",
+                    "note": "Depth and generic context were manually verified for the bounded first production cohort.",
                     "verified_status": "VERIFIED"
                 }
             ]
@@ -13845,9 +13995,9 @@
         "id": "question-reuse-520",
         "question_id": "520",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -13873,6 +14023,12 @@
                     "reference": "520",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -13881,9 +14037,9 @@
         "id": "question-reuse-521",
         "question_id": "521",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -13909,6 +14065,12 @@
                     "reference": "521",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -13917,9 +14079,9 @@
         "id": "question-reuse-522",
         "question_id": "522",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -13945,6 +14107,12 @@
                     "reference": "522",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -13953,9 +14121,9 @@
         "id": "question-reuse-523",
         "question_id": "523",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -13981,6 +14149,12 @@
                     "reference": "523",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -13989,9 +14163,9 @@
         "id": "question-reuse-524",
         "question_id": "524",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -14017,6 +14191,12 @@
                     "reference": "524",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -14025,9 +14205,9 @@
         "id": "question-reuse-525",
         "question_id": "525",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -14053,6 +14233,12 @@
                     "reference": "525",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -14061,9 +14247,9 @@
         "id": "question-reuse-526",
         "question_id": "526",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -14089,6 +14275,12 @@
                     "reference": "526",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -14097,9 +14289,9 @@
         "id": "question-reuse-527",
         "question_id": "527",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -14125,6 +14317,12 @@
                     "reference": "527",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -14133,9 +14331,9 @@
         "id": "question-reuse-528",
         "question_id": "528",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -14161,6 +14359,12 @@
                     "reference": "528",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -14169,9 +14373,9 @@
         "id": "question-reuse-529",
         "question_id": "529",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -14197,6 +14401,12 @@
                     "reference": "529",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -14205,9 +14415,9 @@
         "id": "question-reuse-530",
         "question_id": "530",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -14233,6 +14443,12 @@
                     "reference": "530",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -14241,9 +14457,9 @@
         "id": "question-reuse-531",
         "question_id": "531",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -14269,6 +14485,12 @@
                     "reference": "531",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -14277,9 +14499,9 @@
         "id": "question-reuse-532",
         "question_id": "532",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -14305,6 +14527,12 @@
                     "reference": "532",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -14313,9 +14541,9 @@
         "id": "question-reuse-533",
         "question_id": "533",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -14341,6 +14569,12 @@
                     "reference": "533",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }
@@ -14349,9 +14583,9 @@
         "id": "question-reuse-534",
         "question_id": "534",
         "reuse": {
-            "reuse_policy": "REVIEW",
+            "reuse_policy": "MANUAL_ONLY",
             "required_depth": "UNKNOWN",
-            "context_mode": "PROFESSIONAL",
+            "context_mode": "REGULATORY",
             "metadata_status": "VERIFIED",
             "metadata_provenance": [
                 {
@@ -14377,6 +14611,12 @@
                     "reference": "534",
                     "note": "Explicit question flags or professional\/regulatory markers determined context mode.",
                     "verified_status": "INFERRED"
+                },
+                {
+                    "type": "BATCH610_CALIBRATION",
+                    "reference": "batch-610-regulatory-context-review",
+                    "note": "RA 6713 public-service requirements materially determine the answer; cross-board inheritance remains blocked by default.",
+                    "verified_status": "VERIFIED"
                 }
             ]
         }

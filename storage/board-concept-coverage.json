@@ -359,7 +359,7 @@
         "domain_id": "pagbasa",
         "topic_id": "filipino-pagbasa",
         "blueprint_node_id": "filipino",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -368,10 +368,16 @@
                 "reference": "question:14",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH610_CALIBRATION",
+                "reference": "batch-610-cohort-let-civil-service",
+                "note": "Supported depth 3 is limited to foundation through ordinary application for this shared Filipino reading concept.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 610 bounded calibration: explicit cognitive-intent review, existing target-board concept coverage, stable taxonomy placement, and linked study support.",
+        "confidence": "HIGH_FOR_BOUNDED_COHORT"
     },
     {
         "id": "coverage-66c4d284c481c6468040371e2ee7763b0ac58669ff6b4b04f5355b10bd8bfe1a",
@@ -381,8 +387,8 @@
         "domain_id": "",
         "topic_id": "",
         "blueprint_node_id": "verbal-ability",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
+        "max_depth": 3,
+        "reuse_policy": "AUTO",
         "status": "VERIFIED",
         "provenance": [
             {
@@ -390,10 +396,16 @@
                 "reference": "question:14",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH610_CALIBRATION",
+                "reference": "batch-610-cohort-let-civil-service",
+                "note": "Supported depth 3 is limited to foundation through ordinary application for this shared Filipino reading concept.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 610 bounded calibration: explicit cognitive-intent review, existing target-board concept coverage, stable taxonomy placement, and linked study support.",
+        "confidence": "HIGH_FOR_BOUNDED_COHORT"
     },
     {
         "id": "coverage-8eb01a8e02873a8cb98ecdb31d17652fdd69522806902e7768f4afe56c55eedd",

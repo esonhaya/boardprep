@@ -21,6 +21,7 @@ final class QuestionReuseMetadataService
         'CONTENT_MARKERS',
         'ADMIN_VERIFIED',
         'MANUAL_REVIEW',
+        'BATCH610_CALIBRATION',
         'OTHER',
     ];
 
@@ -160,7 +161,7 @@ final class QuestionReuseMetadataService
             (string)($question['explanation'] ?? ''),
             (string)(($question['taxonomy']['concept_id'] ?? '')),
         ]));
-        foreach (['national building code', 'philippine electrical code', 'nursing practice act', 'criminal procedure', 'auditing standard'] as $marker) {
+        foreach (['national building code', 'philippine electrical code', 'nursing practice act', 'criminal procedure', 'auditing standard', 'ra 6713', 'code of conduct and ethical standards', 'public interest in public service'] as $marker) {
             if (str_contains($text, $marker)) return 'REGULATORY';
         }
         foreach (['professional_judgment', 'context_necessary', 'forensic_interpretation', 'correctional_application', 'technical_reasoning', 'site_plan_spatial'] as $field) {

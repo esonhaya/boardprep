@@ -20,6 +20,19 @@ final class QuestionEligibilityService
     {
         $id = (string) ($question['id'] ?? '');
         $mappings = [];
+        $excluded = [];
+        $manualIncludes = [];
+        foreach (App::storage()->all('question-reuse-overrides') as $override) {
+            if (!is_array($override) || (string) ($override['question_id'] ?? '') !== $id) {
+                continue;
+            }
+            $board = self::normalize((string) ($override['board_id'] ?? ''));
+            if (($override['override_type'] ?? '') === 'EXCLUDE') {
+                $excluded[$board] = true;
+            } elseif (($override['override_type'] ?? '') === 'INCLUDE') {
+                $manualIncludes[$board] = $override;
+            }
+        }
 
         foreach (App::storage()->all('question-eligibility') as $entry) {
             if (!is_array($entry) || !self::containsId($entry['question_ids'] ?? [], $id)) {
@@ -44,7 +57,7 @@ final class QuestionEligibilityService
                     continue;
                 }
                 $boardId = self::normalize((string) $examId);
-                if ($boardId === '' || isset($mappings[$boardId])) {
+                if ($boardId === '' || isset($mappings[$boardId]) || isset($excluded[$boardId])) {
                     continue;
                 }
                 $placement = is_array($placements[$boardId] ?? null)
@@ -70,7 +83,7 @@ final class QuestionEligibilityService
         if ($mappings === []) {
             $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
             $boardId = self::normalize((string) ($taxonomy['board_id'] ?? $question['board'] ?? ''));
-            if ($boardId !== '') {
+            if ($boardId !== '' && !isset($excluded[$boardId]) && !isset($mappings[$boardId])) {
                 $mappings[$boardId] = self::editorMapping(
                     $boardId,
                     (string) ($taxonomy['subject_id'] ?? $question['subject_id'] ?? ''),
@@ -78,6 +91,40 @@ final class QuestionEligibilityService
                     $taxonomy
                 );
             }
+        }
+
+        foreach ($manualIncludes as $boardId => $override) {
+            if (isset($excluded[$boardId]) || QuestionReuseEligibilityResolver::validateOverride($override) !== []) {
+                continue;
+            }
+            $mapping = self::editorMapping(
+                $boardId,
+                (string) (($override['placement']['subject_id'] ?? '')),
+                is_array($override['placement'] ?? null) ? $override['placement'] : [],
+                []
+            );
+            $mapping['eligibility_source'] = 'MANUAL_INCLUDE';
+            $mappings[$boardId] = $mapping;
+        }
+
+        foreach (QuestionReuseEligibilityResolver::productionDerivedRelationships() as $relationship) {
+            if ((string) ($relationship['question_id'] ?? '') !== $id) {
+                continue;
+            }
+            $boardId = self::normalize((string) ($relationship['target_board'] ?? ''));
+            if ($boardId === '' || isset($excluded[$boardId]) || isset($mappings[$boardId])) {
+                continue;
+            }
+            $placement = is_array($relationship['target_placement'] ?? null) ? $relationship['target_placement'] : [];
+            $mapping = self::editorMapping(
+                $boardId,
+                (string) ($placement['subject_id'] ?? ''),
+                $placement,
+                []
+            );
+            $mapping['eligibility_source'] = 'CONCEPT_INHERITED';
+            $mapping['relationship_id'] = (string) ($relationship['id'] ?? '');
+            $mappings[$boardId] = $mapping;
         }
 
         return array_values($mappings);
@@ -241,6 +288,22 @@ final class QuestionEligibilityService
         ));
         if ($matching === []) {
             return ['valid' => false, 'errors' => ['INVALID_BOARD' => 'The question is not eligible for that board.']];
+        }
+        if (($matching[0]['eligibility_source'] ?? '') === 'CONCEPT_INHERITED') {
+            $override = [
+                'id' => 'override-' . hash('sha256', (string) ($question['id'] ?? '') . '|' . $boardId),
+                'question_id' => (string) ($question['id'] ?? ''),
+                'board_id' => $boardId,
+                'override_type' => 'EXCLUDE',
+                'reason' => 'Admin removed bounded concept-derived eligibility for this board.',
+                'provenance' => [[
+                    'type' => 'MANUAL_REVIEW',
+                    'reference' => 'batch-610-inherited-exclude',
+                    'note' => 'This exclusion overrides the bounded inherited relationship without changing board coverage.',
+                    'verified_status' => 'VERIFIED',
+                ]],
+            ];
+            return QuestionReuseEligibilityResolver::saveOverride($override);
         }
         if (count($mappings) <= 1) {
             return ['valid' => false, 'errors' => ['LAST_BOARD_UNSHARE_PROTECTED' => 'This is the question\'s only board eligibility. Archive or delete the question instead.']];
@@ -540,12 +603,15 @@ final class QuestionEligibilityService
         ?QuestionEligibilityIndex $index = null
     ): ?array
     {
+        $exam = self::normalize($exam);
+        $id = (string) ($question['id'] ?? '');
+        if (self::hasOverride($id, $exam, 'EXCLUDE')) {
+            return null;
+        }
         if ($index !== null) {
             return $index->forExam($question, $exam);
         }
 
-        $exam = self::normalize($exam);
-        $id = (string) ($question['id'] ?? '');
         foreach (App::storage()->all('question-eligibility') as $entry) {
             if (!is_array($entry) || !self::containsId($entry['question_ids'] ?? [], $id)) {
                 continue;
@@ -568,6 +634,36 @@ final class QuestionEligibilityService
                     'subject_id' => self::resolvedSubject($question, $exam, (string) ($placement['subject_id'] ?? $subjects[$exam] ?? $entry['subject_id'] ?? '')),
                 ];
             }
+        }
+
+        foreach (App::storage()->all('question-reuse-overrides') as $override) {
+            if (!is_array($override)
+                || (string) ($override['question_id'] ?? '') !== $id
+                || self::normalize((string) ($override['board_id'] ?? '')) !== $exam
+                || ($override['override_type'] ?? '') !== 'INCLUDE'
+                || QuestionReuseEligibilityResolver::validateOverride($override) !== []) {
+                continue;
+            }
+            $placement = is_array($override['placement'] ?? null) ? $override['placement'] : [];
+            return [
+                'exam_id' => $exam,
+                'subject_id' => (string) ($placement['subject_id'] ?? ''),
+                'eligibility_source' => 'MANUAL_INCLUDE',
+            ];
+        }
+
+        foreach (QuestionReuseEligibilityResolver::productionDerivedRelationships() as $relationship) {
+            if ((string) ($relationship['question_id'] ?? '') !== $id
+                || self::normalize((string) ($relationship['target_board'] ?? '')) !== $exam) {
+                continue;
+            }
+            $placement = is_array($relationship['target_placement'] ?? null) ? $relationship['target_placement'] : [];
+            return [
+                'exam_id' => $exam,
+                'subject_id' => (string) ($placement['subject_id'] ?? ''),
+                'eligibility_source' => 'CONCEPT_INHERITED',
+                'relationship_id' => (string) ($relationship['id'] ?? ''),
+            ];
         }
 
         $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
@@ -598,6 +694,19 @@ final class QuestionEligibilityService
     private static function containsId(mixed $ids, string $id): bool
     {
         return is_array($ids) && in_array($id, array_map('strval', $ids), true);
+    }
+
+    private static function hasOverride(string $questionId, string $board, string $type): bool
+    {
+        foreach (App::storage()->all('question-reuse-overrides') as $override) {
+            if (is_array($override)
+                && (string) ($override['question_id'] ?? '') === $questionId
+                && self::normalize((string) ($override['board_id'] ?? '')) === $board
+                && ($override['override_type'] ?? '') === $type) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private static function normalize(string $value): string

@@ -9,10 +9,27 @@ use App\Services\Shared\TaxonomyStorageService;
 
 final class QuestionReuseEligibilityResolver
 {
+    private static ?bool $productionEnabledCache = null;
+
+    /** @var array<int, array>|null */
+    private static ?array $productionRelationshipsCache = null;
+
+    /** @var array<string, array>|null */
+    private static ?array $reuseMetadataByQuestionCache = null;
+
+    /** @var array<string, bool>|null */
+    private static ?array $studySupportByQuestionCache = null;
+
+    /** @var array<string, array>|null */
+    private static ?array $coverageByIdCache = null;
+
+    /** @var array<string, array>|null */
+    private static ?array $questionByIdCache = null;
+
     /**
-     * Resolve the current direct result and, optionally, future derived paths.
-     * This is intentionally not wired into board selection until AUTO metadata
-     * and provenance are available.
+     * Resolve direct, manual, and bounded concept-derived paths.
+     * Global inheritance remains disabled; production rows must be explicitly
+     * materialized in the Batch 610 relationship collection.
      */
     public static function resolve(
         array $question,
@@ -25,6 +42,9 @@ final class QuestionReuseEligibilityResolver
         $questionId = (string)($question['id'] ?? '');
         $direct = [];
         foreach ($directMappings ?? QuestionEligibilityService::editorMappings($question) as $mapping) {
+            if (($mapping['eligibility_source'] ?? 'DIRECT') === 'CONCEPT_INHERITED') {
+                continue;
+            }
             $board = (string)($mapping['board_id'] ?? '');
             if ($board !== '') $direct[self::board($board)] = $mapping;
         }
@@ -75,14 +95,168 @@ final class QuestionReuseEligibilityResolver
             }
         }
 
+        $derivedProduction = [];
+        if (!$dryRun) {
+            foreach (self::productionDerivedRelationships() as $relationship) {
+                if ((string)($relationship['question_id'] ?? '') !== $questionId) {
+                    continue;
+                }
+                $board = self::board((string)($relationship['target_board'] ?? ''));
+                if ($board !== '' && !isset($excluded[$board]) && !isset($effective[$board])) {
+                    $derivedProduction[$board] = [
+                        'path' => 'CONCEPT_INHERITED',
+                        'mapping' => $relationship['target_placement'] ?? [],
+                        'relationship' => $relationship,
+                    ];
+                }
+            }
+        }
+
         return [
             'question_id' => $questionId,
             'direct' => $direct,
             'overrides' => $questionOverrides,
             'effective' => $effective,
             'derived_dry_run' => $derived,
+            'derived_production' => $derivedProduction,
             'production_auto_inheritance_enabled' => false,
+            'production_bounded_derivation_enabled' => self::productionDerivationEnabled(),
         ];
+    }
+
+    public static function productionDerivationEnabled(): bool
+    {
+        if (self::$productionEnabledCache !== null) {
+            return self::$productionEnabledCache;
+        }
+        foreach (App::storage()->all('concept-derived-eligibility') as $record) {
+            if (is_array($record)
+                && ($record['record_type'] ?? '') === 'CONFIG'
+                && ($record['production_enabled'] ?? false) === true) {
+                return self::$productionEnabledCache = true;
+            }
+        }
+        return self::$productionEnabledCache = false;
+    }
+
+    /** @return array<int, array> */
+    public static function productionDerivedRelationships(): array
+    {
+        if (self::$productionRelationshipsCache !== null) {
+            return self::$productionRelationshipsCache;
+        }
+        if (!self::productionDerivationEnabled()) {
+            return self::$productionRelationshipsCache = [];
+        }
+        $valid = [];
+        foreach (App::storage()->all('concept-derived-eligibility') as $record) {
+            if (is_array($record)
+                && ($record['record_type'] ?? '') === 'RELATIONSHIP'
+                && self::validateDerivedRelationship($record) === []) {
+                $valid[] = $record;
+            }
+        }
+        return self::$productionRelationshipsCache = $valid;
+    }
+
+    public static function validateDerivedRelationship(array $relationship): array
+    {
+        $errors = [];
+        $questionId = (string)($relationship['question_id'] ?? '');
+        $targetBoard = self::board((string)($relationship['target_board'] ?? ''));
+        $conceptId = (string)($relationship['concept_id'] ?? '');
+        $question = $questionId === '' ? null : self::questionById()[$questionId] ?? null;
+        if ($question === null) $errors[] = 'INVALID_DERIVED_QUESTION';
+        if ($targetBoard === '' || TaxonomyStorageService::find('boards', $targetBoard) === null) $errors[] = 'INVALID_DERIVED_BOARD';
+        if ($conceptId === '' || TaxonomyStorageService::find('taxonomy/concepts', $conceptId) === null) $errors[] = 'INVALID_DERIVED_CONCEPT';
+        if (is_array($question) && (string)(($question['taxonomy']['concept_id'] ?? '')) !== $conceptId) $errors[] = 'DERIVED_CONCEPT_MISMATCH';
+        $metadata = self::reuseMetadataByQuestion()[$questionId] ?? null;
+        if (!is_array($metadata) || ($metadata['reuse_policy'] ?? '') !== 'AUTO') $errors[] = 'DERIVED_POLICY_NOT_AUTO';
+        if (is_array($metadata) && ($metadata['context_mode'] ?? '') !== 'NEUTRAL') $errors[] = 'DERIVED_CONTEXT_BLOCKED';
+        $requiredDepth = $relationship['question_required_depth'] ?? null;
+        $targetDepth = $relationship['target_supported_depth'] ?? null;
+        if (!is_int($requiredDepth) || !in_array($requiredDepth, [1, 2, 3, 4, 5], true)) $errors[] = 'INVALID_DERIVED_DEPTH';
+        if (!is_int($targetDepth) || !in_array($targetDepth, [1, 2, 3, 4, 5], true)) $errors[] = 'INVALID_DERIVED_TARGET_DEPTH';
+        if (is_int($requiredDepth) && is_int($targetDepth) && $targetDepth < $requiredDepth) $errors[] = 'DERIVED_DEPTH_EXCEEDED';
+        if (($relationship['context_decision'] ?? '') !== 'NEUTRAL') $errors[] = 'DERIVED_CONTEXT_BLOCKED';
+        if (($relationship['eligibility_source'] ?? '') !== 'CONCEPT_INHERITED') $errors[] = 'MISSING_DERIVED_PROVENANCE';
+        $placement = is_array($relationship['target_placement'] ?? null) ? $relationship['target_placement'] : [];
+        $coverageId = (string)($relationship['coverage_id'] ?? '');
+        $coverage = $coverageId === '' ? null : self::coverageById()[$coverageId] ?? null;
+        if ($coverage === null || (string)($coverage['board_id'] ?? '') !== $targetBoard || (string)($coverage['concept_id'] ?? '') !== $conceptId) $errors[] = 'DERIVED_INVALID_COVERAGE';
+        if (is_array($coverage) && self::validateCoverage($coverage) === []) {
+            foreach (['subject_id', 'domain_id', 'topic_id', 'concept_id'] as $field) {
+                if ((string)($placement[$field] ?? '') !== (string)($coverage[$field] ?? '')) {
+                    $errors[] = 'DERIVED_PLACEMENT_MISMATCH';
+                    break;
+                }
+            }
+            if ((string)($placement['blueprint_node'] ?? '') !== (string)($coverage['blueprint_node_id'] ?? '')) {
+                $errors[] = 'DERIVED_PLACEMENT_MISMATCH';
+            }
+            if (($coverage['reuse_policy'] ?? '') !== 'AUTO'
+                || ($coverage['status'] ?? '') !== 'VERIFIED'
+                || ($coverage['max_depth'] ?? 'UNKNOWN') !== $targetDepth) {
+                $errors[] = 'DERIVED_TARGET_DEPTH_OR_POLICY_MISMATCH';
+            }
+        } else {
+            foreach (self::validatePlacement($targetBoard, $placement) as $error) $errors[] = 'DERIVED_' . $error;
+        }
+        $sourceSupport = is_array($relationship['source_support'] ?? null) ? $relationship['source_support'] : [];
+        if (!(self::studySupportByQuestion()[$questionId] ?? false)
+            || ($sourceSupport['decision'] ?? '') !== 'PASS'
+            || !is_array($sourceSupport['link_ids'] ?? null)
+            || $sourceSupport['link_ids'] === []) {
+            $errors[] = 'DERIVED_INVALID_SOURCE_SUPPORT';
+        }
+        foreach (QuestionReuseMetadataService::validateProvenance($relationship['provenance'] ?? null) as $error) $errors[] = 'DERIVED_' . $error;
+        return array_values(array_unique($errors));
+    }
+
+    /** @return array<string, array> */
+    private static function questionById(): array
+    {
+        if (self::$questionByIdCache !== null) return self::$questionByIdCache;
+        $index = [];
+        foreach (App::storage()->all('questions') as $question) {
+            if (is_array($question) && isset($question['id'])) $index[(string) $question['id']] = $question;
+        }
+        return self::$questionByIdCache = $index;
+    }
+
+    /** @return array<string, array> */
+    private static function reuseMetadataByQuestion(): array
+    {
+        if (self::$reuseMetadataByQuestionCache !== null) return self::$reuseMetadataByQuestionCache;
+        $index = [];
+        foreach (App::storage()->all('question-reuse-metadata') as $record) {
+            if (is_array($record) && isset($record['question_id']) && is_array($record['reuse'] ?? null)) {
+                $index[(string) $record['question_id']] = $record['reuse'];
+            }
+        }
+        return self::$reuseMetadataByQuestionCache = $index;
+    }
+
+    /** @return array<string, bool> */
+    private static function studySupportByQuestion(): array
+    {
+        if (self::$studySupportByQuestionCache !== null) return self::$studySupportByQuestionCache;
+        $index = [];
+        foreach (App::storage()->all('study-question-links') as $link) {
+            if (is_array($link) && isset($link['question_id'])) $index[(string) $link['question_id']] = true;
+        }
+        return self::$studySupportByQuestionCache = $index;
+    }
+
+    /** @return array<string, array> */
+    private static function coverageById(): array
+    {
+        if (self::$coverageByIdCache !== null) return self::$coverageByIdCache;
+        $index = [];
+        foreach (App::storage()->all('board-concept-coverage') as $row) {
+            if (is_array($row) && isset($row['id'])) $index[(string) $row['id']] = $row;
+        }
+        return self::$coverageByIdCache = $index;
     }
 
     public static function validateCoverage(array $coverage): array

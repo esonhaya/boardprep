@@ -111,10 +111,10 @@ foreach ($questions as $question) {
     }
     foreach ($candidateBoards as $board) {
         $row = $coverageByConcept[$concept][$board];
-        if (($reuse['reuse_policy'] ?? 'REVIEW') === 'MANUAL_ONLY') {
-            $blockedManualPolicy++;
-        } elseif (($reuse['context_mode'] ?? 'UNKNOWN') !== 'NEUTRAL') {
+        if (($reuse['context_mode'] ?? 'UNKNOWN') !== 'NEUTRAL') {
             $blockedContext++;
+        } elseif (($reuse['reuse_policy'] ?? 'REVIEW') === 'MANUAL_ONLY') {
+            $blockedManualPolicy++;
         } elseif (($requiredByQuestion[$questionId] ?? []) !== []) {
             $blockedRequiredConcepts++;
         } elseif (($reuse['required_depth'] ?? 'UNKNOWN') === 'UNKNOWN'

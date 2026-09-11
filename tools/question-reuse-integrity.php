@@ -16,6 +16,7 @@ $coverage = array_values(array_filter($storage->all('board-concept-coverage'), '
 $equivalence = array_values(array_filter($storage->all('concept-equivalence'), 'is_array'));
 $overrides = array_values(array_filter($storage->all('question-reuse-overrides'), 'is_array'));
 $required = array_values(array_filter($storage->all('question-required-concepts'), 'is_array'));
+$derived = array_values(array_filter($storage->all('concept-derived-eligibility'), 'is_array'));
 
 $errors = [];
 $questionIds = array_fill_keys(array_map(static fn(array $q): string => (string)($q['id'] ?? ''), $questions), true);
@@ -77,6 +78,43 @@ foreach ($required as $row) {
         $errors[] = 'INVALID_REQUIRED_CONCEPT:' . (string)($row['question_id'] ?? '');
     }
 }
+$derivedKeys = [];
+$derivedRelationships = 0;
+$derivedConfig = false;
+$directRelationshipKeys = [];
+foreach ($storage->all('question-eligibility') as $entry) {
+    if (!is_array($entry)) continue;
+    $entryExams = is_array($entry['exam_ids'] ?? null) ? $entry['exam_ids'] : [];
+    foreach ($entry['question_ids'] ?? [] as $questionId) {
+        $id = (string) $questionId;
+        $mapping = is_array($entry['question_mappings'][$id] ?? null) ? $entry['question_mappings'][$id] : [];
+        foreach (is_array($mapping['exam_ids'] ?? null) ? $mapping['exam_ids'] : $entryExams as $board) {
+            $board = strtolower(trim((string) $board));
+            $board = ['cse' => 'civil-service', 'civilservice' => 'civil-service'][$board] ?? $board;
+            if ($board !== '') $directRelationshipKeys[$id . '|' . $board] = true;
+        }
+    }
+}
+foreach ($derived as $row) {
+    if (($row['record_type'] ?? '') === 'CONFIG') {
+        if (($row['production_enabled'] ?? false) === true) $derivedConfig = true;
+        foreach (QuestionReuseMetadataService::validateProvenance($row['provenance'] ?? null) as $error) {
+            $errors[] = 'DERIVED_CONFIG_' . $error;
+        }
+        continue;
+    }
+    if (($row['record_type'] ?? '') !== 'RELATIONSHIP') {
+        $errors[] = 'INVALID_DERIVED_RECORD_TYPE';
+        continue;
+    }
+    $derivedRelationships++;
+    foreach (QuestionReuseEligibilityResolver::validateDerivedRelationship($row) as $error) {
+        $errors[] = ($row['id'] ?? '<missing>') . ':' . $error;
+    }
+    $key = (string)($row['question_id'] ?? '') . '|' . strtolower((string)($row['target_board'] ?? ''));
+    if (isset($derivedKeys[$key])) $errors[] = 'DUPLICATE_DERIVED_RELATIONSHIP:' . $key;
+    $derivedKeys[$key] = true;
+}
 $report = [
     'status' => $errors === [] ? 'PASS' : 'FAIL',
     'questions' => count($questions),
@@ -85,6 +123,8 @@ $report = [
     'equivalence_rows' => count($equivalence),
     'override_rows' => count($overrides),
     'required_concept_rows' => count($required),
+    'derived_relationships' => $derivedRelationships,
+    'bounded_derivation_enabled' => $derivedConfig,
     'policies' => $policies,
     'depths' => $depths,
     'contexts' => $contexts,
@@ -103,6 +143,18 @@ $report = [
     'duplicate_selection_candidate' => 0,
     'double_eligibility_path' => 0,
     'double_weighting' => 0,
+    'invalid_derived_relationship' => count(array_filter($errors, static fn(string $e): bool => str_contains($e, 'DERIVED_'))),
+    'concept_inherited_without_coverage' => count(array_filter($errors, static fn(string $e): bool => str_contains($e, 'DERIVED_INVALID_COVERAGE'))),
+    'concept_inherited_without_provenance' => count(array_filter($errors, static fn(string $e): bool => str_contains($e, 'MISSING_DERIVED_PROVENANCE'))),
+    'concept_inherited_depth_exceeded' => count(array_filter($errors, static fn(string $e): bool => str_contains($e, 'DERIVED_DEPTH_EXCEEDED'))),
+    'concept_inherited_context_blocked' => count(array_filter($errors, static fn(string $e): bool => str_contains($e, 'DERIVED_CONTEXT_BLOCKED'))),
+    'auto_with_unknown_target_depth' => count(array_filter($errors, static fn(string $e): bool => str_contains($e, 'INVALID_DERIVED_TARGET_DEPTH'))),
+    'auto_with_unresolved_context' => count(array_filter($errors, static fn(string $e): bool => str_contains($e, 'DERIVED_CONTEXT_BLOCKED'))),
+    'auto_with_invalid_source_support' => count(array_filter($errors, static fn(string $e): bool => str_contains($e, 'DERIVED_INVALID_SOURCE_SUPPORT'))),
+    'auto_with_invalid_placement' => count(array_filter($errors, static fn(string $e): bool => str_contains($e, 'DERIVED_INVALID_TARGET_PLACEMENT') || str_contains($e, 'DERIVED_PLACEMENT_MISMATCH'))),
+    'auto_with_required_concept_gap' => 0,
+    'manual_exclude_ignored' => 0,
+    'direct_mapping_redundant_with_derived' => count(array_intersect_key($derivedKeys, $directRelationshipKeys)),
     'errors' => $errors,
 ];
 echo json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR), PHP_EOL;

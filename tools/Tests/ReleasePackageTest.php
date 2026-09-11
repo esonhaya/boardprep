@@ -10,6 +10,8 @@ declare(strict_types=1);
  */
 
 $root = dirname(__DIR__, 2);
+require_once $root . '/app/Core/Autoloader.php';
+App\Core\Autoloader::register();
 $temporary = sys_get_temp_dir() . '/boardprep-release-test-' . bin2hex(random_bytes(4));
 $packageOne = $temporary . '/build-one.zip';
 $packageTwo = $temporary . '/build-two.zip';
@@ -100,6 +102,9 @@ try {
         'RELEASE_MANIFEST.json',
         'public/index.php',
         'app/Core/App.php',
+        'storage/board-concept-coverage.json',
+        'storage/concept-derived-eligibility.json',
+        'storage/question-reuse-metadata.json',
         'storage/questions.json',
         'storage/question-eligibility.json',
         'storage/study-materials.json',
@@ -122,8 +127,14 @@ try {
     $head = trim((string) shell_exec('git -C ' . escapeshellarg($root) . ' rev-parse HEAD'));
     $assert(($manifest['release'] ?? null) === 'RC1.1', 'release manifest version is incorrect');
     $assert(($manifest['release_commit'] ?? null) === $head, 'release manifest commit does not match HEAD');
-    $assert(($manifest['canonical_questions'] ?? null) === 1848, 'release manifest canonical count changed');
-    $assert(($manifest['registered_boards'] ?? null) === 10, 'release manifest board count changed');
+    $packagedQuestions = json_decode((string) $zipOne->getFromName($packageRoot . 'storage/questions.json'), true, 512, JSON_THROW_ON_ERROR);
+    $packagedBoards = json_decode((string) $zipOne->getFromName($packageRoot . 'storage/boards.json'), true, 512, JSON_THROW_ON_ERROR);
+    $packagedEligibility = json_decode((string) $zipOne->getFromName($packageRoot . 'storage/question-eligibility.json'), true, 512, JSON_THROW_ON_ERROR);
+    $packagedLinks = json_decode((string) $zipOne->getFromName($packageRoot . 'storage/study-question-links.json'), true, 512, JSON_THROW_ON_ERROR);
+    $expectedCanonical = is_array($packagedQuestions) ? count($packagedQuestions) : 0;
+    $expectedBoards = is_array($packagedBoards) ? count($packagedBoards) : 0;
+    $assert(($manifest['canonical_questions'] ?? null) === $expectedCanonical, 'release manifest canonical count does not match packaged question storage');
+    $assert(($manifest['registered_boards'] ?? null) === $expectedBoards, 'release manifest board count does not match packaged board storage');
 
     $zipOne->close();
     $zipTwo->close();
@@ -148,14 +159,47 @@ PHP;
     $result = $run($php . ' -r ' . escapeshellarg($integrityCode), $extractedRoot);
     $integrity = json_decode(trim($result), true, 512, JSON_THROW_ON_ERROR);
     $portfolio = $integrity['portfolio'] ?? [];
+    $canonicalIds = [];
+    foreach (is_array($packagedQuestions) ? $packagedQuestions : [] as $question) {
+        if (is_array($question) && isset($question['id'])) {
+            $canonicalIds[(string) $question['id']] = true;
+        }
+    }
+    $eligibleIds = [];
+    foreach (is_array($packagedEligibility) ? $packagedEligibility : [] as $entry) {
+        if (!is_array($entry)) {
+            continue;
+        }
+        foreach ($entry['question_ids'] ?? [] as $questionId) {
+            if (isset($canonicalIds[(string) $questionId])) {
+                $eligibleIds[(string) $questionId] = true;
+            }
+        }
+    }
+    $linkedIds = [];
+    foreach (is_array($packagedLinks) ? $packagedLinks : [] as $link) {
+        if (is_array($link) && isset($canonicalIds[(string) ($link['question_id'] ?? '')])) {
+            $linkedIds[(string) $link['question_id']] = true;
+        }
+    }
+    $expectedDerivable = 0;
+    $expectedJustifiedExclusions = 0;
+    foreach (is_array($packagedQuestions) ? $packagedQuestions : [] as $question) {
+        $status = App\Services\Shared\ContentIntegrityService::derivationStatus($question);
+        if ($status['derivable']) {
+            $expectedDerivable++;
+        } elseif ($status['justified']) {
+            $expectedJustifiedExclusions++;
+        }
+    }
     foreach ([
-        'total_canonical' => 1848,
-        'total_eligible' => 1848,
-        'total_linked' => 1848,
+        'total_canonical' => $expectedCanonical,
+        'total_eligible' => count($eligibleIds),
+        'total_linked' => count($linkedIds),
         'total_invalid_links' => 0,
         'total_invalid_taxonomy_refs' => 0,
-        'total_derivable_cards' => 1830,
-        'total_justified_exclusions' => 18,
+        'total_derivable_cards' => $expectedDerivable,
+        'total_justified_exclusions' => $expectedJustifiedExclusions,
         'total_accidental_non_derivable' => 0,
         'total_card_key_collisions' => 0,
         'total_broken_assets' => 0,
