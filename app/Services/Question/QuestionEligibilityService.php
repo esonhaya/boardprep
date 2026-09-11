@@ -13,6 +13,14 @@ final class QuestionEligibilityService
         $id = (string) ($question['id'] ?? '');
         foreach (App::storage()->all('question-eligibility') as $entry) {
             if (is_array($entry) && self::containsId($entry['question_ids'] ?? [], $id)) {
+                $questionMappings = is_array($entry['question_mappings'] ?? null) ? $entry['question_mappings'] : [];
+                $override = $questionMappings[$id] ?? null;
+                if (is_array($override)) {
+                    return [
+                        'exam_ids' => array_values($override['exam_ids'] ?? []),
+                        'subject_ids' => is_array($override['subject_ids'] ?? null) ? $override['subject_ids'] : [],
+                    ];
+                }
                 return [
                     'exam_ids' => array_values($entry['exam_ids'] ?? []),
                     'subject_ids' => is_array($entry['subject_ids'] ?? null) ? $entry['subject_ids'] : [],
@@ -36,6 +44,12 @@ final class QuestionEligibilityService
         foreach ($records as &$record) {
             if (!is_array($record) || !self::containsId($record['question_ids'] ?? [], $id)) {
                 continue;
+            }
+            if (is_array($record['question_mappings'][$id] ?? null)) {
+                $record['question_mappings'][$id]['exam_ids'] = $examIds;
+                $record['question_mappings'][$id]['subject_ids'] = is_array($metadata['subject_ids'] ?? null) ? $metadata['subject_ids'] : [];
+                App::storage()->replace('question-eligibility', $records);
+                return;
             }
             $record['exam_ids'] = $examIds;
             $record['subject_ids'] = is_array($metadata['subject_ids'] ?? null) ? $metadata['subject_ids'] : [];
@@ -67,9 +81,17 @@ final class QuestionEligibilityService
             if (!is_array($entry) || !self::containsId($entry['question_ids'] ?? [], $id)) {
                 continue;
             }
-            $exams = array_map([self::class, 'normalize'], is_array($entry['exam_ids'] ?? null) ? $entry['exam_ids'] : []);
+            $questionMappings = is_array($entry['question_mappings'] ?? null) ? $entry['question_mappings'] : [];
+            $override = $questionMappings[$id] ?? null;
+            $examIds = is_array($override['exam_ids'] ?? null)
+                ? $override['exam_ids']
+                : ($entry['exam_ids'] ?? []);
+            $exams = array_map([self::class, 'normalize'], is_array($examIds) ? $examIds : []);
             if (in_array($exam, $exams, true)) {
-                $subjects = is_array($entry['subject_ids'] ?? null) ? $entry['subject_ids'] : [];
+                $subjectIds = is_array($override['subject_ids'] ?? null)
+                    ? $override['subject_ids']
+                    : ($entry['subject_ids'] ?? []);
+                $subjects = is_array($subjectIds) ? $subjectIds : [];
                 return [
                     'exam_id' => $exam,
                     'subject_id' => self::resolvedSubject($question, $exam, (string) ($subjects[$exam] ?? $entry['subject_id'] ?? '')),

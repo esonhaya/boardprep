@@ -131,14 +131,17 @@ final class ContentIntegrityService
             $entryId = self::id($entry) ?: '<missing>';
             $examIds = is_array($entry['exam_ids'] ?? null) ? $entry['exam_ids'] : [];
             $questionRefs = is_array($entry['question_ids'] ?? null) ? $entry['question_ids'] : [];
-            foreach ($examIds as $exam) {
-                $boardId = self::boardId($exam);
-                if (!isset($validBoardIds[$boardId])) {
-                    $invalidEligibility[] = $entryId . ':unknown-board:' . $boardId;
-                    continue;
-                }
-                foreach ($questionRefs as $questionRef) {
-                    $questionId = is_scalar($questionRef) ? trim((string) $questionRef) : '';
+            $questionMappings = is_array($entry['question_mappings'] ?? null) ? $entry['question_mappings'] : [];
+            foreach ($questionRefs as $questionRef) {
+                $questionId = is_scalar($questionRef) ? trim((string) $questionRef) : '';
+                $mapping = is_array($questionMappings[$questionId] ?? null) ? $questionMappings[$questionId] : [];
+                $effectiveExamIds = is_array($mapping['exam_ids'] ?? null) ? $mapping['exam_ids'] : $examIds;
+                foreach ($effectiveExamIds as $exam) {
+                    $boardId = self::boardId($exam);
+                    if (!isset($validBoardIds[$boardId])) {
+                        $invalidEligibility[] = $entryId . ':unknown-board:' . $boardId;
+                        continue;
+                    }
                     if ($questionId === '' || !isset($questionIds[$questionId])) {
                         $invalidEligibility[] = $entryId . ':unknown-question:' . ($questionId ?: '<missing>');
                         $invalidEligibilityByBoard[$boardId][] = $entryId . ':unknown-question:' . ($questionId ?: '<missing>');

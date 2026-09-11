@@ -316,13 +316,16 @@ final class ContentPriorityService
         foreach ($entries as $entry) {
             $exams = is_array($entry['exam_ids'] ?? null) ? $entry['exam_ids'] : [];
             $ids = is_array($entry['question_ids'] ?? null) ? $entry['question_ids'] : [];
-            foreach ($exams as $exam) {
-                $boardId = self::normalizeBoard($exam);
-                if (!isset($validBoards[$boardId])) {
-                    continue;
-                }
-                foreach ($ids as $id) {
-                    $questionId = self::scalar($id);
+            $questionMappings = is_array($entry['question_mappings'] ?? null) ? $entry['question_mappings'] : [];
+            foreach ($ids as $id) {
+                $questionId = self::scalar($id);
+                $mapping = is_array($questionMappings[$questionId] ?? null) ? $questionMappings[$questionId] : [];
+                $effectiveExams = is_array($mapping['exam_ids'] ?? null) ? $mapping['exam_ids'] : $exams;
+                foreach ($effectiveExams as $exam) {
+                    $boardId = self::normalizeBoard($exam);
+                    if (!isset($validBoards[$boardId])) {
+                        continue;
+                    }
                     if ($questionId !== '') {
                         $index[$boardId][$questionId] = true;
                     }

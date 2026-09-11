@@ -26,7 +26,18 @@ final class QuestionEligibilityIndex
                 if (!is_scalar($questionId)) {
                     continue;
                 }
-                $this->entriesByQuestion[(string) $questionId][] = $entry;
+                $questionEntry = $entry;
+                $questionMappings = is_array($entry['question_mappings'] ?? null) ? $entry['question_mappings'] : [];
+                $override = $questionMappings[(string) $questionId] ?? null;
+                if (is_array($override)) {
+                    if (is_array($override['exam_ids'] ?? null)) {
+                        $questionEntry['exam_ids'] = $override['exam_ids'];
+                    }
+                    if (is_array($override['subject_ids'] ?? null)) {
+                        $questionEntry['subject_ids'] = $override['subject_ids'];
+                    }
+                }
+                $this->entriesByQuestion[(string) $questionId][] = $questionEntry;
             }
         }
 
