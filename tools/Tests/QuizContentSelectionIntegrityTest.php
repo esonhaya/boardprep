@@ -10,10 +10,10 @@ $http = new \Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator(
     dirname(__DIR__, 2) . '/public/index.php'
 );
 $start = $http->request(
-    'GET',
+    'POST',
     '/quiz',
-    ['action' => 'start', 'subject' => 'English', 'topic' => 'Grammar', 'difficulty' => 'mixed', 'mode' => 'practice', 'count' => 1],
     [],
+    ['action' => 'start', 'exam' => 'LET', 'subject' => 'English', 'topic' => 'Grammar', 'difficulty' => 'mixed', 'mode' => 'practice', 'count' => 1],
     [],
     ['PHPSESSID' => 'batch432-content-selection']
 );
