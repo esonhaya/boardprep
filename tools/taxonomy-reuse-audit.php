@@ -72,7 +72,16 @@ final class TaxonomyReuseAudit
             [$class, $target, $reason] = $this->classify($q);
             $id = (string)$q['id'];
             $classes[$id] = $class;
-            $targets[$id] = ['classification' => $class, 'targets' => $target, 'reason' => $reason];
+            $targets[$id] = [
+                'source_board' => $this->sourceBoard($q),
+                'source_subject' => (string)(($q['taxonomy'] ?? [])['subject_id'] ?? ''),
+                'source_domain' => (string)(($q['taxonomy'] ?? [])['domain_id'] ?? ''),
+                'source_topic' => (string)(($q['taxonomy'] ?? [])['topic_id'] ?? ''),
+                'source_concept' => (string)(($q['taxonomy'] ?? [])['concept_id'] ?? ''),
+                'classification' => $class,
+                'targets' => $target,
+                'reason' => $reason,
+            ];
         }
         ksort($classes, SORT_NATURAL);
         $classificationHash = hash('sha256', implode('|', array_map(
@@ -145,6 +154,7 @@ final class TaxonomyReuseAudit
                 'potential_cross_board_relationships_screened' => count($single) * max(0, count($this->boards) - 1),
                 'classifications' => $classCounts,
                 'classifications_by_source_board' => $classBySource,
+                'decisions' => $targets,
                 'unclassified' => count($single) - count($classes),
                 'classification_hash' => $classificationHash,
                 'rule' => 'G missing taxonomy; E explicit material context; A same global concept reachable on another board; B verified cross-board evidence without depth; C candidate with prerequisites; D deterministic family/name overlap; F no equivalent.',
