@@ -18,6 +18,7 @@ final class QuestionValidationService
         self::validateStatus($question, $errors);
         self::validateOptions($question, $errors);
         self::validateExplanation($question, $errors);
+        self::validateReuseMetadata($question, $errors);
 
         return [
             'valid' => empty($errors),
@@ -236,6 +237,17 @@ final class QuestionValidationService
     {
         if (self::text($question['explanation'] ?? null) === '') {
             $errors[] = 'Missing explanation';
+        }
+    }
+
+    private static function validateReuseMetadata(array $question, array &$errors): void
+    {
+        if (!array_key_exists('reuse', $question)) {
+            return;
+        }
+
+        foreach (\App\Services\Question\QuestionReuseMetadataService::validate($question['reuse']) as $error) {
+            $errors[] = $error;
         }
     }
 

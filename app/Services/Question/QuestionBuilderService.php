@@ -14,7 +14,7 @@ final class QuestionBuilderService
     {
         $now = date(DATE_ATOM);
 
-        return array_merge(
+        $question = array_merge(
             QuestionMetadataBuilderService::build($id, $existing, $now),
             [
                 'taxonomy' => QuestionTaxonomyResolver::resolve($input, $existing),
@@ -32,5 +32,12 @@ final class QuestionBuilderService
                 'content_blocks' => QuestionInputReader::blocks($input, $existing),
             ]
         );
+
+        $question['reuse'] = QuestionReuseMetadataService::forAuthoring(
+            $question,
+            is_array($existing['reuse'] ?? null) ? $existing['reuse'] : null
+        );
+
+        return $question;
     }
 }

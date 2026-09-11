@@ -40,6 +40,14 @@ $reloaded = $repository->find($id);
 if ($reloaded === null) {
     throw new RuntimeException('persisted authored content did not reload');
 }
+$storedQuestions = json_decode((string)file_get_contents($directory . '/questions.json'), true, 512, JSON_THROW_ON_ERROR);
+$storedReuse = json_decode((string)file_get_contents($directory . '/question-reuse-metadata.json'), true, 512, JSON_THROW_ON_ERROR);
+if (isset($storedQuestions[0]['reuse'])
+    || count($storedReuse) !== 1
+    || (string)($storedReuse[0]['question_id'] ?? '') !== $id
+    || \App\Services\Question\QuestionReuseMetadataService::validate($storedReuse[0]['reuse'] ?? null) !== []) {
+    throw new RuntimeException('authoring did not persist reuse metadata in its separate canonical collection');
+}
 
 $request = new \SelectionRequest('english', 'grammar', ['medium' => 1], 1, 'parts-of-speech');
 $eligible = \QuestionSelectionService::fulfillRequest($repository->all(), $request)->questions;
@@ -61,6 +69,10 @@ if (!is_array($stored) || count($stored) !== 1) {
 }
 
 unlink($directory . '/questions.json');
+foreach (glob($directory . '/*.json') ?: [] as $path) {
+    if (is_file($path)) unlink($path);
+}
+if (is_file($directory . '/.storage.lock')) unlink($directory . '/.storage.lock');
 rmdir($directory);
 
 echo "[PASS] authoring persists, reloads, reaches quiz selection, and rejects invalid writes.\n";

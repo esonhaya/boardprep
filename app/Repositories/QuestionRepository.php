@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repositories;
 
 use App\Contracts\StorageInterface;
+use App\Services\Question\QuestionReuseMetadataService;
 
 class QuestionRepository extends BaseRepository
 {
@@ -24,6 +25,18 @@ class QuestionRepository extends BaseRepository
             $this->storage->all($this->collection),
             'is_array'
         ));
+
+        $reuseByQuestion = [];
+        foreach ($this->storage->all('question-reuse-metadata') as $record) {
+            if (!is_array($record) || !is_scalar($record['question_id'] ?? null)) {
+                continue;
+            }
+            $metadata = $record['reuse'] ?? $record;
+            if (is_array($metadata)
+                && QuestionReuseMetadataService::validate($metadata) === []) {
+                $reuseByQuestion[(string) $record['question_id']] = $metadata;
+            }
+        }
 
         $statistics = [];
         foreach ($this->storage->all('question-statistics') as $record) {
@@ -48,7 +61,16 @@ class QuestionRepository extends BaseRepository
 
                 return $question;
             },
-            $questions
+            array_map(
+                static function (array $question) use ($reuseByQuestion): array {
+                    $id = (string) ($question['id'] ?? '');
+                    if (!array_key_exists('reuse', $question) && isset($reuseByQuestion[$id])) {
+                        $question['reuse'] = $reuseByQuestion[$id];
+                    }
+                    return $question;
+                },
+                $questions
+            )
         );
     }
 
@@ -186,5 +208,41 @@ class QuestionRepository extends BaseRepository
     public function updateStatistics(array $entries): void
     {
         (new QuestionStatisticsRepository($this->storage))->recordAnswers($entries, $this->all());
+    }
+
+    public function persistReuseMetadata(array $question, array $reuse): void
+    {
+        if (!isset($this->storage)) {
+            return;
+        }
+        $questionId = (string)($question['id'] ?? '');
+        if ($questionId === '' || QuestionReuseMetadataService::validate($reuse) !== []) {
+            return;
+        }
+        $records = [];
+        $updated = false;
+        foreach ($this->storage->all('question-reuse-metadata') as $record) {
+            if (!is_array($record)) continue;
+            if ((string)($record['question_id'] ?? '') === $questionId) {
+                if (!$updated) {
+                    $records[] = [
+                        'id' => (string)($record['id'] ?? 'question-reuse-' . $questionId),
+                        'question_id' => $questionId,
+                        'reuse' => $reuse,
+                    ];
+                    $updated = true;
+                }
+                continue;
+            }
+            $records[] = $record;
+        }
+        if (!$updated) {
+            $records[] = [
+                'id' => 'question-reuse-' . $questionId,
+                'question_id' => $questionId,
+                'reuse' => $reuse,
+            ];
+        }
+        $this->storage->replace('question-reuse-metadata', $records);
     }
 }

@@ -54,8 +54,11 @@ class QuestionService
     public static function save(array $question): array
     {
         self::assertValid(self::validateForCreate($question));
-
-        return self::repository()->create($question);
+        $reuse = self::takeReuseMetadata($question);
+        $repository = self::repository();
+        $created = $repository->create($question);
+        if ($reuse !== null) $repository->persistReuseMetadata($created, $reuse);
+        return $created;
     }
 
     public static function update(int|string $id, array $question): ?array
@@ -68,8 +71,11 @@ class QuestionService
         $question['id'] = $existing['id'];
         $question['updatedAt'] = date(DATE_ATOM);
         self::assertValid(self::validateForSave($question));
-
-        return self::repository()->update((string) $id, $question);
+        $reuse = self::takeReuseMetadata($question);
+        $repository = self::repository();
+        $updated = $repository->update((string) $id, $question);
+        if (is_array($updated) && $reuse !== null) $repository->persistReuseMetadata($updated, $reuse);
+        return $updated;
     }
 
     private static function assertValid(array $validation): void
@@ -96,4 +102,15 @@ class QuestionService
     {
         return App::container()->get(QuestionRepository::class);
     }
+
+    private static function takeReuseMetadata(array &$question): ?array
+    {
+        $reuse = $question['reuse'] ?? null;
+        unset($question['reuse']);
+        return is_array($reuse)
+            && QuestionReuseMetadataService::validate($reuse) === []
+            ? $reuse
+            : null;
+    }
+
 }
