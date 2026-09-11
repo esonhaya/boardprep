@@ -22,6 +22,7 @@ final class QuestionReuseMetadataService
         'ADMIN_VERIFIED',
         'MANUAL_REVIEW',
         'BATCH610_CALIBRATION',
+        'BATCH611_CALIBRATION',
         'OTHER',
     ];
 

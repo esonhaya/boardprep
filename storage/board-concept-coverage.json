@@ -315,7 +315,7 @@
         "domain_id": "gramatikang-filipino",
         "topic_id": "filipino-gramatika",
         "blueprint_node_id": "filipino",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -324,10 +324,16 @@
                 "reference": "question:11",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH611_CALIBRATION",
+                "reference": "batch-611-depth-calibration",
+                "note": "Board maximum is independently calibrated to depth 3; requesting candidate depth was not used as evidence.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 611: stored board blueprint scope, direct board-concept questions, and source-supported depth review establish foundation through routine application (depth 3).",
+        "confidence": "MEDIUM_HIGH"
     },
     {
         "id": "coverage-059e08a59d8ab88e3afd8d9d10fb89e7ce905e4ba85395091d4b37f6c1420419",
@@ -337,8 +343,8 @@
         "domain_id": "",
         "topic_id": "",
         "blueprint_node_id": "verbal-ability",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
+        "max_depth": 3,
+        "reuse_policy": "AUTO",
         "status": "VERIFIED",
         "provenance": [
             {
@@ -346,10 +352,16 @@
                 "reference": "question:11",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH611_CALIBRATION",
+                "reference": "batch-611-civil-service-verbal-ability",
+                "note": "Valid target placement and independently supported depth 3 enable only the selected bounded cohort.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 611: Civil Service verbal-ability blueprint placement, existing direct questions in this concept, and generic study support establish foundation through routine application (depth 3).",
+        "confidence": "HIGH_FOR_BOUNDED_COHORT"
     },
     {
         "id": "coverage-e177523583a3ca9bb38875492640d3f3afaa0b3fbaf117c9cb085db9811c86ce",
@@ -503,7 +515,7 @@
         "domain_id": "biology",
         "topic_id": "science-biology",
         "blueprint_node_id": "science",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -512,10 +524,16 @@
                 "reference": "question:31",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH611_CALIBRATION",
+                "reference": "batch-611-depth-calibration",
+                "note": "Board maximum is independently calibrated to depth 3; requesting candidate depth was not used as evidence.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 611: stored board blueprint scope, direct board-concept questions, and source-supported depth review establish foundation through routine application (depth 3).",
+        "confidence": "MEDIUM_HIGH"
     },
     {
         "id": "coverage-7ef1562071362981545f4aeed0bc26f278fd6f16e8b6b598bdba42ec4cc688c5",
@@ -547,7 +565,7 @@
         "domain_id": "chemistry",
         "topic_id": "science-chemistry-matter",
         "blueprint_node_id": "science",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -556,10 +574,16 @@
                 "reference": "question:32",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH611_CALIBRATION",
+                "reference": "batch-611-depth-calibration",
+                "note": "Board maximum is independently calibrated to depth 3; requesting candidate depth was not used as evidence.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 611: stored board blueprint scope, direct board-concept questions, and source-supported depth review establish foundation through routine application (depth 3).",
+        "confidence": "MEDIUM_HIGH"
     },
     {
         "id": "coverage-147ea941d7ba95811c03c00806415001cbf7e97c940b02c0037c49d168da8813",
@@ -591,7 +615,7 @@
         "domain_id": "physics",
         "topic_id": "science-physics-motion",
         "blueprint_node_id": "science",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -600,10 +624,16 @@
                 "reference": "question:33",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH611_CALIBRATION",
+                "reference": "batch-611-depth-calibration",
+                "note": "Board maximum is independently calibrated to depth 3; requesting candidate depth was not used as evidence.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 611: stored board blueprint scope, direct board-concept questions, and source-supported depth review establish foundation through routine application (depth 3).",
+        "confidence": "MEDIUM_HIGH"
     },
     {
         "id": "coverage-63aa9983fb031fedbb12273d2e199dafd7d839178b7e9fe5c4dd77123d672c13",
@@ -635,7 +665,7 @@
         "domain_id": "physics",
         "topic_id": "science-electricity-circuits",
         "blueprint_node_id": "science",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -644,10 +674,16 @@
                 "reference": "question:34",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH611_CALIBRATION",
+                "reference": "batch-611-depth-calibration",
+                "note": "Board maximum is independently calibrated to depth 3; requesting candidate depth was not used as evidence.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 611: stored board blueprint scope, direct board-concept questions, and source-supported depth review establish foundation through routine application (depth 3).",
+        "confidence": "MEDIUM_HIGH"
     },
     {
         "id": "coverage-127740e24861ba5ba56d8af4e53f92c155c64edf8dc2b4d766d3a1ff74cf3730",
@@ -679,7 +715,7 @@
         "domain_id": "physics",
         "topic_id": "science-optics-rays",
         "blueprint_node_id": "science",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -688,10 +724,16 @@
                 "reference": "question:35",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH611_CALIBRATION",
+                "reference": "batch-611-depth-calibration",
+                "note": "Board maximum is independently calibrated to depth 3; requesting candidate depth was not used as evidence.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 611: stored board blueprint scope, direct board-concept questions, and source-supported depth review establish foundation through routine application (depth 3).",
+        "confidence": "MEDIUM_HIGH"
     },
     {
         "id": "coverage-4f2a023d55c47df08f9cd6a0f7d131f6442765c16566490f31b61833da5796c9",
@@ -723,7 +765,7 @@
         "domain_id": "earth-science",
         "topic_id": "science-earth-processes",
         "blueprint_node_id": "science",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -732,10 +774,16 @@
                 "reference": "question:36",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH611_CALIBRATION",
+                "reference": "batch-611-depth-calibration",
+                "note": "Board maximum is independently calibrated to depth 3; requesting candidate depth was not used as evidence.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 611: stored board blueprint scope, direct board-concept questions, and source-supported depth review establish foundation through routine application (depth 3).",
+        "confidence": "MEDIUM_HIGH"
     },
     {
         "id": "coverage-2962cd7106611de5321a663f106b084e12ad1d8411788a6e91701d4e98d3ca55",
@@ -767,7 +815,7 @@
         "domain_id": "environmental-science",
         "topic_id": "science-ecology-systems",
         "blueprint_node_id": "science",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -776,10 +824,16 @@
                 "reference": "question:37",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH611_CALIBRATION",
+                "reference": "batch-611-depth-calibration",
+                "note": "Board maximum is independently calibrated to depth 3; requesting candidate depth was not used as evidence.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 611: stored board blueprint scope, direct board-concept questions, and source-supported depth review establish foundation through routine application (depth 3).",
+        "confidence": "MEDIUM_HIGH"
     },
     {
         "id": "coverage-0a3a21cab1ddbd3aae5c53e2ed305e154eac62ceb500271d0e2acf1b83140f08",
@@ -811,7 +865,7 @@
         "domain_id": "scientific-inquiry",
         "topic_id": "science-data-graphs",
         "blueprint_node_id": "science",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -820,10 +874,16 @@
                 "reference": "question:40",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH611_CALIBRATION",
+                "reference": "batch-611-depth-calibration",
+                "note": "Board maximum is independently calibrated to depth 3; requesting candidate depth was not used as evidence.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 611: stored board blueprint scope, direct board-concept questions, and source-supported depth review establish foundation through routine application (depth 3).",
+        "confidence": "MEDIUM_HIGH"
     },
     {
         "id": "coverage-2c3b7e49efc2253cb45ace9b1687004f1d339608409d94896ffa9ca1e1549a27",
@@ -855,7 +915,7 @@
         "domain_id": "philippine-history",
         "topic_id": "social-history",
         "blueprint_node_id": "social-studies",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -864,10 +924,16 @@
                 "reference": "question:41",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH611_CALIBRATION",
+                "reference": "batch-611-depth-calibration",
+                "note": "Board maximum is independently calibrated to depth 3; requesting candidate depth was not used as evidence.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 611: stored board blueprint scope, direct board-concept questions, and source-supported depth review establish foundation through routine application (depth 3).",
+        "confidence": "MEDIUM_HIGH"
     },
     {
         "id": "coverage-d0938c8558f7c9596bfc492bf7187630c4c4902a809ec61599766ac73dca6d96",
@@ -899,7 +965,7 @@
         "domain_id": "government-and-civics",
         "topic_id": "social-civics",
         "blueprint_node_id": "social-studies",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -908,10 +974,16 @@
                 "reference": "question:44",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH611_CALIBRATION",
+                "reference": "batch-611-depth-calibration",
+                "note": "Board maximum is independently calibrated to depth 3; requesting candidate depth was not used as evidence.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 611: stored board blueprint scope, direct board-concept questions, and source-supported depth review establish foundation through routine application (depth 3).",
+        "confidence": "MEDIUM_HIGH"
     },
     {
         "id": "coverage-f3c3ee41b470e21ae846c76eeaa8807e4e202584c4a5bb0b6f64cb49bb5f00f8",
@@ -1339,7 +1411,7 @@
         "domain_id": "scientific-inquiry",
         "topic_id": "science-inquiry",
         "blueprint_node_id": "science",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -1348,10 +1420,16 @@
                 "reference": "question:107",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH611_CALIBRATION",
+                "reference": "batch-611-depth-calibration",
+                "note": "Board maximum is independently calibrated to depth 3; requesting candidate depth was not used as evidence.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 611: stored board blueprint scope, direct board-concept questions, and source-supported depth review establish foundation through routine application (depth 3).",
+        "confidence": "MEDIUM_HIGH"
     },
     {
         "id": "coverage-ec63555fc76f30366aff72aa749bc2e418ad5a7f0b001c7902a673d9e7fcdb87",
@@ -1383,7 +1461,7 @@
         "domain_id": "physics",
         "topic_id": "science-physics-motion",
         "blueprint_node_id": "science",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -1392,10 +1470,16 @@
                 "reference": "question:111",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH611_CALIBRATION",
+                "reference": "batch-611-depth-calibration",
+                "note": "Board maximum is independently calibrated to depth 3; requesting candidate depth was not used as evidence.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 611: stored board blueprint scope, direct board-concept questions, and source-supported depth review establish foundation through routine application (depth 3).",
+        "confidence": "MEDIUM_HIGH"
     },
     {
         "id": "coverage-be109f32680ce0299a4e4bbe3eab11b6d26a43fc10c91002d78bbda93d7b45ca",
@@ -1565,7 +1649,7 @@
         "domain_id": "philippine-government",
         "topic_id": "cse-constitutional-civics",
         "blueprint_node_id": "general-information",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -1580,10 +1664,16 @@
                 "reference": "question-eligibility.audit.batch=605",
                 "note": "Batch 605 direct cross-board verification was preserved.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH611_CALIBRATION",
+                "reference": "batch-611-depth-calibration",
+                "note": "Board maximum is independently calibrated to depth 3; requesting candidate depth was not used as evidence.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 611: stored board blueprint scope, direct board-concept questions, and source-supported depth review establish foundation through routine application (depth 3).",
+        "confidence": "MEDIUM_HIGH"
     },
     {
         "id": "coverage-c38b3ebd781cf12eb3f7e806d5f3f9b18e99e70274d187881f97724174844290",
@@ -1621,7 +1711,7 @@
         "domain_id": "public-service-awareness",
         "topic_id": "cse-public-service-ethics",
         "blueprint_node_id": "general-information",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -1636,10 +1726,16 @@
                 "reference": "question-eligibility.audit.batch=605",
                 "note": "Batch 605 direct cross-board verification was preserved.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH611_CALIBRATION",
+                "reference": "batch-611-depth-calibration",
+                "note": "Board maximum is independently calibrated to depth 3; requesting candidate depth was not used as evidence.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Batch 611: stored board blueprint scope, direct board-concept questions, and source-supported depth review establish foundation through routine application (depth 3).",
+        "confidence": "MEDIUM_HIGH"
     },
     {
         "id": "coverage-9c79b3d7b9e225ee6cb3f3940d5154bd24e2642b49137ba36fd9c828c4e0e52f",
