@@ -1,0 +1,3000 @@
+[
+    {
+        "id": "batch616-content-depth-modernization-report",
+        "batch": "616",
+        "scope": "Source-first Civil Engineering content expansion and depth modernization; no different-ID equivalence",
+        "audit_only": false,
+        "board_selection": {
+            "selected": [
+                "civil-engineering"
+            ],
+            "reason": "Three thin board concepts, strong existing authoritative study materials, clear PRC board scope, and high source-derived scenario capacity."
+        },
+        "sources": {
+            "reviewed": [
+                "prc-civil-engineering-board-page",
+                "openstax-university-physics-volume-1",
+                "openstax-calculus-volume-1",
+                "nist-semtech-engineering-statistics-handbook",
+                "noaa-geodetic-leveling-manual",
+                "fhwa-traffic-flow-theory",
+                "fhwa-soils-foundations-reference",
+                "usgs-manual-surface-water-hydrology",
+                "mit-structural-engineering-design-notes",
+                "fhwa-construction-program-management-inspection",
+                "ualberta-introduction-engineering-economics",
+                "usace-hydraulic-design-open-channel"
+            ],
+            "added": [],
+            "reused": true
+        },
+        "study_materials": {
+            "reviewed": [
+                "ce-489--tructural-echanics-and-esign",
+                "ce-489--trength-of-aterials",
+                "ce-489--pplied-athematics-for-",
+                "ce-489--urveying-and-ayout",
+                "ce-489--ransportation-and-ighway-ngineering",
+                "ce-489--onstruction-anagement-and-uality",
+                "ce-489--luid-echanics-and-ydraulics",
+                "ce-489--oil-echanics-and-oundations",
+                "ce-489--eotechnical-ettlement-and-tability",
+                "ce-489--ater-upply-and-rainage",
+                "ce-489--ngineering-conomics-and-cheduling"
+            ],
+            "reused_as_is": true,
+            "expanded": [],
+            "added": []
+        },
+        "coverage_depth": {
+            "civil-engineering": [
+                {
+                    "concept_id": "structural-foundations",
+                    "old": "UNKNOWN",
+                    "proposed": 4,
+                    "confidence": "STRONG"
+                },
+                {
+                    "concept_id": "applied-foundations",
+                    "old": "UNKNOWN",
+                    "proposed": 4,
+                    "confidence": "STRONG"
+                },
+                {
+                    "concept_id": "hydro-geotech-foundations",
+                    "old": "UNKNOWN",
+                    "proposed": 4,
+                    "confidence": "STRONG"
+                }
+            ]
+        },
+        "content": {
+            "planned": 180,
+            "actual": 180,
+            "id_range": [
+                2920,
+                3099
+            ],
+            "by_concept": {
+                "structural-foundations": 60,
+                "applied-foundations": 60,
+                "hydro-geotech-foundations": 60
+            },
+            "new_question_ids": [
+                2920,
+                2921,
+                2922,
+                2923,
+                2924,
+                2925,
+                2926,
+                2927,
+                2928,
+                2929,
+                2930,
+                2931,
+                2932,
+                2933,
+                2934,
+                2935,
+                2936,
+                2937,
+                2938,
+                2939,
+                2940,
+                2941,
+                2942,
+                2943,
+                2944,
+                2945,
+                2946,
+                2947,
+                2948,
+                2949,
+                2950,
+                2951,
+                2952,
+                2953,
+                2954,
+                2955,
+                2956,
+                2957,
+                2958,
+                2959,
+                2960,
+                2961,
+                2962,
+                2963,
+                2964,
+                2965,
+                2966,
+                2967,
+                2968,
+                2969,
+                2970,
+                2971,
+                2972,
+                2973,
+                2974,
+                2975,
+                2976,
+                2977,
+                2978,
+                2979,
+                2980,
+                2981,
+                2982,
+                2983,
+                2984,
+                2985,
+                2986,
+                2987,
+                2988,
+                2989,
+                2990,
+                2991,
+                2992,
+                2993,
+                2994,
+                2995,
+                2996,
+                2997,
+                2998,
+                2999,
+                3000,
+                3001,
+                3002,
+                3003,
+                3004,
+                3005,
+                3006,
+                3007,
+                3008,
+                3009,
+                3010,
+                3011,
+                3012,
+                3013,
+                3014,
+                3015,
+                3016,
+                3017,
+                3018,
+                3019,
+                3020,
+                3021,
+                3022,
+                3023,
+                3024,
+                3025,
+                3026,
+                3027,
+                3028,
+                3029,
+                3030,
+                3031,
+                3032,
+                3033,
+                3034,
+                3035,
+                3036,
+                3037,
+                3038,
+                3039,
+                3040,
+                3041,
+                3042,
+                3043,
+                3044,
+                3045,
+                3046,
+                3047,
+                3048,
+                3049,
+                3050,
+                3051,
+                3052,
+                3053,
+                3054,
+                3055,
+                3056,
+                3057,
+                3058,
+                3059,
+                3060,
+                3061,
+                3062,
+                3063,
+                3064,
+                3065,
+                3066,
+                3067,
+                3068,
+                3069,
+                3070,
+                3071,
+                3072,
+                3073,
+                3074,
+                3075,
+                3076,
+                3077,
+                3078,
+                3079,
+                3080,
+                3081,
+                3082,
+                3083,
+                3084,
+                3085,
+                3086,
+                3087,
+                3088,
+                3089,
+                3090,
+                3091,
+                3092,
+                3093,
+                3094,
+                3095,
+                3096,
+                3097,
+                3098,
+                3099
+            ],
+            "new_depths": {
+                "1": 0,
+                "2": 0,
+                "3": 95,
+                "4": 85,
+                "5": 0,
+                "UNKNOWN": 0
+            },
+            "new_context": {
+                "NEUTRAL": 0,
+                "PROFESSIONAL": 180,
+                "REGULATORY": 0,
+                "OTHER": 0
+            },
+            "study_linked": 180,
+            "authoritative_source_chain": 180,
+            "derivable": 180,
+            "source_ambiguous": 0,
+            "justified_exclusions": 0,
+            "numerical": 180,
+            "numerical_recomputed": 180,
+            "numerical_pass": 180,
+            "numerical_fail": 0,
+            "exact_duplicates": 0,
+            "normalized_duplicates": 0,
+            "semantic_duplicates_rejected": 0
+        },
+        "reuse": {
+            "different_id_equivalence_enabled": false,
+            "same_concept_activation": 0,
+            "policy": "REVIEW for all new professional questions"
+        },
+        "preservation": {
+            "canonical_before": 2919,
+            "canonical_after": 3099,
+            "question_clones_created": 0,
+            "question_content_changed": 0,
+            "existing_taxonomy_changed": 0
+        },
+        "deterministic": true,
+        "tool": "tools/batch616-content-depth-audit.php",
+        "depth_modernization": {
+            "repository_before": {
+                "known": 255,
+                "unknown": 2664
+            },
+            "existing_touched_questions_reviewed": 122,
+            "existing_depth_assigned": 122,
+            "existing_depth_remaining_unknown": 0,
+            "repository_after": {
+                "known": 557,
+                "unknown": 2542
+            },
+            "calibration_rule": "analysis intent or hard => 4; application intent or medium => 3; easy recall/understanding => 2"
+        },
+        "blueprint_impact": {
+            "board": "civil-engineering",
+            "pool_before": 122,
+            "pool_after": 302,
+            "delta": 180,
+            "blueprint_nodes": {
+                "ce-structural": 60,
+                "ce-applied": 60,
+                "ce-hydraulics-geotech": 60
+            },
+            "areas_improved": [
+                "ce-structural",
+                "ce-applied",
+                "ce-hydraulics-geotech"
+            ],
+            "still_undercovered": [],
+            "weight_regressions": 0,
+            "execution": "validated by focused blueprint and selection tests"
+        },
+        "same_concept_reuse": {
+            "frozen_target_depth_unknown_before": 130,
+            "affected_by_batch616_evidence": 0,
+            "newly_resolved": 0,
+            "still_target_depth_unknown": 130,
+            "new_safe_candidates": 0,
+            "activated": 0,
+            "different_id_equivalence_enabled": false
+        },
+        "authoring_guardrails": {
+            "default_reuse_policy": "REVIEW",
+            "default_depth": "UNKNOWN",
+            "new_batch_depth": {
+                "3": 95,
+                "4": 85,
+                "UNKNOWN": 0
+            },
+            "context_inference": "conservative",
+            "regulatory_default": "MANUAL_ONLY where relevant",
+            "professional_default": "REVIEW"
+        },
+        "doctor": {
+            "new_missing_depth": 0,
+            "new_missing_context": 0,
+            "new_missing_study_link": 0,
+            "new_non_derivable": 0,
+            "new_invalid_taxonomy": 0,
+            "new_without_eligibility": 0,
+            "new_invalid_source": 0,
+            "auto_unknown_depth": 0,
+            "auto_unknown_target_depth": 0,
+            "auto_context_violations": 0,
+            "regulatory_auto_violations": 0,
+            "required_concept_gaps": 0,
+            "invalid_coverage_depth": 0,
+            "duplicate_effective_candidates": 0,
+            "double_weighting": 0
+        },
+        "new_question_records": [
+            {
+                "question_id": 2920,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2921,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2922,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2923,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2924,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2925,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2926,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2927,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2928,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2929,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2930,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2931,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2932,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2933,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2934,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2935,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2936,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2937,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2938,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2939,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2940,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2941,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2942,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2943,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2944,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2945,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2946,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2947,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2948,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2949,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2950,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2951,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2952,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2953,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2954,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2955,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2956,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2957,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2958,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2959,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2960,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2961,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2962,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2963,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2964,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--tructural-echanics-and-esign",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2965,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2966,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2967,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2968,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2969,
+                "concept_id": "structural-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2970,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2971,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2972,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2973,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2974,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2975,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2976,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2977,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2978,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2979,
+                "concept_id": "structural-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--trength-of-aterials",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "mit-structural-engineering-design-notes"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2980,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "prc-civil-engineering-board-page",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2981,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "prc-civil-engineering-board-page",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2982,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "prc-civil-engineering-board-page",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2983,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "prc-civil-engineering-board-page",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2984,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "prc-civil-engineering-board-page",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2985,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2986,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2987,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2988,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2989,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2990,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--onstruction-anagement-and-uality",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2991,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--onstruction-anagement-and-uality",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2992,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--onstruction-anagement-and-uality",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2993,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--onstruction-anagement-and-uality",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2994,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--onstruction-anagement-and-uality",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2995,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2996,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2997,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2998,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 2999,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3000,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3001,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3002,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3003,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3004,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3005,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3006,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3007,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3008,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3009,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3010,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3011,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3012,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3013,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3014,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3015,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ngineering-conomics-and-cheduling",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "ualberta-introduction-engineering-economics"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3016,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ngineering-conomics-and-cheduling",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "ualberta-introduction-engineering-economics"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3017,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ngineering-conomics-and-cheduling",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "ualberta-introduction-engineering-economics"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3018,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ngineering-conomics-and-cheduling",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "ualberta-introduction-engineering-economics"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3019,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ngineering-conomics-and-cheduling",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "ualberta-introduction-engineering-economics"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3020,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ngineering-conomics-and-cheduling",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-construction-program-management-inspection"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3021,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ngineering-conomics-and-cheduling",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-construction-program-management-inspection"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3022,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ngineering-conomics-and-cheduling",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-construction-program-management-inspection"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3023,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ngineering-conomics-and-cheduling",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-construction-program-management-inspection"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3024,
+                "concept_id": "applied-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ngineering-conomics-and-cheduling",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-construction-program-management-inspection"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3025,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--urveying-and-ayout",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "noaa-geodetic-leveling-manual"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3026,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--urveying-and-ayout",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "noaa-geodetic-leveling-manual"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3027,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--urveying-and-ayout",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "noaa-geodetic-leveling-manual"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3028,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--urveying-and-ayout",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "noaa-geodetic-leveling-manual"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3029,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--urveying-and-ayout",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "noaa-geodetic-leveling-manual"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3030,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3031,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3032,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3033,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3034,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--pplied-athematics-for-",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-calculus-volume-1",
+                    "nist-semtech-engineering-statistics-handbook"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3035,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ransportation-and-ighway-ngineering",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-traffic-flow-theory"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3036,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ransportation-and-ighway-ngineering",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-traffic-flow-theory"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3037,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ransportation-and-ighway-ngineering",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-traffic-flow-theory"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3038,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ransportation-and-ighway-ngineering",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-traffic-flow-theory"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3039,
+                "concept_id": "applied-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ransportation-and-ighway-ngineering",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-traffic-flow-theory"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3040,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3041,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3042,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3043,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3044,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3045,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3046,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3047,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3048,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3049,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3050,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3051,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3052,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3053,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3054,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3055,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3056,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3057,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3058,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3059,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3060,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3061,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3062,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3063,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3064,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3065,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3066,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3067,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3068,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3069,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3070,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3071,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3072,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3073,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3074,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3075,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3076,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3077,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3078,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3079,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3080,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3081,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3082,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3083,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3084,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--oil-echanics-and-oundations",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3085,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3086,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3087,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3088,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3089,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 3,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--luid-echanics-and-ydraulics",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "openstax-university-physics-volume-1",
+                    "usace-hydraulic-design-open-channel"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3090,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ater-upply-and-rainage",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "usgs-manual-surface-water-hydrology"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3091,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ater-upply-and-rainage",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "usgs-manual-surface-water-hydrology"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3092,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ater-upply-and-rainage",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "usgs-manual-surface-water-hydrology"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3093,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ater-upply-and-rainage",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "usgs-manual-surface-water-hydrology"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3094,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--ater-upply-and-rainage",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "usgs-manual-surface-water-hydrology"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3095,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--eotechnical-ettlement-and-tability",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3096,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--eotechnical-ettlement-and-tability",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3097,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--eotechnical-ettlement-and-tability",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3098,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--eotechnical-ettlement-and-tability",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3099,
+                "concept_id": "hydro-geotech-foundations",
+                "required_depth": 4,
+                "context": "PROFESSIONAL",
+                "reuse_policy": "REVIEW",
+                "study_material_id": "ce-489--eotechnical-ettlement-and-tability",
+                "source_ids": [
+                    "prc-civil-engineering-board-page",
+                    "fhwa-soils-foundations-reference"
+                ],
+                "authoritative_source_chain": true,
+                "derivable": true
+            }
+        ]
+    }
+]

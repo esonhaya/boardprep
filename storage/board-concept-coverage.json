@@ -3263,7 +3263,7 @@
         "domain_id": "ce-structural",
         "topic_id": "structural-mechanics",
         "blueprint_node_id": "ce-structural",
-        "max_depth": "UNKNOWN",
+        "max_depth": 4,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -3272,10 +3272,16 @@
                 "reference": "question:1137",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "OFFICIAL_BLUEPRINT",
+                "reference": "batch-616",
+                "note": "Structural statics and strength materials, PRC civil-engineering scope, and independently verified analysis-level items support depth 4; depth 5 is not asserted.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "PRC civil-engineering scope plus structural statics\/strength study materials and independently verified analysis-level items",
+        "confidence": "STRONG"
     },
     {
         "id": "coverage-0c5f325dcc9ab1c2575b8ec8351db7f602fc58fd704d78d0fc3e75bda61d0b36",
@@ -3285,7 +3291,7 @@
         "domain_id": "",
         "topic_id": "",
         "blueprint_node_id": "ce-applied",
-        "max_depth": "UNKNOWN",
+        "max_depth": 4,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -3294,10 +3300,16 @@
                 "reference": "question:1161",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "OFFICIAL_BLUEPRINT",
+                "reference": "batch-616",
+                "note": "Applied mathematics, surveying, transportation, scheduling, and economics materials support depth 4; depth 5 is not asserted.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "PRC civil-engineering scope plus applied mathematics\/surveying\/transportation study materials and independently verified analysis-level items",
+        "confidence": "STRONG"
     },
     {
         "id": "coverage-d42291d6916782076b6de012e1f57d27c06fe194a285f7dd6f40ba870633c176",
@@ -3307,7 +3319,7 @@
         "domain_id": "",
         "topic_id": "",
         "blueprint_node_id": "ce-hydraulics-geotech",
-        "max_depth": "UNKNOWN",
+        "max_depth": 4,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -3316,10 +3328,16 @@
                 "reference": "question:1169",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "OFFICIAL_BLUEPRINT",
+                "reference": "batch-616",
+                "note": "Fluid, soil, foundations, hydrology, and stability materials support depth 4; code-specific regulatory judgment remains outside this row and depth 5 is not asserted.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "PRC civil-engineering scope plus fluid\/soil\/foundation study materials and independently verified analysis-level items",
+        "confidence": "STRONG"
     },
     {
         "id": "coverage-8275f25123adc8f86c203bb086d9e3c7edabff9ac73a3796649fae3c66d3229d",
