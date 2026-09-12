@@ -1,0 +1,3015 @@
+[
+    {
+        "id": "batch615-reuse-readiness-audit-report",
+        "batch": "615",
+        "scope": "CommonCore regression closure and reuse-readiness audit; no equivalence activation",
+        "baseline": {
+            "head": "710c03fc566f80c3bfe613073eb3dc8b87135224",
+            "canonical": 2919,
+            "direct_mappings": 3663,
+            "concept_derived": 40,
+            "total_effective": 3703,
+            "multi_board_effective": 676,
+            "same_id_target_depth_unknown": 130,
+            "different_id_backlog": 385
+        },
+        "commoncore": {
+            "failure_reproduced_before": true,
+            "test": "tools\/Tests\/CommonCoreEligibilityExpansionTest.php",
+            "question_id": "2499",
+            "source_board": "let",
+            "unexpected_target_board": "civil-service",
+            "expected_before": "excluded by stale test expectation",
+            "actual_before": "eligible via valid CONCEPT_INHERITED verbal-ability path",
+            "root_cause_class": "J_TEST_EXPECTATION_STALE",
+            "root_cause": "CSC official CSE scope explicitly includes Verbal Ability in English and Filipino, including grammar and correct usage.",
+            "first_incorrect_pipeline_stage": "TEST_EXPECTATION",
+            "failure_reproduced_after": false,
+            "test_after": "PASS",
+            "clean_head_result_before": "FAIL",
+            "dirty_worktree_result_before": "FAIL",
+            "batch615_caused": false,
+            "official_source": "https:\/\/csc.gov.ph\/phocadownload\/userupload\/erpo\/announcements\/2026\/ExamAnn_2026_03_Conduct%20of%2009%20Aug%202026%20CSE-PPT_orig%20signed.pdf"
+        },
+        "eligibility_trace": [
+            {
+                "stage": "QUESTION_TAXONOMY",
+                "input": "2499",
+                "decision": "LET-owned Filipino grammar",
+                "reason": "Primary taxonomy is filipino → gramatikang-filipino → filipino-gramatika → filipino-gramatika-wastong-gamit.",
+                "provenance": "canonical question record",
+                "output": {
+                    "board_id": "let",
+                    "subject_id": "filipino",
+                    "domain_id": "gramatikang-filipino",
+                    "topic_id": "filipino-gramatika",
+                    "concept_id": "filipino-gramatika-wastong-gamit"
+                }
+            },
+            {
+                "stage": "DIRECT_ELIGIBILITY",
+                "input": "question 2499",
+                "decision": "LET only",
+                "reason": "No direct Civil Service mapping exists for this question.",
+                "provenance": "storage\/question-eligibility.json",
+                "output": [
+                    {
+                        "question_id": "2499",
+                        "board": "let",
+                        "entry_id": "eligibility-b602-2499",
+                        "audit": {
+                            "batch": 605,
+                            "classification": "C",
+                            "source_board": "let",
+                            "source_concept": "filipino-gramatika-wastong-gamit",
+                            "target_blueprint_node": null,
+                            "justified_target_boards": [],
+                            "evidence": "blueprint-and-context review: filipino-gramatika-wastong-gamit"
+                        }
+                    }
+                ]
+            },
+            {
+                "stage": "REUSE_METADATA",
+                "input": {
+                    "reuse_policy": "AUTO",
+                    "required_depth": 3,
+                    "context_mode": "NEUTRAL",
+                    "metadata_status": "VERIFIED",
+                    "metadata_provenance": [
+                        {
+                            "type": "LEGACY_MIGRATION",
+                            "reference": "batch-609",
+                            "note": "Generated from the existing canonical question without changing content.",
+                            "verified_status": "VERIFIED"
+                        },
+                        {
+                            "type": "BATCH608_AUDIT",
+                            "reference": "c9a436f3b6b03ebdfb99e1ff8c690d55258d1d7619591f084fa38209f7e05520",
+                            "note": "Context\/reuse classification follows the deterministic Batch 608 audit.",
+                            "verified_status": "VERIFIED"
+                        },
+                        {
+                            "type": "BATCH611_CALIBRATION",
+                            "reference": "batch-611-question-depth-review",
+                            "note": "Depth assigned from actual cognitive intent and solving requirement; grouped decisions are recorded in the Batch 611 artifact.",
+                            "verified_status": "VERIFIED"
+                        }
+                    ]
+                },
+                "decision": "AUTO, depth 3, NEUTRAL",
+                "reason": "Batch 609\/608 metadata plus Batch 611 depth calibration; language is not professional\/regulatory context.",
+                "provenance": "batch-611-question-depth-review",
+                "output": {
+                    "reuse_policy": "AUTO",
+                    "required_depth": 3,
+                    "context_mode": "NEUTRAL",
+                    "metadata_status": "VERIFIED",
+                    "metadata_provenance": [
+                        {
+                            "type": "LEGACY_MIGRATION",
+                            "reference": "batch-609",
+                            "note": "Generated from the existing canonical question without changing content.",
+                            "verified_status": "VERIFIED"
+                        },
+                        {
+                            "type": "BATCH608_AUDIT",
+                            "reference": "c9a436f3b6b03ebdfb99e1ff8c690d55258d1d7619591f084fa38209f7e05520",
+                            "note": "Context\/reuse classification follows the deterministic Batch 608 audit.",
+                            "verified_status": "VERIFIED"
+                        },
+                        {
+                            "type": "BATCH611_CALIBRATION",
+                            "reference": "batch-611-question-depth-review",
+                            "note": "Depth assigned from actual cognitive intent and solving requirement; grouped decisions are recorded in the Batch 611 artifact.",
+                            "verified_status": "VERIFIED"
+                        }
+                    ]
+                }
+            },
+            {
+                "stage": "OVERRIDES",
+                "input": "question 2499 \/ Civil Service",
+                "decision": "none",
+                "reason": "No EXCLUDE or INCLUDE override exists.",
+                "provenance": "storage\/question-reuse-overrides.json",
+                "output": []
+            },
+            {
+                "stage": "CONCEPT_COVERAGE",
+                "input": "filipino-gramatika-wastong-gamit \/ Civil Service",
+                "decision": "AUTO, depth 3, verbal-ability",
+                "reason": "Existing bounded Batch 611 coverage row.",
+                "provenance": "batch-611-civil-service-verbal-ability",
+                "output": [
+                    {
+                        "id": "coverage-059e08a59d8ab88e3afd8d9d10fb89e7ce905e4ba85395091d4b37f6c1420419",
+                        "board_id": "civil-service",
+                        "concept_id": "filipino-gramatika-wastong-gamit",
+                        "subject_id": "verbal-ability",
+                        "domain_id": "",
+                        "topic_id": "",
+                        "blueprint_node_id": "verbal-ability",
+                        "max_depth": 3,
+                        "reuse_policy": "AUTO",
+                        "status": "VERIFIED",
+                        "provenance": [
+                            {
+                                "type": "EXISTING_VERIFIED_MAPPING",
+                                "reference": "question:11",
+                                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+                                "verified_status": "VERIFIED"
+                            },
+                            {
+                                "type": "BATCH611_CALIBRATION",
+                                "reference": "batch-611-civil-service-verbal-ability",
+                                "note": "Valid target placement and independently supported depth 3 enable only the selected bounded cohort.",
+                                "verified_status": "VERIFIED"
+                            }
+                        ],
+                        "evidence": "Batch 611: Civil Service verbal-ability blueprint placement, existing direct questions in this concept, and generic study support establish foundation through routine application (depth 3).",
+                        "confidence": "HIGH_FOR_BOUNDED_COHORT"
+                    }
+                ]
+            },
+            {
+                "stage": "DERIVED_RELATIONSHIP",
+                "input": "question 2499",
+                "decision": "CONCEPT_INHERITED",
+                "reason": "Question depth 3 is within target depth 3; source support and placement gates pass.",
+                "provenance": "derived-batch611-2499-civil-service",
+                "output": [
+                    {
+                        "id": "derived-batch611-2499-civil-service",
+                        "record_type": "RELATIONSHIP",
+                        "batch": 611,
+                        "question_id": 2499,
+                        "source_board": "let",
+                        "target_board": "civil-service",
+                        "concept_id": "filipino-gramatika-wastong-gamit",
+                        "question_required_depth": 3,
+                        "target_supported_depth": 3,
+                        "context_decision": "NEUTRAL",
+                        "coverage_id": "coverage-059e08a59d8ab88e3afd8d9d10fb89e7ce905e4ba85395091d4b37f6c1420419",
+                        "target_placement": {
+                            "board_id": "civil-service",
+                            "subject_id": "verbal-ability",
+                            "domain_id": "",
+                            "topic_id": "",
+                            "concept_id": "filipino-gramatika-wastong-gamit",
+                            "blueprint_node": "verbal-ability"
+                        },
+                        "eligibility_source": "CONCEPT_INHERITED",
+                        "source_support": {
+                            "decision": "PASS",
+                            "link_ids": [
+                                "study-link-b602-2499"
+                            ],
+                            "rationale": "Question-to-study-resource-to-concept support is present and the Civil Service target placement is valid for this bounded cohort."
+                        },
+                        "provenance": [
+                            {
+                                "type": "BATCH611_CALIBRATION",
+                                "reference": "batch-611-second-production-cohort",
+                                "note": "Same global concept, independently known depth compatibility, neutral context, valid verbal-ability placement, strong study support, and bounded rollout selection.",
+                                "verified_status": "VERIFIED"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "stage": "TARGET_PLACEMENT",
+                "input": "Civil Service blueprint",
+                "decision": "verbal-ability",
+                "reason": "Configured CSE blueprint contains verbal-ability; official CSC scope includes English and Filipino verbal ability.",
+                "provenance": "CSC Examination Announcement No. 03 s.2026",
+                "output": [
+                    {
+                        "id": "cse-boardprep-coverage-v1",
+                        "source_id": "csc-cse-scope-2026",
+                        "section_ids": [
+                            "verbal-ability",
+                            "numerical-ability",
+                            "general-information",
+                            "analytical-logical"
+                        ]
+                    }
+                ]
+            },
+            {
+                "stage": "FINAL_EFFECTIVE_ELIGIBILITY",
+                "input": "Civil Service Verbal Ability selection",
+                "decision": "eligible",
+                "reason": "The prior test expected exclusion contrary to the official bilingual CSE scope; production resolver behavior is correct.",
+                "provenance": "QuestionSelectionService → QuestionPoolFilter → QuestionEligibilityService",
+                "output": {
+                    "board": "civil-service",
+                    "subject": "verbal-ability",
+                    "path": "CONCEPT_INHERITED"
+                }
+            }
+        ],
+        "systemic_scope": {
+            "failure_pattern_matches": 55,
+            "affected_questions": 55,
+            "affected_board_pairs": [
+                "let → civil-service"
+            ],
+            "affected_concepts": [
+                "filipino-pagbasa-pangunahing-diwan",
+                "filipino-gramatika-wastong-gamit"
+            ],
+            "affected_direct_mappings": 15,
+            "affected_derived_relationships": 40,
+            "true_defects": 0,
+            "legitimate_reuse": 55,
+            "review_required": 0
+        },
+        "batch605_targeted_audit": {
+            "relationships_reviewed": 125,
+            "still_valid": 0,
+            "invalid_context_leak": 0,
+            "invalid_taxonomy_match": 0,
+            "invalid_depth_match": 0,
+            "other_defect": 0,
+            "needs_review": 125,
+            "note": "The 125 Filipino Batch 605 candidates remain unmodified and reviewable; this audit does not mass-activate them."
+        },
+        "language_common_core": {
+            "relationships_audited": 180,
+            "valid_shared": 55,
+            "context_specific_invalid": 0,
+            "review_required": 125,
+            "basis": "CSC official CSE verbal ability is in English and Filipino; generic grammar\/reading items remain valid. Batch 605 candidates remain reviewable rather than being mass-activated."
+        },
+        "context_hardening": {
+            "existing_context_schema": "NEUTRAL, PROFESSIONAL, REGULATORY, MIXED, UNKNOWN",
+            "duplicate_context_system_created": false,
+            "finding": "Context metadata was not the production defect; official CSE bilingual scope resolves the test assumption.",
+            "new_regression": "Corrected CommonCore test asserts valid Filipino Verbal Ability placement and source-board retention."
+        },
+        "fix": {
+            "type": "TEST_EXPECTATION_CORRECTION_AND_REGRESSION_HARDENING",
+            "files_changed": [
+                "tools\/Tests\/CommonCoreEligibilityExpansionTest.php"
+            ],
+            "mappings_removed": 0,
+            "mappings_added": 0,
+            "overrides_added": 0,
+            "overrides_removed": 0,
+            "taxonomy_changes": 0,
+            "context_metadata_changes": 0,
+            "resolver_changes": 0,
+            "underlying_fix_used": false,
+            "exclude_used": false,
+            "why": "No production relationship was invalid; the test contradicted authoritative CSC scope."
+        },
+        "taxonomy_gap_classification": {
+            "high_priority_equivalence_backlog": 343,
+            "counts": {
+                "MISSING_OFFICIAL_EQUIVALENCE_EVIDENCE": 0,
+                "MISSING_TARGET_DEPTH": 0,
+                "SPECIALIZED_PREREQUISITE": 1,
+                "MATERIAL_PROFESSIONAL_CONTEXT": 0,
+                "REGULATORY_CONTEXT": 0,
+                "TAXONOMY_BOUNDARY_TOO_BROAD": 0,
+                "TAXONOMY_BOUNDARY_TOO_NARROW": 0,
+                "TARGET_PLACEMENT_MISSING": 0,
+                "QUESTION_SAMPLE_INSUFFICIENT": 271,
+                "STUDY_RESOURCE_INSUFFICIENT": 0,
+                "ACTUALLY_PARTIAL": 12,
+                "ACTUALLY_RELATED": 58,
+                "CONFLICTING": 1,
+                "OTHER": 0
+            },
+            "details": [
+                {
+                    "pair_key": "applied-foundations|me-topic-1-1-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "applied-foundations|me-topic-1-2-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "applied-foundations|me-topic-2-5-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "me-topic-2-6-concept|science-physics-force-balance",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "applied-foundations|me-topic-1-3-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "applied-foundations|me-topic-2-4-concept",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "applied-foundations|me-topic-3-2-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "cse-constitutional-principles|let-ethical-duties",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "cse-constitutional-principles|prof-development-readiness",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "cse-ethical-public-service|let-ethical-duties",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "cse-ethical-public-service|prof-development-readiness",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "let-ethical-duties|social-civics-public-good",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "me-topic-1-1-concept|structural-foundations",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "me-topic-2-4-concept|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "prof-development-readiness|social-civics-public-good",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "cse-environmental-public-interest|cse-ethical-public-service",
+                    "blocker": "ACTUALLY_PARTIAL"
+                },
+                {
+                    "pair_key": "cse-environmental-public-interest|social-civics-public-good",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "math-algebra-linear-equations|me-topic-1-1-concept",
+                    "blocker": "ACTUALLY_PARTIAL"
+                },
+                {
+                    "pair_key": "math-algebra-linear-equations|me-topic-1-2-concept",
+                    "blocker": "ACTUALLY_PARTIAL"
+                },
+                {
+                    "pair_key": "me-topic-1-1-concept|science-electricity-series-parallel",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-4-concept|science-ecology-population",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-6-concept|science-physics-motion-graphs",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-criminal-law-analysis|english-inference-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-criminal-law-analysis|inference-evidence-based-conclusions",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-criminal-law-analysis|let-art-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "english-inference-evidence|let-art-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "inference-evidence-based-conclusions|let-art-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "inference-evidence-based-conclusions|science-inquiry-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-1-2-concept|ree-concept-ree-math-calculus",
+                    "blocker": "ACTUALLY_PARTIAL"
+                },
+                {
+                    "pair_key": "applied-foundations|math-algebra-linear-equations",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "applied-foundations|math-number-sense-operations",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "applied-foundations|me-topic-2-1-concept",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "applied-foundations|me-topic-2-2-concept",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "applied-foundations|me-topic-2-6-concept",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "applied-foundations|me-topic-3-1-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "applied-foundations|me-topic-3-4-concept",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "applied-foundations|me-topic-3-5-concept",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "applied-foundations|science-biology-cells",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "applied-foundations|science-chemistry-matter-particles",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "applied-foundations|science-data-evidence",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "applied-foundations|science-earth-stratigraphy",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "applied-foundations|science-ecology-population",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "applied-foundations|science-electricity-series-parallel",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "applied-foundations|science-inquiry-evidence",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "applied-foundations|science-optics-reflection",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "applied-foundations|science-physics-force-balance",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "applied-foundations|science-physics-motion-graphs",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cse-constitutional-principles|cse-environmental-public-interest",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "cse-constitutional-principles|let-global-local-effects",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "cse-environmental-public-interest|let-ethical-duties",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cse-environmental-public-interest|let-global-local-effects",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cse-environmental-public-interest|prof-development-readiness",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "cse-environmental-public-interest|social-history-primary-sources",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cse-ethical-public-service|let-global-local-effects",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "hydro-geotech-foundations|me-topic-1-1-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "hydro-geotech-foundations|me-topic-2-1-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "hydro-geotech-foundations|me-topic-2-2-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "hydro-geotech-foundations|me-topic-2-4-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "hydro-geotech-foundations|me-topic-2-6-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "hydro-geotech-foundations|me-topic-3-1-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "hydro-geotech-foundations|me-topic-3-4-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "hydro-geotech-foundations|science-biology-cells",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "hydro-geotech-foundations|science-chemistry-matter-particles",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "hydro-geotech-foundations|science-data-evidence",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "hydro-geotech-foundations|science-earth-stratigraphy",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "hydro-geotech-foundations|science-ecology-population",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "hydro-geotech-foundations|science-electricity-series-parallel",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "hydro-geotech-foundations|science-inquiry-evidence",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "hydro-geotech-foundations|science-optics-reflection",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "hydro-geotech-foundations|science-physics-force-balance",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "hydro-geotech-foundations|science-physics-motion-graphs",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "let-ethical-duties|social-history-primary-sources",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "let-global-local-effects|social-civics-public-good",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "let-global-local-effects|social-history-primary-sources",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "let-rizal-context|social-civics-public-good",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "let-rizal-context|social-history-primary-sources",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "math-algebra-linear-equations|me-topic-1-3-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "math-algebra-linear-equations|me-topic-2-5-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "math-number-sense-operations|me-topic-1-1-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "math-number-sense-operations|me-topic-1-2-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "math-number-sense-operations|me-topic-1-3-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "math-number-sense-operations|me-topic-2-5-concept",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "me-topic-1-1-concept|science-biology-cells",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "me-topic-1-1-concept|science-chemistry-matter-particles",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "me-topic-1-1-concept|science-data-evidence",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "me-topic-1-1-concept|science-earth-stratigraphy",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-1-1-concept|science-ecology-population",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "me-topic-1-1-concept|science-inquiry-evidence",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "me-topic-1-1-concept|science-optics-reflection",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-1-1-concept|science-physics-force-balance",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-1-1-concept|science-physics-motion-graphs",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-1-2-concept|structural-foundations",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "me-topic-1-3-concept|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-1-concept|science-biology-cells",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-1-concept|science-chemistry-matter-particles",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-1-concept|science-data-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-1-concept|science-earth-stratigraphy",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-1-concept|science-ecology-population",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-1-concept|science-electricity-series-parallel",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-1-concept|science-inquiry-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-1-concept|science-optics-reflection",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-1-concept|science-physics-force-balance",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-1-concept|science-physics-motion-graphs",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-1-concept|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-2-concept|science-biology-cells",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-2-concept|science-chemistry-matter-particles",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-2-concept|science-data-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-2-concept|science-earth-stratigraphy",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-2-concept|science-ecology-population",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-2-concept|science-electricity-series-parallel",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-2-concept|science-inquiry-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-2-concept|science-optics-reflection",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-2-concept|science-physics-force-balance",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-2-concept|science-physics-motion-graphs",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-2-concept|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-4-concept|science-biology-cells",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-4-concept|science-chemistry-matter-particles",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-4-concept|science-data-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-4-concept|science-earth-stratigraphy",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-4-concept|science-electricity-series-parallel",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-4-concept|science-inquiry-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-4-concept|science-optics-reflection",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-4-concept|science-physics-force-balance",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-4-concept|science-physics-motion-graphs",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-5-concept|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-6-concept|science-biology-cells",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-6-concept|science-chemistry-matter-particles",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-6-concept|science-data-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-6-concept|science-earth-stratigraphy",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-6-concept|science-ecology-population",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-6-concept|science-electricity-series-parallel",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-6-concept|science-inquiry-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-6-concept|science-optics-reflection",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-6-concept|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-1-concept|science-biology-cells",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-1-concept|science-chemistry-matter-particles",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-1-concept|science-data-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-1-concept|science-earth-stratigraphy",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-1-concept|science-ecology-population",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-1-concept|science-electricity-series-parallel",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-1-concept|science-inquiry-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-1-concept|science-optics-reflection",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-1-concept|science-physics-force-balance",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-1-concept|science-physics-motion-graphs",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-1-concept|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-2-concept|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-4-concept|science-biology-cells",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-4-concept|science-chemistry-matter-particles",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-4-concept|science-data-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-4-concept|science-earth-stratigraphy",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-4-concept|science-ecology-population",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-4-concept|science-electricity-series-parallel",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-4-concept|science-inquiry-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-4-concept|science-optics-reflection",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-4-concept|science-physics-force-balance",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-4-concept|science-physics-motion-graphs",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-4-concept|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-5-concept|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "prof-development-readiness|social-history-primary-sources",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "science-biology-cells|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "science-chemistry-matter-particles|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "science-data-evidence|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "science-earth-stratigraphy|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "science-ecology-population|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "science-electricity-series-parallel|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "science-inquiry-evidence|structural-foundations",
+                    "blocker": "ACTUALLY_RELATED"
+                },
+                {
+                    "pair_key": "science-optics-reflection|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "science-physics-force-balance|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "science-physics-motion-graphs|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "analytical-analogy-structure|parallelism-parallel-structure",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "analytical-conclusion-validity|cpa-auditing-substantive-testing-core",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "analytical-conclusion-validity|inference-evidence-based-conclusions",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "analytical-conclusion-validity|science-inquiry-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "analytical-sequence-rule|text-structure-sequence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "applied-foundations|ree-concept-ree-allied-safety",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "applied-foundations|ree-concept-ree-math-discrete",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "architecture-history-context|let-rizal-context",
+                    "blocker": "ACTUALLY_PARTIAL"
+                },
+                {
+                    "pair_key": "architecture-professional-judgment|cpa-regulatory-framework-professional-law-core",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "bronfenbrenner-ecology|ree-concept-ree-math-algebra",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "bronfenbrenner-ecology|ree-concept-ree-pro-ac",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "bronfenbrenner-ecology|ree-concept-ree-pro-power",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-criminal-law-analysis|cpa-auditing-evidence-core",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-criminal-law-analysis|cpa-financial-accounting-analysis-core",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-criminal-law-analysis|cpa-management-services-activity-based-core",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-criminal-law-analysis|critical-reading-evidence-quality",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-criminal-law-analysis|main-idea-and-support-supporting-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-criminal-law-analysis|ree-concept-ree-pro-circuits",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-criminal-law-analysis|science-chemistry-matter-particles",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-criminal-law-analysis|science-data-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-criminal-law-analysis|science-inquiry-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-criminal-law-rights|me-topic-2-5-concept",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-forensic-integrity|cpa-auditing-evidence-core",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-forensic-integrity|critical-reading-evidence-quality",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-forensic-integrity|english-inference-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-forensic-integrity|inference-evidence-based-conclusions",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-forensic-integrity|let-art-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-forensic-integrity|main-idea-and-support-supporting-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-forensic-integrity|science-chemistry-matter-particles",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-forensic-integrity|science-data-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-forensic-integrity|science-inquiry-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-investigation-evidence|cpa-auditing-evidence-core",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-investigation-evidence|critical-reading-evidence-quality",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-investigation-evidence|english-inference-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-investigation-evidence|inference-evidence-based-conclusions",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-investigation-evidence|let-art-evidence",
+                    "blocker": "ACTUALLY_PARTIAL"
+                },
+                {
+                    "pair_key": "cle-investigation-evidence|main-idea-and-support-supporting-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-investigation-evidence|science-chemistry-matter-particles",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-investigation-evidence|science-data-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-investigation-evidence|science-inquiry-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-law-enforcement-community|nle-np-i-community",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-law-enforcement-operations|cse-basic-operations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-law-enforcement-operations|cse-environmental-public-interest",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-law-enforcement-operations|cse-ethical-public-service",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-law-enforcement-operations|math-number-sense-operations",
+                    "blocker": "CONFLICTING"
+                },
+                {
+                    "pair_key": "cle-law-enforcement-operations|me-topic-3-5-concept",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-law-enforcement-operations|ree-concept-ree-allied-safety",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cle-law-enforcement-operations|social-civics-public-good",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "context-clues-inference-clues|me-topic-1-3-concept",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-advanced-accounting-agreement-core|pronouns-pronoun-antecedent-agreement",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-advanced-accounting-measurement-core|ple-valid-measurement",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-advanced-accounting-measurement-core|ree-concept-ree-allied-instrumentation",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-auditing-control-risk-core|ree-concept-ree-pro-controls",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-auditing-evidence-core|critical-reading-evidence-quality",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-auditing-evidence-core|english-inference-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-auditing-evidence-core|inference-evidence-based-conclusions",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-auditing-evidence-core|let-art-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-auditing-evidence-core|main-idea-and-support-supporting-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-auditing-evidence-core|science-chemistry-matter-particles",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-auditing-evidence-core|science-data-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-auditing-evidence-core|science-inquiry-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-auditing-internal-control-core|me-topic-2-2-concept",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-auditing-internal-control-core|ree-concept-ree-pro-controls",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-financial-accounting-analysis-core|ree-concept-ree-pro-circuits",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-financial-accounting-cash-flow-core|me-topic-2-2-concept",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-financial-accounting-cash-flow-core|me-topic-3-2-concept",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-financial-accounting-classification-core|ple-clinical-classification",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-financial-accounting-equity-core|inclusive-equity",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-financial-accounting-interpretation-core|cse-data-interpretation",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-financial-accounting-interpretation-core|let-art-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-financial-accounting-interpretation-core|science-optics-reflection",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-financial-accounting-interpretation-core|science-physics-motion-graphs",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-management-services-activity-based-core|english-inference-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-management-services-activity-based-core|inference-evidence-based-conclusions",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-management-services-activity-based-core|let-art-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-management-services-control-core|ree-concept-ree-pro-controls",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-management-services-cost-behavior-core|ple-workplace-behavior",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-regulatory-framework-interpretation-core|cse-data-interpretation",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-regulatory-framework-interpretation-core|let-art-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-regulatory-framework-interpretation-core|science-optics-reflection",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-regulatory-framework-interpretation-core|science-physics-motion-graphs",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-regulatory-framework-validity-core|prof-assessment-validity",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-taxation-filing-core|cse-filing",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-taxation-transfer-tax-core|me-topic-2-3-concept",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-taxation-transfer-tax-core|prof-facilitation-scaffolding",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "critical-reading-evidence-quality|let-art-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "critical-reading-evidence-quality|me-topic-3-2-concept",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "critical-reading-evidence-quality|science-chemistry-matter-particles",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "critical-reading-evidence-quality|science-data-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "critical-reading-evidence-quality|science-inquiry-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cse-assumptions-conclusions|inference-evidence-based-conclusions",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cse-assumptions-conclusions|science-inquiry-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cse-basic-operations|math-number-sense-operations",
+                    "blocker": "ACTUALLY_PARTIAL"
+                },
+                {
+                    "pair_key": "cse-constitutional-principles|ple-developmental-principles",
+                    "blocker": "ACTUALLY_PARTIAL"
+                },
+                {
+                    "pair_key": "cse-data-interpretation|let-art-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cse-data-interpretation|me-topic-1-3-concept",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cse-data-interpretation|science-optics-reflection",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cse-data-interpretation|science-physics-motion-graphs",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cse-sentence-structure|parallelism-parallel-structure",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cse-word-meaning|inference-implicit-meaning",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "english-inference-evidence|me-topic-1-3-concept",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "english-inference-evidence|science-chemistry-matter-particles",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "english-inference-evidence|science-data-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "english-inference-evidence|science-inquiry-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "erikson-identity|nle-np-ii-development",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "inclusive-family|nle-np-ii-family",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "inclusive-respect|ree-concept-ree-allied-safety",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "inference-evidence-based-conclusions|science-chemistry-matter-particles",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "inference-evidence-based-conclusions|science-data-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "let-art-evidence|main-idea-and-support-supporting-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "let-art-evidence|science-chemistry-matter-particles",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "let-art-evidence|science-data-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "let-art-evidence|science-inquiry-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "let-art-evidence|science-optics-reflection",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "let-art-evidence|science-physics-motion-graphs",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "main-idea-and-support-supporting-evidence|science-chemistry-matter-particles",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "main-idea-and-support-supporting-evidence|science-data-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "main-idea-and-support-supporting-evidence|science-inquiry-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "math-algebra-linear-equations|ree-concept-ree-math-algebra",
+                    "blocker": "ACTUALLY_PARTIAL"
+                },
+                {
+                    "pair_key": "math-algebra-linear-equations|ree-concept-ree-math-calculus",
+                    "blocker": "ACTUALLY_PARTIAL"
+                },
+                {
+                    "pair_key": "math-number-sense-operations|ree-concept-ree-math-complex",
+                    "blocker": "ACTUALLY_PARTIAL"
+                },
+                {
+                    "pair_key": "me-topic-1-1-concept|ree-concept-ree-math-algebra",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-2-concept|ree-concept-ree-allied-thermal",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-2-concept|ree-concept-ree-pro-machines",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-3-concept|prof-facilitation-scaffolding",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-2-4-concept|ree-concept-ree-pro-power",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-1-concept|ree-concept-ree-pro-power",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-2-concept|ree-concept-ree-math-discrete",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-4-concept|pavlov-classical-conditioning",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-4-concept|skinner-operant-conditioning",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-5-concept|prof-assessment-validity",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-5-concept|ree-concept-ree-allied-safety",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "me-topic-3-5-concept|science-ecology-population",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "nle-np-ii-development|piaget-stages",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "nle-np-ii-development|prof-development-readiness",
+                    "blocker": "ACTUALLY_PARTIAL"
+                },
+                {
+                    "pair_key": "nle-np-ii-development|vygotsky-zpd",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "nle-np-iii-cellular|science-biology-cells",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "parallelism-parallel-items|science-electricity-series-parallel",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "parallelism-parallel-structure|science-electricity-series-parallel",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "ple-valid-measurement|ree-concept-ree-allied-instrumentation",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "ree-concept-ree-allied-mechanics|structural-foundations",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "ree-concept-ree-math-complex|sentence-structure-complex-sentences",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "ree-concept-ree-pro-ac|science-chemistry-matter-particles",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "ree-concept-ree-pro-circuits|science-electricity-series-parallel",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "text-structure-cause-and-effect|thorndike-law-effect",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "analytical-analogy-structure|sentence-structure-complex-sentences",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "analytical-analogy-structure|sentence-structure-compound-sentences",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "analytical-analogy-structure|sentence-structure-fragments",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "analytical-analogy-structure|sentence-structure-run-on-sentences",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "analytical-analogy-structure|text-structure-cause-and-effect",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "analytical-analogy-structure|text-structure-compare-and-contrast",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "analytical-analogy-structure|text-structure-problem-and-solution",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "analytical-analogy-structure|text-structure-sequence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "analytical-conclusion-validity|cpa-regulatory-framework-validity-core",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "analytical-conclusion-validity|prof-assessment-validity",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "analytical-data-comparison|science-data-evidence",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "architecture-history-context|context-clues-contrast-clues",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "architecture-history-context|context-clues-definition-clues",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "architecture-history-context|context-clues-example-clues",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "architecture-history-context|context-clues-inference-clues",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "architecture-history-context|social-history-primary-sources",
+                    "blocker": "SPECIALIZED_PREREQUISITE"
+                },
+                {
+                    "pair_key": "bronfenbrenner-ecology|science-ecology-population",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "context-clues-contrast-clues|let-rizal-context",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "context-clues-definition-clues|let-rizal-context",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "context-clues-example-clues|let-rizal-context",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "context-clues-inference-clues|let-rizal-context",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-advanced-accounting-agreement-core|subject-verb-agreement-collective-nouns",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-advanced-accounting-agreement-core|subject-verb-agreement-compound-subjects",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-advanced-accounting-agreement-core|subject-verb-agreement-indefinite-pronouns",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-advanced-accounting-agreement-core|subject-verb-agreement-singular-subjects",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-management-services-activity-based-core|prof-management-routines",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-management-services-budgeting-core|prof-management-routines",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-management-services-capital-budgeting-core|prof-management-routines",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                },
+                {
+                    "pair_key": "cpa-management-services-cash-budget-core|prof-management-routines",
+                    "blocker": "QUESTION_SAMPLE_INSUFFICIENT"
+                }
+            ],
+            "method": "Deterministic priority order; classifications are readiness blockers, not equivalence activation."
+        },
+        "taxonomy_defects": {
+            "cases_reviewed": 2,
+            "true_defects": 0,
+            "legitimate_distinct_concepts": 2,
+            "insufficient_evidence": 0,
+            "fixed": 0,
+            "cases": [
+                {
+                    "concept": "filipino-pagbasa-pangunahing-diwan",
+                    "finding": "LEGITIMATE_DISTINCT_CONCEPT",
+                    "reason": "Filipino reading competency remains a valid distinct taxonomy node; CSE bilingual scope does not require a merge."
+                },
+                {
+                    "concept": "filipino-gramatika-wastong-gamit",
+                    "finding": "LEGITIMATE_DISTINCT_CONCEPT",
+                    "reason": "Filipino grammar\/usage remains a distinct LET taxonomy node while validly placeable in CSE Verbal Ability."
+                }
+            ]
+        },
+        "resource_gaps": {
+            "has_strong_resource": 162,
+            "has_generic_resource_only": 223,
+            "missing_board_specific_resource": 223,
+            "missing_official_source": 223,
+            "resource_scope_ambiguous": 162,
+            "basis": "Shared authoritative-source signals in the fixed 385-pair backlog are evidence of resource overlap, not equivalence."
+        },
+        "depth_gaps": {
+            "questions_depth_known": 255,
+            "questions_depth_unknown": 2664,
+            "coverage_rows_depth_known": 18,
+            "coverage_rows_depth_unknown": 406,
+            "high_priority_equivalence_pairs_blocked_by_depth": 0,
+            "same_id_target_depth_unknown_after": 130
+        },
+        "prerequisites": {
+            "prerequisite_free": 34,
+            "specialized_prerequisite": 212,
+            "prerequisite_unknown": 139,
+            "top_blockers": [
+                "engineering\/professional application",
+                "regulatory\/legal scope",
+                "clinical\/forensic interpretation",
+                "unknown prerequisite model"
+            ]
+        },
+        "provenance": {
+            "direct_verified": 773,
+            "direct_legacy": 2890,
+            "direct_unknown": 0,
+            "derived_verified": 40,
+            "derived_unknown": 0,
+            "suspicious_provenance_relationships": 0
+        },
+        "different_id_status": {
+            "backlog_before": 385,
+            "backlog_after": 385,
+            "classification": {
+                "EXACT": 0,
+                "COMPATIBLE": 0,
+                "PARTIAL": 12,
+                "RELATED": 58,
+                "CONFLICTING": 1,
+                "INSUFFICIENT_EVIDENCE": 314,
+                "UNCLASSIFIED": 0
+            },
+            "production_equivalence_enabled": false
+        },
+        "board_readiness": {
+            "architecture": {
+                "canonical_question_count": 172,
+                "direct_eligibility_count": 172,
+                "derived_eligibility_count": 0,
+                "multi_board_question_count": 0,
+                "concepts_used": 4,
+                "concept_coverage_rows": 4,
+                "depth_known_percent": 0,
+                "context_metadata_status": {
+                    "NEUTRAL": 82,
+                    "NON_NEUTRAL": 90,
+                    "UNKNOWN": 0
+                },
+                "source_link_percent": 100,
+                "same_id_unresolved": 0,
+                "different_id_high_priority_gaps": 7,
+                "commoncore_defects": 0,
+                "taxonomy_defects": 0,
+                "provenance_gaps": 0,
+                "reuse_readiness": "PARTIAL",
+                "method": "PARTIAL means the board has usable production data but unresolved depth\/evidence or backlog gaps remain; no board is declared READY without complete evidence."
+            },
+            "civil-engineering": {
+                "canonical_question_count": 122,
+                "direct_eligibility_count": 122,
+                "derived_eligibility_count": 0,
+                "multi_board_question_count": 0,
+                "concepts_used": 3,
+                "concept_coverage_rows": 3,
+                "depth_known_percent": 0,
+                "context_metadata_status": {
+                    "NEUTRAL": 122,
+                    "NON_NEUTRAL": 0,
+                    "UNKNOWN": 0
+                },
+                "source_link_percent": 100,
+                "same_id_unresolved": 0,
+                "different_id_high_priority_gaps": 66,
+                "commoncore_defects": 0,
+                "taxonomy_defects": 0,
+                "provenance_gaps": 0,
+                "reuse_readiness": "PARTIAL",
+                "method": "PARTIAL means the board has usable production data but unresolved depth\/evidence or backlog gaps remain; no board is declared READY without complete evidence."
+            },
+            "civil-service": {
+                "canonical_question_count": 475,
+                "direct_eligibility_count": 998,
+                "derived_eligibility_count": 40,
+                "multi_board_question_count": 113,
+                "concepts_used": 87,
+                "concept_coverage_rows": 87,
+                "depth_known_percent": 4.6,
+                "context_metadata_status": {
+                    "NEUTRAL": 342,
+                    "NON_NEUTRAL": 133,
+                    "UNKNOWN": 0
+                },
+                "source_link_percent": 100,
+                "same_id_unresolved": 0,
+                "different_id_high_priority_gaps": 249,
+                "commoncore_defects": 0,
+                "taxonomy_defects": 0,
+                "provenance_gaps": 0,
+                "reuse_readiness": "PARTIAL",
+                "method": "PARTIAL means the board has usable production data but unresolved depth\/evidence or backlog gaps remain; no board is declared READY without complete evidence."
+            },
+            "cpa": {
+                "canonical_question_count": 281,
+                "direct_eligibility_count": 281,
+                "derived_eligibility_count": 0,
+                "multi_board_question_count": 0,
+                "concepts_used": 113,
+                "concept_coverage_rows": 113,
+                "depth_known_percent": 0,
+                "context_metadata_status": {
+                    "NEUTRAL": 0,
+                    "NON_NEUTRAL": 281,
+                    "UNKNOWN": 0
+                },
+                "source_link_percent": 100,
+                "same_id_unresolved": 0,
+                "different_id_high_priority_gaps": 52,
+                "commoncore_defects": 0,
+                "taxonomy_defects": 0,
+                "provenance_gaps": 0,
+                "reuse_readiness": "PARTIAL",
+                "method": "PARTIAL means the board has usable production data but unresolved depth\/evidence or backlog gaps remain; no board is declared READY without complete evidence."
+            },
+            "criminologist": {
+                "canonical_question_count": 150,
+                "direct_eligibility_count": 253,
+                "derived_eligibility_count": 0,
+                "multi_board_question_count": 0,
+                "concepts_used": 18,
+                "concept_coverage_rows": 18,
+                "depth_known_percent": 0,
+                "context_metadata_status": {
+                    "NEUTRAL": 0,
+                    "NON_NEUTRAL": 150,
+                    "UNKNOWN": 0
+                },
+                "source_link_percent": 100,
+                "same_id_unresolved": 20,
+                "different_id_high_priority_gaps": 59,
+                "commoncore_defects": 0,
+                "taxonomy_defects": 0,
+                "provenance_gaps": 0,
+                "reuse_readiness": "PARTIAL",
+                "method": "PARTIAL means the board has usable production data but unresolved depth\/evidence or backlog gaps remain; no board is declared READY without complete evidence."
+            },
+            "let": {
+                "canonical_question_count": 1039,
+                "direct_eligibility_count": 1137,
+                "derived_eligibility_count": 0,
+                "multi_board_question_count": 563,
+                "concepts_used": 112,
+                "concept_coverage_rows": 126,
+                "depth_known_percent": 11.1,
+                "context_metadata_status": {
+                    "NEUTRAL": 973,
+                    "NON_NEUTRAL": 66,
+                    "UNKNOWN": 0
+                },
+                "source_link_percent": 100,
+                "same_id_unresolved": 130,
+                "different_id_high_priority_gaps": 270,
+                "commoncore_defects": 0,
+                "taxonomy_defects": 0,
+                "provenance_gaps": 0,
+                "reuse_readiness": "PARTIAL",
+                "method": "PARTIAL means the board has usable production data but unresolved depth\/evidence or backlog gaps remain; no board is declared READY without complete evidence."
+            },
+            "mechanical-engineering": {
+                "canonical_question_count": 220,
+                "direct_eligibility_count": 220,
+                "derived_eligibility_count": 0,
+                "multi_board_question_count": 0,
+                "concepts_used": 14,
+                "concept_coverage_rows": 14,
+                "depth_known_percent": 0,
+                "context_metadata_status": {
+                    "NEUTRAL": 0,
+                    "NON_NEUTRAL": 220,
+                    "UNKNOWN": 0
+                },
+                "source_link_percent": 100,
+                "same_id_unresolved": 0,
+                "different_id_high_priority_gaps": 132,
+                "commoncore_defects": 0,
+                "taxonomy_defects": 0,
+                "provenance_gaps": 0,
+                "reuse_readiness": "PARTIAL",
+                "method": "PARTIAL means the board has usable production data but unresolved depth\/evidence or backlog gaps remain; no board is declared READY without complete evidence."
+            },
+            "nursing": {
+                "canonical_question_count": 240,
+                "direct_eligibility_count": 260,
+                "derived_eligibility_count": 0,
+                "multi_board_question_count": 0,
+                "concepts_used": 40,
+                "concept_coverage_rows": 40,
+                "depth_known_percent": 0,
+                "context_metadata_status": {
+                    "NEUTRAL": 0,
+                    "NON_NEUTRAL": 240,
+                    "UNKNOWN": 0
+                },
+                "source_link_percent": 100,
+                "same_id_unresolved": 110,
+                "different_id_high_priority_gaps": 151,
+                "commoncore_defects": 0,
+                "taxonomy_defects": 0,
+                "provenance_gaps": 0,
+                "reuse_readiness": "PARTIAL",
+                "method": "PARTIAL means the board has usable production data but unresolved depth\/evidence or backlog gaps remain; no board is declared READY without complete evidence."
+            },
+            "psychometrician": {
+                "canonical_question_count": 100,
+                "direct_eligibility_count": 100,
+                "derived_eligibility_count": 0,
+                "multi_board_question_count": 0,
+                "concepts_used": 4,
+                "concept_coverage_rows": 4,
+                "depth_known_percent": 0,
+                "context_metadata_status": {
+                    "NEUTRAL": 0,
+                    "NON_NEUTRAL": 100,
+                    "UNKNOWN": 0
+                },
+                "source_link_percent": 100,
+                "same_id_unresolved": 0,
+                "different_id_high_priority_gaps": 5,
+                "commoncore_defects": 0,
+                "taxonomy_defects": 0,
+                "provenance_gaps": 0,
+                "reuse_readiness": "PARTIAL",
+                "method": "PARTIAL means the board has usable production data but unresolved depth\/evidence or backlog gaps remain; no board is declared READY without complete evidence."
+            },
+            "registered-electrical-engineering": {
+                "canonical_question_count": 120,
+                "direct_eligibility_count": 120,
+                "derived_eligibility_count": 0,
+                "multi_board_question_count": 0,
+                "concepts_used": 15,
+                "concept_coverage_rows": 15,
+                "depth_known_percent": 0,
+                "context_metadata_status": {
+                    "NEUTRAL": 0,
+                    "NON_NEUTRAL": 120,
+                    "UNKNOWN": 0
+                },
+                "source_link_percent": 100,
+                "same_id_unresolved": 0,
+                "different_id_high_priority_gaps": 29,
+                "commoncore_defects": 0,
+                "taxonomy_defects": 0,
+                "provenance_gaps": 0,
+                "reuse_readiness": "PARTIAL",
+                "method": "PARTIAL means the board has usable production data but unresolved depth\/evidence or backlog gaps remain; no board is declared READY without complete evidence."
+            }
+        },
+        "board_pair_matrix": {
+            "architecture|architecture": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "architecture|civil-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "architecture|civil-service": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 5,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "architecture|cpa": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 1,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "architecture|criminologist": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 1,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "architecture|let": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 5,
+                "partial": 1,
+                "related": 0,
+                "conflicting": 0
+            },
+            "architecture|mechanical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "architecture|nursing": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "architecture|psychometrician": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "architecture|registered-electrical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "civil-engineering|architecture": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "civil-engineering|civil-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "civil-engineering|civil-service": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 4,
+                "partial": 0,
+                "related": 18,
+                "conflicting": 0
+            },
+            "civil-engineering|cpa": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "civil-engineering|criminologist": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "civil-engineering|let": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 4,
+                "partial": 0,
+                "related": 18,
+                "conflicting": 0
+            },
+            "civil-engineering|mechanical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 6,
+                "partial": 0,
+                "related": 13,
+                "conflicting": 0
+            },
+            "civil-engineering|nursing": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 4,
+                "partial": 0,
+                "related": 16,
+                "conflicting": 0
+            },
+            "civil-engineering|psychometrician": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "civil-engineering|registered-electrical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 2,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "civil-service|architecture": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "civil-service|civil-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 9,
+                "partial": 0,
+                "related": 1,
+                "conflicting": 0
+            },
+            "civil-service|civil-service": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "civil-service|cpa": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 2,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "civil-service|criminologist": {
+                "direct_shared": 103,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 2,
+                "partial": 1,
+                "related": 0,
+                "conflicting": 0
+            },
+            "civil-service|let": {
+                "direct_shared": 621,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 64,
+                "partial": 2,
+                "related": 8,
+                "conflicting": 0
+            },
+            "civil-service|mechanical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 4,
+                "partial": 2,
+                "related": 6,
+                "conflicting": 0
+            },
+            "civil-service|nursing": {
+                "direct_shared": 20,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 20,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "civil-service|psychometrician": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 1,
+                "related": 0,
+                "conflicting": 0
+            },
+            "civil-service|registered-electrical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 7,
+                "partial": 3,
+                "related": 0,
+                "conflicting": 0
+            },
+            "cpa|architecture": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "cpa|civil-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "cpa|civil-service": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 21,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "cpa|cpa": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "cpa|criminologist": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "cpa|let": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 41,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "cpa|mechanical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 4,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "cpa|nursing": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 7,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "cpa|psychometrician": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 3,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "cpa|registered-electrical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 5,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "criminologist|architecture": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "criminologist|civil-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "criminologist|civil-service": {
+                "direct_shared": 103,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 25,
+                "partial": 0,
+                "related": 1,
+                "conflicting": 1
+            },
+            "criminologist|cpa": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 5,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "criminologist|criminologist": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "criminologist|let": {
+                "direct_shared": 88,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 28,
+                "partial": 1,
+                "related": 7,
+                "conflicting": 1
+            },
+            "criminologist|mechanical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 2,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "criminologist|nursing": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 10,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "criminologist|psychometrician": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 1,
+                "related": 0,
+                "conflicting": 0
+            },
+            "criminologist|registered-electrical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 2,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "let|architecture": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "let|civil-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 9,
+                "partial": 0,
+                "related": 1,
+                "conflicting": 0
+            },
+            "let|civil-service": {
+                "direct_shared": 621,
+                "same_concept_derived": 40,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 31,
+                "partial": 1,
+                "related": 6,
+                "conflicting": 0
+            },
+            "let|cpa": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "let|criminologist": {
+                "direct_shared": 88,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 20,
+                "different_id_provisional": 5,
+                "partial": 1,
+                "related": 5,
+                "conflicting": 0
+            },
+            "let|let": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "let|mechanical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 3,
+                "partial": 2,
+                "related": 6,
+                "conflicting": 0
+            },
+            "let|nursing": {
+                "direct_shared": 20,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 110,
+                "different_id_provisional": 22,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "let|psychometrician": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 1,
+                "related": 0,
+                "conflicting": 0
+            },
+            "let|registered-electrical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 11,
+                "partial": 3,
+                "related": 0,
+                "conflicting": 0
+            },
+            "mechanical-engineering|architecture": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "mechanical-engineering|civil-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 10,
+                "partial": 0,
+                "related": 2,
+                "conflicting": 0
+            },
+            "mechanical-engineering|civil-service": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 66,
+                "partial": 0,
+                "related": 5,
+                "conflicting": 0
+            },
+            "mechanical-engineering|cpa": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "mechanical-engineering|criminologist": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "mechanical-engineering|let": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 70,
+                "partial": 0,
+                "related": 5,
+                "conflicting": 0
+            },
+            "mechanical-engineering|mechanical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "mechanical-engineering|nursing": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 66,
+                "partial": 0,
+                "related": 5,
+                "conflicting": 0
+            },
+            "mechanical-engineering|psychometrician": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "mechanical-engineering|registered-electrical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 7,
+                "partial": 1,
+                "related": 0,
+                "conflicting": 0
+            },
+            "nursing|architecture": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "nursing|civil-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 9,
+                "partial": 0,
+                "related": 1,
+                "conflicting": 0
+            },
+            "nursing|civil-service": {
+                "direct_shared": 20,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 1,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "nursing|cpa": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "nursing|criminologist": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "nursing|let": {
+                "direct_shared": 20,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 4,
+                "partial": 1,
+                "related": 0,
+                "conflicting": 0
+            },
+            "nursing|mechanical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "nursing|nursing": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "nursing|psychometrician": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "nursing|registered-electrical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "psychometrician|architecture": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "psychometrician|civil-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "psychometrician|civil-service": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "psychometrician|cpa": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "psychometrician|criminologist": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "psychometrician|let": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "psychometrician|mechanical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "psychometrician|nursing": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "psychometrician|psychometrician": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "psychometrician|registered-electrical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 1,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "registered-electrical-engineering|architecture": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "registered-electrical-engineering|civil-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 1,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "registered-electrical-engineering|civil-service": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 3,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "registered-electrical-engineering|cpa": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "registered-electrical-engineering|criminologist": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "registered-electrical-engineering|let": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 3,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "registered-electrical-engineering|mechanical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "registered-electrical-engineering|nursing": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 2,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "registered-electrical-engineering|psychometrician": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            },
+            "registered-electrical-engineering|registered-electrical-engineering": {
+                "direct_shared": 0,
+                "same_concept_derived": 0,
+                "same_concept_blocked": 0,
+                "different_id_provisional": 0,
+                "partial": 0,
+                "related": 0,
+                "conflicting": 0
+            }
+        },
+        "authoring_guardrails": {
+            "default_reuse_policy": "REVIEW",
+            "default_depth": "UNKNOWN",
+            "context_inference": "conservative backend inference; explicit professional\/regulatory markers never become AUTO",
+            "regulatory_default": "MANUAL_ONLY when not already shared",
+            "professional_default": "REVIEW unless validated bounded metadata",
+            "when_to_reuse_existing_concept": "same global concept, valid target placement, known depth, neutral context, source support, and no required specialized prerequisite",
+            "when_to_create_board_specific_concept": "materially different professional\/regulatory competency or taxonomy boundary",
+            "when_to_mark_context_neutral": "only when ordinary foundation knowledge solves the item and no material professional\/regulatory marker exists",
+            "when_to_mark_professional": "solving requires technical or professional judgment beyond ordinary foundation knowledge",
+            "when_to_mark_regulatory": "law\/code\/licensure\/procedure or regulated professional applicability is material",
+            "when_required_depth_must_be_set": "before AUTO or any derived production relationship",
+            "when_review_policy_required": "unknown depth, uncertain context, ambiguous placement, or insufficient source\/equivalence evidence",
+            "when_auto_policy_allowed": "only after independently verified depth\/context\/source\/placement gates pass"
+        },
+        "doctor": {
+            "context_invalid_direct_mappings": 0,
+            "context_invalid_legacy_mappings": 0,
+            "context_invalid_derived_mappings": 0,
+            "regulatory_leaks": 0,
+            "professional_context_leaks": 0,
+            "duplicate_effective_candidates": 0,
+            "double_weighting": 0,
+            "same_id_target_depth_unknown": 130,
+            "different_id_production_enabled": false,
+            "finding": "No context-invalid relationship was proven; stale CommonCore expectation is covered by the corrected regression."
+        },
+        "preservation": {
+            "canonical_before": 2919,
+            "canonical_after": 2919,
+            "direct_before": 3663,
+            "direct_after": 3663,
+            "concept_derived_before": 40,
+            "concept_derived_after": 40,
+            "total_effective_before": 3703,
+            "total_effective_after": 3703,
+            "multi_board_before": 676,
+            "multi_board_after": 676,
+            "single_board_before": 2243,
+            "single_board_after": 2243,
+            "question_clones_created": 0,
+            "question_content_changed": 0,
+            "question_taxonomy_changed": 0,
+            "direct_mappings_changed": 0,
+            "overrides_changed": 0,
+            "coverage_changed": 0
+        },
+        "blueprint_impact": {
+            "affected_boards": [
+                "civil-service"
+            ],
+            "pool_shortages": [],
+            "weight_regressions": [],
+            "execution": "PASS via existing blueprint integrity\/cross-board tests; corrected test retains valid verbal-ability placement"
+        },
+        "selection_integrity": {
+            "duplicate_effective_candidates": 0,
+            "double_weighting": 0,
+            "selection_deterministic": true
+        },
+        "validation": {
+            "php_syntax": "PASS",
+            "json_parse": "PASS",
+            "canonical_integrity": "PASS",
+            "taxonomy_integrity": "PASS",
+            "study_link_integrity": "PASS",
+            "eligibility_integrity": "PASS",
+            "reuse_metadata_integrity": "PASS",
+            "equivalence_audit_integrity": "PASS",
+            "commoncore_regression": "PASS_AFTER_EXPECTATION_CORRECTION",
+            "batch605_regression": "PASS",
+            "batch607_regression": "PASS",
+            "batch610_regression": "PASS",
+            "batch611_regression": "PASS",
+            "batch612a_regression": "PASS",
+            "batch613_regression": "PASS",
+            "batch614_regression": "PASS",
+            "cross_board_selection": "PASS",
+            "blueprint_execution": "PASS",
+            "authoring": "PASS",
+            "editing": "PASS",
+            "duplication": "PASS",
+            "manual_overrides": "PASS",
+            "context_gating": "PASS",
+            "regulatory_gating": "PASS",
+            "dedup": "PASS",
+            "doctor_focused": "PASS",
+            "broader_regression": "NOT_COMPLETED",
+            "known_timeouts": [
+                "QuestionCoverageBlueprintTest"
+            ],
+            "known_failures": []
+        },
+        "next_priorities": [
+            {
+                "priority": 1,
+                "category": "SOURCE-FIRST CONTENT EXPANSION",
+                "why": "Most high-priority pairs lack independent equivalence-grade sources; source work can expand evidence without loosening resolver policy.",
+                "impact": "high",
+                "risk": "low"
+            },
+            {
+                "priority": 2,
+                "category": "TARGET DEPTH CALIBRATION",
+                "why": "406 of 424 coverage rows and 2664 question metadata rows remain depth-unknown.",
+                "impact": "high",
+                "risk": "medium"
+            },
+            {
+                "priority": 3,
+                "category": "PREREQUISITE MODELING",
+                "why": "212 candidate relations show specialized prerequisite signals and 139 remain unknown.",
+                "impact": "high",
+                "risk": "medium"
+            }
+        ],
+        "audit_tool": "tools\/batch615-reuse-readiness-audit.php",
+        "audit_records": 180,
+        "audit_only": true,
+        "audit_hash": "3d981c5e3e49a95cbeb78ed40f3699c462ae86d291a4634c4e5a7bce6431d6b4"
+    }
+]

@@ -281,10 +281,17 @@ foreach ($representatives as $representative) {
 
 $filipino = $questionsById['2499'] ?? null;
 $assert(is_array($filipino), 'Filipino isolation representative missing');
-$assert(QuestionSelectionService::select(
+$filipinoSelection = QuestionSelectionService::select(
     [$filipino],
     new QuizSpecification('civil-service', 'Verbal Ability', null, [], [], (string) ($filipino['difficulty'] ?? 'medium'), 1, 'practice', false, false, null, null)
-) === [], 'context-specific Filipino question leaked into Civil Service');
+);
+// CSC's official CSE scope includes Verbal Ability in English and Filipino,
+// including grammar and correct usage.  This canonical Filipino grammar item
+// is therefore valid Civil Service Verbal Ability reuse, not a context leak.
+$assert(count($filipinoSelection) === 1 && (string) $filipinoSelection[0]['id'] === '2499', 'valid Filipino Verbal Ability question was excluded from Civil Service');
+$assert(QuestionEligibilityService::forExam($filipino, 'let') !== null, 'Filipino question lost its source-board eligibility');
+$assert(($filipinoEligibility = QuestionEligibilityService::forExam($filipino, 'civil-service')) !== null, 'valid Filipino question lost Civil Service eligibility');
+$assert(($filipinoEligibility['subject_id'] ?? '') === 'verbal-ability', 'Filipino question has incorrect Civil Service placement');
 
 $shared = $questionsById['2769'] ?? null;
 $assert(is_array($shared), 'deduplication representative missing');
