@@ -6031,7 +6031,7 @@
         "domain_id": "engineering-sciences-and-allied-subjects",
         "topic_id": "ree-allied-electronics",
         "blueprint_node_id": "engineering-sciences-and-allied-subjects",
-        "max_depth": "UNKNOWN",
+        "max_depth": 4,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -6040,10 +6040,16 @@
                 "reference": "question:1615",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "OFFICIAL_BLUEPRINT",
+                "reference": "batch-617-ree-depth",
+                "note": "Depth 4 is supported for bounded analysis\/application in the selected REE concept; no depth 5 professional judgment is inferred.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "PRC REE subject scope plus expanded source-backed study material and existing board-specific questions",
+        "confidence": "STRONG"
     },
     {
         "id": "coverage-9d17d89b48001d87cb15b42c67bc6f0ad839ddb015f326c3f6303be822e505d7",
@@ -6097,7 +6103,7 @@
         "domain_id": "electrical-engineering-professional-subjects",
         "topic_id": "ree-pro-circuits",
         "blueprint_node_id": "electrical-engineering-professional-subjects",
-        "max_depth": "UNKNOWN",
+        "max_depth": 4,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -6106,10 +6112,16 @@
                 "reference": "question:1641",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "OFFICIAL_BLUEPRINT",
+                "reference": "batch-617-ree-depth",
+                "note": "Depth 4 is supported for bounded analysis\/application in the selected REE concept; no depth 5 professional judgment is inferred.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "PRC REE subject scope plus expanded source-backed study material and existing board-specific questions",
+        "confidence": "STRONG"
     },
     {
         "id": "coverage-177f40aa73afc8602cbda7c08728324c7577a8e07581535bc8591346bbf9dcb7",
@@ -6119,7 +6131,7 @@
         "domain_id": "electrical-engineering-professional-subjects",
         "topic_id": "ree-pro-ac",
         "blueprint_node_id": "electrical-engineering-professional-subjects",
-        "max_depth": "UNKNOWN",
+        "max_depth": 4,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -6128,10 +6140,16 @@
                 "reference": "question:1648",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "OFFICIAL_BLUEPRINT",
+                "reference": "batch-617-ree-depth",
+                "note": "Depth 4 is supported for bounded analysis\/application in the selected REE concept; no depth 5 professional judgment is inferred.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "PRC REE subject scope plus expanded source-backed study material and existing board-specific questions",
+        "confidence": "STRONG"
     },
     {
         "id": "coverage-0c6dfe8823886dc5e1105349448c7a176d734355f247cd91f2c9d1659ce21e2d",
@@ -6141,7 +6159,7 @@
         "domain_id": "electrical-engineering-professional-subjects",
         "topic_id": "ree-pro-machines",
         "blueprint_node_id": "electrical-engineering-professional-subjects",
-        "max_depth": "UNKNOWN",
+        "max_depth": 4,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -6150,10 +6168,16 @@
                 "reference": "question:1659",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "OFFICIAL_BLUEPRINT",
+                "reference": "batch-617-ree-depth",
+                "note": "Depth 4 is supported for bounded analysis\/application in the selected REE concept; no depth 5 professional judgment is inferred.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "PRC REE subject scope plus expanded source-backed study material and existing board-specific questions",
+        "confidence": "STRONG"
     },
     {
         "id": "coverage-2f09fcbca4626b1de0304c18a3f6313bb8f1a614a290afaa81961a6876d48b69",
@@ -6163,7 +6187,7 @@
         "domain_id": "electrical-engineering-professional-subjects",
         "topic_id": "ree-pro-power",
         "blueprint_node_id": "electrical-engineering-professional-subjects",
-        "max_depth": "UNKNOWN",
+        "max_depth": 4,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -6172,10 +6196,16 @@
                 "reference": "question:1667",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "OFFICIAL_BLUEPRINT",
+                "reference": "batch-617-ree-depth",
+                "note": "Depth 4 is supported for bounded analysis\/application in the selected REE concept; no depth 5 professional judgment is inferred.",
+                "verified_status": "VERIFIED"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "PRC REE subject scope plus expanded source-backed study material and existing board-specific questions",
+        "confidence": "STRONG"
     },
     {
         "id": "coverage-eddd6f5ae3e5d102f7d1461e2de1c2f152ef30c3cc6112e96985b92c6a658342",

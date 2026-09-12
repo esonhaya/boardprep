@@ -1,0 +1,3399 @@
+[
+    {
+        "id": "batch617-ree-content-depth-modernization-report",
+        "batch": "617",
+        "scope": "Source-first Registered Electrical Engineering content expansion and depth modernization; no different-ID equivalence",
+        "board": "registered-electrical-engineering",
+        "concepts": {
+            "ree-concept-ree-pro-circuits": {
+                "before": 7,
+                "added": 41,
+                "depth": 4,
+                "material": "ree-material-circuits"
+            },
+            "ree-concept-ree-pro-ac": {
+                "before": 11,
+                "added": 40,
+                "depth": 4,
+                "material": "ree-material-ac-systems"
+            },
+            "ree-concept-ree-pro-machines": {
+                "before": 8,
+                "added": 42,
+                "depth": 4,
+                "material": "ree-material-machines"
+            },
+            "ree-concept-ree-pro-power": {
+                "before": 12,
+                "added": 39,
+                "depth": 4,
+                "material": "ree-material-power"
+            },
+            "ree-concept-ree-allied-electronics": {
+                "before": 14,
+                "added": 39,
+                "depth": 4,
+                "material": "ree-material-electronics"
+            }
+        },
+        "sources": {
+            "reviewed": [
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-002-circuits-electronics",
+                "mit-ocw-6-061-electric-power-systems",
+                "mit-ocw-6-685-electric-machines",
+                "openstax-university-physics-volume-2"
+            ],
+            "added": 3,
+            "reused": 2,
+            "weak_rejected": 0
+        },
+        "study_materials": {
+            "reviewed": 5,
+            "expanded": 5,
+            "reorganized": 0,
+            "split": 0,
+            "added": 0
+        },
+        "coverage": {
+            "rows_reviewed": 5,
+            "rows_assigned": 5,
+            "depths": {
+                "1": 0,
+                "2": 0,
+                "3": 0,
+                "4": 5,
+                "5": 0,
+                "UNKNOWN": 0
+            }
+        },
+        "existing_depth": {
+            "reviewed": 52,
+            "assigned": 52,
+            "unknown": 0
+        },
+        "content": {
+            "planned": 201,
+            "actual": 201,
+            "id_range": [
+                3100,
+                3300
+            ],
+            "by_concept": {
+                "ree-concept-ree-pro-circuits": 41,
+                "ree-concept-ree-pro-ac": 40,
+                "ree-concept-ree-pro-machines": 42,
+                "ree-concept-ree-pro-power": 39,
+                "ree-concept-ree-allied-electronics": 39
+            },
+            "new_depths": {
+                "1": 0,
+                "2": 0,
+                "3": 73,
+                "4": 128,
+                "5": 0,
+                "UNKNOWN": 0
+            },
+            "new_context": {
+                "NEUTRAL": 2,
+                "PROFESSIONAL": 199,
+                "REGULATORY": 0,
+                "OTHER": 0
+            },
+            "new_question_ids": [
+                3100,
+                3101,
+                3102,
+                3103,
+                3104,
+                3105,
+                3106,
+                3107,
+                3108,
+                3109,
+                3110,
+                3111,
+                3112,
+                3113,
+                3114,
+                3115,
+                3116,
+                3117,
+                3118,
+                3119,
+                3120,
+                3121,
+                3122,
+                3123,
+                3124,
+                3125,
+                3126,
+                3127,
+                3128,
+                3129,
+                3130,
+                3131,
+                3132,
+                3133,
+                3134,
+                3135,
+                3136,
+                3137,
+                3138,
+                3139,
+                3140,
+                3141,
+                3142,
+                3143,
+                3144,
+                3145,
+                3146,
+                3147,
+                3148,
+                3149,
+                3150,
+                3151,
+                3152,
+                3153,
+                3154,
+                3155,
+                3156,
+                3157,
+                3158,
+                3159,
+                3160,
+                3161,
+                3162,
+                3163,
+                3164,
+                3165,
+                3166,
+                3167,
+                3168,
+                3169,
+                3170,
+                3171,
+                3172,
+                3173,
+                3174,
+                3175,
+                3176,
+                3177,
+                3178,
+                3179,
+                3180,
+                3181,
+                3182,
+                3183,
+                3184,
+                3185,
+                3186,
+                3187,
+                3188,
+                3189,
+                3190,
+                3191,
+                3192,
+                3193,
+                3194,
+                3195,
+                3196,
+                3197,
+                3198,
+                3199,
+                3200,
+                3201,
+                3202,
+                3203,
+                3204,
+                3205,
+                3206,
+                3207,
+                3208,
+                3209,
+                3210,
+                3211,
+                3212,
+                3213,
+                3214,
+                3215,
+                3216,
+                3217,
+                3218,
+                3219,
+                3220,
+                3221,
+                3222,
+                3223,
+                3224,
+                3225,
+                3226,
+                3227,
+                3228,
+                3229,
+                3230,
+                3231,
+                3232,
+                3233,
+                3234,
+                3235,
+                3236,
+                3237,
+                3238,
+                3239,
+                3240,
+                3241,
+                3242,
+                3243,
+                3244,
+                3245,
+                3246,
+                3247,
+                3248,
+                3249,
+                3250,
+                3251,
+                3252,
+                3253,
+                3254,
+                3255,
+                3256,
+                3257,
+                3258,
+                3259,
+                3260,
+                3261,
+                3262,
+                3263,
+                3264,
+                3265,
+                3266,
+                3267,
+                3268,
+                3269,
+                3270,
+                3271,
+                3272,
+                3273,
+                3274,
+                3275,
+                3276,
+                3277,
+                3278,
+                3279,
+                3280,
+                3281,
+                3282,
+                3283,
+                3284,
+                3285,
+                3286,
+                3287,
+                3288,
+                3289,
+                3290,
+                3291,
+                3292,
+                3293,
+                3294,
+                3295,
+                3296,
+                3297,
+                3298,
+                3299,
+                3300
+            ],
+            "study_linked": 201,
+            "authoritative_source_chain": 201,
+            "derivable": 201,
+            "numerical": 201,
+            "numerical_recomputed": 201,
+            "numerical_pass": 201,
+            "numerical_fail": 0,
+            "exact_duplicates": 0,
+            "normalized_duplicates": 0,
+            "semantic_near_duplicates_rejected": 0,
+            "numeric_template_duplicates_rejected": 0,
+            "distinct_formula_families": 108
+        },
+        "reuse": {
+            "different_id_equivalence_enabled": false,
+            "same_concept_activation": 0,
+            "frozen_target_depth_unknown": 130
+        },
+        "preservation": {
+            "canonical_before": 3099,
+            "canonical_after": 3300,
+            "question_clones_created": 0,
+            "existing_content_changed": 0,
+            "existing_taxonomy_changed": 0
+        },
+        "guardrails": {
+            "default_reuse_policy": "REVIEW",
+            "default_depth": "UNKNOWN",
+            "professional_default": "REVIEW",
+            "regulatory_default": "MANUAL_ONLY"
+        },
+        "doctor": {
+            "new_missing_depth": 0,
+            "new_missing_context": 0,
+            "new_missing_study_link": 0,
+            "new_non_derivable": 0,
+            "new_invalid_taxonomy": 0,
+            "new_without_eligibility": 0,
+            "new_invalid_source": 0,
+            "duplicate_effective_candidates": 0,
+            "double_weighting": 0
+        },
+        "deterministic": true,
+        "tool": "tools/batch617-ree-content-depth-audit.php",
+        "quality": {
+            "quality_sample_size": 41,
+            "quality_defects_found": 0,
+            "quality_defects_fixed": 0,
+            "quality_defects_remaining": 0,
+            "exact_duplicates": 0,
+            "normalized_duplicates": 0,
+            "semantic_near_duplicates": 0,
+            "numeric_template_duplicates": 0
+        },
+        "blueprint": {
+            "pool_before": 120,
+            "pool_after": 321,
+            "pool_delta": 201,
+            "areas_improved": [
+                "electrical-engineering-professional-subjects",
+                "engineering-sciences-and-allied-subjects"
+            ],
+            "selection_deterministic": true,
+            "still_undercovered": [
+                "registered-electrical-engineering-mathematics",
+                "engineering-sciences-and-allied-subjects:mechanics/thermal/instrumentation/safety"
+            ]
+        },
+        "depth_modernization": {
+            "existing_ree_questions_reviewed": 52,
+            "existing_ree_depth_assigned": 52,
+            "existing_ree_depth_remaining_unknown": 68,
+            "repository_known_after": 810,
+            "repository_unknown_after": 2490
+        },
+        "new_question_records": [
+            {
+                "question_id": 3100,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 3,
+                "context": "NEUTRAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3101,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 3,
+                "context": "NEUTRAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3102,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3103,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3104,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3105,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3106,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3107,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3108,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3109,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3110,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3111,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3112,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3113,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3114,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3115,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3116,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3117,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3118,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3119,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3120,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3121,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3122,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3123,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3124,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3125,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3126,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3127,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3128,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3129,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3130,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3131,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3132,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3133,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3134,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3135,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3136,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3137,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3138,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3139,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3140,
+                "concept_id": "ree-concept-ree-pro-circuits",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-circuits",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3141,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3142,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3143,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3144,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3145,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3146,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3147,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3148,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3149,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3150,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3151,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3152,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3153,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3154,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3155,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3156,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3157,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3158,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3159,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3160,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3161,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3162,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3163,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3164,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3165,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3166,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3167,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3168,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3169,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3170,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3171,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3172,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3173,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3174,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3175,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3176,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3177,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3178,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3179,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3180,
+                "concept_id": "ree-concept-ree-pro-ac",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-ac-systems",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3181,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3182,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3183,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3184,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3185,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3186,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3187,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3188,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3189,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3190,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3191,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3192,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3193,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3194,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3195,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3196,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3197,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3198,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3199,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3200,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3201,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3202,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3203,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3204,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3205,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3206,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3207,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3208,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3209,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3210,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3211,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3212,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3213,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3214,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3215,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3216,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3217,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3218,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3219,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3220,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3221,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3222,
+                "concept_id": "ree-concept-ree-pro-machines",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-machines",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-685-electric-machines",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3223,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3224,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3225,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3226,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3227,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3228,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3229,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3230,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3231,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3232,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3233,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3234,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3235,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3236,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3237,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3238,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3239,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3240,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3241,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3242,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3243,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3244,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3245,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3246,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3247,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3248,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3249,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3250,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3251,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3252,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3253,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3254,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3255,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3256,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3257,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3258,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3259,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3260,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3261,
+                "concept_id": "ree-concept-ree-pro-power",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-power",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-061-electric-power-systems",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3262,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3263,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3264,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3265,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3266,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3267,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3268,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3269,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3270,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3271,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3272,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3273,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3274,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3275,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3276,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3277,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3278,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3279,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3280,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3281,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3282,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3283,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3284,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3285,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3286,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3287,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3288,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3289,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3290,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3291,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3292,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3293,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 3,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3294,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3295,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3296,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3297,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3298,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3299,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            },
+            {
+                "question_id": 3300,
+                "concept_id": "ree-concept-ree-allied-electronics",
+                "depth": 4,
+                "context": "PROFESSIONAL",
+                "study_material_id": "ree-material-electronics",
+                "source_ids": [
+                    "prc-electrical-engineering-board-page",
+                    "mit-ocw-6-002-circuits-electronics",
+                    "openstax-university-physics-volume-2"
+                ],
+                "reuse_policy": "REVIEW",
+                "authoritative_source_chain": true,
+                "derivable": true
+            }
+        ]
+    }
+]

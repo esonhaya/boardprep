@@ -4719,15 +4719,29 @@
     {
         "id": "ree-material-circuits",
         "title": "REE Circuit Analysis Foundations",
-        "summary": "DC network analysis, equivalent circuits, and conservation laws.",
+        "summary": "Source-first REE review of DC network analysis, equivalent circuits, conservation laws, transient storage, and diagnostic reasoning.",
         "notes": [
             {
-                "heading": "Use in practice",
-                "body": "Apply the relationships and decision checks to connect calculation results to safe electrical-engineering decisions."
+                "heading": "Model and conservation",
+                "body": "Use an explicit lumped-circuit model. Apply Kirchhoff current law at nodes and Kirchhoff voltage law around loops; state reference directions and signs before solving."
+            },
+            {
+                "heading": "Equivalent networks",
+                "body": "For linear resistive networks, use series/parallel reduction, source transformation, Thevenin, Norton, superposition, or nodal analysis only when the assumptions fit the circuit. Preserve the terminal behavior being analyzed."
+            },
+            {
+                "heading": "Energy storage and checks",
+                "body": "Capacitors and inductors store energy and create time-dependent responses. Check units, limiting behavior, initial/final conditions, and whether a claimed steady-state result is physically consistent."
+            },
+            {
+                "heading": "Common errors",
+                "body": "Do not add currents from different branches without a common node relationship, do not combine impedances as resistances in AC work, and do not use a source transformation without preserving polarity and terminal equivalence."
             }
         ],
         "source_ids": [
-            "prc-electrical-engineering-board-page"
+            "prc-electrical-engineering-board-page",
+            "mit-ocw-6-002-circuits-electronics",
+            "openstax-university-physics-volume-2"
         ],
         "exams": [
             "registered-electrical-engineering"
@@ -4742,15 +4756,29 @@
     {
         "id": "ree-material-ac-systems",
         "title": "REE AC and Three-Phase Systems",
-        "summary": "Phasors, impedance, power factor, and balanced three-phase relationships.",
+        "summary": "Source-first REE review of phasors, impedance, RMS conventions, AC power, resonance, and balanced three-phase relationships.",
         "notes": [
             {
-                "heading": "Use in practice",
-                "body": "Apply the relationships and decision checks to connect calculation results to safe electrical-engineering decisions."
+                "heading": "Phasor conventions",
+                "body": "Represent sinusoidal steady-state quantities with a declared RMS or peak convention. Add rectangular components consistently and interpret the sign of the angle as leading or lagging relative to the reference."
+            },
+            {
+                "heading": "Impedance and power",
+                "body": "For series elements, resistance and reactance form a complex impedance. Use apparent power S, real power P, and reactive power Q consistently, with power factor describing the phase relationship rather than replacing the circuit model."
+            },
+            {
+                "heading": "Three-phase assumptions",
+                "body": "For a balanced three-phase system, identify whether the stated voltage is line-to-line or line-to-neutral and whether the load is wye or delta before applying the square-root-of-three relationship."
+            },
+            {
+                "heading": "Checks and limits",
+                "body": "Check units in VA, W, var, and ohms; test the resistive and purely reactive limiting cases; and state frequency, balance, and waveform assumptions when they affect the answer."
             }
         ],
         "source_ids": [
-            "prc-electrical-engineering-board-page"
+            "prc-electrical-engineering-board-page",
+            "mit-ocw-6-002-circuits-electronics",
+            "openstax-university-physics-volume-2"
         ],
         "exams": [
             "registered-electrical-engineering"
@@ -4765,15 +4793,29 @@
     {
         "id": "ree-material-machines",
         "title": "REE Machines and Transformers",
-        "summary": "Transformer relationships, induction machines, synchronous speed, and torque.",
+        "summary": "Source-first REE review of transformer ratios, electromechanical conversion, induction and synchronous speed, torque, losses, and efficiency.",
         "notes": [
             {
-                "heading": "Use in practice",
-                "body": "Apply the relationships and decision checks to connect calculation results to safe electrical-engineering decisions."
+                "heading": "Transformer model",
+                "body": "For an ideal transformer, voltage ratio follows turns ratio and current ratio is inverse when apparent power is conserved. Identify primary and secondary quantities and do not mix line and phase values without a stated connection."
+            },
+            {
+                "heading": "Rotating-machine speed",
+                "body": "Synchronous speed depends on frequency and pole count. An induction motor operates below synchronous speed in motoring operation; slip is the normalized speed difference and must be interpreted with the stated operating mode."
+            },
+            {
+                "heading": "Energy conversion",
+                "body": "Separate electrical input, mechanical output, losses, torque, and angular speed. Efficiency is useful output divided by input, and every power conversion question should state or expose the relevant loss assumption."
+            },
+            {
+                "heading": "Prerequisite boundary",
+                "body": "These notes support foundational machine reasoning and calculations. Detailed design, saturation, fault behavior, and manufacturer/code-specific decisions require additional specialized sources and are not silently treated as generic reuse."
             }
         ],
         "source_ids": [
-            "prc-electrical-engineering-board-page"
+            "prc-electrical-engineering-board-page",
+            "mit-ocw-6-685-electric-machines",
+            "openstax-university-physics-volume-2"
         ],
         "exams": [
             "registered-electrical-engineering"
@@ -4788,15 +4830,29 @@
     {
         "id": "ree-material-power",
         "title": "REE Power Systems and Distribution",
-        "summary": "Feeder performance, per-unit quantities, demand, diversity, and energy.",
+        "summary": "Source-first REE review of three-wire power, feeder performance, per-unit quantities, demand, diversity, losses, and system-level interpretation.",
         "notes": [
             {
-                "heading": "Use in practice",
-                "body": "Apply the relationships and decision checks to connect calculation results to safe electrical-engineering decisions."
+                "heading": "System model",
+                "body": "Start with the stated network model, voltage convention, phase count, and frequency. Distinguish load power, feeder loss, receiving-end power, and delivered energy before selecting a formula."
+            },
+            {
+                "heading": "Per-unit reasoning",
+                "body": "Per-unit quantities normalize electrical values to a declared base. Keep voltage, current, impedance, and power bases consistent; a base change must transform the quantity rather than merely relabel it."
+            },
+            {
+                "heading": "Demand and diversity",
+                "body": "Connected load, maximum demand, demand factor, and diversity factor answer different questions. Use the definition that matches the supplied data and do not assume all connected loads peak simultaneously."
+            },
+            {
+                "heading": "Scope boundary",
+                "body": "These materials support stable power-system calculations and interpretation. Current Philippine code provisions, utility rules, protection settings, and regulatory thresholds require separately versioned authoritative sources and remain outside automatic reuse."
             }
         ],
         "source_ids": [
-            "prc-electrical-engineering-board-page"
+            "prc-electrical-engineering-board-page",
+            "mit-ocw-6-061-electric-power-systems",
+            "openstax-university-physics-volume-2"
         ],
         "exams": [
             "registered-electrical-engineering"
@@ -4880,15 +4936,33 @@
     {
         "id": "ree-material-electronics",
         "title": "REE Electronics Fundamentals",
-        "summary": "Diodes, amplifiers, filters, semiconductors, magnetic energy, and converters.",
+        "summary": "Source-first REE review of diode models, amplifiers, filters, energy storage, semiconductor behavior, and basic conversion circuits.",
         "notes": [
             {
-                "heading": "Use in practice",
-                "body": "Apply the relationships and decision checks to connect calculation results to safe electrical-engineering decisions."
+                "heading": "Model selection",
+                "body": "Choose an ideal or piecewise-linear device model only when the question states or supports that approximation. Identify polarity, operating region, and reference ground before calculating."
+            },
+            {
+                "heading": "Amplifiers and feedback",
+                "body": "An ideal operational-amplifier analysis commonly uses zero input current and equal input potentials under negative feedback, but verify that the circuit is operating in its linear region before applying those assumptions."
+            },
+            {
+                "heading": "Filters and storage",
+                "body": "RC and RL networks have frequency- and time-dependent behavior. Relate cutoff and time constant to the component values, preserve units, and distinguish a transient response from sinusoidal steady state."
+            },
+            {
+                "heading": "Sampling and conversion",
+                "body": "For an ideal n-bit converter spanning a stated voltage range, the nominal step is the span divided by 2^n equal levels. Distinguish quantization resolution from converter efficiency, and state the assumed range and ideal model before calculating."
+            },
+            {
+                "heading": "Common mistakes",
+                "body": "Do not treat a diode as an always-on voltage source, confuse gain with output power, or ignore loading when a measurement or following stage changes the modeled circuit."
             }
         ],
         "source_ids": [
-            "prc-electrical-engineering-board-page"
+            "prc-electrical-engineering-board-page",
+            "mit-ocw-6-002-circuits-electronics",
+            "openstax-university-physics-volume-2"
         ],
         "exams": [
             "registered-electrical-engineering"

@@ -922,5 +922,43 @@
         "confidence": "authoritative_reference",
         "notes": "Specific current guidance for digital-service VAT scope and implementation; do not generalize it to physical-goods imports."
     },
-    {"id":"deped-k12-english-curriculum-guide","title":"DepEd K to 12 English Curriculum Guide","source_type":"OFFICIAL_GUIDANCE","authority":"Department of Education Philippines","url":"https://www.deped.gov.ph/wp-content/uploads/2019/01/english-CG.pdf","publication_date":"2016-12-01","retrieved_at":"2026-09-10","version":"K to 12 English Curriculum Guide","status":"verified_reference","confidence":"authoritative_official_guidance","notes":"Official English curriculum guidance covering reading comprehension, evidence use, interpretation, vocabulary, and communication; used for scope and skill framing, not as an answer key."}
+    {"id":"deped-k12-english-curriculum-guide","title":"DepEd K to 12 English Curriculum Guide","source_type":"OFFICIAL_GUIDANCE","authority":"Department of Education Philippines","url":"https://www.deped.gov.ph/wp-content/uploads/2019/01/english-CG.pdf","publication_date":"2016-12-01","retrieved_at":"2026-09-10","version":"K to 12 English Curriculum Guide","status":"verified_reference","confidence":"authoritative_official_guidance","notes":"Official English curriculum guidance covering reading comprehension, evidence use, interpretation, vocabulary, and communication; used for scope and skill framing, not as an answer key."},
+    {
+        "id": "mit-ocw-6-002-circuits-electronics",
+        "title": "MIT OpenCourseWare 6.002 Circuits and Electronics",
+        "source_type": "SECONDARY_REVIEW",
+        "authority": "Massachusetts Institute of Technology OpenCourseWare",
+        "url": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/",
+        "publication_date": null,
+        "retrieved_at": "2026-09-12",
+        "version": "Spring 2007 course materials",
+        "status": "verified_reference",
+        "confidence": "authoritative_educational_reference",
+        "notes": "MIT undergraduate EE/EECS course covering lumped circuits, resistive networks, sources, energy storage, sinusoidal steady state, filters, amplifiers, measurement, and power conversion. Used for stable foundations, not board-specific weighting."
+    },
+    {
+        "id": "mit-ocw-6-061-electric-power-systems",
+        "title": "MIT OpenCourseWare 6.061 Introduction to Electric Power Systems",
+        "source_type": "SECONDARY_REVIEW",
+        "authority": "Massachusetts Institute of Technology OpenCourseWare",
+        "url": "https://ocw.mit.edu/courses/6-061-introduction-to-electric-power-systems-spring-2011/",
+        "publication_date": null,
+        "retrieved_at": "2026-09-12",
+        "version": "Spring 2011 course materials",
+        "status": "verified_reference",
+        "confidence": "authoritative_educational_reference",
+        "notes": "MIT electrical power systems course used for three-wire power, transformers, sequence concepts, transmission/distribution reasoning, and system-level assumptions. Stable academic reference; no regulatory thresholds inferred."
+    },
+    {
+        "id": "mit-ocw-6-685-electric-machines",
+        "title": "MIT OpenCourseWare 6.685 Electric Machines",
+        "source_type": "SECONDARY_REVIEW",
+        "authority": "Massachusetts Institute of Technology OpenCourseWare",
+        "url": "https://ocw.mit.edu/courses/6-685-electric-machines-fall-2013/",
+        "publication_date": null,
+        "version": "Fall 2013 course materials",
+        "status": "verified_reference",
+        "confidence": "authoritative_educational_reference",
+        "notes": "MIT electromechanics course covering transformers, rotating machines, DC, induction and synchronous machines, energy conversion, efficiency, regulation, stability, and response. Advanced design prerequisites are kept outside generic reuse."
+    }
 ]
