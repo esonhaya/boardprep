@@ -1805,7 +1805,7 @@ $report = [
         'updated_material_ids' => array_values(array_keys($selectedMaterialIds)),
     ],
     'coverage_depth' => [
-        'me_rows_reviewed' => count($selected),
+        'me_rows_reviewed' => count(array_filter($baselineCoverageForMetrics, static fn(array $row): bool => ($row['board_id'] ?? '') === 'mechanical-engineering')),
         'me_rows_assigned' => count($selectedCoverageDepths),
         'me_rows_kept_unknown' => count(array_filter($meConceptRows, static fn(array $row): bool => isset($allConcepts[(string)($row['id'] ?? '')]) && !isset($selectedCoverageDepths[(string)($row['id'] ?? '')]))),
         'taxonomy_concepts_inventoried' => count($fullMeConceptInventory),
