@@ -9468,91 +9468,139 @@
         "confidence": "HIGH_FOR_DIRECT_MAPPING"
     },
     {
-        "id": "coverage-400b5457125c934a264593fca38d37bfddcd6b06581a4516daf3b8b4d7aa8662",
-        "board_id": "architecture",
-        "concept_id": "architecture-history-context",
-        "subject_id": "architecture-history-and-theory",
-        "domain_id": "architecture-history-theory",
-        "topic_id": "architecture-history-application",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1689",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-400b5457125c934a264593fca38d37bfddcd6b06581a4516daf3b8b4d7aa8662",
+    "board_id": "architecture",
+    "concept_id": "architecture-history-context",
+    "subject_id": "architecture-history-and-theory",
+    "domain_id": "architecture-history-theory",
+    "topic_id": "architecture-history-application",
+    "blueprint_node_id": "history-and-theory",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1689",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "OFFICIAL_BLUEPRINT",
+            "reference": "batch-619-architecture-depth",
+            "note": "Coverage depth 4 is supported by official scope and source-backed design, practice, technical, or site-analysis evidence.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "OFFICIAL_BLUEPRINT",
+            "reference": "batch-619-architecture-depth",
+            "note": "Coverage depth 4 is supported by official scope and source-backed design, practice, technical, or site-analysis evidence.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "January 2025 PRC Architecture scope, expanded source-backed study material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-d77939b7ca0123dfb19825009592782d576f970db17df743f6e395c0ce30ea23",
-        "board_id": "architecture",
-        "concept_id": "architecture-professional-judgment",
-        "subject_id": "architecture-planning-and-practice",
-        "domain_id": "architecture-planning-practice",
-        "topic_id": "architecture-practice-decisions",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1719",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-d77939b7ca0123dfb19825009592782d576f970db17df743f6e395c0ce30ea23",
+    "board_id": "architecture",
+    "concept_id": "architecture-professional-judgment",
+    "subject_id": "architecture-planning-and-practice",
+    "domain_id": "architecture-planning-practice",
+    "topic_id": "architecture-practice-decisions",
+    "blueprint_node_id": "planning-and-practice",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1719",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "OFFICIAL_BLUEPRINT",
+            "reference": "batch-619-architecture-depth",
+            "note": "Coverage depth 4 is supported by official scope and source-backed design, practice, technical, or site-analysis evidence.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "OFFICIAL_BLUEPRINT",
+            "reference": "batch-619-architecture-depth",
+            "note": "Coverage depth 4 is supported by official scope and source-backed design, practice, technical, or site-analysis evidence.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "January 2025 PRC Architecture scope, expanded source-backed study material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-922a54f88c8e05bfc06d91ab9138607c7bc13748621354284139d68bd3b81166",
-        "board_id": "architecture",
-        "concept_id": "architecture-technical-integration",
-        "subject_id": "architecture-utilities-and-construction",
-        "domain_id": "architecture-utilities-construction",
-        "topic_id": "architecture-systems-coordination",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1749",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-922a54f88c8e05bfc06d91ab9138607c7bc13748621354284139d68bd3b81166",
+    "board_id": "architecture",
+    "concept_id": "architecture-technical-integration",
+    "subject_id": "architecture-utilities-and-construction",
+    "domain_id": "architecture-utilities-construction",
+    "topic_id": "architecture-systems-coordination",
+    "blueprint_node_id": "utilities-and-construction",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1749",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "OFFICIAL_BLUEPRINT",
+            "reference": "batch-619-architecture-depth",
+            "note": "Coverage depth 4 is supported by official scope and source-backed design, practice, technical, or site-analysis evidence.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "OFFICIAL_BLUEPRINT",
+            "reference": "batch-619-architecture-depth",
+            "note": "Coverage depth 4 is supported by official scope and source-backed design, practice, technical, or site-analysis evidence.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "January 2025 PRC Architecture scope, expanded source-backed study material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-1a058687d98511c46b6079ee6467bb1a05c8ddce2d6f25b938f838d749cdbf12",
-        "board_id": "architecture",
-        "concept_id": "architecture-spatial-integration",
-        "subject_id": "architecture-architectural-design-and-site-planning",
-        "domain_id": "architecture-design-site",
-        "topic_id": "architecture-site-reasoning",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1779",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    }
+    "id": "coverage-1a058687d98511c46b6079ee6467bb1a05c8ddce2d6f25b938f838d749cdbf12",
+    "board_id": "architecture",
+    "concept_id": "architecture-spatial-integration",
+    "subject_id": "architecture-architectural-design-and-site-planning",
+    "domain_id": "architecture-design-site",
+    "topic_id": "architecture-site-reasoning",
+    "blueprint_node_id": "architectural-design-and-site-planning",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1779",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "OFFICIAL_BLUEPRINT",
+            "reference": "batch-619-architecture-depth",
+            "note": "Coverage depth 4 is supported by official scope and source-backed design, practice, technical, or site-analysis evidence.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "OFFICIAL_BLUEPRINT",
+            "reference": "batch-619-architecture-depth",
+            "note": "Coverage depth 4 is supported by official scope and source-backed design, practice, technical, or site-analysis evidence.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "January 2025 PRC Architecture scope, expanded source-backed study material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+}
 ]

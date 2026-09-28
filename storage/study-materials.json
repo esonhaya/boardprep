@@ -2450,39 +2450,39 @@
         "updated_at": "2026-09-01"
     },
     {
-        "id": "portfolio-architecture-foundation",
-        "title": "Architect Licensure Examination Foundation Orientation",
-        "summary": "A concise scope map for Architect Licensure Examination using the registered official PRC reference.",
-        "notes": [
-            {
-                "heading": "Current status",
-                "body": "This is a blueprint-only foundation. Study-ready practice will require exam-specific authored content and verified current scope."
-            },
-            {
-                "heading": "Practice boundary",
-                "body": "No generic questions are assigned to this exam without direct blueprint evidence."
-            }
-        ],
-        "source_ids": [
-            "prc-architecture-exam-program-2024"
-        ],
-        "exams": [
-            "architecture"
-        ],
-        "exam_focus": {
-            "architecture": {
-                "priority": "foundation",
-                "official_scope_status": "official reference; weighting unavailable",
-                "readiness": "FOUNDATION"
-            }
+    "id": "portfolio-architecture-foundation",
+    "title": "Architect Licensure Examination Foundation Orientation",
+    "summary": "A concise scope map for Architect Licensure Examination using the registered official PRC reference.",
+    "notes": [
+        {
+            "heading": "Current status",
+            "body": "This is a blueprint-only foundation. Study-ready practice will require exam-specific authored content and verified current scope."
         },
-        "taxonomy": {
-            "subject_id": "architecture-foundation"
-        },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        {
+            "heading": "Practice boundary",
+            "body": "No generic questions are assigned to this exam without direct blueprint evidence."
+        }
+    ],
+    "source_ids": [
+        "prc-architecture-exam-program-2024"
+    ],
+    "exams": [
+        "architecture"
+    ],
+    "exam_focus": {
+        "architecture": {
+            "priority": "foundation",
+            "official_scope_status": "official reference; weighting unavailable",
+            "readiness": "FOUNDATION"
+        }
     },
+    "taxonomy": {
+        "subject_id": "architecture-foundation"
+    },
+    "status": "published",
+    "version": 1,
+    "updated_at": "2026-09-01"
+},
     {
         "id": "ple-487--sychological-ssessment-oundations",
         "title": "Psychological Assessment Foundations",
@@ -5148,365 +5148,562 @@
         "updated_at": "2026-09-06"
     },
     {
-        "id": "architecture-1-1-foundation",
-        "title": "Architectural Precedent and Spatial Order",
-        "summary": "Analyzing axes, hierarchy, rhythm, proportion, circulation, and precedent operations without reducing history to style labels.",
-        "notes": [
-            {
-                "heading": "Reasoning focus",
-                "body": "Use supplied evidence and durable architectural principles. Verify jurisdiction-specific regulations independently; this material states no official weighting or unstated code dimension."
-            }
-        ],
-        "source_ids": [
-            "prc-architecture-exam-program-2024"
-        ],
-        "exams": [
-            "architecture"
-        ],
-        "exam_focus": {
-            "architecture": {
-                "priority": "foundation",
-                "official_scope_status": "official subject reference; weighting unavailable",
-                "readiness": "STUDY_READY"
-            }
+    "id": "architecture-1-1-foundation",
+    "title": "Architectural Precedent and Spatial Order",
+    "summary": "Evidence-based architectural precedent and spatial-order review for interpreting axes, hierarchy, rhythm, proportion, circulation, and transformation without reducing history to labels.",
+    "notes": [
+        {
+            "heading": "Reading precedent",
+            "body": "Read a precedent through observable relationships: approach, threshold, enclosure, axis, hierarchy, proportion, repetition, structure, material, and use. A style name is a starting hypothesis, not proof of the design logic."
         },
-        "taxonomy": {
-            "subject_id": "architecture-history-and-theory"
+        {
+            "heading": "Spatial order",
+            "body": "An axis organizes movement or visual emphasis; hierarchy distinguishes primary from secondary spaces; rhythm repeats a feature with a readable interval; datum and proportion relate parts without requiring literal copying."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Design transfer",
+            "body": "When adapting a precedent, retain the underlying spatial operation that answers the new program. Copying ornament while destroying circulation, climate response, or public/private hierarchy is not faithful transformation."
+        },
+        {
+            "heading": "Common errors",
+            "body": "Do not infer a period solely from ornament, treat symmetry as the only ordering device, or assume a contemporary intervention is incompatible because it is visibly new. Explain the evidence and the consequence."
+        }
+    ],
+    "source_ids": [
+        "prc-architecture-exam-program-2024",
+        "prc-architecture-exam-program-2025",
+        "mit-4-111-intro-architecture"
+    ],
+    "exams": [
+        "architecture"
+    ],
+    "exam_focus": {
+        "architecture": {
+            "priority": "foundation",
+            "official_scope_status": "official subject reference; weighting unavailable",
+            "readiness": "STUDY_READY"
+        }
     },
+    "taxonomy": {
+        "subject_id": "architecture-history-and-theory"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG"
+},
     {
-        "id": "architecture-1-2-foundation",
-        "title": "Vernacular and Climate-Responsive Traditions",
-        "summary": "Interpreting how climate, material practice, culture, and settlement patterns shape durable architectural responses.",
-        "notes": [
-            {
-                "heading": "Reasoning focus",
-                "body": "Use supplied evidence and durable architectural principles. Verify jurisdiction-specific regulations independently; this material states no official weighting or unstated code dimension."
-            }
-        ],
-        "source_ids": [
-            "prc-architecture-exam-program-2024"
-        ],
-        "exams": [
-            "architecture"
-        ],
-        "exam_focus": {
-            "architecture": {
-                "priority": "foundation",
-                "official_scope_status": "official subject reference; weighting unavailable",
-                "readiness": "STUDY_READY"
-            }
+    "id": "architecture-1-2-foundation",
+    "title": "Vernacular and Climate-Responsive Traditions",
+    "summary": "Climate-responsive and vernacular architecture review linking climate, culture, material practice, settlement pattern, and passive environmental response.",
+    "notes": [
+        {
+            "heading": "Climate as evidence",
+            "body": "Start with sun, wind, rainfall, humidity, temperature swing, ground conditions, and available materials. A response is climate-responsive only when its geometry, openings, shade, mass, or ventilation addresses a stated condition."
         },
-        "taxonomy": {
-            "subject_id": "architecture-history-and-theory"
+        {
+            "heading": "Vernacular reasoning",
+            "body": "Vernacular forms encode accumulated adaptation, labor, material availability, social practice, and local hazard knowledge. Transfer principles and performance logic; do not treat a form as a universal decorative template."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Passive strategies",
+            "body": "Orientation, shading, cross-ventilation, stack effect, thermal mass, daylight control, and rain protection interact. A strategy can improve one variable while worsening glare, heat gain, moisture, security, or maintenance."
+        },
+        {
+            "heading": "Common errors",
+            "body": "Do not equate more glass with daylight, open windows with useful ventilation, or a familiar vernacular image with a verified climate response. State the climate and user assumptions before choosing."
+        }
+    ],
+    "source_ids": [
+        "prc-architecture-exam-program-2024",
+        "prc-architecture-exam-program-2025",
+        "mit-4-111-intro-architecture",
+        "mit-4-401-environmental-buildings"
+    ],
+    "exams": [
+        "architecture"
+    ],
+    "exam_focus": {
+        "architecture": {
+            "priority": "foundation",
+            "official_scope_status": "official subject reference; weighting unavailable",
+            "readiness": "STUDY_READY"
+        }
     },
+    "taxonomy": {
+        "subject_id": "architecture-history-and-theory"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG"
+},
     {
-        "id": "architecture-1-3-foundation",
-        "title": "Conservation and Adaptive Reuse Reasoning",
-        "summary": "Evaluating significance, change over time, documentation limits, compatibility, and reversible intervention.",
-        "notes": [
-            {
-                "heading": "Reasoning focus",
-                "body": "Use supplied evidence and durable architectural principles. Verify jurisdiction-specific regulations independently; this material states no official weighting or unstated code dimension."
-            }
-        ],
-        "source_ids": [
-            "prc-architecture-exam-program-2024"
-        ],
-        "exams": [
-            "architecture"
-        ],
-        "exam_focus": {
-            "architecture": {
-                "priority": "foundation",
-                "official_scope_status": "official subject reference; weighting unavailable",
-                "readiness": "STUDY_READY"
-            }
+    "id": "architecture-1-3-foundation",
+    "title": "Conservation and Adaptive Reuse Reasoning",
+    "summary": "Conservation and adaptive-reuse review for significance, documentation, character-defining fabric, compatible change, reversibility, and performance upgrades.",
+    "notes": [
+        {
+            "heading": "Significance and documentation",
+            "body": "Before intervention, document history, condition, materials, alterations, character-defining spaces, views, details, and evidence uncertainty. A treatment cannot be judged responsibly without knowing what matters and why."
         },
-        "taxonomy": {
-            "subject_id": "architecture-history-and-theory"
+        {
+            "heading": "Compatible change",
+            "body": "Good adaptive reuse retains significant character, repairs before replacing, distinguishes new work without competing with the historic resource, and makes necessary changes as compatible and as reversible as practical."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Performance upgrades",
+            "body": "Accessibility, life safety, moisture control, and energy improvements are legitimate design drivers. Coordinate them with existing fabric; a visually hidden intervention can still cause condensation, trapped moisture, or structural damage."
+        },
+        {
+            "heading": "Common errors",
+            "body": "Do not freeze a building regardless of safety, reconstruct undocumented details as fact, or erase evidence of change merely to create a false original appearance."
+        }
+    ],
+    "source_ids": [
+        "prc-architecture-exam-program-2024",
+        "prc-architecture-exam-program-2025",
+        "nps-preservation-briefs",
+        "mit-4-111-intro-architecture"
+    ],
+    "exams": [
+        "architecture"
+    ],
+    "exam_focus": {
+        "architecture": {
+            "priority": "foundation",
+            "official_scope_status": "official subject reference; weighting unavailable",
+            "readiness": "STUDY_READY"
+        }
     },
+    "taxonomy": {
+        "subject_id": "architecture-history-and-theory"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG"
+},
     {
-        "id": "architecture-2-1-foundation",
-        "title": "Architectural Scope and Decision Records",
-        "summary": "Defining scope, responsibility, authorization, assumptions, and traceable client decisions throughout a project.",
-        "notes": [
-            {
-                "heading": "Reasoning focus",
-                "body": "Use supplied evidence and durable architectural principles. Verify jurisdiction-specific regulations independently; this material states no official weighting or unstated code dimension."
-            }
-        ],
-        "source_ids": [
-            "prc-architecture-exam-program-2024"
-        ],
-        "exams": [
-            "architecture"
-        ],
-        "exam_focus": {
-            "architecture": {
-                "priority": "foundation",
-                "official_scope_status": "official subject reference; weighting unavailable",
-                "readiness": "STUDY_READY"
-            }
+    "id": "architecture-2-1-foundation",
+    "title": "Architectural Scope and Decision Records",
+    "summary": "Professional practice review for scope, authorization, decision records, assumptions, deliverables, and responsibility boundaries in architectural services.",
+    "notes": [
+        {
+            "heading": "Scope and authorization",
+            "body": "Identify the service, deliverable, decision authority, constraints, exclusions, and required specialist input before acting. A design preference is not authorization to change scope, budget, or compliance obligations."
         },
-        "taxonomy": {
-            "subject_id": "architecture-planning-and-practice"
+        {
+            "heading": "Decision records",
+            "body": "A useful record states the issue, reliable facts, alternatives considered, assumptions, responsible parties, consequences, and approval. It lets a later reviewer distinguish an informed decision from an undocumented guess."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Practice boundary",
+            "body": "RA 9266 identifies architectural services and professional responsibility boundaries. Questions use the law for scope reasoning and do not infer a legal conclusion where the supplied facts or current implementing rule is incomplete."
+        },
+        {
+            "heading": "Common errors",
+            "body": "Do not transfer an unresolved professional decision silently, conceal a limitation, or treat a consultant recommendation as self-executing without checking scope, coordination, and authorization."
+        }
+    ],
+    "source_ids": [
+        "prc-architecture-exam-program-2024",
+        "prc-architecture-exam-program-2025",
+        "ra-9266-architecture-act",
+        "ra-9266-architecture-irr"
+    ],
+    "exams": [
+        "architecture"
+    ],
+    "exam_focus": {
+        "architecture": {
+            "priority": "foundation",
+            "official_scope_status": "official subject reference; weighting unavailable",
+            "readiness": "STUDY_READY"
+        }
     },
+    "taxonomy": {
+        "subject_id": "architecture-planning-and-practice"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG"
+},
     {
-        "id": "architecture-2-2-foundation",
-        "title": "Consultant Coordination and Change Control",
-        "summary": "Coordinating disciplines, versions, submittals, interfaces, schedules, costs, and authorized changes.",
-        "notes": [
-            {
-                "heading": "Reasoning focus",
-                "body": "Use supplied evidence and durable architectural principles. Verify jurisdiction-specific regulations independently; this material states no official weighting or unstated code dimension."
-            }
-        ],
-        "source_ids": [
-            "prc-architecture-exam-program-2024"
-        ],
-        "exams": [
-            "architecture"
-        ],
-        "exam_focus": {
-            "architecture": {
-                "priority": "foundation",
-                "official_scope_status": "official subject reference; weighting unavailable",
-                "readiness": "STUDY_READY"
-            }
+    "id": "architecture-2-2-foundation",
+    "title": "Consultant Coordination and Change Control",
+    "summary": "Consultant coordination and change-control review for interfaces, information versions, submittals, constructability, schedule, cost, and authorized project change.",
+    "notes": [
+        {
+            "heading": "Interface control",
+            "body": "Coordinate architectural intent with structure, enclosure, mechanical, electrical, plumbing, fire/life safety, site, and specialty systems at the interface where geometry and responsibility meet."
         },
-        "taxonomy": {
-            "subject_id": "architecture-planning-and-practice"
+        {
+            "heading": "Information status",
+            "body": "Confirm the current drawing/specification revision, design assumption, field condition, and decision authority before issuing or relying on information. A marked-up sheet is not automatically an authorized change."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Change reasoning",
+            "body": "Evaluate a proposed change for design intent, code/life-safety effect, constructability, cost, schedule, maintenance, and downstream coordination. Record the decision and update affected documents."
+        },
+        {
+            "heading": "Common errors",
+            "body": "Do not resolve a clash by moving the visible object only, ignore access and maintenance zones, or issue conflicting instructions to trades without a controlled record."
+        }
+    ],
+    "source_ids": [
+        "prc-architecture-exam-program-2024",
+        "prc-architecture-exam-program-2025",
+        "ra-9266-architecture-act",
+        "mit-4-461-building-technology"
+    ],
+    "exams": [
+        "architecture"
+    ],
+    "exam_focus": {
+        "architecture": {
+            "priority": "foundation",
+            "official_scope_status": "official subject reference; weighting unavailable",
+            "readiness": "STUDY_READY"
+        }
     },
+    "taxonomy": {
+        "subject_id": "architecture-planning-and-practice"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG"
+},
     {
-        "id": "architecture-2-3-foundation",
-        "title": "Professional Judgment and Public Responsibility",
-        "summary": "Applying competence, confidentiality, impartiality, risk communication, accessibility, and public-interest judgment.",
-        "notes": [
-            {
-                "heading": "Reasoning focus",
-                "body": "Use supplied evidence and durable architectural principles. Verify jurisdiction-specific regulations independently; this material states no official weighting or unstated code dimension."
-            }
-        ],
-        "source_ids": [
-            "prc-architecture-exam-program-2024"
-        ],
-        "exams": [
-            "architecture"
-        ],
-        "exam_focus": {
-            "architecture": {
-                "priority": "foundation",
-                "official_scope_status": "official subject reference; weighting unavailable",
-                "readiness": "STUDY_READY"
-            }
+    "id": "architecture-2-3-foundation",
+    "title": "Professional Judgment and Public Responsibility",
+    "summary": "Professional judgment review for competence, public safety, accessibility, confidentiality, impartiality, risk communication, and defensible architectural decisions.",
+    "notes": [
+        {
+            "heading": "Public responsibility",
+            "body": "Architectural judgment must account for occupants, users with disabilities, public safety, durability, and foreseeable consequences—not only client preference or first cost."
         },
-        "taxonomy": {
-            "subject_id": "architecture-planning-and-practice"
+        {
+            "heading": "Competence and referral",
+            "body": "Recognize when a question exceeds the architect’s competent scope and obtain qualified specialist input. Coordination preserves architectural responsibility; it does not mean adopting an unreviewed recommendation."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Communication",
+            "body": "State uncertainty, assumptions, risks, and affected parties plainly. Preserve confidential information while disclosing material safety or compliance concerns through the proper channel."
+        },
+        {
+            "heading": "Common errors",
+            "body": "Do not hide a known risk to protect schedule, accept a conflict without disclosure, or call a code-sensitive choice neutral when the regulatory requirement materially controls the answer."
+        }
+    ],
+    "source_ids": [
+        "prc-architecture-exam-program-2024",
+        "prc-architecture-exam-program-2025",
+        "ra-9266-architecture-act",
+        "ra-9266-architecture-irr",
+        "bp344-2024-irr"
+    ],
+    "exams": [
+        "architecture"
+    ],
+    "exam_focus": {
+        "architecture": {
+            "priority": "foundation",
+            "official_scope_status": "official subject reference; weighting unavailable",
+            "readiness": "STUDY_READY"
+        }
     },
+    "taxonomy": {
+        "subject_id": "architecture-planning-and-practice"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG"
+},
     {
-        "id": "architecture-3-1-foundation",
-        "title": "Envelope, Moisture, Thermal, and Acoustic Assemblies",
-        "summary": "Tracing continuity, interfaces, condensation, drainage, thermal bridges, flanking paths, and maintainable details.",
-        "notes": [
-            {
-                "heading": "Reasoning focus",
-                "body": "Use supplied evidence and durable architectural principles. Verify jurisdiction-specific regulations independently; this material states no official weighting or unstated code dimension."
-            }
-        ],
-        "source_ids": [
-            "prc-architecture-exam-program-2024"
-        ],
-        "exams": [
-            "architecture"
-        ],
-        "exam_focus": {
-            "architecture": {
-                "priority": "foundation",
-                "official_scope_status": "official subject reference; weighting unavailable",
-                "readiness": "STUDY_READY"
-            }
+    "id": "architecture-3-1-foundation",
+    "title": "Envelope, Moisture, Thermal, and Acoustic Assemblies",
+    "summary": "Building-envelope and assembly review for water, air, vapor, thermal, acoustic, structural, and maintainability control layers.",
+    "notes": [
+        {
+            "heading": "Control layers",
+            "body": "Trace water, air, vapor, thermal, and structural control continuously across roofs, walls, openings, foundations, joints, and penetrations. Continuity and drainage matter more than naming a single “best” material."
         },
-        "taxonomy": {
-            "subject_id": "architecture-utilities-and-construction"
+        {
+            "heading": "Moisture",
+            "body": "Provide a shedding surface, drainage path, flashing, compatible transitions, drying potential, and maintainable joints. Condensation risk depends on temperature, humidity, air leakage, vapor movement, and layer location."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Thermal and acoustic behavior",
+            "body": "Thermal bridges bypass insulation; acoustic flanking bypasses a nominal partition rating. Use continuity, isolation, mass, absorptive treatment, and sealed penetrations as appropriate to the source of transmission."
+        },
+        {
+            "heading": "Common errors",
+            "body": "Do not rely on sealant as the only water strategy, put a vapor-control assumption into a different climate without checking, or close an assembly before inspection and drainage paths are resolved."
+        }
+    ],
+    "source_ids": [
+        "prc-architecture-exam-program-2024",
+        "prc-architecture-exam-program-2025",
+        "mit-4-401-environmental-buildings",
+        "mit-4-461-building-technology",
+        "wbdg-building-enclosure"
+    ],
+    "exams": [
+        "architecture"
+    ],
+    "exam_focus": {
+        "architecture": {
+            "priority": "foundation",
+            "official_scope_status": "official subject reference; weighting unavailable",
+            "readiness": "STUDY_READY"
+        }
     },
+    "taxonomy": {
+        "subject_id": "architecture-utilities-and-construction"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG"
+},
     {
-        "id": "architecture-3-2-foundation",
-        "title": "Water, Drainage, Ventilation, and Electrical Coordination",
-        "summary": "Using supplied flows, gradients, loads, access needs, and routing constraints to coordinate building utilities.",
-        "notes": [
-            {
-                "heading": "Reasoning focus",
-                "body": "Use supplied evidence and durable architectural principles. Verify jurisdiction-specific regulations independently; this material states no official weighting or unstated code dimension."
-            }
-        ],
-        "source_ids": [
-            "prc-architecture-exam-program-2024"
-        ],
-        "exams": [
-            "architecture"
-        ],
-        "exam_focus": {
-            "architecture": {
-                "priority": "foundation",
-                "official_scope_status": "official subject reference; weighting unavailable",
-                "readiness": "STUDY_READY"
-            }
+    "id": "architecture-3-2-foundation",
+    "title": "Water, Drainage, Ventilation, and Electrical Coordination",
+    "summary": "Building-utilities coordination review for water, drainage, ventilation, electrical, fire/life safety, access, clearances, and serviceability.",
+    "notes": [
+        {
+            "heading": "System coordination",
+            "body": "Reserve shafts, ceiling zones, plant rooms, risers, access panels, equipment clearances, drainage falls, and fire separations before the architectural plan is fixed. Each system has a path, a space claim, and a maintenance need."
         },
-        "taxonomy": {
-            "subject_id": "architecture-utilities-and-construction"
+        {
+            "heading": "Water and drainage",
+            "body": "Flow requires a connected route, adequate gradient or pumping strategy, cleanouts, access, overflow logic, and protection of occupied spaces. A fixture count alone does not establish a workable drainage layout."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Ventilation and electrical",
+            "body": "Ventilation design balances air path, pressure, noise, filtration, heat, and maintenance. Electrical coordination distinguishes power, controls, emergency systems, equipment heat, working clearances, and fire/life-safety interfaces."
+        },
+        {
+            "heading": "Regulatory boundary",
+            "body": "Current code and accessibility sources govern regulated thresholds and approvals. When a question does not provide the current jurisdictional value, choose the coordination principle rather than inventing a number."
+        }
+    ],
+    "source_ids": [
+        "prc-architecture-exam-program-2024",
+        "prc-architecture-exam-program-2025",
+        "mit-4-401-environmental-buildings",
+        "pd1096-national-building-code",
+        "bp344-2024-irr",
+        "ra9514-fire-code-irr"
+    ],
+    "exams": [
+        "architecture"
+    ],
+    "exam_focus": {
+        "architecture": {
+            "priority": "foundation",
+            "official_scope_status": "official subject reference; weighting unavailable",
+            "readiness": "STUDY_READY"
+        }
     },
+    "taxonomy": {
+        "subject_id": "architecture-utilities-and-construction"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG"
+},
     {
-        "id": "architecture-3-3-foundation",
-        "title": "Construction Quantities, Sequencing, and Interfaces",
-        "summary": "Checking dimensions, areas, volumes, allowances, material compatibility, constructability, and downstream sequencing.",
-        "notes": [
-            {
-                "heading": "Reasoning focus",
-                "body": "Use supplied evidence and durable architectural principles. Verify jurisdiction-specific regulations independently; this material states no official weighting or unstated code dimension."
-            }
-        ],
-        "source_ids": [
-            "prc-architecture-exam-program-2024"
-        ],
-        "exams": [
-            "architecture"
-        ],
-        "exam_focus": {
-            "architecture": {
-                "priority": "foundation",
-                "official_scope_status": "official subject reference; weighting unavailable",
-                "readiness": "STUDY_READY"
-            }
+    "id": "architecture-3-3-foundation",
+    "title": "Construction Quantities, Sequencing, and Interfaces",
+    "summary": "Construction and material-technology review for quantities, tolerances, sequencing, joints, constructability, procurement, inspection, and interface risk.",
+    "notes": [
+        {
+            "heading": "Quantities and units",
+            "body": "Separate gross and net area, volume, count, waste allowance, and unit rate. State thickness and unit system before calculating; a quantity is only useful when its measurement basis is explicit."
         },
-        "taxonomy": {
-            "subject_id": "architecture-utilities-and-construction"
+        {
+            "heading": "Sequence and tolerances",
+            "body": "Sequence work so wet trades cure, concealed work is inspected, interfaces remain accessible, and tolerances accumulate within the intended fit. The nominal dimension is not the same as the installable dimension."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Material compatibility",
+            "body": "Check movement, moisture, corrosion, galvanic contact, fire behavior, sealant compatibility, fasteners, and maintenance. A strong material can fail when the joint or adjacent material is incompatible."
+        },
+        {
+            "heading": "Common errors",
+            "body": "Do not measure a void as finished area, close a wall before testing concealed utilities, or treat a shop drawing as permission to change a design without review."
+        }
+    ],
+    "source_ids": [
+        "prc-architecture-exam-program-2024",
+        "prc-architecture-exam-program-2025",
+        "mit-4-461-building-technology",
+        "mit-4-463-structural-systems"
+    ],
+    "exams": [
+        "architecture"
+    ],
+    "exam_focus": {
+        "architecture": {
+            "priority": "foundation",
+            "official_scope_status": "official subject reference; weighting unavailable",
+            "readiness": "STUDY_READY"
+        }
     },
+    "taxonomy": {
+        "subject_id": "architecture-utilities-and-construction"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG"
+},
     {
-        "id": "architecture-4-1-foundation",
-        "title": "Site Climate, Orientation, and Environmental Response",
-        "summary": "Mapping solar exposure, wind, contours, water, noise, views, vegetation, and microclimate before placing functions.",
-        "notes": [
-            {
-                "heading": "Reasoning focus",
-                "body": "Use supplied evidence and durable architectural principles. Verify jurisdiction-specific regulations independently; this material states no official weighting or unstated code dimension."
-            }
-        ],
-        "source_ids": [
-            "prc-architecture-exam-program-2024"
-        ],
-        "exams": [
-            "architecture"
-        ],
-        "exam_focus": {
-            "architecture": {
-                "priority": "foundation",
-                "official_scope_status": "official subject reference; weighting unavailable",
-                "readiness": "STUDY_READY"
-            }
+    "id": "architecture-4-1-foundation",
+    "title": "Site Climate, Orientation, and Environmental Response",
+    "summary": "Site climate and environmental-response review for solar exposure, wind, rainfall, contours, vegetation, noise, views, microclimate, and passive design.",
+    "notes": [
+        {
+            "heading": "Site evidence",
+            "body": "Map sun, prevailing wind, topography, drainage, vegetation, noise, views, access, adjacent uses, hazards, and existing infrastructure before placing major functions. The site is a set of relationships, not a blank polygon."
         },
-        "taxonomy": {
-            "subject_id": "architecture-architectural-design-and-site-planning"
+        {
+            "heading": "Orientation and form",
+            "body": "Orient openings, mass, shade, outdoor space, and circulation in response to climate and use. The best solar orientation for one façade may produce glare, heat, or poor cross-ventilation elsewhere."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Water and terrain",
+            "body": "Follow contours and natural drainage where possible, minimize unnecessary cut/fill, protect soil and vegetation, and direct runoff without creating a downstream nuisance or undermining foundations."
+        },
+        {
+            "heading": "Common errors",
+            "body": "Do not rotate a plan for a diagrammatic ideal while ignoring wind or access, treat north as the only solar datum, or specify a passive strategy without stating occupancy and climate assumptions."
+        }
+    ],
+    "source_ids": [
+        "prc-architecture-exam-program-2024",
+        "prc-architecture-exam-program-2025",
+        "mit-4-111-intro-architecture",
+        "mit-4-401-environmental-buildings"
+    ],
+    "exams": [
+        "architecture"
+    ],
+    "exam_focus": {
+        "architecture": {
+            "priority": "foundation",
+            "official_scope_status": "official subject reference; weighting unavailable",
+            "readiness": "STUDY_READY"
+        }
     },
+    "taxonomy": {
+        "subject_id": "architecture-architectural-design-and-site-planning"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG"
+},
     {
-        "id": "architecture-4-2-foundation",
-        "title": "Circulation, Adjacency, and Functional Zoning",
-        "summary": "Testing pedestrian, vehicle, service, public, private, accessible, and emergency relationships through plans and diagrams.",
-        "notes": [
-            {
-                "heading": "Reasoning focus",
-                "body": "Use supplied evidence and durable architectural principles. Verify jurisdiction-specific regulations independently; this material states no official weighting or unstated code dimension."
-            }
-        ],
-        "source_ids": [
-            "prc-architecture-exam-program-2024"
-        ],
-        "exams": [
-            "architecture"
-        ],
-        "exam_focus": {
-            "architecture": {
-                "priority": "foundation",
-                "official_scope_status": "official subject reference; weighting unavailable",
-                "readiness": "STUDY_READY"
-            }
+    "id": "architecture-4-2-foundation",
+    "title": "Circulation, Adjacency, and Functional Zoning",
+    "summary": "Spatial programming review for adjacency, circulation, public/private/service separation, accessibility, egress logic, wayfinding, and functional zoning.",
+    "notes": [
+        {
+            "heading": "Adjacency",
+            "body": "Translate activities, users, privacy, noise, service, security, sequence, and time of use into relationships before drawing rooms. A bubble diagram is a reasoning device, not a finished plan."
         },
-        "taxonomy": {
-            "subject_id": "architecture-architectural-design-and-site-planning"
+        {
+            "heading": "Circulation",
+            "body": "Separate and then coordinate public, private, service, accessible, emergency, and vehicular movement. A short path is not automatically a good path if it conflicts with safety, orientation, or dignity."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Accessibility and life safety",
+            "body": "Accessibility and egress are design constraints that shape entries, routes, doors, level changes, and refuge/exit logic. Use current official requirements for dimensions and approvals; this material supports reasoning, not invented code values."
+        },
+        {
+            "heading": "Common errors",
+            "body": "Do not place rooms by visual symmetry alone, hide service movement in a user route, or call a plan accessible because a route exists without checking continuity, maneuvering, and usable facilities."
+        }
+    ],
+    "source_ids": [
+        "prc-architecture-exam-program-2024",
+        "prc-architecture-exam-program-2025",
+        "mit-4-111-intro-architecture",
+        "bp344-2024-irr",
+        "ra9514-fire-code-irr"
+    ],
+    "exams": [
+        "architecture"
+    ],
+    "exam_focus": {
+        "architecture": {
+            "priority": "foundation",
+            "official_scope_status": "official subject reference; weighting unavailable",
+            "readiness": "STUDY_READY"
+        }
     },
+    "taxonomy": {
+        "subject_id": "architecture-architectural-design-and-site-planning"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG"
+},
     {
-        "id": "architecture-4-3-foundation",
-        "title": "Site Capacity, Growth, and Spatial Alternatives",
-        "summary": "Comparing footprints, buffers, future expansion, landscape systems, wayfinding, and competing spatial consequences.",
-        "notes": [
-            {
-                "heading": "Reasoning focus",
-                "body": "Use supplied evidence and durable architectural principles. Verify jurisdiction-specific regulations independently; this material states no official weighting or unstated code dimension."
-            }
-        ],
-        "source_ids": [
-            "prc-architecture-exam-program-2024"
-        ],
-        "exams": [
-            "architecture"
-        ],
-        "exam_focus": {
-            "architecture": {
-                "priority": "foundation",
-                "official_scope_status": "official subject reference; weighting unavailable",
-                "readiness": "STUDY_READY"
-            }
+    "id": "architecture-4-3-foundation",
+    "title": "Site Capacity, Growth, and Spatial Alternatives",
+    "summary": "Site-capacity and spatial-alternatives review for footprint, coverage, buffers, growth, landscape, infrastructure, wayfinding, and competing site consequences.",
+    "notes": [
+        {
+            "heading": "Capacity",
+            "body": "Compare alternatives using the stated site area, buildable envelope, access, setbacks or buffers, landscape, drainage, servicing, user capacity, and future change—not footprint alone."
         },
-        "taxonomy": {
-            "subject_id": "architecture-architectural-design-and-site-planning"
+        {
+            "heading": "Growth and phasing",
+            "body": "A robust master plan reserves logical expansion zones, keeps essential circulation and utilities serviceable, protects future fire/access paths, and avoids making the first phase impossible to adapt."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Trade-offs",
+            "body": "Every alternative redistributes impacts: compactness may preserve landscape but increase height or servicing intensity; a dispersed plan may reduce height but increase infrastructure and travel. State the criterion before choosing."
+        },
+        {
+            "heading": "Common errors",
+            "body": "Do not maximize floor area while ignoring stormwater, access, public realm, or future operations, and do not treat a single compliance check as proof that the whole site strategy is sound."
+        }
+    ],
+    "source_ids": [
+        "prc-architecture-exam-program-2024",
+        "prc-architecture-exam-program-2025",
+        "mit-4-111-intro-architecture",
+        "mit-4-401-environmental-buildings",
+        "bp344-2024-irr"
+    ],
+    "exams": [
+        "architecture"
+    ],
+    "exam_focus": {
+        "architecture": {
+            "priority": "foundation",
+            "official_scope_status": "official subject reference; weighting unavailable",
+            "readiness": "STUDY_READY"
+        }
     },
+    "taxonomy": {
+        "subject_id": "architecture-architectural-design-and-site-planning"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG"
+},
     {
         "id": "cpa-regulatory-civil-code-foundation",
         "title": "Philippine Civil Code: Obligations, Contracts, Sales, and Remedies",

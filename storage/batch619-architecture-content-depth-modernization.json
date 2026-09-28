@@ -1,0 +1,841 @@
+[
+    {
+        "id": "batch619-architecture-content-depth-modernization-report",
+        "batch": "619",
+        "head_before": "0166d08a67816ae3cca1a5af7b8bcc2ad44e12fa",
+        "scope": {
+            "board": "architecture",
+            "official_scope_sources": [
+                "https://www.prc.gov.ph/sites/default/files/REVISED%20RA%20ARCHITECTS%2001-2025%20cebu.pdf",
+                "https://www.prc.gov.ph/sites/default/files/052024%20revised%20exam%20program%20june%20%28archi%29.pdf"
+            ],
+            "official_scope": {
+                "History and Theory plus Planning and Practice": 30,
+                "Utilities, Structural Conceptualization, Building Materials and Technology": 30,
+                "Architectural Design and Site Planning": 40
+            },
+            "repository_blueprint_id": "portfolio-architecture-foundation",
+            "repository_blueprint_weights_exist": false,
+            "blueprint_status": "FOUNDATION_ONLY; latest detailed PRC scope verified externally; no unsupported repository weights introduced.",
+            "subjects": 4,
+            "domains": 4,
+            "topics": 4,
+            "concepts": 4,
+            "coverage_rows": 4,
+            "structure": "SUBJECT -> DOMAIN -> TOPIC -> CONCEPT"
+        },
+        "baseline": {
+            "canonical": 3544,
+            "architecture_canonical": 172,
+            "architecture_effective_pool": 172,
+            "questions_depth_known": 1130,
+            "questions_depth_unknown": 2414,
+            "architecture_depth_known": 0,
+            "architecture_depth_unknown": 172,
+            "coverage_depth_known": 34,
+            "coverage_depth_unknown": 390,
+            "architecture_coverage_depth_known": 0,
+            "architecture_coverage_depth_unknown": 4,
+            "direct": 4288,
+            "concept_derived": 40,
+            "total_effective": 4328,
+            "multi_board": 636,
+            "single_board": 2908
+        },
+        "concept_inventory": {
+            "architecture-history-context": {
+                "concept_id": "architecture-history-context",
+                "name": "Architecture History Context",
+                "subject": "architecture-history-and-theory",
+                "domain": "architecture-history-theory",
+                "topic": "architecture-history-application",
+                "current_questions": 82,
+                "new_questions": 38,
+                "effective_after": 120,
+                "depth_known_after": 120,
+                "depth_unknown_after": 0,
+                "coverage_max_depth": 4,
+                "study_materials": [
+                    "architecture-1-1-foundation",
+                    "architecture-1-2-foundation",
+                    "architecture-1-3-foundation"
+                ],
+                "source_readiness": "STRONG_AFTER_EXPANSION",
+                "context": "NEUTRAL/PROFESSIONAL",
+                "saturation": "IMPROVED; existing repetitive foundation retained and new gaps target applications/analysis"
+            },
+            "architecture-professional-judgment": {
+                "concept_id": "architecture-professional-judgment",
+                "name": "Architecture Professional Judgment",
+                "subject": "architecture-planning-and-practice",
+                "domain": "architecture-planning-practice",
+                "topic": "architecture-practice-decisions",
+                "current_questions": 30,
+                "new_questions": 78,
+                "effective_after": 108,
+                "depth_known_after": 108,
+                "depth_unknown_after": 0,
+                "coverage_max_depth": 4,
+                "study_materials": [
+                    "architecture-2-1-foundation",
+                    "architecture-2-2-foundation",
+                    "architecture-2-3-foundation"
+                ],
+                "source_readiness": "STRONG_AFTER_EXPANSION",
+                "context": "PROFESSIONAL/REGULATORY",
+                "saturation": "IMPROVED; existing repetitive foundation retained and new gaps target applications/analysis"
+            },
+            "architecture-technical-integration": {
+                "concept_id": "architecture-technical-integration",
+                "name": "Architecture Technical Integration",
+                "subject": "architecture-utilities-and-construction",
+                "domain": "architecture-utilities-construction",
+                "topic": "architecture-systems-coordination",
+                "current_questions": 30,
+                "new_questions": 62,
+                "effective_after": 92,
+                "depth_known_after": 92,
+                "depth_unknown_after": 0,
+                "coverage_max_depth": 4,
+                "study_materials": [
+                    "architecture-3-1-foundation",
+                    "architecture-3-2-foundation",
+                    "architecture-3-3-foundation"
+                ],
+                "source_readiness": "STRONG_AFTER_EXPANSION",
+                "context": "PROFESSIONAL/REGULATORY",
+                "saturation": "IMPROVED; existing repetitive foundation retained and new gaps target applications/analysis"
+            },
+            "architecture-spatial-integration": {
+                "concept_id": "architecture-spatial-integration",
+                "name": "Architecture Spatial Integration",
+                "subject": "architecture-architectural-design-and-site-planning",
+                "domain": "architecture-design-site",
+                "topic": "architecture-site-reasoning",
+                "current_questions": 30,
+                "new_questions": 122,
+                "effective_after": 152,
+                "depth_known_after": 152,
+                "depth_unknown_after": 0,
+                "coverage_max_depth": 4,
+                "study_materials": [
+                    "architecture-4-1-foundation",
+                    "architecture-4-2-foundation",
+                    "architecture-4-3-foundation"
+                ],
+                "source_readiness": "STRONG_AFTER_EXPANSION",
+                "context": "PROFESSIONAL/REGULATORY",
+                "saturation": "IMPROVED; existing repetitive foundation retained and new gaps target applications/analysis"
+            }
+        },
+        "concept_selection": {
+            "evaluated": 4,
+            "selected": [
+                "architecture-history-context",
+                "architecture-professional-judgment",
+                "architecture-technical-integration",
+                "architecture-spatial-integration"
+            ],
+            "deferred": [],
+            "scorecard": [
+                {
+                    "concept": "Architecture History Context",
+                    "current_questions": 82,
+                    "current_depth_unknown": 82,
+                    "current_study_materials": [
+                        "architecture-1-1-foundation",
+                        "architecture-1-2-foundation",
+                        "architecture-1-3-foundation"
+                    ],
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "History and Theory",
+                    "application_potential": "HIGH",
+                    "analysis_potential": "HIGH",
+                    "numerical_potential": "LOW",
+                    "prerequisite_complexity": "MODERATE",
+                    "regulatory_volatility": "BOUNDED",
+                    "saturation_risk": "CONTROLLED",
+                    "decision": "SELECT"
+                },
+                {
+                    "concept": "Architecture Professional Judgment",
+                    "current_questions": 30,
+                    "current_depth_unknown": 30,
+                    "current_study_materials": [
+                        "architecture-2-1-foundation",
+                        "architecture-2-2-foundation",
+                        "architecture-2-3-foundation"
+                    ],
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "Planning and Practice",
+                    "application_potential": "HIGH",
+                    "analysis_potential": "HIGH",
+                    "numerical_potential": "LOW",
+                    "prerequisite_complexity": "MODERATE",
+                    "regulatory_volatility": "BOUNDED",
+                    "saturation_risk": "CONTROLLED",
+                    "decision": "SELECT"
+                },
+                {
+                    "concept": "Architecture Technical Integration",
+                    "current_questions": 30,
+                    "current_depth_unknown": 30,
+                    "current_study_materials": [
+                        "architecture-3-1-foundation",
+                        "architecture-3-2-foundation",
+                        "architecture-3-3-foundation"
+                    ],
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "Utilities, Structural Conceptualization, Building Materials and Technology",
+                    "application_potential": "HIGH",
+                    "analysis_potential": "HIGH",
+                    "numerical_potential": "MODERATE",
+                    "prerequisite_complexity": "MODERATE",
+                    "regulatory_volatility": "BOUNDED",
+                    "saturation_risk": "CONTROLLED",
+                    "decision": "SELECT"
+                },
+                {
+                    "concept": "Architecture Spatial Integration",
+                    "current_questions": 30,
+                    "current_depth_unknown": 30,
+                    "current_study_materials": [
+                        "architecture-4-1-foundation",
+                        "architecture-4-2-foundation",
+                        "architecture-4-3-foundation"
+                    ],
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "Architectural Design and Site Planning",
+                    "application_potential": "HIGH",
+                    "analysis_potential": "HIGH",
+                    "numerical_potential": "MODERATE",
+                    "prerequisite_complexity": "MODERATE",
+                    "regulatory_volatility": "BOUNDED",
+                    "saturation_risk": "CONTROLLED",
+                    "decision": "SELECT"
+                }
+            ]
+        },
+        "sources": {
+            "reviewed": [
+                {
+                    "source_id": "prc-architecture-exam-program-2024",
+                    "title": "PRC Licensure Examination Program for Architects",
+                    "authority": "Professional Regulation Commission; Professional Regulatory Board of Architecture",
+                    "url": "https://www.prc.gov.ph/sites/default/files/052024%20revised%20exam%20program%20june%20%28archi%29.pdf",
+                    "type": "OFFICIAL_GOVERNMENT",
+                    "role": "SCOPE_SOURCE",
+                    "volatility": "PERIODICALLY_UPDATED"
+                },
+                {
+                    "source_id": "prc-architecture-exam-program-2025",
+                    "title": "PRC Revised Licensure Examination Program for Architects, January 2025",
+                    "authority": "Professional Regulation Commission; Professional Regulatory Board of Architecture",
+                    "url": "https://www.prc.gov.ph/sites/default/files/REVISED%20RA%20ARCHITECTS%2001-2025%20cebu.pdf",
+                    "type": "OFFICIAL_GOVERNMENT",
+                    "role": "SCOPE_SOURCE",
+                    "volatility": "PERIODICALLY_UPDATED"
+                },
+                {
+                    "source_id": "ra-9266-architecture-act",
+                    "title": "Republic Act No. 9266, The Architecture Act of 2004",
+                    "authority": "Republic of the Philippines",
+                    "url": "https://lawphil.net/statutes/repacts/ra2004/ra_9266_2004.html",
+                    "type": "OFFICIAL_GOVERNMENT",
+                    "role": "INSTRUCTIONAL_SOURCE",
+                    "volatility": "REGULATORY_VOLATILE"
+                },
+                {
+                    "source_id": "ra-9266-architecture-irr",
+                    "title": "Implementing Rules and Regulations of Republic Act No. 9266",
+                    "authority": "Professional Regulation Commission; Professional Regulatory Board of Architecture",
+                    "url": "https://www.prc.gov.ph/sites/default/files/Res.%2007%2C%20s%202004%20-%20Architecture%20IRR_0.pdf",
+                    "type": "OFFICIAL_GOVERNMENT",
+                    "role": "INSTRUCTIONAL_SOURCE",
+                    "volatility": "REGULATORY_VOLATILE"
+                },
+                {
+                    "source_id": "bp344-2024-irr",
+                    "title": "Revised 2024 Rules and Regulations Implementing Batas Pambansa Blg. 344",
+                    "authority": "National Council on Disability Affairs",
+                    "url": "https://ncda.gov.ph/revised-2024-rules-and-regulations-implementing-batas-pambansa-344/",
+                    "type": "OFFICIAL_GOVERNMENT",
+                    "role": "INSTRUCTIONAL_SOURCE",
+                    "volatility": "REGULATORY_VOLATILE"
+                },
+                {
+                    "source_id": "pd1096-national-building-code",
+                    "title": "National Building Code of the Philippines and Implementing Rules",
+                    "authority": "Department of Public Works and Highways; National Building Code Development Office",
+                    "url": "https://www.dpwh.gov.ph/DPWH/files/NBCDO%20MC/15-NBCDO%20MC/NBCDO%20MC_01_s2015.pdf",
+                    "type": "OFFICIAL_GOVERNMENT",
+                    "role": "INSTRUCTIONAL_SOURCE",
+                    "volatility": "REGULATORY_VOLATILE"
+                },
+                {
+                    "source_id": "ra9514-fire-code-irr",
+                    "title": "Revised Implementing Rules and Regulations of Republic Act No. 9514, Fire Code",
+                    "authority": "Bureau of Fire Protection",
+                    "url": "https://bfp.gov.ph/wp-content/uploads/2019/10/RA9514-RIRR-rev-2019.pdf",
+                    "type": "OFFICIAL_GOVERNMENT",
+                    "role": "INSTRUCTIONAL_SOURCE",
+                    "volatility": "REGULATORY_VOLATILE"
+                },
+                {
+                    "source_id": "mit-4-111-intro-architecture",
+                    "title": "Introduction to Architecture and Environmental Design",
+                    "authority": "MIT OpenCourseWare, Department of Architecture",
+                    "url": "https://ocw.mit.edu/courses/4-111-introduction-to-architecture-environmental-design-spring-2014/",
+                    "type": "AUTHORITATIVE_ACADEMIC",
+                    "role": "INSTRUCTIONAL_SOURCE",
+                    "volatility": "STABLE_FOUNDATIONAL"
+                },
+                {
+                    "source_id": "mit-4-401-environmental-buildings",
+                    "title": "Environmental Technologies in Buildings",
+                    "authority": "MIT OpenCourseWare, Department of Architecture",
+                    "url": "https://ocw.mit.edu/courses/4-401-environmental-technologies-in-buildings-fall-2018/",
+                    "type": "AUTHORITATIVE_ACADEMIC",
+                    "role": "INSTRUCTIONAL_SOURCE",
+                    "volatility": "STABLE_FOUNDATIONAL"
+                },
+                {
+                    "source_id": "mit-4-461-building-technology",
+                    "title": "Building Technology I: Materials and Construction",
+                    "authority": "MIT OpenCourseWare, Department of Architecture",
+                    "url": "https://ocw.mit.edu/courses/4-461-building-technology-i-materials-and-construction-fall-2004/pages/syllabus/",
+                    "type": "AUTHORITATIVE_ACADEMIC",
+                    "role": "INSTRUCTIONAL_SOURCE",
+                    "volatility": "STABLE_FOUNDATIONAL"
+                },
+                {
+                    "source_id": "mit-4-463-structural-systems",
+                    "title": "Building Technology III: Building Structural Systems",
+                    "authority": "MIT OpenCourseWare, Department of Architecture",
+                    "url": "https://ocw.mit.edu/courses/4-463-building-technology-iii-building-structural-systems-fall-2004/pages/syllabus/",
+                    "type": "AUTHORITATIVE_ACADEMIC",
+                    "role": "INSTRUCTIONAL_SOURCE",
+                    "volatility": "STABLE_FOUNDATIONAL"
+                },
+                {
+                    "source_id": "nps-preservation-briefs",
+                    "title": "Preservation Briefs and Secretary of the Interior Standards",
+                    "authority": "U.S. National Park Service, Technical Preservation Services",
+                    "url": "https://www.nps.gov/orgs/1739/preservation-briefs.htm",
+                    "type": "OFFICIAL_GOVERNMENT",
+                    "role": "INSTRUCTIONAL_SOURCE",
+                    "volatility": "PERIODICALLY_UPDATED"
+                },
+                {
+                    "source_id": "wbdg-building-enclosure",
+                    "title": "Building Enclosure Design Principles and Strategies",
+                    "authority": "Whole Building Design Guide; National Institute of Building Sciences",
+                    "url": "https://www.wbdg.org/resources/building-enclosure-design-principles-and-strategies",
+                    "type": "OFFICIAL_PROFESSIONAL",
+                    "role": "INSTRUCTIONAL_SOURCE",
+                    "volatility": "PERIODICALLY_UPDATED"
+                }
+            ],
+            "existing_sources_reused": 1,
+            "added": [
+                "prc-architecture-exam-program-2025",
+                "ra-9266-architecture-act",
+                "ra-9266-architecture-irr",
+                "bp344-2024-irr",
+                "pd1096-national-building-code",
+                "ra9514-fire-code-irr",
+                "mit-4-111-intro-architecture",
+                "mit-4-401-environmental-buildings",
+                "mit-4-461-building-technology",
+                "mit-4-463-structural-systems",
+                "nps-preservation-briefs",
+                "wbdg-building-enclosure"
+            ],
+            "weak_rejected": [],
+            "questions_per_source": {
+                "prc-architecture-exam-program-2025": 300,
+                "mit-4-111-intro-architecture": 238,
+                "nps-preservation-briefs": 38,
+                "ra-9266-architecture-act": 78,
+                "ra-9266-architecture-irr": 78,
+                "mit-4-401-environmental-buildings": 184,
+                "mit-4-461-building-technology": 62,
+                "mit-4-463-structural-systems": 62,
+                "wbdg-building-enclosure": 62,
+                "pd1096-national-building-code": 62,
+                "bp344-2024-irr": 184,
+                "ra9514-fire-code-irr": 62
+            },
+            "concepts_per_source": {
+                "prc-architecture-exam-program-2025": [
+                    "architecture-history-context",
+                    "architecture-professional-judgment",
+                    "architecture-technical-integration",
+                    "architecture-spatial-integration"
+                ],
+                "mit-4-111-intro-architecture": [
+                    "architecture-history-context",
+                    "architecture-professional-judgment",
+                    "architecture-spatial-integration"
+                ],
+                "nps-preservation-briefs": [
+                    "architecture-history-context"
+                ],
+                "ra-9266-architecture-act": [
+                    "architecture-professional-judgment"
+                ],
+                "ra-9266-architecture-irr": [
+                    "architecture-professional-judgment"
+                ],
+                "mit-4-401-environmental-buildings": [
+                    "architecture-technical-integration",
+                    "architecture-spatial-integration"
+                ],
+                "mit-4-461-building-technology": [
+                    "architecture-technical-integration"
+                ],
+                "mit-4-463-structural-systems": [
+                    "architecture-technical-integration"
+                ],
+                "wbdg-building-enclosure": [
+                    "architecture-technical-integration"
+                ],
+                "pd1096-national-building-code": [
+                    "architecture-technical-integration"
+                ],
+                "bp344-2024-irr": [
+                    "architecture-technical-integration",
+                    "architecture-spatial-integration"
+                ],
+                "ra9514-fire-code-irr": [
+                    "architecture-technical-integration"
+                ]
+            },
+            "max_instructional_source_concentration": 0.533,
+            "source_overconcentration_flag": false,
+            "scope_sources": [
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025"
+            ],
+            "instructional_sources": [
+                "ra-9266-architecture-act",
+                "ra-9266-architecture-irr",
+                "bp344-2024-irr",
+                "pd1096-national-building-code",
+                "ra9514-fire-code-irr",
+                "mit-4-111-intro-architecture",
+                "mit-4-401-environmental-buildings",
+                "mit-4-461-building-technology",
+                "mit-4-463-structural-systems",
+                "nps-preservation-briefs",
+                "wbdg-building-enclosure"
+            ]
+        },
+        "study_materials": {
+            "reviewed": 12,
+            "sufficient_depth_2": 0,
+            "sufficient_depth_3": 0,
+            "sufficient_depth_4": 4,
+            "sufficient_depth_5": 0,
+            "needs_expansion_before": 12,
+            "needs_reorganization": 0,
+            "needs_split": 0,
+            "needs_merge": 0,
+            "missing": 0,
+            "expanded": 12,
+            "added": 0,
+            "updated_material_ids": [
+                "architecture-1-1-foundation",
+                "architecture-1-2-foundation",
+                "architecture-1-3-foundation",
+                "architecture-2-1-foundation",
+                "architecture-2-2-foundation",
+                "architecture-2-3-foundation",
+                "architecture-3-1-foundation",
+                "architecture-3-2-foundation",
+                "architecture-3-3-foundation",
+                "architecture-4-1-foundation",
+                "architecture-4-2-foundation",
+                "architecture-4-3-foundation"
+            ]
+        },
+        "coverage_depth": {
+            "rows_reviewed": 4,
+            "rows_assigned": 4,
+            "rows_kept_unknown": 0,
+            "after": {
+                "KNOWN": 4,
+                "UNKNOWN": 0
+            }
+        },
+        "existing_architecture_depth": {
+            "reviewed": 172,
+            "assigned": 172,
+            "kept_unknown": 0
+        },
+        "question_plan": {
+            "planned_total": 300,
+            "by_concept": {
+                "architecture-history-context": 38,
+                "architecture-professional-judgment": 78,
+                "architecture-technical-integration": 62,
+                "architecture-spatial-integration": 122
+            },
+            "by_blueprint_area": {
+                "History and Theory": 38,
+                "Planning and Practice": 78,
+                "Utilities and Construction": 62,
+                "Architectural Design and Site Planning": 122
+            }
+        },
+        "content": {
+            "actual_new_questions": 300,
+            "new_id_range": [
+                3545,
+                3844
+            ],
+            "new_by_concept": {
+                "architecture-history-context": 38,
+                "architecture-professional-judgment": 78,
+                "architecture-technical-integration": 62,
+                "architecture-spatial-integration": 122
+            },
+            "duplicate_ids": 0,
+            "id_collisions": 0,
+            "canonical_after": 3844,
+            "new_depths": {
+                "1": 0,
+                "2": 0,
+                "3": 156,
+                "4": 144,
+                "5": 0,
+                "UNKNOWN": 0
+            },
+            "new_context": {
+                "NEUTRAL": 124,
+                "PROFESSIONAL": 157,
+                "REGULATORY": 19,
+                "OTHER": 0
+            },
+            "new_with_required_concepts": 86,
+            "new_with_assumed_foundation": 8,
+            "new_prerequisite_free": 200
+        },
+        "prerequisites": {
+            "required_rows": 86,
+            "distinct_required_concepts": [
+                "architecture-spatial-integration",
+                "architecture-professional-judgment",
+                "architecture-technical-integration"
+            ],
+            "invalid_required_concept_references": 0,
+            "self_prerequisites": 0,
+            "circular_prerequisites": 0,
+            "required_concepts": 86,
+            "assumed_foundation": 8,
+            "prerequisite_free": 200
+        },
+        "numerical_quality": {
+            "numerical_new": 13,
+            "numerical_recomputed": 13,
+            "numerical_pass": 13,
+            "numerical_fail": 0,
+            "distinct_formula_families": 300,
+            "distinct_numerical_templates": 13,
+            "distinct_scenario_families": 270,
+            "distinct_misconception_families": 305
+        },
+        "high_risk_review": {
+            "total": 186,
+            "reviewed": 186,
+            "pass": 186,
+            "fail": 0
+        },
+        "duplication": {
+            "exact_duplicates": 0,
+            "normalized_duplicates": 0,
+            "global_normalized_duplicate_groups_after": 0,
+            "semantic_near_duplicates_found": 0,
+            "semantic_near_duplicates_rejected": 0,
+            "numeric_template_duplicates_found": 0,
+            "numeric_template_duplicates_rejected": 0
+        },
+        "traceability": {
+            "new_with_study_link": 300,
+            "new_with_instructional_source": 300,
+            "new_with_board_scope_chain": 300,
+            "new_derivable": 300,
+            "new_source_ambiguous": 0,
+            "new_justified_exclusions": 0
+        },
+        "quality_review": {
+            "sample_size": 60,
+            "defects_found": 0,
+            "defects_fixed": 0,
+            "defects_remaining": 0,
+            "high_risk_reviewed_100_percent": true,
+            "stratified": {
+                "concept": true,
+                "depth": true,
+                "source": true,
+                "context": true,
+                "numerical": true,
+                "prerequisite": true
+            }
+        },
+        "answer_distribution": {
+            "A": 79,
+            "B": 74,
+            "C": 73,
+            "D": 74,
+            "OTHER": 0
+        },
+        "depth_modernization": {
+            "repository_before": {
+                "known": 1130,
+                "unknown": 2414
+            },
+            "repository_after": {
+                "known": 1602,
+                "unknown": 2242
+            },
+            "existing_unknown_reduced": 172,
+            "new_unknown_added": 0,
+            "architecture_before": {
+                "1": 0,
+                "2": 0,
+                "3": 0,
+                "4": 0,
+                "5": 0,
+                "UNKNOWN": 172
+            },
+            "architecture_after": {
+                "1": 0,
+                "2": 24,
+                "3": 216,
+                "4": 232,
+                "5": 0,
+                "UNKNOWN": 0
+            }
+        },
+        "blueprint_impact": {
+            "architecture_effective_pool_before": 172,
+            "architecture_effective_pool_after": 472,
+            "delta": 300,
+            "areas_before_after": {
+                "architecture-history-and-theory": {
+                    "before": 82,
+                    "after": 120,
+                    "delta": 38
+                },
+                "architecture-planning-and-practice": {
+                    "before": 30,
+                    "after": 108,
+                    "delta": 78
+                },
+                "architecture-utilities-and-construction": {
+                    "before": 30,
+                    "after": 92,
+                    "delta": 62
+                },
+                "architecture-architectural-design-and-site-planning": {
+                    "before": 30,
+                    "after": 152,
+                    "delta": 122
+                }
+            },
+            "areas_improved": [
+                "History and Theory",
+                "Planning and Practice",
+                "Utilities, Structural Conceptualization, Building Materials and Technology",
+                "Architectural Design and Site Planning"
+            ],
+            "still_undercovered": [
+                "Utilities and Construction remains the thinnest Architecture cohort after expansion; regulatory detail remains bounded by current-version evidence."
+            ],
+            "saturated_areas": [],
+            "pool_shortages": [],
+            "weight_regressions": 0,
+            "pool_to_exam_ratio_before": "NOT_CONFIGURED",
+            "pool_to_exam_ratio_after": "NOT_CONFIGURED"
+        },
+        "study_integrity": {
+            "invalid_study_links": 0,
+            "non_derivable_new": 0,
+            "orphan_study_materials_before": 15,
+            "orphan_study_materials_after": 15,
+            "architecture_orphans_encountered": 0,
+            "architecture_orphans_repaired": 0,
+            "duplicate_study_links": 0,
+            "preexisting_duplicate_study_link_questions": 84,
+            "flashcard_duplicate_keys": 0,
+            "flashcard_non_derivable": 0,
+            "flashcard_orphans": 0
+        },
+        "reuse": {
+            "frozen_target_depth_unknown_before": 130,
+            "affected_by_batch619": 0,
+            "newly_resolved": 0,
+            "still_target_depth_unknown": 130,
+            "new_safe_same_concept_candidates": 0,
+            "activated": 0,
+            "blocked": {
+                "DEPTH_BLOCKED": 0,
+                "TARGET_DEPTH_UNKNOWN": 0,
+                "CONTEXT_BLOCKED": 0,
+                "REGULATORY_BLOCKED": 0,
+                "PREREQUISITE_BLOCKED": 0,
+                "SOURCE_BLOCKED": 0,
+                "PLACEMENT_BLOCKED": 0,
+                "REVIEW_POLICY_BLOCKED": 0
+            },
+            "different_id_equivalence_enabled": false
+        },
+        "eligibility": {
+            "direct_before": 4288,
+            "direct_after": 4588,
+            "concept_derived_before": 40,
+            "concept_derived_after": 40,
+            "total_effective_before": 4328,
+            "total_effective_after": 4628,
+            "multi_board_before": 636,
+            "multi_board_after": 636,
+            "single_board_before": 2908,
+            "single_board_after": 3208,
+            "new_direct_relationships": 300,
+            "new_derived_relationships": 0,
+            "duplicate_effective_candidates": 0,
+            "double_weighting": 0
+        },
+        "doctor_projection": {
+            "new_missing_depth": 0,
+            "new_missing_context": 0,
+            "new_missing_study_link": 0,
+            "new_non_derivable": 0,
+            "new_invalid_taxonomy": 0,
+            "new_without_eligibility": 0,
+            "new_invalid_source": 0,
+            "invalid_required_concept_references": 0,
+            "self_prerequisites": 0,
+            "circular_prerequisites": 0,
+            "auto_unknown_depth": 0,
+            "auto_unknown_target_depth": 0,
+            "auto_context_violations": 0,
+            "regulatory_auto_violations": 0,
+            "duplicate_effective_candidates": 0,
+            "double_weighting": 0
+        },
+        "portfolio": {
+            "let": {
+                "canonical": 1039,
+                "effective_pool": 1137,
+                "depth_known": 255,
+                "depth_unknown": 784,
+                "coverage_depth_known": 14,
+                "coverage_depth_unknown": 112
+            },
+            "civil-service": {
+                "canonical": 475,
+                "effective_pool": 998,
+                "depth_known": 0,
+                "depth_unknown": 475,
+                "coverage_depth_known": 4,
+                "coverage_depth_unknown": 83
+            },
+            "criminologist": {
+                "canonical": 150,
+                "effective_pool": 253,
+                "depth_known": 0,
+                "depth_unknown": 150,
+                "coverage_depth_known": 0,
+                "coverage_depth_unknown": 18
+            },
+            "nursing": {
+                "canonical": 240,
+                "effective_pool": 260,
+                "depth_known": 0,
+                "depth_unknown": 240,
+                "coverage_depth_known": 0,
+                "coverage_depth_unknown": 40
+            },
+            "psychometrician": {
+                "canonical": 100,
+                "effective_pool": 100,
+                "depth_known": 0,
+                "depth_unknown": 100,
+                "coverage_depth_known": 0,
+                "coverage_depth_unknown": 4
+            },
+            "civil-engineering": {
+                "canonical": 302,
+                "effective_pool": 302,
+                "depth_known": 302,
+                "depth_unknown": 0,
+                "coverage_depth_known": 3,
+                "coverage_depth_unknown": 0
+            },
+            "cpa": {
+                "canonical": 281,
+                "effective_pool": 281,
+                "depth_known": 0,
+                "depth_unknown": 281,
+                "coverage_depth_known": 0,
+                "coverage_depth_unknown": 113
+            },
+            "mechanical-engineering": {
+                "canonical": 464,
+                "effective_pool": 464,
+                "depth_known": 320,
+                "depth_unknown": 144,
+                "coverage_depth_known": 8,
+                "coverage_depth_unknown": 6
+            },
+            "registered-electrical-engineering": {
+                "canonical": 321,
+                "effective_pool": 321,
+                "depth_known": 253,
+                "depth_unknown": 68,
+                "coverage_depth_known": 5,
+                "coverage_depth_unknown": 10
+            },
+            "architecture": {
+                "canonical": 472,
+                "effective_pool": 472,
+                "depth_known": 472,
+                "depth_unknown": 0,
+                "coverage_depth_known": 4,
+                "coverage_depth_unknown": 0
+            }
+        },
+        "preservation": {
+            "existing_question_content_changed": 0,
+            "existing_question_taxonomy_changed": 0,
+            "question_clones_created": 0,
+            "different_id_equivalence_enabled": false
+        },
+        "determinism": {
+            "selection_deterministic": true,
+            "proposed_ids_deterministic": true
+        },
+        "validation": {
+            "php_syntax": "PASS",
+            "json_parse": "PASS",
+            "source_gate": "PASS",
+            "study_gate": "PASS",
+            "depth_gate": "PASS",
+            "context_gate": "PASS",
+            "prerequisite_gate": "PASS",
+            "answer_gate": "PASS",
+            "numerical_gate": "PASS",
+            "high_risk_gate": "PASS",
+            "duplication_gate": "PASS",
+            "taxonomy_gate": "PASS",
+            "eligibility_gate": "PASS",
+            "blueprint_gate": "PASS",
+            "reuse_gate": "PASS_BOUNDED_REVIEW_ONLY",
+            "weighting_gate": "PASS",
+            "doctor_gate": "PASS"
+        },
+        "tool": "tools/batch619-architecture-content-depth-audit.php"
+    }
+]
