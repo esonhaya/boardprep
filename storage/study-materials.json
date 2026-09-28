@@ -1874,445 +1874,839 @@
         "updated_at": "2026-09-01"
     },
     {
-        "id": "nle-np-i-foundation",
-        "title": "Community Health Nursing Review Foundation",
-        "summary": "Structured clinical reasoning for Community Health Nursing.",
-        "notes": [
-            {
-                "heading": "Clinical focus",
-                "body": "Prioritize assessment, safety, nursing process, communication, and evaluation in concise clinical situations."
-            }
-        ],
-        "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ],
-        "exams": [
-            "nursing"
-        ],
-        "exam_focus": {
-            "nursing": {
-                "priority": "high",
-                "official_scope_status": "official PRC enhanced TOS scope; BoardPrep educational review"
-            }
+    "id": "nle-np-i-foundation",
+    "title": "Community Health Nursing Review Foundation",
+    "summary": "Use population assessment, prevention, participation, equity, and the nursing process to connect a community finding to a feasible intervention and evaluation.",
+    "notes": [
+        {
+            "heading": "Principle",
+            "body": "Use population assessment, prevention, participation, equity, and the nursing process to connect a community finding to a feasible intervention and evaluation."
         },
-        "taxonomy": {
-            "subject_id": "nursing-foundations",
-            "domain_id": "nle-community-health"
+        {
+            "heading": "Assessment and interpretation",
+            "body": "Cluster relevant cues, compare trends with the patient's baseline, identify immediate threats, and state what information is missing before choosing an intervention."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        {
+            "heading": "Nursing action and rationale",
+            "body": "Choose the least harmful effective action within role and orders, protect privacy and infection safety, reassess the response, and escalate promptly when deterioration or uncertainty remains."
+        },
+        {
+            "heading": "Teaching and common mistakes",
+            "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+        }
+    ],
+    "source_ids": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "who-community-health",
+        "cdc-infection-control-basics",
+        "openrn-nursing-fundamentals",
+        "doh-national-immunization-program"
+    ],
+    "exams": [
+        "nursing"
+    ],
+    "exam_focus": {
+        "nursing": {
+            "priority": "high",
+            "official_scope_status": "official PRC enhanced TOS scope; BoardPrep educational review"
+        }
     },
+    "taxonomy": {
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-community-health"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG",
+    "batch620_support": {
+        "np_area": "NP I",
+        "depth_supported": [
+            2,
+            3,
+            4
+        ],
+        "updated_for": "source-first clinical expansion"
+    }
+},
     {
-        "id": "nle-np-ii-foundation",
-        "title": "Maternal and Child Nursing Review Foundation",
-        "summary": "Structured clinical reasoning for Maternal and Child Nursing.",
-        "notes": [
-            {
-                "heading": "Clinical focus",
-                "body": "Prioritize assessment, safety, nursing process, communication, and evaluation in concise clinical situations."
-            }
-        ],
-        "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ],
-        "exams": [
-            "nursing"
-        ],
-        "exam_focus": {
-            "nursing": {
-                "priority": "high",
-                "official_scope_status": "official PRC enhanced TOS scope; BoardPrep educational review"
-            }
+    "id": "nle-np-ii-foundation",
+    "title": "Maternal and Child Nursing Review Foundation",
+    "summary": "Link antenatal, intrapartum, postpartum, newborn, growth, and family findings to nursing assessment, safety, education, and timely referral.",
+    "notes": [
+        {
+            "heading": "Principle",
+            "body": "Link antenatal, intrapartum, postpartum, newborn, growth, and family findings to nursing assessment, safety, education, and timely referral."
         },
-        "taxonomy": {
-            "subject_id": "nursing-foundations",
-            "domain_id": "nle-maternal-child"
+        {
+            "heading": "Assessment and interpretation",
+            "body": "Cluster relevant cues, compare trends with the patient's baseline, identify immediate threats, and state what information is missing before choosing an intervention."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        {
+            "heading": "Nursing action and rationale",
+            "body": "Choose the least harmful effective action within role and orders, protect privacy and infection safety, reassess the response, and escalate promptly when deterioration or uncertainty remains."
+        },
+        {
+            "heading": "Teaching and common mistakes",
+            "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+        }
+    ],
+    "source_ids": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "who-postnatal-care-2022",
+        "who-maternal-peripartum-infections",
+        "openrn-nursing-fundamentals"
+    ],
+    "exams": [
+        "nursing"
+    ],
+    "exam_focus": {
+        "nursing": {
+            "priority": "high",
+            "official_scope_status": "official PRC enhanced TOS scope; BoardPrep educational review"
+        }
     },
+    "taxonomy": {
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-maternal-child"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG",
+    "batch620_support": {
+        "np_area": "NP II",
+        "depth_supported": [
+            2,
+            3,
+            4
+        ],
+        "updated_for": "source-first clinical expansion"
+    }
+},
     {
-        "id": "nle-np-iii-foundation",
-        "title": "Medical-Surgical Nursing Review Foundation",
-        "summary": "Structured clinical reasoning for Medical-Surgical Nursing.",
-        "notes": [
-            {
-                "heading": "Clinical focus",
-                "body": "Prioritize assessment, safety, nursing process, communication, and evaluation in concise clinical situations."
-            }
-        ],
-        "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ],
-        "exams": [
-            "nursing"
-        ],
-        "exam_focus": {
-            "nursing": {
-                "priority": "high",
-                "official_scope_status": "official PRC enhanced TOS scope; BoardPrep educational review"
-            }
+    "id": "nle-np-iii-foundation",
+    "title": "Medical-Surgical Nursing Review Foundation",
+    "summary": "Interpret oxygenation, perfusion, fluid balance, immune response, infection, perioperative, and cellular findings through assessment, intervention, response, and escalation.",
+    "notes": [
+        {
+            "heading": "Principle",
+            "body": "Interpret oxygenation, perfusion, fluid balance, immune response, infection, perioperative, and cellular findings through assessment, intervention, response, and escalation."
         },
-        "taxonomy": {
-            "subject_id": "nursing-foundations",
-            "domain_id": "nle-medical-surgical"
+        {
+            "heading": "Assessment and interpretation",
+            "body": "Cluster relevant cues, compare trends with the patient's baseline, identify immediate threats, and state what information is missing before choosing an intervention."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        {
+            "heading": "Nursing action and rationale",
+            "body": "Choose the least harmful effective action within role and orders, protect privacy and infection safety, reassess the response, and escalate promptly when deterioration or uncertainty remains."
+        },
+        {
+            "heading": "Teaching and common mistakes",
+            "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+        }
+    ],
+    "source_ids": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "cdc-infection-control-basics",
+        "cdc-isolation-precautions",
+        "who-basic-emergency-care",
+        "openrn-nursing-fundamentals"
+    ],
+    "exams": [
+        "nursing"
+    ],
+    "exam_focus": {
+        "nursing": {
+            "priority": "high",
+            "official_scope_status": "official PRC enhanced TOS scope; BoardPrep educational review"
+        }
     },
+    "taxonomy": {
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-medical-surgical"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG",
+    "batch620_support": {
+        "np_area": "NP III",
+        "depth_supported": [
+            2,
+            3,
+            4
+        ],
+        "updated_for": "source-first clinical expansion"
+    }
+},
     {
-        "id": "nle-np-iv-foundation",
-        "title": "Nutrition, GI, Endocrine, and Coordination Review Foundation",
-        "summary": "Structured clinical reasoning for Nutrition, GI, Endocrine, and Coordination.",
-        "notes": [
-            {
-                "heading": "Clinical focus",
-                "body": "Prioritize assessment, safety, nursing process, communication, and evaluation in concise clinical situations."
-            }
-        ],
-        "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ],
-        "exams": [
-            "nursing"
-        ],
-        "exam_focus": {
-            "nursing": {
-                "priority": "high",
-                "official_scope_status": "official PRC enhanced TOS scope; BoardPrep educational review"
-            }
+    "id": "nle-np-iv-foundation",
+    "title": "Nutrition, GI, Endocrine, and Coordination Review Foundation",
+    "summary": "Relate assessment findings to nutrition, elimination, metabolism, sensory function, neurologic coordination, and patient ability to participate in care.",
+    "notes": [
+        {
+            "heading": "Principle",
+            "body": "Relate assessment findings to nutrition, elimination, metabolism, sensory function, neurologic coordination, and patient ability to participate in care."
         },
-        "taxonomy": {
-            "subject_id": "nursing-foundations",
-            "domain_id": "nle-medical-surgical"
+        {
+            "heading": "Assessment and interpretation",
+            "body": "Cluster relevant cues, compare trends with the patient's baseline, identify immediate threats, and state what information is missing before choosing an intervention."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        {
+            "heading": "Nursing action and rationale",
+            "body": "Choose the least harmful effective action within role and orders, protect privacy and infection safety, reassess the response, and escalate promptly when deterioration or uncertainty remains."
+        },
+        {
+            "heading": "Teaching and common mistakes",
+            "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+        }
+    ],
+    "source_ids": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "who-medication-without-harm-5-moments",
+        "openrn-pharmacology",
+        "openrn-nursing-fundamentals"
+    ],
+    "exams": [
+        "nursing"
+    ],
+    "exam_focus": {
+        "nursing": {
+            "priority": "high",
+            "official_scope_status": "official PRC enhanced TOS scope; BoardPrep educational review"
+        }
     },
+    "taxonomy": {
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-medical-surgical"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG",
+    "batch620_support": {
+        "np_area": "NP IV",
+        "depth_supported": [
+            2,
+            3,
+            4
+        ],
+        "updated_for": "source-first clinical expansion"
+    }
+},
     {
-        "id": "nle-np-v-foundation",
-        "title": "Mental Health, Emergency, and High-Acuity Nursing Review Foundation",
-        "summary": "Structured clinical reasoning for Mental Health, Emergency, and High-Acuity Nursing.",
-        "notes": [
-            {
-                "heading": "Clinical focus",
-                "body": "Prioritize assessment, safety, nursing process, communication, and evaluation in concise clinical situations."
-            }
-        ],
-        "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ],
-        "exams": [
-            "nursing"
-        ],
-        "exam_focus": {
-            "nursing": {
-                "priority": "high",
-                "official_scope_status": "official PRC enhanced TOS scope; BoardPrep educational review"
-            }
+    "id": "nle-np-v-foundation",
+    "title": "Mental Health, Emergency, and High-Acuity Nursing Review Foundation",
+    "summary": "Use immediate threat, instability, actual deterioration, and time-sensitive risk to prioritize. Reassess response and escalate when the patient does not improve.",
+    "notes": [
+        {
+            "heading": "Principle",
+            "body": "Use immediate threat, instability, actual deterioration, and time-sensitive risk to prioritize. Reassess response and escalate when the patient does not improve."
         },
-        "taxonomy": {
-            "subject_id": "nursing-foundations",
-            "domain_id": "nle-mental-health"
+        {
+            "heading": "Assessment and interpretation",
+            "body": "Cluster relevant cues, compare trends with the patient's baseline, identify immediate threats, and state what information is missing before choosing an intervention."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        {
+            "heading": "Nursing action and rationale",
+            "body": "Choose the least harmful effective action within role and orders, protect privacy and infection safety, reassess the response, and escalate promptly when deterioration or uncertainty remains."
+        },
+        {
+            "heading": "Teaching and common mistakes",
+            "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+        }
+    ],
+    "source_ids": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "who-basic-emergency-care",
+        "who-mhgap-2023",
+        "openrn-nursing-fundamentals"
+    ],
+    "exams": [
+        "nursing"
+    ],
+    "exam_focus": {
+        "nursing": {
+            "priority": "high",
+            "official_scope_status": "official PRC enhanced TOS scope; BoardPrep educational review"
+        }
     },
+    "taxonomy": {
+        "subject_id": "nursing-foundations",
+        "domain_id": "nle-mental-health"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG",
+    "batch620_support": {
+        "np_area": "NP V",
+        "depth_supported": [
+            2,
+            3,
+            4
+        ],
+        "updated_for": "source-first clinical expansion"
+    }
+},
     {
-        "id": "nle-nursing-process",
-        "title": "Nursing Process and Clinical Judgment",
-        "summary": "Integrated Nursing licensure review across NP I–V.",
-        "notes": [
-            {
-                "heading": "Integrated practice",
-                "body": "Connect assessment, intervention, patient teaching, documentation, medication safety, and evaluation to the client’s changing condition."
-            }
-        ],
-        "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ],
-        "exams": [
-            "nursing"
-        ],
-        "exam_focus": {
-            "nursing": {
-                "priority": "high",
-                "official_scope_status": "official TOS-aligned integrated review"
-            }
+    "id": "nle-nursing-process",
+    "title": "Nursing Process and Clinical Judgment",
+    "summary": "Match task, patient stability, complexity, and worker competence; retain assessment and evaluation accountability; and hand off changes, risks, actions, and pending needs.",
+    "notes": [
+        {
+            "heading": "Principle",
+            "body": "Match task, patient stability, complexity, and worker competence; retain assessment and evaluation accountability; and hand off changes, risks, actions, and pending needs."
         },
-        "taxonomy": {
-            "subject_id": "nursing-foundations"
+        {
+            "heading": "Assessment and interpretation",
+            "body": "Cluster relevant cues, compare trends with the patient's baseline, identify immediate threats, and state what information is missing before choosing an intervention."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        {
+            "heading": "Nursing action and rationale",
+            "body": "Choose the least harmful effective action within role and orders, protect privacy and infection safety, reassess the response, and escalate promptly when deterioration or uncertainty remains."
+        },
+        {
+            "heading": "Teaching and common mistakes",
+            "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+        }
+    ],
+    "source_ids": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "who-basic-emergency-care",
+        "who-mhgap-2023",
+        "openrn-nursing-fundamentals"
+    ],
+    "exams": [
+        "nursing"
+    ],
+    "exam_focus": {
+        "nursing": {
+            "priority": "high",
+            "official_scope_status": "official TOS-aligned integrated review"
+        }
     },
+    "taxonomy": {
+        "subject_id": "nursing-foundations"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG",
+    "batch620_support": {
+        "np_area": "NP V",
+        "depth_supported": [
+            2,
+            3,
+            4
+        ],
+        "updated_for": "source-first clinical expansion"
+    }
+},
     {
-        "id": "nle-pharmacology-safety",
-        "title": "Pharmacology and Medication Safety",
-        "summary": "Integrated Nursing licensure review across NP I–V.",
-        "notes": [
-            {
-                "heading": "Integrated practice",
-                "body": "Connect assessment, intervention, patient teaching, documentation, medication safety, and evaluation to the client’s changing condition."
-            }
-        ],
-        "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ],
-        "exams": [
-            "nursing"
-        ],
-        "exam_focus": {
-            "nursing": {
-                "priority": "high",
-                "official_scope_status": "official TOS-aligned integrated review"
-            }
+    "id": "nle-pharmacology-safety",
+    "title": "Pharmacology and Medication Safety",
+    "summary": "Verify patient, medication, dose, route, time, indication, allergies, assessment data, compatibility, monitoring, teaching, and response. Show units and rounding for calculations; clarify an incomplete order.",
+    "notes": [
+        {
+            "heading": "Principle",
+            "body": "Verify patient, medication, dose, route, time, indication, allergies, assessment data, compatibility, monitoring, teaching, and response. Show units and rounding for calculations; clarify an incomplete order."
         },
-        "taxonomy": {
-            "subject_id": "nursing-foundations"
+        {
+            "heading": "Assessment and interpretation",
+            "body": "Cluster relevant cues, compare trends with the patient's baseline, identify immediate threats, and state what information is missing before choosing an intervention."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        {
+            "heading": "Nursing action and rationale",
+            "body": "Choose the least harmful effective action within role and orders, protect privacy and infection safety, reassess the response, and escalate promptly when deterioration or uncertainty remains."
+        },
+        {
+            "heading": "Teaching and common mistakes",
+            "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+        }
+    ],
+    "source_ids": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "who-medication-without-harm-5-moments",
+        "openrn-pharmacology",
+        "openrn-nursing-fundamentals"
+    ],
+    "exams": [
+        "nursing"
+    ],
+    "exam_focus": {
+        "nursing": {
+            "priority": "high",
+            "official_scope_status": "official TOS-aligned integrated review"
+        }
     },
+    "taxonomy": {
+        "subject_id": "nursing-foundations"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG",
+    "batch620_support": {
+        "np_area": "NP IV",
+        "depth_supported": [
+            2,
+            3,
+            4
+        ],
+        "updated_for": "source-first clinical expansion"
+    }
+},
     {
-        "id": "nle-integrated-safety",
-        "title": "Patient Safety, Communication, and Teamwork",
-        "summary": "Integrated Nursing licensure review across NP I–V.",
-        "notes": [
-            {
-                "heading": "Integrated practice",
-                "body": "Connect assessment, intervention, patient teaching, documentation, medication safety, and evaluation to the client’s changing condition."
-            }
-        ],
-        "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ],
-        "exams": [
-            "nursing"
-        ],
-        "exam_focus": {
-            "nursing": {
-                "priority": "high",
-                "official_scope_status": "official TOS-aligned integrated review"
-            }
+    "id": "nle-integrated-safety",
+    "title": "Patient Safety, Communication, and Teamwork",
+    "summary": "Protect the patient, verify orders, use closed-loop communication, prevent medication and equipment errors, and document changes and response.",
+    "notes": [
+        {
+            "heading": "Principle",
+            "body": "Protect the patient, verify orders, use closed-loop communication, prevent medication and equipment errors, and document changes and response."
         },
-        "taxonomy": {
-            "subject_id": "nursing-foundations"
+        {
+            "heading": "Assessment and interpretation",
+            "body": "Cluster relevant cues, compare trends with the patient's baseline, identify immediate threats, and state what information is missing before choosing an intervention."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        {
+            "heading": "Nursing action and rationale",
+            "body": "Choose the least harmful effective action within role and orders, protect privacy and infection safety, reassess the response, and escalate promptly when deterioration or uncertainty remains."
+        },
+        {
+            "heading": "Teaching and common mistakes",
+            "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+        }
+    ],
+    "source_ids": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "who-basic-emergency-care",
+        "who-mhgap-2023",
+        "openrn-nursing-fundamentals"
+    ],
+    "exams": [
+        "nursing"
+    ],
+    "exam_focus": {
+        "nursing": {
+            "priority": "high",
+            "official_scope_status": "official TOS-aligned integrated review"
+        }
     },
+    "taxonomy": {
+        "subject_id": "nursing-foundations"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG",
+    "batch620_support": {
+        "np_area": "NP V",
+        "depth_supported": [
+            2,
+            3,
+            4
+        ],
+        "updated_for": "source-first clinical expansion"
+    }
+},
     {
-        "id": "nle-np-i-prevention",
-        "title": "NP I: Prevention and Community Assessment",
-        "summary": "Focused structured Nursing review aligned with the PRC enhanced TOS.",
-        "notes": [
-            {
-                "heading": "Practice focus",
-                "body": "Connect assessment, safety, clinical reasoning, communication, and evaluation to the client situation."
-            }
-        ],
-        "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ],
-        "exams": [
-            "nursing"
-        ],
-        "exam_focus": {
-            "nursing": {
-                "priority": "high",
-                "official_scope_status": "official TOS-aligned educational review"
-            }
+    "id": "nle-np-i-prevention",
+    "title": "NP I: Prevention and Community Assessment",
+    "summary": "Distinguish primary, secondary, and tertiary prevention; interpret population patterns; select culturally appropriate education; and escalate threats that exceed a community nurse's resources.",
+    "notes": [
+        {
+            "heading": "Principle",
+            "body": "Distinguish primary, secondary, and tertiary prevention; interpret population patterns; select culturally appropriate education; and escalate threats that exceed a community nurse's resources."
         },
-        "taxonomy": {
-            "subject_id": "nursing-foundations"
+        {
+            "heading": "Assessment and interpretation",
+            "body": "Cluster relevant cues, compare trends with the patient's baseline, identify immediate threats, and state what information is missing before choosing an intervention."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        {
+            "heading": "Nursing action and rationale",
+            "body": "Choose the least harmful effective action within role and orders, protect privacy and infection safety, reassess the response, and escalate promptly when deterioration or uncertainty remains."
+        },
+        {
+            "heading": "Teaching and common mistakes",
+            "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+        }
+    ],
+    "source_ids": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "who-community-health",
+        "cdc-infection-control-basics",
+        "openrn-nursing-fundamentals",
+        "doh-national-immunization-program"
+    ],
+    "exams": [
+        "nursing"
+    ],
+    "exam_focus": {
+        "nursing": {
+            "priority": "high",
+            "official_scope_status": "official TOS-aligned educational review"
+        }
     },
+    "taxonomy": {
+        "subject_id": "nursing-foundations"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG",
+    "batch620_support": {
+        "np_area": "NP I",
+        "depth_supported": [
+            2,
+            3,
+            4
+        ],
+        "updated_for": "source-first clinical expansion"
+    }
+},
     {
-        "id": "nle-np-ii-newborn",
-        "title": "NP II: Maternal, Newborn, and Pediatric Care",
-        "summary": "Focused structured Nursing review aligned with the PRC enhanced TOS.",
-        "notes": [
-            {
-                "heading": "Practice focus",
-                "body": "Connect assessment, safety, clinical reasoning, communication, and evaluation to the client situation."
-            }
-        ],
-        "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ],
-        "exams": [
-            "nursing"
-        ],
-        "exam_focus": {
-            "nursing": {
-                "priority": "high",
-                "official_scope_status": "official TOS-aligned educational review"
-            }
+    "id": "nle-np-ii-newborn",
+    "title": "NP II: Maternal, Newborn, and Pediatric Care",
+    "summary": "Support warmth, airway observation, feeding, glucose or infection-risk assessment when indicated, family teaching, and prompt escalation for respiratory distress, poor feeding, lethargy, or temperature instability.",
+    "notes": [
+        {
+            "heading": "Principle",
+            "body": "Support warmth, airway observation, feeding, glucose or infection-risk assessment when indicated, family teaching, and prompt escalation for respiratory distress, poor feeding, lethargy, or temperature instability."
         },
-        "taxonomy": {
-            "subject_id": "nursing-foundations"
+        {
+            "heading": "Assessment and interpretation",
+            "body": "Cluster relevant cues, compare trends with the patient's baseline, identify immediate threats, and state what information is missing before choosing an intervention."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        {
+            "heading": "Nursing action and rationale",
+            "body": "Choose the least harmful effective action within role and orders, protect privacy and infection safety, reassess the response, and escalate promptly when deterioration or uncertainty remains."
+        },
+        {
+            "heading": "Teaching and common mistakes",
+            "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+        }
+    ],
+    "source_ids": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "who-postnatal-care-2022",
+        "who-maternal-peripartum-infections",
+        "openrn-nursing-fundamentals"
+    ],
+    "exams": [
+        "nursing"
+    ],
+    "exam_focus": {
+        "nursing": {
+            "priority": "high",
+            "official_scope_status": "official TOS-aligned educational review"
+        }
     },
+    "taxonomy": {
+        "subject_id": "nursing-foundations"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG",
+    "batch620_support": {
+        "np_area": "NP II",
+        "depth_supported": [
+            2,
+            3,
+            4
+        ],
+        "updated_for": "source-first clinical expansion"
+    }
+},
     {
-        "id": "nle-np-iii-oxygenation",
-        "title": "NP III: Oxygenation, Fluids, and Infection",
-        "summary": "Focused structured Nursing review aligned with the PRC enhanced TOS.",
-        "notes": [
-            {
-                "heading": "Practice focus",
-                "body": "Connect assessment, safety, clinical reasoning, communication, and evaluation to the client situation."
-            }
-        ],
-        "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ],
-        "exams": [
-            "nursing"
-        ],
-        "exam_focus": {
-            "nursing": {
-                "priority": "high",
-                "official_scope_status": "official TOS-aligned educational review"
-            }
+    "id": "nle-np-iii-oxygenation",
+    "title": "NP III: Oxygenation, Fluids, and Infection",
+    "summary": "Assess airway, work of breathing, oxygen saturation trend, breath sounds, mental status, and response. Positioning, oxygen delivery, and escalation depend on the supplied clinical picture and local protocol.",
+    "notes": [
+        {
+            "heading": "Principle",
+            "body": "Assess airway, work of breathing, oxygen saturation trend, breath sounds, mental status, and response. Positioning, oxygen delivery, and escalation depend on the supplied clinical picture and local protocol."
         },
-        "taxonomy": {
-            "subject_id": "nursing-foundations"
+        {
+            "heading": "Assessment and interpretation",
+            "body": "Cluster relevant cues, compare trends with the patient's baseline, identify immediate threats, and state what information is missing before choosing an intervention."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        {
+            "heading": "Nursing action and rationale",
+            "body": "Choose the least harmful effective action within role and orders, protect privacy and infection safety, reassess the response, and escalate promptly when deterioration or uncertainty remains."
+        },
+        {
+            "heading": "Teaching and common mistakes",
+            "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+        }
+    ],
+    "source_ids": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "cdc-infection-control-basics",
+        "cdc-isolation-precautions",
+        "who-basic-emergency-care",
+        "openrn-nursing-fundamentals"
+    ],
+    "exams": [
+        "nursing"
+    ],
+    "exam_focus": {
+        "nursing": {
+            "priority": "high",
+            "official_scope_status": "official TOS-aligned educational review"
+        }
     },
+    "taxonomy": {
+        "subject_id": "nursing-foundations"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG",
+    "batch620_support": {
+        "np_area": "NP III",
+        "depth_supported": [
+            2,
+            3,
+            4
+        ],
+        "updated_for": "source-first clinical expansion"
+    }
+},
     {
-        "id": "nle-np-iv-endocrine",
-        "title": "NP IV: Nutrition, GI, Endocrine, and Coordination",
-        "summary": "Focused structured Nursing review aligned with the PRC enhanced TOS.",
-        "notes": [
-            {
-                "heading": "Practice focus",
-                "body": "Connect assessment, safety, clinical reasoning, communication, and evaluation to the client situation."
-            }
-        ],
-        "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ],
-        "exams": [
-            "nursing"
-        ],
-        "exam_focus": {
-            "nursing": {
-                "priority": "high",
-                "official_scope_status": "official TOS-aligned educational review"
-            }
+    "id": "nle-np-iv-endocrine",
+    "title": "NP IV: Nutrition, GI, Endocrine, and Coordination",
+    "summary": "Trend glucose, hydration, mental status, intake/output, medication effects, and endocrine symptoms; identify deterioration and use ordered treatment safely rather than treating a number in isolation.",
+    "notes": [
+        {
+            "heading": "Principle",
+            "body": "Trend glucose, hydration, mental status, intake/output, medication effects, and endocrine symptoms; identify deterioration and use ordered treatment safely rather than treating a number in isolation."
         },
-        "taxonomy": {
-            "subject_id": "nursing-foundations"
+        {
+            "heading": "Assessment and interpretation",
+            "body": "Cluster relevant cues, compare trends with the patient's baseline, identify immediate threats, and state what information is missing before choosing an intervention."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        {
+            "heading": "Nursing action and rationale",
+            "body": "Choose the least harmful effective action within role and orders, protect privacy and infection safety, reassess the response, and escalate promptly when deterioration or uncertainty remains."
+        },
+        {
+            "heading": "Teaching and common mistakes",
+            "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+        }
+    ],
+    "source_ids": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "who-medication-without-harm-5-moments",
+        "openrn-pharmacology",
+        "openrn-nursing-fundamentals"
+    ],
+    "exams": [
+        "nursing"
+    ],
+    "exam_focus": {
+        "nursing": {
+            "priority": "high",
+            "official_scope_status": "official TOS-aligned educational review"
+        }
     },
+    "taxonomy": {
+        "subject_id": "nursing-foundations"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG",
+    "batch620_support": {
+        "np_area": "NP IV",
+        "depth_supported": [
+            2,
+            3,
+            4
+        ],
+        "updated_for": "source-first clinical expansion"
+    }
+},
     {
-        "id": "nle-np-v-emergency",
-        "title": "NP V: Mental Health and Emergency Care",
-        "summary": "Focused structured Nursing review aligned with the PRC enhanced TOS.",
-        "notes": [
-            {
-                "heading": "Practice focus",
-                "body": "Connect assessment, safety, clinical reasoning, communication, and evaluation to the client situation."
-            }
-        ],
-        "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ],
-        "exams": [
-            "nursing"
-        ],
-        "exam_focus": {
-            "nursing": {
-                "priority": "high",
-                "official_scope_status": "official TOS-aligned educational review"
-            }
+    "id": "nle-np-v-emergency",
+    "title": "NP V: Mental Health and Emergency Care",
+    "summary": "Use a structured ABCDE/SAMPLE approach, call for help early, address life threats, reassess after intervention, and communicate a concise handoff. Do not delay stabilization for a complete history.",
+    "notes": [
+        {
+            "heading": "Principle",
+            "body": "Use a structured ABCDE/SAMPLE approach, call for help early, address life threats, reassess after intervention, and communicate a concise handoff. Do not delay stabilization for a complete history."
         },
-        "taxonomy": {
-            "subject_id": "nursing-foundations"
+        {
+            "heading": "Assessment and interpretation",
+            "body": "Cluster relevant cues, compare trends with the patient's baseline, identify immediate threats, and state what information is missing before choosing an intervention."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        {
+            "heading": "Nursing action and rationale",
+            "body": "Choose the least harmful effective action within role and orders, protect privacy and infection safety, reassess the response, and escalate promptly when deterioration or uncertainty remains."
+        },
+        {
+            "heading": "Teaching and common mistakes",
+            "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+        }
+    ],
+    "source_ids": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "who-basic-emergency-care",
+        "who-mhgap-2023",
+        "openrn-nursing-fundamentals"
+    ],
+    "exams": [
+        "nursing"
+    ],
+    "exam_focus": {
+        "nursing": {
+            "priority": "high",
+            "official_scope_status": "official TOS-aligned educational review"
+        }
     },
+    "taxonomy": {
+        "subject_id": "nursing-foundations"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG",
+    "batch620_support": {
+        "np_area": "NP V",
+        "depth_supported": [
+            2,
+            3,
+            4
+        ],
+        "updated_for": "source-first clinical expansion"
+    }
+},
     {
-        "id": "nle-integrated-pharmacology",
-        "title": "Integrated Pharmacology and Medication Safety",
-        "summary": "Focused structured Nursing review aligned with the PRC enhanced TOS.",
-        "notes": [
-            {
-                "heading": "Practice focus",
-                "body": "Connect assessment, safety, clinical reasoning, communication, and evaluation to the client situation."
-            }
-        ],
-        "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ],
-        "exams": [
-            "nursing"
-        ],
-        "exam_focus": {
-            "nursing": {
-                "priority": "high",
-                "official_scope_status": "official TOS-aligned educational review"
-            }
+    "id": "nle-integrated-pharmacology",
+    "title": "Integrated Pharmacology and Medication Safety",
+    "summary": "Medication reconciliation includes what the patient actually takes, why, how, and what changed. Communicate discrepancies and high-risk instructions at handoff and discharge.",
+    "notes": [
+        {
+            "heading": "Principle",
+            "body": "Medication reconciliation includes what the patient actually takes, why, how, and what changed. Communicate discrepancies and high-risk instructions at handoff and discharge."
         },
-        "taxonomy": {
-            "subject_id": "nursing-foundations"
+        {
+            "heading": "Assessment and interpretation",
+            "body": "Cluster relevant cues, compare trends with the patient's baseline, identify immediate threats, and state what information is missing before choosing an intervention."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        {
+            "heading": "Nursing action and rationale",
+            "body": "Choose the least harmful effective action within role and orders, protect privacy and infection safety, reassess the response, and escalate promptly when deterioration or uncertainty remains."
+        },
+        {
+            "heading": "Teaching and common mistakes",
+            "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+        }
+    ],
+    "source_ids": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "who-medication-without-harm-5-moments",
+        "openrn-pharmacology",
+        "openrn-nursing-fundamentals"
+    ],
+    "exams": [
+        "nursing"
+    ],
+    "exam_focus": {
+        "nursing": {
+            "priority": "high",
+            "official_scope_status": "official TOS-aligned educational review"
+        }
     },
+    "taxonomy": {
+        "subject_id": "nursing-foundations"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG",
+    "batch620_support": {
+        "np_area": "NP IV",
+        "depth_supported": [
+            2,
+            3,
+            4
+        ],
+        "updated_for": "source-first clinical expansion"
+    }
+},
     {
-        "id": "nle-integrated-process",
-        "title": "Integrated Nursing Process and Evidence-Based Practice",
-        "summary": "Focused structured Nursing review aligned with the PRC enhanced TOS.",
-        "notes": [
-            {
-                "heading": "Practice focus",
-                "body": "Connect assessment, safety, clinical reasoning, communication, and evaluation to the client situation."
-            }
-        ],
-        "source_ids": [
-            "prc-nursing-enhanced-tos-2025"
-        ],
-        "exams": [
-            "nursing"
-        ],
-        "exam_focus": {
-            "nursing": {
-                "priority": "high",
-                "official_scope_status": "official TOS-aligned educational review"
-            }
+    "id": "nle-integrated-process",
+    "title": "Integrated Nursing Process and Evidence-Based Practice",
+    "summary": "Use the mother-newborn dyad, trends rather than isolated data, immediate threats, and the least harmful effective nursing action. Current local protocols govern volatile thresholds.",
+    "notes": [
+        {
+            "heading": "Principle",
+            "body": "Use the mother-newborn dyad, trends rather than isolated data, immediate threats, and the least harmful effective nursing action. Current local protocols govern volatile thresholds."
         },
-        "taxonomy": {
-            "subject_id": "nursing-foundations"
+        {
+            "heading": "Assessment and interpretation",
+            "body": "Cluster relevant cues, compare trends with the patient's baseline, identify immediate threats, and state what information is missing before choosing an intervention."
         },
-        "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        {
+            "heading": "Nursing action and rationale",
+            "body": "Choose the least harmful effective action within role and orders, protect privacy and infection safety, reassess the response, and escalate promptly when deterioration or uncertainty remains."
+        },
+        {
+            "heading": "Teaching and common mistakes",
+            "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+        }
+    ],
+    "source_ids": [
+        "prc-nursing-enhanced-tos-2025",
+        "prc-nursing-program-aug-2026",
+        "who-postnatal-care-2022",
+        "who-maternal-peripartum-infections",
+        "openrn-nursing-fundamentals"
+    ],
+    "exams": [
+        "nursing"
+    ],
+    "exam_focus": {
+        "nursing": {
+            "priority": "high",
+            "official_scope_status": "official TOS-aligned educational review"
+        }
     },
+    "taxonomy": {
+        "subject_id": "nursing-foundations"
+    },
+    "status": "published",
+    "version": 2,
+    "updated_at": "2026-09-28",
+    "technical_support_state": "STRONG",
+    "batch620_support": {
+        "np_area": "NP II",
+        "depth_supported": [
+            2,
+            3,
+            4
+        ],
+        "updated_for": "source-first clinical expansion"
+    }
+},
     {
         "id": "portfolio-civil-engineering-foundation",
         "title": "Civil Engineers Licensure Examination Foundation Orientation",

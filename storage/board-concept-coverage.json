@@ -8698,665 +8698,845 @@
         "confidence": "HIGH_FOR_DIRECT_MAPPING"
     },
     {
-        "id": "coverage-f940f97881be1b89028f57f1dd36af6934dffe897e79c35dd37bc3277ff0aabc",
-        "board_id": "nursing",
-        "concept_id": "nle-np-i-community",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-community-health",
-        "topic_id": "nle-community-health",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:857",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-f940f97881be1b89028f57f1dd36af6934dffe897e79c35dd37bc3277ff0aabc",
+    "board_id": "nursing",
+    "concept_id": "nle-np-i-community",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-community-health",
+    "topic_id": "nle-community-health",
+    "blueprint_node_id": "community-health",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:857",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-fd35fcb1b383604db6aae97b81ec24b43b660af996eb28dfcc70de3678aa617c",
-        "board_id": "nursing",
-        "concept_id": "nle-np-i-prevention",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-community-health",
-        "topic_id": "nle-community-health",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:858",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-fd35fcb1b383604db6aae97b81ec24b43b660af996eb28dfcc70de3678aa617c",
+    "board_id": "nursing",
+    "concept_id": "nle-np-i-prevention",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-community-health",
+    "topic_id": "nle-community-health",
+    "blueprint_node_id": "community-health",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:858",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-c5cfbc44aab6ba03a524d4b15d3ce6b3bd2061770c33e0b89dacff202915b0b5",
-        "board_id": "nursing",
-        "concept_id": "nle-np-i-education",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-community-health",
-        "topic_id": "nle-community-health",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:859",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-c5cfbc44aab6ba03a524d4b15d3ce6b3bd2061770c33e0b89dacff202915b0b5",
+    "board_id": "nursing",
+    "concept_id": "nle-np-i-education",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-community-health",
+    "topic_id": "nle-community-health",
+    "blueprint_node_id": "community-health",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:859",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-54314950ca11998981a7373a92216e982540adad89f9e49b84533f93de8bae9f",
-        "board_id": "nursing",
-        "concept_id": "nle-np-i-epidemiology",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-community-health",
-        "topic_id": "nle-community-health",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:860",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-54314950ca11998981a7373a92216e982540adad89f9e49b84533f93de8bae9f",
+    "board_id": "nursing",
+    "concept_id": "nle-np-i-epidemiology",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-community-health",
+    "topic_id": "nle-community-health",
+    "blueprint_node_id": "community-health",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:860",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-202ab99a4cf04b162d23ef6ace4581ad33a78c185dd2062e4b8da9e867dfcc2c",
-        "board_id": "nursing",
-        "concept_id": "nle-np-i-disaster",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-community-health",
-        "topic_id": "nle-community-health",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:861",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-202ab99a4cf04b162d23ef6ace4581ad33a78c185dd2062e4b8da9e867dfcc2c",
+    "board_id": "nursing",
+    "concept_id": "nle-np-i-disaster",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-community-health",
+    "topic_id": "nle-community-health",
+    "blueprint_node_id": "community-health",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:861",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-96d4f280116b98fcb0c9ec37e142d4a63d2afbd9db8e0a92a52c2e85a733257a",
-        "board_id": "nursing",
-        "concept_id": "nle-np-i-vulnerable",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-community-health",
-        "topic_id": "nle-community-health",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:862",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-96d4f280116b98fcb0c9ec37e142d4a63d2afbd9db8e0a92a52c2e85a733257a",
+    "board_id": "nursing",
+    "concept_id": "nle-np-i-vulnerable",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-community-health",
+    "topic_id": "nle-community-health",
+    "blueprint_node_id": "community-health",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:862",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-79d476f5fbfa4e56b50023864f0576a1da0157119ab2f3951fd4a89069ae2399",
-        "board_id": "nursing",
-        "concept_id": "nle-np-ii-prenatal",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-maternal-child",
-        "topic_id": "nle-maternal-child",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:893",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-79d476f5fbfa4e56b50023864f0576a1da0157119ab2f3951fd4a89069ae2399",
+    "board_id": "nursing",
+    "concept_id": "nle-np-ii-prenatal",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-maternal-child",
+    "topic_id": "nle-maternal-child",
+    "blueprint_node_id": "maternal-child",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:893",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-61abd7ed61595300afbd404c89f287bf92bbc9232fa0318c85f8385b58e7b675",
-        "board_id": "nursing",
-        "concept_id": "nle-np-ii-labor",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-maternal-child",
-        "topic_id": "nle-maternal-child",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:894",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-61abd7ed61595300afbd404c89f287bf92bbc9232fa0318c85f8385b58e7b675",
+    "board_id": "nursing",
+    "concept_id": "nle-np-ii-labor",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-maternal-child",
+    "topic_id": "nle-maternal-child",
+    "blueprint_node_id": "maternal-child",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:894",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-d052dfa418302857c1d43c5e4ac09101bf2dcae28b0f4b77ef7ff5c2445791db",
-        "board_id": "nursing",
-        "concept_id": "nle-np-ii-postpartum",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-maternal-child",
-        "topic_id": "nle-maternal-child",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:895",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-d052dfa418302857c1d43c5e4ac09101bf2dcae28b0f4b77ef7ff5c2445791db",
+    "board_id": "nursing",
+    "concept_id": "nle-np-ii-postpartum",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-maternal-child",
+    "topic_id": "nle-maternal-child",
+    "blueprint_node_id": "maternal-child",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:895",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-e9b8a16225c0c09e8e9a018888279c17b1c9159aa5ae22c2fcd6797d84d67dab",
-        "board_id": "nursing",
-        "concept_id": "nle-np-ii-newborn",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-maternal-child",
-        "topic_id": "nle-maternal-child",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:896",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-e9b8a16225c0c09e8e9a018888279c17b1c9159aa5ae22c2fcd6797d84d67dab",
+    "board_id": "nursing",
+    "concept_id": "nle-np-ii-newborn",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-maternal-child",
+    "topic_id": "nle-maternal-child",
+    "blueprint_node_id": "maternal-child",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:896",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-42d4c859bc6b688d70d3cd70ee8a35fc6ff7317d013b5f5dddbdf452bf639082",
-        "board_id": "nursing",
-        "concept_id": "nle-np-ii-development",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-maternal-child",
-        "topic_id": "nle-maternal-child",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:897",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-42d4c859bc6b688d70d3cd70ee8a35fc6ff7317d013b5f5dddbdf452bf639082",
+    "board_id": "nursing",
+    "concept_id": "nle-np-ii-development",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-maternal-child",
+    "topic_id": "nle-maternal-child",
+    "blueprint_node_id": "maternal-child",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:897",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-1601a0f4929cfa8fdd21c15a04cf81a560718fd10047e8c21e5101b91028be54",
-        "board_id": "nursing",
-        "concept_id": "nle-np-ii-family",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-maternal-child",
-        "topic_id": "nle-maternal-child",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:898",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-1601a0f4929cfa8fdd21c15a04cf81a560718fd10047e8c21e5101b91028be54",
+    "board_id": "nursing",
+    "concept_id": "nle-np-ii-family",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-maternal-child",
+    "topic_id": "nle-maternal-child",
+    "blueprint_node_id": "maternal-child",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:898",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-864d68b5ff24d842d1f4899ea5d1c8710ea7da9c345e56120204ba4778fa7495",
-        "board_id": "nursing",
-        "concept_id": "nle-np-iii-oxygenation",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-medical-surgical",
-        "topic_id": "nle-medical-surgical",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:929",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-864d68b5ff24d842d1f4899ea5d1c8710ea7da9c345e56120204ba4778fa7495",
+    "board_id": "nursing",
+    "concept_id": "nle-np-iii-oxygenation",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-medical-surgical",
+    "topic_id": "nle-medical-surgical",
+    "blueprint_node_id": "medical-surgical",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:929",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-bdf2dcdafdf420a4dd6b272e61550daf34231bd4c360895b39b80dae4db9a158",
-        "board_id": "nursing",
-        "concept_id": "nle-np-iii-fluids",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-medical-surgical",
-        "topic_id": "nle-medical-surgical",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:930",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-bdf2dcdafdf420a4dd6b272e61550daf34231bd4c360895b39b80dae4db9a158",
+    "board_id": "nursing",
+    "concept_id": "nle-np-iii-fluids",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-medical-surgical",
+    "topic_id": "nle-medical-surgical",
+    "blueprint_node_id": "medical-surgical",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:930",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-cd7728246ce6d0b228c19180847f455c88711b521c9a2a18b05ecc1fa0697f1b",
-        "board_id": "nursing",
-        "concept_id": "nle-np-iii-infection",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-medical-surgical",
-        "topic_id": "nle-medical-surgical",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:931",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-cd7728246ce6d0b228c19180847f455c88711b521c9a2a18b05ecc1fa0697f1b",
+    "board_id": "nursing",
+    "concept_id": "nle-np-iii-infection",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-medical-surgical",
+    "topic_id": "nle-medical-surgical",
+    "blueprint_node_id": "medical-surgical",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:931",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-4b30a7f466f82fb9980e53829f96ec0e5cc5313eb477229f137c2cc40566f0b2",
-        "board_id": "nursing",
-        "concept_id": "nle-np-iii-immunity",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-medical-surgical",
-        "topic_id": "nle-medical-surgical",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:932",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-4b30a7f466f82fb9980e53829f96ec0e5cc5313eb477229f137c2cc40566f0b2",
+    "board_id": "nursing",
+    "concept_id": "nle-np-iii-immunity",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-medical-surgical",
+    "topic_id": "nle-medical-surgical",
+    "blueprint_node_id": "medical-surgical",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:932",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-07886fe0a2e0dfc5b97838d36321779162a3e33cb58f7b4b701e5516888784c4",
-        "board_id": "nursing",
-        "concept_id": "nle-np-iii-perioperative",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-medical-surgical",
-        "topic_id": "nle-medical-surgical",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:933",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-07886fe0a2e0dfc5b97838d36321779162a3e33cb58f7b4b701e5516888784c4",
+    "board_id": "nursing",
+    "concept_id": "nle-np-iii-perioperative",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-medical-surgical",
+    "topic_id": "nle-medical-surgical",
+    "blueprint_node_id": "medical-surgical",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:933",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-a00b6cde02b7b3b497eb7e8cdcc5ed4b7db1a4492341f1f183472d8c2ed7f6d6",
-        "board_id": "nursing",
-        "concept_id": "nle-np-iii-cellular",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-medical-surgical",
-        "topic_id": "nle-medical-surgical",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:934",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-a00b6cde02b7b3b497eb7e8cdcc5ed4b7db1a4492341f1f183472d8c2ed7f6d6",
+    "board_id": "nursing",
+    "concept_id": "nle-np-iii-cellular",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-medical-surgical",
+    "topic_id": "nle-medical-surgical",
+    "blueprint_node_id": "medical-surgical",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:934",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-8b3c513a56e4ccb058b53b379c8fc4c2e9c985b684d75d4f206e57f9cff41a4a",
-        "board_id": "nursing",
-        "concept_id": "nle-np-iv-nutrition",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-medical-surgical",
-        "topic_id": "nle-medical-surgical",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:965",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-8b3c513a56e4ccb058b53b379c8fc4c2e9c985b684d75d4f206e57f9cff41a4a",
+    "board_id": "nursing",
+    "concept_id": "nle-np-iv-nutrition",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-medical-surgical",
+    "topic_id": "nle-medical-surgical",
+    "blueprint_node_id": "medical-surgical",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:965",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-c8d8f380d24d7d90327d0687bfa5742b272eb3b84a6580c7599cfc296a71867a",
-        "board_id": "nursing",
-        "concept_id": "nle-np-iv-gastrointestinal",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-medical-surgical",
-        "topic_id": "nle-medical-surgical",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:966",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-c8d8f380d24d7d90327d0687bfa5742b272eb3b84a6580c7599cfc296a71867a",
+    "board_id": "nursing",
+    "concept_id": "nle-np-iv-gastrointestinal",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-medical-surgical",
+    "topic_id": "nle-medical-surgical",
+    "blueprint_node_id": "medical-surgical",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:966",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-f5bd5ea201ed71e4e90672fb89bcbf2ef74ed69038be1186f2a961a93c5c1a60",
-        "board_id": "nursing",
-        "concept_id": "nle-np-iv-endocrine",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-medical-surgical",
-        "topic_id": "nle-medical-surgical",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:967",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-f5bd5ea201ed71e4e90672fb89bcbf2ef74ed69038be1186f2a961a93c5c1a60",
+    "board_id": "nursing",
+    "concept_id": "nle-np-iv-endocrine",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-medical-surgical",
+    "topic_id": "nle-medical-surgical",
+    "blueprint_node_id": "medical-surgical",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:967",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-1524f3e7af3d6c1d693f981f4ea2ccf79ae4b909129bd6fee29a043a960aa98c",
-        "board_id": "nursing",
-        "concept_id": "nle-np-iv-perception",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-medical-surgical",
-        "topic_id": "nle-medical-surgical",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:968",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-1524f3e7af3d6c1d693f981f4ea2ccf79ae4b909129bd6fee29a043a960aa98c",
+    "board_id": "nursing",
+    "concept_id": "nle-np-iv-perception",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-medical-surgical",
+    "topic_id": "nle-medical-surgical",
+    "blueprint_node_id": "medical-surgical",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:968",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-1e208a95b9f813b1bf1bf76f4b94183907a66f8cf5f031f5dd4a713a3fba92df",
-        "board_id": "nursing",
-        "concept_id": "nle-np-iv-coordination",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-medical-surgical",
-        "topic_id": "nle-medical-surgical",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:969",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-1e208a95b9f813b1bf1bf76f4b94183907a66f8cf5f031f5dd4a713a3fba92df",
+    "board_id": "nursing",
+    "concept_id": "nle-np-iv-coordination",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-medical-surgical",
+    "topic_id": "nle-medical-surgical",
+    "blueprint_node_id": "medical-surgical",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:969",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-de0b67701b012afcfde1a4b01f88a5caa98f8551ae8b3fc9eeb96b47ca909f4e",
-        "board_id": "nursing",
-        "concept_id": "nle-np-iv-medication",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-medical-surgical",
-        "topic_id": "nle-medical-surgical",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:970",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-de0b67701b012afcfde1a4b01f88a5caa98f8551ae8b3fc9eeb96b47ca909f4e",
+    "board_id": "nursing",
+    "concept_id": "nle-np-iv-medication",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-medical-surgical",
+    "topic_id": "nle-medical-surgical",
+    "blueprint_node_id": "medical-surgical",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:970",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-cd23909a97ad66d95f922517b95a6b39cdc934a2e9578da362bf222d0a952913",
-        "board_id": "nursing",
-        "concept_id": "nle-np-v-therapeutic",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-mental-health",
-        "topic_id": "nle-mental-health",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1001",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-cd23909a97ad66d95f922517b95a6b39cdc934a2e9578da362bf222d0a952913",
+    "board_id": "nursing",
+    "concept_id": "nle-np-v-therapeutic",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-mental-health",
+    "topic_id": "nle-mental-health",
+    "blueprint_node_id": "mental-health",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1001",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-69236c94bb255223e38c91c269e78e965dd95fa97ef169e85e46d4809e2f38db",
-        "board_id": "nursing",
-        "concept_id": "nle-np-v-crisis",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-mental-health",
-        "topic_id": "nle-mental-health",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1002",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-69236c94bb255223e38c91c269e78e965dd95fa97ef169e85e46d4809e2f38db",
+    "board_id": "nursing",
+    "concept_id": "nle-np-v-crisis",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-mental-health",
+    "topic_id": "nle-mental-health",
+    "blueprint_node_id": "mental-health",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1002",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-728a9048fad7ce13063d2266994e914611f082e4b286b3d8bf49e8114c135d40",
-        "board_id": "nursing",
-        "concept_id": "nle-np-v-emergency",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-mental-health",
-        "topic_id": "nle-mental-health",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1003",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-728a9048fad7ce13063d2266994e914611f082e4b286b3d8bf49e8114c135d40",
+    "board_id": "nursing",
+    "concept_id": "nle-np-v-emergency",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-mental-health",
+    "topic_id": "nle-mental-health",
+    "blueprint_node_id": "mental-health",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1003",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-5d1d22680715ebecdd1b7310db2ee33d3df5b9eae34ff99641ca042c60c6a6bd",
-        "board_id": "nursing",
-        "concept_id": "nle-np-v-shock",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-mental-health",
-        "topic_id": "nle-mental-health",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1004",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-5d1d22680715ebecdd1b7310db2ee33d3df5b9eae34ff99641ca042c60c6a6bd",
+    "board_id": "nursing",
+    "concept_id": "nle-np-v-shock",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-mental-health",
+    "topic_id": "nle-mental-health",
+    "blueprint_node_id": "mental-health",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1004",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-be0806070d95d61ff3f3ea8f08f0692b7cfffaefbef678d34b89895829c24afb",
-        "board_id": "nursing",
-        "concept_id": "nle-np-v-acuity",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-mental-health",
-        "topic_id": "nle-mental-health",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1005",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-be0806070d95d61ff3f3ea8f08f0692b7cfffaefbef678d34b89895829c24afb",
+    "board_id": "nursing",
+    "concept_id": "nle-np-v-acuity",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-mental-health",
+    "topic_id": "nle-mental-health",
+    "blueprint_node_id": "mental-health",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1005",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-43db668cdf3bdbf869284afb16fffc4551e90f06e0c1b8eda3e055707132fd0a",
-        "board_id": "nursing",
-        "concept_id": "nle-np-v-teamwork",
-        "subject_id": "nursing-foundations",
-        "domain_id": "nle-mental-health",
-        "topic_id": "nle-mental-health",
-        "blueprint_node_id": "",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "REVIEW_REQUIRED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1006",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-43db668cdf3bdbf869284afb16fffc4551e90f06e0c1b8eda3e055707132fd0a",
+    "board_id": "nursing",
+    "concept_id": "nle-np-v-teamwork",
+    "subject_id": "nursing-foundations",
+    "domain_id": "nle-mental-health",
+    "topic_id": "nle-mental-health",
+    "blueprint_node_id": "mental-health",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1006",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "BATCH620_COVERAGE_DEPTH",
+            "reference": "batch-620-nursing-depth",
+            "note": "NP competency placement and depth calibrated from official scope, source-backed study material, and item-solving demand.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Current PRC Nursing NP I–V scope, authoritative clinical instruction, strengthened BoardPrep material, and the new application/analysis cohort support bounded analysis depth; depth 5 is not claimed.",
+    "confidence": "STRONG"
+},
     {
         "id": "coverage-676b8f51cf6a9a8dd779f1845f933991d985465fb87b52e54847f89e18434f8d",
         "board_id": "registered-electrical-engineering",
