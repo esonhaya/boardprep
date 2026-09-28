@@ -968,7 +968,7 @@ $newDepthCounts = ['1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0, 'UNKNOWN' =
 $newContextCounts = ['NEUTRAL' => 0, 'PROFESSIONAL' => 0, 'REGULATORY' => 0, 'OTHER_OR_UNKNOWN' => 0];
 $newPrerequisites = ['required' => 0, 'assumed' => 0, 'free' => 0];
 $questionsPerSource = []; $conceptsPerSource = []; $formulaFamilies = []; $numericTemplates = []; $scenarioFamilies = []; $misconceptionFamilies = []; $answerDistribution = ['A' => 0, 'B' => 0, 'C' => 0, 'D' => 0, 'OTHER' => 0];
-$newMissingStudyLink = 0; $newWithoutInstructionalSource = 0; $newNonDerivable = 0; $newTaxonomyInvalid = 0; $newWithoutEligibility = 0; $newInvalidSource = 0; $numericalPass = 0; $numericalFail = 0; $clinicalReview = [];
+$newMissingStudyLink = 0; $newWithoutInstructionalSource = 0; $newNonDerivable = 0; $newTaxonomyInvalid = 0; $newWithoutEligibility = 0; $newInvalidSource = 0; $numericalPass = 0; $numericalFail = 0; $clinicalReview = []; $numericIds = []; $nonDosageNumericIds = [];
 $newQuestionById = []; foreach ($newQuestionRows as $r) $newQuestionById[(string)$r['id']] = $r;
 $linkByQuestion = []; foreach ($linksAfter as $link) $linkByQuestion[(string)($link['question_id'] ?? '')][] = $link;
 $eligibleNew = []; foreach ($afterPairs as $pair => $n) { [$id, $board] = explode('|', $pair, 2); if (isset($newIds[$id])) $eligibleNew[$id . '|' . $board] = $n; }
@@ -1005,7 +1005,7 @@ foreach ($questions as $q) {
     $p = (string)$q['__prerequisite']; if (str_starts_with($p, 'REQUIRED:')) $newPrerequisites['required']++; elseif ($p === 'ASSUMED_FOUNDATION') $newPrerequisites['assumed']++; else $newPrerequisites['free']++;
     $answerDistribution[$choiceIndex($q)]++;
     $scenarioFamilies[$q['__scenario']] = true; foreach ($q['__misconceptions'] as $mis) $misconceptionFamilies[$mis] = true;
-    if ($q['__numeric']) { $formulaFamilies[(string)($q['__calculation']['family'] ?? 'unknown')] = true; $numericTemplates[$normalize((string)$q['question'])] = true; $check = $recompute($q); if ($check['ok']) $numericalPass++; else $numericalFail++; }
+    if ($q['__numeric']) { $numericIds[] = (int)$id; $formulaFamilies[(string)($q['__calculation']['family'] ?? 'unknown')] = true; $numericTemplates[$normalize((string)$q['question'])] = true; $check = $recompute($q); if ($check['ok']) $numericalPass++; else $numericalFail++; if (!in_array('DOSAGE_CALCULATION', $q['__safety'], true)) $nonDosageNumericIds[] = (int)$id; }
     foreach ($q['__sources'] as $sourceId) { $questionsPerSource[$sourceId] = ($questionsPerSource[$sourceId] ?? 0) + 1; $conceptsPerSource[$sourceId][$q['__concept']] = true; if (!isset($sourceIdsAfter[$sourceId])) $newInvalidSource++; }
     $links = $linkByQuestion[$id] ?? []; if (count($links) !== 1) $newMissingStudyLink++;
     $hasInstructional = false; $hasScope = false;
@@ -1018,11 +1018,66 @@ foreach ($questions as $q) {
         $clinicalReview[] = ['question_id' => (int)$id, 'safety_categories' => $safety, 'source_ids' => $q['__sources'], 'review_status' => $calc['ok'] ? 'PASS' : 'FAIL', 'answer_verified' => true, 'guidance_current_or_not_applicable' => true, 'calculation_verified_or_not_applicable' => $calc['ok'], 'notes' => $q['__numeric'] ? ('Independent recomputation: ' . ($calc['method'] ?? 'formula') . '; expected=' . ($calc['expected'] ?? '') . '; computed=' . ($calc['computed'] ?? '')) : 'Clinical safety review checked source authority, assumptions, answer, distractors, explanation, and unsafe-interpretation risk.'];
     }
 }
-ksort($questionsPerSource); ksort($conceptsPerSource); foreach ($conceptsPerSource as &$v) { $v = array_keys($v); sort($v); } unset($v); ksort($formulaFamilies); ksort($numericTemplates); ksort($scenarioFamilies); ksort($misconceptionFamilies); usort($clinicalReview, static fn(array $a, array $b): int => $a['question_id'] <=> $b['question_id']);
+ksort($questionsPerSource); ksort($conceptsPerSource); foreach ($conceptsPerSource as &$v) { $v = array_keys($v); sort($v); } unset($v); ksort($formulaFamilies); ksort($numericTemplates); ksort($scenarioFamilies); ksort($misconceptionFamilies); sort($numericIds); sort($nonDosageNumericIds); usort($clinicalReview, static fn(array $a, array $b): int => $a['question_id'] <=> $b['question_id']);
 $newDepthCounts['UNKNOWN'] = 0; $newSafetyUnique = count($clinicalReview); $safetyMembership = [];
 foreach ($clinicalReview as $r) foreach ($r['safety_categories'] as $cat) $safetyMembership[$cat] = ($safetyMembership[$cat] ?? 0) + 1;
 $multiCategorySafety = count(array_filter($clinicalReview, static fn(array $r): bool => count($r['safety_categories']) > 1));
 $safetyFails = count(array_filter($clinicalReview, static fn(array $r): bool => ($r['review_status'] ?? '') !== 'PASS' || ($r['answer_verified'] ?? false) !== true || ($r['guidance_current_or_not_applicable'] ?? false) !== true || ($r['calculation_verified_or_not_applicable'] ?? false) !== true));
+$clinicalReviewById = [];
+foreach ($clinicalReview as $review) $clinicalReviewById[(string)$review['question_id']] = $review;
+$dosageSafetyRecords = []; $dosageCalculationPass = 0; $dosageCalculationFail = 0; $dosageConceptualPass = 0; $dosageConceptualFail = 0;
+$dosageCalculationIds = []; $dosageConceptualIds = [];
+$dosageFields = static function (array $q, bool $calculationRequired): array {
+    if (!$calculationRequired) return ['ordered_dose' => 'NOT_APPLICABLE', 'available_dose_or_concentration' => 'NOT_APPLICABLE', 'patient_weight' => 'NOT_APPLICABLE', 'time_or_rate' => 'NOT_APPLICABLE', 'unit_conversion' => 'NOT_APPLICABLE', 'rounding' => 'NOT_APPLICABLE'];
+    $stem = (string)$q['question']; $family = (string)($q['__calculation']['family'] ?? '');
+    $capture = static function (string $pattern, string $text): string { return preg_match($pattern, $text, $m) ? trim((string)$m[1]) : 'SEE_STEM'; };
+    $ordered = 'NOT_APPLICABLE'; $available = 'NOT_APPLICABLE'; $weight = 'NOT_APPLICABLE'; $time = 'NOT_APPLICABLE';
+    if (in_array($family, ['dose on hand', 'tablet dose'], true)) $ordered = $capture('/(?:order is|ordered|prescribed)\s+([0-9.,]+\s*(?:g|mg))/i', $stem);
+    elseif ($family === 'volume conversion') $ordered = $capture('/(?:order is|ordered|prescribed)\s+([0-9.,]+\s*mL)/i', $stem);
+    elseif (in_array($family, ['mL/hr', 'gtt/min', 'urine output rate'], true)) $ordered = $capture('/([0-9.,]+\s*mL)/i', $stem);
+    elseif (in_array($family, ['mg/kg', 'mg-or-units/kg', 'mcg/kg/min'], true)) $ordered = $capture('/([0-9.,]+\s*(?:mg|units|mcg)\/kg(?:\/min)?)/i', $stem);
+    if ($family === 'dose on hand') $available = $capture('/(?:vial contains|available solution is|solution contains)\s+([0-9.,]+\s*mg\s+in\s+[0-9.,]+\s*mL)/i', $stem);
+    elseif ($family === 'tablet dose') $available = $capture('/([0-9.,]+\s*mg each)/i', $stem);
+    elseif ($family === 'volume conversion') $available = $capture('/contains\s+([0-9.,]+\s*mL per tablespoon)/i', $stem);
+    elseif ($family === 'gtt/min') $available = $capture('/([0-9.,]+\s*drops\/mL)/i', $stem);
+    if (in_array($family, ['mg/kg', 'mg-or-units/kg', 'mcg/kg/min'], true)) { $weight = $capture('/([0-9.,]+\s*-?\s*kg)/i', $stem); $weight = preg_replace('/\s*-\s*/', ' ', $weight) ?? $weight; }
+    if (in_array($family, ['mL/hr', 'gtt/min', 'urine output rate'], true)) $time = $capture('/over\s+([0-9.,]+\s*hours?)/i', $stem);
+    $conversion = 'NOT_REQUIRED';
+    if ($family === 'gtt/min') $conversion = 'hours→minutes and mL→drops';
+    elseif (($family === 'proportion' || $family === 'incidence proportion')) $conversion = 'decimal→percent';
+    elseif ($family === 'dose on hand' && preg_match('/\bg\b/i', $stem)) $conversion = 'g→mg';
+    $rounding = preg_match('/one decimal|closest|round/i', $stem . ' ' . (string)($q['explanation'] ?? '')) ? 'per stem/explanation rounding convention' : 'exact result';
+    return [
+        'ordered_dose' => $ordered, 'available_dose_or_concentration' => $available, 'patient_weight' => $weight, 'time_or_rate' => $time,
+        'unit_conversion' => $conversion,
+        'rounding' => $rounding,
+    ];
+};
+foreach ($questions as $q) {
+    $safety = $q['__safety']; if (!in_array('DOSAGE_CALCULATION', $safety, true)) continue;
+    $id = (string)$q['id']; $calculationRequired = (bool)$q['__numeric']; $review = $clinicalReviewById[$id] ?? [];
+    $linksForQuestion = $linkByQuestion[$id] ?? []; $studyLinkPass = count($linksForQuestion) === 1 && isset($materialByIdAfter[(string)($linksForQuestion[0]['material_id'] ?? '')]);
+    $sourceIds = array_values(array_unique(array_map('strval', $q['__sources']))); $hasInstructional = false; $hasScope = false;
+    foreach ($sourceIds as $sourceId) { $profile = $sourceProfile[$sourceId] ?? null; if (($profile['role'] ?? '') === 'INSTRUCTIONAL_SOURCE') $hasInstructional = true; if ($sourceId === $scopeSource || $sourceId === $tosSource) $hasScope = true; }
+    $derivable = $hasInstructional && $hasScope && $studyLinkPass;
+    $check = $calculationRequired ? $recompute($q) : ['ok' => true, 'computed' => null, 'expected' => null, 'method' => 'not_applicable'];
+    $answerMatch = in_array((string)$q['answer'], array_map('strval', $q['choices']), true);
+    $fields = $dosageFields($q, $calculationRequired);
+    $record = [
+        'question_id' => (int)$id, 'safety_categories' => $safety, 'question_summary' => (string)$q['question'],
+        'primary_dosage_class' => $calculationRequired ? 'CALCULATION_REQUIRED' : 'CONCEPTUAL_DOSAGE_SAFETY', 'arithmetic_required' => $calculationRequired,
+        'ordered_dose' => $fields['ordered_dose'], 'available_dose_or_concentration' => $fields['available_dose_or_concentration'], 'patient_weight' => $fields['patient_weight'], 'time_or_rate' => $fields['time_or_rate'], 'unit_conversion' => $fields['unit_conversion'], 'rounding' => $fields['rounding'],
+        'formula_family' => $calculationRequired ? (string)($q['__calculation']['family'] ?? 'unknown') : 'NOT_APPLICABLE', 'expected_result' => $calculationRequired ? (($check['expected'] ?? '') . ' ' . (string)($q['__calculation']['unit'] ?? '')) : 'NOT_APPLICABLE', 'computed_result' => $calculationRequired ? (($check['computed'] ?? '') . ' ' . (string)($q['__calculation']['unit'] ?? '')) : 'NOT_APPLICABLE',
+        'stored_correct_answer' => (string)$q['answer'], 'answer_match' => $answerMatch, 'source_ids' => $sourceIds, 'source_support' => ['board_scope' => $hasScope, 'instructional_source' => $hasInstructional, 'study_link' => $studyLinkPass, 'derivable' => $derivable], 'study_link_id' => $linksForQuestion[0]['id'] ?? null, 'eligibility_valid' => isset($eligibleNew[$id . '|nursing']),
+        'safety_review' => ['status' => $review['review_status'] ?? 'FAIL', 'answer_verified' => $review['answer_verified'] ?? false, 'guidance_current_or_not_applicable' => $review['guidance_current_or_not_applicable'] ?? false, 'calculation_verified_or_not_applicable' => $review['calculation_verified_or_not_applicable'] ?? false],
+        'notes' => $calculationRequired ? ('Independent recomputation: ' . ($check['method'] ?? 'formula') . '; expected=' . ($check['expected'] ?? '') . '; computed=' . ($check['computed'] ?? '') . '; answer choice match=' . ($answerMatch ? 'yes' : 'no')) : 'Conceptual dosage-safety review: no numeric inputs are supplied and no arithmetic is needed to determine the safe action; dosage terminology is clinically material.',
+    ];
+    $dosageSafetyRecords[] = $record;
+    if ($calculationRequired) { $dosageCalculationIds[] = (int)$id; if ($check['ok'] && $answerMatch && ($review['review_status'] ?? '') === 'PASS' && $derivable && isset($eligibleNew[$id . '|nursing'])) $dosageCalculationPass++; else $dosageCalculationFail++; }
+    else { $dosageConceptualIds[] = (int)$id; if (($review['review_status'] ?? '') === 'PASS' && $derivable && $answerMatch && isset($eligibleNew[$id . '|nursing'])) $dosageConceptualPass++; else $dosageConceptualFail++; }
+}
+usort($dosageSafetyRecords, static fn(array $a, array $b): int => $a['question_id'] <=> $b['question_id']); sort($dosageCalculationIds); sort($dosageConceptualIds);
+$dosageTaggedTotal = count($dosageSafetyRecords); $dosageClassificationTotalMatch = $dosageTaggedTotal === count($dosageCalculationIds) + count($dosageConceptualIds);
 $requiredInvalid = 0; $selfPrerequisite = 0; $requiredPairs = []; $distinctRequired = [];
 foreach ($newRequirements as $r) {
     $qid = (string)$r['question_id']; $cid = (string)$r['concept_id']; $requiredPairs[$qid . '|' . $cid] = true; $distinctRequired[$cid] = true;
@@ -1137,8 +1192,9 @@ $report = [
     'content' => ['actual_new_questions' => $plannedCount, 'new_id_range' => [$baseId, $lastId], 'new_by_concept' => $plannedByConcept, 'new_by_np' => $plannedByNp, 'duplicate_ids' => 0, 'id_collisions' => 0, 'canonical_after' => count($questionsAfter), 'new_depths' => $newDepthCounts, 'new_context' => $newContextCounts],
     'prerequisites' => ['new_required_concept_rows' => $newRequiredCount, 'new_with_required_concepts' => $newPrerequisites['required'], 'new_with_assumed_foundation' => $newPrerequisites['assumed'], 'new_prerequisite_free' => $newPrerequisites['free'], 'distinct_required_concepts' => array_keys($distinctRequired), 'invalid_required_concept_references' => $requiredInvalid, 'self_prerequisites' => $selfPrerequisite, 'circular_prerequisites' => $circularPrerequisites, 'cycle_suppressed_during_authoring' => $prerequisiteCycleFallbacks],
     'clinical_safety' => ['unique_total' => $newSafetyUnique, 'unique_reviewed' => $newSafetyUnique, 'category_memberships' => $safetyMembership, 'multi_category_items' => $multiCategorySafety, 'source_verified' => $newSafetyUnique, 'answer_verified' => $newSafetyUnique, 'guidance_current_or_not_applicable' => $newSafetyUnique, 'calculations_verified_or_not_applicable' => count(array_filter($questions, static fn(array $q): bool => $q['__numeric'])), 'pass' => $newSafetyPass = $newSafetyUnique - $safetyFails, 'fail' => $safetyFails, 'review_records' => $clinicalReview],
-    'dosage_calculations' => ['new' => count(array_filter($questions, static fn(array $q): bool => $q['__numeric'])), 'recomputed' => count(array_filter($questions, static fn(array $q): bool => $q['__numeric'])), 'pass' => $numericalPass, 'fail' => $numericalFail, 'formula_families' => array_keys($formulaFamilies)],
-    'numerical_quality' => ['new' => count(array_filter($questions, static fn(array $q): bool => $q['__numeric'])), 'pass' => $numericalPass, 'fail' => $numericalFail, 'distinct_formula_families' => count($formulaFamilies), 'distinct_numerical_templates' => count($numericTemplates), 'scenario_families' => array_keys($scenarioFamilies), 'misconception_families' => array_keys($misconceptionFamilies)],
+    'dosage_safety' => ['tagged_total' => $dosageTaggedTotal, 'calculation_required' => count($dosageCalculationIds), 'conceptual_safety' => count($dosageConceptualIds), 'classification_total_match' => $dosageClassificationTotalMatch, 'calculation_required_ids' => $dosageCalculationIds, 'conceptual_safety_ids' => $dosageConceptualIds, 'calculation_required_recomputed' => count($dosageCalculationIds), 'calculation_required_pass' => $dosageCalculationPass, 'calculation_required_fail' => $dosageCalculationFail, 'conceptual_reviewed' => count($dosageConceptualIds), 'conceptual_pass' => $dosageConceptualPass, 'conceptual_fail' => $dosageConceptualFail, 'safety_reviewed' => $dosageTaggedTotal, 'safety_pass' => $dosageCalculationPass + $dosageConceptualPass, 'safety_fail' => $dosageTaggedTotal - ($dosageCalculationPass + $dosageConceptualPass), 'prior_audit_reconciliation' => ['prior_dosage_category_membership' => $safetyMembership['DOSAGE_CALCULATION'] ?? 0, 'prior_numeric_recomputed_metric' => count($numericIds), 'prior_numeric_ids' => $numericIds, 'current_dosage_calculation_required' => count($dosageCalculationIds), 'current_conceptual_dosage_safety' => count($dosageConceptualIds), 'non_dosage_numeric_ids' => $nonDosageNumericIds, 'actual_unrecomputed_dosage_tagged_ids' => $dosageConceptualIds, 'finding' => 'The prior 24-versus-18 comparison combined a DOSAGE_CALCULATION safety-category membership count with the all-numerical-question recomputation count; it did not identify six per-item dosage exceptions.'], 'records' => $dosageSafetyRecords, 'legacy_numerical_metric_explanation' => 'The former dosage_calculations count included all numeric questions. Numerical quality remains 18; dosage-tagged calculation-required items are reported here separately.'],
+    'dosage_calculations' => ['new' => count($dosageCalculationIds), 'recomputed' => count($dosageCalculationIds), 'pass' => $dosageCalculationPass, 'fail' => $dosageCalculationFail, 'formula_families' => array_values(array_unique(array_map(static fn(array $r): string => (string)$r['formula_family'], array_filter($dosageSafetyRecords, static fn(array $r): bool => $r['primary_dosage_class'] === 'CALCULATION_REQUIRED'))))],
+    'numerical_quality' => ['new' => count($numericIds), 'ids' => $numericIds, 'pass' => $numericalPass, 'fail' => $numericalFail, 'non_dosage_numeric_ids' => $nonDosageNumericIds, 'distinct_formula_families' => count($formulaFamilies), 'distinct_numerical_templates' => count($numericTemplates), 'scenario_families' => array_keys($scenarioFamilies), 'misconception_families' => array_keys($misconceptionFamilies)],
     'high_risk_review' => ['total' => $newHighRiskTotal, 'reviewed' => $newHighRiskTotal, 'pass' => $newHighRiskPass, 'fail' => $safetyFails],
     'duplication' => ['exact_duplicates' => $exactDuplicates, 'normalized_duplicates' => $normalizedDuplicates, 'semantic_near_duplicates_found' => $semanticNearDuplicates, 'semantic_near_duplicates_rejected' => $semanticNearDuplicates, 'numeric_template_duplicates_found' => 0, 'numeric_template_duplicates_rejected' => 0, 'global_normalized_duplicate_groups_after' => count(array_filter($normalizedGroups, static fn(array $ids): bool => count($ids) > 1))],
     'traceability' => ['new_with_study_link' => $plannedCount - $newMissingStudyLink, 'new_with_instructional_source' => $plannedCount - $newWithoutInstructionalSource, 'new_with_board_scope_chain' => $plannedCount, 'new_derivable' => $plannedCount - $newNonDerivable, 'new_source_ambiguous' => $newSourceAmbiguous, 'new_justified_exclusions' => 0],
@@ -1159,4 +1215,4 @@ $report = [
 $reportJson = json_encode([$report], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
 $auditHash = hash('sha256', $reportJson);
 if ($write) $writeJson($root . '/storage/batch620-nursing-clinical-expansion.json', [$report]);
-echo json_encode(['write' => $write, 'planned_new_questions' => $plannedCount, 'id_range' => [$baseId, $lastId], 'canonical_after' => count($questionsAfter), 'nursing_effective_after' => count(array_filter(array_keys($afterPairs), static fn(string $p): bool => str_ends_with($p, '|nursing'))), 'nursing_depth_unknown_after' => $afterNursingDepth['UNKNOWN'], 'coverage_unknown_after' => $coverageUnknownAfter, 'clinical_safety_unique' => $newSafetyUnique, 'clinical_safety_fail' => $safetyFails, 'numerical_fail' => $numericalFail, 'duplicate_effective_candidates' => $duplicateEffectiveCandidates, 'audit_hash' => $auditHash], JSON_UNESCAPED_SLASHES) . PHP_EOL;
+echo json_encode(['write' => $write, 'planned_new_questions' => $plannedCount, 'id_range' => [$baseId, $lastId], 'canonical_after' => count($questionsAfter), 'nursing_effective_after' => count(array_filter(array_keys($afterPairs), static fn(string $p): bool => str_ends_with($p, '|nursing'))), 'nursing_depth_unknown_after' => $afterNursingDepth['UNKNOWN'], 'coverage_unknown_after' => $coverageUnknownAfter, 'clinical_safety_unique' => $newSafetyUnique, 'clinical_safety_fail' => $safetyFails, 'dosage_safety_tagged' => $dosageTaggedTotal, 'dosage_calculation_required' => count($dosageCalculationIds), 'dosage_calculation_pass' => $dosageCalculationPass, 'dosage_conceptual_safety' => count($dosageConceptualIds), 'dosage_conceptual_pass' => $dosageConceptualPass, 'numerical_new' => count(array_filter($questions, static fn(array $q): bool => $q['__numeric'])), 'numerical_fail' => $numericalFail, 'duplicate_effective_candidates' => $duplicateEffectiveCandidates, 'audit_hash' => $auditHash], JSON_UNESCAPED_SLASHES) . PHP_EOL;

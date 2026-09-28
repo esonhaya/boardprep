@@ -7710,29 +7710,1178 @@
                 }
             ]
         },
+        "dosage_safety": {
+            "tagged_total": 24,
+            "calculation_required": 16,
+            "conceptual_safety": 8,
+            "classification_total_match": true,
+            "calculation_required_ids": [
+                3845,
+                3846,
+                3847,
+                3848,
+                3849,
+                3850,
+                3859,
+                3997,
+                4000,
+                4003,
+                4049,
+                4060,
+                4073,
+                4097,
+                4099,
+                4102
+            ],
+            "conceptual_safety_ids": [
+                3885,
+                3920,
+                3973,
+                4066,
+                4070,
+                4096,
+                4143,
+                4158
+            ],
+            "calculation_required_recomputed": 16,
+            "calculation_required_pass": 16,
+            "calculation_required_fail": 0,
+            "conceptual_reviewed": 8,
+            "conceptual_pass": 8,
+            "conceptual_fail": 0,
+            "safety_reviewed": 24,
+            "safety_pass": 24,
+            "safety_fail": 0,
+            "prior_audit_reconciliation": {
+                "prior_dosage_category_membership": 24,
+                "prior_numeric_recomputed_metric": 18,
+                "prior_numeric_ids": [
+                    3845,
+                    3846,
+                    3847,
+                    3848,
+                    3849,
+                    3850,
+                    3859,
+                    3894,
+                    3899,
+                    3997,
+                    4000,
+                    4003,
+                    4049,
+                    4060,
+                    4073,
+                    4097,
+                    4099,
+                    4102
+                ],
+                "current_dosage_calculation_required": 16,
+                "current_conceptual_dosage_safety": 8,
+                "non_dosage_numeric_ids": [
+                    3894,
+                    3899
+                ],
+                "actual_unrecomputed_dosage_tagged_ids": [
+                    3885,
+                    3920,
+                    3973,
+                    4066,
+                    4070,
+                    4096,
+                    4143,
+                    4158
+                ],
+                "finding": "The prior 24-versus-18 comparison combined a DOSAGE_CALCULATION safety-category membership count with the all-numerical-question recomputation count; it did not identify six per-item dosage exceptions."
+            },
+            "records": [
+                {
+                    "question_id": 3845,
+                    "safety_categories": [
+                        "MEDICATION",
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "An order is 1.5 g. The vial contains 500 mg in 2 mL. What volume is required?",
+                    "primary_dosage_class": "CALCULATION_REQUIRED",
+                    "arithmetic_required": true,
+                    "ordered_dose": "1.5 g",
+                    "available_dose_or_concentration": "500 mg in 2 mL",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "g→mg",
+                    "rounding": "exact result",
+                    "formula_family": "dose on hand",
+                    "expected_result": "6 mL",
+                    "computed_result": "6 mL",
+                    "stored_correct_answer": "6 mL",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-medication-without-harm-5-moments",
+                        "openrn-pharmacology",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-3845",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Independent recomputation: independent_formula_or_exact; expected=6; computed=6; answer choice match=yes"
+                },
+                {
+                    "question_id": 3846,
+                    "safety_categories": [
+                        "MEDICATION",
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "The order is 750 mg. The available solution is 250 mg in 5 mL. What volume should be prepared?",
+                    "primary_dosage_class": "CALCULATION_REQUIRED",
+                    "arithmetic_required": true,
+                    "ordered_dose": "750 mg",
+                    "available_dose_or_concentration": "250 mg in 5 mL",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "NOT_REQUIRED",
+                    "rounding": "exact result",
+                    "formula_family": "dose on hand",
+                    "expected_result": "15 mL",
+                    "computed_result": "15 mL",
+                    "stored_correct_answer": "15 mL",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-medication-without-harm-5-moments",
+                        "openrn-pharmacology",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-3846",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Independent recomputation: independent_formula_or_exact; expected=15; computed=15; answer choice match=yes"
+                },
+                {
+                    "question_id": 3847,
+                    "safety_categories": [
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "A 1,000 mL infusion is ordered over 12 hours. What pump rate is appropriate to one decimal place?",
+                    "primary_dosage_class": "CALCULATION_REQUIRED",
+                    "arithmetic_required": true,
+                    "ordered_dose": "1,000 mL",
+                    "available_dose_or_concentration": "NOT_APPLICABLE",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "12 hours",
+                    "unit_conversion": "NOT_REQUIRED",
+                    "rounding": "per stem/explanation rounding convention",
+                    "formula_family": "mL/hr",
+                    "expected_result": "83.3 mL/hr",
+                    "computed_result": "83.333333333333 mL/hr",
+                    "stored_correct_answer": "83.3 mL/hr",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "cdc-infection-control-basics",
+                        "cdc-isolation-precautions",
+                        "who-basic-emergency-care",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-3847",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Independent recomputation: independent_formula; expected=83.3; computed=83.333333333333; answer choice match=yes"
+                },
+                {
+                    "question_id": 3848,
+                    "safety_categories": [
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "An IV set delivers 15 drops/mL. The order is 1,000 mL over 8 hours. What manual rate is closest?",
+                    "primary_dosage_class": "CALCULATION_REQUIRED",
+                    "arithmetic_required": true,
+                    "ordered_dose": "1,000 mL",
+                    "available_dose_or_concentration": "15 drops/mL",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "8 hours",
+                    "unit_conversion": "hours→minutes and mL→drops",
+                    "rounding": "per stem/explanation rounding convention",
+                    "formula_family": "gtt/min",
+                    "expected_result": "31 drops/min",
+                    "computed_result": "31 drops/min",
+                    "stored_correct_answer": "31 drops/min",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "cdc-infection-control-basics",
+                        "cdc-isolation-precautions",
+                        "who-basic-emergency-care",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-3848",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Independent recomputation: independent_formula_or_exact; expected=31; computed=31; answer choice match=yes"
+                },
+                {
+                    "question_id": 3849,
+                    "safety_categories": [
+                        "MEDICATION",
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "An antibiotic is ordered at 15 mg/kg for a child weighing 24 kg. What dose is ordered?",
+                    "primary_dosage_class": "CALCULATION_REQUIRED",
+                    "arithmetic_required": true,
+                    "ordered_dose": "15 mg/kg",
+                    "available_dose_or_concentration": "NOT_APPLICABLE",
+                    "patient_weight": "24 kg",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "NOT_REQUIRED",
+                    "rounding": "exact result",
+                    "formula_family": "mg/kg",
+                    "expected_result": "360 mg",
+                    "computed_result": "360 mg",
+                    "stored_correct_answer": "360 mg",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-medication-without-harm-5-moments",
+                        "openrn-pharmacology",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-3849",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Independent recomputation: independent_formula_or_exact; expected=360; computed=360; answer choice match=yes"
+                },
+                {
+                    "question_id": 3850,
+                    "safety_categories": [
+                        "MEDICATION",
+                        "DOSAGE_CALCULATION",
+                        "EMERGENCY_CARE"
+                    ],
+                    "question_summary": "An infusion is ordered at 5 mcg/kg/min for an 80 kg client. What dose rate is ordered?",
+                    "primary_dosage_class": "CALCULATION_REQUIRED",
+                    "arithmetic_required": true,
+                    "ordered_dose": "5 mcg/kg/min",
+                    "available_dose_or_concentration": "NOT_APPLICABLE",
+                    "patient_weight": "80 kg",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "NOT_REQUIRED",
+                    "rounding": "exact result",
+                    "formula_family": "mcg/kg/min",
+                    "expected_result": "400 mcg/min",
+                    "computed_result": "400 mcg/min",
+                    "stored_correct_answer": "400 mcg/min",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-basic-emergency-care",
+                        "who-mhgap-2023",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-3850",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Independent recomputation: independent_formula_or_exact; expected=400; computed=400; answer choice match=yes"
+                },
+                {
+                    "question_id": 3859,
+                    "safety_categories": [
+                        "MEDICATION",
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "A client is ordered 40 mg. Tablets contain 20 mg each. What number of tablets is required?",
+                    "primary_dosage_class": "CALCULATION_REQUIRED",
+                    "arithmetic_required": true,
+                    "ordered_dose": "40 mg",
+                    "available_dose_or_concentration": "20 mg each",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "NOT_REQUIRED",
+                    "rounding": "exact result",
+                    "formula_family": "tablet dose",
+                    "expected_result": "2 tablets",
+                    "computed_result": "2 tablets",
+                    "stored_correct_answer": "2 tablets",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-medication-without-harm-5-moments",
+                        "openrn-pharmacology",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-3859",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Independent recomputation: independent_formula_or_exact; expected=2; computed=2; answer choice match=yes"
+                },
+                {
+                    "question_id": 3885,
+                    "safety_categories": [
+                        "MEDICATION",
+                        "DOSAGE_CALCULATION",
+                        "CHANGING_CLINICAL_GUIDANCE"
+                    ],
+                    "question_summary": "A parent says a child's fever should be treated only by alternating medicines. What should the nurse do?",
+                    "primary_dosage_class": "CONCEPTUAL_DOSAGE_SAFETY",
+                    "arithmetic_required": false,
+                    "ordered_dose": "NOT_APPLICABLE",
+                    "available_dose_or_concentration": "NOT_APPLICABLE",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "NOT_APPLICABLE",
+                    "rounding": "NOT_APPLICABLE",
+                    "formula_family": "NOT_APPLICABLE",
+                    "expected_result": "NOT_APPLICABLE",
+                    "computed_result": "NOT_APPLICABLE",
+                    "stored_correct_answer": "Clarify the actual orders and guidance, assess the child, and teach safe dosing and indications rather than endorsing a routine.",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-community-health",
+                        "doh-national-immunization-program",
+                        "cdc-infection-control-basics",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-3885",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Conceptual dosage-safety review: no numeric inputs are supplied and no arithmetic is needed to determine the safe action; dosage terminology is clinically material."
+                },
+                {
+                    "question_id": 3920,
+                    "safety_categories": [
+                        "MEDICATION",
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "A client with visual impairment is learning a new self-injection. Which teaching method is safest?",
+                    "primary_dosage_class": "CONCEPTUAL_DOSAGE_SAFETY",
+                    "arithmetic_required": false,
+                    "ordered_dose": "NOT_APPLICABLE",
+                    "available_dose_or_concentration": "NOT_APPLICABLE",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "NOT_APPLICABLE",
+                    "rounding": "NOT_APPLICABLE",
+                    "formula_family": "NOT_APPLICABLE",
+                    "expected_result": "NOT_APPLICABLE",
+                    "computed_result": "NOT_APPLICABLE",
+                    "stored_correct_answer": "Use accessible tactile or verbal cues, demonstrate with consent, and require return demonstration.",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-community-health",
+                        "doh-national-immunization-program",
+                        "cdc-infection-control-basics",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-3920",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Conceptual dosage-safety review: no numeric inputs are supplied and no arithmetic is needed to determine the safe action; dosage terminology is clinically material."
+                },
+                {
+                    "question_id": 3973,
+                    "safety_categories": [
+                        "MATERNAL_NEWBORN",
+                        "MEDICATION",
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "A caregiver asks for a dose based on a child's old weight. What should the nurse do?",
+                    "primary_dosage_class": "CONCEPTUAL_DOSAGE_SAFETY",
+                    "arithmetic_required": false,
+                    "ordered_dose": "NOT_APPLICABLE",
+                    "available_dose_or_concentration": "NOT_APPLICABLE",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "NOT_APPLICABLE",
+                    "rounding": "NOT_APPLICABLE",
+                    "formula_family": "NOT_APPLICABLE",
+                    "expected_result": "NOT_APPLICABLE",
+                    "computed_result": "NOT_APPLICABLE",
+                    "stored_correct_answer": "Use the current weight, verify the order and concentration, and recompute before administration.",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-postnatal-care-2022",
+                        "who-maternal-peripartum-infections",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-3973",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Conceptual dosage-safety review: no numeric inputs are supplied and no arithmetic is needed to determine the safe action; dosage terminology is clinically material."
+                },
+                {
+                    "question_id": 3997,
+                    "safety_categories": [
+                        "DOSAGE_CALCULATION",
+                        "MEDICATION"
+                    ],
+                    "question_summary": "An IV order is written in mL/hr. The bag contains 1,000 mL and is to run over 8 hours. What rate should the pump be set?",
+                    "primary_dosage_class": "CALCULATION_REQUIRED",
+                    "arithmetic_required": true,
+                    "ordered_dose": "1,000 mL",
+                    "available_dose_or_concentration": "NOT_APPLICABLE",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "8 hours",
+                    "unit_conversion": "NOT_REQUIRED",
+                    "rounding": "exact result",
+                    "formula_family": "mL/hr",
+                    "expected_result": "125 mL/hr",
+                    "computed_result": "125 mL/hr",
+                    "stored_correct_answer": "125 mL/hr",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "cdc-infection-control-basics",
+                        "cdc-isolation-precautions",
+                        "who-basic-emergency-care",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-3997",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Independent recomputation: independent_formula_or_exact; expected=125; computed=125; answer choice match=yes"
+                },
+                {
+                    "question_id": 4000,
+                    "safety_categories": [
+                        "DOSAGE_CALCULATION",
+                        "PRIORITIZATION"
+                    ],
+                    "question_summary": "A client has urine output of 120 mL over 6 hours. What average output is documented?",
+                    "primary_dosage_class": "CALCULATION_REQUIRED",
+                    "arithmetic_required": true,
+                    "ordered_dose": "120 mL",
+                    "available_dose_or_concentration": "NOT_APPLICABLE",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "6 hours",
+                    "unit_conversion": "NOT_REQUIRED",
+                    "rounding": "exact result",
+                    "formula_family": "urine output rate",
+                    "expected_result": "20 mL/hr",
+                    "computed_result": "20 mL/hr",
+                    "stored_correct_answer": "20 mL/hr",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "cdc-infection-control-basics",
+                        "cdc-isolation-precautions",
+                        "who-basic-emergency-care",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-4000",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Independent recomputation: independent_formula_or_exact; expected=20; computed=20; answer choice match=yes"
+                },
+                {
+                    "question_id": 4003,
+                    "safety_categories": [
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "A client is ordered 500 mL IV fluid over 4 hours. What is the hourly rate?",
+                    "primary_dosage_class": "CALCULATION_REQUIRED",
+                    "arithmetic_required": true,
+                    "ordered_dose": "500 mL",
+                    "available_dose_or_concentration": "NOT_APPLICABLE",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "4 hours",
+                    "unit_conversion": "NOT_REQUIRED",
+                    "rounding": "exact result",
+                    "formula_family": "mL/hr",
+                    "expected_result": "125 mL/hr",
+                    "computed_result": "125 mL/hr",
+                    "stored_correct_answer": "125 mL/hr",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "cdc-infection-control-basics",
+                        "cdc-isolation-precautions",
+                        "who-basic-emergency-care",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-4003",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Independent recomputation: independent_formula_or_exact; expected=125; computed=125; answer choice match=yes"
+                },
+                {
+                    "question_id": 4049,
+                    "safety_categories": [
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "A client is ordered 240 mL enteral formula over 2 hours. What hourly pump rate is required?",
+                    "primary_dosage_class": "CALCULATION_REQUIRED",
+                    "arithmetic_required": true,
+                    "ordered_dose": "240 mL",
+                    "available_dose_or_concentration": "NOT_APPLICABLE",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "2 hours",
+                    "unit_conversion": "NOT_REQUIRED",
+                    "rounding": "exact result",
+                    "formula_family": "mL/hr",
+                    "expected_result": "120 mL/hr",
+                    "computed_result": "120 mL/hr",
+                    "stored_correct_answer": "120 mL/hr",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-medication-without-harm-5-moments",
+                        "openrn-pharmacology",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-4049",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Independent recomputation: independent_formula_or_exact; expected=120; computed=120; answer choice match=yes"
+                },
+                {
+                    "question_id": 4060,
+                    "safety_categories": [
+                        "DOSAGE_CALCULATION",
+                        "MEDICATION"
+                    ],
+                    "question_summary": "A client is prescribed 30 mL of a liquid medication per dose. The bottle contains 15 mL per tablespoon. How many tablespoons are given?",
+                    "primary_dosage_class": "CALCULATION_REQUIRED",
+                    "arithmetic_required": true,
+                    "ordered_dose": "30 mL",
+                    "available_dose_or_concentration": "15 mL per tablespoon",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "NOT_REQUIRED",
+                    "rounding": "exact result",
+                    "formula_family": "volume conversion",
+                    "expected_result": "2 tablespoons",
+                    "computed_result": "2 tablespoons",
+                    "stored_correct_answer": "2 tablespoons",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-medication-without-harm-5-moments",
+                        "openrn-pharmacology",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-4060",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Independent recomputation: independent_formula_or_exact; expected=2; computed=2; answer choice match=yes"
+                },
+                {
+                    "question_id": 4066,
+                    "safety_categories": [
+                        "MEDICATION",
+                        "DOSAGE_CALCULATION",
+                        "CHANGING_CLINICAL_GUIDANCE"
+                    ],
+                    "question_summary": "A client taking insulin has a new meal schedule and poor intake. What should the nurse do?",
+                    "primary_dosage_class": "CONCEPTUAL_DOSAGE_SAFETY",
+                    "arithmetic_required": false,
+                    "ordered_dose": "NOT_APPLICABLE",
+                    "available_dose_or_concentration": "NOT_APPLICABLE",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "NOT_APPLICABLE",
+                    "rounding": "NOT_APPLICABLE",
+                    "formula_family": "NOT_APPLICABLE",
+                    "expected_result": "NOT_APPLICABLE",
+                    "computed_result": "NOT_APPLICABLE",
+                    "stored_correct_answer": "Assess glucose, intake, insulin type and timing, and coordinate an individualized adjustment rather than guessing.",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-medication-without-harm-5-moments",
+                        "openrn-pharmacology",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-4066",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Conceptual dosage-safety review: no numeric inputs are supplied and no arithmetic is needed to determine the safe action; dosage terminology is clinically material."
+                },
+                {
+                    "question_id": 4070,
+                    "safety_categories": [
+                        "MEDICATION",
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "A glucose meter gives an unexpected result that conflicts with the client's condition. What should the nurse do?",
+                    "primary_dosage_class": "CONCEPTUAL_DOSAGE_SAFETY",
+                    "arithmetic_required": false,
+                    "ordered_dose": "NOT_APPLICABLE",
+                    "available_dose_or_concentration": "NOT_APPLICABLE",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "NOT_APPLICABLE",
+                    "rounding": "NOT_APPLICABLE",
+                    "formula_family": "NOT_APPLICABLE",
+                    "expected_result": "NOT_APPLICABLE",
+                    "computed_result": "NOT_APPLICABLE",
+                    "stored_correct_answer": "Assess the client, check technique and equipment, repeat or confirm per policy, and act on clinical deterioration.",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-medication-without-harm-5-moments",
+                        "openrn-pharmacology",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-4070",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Conceptual dosage-safety review: no numeric inputs are supplied and no arithmetic is needed to determine the safe action; dosage terminology is clinically material."
+                },
+                {
+                    "question_id": 4073,
+                    "safety_categories": [
+                        "MEDICATION",
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "A prescribed insulin dose is 0.4 units/kg for a 70-kg client. What dose is ordered?",
+                    "primary_dosage_class": "CALCULATION_REQUIRED",
+                    "arithmetic_required": true,
+                    "ordered_dose": "0.4 units/kg",
+                    "available_dose_or_concentration": "NOT_APPLICABLE",
+                    "patient_weight": "70 kg",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "NOT_REQUIRED",
+                    "rounding": "per stem/explanation rounding convention",
+                    "formula_family": "mg-or-units/kg",
+                    "expected_result": "28 units",
+                    "computed_result": "28 units",
+                    "stored_correct_answer": "28 units",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-medication-without-harm-5-moments",
+                        "openrn-pharmacology",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-4073",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Independent recomputation: independent_formula_or_exact; expected=28; computed=28; answer choice match=yes"
+                },
+                {
+                    "question_id": 4096,
+                    "safety_categories": [
+                        "MEDICATION",
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "A medication order has no route and the available product has multiple concentrations. What should the nurse do?",
+                    "primary_dosage_class": "CONCEPTUAL_DOSAGE_SAFETY",
+                    "arithmetic_required": false,
+                    "ordered_dose": "NOT_APPLICABLE",
+                    "available_dose_or_concentration": "NOT_APPLICABLE",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "NOT_APPLICABLE",
+                    "rounding": "NOT_APPLICABLE",
+                    "formula_family": "NOT_APPLICABLE",
+                    "expected_result": "NOT_APPLICABLE",
+                    "computed_result": "NOT_APPLICABLE",
+                    "stored_correct_answer": "Hold administration and clarify the complete order and product before preparing it.",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-medication-without-harm-5-moments",
+                        "openrn-pharmacology",
+                        "openrn-nursing-fundamentals",
+                        "ra-9173-philippine-nursing-act"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-4096",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Conceptual dosage-safety review: no numeric inputs are supplied and no arithmetic is needed to determine the safe action; dosage terminology is clinically material."
+                },
+                {
+                    "question_id": 4097,
+                    "safety_categories": [
+                        "MEDICATION",
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "The order is 500 mg. The vial contains 250 mg in 5 mL. How many milliliters are needed?",
+                    "primary_dosage_class": "CALCULATION_REQUIRED",
+                    "arithmetic_required": true,
+                    "ordered_dose": "500 mg",
+                    "available_dose_or_concentration": "250 mg in 5 mL",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "NOT_REQUIRED",
+                    "rounding": "exact result",
+                    "formula_family": "dose on hand",
+                    "expected_result": "10 mL",
+                    "computed_result": "10 mL",
+                    "stored_correct_answer": "10 mL",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-medication-without-harm-5-moments",
+                        "openrn-pharmacology",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-4097",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Independent recomputation: independent_formula_or_exact; expected=10; computed=10; answer choice match=yes"
+                },
+                {
+                    "question_id": 4099,
+                    "safety_categories": [
+                        "MEDICATION",
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "An order is 0.25 mg. Tablets are 0.5 mg each. How many tablets are given?",
+                    "primary_dosage_class": "CALCULATION_REQUIRED",
+                    "arithmetic_required": true,
+                    "ordered_dose": "0.25 mg",
+                    "available_dose_or_concentration": "0.5 mg each",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "NOT_REQUIRED",
+                    "rounding": "exact result",
+                    "formula_family": "tablet dose",
+                    "expected_result": "0.5 tablet",
+                    "computed_result": "0.5 tablet",
+                    "stored_correct_answer": "0.5 tablet",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-medication-without-harm-5-moments",
+                        "openrn-pharmacology",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-4099",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Independent recomputation: independent_formula_or_exact; expected=0.5; computed=0.5; answer choice match=yes"
+                },
+                {
+                    "question_id": 4102,
+                    "safety_categories": [
+                        "MEDICATION",
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "An infusion is ordered at 25 mcg/kg/min for a 60-kg client. What dose rate is required?",
+                    "primary_dosage_class": "CALCULATION_REQUIRED",
+                    "arithmetic_required": true,
+                    "ordered_dose": "25 mcg/kg/min",
+                    "available_dose_or_concentration": "NOT_APPLICABLE",
+                    "patient_weight": "60 kg",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "NOT_REQUIRED",
+                    "rounding": "exact result",
+                    "formula_family": "mcg/kg/min",
+                    "expected_result": "1500 mcg/min",
+                    "computed_result": "1500 mcg/min",
+                    "stored_correct_answer": "1,500 mcg/min",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-medication-without-harm-5-moments",
+                        "openrn-pharmacology",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-4102",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Independent recomputation: independent_formula_or_exact; expected=1500; computed=1500; answer choice match=yes"
+                },
+                {
+                    "question_id": 4143,
+                    "safety_categories": [
+                        "MEDICATION",
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "A nurse receives an order for a high-risk infusion during shock care. What is essential?",
+                    "primary_dosage_class": "CONCEPTUAL_DOSAGE_SAFETY",
+                    "arithmetic_required": false,
+                    "ordered_dose": "NOT_APPLICABLE",
+                    "available_dose_or_concentration": "NOT_APPLICABLE",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "NOT_APPLICABLE",
+                    "rounding": "NOT_APPLICABLE",
+                    "formula_family": "NOT_APPLICABLE",
+                    "expected_result": "NOT_APPLICABLE",
+                    "computed_result": "NOT_APPLICABLE",
+                    "stored_correct_answer": "Use independent verification of patient, drug, concentration, pump settings, indication, and monitoring.",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-basic-emergency-care",
+                        "who-mhgap-2023",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-4143",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Conceptual dosage-safety review: no numeric inputs are supplied and no arithmetic is needed to determine the safe action; dosage terminology is clinically material."
+                },
+                {
+                    "question_id": 4158,
+                    "safety_categories": [
+                        "MEDICATION",
+                        "DOSAGE_CALCULATION"
+                    ],
+                    "question_summary": "A nurse receives a verbal high-risk medication order in a noisy area. What should the nurse do?",
+                    "primary_dosage_class": "CONCEPTUAL_DOSAGE_SAFETY",
+                    "arithmetic_required": false,
+                    "ordered_dose": "NOT_APPLICABLE",
+                    "available_dose_or_concentration": "NOT_APPLICABLE",
+                    "patient_weight": "NOT_APPLICABLE",
+                    "time_or_rate": "NOT_APPLICABLE",
+                    "unit_conversion": "NOT_APPLICABLE",
+                    "rounding": "NOT_APPLICABLE",
+                    "formula_family": "NOT_APPLICABLE",
+                    "expected_result": "NOT_APPLICABLE",
+                    "computed_result": "NOT_APPLICABLE",
+                    "stored_correct_answer": "Move to a safer communication setting, read back the order, and verify the complete details.",
+                    "answer_match": true,
+                    "source_ids": [
+                        "prc-nursing-program-aug-2026",
+                        "prc-nursing-enhanced-tos-2025",
+                        "who-basic-emergency-care",
+                        "who-mhgap-2023",
+                        "openrn-nursing-fundamentals"
+                    ],
+                    "source_support": {
+                        "board_scope": true,
+                        "instructional_source": true,
+                        "study_link": true,
+                        "derivable": true
+                    },
+                    "study_link_id": "study-link-b620-4158",
+                    "eligibility_valid": true,
+                    "safety_review": {
+                        "status": "PASS",
+                        "answer_verified": true,
+                        "guidance_current_or_not_applicable": true,
+                        "calculation_verified_or_not_applicable": true
+                    },
+                    "notes": "Conceptual dosage-safety review: no numeric inputs are supplied and no arithmetic is needed to determine the safe action; dosage terminology is clinically material."
+                }
+            ],
+            "legacy_numerical_metric_explanation": "The former dosage_calculations count included all numeric questions. Numerical quality remains 18; dosage-tagged calculation-required items are reported here separately."
+        },
         "dosage_calculations": {
-            "new": 18,
-            "recomputed": 18,
-            "pass": 18,
+            "new": 16,
+            "recomputed": 16,
+            "pass": 16,
             "fail": 0,
             "formula_families": [
                 "dose on hand",
-                "gtt/min",
-                "incidence proportion",
                 "mL/hr",
-                "mcg/kg/min",
-                "mg-or-units/kg",
+                "gtt/min",
                 "mg/kg",
-                "proportion",
+                "mcg/kg/min",
                 "tablet dose",
                 "urine output rate",
-                "volume conversion"
+                "volume conversion",
+                "mg-or-units/kg"
             ]
         },
         "numerical_quality": {
             "new": 18,
+            "ids": [
+                3845,
+                3846,
+                3847,
+                3848,
+                3849,
+                3850,
+                3859,
+                3894,
+                3899,
+                3997,
+                4000,
+                4003,
+                4049,
+                4060,
+                4073,
+                4097,
+                4099,
+                4102
+            ],
             "pass": 18,
             "fail": 0,
+            "non_dosage_numeric_ids": [
+                3894,
+                3899
+            ],
             "distinct_formula_families": 11,
             "distinct_numerical_templates": 18,
             "scenario_families": [
