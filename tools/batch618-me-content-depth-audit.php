@@ -1494,6 +1494,149 @@ foreach ($allConcepts as $conceptId => $info) {
     if (in_array($conceptId, $selected, true)) $selectedCoverageDepths[$conceptId] = ['old' => 'UNKNOWN', 'new' => 4, 'evidence' => 'Source-backed study material supports bounded application and analysis; selected items do not require specialized professional judgment depth 5.', 'confidence' => 'STRONG'];
 }
 
+/*
+ * The authored selection uses the 14 named ME competency groups above, but
+ * the repository taxonomy contains one concept row for every ME topic. Keep a
+ * complete deterministic inventory so an unmodeled/placeholder taxonomy row
+ * cannot be mistaken for an inspected concept. Zero counts and UNKNOWN depth
+ * are intentional evidence states, not generated content claims.
+ */
+$subjectById = [];
+foreach ($taxonomySubjects as $row) $subjectById[(string)($row['id'] ?? '')] = $row;
+$domainById = [];
+foreach ($taxonomyDomains as $row) $domainById[(string)($row['id'] ?? '')] = $row;
+$topicById = [];
+foreach ($taxonomyTopics as $row) $topicById[(string)($row['id'] ?? '')] = $row;
+$fullConceptIds = array_values(array_map(static fn(array $row): string => (string)($row['id'] ?? ''), $meConceptRows));
+sort($fullConceptIds, SORT_STRING);
+$fullBeforeCounts = array_fill_keys($fullConceptIds, 0);
+$fullAfterCounts = array_fill_keys($fullConceptIds, 0);
+$fullBeforeEffective = array_fill_keys($fullConceptIds, 0);
+$fullAfterEffective = array_fill_keys($fullConceptIds, 0);
+$fullDepthBefore = [];
+$fullDepthAfter = [];
+$fullApplications = array_fill_keys($fullConceptIds, 0);
+$fullAnalyses = array_fill_keys($fullConceptIds, 0);
+$fullProfessionals = array_fill_keys($fullConceptIds, 0);
+$fullMaterials = array_fill_keys($fullConceptIds, []);
+$fullRequiredCounts = array_fill_keys($fullConceptIds, 0);
+foreach ($fullConceptIds as $conceptId) {
+    $fullDepthBefore[$conceptId] = [];
+    $fullDepthAfter[$conceptId] = [];
+    $fullMaterials[$conceptId] = [];
+}
+foreach ($baselineQuestionRowsForMetrics as $row) {
+    if (($row['taxonomy']['board_id'] ?? '') !== 'mechanical-engineering') continue;
+    $questionId = (string)($row['id'] ?? '');
+    $conceptId = (string)($row['taxonomy']['concept_id'] ?? '');
+    if (!isset($fullBeforeCounts[$conceptId])) continue;
+    $fullBeforeCounts[$conceptId]++;
+    if (isset($beforeQuestionBoards[$questionId]['mechanical-engineering'])) $fullBeforeEffective[$conceptId]++;
+    $fullDepthBefore[$conceptId][] = $baselineMetadataByQuestion[$questionId]['required_depth'] ?? 'UNKNOWN';
+}
+foreach ($postQuestions as $row) {
+    if (($row['taxonomy']['board_id'] ?? '') !== 'mechanical-engineering') continue;
+    $questionId = (string)($row['id'] ?? '');
+    $conceptId = (string)($row['taxonomy']['concept_id'] ?? '');
+    if (!isset($fullAfterCounts[$conceptId])) continue;
+    $fullAfterCounts[$conceptId]++;
+    if (isset($effectiveBoardsByQuestion[$questionId]['mechanical-engineering'])) $fullAfterEffective[$conceptId]++;
+    $depth = $metadataByQuestion[$questionId]['required_depth'] ?? 'UNKNOWN';
+    $fullDepthAfter[$conceptId][] = $depth;
+    $intent = strtolower((string)($row['cognitive_intent'] ?? ''));
+    if (str_contains($intent, 'analy')) $fullAnalyses[$conceptId]++; else $fullApplications[$conceptId]++;
+    if (($metadataByQuestion[$questionId]['context_mode'] ?? '') === 'PROFESSIONAL') $fullProfessionals[$conceptId]++;
+    foreach ($linkByQuestion[$questionId] ?? [] as $link) {
+        $materialId = (string)($link['material_id'] ?? '');
+        if ($materialId !== '') $fullMaterials[$conceptId][$materialId] = true;
+    }
+}
+foreach ($postRequiredRows as $row) {
+    if (($row['requirement_type'] ?? '') !== 'REQUIRED') continue;
+    $questionId = (string)($row['question_id'] ?? '');
+    $primaryConcept = (string)($questionsById[$questionId]['taxonomy']['concept_id'] ?? '');
+    if (isset($fullRequiredCounts[$primaryConcept])) $fullRequiredCounts[$primaryConcept]++;
+}
+$fullMeConceptInventory = [];
+$fullSelectionScorecard = [];
+$knownDepth = static function (array $depths): int {
+    return count(array_filter($depths, static fn(mixed $depth): bool => is_int($depth) || ctype_digit((string)$depth)));
+};
+foreach ($meConceptRows as $conceptRow) {
+    $conceptId = (string)($conceptRow['id'] ?? '');
+    if ($conceptId === '') continue;
+    $topicId = (string)($conceptRow['topic_id'] ?? '');
+    $topic = $topicById[$topicId] ?? [];
+    $domainId = (string)($topic['domain_id'] ?? '');
+    $domain = $domainById[$domainId] ?? [];
+    $subjectId = (string)($domain['subject_id'] ?? '');
+    $subject = $subjectById[$subjectId] ?? [];
+    $beforeCount = $fullBeforeCounts[$conceptId] ?? 0;
+    $afterCount = $fullAfterCounts[$conceptId] ?? 0;
+    $beforeDepths = $fullDepthBefore[$conceptId] ?? [];
+    $afterDepths = $fullDepthAfter[$conceptId] ?? [];
+    $coverage = $coverageByKey['mechanical-engineering|' . $conceptId] ?? [];
+    $linkedMaterials = array_keys($fullMaterials[$conceptId] ?? []);
+    sort($linkedMaterials, SORT_STRING);
+    $namedInfo = $allConcepts[$conceptId] ?? null;
+    $isSelected = in_array($conceptId, $selected, true);
+    $hasRequired = ($fullRequiredCounts[$conceptId] ?? 0) > 0;
+    $sourceStatus = $linkedMaterials !== [] ? 'SOURCE_BACKED_BY_LINKED_MATERIAL' : 'NO_LINKED_STUDY_MATERIAL';
+    $decision = $namedInfo['decision'] ?? 'DEFER_UNMODELED';
+    $decisionReason = $namedInfo['reason'] ?? 'Taxonomy row has no distinct named competency boundary or linked question cohort; defer until official scope and source evidence support a focused review.';
+    $saturation = $beforeCount >= 30 ? 'HIGH' : ($beforeCount >= 15 ? 'MEDIUM' : ($beforeCount > 0 ? 'LOW/THIN' : 'UNPOPULATED'));
+    $prerequisiteComplexity = $hasRequired ? (($fullRequiredCounts[$conceptId] >= max(3, (int)ceil(max(1, $afterCount) * 0.25))) ? 'HIGH' : 'MEDIUM') : ($afterCount > 0 ? 'ASSUMED_OR_NONE' : 'UNMODELED');
+    $regulatoryVolatility = $afterCount > 0 ? 'LOW' : 'UNASSESSED';
+    $fullMeConceptInventory[$conceptId] = [
+        'concept_id' => $conceptId,
+        'concept_name' => (string)($conceptRow['name'] ?? $conceptId),
+        'subject_id' => $subjectId,
+        'subject' => (string)($subject['name'] ?? $subjectId),
+        'domain_id' => $domainId,
+        'domain' => (string)($domain['name'] ?? $domainId),
+        'topic_id' => $topicId,
+        'topic' => (string)($topic['name'] ?? $topicId),
+        'current_canonical' => $beforeCount,
+        'current_effective' => $fullBeforeEffective[$conceptId] ?? 0,
+        'after_canonical' => $afterCount,
+        'after_effective' => $fullAfterEffective[$conceptId] ?? 0,
+        'study_materials' => $linkedMaterials,
+        'source_status' => $sourceStatus,
+        'question_depth_known_before' => $knownDepth($beforeDepths),
+        'question_depth_unknown_before' => count($beforeDepths) - $knownDepth($beforeDepths),
+        'question_depth_known_after' => $knownDepth($afterDepths),
+        'question_depth_unknown_after' => count($afterDepths) - $knownDepth($afterDepths),
+        'coverage_max_depth' => $coverage['max_depth'] ?? 'UNKNOWN',
+        'application_count_after' => $fullApplications[$conceptId] ?? 0,
+        'analysis_count_after' => $fullAnalyses[$conceptId] ?? 0,
+        'professional_count_after' => $fullProfessionals[$conceptId] ?? 0,
+        'required_concept_rows_after' => $fullRequiredCounts[$conceptId] ?? 0,
+        'prerequisite_complexity' => $prerequisiteComplexity,
+        'regulatory_volatility' => $regulatoryVolatility,
+        'saturation' => $saturation,
+        'decision' => $decision,
+        'decision_reason' => $decisionReason,
+    ];
+    $fullSelectionScorecard[$conceptId] = [
+        'concept' => $conceptId,
+        'current_questions' => $beforeCount,
+        'current_depth_unknown' => count($beforeDepths) - $knownDepth($beforeDepths),
+        'current_study_materials' => count($linkedMaterials),
+        'source_readiness' => $sourceStatus === 'SOURCE_BACKED_BY_LINKED_MATERIAL' ? 'STRONG' : 'UNASSESSED',
+        'blueprint_importance' => $namedInfo['importance'] ?? ($afterCount > 0 ? 'REPRESENTED' : 'UNASSESSED'),
+        'application_potential' => $isSelected ? 'HIGH' : ($afterCount > 0 ? 'MEDIUM' : 'UNASSESSED'),
+        'analysis_potential' => $isSelected ? 'HIGH' : ($afterCount > 0 ? 'MEDIUM' : 'UNASSESSED'),
+        'numerical_potential' => $isSelected ? 'HIGH' : ($afterCount > 0 ? 'MEDIUM' : 'UNASSESSED'),
+        'prerequisite_complexity' => $prerequisiteComplexity,
+        'regulatory_volatility' => $regulatoryVolatility,
+        'saturation_risk' => $saturation,
+        'decision' => $decision,
+        'reason' => $decisionReason,
+    ];
+}
+ksort($fullMeConceptInventory, SORT_STRING);
+ksort($fullSelectionScorecard, SORT_STRING);
+
 $repositorySectionsBefore = [];
 $repositorySectionsAfter = [];
 foreach ($baselineQuestionRowsForMetrics as $row) if (($row['taxonomy']['board_id'] ?? '') === 'mechanical-engineering') $repositorySectionsBefore[(string)($row['taxonomy']['subject_id'] ?? '')] = ($repositorySectionsBefore[(string)($row['taxonomy']['subject_id'] ?? '')] ?? 0) + 1;
@@ -1618,13 +1761,15 @@ $report = [
         'multi_board' => $multiBefore,
         'single_board' => $singleBefore,
     ],
-    'concept_inventory' => $conceptInventory,
+    'concept_inventory' => $fullMeConceptInventory,
+    'selected_concept_inventory' => $conceptInventory,
     'concept_selection' => [
-        'evaluated' => count($allConcepts),
+        'evaluated' => count($fullMeConceptInventory),
+        'named_evaluated' => count($allConcepts),
         'selected' => count($selected),
         'selected_concepts' => $selected,
-        'deferred_concepts' => array_values(array_diff(array_keys($allConcepts), $selected)),
-        'scorecard' => $selectionScorecard,
+        'deferred_concepts' => array_values(array_diff(array_keys($fullMeConceptInventory), $selected)),
+        'scorecard' => $fullSelectionScorecard,
     ],
     'sources' => [
         'reviewed' => $sourceInventory,
@@ -1663,6 +1808,7 @@ $report = [
         'me_rows_reviewed' => count($selected),
         'me_rows_assigned' => count($selectedCoverageDepths),
         'me_rows_kept_unknown' => count(array_filter($meConceptRows, static fn(array $row): bool => isset($allConcepts[(string)($row['id'] ?? '')]) && !isset($selectedCoverageDepths[(string)($row['id'] ?? '')]))),
+        'taxonomy_concepts_inventoried' => count($fullMeConceptInventory),
         'selected' => $selectedCoverageDepths,
         'depth_counts_selected' => ['1' => 0, '2' => 0, '3' => 0, '4' => count($selectedCoverageDepths), '5' => 0, 'UNKNOWN' => 0],
         'repository_after' => $coverageAfter,
