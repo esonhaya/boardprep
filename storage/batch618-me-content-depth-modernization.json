@@ -1,0 +1,1520 @@
+[
+    {
+        "id": "batch618-me-content-depth-modernization-report",
+        "batch": "618",
+        "head_before": "6fe06fcd31a3005f493d0bbf2d3555969ada77f3",
+        "scope": {
+            "board": "mechanical-engineering",
+            "official_scope_source": "https://www.prc.gov.ph/Pages/PRBv4/MechanicalEngineering.htm",
+            "official_scope_source_secondary": "https://www.prc.gov.ph/sites/default/files/Board%20of%20Mechanical%20Engineering-%20Syllabi_0.pdf",
+            "current_official_program_source": "https://www.prc.gov.ph/sites/default/files/RA%20-%20MECHANICAL%20ENGINEER%20FEB%202026_merged.pdf",
+            "official_weights": {
+                "Mathematics": 35,
+                "Power Plant Engineering": 35,
+                "Machine Design, Materials and Shop Practice": 30
+            },
+            "repository_blueprint_id": "portfolio-mechanical-engineering-v1",
+            "repository_blueprint_weights_exist_before": false,
+            "repository_blueprint_status": "FOUNDATION_ONLY; official current weights verified externally and not collapsed into unsupported internal taxonomy quotas.",
+            "subjects": 3,
+            "domains": 3,
+            "topics": 120,
+            "concepts": 120,
+            "structure": "SUBJECT -> OFFICIAL AREA CROSSWALK -> DOMAIN -> TOPIC -> CONCEPT"
+        },
+        "baseline": {
+            "canonical": 3300,
+            "me_canonical": 220,
+            "me_effective_pool": 220,
+            "questions_depth_known": 810,
+            "questions_depth_unknown": 2490,
+            "me_depth_known": 0,
+            "me_depth_unknown": 220,
+            "coverage_rows": 424,
+            "coverage_depth_known": 26,
+            "coverage_depth_unknown": 398,
+            "me_coverage_rows": 14,
+            "me_coverage_depth_known": 0,
+            "me_coverage_depth_unknown": 14,
+            "direct": 4044,
+            "concept_derived": 40,
+            "total_effective": 4084,
+            "multi_board": 676,
+            "single_board": 2624
+        },
+        "concept_inventory": {
+            "me-topic-1-1-concept": {
+                "concept_id": "me-topic-1-1-concept",
+                "concept_name": "Vector Geometry, Linear Transformations, and Series",
+                "subject": "Mathematics",
+                "domain": "Mechanical Engineering Mathematics",
+                "topic": "me-topic-1-1",
+                "current_canonical": 37,
+                "current_effective": 37,
+                "after_canonical": 37,
+                "after_effective": 37,
+                "study_materials": [
+                    "me-material-1"
+                ],
+                "source_status": "READY",
+                "question_depth_known_before": 0,
+                "question_depth_unknown_before": 37,
+                "question_depth_known_after": 0,
+                "question_depth_unknown_after": 37,
+                "coverage_max_depth": "UNKNOWN",
+                "application_count_after": 0,
+                "analysis_count_after": 37,
+                "professional_count_after": 37,
+                "prerequisite_complexity": "REVIEW_LATER",
+                "regulatory_volatility": "LOW",
+                "saturation": "HIGH",
+                "decision": "DEFER",
+                "decision_reason": "Existing pool is comparatively deep; retain for a later mathematics-specific wave while the official 35% mathematics area remains represented."
+            },
+            "me-topic-1-2-concept": {
+                "concept_id": "me-topic-1-2-concept",
+                "concept_name": "Models, Rates, Accumulation, and Differential Equations",
+                "subject": "Mathematics",
+                "domain": "Mechanical Engineering Mathematics",
+                "topic": "me-topic-1-2",
+                "current_canonical": 65,
+                "current_effective": 65,
+                "after_canonical": 65,
+                "after_effective": 65,
+                "study_materials": [
+                    "me-material-1"
+                ],
+                "source_status": "READY",
+                "question_depth_known_before": 0,
+                "question_depth_unknown_before": 65,
+                "question_depth_known_after": 0,
+                "question_depth_unknown_after": 65,
+                "coverage_max_depth": "UNKNOWN",
+                "application_count_after": 3,
+                "analysis_count_after": 62,
+                "professional_count_after": 65,
+                "prerequisite_complexity": "REVIEW_LATER",
+                "regulatory_volatility": "LOW",
+                "saturation": "HIGH",
+                "decision": "DEFER",
+                "decision_reason": "Largest current concept cohort; defer to avoid further mathematics concentration while engineering applications are thin."
+            },
+            "me-topic-1-3-concept": {
+                "concept_id": "me-topic-1-3-concept",
+                "concept_name": "Uncertainty, Data Inference, and Approximation",
+                "subject": "Mathematics",
+                "domain": "Mechanical Engineering Mathematics",
+                "topic": "me-topic-1-3",
+                "current_canonical": 17,
+                "current_effective": 17,
+                "after_canonical": 17,
+                "after_effective": 17,
+                "study_materials": [
+                    "me-material-1"
+                ],
+                "source_status": "READY",
+                "question_depth_known_before": 0,
+                "question_depth_unknown_before": 17,
+                "question_depth_known_after": 0,
+                "question_depth_unknown_after": 17,
+                "coverage_max_depth": "UNKNOWN",
+                "application_count_after": 3,
+                "analysis_count_after": 14,
+                "professional_count_after": 17,
+                "prerequisite_complexity": "REVIEW_LATER",
+                "regulatory_volatility": "LOW",
+                "saturation": "MEDIUM",
+                "decision": "DEFER",
+                "decision_reason": "Useful prerequisite competency, but current direct board pool is healthier than the engineering-science and professional areas."
+            },
+            "me-topic-2-1-concept": {
+                "concept_id": "me-topic-2-1-concept",
+                "concept_name": "Stress, Strain, Stability, and Deformation",
+                "subject": "Engineering Sciences",
+                "domain": "Mechanical Engineering Engineering Sciences",
+                "topic": "me-topic-2-1",
+                "current_canonical": 9,
+                "current_effective": 9,
+                "after_canonical": 43,
+                "after_effective": 43,
+                "study_materials": [
+                    "me-material-4"
+                ],
+                "source_status": "READY",
+                "question_depth_known_before": 0,
+                "question_depth_unknown_before": 9,
+                "question_depth_known_after": 43,
+                "question_depth_unknown_after": 0,
+                "coverage_max_depth": 4,
+                "application_count_after": 19,
+                "analysis_count_after": 24,
+                "professional_count_after": 26,
+                "prerequisite_complexity": "MEDIUM",
+                "regulatory_volatility": "LOW",
+                "saturation": "LOW/THIN",
+                "decision": "SELECT",
+                "decision_reason": "Thin existing pool, central to materials/design scope, and supports defensible analysis questions."
+            },
+            "me-topic-2-2-concept": {
+                "concept_id": "me-topic-2-2-concept",
+                "concept_name": "Fluid Statics, Internal Flow, and Fluid Machines",
+                "subject": "Engineering Sciences",
+                "domain": "Mechanical Engineering Engineering Sciences",
+                "topic": "me-topic-2-2",
+                "current_canonical": 10,
+                "current_effective": 10,
+                "after_canonical": 40,
+                "after_effective": 40,
+                "study_materials": [
+                    "me-material-5"
+                ],
+                "source_status": "READY",
+                "question_depth_known_before": 0,
+                "question_depth_unknown_before": 10,
+                "question_depth_known_after": 40,
+                "question_depth_unknown_after": 0,
+                "coverage_max_depth": 4,
+                "application_count_after": 20,
+                "analysis_count_after": 20,
+                "professional_count_after": 25,
+                "prerequisite_complexity": "MEDIUM",
+                "regulatory_volatility": "LOW",
+                "saturation": "LOW/THIN",
+                "decision": "SELECT",
+                "decision_reason": "Thin pool with strong foundational source support and high numerical/application breadth."
+            },
+            "me-topic-2-3-concept": {
+                "concept_id": "me-topic-2-3-concept",
+                "concept_name": "Thermodynamics, Heat Transfer, and HVAC",
+                "subject": "Engineering Sciences",
+                "domain": "Mechanical Engineering Engineering Sciences",
+                "topic": "me-topic-2-3",
+                "current_canonical": 17,
+                "current_effective": 17,
+                "after_canonical": 51,
+                "after_effective": 51,
+                "study_materials": [
+                    "me-material-6",
+                    "me-material-7"
+                ],
+                "source_status": "READY",
+                "question_depth_known_before": 0,
+                "question_depth_unknown_before": 17,
+                "question_depth_known_after": 51,
+                "question_depth_unknown_after": 0,
+                "coverage_max_depth": 4,
+                "application_count_after": 26,
+                "analysis_count_after": 25,
+                "professional_count_after": 27,
+                "prerequisite_complexity": "HIGH",
+                "regulatory_volatility": "LOW",
+                "saturation": "MEDIUM",
+                "decision": "SELECT",
+                "decision_reason": "Core ME competency with authoritative thermodynamics and heat-transfer sources; expansion is bounded across distinct subskills."
+            },
+            "me-topic-2-4-concept": {
+                "concept_id": "me-topic-2-4-concept",
+                "concept_name": "Energy Storage, Manufacturing Power, and Machine Life",
+                "subject": "Engineering Sciences",
+                "domain": "Mechanical Engineering Engineering Sciences",
+                "topic": "me-topic-2-4",
+                "current_canonical": 6,
+                "current_effective": 6,
+                "after_canonical": 6,
+                "after_effective": 6,
+                "study_materials": [
+                    "me-material-8",
+                    "me-material-12"
+                ],
+                "source_status": "READY",
+                "question_depth_known_before": 0,
+                "question_depth_unknown_before": 6,
+                "question_depth_known_after": 0,
+                "question_depth_unknown_after": 6,
+                "coverage_max_depth": "UNKNOWN",
+                "application_count_after": 3,
+                "analysis_count_after": 3,
+                "professional_count_after": 6,
+                "prerequisite_complexity": "REVIEW_LATER",
+                "regulatory_volatility": "LOW",
+                "saturation": "LOW/THIN",
+                "decision": "DEFER",
+                "decision_reason": "Thin but semantically broad; defer until its mixed boundary is resolved through a separate source and taxonomy review."
+            },
+            "me-topic-2-5-concept": {
+                "concept_id": "me-topic-2-5-concept",
+                "concept_name": "Economic Decisions, Process Variation, and Calibration",
+                "subject": "Engineering Sciences",
+                "domain": "Mechanical Engineering Engineering Sciences",
+                "topic": "me-topic-2-5",
+                "current_canonical": 9,
+                "current_effective": 9,
+                "after_canonical": 9,
+                "after_effective": 9,
+                "study_materials": [
+                    "me-material-13",
+                    "me-material-15"
+                ],
+                "source_status": "READY",
+                "question_depth_known_before": 0,
+                "question_depth_unknown_before": 9,
+                "question_depth_known_after": 0,
+                "question_depth_unknown_after": 9,
+                "coverage_max_depth": "UNKNOWN",
+                "application_count_after": 6,
+                "analysis_count_after": 3,
+                "professional_count_after": 9,
+                "prerequisite_complexity": "REVIEW_LATER",
+                "regulatory_volatility": "LOW",
+                "saturation": "LOW/THIN",
+                "decision": "DEFER",
+                "decision_reason": "Source-ready but internally mixed; avoid padding a separate economics/quality wave into this thermal/mechanical milestone."
+            },
+            "me-topic-2-6-concept": {
+                "concept_id": "me-topic-2-6-concept",
+                "concept_name": "Force Balance, Motion, Impact, and Vibration",
+                "subject": "Engineering Sciences",
+                "domain": "Mechanical Engineering Engineering Sciences",
+                "topic": "me-topic-2-6",
+                "current_canonical": 10,
+                "current_effective": 10,
+                "after_canonical": 10,
+                "after_effective": 10,
+                "study_materials": [
+                    "me-material-3"
+                ],
+                "source_status": "READY",
+                "question_depth_known_before": 0,
+                "question_depth_unknown_before": 10,
+                "question_depth_known_after": 0,
+                "question_depth_unknown_after": 10,
+                "coverage_max_depth": "UNKNOWN",
+                "application_count_after": 1,
+                "analysis_count_after": 9,
+                "professional_count_after": 10,
+                "prerequisite_complexity": "REVIEW_LATER",
+                "regulatory_volatility": "LOW",
+                "saturation": "LOW/THIN",
+                "decision": "DEFER",
+                "decision_reason": "Foundational prerequisite signal is strong, but selected items use it only as a material prerequisite; a dedicated dynamics/vibration wave is safer."
+            },
+            "me-topic-3-1-concept": {
+                "concept_id": "me-topic-3-1-concept",
+                "concept_name": "Power Transmission, Joints, Bearings, and Fatigue",
+                "subject": "Mechanical Engineering Professional Subjects",
+                "domain": "Mechanical Engineering Professional Subjects",
+                "topic": "me-topic-3-1",
+                "current_canonical": 13,
+                "current_effective": 13,
+                "after_canonical": 47,
+                "after_effective": 47,
+                "study_materials": [
+                    "me-material-10",
+                    "me-material-11"
+                ],
+                "source_status": "READY",
+                "question_depth_known_before": 0,
+                "question_depth_unknown_before": 13,
+                "question_depth_known_after": 47,
+                "question_depth_unknown_after": 0,
+                "coverage_max_depth": 4,
+                "application_count_after": 27,
+                "analysis_count_after": 20,
+                "professional_count_after": 41,
+                "prerequisite_complexity": "HIGH",
+                "regulatory_volatility": "LOW",
+                "saturation": "LOW/THIN",
+                "decision": "SELECT",
+                "decision_reason": "Most direct machine-design expansion target; broad source-backed design and capacity scenarios are available."
+            },
+            "me-topic-3-2-concept": {
+                "concept_id": "me-topic-3-2-concept",
+                "concept_name": "Machining, Production Flow, Quality, and Economics",
+                "subject": "Mechanical Engineering Professional Subjects",
+                "domain": "Mechanical Engineering Professional Subjects",
+                "topic": "me-topic-3-2",
+                "current_canonical": 10,
+                "current_effective": 10,
+                "after_canonical": 38,
+                "after_effective": 38,
+                "study_materials": [
+                    "me-material-12",
+                    "me-material-13"
+                ],
+                "source_status": "READY",
+                "question_depth_known_before": 0,
+                "question_depth_unknown_before": 10,
+                "question_depth_known_after": 38,
+                "question_depth_unknown_after": 0,
+                "coverage_max_depth": 4,
+                "application_count_after": 24,
+                "analysis_count_after": 14,
+                "professional_count_after": 33,
+                "prerequisite_complexity": "MEDIUM",
+                "regulatory_volatility": "LOW",
+                "saturation": "LOW/THIN",
+                "decision": "SELECT",
+                "decision_reason": "Thin professional pool with distinct machining, quality, flow, and process-selection applications."
+            },
+            "me-topic-3-3-concept": {
+                "concept_id": "me-topic-3-3-concept",
+                "concept_name": "Cycles, Heat Exchange, Boilers, and Engines",
+                "subject": "Mechanical Engineering Professional Subjects",
+                "domain": "Mechanical Engineering Professional Subjects",
+                "topic": "me-topic-3-3",
+                "current_canonical": 7,
+                "current_effective": 7,
+                "after_canonical": 41,
+                "after_effective": 41,
+                "study_materials": [
+                    "me-material-8"
+                ],
+                "source_status": "READY",
+                "question_depth_known_before": 0,
+                "question_depth_unknown_before": 7,
+                "question_depth_known_after": 41,
+                "question_depth_unknown_after": 0,
+                "coverage_max_depth": 4,
+                "application_count_after": 22,
+                "analysis_count_after": 19,
+                "professional_count_after": 41,
+                "prerequisite_complexity": "HIGH",
+                "regulatory_volatility": "LOW",
+                "saturation": "LOW/THIN",
+                "decision": "SELECT",
+                "decision_reason": "Direct Power Plant Engineering crosswalk and high-value cycle/performance analysis potential."
+            },
+            "me-topic-3-4-concept": {
+                "concept_id": "me-topic-3-4-concept",
+                "concept_name": "Pumps, Compressors, Heat Exchangers, and Air Conditioning",
+                "subject": "Mechanical Engineering Professional Subjects",
+                "domain": "Mechanical Engineering Professional Subjects",
+                "topic": "me-topic-3-4",
+                "current_canonical": 6,
+                "current_effective": 6,
+                "after_canonical": 36,
+                "after_effective": 36,
+                "study_materials": [
+                    "me-material-9"
+                ],
+                "source_status": "READY",
+                "question_depth_known_before": 0,
+                "question_depth_unknown_before": 6,
+                "question_depth_known_after": 36,
+                "question_depth_unknown_after": 0,
+                "coverage_max_depth": 4,
+                "application_count_after": 18,
+                "analysis_count_after": 18,
+                "professional_count_after": 36,
+                "prerequisite_complexity": "HIGH",
+                "regulatory_volatility": "LOW",
+                "saturation": "LOW/THIN",
+                "decision": "SELECT",
+                "decision_reason": "Very thin professional pool; source support covers fluid machinery and HVAC decisions without relying on volatile code trivia."
+            },
+            "me-topic-3-5-concept": {
+                "concept_id": "me-topic-3-5-concept",
+                "concept_name": "Condition Monitoring, Reliability, and Energy Safety",
+                "subject": "Mechanical Engineering Professional Subjects",
+                "domain": "Mechanical Engineering Professional Subjects",
+                "topic": "me-topic-3-5",
+                "current_canonical": 4,
+                "current_effective": 4,
+                "after_canonical": 24,
+                "after_effective": 24,
+                "study_materials": [
+                    "me-material-14"
+                ],
+                "source_status": "READY",
+                "question_depth_known_before": 0,
+                "question_depth_unknown_before": 4,
+                "question_depth_known_after": 24,
+                "question_depth_unknown_after": 0,
+                "coverage_max_depth": 4,
+                "application_count_after": 16,
+                "analysis_count_after": 8,
+                "professional_count_after": 24,
+                "prerequisite_complexity": "MEDIUM",
+                "regulatory_volatility": "LOW",
+                "saturation": "LOW/THIN",
+                "decision": "SELECT",
+                "decision_reason": "Smallest professional cohort and high repeat-resistance value through reliability, maintenance, and safe-intervention scenarios."
+            }
+        },
+        "concept_selection": {
+            "evaluated": 14,
+            "selected": 8,
+            "selected_concepts": [
+                "me-topic-2-1-concept",
+                "me-topic-2-2-concept",
+                "me-topic-2-3-concept",
+                "me-topic-3-1-concept",
+                "me-topic-3-2-concept",
+                "me-topic-3-3-concept",
+                "me-topic-3-4-concept",
+                "me-topic-3-5-concept"
+            ],
+            "deferred_concepts": [
+                "me-topic-1-1-concept",
+                "me-topic-1-2-concept",
+                "me-topic-1-3-concept",
+                "me-topic-2-4-concept",
+                "me-topic-2-5-concept",
+                "me-topic-2-6-concept"
+            ],
+            "scorecard": {
+                "me-topic-1-1-concept": {
+                    "concept": "me-topic-1-1-concept",
+                    "current_questions": 37,
+                    "current_depth_unknown": 37,
+                    "current_study_materials": 1,
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "HIGH",
+                    "application_potential": "MEDIUM",
+                    "analysis_potential": "REVIEW_LATER",
+                    "numerical_potential": "MEDIUM",
+                    "prerequisite_complexity": "REVIEW_LATER",
+                    "regulatory_volatility": "LOW",
+                    "saturation_risk": "HIGH",
+                    "decision": "DEFER",
+                    "reason": "Existing pool is comparatively deep; retain for a later mathematics-specific wave while the official 35% mathematics area remains represented."
+                },
+                "me-topic-1-2-concept": {
+                    "concept": "me-topic-1-2-concept",
+                    "current_questions": 65,
+                    "current_depth_unknown": 65,
+                    "current_study_materials": 1,
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "HIGH",
+                    "application_potential": "MEDIUM",
+                    "analysis_potential": "REVIEW_LATER",
+                    "numerical_potential": "MEDIUM",
+                    "prerequisite_complexity": "REVIEW_LATER",
+                    "regulatory_volatility": "LOW",
+                    "saturation_risk": "HIGH",
+                    "decision": "DEFER",
+                    "reason": "Largest current concept cohort; defer to avoid further mathematics concentration while engineering applications are thin."
+                },
+                "me-topic-1-3-concept": {
+                    "concept": "me-topic-1-3-concept",
+                    "current_questions": 17,
+                    "current_depth_unknown": 17,
+                    "current_study_materials": 1,
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "MEDIUM",
+                    "application_potential": "MEDIUM",
+                    "analysis_potential": "REVIEW_LATER",
+                    "numerical_potential": "MEDIUM",
+                    "prerequisite_complexity": "REVIEW_LATER",
+                    "regulatory_volatility": "LOW",
+                    "saturation_risk": "MEDIUM",
+                    "decision": "DEFER",
+                    "reason": "Useful prerequisite competency, but current direct board pool is healthier than the engineering-science and professional areas."
+                },
+                "me-topic-2-1-concept": {
+                    "concept": "me-topic-2-1-concept",
+                    "current_questions": 9,
+                    "current_depth_unknown": 9,
+                    "current_study_materials": 1,
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "HIGH",
+                    "application_potential": "HIGH",
+                    "analysis_potential": "HIGH",
+                    "numerical_potential": "HIGH",
+                    "prerequisite_complexity": "MEDIUM",
+                    "regulatory_volatility": "LOW",
+                    "saturation_risk": "LOW/THIN",
+                    "decision": "SELECT",
+                    "reason": "Thin existing pool, central to materials/design scope, and supports defensible analysis questions."
+                },
+                "me-topic-2-2-concept": {
+                    "concept": "me-topic-2-2-concept",
+                    "current_questions": 10,
+                    "current_depth_unknown": 10,
+                    "current_study_materials": 1,
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "HIGH",
+                    "application_potential": "HIGH",
+                    "analysis_potential": "HIGH",
+                    "numerical_potential": "HIGH",
+                    "prerequisite_complexity": "MEDIUM",
+                    "regulatory_volatility": "LOW",
+                    "saturation_risk": "LOW/THIN",
+                    "decision": "SELECT",
+                    "reason": "Thin pool with strong foundational source support and high numerical/application breadth."
+                },
+                "me-topic-2-3-concept": {
+                    "concept": "me-topic-2-3-concept",
+                    "current_questions": 17,
+                    "current_depth_unknown": 17,
+                    "current_study_materials": 2,
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "HIGH",
+                    "application_potential": "HIGH",
+                    "analysis_potential": "HIGH",
+                    "numerical_potential": "HIGH",
+                    "prerequisite_complexity": "HIGH",
+                    "regulatory_volatility": "LOW",
+                    "saturation_risk": "MEDIUM",
+                    "decision": "SELECT",
+                    "reason": "Core ME competency with authoritative thermodynamics and heat-transfer sources; expansion is bounded across distinct subskills."
+                },
+                "me-topic-2-4-concept": {
+                    "concept": "me-topic-2-4-concept",
+                    "current_questions": 6,
+                    "current_depth_unknown": 6,
+                    "current_study_materials": 2,
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "MEDIUM",
+                    "application_potential": "MEDIUM",
+                    "analysis_potential": "REVIEW_LATER",
+                    "numerical_potential": "MEDIUM",
+                    "prerequisite_complexity": "REVIEW_LATER",
+                    "regulatory_volatility": "LOW",
+                    "saturation_risk": "LOW/THIN",
+                    "decision": "DEFER",
+                    "reason": "Thin but semantically broad; defer until its mixed boundary is resolved through a separate source and taxonomy review."
+                },
+                "me-topic-2-5-concept": {
+                    "concept": "me-topic-2-5-concept",
+                    "current_questions": 9,
+                    "current_depth_unknown": 9,
+                    "current_study_materials": 2,
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "MEDIUM",
+                    "application_potential": "MEDIUM",
+                    "analysis_potential": "REVIEW_LATER",
+                    "numerical_potential": "MEDIUM",
+                    "prerequisite_complexity": "REVIEW_LATER",
+                    "regulatory_volatility": "LOW",
+                    "saturation_risk": "LOW/THIN",
+                    "decision": "DEFER",
+                    "reason": "Source-ready but internally mixed; avoid padding a separate economics/quality wave into this thermal/mechanical milestone."
+                },
+                "me-topic-2-6-concept": {
+                    "concept": "me-topic-2-6-concept",
+                    "current_questions": 10,
+                    "current_depth_unknown": 10,
+                    "current_study_materials": 1,
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "HIGH",
+                    "application_potential": "MEDIUM",
+                    "analysis_potential": "REVIEW_LATER",
+                    "numerical_potential": "MEDIUM",
+                    "prerequisite_complexity": "REVIEW_LATER",
+                    "regulatory_volatility": "LOW",
+                    "saturation_risk": "LOW/THIN",
+                    "decision": "DEFER",
+                    "reason": "Foundational prerequisite signal is strong, but selected items use it only as a material prerequisite; a dedicated dynamics/vibration wave is safer."
+                },
+                "me-topic-3-1-concept": {
+                    "concept": "me-topic-3-1-concept",
+                    "current_questions": 13,
+                    "current_depth_unknown": 13,
+                    "current_study_materials": 2,
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "HIGH",
+                    "application_potential": "HIGH",
+                    "analysis_potential": "HIGH",
+                    "numerical_potential": "HIGH",
+                    "prerequisite_complexity": "HIGH",
+                    "regulatory_volatility": "LOW",
+                    "saturation_risk": "LOW/THIN",
+                    "decision": "SELECT",
+                    "reason": "Most direct machine-design expansion target; broad source-backed design and capacity scenarios are available."
+                },
+                "me-topic-3-2-concept": {
+                    "concept": "me-topic-3-2-concept",
+                    "current_questions": 10,
+                    "current_depth_unknown": 10,
+                    "current_study_materials": 2,
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "HIGH",
+                    "application_potential": "HIGH",
+                    "analysis_potential": "HIGH",
+                    "numerical_potential": "HIGH",
+                    "prerequisite_complexity": "MEDIUM",
+                    "regulatory_volatility": "LOW",
+                    "saturation_risk": "LOW/THIN",
+                    "decision": "SELECT",
+                    "reason": "Thin professional pool with distinct machining, quality, flow, and process-selection applications."
+                },
+                "me-topic-3-3-concept": {
+                    "concept": "me-topic-3-3-concept",
+                    "current_questions": 7,
+                    "current_depth_unknown": 7,
+                    "current_study_materials": 1,
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "HIGH",
+                    "application_potential": "HIGH",
+                    "analysis_potential": "HIGH",
+                    "numerical_potential": "HIGH",
+                    "prerequisite_complexity": "HIGH",
+                    "regulatory_volatility": "LOW",
+                    "saturation_risk": "LOW/THIN",
+                    "decision": "SELECT",
+                    "reason": "Direct Power Plant Engineering crosswalk and high-value cycle/performance analysis potential."
+                },
+                "me-topic-3-4-concept": {
+                    "concept": "me-topic-3-4-concept",
+                    "current_questions": 6,
+                    "current_depth_unknown": 6,
+                    "current_study_materials": 1,
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "HIGH",
+                    "application_potential": "HIGH",
+                    "analysis_potential": "HIGH",
+                    "numerical_potential": "HIGH",
+                    "prerequisite_complexity": "HIGH",
+                    "regulatory_volatility": "LOW",
+                    "saturation_risk": "LOW/THIN",
+                    "decision": "SELECT",
+                    "reason": "Very thin professional pool; source support covers fluid machinery and HVAC decisions without relying on volatile code trivia."
+                },
+                "me-topic-3-5-concept": {
+                    "concept": "me-topic-3-5-concept",
+                    "current_questions": 4,
+                    "current_depth_unknown": 4,
+                    "current_study_materials": 1,
+                    "source_readiness": "STRONG",
+                    "blueprint_importance": "HIGH",
+                    "application_potential": "HIGH",
+                    "analysis_potential": "HIGH",
+                    "numerical_potential": "HIGH",
+                    "prerequisite_complexity": "MEDIUM",
+                    "regulatory_volatility": "LOW",
+                    "saturation_risk": "LOW/THIN",
+                    "decision": "SELECT",
+                    "reason": "Smallest professional cohort and high repeat-resistance value through reliability, maintenance, and safe-intervention scenarios."
+                }
+            }
+        },
+        "sources": {
+            "reviewed": [
+                {
+                    "source_id": "prc-mechanical-engineering-board-page",
+                    "title": "PRC Mechanical Engineering Syllabus Resources",
+                    "authority": "Professional Regulation Commission; Professional Regulatory Board of Mechanical Engineering",
+                    "url": "https://www.prc.gov.ph/Pages/PRBv4/MechanicalEngineering.htm",
+                    "type": "OFFICIAL_GOVERNMENT",
+                    "supported_concepts": [
+                        "me-topic-2-1-concept",
+                        "me-topic-2-2-concept",
+                        "me-topic-2-3-concept",
+                        "me-topic-3-1-concept",
+                        "me-topic-3-2-concept",
+                        "me-topic-3-3-concept",
+                        "me-topic-3-4-concept",
+                        "me-topic-3-5-concept"
+                    ],
+                    "board_scope": true,
+                    "version_or_date": "current PRC board page; modified syllabi resources listed",
+                    "volatility": "PERIODICALLY_UPDATED",
+                    "why_authoritative": "Official PRC Board of Mechanical Engineering scope, syllabus, and board-resolution hub.",
+                    "questions_derived": 244,
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "source_id": "prc-mechanical-engineering-2026-program",
+                    "title": "February 2026 Mechanical Engineers Licensure Examination Program",
+                    "authority": "Professional Regulation Commission; Professional Regulatory Board of Mechanical Engineering",
+                    "url": "https://www.prc.gov.ph/sites/default/files/RA%20-%20MECHANICAL%20ENGINEER%20FEB%202026_merged.pdf",
+                    "type": "OFFICIAL_GOVERNMENT",
+                    "supported_concepts": [],
+                    "board_scope": true,
+                    "version_or_date": "February 2026 official program",
+                    "volatility": "PERIODICALLY_UPDATED",
+                    "why_authoritative": "Official PRC 2026 examination program establishing the current 35/35/30 subject-area weights.",
+                    "questions_derived": 0,
+                    "role": "SCOPE_SOURCE"
+                },
+                {
+                    "source_id": "openstax-university-physics-volume-1",
+                    "title": "University Physics Volume 1",
+                    "authority": "OpenStax, Rice University",
+                    "url": "https://openstax.org/details/books/university-physics-volume-1",
+                    "type": "AUTHORITATIVE_ACADEMIC",
+                    "supported_concepts": [
+                        "me-topic-2-1-concept",
+                        "me-topic-2-2-concept",
+                        "me-topic-3-1-concept",
+                        "me-topic-3-4-concept"
+                    ],
+                    "board_scope": false,
+                    "version_or_date": "current OpenStax web edition",
+                    "volatility": "STABLE_FOUNDATIONAL",
+                    "why_authoritative": "Open university physics reference for mechanics, fluids, energy, momentum, and physical assumptions.",
+                    "questions_derived": 128,
+                    "role": "INSTRUCTIONAL_DERIVATION_SOURCE"
+                },
+                {
+                    "source_id": "openstax-university-physics-volume-2",
+                    "title": "University Physics Volume 2",
+                    "authority": "OpenStax, Rice University",
+                    "url": "https://openstax.org/details/books/university-physics-volume-2",
+                    "type": "AUTHORITATIVE_ACADEMIC",
+                    "supported_concepts": [
+                        "me-topic-2-3-concept",
+                        "me-topic-3-3-concept",
+                        "me-topic-3-4-concept"
+                    ],
+                    "board_scope": false,
+                    "version_or_date": "current OpenStax web edition",
+                    "volatility": "STABLE_FOUNDATIONAL",
+                    "why_authoritative": "Open university physics reference for thermodynamics, heat transfer, and thermal-system principles.",
+                    "questions_derived": 98,
+                    "role": "INSTRUCTIONAL_DERIVATION_SOURCE"
+                },
+                {
+                    "source_id": "ubc-introduction-engineering-thermodynamics",
+                    "title": "Introduction to Engineering Thermodynamics",
+                    "authority": "Claire Yu Yan; BCcampus Open Education",
+                    "url": "https://pressbooks.bccampus.ca/thermo1/",
+                    "type": "AUTHORITATIVE_ACADEMIC",
+                    "supported_concepts": [
+                        "me-topic-2-3-concept",
+                        "me-topic-3-3-concept",
+                        "me-topic-3-4-concept"
+                    ],
+                    "board_scope": false,
+                    "version_or_date": "current Pressbooks edition",
+                    "volatility": "STABLE_FOUNDATIONAL",
+                    "why_authoritative": "Open engineering-thermodynamics text covering control volumes, properties, cycles, and device assumptions.",
+                    "questions_derived": 98,
+                    "role": "INSTRUCTIONAL_DERIVATION_SOURCE"
+                },
+                {
+                    "source_id": "open-mechanical-design-manufacturing",
+                    "title": "Introduction to Mechanical Design and Manufacturing",
+                    "authority": "David Jensen; University of Arkansas",
+                    "url": "https://open.umn.edu/opentextbooks/textbooks/introduction-to-mechanical-design-and-manufacturing",
+                    "type": "AUTHORITATIVE_ACADEMIC",
+                    "supported_concepts": [
+                        "me-topic-2-1-concept",
+                        "me-topic-3-1-concept",
+                        "me-topic-3-2-concept",
+                        "me-topic-3-5-concept"
+                    ],
+                    "board_scope": false,
+                    "version_or_date": "2024 open textbook edition",
+                    "volatility": "STABLE_FOUNDATIONAL",
+                    "why_authoritative": "University-authored open mechanical-design and manufacturing reference for shafts, machine elements, and production decisions.",
+                    "questions_derived": 116,
+                    "role": "INSTRUCTIONAL_DERIVATION_SOURCE"
+                },
+                {
+                    "source_id": "open-manufacturing-processes-4-5",
+                    "title": "Manufacturing Processes 4–5",
+                    "authority": "LamNgeun Virasak; Open Oregon Educational Resources",
+                    "url": "https://open.umn.edu/opentextbooks/textbooks/645",
+                    "type": "AUTHORITATIVE_ACADEMIC",
+                    "supported_concepts": [
+                        "me-topic-3-2-concept"
+                    ],
+                    "board_scope": false,
+                    "version_or_date": "current Open Textbook Library edition",
+                    "volatility": "STABLE_FOUNDATIONAL",
+                    "why_authoritative": "Open educational manufacturing-process reference for machining, process capability, and production flow.",
+                    "questions_derived": 28,
+                    "role": "INSTRUCTIONAL_DERIVATION_SOURCE"
+                },
+                {
+                    "source_id": "nist-semtech-engineering-statistics-handbook",
+                    "title": "NIST/SEMATECH Engineering Statistics Handbook",
+                    "authority": "National Institute of Standards and Technology; SEMATECH",
+                    "url": "https://www.nist.gov/programs-projects/nistsematech-engineering-statistics-handbook",
+                    "type": "OFFICIAL_GOVERNMENT",
+                    "supported_concepts": [
+                        "me-topic-3-2-concept",
+                        "me-topic-3-5-concept"
+                    ],
+                    "board_scope": false,
+                    "version_or_date": "web handbook, updated 2017",
+                    "volatility": "STABLE_FOUNDATIONAL",
+                    "why_authoritative": "NIST/SEMATECH engineering-statistics handbook for capability, control charts, and quality inference.",
+                    "questions_derived": 48,
+                    "role": "INSTRUCTIONAL_DERIVATION_SOURCE"
+                },
+                {
+                    "source_id": "openstax-calculus-volume-1",
+                    "title": "Calculus Volume 1",
+                    "authority": "OpenStax, Rice University",
+                    "url": "https://openstax.org/details/books/calculus-volume-1",
+                    "type": "AUTHORITATIVE_ACADEMIC",
+                    "supported_concepts": [],
+                    "board_scope": false,
+                    "version_or_date": "current OpenStax web edition",
+                    "volatility": "STABLE_FOUNDATIONAL",
+                    "why_authoritative": "Open calculus reference reviewed for deferred ME mathematical prerequisites.",
+                    "questions_derived": 0,
+                    "role": "INSTRUCTIONAL_DERIVATION_SOURCE"
+                },
+                {
+                    "source_id": "ualberta-introduction-engineering-economics",
+                    "title": "Introduction to Engineering Economics",
+                    "authority": "University of Alberta Engineering at Alberta Courses",
+                    "url": "https://engcourses-uofa.ca/books/introduction-to-engineering-economics/",
+                    "type": "AUTHORITATIVE_ACADEMIC",
+                    "supported_concepts": [],
+                    "board_scope": false,
+                    "version_or_date": "current open educational resource",
+                    "volatility": "STABLE_FOUNDATIONAL",
+                    "why_authoritative": "University engineering-economics reference reviewed for deferred economic-decision coverage.",
+                    "questions_derived": 0,
+                    "role": "INSTRUCTIONAL_DERIVATION_SOURCE"
+                }
+            ],
+            "existing_sources_reused": 9,
+            "added": [
+                "prc-mechanical-engineering-2026-program"
+            ],
+            "weak_rejected": [],
+            "type_counts": {
+                "OFFICIAL_GOVERNMENT": 3,
+                "OFFICIAL_PROFESSIONAL": 0,
+                "AUTHORITATIVE_ACADEMIC": 7
+            },
+            "volatility_counts": {
+                "STABLE_FOUNDATIONAL": 8,
+                "PERIODICALLY_UPDATED": 2,
+                "REGULATORY_VOLATILE": 0
+            },
+            "scope_sources": [
+                "prc-mechanical-engineering-board-page",
+                "prc-mechanical-engineering-2026-program"
+            ],
+            "instructional_sources": [
+                "openstax-university-physics-volume-1",
+                "openstax-university-physics-volume-2",
+                "ubc-introduction-engineering-thermodynamics",
+                "open-mechanical-design-manufacturing",
+                "open-manufacturing-processes-4-5",
+                "nist-semtech-engineering-statistics-handbook",
+                "openstax-calculus-volume-1",
+                "ualberta-introduction-engineering-economics"
+            ],
+            "questions_per_source": {
+                "prc-mechanical-engineering-board-page": 244,
+                "prc-mechanical-engineering-2026-program": 0,
+                "openstax-university-physics-volume-1": 128,
+                "openstax-university-physics-volume-2": 98,
+                "ubc-introduction-engineering-thermodynamics": 98,
+                "open-mechanical-design-manufacturing": 116,
+                "open-manufacturing-processes-4-5": 28,
+                "nist-semtech-engineering-statistics-handbook": 48,
+                "openstax-calculus-volume-1": 0,
+                "ualberta-introduction-engineering-economics": 0
+            },
+            "concepts_per_source": {
+                "prc-mechanical-engineering-board-page": [
+                    "me-topic-2-1-concept",
+                    "me-topic-2-2-concept",
+                    "me-topic-2-3-concept",
+                    "me-topic-3-1-concept",
+                    "me-topic-3-2-concept",
+                    "me-topic-3-3-concept",
+                    "me-topic-3-4-concept",
+                    "me-topic-3-5-concept"
+                ],
+                "prc-mechanical-engineering-2026-program": [],
+                "openstax-university-physics-volume-1": [
+                    "me-topic-2-1-concept",
+                    "me-topic-2-2-concept",
+                    "me-topic-3-1-concept",
+                    "me-topic-3-4-concept"
+                ],
+                "openstax-university-physics-volume-2": [
+                    "me-topic-2-3-concept",
+                    "me-topic-3-3-concept",
+                    "me-topic-3-4-concept"
+                ],
+                "ubc-introduction-engineering-thermodynamics": [
+                    "me-topic-2-3-concept",
+                    "me-topic-3-3-concept",
+                    "me-topic-3-4-concept"
+                ],
+                "open-mechanical-design-manufacturing": [
+                    "me-topic-2-1-concept",
+                    "me-topic-3-1-concept",
+                    "me-topic-3-2-concept",
+                    "me-topic-3-5-concept"
+                ],
+                "open-manufacturing-processes-4-5": [
+                    "me-topic-3-2-concept"
+                ],
+                "nist-semtech-engineering-statistics-handbook": [
+                    "me-topic-3-2-concept",
+                    "me-topic-3-5-concept"
+                ],
+                "openstax-calculus-volume-1": [],
+                "ualberta-introduction-engineering-economics": []
+            },
+            "max_instructional_source_concentration": 0.4016,
+            "source_overconcentration_flag": false
+        },
+        "study_materials": {
+            "reviewed": 15,
+            "selected_adequacy": {
+                "me-topic-2-1-concept": {
+                    "material_ids": [
+                        "me-material-4"
+                    ],
+                    "before": "NEEDS_EXPANSION",
+                    "after": "SUFFICIENT_DEPTH_4",
+                    "reason": "Expanded governing equations, assumptions, units, worked reasoning, limits, and engineering interpretation support application and analysis."
+                },
+                "me-topic-2-2-concept": {
+                    "material_ids": [
+                        "me-material-5"
+                    ],
+                    "before": "NEEDS_EXPANSION",
+                    "after": "SUFFICIENT_DEPTH_4",
+                    "reason": "Expanded governing equations, assumptions, units, worked reasoning, limits, and engineering interpretation support application and analysis."
+                },
+                "me-topic-2-3-concept": {
+                    "material_ids": [
+                        "me-material-6",
+                        "me-material-7"
+                    ],
+                    "before": "NEEDS_EXPANSION",
+                    "after": "SUFFICIENT_DEPTH_4",
+                    "reason": "Expanded governing equations, assumptions, units, worked reasoning, limits, and engineering interpretation support application and analysis."
+                },
+                "me-topic-3-1-concept": {
+                    "material_ids": [
+                        "me-material-10",
+                        "me-material-11"
+                    ],
+                    "before": "NEEDS_EXPANSION",
+                    "after": "SUFFICIENT_DEPTH_4",
+                    "reason": "Expanded governing equations, assumptions, units, worked reasoning, limits, and engineering interpretation support application and analysis."
+                },
+                "me-topic-3-2-concept": {
+                    "material_ids": [
+                        "me-material-12",
+                        "me-material-13"
+                    ],
+                    "before": "NEEDS_EXPANSION",
+                    "after": "SUFFICIENT_DEPTH_4",
+                    "reason": "Expanded governing equations, assumptions, units, worked reasoning, limits, and engineering interpretation support application and analysis."
+                },
+                "me-topic-3-3-concept": {
+                    "material_ids": [
+                        "me-material-8"
+                    ],
+                    "before": "NEEDS_EXPANSION",
+                    "after": "SUFFICIENT_DEPTH_4",
+                    "reason": "Expanded governing equations, assumptions, units, worked reasoning, limits, and engineering interpretation support application and analysis."
+                },
+                "me-topic-3-4-concept": {
+                    "material_ids": [
+                        "me-material-9"
+                    ],
+                    "before": "NEEDS_EXPANSION",
+                    "after": "SUFFICIENT_DEPTH_4",
+                    "reason": "Expanded governing equations, assumptions, units, worked reasoning, limits, and engineering interpretation support application and analysis."
+                },
+                "me-topic-3-5-concept": {
+                    "material_ids": [
+                        "me-material-14"
+                    ],
+                    "before": "NEEDS_EXPANSION",
+                    "after": "SUFFICIENT_DEPTH_4",
+                    "reason": "Expanded governing equations, assumptions, units, worked reasoning, limits, and engineering interpretation support application and analysis."
+                }
+            },
+            "sufficient_depth_2": 0,
+            "sufficient_depth_3": 0,
+            "sufficient_depth_4": 8,
+            "sufficient_depth_5": 0,
+            "needs_expansion_before": 8,
+            "needs_reorganization": 0,
+            "needs_split": 0,
+            "needs_merge": 0,
+            "missing": 0,
+            "expanded": 8,
+            "reorganized": 0,
+            "split": 0,
+            "merged": 0,
+            "added": 0,
+            "updated_material_ids": [
+                "me-material-4",
+                "me-material-5",
+                "me-material-6",
+                "me-material-10",
+                "me-material-12",
+                "me-material-8",
+                "me-material-9",
+                "me-material-14"
+            ]
+        },
+        "coverage_depth": {
+            "me_rows_reviewed": 8,
+            "me_rows_assigned": 8,
+            "me_rows_kept_unknown": 6,
+            "selected": {
+                "me-topic-2-1-concept": {
+                    "old": "UNKNOWN",
+                    "new": 4,
+                    "evidence": "Source-backed study material supports bounded application and analysis; selected items do not require specialized professional judgment depth 5.",
+                    "confidence": "STRONG"
+                },
+                "me-topic-2-2-concept": {
+                    "old": "UNKNOWN",
+                    "new": 4,
+                    "evidence": "Source-backed study material supports bounded application and analysis; selected items do not require specialized professional judgment depth 5.",
+                    "confidence": "STRONG"
+                },
+                "me-topic-2-3-concept": {
+                    "old": "UNKNOWN",
+                    "new": 4,
+                    "evidence": "Source-backed study material supports bounded application and analysis; selected items do not require specialized professional judgment depth 5.",
+                    "confidence": "STRONG"
+                },
+                "me-topic-3-1-concept": {
+                    "old": "UNKNOWN",
+                    "new": 4,
+                    "evidence": "Source-backed study material supports bounded application and analysis; selected items do not require specialized professional judgment depth 5.",
+                    "confidence": "STRONG"
+                },
+                "me-topic-3-2-concept": {
+                    "old": "UNKNOWN",
+                    "new": 4,
+                    "evidence": "Source-backed study material supports bounded application and analysis; selected items do not require specialized professional judgment depth 5.",
+                    "confidence": "STRONG"
+                },
+                "me-topic-3-3-concept": {
+                    "old": "UNKNOWN",
+                    "new": 4,
+                    "evidence": "Source-backed study material supports bounded application and analysis; selected items do not require specialized professional judgment depth 5.",
+                    "confidence": "STRONG"
+                },
+                "me-topic-3-4-concept": {
+                    "old": "UNKNOWN",
+                    "new": 4,
+                    "evidence": "Source-backed study material supports bounded application and analysis; selected items do not require specialized professional judgment depth 5.",
+                    "confidence": "STRONG"
+                },
+                "me-topic-3-5-concept": {
+                    "old": "UNKNOWN",
+                    "new": 4,
+                    "evidence": "Source-backed study material supports bounded application and analysis; selected items do not require specialized professional judgment depth 5.",
+                    "confidence": "STRONG"
+                }
+            },
+            "depth_counts_selected": {
+                "1": 0,
+                "2": 0,
+                "3": 0,
+                "4": 8,
+                "5": 0,
+                "UNKNOWN": 0
+            },
+            "repository_after": {
+                "KNOWN": 34,
+                "UNKNOWN": 390
+            }
+        },
+        "existing_me_depth": {
+            "reviewed": 76,
+            "assigned": 76,
+            "kept_unknown": 0
+        },
+        "question_plan": {
+            "planned_total": 244,
+            "by_concept": {
+                "me-topic-2-1-concept": 34,
+                "me-topic-2-2-concept": 30,
+                "me-topic-2-3-concept": 34,
+                "me-topic-3-1-concept": 34,
+                "me-topic-3-2-concept": 28,
+                "me-topic-3-3-concept": 34,
+                "me-topic-3-4-concept": 30,
+                "me-topic-3-5-concept": 20
+            },
+            "by_blueprint_area": {
+                "Engineering Sciences": 98,
+                "Mechanical Design, Materials and Shop Practice": 82,
+                "Power Plant Engineering": 64
+            }
+        },
+        "content": {
+            "actual_new_questions": 244,
+            "new_id_range": [
+                3301,
+                3544
+            ],
+            "new_by_concept": {
+                "me-topic-2-1-concept": 34,
+                "me-topic-2-2-concept": 30,
+                "me-topic-2-3-concept": 34,
+                "me-topic-3-1-concept": 34,
+                "me-topic-3-2-concept": 28,
+                "me-topic-3-3-concept": 34,
+                "me-topic-3-4-concept": 30,
+                "me-topic-3-5-concept": 20
+            },
+            "new_by_blueprint_area": {
+                "Engineering Sciences": 98,
+                "Mechanical Design, Materials and Shop Practice": 82,
+                "Power Plant Engineering": 64
+            },
+            "duplicate_ids": 0,
+            "id_collisions": 0,
+            "canonical_after": 3544,
+            "new_depths": {
+                "1": 0,
+                "2": 0,
+                "3": 136,
+                "4": 108,
+                "5": 0,
+                "UNKNOWN": 0
+            },
+            "new_context": {
+                "NEUTRAL": 67,
+                "PROFESSIONAL": 177,
+                "REGULATORY": 0,
+                "OTHER": 0
+            },
+            "new_foundation": 0,
+            "new_understanding": 0,
+            "new_application": 136,
+            "new_analysis": 108,
+            "new_professional_application": 177
+        },
+        "prerequisites": {
+            "new_prerequisite_free": 79,
+            "new_with_required_concepts": 119,
+            "new_with_assumed_foundation": 46,
+            "distinct_required_concepts": [
+                "me-topic-2-6-concept",
+                "me-topic-2-3-concept",
+                "me-topic-1-2-concept",
+                "me-topic-2-1-concept",
+                "me-topic-3-5-concept",
+                "me-topic-3-4-concept",
+                "me-topic-3-1-concept",
+                "me-topic-2-2-concept",
+                "me-topic-1-3-concept"
+            ],
+            "invalid_required_concept_references": 0,
+            "self_prerequisites": 0,
+            "circular_prerequisites": 0,
+            "duplicate_required_concept_rows": 0,
+            "required_rows_written": 119
+        },
+        "numerical_quality": {
+            "numerical_new": 159,
+            "numerical_recomputed": 159,
+            "numerical_pass": 159,
+            "numerical_fail": 0,
+            "distinct_formula_families": 236,
+            "distinct_numerical_formula_families": 153,
+            "distinct_numerical_templates": 159,
+            "numeric_template_duplicates_found": 0,
+            "numeric_template_duplicates_rejected": 0,
+            "distinct_scenario_families": 8,
+            "distinct_misconception_families": 247
+        },
+        "high_risk_review": {
+            "total": 193,
+            "reviewed": 193,
+            "pass": 193,
+            "fail": 0
+        },
+        "duplication": {
+            "exact_duplicates": 0,
+            "normalized_duplicates": 0,
+            "global_normalized_duplicate_groups_after": 0,
+            "semantic_near_duplicates_found": 0,
+            "semantic_near_duplicates_rejected": 0,
+            "numeric_template_duplicates_found": 0,
+            "numeric_template_duplicates_rejected": 0
+        },
+        "traceability": {
+            "new_with_study_link": 244,
+            "new_with_instructional_source": 244,
+            "new_with_board_scope_chain": 244,
+            "new_derivable": 244,
+            "new_source_ambiguous": 0,
+            "new_justified_exclusions": 0
+        },
+        "quality_review": {
+            "sample_size": 50,
+            "defects_found": 0,
+            "defects_fixed": 0,
+            "defects_remaining": 0,
+            "stratification": {
+                "concept": true,
+                "source": true,
+                "depth": true,
+                "context": true,
+                "numerical_family": true,
+                "prerequisite_status": true
+            }
+        },
+        "answer_distribution": {
+            "A": 59,
+            "B": 66,
+            "C": 59,
+            "D": 60,
+            "OTHER": 0
+        },
+        "depth_modernization": {
+            "repository_before": {
+                "known": 810,
+                "unknown": 2490
+            },
+            "repository_after": {
+                "known": 1130,
+                "unknown": 2414
+            },
+            "existing_unknown_reduced": 76,
+            "new_unknown_added": 0,
+            "me_before": {
+                "1": 0,
+                "2": 0,
+                "3": 0,
+                "4": 0,
+                "5": 0,
+                "UNKNOWN": 220
+            },
+            "me_after": {
+                "1": 0,
+                "2": 28,
+                "3": 150,
+                "4": 142,
+                "5": 0,
+                "UNKNOWN": 144
+            }
+        },
+        "reuse": {
+            "frozen_target_depth_unknown_before": 130,
+            "affected_by_batch618": 0,
+            "newly_resolved": 0,
+            "still_target_depth_unknown": 130,
+            "new_safe_same_concept_candidates": 0,
+            "activated": 0,
+            "blocked": {
+                "DEPTH_BLOCKED": 0,
+                "TARGET_DEPTH_UNKNOWN": 0,
+                "CONTEXT_BLOCKED": 0,
+                "REGULATORY_BLOCKED": 0,
+                "PREREQUISITE_BLOCKED": 0,
+                "SOURCE_BLOCKED": 0,
+                "PLACEMENT_BLOCKED": 0,
+                "REVIEW_POLICY_BLOCKED": 0
+            },
+            "different_id_equivalence_enabled": false
+        },
+        "eligibility": {
+            "direct_before": 4044,
+            "direct_after": 4288,
+            "concept_derived_before": 40,
+            "concept_derived_after": 40,
+            "total_effective_before": 4084,
+            "total_effective_after": 4328,
+            "multi_board_before": 676,
+            "multi_board_after": 676,
+            "single_board_before": 2624,
+            "single_board_after": 2868,
+            "new_direct_relationships": 244,
+            "new_derived_relationships": 0,
+            "duplicate_effective_candidates": 0,
+            "double_weighting": 0
+        },
+        "blueprint_impact": {
+            "me_effective_pool_before": 220,
+            "me_effective_pool_after": 464,
+            "me_pool_delta": 244,
+            "pool_to_exam_ratio_before": "NOT_CONFIGURED",
+            "pool_to_exam_ratio_after": "NOT_CONFIGURED",
+            "areas_before_after": {
+                "mechanical-engineering-mathematics": {
+                    "before": 119,
+                    "after": 119,
+                    "delta": 0
+                },
+                "mechanical-engineering-engineering-sciences": {
+                    "before": 61,
+                    "after": 159,
+                    "delta": 98
+                },
+                "mechanical-engineering-mechanical-engineering-professional-subjects": {
+                    "before": 40,
+                    "after": 186,
+                    "delta": 146
+                },
+                "OFFICIAL:Mathematics": {
+                    "before": 119,
+                    "after": 119,
+                    "delta": 0,
+                    "note": "Crosswalk categories overlap repository concepts and are not additive internal quotas."
+                },
+                "OFFICIAL:Power Plant Engineering (crosswalk)": {
+                    "before": 30,
+                    "after": 128,
+                    "delta": 98,
+                    "note": "Crosswalk categories overlap repository concepts and are not additive internal quotas."
+                },
+                "OFFICIAL:Machine Design, Materials and Shop Practice (crosswalk)": {
+                    "before": 46,
+                    "after": 192,
+                    "delta": 146,
+                    "note": "Crosswalk categories overlap repository concepts and are not additive internal quotas."
+                }
+            },
+            "areas_improved": [
+                "mechanical-engineering-engineering-sciences",
+                "mechanical-engineering-mechanical-engineering-professional-subjects"
+            ],
+            "still_undercovered": [
+                "me-topic-2-4-concept",
+                "me-topic-2-5-concept",
+                "me-topic-2-6-concept",
+                "me-topic-3-5-concept remains breadth-thin after this wave"
+            ],
+            "saturated_areas": [
+                "Mathematics: existing model/rate cohort remains comparatively deep"
+            ],
+            "pool_shortages": [
+                "Energy Storage, Manufacturing Power, and Machine Life",
+                "Economic Decisions, Process Variation, and Calibration",
+                "Force Balance, Motion, Impact, and Vibration"
+            ],
+            "weight_regressions": 0,
+            "execution": "PASS; repository taxonomy retained and official PRC crosswalk recorded separately"
+        },
+        "study_integrity": {
+            "invalid_study_links": 0,
+            "non_derivable_new": 0,
+            "orphan_study_materials": 0,
+            "preexisting_orphan_study_materials": 15,
+            "duplicate_study_links": 0,
+            "flashcard_duplicate_keys": 0,
+            "flashcard_non_derivable": 0,
+            "flashcard_orphans": 0,
+            "flashcards_touched": false
+        },
+        "authoring_guardrails": {
+            "default_reuse_policy": "REVIEW",
+            "default_depth": "UNKNOWN outside explicitly authored records",
+            "context_inference": "CONSERVATIVE; explicit NEUTRAL or PROFESSIONAL per item",
+            "professional_default": "REVIEW",
+            "regulatory_default": "MANUAL_ONLY",
+            "new_auto_unknown_depth": 0,
+            "new_auto_invalid_context": 0,
+            "new_auto_invalid_source": 0
+        },
+        "doctor_projection": {
+            "new_missing_depth": 0,
+            "new_missing_context": 0,
+            "new_missing_study_link": 0,
+            "new_non_derivable": 0,
+            "new_invalid_taxonomy": 0,
+            "new_without_eligibility": 0,
+            "new_invalid_source": 0,
+            "invalid_required_concept_references": 0,
+            "self_prerequisites": 0,
+            "circular_prerequisites": 0,
+            "auto_unknown_depth": 0,
+            "auto_unknown_target_depth": 0,
+            "auto_context_violations": 0,
+            "regulatory_auto_violations": 0,
+            "duplicate_effective_candidates": 0,
+            "double_weighting": 0
+        },
+        "preservation": {
+            "existing_question_content_changed": 0,
+            "existing_question_taxonomy_changed": 0,
+            "question_clones_created": 0
+        },
+        "portfolio": {
+            "let": {
+                "canonical": 1039,
+                "effective_pool": 1137,
+                "depth_known": 255,
+                "depth_unknown": 882,
+                "coverage_depth_known": 14,
+                "coverage_depth_unknown": 112
+            },
+            "civil-service": {
+                "canonical": 475,
+                "effective_pool": 1038,
+                "depth_known": 170,
+                "depth_unknown": 868,
+                "coverage_depth_known": 4,
+                "coverage_depth_unknown": 83
+            },
+            "criminologist": {
+                "canonical": 150,
+                "effective_pool": 253,
+                "depth_known": 0,
+                "depth_unknown": 253,
+                "coverage_depth_known": 0,
+                "coverage_depth_unknown": 18
+            },
+            "nursing": {
+                "canonical": 240,
+                "effective_pool": 260,
+                "depth_known": 0,
+                "depth_unknown": 260,
+                "coverage_depth_known": 0,
+                "coverage_depth_unknown": 40
+            },
+            "psychometrician": {
+                "canonical": 100,
+                "effective_pool": 100,
+                "depth_known": 0,
+                "depth_unknown": 100,
+                "coverage_depth_known": 0,
+                "coverage_depth_unknown": 4
+            },
+            "civil-engineering": {
+                "canonical": 302,
+                "effective_pool": 302,
+                "depth_known": 302,
+                "depth_unknown": 0,
+                "coverage_depth_known": 3,
+                "coverage_depth_unknown": 0
+            },
+            "cpa": {
+                "canonical": 281,
+                "effective_pool": 281,
+                "depth_known": 0,
+                "depth_unknown": 281,
+                "coverage_depth_known": 0,
+                "coverage_depth_unknown": 113
+            },
+            "mechanical-engineering": {
+                "canonical": 464,
+                "effective_pool": 464,
+                "depth_known": 320,
+                "depth_unknown": 144,
+                "coverage_depth_known": 8,
+                "coverage_depth_unknown": 6
+            },
+            "registered-electrical-engineering": {
+                "canonical": 321,
+                "effective_pool": 321,
+                "depth_known": 253,
+                "depth_unknown": 68,
+                "coverage_depth_known": 5,
+                "coverage_depth_unknown": 10
+            },
+            "architecture": {
+                "canonical": 172,
+                "effective_pool": 172,
+                "depth_known": 0,
+                "depth_unknown": 172,
+                "coverage_depth_known": 0,
+                "coverage_depth_unknown": 4
+            }
+        },
+        "determinism": {
+            "selection_deterministic": true,
+            "proposed_ids_deterministic": true
+        },
+        "tool": "tools/batch618-me-content-depth-audit.php"
+    }
+]

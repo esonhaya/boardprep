@@ -5760,27 +5760,33 @@
         "confidence": "HIGH_FOR_DIRECT_MAPPING"
     },
     {
-        "id": "coverage-f80f56bce40e50425c29490f38e111c7adced06cfe4222d3d39751cfac3a0705",
-        "board_id": "mechanical-engineering",
-        "concept_id": "me-topic-2-1-concept",
-        "subject_id": "mechanical-engineering-mathematics",
-        "domain_id": "",
-        "topic_id": "",
-        "blueprint_node_id": "mechanical-engineering-engineering-sciences",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "VERIFIED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1390",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-f80f56bce40e50425c29490f38e111c7adced06cfe4222d3d39751cfac3a0705",
+    "board_id": "mechanical-engineering",
+    "concept_id": "me-topic-2-1-concept",
+    "subject_id": "mechanical-engineering-engineering-sciences",
+    "domain_id": "mechanical-engineering-engineering-sciences",
+    "topic_id": "me-topic-2-1",
+    "blueprint_node_id": "mechanical-engineering-engineering-sciences",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1390",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "OFFICIAL_BLUEPRINT",
+            "reference": "batch-618-me-depth",
+            "note": "Coverage depth 4 is supported by official ME scope, the expanded study resource, and repeated application/analysis evidence; depth 5 is not claimed.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Official PRC ME scope, source-backed BoardPrep study material, and the selected question cohort support bounded application and analysis depth.",
+    "confidence": "STRONG"
+},
     {
         "id": "coverage-60c3504727a08b8a730dd8fb08730dbccb785a8c52b5ed55bc350d3542824cb9",
         "board_id": "mechanical-engineering",
@@ -5804,49 +5810,61 @@
         "confidence": "HIGH_FOR_DIRECT_MAPPING"
     },
     {
-        "id": "coverage-8c721d63b0b2f959869c5cbcc7ca42687b6420d834dee784afe9939c7aa39f4e",
-        "board_id": "mechanical-engineering",
-        "concept_id": "me-topic-2-3-concept",
-        "subject_id": "mechanical-engineering-mathematics",
-        "domain_id": "",
-        "topic_id": "",
-        "blueprint_node_id": "mechanical-engineering-engineering-sciences",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "VERIFIED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1398",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-8c721d63b0b2f959869c5cbcc7ca42687b6420d834dee784afe9939c7aa39f4e",
+    "board_id": "mechanical-engineering",
+    "concept_id": "me-topic-2-3-concept",
+    "subject_id": "mechanical-engineering-engineering-sciences",
+    "domain_id": "mechanical-engineering-engineering-sciences",
+    "topic_id": "me-topic-2-3",
+    "blueprint_node_id": "mechanical-engineering-engineering-sciences",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1398",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "OFFICIAL_BLUEPRINT",
+            "reference": "batch-618-me-depth",
+            "note": "Coverage depth 4 is supported by official ME scope, the expanded study resource, and repeated application/analysis evidence; depth 5 is not claimed.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Official PRC ME scope, source-backed BoardPrep study material, and the selected question cohort support bounded application and analysis depth.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-dc502295de37eba3629679c5580c2057dfcd1baecd44e328f9de907c0c2582fd",
-        "board_id": "mechanical-engineering",
-        "concept_id": "me-topic-2-2-concept",
-        "subject_id": "mechanical-engineering-mathematics",
-        "domain_id": "",
-        "topic_id": "",
-        "blueprint_node_id": "mechanical-engineering-engineering-sciences",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "VERIFIED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1399",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-dc502295de37eba3629679c5580c2057dfcd1baecd44e328f9de907c0c2582fd",
+    "board_id": "mechanical-engineering",
+    "concept_id": "me-topic-2-2-concept",
+    "subject_id": "mechanical-engineering-engineering-sciences",
+    "domain_id": "mechanical-engineering-engineering-sciences",
+    "topic_id": "me-topic-2-2",
+    "blueprint_node_id": "mechanical-engineering-engineering-sciences",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1399",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "OFFICIAL_BLUEPRINT",
+            "reference": "batch-618-me-depth",
+            "note": "Coverage depth 4 is supported by official ME scope, the expanded study resource, and repeated application/analysis evidence; depth 5 is not claimed.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Official PRC ME scope, source-backed BoardPrep study material, and the selected question cohort support bounded application and analysis depth.",
+    "confidence": "STRONG"
+},
     {
         "id": "coverage-4c9ab222b5739d24f911a8403c09da7dbfb3fa4429648aa913d41a2fd61d7e56",
         "board_id": "mechanical-engineering",
@@ -5870,115 +5888,145 @@
         "confidence": "HIGH_FOR_DIRECT_MAPPING"
     },
     {
-        "id": "coverage-0ecf7fbfcf1ac53bccacb7f20da080b1e648be7a75012fdc3dfc1a1746388acc",
-        "board_id": "mechanical-engineering",
-        "concept_id": "me-topic-3-1-concept",
-        "subject_id": "mechanical-engineering-mathematics",
-        "domain_id": "",
-        "topic_id": "",
-        "blueprint_node_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "VERIFIED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1459",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-0ecf7fbfcf1ac53bccacb7f20da080b1e648be7a75012fdc3dfc1a1746388acc",
+    "board_id": "mechanical-engineering",
+    "concept_id": "me-topic-3-1-concept",
+    "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+    "domain_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+    "topic_id": "me-topic-3-1",
+    "blueprint_node_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1459",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "OFFICIAL_BLUEPRINT",
+            "reference": "batch-618-me-depth",
+            "note": "Coverage depth 4 is supported by official ME scope, the expanded study resource, and repeated application/analysis evidence; depth 5 is not claimed.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Official PRC ME scope, source-backed BoardPrep study material, and the selected question cohort support bounded application and analysis depth.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-70d33f9199f8e1114397a26fb448547c0b1de547b67417d57c5a92afe604830b",
-        "board_id": "mechanical-engineering",
-        "concept_id": "me-topic-3-4-concept",
-        "subject_id": "mechanical-engineering-mathematics",
-        "domain_id": "",
-        "topic_id": "",
-        "blueprint_node_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "VERIFIED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1462",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-70d33f9199f8e1114397a26fb448547c0b1de547b67417d57c5a92afe604830b",
+    "board_id": "mechanical-engineering",
+    "concept_id": "me-topic-3-4-concept",
+    "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+    "domain_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+    "topic_id": "me-topic-3-4",
+    "blueprint_node_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1462",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "OFFICIAL_BLUEPRINT",
+            "reference": "batch-618-me-depth",
+            "note": "Coverage depth 4 is supported by official ME scope, the expanded study resource, and repeated application/analysis evidence; depth 5 is not claimed.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Official PRC ME scope, source-backed BoardPrep study material, and the selected question cohort support bounded application and analysis depth.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-f9d360795986fee50863417237de38ac4b0b754d3bb7936c2b6ecb76ae9371c2",
-        "board_id": "mechanical-engineering",
-        "concept_id": "me-topic-3-3-concept",
-        "subject_id": "mechanical-engineering-mathematics",
-        "domain_id": "",
-        "topic_id": "",
-        "blueprint_node_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "VERIFIED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1463",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-f9d360795986fee50863417237de38ac4b0b754d3bb7936c2b6ecb76ae9371c2",
+    "board_id": "mechanical-engineering",
+    "concept_id": "me-topic-3-3-concept",
+    "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+    "domain_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+    "topic_id": "me-topic-3-3",
+    "blueprint_node_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1463",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "OFFICIAL_BLUEPRINT",
+            "reference": "batch-618-me-depth",
+            "note": "Coverage depth 4 is supported by official ME scope, the expanded study resource, and repeated application/analysis evidence; depth 5 is not claimed.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Official PRC ME scope, source-backed BoardPrep study material, and the selected question cohort support bounded application and analysis depth.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-2b255fa40d44703e264f286e659c6328f40f01b88445df31a4d0bb733caa8d1c",
-        "board_id": "mechanical-engineering",
-        "concept_id": "me-topic-3-2-concept",
-        "subject_id": "mechanical-engineering-mathematics",
-        "domain_id": "",
-        "topic_id": "",
-        "blueprint_node_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "VERIFIED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1464",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-2b255fa40d44703e264f286e659c6328f40f01b88445df31a4d0bb733caa8d1c",
+    "board_id": "mechanical-engineering",
+    "concept_id": "me-topic-3-2-concept",
+    "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+    "domain_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+    "topic_id": "me-topic-3-2",
+    "blueprint_node_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1464",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "OFFICIAL_BLUEPRINT",
+            "reference": "batch-618-me-depth",
+            "note": "Coverage depth 4 is supported by official ME scope, the expanded study resource, and repeated application/analysis evidence; depth 5 is not claimed.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Official PRC ME scope, source-backed BoardPrep study material, and the selected question cohort support bounded application and analysis depth.",
+    "confidence": "STRONG"
+},
     {
-        "id": "coverage-8c0f0ac85abbf6be39e548d6d21b1e640ce78118d6434936940659d444306615",
-        "board_id": "mechanical-engineering",
-        "concept_id": "me-topic-3-5-concept",
-        "subject_id": "mechanical-engineering-mathematics",
-        "domain_id": "",
-        "topic_id": "",
-        "blueprint_node_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
-        "max_depth": "UNKNOWN",
-        "reuse_policy": "REVIEW",
-        "status": "VERIFIED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:1466",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            }
-        ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
-    },
+    "id": "coverage-8c0f0ac85abbf6be39e548d6d21b1e640ce78118d6434936940659d444306615",
+    "board_id": "mechanical-engineering",
+    "concept_id": "me-topic-3-5-concept",
+    "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+    "domain_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+    "topic_id": "me-topic-3-5",
+    "blueprint_node_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+    "max_depth": 4,
+    "reuse_policy": "REVIEW",
+    "status": "VERIFIED",
+    "provenance": [
+        {
+            "type": "EXISTING_VERIFIED_MAPPING",
+            "reference": "question:1466",
+            "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
+            "verified_status": "VERIFIED"
+        },
+        {
+            "type": "OFFICIAL_BLUEPRINT",
+            "reference": "batch-618-me-depth",
+            "note": "Coverage depth 4 is supported by official ME scope, the expanded study resource, and repeated application/analysis evidence; depth 5 is not claimed.",
+            "verified_status": "VERIFIED"
+        }
+    ],
+    "evidence": "Official PRC ME scope, source-backed BoardPrep study material, and the selected question cohort support bounded application and analysis depth.",
+    "confidence": "STRONG"
+},
     {
         "id": "coverage-539ef90aeacd7b4672dfa04f055b8606ccc25889cb8599ae514d7bb7ec33380c",
         "board_id": "registered-electrical-engineering",

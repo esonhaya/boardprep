@@ -4243,118 +4243,130 @@
         "updated_at": "2026-09-07"
     },
     {
-        "id": "me-material-4",
-        "title": "Mechanics of materials",
-        "summary": "Concept-focused Mechanical Engineering review for mechanics of materials, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
-        "notes": [
-            {
-                "heading": "Stress and strain",
-                "body": "Average axial stress is load divided by area. Elastic modulus is the initial stress–strain slope, Poisson ratio connects lateral and axial strain, and thermal strain is alpha times temperature change when expansion is free."
-            },
-            {
-                "heading": "Combined loading",
-                "body": "At a critical point, superpose compatible axial and bending normal stresses with their signs; do not compare either component alone with a limit when both act simultaneously."
-            },
-            {
-                "heading": "Bending and deflection",
-                "body": "Section modulus converts bending moment to extreme-fiber stress. Energy methods can obtain selected deflections without integrating the entire elastic curve when their assumptions are satisfied."
-            },
-            {
-                "heading": "Columns and joints",
-                "body": "Euler load varies inversely with effective-length squared for the ideal elastic column. Weld throat area, load path, and stress type must be identified before calculating joint demand."
-            }
-        ],
-        "source_ids": [
-            "prc-mechanical-engineering-board-page",
-            "openstax-university-physics-volume-1",
-            "open-mechanical-design-manufacturing"
-        ],
-        "exams": [
-            "mechanical-engineering"
-        ],
-        "taxonomy": {
-            "subject_id": "mechanical-engineering-mathematics"
+    "id": "me-material-4",
+    "title": "Mechanics of materials",
+    "summary": "Source-backed mechanics-of-materials review for stress, strain, deformation, stability, and failure-mode interpretation.",
+    "notes": [
+        {
+            "heading": "Model and units",
+            "body": "Define the load path, section geometry, sign convention, and compatible units before calculating. Use N and mm for MPa when convenient, or N and m consistently; do not mix diameter and radius formulas."
         },
-        "technical_support_state": "STRONG",
-        "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Stress and deformation",
+            "body": "Average axial stress is P/A, normal strain is change in length divided by original length, and elastic elongation is PL/(AE) when the member is prismatic and within the elastic range. Free thermal strain is alpha times the temperature change; full restraint converts it into stress E alpha delta-T."
+        },
+        {
+            "heading": "Bending, torsion, and combined loading",
+            "body": "Use bending stress M/Z and torsional stress Tr/J with the stated section property. At a critical point, retain signs when superposing axial and bending stress; for combined stress use the supplied principal, Tresca, or von Mises criterion rather than comparing one component alone."
+        },
+        {
+            "heading": "Stability and failure",
+            "body": "Euler buckling is an ideal elastic-column model and depends on effective length squared. Fatigue calculations require mean and alternating stress plus the stated endurance model; a calculated factor of safety is conditional on those assumptions, not a guarantee of life."
+        },
+        {
+            "heading": "Common checks",
+            "body": "Check whether expansion is free or restrained, whether a column is slender enough for Euler theory, whether the critical fiber is tensile or compressive, and whether the answer has stress, strain, force, moment, or energy units."
+        }
+    ],
+    "source_ids": [
+        "prc-mechanical-engineering-board-page",
+        "openstax-university-physics-volume-1",
+        "open-mechanical-design-manufacturing"
+    ],
+    "exams": [
+        "mechanical-engineering"
+    ],
+    "taxonomy": {
+        "subject_id": "mechanical-engineering-mathematics"
     },
+    "technical_support_state": "STRONG",
+    "status": "published",
+    "version": 7,
+    "updated_at": "2026-09-28"
+},
     {
-        "id": "me-material-5",
-        "title": "Fluid mechanics",
-        "summary": "Concept-focused Mechanical Engineering review for fluid mechanics, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
-        "notes": [
-            {
-                "heading": "Flow conservation",
-                "body": "Volumetric flow is mean velocity times area for a filled section. A momentum balance uses mass flow and the vector change in velocity to obtain the force associated with a turning jet."
-            },
-            {
-                "heading": "Pressure, buoyancy, and losses",
-                "body": "Hydrostatic gauge pressure is rho g h; buoyancy equals displaced-fluid weight. Darcy loss scales with friction factor, length-to-diameter ratio, and velocity head."
-            },
-            {
-                "heading": "Internal-flow interpretation",
-                "body": "Reynolds number identifies the applicable regime; fully developed circular-pipe laminar flow has a parabolic profile whose centerline speed is twice the mean. Property trends must be read from supplied data without inferring an unrelated regime."
-            },
-            {
-                "heading": "Pumps and similarity",
-                "body": "Read a pump curve as head versus flow for a stated configuration. For unchanged diameter under ideal affinity laws, flow scales with speed, head with speed squared, and power with speed cubed; cavitation symptoms prompt an available-suction-head check."
-            }
-        ],
-        "source_ids": [
-            "prc-mechanical-engineering-board-page",
-            "openstax-university-physics-volume-1"
-        ],
-        "exams": [
-            "mechanical-engineering"
-        ],
-        "taxonomy": {
-            "subject_id": "mechanical-engineering-engineering-sciences"
+    "id": "me-material-5",
+    "title": "Fluid mechanics",
+    "summary": "Source-backed fluid-mechanics review for conservation, pressure, internal flow, momentum, losses, and pump behavior.",
+    "notes": [
+        {
+            "heading": "Control volume and properties",
+            "body": "State the control volume, density assumption, inlet and outlet directions, and whether pressure is gauge or absolute. For a filled incompressible section, Q equals mean velocity times area; use mass flow rho-Q for momentum."
         },
-        "technical_support_state": "STRONG",
-        "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Pressure and energy",
+            "body": "Hydrostatic gauge pressure is rho-g-h. Bernoulli or the steady-flow energy equation requires consistent datum, pressure convention, velocity terms, pump/turbine work, and loss terms; do not use gauge pressure as an absolute thermodynamic state."
+        },
+        {
+            "heading": "Flow regime and losses",
+            "body": "Reynolds number selects the flow-regime interpretation. Darcy-Weisbach loss is f(L/D)V-squared/(2g), while minor losses use K V-squared/(2g); friction-factor convention and pipe diameter must be stated."
+        },
+        {
+            "heading": "Momentum and machines",
+            "body": "A turning jet or elbow produces force from the vector change in momentum, not from speed change alone. Pump hydraulic power is rho-g-Q-H and shaft power is hydraulic power divided by efficiency. Affinity laws apply only within their stated similarity assumptions."
+        },
+        {
+            "heading": "Engineering checks",
+            "body": "Check continuity, sign direction, units, cavitation margin, and whether a pump curve and system curve are being compared at the same flow. A plausible number with the wrong control-volume boundary is still wrong."
+        }
+    ],
+    "source_ids": [
+        "prc-mechanical-engineering-board-page",
+        "openstax-university-physics-volume-1"
+    ],
+    "exams": [
+        "mechanical-engineering"
+    ],
+    "taxonomy": {
+        "subject_id": "mechanical-engineering-engineering-sciences"
     },
+    "technical_support_state": "STRONG",
+    "status": "published",
+    "version": 7,
+    "updated_at": "2026-09-28"
+},
     {
-        "id": "me-material-6",
-        "title": "Thermal science",
-        "summary": "Concept-focused Mechanical Engineering review for thermal science, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
-        "notes": [
-            {
-                "heading": "Energy accounting",
-                "body": "For a closed system, heat added minus work done by the system gives the internal-energy change under the stated sign convention. For steady devices, use the control-volume energy balance and retain only terms the problem permits neglecting."
-            },
-            {
-                "heading": "Properties and ideal gases",
-                "body": "An ideal gas of fixed mass obeys pressure proportional to absolute temperature at fixed volume. A throttling device is modeled as approximately constant enthalpy only under steady, adiabatic, negligible-work and negligible kinetic/potential-change assumptions."
-            },
-            {
-                "heading": "Entropy and compression",
-                "body": "Friction and other irreversibilities generate entropy. Intercooling between compression stages reduces required work by lowering the specific volume entering a later stage."
-            },
-            {
-                "heading": "Cycles and combustion",
-                "body": "Thermal efficiency is net work divided by heat input. Ideal Otto and Diesel models differ in their heat-addition process, and combustion accounting begins with a balanced fuel–oxidizer reaction before energy calculations."
-            }
-        ],
-        "source_ids": [
-            "prc-mechanical-engineering-board-page",
-            "ubc-introduction-engineering-thermodynamics",
-            "openstax-university-physics-volume-2"
-        ],
-        "exams": [
-            "mechanical-engineering"
-        ],
-        "taxonomy": {
-            "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects"
+    "id": "me-material-6",
+    "title": "Thermal science",
+    "summary": "Source-backed thermal-science review for closed systems, control volumes, properties, entropy, heat transfer, and HVAC performance.",
+    "notes": [
+        {
+            "heading": "Energy accounting",
+            "body": "For a closed system use delta-U = Q - W when heat into the system and work done by the system are positive. For steady devices use the control-volume balance and explicitly state neglected kinetic, potential, heat, or work terms."
         },
-        "technical_support_state": "STRONG",
-        "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Properties and state",
+            "body": "Use absolute temperature in gas and radiation relations, distinguish specific from total quantities, and apply ideal-gas relations only when the idealization is stated or defensible. A throttling result of approximately constant enthalpy depends on steady, adiabatic, negligible-work assumptions."
+        },
+        {
+            "heading": "Heat transfer",
+            "body": "Conduction, convection, radiation, and thermal-resistance networks use different governing relationships. Heat-exchanger calculations need a consistent terminal-temperature arrangement and an appropriate mean temperature difference; Celsius may be used for differences but not as an absolute radiation temperature."
+        },
+        {
+            "heading": "Cycles and moist air",
+            "body": "Thermal efficiency is net work divided by heat input; refrigerator COP is cooling effect divided by work input and can exceed one. Separate sensible and latent loads when selecting a humidity-control response."
+        },
+        {
+            "heading": "Irreversibility checks",
+            "body": "Friction generates entropy, intercooling can reduce multistage compression work, and a cold stream in an ordinary passive exchanger cannot exceed the hot-stream inlet temperature. Use these limits to test a numerical result."
+        }
+    ],
+    "source_ids": [
+        "prc-mechanical-engineering-board-page",
+        "ubc-introduction-engineering-thermodynamics",
+        "openstax-university-physics-volume-2"
+    ],
+    "exams": [
+        "mechanical-engineering"
+    ],
+    "taxonomy": {
+        "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects"
     },
+    "technical_support_state": "STRONG",
+    "status": "published",
+    "version": 7,
+    "updated_at": "2026-09-28"
+},
     {
         "id": "me-material-7",
         "title": "Heat transfer",
@@ -4394,119 +4406,133 @@
         "updated_at": "2026-09-07"
     },
     {
-        "id": "me-material-8",
-        "title": "Power systems",
-        "summary": "Concept-focused Mechanical Engineering review for power systems, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
-        "notes": [
-            {
-                "heading": "Shaft power",
-                "body": "Rotating mechanical power is torque times angular speed; convert revolutions per minute to radians per second before multiplying."
-            },
-            {
-                "heading": "Turbines and cycles",
-                "body": "For an adiabatic turbine with negligible kinetic and potential changes, specific work follows the enthalpy drop. For a complete cycle, net work divided by heat input gives thermal efficiency."
-            },
-            {
-                "heading": "Boiler auxiliaries",
-                "body": "An economizer recovers exhaust-gas energy to preheat feedwater, reducing the fuel energy needed for the same steam duty without treating the recovered heat as free work."
-            },
-            {
-                "heading": "Performance boundaries",
-                "body": "State idealizations explicitly, distinguish shaft output from thermal input, and retain device efficiency when converting between fluid power and required shaft power."
-            }
-        ],
-        "source_ids": [
-            "prc-mechanical-engineering-board-page",
-            "ubc-introduction-engineering-thermodynamics",
-            "open-mechanical-design-manufacturing"
-        ],
-        "exams": [
-            "mechanical-engineering"
-        ],
-        "taxonomy": {
-            "subject_id": "mechanical-engineering-engineering-sciences"
+    "id": "me-material-8",
+    "title": "Power systems",
+    "summary": "Source-backed power-cycle review for turbines, boilers, engines, combustion, heat exchange, and plant performance.",
+    "notes": [
+        {
+            "heading": "Cycle boundary",
+            "body": "Define heat input, heat rejection, net work, and device work before calculating efficiency or power. For an adiabatic turbine with negligible kinetic and potential changes, specific work follows the enthalpy drop."
         },
-        "technical_support_state": "STRONG",
-        "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Steam and gas-cycle reasoning",
+            "body": "Keep the idealized Otto, Diesel, Brayton, and Rankine heat-addition or component assumptions distinct. Reheat, regeneration, economizers, condensers, and intercooling change performance for identifiable thermodynamic reasons."
+        },
+        {
+            "heading": "Boiler and engine performance",
+            "body": "Boiler efficiency compares useful fluid energy gain with fuel input; mechanical efficiency compares brake output with indicated or internal power. Specific fuel consumption uses mass fuel per unit brake output and requires a time conversion."
+        },
+        {
+            "heading": "Combustion accounting",
+            "body": "Balance the fuel-oxidizer reaction before applying air-fuel or excess-air reasoning. Excess air can reduce peak temperature and change exhaust composition, but it does not create energy."
+        },
+        {
+            "heading": "Plant checks",
+            "body": "Separate shaft output, fluid power, heat input, and auxiliary consumption. A complete-cycle energy balance must close, and any claimed efficiency must remain below the stated ideal or physical limit."
+        }
+    ],
+    "source_ids": [
+        "prc-mechanical-engineering-board-page",
+        "ubc-introduction-engineering-thermodynamics",
+        "open-mechanical-design-manufacturing",
+        "openstax-university-physics-volume-2"
+    ],
+    "exams": [
+        "mechanical-engineering"
+    ],
+    "taxonomy": {
+        "subject_id": "mechanical-engineering-engineering-sciences"
     },
+    "technical_support_state": "STRONG",
+    "status": "published",
+    "version": 7,
+    "updated_at": "2026-09-28"
+},
     {
-        "id": "me-material-9",
-        "title": "Refrigeration and HVAC",
-        "summary": "Concept-focused Mechanical Engineering review for refrigeration and hvac, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
-        "notes": [
-            {
-                "heading": "Refrigeration performance",
-                "body": "Refrigerator COP is heat removed from the cold space divided by work input; it is not a thermal efficiency and may exceed one."
-            },
-            {
-                "heading": "Moist-air interpretation",
-                "body": "At fixed dry-bulb temperature, increasing humidity ratio generally raises relative humidity. Sensible heat ratio equals sensible load divided by total sensible-plus-latent load."
-            },
-            {
-                "heading": "Compressor capacity",
-                "body": "Volumetric efficiency relates actual intake volume to ideal displacement; divide actual delivered intake volume by volumetric efficiency to infer required ideal displacement."
-            },
-            {
-                "heading": "Humidity control",
-                "body": "When temperature is acceptable but moisture is excessive, prioritize latent cooling or dehumidification rather than adding sensible cooling that does not address the moisture load."
-            }
-        ],
-        "source_ids": [
-            "prc-mechanical-engineering-board-page",
-            "ubc-introduction-engineering-thermodynamics",
-            "openstax-university-physics-volume-2"
-        ],
-        "exams": [
-            "mechanical-engineering"
-        ],
-        "taxonomy": {
-            "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects"
+    "id": "me-material-9",
+    "title": "Refrigeration and HVAC",
+    "summary": "Source-backed pump, compressor, heat-exchanger, refrigeration, and air-conditioning review for system selection and performance.",
+    "notes": [
+        {
+            "heading": "Pumps and systems",
+            "body": "Compare pump head and system head at the same flow. Series pumps add head at common flow; parallel pumps add flow at common head. Hydraulic power is rho-g-Q-H and shaft power includes efficiency."
         },
-        "technical_support_state": "STRONG",
-        "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Compressors",
+            "body": "Compressor efficiency compares ideal isentropic work with actual work for the same end states. Volumetric efficiency relates actual intake volume to displacement; clearance, valve losses, leakage, and temperature affect the result."
+        },
+        {
+            "heading": "Refrigeration and HVAC",
+            "body": "Refrigerator COP is Q-cold/W, heat-pump COP is Q-hot/W, and Q-hot equals Q-cold plus work for the ideal energy balance. Separate sensible and latent loads and address moisture when humidity is the problem."
+        },
+        {
+            "heading": "Heat exchangers and air",
+            "body": "Use UA-delta-Tlm or an energy balance only when terminal temperatures and flow arrangement support it. Duct velocity follows Q/A, fan power is Q-delta-p/efficiency, and fouling raises resistance and lowers heat transfer."
+        },
+        {
+            "heading": "Operating checks",
+            "body": "Cavitation symptoms require an available-versus-required suction-head check. Superheat protects a compressor from liquid, while condenser heat rejection is cooling effect plus compressor work."
+        }
+    ],
+    "source_ids": [
+        "prc-mechanical-engineering-board-page",
+        "ubc-introduction-engineering-thermodynamics",
+        "openstax-university-physics-volume-2",
+        "openstax-university-physics-volume-1"
+    ],
+    "exams": [
+        "mechanical-engineering"
+    ],
+    "taxonomy": {
+        "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects"
     },
+    "technical_support_state": "STRONG",
+    "status": "published",
+    "version": 7,
+    "updated_at": "2026-09-28"
+},
     {
-        "id": "me-material-10",
-        "title": "Machine design",
-        "summary": "Concept-focused Mechanical Engineering review for machine design, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
-        "notes": [
-            {
-                "heading": "Design against failure",
-                "body": "Select criteria for the actual load history: endurance behavior for repeated stress, instability for slender columns, contact or wear for interfaces, and yielding or fracture for peak stress."
-            },
-            {
-                "heading": "Shafts, springs, and clutches",
-                "body": "Use the stated torsion relation with torque and diameter in compatible units. Spring energy is one-half kx squared; ideal multi-surface clutch capacity scales with surface count, friction coefficient, axial force, and effective radius."
-            },
-            {
-                "heading": "Fatigue models",
-                "body": "Mean and alternating stress must be combined using the specified fatigue relation. A Goodman calculation is a model-based safety factor, not proof of infinite life."
-            },
-            {
-                "heading": "Brakes, welds, and materials",
-                "body": "Hot brake fade indicates temperature-dependent loss of friction. Weld demand uses effective throat area, while material choice weighs environment, strength, manufacturability, and life-cycle degradation rather than one property alone."
-            }
-        ],
-        "source_ids": [
-            "prc-mechanical-engineering-board-page",
-            "open-mechanical-design-manufacturing",
-            "openstax-university-physics-volume-1"
-        ],
-        "exams": [
-            "mechanical-engineering"
-        ],
-        "taxonomy": {
-            "subject_id": "mechanical-engineering-mathematics"
+    "id": "me-material-10",
+    "title": "Machine design",
+    "summary": "Source-backed machine-design review for shafts, gears, belts, chains, bearings, clutches, fatigue, and design limits.",
+    "notes": [
+        {
+            "heading": "Power path",
+            "body": "Trace torque, speed, force, power, and efficiency across each interface. Rotating power is T-omega, with rpm converted to radians per second; a gear ratio changes speed and torque in opposite directions in the ideal model."
         },
-        "technical_support_state": "STRONG",
-        "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Capacity equations",
+            "body": "Use the supplied shaft torsion, belt traction, clutch, bearing-life, spring, or brake model with compatible dimensions. Distinguish kinematic ratios from strength, wear, thermal, and fatigue capacity."
+        },
+        {
+            "heading": "Fatigue and mean stress",
+            "body": "Separate alternating and mean stress and apply the stated Goodman or Soderberg relation. A safety factor from a simplified model must be interpreted with the load history, surface, notch, temperature, and material assumptions visible."
+        },
+        {
+            "heading": "Bearings and lubrication",
+            "body": "Bearing rating is not a complete diagnosis. Equivalent load, duty, lubrication viscosity, contamination, alignment, heat generation, and speed all affect service behavior. Correct the mechanism before treating a rating as the answer."
+        },
+        {
+            "heading": "Design judgment",
+            "body": "Choose the component or material that satisfies the stated load, environment, life, manufacturability, and maintenance constraints. Do not select by one attractive property while ignoring the governing failure mode."
+        }
+    ],
+    "source_ids": [
+        "prc-mechanical-engineering-board-page",
+        "open-mechanical-design-manufacturing",
+        "openstax-university-physics-volume-1"
+    ],
+    "exams": [
+        "mechanical-engineering"
+    ],
+    "taxonomy": {
+        "subject_id": "mechanical-engineering-mathematics"
     },
+    "technical_support_state": "STRONG",
+    "status": "published",
+    "version": 7,
+    "updated_at": "2026-09-28"
+},
     {
         "id": "me-material-11",
         "title": "Machine elements",
@@ -4544,43 +4570,48 @@
         "updated_at": "2026-09-07"
     },
     {
-        "id": "me-material-12",
-        "title": "Manufacturing processes",
-        "summary": "Concept-focused Mechanical Engineering review for manufacturing processes, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
-        "notes": [
-            {
-                "heading": "Cutting rate and power",
-                "body": "Ideal cutting power is cutting force times cutting speed. Turning speed is circumference times revolutions per unit time, and linear feed is feed per revolution times rotational speed."
-            },
-            {
-                "heading": "CNC setup",
-                "body": "A workpiece datum establishes the coordinate reference that connects the programmed tool path to the actual part; verify fixturing and offsets before execution."
-            },
-            {
-                "heading": "Tolerance accumulation",
-                "body": "For worst-case end-to-end dimensions, add nominal lengths and add absolute tolerances for the extreme bounds unless a statistical assembly model is explicitly specified."
-            },
-            {
-                "heading": "Process choice",
-                "body": "Match machine, tool, material, geometry, finish, tolerance, and production volume; a computed speed or feed remains subject to machine and tooling limits."
-            }
-        ],
-        "source_ids": [
-            "prc-mechanical-engineering-board-page",
-            "open-manufacturing-processes-4-5",
-            "open-mechanical-design-manufacturing"
-        ],
-        "exams": [
-            "mechanical-engineering"
-        ],
-        "taxonomy": {
-            "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects"
+    "id": "me-material-12",
+    "title": "Manufacturing processes",
+    "summary": "Source-backed manufacturing review for machining, CNC setup, tolerances, process capability, production flow, and quality decisions.",
+    "notes": [
+        {
+            "heading": "Machining variables",
+            "body": "Turning speed is pi-D-N, feed rate is feed per revolution times rotational speed, material-removal rate depends on the stated process geometry, and ideal cutting power is force times cutting speed. Convert rpm, mm, and m consistently."
         },
-        "technical_support_state": "STRONG",
-        "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Datums and tolerances",
+            "body": "A workpiece datum connects the programmed coordinate system to the physical part. Worst-case stack-up adds absolute tolerances; fit decisions compare the limiting hole and shaft dimensions rather than nominal values alone."
+        },
+        {
+            "heading": "Process capability",
+            "body": "Cp describes potential spread against specification width, while Cpk also reflects centering. Control limits describe process behavior and are not the same as specification limits; a signal prompts investigation rather than proving a cause."
+        },
+        {
+            "heading": "Flow and economics",
+            "body": "Takt time is available production time divided by demand, the slowest required station limits sustainable throughput, and EOQ or break-even calculations are conditional on their cost assumptions. Kanban responds to downstream consumption and limits work in process."
+        },
+        {
+            "heading": "Selection checks",
+            "body": "Match tool, material, geometry, tolerance, finish, machine limits, production volume, and measurement capability. A formula result does not override fixturing, tool wear, coolant, or safety constraints."
+        }
+    ],
+    "source_ids": [
+        "prc-mechanical-engineering-board-page",
+        "open-manufacturing-processes-4-5",
+        "open-mechanical-design-manufacturing",
+        "nist-semtech-engineering-statistics-handbook"
+    ],
+    "exams": [
+        "mechanical-engineering"
+    ],
+    "taxonomy": {
+        "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects"
     },
+    "technical_support_state": "STRONG",
+    "status": "published",
+    "version": 7,
+    "updated_at": "2026-09-28"
+},
     {
         "id": "me-material-13",
         "title": "Industrial engineering",
@@ -4619,43 +4650,47 @@
         "updated_at": "2026-09-07"
     },
     {
-        "id": "me-material-14",
-        "title": "Maintenance and quality",
-        "summary": "Concept-focused Mechanical Engineering review for maintenance and quality, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
-        "notes": [
-            {
-                "heading": "Reliability models",
-                "body": "For a constant failure rate, exponential reliability is R(t)=exp(-lambda t), with MTBF=1/lambda. Use the model only when its assumptions are stated and interpret sparse failure intervals cautiously."
-            },
-            {
-                "heading": "Condition and preventive maintenance",
-                "body": "Trending vibration can justify investigation before a threshold is crossed. Planned inspection and lubrication are preventive actions; condition evidence can refine timing without guaranteeing failure prediction."
-            },
-            {
-                "heading": "Process quality",
-                "body": "Greater spread reduces capability even when the mean stays centered. A point beyond three-sigma control limits signals special-cause investigation, not automatic proof of a specific cause."
-            },
-            {
-                "heading": "Safe intervention",
-                "body": "Before guard removal, isolate hazardous energy, control stored energy, and verify the safe state under the applicable procedure; production urgency does not replace energy control."
-            }
-        ],
-        "source_ids": [
-            "prc-mechanical-engineering-board-page",
-            "nist-semtech-engineering-statistics-handbook",
-            "open-mechanical-design-manufacturing"
-        ],
-        "exams": [
-            "mechanical-engineering"
-        ],
-        "taxonomy": {
-            "subject_id": "mechanical-engineering-engineering-sciences"
+    "id": "me-material-14",
+    "title": "Maintenance and quality",
+    "summary": "Source-backed maintenance and reliability review for failure models, condition monitoring, quality signals, and safe energy control.",
+    "notes": [
+        {
+            "heading": "Reliability models",
+            "body": "For a constant failure rate, R(t)=exp(-lambda-t) and MTBF=1/lambda. Series reliability multiplies independent reliabilities, while parallel redundancy is one minus the product of failure probabilities. Use the model only within its assumptions."
         },
-        "technical_support_state": "STRONG",
-        "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        {
+            "heading": "Availability and improvement",
+            "body": "Steady-state availability is MTBF/(MTBF+MTTR). OEE multiplies availability, performance, and quality. An indicator diagnoses where to investigate; it does not by itself identify root cause."
+        },
+        {
+            "heading": "Condition and quality evidence",
+            "body": "A rising vibration or temperature trend justifies an inspection plan before a threshold is crossed. Control-chart signals call for special-cause investigation, while capability indices describe spread and centering against specifications."
+        },
+        {
+            "heading": "Failure analysis",
+            "body": "FMEA risk-priority numbers combine the supplied severity, occurrence, and detection ratings. Use the failure mode and effects to prioritize action; do not treat a score as a physical law."
+        },
+        {
+            "heading": "Safe intervention",
+            "body": "Before removing a guard or opening equipment, isolate hazardous energy, release or block stored energy, and verify the safe state under the applicable procedure. Production urgency does not substitute for energy control."
+        }
+    ],
+    "source_ids": [
+        "prc-mechanical-engineering-board-page",
+        "nist-semtech-engineering-statistics-handbook",
+        "open-mechanical-design-manufacturing"
+    ],
+    "exams": [
+        "mechanical-engineering"
+    ],
+    "taxonomy": {
+        "subject_id": "mechanical-engineering-engineering-sciences"
     },
+    "technical_support_state": "STRONG",
+    "status": "published",
+    "version": 7,
+    "updated_at": "2026-09-28"
+},
     {
         "id": "me-material-15",
         "title": "Engineering economics",
