@@ -1,0 +1,2364 @@
+[
+    {
+        "batch": 626,
+        "lineage": {
+            "base_head": "aee05ca8a6ad2e792bbe7a596291a837fa75589e",
+            "batch625_source_head": "0eb9704ba293e0aa3402af5d01a2d3392c005b73",
+            "batch625_source_parent": "42bdfd7581f2b50bae8584707df9ffeab37fb055",
+            "merge_base": "42bdfd7581f2b50bae8584707df9ffeab37fb055",
+            "batch624_ancestry_preserved": true
+        },
+        "integration": {
+            "source_changed_files": [
+                {
+                    "status": "M",
+                    "path": "app/Services/Quiz/QuestionSelectionService.php",
+                    "classification": "GENERIC_PRODUCTION_FIX"
+                },
+                {
+                    "status": "M",
+                    "path": "app/Services/Quiz/Selection/QuestionPoolFilter.php",
+                    "classification": "GENERIC_PRODUCTION_FIX"
+                },
+                {
+                    "status": "A",
+                    "path": "storage/batch625-nursing-modernization.json",
+                    "classification": "BATCH625_AUDIT"
+                },
+                {
+                    "status": "M",
+                    "path": "storage/question-eligibility.json",
+                    "classification": "NURSING_CONTENT"
+                },
+                {
+                    "status": "M",
+                    "path": "storage/question-reuse-metadata.json",
+                    "classification": "NURSING_STUDY_SOURCE_METADATA"
+                },
+                {
+                    "status": "M",
+                    "path": "storage/questions.json",
+                    "classification": "NURSING_CONTENT"
+                },
+                {
+                    "status": "M",
+                    "path": "storage/study-materials.json",
+                    "classification": "NURSING_STUDY_SOURCE_METADATA"
+                },
+                {
+                    "status": "M",
+                    "path": "storage/study-question-links.json",
+                    "classification": "NURSING_STUDY_SOURCE_METADATA"
+                },
+                {
+                    "status": "A",
+                    "path": "tools/batch625-nursing-audit.php",
+                    "classification": "BATCH625_AUDIT"
+                }
+            ],
+            "batch624_lineage_changed_files": [
+                {
+                    "status": "A",
+                    "path": "storage/batch622-cpa-evidence-closure.json"
+                },
+                {
+                    "status": "A",
+                    "path": "storage/batch623a-criminologist-evidence-map.json"
+                },
+                {
+                    "status": "A",
+                    "path": "storage/batch623b-criminologist-modernization.json"
+                },
+                {
+                    "status": "A",
+                    "path": "storage/batch624-portfolio-selection-and-modernization.json"
+                },
+                {
+                    "status": "M",
+                    "path": "storage/board-concept-coverage.json"
+                },
+                {
+                    "status": "M",
+                    "path": "storage/question-eligibility.json"
+                },
+                {
+                    "status": "M",
+                    "path": "storage/question-required-concepts.json"
+                },
+                {
+                    "status": "M",
+                    "path": "storage/question-reuse-metadata.json"
+                },
+                {
+                    "status": "M",
+                    "path": "storage/questions.json"
+                },
+                {
+                    "status": "M",
+                    "path": "storage/sources.json"
+                },
+                {
+                    "status": "M",
+                    "path": "storage/study-materials.json"
+                },
+                {
+                    "status": "M",
+                    "path": "storage/study-question-links.json"
+                },
+                {
+                    "status": "A",
+                    "path": "tools/batch622-cpa-evidence-audit.php"
+                },
+                {
+                    "status": "A",
+                    "path": "tools/batch623a-criminologist-evidence-audit.php"
+                },
+                {
+                    "status": "A",
+                    "path": "tools/batch623b-criminologist-audit.php"
+                },
+                {
+                    "status": "A",
+                    "path": "tools/batch624-portfolio-modernization-audit.php"
+                }
+            ],
+            "classification": {
+                "GENERIC_PRODUCTION_FIX": [
+                    "app/Services/Quiz/QuestionSelectionService.php",
+                    "app/Services/Quiz/Selection/QuestionPoolFilter.php"
+                ],
+                "BATCH625_AUDIT": [
+                    "storage/batch625-nursing-modernization.json",
+                    "tools/batch625-nursing-audit.php"
+                ],
+                "NURSING_CONTENT": [
+                    "storage/question-eligibility.json",
+                    "storage/questions.json"
+                ],
+                "NURSING_STUDY_SOURCE_METADATA": [
+                    "storage/question-reuse-metadata.json",
+                    "storage/study-materials.json",
+                    "storage/study-question-links.json"
+                ]
+            },
+            "imported_files_records": {
+                "storage/questions.json": 320,
+                "storage/question-eligibility.json": 5,
+                "storage/question-reuse-metadata.json": 320,
+                "storage/study-question-links.json": 320,
+                "storage/study-materials.json": 5,
+                "storage/question-required-concepts.json": 0,
+                "storage/sources.json": 0
+            },
+            "imported_now": {
+                "questions": 0,
+                "eligibility_groups": 0,
+                "reuse_metadata": 0,
+                "study_links": 0,
+                "study_materials": 0,
+                "required_concepts": 0,
+                "sources": 0
+            },
+            "stale_records_rejected": {
+                "generated_audit_files": [
+                    "storage/batch625-nursing-modernization.json",
+                    "tools/batch625-nursing-audit.php"
+                ],
+                "stale_portfolio_snapshots": "Batch 625 artifact counts were not used to overwrite Batch 624 CPA/Criminologist/Psychometrician state.",
+                "canonical_records_rejected": 0
+            },
+            "id_collisions_found": 320,
+            "colliding_old_ids": [
+                4163,
+                4164,
+                4165,
+                4166,
+                4167,
+                4168,
+                4169,
+                4170,
+                4171,
+                4172,
+                4173,
+                4174,
+                4175,
+                4176,
+                4177,
+                4178,
+                4179,
+                4180,
+                4181,
+                4182,
+                4183,
+                4184,
+                4185,
+                4186,
+                4187,
+                4188,
+                4189,
+                4190,
+                4191,
+                4192,
+                4193,
+                4194,
+                4195,
+                4196,
+                4197,
+                4198,
+                4199,
+                4200,
+                4201,
+                4202,
+                4203,
+                4204,
+                4205,
+                4206,
+                4207,
+                4208,
+                4209,
+                4210,
+                4211,
+                4212,
+                4213,
+                4214,
+                4215,
+                4216,
+                4217,
+                4218,
+                4219,
+                4220,
+                4221,
+                4222,
+                4223,
+                4224,
+                4225,
+                4226,
+                4227,
+                4228,
+                4229,
+                4230,
+                4231,
+                4232,
+                4233,
+                4234,
+                4235,
+                4236,
+                4237,
+                4238,
+                4239,
+                4240,
+                4241,
+                4242,
+                4243,
+                4244,
+                4245,
+                4246,
+                4247,
+                4248,
+                4249,
+                4250,
+                4251,
+                4252,
+                4253,
+                4254,
+                4255,
+                4256,
+                4257,
+                4258,
+                4259,
+                4260,
+                4261,
+                4262,
+                4263,
+                4264,
+                4265,
+                4266,
+                4267,
+                4268,
+                4269,
+                4270,
+                4271,
+                4272,
+                4273,
+                4274,
+                4275,
+                4276,
+                4277,
+                4278,
+                4279,
+                4280,
+                4281,
+                4282,
+                4283,
+                4284,
+                4285,
+                4286,
+                4287,
+                4288,
+                4289,
+                4290,
+                4291,
+                4292,
+                4293,
+                4294,
+                4295,
+                4296,
+                4297,
+                4298,
+                4299,
+                4300,
+                4301,
+                4302,
+                4303,
+                4304,
+                4305,
+                4306,
+                4307,
+                4308,
+                4309,
+                4310,
+                4311,
+                4312,
+                4313,
+                4314,
+                4315,
+                4316,
+                4317,
+                4318,
+                4319,
+                4320,
+                4321,
+                4322,
+                4323,
+                4324,
+                4325,
+                4326,
+                4327,
+                4328,
+                4329,
+                4330,
+                4331,
+                4332,
+                4333,
+                4334,
+                4335,
+                4336,
+                4337,
+                4338,
+                4339,
+                4340,
+                4341,
+                4342,
+                4343,
+                4344,
+                4345,
+                4346,
+                4347,
+                4348,
+                4349,
+                4350,
+                4351,
+                4352,
+                4353,
+                4354,
+                4355,
+                4356,
+                4357,
+                4358,
+                4359,
+                4360,
+                4361,
+                4362,
+                4363,
+                4364,
+                4365,
+                4366,
+                4367,
+                4368,
+                4369,
+                4370,
+                4371,
+                4372,
+                4373,
+                4374,
+                4375,
+                4376,
+                4377,
+                4378,
+                4379,
+                4380,
+                4381,
+                4382,
+                4383,
+                4384,
+                4385,
+                4386,
+                4387,
+                4388,
+                4389,
+                4390,
+                4391,
+                4392,
+                4393,
+                4394,
+                4395,
+                4396,
+                4397,
+                4398,
+                4399,
+                4400,
+                4401,
+                4402,
+                4403,
+                4404,
+                4405,
+                4406,
+                4407,
+                4408,
+                4409,
+                4410,
+                4411,
+                4412,
+                4413,
+                4414,
+                4415,
+                4416,
+                4417,
+                4418,
+                4419,
+                4420,
+                4421,
+                4422,
+                4423,
+                4424,
+                4425,
+                4426,
+                4427,
+                4428,
+                4429,
+                4430,
+                4431,
+                4432,
+                4433,
+                4434,
+                4435,
+                4436,
+                4437,
+                4438,
+                4439,
+                4440,
+                4441,
+                4442,
+                4443,
+                4444,
+                4445,
+                4446,
+                4447,
+                4448,
+                4449,
+                4450,
+                4451,
+                4452,
+                4453,
+                4454,
+                4455,
+                4456,
+                4457,
+                4458,
+                4459,
+                4460,
+                4461,
+                4462,
+                4463,
+                4464,
+                4465,
+                4466,
+                4467,
+                4468,
+                4469,
+                4470,
+                4471,
+                4472,
+                4473,
+                4474,
+                4475,
+                4476,
+                4477,
+                4478,
+                4479,
+                4480,
+                4481,
+                4482
+            ],
+            "ids_remapped": 320,
+            "id_range_after_remap": [
+                4873,
+                5192
+            ],
+            "id_remapping": [
+                {
+                    "old_batch625_id": 4163,
+                    "unified_id": 4873
+                },
+                {
+                    "old_batch625_id": 4164,
+                    "unified_id": 4874
+                },
+                {
+                    "old_batch625_id": 4165,
+                    "unified_id": 4875
+                },
+                {
+                    "old_batch625_id": 4166,
+                    "unified_id": 4876
+                },
+                {
+                    "old_batch625_id": 4167,
+                    "unified_id": 4877
+                },
+                {
+                    "old_batch625_id": 4168,
+                    "unified_id": 4878
+                },
+                {
+                    "old_batch625_id": 4169,
+                    "unified_id": 4879
+                },
+                {
+                    "old_batch625_id": 4170,
+                    "unified_id": 4880
+                },
+                {
+                    "old_batch625_id": 4171,
+                    "unified_id": 4881
+                },
+                {
+                    "old_batch625_id": 4172,
+                    "unified_id": 4882
+                },
+                {
+                    "old_batch625_id": 4173,
+                    "unified_id": 4883
+                },
+                {
+                    "old_batch625_id": 4174,
+                    "unified_id": 4884
+                },
+                {
+                    "old_batch625_id": 4175,
+                    "unified_id": 4885
+                },
+                {
+                    "old_batch625_id": 4176,
+                    "unified_id": 4886
+                },
+                {
+                    "old_batch625_id": 4177,
+                    "unified_id": 4887
+                },
+                {
+                    "old_batch625_id": 4178,
+                    "unified_id": 4888
+                },
+                {
+                    "old_batch625_id": 4179,
+                    "unified_id": 4889
+                },
+                {
+                    "old_batch625_id": 4180,
+                    "unified_id": 4890
+                },
+                {
+                    "old_batch625_id": 4181,
+                    "unified_id": 4891
+                },
+                {
+                    "old_batch625_id": 4182,
+                    "unified_id": 4892
+                },
+                {
+                    "old_batch625_id": 4183,
+                    "unified_id": 4893
+                },
+                {
+                    "old_batch625_id": 4184,
+                    "unified_id": 4894
+                },
+                {
+                    "old_batch625_id": 4185,
+                    "unified_id": 4895
+                },
+                {
+                    "old_batch625_id": 4186,
+                    "unified_id": 4896
+                },
+                {
+                    "old_batch625_id": 4187,
+                    "unified_id": 4897
+                },
+                {
+                    "old_batch625_id": 4188,
+                    "unified_id": 4898
+                },
+                {
+                    "old_batch625_id": 4189,
+                    "unified_id": 4899
+                },
+                {
+                    "old_batch625_id": 4190,
+                    "unified_id": 4900
+                },
+                {
+                    "old_batch625_id": 4191,
+                    "unified_id": 4901
+                },
+                {
+                    "old_batch625_id": 4192,
+                    "unified_id": 4902
+                },
+                {
+                    "old_batch625_id": 4193,
+                    "unified_id": 4903
+                },
+                {
+                    "old_batch625_id": 4194,
+                    "unified_id": 4904
+                },
+                {
+                    "old_batch625_id": 4195,
+                    "unified_id": 4905
+                },
+                {
+                    "old_batch625_id": 4196,
+                    "unified_id": 4906
+                },
+                {
+                    "old_batch625_id": 4197,
+                    "unified_id": 4907
+                },
+                {
+                    "old_batch625_id": 4198,
+                    "unified_id": 4908
+                },
+                {
+                    "old_batch625_id": 4199,
+                    "unified_id": 4909
+                },
+                {
+                    "old_batch625_id": 4200,
+                    "unified_id": 4910
+                },
+                {
+                    "old_batch625_id": 4201,
+                    "unified_id": 4911
+                },
+                {
+                    "old_batch625_id": 4202,
+                    "unified_id": 4912
+                },
+                {
+                    "old_batch625_id": 4203,
+                    "unified_id": 4913
+                },
+                {
+                    "old_batch625_id": 4204,
+                    "unified_id": 4914
+                },
+                {
+                    "old_batch625_id": 4205,
+                    "unified_id": 4915
+                },
+                {
+                    "old_batch625_id": 4206,
+                    "unified_id": 4916
+                },
+                {
+                    "old_batch625_id": 4207,
+                    "unified_id": 4917
+                },
+                {
+                    "old_batch625_id": 4208,
+                    "unified_id": 4918
+                },
+                {
+                    "old_batch625_id": 4209,
+                    "unified_id": 4919
+                },
+                {
+                    "old_batch625_id": 4210,
+                    "unified_id": 4920
+                },
+                {
+                    "old_batch625_id": 4211,
+                    "unified_id": 4921
+                },
+                {
+                    "old_batch625_id": 4212,
+                    "unified_id": 4922
+                },
+                {
+                    "old_batch625_id": 4213,
+                    "unified_id": 4923
+                },
+                {
+                    "old_batch625_id": 4214,
+                    "unified_id": 4924
+                },
+                {
+                    "old_batch625_id": 4215,
+                    "unified_id": 4925
+                },
+                {
+                    "old_batch625_id": 4216,
+                    "unified_id": 4926
+                },
+                {
+                    "old_batch625_id": 4217,
+                    "unified_id": 4927
+                },
+                {
+                    "old_batch625_id": 4218,
+                    "unified_id": 4928
+                },
+                {
+                    "old_batch625_id": 4219,
+                    "unified_id": 4929
+                },
+                {
+                    "old_batch625_id": 4220,
+                    "unified_id": 4930
+                },
+                {
+                    "old_batch625_id": 4221,
+                    "unified_id": 4931
+                },
+                {
+                    "old_batch625_id": 4222,
+                    "unified_id": 4932
+                },
+                {
+                    "old_batch625_id": 4223,
+                    "unified_id": 4933
+                },
+                {
+                    "old_batch625_id": 4224,
+                    "unified_id": 4934
+                },
+                {
+                    "old_batch625_id": 4225,
+                    "unified_id": 4935
+                },
+                {
+                    "old_batch625_id": 4226,
+                    "unified_id": 4936
+                },
+                {
+                    "old_batch625_id": 4227,
+                    "unified_id": 4937
+                },
+                {
+                    "old_batch625_id": 4228,
+                    "unified_id": 4938
+                },
+                {
+                    "old_batch625_id": 4229,
+                    "unified_id": 4939
+                },
+                {
+                    "old_batch625_id": 4230,
+                    "unified_id": 4940
+                },
+                {
+                    "old_batch625_id": 4231,
+                    "unified_id": 4941
+                },
+                {
+                    "old_batch625_id": 4232,
+                    "unified_id": 4942
+                },
+                {
+                    "old_batch625_id": 4233,
+                    "unified_id": 4943
+                },
+                {
+                    "old_batch625_id": 4234,
+                    "unified_id": 4944
+                },
+                {
+                    "old_batch625_id": 4235,
+                    "unified_id": 4945
+                },
+                {
+                    "old_batch625_id": 4236,
+                    "unified_id": 4946
+                },
+                {
+                    "old_batch625_id": 4237,
+                    "unified_id": 4947
+                },
+                {
+                    "old_batch625_id": 4238,
+                    "unified_id": 4948
+                },
+                {
+                    "old_batch625_id": 4239,
+                    "unified_id": 4949
+                },
+                {
+                    "old_batch625_id": 4240,
+                    "unified_id": 4950
+                },
+                {
+                    "old_batch625_id": 4241,
+                    "unified_id": 4951
+                },
+                {
+                    "old_batch625_id": 4242,
+                    "unified_id": 4952
+                },
+                {
+                    "old_batch625_id": 4243,
+                    "unified_id": 4953
+                },
+                {
+                    "old_batch625_id": 4244,
+                    "unified_id": 4954
+                },
+                {
+                    "old_batch625_id": 4245,
+                    "unified_id": 4955
+                },
+                {
+                    "old_batch625_id": 4246,
+                    "unified_id": 4956
+                },
+                {
+                    "old_batch625_id": 4247,
+                    "unified_id": 4957
+                },
+                {
+                    "old_batch625_id": 4248,
+                    "unified_id": 4958
+                },
+                {
+                    "old_batch625_id": 4249,
+                    "unified_id": 4959
+                },
+                {
+                    "old_batch625_id": 4250,
+                    "unified_id": 4960
+                },
+                {
+                    "old_batch625_id": 4251,
+                    "unified_id": 4961
+                },
+                {
+                    "old_batch625_id": 4252,
+                    "unified_id": 4962
+                },
+                {
+                    "old_batch625_id": 4253,
+                    "unified_id": 4963
+                },
+                {
+                    "old_batch625_id": 4254,
+                    "unified_id": 4964
+                },
+                {
+                    "old_batch625_id": 4255,
+                    "unified_id": 4965
+                },
+                {
+                    "old_batch625_id": 4256,
+                    "unified_id": 4966
+                },
+                {
+                    "old_batch625_id": 4257,
+                    "unified_id": 4967
+                },
+                {
+                    "old_batch625_id": 4258,
+                    "unified_id": 4968
+                },
+                {
+                    "old_batch625_id": 4259,
+                    "unified_id": 4969
+                },
+                {
+                    "old_batch625_id": 4260,
+                    "unified_id": 4970
+                },
+                {
+                    "old_batch625_id": 4261,
+                    "unified_id": 4971
+                },
+                {
+                    "old_batch625_id": 4262,
+                    "unified_id": 4972
+                },
+                {
+                    "old_batch625_id": 4263,
+                    "unified_id": 4973
+                },
+                {
+                    "old_batch625_id": 4264,
+                    "unified_id": 4974
+                },
+                {
+                    "old_batch625_id": 4265,
+                    "unified_id": 4975
+                },
+                {
+                    "old_batch625_id": 4266,
+                    "unified_id": 4976
+                },
+                {
+                    "old_batch625_id": 4267,
+                    "unified_id": 4977
+                },
+                {
+                    "old_batch625_id": 4268,
+                    "unified_id": 4978
+                },
+                {
+                    "old_batch625_id": 4269,
+                    "unified_id": 4979
+                },
+                {
+                    "old_batch625_id": 4270,
+                    "unified_id": 4980
+                },
+                {
+                    "old_batch625_id": 4271,
+                    "unified_id": 4981
+                },
+                {
+                    "old_batch625_id": 4272,
+                    "unified_id": 4982
+                },
+                {
+                    "old_batch625_id": 4273,
+                    "unified_id": 4983
+                },
+                {
+                    "old_batch625_id": 4274,
+                    "unified_id": 4984
+                },
+                {
+                    "old_batch625_id": 4275,
+                    "unified_id": 4985
+                },
+                {
+                    "old_batch625_id": 4276,
+                    "unified_id": 4986
+                },
+                {
+                    "old_batch625_id": 4277,
+                    "unified_id": 4987
+                },
+                {
+                    "old_batch625_id": 4278,
+                    "unified_id": 4988
+                },
+                {
+                    "old_batch625_id": 4279,
+                    "unified_id": 4989
+                },
+                {
+                    "old_batch625_id": 4280,
+                    "unified_id": 4990
+                },
+                {
+                    "old_batch625_id": 4281,
+                    "unified_id": 4991
+                },
+                {
+                    "old_batch625_id": 4282,
+                    "unified_id": 4992
+                },
+                {
+                    "old_batch625_id": 4283,
+                    "unified_id": 4993
+                },
+                {
+                    "old_batch625_id": 4284,
+                    "unified_id": 4994
+                },
+                {
+                    "old_batch625_id": 4285,
+                    "unified_id": 4995
+                },
+                {
+                    "old_batch625_id": 4286,
+                    "unified_id": 4996
+                },
+                {
+                    "old_batch625_id": 4287,
+                    "unified_id": 4997
+                },
+                {
+                    "old_batch625_id": 4288,
+                    "unified_id": 4998
+                },
+                {
+                    "old_batch625_id": 4289,
+                    "unified_id": 4999
+                },
+                {
+                    "old_batch625_id": 4290,
+                    "unified_id": 5000
+                },
+                {
+                    "old_batch625_id": 4291,
+                    "unified_id": 5001
+                },
+                {
+                    "old_batch625_id": 4292,
+                    "unified_id": 5002
+                },
+                {
+                    "old_batch625_id": 4293,
+                    "unified_id": 5003
+                },
+                {
+                    "old_batch625_id": 4294,
+                    "unified_id": 5004
+                },
+                {
+                    "old_batch625_id": 4295,
+                    "unified_id": 5005
+                },
+                {
+                    "old_batch625_id": 4296,
+                    "unified_id": 5006
+                },
+                {
+                    "old_batch625_id": 4297,
+                    "unified_id": 5007
+                },
+                {
+                    "old_batch625_id": 4298,
+                    "unified_id": 5008
+                },
+                {
+                    "old_batch625_id": 4299,
+                    "unified_id": 5009
+                },
+                {
+                    "old_batch625_id": 4300,
+                    "unified_id": 5010
+                },
+                {
+                    "old_batch625_id": 4301,
+                    "unified_id": 5011
+                },
+                {
+                    "old_batch625_id": 4302,
+                    "unified_id": 5012
+                },
+                {
+                    "old_batch625_id": 4303,
+                    "unified_id": 5013
+                },
+                {
+                    "old_batch625_id": 4304,
+                    "unified_id": 5014
+                },
+                {
+                    "old_batch625_id": 4305,
+                    "unified_id": 5015
+                },
+                {
+                    "old_batch625_id": 4306,
+                    "unified_id": 5016
+                },
+                {
+                    "old_batch625_id": 4307,
+                    "unified_id": 5017
+                },
+                {
+                    "old_batch625_id": 4308,
+                    "unified_id": 5018
+                },
+                {
+                    "old_batch625_id": 4309,
+                    "unified_id": 5019
+                },
+                {
+                    "old_batch625_id": 4310,
+                    "unified_id": 5020
+                },
+                {
+                    "old_batch625_id": 4311,
+                    "unified_id": 5021
+                },
+                {
+                    "old_batch625_id": 4312,
+                    "unified_id": 5022
+                },
+                {
+                    "old_batch625_id": 4313,
+                    "unified_id": 5023
+                },
+                {
+                    "old_batch625_id": 4314,
+                    "unified_id": 5024
+                },
+                {
+                    "old_batch625_id": 4315,
+                    "unified_id": 5025
+                },
+                {
+                    "old_batch625_id": 4316,
+                    "unified_id": 5026
+                },
+                {
+                    "old_batch625_id": 4317,
+                    "unified_id": 5027
+                },
+                {
+                    "old_batch625_id": 4318,
+                    "unified_id": 5028
+                },
+                {
+                    "old_batch625_id": 4319,
+                    "unified_id": 5029
+                },
+                {
+                    "old_batch625_id": 4320,
+                    "unified_id": 5030
+                },
+                {
+                    "old_batch625_id": 4321,
+                    "unified_id": 5031
+                },
+                {
+                    "old_batch625_id": 4322,
+                    "unified_id": 5032
+                },
+                {
+                    "old_batch625_id": 4323,
+                    "unified_id": 5033
+                },
+                {
+                    "old_batch625_id": 4324,
+                    "unified_id": 5034
+                },
+                {
+                    "old_batch625_id": 4325,
+                    "unified_id": 5035
+                },
+                {
+                    "old_batch625_id": 4326,
+                    "unified_id": 5036
+                },
+                {
+                    "old_batch625_id": 4327,
+                    "unified_id": 5037
+                },
+                {
+                    "old_batch625_id": 4328,
+                    "unified_id": 5038
+                },
+                {
+                    "old_batch625_id": 4329,
+                    "unified_id": 5039
+                },
+                {
+                    "old_batch625_id": 4330,
+                    "unified_id": 5040
+                },
+                {
+                    "old_batch625_id": 4331,
+                    "unified_id": 5041
+                },
+                {
+                    "old_batch625_id": 4332,
+                    "unified_id": 5042
+                },
+                {
+                    "old_batch625_id": 4333,
+                    "unified_id": 5043
+                },
+                {
+                    "old_batch625_id": 4334,
+                    "unified_id": 5044
+                },
+                {
+                    "old_batch625_id": 4335,
+                    "unified_id": 5045
+                },
+                {
+                    "old_batch625_id": 4336,
+                    "unified_id": 5046
+                },
+                {
+                    "old_batch625_id": 4337,
+                    "unified_id": 5047
+                },
+                {
+                    "old_batch625_id": 4338,
+                    "unified_id": 5048
+                },
+                {
+                    "old_batch625_id": 4339,
+                    "unified_id": 5049
+                },
+                {
+                    "old_batch625_id": 4340,
+                    "unified_id": 5050
+                },
+                {
+                    "old_batch625_id": 4341,
+                    "unified_id": 5051
+                },
+                {
+                    "old_batch625_id": 4342,
+                    "unified_id": 5052
+                },
+                {
+                    "old_batch625_id": 4343,
+                    "unified_id": 5053
+                },
+                {
+                    "old_batch625_id": 4344,
+                    "unified_id": 5054
+                },
+                {
+                    "old_batch625_id": 4345,
+                    "unified_id": 5055
+                },
+                {
+                    "old_batch625_id": 4346,
+                    "unified_id": 5056
+                },
+                {
+                    "old_batch625_id": 4347,
+                    "unified_id": 5057
+                },
+                {
+                    "old_batch625_id": 4348,
+                    "unified_id": 5058
+                },
+                {
+                    "old_batch625_id": 4349,
+                    "unified_id": 5059
+                },
+                {
+                    "old_batch625_id": 4350,
+                    "unified_id": 5060
+                },
+                {
+                    "old_batch625_id": 4351,
+                    "unified_id": 5061
+                },
+                {
+                    "old_batch625_id": 4352,
+                    "unified_id": 5062
+                },
+                {
+                    "old_batch625_id": 4353,
+                    "unified_id": 5063
+                },
+                {
+                    "old_batch625_id": 4354,
+                    "unified_id": 5064
+                },
+                {
+                    "old_batch625_id": 4355,
+                    "unified_id": 5065
+                },
+                {
+                    "old_batch625_id": 4356,
+                    "unified_id": 5066
+                },
+                {
+                    "old_batch625_id": 4357,
+                    "unified_id": 5067
+                },
+                {
+                    "old_batch625_id": 4358,
+                    "unified_id": 5068
+                },
+                {
+                    "old_batch625_id": 4359,
+                    "unified_id": 5069
+                },
+                {
+                    "old_batch625_id": 4360,
+                    "unified_id": 5070
+                },
+                {
+                    "old_batch625_id": 4361,
+                    "unified_id": 5071
+                },
+                {
+                    "old_batch625_id": 4362,
+                    "unified_id": 5072
+                },
+                {
+                    "old_batch625_id": 4363,
+                    "unified_id": 5073
+                },
+                {
+                    "old_batch625_id": 4364,
+                    "unified_id": 5074
+                },
+                {
+                    "old_batch625_id": 4365,
+                    "unified_id": 5075
+                },
+                {
+                    "old_batch625_id": 4366,
+                    "unified_id": 5076
+                },
+                {
+                    "old_batch625_id": 4367,
+                    "unified_id": 5077
+                },
+                {
+                    "old_batch625_id": 4368,
+                    "unified_id": 5078
+                },
+                {
+                    "old_batch625_id": 4369,
+                    "unified_id": 5079
+                },
+                {
+                    "old_batch625_id": 4370,
+                    "unified_id": 5080
+                },
+                {
+                    "old_batch625_id": 4371,
+                    "unified_id": 5081
+                },
+                {
+                    "old_batch625_id": 4372,
+                    "unified_id": 5082
+                },
+                {
+                    "old_batch625_id": 4373,
+                    "unified_id": 5083
+                },
+                {
+                    "old_batch625_id": 4374,
+                    "unified_id": 5084
+                },
+                {
+                    "old_batch625_id": 4375,
+                    "unified_id": 5085
+                },
+                {
+                    "old_batch625_id": 4376,
+                    "unified_id": 5086
+                },
+                {
+                    "old_batch625_id": 4377,
+                    "unified_id": 5087
+                },
+                {
+                    "old_batch625_id": 4378,
+                    "unified_id": 5088
+                },
+                {
+                    "old_batch625_id": 4379,
+                    "unified_id": 5089
+                },
+                {
+                    "old_batch625_id": 4380,
+                    "unified_id": 5090
+                },
+                {
+                    "old_batch625_id": 4381,
+                    "unified_id": 5091
+                },
+                {
+                    "old_batch625_id": 4382,
+                    "unified_id": 5092
+                },
+                {
+                    "old_batch625_id": 4383,
+                    "unified_id": 5093
+                },
+                {
+                    "old_batch625_id": 4384,
+                    "unified_id": 5094
+                },
+                {
+                    "old_batch625_id": 4385,
+                    "unified_id": 5095
+                },
+                {
+                    "old_batch625_id": 4386,
+                    "unified_id": 5096
+                },
+                {
+                    "old_batch625_id": 4387,
+                    "unified_id": 5097
+                },
+                {
+                    "old_batch625_id": 4388,
+                    "unified_id": 5098
+                },
+                {
+                    "old_batch625_id": 4389,
+                    "unified_id": 5099
+                },
+                {
+                    "old_batch625_id": 4390,
+                    "unified_id": 5100
+                },
+                {
+                    "old_batch625_id": 4391,
+                    "unified_id": 5101
+                },
+                {
+                    "old_batch625_id": 4392,
+                    "unified_id": 5102
+                },
+                {
+                    "old_batch625_id": 4393,
+                    "unified_id": 5103
+                },
+                {
+                    "old_batch625_id": 4394,
+                    "unified_id": 5104
+                },
+                {
+                    "old_batch625_id": 4395,
+                    "unified_id": 5105
+                },
+                {
+                    "old_batch625_id": 4396,
+                    "unified_id": 5106
+                },
+                {
+                    "old_batch625_id": 4397,
+                    "unified_id": 5107
+                },
+                {
+                    "old_batch625_id": 4398,
+                    "unified_id": 5108
+                },
+                {
+                    "old_batch625_id": 4399,
+                    "unified_id": 5109
+                },
+                {
+                    "old_batch625_id": 4400,
+                    "unified_id": 5110
+                },
+                {
+                    "old_batch625_id": 4401,
+                    "unified_id": 5111
+                },
+                {
+                    "old_batch625_id": 4402,
+                    "unified_id": 5112
+                },
+                {
+                    "old_batch625_id": 4403,
+                    "unified_id": 5113
+                },
+                {
+                    "old_batch625_id": 4404,
+                    "unified_id": 5114
+                },
+                {
+                    "old_batch625_id": 4405,
+                    "unified_id": 5115
+                },
+                {
+                    "old_batch625_id": 4406,
+                    "unified_id": 5116
+                },
+                {
+                    "old_batch625_id": 4407,
+                    "unified_id": 5117
+                },
+                {
+                    "old_batch625_id": 4408,
+                    "unified_id": 5118
+                },
+                {
+                    "old_batch625_id": 4409,
+                    "unified_id": 5119
+                },
+                {
+                    "old_batch625_id": 4410,
+                    "unified_id": 5120
+                },
+                {
+                    "old_batch625_id": 4411,
+                    "unified_id": 5121
+                },
+                {
+                    "old_batch625_id": 4412,
+                    "unified_id": 5122
+                },
+                {
+                    "old_batch625_id": 4413,
+                    "unified_id": 5123
+                },
+                {
+                    "old_batch625_id": 4414,
+                    "unified_id": 5124
+                },
+                {
+                    "old_batch625_id": 4415,
+                    "unified_id": 5125
+                },
+                {
+                    "old_batch625_id": 4416,
+                    "unified_id": 5126
+                },
+                {
+                    "old_batch625_id": 4417,
+                    "unified_id": 5127
+                },
+                {
+                    "old_batch625_id": 4418,
+                    "unified_id": 5128
+                },
+                {
+                    "old_batch625_id": 4419,
+                    "unified_id": 5129
+                },
+                {
+                    "old_batch625_id": 4420,
+                    "unified_id": 5130
+                },
+                {
+                    "old_batch625_id": 4421,
+                    "unified_id": 5131
+                },
+                {
+                    "old_batch625_id": 4422,
+                    "unified_id": 5132
+                },
+                {
+                    "old_batch625_id": 4423,
+                    "unified_id": 5133
+                },
+                {
+                    "old_batch625_id": 4424,
+                    "unified_id": 5134
+                },
+                {
+                    "old_batch625_id": 4425,
+                    "unified_id": 5135
+                },
+                {
+                    "old_batch625_id": 4426,
+                    "unified_id": 5136
+                },
+                {
+                    "old_batch625_id": 4427,
+                    "unified_id": 5137
+                },
+                {
+                    "old_batch625_id": 4428,
+                    "unified_id": 5138
+                },
+                {
+                    "old_batch625_id": 4429,
+                    "unified_id": 5139
+                },
+                {
+                    "old_batch625_id": 4430,
+                    "unified_id": 5140
+                },
+                {
+                    "old_batch625_id": 4431,
+                    "unified_id": 5141
+                },
+                {
+                    "old_batch625_id": 4432,
+                    "unified_id": 5142
+                },
+                {
+                    "old_batch625_id": 4433,
+                    "unified_id": 5143
+                },
+                {
+                    "old_batch625_id": 4434,
+                    "unified_id": 5144
+                },
+                {
+                    "old_batch625_id": 4435,
+                    "unified_id": 5145
+                },
+                {
+                    "old_batch625_id": 4436,
+                    "unified_id": 5146
+                },
+                {
+                    "old_batch625_id": 4437,
+                    "unified_id": 5147
+                },
+                {
+                    "old_batch625_id": 4438,
+                    "unified_id": 5148
+                },
+                {
+                    "old_batch625_id": 4439,
+                    "unified_id": 5149
+                },
+                {
+                    "old_batch625_id": 4440,
+                    "unified_id": 5150
+                },
+                {
+                    "old_batch625_id": 4441,
+                    "unified_id": 5151
+                },
+                {
+                    "old_batch625_id": 4442,
+                    "unified_id": 5152
+                },
+                {
+                    "old_batch625_id": 4443,
+                    "unified_id": 5153
+                },
+                {
+                    "old_batch625_id": 4444,
+                    "unified_id": 5154
+                },
+                {
+                    "old_batch625_id": 4445,
+                    "unified_id": 5155
+                },
+                {
+                    "old_batch625_id": 4446,
+                    "unified_id": 5156
+                },
+                {
+                    "old_batch625_id": 4447,
+                    "unified_id": 5157
+                },
+                {
+                    "old_batch625_id": 4448,
+                    "unified_id": 5158
+                },
+                {
+                    "old_batch625_id": 4449,
+                    "unified_id": 5159
+                },
+                {
+                    "old_batch625_id": 4450,
+                    "unified_id": 5160
+                },
+                {
+                    "old_batch625_id": 4451,
+                    "unified_id": 5161
+                },
+                {
+                    "old_batch625_id": 4452,
+                    "unified_id": 5162
+                },
+                {
+                    "old_batch625_id": 4453,
+                    "unified_id": 5163
+                },
+                {
+                    "old_batch625_id": 4454,
+                    "unified_id": 5164
+                },
+                {
+                    "old_batch625_id": 4455,
+                    "unified_id": 5165
+                },
+                {
+                    "old_batch625_id": 4456,
+                    "unified_id": 5166
+                },
+                {
+                    "old_batch625_id": 4457,
+                    "unified_id": 5167
+                },
+                {
+                    "old_batch625_id": 4458,
+                    "unified_id": 5168
+                },
+                {
+                    "old_batch625_id": 4459,
+                    "unified_id": 5169
+                },
+                {
+                    "old_batch625_id": 4460,
+                    "unified_id": 5170
+                },
+                {
+                    "old_batch625_id": 4461,
+                    "unified_id": 5171
+                },
+                {
+                    "old_batch625_id": 4462,
+                    "unified_id": 5172
+                },
+                {
+                    "old_batch625_id": 4463,
+                    "unified_id": 5173
+                },
+                {
+                    "old_batch625_id": 4464,
+                    "unified_id": 5174
+                },
+                {
+                    "old_batch625_id": 4465,
+                    "unified_id": 5175
+                },
+                {
+                    "old_batch625_id": 4466,
+                    "unified_id": 5176
+                },
+                {
+                    "old_batch625_id": 4467,
+                    "unified_id": 5177
+                },
+                {
+                    "old_batch625_id": 4468,
+                    "unified_id": 5178
+                },
+                {
+                    "old_batch625_id": 4469,
+                    "unified_id": 5179
+                },
+                {
+                    "old_batch625_id": 4470,
+                    "unified_id": 5180
+                },
+                {
+                    "old_batch625_id": 4471,
+                    "unified_id": 5181
+                },
+                {
+                    "old_batch625_id": 4472,
+                    "unified_id": 5182
+                },
+                {
+                    "old_batch625_id": 4473,
+                    "unified_id": 5183
+                },
+                {
+                    "old_batch625_id": 4474,
+                    "unified_id": 5184
+                },
+                {
+                    "old_batch625_id": 4475,
+                    "unified_id": 5185
+                },
+                {
+                    "old_batch625_id": 4476,
+                    "unified_id": 5186
+                },
+                {
+                    "old_batch625_id": 4477,
+                    "unified_id": 5187
+                },
+                {
+                    "old_batch625_id": 4478,
+                    "unified_id": 5188
+                },
+                {
+                    "old_batch625_id": 4479,
+                    "unified_id": 5189
+                },
+                {
+                    "old_batch625_id": 4480,
+                    "unified_id": 5190
+                },
+                {
+                    "old_batch625_id": 4481,
+                    "unified_id": 5191
+                },
+                {
+                    "old_batch625_id": 4482,
+                    "unified_id": 5192
+                }
+            ],
+            "conflict_resolutions": {
+                "canonical_ids": "All old Batch 625 IDs collided with Batch 624 records; new IDs allocated after the unified maximum.",
+                "eligibility_ids": "Renamed eligibility-b625-nursing-* to eligibility-b626-nursing-* and remapped question_ids.",
+                "reuse_metadata_ids": "Renamed question-reuse-* to question-reuse-b626-* and remapped question_id.",
+                "study_link_ids": "Renamed study-link-b625-* to study-link-b626-* and remapped question_id.",
+                "study_material_ids": "Preserved five unique nle-b625-* material IDs because no Batch 624 collision existed.",
+                "sources": "All referenced authoritative source IDs already existed on Batch 624; none copied.",
+                "requirements": "No Batch 625 prerequisite rows existed; no speculative rows imported.",
+                "production": "Indexed eligibility path and domain predicate fix carried forward; no newer Batch 624 data overwritten."
+            }
+        },
+        "nursing": {
+            "canonical": 878,
+            "effective": 898,
+            "new_imported": 320,
+            "new_by_np_area": {
+                "NP I": 64,
+                "NP II": 64,
+                "NP III": 64,
+                "NP IV": 64,
+                "NP V": 64
+            },
+            "new_depth": {
+                "1": 0,
+                "2": 15,
+                "3": 152,
+                "4": 153,
+                "5": 0,
+                "UNKNOWN": 0
+            },
+            "depth_unknown": 0,
+            "coverage_known": 30,
+            "coverage_unknown": 10,
+            "coverage_unknown_concepts": [
+                "science-biology-cells",
+                "science-chemistry-matter-particles",
+                "science-data-evidence",
+                "science-earth-stratigraphy",
+                "science-ecology-population",
+                "science-electricity-series-parallel",
+                "science-inquiry-evidence",
+                "science-optics-reflection",
+                "science-physics-force-balance",
+                "science-physics-motion-graphs"
+            ],
+            "safety_gate": {
+                "new_unique_total": 308,
+                "new_reviewed": 308,
+                "pass": true,
+                "category_memberships": {
+                    "PRIORITIZATION": 107,
+                    "CHANGING_GUIDANCE": 53,
+                    "REGULATORY": 59,
+                    "EMERGENCY": 125,
+                    "INFECTION_CONTROL": 45,
+                    "MEDICATION_SAFETY": 83,
+                    "CONTRAINDICATION": 33,
+                    "DOSAGE_CALCULATION": 11,
+                    "MATERNAL_NEWBORN": 65
+                },
+                "legacy_sample_size": 100,
+                "legacy_sample_pass": 100
+            },
+            "dosage_24_16_8": "PASS",
+            "dosage_semantic_reconciliation": {
+                "legacy_invariant": {
+                    "DOSAGE_SAFETY_TAGGED": 24,
+                    "DOSAGE_CALCULATION_REQUIRED": 16,
+                    "DOSAGE_CONCEPTUAL_SAFETY": 8,
+                    "calculation_recomputed": 16,
+                    "calculation_fail": 0,
+                    "regression": "PASS"
+                },
+                "new_semantic_counts": {
+                    "NONE": 307,
+                    "CONCEPTUAL_DOSAGE_SAFETY": 13
+                },
+                "new_dosage_safety_category_memberships": 11,
+                "new_calculation_required": 0,
+                "new_conceptual_dosage_safety": 13,
+                "meaning": "DOSAGE_CALCULATION is a safety-risk category; it does not imply a numeric calculation-required semantic. The 11 category memberships are conceptual safety items, while 13 items carry the explicit conceptual dosage-safety classification and zero require calculation.",
+                "status": "PASS"
+            },
+            "traceability": {
+                "total": 320,
+                "study_link": 320,
+                "authoritative_source": 320,
+                "scope_chain": 320,
+                "known_depth": 320,
+                "derivable": 320,
+                "ambiguous": 0,
+                "broken": [],
+                "study_link_320": true,
+                "authoritative_source_320": true,
+                "scope_chain_320": true,
+                "derivable_320": true,
+                "pass": true
+            },
+            "reuse_candidate_semantics": {
+                "new_safe_candidates": 320,
+                "policy_counts": {
+                    "REVIEW": 320
+                },
+                "new_overrides": 0,
+                "new_derived_relationships": 0,
+                "new_same_concept_activated": 0,
+                "meaning": "Candidate eligibility for reuse analysis only; no automatic cross-board approval."
+            },
+            "prerequisite_rows": 0
+        },
+        "preserved_milestones": {
+            "batch622_cpa": {
+                "artifact_present": true,
+                "before_after_unchanged": true,
+                "state": {
+                    "canonical": 432,
+                    "effective": 432,
+                    "direct": 432,
+                    "derived": 0,
+                    "question_depth_known": 426,
+                    "question_depth_unknown": 6,
+                    "depth_counts": {
+                        "1": 0,
+                        "2": 0,
+                        "3": 268,
+                        "4": 158,
+                        "5": 0,
+                        "UNKNOWN": 6
+                    },
+                    "coverage_rows": 113,
+                    "coverage_known": 113,
+                    "coverage_unknown": 0,
+                    "distinct_concepts": 113
+                }
+            },
+            "batch623b_criminologist": {
+                "artifact_present": true,
+                "before_after_unchanged": true,
+                "state": {
+                    "canonical": 429,
+                    "effective": 532,
+                    "direct": 532,
+                    "derived": 0,
+                    "question_depth_known": 532,
+                    "question_depth_unknown": 0,
+                    "depth_counts": {
+                        "1": 0,
+                        "2": 0,
+                        "3": 283,
+                        "4": 249,
+                        "5": 0,
+                        "UNKNOWN": 0
+                    },
+                    "coverage_rows": 37,
+                    "coverage_known": 35,
+                    "coverage_unknown": 2,
+                    "distinct_concepts": 33
+                }
+            },
+            "batch624_psychometrician": {
+                "artifact_present": true,
+                "before_after_unchanged": true,
+                "state": {
+                    "canonical": 380,
+                    "effective": 380,
+                    "direct": 380,
+                    "derived": 0,
+                    "question_depth_known": 380,
+                    "question_depth_unknown": 0,
+                    "depth_counts": {
+                        "1": 0,
+                        "2": 33,
+                        "3": 180,
+                        "4": 167,
+                        "5": 0,
+                        "UNKNOWN": 0
+                    },
+                    "coverage_rows": 4,
+                    "coverage_known": 4,
+                    "coverage_unknown": 0,
+                    "distinct_concepts": 4
+                }
+            },
+            "batch624_artifacts_present": true,
+            "non_nursing_regressions": []
+        },
+        "unified_portfolio": {
+            "totals": {
+                "canonical": 5192,
+                "effective": 5652,
+                "direct_eligibility": 5612,
+                "concept_derived": 40,
+                "multi_board_questions": 352,
+                "single_board_questions": 4840,
+                "orphan_canonical_questions": 0
+            },
+            "board_counts": {
+                "let": {
+                    "canonical": 1039,
+                    "effective": 1122,
+                    "direct": 1122,
+                    "derived": 0,
+                    "question_depth_known": 1113,
+                    "question_depth_unknown": 9,
+                    "depth_counts": {
+                        "1": 1,
+                        "2": 30,
+                        "3": 807,
+                        "4": 275,
+                        "5": 0,
+                        "UNKNOWN": 9
+                    },
+                    "coverage_rows": 126,
+                    "coverage_known": 117,
+                    "coverage_unknown": 9,
+                    "distinct_concepts": 109
+                },
+                "civil-service": {
+                    "canonical": 475,
+                    "effective": 729,
+                    "direct": 689,
+                    "derived": 40,
+                    "question_depth_known": 720,
+                    "question_depth_unknown": 9,
+                    "depth_counts": {
+                        "1": 1,
+                        "2": 27,
+                        "3": 605,
+                        "4": 87,
+                        "5": 0,
+                        "UNKNOWN": 9
+                    },
+                    "coverage_rows": 87,
+                    "coverage_known": 78,
+                    "coverage_unknown": 9,
+                    "distinct_concepts": 23
+                },
+                "criminologist": {
+                    "canonical": 429,
+                    "effective": 532,
+                    "direct": 532,
+                    "derived": 0,
+                    "question_depth_known": 532,
+                    "question_depth_unknown": 0,
+                    "depth_counts": {
+                        "1": 0,
+                        "2": 0,
+                        "3": 283,
+                        "4": 249,
+                        "5": 0,
+                        "UNKNOWN": 0
+                    },
+                    "coverage_rows": 37,
+                    "coverage_known": 35,
+                    "coverage_unknown": 2,
+                    "distinct_concepts": 33
+                },
+                "nursing": {
+                    "canonical": 878,
+                    "effective": 898,
+                    "direct": 898,
+                    "derived": 0,
+                    "question_depth_known": 898,
+                    "question_depth_unknown": 0,
+                    "depth_counts": {
+                        "1": 0,
+                        "2": 115,
+                        "3": 421,
+                        "4": 362,
+                        "5": 0,
+                        "UNKNOWN": 0
+                    },
+                    "coverage_rows": 40,
+                    "coverage_known": 30,
+                    "coverage_unknown": 10,
+                    "distinct_concepts": 30
+                },
+                "psychometrician": {
+                    "canonical": 380,
+                    "effective": 380,
+                    "direct": 380,
+                    "derived": 0,
+                    "question_depth_known": 380,
+                    "question_depth_unknown": 0,
+                    "depth_counts": {
+                        "1": 0,
+                        "2": 33,
+                        "3": 180,
+                        "4": 167,
+                        "5": 0,
+                        "UNKNOWN": 0
+                    },
+                    "coverage_rows": 4,
+                    "coverage_known": 4,
+                    "coverage_unknown": 0,
+                    "distinct_concepts": 4
+                },
+                "civil-engineering": {
+                    "canonical": 302,
+                    "effective": 302,
+                    "direct": 302,
+                    "derived": 0,
+                    "question_depth_known": 302,
+                    "question_depth_unknown": 0,
+                    "depth_counts": {
+                        "1": 0,
+                        "2": 24,
+                        "3": 146,
+                        "4": 132,
+                        "5": 0,
+                        "UNKNOWN": 0
+                    },
+                    "coverage_rows": 3,
+                    "coverage_known": 3,
+                    "coverage_unknown": 0,
+                    "distinct_concepts": 3
+                },
+                "cpa": {
+                    "canonical": 432,
+                    "effective": 432,
+                    "direct": 432,
+                    "derived": 0,
+                    "question_depth_known": 426,
+                    "question_depth_unknown": 6,
+                    "depth_counts": {
+                        "1": 0,
+                        "2": 0,
+                        "3": 268,
+                        "4": 158,
+                        "5": 0,
+                        "UNKNOWN": 6
+                    },
+                    "coverage_rows": 113,
+                    "coverage_known": 113,
+                    "coverage_unknown": 0,
+                    "distinct_concepts": 113
+                },
+                "mechanical-engineering": {
+                    "canonical": 464,
+                    "effective": 464,
+                    "direct": 464,
+                    "derived": 0,
+                    "question_depth_known": 464,
+                    "question_depth_unknown": 0,
+                    "depth_counts": {
+                        "1": 0,
+                        "2": 28,
+                        "3": 292,
+                        "4": 144,
+                        "5": 0,
+                        "UNKNOWN": 0
+                    },
+                    "coverage_rows": 14,
+                    "coverage_known": 14,
+                    "coverage_unknown": 0,
+                    "distinct_concepts": 14
+                },
+                "registered-electrical-engineering": {
+                    "canonical": 321,
+                    "effective": 321,
+                    "direct": 321,
+                    "derived": 0,
+                    "question_depth_known": 321,
+                    "question_depth_unknown": 0,
+                    "depth_counts": {
+                        "1": 0,
+                        "2": 0,
+                        "3": 141,
+                        "4": 180,
+                        "5": 0,
+                        "UNKNOWN": 0
+                    },
+                    "coverage_rows": 15,
+                    "coverage_known": 15,
+                    "coverage_unknown": 0,
+                    "distinct_concepts": 15
+                },
+                "architecture": {
+                    "canonical": 472,
+                    "effective": 472,
+                    "direct": 472,
+                    "derived": 0,
+                    "question_depth_known": 472,
+                    "question_depth_unknown": 0,
+                    "depth_counts": {
+                        "1": 0,
+                        "2": 24,
+                        "3": 216,
+                        "4": 232,
+                        "5": 0,
+                        "UNKNOWN": 0
+                    },
+                    "coverage_rows": 4,
+                    "coverage_known": 4,
+                    "coverage_unknown": 0,
+                    "distinct_concepts": 4
+                }
+            },
+            "depth_counts": {
+                "canonical": {
+                    "1": 1,
+                    "2": 266,
+                    "3": 3017,
+                    "4": 1893,
+                    "5": 0,
+                    "UNKNOWN": 15
+                },
+                "by_board_effective": {
+                    "let": {
+                        "1": 1,
+                        "2": 30,
+                        "3": 807,
+                        "4": 275,
+                        "5": 0,
+                        "UNKNOWN": 9
+                    },
+                    "civil-service": {
+                        "1": 1,
+                        "2": 27,
+                        "3": 605,
+                        "4": 87,
+                        "5": 0,
+                        "UNKNOWN": 9
+                    },
+                    "criminologist": {
+                        "1": 0,
+                        "2": 0,
+                        "3": 283,
+                        "4": 249,
+                        "5": 0,
+                        "UNKNOWN": 0
+                    },
+                    "nursing": {
+                        "1": 0,
+                        "2": 115,
+                        "3": 421,
+                        "4": 362,
+                        "5": 0,
+                        "UNKNOWN": 0
+                    },
+                    "psychometrician": {
+                        "1": 0,
+                        "2": 33,
+                        "3": 180,
+                        "4": 167,
+                        "5": 0,
+                        "UNKNOWN": 0
+                    },
+                    "civil-engineering": {
+                        "1": 0,
+                        "2": 24,
+                        "3": 146,
+                        "4": 132,
+                        "5": 0,
+                        "UNKNOWN": 0
+                    },
+                    "cpa": {
+                        "1": 0,
+                        "2": 0,
+                        "3": 268,
+                        "4": 158,
+                        "5": 0,
+                        "UNKNOWN": 6
+                    },
+                    "mechanical-engineering": {
+                        "1": 0,
+                        "2": 28,
+                        "3": 292,
+                        "4": 144,
+                        "5": 0,
+                        "UNKNOWN": 0
+                    },
+                    "registered-electrical-engineering": {
+                        "1": 0,
+                        "2": 0,
+                        "3": 141,
+                        "4": 180,
+                        "5": 0,
+                        "UNKNOWN": 0
+                    },
+                    "architecture": {
+                        "1": 0,
+                        "2": 24,
+                        "3": 216,
+                        "4": 232,
+                        "5": 0,
+                        "UNKNOWN": 0
+                    }
+                }
+            },
+            "coverage_counts": {
+                "known": 413,
+                "unknown": 30
+            }
+        },
+        "integrity": {
+            "canonical_id_uniqueness": true,
+            "traceability": true,
+            "prerequisites": {
+                "invalid": 0,
+                "self": 0,
+                "circular": 0
+            },
+            "broken_study_links": 0,
+            "broken_metadata": 0,
+            "broken_new_sources": 0,
+            "duplicate_effective_candidates": 0,
+            "double_weighting": 0,
+            "exact_or_normalized_duplicate_groups_touching_new": 0,
+            "known_to_unknown_regressions": 0
+        },
+        "production_path": {
+            "status": "PASS",
+            "boards": {
+                "nursing": {
+                    "status": "PASS",
+                    "requested": 25,
+                    "selected": 25,
+                    "pool": 878,
+                    "unique_selected": 25,
+                    "new_ids_in_pool": 320
+                },
+                "cpa": {
+                    "status": "PASS",
+                    "requested": 1,
+                    "selected": 1,
+                    "pool": 66,
+                    "unique_selected": 1,
+                    "new_ids_in_pool": null
+                },
+                "criminologist": {
+                    "status": "PASS",
+                    "requested": 1,
+                    "selected": 1,
+                    "pool": 429,
+                    "unique_selected": 1,
+                    "new_ids_in_pool": null
+                },
+                "psychometrician": {
+                    "status": "PASS",
+                    "requested": 1,
+                    "selected": 1,
+                    "pool": 152,
+                    "unique_selected": 1,
+                    "new_ids_in_pool": null
+                }
+            },
+            "new_nursing_ids_reachable": true,
+            "double_weighting": 0
+        },
+        "validation": {
+            "json_parse": "PASS",
+            "canonical_id_uniqueness": "PASS",
+            "study_links": "PASS",
+            "source_links": "PASS",
+            "depth": "PASS",
+            "coverage": "PASS_WITH_EXPLICIT_NURSING_RESIDUAL",
+            "prerequisites": "PASS",
+            "safety": "PASS",
+            "dosage": "PASS",
+            "eligibility": "PASS",
+            "dedup": "PASS",
+            "known_to_unknown_regressions": 0,
+            "production": "PASS",
+            "preserved_milestones": "PASS"
+        },
+        "stale_source_artifact_not_imported": true,
+        "verification_date": "2026-09-29",
+        "determinism": {
+            "audit_hash": "3ac6ae936ef50b827d3b4d5f512a882ccfd396c70c6820503c57e076006eabbf",
+            "second_audit_hash": "3ac6ae936ef50b827d3b4d5f512a882ccfd396c70c6820503c57e076006eabbf",
+            "identical": "YES",
+            "eligibility_hash": "ae26af0773f48b60e3bdbdc429a29cd053a1f81512b4cba4cddac47b05fbc78b",
+            "second_eligibility_hash": "ae26af0773f48b60e3bdbdc429a29cd053a1f81512b4cba4cddac47b05fbc78b",
+            "eligibility_identical": "YES",
+            "safety_gate_hash": "cc3bab7fedf0b0fbd5df5a86fe31276d1e66cba11c3d28fa5aac5d0145428b8e",
+            "second_safety_gate_hash": "cc3bab7fedf0b0fbd5df5a86fe31276d1e66cba11c3d28fa5aac5d0145428b8e",
+            "safety_gate_identical": "YES",
+            "dosage_gate_hash": "aab44d4861bcae24d67f6d85ba95a67f50c66b77ed3eab18fd7c0193dae1d032",
+            "second_dosage_gate_hash": "aab44d4861bcae24d67f6d85ba95a67f50c66b77ed3eab18fd7c0193dae1d032",
+            "dosage_gate_identical": "YES"
+        },
+        "generated_at": "2026-09-29T00:00:00+08:00"
+    }
+]

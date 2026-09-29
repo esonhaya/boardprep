@@ -7649,5 +7649,209 @@
         "status": "published",
         "version": 1,
         "updated_at": "2026-09-29"
+    },
+    {
+        "id": "nle-b625-np-i-clinical-reasoning",
+        "title": "Batch 625 NP I: Community Clinical Reasoning",
+        "summary": "Apply population assessment, prevention, epidemiology, teaching, disaster planning, and equity reasoning to a community nursing decision.",
+        "notes": [
+            {
+                "heading": "Assessment",
+                "body": "Define the population, verify the pattern, identify immediate threats, and distinguish missing information from an established finding."
+            },
+            {
+                "heading": "Action and monitoring",
+                "body": "Select a feasible least-harm intervention, protect privacy, use current program guidance, document the response, and evaluate outcomes rather than activity alone."
+            },
+            {
+                "heading": "Teaching and equity",
+                "body": "Use plain language, qualified interpretation, teach-back, culturally responsive planning, and proportional resource allocation."
+            },
+            {
+                "heading": "Boundary",
+                "body": "A useful science foundation does not itself establish an independent Nursing coverage row; keep shared-science claims separate from NP I competency evidence."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-program-aug-2026",
+            "prc-nursing-enhanced-tos-2025",
+            "who-community-health",
+            "openrn-nursing-fundamentals",
+            "cdc-infection-control-basics",
+            "doh-national-immunization-program"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "taxonomy": {
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-community-health"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29"
+    },
+    {
+        "id": "nle-b625-np-ii-clinical-reasoning",
+        "title": "Batch 625 NP II: Maternal, Newborn, and Family Decisions",
+        "summary": "Connect maternal, labor, postpartum, newborn, growth, development, and family cues to safe assessment, escalation, teaching, and referral.",
+        "notes": [
+            {
+                "heading": "Assessment",
+                "body": "Cluster maternal and newborn findings, compare trends with baseline, identify danger signs, and avoid unsupported absolute claims."
+            },
+            {
+                "heading": "Time-sensitive care",
+                "body": "Use current local protocols for fetal, maternal, newborn, infection, medication, and resuscitation decisions; escalate instability promptly."
+            },
+            {
+                "heading": "Family partnership",
+                "body": "Respect consent, privacy, language, culture, and family participation while retaining professional accountability for safe care."
+            },
+            {
+                "heading": "Teaching",
+                "body": "Use demonstration and teach-back for feeding, warning signs, medication, wound, and follow-up instructions."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-program-aug-2026",
+            "prc-nursing-enhanced-tos-2025",
+            "who-postnatal-care-2022",
+            "who-maternal-peripartum-infections",
+            "who-newborn-resuscitation-2012",
+            "openrn-nursing-fundamentals"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "taxonomy": {
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-maternal-child"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29"
+    },
+    {
+        "id": "nle-b625-np-iii-clinical-reasoning",
+        "title": "Batch 625 NP III: Medical-Surgical Safety Decisions",
+        "summary": "Interpret acute and chronic oxygenation, fluid, infection, immune, perioperative, and cellular cues through assessment, intervention, monitoring, and escalation.",
+        "notes": [
+            {
+                "heading": "Stability first",
+                "body": "Use airway, breathing, circulation, mental status, trend, and response to distinguish deterioration from a stable finding."
+            },
+            {
+                "heading": "Infection safety",
+                "body": "Apply standard precautions, transmission-based measures, aseptic practice, source control, and current local policy."
+            },
+            {
+                "heading": "Perioperative care",
+                "body": "Verify identity, consent, allergies, procedure, orders, equipment, and postoperative response; never substitute a checklist for assessment."
+            },
+            {
+                "heading": "Monitoring",
+                "body": "Reassess after an intervention and escalate when the supplied facts show actual deterioration or an unresolved safety threat."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-program-aug-2026",
+            "prc-nursing-enhanced-tos-2025",
+            "cdc-infection-control-basics",
+            "cdc-isolation-precautions",
+            "cdc-safe-injection",
+            "who-basic-emergency-care",
+            "openrn-nursing-fundamentals"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "taxonomy": {
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29"
+    },
+    {
+        "id": "nle-b625-np-iv-clinical-reasoning",
+        "title": "Batch 625 NP IV: Nutrition, Endocrine, Coordination, and Medication Safety",
+        "summary": "Relate nutrition, gastrointestinal, endocrine, perceptual, coordination, and medication cues to individualized nursing decisions and monitoring.",
+        "notes": [
+            {
+                "heading": "Assessment",
+                "body": "Use intake, output, function, trends, symptoms, treatment, and patient goals instead of treating an isolated number as a diagnosis."
+            },
+            {
+                "heading": "Medication safety",
+                "body": "Verify the complete order, patient, product, indication, route, allergies, units, monitoring, teaching, and response; clarify uncertainty before administration."
+            },
+            {
+                "heading": "Coordination",
+                "body": "Match delegation and handoff to acuity, competence, scope, and accountability; use closed-loop communication and factual documentation."
+            },
+            {
+                "heading": "Currentness",
+                "body": "Use current medication and local clinical guidance for time-sensitive care; stable fundamentals remain stable and are not artificially versioned."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-program-aug-2026",
+            "prc-nursing-enhanced-tos-2025",
+            "who-medication-without-harm-5-moments",
+            "openrn-pharmacology",
+            "openrn-nursing-fundamentals"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "taxonomy": {
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-medical-surgical"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29"
+    },
+    {
+        "id": "nle-b625-np-v-clinical-reasoning",
+        "title": "Batch 625 NP V: Mental Health, Emergency, and High-Acuity Decisions",
+        "summary": "Prioritize maladaptive behavior, crisis, shock, acute multi-organ problems, emergency care, teamwork, and escalation using the supplied facts.",
+        "notes": [
+            {
+                "heading": "Immediate safety",
+                "body": "Stay with an unsafe patient, assess immediate risk, reduce hazards, and activate urgent support rather than promising secrecy or waiting."
+            },
+            {
+                "heading": "Emergency reasoning",
+                "body": "Use a systematic ABCDE/SAMPLE approach, stabilize within role and protocol, reassess response, and communicate changes clearly."
+            },
+            {
+                "heading": "Acuity and delegation",
+                "body": "Prioritize actual instability and new deterioration; retain assessment and evaluation accountability for high-risk patients."
+            },
+            {
+                "heading": "Therapeutic care",
+                "body": "Use nonjudgmental communication, privacy, informed participation, least-restrictive safety measures, and current referral guidance."
+            }
+        ],
+        "source_ids": [
+            "prc-nursing-program-aug-2026",
+            "prc-nursing-enhanced-tos-2025",
+            "who-basic-emergency-care",
+            "who-mhgap-2023",
+            "openrn-nursing-fundamentals"
+        ],
+        "exams": [
+            "nursing"
+        ],
+        "taxonomy": {
+            "subject_id": "nursing-foundations",
+            "domain_id": "nle-mental-health"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29"
     }
 ]
