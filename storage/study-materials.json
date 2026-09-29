@@ -1516,15 +1516,34 @@
     {
         "id": "cle-criminal-law-foundation",
         "title": "Criminal Law and Jurisprudence Review Foundation",
-        "summary": "Structured, source-aware preparation for Criminal Law and Jurisprudence.",
+        "summary": "Source-backed Philippine criminal-law and jurisprudence foundation covering elements, rights, evidence, procedure, lawful limits, and currentness boundaries.",
         "notes": [
             {
-                "heading": "Core review",
-                "body": "Use the subject concepts as a guide to compare principles, interpret professional situations, and justify conclusions from evidence."
+                "heading": "Elements and liability",
+                "body": "Separate the prohibited act or omission, the required mental state, causation where relevant, participation, and any circumstance that changes liability. A harmful outcome or a label is not a substitute for proof of the applicable elements."
+            },
+            {
+                "heading": "Evidence and procedure",
+                "body": "Distinguish relevance, admissibility, authenticity, weight, and the burden of proof. Criminal procedure questions must identify the procedural stage and the governing rule before selecting an action."
+            },
+            {
+                "heading": "Rights and lawful limits",
+                "body": "Respect presumption of innocence, due process, counsel, silence, privacy, lawful search, and the absolute prohibition on torture. If a fact needed to decide admissibility or a remedy is missing, state the limit instead of assuming it."
+            },
+            {
+                "heading": "Currentness boundary",
+                "body": "The Revised Penal Code, Rules of Criminal Procedure, Rules on Evidence, and special laws are version-sensitive. These notes support study and application; the current primary text controls when amendments or later Supreme Court issuances matter."
             }
         ],
         "source_ids": [
-            "prc-criminology-enhanced-tos-2024"
+            "prc-criminology-enhanced-tos-2024",
+            "lawphil-ra11131",
+            "lawphil-revised-penal-code",
+            "lawphil-rules-criminal-procedure",
+            "lawphil-rules-evidence-2019",
+            "lawphil-ra7438",
+            "lawphil-ra9745",
+            "lawphil-ra10173"
         ],
         "exams": [
             "criminologist"
@@ -1540,21 +1559,38 @@
             "domain_id": "cle-criminal-jurisprudence"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch623b"
     },
     {
         "id": "cle-law-enforcement-foundation",
         "title": "Law Enforcement Administration Review Foundation",
-        "summary": "Structured, source-aware preparation for Law Enforcement Administration.",
+        "summary": "Law Enforcement Administration foundation for lawful public-safety operations, planning, leadership, accountability, community relations, and information stewardship.",
         "notes": [
             {
-                "heading": "Core review",
-                "body": "Use the subject concepts as a guide to compare principles, interpret professional situations, and justify conclusions from evidence."
+                "heading": "Public-safety administration",
+                "body": "Define the problem, objective, authority, resources, risks, coordination needs, and evaluation measure before choosing an operation. A plan is stronger when it is evidence-informed and proportionate to the risk."
+            },
+            {
+                "heading": "Leadership and accountability",
+                "body": "Delegation does not erase supervisory responsibility. Use clear roles, documented decisions, lawful escalation, feedback, and reviewable records. Independence and public interest protect professional judgment from improper pressure."
+            },
+            {
+                "heading": "Community and information",
+                "body": "Treat community members fairly and without discrimination, communicate the purpose and limits of an intervention, protect personal information, and separate verified information from rumor."
+            },
+            {
+                "heading": "Operational boundary",
+                "body": "Agency procedures can be current and local. These notes teach stable decision principles; current agency issuances and applicable law control a question about a specific operational rule."
             }
         ],
         "source_ids": [
-            "prc-criminology-enhanced-tos-2024"
+            "prc-criminology-enhanced-tos-2024",
+            "lawphil-ra11131",
+            "prc-criminology-ethics-2024",
+            "lawphil-ra10173",
+            "nij-crime-scene-guides-2017"
         ],
         "exams": [
             "criminologist"
@@ -1570,21 +1606,40 @@
             "domain_id": "cle-law-enforcement"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch623b"
     },
     {
         "id": "cle-investigation-foundation",
         "title": "Crime Detection and Investigation Review Foundation",
-        "summary": "Structured, source-aware preparation for Crime Detection and Investigation.",
+        "summary": "Crime Detection and Investigation foundation for safe scene response, documentation, interviewing, hypothesis testing, evidence handling, and lawful investigative conduct.",
         "notes": [
             {
-                "heading": "Core review",
-                "body": "Use the subject concepts as a guide to compare principles, interpret professional situations, and justify conclusions from evidence."
+                "heading": "Scene sequence",
+                "body": "Protect people first, secure and control the scene, establish boundaries, document conditions before moving objects, plan collection, package and label items, and maintain a traceable submission record."
+            },
+            {
+                "heading": "Interview and reasoning",
+                "body": "Use open prompts before focused follow-up, document the source and context of information, test alternative explanations, and distinguish an investigative lead from a verified fact."
+            },
+            {
+                "heading": "Evidence and digital information",
+                "body": "Preserve original records and metadata where relevant, minimize contamination, document transfers, and avoid using a convenient summary as a substitute for the underlying record."
+            },
+            {
+                "heading": "Lawful conduct",
+                "body": "An investigative purpose does not erase rights or procedural requirements. Identify the authority and stage before selecting a search, interview, custodial, or disclosure action."
             }
         ],
         "source_ids": [
-            "prc-criminology-enhanced-tos-2024"
+            "prc-criminology-enhanced-tos-2024",
+            "nij-crime-scene-guide-2013",
+            "nij-crime-scene-guides-2017",
+            "lawphil-rules-criminal-procedure",
+            "lawphil-rules-evidence-2019",
+            "lawphil-ra7438",
+            "lawphil-ra10173"
         ],
         "exams": [
             "criminologist"
@@ -1600,21 +1655,41 @@
             "domain_id": "cle-investigation"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch623b"
     },
     {
         "id": "cle-forensics-foundation",
         "title": "Criminalistics and Forensic Science Review Foundation",
-        "summary": "Structured, source-aware preparation for Criminalistics and Forensic Science.",
+        "summary": "Scientific and procedural forensic foundation covering validation, quality controls, documentation, comparison, interpretation, uncertainty, and method limitations.",
         "notes": [
             {
-                "heading": "Core review",
-                "body": "Use the subject concepts as a guide to compare principles, interpret professional situations, and justify conclusions from evidence."
+                "heading": "Scientific support",
+                "body": "A forensic conclusion should be tied to a method with an identified scientific foundation, validation and quality controls. A scope document establishes exam relevance but does not establish scientific validity."
+            },
+            {
+                "heading": "Bounded conclusions",
+                "body": "Report what the observed data support, distinguish class-level or limited association from source attribution, and do not convert consistency into proof of identity, activity, timing, or guilt."
+            },
+            {
+                "heading": "Integrity and documentation",
+                "body": "Record identity, condition, collection, transfer, controls, deviations, method, assumptions, and limitations. A failed control, ambiguous label, or missing scale can constrain interpretation even when the instrument result looks plausible."
+            },
+            {
+                "heading": "Current scientific boundary",
+                "body": "NIST and related standards reviews identify reliability, error, uncertainty, and communication issues. Methods and standards evolve; current laboratory policy and validated method documentation control specific practice."
             }
         ],
         "source_ids": [
-            "prc-criminology-enhanced-tos-2024"
+            "prc-criminology-enhanced-tos-2024",
+            "prc-criminology-ethics-2024",
+            "nist-forensic-science-standards",
+            "nist-scientific-foundation-reviews",
+            "nist-firearms-toolmarks",
+            "nij-crime-scene-guide-2013",
+            "nij-crime-scene-guides-2017",
+            "lawphil-rules-evidence-2019"
         ],
         "exams": [
             "criminologist"
@@ -1630,21 +1705,38 @@
             "domain_id": "cle-forensics"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch623b"
     },
     {
         "id": "cle-criminology-foundation",
         "title": "Criminology Review Foundation",
-        "summary": "Structured, source-aware preparation for Criminology.",
+        "summary": "Evidence-aware criminology foundation for classical, social, learning, victimology, prevention, research, and theory-limitation reasoning.",
         "notes": [
             {
-                "heading": "Core review",
-                "body": "Use the subject concepts as a guide to compare principles, interpret professional situations, and justify conclusions from evidence."
+                "heading": "What a theory does",
+                "body": "A criminological theory proposes an explanation that can be connected to observations and tested. It is not a label for an individual and does not by itself prove causation in a particular case."
+            },
+            {
+                "heading": "Compare mechanisms",
+                "body": "Classical and deterrence perspectives emphasize choice, costs, benefits, and certainty; social-structure perspectives emphasize conditions and institutions; learning perspectives emphasize interaction and reinforcement; control perspectives emphasize bonds and social regulation."
+            },
+            {
+                "heading": "Measurement and interpretation",
+                "body": "Separate prevalence, incidence, reporting, victimization, and recorded crime. Consider selection, underreporting, measurement limits, and alternative explanations before recommending policy."
+            },
+            {
+                "heading": "Ethical application",
+                "body": "Use theories to inform prevention and research without stereotyping groups or treating correlation as destiny. Respect rights, public interest, and scientific uncertainty."
             }
         ],
         "source_ids": [
-            "prc-criminology-enhanced-tos-2024"
+            "prc-criminology-enhanced-tos-2024",
+            "prc-criminology-ethics-2024",
+            "openoregon-introduction-criminology",
+            "openstax-deviance-crime",
+            "nij-deterrence"
         ],
         "exams": [
             "criminologist"
@@ -1660,21 +1752,41 @@
             "domain_id": "cle-criminology"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch623b"
     },
     {
         "id": "cle-corrections-foundation",
         "title": "Correctional Administration Review Foundation",
-        "summary": "Structured, source-aware preparation for Correctional Administration.",
+        "summary": "Correctional Administration foundation for humane custody, lawful classification, individualized rehabilitation, supervision, and reintegration.",
         "notes": [
             {
-                "heading": "Core review",
-                "body": "Use the subject concepts as a guide to compare principles, interpret professional situations, and justify conclusions from evidence."
+                "heading": "Custody and dignity",
+                "body": "Safekeeping must be secure and humane. Reception, identity, health, safety, classification, discipline, and access to services should be documented and consistent with rights and agency authority."
+            },
+            {
+                "heading": "Classification and treatment",
+                "body": "Use relevant risk, needs, behavior, health, vulnerability, and security information. Classification supports individualized management; it is not a permanent label or a substitute for review."
+            },
+            {
+                "heading": "Rehabilitation and community work",
+                "body": "Probation, parole, education, treatment, work, and reintegration require individualized goals, supervision, support, and coordination. Public safety and humane treatment are not mutually exclusive."
+            },
+            {
+                "heading": "Currentness boundary",
+                "body": "Agency manuals and reintegration programs can change. Questions use stable correctional principles unless a specific current issuance is identified; current agency policy controls operational details."
             }
         ],
         "source_ids": [
-            "prc-criminology-enhanced-tos-2024"
+            "prc-criminology-enhanced-tos-2024",
+            "prc-criminology-ethics-2024",
+            "lawphil-ra11131",
+            "lawphil-ra9745",
+            "bjmp-comprehensive-operations-manual-2015",
+            "bucor-mandates-functions",
+            "bucor-reintegration-2025",
+            "probation-quality-manual-2016"
         ],
         "exams": [
             "criminologist"
@@ -1690,21 +1802,40 @@
             "domain_id": "cle-corrections"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch623b"
     },
     {
         "id": "cle-criminal-law-application",
         "title": "Criminal Law Applied Review",
-        "summary": "Scenario-based application and evidence reasoning for this PRC subject.",
+        "summary": "Scenario-based criminal-law application with element mapping, evidence limits, procedural stage, rights, and uncertainty-aware conclusions.",
         "notes": [
             {
-                "heading": "Application focus",
-                "body": "Use fact patterns to distinguish rules, evidence, professional judgment, and lawful limits."
+                "heading": "Fact-bound reasoning",
+                "body": "Identify the issue, required facts, evidence supporting each fact, and the unresolved gap. Do not transform an allegation, a social-media post, or an official-sounding label into proof."
+            },
+            {
+                "heading": "Procedure before conclusion",
+                "body": "Locate the action in investigation, custodial questioning, charging, arraignment, trial, or evidence evaluation. The same fact may have different procedural consequences at different stages."
+            },
+            {
+                "heading": "Legal and ethical restraint",
+                "body": "Use the least overbroad conclusion supported by the authority and facts. A defensible reviewer documents what is known, what is missing, and what must be verified before action."
+            },
+            {
+                "heading": "Source/version note",
+                "body": "Current Philippine statutes and Supreme Court rules must be checked for sensitive legal propositions. Do not rely on a review summary where the answer turns on an amendment, exception, or procedural condition."
             }
         ],
         "source_ids": [
-            "prc-criminology-enhanced-tos-2024"
+            "prc-criminology-enhanced-tos-2024",
+            "lawphil-revised-penal-code",
+            "lawphil-rules-criminal-procedure",
+            "lawphil-rules-evidence-2019",
+            "lawphil-ra7438",
+            "lawphil-ra9745",
+            "lawphil-ra10173"
         ],
         "exams": [
             "criminologist"
@@ -1720,21 +1851,38 @@
             "domain_id": "cle-criminal-jurisprudence"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch623b"
     },
     {
         "id": "cle-law-enforcement-application",
         "title": "Law Enforcement Applied Review",
-        "summary": "Scenario-based application and evidence reasoning for this PRC subject.",
+        "summary": "Applied public-safety administration review using role clarity, proportionality, risk controls, accountability, community partnership, and privacy-aware decisions.",
         "notes": [
             {
-                "heading": "Application focus",
-                "body": "Use fact patterns to distinguish rules, evidence, professional judgment, and lawful limits."
+                "heading": "Choose the next defensible action",
+                "body": "Prioritize immediate safety and lawful authority, then preserve information and evidence, assign roles, document decisions, and communicate a review point. Avoid irreversible action when a safer verification step is available."
+            },
+            {
+                "heading": "Accountability in scenarios",
+                "body": "An operationally convenient choice is not automatically lawful or ethical. Ask who has authority, what record supports the choice, what safeguard protects affected people, and how the decision will be reviewed."
+            },
+            {
+                "heading": "Professional context",
+                "body": "Criminologists must act within the scope of law, professional ethics, agency policy, and demonstrated competence. Protect confidentiality and avoid conflicts or pressure that could compromise impartiality."
+            },
+            {
+                "heading": "Version boundary",
+                "body": "The study resource does not replace a current PNP, DILG, DOJ, or other agency issuance. Questions use stable administrative reasoning unless a current rule is explicitly identified and verified."
             }
         ],
         "source_ids": [
-            "prc-criminology-enhanced-tos-2024"
+            "prc-criminology-enhanced-tos-2024",
+            "prc-criminology-ethics-2024",
+            "lawphil-ra10173",
+            "nij-crime-scene-guides-2017",
+            "lawphil-ra11131"
         ],
         "exams": [
             "criminologist"
@@ -1750,8 +1898,9 @@
             "domain_id": "cle-law-enforcement"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch623b"
     },
     {
         "id": "cle-investigation-application",
