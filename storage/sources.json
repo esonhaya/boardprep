@@ -49,11 +49,13 @@
         "authority": "Professional Regulation Commission; Professional Regulatory Board for Professional Teachers",
         "url": "https://prc.gov.ph/Pages/PRBv4/ProfessionalTeachersv9.htm",
         "publication_date": null,
-        "retrieved_at": "2026-08-31",
+        "retrieved_at": "2026-09-29",
         "version": "Resolution No. 11 s. 2025",
         "status": "official_reference",
         "confidence": "authoritative_reference",
-        "notes": "Official PRC page listing the enhanced TOS and related amendments; exact weights are not copied into BoardPrep without item-level verification."
+        "notes": "Official PRC page listing the enhanced TOS and related amendments; exact weights are not copied into BoardPrep without item-level verification.",
+        "source_role": "SCOPE_SOURCE",
+        "volatility": "CURRICULUM_VERSIONED"
     },
     {
         "id": "csc-cse-scope-2026",
@@ -182,7 +184,7 @@
     },
     {
         "id": "prc-accountancy-board-page",
-        "title": "PRC Board of Accountancy — Current and Future LECPA TOS Resources",
+        "title": "PRC Board of Accountancy \u2014 Current and Future LECPA TOS Resources",
         "source_type": "OFFICIAL_EXAM_SPEC",
         "authority": "Professional Regulation Commission; Professional Regulatory Board of Accountancy",
         "url": "https://www.prc.gov.ph/sites/default/files/2026-20%20Revised%20Annex%20A%20BOA.pdf",
@@ -265,11 +267,13 @@
         "authority": "OpenStax, Rice University",
         "url": "https://openstax.org/details/books/university-physics-volume-1",
         "publication_date": "2016-09-19",
-        "retrieved_at": "2026-09-07",
+        "retrieved_at": "2026-09-29",
         "version": "current OpenStax web edition",
         "status": "verified_reference",
         "confidence": "authoritative_educational_reference",
-        "notes": "Open textbook reference for vectors, statics, dynamics, work-energy, momentum, rotation, elasticity, oscillation, and fluid mechanics."
+        "notes": "Open textbook reference for vectors, statics, dynamics, work-energy, momentum, rotation, elasticity, oscillation, and fluid mechanics.",
+        "source_role": "SCIENTIFIC_SOURCE",
+        "volatility": "STABLE_FOUNDATIONAL"
     },
     {
         "id": "openstax-university-physics-volume-2",
@@ -312,7 +316,7 @@
     },
     {
         "id": "open-manufacturing-processes-4-5",
-        "title": "Manufacturing Processes 4–5",
+        "title": "Manufacturing Processes 4\u20135",
         "source_type": "SECONDARY_REVIEW",
         "authority": "LamNgeun Virasak; Open Oregon Educational Resources",
         "url": "https://open.umn.edu/opentextbooks/textbooks/645",
@@ -473,11 +477,13 @@
         "authority": "Department of Education, Philippines",
         "url": "https://www.deped.gov.ph/2017/08/11/do-42-s-2017-national-adoption-and-implementation-of-the-philippine-professional-standards-for-teachers/",
         "publication_date": "2017-08-11",
-        "retrieved_at": "2026-09-07",
+        "retrieved_at": "2026-09-29",
         "version": "DepEd Order No. 42, s. 2017",
         "status": "official_reference",
         "confidence": "authoritative_reference",
-        "notes": "Official Philippine guidance establishing PPST expectations and continuing professional development."
+        "notes": "Official Philippine guidance establishing PPST expectations and continuing professional development.",
+        "source_role": "PROFESSIONAL_STANDARD",
+        "volatility": "PROFESSIONAL_STANDARD_VERSIONED"
     },
     {
         "id": "deped-classroom-assessment-do-8-2015",
@@ -486,11 +492,13 @@
         "authority": "Department of Education, Philippines",
         "url": "https://www.deped.gov.ph/2015/04/01/do-8-s-2015-policy-guidelines-on-classroom-assessment-for-the-k-to-12-basic-education-program/",
         "publication_date": "2015-04-01",
-        "retrieved_at": "2026-09-07",
+        "retrieved_at": "2026-09-29",
         "version": "DepEd Order No. 8, s. 2015",
         "status": "official_reference",
         "confidence": "authoritative_reference",
-        "notes": "Official Philippine guidance for formative and summative classroom assessment and use of evidence to adjust instruction."
+        "notes": "Official Philippine guidance for formative and summative classroom assessment and use of evidence to adjust instruction.",
+        "source_role": "NORMATIVE_SOURCE",
+        "volatility": "REGULATORY_CURRENT"
     },
     {
         "id": "republic-act-10533",
@@ -499,11 +507,13 @@
         "authority": "Republic of the Philippines",
         "url": "https://www.officialgazette.gov.ph/2013/05/15/republic-act-no-10533/",
         "publication_date": "2013-05-15",
-        "retrieved_at": "2026-09-07",
+        "retrieved_at": "2026-09-29",
         "version": "Republic Act No. 10533",
         "status": "official_reference",
         "confidence": "authoritative_reference",
-        "notes": "Primary Philippine law establishing the enhanced basic education framework."
+        "notes": "Primary Philippine law establishing the enhanced basic education framework.",
+        "source_role": "STATUTORY_SOURCE",
+        "volatility": "STATUTORY_VERSIONED"
     },
     {
         "id": "republic-act-7836",
@@ -551,11 +561,13 @@
         "authority": "OpenStax, Rice University",
         "url": "https://openstax.org/details/books/biology-2e",
         "publication_date": "2018-01-01",
-        "retrieved_at": "2026-09-07",
+        "retrieved_at": "2026-09-29",
         "version": "current OpenStax web edition",
         "status": "verified_reference",
         "confidence": "authoritative_educational_reference",
-        "notes": "Open textbook reference for cells, evolution, ecology, genetics, and scientific reasoning."
+        "notes": "Open textbook reference for cells, evolution, ecology, genetics, and scientific reasoning.",
+        "source_role": "SCIENTIFIC_SOURCE",
+        "volatility": "STABLE_FOUNDATIONAL"
     },
     {
         "id": "openstax-chemistry-2e",
@@ -564,11 +576,13 @@
         "authority": "OpenStax, Rice University",
         "url": "https://openstax.org/details/books/chemistry-2e",
         "publication_date": "2019-01-01",
-        "retrieved_at": "2026-09-07",
+        "retrieved_at": "2026-09-29",
         "version": "current OpenStax web edition",
         "status": "verified_reference",
         "confidence": "authoritative_educational_reference",
-        "notes": "Open textbook reference for matter, solutions, reactions, energy, and chemistry reasoning."
+        "notes": "Open textbook reference for matter, solutions, reactions, energy, and chemistry reasoning.",
+        "source_role": "SCIENTIFIC_SOURCE",
+        "volatility": "STABLE_FOUNDATIONAL"
     },
     {
         "id": "openstax-psychology-2e",
@@ -795,7 +809,7 @@
     },
     {
         "id": "philippines-civil-code-business-law",
-        "title": "Civil Code of the Philippines — Business-Law Provisions",
+        "title": "Civil Code of the Philippines \u2014 Business-Law Provisions",
         "source_type": "PRIMARY_LAW",
         "authority": "Republic of the Philippines; Supreme Court E-Library text of Republic Act No. 386",
         "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/53360",
@@ -860,13 +874,13 @@
     },
     {
         "id": "philippines-civil-code-agency",
-        "title": "Civil Code of the Philippines — Agency Provisions",
+        "title": "Civil Code of the Philippines \u2014 Agency Provisions",
         "source_type": "PRIMARY_LAW",
         "authority": "Republic of the Philippines; Supreme Court E-Library text of Republic Act No. 386",
         "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/53360",
         "publication_date": null,
         "retrieved_at": "2026-09-10",
-        "version": "Republic Act No. 386, Title X — Agency",
+        "version": "Republic Act No. 386, Title X \u2014 Agency",
         "status": "official_reference",
         "confidence": "authoritative_reference",
         "notes": "Primary Philippine legal text for agency formation, authority, ratification, and related principal-agent rules; BoardPrep notes paraphrase the applicable provisions."
@@ -943,11 +957,13 @@
         "authority": "Department of Education Philippines",
         "url": "https://www.deped.gov.ph/wp-content/uploads/2019/01/english-CG.pdf",
         "publication_date": "2016-12-01",
-        "retrieved_at": "2026-09-10",
+        "retrieved_at": "2026-09-29",
         "version": "K to 12 English Curriculum Guide",
         "status": "verified_reference",
         "confidence": "authoritative_official_guidance",
-        "notes": "Official English curriculum guidance covering reading comprehension, evidence use, interpretation, vocabulary, and communication; used for scope and skill framing, not as an answer key."
+        "notes": "Official English curriculum guidance covering reading comprehension, evidence use, interpretation, vocabulary, and communication; used for scope and skill framing, not as an answer key.",
+        "source_role": "CURRICULUM_SOURCE",
+        "volatility": "CURRICULUM_VERSIONED"
     },
     {
         "id": "mit-ocw-6-002-circuits-electronics",
@@ -1167,7 +1183,7 @@
         "version": "August 2026 examination program",
         "status": "verified_reference",
         "confidence": "authoritative_reference",
-        "notes": "Current PRC program establishes NP I–V scope, integrated nursing knowledge, nursing process, and program outcomes. Scope source only; it is not treated as a clinical textbook."
+        "notes": "Current PRC program establishes NP I\u2013V scope, integrated nursing knowledge, nursing process, and program outcomes. Scope source only; it is not treated as a clinical textbook."
     },
     {
         "id": "ra-9173-philippine-nursing-act",
@@ -1353,7 +1369,7 @@
     },
     {
         "id": "prc-accountancy-current-tos-2022",
-        "title": "PRC Board of Accountancy — Current LECPA Tables of Specifications",
+        "title": "PRC Board of Accountancy \u2014 Current LECPA Tables of Specifications",
         "source_type": "OFFICIAL_EXAM_SPEC",
         "authority": "Professional Regulation Commission; Professional Regulatory Board of Accountancy",
         "url": "https://www.prc.gov.ph/sites/default/files/2022-30%20BOA%20TOS%20Final.pdf",
@@ -1366,20 +1382,20 @@
     },
     {
         "id": "prc-accountancy-exam-program-2026",
-        "title": "PRC Board Program — May 2026 CPALE",
+        "title": "PRC Board Program \u2014 May 2026 CPALE",
         "source_type": "OFFICIAL_EXAM_SPEC",
         "authority": "Professional Regulation Commission; Professional Regulatory Board of Accountancy",
         "url": "https://prc.gov.ph/sites/default/files/Board%20Program%20May%202026%20CPALE_revised.pdf",
         "publication_date": "2026-03-02",
         "retrieved_at": "2026-09-29",
-        "version": "May 24–26, 2026 examination program",
+        "version": "May 24\u201326, 2026 examination program",
         "status": "official_reference",
         "confidence": "authoritative_reference",
         "notes": "Confirms the six current examination subjects and their 2026 administration order; it is a scope/program source, not an instructional standard."
     },
     {
         "id": "prc-accountancy-auditing-standards-2026",
-        "title": "PRC Board Resolution No. 3 s. 2026 — Philippine Auditing Standards Adoption",
+        "title": "PRC Board Resolution No. 3 s. 2026 \u2014 Philippine Auditing Standards Adoption",
         "source_type": "OFFICIAL_GUIDANCE",
         "authority": "Professional Regulation Commission; Professional Regulatory Board of Accountancy",
         "url": "https://www.prc.gov.ph/sites/default/files/2026-03%20published%20Adopting%20The%20Auditing%20And%20Assurance%20Standards%20Council%20Pronouncements.pdf",
@@ -1639,7 +1655,7 @@
     },
     {
         "id": "iaasb-isa-315-risk-assessment",
-        "title": "ISA 315 Revised 2019 — Identifying and Assessing Risks of Material Misstatement",
+        "title": "ISA 315 Revised 2019 \u2014 Identifying and Assessing Risks of Material Misstatement",
         "source_type": "OFFICIAL_GUIDANCE",
         "authority": "International Auditing and Assurance Standards Board",
         "url": "https://www.iaasb.org/publications/isa-315-revised-2019",
@@ -1652,7 +1668,7 @@
     },
     {
         "id": "iaasb-isa-500-audit-evidence",
-        "title": "ISA 500 — Audit Evidence",
+        "title": "ISA 500 \u2014 Audit Evidence",
         "source_type": "OFFICIAL_GUIDANCE",
         "authority": "International Auditing and Assurance Standards Board",
         "url": "https://www.iaasb.org/publications/isa-500-audit-evidence",
@@ -1665,7 +1681,7 @@
     },
     {
         "id": "iaasb-isa-530-audit-sampling",
-        "title": "ISA 530 — Audit Sampling",
+        "title": "ISA 530 \u2014 Audit Sampling",
         "source_type": "OFFICIAL_GUIDANCE",
         "authority": "International Auditing and Assurance Standards Board",
         "url": "https://www.iaasb.org/publications/isa-530-audit-sampling",
@@ -1678,7 +1694,7 @@
     },
     {
         "id": "iaasb-isa-700-audit-opinion",
-        "title": "ISA 700 — Forming an Opinion and Reporting on Financial Statements",
+        "title": "ISA 700 \u2014 Forming an Opinion and Reporting on Financial Statements",
         "source_type": "OFFICIAL_GUIDANCE",
         "authority": "International Auditing and Assurance Standards Board",
         "url": "https://www.iaasb.org/publications/isa-700-revised-forming-opinion-and-reporting-financial-statements",
@@ -1691,7 +1707,7 @@
     },
     {
         "id": "iaasb-isa-570-going-concern",
-        "title": "ISA 570 Revised 2024 — Going Concern",
+        "title": "ISA 570 Revised 2024 \u2014 Going Concern",
         "source_type": "OFFICIAL_GUIDANCE",
         "authority": "International Auditing and Assurance Standards Board",
         "url": "https://www.iaasb.org/publications/isa-570-revised-2024-going-concern",
@@ -1704,7 +1720,7 @@
     },
     {
         "id": "iaasb-isa-240-fraud",
-        "title": "ISA 240 Revised — Auditor Responsibilities Relating to Fraud",
+        "title": "ISA 240 Revised \u2014 Auditor Responsibilities Relating to Fraud",
         "source_type": "OFFICIAL_GUIDANCE",
         "authority": "International Auditing and Assurance Standards Board",
         "url": "https://www.iaasb.org/publications/isa-240-revised-auditors-responsibilities-relating-fraud-audit-financial-statements",
@@ -1717,7 +1733,7 @@
     },
     {
         "id": "iaasb-isa-265-control-deficiencies",
-        "title": "ISA 265 — Communicating Deficiencies in Internal Control",
+        "title": "ISA 265 \u2014 Communicating Deficiencies in Internal Control",
         "source_type": "OFFICIAL_GUIDANCE",
         "authority": "International Auditing and Assurance Standards Board",
         "url": "https://www.iaasb.org/publications/isa-265-communicating-deficiencies-internal-control-those-charged-governance-and-management",
@@ -1730,7 +1746,7 @@
     },
     {
         "id": "iaasb-isa-230-documentation",
-        "title": "ISA 230 — Audit Documentation",
+        "title": "ISA 230 \u2014 Audit Documentation",
         "source_type": "OFFICIAL_GUIDANCE",
         "authority": "International Auditing and Assurance Standards Board",
         "url": "https://www.iaasb.org/publications/isa-230-audit-documentation",
@@ -1743,7 +1759,7 @@
     },
     {
         "id": "iaasb-isa-450-misstatements",
-        "title": "ISA 450 — Evaluation of Misstatements Identified during the Audit",
+        "title": "ISA 450 \u2014 Evaluation of Misstatements Identified during the Audit",
         "source_type": "OFFICIAL_GUIDANCE",
         "authority": "International Auditing and Assurance Standards Board",
         "url": "https://www.iaasb.org/publications/isa-450-evaluation-misstatements-identified-during-audit",
@@ -1821,7 +1837,7 @@
     },
     {
         "id": "lawphil-rules-criminal-procedure",
-        "title": "Revised Rules of Criminal Procedure, Rules 110–127",
+        "title": "Revised Rules of Criminal Procedure, Rules 110\u2013127",
         "source_type": "OFFICIAL_GUIDANCE",
         "authority": "Supreme Court of the Philippines; Lawphil text",
         "url": "https://lawphil.net/courts/rules/rc_110-127_2000.html",
@@ -1834,7 +1850,7 @@
     },
     {
         "id": "lawphil-rules-evidence-2019",
-        "title": "Revised Rules on Evidence, Rules 128–134",
+        "title": "Revised Rules on Evidence, Rules 128\u2013134",
         "source_type": "OFFICIAL_GUIDANCE",
         "authority": "Supreme Court of the Philippines; Lawphil text",
         "url": "https://lawphil.net/courts/rules/rc_128-134_evidence.html",
@@ -2292,5 +2308,170 @@
         "source_role": "SCOPE_SOURCE",
         "volatility": "REGULATORY_CURRENT",
         "notes": "Live-checked current operational labels including Secondary English, Filipino, Mathematics, Science, Social Studies, Values Education, PE, CAE, TLEd four areas, TVTEd, and Elementary ECE/SNE."
+    },
+    {
+        "id": "deped-filipino-curriculum-guide",
+        "title": "DepEd K to 12 Filipino Curriculum Guide",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "Department of Education, Philippines",
+        "url": "https://www.deped.gov.ph/wp-content/uploads/2019/01/Filipino-CG.pdf",
+        "publication_date": "2016-12-01",
+        "retrieved_at": "2026-09-29",
+        "version": "K to 12 Filipino Curriculum Guide",
+        "status": "verified_reference",
+        "confidence": "authoritative_reference",
+        "source_role": "CURRICULUM_SOURCE",
+        "volatility": "CURRICULUM_VERSIONED",
+        "notes": "Official Filipino curriculum framework and competencies; used for scope and competency framing."
+    },
+    {
+        "id": "deped-math-curriculum-guide",
+        "title": "DepEd K to 12 Mathematics Curriculum Guide",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "Department of Education, Philippines",
+        "url": "https://www.deped.gov.ph/wp-content/uploads/2019/01/Math-CG_with-tagged-math-equipment.pdf",
+        "publication_date": "2016-12-01",
+        "retrieved_at": "2026-09-29",
+        "version": "K to 12 Mathematics Curriculum Guide",
+        "status": "verified_reference",
+        "confidence": "authoritative_reference",
+        "source_role": "CURRICULUM_SOURCE",
+        "volatility": "CURRICULUM_VERSIONED",
+        "notes": "Official mathematics curriculum guide; arithmetic and reasoning items are kept within teacher-education scope."
+    },
+    {
+        "id": "deped-science-curriculum-guide",
+        "title": "DepEd K to 12 Curriculum Guide: Science",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "Department of Education, Philippines",
+        "url": "https://lrmds.deped.gov.ph/detail/30/5459",
+        "publication_date": "2014-03-17",
+        "retrieved_at": "2026-09-29",
+        "version": "Science Grades 3 to 10 curriculum guide",
+        "status": "verified_reference",
+        "confidence": "authoritative_reference",
+        "source_role": "CURRICULUM_SOURCE",
+        "volatility": "CURRICULUM_VERSIONED",
+        "notes": "DepEd Learning Portal record for the official Science curriculum guide."
+    },
+    {
+        "id": "deped-araling-panlipunan-curriculum-guide",
+        "title": "DepEd K to 12 Araling Panlipunan Curriculum Guide",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "Department of Education, Philippines",
+        "url": "https://www.deped.gov.ph/wp-content/uploads/2019/01/AP-CG.pdf",
+        "publication_date": "2016-12-01",
+        "retrieved_at": "2026-09-29",
+        "version": "K to 12 Araling Panlipunan Curriculum Guide",
+        "status": "verified_reference",
+        "confidence": "authoritative_reference",
+        "source_role": "CURRICULUM_SOURCE",
+        "volatility": "CURRICULUM_VERSIONED",
+        "notes": "Official social studies curriculum source for historical, civic, and social inquiry competencies."
+    },
+    {
+        "id": "deped-kindergarten-curriculum-guide-2023",
+        "title": "MATATAG Kindergarten Curriculum Guide",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "Department of Education, Philippines",
+        "url": "https://www.deped.gov.ph/wp-content/uploads/MATATAG-Kindergarten-CG.pdf",
+        "publication_date": "2023-01-01",
+        "retrieved_at": "2026-09-29",
+        "version": "MATATAG Kindergarten Curriculum Guide",
+        "status": "verified_reference",
+        "confidence": "authoritative_reference",
+        "source_role": "CURRICULUM_SOURCE",
+        "volatility": "CURRICULUM_VERSIONED",
+        "notes": "Official kindergarten learning standards and developmental domains; used without diagnostic claims."
+    },
+    {
+        "id": "deped-kindergarten-policy-do-47-2016",
+        "title": "DepEd Order No. 47, s. 2016: Omnibus Policy on Kindergarten Education",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "Department of Education, Philippines",
+        "url": "https://www.deped.gov.ph/wp-content/uploads/2019/01/DO_s2016_47.pdf",
+        "publication_date": "2016-06-10",
+        "retrieved_at": "2026-09-29",
+        "version": "DepEd Order No. 47, s. 2016",
+        "status": "verified_reference",
+        "confidence": "authoritative_reference",
+        "source_role": "NORMATIVE_SOURCE",
+        "volatility": "REGULATORY_CURRENT",
+        "notes": "Policy source describing kindergarten developmental domains, play-based activities, instruction, and assessment."
+    },
+    {
+        "id": "republic-act-11650",
+        "title": "Republic Act No. 11650: Inclusive Education Act",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "Republic of the Philippines",
+        "url": "https://lawphil.net/statutes/repacts/ra2022/ra_11650_2022.html",
+        "publication_date": "2022-03-11",
+        "retrieved_at": "2026-09-29",
+        "version": "Republic Act No. 11650",
+        "status": "verified_reference",
+        "confidence": "authoritative_reference",
+        "source_role": "STATUTORY_SOURCE",
+        "volatility": "STATUTORY_VERSIONED",
+        "notes": "Primary law for inclusion and services for learners with disabilities; used for stable statutory duties only."
+    },
+    {
+        "id": "deped-ra11650-irr",
+        "title": "Implementing Rules and Regulations of Republic Act No. 11650",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "Department of Education, Philippines",
+        "url": "https://www.deped.gov.ph/wp-content/uploads/IRR-of-RA-11650.pdf",
+        "publication_date": "2024-01-01",
+        "retrieved_at": "2026-09-29",
+        "version": "IRR of RA No. 11650",
+        "status": "verified_reference",
+        "confidence": "authoritative_reference",
+        "source_role": "NORMATIVE_SOURCE",
+        "volatility": "REGULATORY_CURRENT",
+        "notes": "Official DepEd IRR for equitable access, inclusive learning resource centers, and support services."
+    },
+    {
+        "id": "deped-esep-curriculum-guide",
+        "title": "DepEd K to 12 Edukasyon sa Pagpapakatao Curriculum Guide",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "Department of Education, Philippines",
+        "url": "https://lrmds.deped.gov.ph/detail/15800",
+        "publication_date": "2016-12-01",
+        "retrieved_at": "2026-09-29",
+        "version": "K to 12 Edukasyon sa Pagpapakatao curriculum guide",
+        "status": "verified_reference",
+        "confidence": "authoritative_reference",
+        "source_role": "CURRICULUM_SOURCE",
+        "volatility": "CURRICULUM_VERSIONED",
+        "notes": "Official DepEd Learning Portal curriculum competencies for values, dignity, truth, responsibility, and civic participation."
+    },
+    {
+        "id": "openstax-algebra-and-trigonometry",
+        "title": "College Algebra and Trigonometry",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "OpenStax, Rice University",
+        "url": "https://openstax.org/details/books/algebra-and-trigonometry-2e",
+        "publication_date": "2021-01-01",
+        "retrieved_at": "2026-09-29",
+        "version": "current OpenStax web edition",
+        "status": "verified_reference",
+        "confidence": "authoritative_reference",
+        "source_role": "INSTRUCTIONAL_SOURCE",
+        "volatility": "STABLE_FOUNDATIONAL",
+        "notes": "Open instructional reference for quantitative reasoning; not used to expand beyond the LEPT competency frame."
+    },
+    {
+        "id": "deped-matatag-general-education-framework",
+        "title": "DepEd MATATAG Curriculum Framework",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "Department of Education, Philippines",
+        "url": "https://www.deped.gov.ph/matatagcurriculumkto10/",
+        "publication_date": "2023-08-10",
+        "retrieved_at": "2026-09-29",
+        "version": "MATATAG K to 10 framework",
+        "status": "verified_reference",
+        "confidence": "authoritative_reference",
+        "source_role": "CURRICULUM_SOURCE",
+        "volatility": "CURRICULUM_VERSIONED",
+        "notes": "Current curriculum framework used only where a broad learning-area context is answer-critical."
     }
 ]

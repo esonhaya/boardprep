@@ -69,12 +69,15 @@ if (($readiness['status'] ?? '') !== 'STUDY_READY' || ($readiness['taxonomy_comp
 }
 $cse = BoardViewService::find('civil-service')['content_readiness'] ?? [];
 $cseEligibleIds = [];
-foreach (App::storage()->all('question-eligibility') as $entry) {
-    $exams = array_map('strtolower', array_map('strval', $entry['exam_ids'] ?? []));
-    if (in_array('civil-service', $exams, true) || in_array('cse', $exams, true)) {
-        foreach ($entry['question_ids'] ?? [] as $questionId) {
-            $cseEligibleIds[(string) $questionId] = true;
-        }
+$cseIndex = new \App\Services\Question\QuestionEligibilityIndex(
+    App::storage()->all('question-eligibility'),
+    App::storage()->all('blueprints'),
+    App::storage()->all('concept-derived-eligibility'),
+    App::storage()->all('question-reuse-overrides')
+);
+foreach ($questions as $question) {
+    if (\App\Services\Question\QuestionEligibilityService::forExam($question, 'civil-service', $cseIndex) !== null) {
+        $cseEligibleIds[(string) ($question['id'] ?? '')] = true;
     }
 }
 if (($cse['eligible_questions'] ?? 0) !== count($cseEligibleIds)) {

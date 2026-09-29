@@ -385,5 +385,41 @@
             "sort_order": 4,
             "official_weighting": null
         }
+    },
+    {
+        "id": "let-early-childhood-education",
+        "board_id": "let",
+        "subject_id": "early-childhood-education",
+        "settings": {
+            "track": "elementary",
+            "role": "specialization",
+            "required": true,
+            "sort_order": 8,
+            "blueprint_weight": 10
+        }
+    },
+    {
+        "id": "let-special-needs-education",
+        "board_id": "let",
+        "subject_id": "special-needs-education",
+        "settings": {
+            "track": "elementary",
+            "role": "specialization",
+            "required": true,
+            "sort_order": 9,
+            "blueprint_weight": 10
+        }
+    },
+    {
+        "id": "let-values-education",
+        "board_id": "let",
+        "subject_id": "values-education",
+        "settings": {
+            "track": "secondary",
+            "role": "specialization",
+            "required": true,
+            "sort_order": 10,
+            "blueprint_weight": 10
+        }
     }
 ]

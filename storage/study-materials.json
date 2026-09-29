@@ -830,7 +830,9 @@
             ]
         ],
         "source_ids": [
-            "purdue-owl-writing"
+            "purdue-owl-writing",
+            "prc-let-enhanced-tos-2025",
+            "deped-k12-english-curriculum-guide"
         ],
         "exams": [
             "let"
@@ -854,8 +856,13 @@
             "concept_id": "communication-context-audience"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-09-07",
+        "batch629_update": {
+            "updated_at": "2026-09-29",
+            "action": "EXPAND",
+            "note": "Linked to the source-first specialization foundation and residual thin-concept review."
+        }
     },
     {
         "id": "let-filipino-communication-review",
@@ -881,7 +888,8 @@
         ],
         "source_ids": [
             "prc-let-enhanced-tos-2025",
-            "purdue-owl-writing"
+            "purdue-owl-writing",
+            "deped-filipino-curriculum-guide"
         ],
         "exams": [
             "let"
@@ -905,8 +913,13 @@
             "concept_id": "functional-language-register"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-09-07",
+        "batch629_update": {
+            "updated_at": "2026-09-29",
+            "action": "EXPAND",
+            "note": "Linked to the source-first specialization foundation and residual thin-concept review."
+        }
     },
     {
         "id": "let-philippine-history-review",
@@ -931,7 +944,9 @@
             ]
         ],
         "source_ids": [
-            "nhcp-rizal-memory-collection"
+            "nhcp-rizal-memory-collection",
+            "deped-araling-panlipunan-curriculum-guide",
+            "1987-philippine-constitution"
         ],
         "exams": [
             "let"
@@ -954,8 +969,13 @@
             "concept_id": "philippine-history-and-culture-context"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-09-07",
+        "batch629_update": {
+            "updated_at": "2026-09-29",
+            "action": "EXPAND",
+            "note": "Linked to the source-first specialization foundation and residual thin-concept review."
+        }
     },
     {
         "id": "let-rizal-review",
@@ -964,11 +984,11 @@
         "notes": [
             [
                 "Text and context",
-                "Connect Rizal’s works and actions with their nineteenth-century Philippine setting without reducing them to slogans."
+                "Connect Rizal\u2019s works and actions with their nineteenth-century Philippine setting without reducing them to slogans."
             ],
             [
                 "Source reading",
-                "Distinguish the author’s words, later commentary, and institutional memory; compare provenance before drawing conclusions."
+                "Distinguish the author\u2019s words, later commentary, and institutional memory; compare provenance before drawing conclusions."
             ],
             [
                 "Ideas and consequences",
@@ -1132,7 +1152,8 @@
         "source_ids": [
             "openstax-biology-2e",
             "openstax-chemistry-2e",
-            "openstax-university-physics-volume-1"
+            "openstax-university-physics-volume-1",
+            "deped-science-curriculum-guide"
         ],
         "exams": [
             "let"
@@ -1156,8 +1177,13 @@
             "concept_id": "evidence-and-explanation-scientific"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-09-07",
+        "batch629_update": {
+            "updated_at": "2026-09-29",
+            "action": "EXPAND",
+            "note": "Linked to the source-first specialization foundation and residual thin-concept review."
+        }
     },
     {
         "id": "let-mathematics-essentials-review",
@@ -1182,7 +1208,9 @@
             ]
         ],
         "source_ids": [
-            "openstax-calculus-volume-1"
+            "openstax-calculus-volume-1",
+            "deped-math-curriculum-guide",
+            "openstax-algebra-and-trigonometry"
         ],
         "exams": [
             "let"
@@ -1206,8 +1234,13 @@
             "concept_id": "mathematical-modeling-representation"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-09-07",
+        "batch629_update": {
+            "updated_at": "2026-09-29",
+            "action": "EXPAND",
+            "note": "Linked to the source-first specialization foundation and residual thin-concept review."
+        }
     },
     {
         "id": "let-ethics-review",
@@ -1275,7 +1308,7 @@
             ],
             [
                 "Agency and context",
-                "Recognize social influence and structural context while preserving the learner’s capacity for informed choice."
+                "Recognize social influence and structural context while preserving the learner\u2019s capacity for informed choice."
             ],
             [
                 "Respectful interpretation",
@@ -3923,7 +3956,7 @@
             ],
             [
                 "Effective stress and strength",
-                "Effective stress is total stress minus pore pressure. Mohr–Coulomb strength combines cohesion and effective-normal-stress friction under the stated drained or undrained model."
+                "Effective stress is total stress minus pore pressure. Mohr\u2013Coulomb strength combines cohesion and effective-normal-stress friction under the stated drained or undrained model."
             ],
             [
                 "Seepage",
@@ -4769,7 +4802,7 @@
         "notes": [
             {
                 "heading": "Pools and drivers",
-                "body": "Group overhead by activity, identify the driver that explains resource use, calculate a pool rate, and assign cost from the product’s actual driver usage. Do not substitute a broad production volume when the activity driver is stated."
+                "body": "Group overhead by activity, identify the driver that explains resource use, calculate a pool rate, and assign cost from the product\u2019s actual driver usage. Do not substitute a broad production volume when the activity driver is stated."
             },
             {
                 "heading": "Allocation reasoning",
@@ -6300,11 +6333,11 @@
         "notes": [
             {
                 "heading": "Public responsibility",
-                "body": "Architectural judgment must account for occupants, users with disabilities, public safety, durability, and foreseeable consequences—not only client preference or first cost."
+                "body": "Architectural judgment must account for occupants, users with disabilities, public safety, durability, and foreseeable consequences\u2014not only client preference or first cost."
             },
             {
                 "heading": "Competence and referral",
-                "body": "Recognize when a question exceeds the architect’s competent scope and obtain qualified specialist input. Coordination preserves architectural responsibility; it does not mean adopting an unreviewed recommendation."
+                "body": "Recognize when a question exceeds the architect\u2019s competent scope and obtain qualified specialist input. Coordination preserves architectural responsibility; it does not mean adopting an unreviewed recommendation."
             },
             {
                 "heading": "Communication",
@@ -6347,7 +6380,7 @@
         "notes": [
             {
                 "heading": "Control layers",
-                "body": "Trace water, air, vapor, thermal, and structural control continuously across roofs, walls, openings, foundations, joints, and penetrations. Continuity and drainage matter more than naming a single “best” material."
+                "body": "Trace water, air, vapor, thermal, and structural control continuously across roofs, walls, openings, foundations, joints, and penetrations. Continuity and drainage matter more than naming a single \u201cbest\u201d material."
             },
             {
                 "heading": "Moisture",
@@ -6492,7 +6525,7 @@
             },
             {
                 "heading": "Orientation and form",
-                "body": "Orient openings, mass, shade, outdoor space, and circulation in response to climate and use. The best solar orientation for one façade may produce glare, heat, or poor cross-ventilation elsewhere."
+                "body": "Orient openings, mass, shade, outdoor space, and circulation in response to climate and use. The best solar orientation for one fa\u00e7ade may produce glare, heat, or poor cross-ventilation elsewhere."
             },
             {
                 "heading": "Water and terrain",
@@ -6581,7 +6614,7 @@
         "notes": [
             {
                 "heading": "Capacity",
-                "body": "Compare alternatives using the stated site area, buildable envelope, access, setbacks or buffers, landscape, drainage, servicing, user capacity, and future change—not footprint alone."
+                "body": "Compare alternatives using the stated site area, buildable envelope, access, setbacks or buffers, landscape, drainage, servicing, user capacity, and future change\u2014not footprint alone."
             },
             {
                 "heading": "Growth and phasing",
@@ -7158,7 +7191,8 @@
         ],
         "source_ids": [
             "deped-k12-english-curriculum-guide",
-            "purdue-owl-writing"
+            "purdue-owl-writing",
+            "openstax-reading-writing"
         ],
         "exams": [
             "let"
@@ -7214,8 +7248,13 @@
         ],
         "technical_support_state": "ADEQUATE",
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-10"
+        "version": 2,
+        "updated_at": "2026-09-10",
+        "batch629_update": {
+            "updated_at": "2026-09-29",
+            "action": "EXPAND",
+            "note": "Linked to the source-first specialization foundation and residual thin-concept review."
+        }
     },
     {
         "id": "let-english-grammar-foundation",
@@ -7236,12 +7275,13 @@
             },
             {
                 "heading": "Parallelism and usage",
-                "body": "Keep coordinated items grammatically equivalent, compare like forms, and choose prepositions according to the stated relationship. Evaluate parts of speech by the word’s function in its sentence, not by its spelling alone."
+                "body": "Keep coordinated items grammatically equivalent, compare like forms, and choose prepositions according to the stated relationship. Evaluate parts of speech by the word\u2019s function in its sentence, not by its spelling alone."
             }
         ],
         "source_ids": [
             "deped-k12-english-curriculum-guide",
-            "purdue-owl-writing"
+            "purdue-owl-writing",
+            "openstax-reading-writing"
         ],
         "exams": [
             "let"
@@ -7315,8 +7355,13 @@
         ],
         "technical_support_state": "ADEQUATE",
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-10"
+        "version": 2,
+        "updated_at": "2026-09-10",
+        "batch629_update": {
+            "updated_at": "2026-09-29",
+            "action": "EXPAND",
+            "note": "Linked to the source-first specialization foundation and residual thin-concept review."
+        }
     },
     {
         "id": "batch622-cpa-far-evidence",
@@ -7588,7 +7633,7 @@
             },
             {
                 "heading": "Corporate and agency authority",
-                "body": "Separate the corporation’s legal personality from internal approval and documentation. For agency, distinguish express authority, implied authority, notice of a limit, and ratification."
+                "body": "Separate the corporation\u2019s legal personality from internal approval and documentation. For agency, distinguish express authority, implied authority, notice of a limit, and ratification."
             },
             {
                 "heading": "Professional responsibility",
@@ -7656,7 +7701,7 @@
             },
             {
                 "heading": "VAT and withholding",
-                "body": "Output tax, input credit, withholding, remittance, and the payee’s tax position are related but not interchangeable. Follow the current Tax Code and BIR issuance for live rates, thresholds, forms, and effective dates."
+                "body": "Output tax, input credit, withholding, remittance, and the payee\u2019s tax position are related but not interchangeable. Follow the current Tax Code and BIR issuance for live rates, thresholds, forms, and effective dates."
             },
             {
                 "heading": "Current-law control",
@@ -7906,5 +7951,462 @@
         "status": "published",
         "version": 1,
         "updated_at": "2026-09-29"
+    },
+    {
+        "id": "let-specialization-english-application",
+        "title": "LET English Specialization: Grammar, Reading, and Communication Application",
+        "summary": "Application-focused English specialization foundation with explicit grammar, reading evidence, register, and communication practice.",
+        "notes": [
+            [
+                "Scope",
+                "The PRC enhanced TOS places the candidate-selected specialization in the Secondary examination component. This material supports English competencies without predicting item counts."
+            ],
+            [
+                "Grammar application",
+                "Check the grammatical subject, logical modifier, parallel form, tense relationship, clause structure, and idiomatic preposition before choosing a revision."
+            ],
+            [
+                "Reading and communication",
+                "Support an inference with text evidence, distinguish purpose from tone, and match register to audience and purpose."
+            ],
+            [
+                "Common errors",
+                "Dangling modifiers, compound-subject agreement errors, indefinite-pronoun errors, tense shifts, false parallelism, and unsupported interpretations are distractor families."
+            ],
+            [
+                "Residual coverage closure",
+                "The nine previously unresolved grammar rows are now supported to conservative application depth by linked examples and reviewed questions; no professional depth is inferred."
+            ]
+        ],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "deped-k12-english-curriculum-guide",
+            "openstax-reading-writing"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "high",
+                "rationale": "Specialization-specific foundation aligned to the current PRC enhanced TOS model; not a prediction of exact item counts.",
+                "official_scope_status": "source-backed specialization foundation",
+                "specialization_id": "secondary-english"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "sentence-structure",
+            "concept_id": "sentence-structure-complex-sentences"
+        },
+        "let_specialization_id": "secondary-english",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch629"
+    },
+    {
+        "id": "let-specialization-filipino-application",
+        "title": "LET Filipino Specialization: Wika, Pagbasa, Panitikan, at Komunikasyon",
+        "summary": "Filipino specialization foundation linking language use, reading, literature, writing, and context-appropriate communication.",
+        "notes": [
+            [
+                "Wika at kahulugan",
+                "Interpret word choice in context and distinguish related meanings rather than selecting a familiar word automatically."
+            ],
+            [
+                "Pagbasa at panitikan",
+                "Use details, character action, and text structure to justify a main idea or literary interpretation."
+            ],
+            [
+                "Pagsulat",
+                "A strong paragraph has a controlling idea, relevant support, coherent order, and a conclusion that does not add a new unsupported claim."
+            ],
+            [
+                "Komunikasyon",
+                "Consider audience, purpose, relationship, and register when selecting a Filipino expression."
+            ]
+        ],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "deped-filipino-curriculum-guide"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "high",
+                "rationale": "Specialization-specific foundation aligned to the current PRC enhanced TOS model; not a prediction of exact item counts.",
+                "official_scope_status": "source-backed specialization foundation",
+                "specialization_id": "secondary-filipino"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "filipino",
+            "domain_id": "gramatikang-filipino",
+            "topic_id": "filipino-gramatika",
+            "concept_id": "filipino-gramatika-wastong-gamit"
+        },
+        "let_specialization_id": "secondary-filipino",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch629"
+    },
+    {
+        "id": "let-specialization-mathematics-application",
+        "title": "LET Mathematics Specialization: Reasoning, Modeling, and Measurement",
+        "summary": "Source-first mathematics foundation for calculations, representations, data interpretation, and multi-step reasoning.",
+        "notes": [
+            [
+                "Representation",
+                "Translate a word situation into an equation, diagram, table, or probability model before calculating."
+            ],
+            [
+                "Calculation discipline",
+                "Keep units visible, show the controlling operation, check the magnitude, and round only when the item permits it."
+            ],
+            [
+                "Data and geometry",
+                "Select a center measure or geometric relationship that fits the data or figure instead of applying a memorized formula without checking conditions."
+            ],
+            [
+                "Common errors",
+                "Unit mismatch, using perimeter for area, averaging incompatible values, and treating a probability denominator as a numerator are common distractor families."
+            ]
+        ],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "deped-math-curriculum-guide",
+            "openstax-algebra-and-trigonometry"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "high",
+                "rationale": "Specialization-specific foundation aligned to the current PRC enhanced TOS model; not a prediction of exact item counts.",
+                "official_scope_status": "source-backed specialization foundation",
+                "specialization_id": "secondary-mathematics"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "mathematics",
+            "domain_id": "number-sense",
+            "topic_id": "math-number-sense",
+            "concept_id": "math-number-sense-operations"
+        },
+        "let_specialization_id": "secondary-mathematics",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch629"
+    },
+    {
+        "id": "let-specialization-science-application",
+        "title": "LET Science Specialization: Evidence, Systems, and Quantitative Interpretation",
+        "summary": "Science foundation using observation, evidence, models, systems, units, and appropriate school-level explanations.",
+        "notes": [
+            [
+                "Scientific reasoning",
+                "Separate observation from inference, identify variables, and prefer a conclusion supported by the supplied evidence."
+            ],
+            [
+                "Life, matter, and Earth systems",
+                "Use stable foundational relationships for cells, matter, ecosystems, layers, motion, circuits, and light."
+            ],
+            [
+                "Quantitative interpretation",
+                "State the relevant unit and assumption; do not infer a value or mechanism not supported by the data."
+            ],
+            [
+                "Scope",
+                "Questions stay within teacher-education science literacy and do not require specialist research or unsupported current claims."
+            ]
+        ],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "deped-science-curriculum-guide",
+            "openstax-biology-2e",
+            "openstax-chemistry-2e",
+            "openstax-university-physics-volume-1"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "high",
+                "rationale": "Specialization-specific foundation aligned to the current PRC enhanced TOS model; not a prediction of exact item counts.",
+                "official_scope_status": "source-backed specialization foundation",
+                "specialization_id": "secondary-science"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "science",
+            "domain_id": "scientific-inquiry",
+            "topic_id": "science-inquiry",
+            "concept_id": "science-inquiry-evidence"
+        },
+        "let_specialization_id": "secondary-science",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch629"
+    },
+    {
+        "id": "let-specialization-social-studies-application",
+        "title": "LET Social Studies: Historical Evidence, Civic Reasoning, and Public Good",
+        "summary": "Social studies foundation for source evaluation, history, civic reasoning, constitutional principles, and public-good decisions.",
+        "notes": [
+            [
+                "Historical evidence",
+                "Distinguish a primary source from a later interpretation and make only the claim the source can support."
+            ],
+            [
+                "Civic reasoning",
+                "Use the stated constitutional or statutory principle, distinguish rights from preferences, and avoid importing current political claims not in the source."
+            ],
+            [
+                "Public good",
+                "Balance individual dignity, lawful authority, participation, and long-term community effects in a supplied scenario."
+            ],
+            [
+                "Version-sensitive review",
+                "Law and policy items are reviewed against the dated authority recorded in the item metadata."
+            ]
+        ],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "deped-araling-panlipunan-curriculum-guide",
+            "republic-act-10533",
+            "1987-philippine-constitution"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "high",
+                "rationale": "Specialization-specific foundation aligned to the current PRC enhanced TOS model; not a prediction of exact item counts.",
+                "official_scope_status": "source-backed specialization foundation",
+                "specialization_id": "secondary-social-studies"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "social-studies",
+            "domain_id": "government-and-civics",
+            "topic_id": "social-civics",
+            "concept_id": "social-civics-public-good"
+        },
+        "let_specialization_id": "secondary-social-studies",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch629"
+    },
+    {
+        "id": "let-specialization-ece-foundation",
+        "title": "LET Early Childhood Education: Developmentally Appropriate Learning",
+        "summary": "Bounded ECE foundation for play, developmental domains, observation, authentic assessment, family partnership, and inclusion.",
+        "notes": [
+            [
+                "Development",
+                "Plan from the child\u2019s observed developmental strengths and needs across domains; do not infer a diagnosis from one behavior."
+            ],
+            [
+                "Play and language",
+                "Use purposeful play and language-rich interaction to support integrated learning appropriate to the child\u2019s stage."
+            ],
+            [
+                "Assessment",
+                "Observe in natural contexts, document evidence, and use it to plan the next experience rather than ranking children prematurely."
+            ],
+            [
+                "Family and inclusion",
+                "Treat families as partners and remove barriers while respecting culture, safety, and child dignity."
+            ]
+        ],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "deped-kindergarten-curriculum-guide-2023",
+            "deped-kindergarten-policy-do-47-2016"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "high",
+                "rationale": "Specialization-specific foundation aligned to the current PRC enhanced TOS model; not a prediction of exact item counts.",
+                "official_scope_status": "source-backed specialization foundation",
+                "specialization_id": "elementary-early-childhood-education"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "early-childhood-education",
+            "domain_id": "early-childhood-development",
+            "topic_id": "ece-development-and-learning",
+            "concept_id": "ece-play-based-learning"
+        },
+        "let_specialization_id": "elementary-early-childhood-education",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch629"
+    },
+    {
+        "id": "let-specialization-sne-inclusion",
+        "title": "LET Special Needs Education: Access, Support, and Progress",
+        "summary": "Bounded SNE foundation focused on inclusive access, accommodations, UDL, adaptation, assessment, progress, and collaboration without clinical diagnosis.",
+        "notes": [
+            [
+                "Access",
+                "Remove barriers and provide reasonable access supports while preserving the intended learning goal unless a documented modification is required."
+            ],
+            [
+                "Universal design",
+                "Offer multiple means of engagement, representation, and action so support is planned for learner variability."
+            ],
+            [
+                "Evidence",
+                "Use observable performance evidence and progress monitoring; do not label a learner from a single classroom behavior."
+            ],
+            [
+                "Collaboration",
+                "Coordinate with families and authorized support personnel, respecting confidentiality and the learner\u2019s dignity."
+            ]
+        ],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "deped-ra11650-irr",
+            "republic-act-11650",
+            "deped-ppst-do-42-2017"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "high",
+                "rationale": "Specialization-specific foundation aligned to the current PRC enhanced TOS model; not a prediction of exact item counts.",
+                "official_scope_status": "source-backed specialization foundation",
+                "specialization_id": "elementary-special-needs-education"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "special-needs-education",
+            "domain_id": "inclusive-special-needs-education",
+            "topic_id": "sne-access-and-accommodations",
+            "concept_id": "sne-universal-design"
+        },
+        "let_specialization_id": "elementary-special-needs-education",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch629"
+    },
+    {
+        "id": "let-specialization-values-education",
+        "title": "LET Values Education: Ethical Reasoning, Dialogue, and Civic Responsibility",
+        "summary": "Values Education foundation for reasoned decisions, dignity, dialogue, reflective practice, and responsible participation.",
+        "notes": [
+            [
+                "Reasoning",
+                "Identify the relevant facts, values, duties, rights, and foreseeable consequences before choosing an action."
+            ],
+            [
+                "Dialogue",
+                "Invite reasons, listen actively, and disagree with ideas without demeaning persons or imposing a private belief as a universal rule."
+            ],
+            [
+                "Character",
+                "Values are strengthened through repeated, justified practice and reflection rather than through slogans alone."
+            ],
+            [
+                "Civic responsibility",
+                "Connect personal conduct to dignity, fairness, shared rules, and the public good without partisan advocacy."
+            ]
+        ],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "deped-esep-curriculum-guide",
+            "deped-ppst-do-42-2017"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "high",
+                "rationale": "Specialization-specific foundation aligned to the current PRC enhanced TOS model; not a prediction of exact item counts.",
+                "official_scope_status": "source-backed specialization foundation",
+                "specialization_id": "secondary-values-education"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "values-education",
+            "domain_id": "values-and-ethical-education",
+            "topic_id": "values-reasoning-and-character",
+            "concept_id": "values-ethical-reasoning"
+        },
+        "let_specialization_id": "secondary-values-education",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch629"
+    },
+    {
+        "id": "let-professional-education-foundation",
+        "title": "LET Professional Education: Alignment, Assessment, Inclusion, and Facilitation",
+        "summary": "Thin-concept reinforcement for professional education, using PPST and classroom-assessment guidance to support applied teacher judgment.",
+        "notes": [
+            [
+                "Alignment",
+                "State the competency first, then choose an activity and assessment that actually elicit it."
+            ],
+            [
+                "Assessment",
+                "Interpret evidence only to the extent supported by the task, access conditions, and scoring information."
+            ],
+            [
+                "Learners",
+                "Use developmentally appropriate, inclusive supports and adjust instruction from observable evidence."
+            ],
+            [
+                "Practice",
+                "Prefer a clear, respectful, feasible response that protects learner dignity and learning time."
+            ]
+        ],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "deped-ppst-do-42-2017",
+            "deped-classroom-assessment-do-8-2015"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "high",
+                "rationale": "Specialization-specific foundation aligned to the current PRC enhanced TOS model; not a prediction of exact item counts.",
+                "official_scope_status": "source-backed specialization foundation",
+                "specialization_id": "shared-pe"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "professional-education",
+            "domain_id": "professional-education",
+            "topic_id": "facilitating-learning",
+            "concept_id": "prof-facilitation-scaffolding"
+        },
+        "let_specialization_id": "shared-pe",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch629"
     }
 ]

@@ -1253,5 +1253,47 @@
         "subject_id": "architecture-architectural-design-and-site-planning",
         "code": "ARCH",
         "name": "Architecture Design Site"
+    },
+    {
+        "id": "early-childhood-development",
+        "subject_id": "early-childhood-education",
+        "code": "ECD",
+        "name": "Early Childhood Development",
+        "description": "Developmentally appropriate learning and observation in the early years.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "inclusive-special-needs-education",
+        "subject_id": "special-needs-education",
+        "code": "SNE",
+        "name": "Inclusive Special Needs Education",
+        "description": "Access, participation, support, and assessment for diverse learners.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "values-and-ethical-education",
+        "subject_id": "values-education",
+        "code": "VE",
+        "name": "Values and Ethical Education",
+        "description": "Reasoned values formation, ethical action, dialogue, and civic responsibility.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [],
+            "common_misconceptions": []
+        }
     }
 ]

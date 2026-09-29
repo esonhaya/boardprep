@@ -3984,5 +3984,294 @@
         "domain_id": "architecture-design-site",
         "code": "ARCH",
         "name": "Architecture Site Reasoning"
+    },
+    {
+        "id": "ece-development-and-learning",
+        "domain_id": "early-childhood-development",
+        "code": "DEV",
+        "name": "Development and Learning",
+        "description": "Developmental domains, play, and age-appropriate learning.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new classroom or subject scenario."
+            ]
+        }
+    },
+    {
+        "id": "ece-observation-and-assessment",
+        "domain_id": "early-childhood-development",
+        "code": "OBS",
+        "name": "Observation and Assessment",
+        "description": "Authentic observation, documentation, and responsive planning.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new classroom or subject scenario."
+            ]
+        }
+    },
+    {
+        "id": "ece-family-and-inclusion",
+        "domain_id": "early-childhood-development",
+        "code": "FAM",
+        "name": "Family Partnership and Inclusion",
+        "description": "Family engagement and inclusive early-learning environments.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new classroom or subject scenario."
+            ]
+        }
+    },
+    {
+        "id": "sne-access-and-accommodations",
+        "domain_id": "inclusive-special-needs-education",
+        "code": "ACC",
+        "name": "Access and Accommodations",
+        "description": "Equitable access, accommodations, and barrier reduction.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new classroom or subject scenario."
+            ]
+        }
+    },
+    {
+        "id": "sne-instruction-and-assessment",
+        "domain_id": "inclusive-special-needs-education",
+        "code": "INS",
+        "name": "Instruction and Assessment",
+        "description": "Universal design, adaptation, and progress monitoring.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new classroom or subject scenario."
+            ]
+        }
+    },
+    {
+        "id": "sne-collaboration",
+        "domain_id": "inclusive-special-needs-education",
+        "code": "COL",
+        "name": "Collaboration and Support",
+        "description": "Family, peer, and multidisciplinary collaboration.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new classroom or subject scenario."
+            ]
+        }
+    },
+    {
+        "id": "values-reasoning-and-character",
+        "domain_id": "values-and-ethical-education",
+        "code": "RC",
+        "name": "Reasoning and Character",
+        "description": "Values clarification, ethical reasoning, and character formation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new classroom or subject scenario."
+            ]
+        }
+    },
+    {
+        "id": "values-dialogue-and-diversity",
+        "domain_id": "values-and-ethical-education",
+        "code": "DD",
+        "name": "Dialogue and Diversity",
+        "description": "Respectful dialogue, pluralism, and inclusive classroom practice.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new classroom or subject scenario."
+            ]
+        }
+    },
+    {
+        "id": "values-civic-responsibility",
+        "domain_id": "values-and-ethical-education",
+        "code": "CR",
+        "name": "Civic Responsibility",
+        "description": "Responsible action, public good, and reflective practice.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new classroom or subject scenario."
+            ]
+        }
+    },
+    {
+        "id": "filipino-talasalitaan",
+        "domain_id": "talasalitaan",
+        "code": "TAL",
+        "name": "Talasalitaan at Kahulugan",
+        "description": "Word meaning and use in Filipino contexts.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new classroom or subject scenario."
+            ]
+        }
+    },
+    {
+        "id": "filipino-panitikan",
+        "domain_id": "panitikan",
+        "code": "PAN",
+        "name": "Elemento at Pagsusuri ng Panitikan",
+        "description": "Literary elements and evidence-based interpretation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new classroom or subject scenario."
+            ]
+        }
+    },
+    {
+        "id": "filipino-pagsulat",
+        "domain_id": "pagsulat",
+        "code": "PAG",
+        "name": "Pagsulat at Organisasyon",
+        "description": "Clear, coherent, and audience-appropriate Filipino writing.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new classroom or subject scenario."
+            ]
+        }
+    },
+    {
+        "id": "filipino-komunikasyon",
+        "domain_id": "komunikasyon",
+        "code": "KOM",
+        "name": "Mabisang Komunikasyon",
+        "description": "Purpose, audience, register, and respectful communication.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new classroom or subject scenario."
+            ]
+        }
+    },
+    {
+        "id": "math-geometry",
+        "domain_id": "geometry",
+        "code": "GEO",
+        "name": "Geometry and Spatial Reasoning",
+        "description": "Shape, measurement, and geometric relationships.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new classroom or subject scenario."
+            ]
+        }
+    },
+    {
+        "id": "math-statistics",
+        "domain_id": "statistics-and-probability",
+        "code": "STAT",
+        "name": "Statistics and Probability",
+        "description": "Data summaries, chance, and interpretation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new classroom or subject scenario."
+            ]
+        }
+    },
+    {
+        "id": "math-measurement",
+        "domain_id": "measurement",
+        "code": "MEAS",
+        "name": "Measurement and Units",
+        "description": "Units, conversions, and measurement applications.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new classroom or subject scenario."
+            ]
+        }
+    },
+    {
+        "id": "math-problem-solving",
+        "domain_id": "problem-solving",
+        "code": "PS",
+        "name": "Mathematical Modeling",
+        "description": "Multi-step reasoning and model selection.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new classroom or subject scenario."
+            ]
+        }
     }
 ]

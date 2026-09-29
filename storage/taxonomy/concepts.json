@@ -6669,5 +6669,645 @@
                 "Document Control"
             ]
         }
+    },
+    {
+        "id": "ece-play-based-learning",
+        "topic_id": "ece-development-and-learning",
+        "code": "PLAY",
+        "name": "Play-Based Learning",
+        "description": "Play as a developmentally appropriate context for integrated learning.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Play-Based Learning"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "ece-developmental-domains",
+        "topic_id": "ece-development-and-learning",
+        "code": "DOM",
+        "name": "Developmental Domains",
+        "description": "Holistic language, social-emotional, physical, cognitive, and creative development.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Developmental Domains"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "ece-emergent-literacy",
+        "topic_id": "ece-development-and-learning",
+        "code": "LIT",
+        "name": "Emergent Literacy",
+        "description": "Early oral language, print awareness, and meaning-making.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Emergent Literacy"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "ece-developmental-observation",
+        "topic_id": "ece-observation-and-assessment",
+        "code": "OBS",
+        "name": "Developmental Observation",
+        "description": "Purposeful observation and documentation of learner development.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Developmental Observation"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "ece-authentic-assessment",
+        "topic_id": "ece-observation-and-assessment",
+        "code": "AUTH",
+        "name": "Authentic Assessment",
+        "description": "Using natural performance evidence to plan responsive experiences.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Authentic Assessment"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "ece-family-partnership",
+        "topic_id": "ece-family-and-inclusion",
+        "code": "FAM",
+        "name": "Family Partnership",
+        "description": "Respectful family collaboration grounded in the child context.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Family Partnership"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "ece-inclusive-environment",
+        "topic_id": "ece-family-and-inclusion",
+        "code": "INC",
+        "name": "Inclusive Early Learning Environment",
+        "description": "Accessible, safe, culturally responsive early-learning spaces.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Inclusive Early Learning Environment"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sne-universal-design",
+        "topic_id": "sne-access-and-accommodations",
+        "code": "UDL",
+        "name": "Universal Design for Learning",
+        "description": "Planning multiple means of engagement, representation, and action.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Universal Design for Learning"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sne-reasonable-accommodations",
+        "topic_id": "sne-access-and-accommodations",
+        "code": "ACC",
+        "name": "Reasonable Accommodations",
+        "description": "Removing access barriers without changing the intended learning target unnecessarily.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Reasonable Accommodations"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sne-accessible-materials",
+        "topic_id": "sne-access-and-accommodations",
+        "code": "MAT",
+        "name": "Accessible Materials",
+        "description": "Accessible presentation and participation supports.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Accessible Materials"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sne-instructional-adaptation",
+        "topic_id": "sne-instruction-and-assessment",
+        "code": "ADP",
+        "name": "Instructional Adaptation",
+        "description": "Responsive changes to instruction based on learner evidence.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Instructional Adaptation"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sne-progress-monitoring",
+        "topic_id": "sne-instruction-and-assessment",
+        "code": "PM",
+        "name": "Progress Monitoring",
+        "description": "Frequent evidence-based checks of progress toward an instructional goal.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Progress Monitoring"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sne-inclusive-assessment",
+        "topic_id": "sne-instruction-and-assessment",
+        "code": "ASM",
+        "name": "Inclusive Assessment",
+        "description": "Assessment access, valid evidence, and fair interpretation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Inclusive Assessment"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "sne-family-collaboration",
+        "topic_id": "sne-collaboration",
+        "code": "FAM",
+        "name": "Family Collaboration",
+        "description": "Respectful, informed collaboration with families and support teams.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Family Collaboration"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "values-clarification",
+        "topic_id": "values-reasoning-and-character",
+        "code": "VC",
+        "name": "Values Clarification",
+        "description": "Examining reasons, consequences, and commitments rather than imposing a slogan.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Values Clarification"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "values-ethical-reasoning",
+        "topic_id": "values-reasoning-and-character",
+        "code": "ER",
+        "name": "Ethical Reasoning",
+        "description": "Applying relevant duties, rights, consequences, and context to a decision.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Ethical Reasoning"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "values-character-and-habits",
+        "topic_id": "values-reasoning-and-character",
+        "code": "CH",
+        "name": "Character and Habits",
+        "description": "Repeated practice of justified, responsible conduct.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Character and Habits"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "values-respectful-dialogue",
+        "topic_id": "values-dialogue-and-diversity",
+        "code": "RD",
+        "name": "Respectful Dialogue",
+        "description": "Listening, reason-giving, and disagreement without demeaning others.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Respectful Dialogue"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "values-diversity-and-dignity",
+        "topic_id": "values-dialogue-and-diversity",
+        "code": "DD",
+        "name": "Diversity and Dignity",
+        "description": "Equal dignity and respectful inclusion across differences.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Diversity and Dignity"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "values-civic-responsibility",
+        "topic_id": "values-civic-responsibility",
+        "code": "CR",
+        "name": "Civic Responsibility",
+        "description": "Responsible participation directed toward shared public goods.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Civic Responsibility"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "values-reflective-practice",
+        "topic_id": "values-civic-responsibility",
+        "code": "RP",
+        "name": "Reflective Practice",
+        "description": "Using reflection to improve future ethical action.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Reflective Practice"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "filipino-talasalitaan-kasingkahulugan",
+        "topic_id": "filipino-talasalitaan",
+        "code": "KS",
+        "name": "Kasingkahulugan at Kasalungat",
+        "description": "Meaning relationships among Filipino words.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Kasingkahulugan at Kasalungat"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "filipino-talasalitaan-konteksto",
+        "topic_id": "filipino-talasalitaan",
+        "code": "KC",
+        "name": "Kahulugan sa Konteksto",
+        "description": "Interpreting Filipino word meaning from context.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Kahulugan sa Konteksto"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "filipino-panitikan-tauhan",
+        "topic_id": "filipino-panitikan",
+        "code": "TAU",
+        "name": "Tauhan at Motibasyon",
+        "description": "Using textual evidence to interpret character action.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Tauhan at Motibasyon"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "filipino-panitikan-tema",
+        "topic_id": "filipino-panitikan",
+        "code": "THE",
+        "name": "Tema at Patunay",
+        "description": "Distinguishing theme from topic and supporting it with evidence.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Tema at Patunay"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "filipino-pagsulat-organisasyon",
+        "topic_id": "filipino-pagsulat",
+        "code": "ORG",
+        "name": "Organisasyon ng Talata",
+        "description": "Unity, coherence, and logical sequence in Filipino writing.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Organisasyon ng Talata"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "filipino-pagsulat-buod",
+        "topic_id": "filipino-pagsulat",
+        "code": "BUO",
+        "name": "Pagsulat ng Buod",
+        "description": "Selecting essential ideas without adding unsupported claims.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Pagsulat ng Buod"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "filipino-komunikasyon-angkop-na-wika",
+        "topic_id": "filipino-komunikasyon",
+        "code": "REG",
+        "name": "Angkop na Wika at Rehistro",
+        "description": "Matching language choice to purpose, audience, and context.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Angkop na Wika at Rehistro"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "math-geometry-area-perimeter",
+        "topic_id": "math-geometry",
+        "code": "AP",
+        "name": "Area and Perimeter",
+        "description": "Selecting and applying area and perimeter relationships.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Area and Perimeter"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "math-geometry-angle-relationships",
+        "topic_id": "math-geometry",
+        "code": "ANG",
+        "name": "Angle Relationships",
+        "description": "Reasoning about complementary, supplementary, and related angles.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Angle Relationships"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "math-statistics-mean-median",
+        "topic_id": "math-statistics",
+        "code": "MM",
+        "name": "Mean and Median",
+        "description": "Selecting and interpreting center measures.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Mean and Median"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "math-statistics-probability",
+        "topic_id": "math-statistics",
+        "code": "PROB",
+        "name": "Elementary Probability",
+        "description": "Representing and calculating simple probabilities.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Elementary Probability"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "math-measurement-unit-conversion",
+        "topic_id": "math-measurement",
+        "code": "UNIT",
+        "name": "Unit Conversion",
+        "description": "Converting measurements while preserving meaning and units.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Unit Conversion"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "math-problem-solving-modeling",
+        "topic_id": "math-problem-solving",
+        "code": "MOD",
+        "name": "Mathematical Modeling",
+        "description": "Translating a context into a solvable model and checking it.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Mathematical Modeling"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "math-algebra-patterns",
+        "topic_id": "math-algebra",
+        "code": "PAT",
+        "name": "Patterns and Relationships",
+        "description": "Representing patterns with rules and expressions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Patterns and Relationships"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "math-number-sense-fractions",
+        "topic_id": "math-number-sense",
+        "code": "FR",
+        "name": "Fractions and Proportional Reasoning",
+        "description": "Comparing and operating with fractions in meaningful contexts.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Fractions and Proportional Reasoning"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "math-algebra-functions",
+        "topic_id": "math-algebra",
+        "code": "FUN",
+        "name": "Functions and Representations",
+        "description": "Connecting inputs, outputs, tables, graphs, and rules.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Functions and Representations"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "social-history-context-and-causation",
+        "topic_id": "social-history",
+        "code": "HC",
+        "name": "Historical Context and Causation",
+        "description": "Connecting historical claims to context and evidence.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Historical Context and Causation"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "social-civics-rights-and-duties",
+        "topic_id": "social-civics",
+        "code": "RD",
+        "name": "Rights and Civic Duties",
+        "description": "Balancing rights, duties, lawful authority, and public responsibility.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Rights and Civic Duties"
+            ],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "social-civics-evidence-and-claims",
+        "topic_id": "social-civics",
+        "code": "EC",
+        "name": "Evidence and Civic Claims",
+        "description": "Distinguishing supported civic claims from unsupported assertions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 25,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Evidence and Civic Claims"
+            ],
+            "common_misconceptions": []
+        }
     }
 ]
