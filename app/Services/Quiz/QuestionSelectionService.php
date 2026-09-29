@@ -21,9 +21,9 @@ final class QuestionSelectionService
     }
 
 
-    public static function fulfillRequest(array $questions, SelectionRequest $request): SelectionResult
+    public static function fulfillRequest(array $questions, SelectionRequest $request, ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null): SelectionResult
     {
-        $pool = QuestionPoolFilter::filter($questions, $request);
+        $pool = QuestionPoolFilter::filter($questions, $request, $eligibilityIndex);
         $selected = SelectionPipeline::run($pool, $request);
         return SelectionFulfillmentFactory::create($selected, $request);
     }

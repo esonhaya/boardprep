@@ -2,7 +2,7 @@
 declare(strict_types=1);
 final class QuestionPoolFilter
 {
-    public static function filter(array $questions, SelectionRequest $request): array
+    public static function filter(array $questions, SelectionRequest $request, ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null): array
     {
         $eligible=[]; $seenIds=[]; $seenTexts=[];
         foreach ($questions as $question) {
@@ -10,7 +10,7 @@ final class QuestionPoolFilter
             $question=self::normalizeRuntimeFields($question);
             if (!self::hasValidRuntimeContent($question)) continue;
             $taxonomy=is_array($question['taxonomy']??null)?$question['taxonomy']:[];
-            $examEligibility = $request->exam === null ? null : \App\Services\Question\QuestionEligibilityService::forExam($question, $request->exam);
+            $examEligibility = $request->exam === null ? null : \App\Services\Question\QuestionEligibilityService::forExam($question, $request->exam, $eligibilityIndex);
             if ($request->exam !== null && $examEligibility === null
                 && (array_key_exists('board', $question) || array_key_exists('taxonomy', $question))) continue;
             $subject=$question['subject']??$taxonomy['subject_id']??null;
@@ -22,7 +22,7 @@ final class QuestionPoolFilter
             $status=strtolower(trim((string)($question['status']??'active')));
             $matches=in_array($status,['active','approved'],true)
                 && self::sameTaxonomy($subject,$request->subject,'subjects')
-                && ($request->domain===null||self::sameTaxonomy($domain,$request->domain,'domains')||$request->topic===null)
+                && ($request->domain===null||self::sameTaxonomy($domain,$request->domain,'domains'))
                 && ($request->topic===null||self::sameTaxonomy($topic,$request->topic,'topics'));
             if (!$matches) continue;
             $id=trim((string)$question['id']);
