@@ -19,6 +19,11 @@ final class QuizResultActionService
             'difficulty' => $context['difficulty'],
         ];
 
+        if (in_array(strtolower((string) ($context['board'] ?? '')), ['cse', 'civil-service'], true)) {
+            $params['exam'] = $context['board'];
+            $params['civil_service_level'] = $context['civil_service_level'] ?? '';
+        }
+
         if ($context['topic'] !== '') {
             $params['topic'] = $context['topic'];
         }

@@ -7,6 +7,13 @@ final class QuestionPoolFilter
 {
     public static function filter(array $questions, SelectionRequest $request, ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null): array
     {
+        $civilServiceLevel = null;
+        if (in_array(strtolower(trim((string) $request->exam)), ['civil-service', 'cse'], true) && $request->civilServiceLevel !== null) {
+            $civilServiceLevel = strtoupper(trim($request->civilServiceLevel));
+            if (!in_array($civilServiceLevel, ['PROFESSIONAL', 'SUBPROFESSIONAL'], true)) {
+                throw new InvalidArgumentException('Civil Service level must be PROFESSIONAL or SUBPROFESSIONAL.');
+            }
+        }
         $eligible=[]; $seenIds=[]; $seenTexts=[];
         foreach ($questions as $question) {
             if (!is_array($question)) continue;
@@ -16,6 +23,16 @@ final class QuestionPoolFilter
             $examEligibility = $request->exam === null ? null : \App\Services\Question\QuestionEligibilityService::forExam($question, $request->exam, $eligibilityIndex);
             if ($request->exam !== null && $examEligibility === null
                 && (array_key_exists('board', $question) || array_key_exists('taxonomy', $question))) continue;
+            if ($civilServiceLevel !== null) {
+                $subjectForLevel = trim((string) ($examEligibility['subject_id'] ?? ''));
+                if ($subjectForLevel === '') {
+                    $subjectForLevel = trim((string) ($taxonomy['subject_id'] ?? $question['subject'] ?? ''));
+                }
+                $subjectForLevel = strtolower($subjectForLevel);
+                $declaredLevels = $question['civil_service_levels'] ?? null;
+                if (is_array($declaredLevels) && !in_array($civilServiceLevel, array_map(static fn(mixed $v): string => strtoupper(trim((string) $v)), $declaredLevels), true)) continue;
+                if ($civilServiceLevel === 'PROFESSIONAL' && in_array($subjectForLevel, ['clerical-ability', 'clerical ability'], true)) continue;
+            }
             if (strtolower(trim((string) $request->exam)) === 'let') {
                 $matchedLetPlacement = LETVariantRegistry::placementForConfiguration(
                     $question,

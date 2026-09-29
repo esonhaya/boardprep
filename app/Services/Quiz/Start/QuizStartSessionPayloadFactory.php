@@ -24,6 +24,7 @@ final class QuizStartSessionPayloadFactory
             'let_variant' => $specification->letVariant,
             'let_level' => $specification->letVariant['level'] ?? null,
             'let_specialization_id' => $specification->letVariant['specialization_id'] ?? null,
+            'civil_service_level' => $specification->civilServiceLevel,
             'difficulty' => $specification->difficulty,
             'requested_question_count' => $specification->questionCount,
             'question_count' => count($questions),

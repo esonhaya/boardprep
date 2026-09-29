@@ -14,7 +14,8 @@ final class SelectionRequest
         public readonly ?string $exam = null,
         /** @var array<string,mixed>|null */
         public readonly ?array $letVariant = null,
-        public readonly ?string $letComponent = null
+        public readonly ?string $letComponent = null,
+        public readonly ?string $civilServiceLevel = null
     ) {
     }
 }

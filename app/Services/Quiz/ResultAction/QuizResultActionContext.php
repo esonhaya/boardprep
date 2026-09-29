@@ -13,6 +13,8 @@ final class QuizResultActionContext
         $topic = self::firstTopic($session);
 
         $normalized = QuizStartInputNormalizer::normalize([
+            'exam' => $session['board'] ?? '',
+            'civil_service_level' => $session['civil_service_level'] ?? '',
             'topic' => $topic,
             'subject' => $session['subject'] ?? '',
             'mode' => $session['mode'] ?? '',
@@ -21,6 +23,8 @@ final class QuizResultActionContext
         ]);
 
         return [
+            'board' => $normalized['board'],
+            'civil_service_level' => $normalized['civil_service_level'],
             'topic' => $normalized['topics'][0] ?? '',
             'subject' => $normalized['subject'],
             'mode' => $normalized['mode'],

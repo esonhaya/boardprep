@@ -28,8 +28,15 @@ final class QuizStartInputNormalizer
 
         $board = self::text($input['exam'] ?? 'LET') ?: 'LET';
         $letVariant = null;
+        $civilServiceLevel = '';
         $level = '';
         $specialization = '';
+        if (in_array(strtolower($board), ['cse', 'civil-service'], true)) {
+            $civilServiceLevel = strtoupper(self::text($input['civil_service_level'] ?? $input['civilServiceLevel'] ?? ''));
+            if ($civilServiceLevel !== '' && !in_array($civilServiceLevel, ['PROFESSIONAL', 'SUBPROFESSIONAL'], true)) {
+                throw new \InvalidArgumentException('Civil Service level must be Professional or Subprofessional.');
+            }
+        }
         if (strtolower($board) === 'let') {
             $level = strtoupper(self::text($input['let_level'] ?? ''));
             $specialization = self::text($input['let_specialization'] ?? '');
@@ -44,10 +51,17 @@ final class QuizStartInputNormalizer
                 $letVariant = $validation['configuration'];
             }
         }
+        $subject = self::text($input['subject'] ?? '');
+        if ($subject === '') {
+            $subject = in_array(strtolower($board), ['cse', 'civil-service'], true) ? 'general-information' : 'English';
+        }
+        if ($civilServiceLevel === 'PROFESSIONAL' && in_array(strtolower($subject), ['clerical-ability', 'clerical ability'], true)) {
+            throw new \InvalidArgumentException('Clerical Ability is available only for the Subprofessional examination.');
+        }
 
         return [
             'board' => $board,
-            'subject' => self::text($input['subject'] ?? '') ?: 'English',
+            'subject' => $subject,
             'domain' => self::nullableText($input['domain'] ?? null),
             'topics' => $topic === '' ? [] : [$topic],
             'difficulty' => $difficulty,
@@ -58,6 +72,7 @@ final class QuizStartInputNormalizer
             'let_variant' => $letVariant,
             'let_level' => $letVariant['level'] ?? ($level !== '' ? $level : ''),
             'let_specialization' => $letVariant['specialization_id'] ?? $specialization,
+            'civil_service_level' => $civilServiceLevel,
         ];
     }
 

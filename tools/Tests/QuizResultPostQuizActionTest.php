@@ -34,4 +34,21 @@ if ($normalized['subject'] !== 'English'
     );
 }
 
+$cseActions = QuizResultActionService::build(
+    [
+        'board' => 'CSE',
+        'civil_service_level' => 'SUBPROFESSIONAL',
+        'subject' => 'clerical-ability',
+        'mode' => 'exam',
+        'difficulty' => 'mixed',
+        'question_count' => 150,
+    ],
+    ['percentage' => 70]
+);
+$cseQuery = [];
+parse_str((string) parse_url($cseActions[0]['url'] ?? '', PHP_URL_QUERY), $cseQuery);
+if (($cseQuery['exam'] ?? '') !== 'CSE' || ($cseQuery['civil_service_level'] ?? '') !== 'SUBPROFESSIONAL') {
+    throw new RuntimeException('post-quiz retry dropped Civil Service level context.');
+}
+
 echo "[PASS] post-quiz action preserves context through quiz-start normalization.\n";

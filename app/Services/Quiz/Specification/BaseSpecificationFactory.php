@@ -59,6 +59,11 @@ final class BaseSpecificationFactory
                     ? $options['let_variant']
                     : null,
 
+            civilServiceLevel:
+                is_string($options['civil_service_level'] ?? $options['civilServiceLevel'] ?? null)
+                    ? strtoupper(trim((string) ($options['civil_service_level'] ?? $options['civilServiceLevel'])))
+                    : null,
+
         );
 
     }
