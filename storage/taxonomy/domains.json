@@ -1295,5 +1295,117 @@
             "keywords": [],
             "common_misconceptions": []
         }
+    },
+    {
+        "id": "pe-movement-and-fitness",
+        "subject_id": "physical-education",
+        "code": "PEMF",
+        "name": "Movement and Fitness",
+        "description": "Movement, fitness, games, rhythm, safety, and assessment in physical education.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "cae-arts-and-culture",
+        "subject_id": "culture-and-arts-education",
+        "code": "CAAC",
+        "name": "Arts and Culture",
+        "description": "Arts knowledge, culture, creative work, media, performance, and teaching.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "tle-shared-foundations",
+        "subject_id": "technology-and-livelihood-education",
+        "code": "TLS",
+        "name": "Shared TLE Foundations",
+        "description": "Common safety, measurement, design, resource, entrepreneurship, and technology literacy foundations.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "tle-agriculture-and-fishery-arts",
+        "subject_id": "technology-and-livelihood-education",
+        "code": "TAFA",
+        "name": "Agriculture and Fishery Arts",
+        "description": "Teacher-relevant crop, soil, animal/fish, postharvest, sustainability, and safety principles.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "tle-home-economics",
+        "subject_id": "technology-and-livelihood-education",
+        "code": "THE",
+        "name": "Home Economics",
+        "description": "Food, textiles, household resources, consumer/family decisions, services, and livelihood.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "tle-information-and-communication-technology",
+        "subject_id": "technology-and-livelihood-education",
+        "code": "TICT",
+        "name": "Information and Communication Technology",
+        "description": "Digital productivity, systems, networks, programming logic, citizenship, and media.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "tle-industrial-arts",
+        "subject_id": "technology-and-livelihood-education",
+        "code": "TIA",
+        "name": "Industrial Arts",
+        "description": "Materials, technical drawing, tools, electricity, construction, mechanical systems, and fabrication.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [],
+            "common_misconceptions": []
+        }
+    },
+    {
+        "id": "tvted-common-competencies",
+        "subject_id": "technical-vocational-teacher-education",
+        "code": "TVC",
+        "name": "TVTEd Common Competencies",
+        "description": "Introductory vocational teaching, competency-based training, assessment, safety, and workplace alignment.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [],
+            "common_misconceptions": []
+        }
     }
 ]

@@ -122,14 +122,7 @@ final class LETVariantRegistry
      */
     public static function questionPlacement(array $question, ?array $eligibility = null): array
     {
-        $placement = [];
-        if (is_array($eligibility['placement'] ?? null)) {
-            $placement = $eligibility['placement'];
-        } elseif (is_array($question['let_placement'] ?? null)) {
-            $placement = $question['let_placement'];
-        } elseif (is_array($question['let_variant'] ?? null)) {
-            $placement = $question['let_variant'];
-        }
+        $placement = self::questionPlacements($question, $eligibility)[0] ?? [];
 
         $component = strtoupper(trim((string) ($placement['component'] ?? $placement['let_component'] ?? '')));
         $level = strtoupper(trim((string) ($placement['level'] ?? $placement['let_level'] ?? '')));
@@ -154,6 +147,98 @@ final class LETVariantRegistry
         ];
     }
 
+    /**
+     * Return every explicit LET placement for a canonical question.  A
+     * shared TLE-core question may have one canonical identity and several
+     * compatible specialization placements; legacy questions continue to
+     * expose the single let_placement shape.
+     *
+     * @return array<int,array<string,mixed>>
+     */
+    public static function questionPlacements(array $question, ?array $eligibility = null): array
+    {
+        $raw = [];
+        $variantPlacements = $eligibility['variant_placements'] ?? null;
+        if (is_array($variantPlacements)) {
+            if (is_array($variantPlacements['let'] ?? null)) {
+                $raw = $variantPlacements['let'];
+            } elseif (self::isList($variantPlacements)) {
+                $raw = $variantPlacements;
+            }
+        }
+        if ($raw === [] && is_array($question['let_placements'] ?? null)) {
+            $raw = $question['let_placements'];
+        }
+        if ($raw === [] && is_array($eligibility['placement'] ?? null)) {
+            $raw = [$eligibility['placement']];
+        }
+        if ($raw === [] && is_array($question['let_placement'] ?? null)) {
+            $raw = [$question['let_placement']];
+        }
+        if ($raw === [] && is_array($question['let_variant'] ?? null)) {
+            $raw = [$question['let_variant']];
+        }
+
+        $placements = [];
+        foreach ($raw as $placement) {
+            if (!is_array($placement)) {
+                continue;
+            }
+            $normalized = $placement;
+            $specialization = trim((string) ($normalized['specialization_id'] ?? ''));
+            if ($specialization !== '') {
+                $resolved = self::resolveSpecialization($specialization);
+                $normalized['specialization_id'] = $resolved === null ? $specialization : (string) $resolved['id'];
+            } else {
+                $normalized['specialization_id'] = null;
+            }
+            $placements[] = $normalized;
+        }
+        return $placements;
+    }
+
+    /** @return array<string,mixed>|null */
+    public static function placementForConfiguration(
+        array $question,
+        ?array $configuration,
+        ?string $component = null,
+        ?array $eligibility = null
+    ): ?array {
+        if ($configuration === null) {
+            return self::questionPlacement($question, $eligibility);
+        }
+        $requestedLevel = strtoupper(trim((string) ($configuration['level'] ?? '')));
+        $requestedSpecialization = (string) ($configuration['specialization_id'] ?? '');
+        $requestedComponent = $component === null || trim($component) === ''
+            ? strtoupper(trim((string) ($configuration['component'] ?? '')))
+            : strtoupper(trim($component));
+        $placements = self::questionPlacements($question, $eligibility);
+        if ($placements === []) {
+            $placements = [self::questionPlacement($question, $eligibility)];
+        }
+        foreach ($placements as $placement) {
+            $placementLevel = strtoupper(trim((string) ($placement['level'] ?? $placement['let_level'] ?? '')));
+            $placementComponent = strtoupper(trim((string) ($placement['component'] ?? $placement['let_component'] ?? '')));
+            $placementSpecialization = (string) ($placement['specialization_id'] ?? '');
+            if ($placementLevel !== '' && $placementLevel !== 'SHARED' && $placementLevel !== $requestedLevel) {
+                continue;
+            }
+            if ($requestedComponent !== '' && $placementComponent !== $requestedComponent) {
+                continue;
+            }
+            if ($placementComponent === self::SPECIALIZATION) {
+                if ($requestedSpecialization === '' || $placementSpecialization !== $requestedSpecialization) {
+                    continue;
+                }
+                return $placement;
+            }
+            if ($placementSpecialization === '') {
+                return $placement;
+            }
+        }
+        return null;
+    }
+
     public static function matchesQuestion(
         array $question,
         ?array $configuration,
@@ -164,26 +249,18 @@ final class LETVariantRegistry
             return true;
         }
 
-        $placement = self::questionPlacement($question, $eligibility);
-        $requestedLevel = strtoupper(trim((string) ($configuration['level'] ?? '')));
-        $requestedSpecialization = (string) ($configuration['specialization_id'] ?? '');
-        $requestedComponent = $component === null || trim($component) === ''
-            ? (string) ($configuration['component'] ?? '')
-            : strtoupper(trim($component));
+        return self::placementForConfiguration($question, $configuration, $component, $eligibility) !== null;
+    }
 
-        if ($placement['level'] !== null && $placement['level'] !== $requestedLevel) {
-            return false;
+    private static function isList(array $value): bool
+    {
+        $expected = 0;
+        foreach (array_keys($value) as $key) {
+            if ($key !== $expected++) {
+                return false;
+            }
         }
-        if ($placement['component'] !== $requestedComponent && $requestedComponent !== '') {
-            return false;
-        }
-        if ($placement['component'] === self::SPECIALIZATION) {
-            return $requestedSpecialization !== ''
-                && $placement['specialization_id'] === $requestedSpecialization
-                && $requestedLevel === (string) ($placement['level'] ?? $requestedLevel);
-        }
-
-        return $placement['specialization_id'] === null;
+        return true;
     }
 
     public static function normalizeId(string $value): string

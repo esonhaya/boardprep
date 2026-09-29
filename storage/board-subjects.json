@@ -421,5 +421,53 @@
             "sort_order": 10,
             "blueprint_weight": 10
         }
+    },
+    {
+        "id": "let-physical-education",
+        "board_id": "let",
+        "subject_id": "physical-education",
+        "settings": {
+            "track": "secondary",
+            "role": "specialization",
+            "required": true,
+            "sort_order": 11,
+            "blueprint_weight": 10
+        }
+    },
+    {
+        "id": "let-culture-and-arts-education",
+        "board_id": "let",
+        "subject_id": "culture-and-arts-education",
+        "settings": {
+            "track": "secondary",
+            "role": "specialization",
+            "required": true,
+            "sort_order": 12,
+            "blueprint_weight": 10
+        }
+    },
+    {
+        "id": "let-technology-and-livelihood-education",
+        "board_id": "let",
+        "subject_id": "technology-and-livelihood-education",
+        "settings": {
+            "track": "secondary",
+            "role": "specialization",
+            "required": true,
+            "sort_order": 13,
+            "blueprint_weight": 10
+        }
+    },
+    {
+        "id": "let-technical-vocational-teacher-education",
+        "board_id": "let",
+        "subject_id": "technical-vocational-teacher-education",
+        "settings": {
+            "track": "secondary",
+            "role": "specialization",
+            "required": true,
+            "sort_order": 14,
+            "blueprint_weight": 10
+        }
     }
 ]

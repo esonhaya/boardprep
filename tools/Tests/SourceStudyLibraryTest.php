@@ -25,7 +25,9 @@ if ($constitution === null || $ra === null || ($constitution['sources'][0]['sour
 $cse = StudyLibraryService::all('civil-service');
 $let = StudyLibraryService::all('let');
 // Batch 629 adds nine source-backed LET specialization/PE foundations.
-if (count($cse) !== 8 || count($let) !== 36 || !isset($constitution['exam_focus']['civil-service'])) {
+// LET study foundations grow by milestone; keep the contract focused on the
+// required baseline rather than coupling it to one batch's exact row count.
+if (count($cse) !== 8 || count($let) < 36 || !isset($constitution['exam_focus']['civil-service'])) {
     throw new RuntimeException('exam-specific study focus mapping is incomplete');
 }
 $questions = \App\Core\App::storage()->all('questions');

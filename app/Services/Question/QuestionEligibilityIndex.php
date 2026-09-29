@@ -53,6 +53,9 @@ final class QuestionEligibilityIndex
                             }
                         }
                     }
+                    if (is_array($override['variant_placements'] ?? null)) {
+                        $questionEntry['variant_placements'] = $override['variant_placements'];
+                    }
                 }
                 $this->entriesByQuestion[(string) $questionId][] = $questionEntry;
             }
@@ -116,6 +119,9 @@ final class QuestionEligibilityIndex
                     (string) ($placement['subject_id'] ?? $subjects[$exam] ?? $entry['subject_id'] ?? '')
                 ),
                 'placement' => $placement,
+                'variant_placements' => is_array($entry['variant_placements'] ?? null)
+                    ? $entry['variant_placements']
+                    : [],
             ];
         }
 

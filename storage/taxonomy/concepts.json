@@ -7309,5 +7309,941 @@
             ],
             "common_misconceptions": []
         }
+    },
+    {
+        "id": "pe-movement-literacy",
+        "topic_id": "pe-movement-foundations",
+        "code": "LITERACY",
+        "name": "Movement literacy",
+        "description": "Movement literacy connects body awareness, space, effort, relationships, and adaptable control.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Movement literacy"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "pe-fitness-components",
+        "topic_id": "pe-fitness-and-wellness",
+        "code": "MPONENTS",
+        "name": "Health-related fitness components",
+        "description": "Fitness instruction distinguishes components such as cardiorespiratory endurance, muscular strength, flexibility, and body composition.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Health-related fitness components"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "pe-physical-activity-safety",
+        "topic_id": "pe-safety-and-inclusion",
+        "code": "TYSAFETY",
+        "name": "Physical-activity safety",
+        "description": "Safe physical activity requires screening, appropriate space and equipment, preparation, monitoring, and a proportionate response to injury or distress.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Physical-activity safety"
+            ],
+            "common_misconceptions": [
+                "unsafe-activity-or-injury-response"
+            ]
+        }
+    },
+    {
+        "id": "pe-sports-skills-and-tactics",
+        "topic_id": "pe-games-and-sports",
+        "code": "DTACTICS",
+        "name": "Sports skills and tactics",
+        "description": "Sports learning joins technical execution with perception, decision-making, rules, teamwork, and fair play.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Sports skills and tactics"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "pe-rhythm-and-dance",
+        "topic_id": "pe-rhythms-and-dance",
+        "code": "ANDDANCE",
+        "name": "Rhythm and dance",
+        "description": "Rhythm and dance learning combines timing, expressive movement, cultural context, creativity, and respectful participation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Rhythm and dance"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "pe-assessment-and-inclusion",
+        "topic_id": "pe-safety-and-inclusion",
+        "code": "NCLUSION",
+        "name": "PE assessment and inclusion",
+        "description": "PE assessment should use valid criteria, provide access, and preserve the intended movement or fitness construct.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "PE assessment and inclusion"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "pe-health-and-wellness",
+        "topic_id": "pe-fitness-and-wellness",
+        "code": "WELLNESS",
+        "name": "Physical activity and wellness",
+        "description": "Physical education promotes informed, sustainable activity habits and distinguishes immediate performance from longer-term health-related practice.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Physical activity and wellness"
+            ],
+            "common_misconceptions": [
+                "fitness-and-wellness-misconception"
+            ]
+        }
+    },
+    {
+        "id": "pe-fitness-programming",
+        "topic_id": "pe-fitness-and-wellness",
+        "code": "GRAMMING",
+        "name": "Fitness programming and progression",
+        "description": "A fitness program uses an appropriate starting point, frequency, intensity, time, type, progression, and recovery for the learner and goal.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Fitness programming and progression"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "cae-art-elements-and-principles",
+        "topic_id": "cae-art-elements-and-principles",
+        "code": "INCIPLES",
+        "name": "Arts elements and principles",
+        "description": "Arts interpretation and production use observable elements and principles such as line, color, form, space, rhythm, balance, contrast, and emphasis.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Arts elements and principles"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "cae-philippine-arts-and-heritage",
+        "topic_id": "cae-philippine-arts-and-heritage",
+        "code": "HERITAGE",
+        "name": "Philippine arts and heritage",
+        "description": "Philippine arts education connects artistic forms with place, history, community, cultural meaning, and respectful stewardship.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Philippine arts and heritage"
+            ],
+            "common_misconceptions": [
+                "heritage-context-error"
+            ]
+        }
+    },
+    {
+        "id": "cae-creative-process",
+        "topic_id": "cae-creative-process",
+        "code": "EPROCESS",
+        "name": "Creative process",
+        "description": "A creative process moves through inquiry, exploration, iteration, reflection, and revision rather than treating the first idea as final.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Creative process"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "cae-media-and-performance",
+        "topic_id": "cae-media-and-performance",
+        "code": "FORMANCE",
+        "name": "Media and performance",
+        "description": "Media and performance choices should serve artistic intent, audience, context, technical control, and ethical presentation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Media and performance"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "cae-arts-pedagogy",
+        "topic_id": "cae-arts-pedagogy",
+        "code": "PEDAGOGY",
+        "name": "Arts pedagogy",
+        "description": "Arts pedagogy balances direct instruction, inquiry, making, critique, inclusion, and learner agency around a clear competency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Arts pedagogy"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "cae-arts-assessment",
+        "topic_id": "cae-arts-assessment",
+        "code": "SESSMENT",
+        "name": "Arts assessment",
+        "description": "Arts assessment makes criteria, process evidence, interpretation, craft, communication, and reflection visible without reducing art to one aesthetic.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Arts assessment"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "cae-cultural-literacy",
+        "topic_id": "cae-cultural-literacy",
+        "code": "LITERACY",
+        "name": "Cultural literacy and dialogue",
+        "description": "Cultural literacy requires contextual knowledge, humility, multiple perspectives, and careful distinction between observation and interpretation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Cultural literacy and dialogue"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "cae-arts-ethics-and-inclusion",
+        "topic_id": "cae-arts-ethics-and-inclusion",
+        "code": "NCLUSION",
+        "name": "Arts ethics and inclusion",
+        "description": "Ethical arts education protects dignity, attribution, consent, accessibility, and fair participation in creative work.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Arts ethics and inclusion"
+            ],
+            "common_misconceptions": [
+                "arts-ethics-or-inclusion-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-occupational-safety",
+        "topic_id": "tle-occupational-safety",
+        "code": "ALSAFETY",
+        "name": "Occupational safety",
+        "description": "TLE safety begins with hazard identification, appropriate controls, correct PPE, orderly work, and stopping when conditions become unsafe.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Occupational safety"
+            ],
+            "common_misconceptions": [
+                "workplace-safety-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-measurement-and-quality",
+        "topic_id": "tle-measurement-and-quality",
+        "code": "DQUALITY",
+        "name": "Measurement and quality",
+        "description": "TLE measurement links a suitable instrument, unit, reference, tolerance, recording method, and quality decision.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Measurement and quality"
+            ],
+            "common_misconceptions": [
+                "measurement-and-quality-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-design-process",
+        "topic_id": "tle-design-process",
+        "code": "NPROCESS",
+        "name": "Design and process reasoning",
+        "description": "TLE design moves from a need or constraint through planning, making, testing, feedback, and revision.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Design and process reasoning"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-resource-and-entrepreneurship",
+        "topic_id": "tle-resource-and-entrepreneurship",
+        "code": "NEURSHIP",
+        "name": "Resource use and entrepreneurship",
+        "description": "TLE livelihood decisions consider need, resources, cost, value, sustainability, quality, and ethical exchange.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Resource use and entrepreneurship"
+            ],
+            "common_misconceptions": [
+                "resource-and-enterprise-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-technology-literacy",
+        "topic_id": "tle-technology-literacy",
+        "code": "LITERACY",
+        "name": "Technology literacy",
+        "description": "Technology literacy connects tools and systems to human purposes, constraints, safety, maintenance, and informed choice.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Technology literacy"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-afa-crop-production",
+        "topic_id": "tle-afa-crop-production",
+        "code": "ODUCTION",
+        "name": "Crop production principles",
+        "description": "AFA crop production joins site assessment, suitable planting material, cultural practices, monitoring, and safe harvesting.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Crop production principles"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-afa-soil-and-water",
+        "topic_id": "tle-afa-soil-and-water",
+        "code": "ANDWATER",
+        "name": "Soil and water management",
+        "description": "AFA soil and water management uses observation, conservation, suitable timing, and avoidance of practices that degrade the production environment.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Soil and water management"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-afa-animal-and-fish-production",
+        "topic_id": "tle-afa-animal-and-fish-production",
+        "code": "ODUCTION",
+        "name": "Animal and fish production principles",
+        "description": "Animal and fish production requires appropriate housing or culture conditions, observation, nutrition, biosecurity, welfare, and responsible handling.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Animal and fish production principles"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-afa-postharvest-and-food-safety",
+        "topic_id": "tle-afa-postharvest-and-food-safety",
+        "code": "ODSAFETY",
+        "name": "Postharvest and food safety",
+        "description": "Postharvest practice protects quality through clean handling, suitable storage, separation of hazards, traceability, and timely corrective action.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Postharvest and food safety"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-afa-sustainable-agriculture",
+        "topic_id": "tle-afa-sustainable-agriculture",
+        "code": "ICULTURE",
+        "name": "Sustainable agriculture and fishery",
+        "description": "Sustainable AFA practice balances productivity with soil, water, biodiversity, waste, livelihood, and community conditions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Sustainable agriculture and fishery"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-he-food-preparation-and-safety",
+        "topic_id": "tle-he-food-preparation-and-safety",
+        "code": "NDSAFETY",
+        "name": "Food preparation and safety",
+        "description": "Home Economics food work combines hygiene, cross-contamination control, process sequence, appropriate heat, nutrition awareness, and safe service.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Food preparation and safety"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-he-textiles-and-apparel",
+        "topic_id": "tle-he-textiles-and-apparel",
+        "code": "DAPPAREL",
+        "name": "Textiles and apparel",
+        "description": "Textiles and apparel competencies connect fiber or fabric properties, design, measurement, construction sequence, care, and safe tool use.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Textiles and apparel"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-he-household-resource-management",
+        "topic_id": "tle-he-household-resource-management",
+        "code": "NAGEMENT",
+        "name": "Household resource management",
+        "description": "Household management uses planning, prioritization, conservation, time, labor, and safe routines to meet identified needs.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Household resource management"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-he-consumer-and-family-decisions",
+        "topic_id": "tle-he-consumer-and-family-decisions",
+        "code": "ECISIONS",
+        "name": "Consumer and family decision-making",
+        "description": "Consumer and family decisions weigh needs, information, rights, costs, quality, relationships, and long-term consequences.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Consumer and family decision-making"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-he-livelihood-and-home-industry",
+        "topic_id": "tle-he-livelihood-and-home-industry",
+        "code": "INDUSTRY",
+        "name": "Home-industry and livelihood",
+        "description": "Home-industry planning links product or service quality, market need, resources, costing, safety, and ethical livelihood practice.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Home-industry and livelihood"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-ict-digital-productivity",
+        "topic_id": "tle-ict-digital-productivity",
+        "code": "UCTIVITY",
+        "name": "Digital productivity",
+        "description": "Digital productivity uses appropriate tools, file organization, accurate communication, collaboration, and protection of work products.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Digital productivity"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-ict-computer-systems",
+        "topic_id": "tle-ict-computer-systems",
+        "code": "RSYSTEMS",
+        "name": "Computer systems",
+        "description": "Computer systems work through interacting hardware, software, data, users, and procedures; troubleshooting begins with observable symptoms and safe checks.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Computer systems"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-ict-networking",
+        "topic_id": "tle-ict-networking",
+        "code": "TWORKING",
+        "name": "Networking and connectivity",
+        "description": "Networking instruction distinguishes devices, media, addressing, access, reliability, and security while using safe and observable troubleshooting.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Networking and connectivity"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-ict-programming-logic",
+        "topic_id": "tle-ict-programming-logic",
+        "code": "INGLOGIC",
+        "name": "Programming and algorithmic thinking",
+        "description": "Programming logic expresses a problem through inputs, sequence, selection, iteration, data, testing, and revision.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Programming and algorithmic thinking"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-ict-digital-citizenship",
+        "topic_id": "tle-ict-digital-citizenship",
+        "code": "IZENSHIP",
+        "name": "Digital citizenship and information ethics",
+        "description": "Digital citizenship requires privacy, security, attribution, respectful participation, critical evaluation, and responsible use of information.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Digital citizenship and information ethics"
+            ],
+            "common_misconceptions": [
+                "digital-citizenship-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-ict-multimedia-and-design",
+        "topic_id": "tle-ict-multimedia-and-design",
+        "code": "NDDESIGN",
+        "name": "Multimedia and digital design",
+        "description": "Digital design aligns message, audience, hierarchy, contrast, media choice, accessibility, and ethical use of assets.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Multimedia and digital design"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-ia-materials-and-processes",
+        "topic_id": "tle-ia-materials-and-processes",
+        "code": "ROCESSES",
+        "name": "Materials and processes",
+        "description": "Industrial Arts selects materials and processes by properties, function, tolerances, sustainability, tools, and safe procedure.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Materials and processes"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-ia-technical-drawing",
+        "topic_id": "tle-ia-technical-drawing",
+        "code": "LDRAWING",
+        "name": "Technical drawing and design",
+        "description": "Technical drawing communicates shape, size, relationships, scale, views, symbols, and specifications clearly enough to guide making.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Technical drawing and design"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-ia-tools-and-machines-safety",
+        "topic_id": "tle-ia-tools-and-machines-safety",
+        "code": "ESSAFETY",
+        "name": "Tools and machine safety",
+        "description": "Tool and machine safety requires correct selection, inspection, guarding, PPE, work holding, procedure, and stopping authority.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Tools and machine safety"
+            ],
+            "common_misconceptions": [
+                "machinery-safety-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-ia-basic-electricity",
+        "topic_id": "tle-ia-basic-electricity",
+        "code": "CTRICITY",
+        "name": "Basic electricity and circuits",
+        "description": "Basic electricity instruction uses circuit relationships, measurement, insulation, protection, and de-energized safe work within the learner\u2019s authority.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Basic electricity and circuits"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-ia-carpentry-and-construction",
+        "topic_id": "tle-ia-carpentry-and-construction",
+        "code": "TRUCTION",
+        "name": "Carpentry and construction principles",
+        "description": "Construction work connects plan, material, measurement, sequence, structural purpose, site condition, and safe practice.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Carpentry and construction principles"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-ia-mechanical-systems",
+        "topic_id": "tle-ia-mechanical-systems",
+        "code": "LSYSTEMS",
+        "name": "Mechanical systems",
+        "description": "Mechanical systems connect force, motion, components, lubrication, alignment, inspection, and safe maintenance decisions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Mechanical systems"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tle-ia-metal-fabrication",
+        "topic_id": "tle-ia-metal-fabrication",
+        "code": "RICATION",
+        "name": "Metalwork and fabrication",
+        "description": "Metal fabrication requires material identification, layout, process choice, heat or force control, finish, PPE, ventilation, and inspection.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Metalwork and fabrication"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tvted-introductory-vocational-teaching",
+        "topic_id": "tvted-introductory-vocational-teaching",
+        "code": "TEACHING",
+        "name": "Introductory vocational teaching",
+        "description": "TVTEd introductory teaching connects an occupational purpose to a clear competency, demonstration, guided practice, and safe learner participation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Introductory vocational teaching"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tvted-competency-based-training",
+        "topic_id": "tvted-competency-based-training",
+        "code": "TRAINING",
+        "name": "Competency-based training",
+        "description": "Competency-based training defines observable outcomes, conditions, standards, evidence, practice, and feedback.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Competency-based training"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tvted-workplace-safety",
+        "topic_id": "tvted-workplace-safety",
+        "code": "CESAFETY",
+        "name": "TVTEd workplace safety",
+        "description": "TVTEd safety instruction makes hazards, controls, PPE, safe sequence, emergency response, and stop-work authority explicit.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "TVTEd workplace safety"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tvted-assessment-and-feedback",
+        "topic_id": "tvted-assessment-and-feedback",
+        "code": "FEEDBACK",
+        "name": "TVTEd assessment and feedback",
+        "description": "TVTEd assessment matches evidence to the competency, conditions, standards, and feedback needed for improvement.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "TVTEd assessment and feedback"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tvted-workplace-learning",
+        "topic_id": "tvted-workplace-learning",
+        "code": "LEARNING",
+        "name": "Workplace learning",
+        "description": "Workplace learning connects school practice to authentic tasks, supervision, ethics, communication, and reflection without pretending that school is an unsupervised job site.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Workplace learning"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tvted-industry-alignment",
+        "topic_id": "tvted-industry-alignment",
+        "code": "LIGNMENT",
+        "name": "Industry and curriculum alignment",
+        "description": "TVTEd aligns curriculum with current occupational practice while retaining educational purpose, safety, inclusion, and assessable outcomes.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Industry and curriculum alignment"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tvted-learning-resources-and-tools",
+        "topic_id": "tvted-learning-resources-and-tools",
+        "code": "ANDTOOLS",
+        "name": "Learning resources and tools",
+        "description": "TVTEd resources should be accurate, accessible, maintained, safe, and matched to the competency and learner conditions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Learning resources and tools"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
+    },
+    {
+        "id": "tvted-entrepreneurship-and-employability",
+        "topic_id": "tvted-entrepreneurship-and-employability",
+        "code": "YABILITY",
+        "name": "Entrepreneurship and employability",
+        "description": "TVTEd employability includes technical quality, communication, initiative, ethical conduct, resource decisions, and realistic opportunity analysis.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 30,
+            "mastery_threshold": 80,
+            "keywords": [
+                "Entrepreneurship and employability"
+            ],
+            "common_misconceptions": [
+                "scope-and-application-error"
+            ]
+        }
     }
 ]

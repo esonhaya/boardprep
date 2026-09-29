@@ -16,14 +16,19 @@ final class QuestionPoolFilter
             $examEligibility = $request->exam === null ? null : \App\Services\Question\QuestionEligibilityService::forExam($question, $request->exam, $eligibilityIndex);
             if ($request->exam !== null && $examEligibility === null
                 && (array_key_exists('board', $question) || array_key_exists('taxonomy', $question))) continue;
-            if (strtolower(trim((string) $request->exam)) === 'let'
-                && !LETVariantRegistry::matchesQuestion(
+            if (strtolower(trim((string) $request->exam)) === 'let') {
+                $matchedLetPlacement = LETVariantRegistry::placementForConfiguration(
                     $question,
                     $request->letVariant,
                     $request->letComponent,
                     $examEligibility
-                )) {
-                continue;
+                );
+                if ($matchedLetPlacement === null) {
+                    continue;
+                }
+                if (strtoupper((string) ($matchedLetPlacement['component'] ?? '')) === LETVariantRegistry::SPECIALIZATION) {
+                    $question['let_placement'] = $matchedLetPlacement;
+                }
             }
             $subject=$question['subject']??$taxonomy['subject_id']??null;
             if ($examEligibility !== null && ($examEligibility['subject_id'] ?? '') !== '') {

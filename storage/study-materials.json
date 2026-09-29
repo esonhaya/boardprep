@@ -8408,5 +8408,443 @@
         "version": 1,
         "updated_at": "2026-09-29",
         "batch_marker": "batch629"
+    },
+    {
+        "id": "let-zero-pool-tle-shared-foundation",
+        "title": "TLE Shared Foundations: Safety, Measurement, Design, and Livelihood",
+        "summary": "Shared TLE foundation for common competency reasoning; it does not replace the four separate TLE specialization scopes.",
+        "notes": [
+            [
+                "Scope boundary",
+                "PRC identifies AFA, HE, ICT, and IA as separate BTLEd specialization choices. Shared concepts support only genuinely common teacher-relevant foundations."
+            ],
+            [
+                "Safety",
+                "Identify hazards, controls, PPE, safe sequence, stop-work authority, and escalation before practical activity."
+            ],
+            [
+                "Measurement and quality",
+                "Match instrument, unit, reference, tolerance, recording, and quality decision to the task."
+            ],
+            [
+                "Design and resources",
+                "Move from need and constraints through plan, test, feedback, resource stewardship, and ethical exchange."
+            ],
+            [
+                "TVET boundary",
+                "TESDA standards inform competency language and instructional foundations; TESDA certification levels are not silently treated as LEPT scope."
+            ]
+        ],
+        "source_ids": [
+            "prc-lept-alignment-guidance-2025",
+            "prc-resolution-20-2025",
+            "ched-cmo-78-btled-2017",
+            "deped-epp-tle-curriculum-guide",
+            "deped-tle-competency-portal",
+            "deped-grade10-tle-curriculum-portal",
+            "tesda-training-regulations-index",
+            "tesda-agricultural-crops-production-tr",
+            "tesda-competency-standards"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "high",
+                "rationale": "Source-backed foundation for the current LET specialization component; it does not predict exact item counts.",
+                "official_scope_status": "source-backed specialization foundation",
+                "specialization_id": null
+            }
+        },
+        "taxonomy": {
+            "subject_id": "technology-and-livelihood-education",
+            "domain_id": "tle-shared-foundations",
+            "topic_id": "tle-occupational-safety",
+            "concept_id": "tle-occupational-safety"
+        },
+        "let_specialization_id": null,
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch630"
+    },
+    {
+        "id": "let-zero-pool-pe-foundation",
+        "title": "LET Physical Education: Movement, Fitness, Safety, and Assessment",
+        "summary": "PE foundation for movement literacy, fitness, games and sports, rhythm, safe activity, inclusion, and evidence-based assessment.",
+        "notes": [
+            [
+                "Scope",
+                "PRC separates BPEd/PE from historical MAPEH transition choices; the material stays within the current PE specialization frame."
+            ],
+            [
+                "Application",
+                "Connect movement or fitness evidence to a goal, progression, safe environment, and learner context."
+            ],
+            [
+                "Safety",
+                "Screen readiness, prepare space and equipment, monitor response, and stop or refer when risk exceeds the teaching context."
+            ],
+            [
+                "Assessment",
+                "Use transparent criteria that preserve the intended movement or fitness construct and provide access."
+            ]
+        ],
+        "source_ids": [
+            "prc-lept-alignment-guidance-2025",
+            "prc-resolution-20-2025",
+            "ched-cmo-80-bped-2017",
+            "deped-pe-curriculum-guide",
+            "deped-ppst-do-42-2017"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "high",
+                "rationale": "Source-backed foundation for the current LET specialization component; it does not predict exact item counts.",
+                "official_scope_status": "source-backed specialization foundation",
+                "specialization_id": null
+            }
+        },
+        "taxonomy": {
+            "subject_id": "physical-education",
+            "domain_id": "pe-movement-and-fitness",
+            "topic_id": "pe-movement-foundations",
+            "concept_id": "secondary-physical-education"
+        },
+        "let_specialization_id": null,
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch630"
+    },
+    {
+        "id": "let-zero-pool-cae-foundation",
+        "title": "LET Culture and Arts Education: Culture, Creative Process, and Arts Pedagogy",
+        "summary": "CAE foundation for Philippine arts and heritage, elements, media, performance, creative process, cultural literacy, and ethical inclusion.",
+        "notes": [
+            [
+                "Scope",
+                "PRC distinguishes BCAEd/CAE from PE and permits historical MAPEH candidates to choose CAE under the transition guidance."
+            ],
+            [
+                "Interpretation",
+                "Ground claims in observable artistic evidence and cultural context; do not invent private intention."
+            ],
+            [
+                "Creative process",
+                "Support inquiry, experimentation, iteration, critique, and reflection around a clear artistic competency."
+            ],
+            [
+                "Ethics",
+                "Credit, consent, accessibility, community context, and respectful representation are part of arts practice."
+            ]
+        ],
+        "source_ids": [
+            "prc-lept-alignment-guidance-2025",
+            "prc-resolution-20-2025",
+            "ched-2017-teacher-education-psg-index",
+            "deped-arts-curriculum-guide-2020",
+            "ncca-culture-arts-foundation",
+            "deped-ppst-do-42-2017"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "high",
+                "rationale": "Source-backed foundation for the current LET specialization component; it does not predict exact item counts.",
+                "official_scope_status": "source-backed specialization foundation",
+                "specialization_id": null
+            }
+        },
+        "taxonomy": {
+            "subject_id": "culture-and-arts-education",
+            "domain_id": "cae-arts-and-culture",
+            "topic_id": "cae-art-elements-and-principles",
+            "concept_id": "secondary-culture-and-arts-education"
+        },
+        "let_specialization_id": null,
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch630"
+    },
+    {
+        "id": "let-zero-pool-tle-afa-foundation",
+        "title": "LET AFA: Crop, Soil, Animal/Fish, Postharvest, and Sustainability Foundations",
+        "summary": "Bounded AFA foundation for teacher-relevant agriculture and fishery principles, safe practice, observation, sustainability, and food safety.",
+        "notes": [
+            [
+                "Scope",
+                "PRC names AFA as one BTLEd choice; TESDA agriculture references inform competency terminology but do not define the LEPT by themselves."
+            ],
+            [
+                "Production reasoning",
+                "Use site, species/crop, season, resource, observation, record, and purpose before choosing a practice."
+            ],
+            [
+                "Safety and food",
+                "Separate routine teaching from hazardous chemical, animal-health, and food-safety decisions requiring qualified escalation."
+            ],
+            [
+                "Sustainability",
+                "Evaluate productivity together with soil, water, biodiversity, waste, livelihood, and community effects."
+            ]
+        ],
+        "source_ids": [
+            "prc-lept-alignment-guidance-2025",
+            "prc-resolution-20-2025",
+            "ched-cmo-78-btled-2017",
+            "deped-epp-tle-curriculum-guide",
+            "deped-tle-competency-portal",
+            "deped-grade10-tle-curriculum-portal",
+            "tesda-training-regulations-index",
+            "tesda-agricultural-crops-production-tr"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "high",
+                "rationale": "Source-backed foundation for the current LET specialization component; it does not predict exact item counts.",
+                "official_scope_status": "source-backed specialization foundation",
+                "specialization_id": null
+            }
+        },
+        "taxonomy": {
+            "subject_id": "technology-and-livelihood-education",
+            "domain_id": "tle-agriculture-and-fishery-arts",
+            "topic_id": "tle-afa-crop-production",
+            "concept_id": "secondary-tle-agriculture-and-fishery-arts"
+        },
+        "let_specialization_id": null,
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch630"
+    },
+    {
+        "id": "let-zero-pool-tle-he-foundation",
+        "title": "LET HE: Food, Textiles, Household Resources, and Livelihood",
+        "summary": "Bounded HE foundation for food safety, textiles, household management, consumer decisions, services, and home-industry reasoning.",
+        "notes": [
+            [
+                "Scope",
+                "PRC names HE as one BTLEd choice; HE is not reduced to cooking and does not inherit every TESDA hospitality qualification."
+            ],
+            [
+                "Food safety",
+                "Control hygiene, cross-contamination, process, heat, storage, labeling, and safe disposition."
+            ],
+            [
+                "Textiles and resources",
+                "Connect material properties, measurement, construction, care, resource use, and safe tools."
+            ],
+            [
+                "Family and livelihood",
+                "Use needs, information, quality, cost, dignity, feasibility, safety, and ethical exchange in decisions."
+            ]
+        ],
+        "source_ids": [
+            "prc-lept-alignment-guidance-2025",
+            "prc-resolution-20-2025",
+            "ched-cmo-78-btled-2017",
+            "deped-epp-tle-curriculum-guide",
+            "deped-tle-competency-portal",
+            "deped-grade10-tle-curriculum-portal",
+            "tesda-training-regulations-index",
+            "tesda-food-production-tr-2024"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "high",
+                "rationale": "Source-backed foundation for the current LET specialization component; it does not predict exact item counts.",
+                "official_scope_status": "source-backed specialization foundation",
+                "specialization_id": null
+            }
+        },
+        "taxonomy": {
+            "subject_id": "technology-and-livelihood-education",
+            "domain_id": "tle-home-economics",
+            "topic_id": "tle-he-food-preparation-and-safety",
+            "concept_id": "secondary-tle-home-economics"
+        },
+        "let_specialization_id": null,
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch630"
+    },
+    {
+        "id": "let-zero-pool-tle-ict-foundation",
+        "title": "LET ICT: Digital Productivity, Systems, Networks, Logic, and Citizenship",
+        "summary": "Bounded ICT foundation for school-relevant digital systems, productivity, network reasoning, programming logic, media, and safe citizenship.",
+        "notes": [
+            [
+                "Scope",
+                "PRC names ICT as one BTLEd choice; the pool avoids generic software-engineering or obscure product trivia."
+            ],
+            [
+                "Systems",
+                "Troubleshoot from observable symptom through safe, ordered checks of hardware, software, data, access, and user conditions."
+            ],
+            [
+                "Logic and media",
+                "Define input, output, audience, constraints, tests, hierarchy, accessibility, and revision."
+            ],
+            [
+                "Citizenship",
+                "Protect privacy, credentials, consent, attribution, security, and respectful participation."
+            ]
+        ],
+        "source_ids": [
+            "prc-lept-alignment-guidance-2025",
+            "prc-resolution-20-2025",
+            "ched-cmo-78-btled-2017",
+            "deped-epp-tle-curriculum-guide",
+            "deped-tle-competency-portal",
+            "deped-grade10-tle-curriculum-portal",
+            "tesda-training-regulations-index",
+            "tesda-animation-nc2-tr"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "high",
+                "rationale": "Source-backed foundation for the current LET specialization component; it does not predict exact item counts.",
+                "official_scope_status": "source-backed specialization foundation",
+                "specialization_id": null
+            }
+        },
+        "taxonomy": {
+            "subject_id": "technology-and-livelihood-education",
+            "domain_id": "tle-information-and-communication-technology",
+            "topic_id": "tle-ict-digital-productivity",
+            "concept_id": "secondary-tle-information-and-communication-technology"
+        },
+        "let_specialization_id": null,
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch630"
+    },
+    {
+        "id": "let-zero-pool-tle-ia-foundation",
+        "title": "LET IA: Materials, Drawing, Tools, Electricity, and Fabrication Safety",
+        "summary": "Bounded IA foundation for material/process selection, technical drawing, safe tools and machines, electrical basics, construction, mechanics, and fabrication.",
+        "notes": [
+            [
+                "Scope",
+                "PRC names IA as one BTLEd choice; hazardous machinery procedures are limited to teacher-relevant principles, inspection, controls, and escalation."
+            ],
+            [
+                "Design and making",
+                "Read the plan, select material and process, measure, make, inspect, and revise against function and tolerance."
+            ],
+            [
+                "Safety",
+                "Check guarding, PPE, work holding, ventilation, de-energized condition, learner competence, and stop-work authority."
+            ],
+            [
+                "Assessment",
+                "Value safe setup, dimensional reasoning, process evidence, function, finish, and documentation."
+            ]
+        ],
+        "source_ids": [
+            "prc-lept-alignment-guidance-2025",
+            "prc-resolution-20-2025",
+            "ched-cmo-78-btled-2017",
+            "deped-epp-tle-curriculum-guide",
+            "deped-tle-competency-portal",
+            "deped-grade10-tle-curriculum-portal",
+            "tesda-training-regulations-index"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "high",
+                "rationale": "Source-backed foundation for the current LET specialization component; it does not predict exact item counts.",
+                "official_scope_status": "source-backed specialization foundation",
+                "specialization_id": null
+            }
+        },
+        "taxonomy": {
+            "subject_id": "technology-and-livelihood-education",
+            "domain_id": "tle-industrial-arts",
+            "topic_id": "tle-ia-materials-and-processes",
+            "concept_id": "secondary-tle-industrial-arts"
+        },
+        "let_specialization_id": null,
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch630"
+    },
+    {
+        "id": "let-zero-pool-tvted-foundation",
+        "title": "LET TVTEd: Introductory Courses and Common Competencies",
+        "summary": "TVTEd foundation restricted to the PRC-described introductory/common competency boundary, with TESDA standards used as a competency reference rather than a certification proxy.",
+        "notes": [
+            [
+                "Scope",
+                "PRC distinguishes BTVTEd/TVTEd from the four BTLEd areas and describes the subject as introductory courses and common competencies."
+            ],
+            [
+                "Competency-based teaching",
+                "Make outcomes, conditions, standards, evidence, practice, feedback, and reassessment explicit."
+            ],
+            [
+                "Workplace safety",
+                "Teach hazard controls, PPE, safe sequence, stop-work authority, reporting, and supervision."
+            ],
+            [
+                "Industry alignment",
+                "Check current occupational relevance and standards without importing an unverified trade-specific qualification."
+            ]
+        ],
+        "source_ids": [
+            "prc-lept-alignment-guidance-2025",
+            "prc-resolution-20-2025",
+            "ched-cmo-79-btvted-2017",
+            "tesda-competency-standards",
+            "tesda-training-regulations-index",
+            "deped-epp-tle-curriculum-guide",
+            "deped-ppst-do-42-2017"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "high",
+                "rationale": "Source-backed foundation for the current LET specialization component; it does not predict exact item counts.",
+                "official_scope_status": "source-backed specialization foundation",
+                "specialization_id": null
+            }
+        },
+        "taxonomy": {
+            "subject_id": "technical-vocational-teacher-education",
+            "domain_id": "tvted-common-competencies",
+            "topic_id": "tvted-introductory-vocational-teaching",
+            "concept_id": "secondary-technical-vocational-teacher-education"
+        },
+        "let_specialization_id": null,
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-29",
+        "batch_marker": "batch630"
     }
 ]

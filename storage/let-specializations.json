@@ -53,7 +53,11 @@
         "component": "SPECIALIZATION",
         "official_name": "English",
         "official_code": null,
-        "aliases": ["English", "BSEd Major in English", "Secondary English"],
+        "aliases": [
+            "English",
+            "BSEd Major in English",
+            "Secondary English"
+        ],
         "historical_labels": [],
         "status": "OFFICIAL_ACTIVE",
         "repository_support": "SUPPORTED_PARTIAL",
@@ -68,7 +72,11 @@
         "component": "SPECIALIZATION",
         "official_name": "Filipino",
         "official_code": null,
-        "aliases": ["Filipino", "BSEd Major in Filipino", "Secondary Filipino"],
+        "aliases": [
+            "Filipino",
+            "BSEd Major in Filipino",
+            "Secondary Filipino"
+        ],
         "historical_labels": [],
         "status": "OFFICIAL_ACTIVE",
         "repository_support": "SUPPORTED_PARTIAL",
@@ -83,7 +91,11 @@
         "component": "SPECIALIZATION",
         "official_name": "Mathematics",
         "official_code": null,
-        "aliases": ["Mathematics", "BSEd Major in Mathematics", "Secondary Mathematics"],
+        "aliases": [
+            "Mathematics",
+            "BSEd Major in Mathematics",
+            "Secondary Mathematics"
+        ],
         "historical_labels": [],
         "status": "OFFICIAL_ACTIVE",
         "repository_support": "SUPPORTED_PARTIAL",
@@ -98,7 +110,11 @@
         "component": "SPECIALIZATION",
         "official_name": "Science",
         "official_code": null,
-        "aliases": ["Science", "BSEd Major in Science", "Secondary Science"],
+        "aliases": [
+            "Science",
+            "BSEd Major in Science",
+            "Secondary Science"
+        ],
         "historical_labels": [],
         "status": "OFFICIAL_ACTIVE",
         "repository_support": "SUPPORTED_PARTIAL",
@@ -113,7 +129,11 @@
         "component": "SPECIALIZATION",
         "official_name": "Social Studies",
         "official_code": null,
-        "aliases": ["Social Studies", "BSEd Major in Social Studies", "Secondary Social Studies"],
+        "aliases": [
+            "Social Studies",
+            "BSEd Major in Social Studies",
+            "Secondary Social Studies"
+        ],
         "historical_labels": [],
         "status": "OFFICIAL_ACTIVE",
         "repository_support": "SUPPORTED_PARTIAL",
@@ -128,7 +148,11 @@
         "component": "SPECIALIZATION",
         "official_name": "Values Education",
         "official_code": null,
-        "aliases": ["Values Education", "BSEd Major in Values Education", "Secondary Values Education"],
+        "aliases": [
+            "Values Education",
+            "BSEd Major in Values Education",
+            "Secondary Values Education"
+        ],
         "historical_labels": [],
         "status": "OFFICIAL_ACTIVE",
         "repository_support": "MODEL_READY_CONTENT_MISSING",
@@ -143,15 +167,36 @@
         "component": "SPECIALIZATION",
         "official_name": "Physical Education",
         "official_code": null,
-        "aliases": ["Physical Education", "PE", "BPEd", "Bachelor of Physical Education"],
+        "aliases": [
+            "Physical Education",
+            "PE",
+            "BPEd",
+            "Bachelor of Physical Education"
+        ],
         "historical_labels": [],
-        "transition_notes": ["Historical MAPEH candidates may choose PE under the transition rule."],
+        "transition_notes": [
+            "Historical MAPEH candidates may choose PE under the transition rule."
+        ],
         "status": "OFFICIAL_ACTIVE",
-        "repository_support": "EVIDENCE_BLOCKED",
-        "taxonomy_readiness": "NO_EVIDENCE",
+        "repository_support": "SUPPORTED_READY",
+        "taxonomy_readiness": "READY_AFTER_TAXONOMY_WORK",
         "eligibility_notes": "Current BPEd candidates take PE specialization. Historical MAPEH candidates may choose PE or CAE; MAPEH is intentionally not a unique alias.",
         "scope_source": "prc-resolution-20-2025",
-        "tos_available": true
+        "tos_available": true,
+        "batch630_evidence": {
+            "status": "SUPPORTED_READY",
+            "confidence": "HIGH",
+            "bounded_scope": "Physical Education",
+            "source_ids": [
+                "prc-lept-alignment-guidance-2025",
+                "prc-resolution-20-2025",
+                "ched-cmo-80-bped-2017",
+                "deped-pe-curriculum-guide",
+                "deped-ppst-do-42-2017"
+            ],
+            "study_material_id": "let-zero-pool-pe-foundation",
+            "reviewed_at": "2026-09-29"
+        }
     },
     {
         "id": "secondary-culture-and-arts-education",
@@ -159,15 +204,37 @@
         "component": "SPECIALIZATION",
         "official_name": "Culture and Arts Education",
         "official_code": null,
-        "aliases": ["Culture and Arts Education", "CAE", "BCAEd", "Bachelor of Culture and Arts Education"],
+        "aliases": [
+            "Culture and Arts Education",
+            "CAE",
+            "BCAEd",
+            "Bachelor of Culture and Arts Education"
+        ],
         "historical_labels": [],
-        "transition_notes": ["Historical MAPEH candidates may choose CAE under the transition rule."],
+        "transition_notes": [
+            "Historical MAPEH candidates may choose CAE under the transition rule."
+        ],
         "status": "OFFICIAL_ACTIVE",
-        "repository_support": "EVIDENCE_BLOCKED",
-        "taxonomy_readiness": "NO_EVIDENCE",
+        "repository_support": "SUPPORTED_READY",
+        "taxonomy_readiness": "READY_AFTER_TAXONOMY_WORK",
         "eligibility_notes": "Current BCAEd candidates take CAE specialization. Historical MAPEH candidates may choose PE or CAE; MAPEH is intentionally not a unique alias.",
         "scope_source": "prc-resolution-20-2025",
-        "tos_available": true
+        "tos_available": true,
+        "batch630_evidence": {
+            "status": "SUPPORTED_READY",
+            "confidence": "HIGH",
+            "bounded_scope": "Culture and Arts Education",
+            "source_ids": [
+                "prc-lept-alignment-guidance-2025",
+                "prc-resolution-20-2025",
+                "ched-2017-teacher-education-psg-index",
+                "deped-arts-curriculum-guide-2020",
+                "ncca-culture-arts-foundation",
+                "deped-ppst-do-42-2017"
+            ],
+            "study_material_id": "let-zero-pool-cae-foundation",
+            "reviewed_at": "2026-09-29"
+        }
     },
     {
         "id": "secondary-tle-agriculture-and-fishery-arts",
@@ -175,15 +242,38 @@
         "component": "SPECIALIZATION",
         "official_name": "Agriculture and Fishery Arts",
         "official_code": null,
-        "aliases": ["Agriculture and Fishery Arts", "AFA", "TLEd - Agriculture and Fishery Arts"],
+        "aliases": [
+            "Agriculture and Fishery Arts",
+            "AFA",
+            "TLEd - Agriculture and Fishery Arts"
+        ],
         "historical_labels": [],
-        "transition_notes": ["Historical BTLEd candidates choose one TLE area under the transition rule."],
+        "transition_notes": [
+            "Historical BTLEd candidates choose one TLE area under the transition rule."
+        ],
         "status": "OFFICIAL_ACTIVE",
-        "repository_support": "EVIDENCE_BLOCKED",
-        "taxonomy_readiness": "NO_EVIDENCE",
+        "repository_support": "SUPPORTED_READY",
+        "taxonomy_readiness": "READY_AFTER_TAXONOMY_WORK",
         "eligibility_notes": "One of the four current TLE specialization subjects. BTLEd is a qualification/transition label, not a unique specialization identity.",
         "scope_source": "prc-resolution-20-2025",
-        "tos_available": true
+        "tos_available": true,
+        "batch630_evidence": {
+            "status": "SUPPORTED_READY",
+            "confidence": "HIGH",
+            "bounded_scope": "BTLEd one selected AFA specialization",
+            "source_ids": [
+                "prc-lept-alignment-guidance-2025",
+                "prc-resolution-20-2025",
+                "ched-cmo-78-btled-2017",
+                "deped-epp-tle-curriculum-guide",
+                "deped-tle-competency-portal",
+                "deped-grade10-tle-curriculum-portal",
+                "tesda-training-regulations-index",
+                "tesda-agricultural-crops-production-tr"
+            ],
+            "study_material_id": "let-zero-pool-tle-afa-foundation",
+            "reviewed_at": "2026-09-29"
+        }
     },
     {
         "id": "secondary-tle-home-economics",
@@ -191,15 +281,38 @@
         "component": "SPECIALIZATION",
         "official_name": "Home Economics",
         "official_code": null,
-        "aliases": ["Home Economics", "HE", "TLEd - Home Economics"],
+        "aliases": [
+            "Home Economics",
+            "HE",
+            "TLEd - Home Economics"
+        ],
         "historical_labels": [],
-        "transition_notes": ["Historical BTLEd candidates choose one TLE area under the transition rule."],
+        "transition_notes": [
+            "Historical BTLEd candidates choose one TLE area under the transition rule."
+        ],
         "status": "OFFICIAL_ACTIVE",
-        "repository_support": "EVIDENCE_BLOCKED",
-        "taxonomy_readiness": "NO_EVIDENCE",
+        "repository_support": "SUPPORTED_READY",
+        "taxonomy_readiness": "READY_AFTER_TAXONOMY_WORK",
         "eligibility_notes": "One of the four current TLE specialization subjects. BTLEd is a qualification/transition label, not a unique specialization identity.",
         "scope_source": "prc-resolution-20-2025",
-        "tos_available": true
+        "tos_available": true,
+        "batch630_evidence": {
+            "status": "SUPPORTED_READY",
+            "confidence": "HIGH",
+            "bounded_scope": "BTLEd one selected HE specialization",
+            "source_ids": [
+                "prc-lept-alignment-guidance-2025",
+                "prc-resolution-20-2025",
+                "ched-cmo-78-btled-2017",
+                "deped-epp-tle-curriculum-guide",
+                "deped-tle-competency-portal",
+                "deped-grade10-tle-curriculum-portal",
+                "tesda-training-regulations-index",
+                "tesda-food-production-tr-2024"
+            ],
+            "study_material_id": "let-zero-pool-tle-he-foundation",
+            "reviewed_at": "2026-09-29"
+        }
     },
     {
         "id": "secondary-tle-information-and-communication-technology",
@@ -207,15 +320,38 @@
         "component": "SPECIALIZATION",
         "official_name": "Information and Communication Technology",
         "official_code": null,
-        "aliases": ["Information and Communication Technology", "ICT", "TLEd - ICT"],
+        "aliases": [
+            "Information and Communication Technology",
+            "ICT",
+            "TLEd - ICT"
+        ],
         "historical_labels": [],
-        "transition_notes": ["Historical BTLEd candidates choose one TLE area under the transition rule."],
+        "transition_notes": [
+            "Historical BTLEd candidates choose one TLE area under the transition rule."
+        ],
         "status": "OFFICIAL_ACTIVE",
-        "repository_support": "EVIDENCE_BLOCKED",
-        "taxonomy_readiness": "NO_EVIDENCE",
+        "repository_support": "SUPPORTED_READY",
+        "taxonomy_readiness": "READY_AFTER_TAXONOMY_WORK",
         "eligibility_notes": "One of the four current TLE specialization subjects. BTLEd is a qualification/transition label, not a unique specialization identity.",
         "scope_source": "prc-resolution-20-2025",
-        "tos_available": true
+        "tos_available": true,
+        "batch630_evidence": {
+            "status": "SUPPORTED_READY",
+            "confidence": "HIGH",
+            "bounded_scope": "BTLEd one selected ICT specialization",
+            "source_ids": [
+                "prc-lept-alignment-guidance-2025",
+                "prc-resolution-20-2025",
+                "ched-cmo-78-btled-2017",
+                "deped-epp-tle-curriculum-guide",
+                "deped-tle-competency-portal",
+                "deped-grade10-tle-curriculum-portal",
+                "tesda-training-regulations-index",
+                "tesda-animation-nc2-tr"
+            ],
+            "study_material_id": "let-zero-pool-tle-ict-foundation",
+            "reviewed_at": "2026-09-29"
+        }
     },
     {
         "id": "secondary-tle-industrial-arts",
@@ -223,15 +359,37 @@
         "component": "SPECIALIZATION",
         "official_name": "Industrial Arts",
         "official_code": null,
-        "aliases": ["Industrial Arts", "IA", "TLEd - Industrial Arts"],
+        "aliases": [
+            "Industrial Arts",
+            "IA",
+            "TLEd - Industrial Arts"
+        ],
         "historical_labels": [],
-        "transition_notes": ["Historical BTLEd candidates choose one TLE area under the transition rule."],
+        "transition_notes": [
+            "Historical BTLEd candidates choose one TLE area under the transition rule."
+        ],
         "status": "OFFICIAL_ACTIVE",
-        "repository_support": "EVIDENCE_BLOCKED",
-        "taxonomy_readiness": "NO_EVIDENCE",
+        "repository_support": "SUPPORTED_READY",
+        "taxonomy_readiness": "READY_AFTER_TAXONOMY_WORK",
         "eligibility_notes": "One of the four current TLE specialization subjects. BTLEd is a qualification/transition label, not a unique specialization identity.",
         "scope_source": "prc-resolution-20-2025",
-        "tos_available": true
+        "tos_available": true,
+        "batch630_evidence": {
+            "status": "SUPPORTED_READY",
+            "confidence": "HIGH",
+            "bounded_scope": "BTLEd one selected IA specialization",
+            "source_ids": [
+                "prc-lept-alignment-guidance-2025",
+                "prc-resolution-20-2025",
+                "ched-cmo-78-btled-2017",
+                "deped-epp-tle-curriculum-guide",
+                "deped-tle-competency-portal",
+                "deped-grade10-tle-curriculum-portal",
+                "tesda-training-regulations-index"
+            ],
+            "study_material_id": "let-zero-pool-tle-ia-foundation",
+            "reviewed_at": "2026-09-29"
+        }
     },
     {
         "id": "secondary-technical-vocational-teacher-education",
@@ -239,13 +397,34 @@
         "component": "SPECIALIZATION",
         "official_name": "Technical-Vocational Teacher Education",
         "official_code": null,
-        "aliases": ["Technical-Vocational Teacher Education", "TVTEd", "BTVTEd", "Tech. - Vocational Teacher Ed."],
+        "aliases": [
+            "Technical-Vocational Teacher Education",
+            "TVTEd",
+            "BTVTEd",
+            "Tech. - Vocational Teacher Ed."
+        ],
         "historical_labels": [],
         "status": "OFFICIAL_ACTIVE",
-        "repository_support": "EVIDENCE_BLOCKED",
-        "taxonomy_readiness": "NO_EVIDENCE",
+        "repository_support": "SUPPORTED_READY",
+        "taxonomy_readiness": "READY_AFTER_TAXONOMY_WORK",
         "eligibility_notes": "Current BTVTEd path focused on introductory courses and common competencies; it is distinct from the four TLE areas.",
         "scope_source": "prc-resolution-20-2025",
-        "tos_available": true
+        "tos_available": true,
+        "batch630_evidence": {
+            "status": "SUPPORTED_READY",
+            "confidence": "MEDIUM",
+            "bounded_scope": "BTVTEd introductory courses and common competencies",
+            "source_ids": [
+                "prc-lept-alignment-guidance-2025",
+                "prc-resolution-20-2025",
+                "ched-cmo-79-btvted-2017",
+                "tesda-competency-standards",
+                "tesda-training-regulations-index",
+                "deped-epp-tle-curriculum-guide",
+                "deped-ppst-do-42-2017"
+            ],
+            "study_material_id": "let-zero-pool-tvted-foundation",
+            "reviewed_at": "2026-09-29"
+        }
     }
 ]

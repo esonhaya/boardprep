@@ -72,12 +72,16 @@ final class QuestionEligibilityService
                 if ($subjectId === '' && $isCanonicalBoard) {
                     $subjectId = self::scalarString($taxonomy['subject_id'] ?? $question['subject_id'] ?? '');
                 }
-                $mappings[$boardId] = self::editorMapping(
+                $mapping = self::editorMapping(
                     $boardId,
                     $subjectId,
                     $placement,
                     $isCanonicalBoard ? $taxonomy : []
                 );
+                if ($boardId === 'let' && is_array($override['variant_placements']['let'] ?? null)) {
+                    $mapping['variant_placements'] = $override['variant_placements']['let'];
+                }
+                $mappings[$boardId] = $mapping;
             }
         }
 
@@ -594,11 +598,13 @@ final class QuestionEligibilityService
                         'exam_ids' => array_values($override['exam_ids'] ?? []),
                         'subject_ids' => is_array($override['subject_ids'] ?? null) ? $override['subject_ids'] : [],
                         'placements' => is_array($override['placements'] ?? null) ? $override['placements'] : [],
+                        'variant_placements' => is_array($override['variant_placements'] ?? null) ? $override['variant_placements'] : [],
                     ];
                 }
                 return [
                     'exam_ids' => array_values($entry['exam_ids'] ?? []),
                     'subject_ids' => is_array($entry['subject_ids'] ?? null) ? $entry['subject_ids'] : [],
+                    'variant_placements' => is_array($entry['variant_placements'] ?? null) ? $entry['variant_placements'] : [],
                 ];
             }
         }
@@ -626,6 +632,9 @@ final class QuestionEligibilityService
                 if (is_array($metadata['placements'] ?? null)) {
                     $record['question_mappings'][$id]['placements'] = $metadata['placements'];
                 }
+                if (is_array($metadata['variant_placements'] ?? null)) {
+                    $record['question_mappings'][$id]['variant_placements'] = $metadata['variant_placements'];
+                }
                 App::storage()->replace('question-eligibility', $records);
                 return;
             }
@@ -640,6 +649,7 @@ final class QuestionEligibilityService
             'exam_ids' => $examIds,
             'subject_ids' => is_array($metadata['subject_ids'] ?? null) ? $metadata['subject_ids'] : [],
             'placements' => is_array($metadata['placements'] ?? null) ? $metadata['placements'] : [],
+            'variant_placements' => is_array($metadata['variant_placements'] ?? null) ? $metadata['variant_placements'] : [],
         ];
         App::storage()->replace('question-eligibility', $records);
     }
@@ -680,6 +690,9 @@ final class QuestionEligibilityService
                     'exam_id' => $exam,
                     'subject_id' => self::resolvedSubject($question, $exam, (string) ($placement['subject_id'] ?? $subjects[$exam] ?? $entry['subject_id'] ?? '')),
                     'placement' => $placement,
+                    'variant_placements' => is_array($override['variant_placements'] ?? null)
+                        ? $override['variant_placements']
+                        : (is_array($entry['variant_placements'] ?? null) ? $entry['variant_placements'] : []),
                 ];
             }
         }

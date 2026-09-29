@@ -4273,5 +4273,838 @@
                 "Apply the principle to a new classroom or subject scenario."
             ]
         }
+    },
+    {
+        "id": "pe-movement-foundations",
+        "domain_id": "pe-movement-and-fitness",
+        "code": "ATIONS",
+        "name": "Movement literacy",
+        "description": "Movement literacy connects body awareness, space, effort, relationships, and adaptable control.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "pe-fitness-and-wellness",
+        "domain_id": "pe-movement-and-fitness",
+        "code": "LLNESS",
+        "name": "Fitness programming and progression",
+        "description": "A fitness program uses an appropriate starting point, frequency, intensity, time, type, progression, and recovery for the learner and goal.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "pe-safety-and-inclusion",
+        "domain_id": "pe-movement-and-fitness",
+        "code": "LUSION",
+        "name": "PE assessment and inclusion",
+        "description": "PE assessment should use valid criteria, provide access, and preserve the intended movement or fitness construct.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "pe-games-and-sports",
+        "domain_id": "pe-movement-and-fitness",
+        "code": "SPORTS",
+        "name": "Sports skills and tactics",
+        "description": "Sports learning joins technical execution with perception, decision-making, rules, teamwork, and fair play.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "pe-rhythms-and-dance",
+        "domain_id": "pe-movement-and-fitness",
+        "code": "DDANCE",
+        "name": "Rhythm and dance",
+        "description": "Rhythm and dance learning combines timing, expressive movement, cultural context, creativity, and respectful participation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "cae-art-elements-and-principles",
+        "domain_id": "cae-arts-and-culture",
+        "code": "CIPLES",
+        "name": "Arts elements and principles",
+        "description": "Arts interpretation and production use observable elements and principles such as line, color, form, space, rhythm, balance, contrast, and emphasis.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "cae-philippine-arts-and-heritage",
+        "domain_id": "cae-arts-and-culture",
+        "code": "RITAGE",
+        "name": "Philippine arts and heritage",
+        "description": "Philippine arts education connects artistic forms with place, history, community, cultural meaning, and respectful stewardship.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "cae-creative-process",
+        "domain_id": "cae-arts-and-culture",
+        "code": "ROCESS",
+        "name": "Creative process",
+        "description": "A creative process moves through inquiry, exploration, iteration, reflection, and revision rather than treating the first idea as final.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "cae-media-and-performance",
+        "domain_id": "cae-arts-and-culture",
+        "code": "RMANCE",
+        "name": "Media and performance",
+        "description": "Media and performance choices should serve artistic intent, audience, context, technical control, and ethical presentation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "cae-arts-pedagogy",
+        "domain_id": "cae-arts-and-culture",
+        "code": "DAGOGY",
+        "name": "Arts pedagogy",
+        "description": "Arts pedagogy balances direct instruction, inquiry, making, critique, inclusion, and learner agency around a clear competency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "cae-arts-assessment",
+        "domain_id": "cae-arts-and-culture",
+        "code": "SSMENT",
+        "name": "Arts assessment",
+        "description": "Arts assessment makes criteria, process evidence, interpretation, craft, communication, and reflection visible without reducing art to one aesthetic.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "cae-cultural-literacy",
+        "domain_id": "cae-arts-and-culture",
+        "code": "TERACY",
+        "name": "Cultural literacy and dialogue",
+        "description": "Cultural literacy requires contextual knowledge, humility, multiple perspectives, and careful distinction between observation and interpretation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "cae-arts-ethics-and-inclusion",
+        "domain_id": "cae-arts-and-culture",
+        "code": "LUSION",
+        "name": "Arts ethics and inclusion",
+        "description": "Ethical arts education protects dignity, attribution, consent, accessibility, and fair participation in creative work.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-occupational-safety",
+        "domain_id": "tle-shared-foundations",
+        "code": "SAFETY",
+        "name": "Occupational safety",
+        "description": "TLE safety begins with hazard identification, appropriate controls, correct PPE, orderly work, and stopping when conditions become unsafe.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-measurement-and-quality",
+        "domain_id": "tle-shared-foundations",
+        "code": "UALITY",
+        "name": "Measurement and quality",
+        "description": "TLE measurement links a suitable instrument, unit, reference, tolerance, recording method, and quality decision.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-design-process",
+        "domain_id": "tle-shared-foundations",
+        "code": "ROCESS",
+        "name": "Design and process reasoning",
+        "description": "TLE design moves from a need or constraint through planning, making, testing, feedback, and revision.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-resource-and-entrepreneurship",
+        "domain_id": "tle-shared-foundations",
+        "code": "URSHIP",
+        "name": "Resource use and entrepreneurship",
+        "description": "TLE livelihood decisions consider need, resources, cost, value, sustainability, quality, and ethical exchange.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-technology-literacy",
+        "domain_id": "tle-shared-foundations",
+        "code": "TERACY",
+        "name": "Technology literacy",
+        "description": "Technology literacy connects tools and systems to human purposes, constraints, safety, maintenance, and informed choice.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-afa-crop-production",
+        "domain_id": "tle-agriculture-and-fishery-arts",
+        "code": "UCTION",
+        "name": "Crop production principles",
+        "description": "AFA crop production joins site assessment, suitable planting material, cultural practices, monitoring, and safe harvesting.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-afa-soil-and-water",
+        "domain_id": "tle-agriculture-and-fishery-arts",
+        "code": "DWATER",
+        "name": "Soil and water management",
+        "description": "AFA soil and water management uses observation, conservation, suitable timing, and avoidance of practices that degrade the production environment.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-afa-animal-and-fish-production",
+        "domain_id": "tle-agriculture-and-fishery-arts",
+        "code": "UCTION",
+        "name": "Animal and fish production principles",
+        "description": "Animal and fish production requires appropriate housing or culture conditions, observation, nutrition, biosecurity, welfare, and responsible handling.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-afa-postharvest-and-food-safety",
+        "domain_id": "tle-agriculture-and-fishery-arts",
+        "code": "SAFETY",
+        "name": "Postharvest and food safety",
+        "description": "Postharvest practice protects quality through clean handling, suitable storage, separation of hazards, traceability, and timely corrective action.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-afa-sustainable-agriculture",
+        "domain_id": "tle-agriculture-and-fishery-arts",
+        "code": "ULTURE",
+        "name": "Sustainable agriculture and fishery",
+        "description": "Sustainable AFA practice balances productivity with soil, water, biodiversity, waste, livelihood, and community conditions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-he-food-preparation-and-safety",
+        "domain_id": "tle-home-economics",
+        "code": "SAFETY",
+        "name": "Food preparation and safety",
+        "description": "Home Economics food work combines hygiene, cross-contamination control, process sequence, appropriate heat, nutrition awareness, and safe service.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-he-textiles-and-apparel",
+        "domain_id": "tle-home-economics",
+        "code": "PPAREL",
+        "name": "Textiles and apparel",
+        "description": "Textiles and apparel competencies connect fiber or fabric properties, design, measurement, construction sequence, care, and safe tool use.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-he-household-resource-management",
+        "domain_id": "tle-home-economics",
+        "code": "GEMENT",
+        "name": "Household resource management",
+        "description": "Household management uses planning, prioritization, conservation, time, labor, and safe routines to meet identified needs.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-he-consumer-and-family-decisions",
+        "domain_id": "tle-home-economics",
+        "code": "ISIONS",
+        "name": "Consumer and family decision-making",
+        "description": "Consumer and family decisions weigh needs, information, rights, costs, quality, relationships, and long-term consequences.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-he-livelihood-and-home-industry",
+        "domain_id": "tle-home-economics",
+        "code": "DUSTRY",
+        "name": "Home-industry and livelihood",
+        "description": "Home-industry planning links product or service quality, market need, resources, costing, safety, and ethical livelihood practice.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-ict-digital-productivity",
+        "domain_id": "tle-information-and-communication-technology",
+        "code": "TIVITY",
+        "name": "Digital productivity",
+        "description": "Digital productivity uses appropriate tools, file organization, accurate communication, collaboration, and protection of work products.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-ict-computer-systems",
+        "domain_id": "tle-information-and-communication-technology",
+        "code": "YSTEMS",
+        "name": "Computer systems",
+        "description": "Computer systems work through interacting hardware, software, data, users, and procedures; troubleshooting begins with observable symptoms and safe checks.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-ict-networking",
+        "domain_id": "tle-information-and-communication-technology",
+        "code": "ORKING",
+        "name": "Networking and connectivity",
+        "description": "Networking instruction distinguishes devices, media, addressing, access, reliability, and security while using safe and observable troubleshooting.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-ict-programming-logic",
+        "domain_id": "tle-information-and-communication-technology",
+        "code": "GLOGIC",
+        "name": "Programming and algorithmic thinking",
+        "description": "Programming logic expresses a problem through inputs, sequence, selection, iteration, data, testing, and revision.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-ict-digital-citizenship",
+        "domain_id": "tle-information-and-communication-technology",
+        "code": "ENSHIP",
+        "name": "Digital citizenship and information ethics",
+        "description": "Digital citizenship requires privacy, security, attribution, respectful participation, critical evaluation, and responsible use of information.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-ict-multimedia-and-design",
+        "domain_id": "tle-information-and-communication-technology",
+        "code": "DESIGN",
+        "name": "Multimedia and digital design",
+        "description": "Digital design aligns message, audience, hierarchy, contrast, media choice, accessibility, and ethical use of assets.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-ia-materials-and-processes",
+        "domain_id": "tle-industrial-arts",
+        "code": "CESSES",
+        "name": "Materials and processes",
+        "description": "Industrial Arts selects materials and processes by properties, function, tolerances, sustainability, tools, and safe procedure.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-ia-technical-drawing",
+        "domain_id": "tle-industrial-arts",
+        "code": "RAWING",
+        "name": "Technical drawing and design",
+        "description": "Technical drawing communicates shape, size, relationships, scale, views, symbols, and specifications clearly enough to guide making.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-ia-tools-and-machines-safety",
+        "domain_id": "tle-industrial-arts",
+        "code": "SAFETY",
+        "name": "Tools and machine safety",
+        "description": "Tool and machine safety requires correct selection, inspection, guarding, PPE, work holding, procedure, and stopping authority.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-ia-basic-electricity",
+        "domain_id": "tle-industrial-arts",
+        "code": "RICITY",
+        "name": "Basic electricity and circuits",
+        "description": "Basic electricity instruction uses circuit relationships, measurement, insulation, protection, and de-energized safe work within the learner\u2019s authority.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-ia-carpentry-and-construction",
+        "domain_id": "tle-industrial-arts",
+        "code": "UCTION",
+        "name": "Carpentry and construction principles",
+        "description": "Construction work connects plan, material, measurement, sequence, structural purpose, site condition, and safe practice.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-ia-mechanical-systems",
+        "domain_id": "tle-industrial-arts",
+        "code": "YSTEMS",
+        "name": "Mechanical systems",
+        "description": "Mechanical systems connect force, motion, components, lubrication, alignment, inspection, and safe maintenance decisions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tle-ia-metal-fabrication",
+        "domain_id": "tle-industrial-arts",
+        "code": "CATION",
+        "name": "Metalwork and fabrication",
+        "description": "Metal fabrication requires material identification, layout, process choice, heat or force control, finish, PPE, ventilation, and inspection.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tvted-introductory-vocational-teaching",
+        "domain_id": "tvted-common-competencies",
+        "code": "ACHING",
+        "name": "Introductory vocational teaching",
+        "description": "TVTEd introductory teaching connects an occupational purpose to a clear competency, demonstration, guided practice, and safe learner participation.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tvted-competency-based-training",
+        "domain_id": "tvted-common-competencies",
+        "code": "AINING",
+        "name": "Competency-based training",
+        "description": "Competency-based training defines observable outcomes, conditions, standards, evidence, practice, and feedback.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tvted-workplace-safety",
+        "domain_id": "tvted-common-competencies",
+        "code": "SAFETY",
+        "name": "TVTEd workplace safety",
+        "description": "TVTEd safety instruction makes hazards, controls, PPE, safe sequence, emergency response, and stop-work authority explicit.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tvted-assessment-and-feedback",
+        "domain_id": "tvted-common-competencies",
+        "code": "EDBACK",
+        "name": "TVTEd assessment and feedback",
+        "description": "TVTEd assessment matches evidence to the competency, conditions, standards, and feedback needed for improvement.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tvted-workplace-learning",
+        "domain_id": "tvted-common-competencies",
+        "code": "ARNING",
+        "name": "Workplace learning",
+        "description": "Workplace learning connects school practice to authentic tasks, supervision, ethics, communication, and reflection without pretending that school is an unsupervised job site.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tvted-industry-alignment",
+        "domain_id": "tvted-common-competencies",
+        "code": "GNMENT",
+        "name": "Industry and curriculum alignment",
+        "description": "TVTEd aligns curriculum with current occupational practice while retaining educational purpose, safety, inclusion, and assessable outcomes.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tvted-learning-resources-and-tools",
+        "domain_id": "tvted-common-competencies",
+        "code": "DTOOLS",
+        "name": "Learning resources and tools",
+        "description": "TVTEd resources should be accurate, accessible, maintained, safe, and matched to the competency and learner conditions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
+    },
+    {
+        "id": "tvted-entrepreneurship-and-employability",
+        "domain_id": "tvted-common-competencies",
+        "code": "BILITY",
+        "name": "Entrepreneurship and employability",
+        "description": "TVTEd employability includes technical quality, communication, initiative, ethical conduct, resource decisions, and realistic opportunity analysis.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the controlling principle.",
+                "Apply the principle to a new subject or classroom situation."
+            ]
+        }
     }
 ]
