@@ -6,11 +6,13 @@
         "authority": "Republic of the Philippines; text reproduced by The Lawphil Project",
         "url": "https://lawphil.net/consti/cons1987.html",
         "publication_date": "1987-02-02",
-        "retrieved_at": "2026-08-31",
+        "retrieved_at": "2026-09-29",
         "version": "1987 text",
         "status": "verified_reference",
         "confidence": "authoritative_reference",
-        "notes": "BoardPrep summaries are concise study notes and are not a substitute for the full constitutional text."
+        "notes": "BoardPrep summaries are concise study notes and are not a substitute for the full constitutional text.",
+        "source_role": "STATUTORY_SOURCE",
+        "volatility": "STATUTORY_VERSIONED"
     },
     {
         "id": "republic-act-6713",
@@ -19,11 +21,13 @@
         "authority": "Republic of the Philippines; text reproduced by The Lawphil Project",
         "url": "https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html",
         "publication_date": "1989-02-20",
-        "retrieved_at": "2026-08-31",
+        "retrieved_at": "2026-09-29",
         "version": "Republic Act No. 6713",
         "status": "verified_reference",
         "confidence": "authoritative_reference",
-        "notes": "BoardPrep summaries identify review concepts and do not reproduce the statute in full."
+        "notes": "BoardPrep summaries identify review concepts and do not reproduce the statute in full.",
+        "source_role": "STATUTORY_SOURCE",
+        "volatility": "STATUTORY_VERSIONED"
     },
     {
         "id": "boardprep-blueprint-targets",
@@ -112,11 +116,13 @@
         "authority": "United Nations",
         "url": "https://www.un.org/en/about-us/universal-declaration-of-human-rights/",
         "publication_date": "1948-12-10",
-        "retrieved_at": "2026-09-01",
+        "retrieved_at": "2026-09-29",
         "version": "United Nations General Assembly resolution 217 A (III)",
         "status": "verified_reference",
         "confidence": "authoritative_reference",
-        "notes": "BoardPrep uses concise paraphrases of stable rights principles; consult the official text for the complete instrument."
+        "notes": "BoardPrep uses concise paraphrases of stable rights principles; consult the official text for the complete instrument.",
+        "source_role": "STATUTORY_SOURCE",
+        "volatility": "STABLE_FOUNDATIONAL"
     },
     {
         "id": "republic-act-8749",
@@ -125,11 +131,13 @@
         "authority": "Republic of the Philippines; text reproduced by The Lawphil Project",
         "url": "https://lawphil.net/statutes/repacts/ra1999/ra_8749_1999.html",
         "publication_date": "1999-06-23",
-        "retrieved_at": "2026-09-01",
+        "retrieved_at": "2026-09-29",
         "version": "Republic Act No. 8749",
         "status": "verified_reference",
         "confidence": "authoritative_reference",
-        "notes": "BoardPrep paraphrases durable environmental governance principles and does not reproduce the statute in full."
+        "notes": "BoardPrep paraphrases durable environmental governance principles and does not reproduce the statute in full.",
+        "source_role": "STATUTORY_SOURCE",
+        "volatility": "STATUTORY_VERSIONED"
     },
     {
         "id": "republic-act-9003",
@@ -138,11 +146,13 @@
         "authority": "Republic of the Philippines; text reproduced by The Lawphil Project",
         "url": "https://lawphil.net/statutes/repacts/ra2001/ra_9003_2001.html",
         "publication_date": "2001-01-26",
-        "retrieved_at": "2026-09-01",
+        "retrieved_at": "2026-09-29",
         "version": "Republic Act No. 9003",
         "status": "verified_reference",
         "confidence": "authoritative_reference",
-        "notes": "BoardPrep paraphrases ecological solid-waste principles and does not reproduce the statute in full."
+        "notes": "BoardPrep paraphrases ecological solid-waste principles and does not reproduce the statute in full.",
+        "source_role": "STATUTORY_SOURCE",
+        "volatility": "STATUTORY_VERSIONED"
     },
     {
         "id": "prc-civil-engineering-board-page",
@@ -2162,5 +2172,65 @@
         "source_role": "SCIENTIFIC_SOURCE",
         "volatility": "CLINICAL_GUIDANCE",
         "notes": "WHO clinical description and diagnostic-requirement source for cautious classification language, symptom patterns, differential reasoning, and limits of diagnosis."
+    },
+    {
+        "id": "csc-cse-ppt-scope-2026",
+        "title": "CSC Examination Announcement No. 03 s. 2026: 09 August 2026 CSE-PPT Scope",
+        "source_type": "OFFICIAL_EXAM_SPEC",
+        "authority": "Philippine Civil Service Commission",
+        "url": "https://csc.gov.ph/phocadownload/userupload/erpo/announcements/2026/ExamAnn_2026_03_Conduct%20of%2009%20Aug%202026%20CSE-PPT_orig%20signed.pdf",
+        "publication_date": "2026-01-01",
+        "retrieved_at": "2026-09-29",
+        "version": "Examination Announcement No. 03 s. 2026",
+        "status": "verified_reference",
+        "confidence": "authoritative_reference",
+        "source_role": "SCOPE_SOURCE",
+        "volatility": "REGULATORY_CURRENT",
+        "notes": "Current CSC scope: Professional/Subprofessional CSE-PPT; General Information, Verbal Ability, Analytical Ability, Numerical Ability, and Subprofessional Clerical Ability. CSC publishes no section weights in this announcement."
+    },
+    {
+        "id": "purdue-owl-grammar",
+        "title": "Purdue OWL: Grammar and Mechanics",
+        "source_type": "OPEN_TEXTBOOK",
+        "authority": "Purdue Online Writing Lab",
+        "url": "https://owl.purdue.edu/owl/general_writing/grammar/index.html",
+        "publication_date": null,
+        "retrieved_at": "2026-09-29",
+        "version": "Web guidance checked 2026-09-29",
+        "status": "verified_reference",
+        "confidence": "authoritative_instructional_reference",
+        "source_role": "INSTRUCTIONAL_SOURCE",
+        "volatility": "STABLE_FOUNDATIONAL",
+        "notes": "Open instructional reference for grammar, sentence structure, agreement, modifiers, and usage; not a normative CSC scope source."
+    },
+    {
+        "id": "openstax-prealgebra-2e",
+        "title": "Prealgebra 2e",
+        "source_type": "OPEN_TEXTBOOK",
+        "authority": "OpenStax",
+        "url": "https://openstax.org/details/books/prealgebra-2e",
+        "publication_date": "2024-01-01",
+        "retrieved_at": "2026-09-29",
+        "version": "2e web edition checked 2026-09-29",
+        "status": "verified_reference",
+        "confidence": "authoritative_instructional_reference",
+        "source_role": "INSTRUCTIONAL_SOURCE",
+        "volatility": "STABLE_FOUNDATIONAL",
+        "notes": "Open instructional source for arithmetic, fractions, ratios, percentages, and applied quantitative reasoning."
+    },
+    {
+        "id": "openstax-reading-writing",
+        "title": "Writing and Reading Reasoning Instructional Reference",
+        "source_type": "OPEN_TEXTBOOK",
+        "authority": "OpenStax / public instructional reference",
+        "url": "https://openstax.org/subjects",
+        "publication_date": null,
+        "retrieved_at": "2026-09-29",
+        "version": "Instructional index checked 2026-09-29",
+        "status": "verified_reference",
+        "confidence": "authoritative_instructional_reference",
+        "source_role": "INSTRUCTIONAL_SOURCE",
+        "volatility": "STABLE_FOUNDATIONAL",
+        "notes": "Open instructional support for reading, evidence, and clear written reasoning; specific current scope remains the CSC source above."
     }
 ]

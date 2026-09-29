@@ -166,9 +166,20 @@
         "label": "BoardPrep coverage targets; not official CSC weighting.",
         "source_id": "csc-cse-scope-2026",
         "source_version": "2026 examination announcements",
-        "official_structure": "Verbal, analytical, and numerical ability are recorded as official scope areas; general information is retained as BoardPrep study context.",
+        "official_structure": "CSC 2026 CSE-PPT: Professional = General Information, Verbal Ability, Analytical Ability, Numerical Ability; Subprofessional adds Clerical Ability. CSC publishes no section weights in Announcement No. 03 s. 2026.",
         "official_weights": null,
-        "internal_targets": true
+        "internal_targets": true,
+        "official_scope_areas": [
+            "General Information",
+            "Verbal Ability",
+            "Analytical Ability",
+            "Numerical Ability",
+            "Clerical Ability"
+        ],
+        "official_scope_source_id": "csc-cse-ppt-scope-2026",
+        "official_scope_version": "Examination Announcement No. 03 s. 2026",
+        "future_effective_change": "NONE_LOCATED",
+        "batch627_reviewed_at": "2026-09-29"
     },
     {
         "id": "criminologist-boardprep-coverage-v1",

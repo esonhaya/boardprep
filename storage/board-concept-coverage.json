@@ -203,7 +203,7 @@
         "domain_id": "",
         "topic_id": "",
         "blueprint_node_id": "verbal-ability",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -212,10 +212,17 @@
                 "reference": "question:5",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH627_COVERAGE_REVIEW",
+                "reference": "batch627-cse-let-comparison",
+                "note": "Residual CSE verbal coverage row reviewed and assigned conservatively.",
+                "verified_status": "VERIFIED",
+                "confidence": "MEDIUM"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Current CSC verbal scope, existing linked study material, and stable grammar/reading evidence support application depth 3; no professional depth is inferred.",
+        "confidence": "MEDIUM"
     },
     {
         "id": "coverage-2eb650cdd016572d4da3dbce2623cec3d76c08a6ca5a2621c1aeb599eb1676ea",
@@ -305,7 +312,7 @@
         "domain_id": "",
         "topic_id": "",
         "blueprint_node_id": "verbal-ability",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -314,10 +321,17 @@
                 "reference": "question:7",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH627_COVERAGE_REVIEW",
+                "reference": "batch627-cse-let-comparison",
+                "note": "Residual CSE verbal coverage row reviewed and assigned conservatively.",
+                "verified_status": "VERIFIED",
+                "confidence": "MEDIUM"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Current CSC verbal scope, existing linked study material, and stable grammar/reading evidence support application depth 3; no professional depth is inferred.",
+        "confidence": "MEDIUM"
     },
     {
         "id": "coverage-4df36a15f49448dbc2b47edab6f4a59d8424ccf4cccd241325e8aaab93fb74f0",
@@ -349,7 +363,7 @@
         "domain_id": "",
         "topic_id": "",
         "blueprint_node_id": "verbal-ability",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -358,10 +372,17 @@
                 "reference": "question:9",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH627_COVERAGE_REVIEW",
+                "reference": "batch627-cse-let-comparison",
+                "note": "Residual CSE verbal coverage row reviewed and assigned conservatively.",
+                "verified_status": "VERIFIED",
+                "confidence": "MEDIUM"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Current CSC verbal scope, existing linked study material, and stable grammar/reading evidence support application depth 3; no professional depth is inferred.",
+        "confidence": "MEDIUM"
     },
     {
         "id": "coverage-280fc13e8bdd8f2456e6981131c83a733b2c2f7d6eb963c88c2a3022a802cc55",
@@ -1423,7 +1444,7 @@
         "domain_id": "",
         "topic_id": "",
         "blueprint_node_id": "verbal-ability",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -1432,10 +1453,17 @@
                 "reference": "question:84",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH627_COVERAGE_REVIEW",
+                "reference": "batch627-cse-let-comparison",
+                "note": "Residual CSE verbal coverage row reviewed and assigned conservatively.",
+                "verified_status": "VERIFIED",
+                "confidence": "MEDIUM"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Current CSC verbal scope, existing linked study material, and stable grammar/reading evidence support application depth 3; no professional depth is inferred.",
+        "confidence": "MEDIUM"
     },
     {
         "id": "coverage-449063bd4649a80137915dec10e5ffa282b18ec224677a69c2d55f3feba1f9bf",
@@ -1525,7 +1553,7 @@
         "domain_id": "",
         "topic_id": "",
         "blueprint_node_id": "verbal-ability",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -1534,10 +1562,17 @@
                 "reference": "question:86",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH627_COVERAGE_REVIEW",
+                "reference": "batch627-cse-let-comparison",
+                "note": "Residual CSE verbal coverage row reviewed and assigned conservatively.",
+                "verified_status": "VERIFIED",
+                "confidence": "MEDIUM"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Current CSC verbal scope, existing linked study material, and stable grammar/reading evidence support application depth 3; no professional depth is inferred.",
+        "confidence": "MEDIUM"
     },
     {
         "id": "coverage-21c2d1be587790eeda994a5b61fb521507751b04cfcdc3819761905e33c9688f",
@@ -1569,7 +1604,7 @@
         "domain_id": "",
         "topic_id": "",
         "blueprint_node_id": "verbal-ability",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -1578,10 +1613,17 @@
                 "reference": "question:88",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH627_COVERAGE_REVIEW",
+                "reference": "batch627-cse-let-comparison",
+                "note": "Residual CSE verbal coverage row reviewed and assigned conservatively.",
+                "verified_status": "VERIFIED",
+                "confidence": "MEDIUM"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Current CSC verbal scope, existing linked study material, and stable grammar/reading evidence support application depth 3; no professional depth is inferred.",
+        "confidence": "MEDIUM"
     },
     {
         "id": "coverage-3a8080d82cc54f21c6a37bc8f494f7a5aa74123f3752018bb8e813abf38237ba",
@@ -9243,7 +9285,7 @@
         "domain_id": "",
         "topic_id": "",
         "blueprint_node_id": "verbal-ability",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -9252,10 +9294,17 @@
                 "reference": "question:2036",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH627_COVERAGE_REVIEW",
+                "reference": "batch627-cse-let-comparison",
+                "note": "Residual CSE verbal coverage row reviewed and assigned conservatively.",
+                "verified_status": "VERIFIED",
+                "confidence": "MEDIUM"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Current CSC verbal scope, existing linked study material, and stable grammar/reading evidence support application depth 3; no professional depth is inferred.",
+        "confidence": "MEDIUM"
     },
     {
         "id": "coverage-fe680e45359ad0c09fca4ac1f1ee32c70d04d8dd2a182b953496357129e49c08",
@@ -9461,7 +9510,7 @@
         "domain_id": "",
         "topic_id": "",
         "blueprint_node_id": "verbal-ability",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -9470,10 +9519,17 @@
                 "reference": "question:2045",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH627_COVERAGE_REVIEW",
+                "reference": "batch627-cse-let-comparison",
+                "note": "Residual CSE verbal coverage row reviewed and assigned conservatively.",
+                "verified_status": "VERIFIED",
+                "confidence": "MEDIUM"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Current CSC verbal scope, existing linked study material, and stable grammar/reading evidence support application depth 3; no professional depth is inferred.",
+        "confidence": "MEDIUM"
     },
     {
         "id": "coverage-10489a320405d8ba317b8943a5156ea557cf88c9e399bc674521d44f42872777",
@@ -9853,7 +9909,7 @@
         "domain_id": "",
         "topic_id": "",
         "blueprint_node_id": "verbal-ability",
-        "max_depth": "UNKNOWN",
+        "max_depth": 3,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -9862,10 +9918,17 @@
                 "reference": "question:2068",
                 "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH627_COVERAGE_REVIEW",
+                "reference": "batch627-cse-let-comparison",
+                "note": "Residual CSE verbal coverage row reviewed and assigned conservatively.",
+                "verified_status": "VERIFIED",
+                "confidence": "MEDIUM"
             }
         ],
-        "evidence": "Existing direct question eligibility",
-        "confidence": "HIGH_FOR_DIRECT_MAPPING"
+        "evidence": "Current CSC verbal scope, existing linked study material, and stable grammar/reading evidence support application depth 3; no professional depth is inferred.",
+        "confidence": "MEDIUM"
     },
     {
         "id": "coverage-9c31eea15ec2a8a4c3d34700170d9ca4c4014c0a9614fbfb7b6897e2683c21de",
@@ -12528,6 +12591,765 @@
             }
         ],
         "evidence": "Current six-area PRC scope, concept taxonomy, explicit source-backed study material, and depth-calibrated question plan.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-contextual-inference",
+        "board_id": "civil-service",
+        "concept_id": "cse-contextual-inference",
+        "subject_id": "verbal-ability",
+        "domain_id": "cse-reading-comprehension-domain",
+        "topic_id": "cse-reading-comprehension-topic",
+        "blueprint_node_id": "verbal-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-paragraph-cohesion",
+        "board_id": "civil-service",
+        "concept_id": "cse-paragraph-cohesion",
+        "subject_id": "verbal-ability",
+        "domain_id": "cse-reading-comprehension-domain",
+        "topic_id": "cse-reading-comprehension-topic",
+        "blueprint_node_id": "verbal-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-grammar-application",
+        "board_id": "civil-service",
+        "concept_id": "cse-grammar-application",
+        "subject_id": "verbal-ability",
+        "domain_id": "grammar-and-usage",
+        "topic_id": "grammar-and-usage",
+        "blueprint_node_id": "verbal-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-pronoun-reference",
+        "board_id": "civil-service",
+        "concept_id": "cse-pronoun-reference",
+        "subject_id": "verbal-ability",
+        "domain_id": "grammar-and-usage",
+        "topic_id": "grammar-and-usage",
+        "blueprint_node_id": "verbal-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-modifier-placement",
+        "board_id": "civil-service",
+        "concept_id": "cse-modifier-placement",
+        "subject_id": "verbal-ability",
+        "domain_id": "grammar-and-usage",
+        "topic_id": "grammar-and-usage",
+        "blueprint_node_id": "verbal-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-parallel-structure",
+        "board_id": "civil-service",
+        "concept_id": "cse-parallel-structure",
+        "subject_id": "verbal-ability",
+        "domain_id": "grammar-and-usage",
+        "topic_id": "grammar-and-usage",
+        "blueprint_node_id": "verbal-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-filipino-word-usage",
+        "board_id": "civil-service",
+        "concept_id": "cse-filipino-word-usage",
+        "subject_id": "verbal-ability",
+        "domain_id": "vocabulary-and-word-meaning",
+        "topic_id": "vocabulary-and-word-meaning",
+        "blueprint_node_id": "verbal-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-percentages",
+        "board_id": "civil-service",
+        "concept_id": "cse-percentages",
+        "subject_id": "numerical-ability",
+        "domain_id": "arithmetic",
+        "topic_id": "arithmetic",
+        "blueprint_node_id": "numerical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-ratios-proportions",
+        "board_id": "civil-service",
+        "concept_id": "cse-ratios-proportions",
+        "subject_id": "numerical-ability",
+        "domain_id": "arithmetic",
+        "topic_id": "arithmetic",
+        "blueprint_node_id": "numerical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-averages",
+        "board_id": "civil-service",
+        "concept_id": "cse-averages",
+        "subject_id": "numerical-ability",
+        "domain_id": "arithmetic",
+        "topic_id": "arithmetic",
+        "blueprint_node_id": "numerical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-rates-work",
+        "board_id": "civil-service",
+        "concept_id": "cse-rates-work",
+        "subject_id": "numerical-ability",
+        "domain_id": "quantitative-reasoning",
+        "topic_id": "quantitative-reasoning",
+        "blueprint_node_id": "numerical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-fractions-decimals",
+        "board_id": "civil-service",
+        "concept_id": "cse-fractions-decimals",
+        "subject_id": "numerical-ability",
+        "domain_id": "arithmetic",
+        "topic_id": "arithmetic",
+        "blueprint_node_id": "numerical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-quantitative-comparison",
+        "board_id": "civil-service",
+        "concept_id": "cse-quantitative-comparison",
+        "subject_id": "numerical-ability",
+        "domain_id": "data-interpretation",
+        "topic_id": "data-interpretation",
+        "blueprint_node_id": "numerical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-government-functions",
+        "board_id": "civil-service",
+        "concept_id": "cse-government-functions",
+        "subject_id": "general-information",
+        "domain_id": "philippine-government",
+        "topic_id": "cse-constitutional-civics",
+        "blueprint_node_id": "general-information",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-bill-of-rights",
+        "board_id": "civil-service",
+        "concept_id": "cse-bill-of-rights",
+        "subject_id": "general-information",
+        "domain_id": "philippine-government",
+        "topic_id": "cse-constitutional-civics",
+        "blueprint_node_id": "general-information",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-public-accountability",
+        "board_id": "civil-service",
+        "concept_id": "cse-public-accountability",
+        "subject_id": "general-information",
+        "domain_id": "public-service-awareness",
+        "topic_id": "cse-public-service-ethics",
+        "blueprint_node_id": "general-information",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-conflict-of-interest",
+        "board_id": "civil-service",
+        "concept_id": "cse-conflict-of-interest",
+        "subject_id": "general-information",
+        "domain_id": "public-service-awareness",
+        "topic_id": "cse-public-service-ethics",
+        "blueprint_node_id": "general-information",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-human-rights-dignity",
+        "board_id": "civil-service",
+        "concept_id": "cse-human-rights-dignity",
+        "subject_id": "general-information",
+        "domain_id": "philippine-government",
+        "topic_id": "cse-constitutional-civics",
+        "blueprint_node_id": "general-information",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-environmental-stewardship",
+        "board_id": "civil-service",
+        "concept_id": "cse-environmental-stewardship",
+        "subject_id": "general-information",
+        "domain_id": "cse-environmental-awareness",
+        "topic_id": "cse-environmental-stewardship",
+        "blueprint_node_id": "general-information",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-public-interest",
+        "board_id": "civil-service",
+        "concept_id": "cse-public-interest",
+        "subject_id": "general-information",
+        "domain_id": "public-service-awareness",
+        "topic_id": "cse-public-service-ethics",
+        "blueprint_node_id": "general-information",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-civic-participation",
+        "board_id": "civil-service",
+        "concept_id": "cse-civic-participation",
+        "subject_id": "general-information",
+        "domain_id": "philippine-government",
+        "topic_id": "cse-constitutional-civics",
+        "blueprint_node_id": "general-information",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-logical-conditions",
+        "board_id": "civil-service",
+        "concept_id": "cse-logical-conditions",
+        "subject_id": "analytical-logical",
+        "domain_id": "analytical-reasoning",
+        "topic_id": "analytical-assumptions",
+        "blueprint_node_id": "analytical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-syllogistic-reasoning",
+        "board_id": "civil-service",
+        "concept_id": "cse-syllogistic-reasoning",
+        "subject_id": "analytical-logical",
+        "domain_id": "analytical-reasoning",
+        "topic_id": "analytical-assumptions",
+        "blueprint_node_id": "analytical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-sequence-inference",
+        "board_id": "civil-service",
+        "concept_id": "cse-sequence-inference",
+        "subject_id": "analytical-logical",
+        "domain_id": "logical-sequences",
+        "topic_id": "analytical-sequences",
+        "blueprint_node_id": "analytical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-data-trends",
+        "board_id": "civil-service",
+        "concept_id": "cse-data-trends",
+        "subject_id": "analytical-logical",
+        "domain_id": "quantitative-relationships",
+        "topic_id": "analytical-data",
+        "blueprint_node_id": "analytical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-evidence-strength",
+        "board_id": "civil-service",
+        "concept_id": "cse-evidence-strength",
+        "subject_id": "analytical-logical",
+        "domain_id": "analytical-reasoning",
+        "topic_id": "analytical-assumptions",
+        "blueprint_node_id": "analytical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-abstract-transformations",
+        "board_id": "civil-service",
+        "concept_id": "cse-abstract-transformations",
+        "subject_id": "analytical-logical",
+        "domain_id": "analytical-reasoning",
+        "topic_id": "analytical-analogy",
+        "blueprint_node_id": "analytical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-conditional-logic",
+        "board_id": "civil-service",
+        "concept_id": "cse-conditional-logic",
+        "subject_id": "analytical-logical",
+        "domain_id": "analytical-reasoning",
+        "topic_id": "analytical-assumptions",
+        "blueprint_node_id": "analytical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-filing-system-selection",
+        "board_id": "civil-service",
+        "concept_id": "cse-filing-system-selection",
+        "subject_id": "clerical-ability",
+        "domain_id": "filing-and-alphabetizing",
+        "topic_id": "filing-and-alphabetizing",
+        "blueprint_node_id": "clerical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-alphabetical-order",
+        "board_id": "civil-service",
+        "concept_id": "cse-alphabetical-order",
+        "subject_id": "clerical-ability",
+        "domain_id": "filing-and-alphabetizing",
+        "topic_id": "filing-and-alphabetizing",
+        "blueprint_node_id": "clerical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-record-comparison",
+        "board_id": "civil-service",
+        "concept_id": "cse-record-comparison",
+        "subject_id": "clerical-ability",
+        "domain_id": "filing-and-alphabetizing",
+        "topic_id": "filing-and-alphabetizing",
+        "blueprint_node_id": "clerical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-proofreading",
+        "board_id": "civil-service",
+        "concept_id": "cse-proofreading",
+        "subject_id": "clerical-ability",
+        "domain_id": "spelling-and-word-forms",
+        "topic_id": "spelling-and-word-forms",
+        "blueprint_node_id": "clerical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b627-cse-cse-document-control",
+        "board_id": "civil-service",
+        "concept_id": "cse-document-control",
+        "subject_id": "clerical-ability",
+        "domain_id": "filing-and-alphabetizing",
+        "topic_id": "filing-and-alphabetizing",
+        "blueprint_node_id": "clerical-ability",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH627_COVERAGE_EVIDENCE",
+                "reference": "batch627-cse-modernization",
+                "note": "Current CSC scope, dedicated CSE study material, and authoritative source chain support this board-concept row.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "Current CSC 2026 scope plus area-specific BoardPrep study and authoritative source chain.",
         "confidence": "HIGH"
     }
 ]

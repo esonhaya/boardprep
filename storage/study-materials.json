@@ -1,28 +1,29 @@
 [
     {
         "id": "constitution-review-foundation",
-        "title": "1987 Philippine Constitution: Review Foundation",
-        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for 1987 philippine constitution: review foundation.",
+        "title": "CSE General Information: Civic, Ethical, Rights, and Environmental Decisions",
+        "summary": "Current-source study material for CSE General Information application.",
         "notes": [
             [
-                "Principles and state policies",
-                "Read constitutional principles as frameworks for evaluating public action, rights, social justice, and accountability rather than as isolated slogans."
+                "Scope",
+                "The current CSC announcement names the Philippine Constitution, RA 6713, peace and human-rights issues and concepts, and environment management and protection."
             ],
             [
-                "Rights and due process",
-                "Distinguish liberty, equal protection, due process, and safeguards against unreasonable government action; apply the principle to the facts supplied."
+                "Application",
+                "Read the facts first, identify the controlling principle or duty, and avoid importing a rule not supplied by the source or scenario."
             ],
             [
-                "Government structure",
-                "Separate legislative, executive, and judicial functions and use checks and balances to explain institutional decisions."
-            ],
-            [
-                "Evidence and civic judgment",
-                "Compare claims with records, identify affected rights and interests, and avoid treating an attractive outcome as proof of legality."
+                "Currentness",
+                "Constitutional, statutory, and environmental answers use the linked authoritative text and verification date; stable civic principles are not made artificially time-sensitive."
             ]
         ],
         "source_ids": [
-            "1987-philippine-constitution"
+            "1987-philippine-constitution",
+            "csc-cse-ppt-scope-2026",
+            "republic-act-6713",
+            "universal-declaration-human-rights",
+            "republic-act-8749",
+            "republic-act-9003"
         ],
         "exams": [
             "let",
@@ -62,14 +63,14 @@
             }
         },
         "taxonomy": {
-            "subject_id": "social-studies",
-            "domain_id": "government-and-civics",
-            "topic_id": "social-civics",
-            "concept_id": "social-civics-public-good"
+            "subject_id": "general-information",
+            "domain_id": "philippine-government",
+            "topic_id": "cse-constitutional-civics",
+            "concept_id": "cse-public-accountability"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 12,
+        "updated_at": "2026-09-29"
     },
     {
         "id": "ra-6713-review-foundation",
@@ -1383,26 +1384,39 @@
     },
     {
         "id": "cse-verbal-foundation",
-        "title": "CSE Verbal Ability Practice Foundation",
-        "summary": "Contextual vocabulary, grammar, organization, and evidence-based reading practice.",
+        "title": "CSE Verbal Ability: Evidence, Grammar, and Reading Application",
+        "summary": "Application-focused CSE study material for the current verbal scope.",
         "notes": [
-            {
-                "heading": "Core skills",
-                "body": "Study meaning in context, sentence relationships, paragraph logic, and conclusions supported by a passage."
-            }
+            [
+                "Scope",
+                "Use the current CSC verbal scope: word meaning, sentence completion, error recognition, sentence structure, paragraph organization, and reading comprehension in English and Filipino."
+            ],
+            [
+                "Reasoning",
+                "For each item identify the grammatical or textual evidence before choosing an answer; distinguish a supported inference from an attractive overclaim."
+            ],
+            [
+                "Derivation",
+                "Practice agreement, tense, modifiers, pronoun reference, parallel structure, paragraph cohesion, and short public-service passages without turning the notes into answer keys."
+            ]
         ],
         "source_ids": [
-            "csc-cse-scope-2026"
+            "csc-cse-ppt-scope-2026",
+            "purdue-owl-grammar",
+            "openstax-reading-writing"
         ],
         "exams": [
             "civil-service"
         ],
         "taxonomy": {
-            "subject_id": "verbal-ability"
+            "subject_id": "verbal-ability",
+            "domain_id": "grammar-and-usage",
+            "topic_id": "cse-reading-comprehension-topic",
+            "concept_id": "cse-contextual-inference"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01",
+        "version": 11,
+        "updated_at": "2026-09-29",
         "exam_focus": {
             "civil-service-professional": {
                 "priority": "high",
@@ -1416,26 +1430,39 @@
     },
     {
         "id": "cse-numerical-foundation",
-        "title": "CSE Numerical Ability Practice Foundation",
-        "summary": "Practical arithmetic, sequences, ratios, percentages, and quantitative reasoning.",
+        "title": "CSE Numerical Ability: Operations, Rates, and Quantitative Interpretation",
+        "summary": "Reasoning-first quantitative study material for the current CSE numerical scope.",
         "notes": [
-            {
-                "heading": "Core skills",
-                "body": "Translate quantities into operations, check units, and test whether an answer is reasonable."
-            }
+            [
+                "Scope",
+                "Use the current CSC numerical scope: basic operations, number sequence, and word problems."
+            ],
+            [
+                "Method",
+                "Name the whole, part, unit, and operation before calculating; distinguish a numerical context from a required calculation."
+            ],
+            [
+                "Verification",
+                "Recompute independently, preserve units, check magnitude, and reject answers produced by reversing a ratio or confusing a total with an average."
+            ]
         ],
         "source_ids": [
-            "csc-cse-scope-2026"
+            "csc-cse-ppt-scope-2026",
+            "openstax-prealgebra-2e",
+            "openstax-introductory-statistics-2e"
         ],
         "exams": [
             "civil-service"
         ],
         "taxonomy": {
-            "subject_id": "numerical-ability"
+            "subject_id": "numerical-ability",
+            "domain_id": "arithmetic",
+            "topic_id": "quantitative-reasoning",
+            "concept_id": "cse-percentages"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01",
+        "version": 11,
+        "updated_at": "2026-09-29",
         "exam_focus": {
             "civil-service-professional": {
                 "priority": "high",
@@ -1449,26 +1476,38 @@
     },
     {
         "id": "cse-analytical-foundation",
-        "title": "CSE Analytical Ability Practice Foundation",
-        "summary": "Analogy, sequence, assumption, conclusion, and data interpretation practice.",
+        "title": "CSE Analytical Ability: Logic, Assumptions, Sequences, and Data",
+        "summary": "Structured reasoning material for the current CSE analytical scope.",
         "notes": [
-            {
-                "heading": "Core skills",
-                "body": "Separate stated facts from assumptions, identify relationships, and infer only what supplied evidence supports."
-            }
+            [
+                "Scope",
+                "Use the current CSC analytical scope: word analogy, symbolic logic and abstract reasoning, assumptions and conclusions, and data interpretation."
+            ],
+            [
+                "Method",
+                "Translate the stated relationship before selecting; separate necessary from sufficient conditions and observation from causal conclusion."
+            ],
+            [
+                "Data discipline",
+                "Read denominators, trends, comparison groups, and missing context before treating a table or sequence as proof."
+            ]
         ],
         "source_ids": [
-            "csc-cse-scope-2026"
+            "csc-cse-ppt-scope-2026",
+            "openstax-introductory-statistics-2e"
         ],
         "exams": [
             "civil-service"
         ],
         "taxonomy": {
-            "subject_id": "analytical-logical"
+            "subject_id": "analytical-logical",
+            "domain_id": "analytical-reasoning",
+            "topic_id": "analytical-assumptions",
+            "concept_id": "cse-evidence-strength"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01",
+        "version": 11,
+        "updated_at": "2026-09-29",
         "exam_focus": {
             "civil-service-professional": {
                 "priority": "high",
@@ -1482,34 +1521,48 @@
     },
     {
         "id": "cse-clerical-foundation",
-        "title": "CSE Subprofessional Clerical Ability Foundation",
-        "summary": "Filing and spelling practice for accurate records work.",
+        "title": "CSE Clerical Ability: Filing, Spelling, and Record Control",
+        "summary": "Subprofessional-focused clerical accuracy and record-control study material.",
         "notes": [
-            {
-                "heading": "Core skills",
-                "body": "Compare complete identifiers carefully and apply standard spelling in official records."
-            }
+            [
+                "Scope",
+                "The current CSC announcement names filing and spelling for the Subprofessional examination."
+            ],
+            [
+                "Filing",
+                "Use the stated primary and secondary keys, compare every field, and preserve a traceable transfer location rather than relying on memory or folder color."
+            ],
+            [
+                "Proofreading",
+                "Compare letters, digits, dates, status, and agreement deliberately; a near match is not an exact match."
+            ]
         ],
         "source_ids": [
-            "csc-cse-scope-2026"
+            "csc-cse-ppt-scope-2026",
+            "purdue-owl-grammar"
         ],
         "exams": [
             "civil-service"
         ],
         "taxonomy": {
-            "subject_id": "clerical-ability"
+            "subject_id": "clerical-ability",
+            "domain_id": "filing-and-alphabetizing",
+            "topic_id": "filing-and-alphabetizing",
+            "concept_id": "cse-filing-system-selection"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01",
+        "version": 11,
+        "updated_at": "2026-09-29",
         "exam_focus": {
-            "civil-service-professional": {
+            "civil-service": {
                 "priority": "high",
-                "official_scope_status": "official scope reference; internal study organization"
-            },
-            "civil-service-subprofessional": {
-                "priority": "high",
-                "official_scope_status": "official scope reference; internal study organization"
+                "official_scope_status": "current Subprofessional scope; not a prediction",
+                "focus_topics": [
+                    "filing",
+                    "spelling",
+                    "record comparison",
+                    "document control"
+                ]
             }
         }
     },
