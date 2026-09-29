@@ -3035,12 +3035,28 @@
         "summary": "Structured Psychometrician review aligned with the registered PRC foundation source.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Use concepts, interpretation, ethics, and applied reasoning rather than memorizing proprietary test content."
+                "heading": "Scope and purpose",
+                "body": "Psychological assessment integrates a referral question, appropriate methods, standardized administration, scored evidence, collateral information, and a bounded interpretation. A test score is evidence for an inference, not a diagnosis or a complete description of a person."
+            },
+            {
+                "heading": "Choosing evidence",
+                "body": "Match the construct, population, language, setting, and decision stakes to the instrument. Review reliability, validity, norms, utility, fairness, security, and the examiner's competence before administration."
+            },
+            {
+                "heading": "Interpretation and communication",
+                "body": "Interpret scores with the relevant norm group and measurement error, integrate converging information, state limitations, and communicate results in understandable language. Do not generalize beyond the purpose and evidence."
+            },
+            {
+                "heading": "Common mistakes",
+                "body": "A high reliability coefficient does not prove validity; a percentile is not percent correct; correlation is not causation; and a convenient translated or obsolete test is not automatically appropriate."
             }
         ],
         "source_ids": [
-            "prc-psychometrician-enhanced-tos-2023"
+            "prc-psychometrician-enhanced-tos-2023",
+            "aera-apa-ncme-testing-standards-2014",
+            "apa-psychological-assessment-guidelines-2020",
+            "openstax-psychology-2e",
+            "lawphil-ra10029"
         ],
         "exams": [
             "psychometrician"
@@ -3055,21 +3071,36 @@
             "subject_id": "psychology-foundations"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29"
     },
     {
         "id": "ple-487--eliability-and-easurement-rror",
-        "title": "Reliability and Measurement Error",
+        "title": "Reliability, Measurement Error, and Score Precision",
         "summary": "Structured Psychometrician review aligned with the registered PRC foundation source.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Use concepts, interpretation, ethics, and applied reasoning rather than memorizing proprietary test content."
+                "heading": "Core principle",
+                "body": "Reliability concerns consistency of scores under specified conditions. Error may arise from time, items, raters, administration, scoring, or other sources; the relevant estimate depends on the intended use."
+            },
+            {
+                "heading": "Evidence and interpretation",
+                "body": "Use test-retest, internal consistency, inter-rater, and generalizability evidence for the question at hand. Reliability is necessary for defensible interpretation but does not establish construct, criterion, or content validity."
+            },
+            {
+                "heading": "Standard error",
+                "body": "The standard error of measurement describes expected score imprecision around an observed score under a specified model. It is not a probability that a diagnosis is correct and should not be reported without the relevant assumptions."
+            },
+            {
+                "heading": "Application",
+                "body": "For high-stakes or individual decisions, consider score precision, confidence bands, subgroup evidence, and consequences of misclassification rather than relying on a single coefficient."
             }
         ],
         "source_ids": [
-            "prc-psychometrician-enhanced-tos-2023"
+            "prc-psychometrician-enhanced-tos-2023",
+            "aera-apa-ncme-testing-standards-2014",
+            "openstax-introductory-statistics-2e",
+            "openstax-psychology-2e"
         ],
         "exams": [
             "psychometrician"
@@ -3084,21 +3115,37 @@
             "subject_id": "psychology-foundations"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29"
     },
     {
         "id": "ple-487--alidity-and-est-se",
-        "title": "Validity and Test Use",
+        "title": "Validity, Test Use, and Fair Inference",
         "summary": "Structured Psychometrician review aligned with the registered PRC foundation source.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Use concepts, interpretation, ethics, and applied reasoning rather than memorizing proprietary test content."
+                "heading": "Validity as an inference",
+                "body": "Validity is the degree to which evidence and theory support the interpretation and use of scores for a stated purpose and population. It is not a permanent label attached to a test in every context."
+            },
+            {
+                "heading": "Evidence types",
+                "body": "Content, response-process, internal-structure, relations-to-other-variables, and consequences evidence answer different questions. Converging evidence supports an interpretation; none should be treated as a universal shortcut."
+            },
+            {
+                "heading": "Fairness and adaptation",
+                "body": "Check language, culture, accessibility, differential item functioning, measurement invariance, norm relevance, and consequences before interpreting group differences. Translation alone does not establish equivalence."
+            },
+            {
+                "heading": "Decision discipline",
+                "body": "State what the evidence supports, what remains uncertain, and whether the instrument is suitable for the referral question. Avoid causal, diagnostic, or selection claims that exceed the validation evidence."
             }
         ],
         "source_ids": [
-            "prc-psychometrician-enhanced-tos-2023"
+            "prc-psychometrician-enhanced-tos-2023",
+            "aera-apa-ncme-testing-standards-2014",
+            "apa-psychological-assessment-guidelines-2020",
+            "itc-test-adaptation-guidelines-2017",
+            "openstax-introductory-statistics-2e"
         ],
         "exams": [
             "psychometrician"
@@ -3113,21 +3160,36 @@
             "subject_id": "psychology-foundations"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29"
     },
     {
         "id": "ple-487--orms-and-core-nterpretation",
-        "title": "Norms and Score Interpretation",
+        "title": "Norms, Scores, and Core Interpretation",
         "summary": "Structured Psychometrician review aligned with the registered PRC foundation source.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Use concepts, interpretation, ethics, and applied reasoning rather than memorizing proprietary test content."
+                "heading": "Norm-referenced meaning",
+                "body": "Percentile ranks and standardized scores describe relative standing within a specified norm group. They are not percentages correct, probabilities of a condition, or guarantees of future performance."
+            },
+            {
+                "heading": "Criterion and norm references",
+                "body": "Criterion-referenced decisions compare performance with a defined standard; norm-referenced decisions compare with a relevant reference group. The interpretation follows the stated purpose."
+            },
+            {
+                "heading": "Uncertainty and context",
+                "body": "Use standard error, confidence bands, base rates, validity evidence, and collateral data where the decision requires them. Explain the score in the language, age, culture, and setting for which the evidence applies."
+            },
+            {
+                "heading": "Common mistakes",
+                "body": "Do not equate a z score with a diagnosis, interpret an outdated norm as current, or use one score as a complete account of ability, personality, functioning, or job fit."
             }
         ],
         "source_ids": [
-            "prc-psychometrician-enhanced-tos-2023"
+            "prc-psychometrician-enhanced-tos-2023",
+            "aera-apa-ncme-testing-standards-2014",
+            "openstax-introductory-statistics-2e",
+            "openstax-psychology-2e"
         ],
         "exams": [
             "psychometrician"
@@ -3142,21 +3204,36 @@
             "subject_id": "psychology-foundations"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29"
     },
     {
         "id": "ple-487--thical-ssessment-ractice",
-        "title": "Ethical Assessment Practice",
+        "title": "Ethical and Legally Bounded Assessment Practice",
         "summary": "Structured Psychometrician review aligned with the registered PRC foundation source.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Use concepts, interpretation, ethics, and applied reasoning rather than memorizing proprietary test content."
+                "heading": "Professional role",
+                "body": "Assessment practice requires competence, an appropriate professional relationship, understandable information, respect for privacy, secure test materials, and supervision or referral when the task exceeds the psychometrician's authorized role."
+            },
+            {
+                "heading": "Consent and communication",
+                "body": "Explain purpose, procedures, foreseeable limits, use of results, and relevant choices in understandable language. Distinguish informed consent from mere completion of a form or release authorization."
+            },
+            {
+                "heading": "Confidentiality and security",
+                "body": "Protect identifiable results and test materials, release information only through an appropriate authorization or legal basis, and preserve records according to applicable professional and Philippine requirements."
+            },
+            {
+                "heading": "Sources and limits",
+                "body": "RA 10029 supplies Philippine statutory scope and supervision requirements; professional standards and ethics guidance support assessment conduct. Never infer a legal permission from a foreign guideline alone."
             }
         ],
         "source_ids": [
-            "prc-psychometrician-enhanced-tos-2023"
+            "prc-psychometrician-enhanced-tos-2023",
+            "lawphil-ra10029",
+            "apa-ethics-code-2017",
+            "apa-psychological-assessment-guidelines-2020"
         ],
         "exams": [
             "psychometrician"
@@ -3171,8 +3248,8 @@
             "subject_id": "psychology-foundations"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29"
     },
     {
         "id": "ple-487--ifespan-evelopment",
@@ -3180,12 +3257,26 @@
         "summary": "Structured Psychometrician review aligned with the registered PRC foundation source.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Use concepts, interpretation, ethics, and applied reasoning rather than memorizing proprietary test content."
+                "heading": "Developmental reasoning",
+                "body": "Development reflects interacting biological, cognitive, emotional, social, cultural, and environmental processes. A developmental trend is not a fixed label and variation within an age group matters."
+            },
+            {
+                "heading": "Designs and evidence",
+                "body": "Cross-sectional, longitudinal, sequential, and cohort designs answer different questions. Separate age, period, and cohort effects and do not infer individual change from a one-time group comparison."
+            },
+            {
+                "heading": "Contexts and culture",
+                "body": "Interpret developmental behavior in the person's language, culture, family, school, work, and historical setting. Avoid treating one culturally specific milestone or norm as universal."
+            },
+            {
+                "heading": "Application",
+                "body": "Use theory as a framework for organizing evidence, not as a substitute for observation. Identify the information needed before making an assessment or educational recommendation."
             }
         ],
         "source_ids": [
-            "prc-psychometrician-enhanced-tos-2023"
+            "prc-psychometrician-enhanced-tos-2023",
+            "openstax-psychology-2e",
+            "aera-apa-ncme-testing-standards-2014"
         ],
         "exams": [
             "psychometrician"
@@ -3200,21 +3291,35 @@
             "subject_id": "psychology-foundations"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29"
     },
     {
         "id": "ple-487--ognitive-and-ocial-evelopment",
-        "title": "Cognitive and Social Development",
+        "title": "Cognitive, Social, and Cultural Development",
         "summary": "Structured Psychometrician review aligned with the registered PRC foundation source.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Use concepts, interpretation, ethics, and applied reasoning rather than memorizing proprietary test content."
+                "heading": "Theory use",
+                "body": "Piaget, Vygotsky, Erikson, attachment, identity, social learning, and ecological perspectives emphasize different mechanisms and levels of explanation. Compare their predictions rather than treating one theory as a complete account."
+            },
+            {
+                "heading": "Evidence and limits",
+                "body": "A behavior may reflect maturation, practice, language, social support, culture, or context. State the evidence and avoid diagnosing a developmental process from a single observation."
+            },
+            {
+                "heading": "Assessment implications",
+                "body": "Use age- and language-appropriate methods, relevant norms, accessible instructions, and collateral information. A score difference may reflect the assessment conditions rather than a stable developmental trait."
+            },
+            {
+                "heading": "Respectful practice",
+                "body": "Treat development as dynamic and diverse. Do not use stage labels to stereotype a person, lower expectations without evidence, or ignore environmental supports and barriers."
             }
         ],
         "source_ids": [
-            "prc-psychometrician-enhanced-tos-2023"
+            "prc-psychometrician-enhanced-tos-2023",
+            "openstax-psychology-2e",
+            "itc-test-adaptation-guidelines-2017"
         ],
         "exams": [
             "psychometrician"
@@ -3229,8 +3334,8 @@
             "subject_id": "psychology-foundations"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29"
     },
     {
         "id": "ple-487--bnormal-sychology-oundations",
@@ -3238,12 +3343,28 @@
         "summary": "Structured Psychometrician review aligned with the registered PRC foundation source.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Use concepts, interpretation, ethics, and applied reasoning rather than memorizing proprietary test content."
+                "heading": "Classification principle",
+                "body": "A mental or behavioral condition is not established by an unusual behavior alone. Consider clinically significant disturbance, distress or impairment, developmental and cultural context, duration, differential explanations, and the limits of the available information."
+            },
+            {
+                "heading": "Classification sources",
+                "body": "Use the applicable classification system and current clinical descriptions carefully. ICD-11 CDDR supports standardized descriptions; it does not turn a brief examination vignette into a complete clinical evaluation."
+            },
+            {
+                "heading": "Differential reasoning",
+                "body": "Compare competing explanations, look for missing criteria and exclusion information, and use assessment or referral when the evidence is insufficient. Avoid overconfident labels from one symptom."
+            },
+            {
+                "heading": "Professional boundaries",
+                "body": "Psychometricians may administer and score authorized objective instruments and prepare reports under the supervision required by Philippine law. Diagnosis and higher-level interpretation must remain within the appropriate professional role."
             }
         ],
         "source_ids": [
-            "prc-psychometrician-enhanced-tos-2023"
+            "prc-psychometrician-enhanced-tos-2023",
+            "who-icd11-cddr-2024",
+            "openstax-psychology-2e",
+            "lawphil-ra10029",
+            "apa-ethics-code-2017"
         ],
         "exams": [
             "psychometrician"
@@ -3258,21 +3379,36 @@
             "subject_id": "psychology-foundations"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29"
     },
     {
         "id": "ple-487--ymptom-atterns-and-unctioning",
-        "title": "Symptom Patterns and Functioning",
+        "title": "Symptom Patterns, Functioning, and Context",
         "summary": "Structured Psychometrician review aligned with the registered PRC foundation source.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Use concepts, interpretation, ethics, and applied reasoning rather than memorizing proprietary test content."
+                "heading": "Pattern before label",
+                "body": "Interpret symptom clusters, onset, course, severity, context, and functional impact together. A single symptom can occur in several conditions or in ordinary reactions to stress."
+            },
+            {
+                "heading": "Assessment caution",
+                "body": "Consider language, culture, developmental stage, medical or substance factors, safety concerns, and collateral information. State what a screening result can and cannot establish."
+            },
+            {
+                "heading": "Communication",
+                "body": "Use non-stigmatizing language and distinguish observed behavior from inferred diagnosis. When risk or uncertainty exceeds the role, escalate or refer rather than improvise a diagnosis."
+            },
+            {
+                "heading": "Currentness",
+                "body": "Classification guidance can change. For version-sensitive claims, identify the source and edition used and avoid presenting older labels or thresholds as timeless."
             }
         ],
         "source_ids": [
-            "prc-psychometrician-enhanced-tos-2023"
+            "prc-psychometrician-enhanced-tos-2023",
+            "who-icd11-cddr-2024",
+            "openstax-psychology-2e",
+            "apa-psychological-assessment-guidelines-2020"
         ],
         "exams": [
             "psychometrician"
@@ -3287,21 +3423,36 @@
             "subject_id": "psychology-foundations"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29"
     },
     {
         "id": "ple-487--ndustrial-rganizational-oundations",
-        "title": "Industrial Organizational Foundations",
+        "title": "Industrial-Organizational Psychology Foundations",
         "summary": "Structured Psychometrician review aligned with the registered PRC foundation source.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Use concepts, interpretation, ethics, and applied reasoning rather than memorizing proprietary test content."
+                "heading": "Levels of analysis",
+                "body": "I-O psychology examines the relation between people and work, including job requirements, selection, training, performance, motivation, leadership, culture, teams, and human factors. Keep individual, group, and organizational explanations distinct."
+            },
+            {
+                "heading": "Evidence and design",
+                "body": "Define the job or work problem, identify relevant constructs, collect appropriate evidence, and distinguish association from causal impact. A convenient workplace metric is not automatically a valid performance measure."
+            },
+            {
+                "heading": "Workplace interpretation",
+                "body": "Consider role clarity, autonomy, feedback, workload, resources, climate, fairness, and context before attributing outcomes to an individual trait. Use multiple evidence sources for consequential decisions."
+            },
+            {
+                "heading": "Ethical practice",
+                "body": "Selection and assessment decisions should be job-relevant, reliable, valid, fair, secure, understandable, and consistent with applicable law and professional guidance."
             }
         ],
         "source_ids": [
-            "prc-psychometrician-enhanced-tos-2023"
+            "prc-psychometrician-enhanced-tos-2023",
+            "openstax-psychology-2e",
+            "apa-personnel-selection-principles-2018",
+            "aera-apa-ncme-testing-standards-2014"
         ],
         "exams": [
             "psychometrician"
@@ -3316,8 +3467,8 @@
             "subject_id": "psychology-foundations"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29"
     },
     {
         "id": "ple-487--election-and-erformance-ssessment",
@@ -3325,12 +3476,27 @@
         "summary": "Structured Psychometrician review aligned with the registered PRC foundation source.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Use concepts, interpretation, ethics, and applied reasoning rather than memorizing proprietary test content."
+                "heading": "Job analysis first",
+                "body": "Selection evidence should connect a predictor to job-relevant knowledge, skills, abilities, or other characteristics identified through a defensible job analysis. Vague organizational preference is not enough."
+            },
+            {
+                "heading": "Validity and fairness",
+                "body": "Evaluate the intended inference, criterion quality, incremental value, subgroup evidence, accessibility, and consequences. A higher correlation in one sample does not prove universal superiority."
+            },
+            {
+                "heading": "Performance evidence",
+                "body": "Use clear criteria, multiple observations where appropriate, rater training, and records that separate performance from opportunity, resources, and bias. Do not turn one rating into a stable trait claim."
+            },
+            {
+                "heading": "Responsible decisions",
+                "body": "Explain the selection or performance decision, preserve confidentiality and security, and state limitations. Professional guidance informs practice; Philippine law and organizational policy govern local requirements."
             }
         ],
         "source_ids": [
-            "prc-psychometrician-enhanced-tos-2023"
+            "prc-psychometrician-enhanced-tos-2023",
+            "apa-personnel-selection-principles-2018",
+            "aera-apa-ncme-testing-standards-2014",
+            "lawphil-ra10029"
         ],
         "exams": [
             "psychometrician"
@@ -3345,21 +3511,35 @@
             "subject_id": "psychology-foundations"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29"
     },
     {
         "id": "ple-487--otivation-eadership-and-ork-ehavior",
-        "title": "Motivation Leadership and Work Behavior",
+        "title": "Motivation, Leadership, and Work Behavior",
         "summary": "Structured Psychometrician review aligned with the registered PRC foundation source.",
         "notes": [
             {
-                "heading": "Study focus",
-                "body": "Use concepts, interpretation, ethics, and applied reasoning rather than memorizing proprietary test content."
+                "heading": "Motivation",
+                "body": "Interpret motivation through goals, expectancies, values, feedback, autonomy, resources, and perceived fairness. Pay or a slogan alone rarely explains behavior across settings."
+            },
+            {
+                "heading": "Leadership and teams",
+                "body": "Match leadership and team interventions to task demands, structure, expertise, psychological safety, and communication. Distinguish a leader preference from evidence of improved outcomes."
+            },
+            {
+                "heading": "Culture and climate",
+                "body": "Culture concerns shared meanings and norms; climate concerns experienced conditions and perceptions. A survey finding should be interpreted with response bias, sampling, and organizational context in mind."
+            },
+            {
+                "heading": "Application",
+                "body": "A useful workplace recommendation identifies the mechanism, feasible change, evidence to monitor, and possible unintended effects rather than promising a universal solution."
             }
         ],
         "source_ids": [
-            "prc-psychometrician-enhanced-tos-2023"
+            "prc-psychometrician-enhanced-tos-2023",
+            "openstax-psychology-2e",
+            "apa-personnel-selection-principles-2018"
         ],
         "exams": [
             "psychometrician"
@@ -3374,8 +3554,8 @@
             "subject_id": "psychology-foundations"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-09-29"
     },
     {
         "id": "ce-489--tructural-echanics-and-esign",
