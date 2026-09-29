@@ -177,6 +177,7 @@ try {
         'storage/board-subjects.json',
         'storage/boards.json',
         'storage/blueprints.json',
+        'storage/let-specializations.json',
         'storage/exam-intelligence.json',
         'storage/board-concept-coverage.json',
         'storage/concept-equivalence.json',

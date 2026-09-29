@@ -1,0 +1,2337 @@
+{
+    "batch": 628,
+    "title": "LET secondary-specialization model, official crosswalk, and variant-safe eligibility foundation",
+    "generated_at": "2026-09-29",
+    "base_head": "d8d57af4d0d6608dbf51ec5ce915d5e34f007b11",
+    "head_at_audit": "d8d57af4d0d6608dbf51ec5ce915d5e34f007b11",
+    "official_structure": {
+        "current_structure": "PRC/CHED JMC alignment implemented for September 2025 and succeeding LEPT schedules; exam component is distinct from the candidate degree/major.",
+        "effective_date": "September 2025 LEPT and succeeding schedules",
+        "elementary_structure": {
+            "without_specialization": {
+                "GENERAL_EDUCATION": 40,
+                "PROFESSIONAL_EDUCATION": 60
+            },
+            "with_specialization": {
+                "GENERAL_EDUCATION": 20,
+                "PROFESSIONAL_EDUCATION": 40,
+                "SPECIALIZATION": 40
+            }
+        },
+        "secondary_structure": {
+            "GENERAL_EDUCATION": 20,
+            "PROFESSIONAL_EDUCATION": 40,
+            "SPECIALIZATION": 40
+        },
+        "specialization_weight": 40,
+        "official_specializations": [
+            "Early Childhood Education",
+            "Special Needs Education",
+            "English",
+            "Filipino",
+            "Mathematics",
+            "Science",
+            "Social Studies",
+            "Values Education",
+            "Physical Education",
+            "Culture and Arts Education",
+            "Agriculture and Fishery Arts",
+            "Home Economics",
+            "Information and Communication Technology",
+            "Industrial Arts",
+            "Technical-Vocational Teacher Education"
+        ],
+        "specialization_aliases": [
+            {
+                "id": "elementary-early-childhood-education",
+                "aliases": [
+                    "Early Childhood Education",
+                    "ECE",
+                    "BECEd",
+                    "Bachelor of Early Childhood Education"
+                ],
+                "historical_labels": [
+                    "BEEd Major in Early Childhood Education",
+                    "BEEd Major in Pre-school Education",
+                    "Pre-school Education",
+                    "Preschool Education"
+                ]
+            },
+            {
+                "id": "elementary-special-needs-education",
+                "aliases": [
+                    "Special Needs Education",
+                    "SNE",
+                    "BSNEd",
+                    "Bachelor of Special Needs Education"
+                ],
+                "historical_labels": [
+                    "BEEd Major in Special Needs Education",
+                    "BEEd Major in SNE"
+                ]
+            },
+            {
+                "id": "secondary-english",
+                "aliases": [
+                    "English",
+                    "BSEd Major in English",
+                    "Secondary English"
+                ],
+                "historical_labels": []
+            },
+            {
+                "id": "secondary-filipino",
+                "aliases": [
+                    "Filipino",
+                    "BSEd Major in Filipino",
+                    "Secondary Filipino"
+                ],
+                "historical_labels": []
+            },
+            {
+                "id": "secondary-mathematics",
+                "aliases": [
+                    "Mathematics",
+                    "BSEd Major in Mathematics",
+                    "Secondary Mathematics"
+                ],
+                "historical_labels": []
+            },
+            {
+                "id": "secondary-science",
+                "aliases": [
+                    "Science",
+                    "BSEd Major in Science",
+                    "Secondary Science"
+                ],
+                "historical_labels": []
+            },
+            {
+                "id": "secondary-social-studies",
+                "aliases": [
+                    "Social Studies",
+                    "BSEd Major in Social Studies",
+                    "Secondary Social Studies"
+                ],
+                "historical_labels": []
+            },
+            {
+                "id": "secondary-values-education",
+                "aliases": [
+                    "Values Education",
+                    "BSEd Major in Values Education",
+                    "Secondary Values Education"
+                ],
+                "historical_labels": []
+            },
+            {
+                "id": "secondary-physical-education",
+                "aliases": [
+                    "Physical Education",
+                    "PE",
+                    "BPEd",
+                    "Bachelor of Physical Education"
+                ],
+                "historical_labels": []
+            },
+            {
+                "id": "secondary-culture-and-arts-education",
+                "aliases": [
+                    "Culture and Arts Education",
+                    "CAE",
+                    "BCAEd",
+                    "Bachelor of Culture and Arts Education"
+                ],
+                "historical_labels": []
+            },
+            {
+                "id": "secondary-tle-agriculture-and-fishery-arts",
+                "aliases": [
+                    "Agriculture and Fishery Arts",
+                    "AFA",
+                    "TLEd - Agriculture and Fishery Arts"
+                ],
+                "historical_labels": []
+            },
+            {
+                "id": "secondary-tle-home-economics",
+                "aliases": [
+                    "Home Economics",
+                    "HE",
+                    "TLEd - Home Economics"
+                ],
+                "historical_labels": []
+            },
+            {
+                "id": "secondary-tle-information-and-communication-technology",
+                "aliases": [
+                    "Information and Communication Technology",
+                    "ICT",
+                    "TLEd - ICT"
+                ],
+                "historical_labels": []
+            },
+            {
+                "id": "secondary-tle-industrial-arts",
+                "aliases": [
+                    "Industrial Arts",
+                    "IA",
+                    "TLEd - Industrial Arts"
+                ],
+                "historical_labels": []
+            },
+            {
+                "id": "secondary-technical-vocational-teacher-education",
+                "aliases": [
+                    "Technical-Vocational Teacher Education",
+                    "TVTEd",
+                    "BTVTEd",
+                    "Tech. - Vocational Teacher Ed."
+                ],
+                "historical_labels": []
+            }
+        ],
+        "specialization_restrictions": [
+            "Secondary requires exactly one selected specialization; MAPEH is a transition qualification that may choose PE or CAE; BTLEd may choose one TLE area and is not itself a specialization ID."
+        ],
+        "transition_rules": [
+            "Old MAPEH candidates may choose PE or CAE.",
+            "Old BTLEd candidates choose one of AFA, HE, ICT, or IA.",
+            "BTVTEd uses TVTEd introductory/common competencies."
+        ],
+        "official_weights": {
+            "ELEMENTARY_WITHOUT_SPECIALIZATION": {
+                "GENERAL_EDUCATION": 40,
+                "PROFESSIONAL_EDUCATION": 60
+            },
+            "ELEMENTARY_WITH_SPECIALIZATION": {
+                "GENERAL_EDUCATION": 20,
+                "PROFESSIONAL_EDUCATION": 40,
+                "SPECIALIZATION": 40
+            },
+            "SECONDARY": {
+                "GENERAL_EDUCATION": 20,
+                "PROFESSIONAL_EDUCATION": 40,
+                "SPECIALIZATION": 40
+            }
+        },
+        "amendments": [
+            "PRC Resolution No. 11 s. 2025 enhanced TOS; PRC Resolution No. 20 s. 2025 aligned new curriculum specializations; July 2025 PRC guidance describes implementation and transition applicants."
+        ],
+        "future_effective_change": "NONE_LOCATED; subsequent PRC issuances control.",
+        "live_verified": true,
+        "sources": [
+            "https://www.prc.gov.ph/sites/default/files/2025-20%20published%20teachers.pdf",
+            "https://www.prc.gov.ph/article/guidelines-implementation-prc-ched-jmc-alignment-teacher-education-curriculum",
+            "https://www.prc.gov.ph/sites/default/files/March%202026%20%20lept%20exam%20program%20%28prof%20teachers%29revised.pdf",
+            "https://prc.gov.ph/room-assignment",
+            "https://prc.gov.ph/Pages/PRBv4/ProfessionalTeachersv9.htm"
+        ]
+    },
+    "official_specialization_inventory": [
+        {
+            "official_name": "Early Childhood Education",
+            "official_code_if_any": null,
+            "prc_source": "prc-resolution-20-2025",
+            "current_status": "OFFICIAL_ACTIVE",
+            "aliases": [
+                "Early Childhood Education",
+                "ECE",
+                "BECEd",
+                "Bachelor of Early Childhood Education"
+            ],
+            "historical_labels": [
+                "BEEd Major in Early Childhood Education",
+                "BEEd Major in Pre-school Education",
+                "Pre-school Education",
+                "Preschool Education"
+            ],
+            "transition_notes": [],
+            "eligibility_notes": "Current BECEd candidates take General Education, Professional Education, and the BECEd specialization subject. Historical BEEd ECE/pre-school labels normalize to this identity.",
+            "exam_scope_source": "prc-resolution-20-2025",
+            "tos_available": true,
+            "repository_support": "MODEL_READY_CONTENT_MISSING",
+            "stable_id": "elementary-early-childhood-education"
+        },
+        {
+            "official_name": "Special Needs Education",
+            "official_code_if_any": null,
+            "prc_source": "prc-resolution-20-2025",
+            "current_status": "OFFICIAL_ACTIVE",
+            "aliases": [
+                "Special Needs Education",
+                "SNE",
+                "BSNEd",
+                "Bachelor of Special Needs Education"
+            ],
+            "historical_labels": [
+                "BEEd Major in Special Needs Education",
+                "BEEd Major in SNE"
+            ],
+            "transition_notes": [],
+            "eligibility_notes": "Current BSNEd candidates and qualifying historical/graduate SNE candidates take General Education, Professional Education, and the SNE specialization subject.",
+            "exam_scope_source": "prc-resolution-20-2025",
+            "tos_available": true,
+            "repository_support": "MODEL_READY_CONTENT_MISSING",
+            "stable_id": "elementary-special-needs-education"
+        },
+        {
+            "official_name": "English",
+            "official_code_if_any": null,
+            "prc_source": "prc-lept-alignment-guidance-2025",
+            "current_status": "OFFICIAL_ACTIVE",
+            "aliases": [
+                "English",
+                "BSEd Major in English",
+                "Secondary English"
+            ],
+            "historical_labels": [],
+            "transition_notes": [],
+            "eligibility_notes": "Existing English questions are retained as shared General Education unless an explicit specialization placement is added; similar wording is not specialization evidence.",
+            "exam_scope_source": "prc-lept-alignment-guidance-2025",
+            "tos_available": true,
+            "repository_support": "SUPPORTED_PARTIAL",
+            "stable_id": "secondary-english"
+        },
+        {
+            "official_name": "Filipino",
+            "official_code_if_any": null,
+            "prc_source": "prc-lept-alignment-guidance-2025",
+            "current_status": "OFFICIAL_ACTIVE",
+            "aliases": [
+                "Filipino",
+                "BSEd Major in Filipino",
+                "Secondary Filipino"
+            ],
+            "historical_labels": [],
+            "transition_notes": [],
+            "eligibility_notes": "Existing Filipino questions are retained as shared General Education unless explicitly mapped to this specialization.",
+            "exam_scope_source": "prc-lept-alignment-guidance-2025",
+            "tos_available": true,
+            "repository_support": "SUPPORTED_PARTIAL",
+            "stable_id": "secondary-filipino"
+        },
+        {
+            "official_name": "Mathematics",
+            "official_code_if_any": null,
+            "prc_source": "prc-lept-alignment-guidance-2025",
+            "current_status": "OFFICIAL_ACTIVE",
+            "aliases": [
+                "Mathematics",
+                "BSEd Major in Mathematics",
+                "Secondary Mathematics"
+            ],
+            "historical_labels": [],
+            "transition_notes": [],
+            "eligibility_notes": "Existing Mathematics questions are retained as shared General Education unless explicitly mapped to this specialization.",
+            "exam_scope_source": "prc-lept-alignment-guidance-2025",
+            "tos_available": true,
+            "repository_support": "SUPPORTED_PARTIAL",
+            "stable_id": "secondary-mathematics"
+        },
+        {
+            "official_name": "Science",
+            "official_code_if_any": null,
+            "prc_source": "prc-lept-alignment-guidance-2025",
+            "current_status": "OFFICIAL_ACTIVE",
+            "aliases": [
+                "Science",
+                "BSEd Major in Science",
+                "Secondary Science"
+            ],
+            "historical_labels": [],
+            "transition_notes": [],
+            "eligibility_notes": "Existing Science questions are retained as shared General Education unless explicitly mapped to this specialization.",
+            "exam_scope_source": "prc-lept-alignment-guidance-2025",
+            "tos_available": true,
+            "repository_support": "SUPPORTED_PARTIAL",
+            "stable_id": "secondary-science"
+        },
+        {
+            "official_name": "Social Studies",
+            "official_code_if_any": null,
+            "prc_source": "prc-lept-alignment-guidance-2025",
+            "current_status": "OFFICIAL_ACTIVE",
+            "aliases": [
+                "Social Studies",
+                "BSEd Major in Social Studies",
+                "Secondary Social Studies"
+            ],
+            "historical_labels": [],
+            "transition_notes": [],
+            "eligibility_notes": "Existing Social Studies questions are retained as shared General Education unless explicitly mapped to this specialization.",
+            "exam_scope_source": "prc-lept-alignment-guidance-2025",
+            "tos_available": true,
+            "repository_support": "SUPPORTED_PARTIAL",
+            "stable_id": "secondary-social-studies"
+        },
+        {
+            "official_name": "Values Education",
+            "official_code_if_any": null,
+            "prc_source": "prc-lept-alignment-guidance-2025",
+            "current_status": "OFFICIAL_ACTIVE",
+            "aliases": [
+                "Values Education",
+                "BSEd Major in Values Education",
+                "Secondary Values Education"
+            ],
+            "historical_labels": [],
+            "transition_notes": [],
+            "eligibility_notes": "The current PRC application and room-assignment materials identify Values Education as a Secondary path; no BoardPrep specialization taxonomy exists yet.",
+            "exam_scope_source": "prc-lept-alignment-guidance-2025",
+            "tos_available": true,
+            "repository_support": "MODEL_READY_CONTENT_MISSING",
+            "stable_id": "secondary-values-education"
+        },
+        {
+            "official_name": "Physical Education",
+            "official_code_if_any": null,
+            "prc_source": "prc-resolution-20-2025",
+            "current_status": "OFFICIAL_ACTIVE",
+            "aliases": [
+                "Physical Education",
+                "PE",
+                "BPEd",
+                "Bachelor of Physical Education"
+            ],
+            "historical_labels": [],
+            "transition_notes": [
+                "Historical MAPEH candidates may choose PE under the transition rule."
+            ],
+            "eligibility_notes": "Current BPEd candidates take PE specialization. Historical MAPEH candidates may choose PE or CAE; MAPEH is intentionally not a unique alias.",
+            "exam_scope_source": "prc-resolution-20-2025",
+            "tos_available": true,
+            "repository_support": "EVIDENCE_BLOCKED",
+            "stable_id": "secondary-physical-education"
+        },
+        {
+            "official_name": "Culture and Arts Education",
+            "official_code_if_any": null,
+            "prc_source": "prc-resolution-20-2025",
+            "current_status": "OFFICIAL_ACTIVE",
+            "aliases": [
+                "Culture and Arts Education",
+                "CAE",
+                "BCAEd",
+                "Bachelor of Culture and Arts Education"
+            ],
+            "historical_labels": [],
+            "transition_notes": [
+                "Historical MAPEH candidates may choose CAE under the transition rule."
+            ],
+            "eligibility_notes": "Current BCAEd candidates take CAE specialization. Historical MAPEH candidates may choose PE or CAE; MAPEH is intentionally not a unique alias.",
+            "exam_scope_source": "prc-resolution-20-2025",
+            "tos_available": true,
+            "repository_support": "EVIDENCE_BLOCKED",
+            "stable_id": "secondary-culture-and-arts-education"
+        },
+        {
+            "official_name": "Agriculture and Fishery Arts",
+            "official_code_if_any": null,
+            "prc_source": "prc-resolution-20-2025",
+            "current_status": "OFFICIAL_ACTIVE",
+            "aliases": [
+                "Agriculture and Fishery Arts",
+                "AFA",
+                "TLEd - Agriculture and Fishery Arts"
+            ],
+            "historical_labels": [],
+            "transition_notes": [
+                "Historical BTLEd candidates choose one TLE area under the transition rule."
+            ],
+            "eligibility_notes": "One of the four current TLE specialization subjects. BTLEd is a qualification/transition label, not a unique specialization identity.",
+            "exam_scope_source": "prc-resolution-20-2025",
+            "tos_available": true,
+            "repository_support": "EVIDENCE_BLOCKED",
+            "stable_id": "secondary-tle-agriculture-and-fishery-arts"
+        },
+        {
+            "official_name": "Home Economics",
+            "official_code_if_any": null,
+            "prc_source": "prc-resolution-20-2025",
+            "current_status": "OFFICIAL_ACTIVE",
+            "aliases": [
+                "Home Economics",
+                "HE",
+                "TLEd - Home Economics"
+            ],
+            "historical_labels": [],
+            "transition_notes": [
+                "Historical BTLEd candidates choose one TLE area under the transition rule."
+            ],
+            "eligibility_notes": "One of the four current TLE specialization subjects. BTLEd is a qualification/transition label, not a unique specialization identity.",
+            "exam_scope_source": "prc-resolution-20-2025",
+            "tos_available": true,
+            "repository_support": "EVIDENCE_BLOCKED",
+            "stable_id": "secondary-tle-home-economics"
+        },
+        {
+            "official_name": "Information and Communication Technology",
+            "official_code_if_any": null,
+            "prc_source": "prc-resolution-20-2025",
+            "current_status": "OFFICIAL_ACTIVE",
+            "aliases": [
+                "Information and Communication Technology",
+                "ICT",
+                "TLEd - ICT"
+            ],
+            "historical_labels": [],
+            "transition_notes": [
+                "Historical BTLEd candidates choose one TLE area under the transition rule."
+            ],
+            "eligibility_notes": "One of the four current TLE specialization subjects. BTLEd is a qualification/transition label, not a unique specialization identity.",
+            "exam_scope_source": "prc-resolution-20-2025",
+            "tos_available": true,
+            "repository_support": "EVIDENCE_BLOCKED",
+            "stable_id": "secondary-tle-information-and-communication-technology"
+        },
+        {
+            "official_name": "Industrial Arts",
+            "official_code_if_any": null,
+            "prc_source": "prc-resolution-20-2025",
+            "current_status": "OFFICIAL_ACTIVE",
+            "aliases": [
+                "Industrial Arts",
+                "IA",
+                "TLEd - Industrial Arts"
+            ],
+            "historical_labels": [],
+            "transition_notes": [
+                "Historical BTLEd candidates choose one TLE area under the transition rule."
+            ],
+            "eligibility_notes": "One of the four current TLE specialization subjects. BTLEd is a qualification/transition label, not a unique specialization identity.",
+            "exam_scope_source": "prc-resolution-20-2025",
+            "tos_available": true,
+            "repository_support": "EVIDENCE_BLOCKED",
+            "stable_id": "secondary-tle-industrial-arts"
+        },
+        {
+            "official_name": "Technical-Vocational Teacher Education",
+            "official_code_if_any": null,
+            "prc_source": "prc-resolution-20-2025",
+            "current_status": "OFFICIAL_ACTIVE",
+            "aliases": [
+                "Technical-Vocational Teacher Education",
+                "TVTEd",
+                "BTVTEd",
+                "Tech. - Vocational Teacher Ed."
+            ],
+            "historical_labels": [],
+            "transition_notes": [],
+            "eligibility_notes": "Current BTVTEd path focused on introductory courses and common competencies; it is distinct from the four TLE areas.",
+            "exam_scope_source": "prc-resolution-20-2025",
+            "tos_available": true,
+            "repository_support": "EVIDENCE_BLOCKED",
+            "stable_id": "secondary-technical-vocational-teacher-education"
+        }
+    ],
+    "repository_model": {
+        "before": {
+            "level_model": "Board only; no LET level",
+            "component_model": "Subject/board mapping only",
+            "specialization_model": "Legacy subject/blueprint hints; no stable identity",
+            "learner_selection": "Board and subject only",
+            "persistence": "Board/subject/mode/question IDs; no variant",
+            "admin_support": "Board placement editor only"
+        },
+        "after": {
+            "level_model": "Optional explicit ELEMENTARY/SECONDARY configuration",
+            "component_model": "GENERAL_EDUCATION/PROFESSIONAL_EDUCATION/SPECIALIZATION",
+            "specialization_model": "Registry-backed stable specialization ID with normalized aliases",
+            "learner_selection": "LET level and specialization controls; legacy board-wide mode preserved",
+            "persistence": "LET variant stored in quiz session and completed attempt context",
+            "admin_support": "Existing canonical-sharing placement editor exposes bounded LET dimensions"
+        },
+        "identity_principles": [
+            "QUESTION_IDENTITY != BOARD_IDENTITY",
+            "QUESTION_IDENTITY != LET_VARIANT",
+            "QUESTION_IDENTITY != SPECIALIZATION"
+        ]
+    },
+    "taxonomy_crosswalk": {
+        "elementary-early-childhood-education": {
+            "specialization": "Early Childhood Education",
+            "level": "ELEMENTARY",
+            "official_scope": "Current BECEd candidates take General Education, Professional Education, and the BECEd specialization subject. Historical BEEd ECE/pre-school labels normalize to this identity.",
+            "repository_subjects": [],
+            "repository_domains": [],
+            "repository_topics": [],
+            "repository_concepts": [],
+            "existing_canonical": 0,
+            "existing_effective": 0,
+            "shared_candidate_questions": 0,
+            "study_readiness": "MISSING",
+            "study_resources": [],
+            "source_readiness": "WEAK",
+            "authoritative_sources": [
+                "prc-resolution-20-2025"
+            ],
+            "taxonomy_readiness": "NEEDS_TAXONOMY_EXTENSION",
+            "crosswalk_status": "NEEDS_TAXONOMY_EXTENSION",
+            "expansion_readiness": "NOT_READY",
+            "support_status": "MODEL_READY_CONTENT_MISSING"
+        },
+        "elementary-special-needs-education": {
+            "specialization": "Special Needs Education",
+            "level": "ELEMENTARY",
+            "official_scope": "Current BSNEd candidates and qualifying historical/graduate SNE candidates take General Education, Professional Education, and the SNE specialization subject.",
+            "repository_subjects": [],
+            "repository_domains": [],
+            "repository_topics": [],
+            "repository_concepts": [],
+            "existing_canonical": 0,
+            "existing_effective": 0,
+            "shared_candidate_questions": 0,
+            "study_readiness": "MISSING",
+            "study_resources": [],
+            "source_readiness": "WEAK",
+            "authoritative_sources": [
+                "prc-resolution-20-2025"
+            ],
+            "taxonomy_readiness": "NEEDS_TAXONOMY_EXTENSION",
+            "crosswalk_status": "NEEDS_TAXONOMY_EXTENSION",
+            "expansion_readiness": "NOT_READY",
+            "support_status": "MODEL_READY_CONTENT_MISSING"
+        },
+        "secondary-english": {
+            "specialization": "English",
+            "level": "SECONDARY",
+            "official_scope": "Existing English questions are retained as shared General Education unless an explicit specialization placement is added; similar wording is not specialization evidence.",
+            "repository_subjects": [
+                "english"
+            ],
+            "repository_domains": [
+                "grammar",
+                "reading-comprehension",
+                "vocabulary",
+                "literature",
+                "writing",
+                "oral-communication",
+                "language-use",
+                "research-and-information-literacy",
+                "english-reading-comprehension"
+            ],
+            "repository_topics": [
+                "parts-of-speech",
+                "sentence-structure",
+                "subject-verb-agreement",
+                "verb-tenses",
+                "pronouns",
+                "modifiers",
+                "parallelism",
+                "prepositions",
+                "main-idea-and-support",
+                "inference",
+                "authors-purpose-and-tone",
+                "context-clues",
+                "text-structure",
+                "critical-reading",
+                "reading-comprehension",
+                "word-meaning",
+                "synonyms-and-antonyms",
+                "word-relationships",
+                "idioms-and-figurative-language",
+                "literary-elements",
+                "literary-genres",
+                "literary-devices",
+                "literary-analysis",
+                "organization",
+                "paragraph-development",
+                "grammar-and-mechanics",
+                "academic-writing",
+                "listening",
+                "speaking",
+                "communication-context",
+                "register",
+                "meaning-in-context",
+                "functional-language",
+                "source-evaluation",
+                "research-process",
+                "citation-and-attribution",
+                "english-inference"
+            ],
+            "repository_concepts": [
+                "parts-of-speech-nouns",
+                "parts-of-speech-pronouns",
+                "parts-of-speech-verbs",
+                "parts-of-speech-adjectives",
+                "parts-of-speech-adverbs",
+                "parts-of-speech-prepositions",
+                "parts-of-speech-conjunctions",
+                "parts-of-speech-interjections",
+                "sentence-structure-simple-sentences",
+                "sentence-structure-compound-sentences",
+                "sentence-structure-complex-sentences",
+                "sentence-structure-fragments",
+                "sentence-structure-run-on-sentences",
+                "subject-verb-agreement-singular-subjects",
+                "subject-verb-agreement-compound-subjects",
+                "subject-verb-agreement-indefinite-pronouns",
+                "subject-verb-agreement-collective-nouns",
+                "verb-tenses-present-tense",
+                "verb-tenses-past-tense",
+                "verb-tenses-future-tense",
+                "verb-tenses-perfect-tenses",
+                "verb-tenses-tense-consistency",
+                "pronouns-pronoun-antecedent-agreement",
+                "pronouns-pronoun-case",
+                "pronouns-pronoun-reference",
+                "modifiers-adjective-modifiers",
+                "modifiers-adverb-modifiers",
+                "modifiers-dangling-modifiers",
+                "modifiers-misplaced-modifiers",
+                "parallelism-parallel-structure",
+                "parallelism-parallel-items",
+                "parallelism-faulty-comparisons",
+                "prepositions-preposition-choice",
+                "prepositions-prepositional-phrases",
+                "prepositions-idiomatic-prepositions",
+                "main-idea-and-support-central-idea",
+                "main-idea-and-support-topic-sentences",
+                "main-idea-and-support-supporting-evidence",
+                "inference-textual-inference",
+                "inference-implicit-meaning",
+                "inference-evidence-based-conclusions",
+                "authors-purpose-and-tone-purpose",
+                "authors-purpose-and-tone-tone",
+                "authors-purpose-and-tone-attitude",
+                "context-clues-definition-clues",
+                "context-clues-contrast-clues",
+                "context-clues-example-clues",
+                "context-clues-inference-clues",
+                "text-structure-cause-and-effect",
+                "text-structure-compare-and-contrast",
+                "text-structure-problem-and-solution",
+                "text-structure-sequence",
+                "critical-reading-argument-evaluation",
+                "critical-reading-evidence-quality",
+                "critical-reading-fact-and-opinion",
+                "word-meaning-denotation",
+                "word-meaning-connotation",
+                "word-meaning-contextual-meaning",
+                "synonyms-and-antonyms-synonyms",
+                "synonyms-and-antonyms-antonyms",
+                "synonyms-and-antonyms-near-synonyms",
+                "word-relationships-analogies",
+                "word-relationships-categories",
+                "word-relationships-part-whole-relationships",
+                "idioms-and-figurative-language-idioms",
+                "idioms-and-figurative-language-metaphors",
+                "idioms-and-figurative-language-similes",
+                "literary-elements-character",
+                "literary-elements-setting",
+                "literary-elements-plot",
+                "literary-elements-conflict",
+                "literary-elements-theme",
+                "literary-genres-poetry",
+                "literary-genres-fiction",
+                "literary-genres-drama",
+                "literary-genres-nonfiction",
+                "literary-devices-imagery",
+                "literary-devices-symbolism",
+                "literary-devices-irony",
+                "literary-devices-foreshadowing",
+                "literary-analysis-theme-analysis",
+                "literary-analysis-character-analysis",
+                "literary-analysis-point-of-view",
+                "organization-introduction",
+                "organization-body-development",
+                "organization-conclusion",
+                "paragraph-development-unity",
+                "paragraph-development-coherence",
+                "paragraph-development-topic-sentences",
+                "grammar-and-mechanics-punctuation",
+                "grammar-and-mechanics-capitalization",
+                "grammar-and-mechanics-sentence-mechanics",
+                "academic-writing-clarity",
+                "academic-writing-evidence-integration",
+                "academic-writing-formal-register",
+                "listening-active-listening",
+                "listening-listening-for-main-ideas",
+                "listening-listening-for-details",
+                "speaking-clarity",
+                "speaking-fluency",
+                "speaking-pronunciation",
+                "communication-context-audience",
+                "communication-context-purpose",
+                "communication-context-register",
+                "register-formal-register",
+                "register-informal-register",
+                "register-professional-register",
+                "meaning-in-context-literal-meaning",
+                "meaning-in-context-implied-meaning",
+                "meaning-in-context-contextual-meaning",
+                "functional-language-requests",
+                "functional-language-persuasion",
+                "functional-language-explanation",
+                "source-evaluation-authority",
+                "source-evaluation-accuracy",
+                "source-evaluation-currency",
+                "source-evaluation-relevance",
+                "research-process-research-questions",
+                "research-process-source-gathering",
+                "research-process-synthesis",
+                "citation-and-attribution-paraphrasing",
+                "citation-and-attribution-quoting",
+                "citation-and-attribution-plagiarism-avoidance",
+                "english-inference-evidence"
+            ],
+            "existing_canonical": 0,
+            "existing_effective": 0,
+            "shared_candidate_questions": 183,
+            "study_readiness": "NEEDS_REORGANIZATION",
+            "study_resources": [
+                "let-english-communication-review",
+                "let-english-reading-foundation",
+                "let-english-grammar-foundation"
+            ],
+            "source_readiness": "ADEQUATE",
+            "authoritative_sources": [
+                "prc-lept-alignment-guidance-2025"
+            ],
+            "taxonomy_readiness": "PARTIAL_EXISTING_TAXONOMY",
+            "crosswalk_status": "PARTIAL_EXISTING_TAXONOMY",
+            "expansion_readiness": "NOT_READY",
+            "support_status": "SUPPORTED_PARTIAL"
+        },
+        "secondary-filipino": {
+            "specialization": "Filipino",
+            "level": "SECONDARY",
+            "official_scope": "Existing Filipino questions are retained as shared General Education unless explicitly mapped to this specialization.",
+            "repository_subjects": [
+                "filipino"
+            ],
+            "repository_domains": [
+                "gramatikang-filipino",
+                "pagbasa",
+                "talasalitaan",
+                "panitikan",
+                "pagsulat",
+                "komunikasyon"
+            ],
+            "repository_topics": [
+                "filipino-gramatika",
+                "filipino-pagbasa"
+            ],
+            "repository_concepts": [
+                "filipino-gramatika-wastong-gamit",
+                "filipino-pagbasa-pangunahing-diwan"
+            ],
+            "existing_canonical": 0,
+            "existing_effective": 0,
+            "shared_candidate_questions": 140,
+            "study_readiness": "NEEDS_REORGANIZATION",
+            "study_resources": [
+                "let-filipino-communication-review"
+            ],
+            "source_readiness": "ADEQUATE",
+            "authoritative_sources": [
+                "prc-lept-alignment-guidance-2025"
+            ],
+            "taxonomy_readiness": "PARTIAL_EXISTING_TAXONOMY",
+            "crosswalk_status": "PARTIAL_EXISTING_TAXONOMY",
+            "expansion_readiness": "NOT_READY",
+            "support_status": "SUPPORTED_PARTIAL"
+        },
+        "secondary-mathematics": {
+            "specialization": "Mathematics",
+            "level": "SECONDARY",
+            "official_scope": "Existing Mathematics questions are retained as shared General Education unless explicitly mapped to this specialization.",
+            "repository_subjects": [
+                "mathematics"
+            ],
+            "repository_domains": [
+                "number-sense",
+                "algebra",
+                "geometry",
+                "statistics-and-probability",
+                "measurement",
+                "problem-solving"
+            ],
+            "repository_topics": [
+                "math-number-sense",
+                "math-algebra"
+            ],
+            "repository_concepts": [
+                "math-number-sense-operations",
+                "math-algebra-linear-equations"
+            ],
+            "existing_canonical": 0,
+            "existing_effective": 0,
+            "shared_candidate_questions": 150,
+            "study_readiness": "NEEDS_REORGANIZATION",
+            "study_resources": [
+                "let-mathematics-essentials-review"
+            ],
+            "source_readiness": "ADEQUATE",
+            "authoritative_sources": [
+                "prc-lept-alignment-guidance-2025"
+            ],
+            "taxonomy_readiness": "PARTIAL_EXISTING_TAXONOMY",
+            "crosswalk_status": "PARTIAL_EXISTING_TAXONOMY",
+            "expansion_readiness": "NOT_READY",
+            "support_status": "SUPPORTED_PARTIAL"
+        },
+        "secondary-science": {
+            "specialization": "Science",
+            "level": "SECONDARY",
+            "official_scope": "Existing Science questions are retained as shared General Education unless explicitly mapped to this specialization.",
+            "repository_subjects": [
+                "science"
+            ],
+            "repository_domains": [
+                "biology",
+                "chemistry",
+                "physics",
+                "earth-science",
+                "environmental-science",
+                "scientific-inquiry"
+            ],
+            "repository_topics": [
+                "science-biology",
+                "science-chemistry-matter",
+                "science-physics-motion",
+                "science-electricity-circuits",
+                "science-optics-rays",
+                "science-earth-processes",
+                "environmental-stewardship",
+                "science-ecology-systems",
+                "science-inquiry",
+                "science-data-graphs"
+            ],
+            "repository_concepts": [
+                "science-biology-cells",
+                "science-chemistry-matter-particles",
+                "science-physics-motion-graphs",
+                "science-physics-force-balance",
+                "science-electricity-series-parallel",
+                "science-optics-reflection",
+                "science-earth-stratigraphy",
+                "environmental-stewardship-protection",
+                "science-ecology-population",
+                "science-inquiry-evidence",
+                "science-data-evidence"
+            ],
+            "existing_canonical": 0,
+            "existing_effective": 0,
+            "shared_candidate_questions": 130,
+            "study_readiness": "NEEDS_REORGANIZATION",
+            "study_resources": [
+                "let-science-technology-review"
+            ],
+            "source_readiness": "ADEQUATE",
+            "authoritative_sources": [
+                "prc-lept-alignment-guidance-2025"
+            ],
+            "taxonomy_readiness": "PARTIAL_EXISTING_TAXONOMY",
+            "crosswalk_status": "PARTIAL_EXISTING_TAXONOMY",
+            "expansion_readiness": "NOT_READY",
+            "support_status": "SUPPORTED_PARTIAL"
+        },
+        "secondary-social-studies": {
+            "specialization": "Social Studies",
+            "level": "SECONDARY",
+            "official_scope": "Existing Social Studies questions are retained as shared General Education unless explicitly mapped to this specialization.",
+            "repository_subjects": [
+                "social-studies"
+            ],
+            "repository_domains": [
+                "philippine-history",
+                "world-history",
+                "geography",
+                "government-and-civics",
+                "economics",
+                "culture-and-society",
+                "let-rizal",
+                "let-contemporary-world",
+                "let-art-appreciation",
+                "let-ethics",
+                "let-understanding-self"
+            ],
+            "repository_topics": [
+                "social-history",
+                "social-civics",
+                "let-rizal-works",
+                "let-global-interdependence",
+                "let-art-interpretation",
+                "let-ethical-reasoning",
+                "let-self-concept"
+            ],
+            "repository_concepts": [
+                "social-history-primary-sources",
+                "social-civics-public-good",
+                "let-rizal-context",
+                "let-global-local-effects",
+                "let-art-evidence",
+                "let-ethical-duties",
+                "let-self-identity"
+            ],
+            "existing_canonical": 0,
+            "existing_effective": 0,
+            "shared_candidate_questions": 143,
+            "study_readiness": "NEEDS_REORGANIZATION",
+            "study_resources": [
+                "let-philippine-history-review"
+            ],
+            "source_readiness": "ADEQUATE",
+            "authoritative_sources": [
+                "prc-lept-alignment-guidance-2025"
+            ],
+            "taxonomy_readiness": "PARTIAL_EXISTING_TAXONOMY",
+            "crosswalk_status": "PARTIAL_EXISTING_TAXONOMY",
+            "expansion_readiness": "NOT_READY",
+            "support_status": "SUPPORTED_PARTIAL"
+        },
+        "secondary-values-education": {
+            "specialization": "Values Education",
+            "level": "SECONDARY",
+            "official_scope": "The current PRC application and room-assignment materials identify Values Education as a Secondary path; no BoardPrep specialization taxonomy exists yet.",
+            "repository_subjects": [],
+            "repository_domains": [],
+            "repository_topics": [],
+            "repository_concepts": [],
+            "existing_canonical": 0,
+            "existing_effective": 0,
+            "shared_candidate_questions": 0,
+            "study_readiness": "MISSING",
+            "study_resources": [],
+            "source_readiness": "WEAK",
+            "authoritative_sources": [
+                "prc-lept-alignment-guidance-2025"
+            ],
+            "taxonomy_readiness": "NEEDS_TAXONOMY_EXTENSION",
+            "crosswalk_status": "NEEDS_TAXONOMY_EXTENSION",
+            "expansion_readiness": "NOT_READY",
+            "support_status": "MODEL_READY_CONTENT_MISSING"
+        },
+        "secondary-physical-education": {
+            "specialization": "Physical Education",
+            "level": "SECONDARY",
+            "official_scope": "Current BPEd candidates take PE specialization. Historical MAPEH candidates may choose PE or CAE; MAPEH is intentionally not a unique alias.",
+            "repository_subjects": [],
+            "repository_domains": [],
+            "repository_topics": [],
+            "repository_concepts": [],
+            "existing_canonical": 0,
+            "existing_effective": 0,
+            "shared_candidate_questions": 0,
+            "study_readiness": "MISSING",
+            "study_resources": [],
+            "source_readiness": "WEAK",
+            "authoritative_sources": [
+                "prc-resolution-20-2025"
+            ],
+            "taxonomy_readiness": "NO_EVIDENCE",
+            "crosswalk_status": "NO_EVIDENCE",
+            "expansion_readiness": "NOT_READY",
+            "support_status": "EVIDENCE_BLOCKED"
+        },
+        "secondary-culture-and-arts-education": {
+            "specialization": "Culture and Arts Education",
+            "level": "SECONDARY",
+            "official_scope": "Current BCAEd candidates take CAE specialization. Historical MAPEH candidates may choose PE or CAE; MAPEH is intentionally not a unique alias.",
+            "repository_subjects": [],
+            "repository_domains": [],
+            "repository_topics": [],
+            "repository_concepts": [],
+            "existing_canonical": 0,
+            "existing_effective": 0,
+            "shared_candidate_questions": 0,
+            "study_readiness": "MISSING",
+            "study_resources": [],
+            "source_readiness": "WEAK",
+            "authoritative_sources": [
+                "prc-resolution-20-2025"
+            ],
+            "taxonomy_readiness": "NO_EVIDENCE",
+            "crosswalk_status": "NO_EVIDENCE",
+            "expansion_readiness": "NOT_READY",
+            "support_status": "EVIDENCE_BLOCKED"
+        },
+        "secondary-tle-agriculture-and-fishery-arts": {
+            "specialization": "Agriculture and Fishery Arts",
+            "level": "SECONDARY",
+            "official_scope": "One of the four current TLE specialization subjects. BTLEd is a qualification/transition label, not a unique specialization identity.",
+            "repository_subjects": [],
+            "repository_domains": [],
+            "repository_topics": [],
+            "repository_concepts": [],
+            "existing_canonical": 0,
+            "existing_effective": 0,
+            "shared_candidate_questions": 0,
+            "study_readiness": "MISSING",
+            "study_resources": [],
+            "source_readiness": "WEAK",
+            "authoritative_sources": [
+                "prc-resolution-20-2025"
+            ],
+            "taxonomy_readiness": "NO_EVIDENCE",
+            "crosswalk_status": "NO_EVIDENCE",
+            "expansion_readiness": "NOT_READY",
+            "support_status": "EVIDENCE_BLOCKED"
+        },
+        "secondary-tle-home-economics": {
+            "specialization": "Home Economics",
+            "level": "SECONDARY",
+            "official_scope": "One of the four current TLE specialization subjects. BTLEd is a qualification/transition label, not a unique specialization identity.",
+            "repository_subjects": [],
+            "repository_domains": [],
+            "repository_topics": [],
+            "repository_concepts": [],
+            "existing_canonical": 0,
+            "existing_effective": 0,
+            "shared_candidate_questions": 0,
+            "study_readiness": "MISSING",
+            "study_resources": [],
+            "source_readiness": "WEAK",
+            "authoritative_sources": [
+                "prc-resolution-20-2025"
+            ],
+            "taxonomy_readiness": "NO_EVIDENCE",
+            "crosswalk_status": "NO_EVIDENCE",
+            "expansion_readiness": "NOT_READY",
+            "support_status": "EVIDENCE_BLOCKED"
+        },
+        "secondary-tle-information-and-communication-technology": {
+            "specialization": "Information and Communication Technology",
+            "level": "SECONDARY",
+            "official_scope": "One of the four current TLE specialization subjects. BTLEd is a qualification/transition label, not a unique specialization identity.",
+            "repository_subjects": [],
+            "repository_domains": [],
+            "repository_topics": [],
+            "repository_concepts": [],
+            "existing_canonical": 0,
+            "existing_effective": 0,
+            "shared_candidate_questions": 0,
+            "study_readiness": "MISSING",
+            "study_resources": [],
+            "source_readiness": "WEAK",
+            "authoritative_sources": [
+                "prc-resolution-20-2025"
+            ],
+            "taxonomy_readiness": "NO_EVIDENCE",
+            "crosswalk_status": "NO_EVIDENCE",
+            "expansion_readiness": "NOT_READY",
+            "support_status": "EVIDENCE_BLOCKED"
+        },
+        "secondary-tle-industrial-arts": {
+            "specialization": "Industrial Arts",
+            "level": "SECONDARY",
+            "official_scope": "One of the four current TLE specialization subjects. BTLEd is a qualification/transition label, not a unique specialization identity.",
+            "repository_subjects": [],
+            "repository_domains": [],
+            "repository_topics": [],
+            "repository_concepts": [],
+            "existing_canonical": 0,
+            "existing_effective": 0,
+            "shared_candidate_questions": 0,
+            "study_readiness": "MISSING",
+            "study_resources": [],
+            "source_readiness": "WEAK",
+            "authoritative_sources": [
+                "prc-resolution-20-2025"
+            ],
+            "taxonomy_readiness": "NO_EVIDENCE",
+            "crosswalk_status": "NO_EVIDENCE",
+            "expansion_readiness": "NOT_READY",
+            "support_status": "EVIDENCE_BLOCKED"
+        },
+        "secondary-technical-vocational-teacher-education": {
+            "specialization": "Technical-Vocational Teacher Education",
+            "level": "SECONDARY",
+            "official_scope": "Current BTVTEd path focused on introductory courses and common competencies; it is distinct from the four TLE areas.",
+            "repository_subjects": [],
+            "repository_domains": [],
+            "repository_topics": [],
+            "repository_concepts": [],
+            "existing_canonical": 0,
+            "existing_effective": 0,
+            "shared_candidate_questions": 0,
+            "study_readiness": "MISSING",
+            "study_resources": [],
+            "source_readiness": "WEAK",
+            "authoritative_sources": [
+                "prc-resolution-20-2025"
+            ],
+            "taxonomy_readiness": "NO_EVIDENCE",
+            "crosswalk_status": "NO_EVIDENCE",
+            "expansion_readiness": "NOT_READY",
+            "support_status": "EVIDENCE_BLOCKED"
+        }
+    },
+    "existing_let_pools": {
+        "classification": {
+            "ELEMENTARY_GE": 891,
+            "ELEMENTARY_PE": 231,
+            "SECONDARY_GE": 891,
+            "SECONDARY_PE": 231,
+            "SECONDARY_SPECIALIZATION": 0,
+            "SHARED_GE": 891,
+            "SHARED_PE": 231,
+            "AMBIGUOUS_VARIANT": 0,
+            "OUT_OF_SCOPE": 0
+        },
+        "elementary_ge": {
+            "component": "GENERAL_EDUCATION",
+            "native": 808,
+            "inherited": 83,
+            "effective": 891,
+            "distinct_concepts": 107,
+            "min_concept_cohort": 1,
+            "median_concept_cohort": 3,
+            "max_concept_cohort": 92,
+            "pool_shortage": false,
+            "concept_cohorts": {
+                "subject-verb-agreement-singular-subjects": 5,
+                "verb-tenses-perfect-tenses": 4,
+                "pronouns-pronoun-antecedent-agreement": 4,
+                "prepositions-preposition-choice": 3,
+                "modifiers-dangling-modifiers": 3,
+                "sentence-structure-run-on-sentences": 3,
+                "parallelism-parallel-structure": 4,
+                "parts-of-speech-adverbs": 3,
+                "subject-verb-agreement-compound-subjects": 3,
+                "filipino-gramatika-wastong-gamit": 64,
+                "filipino-pagbasa-pangunahing-diwan": 76,
+                "math-number-sense-operations": 92,
+                "math-algebra-linear-equations": 58,
+                "science-biology-cells": 17,
+                "science-chemistry-matter-particles": 15,
+                "science-physics-motion-graphs": 10,
+                "science-electricity-series-parallel": 8,
+                "science-optics-reflection": 8,
+                "science-earth-stratigraphy": 11,
+                "science-ecology-population": 14,
+                "science-data-evidence": 18,
+                "social-history-primary-sources": 22,
+                "social-civics-public-good": 23,
+                "subject-verb-agreement-indefinite-pronouns": 3,
+                "verb-tenses-past-tense": 3,
+                "verb-tenses-tense-consistency": 3,
+                "pronouns-pronoun-reference": 4,
+                "prepositions-idiomatic-prepositions": 3,
+                "modifiers-misplaced-modifiers": 4,
+                "sentence-structure-complex-sentences": 3,
+                "parallelism-parallel-items": 4,
+                "english-inference-evidence": 5,
+                "science-inquiry-evidence": 19,
+                "science-physics-force-balance": 10,
+                "cse-constitutional-principles": 33,
+                "piaget-stages": 3,
+                "piaget-development": 3,
+                "vygotsky-zpd": 2,
+                "vygotsky-scaffolding": 3,
+                "vygotsky-social-learning": 1,
+                "erikson-competence": 2,
+                "erikson-identity": 1,
+                "kohlberg-moral-reasoning": 4,
+                "bronfenbrenner-ecology": 4,
+                "pavlov-classical-conditioning": 2,
+                "skinner-operant-conditioning": 5,
+                "thorndike-law-effect": 1,
+                "watson-behaviorism": 1,
+                "bruner-discovery": 1,
+                "bruner-representation": 1,
+                "maslow-needs": 2,
+                "rogers-humanistic": 2,
+                "gardner-multiple-intelligences": 1,
+                "bloom-cognitive-processes": 3,
+                "inclusive-access": 1,
+                "inclusive-differentiation": 2,
+                "inclusive-accommodation": 1,
+                "inclusive-modification": 1,
+                "inclusive-participation": 1,
+                "inclusive-barriers": 1,
+                "inclusive-equity": 2,
+                "inclusive-collaboration": 1,
+                "inclusive-assessment": 2,
+                "inclusive-respect": 1,
+                "inclusive-universal-design": 1,
+                "inclusive-adaptation": 1,
+                "inclusive-family": 1,
+                "inclusive-peer-support": 1,
+                "inclusive-classroom": 1,
+                "let-rizal-context": 28,
+                "prof-development-readiness": 2,
+                "let-global-local-effects": 25,
+                "let-art-evidence": 26,
+                "let-ethical-duties": 14,
+                "cse-ethical-public-service": 30,
+                "cse-environmental-public-interest": 20,
+                "main-idea-and-support-central-idea": 4,
+                "main-idea-and-support-supporting-evidence": 3,
+                "authors-purpose-and-tone-purpose": 16,
+                "inference-evidence-based-conclusions": 11,
+                "context-clues-inference-clues": 2,
+                "text-structure-cause-and-effect": 3,
+                "critical-reading-evidence-quality": 15,
+                "authors-purpose-and-tone-tone": 14,
+                "text-structure-sequence": 12,
+                "critical-reading-argument-evaluation": 3,
+                "context-clues-contrast-clues": 1,
+                "text-structure-problem-and-solution": 2,
+                "context-clues-definition-clues": 2,
+                "inference-implicit-meaning": 2,
+                "text-structure-compare-and-contrast": 1,
+                "critical-reading-fact-and-opinion": 1,
+                "context-clues-example-clues": 1,
+                "modifiers-adverb-modifiers": 2,
+                "modifiers-adjective-modifiers": 2,
+                "sentence-structure-fragments": 2,
+                "sentence-structure-compound-sentences": 2,
+                "subject-verb-agreement-collective-nouns": 2,
+                "verb-tenses-present-tense": 2,
+                "verb-tenses-future-tense": 2,
+                "pronouns-pronoun-case": 2,
+                "parallelism-faulty-comparisons": 2,
+                "prepositions-prepositional-phrases": 2,
+                "parts-of-speech-nouns": 2,
+                "parts-of-speech-verbs": 2,
+                "parts-of-speech-adjectives": 2,
+                "let-self-identity": 5
+            }
+        },
+        "elementary_pe": {
+            "component": "PROFESSIONAL_EDUCATION",
+            "native": 231,
+            "inherited": 0,
+            "effective": 231,
+            "distinct_concepts": 9,
+            "min_concept_cohort": 5,
+            "median_concept_cohort": 25,
+            "max_concept_cohort": 60,
+            "pool_shortage": false,
+            "concept_cohorts": {
+                "prof-development-readiness": 60,
+                "prof-curriculum-alignment": 29,
+                "prof-assessment-validity": 30,
+                "prof-facilitation-scaffolding": 27,
+                "prof-management-routines": 25,
+                "prof-technology-access": 23,
+                "let-ethical-duties": 12,
+                "let-self-identity": 20,
+                "inclusive-differentiation": 5
+            }
+        },
+        "secondary_ge": {
+            "component": "GENERAL_EDUCATION",
+            "native": 808,
+            "inherited": 83,
+            "effective": 891,
+            "distinct_concepts": 107,
+            "min_concept_cohort": 1,
+            "median_concept_cohort": 3,
+            "max_concept_cohort": 92,
+            "pool_shortage": false,
+            "concept_cohorts": {
+                "subject-verb-agreement-singular-subjects": 5,
+                "verb-tenses-perfect-tenses": 4,
+                "pronouns-pronoun-antecedent-agreement": 4,
+                "prepositions-preposition-choice": 3,
+                "modifiers-dangling-modifiers": 3,
+                "sentence-structure-run-on-sentences": 3,
+                "parallelism-parallel-structure": 4,
+                "parts-of-speech-adverbs": 3,
+                "subject-verb-agreement-compound-subjects": 3,
+                "filipino-gramatika-wastong-gamit": 64,
+                "filipino-pagbasa-pangunahing-diwan": 76,
+                "math-number-sense-operations": 92,
+                "math-algebra-linear-equations": 58,
+                "science-biology-cells": 17,
+                "science-chemistry-matter-particles": 15,
+                "science-physics-motion-graphs": 10,
+                "science-electricity-series-parallel": 8,
+                "science-optics-reflection": 8,
+                "science-earth-stratigraphy": 11,
+                "science-ecology-population": 14,
+                "science-data-evidence": 18,
+                "social-history-primary-sources": 22,
+                "social-civics-public-good": 23,
+                "subject-verb-agreement-indefinite-pronouns": 3,
+                "verb-tenses-past-tense": 3,
+                "verb-tenses-tense-consistency": 3,
+                "pronouns-pronoun-reference": 4,
+                "prepositions-idiomatic-prepositions": 3,
+                "modifiers-misplaced-modifiers": 4,
+                "sentence-structure-complex-sentences": 3,
+                "parallelism-parallel-items": 4,
+                "english-inference-evidence": 5,
+                "science-inquiry-evidence": 19,
+                "science-physics-force-balance": 10,
+                "cse-constitutional-principles": 33,
+                "piaget-stages": 3,
+                "piaget-development": 3,
+                "vygotsky-zpd": 2,
+                "vygotsky-scaffolding": 3,
+                "vygotsky-social-learning": 1,
+                "erikson-competence": 2,
+                "erikson-identity": 1,
+                "kohlberg-moral-reasoning": 4,
+                "bronfenbrenner-ecology": 4,
+                "pavlov-classical-conditioning": 2,
+                "skinner-operant-conditioning": 5,
+                "thorndike-law-effect": 1,
+                "watson-behaviorism": 1,
+                "bruner-discovery": 1,
+                "bruner-representation": 1,
+                "maslow-needs": 2,
+                "rogers-humanistic": 2,
+                "gardner-multiple-intelligences": 1,
+                "bloom-cognitive-processes": 3,
+                "inclusive-access": 1,
+                "inclusive-differentiation": 2,
+                "inclusive-accommodation": 1,
+                "inclusive-modification": 1,
+                "inclusive-participation": 1,
+                "inclusive-barriers": 1,
+                "inclusive-equity": 2,
+                "inclusive-collaboration": 1,
+                "inclusive-assessment": 2,
+                "inclusive-respect": 1,
+                "inclusive-universal-design": 1,
+                "inclusive-adaptation": 1,
+                "inclusive-family": 1,
+                "inclusive-peer-support": 1,
+                "inclusive-classroom": 1,
+                "let-rizal-context": 28,
+                "prof-development-readiness": 2,
+                "let-global-local-effects": 25,
+                "let-art-evidence": 26,
+                "let-ethical-duties": 14,
+                "cse-ethical-public-service": 30,
+                "cse-environmental-public-interest": 20,
+                "main-idea-and-support-central-idea": 4,
+                "main-idea-and-support-supporting-evidence": 3,
+                "authors-purpose-and-tone-purpose": 16,
+                "inference-evidence-based-conclusions": 11,
+                "context-clues-inference-clues": 2,
+                "text-structure-cause-and-effect": 3,
+                "critical-reading-evidence-quality": 15,
+                "authors-purpose-and-tone-tone": 14,
+                "text-structure-sequence": 12,
+                "critical-reading-argument-evaluation": 3,
+                "context-clues-contrast-clues": 1,
+                "text-structure-problem-and-solution": 2,
+                "context-clues-definition-clues": 2,
+                "inference-implicit-meaning": 2,
+                "text-structure-compare-and-contrast": 1,
+                "critical-reading-fact-and-opinion": 1,
+                "context-clues-example-clues": 1,
+                "modifiers-adverb-modifiers": 2,
+                "modifiers-adjective-modifiers": 2,
+                "sentence-structure-fragments": 2,
+                "sentence-structure-compound-sentences": 2,
+                "subject-verb-agreement-collective-nouns": 2,
+                "verb-tenses-present-tense": 2,
+                "verb-tenses-future-tense": 2,
+                "pronouns-pronoun-case": 2,
+                "parallelism-faulty-comparisons": 2,
+                "prepositions-prepositional-phrases": 2,
+                "parts-of-speech-nouns": 2,
+                "parts-of-speech-verbs": 2,
+                "parts-of-speech-adjectives": 2,
+                "let-self-identity": 5
+            }
+        },
+        "secondary_pe": {
+            "component": "PROFESSIONAL_EDUCATION",
+            "native": 231,
+            "inherited": 0,
+            "effective": 231,
+            "distinct_concepts": 9,
+            "min_concept_cohort": 5,
+            "median_concept_cohort": 25,
+            "max_concept_cohort": 60,
+            "pool_shortage": false,
+            "concept_cohorts": {
+                "prof-development-readiness": 60,
+                "prof-curriculum-alignment": 29,
+                "prof-assessment-validity": 30,
+                "prof-facilitation-scaffolding": 27,
+                "prof-management-routines": 25,
+                "prof-technology-access": 23,
+                "let-ethical-duties": 12,
+                "let-self-identity": 20,
+                "inclusive-differentiation": 5
+            }
+        },
+        "specialization_pools": {
+            "elementary-early-childhood-education": {
+                "component": "SPECIALIZATION",
+                "native": 0,
+                "inherited": 0,
+                "effective": 0,
+                "distinct_concepts": 0,
+                "min_concept_cohort": 0,
+                "median_concept_cohort": 0,
+                "max_concept_cohort": 0,
+                "pool_shortage": true,
+                "concept_cohorts": [],
+                "specialization_id": "elementary-early-childhood-education"
+            },
+            "elementary-special-needs-education": {
+                "component": "SPECIALIZATION",
+                "native": 0,
+                "inherited": 0,
+                "effective": 0,
+                "distinct_concepts": 0,
+                "min_concept_cohort": 0,
+                "median_concept_cohort": 0,
+                "max_concept_cohort": 0,
+                "pool_shortage": true,
+                "concept_cohorts": [],
+                "specialization_id": "elementary-special-needs-education"
+            },
+            "secondary-english": {
+                "component": "SPECIALIZATION",
+                "native": 0,
+                "inherited": 0,
+                "effective": 0,
+                "distinct_concepts": 0,
+                "min_concept_cohort": 0,
+                "median_concept_cohort": 0,
+                "max_concept_cohort": 0,
+                "pool_shortage": true,
+                "concept_cohorts": [],
+                "specialization_id": "secondary-english"
+            },
+            "secondary-filipino": {
+                "component": "SPECIALIZATION",
+                "native": 0,
+                "inherited": 0,
+                "effective": 0,
+                "distinct_concepts": 0,
+                "min_concept_cohort": 0,
+                "median_concept_cohort": 0,
+                "max_concept_cohort": 0,
+                "pool_shortage": true,
+                "concept_cohorts": [],
+                "specialization_id": "secondary-filipino"
+            },
+            "secondary-mathematics": {
+                "component": "SPECIALIZATION",
+                "native": 0,
+                "inherited": 0,
+                "effective": 0,
+                "distinct_concepts": 0,
+                "min_concept_cohort": 0,
+                "median_concept_cohort": 0,
+                "max_concept_cohort": 0,
+                "pool_shortage": true,
+                "concept_cohorts": [],
+                "specialization_id": "secondary-mathematics"
+            },
+            "secondary-science": {
+                "component": "SPECIALIZATION",
+                "native": 0,
+                "inherited": 0,
+                "effective": 0,
+                "distinct_concepts": 0,
+                "min_concept_cohort": 0,
+                "median_concept_cohort": 0,
+                "max_concept_cohort": 0,
+                "pool_shortage": true,
+                "concept_cohorts": [],
+                "specialization_id": "secondary-science"
+            },
+            "secondary-social-studies": {
+                "component": "SPECIALIZATION",
+                "native": 0,
+                "inherited": 0,
+                "effective": 0,
+                "distinct_concepts": 0,
+                "min_concept_cohort": 0,
+                "median_concept_cohort": 0,
+                "max_concept_cohort": 0,
+                "pool_shortage": true,
+                "concept_cohorts": [],
+                "specialization_id": "secondary-social-studies"
+            },
+            "secondary-values-education": {
+                "component": "SPECIALIZATION",
+                "native": 0,
+                "inherited": 0,
+                "effective": 0,
+                "distinct_concepts": 0,
+                "min_concept_cohort": 0,
+                "median_concept_cohort": 0,
+                "max_concept_cohort": 0,
+                "pool_shortage": true,
+                "concept_cohorts": [],
+                "specialization_id": "secondary-values-education"
+            },
+            "secondary-physical-education": {
+                "component": "SPECIALIZATION",
+                "native": 0,
+                "inherited": 0,
+                "effective": 0,
+                "distinct_concepts": 0,
+                "min_concept_cohort": 0,
+                "median_concept_cohort": 0,
+                "max_concept_cohort": 0,
+                "pool_shortage": true,
+                "concept_cohorts": [],
+                "specialization_id": "secondary-physical-education"
+            },
+            "secondary-culture-and-arts-education": {
+                "component": "SPECIALIZATION",
+                "native": 0,
+                "inherited": 0,
+                "effective": 0,
+                "distinct_concepts": 0,
+                "min_concept_cohort": 0,
+                "median_concept_cohort": 0,
+                "max_concept_cohort": 0,
+                "pool_shortage": true,
+                "concept_cohorts": [],
+                "specialization_id": "secondary-culture-and-arts-education"
+            },
+            "secondary-tle-agriculture-and-fishery-arts": {
+                "component": "SPECIALIZATION",
+                "native": 0,
+                "inherited": 0,
+                "effective": 0,
+                "distinct_concepts": 0,
+                "min_concept_cohort": 0,
+                "median_concept_cohort": 0,
+                "max_concept_cohort": 0,
+                "pool_shortage": true,
+                "concept_cohorts": [],
+                "specialization_id": "secondary-tle-agriculture-and-fishery-arts"
+            },
+            "secondary-tle-home-economics": {
+                "component": "SPECIALIZATION",
+                "native": 0,
+                "inherited": 0,
+                "effective": 0,
+                "distinct_concepts": 0,
+                "min_concept_cohort": 0,
+                "median_concept_cohort": 0,
+                "max_concept_cohort": 0,
+                "pool_shortage": true,
+                "concept_cohorts": [],
+                "specialization_id": "secondary-tle-home-economics"
+            },
+            "secondary-tle-information-and-communication-technology": {
+                "component": "SPECIALIZATION",
+                "native": 0,
+                "inherited": 0,
+                "effective": 0,
+                "distinct_concepts": 0,
+                "min_concept_cohort": 0,
+                "median_concept_cohort": 0,
+                "max_concept_cohort": 0,
+                "pool_shortage": true,
+                "concept_cohorts": [],
+                "specialization_id": "secondary-tle-information-and-communication-technology"
+            },
+            "secondary-tle-industrial-arts": {
+                "component": "SPECIALIZATION",
+                "native": 0,
+                "inherited": 0,
+                "effective": 0,
+                "distinct_concepts": 0,
+                "min_concept_cohort": 0,
+                "median_concept_cohort": 0,
+                "max_concept_cohort": 0,
+                "pool_shortage": true,
+                "concept_cohorts": [],
+                "specialization_id": "secondary-tle-industrial-arts"
+            },
+            "secondary-technical-vocational-teacher-education": {
+                "component": "SPECIALIZATION",
+                "native": 0,
+                "inherited": 0,
+                "effective": 0,
+                "distinct_concepts": 0,
+                "min_concept_cohort": 0,
+                "median_concept_cohort": 0,
+                "max_concept_cohort": 0,
+                "pool_shortage": true,
+                "concept_cohorts": [],
+                "specialization_id": "secondary-technical-vocational-teacher-education"
+            }
+        },
+        "ambiguous_variant": 0,
+        "out_of_scope": 0
+    },
+    "coverage_debt": {
+        "unknown_before": 9,
+        "reviewed": 9,
+        "closed": 0,
+        "still_unknown": 9,
+        "blockers": {
+            "STUDY_SCOPE_ONLY": 9
+        },
+        "rows": [
+            {
+                "concept_id": "modifiers-dangling-modifiers",
+                "concept_name": "Dangling Modifiers",
+                "let_relevance": "CURRENT_LET_SHARED_GENERAL_EDUCATION",
+                "current_study_links": [
+                    "let-english-communication-review",
+                    "let-english-grammar-foundation"
+                ],
+                "current_source_links": [
+                    "purdue-owl-writing",
+                    "deped-k12-english-curriculum-guide"
+                ],
+                "why_unknown": "The verified direct mapping establishes current LET consumption but does not establish a defensible reuse depth; specialization modeling does not change that evidence boundary.",
+                "official_scope_evidence": "PRC Resolution No. 11 s. 2025 TOS plus current LEPT program; grammar remains in the shared/General Education repository path.",
+                "clinical_evidence": "NOT_APPLICABLE",
+                "provisional_max_depth": "UNKNOWN",
+                "confidence": "MEDIUM_FOR_DEPTH_BOUNDARY",
+                "decision": "RETAIN_UNKNOWN",
+                "blocker": "STUDY_SCOPE_ONLY"
+            },
+            {
+                "concept_id": "parallelism-parallel-items",
+                "concept_name": "Parallel Items",
+                "let_relevance": "CURRENT_LET_SHARED_GENERAL_EDUCATION",
+                "current_study_links": [
+                    "let-english-communication-review",
+                    "let-english-grammar-foundation"
+                ],
+                "current_source_links": [
+                    "purdue-owl-writing",
+                    "deped-k12-english-curriculum-guide"
+                ],
+                "why_unknown": "The verified direct mapping establishes current LET consumption but does not establish a defensible reuse depth; specialization modeling does not change that evidence boundary.",
+                "official_scope_evidence": "PRC Resolution No. 11 s. 2025 TOS plus current LEPT program; grammar remains in the shared/General Education repository path.",
+                "clinical_evidence": "NOT_APPLICABLE",
+                "provisional_max_depth": "UNKNOWN",
+                "confidence": "MEDIUM_FOR_DEPTH_BOUNDARY",
+                "decision": "RETAIN_UNKNOWN",
+                "blocker": "STUDY_SCOPE_ONLY"
+            },
+            {
+                "concept_id": "parallelism-parallel-structure",
+                "concept_name": "Parallel Structure",
+                "let_relevance": "CURRENT_LET_SHARED_GENERAL_EDUCATION",
+                "current_study_links": [
+                    "let-english-communication-review",
+                    "let-english-grammar-foundation"
+                ],
+                "current_source_links": [
+                    "purdue-owl-writing",
+                    "deped-k12-english-curriculum-guide"
+                ],
+                "why_unknown": "The verified direct mapping establishes current LET consumption but does not establish a defensible reuse depth; specialization modeling does not change that evidence boundary.",
+                "official_scope_evidence": "PRC Resolution No. 11 s. 2025 TOS plus current LEPT program; grammar remains in the shared/General Education repository path.",
+                "clinical_evidence": "NOT_APPLICABLE",
+                "provisional_max_depth": "UNKNOWN",
+                "confidence": "MEDIUM_FOR_DEPTH_BOUNDARY",
+                "decision": "RETAIN_UNKNOWN",
+                "blocker": "STUDY_SCOPE_ONLY"
+            },
+            {
+                "concept_id": "prepositions-idiomatic-prepositions",
+                "concept_name": "Idiomatic Prepositions",
+                "let_relevance": "CURRENT_LET_SHARED_GENERAL_EDUCATION",
+                "current_study_links": [
+                    "let-english-communication-review",
+                    "let-english-grammar-foundation"
+                ],
+                "current_source_links": [
+                    "purdue-owl-writing",
+                    "deped-k12-english-curriculum-guide"
+                ],
+                "why_unknown": "The verified direct mapping establishes current LET consumption but does not establish a defensible reuse depth; specialization modeling does not change that evidence boundary.",
+                "official_scope_evidence": "PRC Resolution No. 11 s. 2025 TOS plus current LEPT program; grammar remains in the shared/General Education repository path.",
+                "clinical_evidence": "NOT_APPLICABLE",
+                "provisional_max_depth": "UNKNOWN",
+                "confidence": "MEDIUM_FOR_DEPTH_BOUNDARY",
+                "decision": "RETAIN_UNKNOWN",
+                "blocker": "STUDY_SCOPE_ONLY"
+            },
+            {
+                "concept_id": "sentence-structure-complex-sentences",
+                "concept_name": "Complex Sentences",
+                "let_relevance": "CURRENT_LET_SHARED_GENERAL_EDUCATION",
+                "current_study_links": [
+                    "let-english-communication-review",
+                    "let-english-grammar-foundation"
+                ],
+                "current_source_links": [
+                    "purdue-owl-writing",
+                    "deped-k12-english-curriculum-guide"
+                ],
+                "why_unknown": "The verified direct mapping establishes current LET consumption but does not establish a defensible reuse depth; specialization modeling does not change that evidence boundary.",
+                "official_scope_evidence": "PRC Resolution No. 11 s. 2025 TOS plus current LEPT program; grammar remains in the shared/General Education repository path.",
+                "clinical_evidence": "NOT_APPLICABLE",
+                "provisional_max_depth": "UNKNOWN",
+                "confidence": "MEDIUM_FOR_DEPTH_BOUNDARY",
+                "decision": "RETAIN_UNKNOWN",
+                "blocker": "STUDY_SCOPE_ONLY"
+            },
+            {
+                "concept_id": "subject-verb-agreement-compound-subjects",
+                "concept_name": "Compound Subjects",
+                "let_relevance": "CURRENT_LET_SHARED_GENERAL_EDUCATION",
+                "current_study_links": [
+                    "let-english-communication-review",
+                    "let-english-grammar-foundation"
+                ],
+                "current_source_links": [
+                    "purdue-owl-writing",
+                    "deped-k12-english-curriculum-guide"
+                ],
+                "why_unknown": "The verified direct mapping establishes current LET consumption but does not establish a defensible reuse depth; specialization modeling does not change that evidence boundary.",
+                "official_scope_evidence": "PRC Resolution No. 11 s. 2025 TOS plus current LEPT program; grammar remains in the shared/General Education repository path.",
+                "clinical_evidence": "NOT_APPLICABLE",
+                "provisional_max_depth": "UNKNOWN",
+                "confidence": "MEDIUM_FOR_DEPTH_BOUNDARY",
+                "decision": "RETAIN_UNKNOWN",
+                "blocker": "STUDY_SCOPE_ONLY"
+            },
+            {
+                "concept_id": "subject-verb-agreement-indefinite-pronouns",
+                "concept_name": "Indefinite Pronouns",
+                "let_relevance": "CURRENT_LET_SHARED_GENERAL_EDUCATION",
+                "current_study_links": [
+                    "let-english-communication-review",
+                    "let-english-grammar-foundation"
+                ],
+                "current_source_links": [
+                    "purdue-owl-writing",
+                    "deped-k12-english-curriculum-guide"
+                ],
+                "why_unknown": "The verified direct mapping establishes current LET consumption but does not establish a defensible reuse depth; specialization modeling does not change that evidence boundary.",
+                "official_scope_evidence": "PRC Resolution No. 11 s. 2025 TOS plus current LEPT program; grammar remains in the shared/General Education repository path.",
+                "clinical_evidence": "NOT_APPLICABLE",
+                "provisional_max_depth": "UNKNOWN",
+                "confidence": "MEDIUM_FOR_DEPTH_BOUNDARY",
+                "decision": "RETAIN_UNKNOWN",
+                "blocker": "STUDY_SCOPE_ONLY"
+            },
+            {
+                "concept_id": "verb-tenses-perfect-tenses",
+                "concept_name": "Perfect Tenses",
+                "let_relevance": "CURRENT_LET_SHARED_GENERAL_EDUCATION",
+                "current_study_links": [
+                    "let-english-communication-review",
+                    "let-english-grammar-foundation"
+                ],
+                "current_source_links": [
+                    "purdue-owl-writing",
+                    "deped-k12-english-curriculum-guide"
+                ],
+                "why_unknown": "The verified direct mapping establishes current LET consumption but does not establish a defensible reuse depth; specialization modeling does not change that evidence boundary.",
+                "official_scope_evidence": "PRC Resolution No. 11 s. 2025 TOS plus current LEPT program; grammar remains in the shared/General Education repository path.",
+                "clinical_evidence": "NOT_APPLICABLE",
+                "provisional_max_depth": "UNKNOWN",
+                "confidence": "MEDIUM_FOR_DEPTH_BOUNDARY",
+                "decision": "RETAIN_UNKNOWN",
+                "blocker": "STUDY_SCOPE_ONLY"
+            },
+            {
+                "concept_id": "verb-tenses-tense-consistency",
+                "concept_name": "Tense Consistency",
+                "let_relevance": "CURRENT_LET_SHARED_GENERAL_EDUCATION",
+                "current_study_links": [
+                    "let-english-communication-review",
+                    "let-english-grammar-foundation"
+                ],
+                "current_source_links": [
+                    "purdue-owl-writing",
+                    "deped-k12-english-curriculum-guide"
+                ],
+                "why_unknown": "The verified direct mapping establishes current LET consumption but does not establish a defensible reuse depth; specialization modeling does not change that evidence boundary.",
+                "official_scope_evidence": "PRC Resolution No. 11 s. 2025 TOS plus current LEPT program; grammar remains in the shared/General Education repository path.",
+                "clinical_evidence": "NOT_APPLICABLE",
+                "provisional_max_depth": "UNKNOWN",
+                "confidence": "MEDIUM_FOR_DEPTH_BOUNDARY",
+                "decision": "RETAIN_UNKNOWN",
+                "blocker": "STUDY_SCOPE_ONLY"
+            }
+        ]
+    },
+    "source_readiness": {
+        "sources_reviewed": 5,
+        "sources_reused": [
+            "prc-let-enhanced-tos-2025"
+        ],
+        "sources_added": [
+            "prc-resolution-20-2025",
+            "prc-lept-alignment-guidance-2025",
+            "prc-lept-program-march-2026",
+            "prc-lept-room-assignment-september-2026"
+        ],
+        "role_counts": {
+            "INSTRUCTIONAL_SOURCE": 6,
+            "NORMATIVE_SOURCE": 3,
+            "PROFESSIONAL_RULE_SOURCE": 1,
+            "REGULATORY_SOURCE": 1,
+            "SCIENTIFIC_SOURCE": 1,
+            "SCOPE_SOURCE": 5,
+            "STATUTORY_SOURCE": 6,
+            "UNSPECIFIED": 150
+        },
+        "currentness_counts": {
+            "CLINICAL_GUIDANCE": 1,
+            "PERIODICALLY_UPDATED": 2,
+            "PROFESSIONAL_RULE_VERSIONED": 1,
+            "REGULATORY_CURRENT": 5,
+            "STABLE_FOUNDATIONAL": 7,
+            "STANDARD_VERSIONED": 2,
+            "STATUTORY_VERSIONED": 5,
+            "UNSPECIFIED": 150
+        },
+        "live_currentness_verified": [
+            "PRC Resolution 20 s. 2025",
+            "PRC July 2025 LEPT alignment guidance",
+            "PRC March 2026 LEPT program",
+            "PRC September 2026 room-assignment specialization labels"
+        ],
+        "registry_support": {
+            "READY_EXISTING_TAXONOMY": 0,
+            "PARTIAL_EXISTING_TAXONOMY": 5,
+            "NEEDS_TAXONOMY_EXTENSION": 3,
+            "NO_EVIDENCE": 7
+        }
+    },
+    "study_readiness": {
+        "materials_reviewed": 27,
+        "specialization_materials": 0,
+        "shared_materials_sufficient": true,
+        "specialization_materials_sufficient": false,
+        "readiness": {
+            "elementary-early-childhood-education": {
+                "specialization": "Early Childhood Education",
+                "study_readiness": "MISSING",
+                "study_resources": []
+            },
+            "elementary-special-needs-education": {
+                "specialization": "Special Needs Education",
+                "study_readiness": "MISSING",
+                "study_resources": []
+            },
+            "secondary-english": {
+                "specialization": "English",
+                "study_readiness": "NEEDS_REORGANIZATION",
+                "study_resources": [
+                    "let-english-communication-review",
+                    "let-english-reading-foundation",
+                    "let-english-grammar-foundation"
+                ]
+            },
+            "secondary-filipino": {
+                "specialization": "Filipino",
+                "study_readiness": "NEEDS_REORGANIZATION",
+                "study_resources": [
+                    "let-filipino-communication-review"
+                ]
+            },
+            "secondary-mathematics": {
+                "specialization": "Mathematics",
+                "study_readiness": "NEEDS_REORGANIZATION",
+                "study_resources": [
+                    "let-mathematics-essentials-review"
+                ]
+            },
+            "secondary-science": {
+                "specialization": "Science",
+                "study_readiness": "NEEDS_REORGANIZATION",
+                "study_resources": [
+                    "let-science-technology-review"
+                ]
+            },
+            "secondary-social-studies": {
+                "specialization": "Social Studies",
+                "study_readiness": "NEEDS_REORGANIZATION",
+                "study_resources": [
+                    "let-philippine-history-review"
+                ]
+            },
+            "secondary-values-education": {
+                "specialization": "Values Education",
+                "study_readiness": "MISSING",
+                "study_resources": []
+            },
+            "secondary-physical-education": {
+                "specialization": "Physical Education",
+                "study_readiness": "MISSING",
+                "study_resources": []
+            },
+            "secondary-culture-and-arts-education": {
+                "specialization": "Culture and Arts Education",
+                "study_readiness": "MISSING",
+                "study_resources": []
+            },
+            "secondary-tle-agriculture-and-fishery-arts": {
+                "specialization": "Agriculture and Fishery Arts",
+                "study_readiness": "MISSING",
+                "study_resources": []
+            },
+            "secondary-tle-home-economics": {
+                "specialization": "Home Economics",
+                "study_readiness": "MISSING",
+                "study_resources": []
+            },
+            "secondary-tle-information-and-communication-technology": {
+                "specialization": "Information and Communication Technology",
+                "study_readiness": "MISSING",
+                "study_resources": []
+            },
+            "secondary-tle-industrial-arts": {
+                "specialization": "Industrial Arts",
+                "study_readiness": "MISSING",
+                "study_resources": []
+            },
+            "secondary-technical-vocational-teacher-education": {
+                "specialization": "Technical-Vocational Teacher Education",
+                "study_readiness": "MISSING",
+                "study_resources": []
+            }
+        }
+    },
+    "migration": {
+        "records_migrated": 0,
+        "ambiguous_records": 0,
+        "data_loss": 0,
+        "variant_metadata_errors": [],
+        "legacy_attempt_behavior": "Historical sessions lacking LET metadata remain readable; new explicit Secondary sessions require a valid specialization and no silent fallback is permitted."
+    },
+    "expansion_gate": {
+        "model_ready": true,
+        "crosswalk_ready": true,
+        "source_ready": false,
+        "study_ready": false,
+        "production_ready": true,
+        "at_least_one_supported_ready_specialization": false,
+        "expansion_allowed": false,
+        "decision": "NO_NEW_QUESTIONS; specialization content remains evidence-blocked until taxonomy and specialization-specific study/source chains are added."
+    },
+    "expansion": {
+        "planned": 0,
+        "actual": 0,
+        "new_ids": [],
+        "new_id_range": null,
+        "by_specialization": [],
+        "by_ge_pe": [],
+        "new_depth_unknown": 0,
+        "traceability": {
+            "with_study": 0,
+            "with_source": 0,
+            "with_scope": 0,
+            "derivable": 0
+        }
+    },
+    "variant_isolation": {
+        "configurations_tested": [
+            "ELEMENTARY",
+            "SECONDARY:secondary-english",
+            "SECONDARY:secondary-filipino"
+        ],
+        "elementary_specialization_leakage": 0,
+        "cross_specialization_leakage": 0,
+        "invalid_config_rejection": true,
+        "invalid_config_results": {
+            "SECONDARY_WITHOUT_SPECIALIZATION": {
+                "rejected": true,
+                "errors": [
+                    "SECONDARY_SPECIALIZATION_REQUIRED"
+                ]
+            },
+            "ELEMENTARY_WITH_SECONDARY_SPECIALIZATION": {
+                "rejected": true,
+                "errors": [
+                    "INCOMPATIBLE_SPECIALIZATION_LEVEL"
+                ]
+            },
+            "UNKNOWN_SPECIALIZATION": {
+                "rejected": true,
+                "errors": [
+                    "UNKNOWN_SPECIALIZATION",
+                    "SECONDARY_SPECIALIZATION_REQUIRED"
+                ]
+            },
+            "MISSING_LEVEL": {
+                "rejected": true,
+                "errors": [
+                    "INVALID_LET_LEVEL"
+                ]
+            }
+        },
+        "placement_roundtrip": true,
+        "ge_sharing": "PASS",
+        "pe_sharing": "PASS",
+        "legacy_let_reachable": true,
+        "secondary_exam": {
+            "selected": 90,
+            "unique": true,
+            "coverage": [
+                {
+                    "component": "GENERAL_EDUCATION",
+                    "specialization_id": "secondary-english",
+                    "required": 30,
+                    "selected": 30,
+                    "shortage": 0
+                },
+                {
+                    "component": "PROFESSIONAL_EDUCATION",
+                    "specialization_id": "secondary-english",
+                    "required": 60,
+                    "selected": 60,
+                    "shortage": 0
+                },
+                {
+                    "component": "SPECIALIZATION",
+                    "specialization_id": "secondary-english",
+                    "required": 60,
+                    "selected": 0,
+                    "shortage": 60
+                }
+            ],
+            "issues": [
+                {
+                    "code": "LET_SPECIALIZATION_POOL_SHORTAGE",
+                    "component": "SPECIALIZATION",
+                    "specialization_id": "secondary-english",
+                    "shortage": 60
+                }
+            ]
+        }
+    },
+    "production_path": {
+        "chain": "QuestionEligibilityIndex -> QuestionPoolFilter -> QuestionSelectionService",
+        "elementary_selector": {
+            "ge_selected": 5,
+            "pe_selected": 5
+        },
+        "secondary_selector": {
+            "ge_selected": 5,
+            "pe_selected": 5,
+            "specialization_selected": 0,
+            "specialization_id": "secondary-english",
+            "status": "PASS_WITH_EXPLICIT_SPECIALIZATION_SHORTAGE"
+        },
+        "losing_board_smoke": {
+            "civil-service": {
+                "subject": "verbal-ability",
+                "selected": 5,
+                "unique": 5
+            },
+            "cpa": {
+                "subject": "cpa-financial-accounting",
+                "selected": 5,
+                "unique": 5
+            },
+            "criminologist": {
+                "subject": "criminal-justice-foundations",
+                "selected": 5,
+                "unique": 5
+            },
+            "psychometrician": {
+                "subject": "psychological-assessment",
+                "selected": 5,
+                "unique": 5
+            }
+        },
+        "new_specialization_ids_reachable": 0,
+        "duplicate_effective_candidates": 0,
+        "double_weighting": 0
+    },
+    "portfolio": {
+        "total_canonical": 5492,
+        "total_effective": 5952,
+        "effective_unique_question_count": 5492,
+        "direct_eligibility_pairs": 5912,
+        "concept_derived_pairs": 40,
+        "multi_board": 352,
+        "single_board": 5140,
+        "board_counts": {
+            "let": {
+                "canonical_native": 1039,
+                "effective": 1122,
+                "question_depth_unknown": 0,
+                "coverage_unknown": 9
+            },
+            "civil-service": {
+                "canonical_native": 775,
+                "effective": 1029,
+                "question_depth_unknown": 0,
+                "coverage_unknown": 0
+            },
+            "criminologist": {
+                "canonical_native": 429,
+                "effective": 532,
+                "question_depth_unknown": 0,
+                "coverage_unknown": 2
+            },
+            "nursing": {
+                "canonical_native": 878,
+                "effective": 898,
+                "question_depth_unknown": 0,
+                "coverage_unknown": 10
+            },
+            "psychometrician": {
+                "canonical_native": 380,
+                "effective": 380,
+                "question_depth_unknown": 0,
+                "coverage_unknown": 0
+            },
+            "civil-engineering": {
+                "canonical_native": 302,
+                "effective": 302,
+                "question_depth_unknown": 0,
+                "coverage_unknown": 0
+            },
+            "cpa": {
+                "canonical_native": 432,
+                "effective": 432,
+                "question_depth_unknown": 6,
+                "coverage_unknown": 0
+            },
+            "mechanical-engineering": {
+                "canonical_native": 464,
+                "effective": 464,
+                "question_depth_unknown": 0,
+                "coverage_unknown": 0
+            },
+            "registered-electrical-engineering": {
+                "canonical_native": 321,
+                "effective": 321,
+                "question_depth_unknown": 0,
+                "coverage_unknown": 0
+            },
+            "architecture": {
+                "canonical_native": 472,
+                "effective": 472,
+                "question_depth_unknown": 0,
+                "coverage_unknown": 0
+            }
+        },
+        "production_index_effective_by_board": {
+            "let": 1137,
+            "civil-service": 1338,
+            "criminologist": 532,
+            "nursing": 898,
+            "psychometrician": 380,
+            "civil-engineering": 302,
+            "cpa": 432,
+            "mechanical-engineering": 464,
+            "registered-electrical-engineering": 321,
+            "architecture": 472
+        },
+        "legacy_mapping_divergence_by_board": {
+            "let": 15,
+            "civil-service": 309,
+            "criminologist": 0,
+            "nursing": 0,
+            "psychometrician": 0,
+            "civil-engineering": 0,
+            "cpa": 0,
+            "mechanical-engineering": 0,
+            "registered-electrical-engineering": 0,
+            "architecture": 0
+        },
+        "canonical_id_unique": true
+    },
+    "cross_batch_invariants": {
+        "let": {
+            "canonical_native": 1039,
+            "effective": 1122,
+            "question_depth_unknown": 0,
+            "coverage_unknown": 9
+        },
+        "civil-service": {
+            "canonical_native": 775,
+            "effective": 1029,
+            "question_depth_unknown": 0,
+            "coverage_unknown": 0
+        },
+        "nursing": {
+            "canonical_native": 878,
+            "effective": 898,
+            "question_depth_unknown": 0,
+            "coverage_unknown": 10
+        },
+        "psychometrician": {
+            "canonical_native": 380,
+            "effective": 380,
+            "question_depth_unknown": 0,
+            "coverage_unknown": 0
+        },
+        "criminologist": {
+            "canonical_native": 429,
+            "effective": 532,
+            "question_depth_unknown": 0,
+            "coverage_unknown": 2
+        },
+        "cpa": {
+            "canonical_native": 432,
+            "effective": 432,
+            "question_depth_unknown": 6,
+            "coverage_unknown": 0
+        },
+        "cse_627_semantic_near_duplicate_queue": 11,
+        "known_to_unknown_regressions": 0
+    },
+    "integrity": {
+        "canonical_id_uniqueness": true,
+        "source_validation": {
+            "valid": true,
+            "invalid": [],
+            "total": 173
+        },
+        "study_validation": {
+            "valid": true,
+            "invalid": [],
+            "total": 180
+        },
+        "depth_integrity": true,
+        "coverage_integrity": "PASS_WITH_EXPLICIT_LET_RESIDUAL",
+        "prerequisite_integrity": {
+            "invalid_required_concepts": 0,
+            "self_prerequisites": 0,
+            "circular_prerequisites": 0
+        },
+        "known_to_unknown_regressions": 0,
+        "different_id_equivalence_enabled": false
+    },
+    "deduplication": {
+        "exact_duplicates": 0,
+        "normalized_duplicates": 0,
+        "semantic_near_duplicates": 0,
+        "numeric_template_duplicates": 0,
+        "scenario_template_duplicates": 0
+    },
+    "cse_near_duplicate_queue": {
+        "count": 11,
+        "status": "PRESERVED_EXPLICIT_REVIEW_QUEUE"
+    },
+    "reuse": {
+        "direct_eligibility": 5912,
+        "concept_derived": 40,
+        "new_reuse_review_candidates": 0,
+        "new_same_concept_activated": 0,
+        "different_id_equivalence_enabled": false
+    },
+    "validation": {
+        "compile": "PASS",
+        "json_parse": "PASS",
+        "specialization_registry": "PASS",
+        "migration_integrity": "PASS",
+        "variant_isolation": "PASS",
+        "blueprint_integrity": "PASS",
+        "source_study_integrity": "PASS",
+        "dedup": "PASS",
+        "production_selection": "PASS"
+    },
+    "determinism_inputs": {
+        "registry_hash": "30e629ce7bc050347c953398241123d745154174c8755eb6cc50c55b845b9fae",
+        "eligibility_hash_input": "9bf3d106304da0d19deba60ab81668e48f208c1647ff1404bd2557ee300bf8e3"
+    },
+    "determinism": {
+        "audit_hash": "f4275cd7663687b655622136979ed035bb6901aece8a20fa46073c47d9bb072e",
+        "second_audit_hash": "f4275cd7663687b655622136979ed035bb6901aece8a20fa46073c47d9bb072e",
+        "audit_identical": true,
+        "eligibility_hash": "5241bb7b9a7388a23449affc324812f94680be5955967eb693129910d3de5b74",
+        "second_eligibility_hash": "5241bb7b9a7388a23449affc324812f94680be5955967eb693129910d3de5b74",
+        "eligibility_identical": true,
+        "specialization_model_hash": "972dae366afa2c508853881abfe5660a7549e1b199b374f1dfb3dff448eb2df7",
+        "second_specialization_model_hash": "972dae366afa2c508853881abfe5660a7549e1b199b374f1dfb3dff448eb2df7",
+        "specialization_model_identical": true
+    }
+}

@@ -21,6 +21,9 @@ final class AttemptSessionContext
             "mode" => AttemptValueReader::text($session["mode"] ?? null),
             "difficulty" => AttemptValueReader::text($session["difficulty"] ?? null),
             "session_type" => AttemptValueReader::text($session["session_type"] ?? null),
+            "let_variant" => is_array($session["let_variant"] ?? null) ? $session["let_variant"] : null,
+            "let_level" => AttemptValueReader::text($session["let_level"] ?? null),
+            "let_specialization_id" => AttemptValueReader::text($session["let_specialization_id"] ?? null),
             "requested_question_count" => AttemptValueReader::nonNegativeInt(
                 $session["requested_question_count"] ?? null
             ),

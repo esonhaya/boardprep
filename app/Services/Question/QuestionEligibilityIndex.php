@@ -43,6 +43,7 @@ final class QuestionEligibilityIndex
                         $questionEntry['subject_ids'] = $override['subject_ids'];
                     }
                     if (is_array($override['placements'] ?? null)) {
+                        $questionEntry['placements'] = $override['placements'];
                         if (!is_array($questionEntry['subject_ids'] ?? null)) {
                             $questionEntry['subject_ids'] = [];
                         }
@@ -114,6 +115,7 @@ final class QuestionEligibilityIndex
                     $exam,
                     (string) ($placement['subject_id'] ?? $subjects[$exam] ?? $entry['subject_id'] ?? '')
                 ),
+                'placement' => $placement,
             ];
         }
 
@@ -123,6 +125,7 @@ final class QuestionEligibilityIndex
                     'exam_id' => $exam,
                     'subject_id' => (string) ($override['placement']['subject_id'] ?? ''),
                     'eligibility_source' => 'MANUAL_INCLUDE',
+                    'placement' => $override['placement'],
                 ];
             }
         }
@@ -137,13 +140,18 @@ final class QuestionEligibilityIndex
                 'subject_id' => (string) ($placement['subject_id'] ?? ''),
                 'eligibility_source' => 'CONCEPT_INHERITED',
                 'relationship_id' => (string) ($entry['id'] ?? ''),
+                'placement' => $placement,
             ];
         }
 
         $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
         $board = self::normalize((string) ($taxonomy['board_id'] ?? $question['board'] ?? ''));
         return $board === $exam
-            ? ['exam_id' => $exam, 'subject_id' => (string) ($taxonomy['subject_id'] ?? $question['subject_id'] ?? '')]
+            ? [
+                'exam_id' => $exam,
+                'subject_id' => (string) ($taxonomy['subject_id'] ?? $question['subject_id'] ?? ''),
+                'placement' => [],
+            ]
             : null;
     }
 

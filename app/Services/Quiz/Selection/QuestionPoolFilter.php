@@ -1,5 +1,8 @@
 <?php
 declare(strict_types=1);
+
+use App\Services\Quiz\LET\LETVariantRegistry;
+
 final class QuestionPoolFilter
 {
     public static function filter(array $questions, SelectionRequest $request, ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null): array
@@ -13,6 +16,15 @@ final class QuestionPoolFilter
             $examEligibility = $request->exam === null ? null : \App\Services\Question\QuestionEligibilityService::forExam($question, $request->exam, $eligibilityIndex);
             if ($request->exam !== null && $examEligibility === null
                 && (array_key_exists('board', $question) || array_key_exists('taxonomy', $question))) continue;
+            if (strtolower(trim((string) $request->exam)) === 'let'
+                && !LETVariantRegistry::matchesQuestion(
+                    $question,
+                    $request->letVariant,
+                    $request->letComponent,
+                    $examEligibility
+                )) {
+                continue;
+            }
             $subject=$question['subject']??$taxonomy['subject_id']??null;
             if ($examEligibility !== null && ($examEligibility['subject_id'] ?? '') !== '') {
                 $subject = $examEligibility['subject_id'];
@@ -21,7 +33,7 @@ final class QuestionPoolFilter
             $topic=$question['topic']??$taxonomy['topic_id']??null;
             $status=strtolower(trim((string)($question['status']??'active')));
             $matches=in_array($status,['active','approved'],true)
-                && self::sameTaxonomy($subject,$request->subject,'subjects')
+                && ($request->subject === '*' || self::sameTaxonomy($subject,$request->subject,'subjects'))
                 && ($request->domain===null||self::sameTaxonomy($domain,$request->domain,'domains'))
                 && ($request->topic===null||self::sameTaxonomy($topic,$request->topic,'topics'));
             if (!$matches) continue;

@@ -25,7 +25,9 @@ final class BlueprintExecutor
                 questionCount: $request->questionCount,
                 topic: $request->topic,
                 concept: $request->concept,
-                exam: $specification->board
+                exam: $specification->board,
+                letVariant: $specification->letVariant,
+                letComponent: $request->letComponent
             ),
             $requests
         );

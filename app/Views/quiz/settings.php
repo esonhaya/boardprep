@@ -36,6 +36,11 @@ value="<?= htmlspecialchars((string) (($settings['topics'][0] ?? '')), ENT_QUOTE
 
 <div class="form-field"><label for="quiz-exam">Examination</label><select id="quiz-exam" name="exam"><?php foreach (($boards ?? []) as $board): ?><option value="<?= htmlspecialchars((string) ($board['code'] ?? '')) ?>" <?= strtoupper((string) ($settings['board'] ?? 'LET')) === strtoupper((string) ($board['code'] ?? '')) ? 'selected' : '' ?>><?= htmlspecialchars((string) ($board['name'] ?? '')) ?></option><?php endforeach; ?></select></div>
 
+<?php if (strtolower((string) ($settings['board'] ?? '')) === 'let'): ?>
+<div class="form-field"><label for="let-level">LET candidate level</label><select id="let-level" name="let_level"><option value="">Legacy board-wide practice</option><option value="ELEMENTARY" <?= strtoupper((string) ($settings['let_level'] ?? '')) === 'ELEMENTARY' ? 'selected' : '' ?>>Elementary</option><option value="SECONDARY" <?= strtoupper((string) ($settings['let_level'] ?? '')) === 'SECONDARY' ? 'selected' : '' ?>>Secondary</option></select><small class="form-help">Choose a level for variant-safe blueprint filtering. Secondary requires a specialization.</small></div>
+<div class="form-field"><label for="let-specialization">LET specialization</label><select id="let-specialization" name="let_specialization"><option value="">No specialization</option><?php foreach (($letSpecializations ?? []) as $specialization): ?><option value="<?= htmlspecialchars((string) ($specialization['id'] ?? '')) ?>" data-level="<?= htmlspecialchars((string) ($specialization['level'] ?? '')) ?>" <?= (string) (($settings['let_specialization'] ?? '')) === (string) ($specialization['id'] ?? '') ? 'selected' : '' ?>><?= htmlspecialchars((string) ($specialization['official_name'] ?? $specialization['id'] ?? '')) ?> (<?= htmlspecialchars((string) ($specialization['level'] ?? '')) ?>)</option><?php endforeach; ?></select><small class="form-help">Historical labels resolve to stable identities; ambiguous MAPEH/BTLEd qualification labels are not silently assigned.</small></div>
+<?php endif; ?>
+
 <div class="form-field"><label for="quiz-subject">Subject</label>
 
 <select id="quiz-subject" name="subject">

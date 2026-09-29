@@ -27,9 +27,10 @@
                     "professional_education": 40,
                     "specialization": 40
                 },
-                "specialization_status": "FOUNDATION"
+                "specialization_status": "VARIANT_REGISTRY_REQUIRED",
+                "requires_specialization_id": true
             },
-            "specialization-aware": {
+            "elementary-specialized": {
                 "label": "Elementary with required specialization",
                 "official_structure": "General Education 20%; Professional Education 40%; Specialization 40%",
                 "official_weights": {
@@ -37,9 +38,43 @@
                     "professional_education": 40,
                     "specialization": 40
                 },
-                "specialization_status": "FOUNDATION"
+                "specialization_status": "VARIANT_REGISTRY_REQUIRED",
+                "requires_specialization_id": true
+            },
+            "specialization-aware": {
+                "label": "Historical alias for Elementary with specialization",
+                "alias_of": "elementary-specialized",
+                "official_structure": "General Education 20%; Professional Education 40%; Specialization 40%",
+                "official_weights": {
+                    "general_education": 20,
+                    "professional_education": 40,
+                    "specialization": 40
+                },
+                "specialization_status": "VARIANT_REGISTRY_REQUIRED",
+                "requires_specialization_id": true
             }
         },
+        "official_variant_model": {
+            "elementary": {
+                "without_specialization": {
+                    "general_education": 40,
+                    "professional_education": 60
+                },
+                "with_specialization": {
+                    "general_education": 20,
+                    "professional_education": 40,
+                    "specialization": 40
+                }
+            },
+            "secondary": {
+                "general_education": 20,
+                "professional_education": 40,
+                "specialization": 40
+            },
+            "component_weights_are_official": true,
+            "intra_component_subject_weights": "UNSPECIFIED_BY_PRC_CURRENT_SOURCES"
+        },
+        "specialization_registry": "storage/let-specializations.json",
         "official_areas": [
             {
                 "id": "purposive-communication-english",
@@ -121,7 +156,7 @@
         ],
         "label": "BoardPrep coverage targets; not an official weighting.",
         "source_id": "prc-let-enhanced-tos-2025",
-        "source_version": "Resolution No. 11 s. 2025",
+        "source_version": "Resolution No. 20 s. 2025 + Resolution No. 11 s. 2025",
         "official_structure": "General Education and Professional Education subjects are represented in the PRC enhanced TOS reference.",
         "official_weights": null,
         "internal_targets": true

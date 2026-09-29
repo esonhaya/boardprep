@@ -24,7 +24,10 @@ final class BlueprintRequestExecutor
                     subject: $request->subject,
                     domain: null,
                     difficultyDistribution: [],
-                    questionCount: $request->questionCount
+                    questionCount: $request->questionCount,
+                    letVariant: $request->letVariant,
+                    letComponent: $request->letComponent,
+                    exam: $request->exam
                 )
             );
 
@@ -60,7 +63,10 @@ final class BlueprintRequestExecutor
                     subject: $request->subject,
                     domain: null,
                     difficultyDistribution: $request->difficultyDistribution,
-                    questionCount: $needed
+                    questionCount: $needed,
+                    letVariant: $request->letVariant,
+                    letComponent: $request->letComponent,
+                    exam: $request->exam
                 );
                 $eligible = QuestionPoolFilter::filter($available, $recoveryRequest);
                 $result = QuestionSelectionService::fulfillRequest($eligible, $recoveryRequest);

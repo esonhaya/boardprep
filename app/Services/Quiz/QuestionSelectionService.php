@@ -14,7 +14,8 @@ final class QuestionSelectionService
             questionCount: $specification->questionCount,
             topic: $specification->topics[0] ?? null,
             concept: $specification->concepts[0] ?? null,
-            exam: $specification->board
+            exam: $specification->board,
+            letVariant: $specification->letVariant
         );
 
         return self::fulfillRequest($questions, $request)->questions;

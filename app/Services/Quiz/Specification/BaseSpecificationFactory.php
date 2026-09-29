@@ -54,6 +54,11 @@ final class BaseSpecificationFactory
             subjectBlueprintVersion:
                 null,
 
+            letVariant:
+                is_array($options['let_variant'] ?? null)
+                    ? $options['let_variant']
+                    : null,
+
         );
 
     }

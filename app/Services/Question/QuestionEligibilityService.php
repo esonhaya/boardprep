@@ -6,6 +6,7 @@ namespace App\Services\Question;
 
 use App\Core\App;
 use App\Services\Shared\TaxonomyStorageService;
+use App\Services\Quiz\LET\LETVariantRegistry;
 
 final class QuestionEligibilityService
 {
@@ -181,6 +182,7 @@ final class QuestionEligibilityService
             'domains' => TaxonomyStorageService::domains(),
             'topics' => TaxonomyStorageService::topics(),
             'concepts' => TaxonomyStorageService::concepts(),
+            'let_specializations' => LETVariantRegistry::specializations(),
         ];
     }
 
@@ -196,6 +198,10 @@ final class QuestionEligibilityService
         $topicId = self::inputString($input, ['target_topic', 'topic']);
         $conceptId = self::inputString($input, ['target_concept', 'concept']);
         $blueprintNode = self::inputString($input, ['blueprint_node', 'target_blueprint_node']);
+        $letLevel = strtoupper(self::inputString($input, ['let_level', 'target_let_level']));
+        $letComponent = strtoupper(self::inputString($input, ['let_component', 'target_let_component']));
+        $letSpecializationInput = self::inputString($input, ['let_specialization_id', 'target_specialization_id', 'let_specialization']);
+        $letSpecialization = $letSpecializationInput === '' ? null : LETVariantRegistry::resolveSpecialization($letSpecializationInput);
         $errors = [];
 
         if ($boardId === '' || TaxonomyStorageService::find('boards', $boardId) === null) {
@@ -229,6 +235,27 @@ final class QuestionEligibilityService
         if ($blueprintNode === '') {
             $blueprintNode = $conceptId !== '' ? $conceptId : ($domainId !== '' ? $domainId : $subjectId);
         }
+        if ($boardId === 'let' && ($letLevel !== '' || $letComponent !== '' || $letSpecializationInput !== '')) {
+            if ($letSpecialization !== null && $letLevel === '') {
+                $letLevel = strtoupper((string) ($letSpecialization['level'] ?? ''));
+            }
+            if ($letSpecialization !== null && $letComponent === '') {
+                $letComponent = LETVariantRegistry::SPECIALIZATION;
+            }
+            $variantValidation = LETVariantRegistry::validateConfiguration([
+                'level' => $letLevel,
+                'component' => $letComponent === '' ? null : $letComponent,
+                'specialization_id' => $letSpecializationInput,
+            ]);
+            if (($variantValidation['valid'] ?? false) !== true) {
+                foreach (($variantValidation['errors'] ?? []) as $code => $message) {
+                    $errors[$code] = $message;
+                }
+            }
+            if ($letSpecialization !== null) {
+                $letSpecializationInput = (string) ($letSpecialization['id'] ?? '');
+            }
+        }
         if ($boardId !== '' && !self::blueprintContains($boardId, $blueprintNode, $subjectId)) {
             $errors['INVALID_BLUEPRINT_PLACEMENT'] = 'The selected placement is not part of the target board blueprint.';
         }
@@ -254,6 +281,9 @@ final class QuestionEligibilityService
                 'topic_id' => $topicId,
                 'concept_id' => $conceptId,
                 'blueprint_node' => $blueprintNode,
+                'let_level' => $letLevel === '' ? null : $letLevel,
+                'let_component' => $letComponent === '' ? null : $letComponent,
+                'specialization_id' => $letSpecializationInput === '' ? null : $letSpecializationInput,
             ],
         ];
     }
@@ -425,6 +455,9 @@ final class QuestionEligibilityService
             'concept_name' => TaxonomyStorageService::label('taxonomy/concepts', $conceptId),
             'blueprint_node' => $blueprintNode,
             'blueprint_name' => self::blueprintLabel($boardId, $blueprintNode),
+            'let_level' => self::scalarString($placement['let_level'] ?? $placement['level'] ?? ''),
+            'let_component' => self::scalarString($placement['let_component'] ?? $placement['component'] ?? ''),
+            'specialization_id' => self::scalarString($placement['specialization_id'] ?? ''),
         ];
     }
 
@@ -432,6 +465,9 @@ final class QuestionEligibilityService
     {
         if ($node === '') {
             return false;
+        }
+        if ($boardId === 'let' && LETVariantRegistry::find($node) !== null) {
+            return true;
         }
         foreach (App::storage()->all('blueprints') as $blueprint) {
             if (!is_array($blueprint)
@@ -483,6 +519,17 @@ final class QuestionEligibilityService
                     $nodes[$id] = [
                         'id' => $id,
                         'name' => (string) ($item['name'] ?? $id),
+                    ];
+                }
+            }
+        }
+        if ($boardId === 'let') {
+            foreach (LETVariantRegistry::specializations() as $specialization) {
+                $id = self::scalarString($specialization['id'] ?? '');
+                if ($id !== '') {
+                    $nodes[$id] = [
+                        'id' => $id,
+                        'name' => (string) ($specialization['official_name'] ?? $id),
                     ];
                 }
             }
@@ -632,6 +679,7 @@ final class QuestionEligibilityService
                 return [
                     'exam_id' => $exam,
                     'subject_id' => self::resolvedSubject($question, $exam, (string) ($placement['subject_id'] ?? $subjects[$exam] ?? $entry['subject_id'] ?? '')),
+                    'placement' => $placement,
                 ];
             }
         }
@@ -649,6 +697,7 @@ final class QuestionEligibilityService
                 'exam_id' => $exam,
                 'subject_id' => (string) ($placement['subject_id'] ?? ''),
                 'eligibility_source' => 'MANUAL_INCLUDE',
+                'placement' => $placement,
             ];
         }
 
@@ -663,12 +712,19 @@ final class QuestionEligibilityService
                 'subject_id' => (string) ($placement['subject_id'] ?? ''),
                 'eligibility_source' => 'CONCEPT_INHERITED',
                 'relationship_id' => (string) ($relationship['id'] ?? ''),
+                'placement' => $placement,
             ];
         }
 
         $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
         $board = self::normalize((string) ($taxonomy['board_id'] ?? $question['board'] ?? ''));
-        return $board === $exam ? ['exam_id' => $exam, 'subject_id' => (string) ($taxonomy['subject_id'] ?? $question['subject_id'] ?? '')] : null;
+        return $board === $exam
+            ? [
+                'exam_id' => $exam,
+                'subject_id' => (string) ($taxonomy['subject_id'] ?? $question['subject_id'] ?? ''),
+                'placement' => [],
+            ]
+            : null;
     }
 
     /** Resolve a legacy umbrella subject to a blueprint section when taxonomy provides it. */

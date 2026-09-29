@@ -13,6 +13,7 @@ use App\Services\Quiz\Start\QuizStartSessionWriter;
 use App\Services\Quiz\Start\QuizStartInputNormalizer;
 use App\Services\Board\BoardViewService;
 use App\Services\Shared\CsrfTokenService;
+use App\Services\Quiz\LET\LETVariantRegistry;
 
 final class QuizFlowController
 {
@@ -92,6 +93,7 @@ final class QuizFlowController
                 'pageTitle' => 'Quiz',
                 'settings' => $settings,
                 'boards' => BoardViewService::all(),
+                'letSpecializations' => LETVariantRegistry::specializations(),
             ]
         );
     }

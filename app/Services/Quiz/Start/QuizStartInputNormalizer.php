@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Services\Quiz\Start;
 
+use App\Services\Quiz\LET\LETVariantRegistry;
+
 final class QuizStartInputNormalizer
 {
     public static function normalize(array $input): array
@@ -24,8 +26,27 @@ final class QuizStartInputNormalizer
             ? (int) round($numericCount)
             : $defaultCount;
 
+        $board = self::text($input['exam'] ?? 'LET') ?: 'LET';
+        $letVariant = null;
+        $level = '';
+        $specialization = '';
+        if (strtolower($board) === 'let') {
+            $level = strtoupper(self::text($input['let_level'] ?? ''));
+            $specialization = self::text($input['let_specialization'] ?? '');
+            if ($level !== '' || $specialization !== '') {
+                $validation = LETVariantRegistry::validateConfiguration([
+                    'level' => $level,
+                    'specialization_id' => $specialization,
+                ]);
+                if (($validation['valid'] ?? false) !== true) {
+                    throw new \InvalidArgumentException(implode(' ', array_values($validation['errors'] ?? [])));
+                }
+                $letVariant = $validation['configuration'];
+            }
+        }
+
         return [
-            'board' => self::text($input['exam'] ?? 'LET') ?: 'LET',
+            'board' => $board,
             'subject' => self::text($input['subject'] ?? '') ?: 'English',
             'domain' => self::nullableText($input['domain'] ?? null),
             'topics' => $topic === '' ? [] : [$topic],
@@ -34,6 +55,9 @@ final class QuizStartInputNormalizer
             'mode' => $mode,
             'adaptive' => isset($input['adaptive']),
             'shuffle' => true,
+            'let_variant' => $letVariant,
+            'let_level' => $letVariant['level'] ?? ($level !== '' ? $level : ''),
+            'let_specialization' => $letVariant['specialization_id'] ?? $specialization,
         ];
     }
 

@@ -30,6 +30,9 @@ final class QuizSpecification
 
         public readonly ?int $subjectBlueprintVersion,
 
+        /** @var array<string,mixed>|null */
+        public readonly ?array $letVariant = null,
+
     ) {
     }
 }

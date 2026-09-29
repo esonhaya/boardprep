@@ -11,7 +11,10 @@ final class SelectionRequest
         public readonly int $questionCount,
         public readonly ?string $topic = null,
         public readonly ?string $concept = null,
-        public readonly ?string $exam = null
+        public readonly ?string $exam = null,
+        /** @var array<string,mixed>|null */
+        public readonly ?array $letVariant = null,
+        public readonly ?string $letComponent = null
     ) {
     }
 }

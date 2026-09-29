@@ -16,7 +16,13 @@ class QuizStartService
     public static function start(): void
     {
         $questions = App::container()->get(QuestionRepository::class)->all();
-        $preparation = QuizStartPreparationService::prepare(Request::all(), $questions);
+        try {
+            $preparation = QuizStartPreparationService::prepare(Request::all(), $questions);
+        } catch (\InvalidArgumentException $exception) {
+            QuizStartSessionWriter::clear();
+            SessionService::flash('error', $exception->getMessage());
+            Response::redirect('/quiz', 302);
+        }
 
         if ($preparation->isEmpty()) {
             QuizStartSessionWriter::clear();
