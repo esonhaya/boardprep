@@ -5869,7 +5869,22 @@
         },
         "status": "published",
         "version": 1,
-        "updated_at": "2026-09-06"
+        "updated_at": "2026-09-06",
+        "supported_concept_ids": [
+            "b633-ree-math-algebra-linear",
+            "b633-ree-math-complex-phasors",
+            "b633-ree-math-calculus-differential",
+            "b633-ree-math-probability-statistics",
+            "b633-ree-math-discrete-economics"
+        ],
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-math-discrete-economics",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "ree-material-circuits",
@@ -5906,7 +5921,19 @@
         },
         "status": "published",
         "version": 1,
-        "updated_at": "2026-09-06"
+        "updated_at": "2026-09-06",
+        "supported_concept_ids": [
+            "b633-ree-pro-dc-networks",
+            "b633-ree-pro-transients"
+        ],
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-pro-transients",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "ree-material-ac-systems",
@@ -5943,7 +5970,19 @@
         },
         "status": "published",
         "version": 1,
-        "updated_at": "2026-09-06"
+        "updated_at": "2026-09-06",
+        "supported_concept_ids": [
+            "b633-ree-pro-ac-impedance",
+            "b633-ree-pro-three-phase"
+        ],
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-pro-three-phase",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "ree-material-machines",
@@ -5980,7 +6019,20 @@
         },
         "status": "published",
         "version": 1,
-        "updated_at": "2026-09-06"
+        "updated_at": "2026-09-06",
+        "supported_concept_ids": [
+            "b633-ree-pro-transformers",
+            "b633-ree-pro-rotating-machines",
+            "b633-ree-pro-generators-conversion"
+        ],
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-pro-generators-conversion",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "ree-material-power",
@@ -6017,7 +6069,19 @@
         },
         "status": "published",
         "version": 1,
-        "updated_at": "2026-09-06"
+        "updated_at": "2026-09-06",
+        "supported_concept_ids": [
+            "b633-ree-pro-power-analysis",
+            "b633-ree-pro-transmission-distribution"
+        ],
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-pro-transmission-distribution",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "ree-material-protection",
@@ -6063,7 +6127,19 @@
         },
         "status": "published",
         "version": 1,
-        "updated_at": "2026-09-06"
+        "updated_at": "2026-09-06",
+        "supported_concept_ids": [
+            "b633-ree-allied-mechanics",
+            "b633-ree-allied-materials"
+        ],
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-allied-materials",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "ree-material-thermal",
@@ -6086,7 +6162,19 @@
         },
         "status": "published",
         "version": 1,
-        "updated_at": "2026-09-06"
+        "updated_at": "2026-09-06",
+        "supported_concept_ids": [
+            "b633-ree-allied-thermodynamics",
+            "b633-ree-allied-fluid-mechanics"
+        ],
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-allied-fluid-mechanics",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "ree-material-electronics",
@@ -6127,7 +6215,20 @@
         },
         "status": "published",
         "version": 1,
-        "updated_at": "2026-09-06"
+        "updated_at": "2026-09-06",
+        "supported_concept_ids": [
+            "b633-ree-allied-electronics-semiconductor",
+            "b633-ree-allied-electronics-analog",
+            "b633-ree-allied-electronics-digital"
+        ],
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-allied-electronics-digital",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "ree-material-instrumentation",
@@ -6165,6 +6266,14 @@
                 "rationale": "Measurement and instrumentation is within the REE Professional TOS.",
                 "official_scope_status": "Current PRB Resolution 40 s.2024 Professional TOS: Instrumentation & Control, Feedback Control System and Research Methods"
             }
+        },
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-allied-instrumentation",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
         }
     },
     {
@@ -6175,10 +6284,20 @@
             {
                 "heading": "Use in practice",
                 "body": "Apply the relationships and decision checks to connect calculation results to safe electrical-engineering decisions."
+            },
+            {
+                "heading": "Batch638 safety and source boundary",
+                "body": "Separate statutory workplace-safety duties from installation-code sizing rules. For an electrical hazard, keep people clear, arrange qualified isolation, and verify the work point is de-energized before contact. A calculated body-path current in a hypothetical is only an Ohm-law result; it is not a safe/unsafe threshold. RA 11058 supports the workplace-safety duty, while exact PEC limits require the controlling code text."
+            },
+            {
+                "heading": "Application and common errors",
+                "body": "For safety scenarios, identify the hazard, the people exposed, the energy source, and the evidence that isolation is effective. Do not infer zero voltage from a switch position or tag alone; do not invent a code threshold from a general safety source. Explain why the proposed control addresses the hazard."
             }
         ],
         "source_ids": [
-            "prc-electrical-engineering-board-page"
+            "prc-electrical-engineering-board-page",
+            "ra-11058-occupational-safety",
+            "dole-bwc-workplace-electrical-safety"
         ],
         "exams": [
             "registered-electrical-engineering"
@@ -6187,8 +6306,19 @@
             "subject_id": "registered-electrical-engineering-foundation"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-06"
+        "version": 2,
+        "updated_at": "2026-10-01",
+        "supported_concept_ids": [
+            "b633-ree-allied-safety-code"
+        ],
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-allied-safety-code",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "ree-material-design",
@@ -6198,6 +6328,14 @@
             {
                 "heading": "Use in practice",
                 "body": "Apply the relationships and decision checks to connect calculation results to safe electrical-engineering decisions."
+            },
+            {
+                "heading": "Batch638 design-data boundary",
+                "body": "Separate arithmetic from code-dependent design decisions. A connected-load sum is not automatically maximum demand; a computed voltage drop is not a declaration of code compliance unless the governing edition, installation conditions, and applicable limit are supplied. Interpret illumination at the task plane rather than substituting lamp wattage for delivered illuminance."
+            },
+            {
+                "heading": "Application checks",
+                "body": "For a schedule or layout, verify the listed quantities, units, operating assumptions, route conditions, and interface constraints before drawing a conclusion. Treat a missing diversity factor or code limit as missing evidence, not as permission to assume a preferred value."
             }
         ],
         "source_ids": [
@@ -6210,8 +6348,8 @@
             "subject_id": "registered-electrical-engineering-foundation"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-06"
+        "version": 2,
+        "updated_at": "2026-10-01"
     },
     {
         "id": "ree-material-power-quality",
@@ -6234,7 +6372,18 @@
         },
         "status": "published",
         "version": 1,
-        "updated_at": "2026-09-06"
+        "updated_at": "2026-09-06",
+        "supported_concept_ids": [
+            "b633-ree-pro-transmission-distribution"
+        ],
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-pro-transmission-distribution",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "ree-material-controls",
@@ -6257,7 +6406,18 @@
         },
         "status": "published",
         "version": 1,
-        "updated_at": "2026-09-06"
+        "updated_at": "2026-09-06",
+        "supported_concept_ids": [
+            "b633-ree-pro-control-systems"
+        ],
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-pro-control-systems",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "ree-material-review",
@@ -6267,10 +6427,21 @@
             {
                 "heading": "Use in practice",
                 "body": "Apply the relationships and decision checks to connect calculation results to safe electrical-engineering decisions."
+            },
+            {
+                "heading": "Batch638 protection and currentness boundary",
+                "body": "Distinguish stable protection principles (fault detection, selective coordination, backup protection, current-transformer scaling, and interruption) from version-sensitive equipment selection. In a simplified question, state any assumed comparison rule in the stem. Do not assert a PEC conductor size, breaker value, grounding dimension, or PGC 2026 requirement without the controlling adopted text. ERC material reviewed for this batch identifies the approved PGC 2016 edition and separately labels the 2026 edition as a draft under consultation."
+            },
+            {
+                "heading": "Worked reasoning and common errors",
+                "body": "For a coordination scenario, first identify the faulted zone and the intended primary device; then check whether a backup remains available if the primary fails. For a rating comparison, compare like quantities and explicitly state the assumed inequality. Avoid treating relay time alone as proof of full coordination or using a grid-code draft as current law."
             }
         ],
         "source_ids": [
-            "prc-electrical-engineering-board-page"
+            "prc-electrical-engineering-board-page",
+            "prc-cpd-pec-2017-currentness-indicator",
+            "erc-philippine-grid-code-2016-resolution-22",
+            "erc-pgc-2026-draft-currentness"
         ],
         "exams": [
             "registered-electrical-engineering"
@@ -6279,8 +6450,22 @@
             "subject_id": "registered-electrical-engineering-foundation"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-06"
+        "version": 2,
+        "updated_at": "2026-10-01",
+        "supported_concept_ids": [
+            "b633-ree-pro-wiring-utilization",
+            "b633-ree-pro-protection-relaying",
+            "b633-ree-pro-control-systems",
+            "b633-ree-pro-power-electronics"
+        ],
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-pro-power-electronics",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "architecture-1-1-foundation",
@@ -9173,7 +9358,15 @@
         ],
         "status": "published",
         "version": 1,
-        "updated_at": "2026-10-01"
+        "updated_at": "2026-10-01",
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-math-trigonometry-analytic-geometry",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "b637-ree-study-math-matrices-determinants",
@@ -9218,7 +9411,15 @@
         ],
         "status": "published",
         "version": 1,
-        "updated_at": "2026-10-01"
+        "updated_at": "2026-10-01",
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-math-matrices-determinants",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "b637-ree-study-math-sequences-series",
@@ -9263,7 +9464,15 @@
         ],
         "status": "published",
         "version": 1,
-        "updated_at": "2026-10-01"
+        "updated_at": "2026-10-01",
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-math-sequences-series",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "b637-ree-study-math-fourier-laplace",
@@ -9308,7 +9517,15 @@
         ],
         "status": "published",
         "version": 1,
-        "updated_at": "2026-10-01"
+        "updated_at": "2026-10-01",
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-math-fourier-laplace",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "b637-ree-study-allied-chemistry",
@@ -9353,7 +9570,15 @@
         ],
         "status": "published",
         "version": 1,
-        "updated_at": "2026-10-01"
+        "updated_at": "2026-10-01",
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-allied-chemistry",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "b637-ree-study-allied-law-code-ethics",
@@ -9399,7 +9624,15 @@
         ],
         "status": "published",
         "version": 1,
-        "updated_at": "2026-10-01"
+        "updated_at": "2026-10-01",
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-allied-law-code-ethics",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "b637-ree-study-allied-contracts-specifications",
@@ -9445,7 +9678,15 @@
         ],
         "status": "published",
         "version": 1,
-        "updated_at": "2026-10-01"
+        "updated_at": "2026-10-01",
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-allied-contracts-specifications",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "b637-ree-study-allied-programming",
@@ -9490,7 +9731,15 @@
         ],
         "status": "published",
         "version": 1,
-        "updated_at": "2026-10-01"
+        "updated_at": "2026-10-01",
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-allied-computer-programming",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "b637-ree-study-prof-telecommunications",
@@ -9535,7 +9784,15 @@
         ],
         "status": "published",
         "version": 1,
-        "updated_at": "2026-10-01"
+        "updated_at": "2026-10-01",
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-pro-telecommunications",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     },
     {
         "id": "b637-ree-study-prof-computer-power-applications",
@@ -9580,6 +9837,14 @@
         ],
         "status": "published",
         "version": 1,
-        "updated_at": "2026-10-01"
+        "updated_at": "2026-10-01",
+        "batch638_foundation": {
+            "supported_leaf_id": "b633-ree-pro-computer-power-applications",
+            "scope_source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "source_chain_validated": true
+        }
     }
 ]
