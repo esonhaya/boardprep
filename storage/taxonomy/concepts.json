@@ -9592,6 +9592,23 @@
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
             "zero_evidence": false
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "mit-structural-analysis-member-systems",
+                "openstax-university-physics-volume-1"
+            ],
+            "study_material_ids": [
+                "ce-489--tructural-echanics-and-esign"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "CALCULATION_REQUIRED",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -9631,6 +9648,23 @@
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
             "zero_evidence": false
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "openstax-university-physics-volume-1",
+                "mit-structural-engineering-design-notes"
+            ],
+            "study_material_ids": [
+                "ce-489--trength-of-aterials"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "CALCULATION_REQUIRED",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -9670,6 +9704,22 @@
             "version_sensitivity": "VERSION_SENSITIVE",
             "visual_suitability": "TEXT_SUITABLE",
             "zero_evidence": false
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "mit-structural-engineering-design-notes"
+            ],
+            "study_material_ids": [
+                "ce-489--ntegrated-ractice"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "MIXED",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -9705,10 +9755,27 @@
             "study_material_ids": [
                 "ce-489--tructural-esting-and-nterpretation"
             ],
-            "source_readiness": "ADEQUATE",
+            "source_readiness": "STRONG",
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
             "zero_evidence": false
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "nist-semtech-engineering-statistics-handbook",
+                "mit-structural-engineering-design-notes"
+            ],
+            "study_material_ids": [
+                "ce-489--tructural-esting-and-nterpretation"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "MIXED",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -9733,13 +9800,31 @@
             "official_area": "ce-structural",
             "character": "CALCULATION_REQUIRED",
             "source_ids": [
-                "prc-cele-program-march-2026"
+                "prc-cele-program-march-2026",
+                "fhwa-post-tensioned-box-girder-design-manual"
             ],
-            "study_material_ids": [],
-            "source_readiness": "WEAK",
+            "study_material_ids": [
+                "ce-634-prestressed-concrete-foundation"
+            ],
+            "source_readiness": "STRONG",
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
             "zero_evidence": true
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "fhwa-post-tensioned-box-girder-design-manual"
+            ],
+            "study_material_ids": [
+                "ce-634-prestressed-concrete-foundation"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "CALCULATION_REQUIRED",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -9771,12 +9856,28 @@
                 "mit-structural-engineering-design-notes"
             ],
             "study_material_ids": [
-                "ce-489--ntegrated-ractice"
+                "ce-634-governing-codes-foundation"
             ],
-            "source_readiness": "ADEQUATE",
+            "source_readiness": "STRONG",
             "version_sensitivity": "HIGHLY_VERSION_SENSITIVE",
             "visual_suitability": "TEXT_SUITABLE",
             "zero_evidence": true
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "mit-structural-engineering-design-notes"
+            ],
+            "study_material_ids": [
+                "ce-634-governing-codes-foundation"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "REGULATORY",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -9816,6 +9917,23 @@
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
             "zero_evidence": false
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "openstax-calculus-volume-1",
+                "nist-semtech-engineering-statistics-handbook"
+            ],
+            "study_material_ids": [
+                "ce-489--pplied-athematics-for-"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "CALCULATION_REQUIRED",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -9853,6 +9971,22 @@
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
             "zero_evidence": false
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "noaa-geodetic-leveling-manual"
+            ],
+            "study_material_ids": [
+                "ce-489--urveying-and-ayout"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "CALCULATION_REQUIRED",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -9889,6 +10023,22 @@
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
             "zero_evidence": false
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "fhwa-traffic-flow-theory"
+            ],
+            "study_material_ids": [
+                "ce-489--ransportation-and-ighway-ngineering"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "CALCULATION_REQUIRED",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -9926,6 +10076,22 @@
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
             "zero_evidence": false
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "fhwa-construction-program-management-inspection"
+            ],
+            "study_material_ids": [
+                "ce-489--onstruction-anagement-and-uantity"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "MIXED",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -9965,6 +10131,24 @@
             "version_sensitivity": "VERSION_SENSITIVE",
             "visual_suitability": "TEXT_SUITABLE",
             "zero_evidence": false
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "fhwa-field-materials-manual",
+                "fhwa-construction-program-management-inspection",
+                "nist-semtech-engineering-statistics-handbook"
+            ],
+            "study_material_ids": [
+                "ce-489--onstruction-afety-and-uality"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "REGULATORY",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -10003,6 +10187,23 @@
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
             "zero_evidence": false
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "nist-semtech-engineering-statistics-handbook",
+                "fhwa-field-materials-manual"
+            ],
+            "study_material_ids": [
+                "ce-489--ngineering-ata-and-alculations"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "CONCEPTUAL_QUANTITATIVE",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -10041,6 +10242,23 @@
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
             "zero_evidence": false
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "ualberta-introduction-engineering-economics",
+                "fhwa-construction-program-management-inspection"
+            ],
+            "study_material_ids": [
+                "ce-489--ngineering-conomics-and-cheduling"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "MIXED",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -10082,6 +10300,23 @@
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
             "zero_evidence": false
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "openstax-university-physics-volume-1",
+                "usace-hydraulic-design-open-channel"
+            ],
+            "study_material_ids": [
+                "ce-489--luid-echanics-and-ydraulics"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "CALCULATION_REQUIRED",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -10116,10 +10351,26 @@
             "study_material_ids": [
                 "ce-489--ater-upply-and-rainage"
             ],
-            "source_readiness": "ADEQUATE",
+            "source_readiness": "STRONG",
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
             "zero_evidence": false
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "usgs-manual-surface-water-hydrology"
+            ],
+            "study_material_ids": [
+                "ce-489--ater-upply-and-rainage"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "CALCULATION_REQUIRED",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -10157,6 +10408,22 @@
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
             "zero_evidence": false
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "fhwa-soils-foundations-reference"
+            ],
+            "study_material_ids": [
+                "ce-489--oil-echanics-and-oundations"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "CALCULATION_REQUIRED",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -10195,6 +10462,22 @@
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
             "zero_evidence": false
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "fhwa-soils-foundations-reference"
+            ],
+            "study_material_ids": [
+                "ce-489--oil-echanics-and-oundations"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "CALCULATION_REQUIRED",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -10233,6 +10516,22 @@
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
             "zero_evidence": false
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "fhwa-soils-foundations-reference"
+            ],
+            "study_material_ids": [
+                "ce-489--eotechnical-ettlement-and-tability"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "CALCULATION_REQUIRED",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {
@@ -10272,6 +10571,22 @@
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
             "zero_evidence": false
+        },
+        "batch634_foundation": {
+            "status": "READY",
+            "official_scope_source": "prc-cele-program-march-2026",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "fhwa-soils-foundations-reference"
+            ],
+            "study_material_ids": [
+                "ce-489--eotechnical-ettlement-and-tability"
+            ],
+            "coverage": "DIRECT_LEAF_COVERAGE",
+            "depth_capability": 4,
+            "quantitative_class": "MIXED",
+            "currentness_verified_at": "2026-09-30"
         }
     },
     {

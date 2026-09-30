@@ -4422,6 +4422,14 @@
             [
                 "Ductility and seismic response",
                 "Repeated reversals favor stable inelastic deformation and energy dissipation. Ductility does not mean unlimited deformation or remove the need for strength and detailing checks."
+            ],
+            [
+                "Code-currentness practice",
+                "Use the current applicable authority for version-sensitive requirements. Record the edition or retrieval date, distinguish a stable load-path principle from a project-specific code limit, and do not turn an undated remembered section number into a universal answer."
+            ],
+            [
+                "Design-basis review",
+                "Before using a supplied factor or limit, identify the action, limit state, material, jurisdiction, and stated code basis. Escalate a genuine conflict rather than silently averaging requirements."
             ]
         ],
         "source_ids": [
@@ -4441,8 +4449,8 @@
             "subject_id": "civil-engineering-structural-engineering"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-09-30"
     },
     {
         "id": "cpa-material-1",
@@ -9008,5 +9016,103 @@
         "version": 1,
         "updated_at": "2026-09-29",
         "batch_marker": "batch630"
+    },
+    {
+        "id": "ce-634-prestressed-concrete-foundation",
+        "title": "Prestressed Concrete Foundations for CELE Review",
+        "summary": "Source-first Civil Engineering study foundation for basic prestressing principles, construction sequence, stress resultants, losses, and service behavior within current CELE scope.",
+        "notes": [
+            [
+                "Purpose and scope",
+                "Prestressing introduces a controlled compression pattern to offset part of the tensile response from service actions. The CELE-level treatment is conceptual and application-oriented; it does not assume specialist bridge detailing."
+            ],
+            [
+                "Pretensioning and post-tensioning",
+                "Pretensioned tendons are stressed before concrete placement and transfer occurs after the concrete reaches the required condition. Post-tensioned tendons are stressed after concrete placement and use anchorages and the specified duct or tendon system."
+            ],
+            [
+                "Section stress behavior",
+                "For a simple average stress check, prestressing force is divided by the relevant area. An eccentric force also creates a force-couple moment. Sign convention and tendon location must be stated before interpreting compression or tension at a fiber."
+            ],
+            [
+                "Loss mechanisms",
+                "Elastic shortening, creep, shrinkage, steel relaxation, anchorage seating, and friction or wobble effects where applicable can reduce effective prestress. A question must identify which losses are supplied and avoid double counting."
+            ],
+            [
+                "Service implications",
+                "Prestressing can reduce service tensile stress and cracking tendency, but service stress, deflection, durability, anchorage, and construction-stage behavior still require separate checks."
+            ],
+            [
+                "Common errors",
+                "Do not treat initial jacking force as effective service force, confuse pretensioning with post-tensioning, or claim that prestressing guarantees zero cracking or deflection."
+            ]
+        ],
+        "source_ids": [
+            "prc-cele-program-march-2026",
+            "fhwa-post-tensioned-box-girder-design-manual",
+            "mit-structural-engineering-design-notes"
+        ],
+        "exams": [
+            "civil-engineering"
+        ],
+        "exam_focus": {
+            "civil-engineering": {
+                "priority": "high",
+                "official_scope_status": "official PRC scope reference"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "civil-engineering-structural-engineering"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-30"
+    },
+    {
+        "id": "ce-634-governing-codes-foundation",
+        "title": "Governing Structural Codes and Currentness for CELE Review",
+        "summary": "Study foundation for distinguishing the current CELE scope authority, stable engineering principles, version-sensitive requirements, and defensible code-based application.",
+        "notes": [
+            [
+                "Authority hierarchy",
+                "The current PRC CELE program establishes examination scope. A recognized project code, regulation, or official authority controls a version-sensitive design requirement; instructional notes explain principles but do not replace that authority."
+            ],
+            [
+                "Stable principle versus requirement",
+                "Equilibrium, load path, strength behavior, and serviceability concepts can be taught as stable principles. Numerical limits, factors, editions, and jurisdiction-specific requirements must be tied to the current controlling source."
+            ],
+            [
+                "Application reading",
+                "Interpret a code-based question by identifying the member, action, limit state, material, jurisdiction, edition, and supplied factors before selecting an answer."
+            ],
+            [
+                "Documentation",
+                "A defensible engineering decision records the controlling source and version or retrieval date, states assumptions, and distinguishes an official requirement from a study simplification."
+            ],
+            [
+                "Common errors",
+                "Avoid undated section-number trivia, silently averaging conflicting requirements, treating a textbook shortcut as a code rule, or using a value outside its stated scope."
+            ]
+        ],
+        "source_ids": [
+            "prc-cele-program-march-2026",
+            "prc-civil-engineering-board-page",
+            "mit-structural-engineering-design-notes"
+        ],
+        "exams": [
+            "civil-engineering"
+        ],
+        "exam_focus": {
+            "civil-engineering": {
+                "priority": "high",
+                "official_scope_status": "official PRC scope reference"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "civil-engineering-structural-engineering"
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-09-30"
     }
 ]
