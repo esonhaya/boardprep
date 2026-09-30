@@ -8035,7 +8035,7 @@
         "topic_id": "tle-ia-basic-electricity",
         "code": "CTRICITY",
         "name": "Basic electricity and circuits",
-        "description": "Basic electricity instruction uses circuit relationships, measurement, insulation, protection, and de-energized safe work within the learner\u2019s authority.",
+        "description": "Basic electricity instruction uses circuit relationships, measurement, insulation, protection, and de-energized safe work within the learner’s authority.",
         "learning": {
             "difficulty": "medium",
             "estimated_study_minutes": 30,
@@ -8244,6 +8244,2616 @@
             "common_misconceptions": [
                 "scope-and-application-error"
             ]
+        }
+    },
+    {
+        "id": "b633-ree-math-algebra-linear",
+        "topic_id": "ree-math-algebra",
+        "code": "B633",
+        "name": "Algebra and linear systems",
+        "description": "Algebra and linear systems as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "algebra",
+                "and",
+                "linear",
+                "systems"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-math-algebra",
+            "official_area": "ree-mathematics",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [
+                "ree-material-mathematics"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-math-complex-phasors",
+        "topic_id": "ree-math-complex",
+        "code": "B633",
+        "name": "Complex numbers and phasors",
+        "description": "Complex numbers and phasors as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "complex",
+                "numbers",
+                "and",
+                "phasors"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-math-complex",
+            "official_area": "ree-mathematics",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [
+                "ree-material-mathematics"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-math-calculus-differential",
+        "topic_id": "ree-math-calculus",
+        "code": "B633",
+        "name": "Calculus and differential equations",
+        "description": "Calculus and differential equations as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "calculus",
+                "and",
+                "differential",
+                "equations"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-math-calculus",
+            "official_area": "ree-mathematics",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [
+                "ree-material-mathematics"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-math-probability-statistics",
+        "topic_id": "ree-math-probability",
+        "code": "B633",
+        "name": "Probability and statistics",
+        "description": "Probability and statistics as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "probability",
+                "and",
+                "statistics"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-math-probability",
+            "official_area": "ree-mathematics",
+            "character": "CONCEPTUAL_QUANTITATIVE",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [
+                "ree-material-mathematics"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-math-discrete-economics",
+        "topic_id": "ree-math-discrete",
+        "code": "B633",
+        "name": "Discrete mathematics and engineering economics",
+        "description": "Discrete mathematics and engineering economics as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "discrete",
+                "mathematics",
+                "and",
+                "engineering",
+                "economics"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-math-discrete",
+            "official_area": "ree-mathematics",
+            "character": "MIXED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [
+                "ree-material-mathematics"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-math-trigonometry-analytic-geometry",
+        "topic_id": "ree-math-algebra",
+        "code": "B633",
+        "name": "Trigonometry and analytic geometry",
+        "description": "Trigonometry and analytic geometry as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "trigonometry",
+                "and",
+                "analytic",
+                "geometry"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-math-algebra",
+            "official_area": "ree-mathematics",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026"
+            ],
+            "study_material_ids": [],
+            "source_readiness": "WEAK",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": true
+        }
+    },
+    {
+        "id": "b633-ree-math-matrices-determinants",
+        "topic_id": "ree-math-algebra",
+        "code": "B633",
+        "name": "Matrices and determinants",
+        "description": "Matrices and determinants as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "matrices",
+                "and",
+                "determinants"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-math-algebra",
+            "official_area": "ree-mathematics",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026"
+            ],
+            "study_material_ids": [],
+            "source_readiness": "WEAK",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": true
+        }
+    },
+    {
+        "id": "b633-ree-math-sequences-series",
+        "topic_id": "ree-math-algebra",
+        "code": "B633",
+        "name": "Sequences and series",
+        "description": "Sequences and series as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "sequences",
+                "and",
+                "series"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-math-algebra",
+            "official_area": "ree-mathematics",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026"
+            ],
+            "study_material_ids": [],
+            "source_readiness": "WEAK",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": true
+        }
+    },
+    {
+        "id": "b633-ree-math-fourier-laplace",
+        "topic_id": "ree-math-algebra",
+        "code": "B633",
+        "name": "Fourier series and Laplace transforms",
+        "description": "Fourier series and Laplace transforms as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "fourier",
+                "series",
+                "and",
+                "laplace",
+                "transforms"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-math-algebra",
+            "official_area": "ree-mathematics",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026"
+            ],
+            "study_material_ids": [],
+            "source_readiness": "WEAK",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": true
+        }
+    },
+    {
+        "id": "b633-ree-allied-mechanics",
+        "topic_id": "ree-allied-mechanics",
+        "code": "B633",
+        "name": "Engineering mechanics and dynamics",
+        "description": "Engineering mechanics and dynamics as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "engineering",
+                "mechanics",
+                "and",
+                "dynamics"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-allied-mechanics",
+            "official_area": "engineering-sciences-and-allied-subjects",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [
+                "ree-material-mechanics"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-allied-materials",
+        "topic_id": "ree-allied-mechanics",
+        "code": "B633",
+        "name": "Engineering materials and properties",
+        "description": "Engineering materials and properties as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "engineering",
+                "materials",
+                "and",
+                "properties"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-allied-mechanics",
+            "official_area": "engineering-sciences-and-allied-subjects",
+            "character": "MIXED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [
+                "ree-material-mechanics"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-allied-thermodynamics",
+        "topic_id": "ree-allied-thermal",
+        "code": "B633",
+        "name": "Thermodynamics and heat transfer",
+        "description": "Thermodynamics and heat transfer as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "thermodynamics",
+                "and",
+                "heat",
+                "transfer"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-allied-thermal",
+            "official_area": "engineering-sciences-and-allied-subjects",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [
+                "ree-material-thermal"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-allied-fluid-mechanics",
+        "topic_id": "ree-allied-thermal",
+        "code": "B633",
+        "name": "Fluid mechanics and hydrostatics",
+        "description": "Fluid mechanics and hydrostatics as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "fluid",
+                "mechanics",
+                "and",
+                "hydrostatics"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-allied-thermal",
+            "official_area": "engineering-sciences-and-allied-subjects",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [
+                "ree-material-thermal"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-allied-electronics-semiconductor",
+        "topic_id": "ree-allied-electronics",
+        "code": "B633",
+        "name": "Semiconductor and active devices",
+        "description": "Semiconductor and active devices as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "semiconductor",
+                "and",
+                "active",
+                "devices"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-allied-electronics",
+            "official_area": "engineering-sciences-and-allied-subjects",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-002-circuits-electronics",
+                "openstax-university-physics-volume-2"
+            ],
+            "study_material_ids": [
+                "ree-material-electronics"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-allied-electronics-analog",
+        "topic_id": "ree-allied-electronics",
+        "code": "B633",
+        "name": "Analog amplifiers and frequency response",
+        "description": "Analog amplifiers and frequency response as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "analog",
+                "amplifiers",
+                "and",
+                "frequency",
+                "response"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-allied-electronics",
+            "official_area": "engineering-sciences-and-allied-subjects",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-002-circuits-electronics",
+                "openstax-university-physics-volume-2"
+            ],
+            "study_material_ids": [
+                "ree-material-electronics"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-allied-electronics-digital",
+        "topic_id": "ree-allied-electronics",
+        "code": "B633",
+        "name": "Digital conversion and electronics measurement",
+        "description": "Digital conversion and electronics measurement as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "digital",
+                "conversion",
+                "and",
+                "electronics",
+                "measurement"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-allied-electronics",
+            "official_area": "engineering-sciences-and-allied-subjects",
+            "character": "MIXED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-002-circuits-electronics",
+                "openstax-university-physics-volume-2"
+            ],
+            "study_material_ids": [
+                "ree-material-electronics"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-allied-instrumentation",
+        "topic_id": "ree-allied-instrumentation",
+        "code": "B633",
+        "name": "Instrumentation and measurement",
+        "description": "Instrumentation and measurement as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "instrumentation",
+                "and",
+                "measurement"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-allied-instrumentation",
+            "official_area": "engineering-sciences-and-allied-subjects",
+            "character": "MIXED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [
+                "ree-material-instrumentation"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-allied-safety-code",
+        "topic_id": "ree-allied-safety",
+        "code": "B633",
+        "name": "Electrical safety and professional practice",
+        "description": "Electrical safety and professional practice as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "electrical",
+                "safety",
+                "and",
+                "professional",
+                "practice"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-allied-safety",
+            "official_area": "engineering-sciences-and-allied-subjects",
+            "character": "REGULATORY",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [
+                "ree-material-safety"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "VERSION_SENSITIVE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-allied-chemistry",
+        "topic_id": "ree-allied-safety",
+        "code": "B633",
+        "name": "General chemistry",
+        "description": "General chemistry as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "general",
+                "chemistry"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-allied-safety",
+            "official_area": "engineering-sciences-and-allied-subjects",
+            "character": "REGULATORY",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [],
+            "source_readiness": "WEAK",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": true
+        }
+    },
+    {
+        "id": "b633-ree-allied-law-code-ethics",
+        "topic_id": "ree-allied-safety",
+        "code": "B633",
+        "name": "Electrical engineering law, code, and ethics",
+        "description": "Electrical engineering law, code, and ethics as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "electrical",
+                "engineering",
+                "law",
+                "code",
+                "and",
+                "ethics"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-allied-safety",
+            "official_area": "engineering-sciences-and-allied-subjects",
+            "character": "REGULATORY",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [],
+            "source_readiness": "WEAK",
+            "version_sensitivity": "HIGHLY_VERSION_SENSITIVE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": true
+        }
+    },
+    {
+        "id": "b633-ree-allied-contracts-specifications",
+        "topic_id": "ree-allied-safety",
+        "code": "B633",
+        "name": "Contracts and specifications",
+        "description": "Contracts and specifications as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "contracts",
+                "and",
+                "specifications"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-allied-safety",
+            "official_area": "engineering-sciences-and-allied-subjects",
+            "character": "REGULATORY",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [],
+            "source_readiness": "WEAK",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": true
+        }
+    },
+    {
+        "id": "b633-ree-allied-computer-programming",
+        "topic_id": "ree-allied-safety",
+        "code": "B633",
+        "name": "Computer fundamentals and programming",
+        "description": "Computer fundamentals and programming as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "computer",
+                "fundamentals",
+                "and",
+                "programming"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-allied-safety",
+            "official_area": "engineering-sciences-and-allied-subjects",
+            "character": "REGULATORY",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [],
+            "source_readiness": "WEAK",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": true
+        }
+    },
+    {
+        "id": "b633-ree-pro-dc-networks",
+        "topic_id": "ree-pro-circuits",
+        "code": "B633",
+        "name": "DC circuit analysis and network theorems",
+        "description": "DC circuit analysis and network theorems as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "dc",
+                "circuit",
+                "analysis",
+                "and",
+                "network",
+                "theorems"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-pro-circuits",
+            "official_area": "electrical-engineering-professional-subjects",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-002-circuits-electronics",
+                "openstax-university-physics-volume-2"
+            ],
+            "study_material_ids": [
+                "ree-material-circuits"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-pro-transients",
+        "topic_id": "ree-pro-circuits",
+        "code": "B633",
+        "name": "Transient response of circuits",
+        "description": "Transient response of circuits as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "transient",
+                "response",
+                "of",
+                "circuits"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-pro-circuits",
+            "official_area": "electrical-engineering-professional-subjects",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-002-circuits-electronics",
+                "openstax-university-physics-volume-2"
+            ],
+            "study_material_ids": [
+                "ree-material-circuits"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": true
+        }
+    },
+    {
+        "id": "b633-ree-pro-ac-impedance",
+        "topic_id": "ree-pro-ac",
+        "code": "B633",
+        "name": "AC impedance and sinusoidal steady state",
+        "description": "AC impedance and sinusoidal steady state as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "ac",
+                "impedance",
+                "and",
+                "sinusoidal",
+                "steady",
+                "state"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-pro-ac",
+            "official_area": "electrical-engineering-professional-subjects",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-002-circuits-electronics",
+                "openstax-university-physics-volume-2"
+            ],
+            "study_material_ids": [
+                "ree-material-ac-systems"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-pro-three-phase",
+        "topic_id": "ree-pro-ac",
+        "code": "B633",
+        "name": "Three-phase systems and power factor",
+        "description": "Three-phase systems and power factor as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "three",
+                "phase",
+                "systems",
+                "and",
+                "power",
+                "factor"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-pro-ac",
+            "official_area": "electrical-engineering-professional-subjects",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-002-circuits-electronics",
+                "openstax-university-physics-volume-2"
+            ],
+            "study_material_ids": [
+                "ree-material-ac-systems"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-pro-transformers",
+        "topic_id": "ree-pro-machines",
+        "code": "B633",
+        "name": "Transformers and regulation",
+        "description": "Transformers and regulation as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "transformers",
+                "and",
+                "regulation"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-pro-machines",
+            "official_area": "electrical-engineering-professional-subjects",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-685-electric-machines",
+                "openstax-university-physics-volume-2"
+            ],
+            "study_material_ids": [
+                "ree-material-machines"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-pro-rotating-machines",
+        "topic_id": "ree-pro-machines",
+        "code": "B633",
+        "name": "Rotating machines, speed, slip, and torque",
+        "description": "Rotating machines, speed, slip, and torque as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "rotating",
+                "machines",
+                "speed",
+                "slip",
+                "and",
+                "torque"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-pro-machines",
+            "official_area": "electrical-engineering-professional-subjects",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-685-electric-machines",
+                "openstax-university-physics-volume-2"
+            ],
+            "study_material_ids": [
+                "ree-material-machines"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-pro-generators-conversion",
+        "topic_id": "ree-pro-machines",
+        "code": "B633",
+        "name": "Generators and energy conversion",
+        "description": "Generators and energy conversion as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "generators",
+                "and",
+                "energy",
+                "conversion"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-pro-machines",
+            "official_area": "electrical-engineering-professional-subjects",
+            "character": "MIXED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-685-electric-machines",
+                "openstax-university-physics-volume-2"
+            ],
+            "study_material_ids": [
+                "ree-material-machines"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": true
+        }
+    },
+    {
+        "id": "b633-ree-pro-power-analysis",
+        "topic_id": "ree-pro-power",
+        "code": "B633",
+        "name": "Power-system bases, faults, and interconnection",
+        "description": "Power-system bases, faults, and interconnection as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "power",
+                "system",
+                "bases",
+                "faults",
+                "and",
+                "interconnection"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-pro-power",
+            "official_area": "electrical-engineering-professional-subjects",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-061-electric-power-systems",
+                "openstax-university-physics-volume-2"
+            ],
+            "study_material_ids": [
+                "ree-material-power"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-pro-transmission-distribution",
+        "topic_id": "ree-pro-power",
+        "code": "B633",
+        "name": "Transmission, distribution, feeders, and demand",
+        "description": "Transmission, distribution, feeders, and demand as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "transmission",
+                "distribution",
+                "feeders",
+                "and",
+                "demand"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-pro-power",
+            "official_area": "electrical-engineering-professional-subjects",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-061-electric-power-systems",
+                "openstax-university-physics-volume-2"
+            ],
+            "study_material_ids": [
+                "ree-material-power",
+                "ree-material-power-quality"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-pro-wiring-utilization",
+        "topic_id": "ree-pro-power",
+        "code": "B633",
+        "name": "Wiring design, illumination, and utilization",
+        "description": "Wiring design, illumination, and utilization as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "wiring",
+                "design",
+                "illumination",
+                "and",
+                "utilization"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-pro-power",
+            "official_area": "electrical-engineering-professional-subjects",
+            "character": "MIXED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [
+                "ree-material-review"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "VERSION_SENSITIVE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": true
+        }
+    },
+    {
+        "id": "b633-ree-pro-protection-relaying",
+        "topic_id": "ree-pro-controls",
+        "code": "B633",
+        "name": "Protection, grounding, and relay coordination",
+        "description": "Protection, grounding, and relay coordination as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "protection",
+                "grounding",
+                "and",
+                "relay",
+                "coordination"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-pro-controls",
+            "official_area": "electrical-engineering-professional-subjects",
+            "character": "REGULATORY",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [
+                "ree-material-review"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "VERSION_SENSITIVE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-pro-control-systems",
+        "topic_id": "ree-pro-controls",
+        "code": "B633",
+        "name": "Control systems and feedback",
+        "description": "Control systems and feedback as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "control",
+                "systems",
+                "and",
+                "feedback"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-pro-controls",
+            "official_area": "electrical-engineering-professional-subjects",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [
+                "ree-material-review",
+                "ree-material-controls"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-pro-power-electronics",
+        "topic_id": "ree-pro-controls",
+        "code": "B633",
+        "name": "Power electronics and converters",
+        "description": "Power electronics and converters as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "power",
+                "electronics",
+                "and",
+                "converters"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-pro-controls",
+            "official_area": "electrical-engineering-professional-subjects",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [
+                "ree-material-review"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ree-pro-telecommunications",
+        "topic_id": "ree-pro-controls",
+        "code": "B633",
+        "name": "Telecommunications",
+        "description": "Telecommunications as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "telecommunications"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-pro-controls",
+            "official_area": "electrical-engineering-professional-subjects",
+            "character": "MIXED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [],
+            "source_readiness": "WEAK",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": true
+        }
+    },
+    {
+        "id": "b633-ree-pro-computer-power-applications",
+        "topic_id": "ree-pro-controls",
+        "code": "B633",
+        "name": "Computer applications in the electrical power industry",
+        "description": "Computer applications in the electrical power industry as an evidence-backed registered-electrical-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "computer",
+                "applications",
+                "in",
+                "the",
+                "electrical",
+                "power",
+                "industry"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "ree-concept-ree-pro-controls",
+            "official_area": "electrical-engineering-professional-subjects",
+            "character": "MIXED",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page"
+            ],
+            "study_material_ids": [],
+            "source_readiness": "WEAK",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": true
+        }
+    },
+    {
+        "id": "b633-ce-structural-mechanics",
+        "topic_id": "structural-mechanics",
+        "code": "B633",
+        "name": "Structural mechanics, equilibrium, beams, and trusses",
+        "description": "Structural mechanics, equilibrium, beams, and trusses as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "structural",
+                "mechanics",
+                "equilibrium",
+                "beams",
+                "and",
+                "trusses"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "structural-foundations",
+            "official_area": "ce-structural",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "mit-structural-analysis-member-systems",
+                "openstax-university-physics-volume-1"
+            ],
+            "study_material_ids": [
+                "ce-489--tructural-echanics-and-esign"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ce-strength-materials",
+        "topic_id": "structural-mechanics",
+        "code": "B633",
+        "name": "Strength of materials and section response",
+        "description": "Strength of materials and section response as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "strength",
+                "of",
+                "materials",
+                "and",
+                "section",
+                "response"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "structural-foundations",
+            "official_area": "ce-structural",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "openstax-university-physics-volume-1",
+                "mit-structural-engineering-design-notes"
+            ],
+            "study_material_ids": [
+                "ce-489--trength-of-aterials"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ce-structural-concrete-steel",
+        "topic_id": "structural-mechanics",
+        "code": "B633",
+        "name": "Reinforced concrete, steel, connections, and load paths",
+        "description": "Reinforced concrete, steel, connections, and load paths as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "reinforced",
+                "concrete",
+                "steel",
+                "connections",
+                "and",
+                "load",
+                "paths"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "structural-foundations",
+            "official_area": "ce-structural",
+            "character": "MIXED",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "mit-structural-engineering-design-notes"
+            ],
+            "study_material_ids": [
+                "ce-489--ntegrated-ractice"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "VERSION_SENSITIVE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ce-structural-testing",
+        "topic_id": "structural-mechanics",
+        "code": "B633",
+        "name": "Construction materials testing and structural interpretation",
+        "description": "Construction materials testing and structural interpretation as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "construction",
+                "materials",
+                "testing",
+                "and",
+                "structural",
+                "interpretation"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "structural-foundations",
+            "official_area": "ce-structural",
+            "character": "MIXED",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "nist-semtech-engineering-statistics-handbook",
+                "mit-structural-engineering-design-notes"
+            ],
+            "study_material_ids": [
+                "ce-489--tructural-esting-and-nterpretation"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ce-structural-prestressed-concrete",
+        "topic_id": "structural-mechanics",
+        "code": "B633",
+        "name": "Prestressed concrete beams",
+        "description": "Prestressed concrete beams as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "prestressed",
+                "concrete",
+                "beams"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "structural-foundations",
+            "official_area": "ce-structural",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-cele-program-march-2026"
+            ],
+            "study_material_ids": [],
+            "source_readiness": "WEAK",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": true
+        }
+    },
+    {
+        "id": "b633-ce-structural-governing-codes",
+        "topic_id": "structural-mechanics",
+        "code": "B633",
+        "name": "Governing structural codes and practice",
+        "description": "Governing structural codes and practice as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "governing",
+                "structural",
+                "codes",
+                "and",
+                "practice"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "structural-foundations",
+            "official_area": "ce-structural",
+            "character": "REGULATORY",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "mit-structural-engineering-design-notes"
+            ],
+            "study_material_ids": [
+                "ce-489--ntegrated-ractice"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "HIGHLY_VERSION_SENSITIVE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": true
+        }
+    },
+    {
+        "id": "b633-ce-applied-mathematics",
+        "topic_id": "applied-engineering",
+        "code": "B633",
+        "name": "Applied mathematics, physics, and numerical methods",
+        "description": "Applied mathematics, physics, and numerical methods as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "applied",
+                "mathematics",
+                "physics",
+                "and",
+                "numerical",
+                "methods"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "applied-foundations",
+            "official_area": "ce-applied",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "openstax-calculus-volume-1",
+                "nist-semtech-engineering-statistics-handbook"
+            ],
+            "study_material_ids": [
+                "ce-489--pplied-athematics-for-"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ce-surveying-layout",
+        "topic_id": "applied-engineering",
+        "code": "B633",
+        "name": "Construction surveying, leveling, and layout",
+        "description": "Construction surveying, leveling, and layout as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "construction",
+                "surveying",
+                "leveling",
+                "and",
+                "layout"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "applied-foundations",
+            "official_area": "ce-applied",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "noaa-geodetic-leveling-manual"
+            ],
+            "study_material_ids": [
+                "ce-489--urveying-and-ayout"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ce-transportation-highway",
+        "topic_id": "applied-engineering",
+        "code": "B633",
+        "name": "Transportation and highway engineering",
+        "description": "Transportation and highway engineering as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "transportation",
+                "and",
+                "highway",
+                "engineering"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "applied-foundations",
+            "official_area": "ce-applied",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "fhwa-traffic-flow-theory"
+            ],
+            "study_material_ids": [
+                "ce-489--ransportation-and-ighway-ngineering"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ce-construction-quantity-productivity",
+        "topic_id": "applied-engineering",
+        "code": "B633",
+        "name": "Construction quantities, productivity, and methods",
+        "description": "Construction quantities, productivity, and methods as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "construction",
+                "quantities",
+                "productivity",
+                "and",
+                "methods"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "applied-foundations",
+            "official_area": "ce-applied",
+            "character": "MIXED",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "fhwa-construction-program-management-inspection"
+            ],
+            "study_material_ids": [
+                "ce-489--onstruction-anagement-and-uantity"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ce-construction-safety-quality",
+        "topic_id": "applied-engineering",
+        "code": "B633",
+        "name": "Construction safety, materials, and quality",
+        "description": "Construction safety, materials, and quality as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "construction",
+                "safety",
+                "materials",
+                "and",
+                "quality"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "applied-foundations",
+            "official_area": "ce-applied",
+            "character": "REGULATORY",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "fhwa-field-materials-manual",
+                "fhwa-construction-program-management-inspection",
+                "nist-semtech-engineering-statistics-handbook"
+            ],
+            "study_material_ids": [
+                "ce-489--onstruction-afety-and-uality"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "VERSION_SENSITIVE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ce-engineering-data",
+        "topic_id": "applied-engineering",
+        "code": "B633",
+        "name": "Engineering data and laboratory interpretation",
+        "description": "Engineering data and laboratory interpretation as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "engineering",
+                "data",
+                "and",
+                "laboratory",
+                "interpretation"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "applied-foundations",
+            "official_area": "ce-applied",
+            "character": "CONCEPTUAL_QUANTITATIVE",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "nist-semtech-engineering-statistics-handbook",
+                "fhwa-field-materials-manual"
+            ],
+            "study_material_ids": [
+                "ce-489--ngineering-ata-and-alculations"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ce-engineering-economics-scheduling",
+        "topic_id": "applied-engineering",
+        "code": "B633",
+        "name": "Engineering economics and project scheduling",
+        "description": "Engineering economics and project scheduling as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "engineering",
+                "economics",
+                "and",
+                "project",
+                "scheduling"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "applied-foundations",
+            "official_area": "ce-applied",
+            "character": "MIXED",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "ualberta-introduction-engineering-economics",
+                "fhwa-construction-program-management-inspection"
+            ],
+            "study_material_ids": [
+                "ce-489--ngineering-conomics-and-cheduling"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ce-hydraulics-fluid-flow",
+        "topic_id": "hydraulics-geotechnical",
+        "code": "B633",
+        "name": "Fluid properties, hydraulics, and pipe/open-channel flow",
+        "description": "Fluid properties, hydraulics, and pipe/open-channel flow as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "fluid",
+                "properties",
+                "hydraulics",
+                "and",
+                "pipe",
+                "open",
+                "channel",
+                "flow"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "hydro-geotech-foundations",
+            "official_area": "ce-hydraulics-geotech",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "openstax-university-physics-volume-1",
+                "usace-hydraulic-design-open-channel"
+            ],
+            "study_material_ids": [
+                "ce-489--luid-echanics-and-ydraulics"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ce-water-supply-drainage",
+        "topic_id": "hydraulics-geotechnical",
+        "code": "B633",
+        "name": "Water supply, hydrology, runoff, and drainage",
+        "description": "Water supply, hydrology, runoff, and drainage as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "water",
+                "supply",
+                "hydrology",
+                "runoff",
+                "and",
+                "drainage"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "hydro-geotech-foundations",
+            "official_area": "ce-hydraulics-geotech",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "usgs-manual-surface-water-hydrology"
+            ],
+            "study_material_ids": [
+                "ce-489--ater-upply-and-rainage"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ce-soil-properties-classification",
+        "topic_id": "hydraulics-geotechnical",
+        "code": "B633",
+        "name": "Soil properties, classification, and compaction",
+        "description": "Soil properties, classification, and compaction as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "soil",
+                "properties",
+                "classification",
+                "and",
+                "compaction"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "hydro-geotech-foundations",
+            "official_area": "ce-hydraulics-geotech",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "fhwa-soils-foundations-reference"
+            ],
+            "study_material_ids": [
+                "ce-489--oil-echanics-and-oundations"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ce-soil-effective-stress-strength",
+        "topic_id": "hydraulics-geotechnical",
+        "code": "B633",
+        "name": "Effective stress, seepage, and soil strength",
+        "description": "Effective stress, seepage, and soil strength as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "effective",
+                "stress",
+                "seepage",
+                "and",
+                "soil",
+                "strength"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "hydro-geotech-foundations",
+            "official_area": "ce-hydraulics-geotech",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "fhwa-soils-foundations-reference"
+            ],
+            "study_material_ids": [
+                "ce-489--oil-echanics-and-oundations"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ce-foundations-bearing",
+        "topic_id": "hydraulics-geotechnical",
+        "code": "B633",
+        "name": "Foundations, bearing capacity, and contact pressure",
+        "description": "Foundations, bearing capacity, and contact pressure as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "foundations",
+                "bearing",
+                "capacity",
+                "and",
+                "contact",
+                "pressure"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "hydro-geotech-foundations",
+            "official_area": "ce-hydraulics-geotech",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "fhwa-soils-foundations-reference"
+            ],
+            "study_material_ids": [
+                "ce-489--eotechnical-ettlement-and-tability"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-ce-settlement-stability",
+        "topic_id": "hydraulics-geotechnical",
+        "code": "B633",
+        "name": "Consolidation, settlement, lateral pressure, and slope stability",
+        "description": "Consolidation, settlement, lateral pressure, and slope stability as an evidence-backed civil-engineering subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "consolidation",
+                "settlement",
+                "lateral",
+                "pressure",
+                "and",
+                "slope",
+                "stability"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "hydro-geotech-foundations",
+            "official_area": "ce-hydraulics-geotech",
+            "character": "MIXED",
+            "source_ids": [
+                "prc-cele-program-march-2026",
+                "prc-civil-engineering-board-page",
+                "fhwa-soils-foundations-reference"
+            ],
+            "study_material_ids": [
+                "ce-489--eotechnical-ettlement-and-tability"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-arch-history-theory-precedent",
+        "topic_id": "architecture-history-application",
+        "code": "B633",
+        "name": "History, theory, precedent, and spatial order",
+        "description": "History, theory, precedent, and spatial order as an evidence-backed architecture subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "history",
+                "theory",
+                "precedent",
+                "and",
+                "spatial",
+                "order"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "architecture-history-context",
+            "official_area": "arch-area-a",
+            "character": "DESIGN_REASONING",
+            "source_ids": [
+                "prc-architecture-exam-program-january-2026",
+                "prc-architecture-syllabi",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "mit-4-111-intro-architecture"
+            ],
+            "study_material_ids": [
+                "architecture-1-1-foundation"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-arch-history-vernacular-climate",
+        "topic_id": "architecture-history-application",
+        "code": "B633",
+        "name": "Vernacular, tropical, and climate-responsive traditions",
+        "description": "Vernacular, tropical, and climate-responsive traditions as an evidence-backed architecture subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "vernacular",
+                "tropical",
+                "and",
+                "climate",
+                "responsive",
+                "traditions"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "architecture-history-context",
+            "official_area": "arch-area-a",
+            "character": "DESIGN_REASONING",
+            "source_ids": [
+                "prc-architecture-exam-program-january-2026",
+                "prc-architecture-syllabi",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "mit-4-111-intro-architecture",
+                "mit-4-401-environmental-buildings"
+            ],
+            "study_material_ids": [
+                "architecture-1-2-foundation"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-arch-history-conservation",
+        "topic_id": "architecture-history-application",
+        "code": "B633",
+        "name": "Conservation, restoration, and adaptive reuse",
+        "description": "Conservation, restoration, and adaptive reuse as an evidence-backed architecture subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "conservation",
+                "restoration",
+                "and",
+                "adaptive",
+                "reuse"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "architecture-history-context",
+            "official_area": "arch-area-a",
+            "character": "DESIGN_REASONING",
+            "source_ids": [
+                "prc-architecture-exam-program-january-2026",
+                "prc-architecture-syllabi",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "nps-preservation-briefs",
+                "mit-4-111-intro-architecture"
+            ],
+            "study_material_ids": [
+                "architecture-1-3-foundation"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-arch-practice-scope",
+        "topic_id": "architecture-practice-decisions",
+        "code": "B633",
+        "name": "Architectural scope, services, and decision records",
+        "description": "Architectural scope, services, and decision records as an evidence-backed architecture subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "architectural",
+                "scope",
+                "services",
+                "and",
+                "decision",
+                "records"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "architecture-professional-judgment",
+            "official_area": "arch-area-a",
+            "character": "REGULATORY",
+            "source_ids": [
+                "prc-architecture-exam-program-january-2026",
+                "prc-architecture-syllabi",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "ra-9266-architecture-act",
+                "ra-9266-architecture-irr"
+            ],
+            "study_material_ids": [
+                "architecture-2-1-foundation"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "HIGHLY_VERSION_SENSITIVE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-arch-practice-coordination",
+        "topic_id": "architecture-practice-decisions",
+        "code": "B633",
+        "name": "Consultant coordination and change control",
+        "description": "Consultant coordination and change control as an evidence-backed architecture subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "consultant",
+                "coordination",
+                "and",
+                "change",
+                "control"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "architecture-professional-judgment",
+            "official_area": "arch-area-a",
+            "character": "MIXED",
+            "source_ids": [
+                "prc-architecture-exam-program-january-2026",
+                "prc-architecture-syllabi",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "ra-9266-architecture-act",
+                "mit-4-461-building-technology"
+            ],
+            "study_material_ids": [
+                "architecture-2-2-foundation"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "VERSION_SENSITIVE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-arch-practice-public-responsibility",
+        "topic_id": "architecture-practice-decisions",
+        "code": "B633",
+        "name": "Professional judgment and public responsibility",
+        "description": "Professional judgment and public responsibility as an evidence-backed architecture subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "professional",
+                "judgment",
+                "and",
+                "public",
+                "responsibility"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "architecture-professional-judgment",
+            "official_area": "arch-area-a",
+            "character": "REGULATORY",
+            "source_ids": [
+                "prc-architecture-exam-program-january-2026",
+                "prc-architecture-syllabi",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "ra-9266-architecture-act",
+                "ra-9266-architecture-irr",
+                "bp344-2024-irr"
+            ],
+            "study_material_ids": [
+                "architecture-2-3-foundation"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "HIGHLY_VERSION_SENSITIVE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-arch-technical-envelope",
+        "topic_id": "architecture-systems-coordination",
+        "code": "B633",
+        "name": "Envelope, moisture, thermal, and acoustic assemblies",
+        "description": "Envelope, moisture, thermal, and acoustic assemblies as an evidence-backed architecture subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "envelope",
+                "moisture",
+                "thermal",
+                "and",
+                "acoustic",
+                "assemblies"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "architecture-technical-integration",
+            "official_area": "arch-area-b",
+            "character": "MIXED",
+            "source_ids": [
+                "prc-architecture-exam-program-january-2026",
+                "prc-architecture-syllabi",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "mit-4-401-environmental-buildings",
+                "mit-4-461-building-technology",
+                "wbdg-building-enclosure"
+            ],
+            "study_material_ids": [
+                "architecture-3-1-foundation"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "VERSION_SENSITIVE",
+            "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-arch-technical-structural",
+        "topic_id": "architecture-systems-coordination",
+        "code": "B633",
+        "name": "Structural conceptualization and load-path coordination",
+        "description": "Structural conceptualization and load-path coordination as an evidence-backed architecture subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "structural",
+                "conceptualization",
+                "and",
+                "load",
+                "path",
+                "coordination"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "architecture-technical-integration",
+            "official_area": "arch-area-b",
+            "character": "DESIGN_REASONING",
+            "source_ids": [
+                "prc-architecture-exam-program-january-2026",
+                "prc-architecture-syllabi",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "mit-4-401-environmental-buildings",
+                "mit-4-461-building-technology",
+                "wbdg-building-enclosure"
+            ],
+            "study_material_ids": [
+                "architecture-3-1-foundation"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "VERSION_SENSITIVE",
+            "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-arch-technical-systems",
+        "topic_id": "architecture-systems-coordination",
+        "code": "B633",
+        "name": "Water, drainage, ventilation, and electrical coordination",
+        "description": "Water, drainage, ventilation, and electrical coordination as an evidence-backed architecture subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "water",
+                "drainage",
+                "ventilation",
+                "and",
+                "electrical",
+                "coordination"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "architecture-technical-integration",
+            "official_area": "arch-area-b",
+            "character": "CALCULATION_REQUIRED",
+            "source_ids": [
+                "prc-architecture-exam-program-january-2026",
+                "prc-architecture-syllabi",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "mit-4-401-environmental-buildings",
+                "pd1096-national-building-code",
+                "bp344-2024-irr",
+                "ra9514-fire-code-irr"
+            ],
+            "study_material_ids": [
+                "architecture-3-2-foundation"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "VERSION_SENSITIVE",
+            "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-arch-technical-construction",
+        "topic_id": "architecture-systems-coordination",
+        "code": "B633",
+        "name": "Construction quantities, sequencing, and interfaces",
+        "description": "Construction quantities, sequencing, and interfaces as an evidence-backed architecture subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "construction",
+                "quantities",
+                "sequencing",
+                "and",
+                "interfaces"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "architecture-technical-integration",
+            "official_area": "arch-area-b",
+            "character": "MIXED",
+            "source_ids": [
+                "prc-architecture-exam-program-january-2026",
+                "prc-architecture-syllabi",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "mit-4-461-building-technology",
+                "mit-4-463-structural-systems"
+            ],
+            "study_material_ids": [
+                "architecture-3-3-foundation"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "VERSION_SENSITIVE",
+            "visual_suitability": "TEXT_SUITABLE",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-arch-site-climate",
+        "topic_id": "architecture-site-reasoning",
+        "code": "B633",
+        "name": "Site climate, orientation, terrain, and environmental response",
+        "description": "Site climate, orientation, terrain, and environmental response as an evidence-backed architecture subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "site",
+                "climate",
+                "orientation",
+                "terrain",
+                "and",
+                "environmental",
+                "response"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "architecture-spatial-integration",
+            "official_area": "arch-area-c",
+            "character": "DESIGN_REASONING",
+            "source_ids": [
+                "prc-architecture-exam-program-january-2026",
+                "prc-architecture-syllabi",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "mit-4-111-intro-architecture",
+                "mit-4-401-environmental-buildings"
+            ],
+            "study_material_ids": [
+                "architecture-4-1-foundation"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "VERSION_SENSITIVE",
+            "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-arch-site-circulation",
+        "topic_id": "architecture-site-reasoning",
+        "code": "B633",
+        "name": "Circulation, adjacency, accessibility, and functional zoning",
+        "description": "Circulation, adjacency, accessibility, and functional zoning as an evidence-backed architecture subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "circulation",
+                "adjacency",
+                "accessibility",
+                "and",
+                "functional",
+                "zoning"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "architecture-spatial-integration",
+            "official_area": "arch-area-c",
+            "character": "DESIGN_REASONING",
+            "source_ids": [
+                "prc-architecture-exam-program-january-2026",
+                "prc-architecture-syllabi",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "mit-4-111-intro-architecture",
+                "bp344-2024-irr",
+                "ra9514-fire-code-irr"
+            ],
+            "study_material_ids": [
+                "architecture-4-2-foundation"
+            ],
+            "source_readiness": "STRONG",
+            "version_sensitivity": "VERSION_SENSITIVE",
+            "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-arch-site-capacity",
+        "topic_id": "architecture-site-reasoning",
+        "code": "B633",
+        "name": "Site capacity, growth, phasing, and spatial alternatives",
+        "description": "Site capacity, growth, phasing, and spatial alternatives as an evidence-backed architecture subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "site",
+                "capacity",
+                "growth",
+                "phasing",
+                "and",
+                "spatial",
+                "alternatives"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "architecture-spatial-integration",
+            "official_area": "arch-area-c",
+            "character": "DESIGN_REASONING",
+            "source_ids": [
+                "prc-architecture-exam-program-january-2026",
+                "prc-architecture-syllabi",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "mit-4-111-intro-architecture",
+                "mit-4-401-environmental-buildings",
+                "bp344-2024-irr"
+            ],
+            "study_material_ids": [
+                "architecture-4-3-foundation"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "TEXT_WITH_SIMPLE_DIAGRAM_IDEAL",
+            "zero_evidence": false
+        }
+    },
+    {
+        "id": "b633-arch-site-spatial-analysis",
+        "topic_id": "architecture-site-reasoning",
+        "code": "B633",
+        "name": "Plan, diagram, and visual-spatial analysis",
+        "description": "Plan, diagram, and visual-spatial analysis as an evidence-backed architecture subcompetency.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 45,
+            "mastery_threshold": 80,
+            "keywords": [
+                "plan",
+                "diagram",
+                "and",
+                "visual",
+                "spatial",
+                "analysis"
+            ],
+            "common_misconceptions": []
+        },
+        "batch633": {
+            "parent_concept_id": "architecture-spatial-integration",
+            "official_area": "arch-area-c",
+            "character": "VISUAL_REQUIRED",
+            "source_ids": [
+                "prc-architecture-exam-program-january-2026",
+                "prc-architecture-syllabi",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "mit-4-111-intro-architecture",
+                "mit-4-401-environmental-buildings",
+                "bp344-2024-irr",
+                "ra9514-fire-code-irr"
+            ],
+            "study_material_ids": [
+                "architecture-4-1-foundation",
+                "architecture-4-2-foundation",
+                "architecture-4-3-foundation"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "STABLE",
+            "visual_suitability": "VISUAL_REQUIRED",
+            "zero_evidence": false
         }
     }
 ]

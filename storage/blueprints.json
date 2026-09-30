@@ -513,7 +513,7 @@
         "status": "active",
         "questionCount": 80,
         "foundation": true,
-        "official_weighting": false,
+        "official_weighting": true,
         "sections": [
             {
                 "id": "mathematics",
@@ -531,12 +531,34 @@
                 "target_percent": null
             }
         ],
-        "label": "Foundation scope only; official weighting unavailable in the current repository record.",
-        "source_id": "prc-electrical-engineering-board-page",
-        "source_version": "official PRC reference",
-        "official_structure": "Official subject areas are represented for future content planning; no unsupported internal weighting is claimed.",
-        "official_weights": null,
-        "internal_targets": false
+        "label": "Current official REE scope: Mathematics 25%; Engineering Sciences and Allied Subjects 30%; Electrical Engineering Professional Subjects 45%.",
+        "source_id": "prc-ree-exam-program-september-2026",
+        "source_version": "September 2026 REE program",
+        "official_structure": "Mathematics 25%; Engineering Sciences and Allied Subjects 30%; Electrical Engineering Professional Subjects 45%.",
+        "official_weights": {
+            "mathematics": 25,
+            "engineering-sciences-and-allied-subjects": 30,
+            "electrical-engineering-professional-subjects": 45
+        },
+        "internal_targets": false,
+        "official_weighting_status": "OFFICIAL_CURRENT",
+        "official_areas": [
+            {
+                "id": "ree-mathematics",
+                "name": "Mathematics",
+                "weight": 25
+            },
+            {
+                "id": "engineering-sciences-and-allied-subjects",
+                "name": "Engineering Sciences and Allied Subjects",
+                "weight": 30
+            },
+            {
+                "id": "electrical-engineering-professional-subjects",
+                "name": "Electrical Engineering Professional Subjects",
+                "weight": 45
+            }
+        ]
     },
     {
         "id": "portfolio-architecture-v1",
@@ -549,7 +571,7 @@
         "status": "active",
         "questionCount": 80,
         "foundation": true,
-        "official_weighting": false,
+        "official_weighting": true,
         "sections": [
             {
                 "id": "history-and-theory",
@@ -572,11 +594,33 @@
                 "target_percent": null
             }
         ],
-        "label": "Foundation scope only; official weighting unavailable in the current repository record.",
-        "source_id": "prc-architecture-exam-program-2024",
-        "source_version": "official PRC reference",
-        "official_structure": "Official subject areas are represented for future content planning; no unsupported internal weighting is claimed.",
-        "official_weights": null,
-        "internal_targets": false
+        "label": "Current official Architecture scope: History/Theory, Planning and Practice 30%; Utilities, Structural Conceptualization, Materials/Technology 30%; Architectural Design and Site Planning 40%.",
+        "source_id": "prc-architecture-exam-program-january-2026",
+        "source_version": "January 2026 Architecture program",
+        "official_structure": "History/Theory, Planning and Practice 30%; Utilities, Structural Conceptualization, Building Materials and Technology 30%; Architectural Design and Site Planning 40%.",
+        "official_weights": {
+            "arch-area-a": 30,
+            "arch-area-b": 30,
+            "arch-area-c": 40
+        },
+        "internal_targets": false,
+        "official_weighting_status": "OFFICIAL_CURRENT",
+        "official_areas": [
+            {
+                "id": "arch-area-a",
+                "name": "History/Theory, Planning and Practice",
+                "weight": 30
+            },
+            {
+                "id": "arch-area-b",
+                "name": "Utilities, Structural Conceptualization, Materials/Technology",
+                "weight": 30
+            },
+            {
+                "id": "arch-area-c",
+                "name": "Architectural Design and Site Planning",
+                "weight": 40
+            }
+        ]
     }
 ]
