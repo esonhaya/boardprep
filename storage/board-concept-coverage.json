@@ -22458,11 +22458,11 @@
         "id": "coverage-3a84087f8ef503d547c5efe2a2d0053edbfd277112aec249169bf5ca798f941b",
         "board_id": "registered-electrical-engineering",
         "concept_id": "b633-ree-allied-instrumentation",
-        "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
-        "domain_id": "engineering-sciences-and-allied-subjects",
-        "topic_id": "ree-allied-instrumentation",
-        "blueprint_node_id": "engineering-sciences-and-allied-subjects",
-        "max_depth": 3,
+        "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+        "domain_id": "electrical-engineering-professional-subjects",
+        "topic_id": "ree-pro-controls",
+        "blueprint_node_id": "electrical-engineering-professional-subjects",
+        "max_depth": 4,
         "reuse_policy": "REVIEW",
         "status": "VERIFIED",
         "provenance": [
@@ -22471,9 +22471,16 @@
                 "reference": "batch633-subcompetency-migration",
                 "note": "Leaf coverage row derived from existing direct question placements; historical parent coverage retained.",
                 "verified_status": "VERIFIED"
+            },
+            {
+                "type": "BATCH637_OFFICIAL_SCOPE_REMAP",
+                "reference": "prc-ree-enhanced-tos-annex-a-2024",
+                "note": "Reclassified five existing measurement/instrumentation questions from Allied to Professional; canonical identity and eligibility unchanged.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
             }
         ],
-        "evidence": "Official scope plus existing question/study/source chain.",
+        "evidence": "Measurement/instrumentation is mapped to the current PRB Resolution 40 s.2024 REE Professional TOS: Instrumentation & Control, Feedback Control System and Research Methods (4.50%, 10 items).",
         "confidence": "HIGH"
     },
     {
@@ -23629,6 +23636,236 @@
             }
         ],
         "evidence": "Current March 2026 CELE scope plus direct leaf taxonomy, substantive study material, and authoritative source chain.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b637-ree-3580fc6d518b7d20c7204ce9",
+        "board_id": "registered-electrical-engineering",
+        "concept_id": "b633-ree-math-trigonometry-analytic-geometry",
+        "subject_id": "registered-electrical-engineering-mathematics",
+        "domain_id": "ree-mathematics",
+        "topic_id": "ree-math-algebra",
+        "blueprint_node_id": "ree-mathematics",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH637_OFFICIAL_SCOPE_CROSSWALK",
+                "reference": "prc-ree-exam-program-september-2026;prc-ree-enhanced-tos-annex-a-2024",
+                "note": "Direct REE leaf mapping verified against the September 2026 program and current enhanced TOS; source references are scope authorities, not technical design substantiation.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "PRC September 2026 REE program names this competence; Board Resolution No. 40 s.2024 Annex A supplies the current detailed TOS. Leaf-specific instructional material and technical sources are separately attached.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b637-ree-2bee2020859828e07203b379",
+        "board_id": "registered-electrical-engineering",
+        "concept_id": "b633-ree-math-matrices-determinants",
+        "subject_id": "registered-electrical-engineering-mathematics",
+        "domain_id": "ree-mathematics",
+        "topic_id": "ree-math-algebra",
+        "blueprint_node_id": "ree-mathematics",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH637_OFFICIAL_SCOPE_CROSSWALK",
+                "reference": "prc-ree-exam-program-september-2026;prc-ree-enhanced-tos-annex-a-2024",
+                "note": "Direct REE leaf mapping verified against the September 2026 program and current enhanced TOS; source references are scope authorities, not technical design substantiation.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "PRC September 2026 REE program names this competence; Board Resolution No. 40 s.2024 Annex A supplies the current detailed TOS. Leaf-specific instructional material and technical sources are separately attached.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b637-ree-d2852291a4bf255449b7b4f8",
+        "board_id": "registered-electrical-engineering",
+        "concept_id": "b633-ree-math-sequences-series",
+        "subject_id": "registered-electrical-engineering-mathematics",
+        "domain_id": "ree-mathematics",
+        "topic_id": "ree-math-algebra",
+        "blueprint_node_id": "ree-mathematics",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH637_OFFICIAL_SCOPE_CROSSWALK",
+                "reference": "prc-ree-exam-program-september-2026;prc-ree-enhanced-tos-annex-a-2024",
+                "note": "Direct REE leaf mapping verified against the September 2026 program and current enhanced TOS; source references are scope authorities, not technical design substantiation.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "PRC September 2026 REE program names this competence; Board Resolution No. 40 s.2024 Annex A supplies the current detailed TOS. Leaf-specific instructional material and technical sources are separately attached.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b637-ree-83afdfcab937e55492cda944",
+        "board_id": "registered-electrical-engineering",
+        "concept_id": "b633-ree-math-fourier-laplace",
+        "subject_id": "registered-electrical-engineering-mathematics",
+        "domain_id": "ree-mathematics",
+        "topic_id": "ree-math-algebra",
+        "blueprint_node_id": "ree-mathematics",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH637_OFFICIAL_SCOPE_CROSSWALK",
+                "reference": "prc-ree-exam-program-september-2026;prc-ree-enhanced-tos-annex-a-2024",
+                "note": "Direct REE leaf mapping verified against the September 2026 program and current enhanced TOS; source references are scope authorities, not technical design substantiation.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "PRC September 2026 REE program names this competence; Board Resolution No. 40 s.2024 Annex A supplies the current detailed TOS. Leaf-specific instructional material and technical sources are separately attached.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b637-ree-c7577ace55910f4b85ed61a6",
+        "board_id": "registered-electrical-engineering",
+        "concept_id": "b633-ree-allied-chemistry",
+        "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+        "domain_id": "engineering-sciences-and-allied-subjects",
+        "topic_id": "ree-allied-safety",
+        "blueprint_node_id": "engineering-sciences-and-allied-subjects",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH637_OFFICIAL_SCOPE_CROSSWALK",
+                "reference": "prc-ree-exam-program-september-2026;prc-ree-enhanced-tos-annex-a-2024",
+                "note": "Direct REE leaf mapping verified against the September 2026 program and current enhanced TOS; source references are scope authorities, not technical design substantiation.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "PRC September 2026 REE program names this competence; Board Resolution No. 40 s.2024 Annex A supplies the current detailed TOS. Leaf-specific instructional material and technical sources are separately attached.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b637-ree-9823e6010fa2290a4a6d945e",
+        "board_id": "registered-electrical-engineering",
+        "concept_id": "b633-ree-allied-law-code-ethics",
+        "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+        "domain_id": "engineering-sciences-and-allied-subjects",
+        "topic_id": "ree-allied-safety",
+        "blueprint_node_id": "engineering-sciences-and-allied-subjects",
+        "max_depth": 3,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH637_OFFICIAL_SCOPE_CROSSWALK",
+                "reference": "prc-ree-exam-program-september-2026;prc-ree-enhanced-tos-annex-a-2024",
+                "note": "Direct REE leaf mapping verified against the September 2026 program and current enhanced TOS; source references are scope authorities, not technical design substantiation.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "PRC September 2026 REE program names this competence; Board Resolution No. 40 s.2024 Annex A supplies the current detailed TOS. Leaf-specific instructional material and technical sources are separately attached.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b637-ree-1733a8277c4342288fe411b1",
+        "board_id": "registered-electrical-engineering",
+        "concept_id": "b633-ree-allied-contracts-specifications",
+        "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+        "domain_id": "engineering-sciences-and-allied-subjects",
+        "topic_id": "ree-allied-safety",
+        "blueprint_node_id": "engineering-sciences-and-allied-subjects",
+        "max_depth": 3,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH637_OFFICIAL_SCOPE_CROSSWALK",
+                "reference": "prc-ree-exam-program-september-2026;prc-ree-enhanced-tos-annex-a-2024",
+                "note": "Direct REE leaf mapping verified against the September 2026 program and current enhanced TOS; source references are scope authorities, not technical design substantiation.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "PRC September 2026 REE program names this competence; Board Resolution No. 40 s.2024 Annex A supplies the current detailed TOS. Leaf-specific instructional material and technical sources are separately attached.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b637-ree-8acf3a33c95cb72f32ebd0bd",
+        "board_id": "registered-electrical-engineering",
+        "concept_id": "b633-ree-allied-computer-programming",
+        "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+        "domain_id": "engineering-sciences-and-allied-subjects",
+        "topic_id": "ree-allied-safety",
+        "blueprint_node_id": "engineering-sciences-and-allied-subjects",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH637_OFFICIAL_SCOPE_CROSSWALK",
+                "reference": "prc-ree-exam-program-september-2026;prc-ree-enhanced-tos-annex-a-2024",
+                "note": "Direct REE leaf mapping verified against the September 2026 program and current enhanced TOS; source references are scope authorities, not technical design substantiation.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "PRC September 2026 REE program names this competence; Board Resolution No. 40 s.2024 Annex A supplies the current detailed TOS. Leaf-specific instructional material and technical sources are separately attached.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b637-ree-008d21c44fff09d61ecf0c0e",
+        "board_id": "registered-electrical-engineering",
+        "concept_id": "b633-ree-pro-telecommunications",
+        "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+        "domain_id": "electrical-engineering-professional-subjects",
+        "topic_id": "ree-pro-controls",
+        "blueprint_node_id": "electrical-engineering-professional-subjects",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH637_OFFICIAL_SCOPE_CROSSWALK",
+                "reference": "prc-ree-exam-program-september-2026;prc-ree-enhanced-tos-annex-a-2024",
+                "note": "Direct REE leaf mapping verified against the September 2026 program and current enhanced TOS; source references are scope authorities, not technical design substantiation.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "PRC September 2026 REE program names this competence; Board Resolution No. 40 s.2024 Annex A supplies the current detailed TOS. Leaf-specific instructional material and technical sources are separately attached.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b637-ree-7719688c280dd33f5c1d41e5",
+        "board_id": "registered-electrical-engineering",
+        "concept_id": "b633-ree-pro-computer-power-applications",
+        "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+        "domain_id": "electrical-engineering-professional-subjects",
+        "topic_id": "ree-pro-controls",
+        "blueprint_node_id": "electrical-engineering-professional-subjects",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH637_OFFICIAL_SCOPE_CROSSWALK",
+                "reference": "prc-ree-exam-program-september-2026;prc-ree-enhanced-tos-annex-a-2024",
+                "note": "Direct REE leaf mapping verified against the September 2026 program and current enhanced TOS; source references are scope authorities, not technical design substantiation.",
+                "verified_status": "VERIFIED",
+                "confidence": "HIGH"
+            }
+        ],
+        "evidence": "PRC September 2026 REE program names this competence; Board Resolution No. 40 s.2024 Annex A supplies the current detailed TOS. Leaf-specific instructional material and technical sources are separately attached.",
         "confidence": "HIGH"
     }
 ]

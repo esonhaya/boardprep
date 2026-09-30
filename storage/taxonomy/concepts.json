@@ -8444,13 +8444,45 @@
             "official_area": "ree-mathematics",
             "character": "CALCULATION_REQUIRED",
             "source_ids": [
-                "prc-ree-exam-program-september-2026"
+                "prc-ree-exam-program-september-2026",
+                "openstax-precalculus-2e",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
             ],
-            "study_material_ids": [],
-            "source_readiness": "WEAK",
+            "study_material_ids": [
+                "b637-ree-study-math-trig-analytic-geometry"
+            ],
+            "source_readiness": "STRONG",
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
-            "zero_evidence": true
+            "zero_evidence": true,
+            "study_readiness": "SUFFICIENT"
+        },
+        "batch637_foundation": {
+            "status": "READY",
+            "source_readiness": "STRONG",
+            "study_readiness": "SUFFICIENT",
+            "coverage_status": "VERIFIED_DIRECT",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "openstax-precalculus-2e",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "study_material_ids": [
+                "b637-ree-study-math-trig-analytic-geometry"
+            ],
+            "official_scope_sources": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "official_tos_topics": [
+                "Mathematics: Trigonometry 1.25% / 5 items; Analytic Geometry 1.25% / 5 items"
+            ],
+            "version_class": "STABLE",
+            "authoring_limits": "Stay within undergraduate trigonometric/analytic-geometry methods; do not claim a separate weight for polar/phasor applications.",
+            "verified_at": "2026-10-01"
         }
     },
     {
@@ -8475,13 +8507,45 @@
             "official_area": "ree-mathematics",
             "character": "CALCULATION_REQUIRED",
             "source_ids": [
-                "prc-ree-exam-program-september-2026"
+                "prc-ree-exam-program-september-2026",
+                "openstax-precalculus-2e",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
             ],
-            "study_material_ids": [],
-            "source_readiness": "WEAK",
+            "study_material_ids": [
+                "b637-ree-study-math-matrices-determinants"
+            ],
+            "source_readiness": "STRONG",
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
-            "zero_evidence": true
+            "zero_evidence": true,
+            "study_readiness": "SUFFICIENT"
+        },
+        "batch637_foundation": {
+            "status": "READY",
+            "source_readiness": "STRONG",
+            "study_readiness": "SUFFICIENT",
+            "coverage_status": "VERIFIED_DIRECT",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "openstax-precalculus-2e",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "study_material_ids": [
+                "b637-ree-study-math-matrices-determinants"
+            ],
+            "official_scope_sources": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "official_tos_topics": [
+                "Mathematics: Algebra and Complex Numbers 1.25% / 5 items; current program explicitly lists Matrices and Determinants"
+            ],
+            "version_class": "STABLE",
+            "authoring_limits": "Use small systems and algebraic interpretation; no advanced numerical linear algebra beyond the current scope evidence.",
+            "verified_at": "2026-10-01"
         }
     },
     {
@@ -8506,13 +8570,45 @@
             "official_area": "ree-mathematics",
             "character": "CALCULATION_REQUIRED",
             "source_ids": [
-                "prc-ree-exam-program-september-2026"
+                "prc-ree-exam-program-september-2026",
+                "openstax-precalculus-2e",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
             ],
-            "study_material_ids": [],
-            "source_readiness": "WEAK",
+            "study_material_ids": [
+                "b637-ree-study-math-sequences-series"
+            ],
+            "source_readiness": "STRONG",
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
-            "zero_evidence": true
+            "zero_evidence": true,
+            "study_readiness": "SUFFICIENT"
+        },
+        "batch637_foundation": {
+            "status": "READY",
+            "source_readiness": "STRONG",
+            "study_readiness": "SUFFICIENT",
+            "coverage_status": "VERIFIED_DIRECT",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "openstax-precalculus-2e",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "study_material_ids": [
+                "b637-ree-study-math-sequences-series"
+            ],
+            "official_scope_sources": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "official_tos_topics": [
+                "Mathematics: current program explicitly lists Sequences and Series; TOS Engineering Data Analysis 5% / 20 items is adjacent, not a substitute scope claim"
+            ],
+            "version_class": "STABLE",
+            "authoring_limits": "Do not infer that every generalized series/convergence theorem is tested; anchor items to the current program examples and level.",
+            "verified_at": "2026-10-01"
         }
     },
     {
@@ -8539,13 +8635,45 @@
             "official_area": "ree-mathematics",
             "character": "CALCULATION_REQUIRED",
             "source_ids": [
-                "prc-ree-exam-program-september-2026"
+                "prc-ree-exam-program-september-2026",
+                "mit-ocw-18-03sc-fourier-laplace",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
             ],
-            "study_material_ids": [],
-            "source_readiness": "WEAK",
+            "study_material_ids": [
+                "b637-ree-study-math-fourier-laplace"
+            ],
+            "source_readiness": "STRONG",
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
-            "zero_evidence": true
+            "zero_evidence": true,
+            "study_readiness": "SUFFICIENT"
+        },
+        "batch637_foundation": {
+            "status": "READY",
+            "source_readiness": "STRONG",
+            "study_readiness": "SUFFICIENT",
+            "coverage_status": "VERIFIED_DIRECT",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "mit-ocw-18-03sc-fourier-laplace",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "study_material_ids": [
+                "b637-ree-study-math-fourier-laplace"
+            ],
+            "official_scope_sources": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "official_tos_topics": [
+                "Mathematics: Calculus 1 3.75% / 15 items; Calculus 2 3.75% / 15; Differential Equations 3.75% / 15; current program explicitly lists Fourier Series and Laplace Transforms"
+            ],
+            "version_class": "STABLE",
+            "authoring_limits": "Use standard linear ODEs and introductory transforms. Every solution must state initial conditions and transform convention.",
+            "verified_at": "2026-10-01"
         }
     },
     {
@@ -8803,7 +8931,7 @@
     },
     {
         "id": "b633-ree-allied-instrumentation",
-        "topic_id": "ree-allied-instrumentation",
+        "topic_id": "ree-pro-controls",
         "code": "B633",
         "name": "Instrumentation and measurement",
         "description": "Instrumentation and measurement as an evidence-backed registered-electrical-engineering subcompetency.",
@@ -8819,8 +8947,8 @@
             "common_misconceptions": []
         },
         "batch633": {
-            "parent_concept_id": "ree-concept-ree-allied-instrumentation",
-            "official_area": "engineering-sciences-and-allied-subjects",
+            "parent_concept_id": "ree-concept-ree-pro-controls",
+            "official_area": "electrical-engineering-professional-subjects",
             "character": "MIXED",
             "source_ids": [
                 "prc-ree-exam-program-september-2026",
@@ -8833,6 +8961,22 @@
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
             "zero_evidence": false
+        },
+        "batch637_foundation": {
+            "status": "READY",
+            "source_readiness": "ADEQUATE",
+            "study_readiness": "SUFFICIENT",
+            "coverage_status": "VERIFIED_DIRECT",
+            "official_scope_sources": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "official_tos_topics": [
+                "Professional TOS: Instrumentation & Control, Feedback Control System and Research Methods 4.50% / 10 items"
+            ],
+            "placement_correction": "Batch637: corrected five measurement/instrumentation questions from Allied to Professional; question text, IDs, eligibility and study links preserved.",
+            "verified_at": "2026-10-01"
         }
     },
     {
@@ -8893,13 +9037,46 @@
             "character": "REGULATORY",
             "source_ids": [
                 "prc-ree-exam-program-september-2026",
-                "prc-electrical-engineering-board-page"
+                "prc-electrical-engineering-board-page",
+                "openstax-chemistry-2e",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
             ],
-            "study_material_ids": [],
-            "source_readiness": "WEAK",
+            "study_material_ids": [
+                "b637-ree-study-allied-chemistry"
+            ],
+            "source_readiness": "STRONG",
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
-            "zero_evidence": true
+            "zero_evidence": true,
+            "study_readiness": "SUFFICIENT"
+        },
+        "batch637_foundation": {
+            "status": "READY",
+            "source_readiness": "STRONG",
+            "study_readiness": "SUFFICIENT",
+            "coverage_status": "VERIFIED_DIRECT",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "openstax-chemistry-2e",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "study_material_ids": [
+                "b637-ree-study-allied-chemistry"
+            ],
+            "official_scope_sources": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "official_tos_topics": [
+                "Engineering Sciences and Allied Subjects: Chemistry for Engineers 1.5% / 5 items"
+            ],
+            "version_class": "STABLE",
+            "authoring_limits": "Stay at general-engineering chemistry; do not infer specialized battery chemistry beyond the cited learning foundation.",
+            "verified_at": "2026-10-01"
         }
     },
     {
@@ -8928,13 +9105,48 @@
             "character": "REGULATORY",
             "source_ids": [
                 "prc-ree-exam-program-september-2026",
-                "prc-electrical-engineering-board-page"
+                "prc-electrical-engineering-board-page",
+                "supreme-court-ra-7920-electrical-engineering-law",
+                "prc-ree-ethics-resolution-65-2024",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
             ],
-            "study_material_ids": [],
-            "source_readiness": "WEAK",
+            "study_material_ids": [
+                "b637-ree-study-allied-law-code-ethics"
+            ],
+            "source_readiness": "ADEQUATE",
             "version_sensitivity": "HIGHLY_VERSION_SENSITIVE",
             "visual_suitability": "TEXT_SUITABLE",
-            "zero_evidence": true
+            "zero_evidence": true,
+            "study_readiness": "SUFFICIENT"
+        },
+        "batch637_foundation": {
+            "status": "READY_WITH_LIMITS",
+            "source_readiness": "ADEQUATE",
+            "study_readiness": "SUFFICIENT",
+            "coverage_status": "VERIFIED_DIRECT",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "supreme-court-ra-7920-electrical-engineering-law",
+                "prc-ree-ethics-resolution-65-2024",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "study_material_ids": [
+                "b637-ree-study-allied-law-code-ethics"
+            ],
+            "official_scope_sources": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "official_tos_topics": [
+                "Engineering Sciences and Allied Subjects: EE Laws, Codes, Professional Ethics, BOSH and Electrical Standards and Practices 6.0% / 20 items"
+            ],
+            "version_class": "HIGHLY_VERSION_SENSITIVE",
+            "authoring_limits": "Safe for stable statutory roles, ethical duties and rule-application scenarios. No PEC section numbers, ampacity values, or current numerical code limits until the applicable adopted code edition and controlling authority are verified.",
+            "verified_at": "2026-10-01"
         }
     },
     {
@@ -8960,13 +9172,46 @@
             "character": "REGULATORY",
             "source_ids": [
                 "prc-ree-exam-program-september-2026",
-                "prc-electrical-engineering-board-page"
+                "prc-electrical-engineering-board-page",
+                "supreme-court-ra-7920-electrical-engineering-law",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
             ],
-            "study_material_ids": [],
-            "source_readiness": "WEAK",
-            "version_sensitivity": "STABLE",
+            "study_material_ids": [
+                "b637-ree-study-allied-contracts-specifications"
+            ],
+            "source_readiness": "ADEQUATE",
+            "version_sensitivity": "VERSION_SENSITIVE",
             "visual_suitability": "TEXT_SUITABLE",
-            "zero_evidence": true
+            "zero_evidence": true,
+            "study_readiness": "SUFFICIENT"
+        },
+        "batch637_foundation": {
+            "status": "READY_WITH_LIMITS",
+            "source_readiness": "ADEQUATE",
+            "study_readiness": "SUFFICIENT",
+            "coverage_status": "VERIFIED_DIRECT",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "supreme-court-ra-7920-electrical-engineering-law",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "study_material_ids": [
+                "b637-ree-study-allied-contracts-specifications"
+            ],
+            "official_scope_sources": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "official_tos_topics": [
+                "Engineering Sciences and Allied Subjects: the September 2026 program explicitly lists Contracts and Specifications; TOS groups related practice competencies under engineering project management and professional practice"
+            ],
+            "version_class": "VERSION_SENSITIVE",
+            "authoring_limits": "Questions may assess document purpose, scope consistency and responsible clarification. Avoid unsourced contract-law doctrine, procurement thresholds and clause-number trivia.",
+            "verified_at": "2026-10-01"
         }
     },
     {
@@ -8993,13 +9238,46 @@
             "character": "REGULATORY",
             "source_ids": [
                 "prc-ree-exam-program-september-2026",
-                "prc-electrical-engineering-board-page"
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-100l-programming",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
             ],
-            "study_material_ids": [],
-            "source_readiness": "WEAK",
+            "study_material_ids": [
+                "b637-ree-study-allied-programming"
+            ],
+            "source_readiness": "STRONG",
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
-            "zero_evidence": true
+            "zero_evidence": true,
+            "study_readiness": "SUFFICIENT"
+        },
+        "batch637_foundation": {
+            "status": "READY",
+            "source_readiness": "STRONG",
+            "study_readiness": "SUFFICIENT",
+            "coverage_status": "VERIFIED_DIRECT",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-100l-programming",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "study_material_ids": [
+                "b637-ree-study-allied-programming"
+            ],
+            "official_scope_sources": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "official_tos_topics": [
+                "Engineering Sciences and Allied Subjects: Computer Programming, Microprocessor Systems and Logic Circuits/Switching Theory 4.5% / 15 items; current program names Computer Fundamentals and Programming"
+            ],
+            "version_class": "STABLE",
+            "authoring_limits": "Do not assume a particular exam programming language unless a current official source establishes it; test logic and small program reading.",
+            "verified_at": "2026-10-01"
         }
     },
     {
@@ -9510,13 +9788,46 @@
             "character": "MIXED",
             "source_ids": [
                 "prc-ree-exam-program-september-2026",
-                "prc-electrical-engineering-board-page"
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-02-digital-communications",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
             ],
-            "study_material_ids": [],
-            "source_readiness": "WEAK",
+            "study_material_ids": [
+                "b637-ree-study-prof-telecommunications"
+            ],
+            "source_readiness": "STRONG",
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
-            "zero_evidence": true
+            "zero_evidence": true,
+            "study_readiness": "SUFFICIENT"
+        },
+        "batch637_foundation": {
+            "status": "READY",
+            "source_readiness": "STRONG",
+            "study_readiness": "SUFFICIENT",
+            "coverage_status": "VERIFIED_DIRECT",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-02-digital-communications",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "study_material_ids": [
+                "b637-ree-study-prof-telecommunications"
+            ],
+            "official_scope_sources": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "official_tos_topics": [
+                "Professional TOS: Fundamentals of Electronic Communications, Electronics 1 and 2 2.25% / 5 items; current program explicitly lists Telecommunications"
+            ],
+            "version_class": "STABLE",
+            "authoring_limits": "Use stable signal/channel principles. Any current spectrum allocation or telecommunications regulation needs a current Philippine authority and is excluded from this material.",
+            "verified_at": "2026-10-01"
         }
     },
     {
@@ -9546,13 +9857,46 @@
             "character": "MIXED",
             "source_ids": [
                 "prc-ree-exam-program-september-2026",
-                "prc-electrical-engineering-board-page"
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-061-electric-power-systems",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
             ],
-            "study_material_ids": [],
-            "source_readiness": "WEAK",
+            "study_material_ids": [
+                "b637-ree-study-prof-computer-power-applications"
+            ],
+            "source_readiness": "STRONG",
             "version_sensitivity": "STABLE",
             "visual_suitability": "TEXT_SUITABLE",
-            "zero_evidence": true
+            "zero_evidence": true,
+            "study_readiness": "SUFFICIENT"
+        },
+        "batch637_foundation": {
+            "status": "READY",
+            "source_readiness": "STRONG",
+            "study_readiness": "SUFFICIENT",
+            "coverage_status": "VERIFIED_DIRECT",
+            "source_ids": [
+                "prc-ree-exam-program-september-2026",
+                "prc-electrical-engineering-board-page",
+                "mit-ocw-6-061-electric-power-systems",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "study_material_ids": [
+                "b637-ree-study-prof-computer-power-applications"
+            ],
+            "official_scope_sources": [
+                "prc-ree-exam-program-september-2026",
+                "prc-ree-enhanced-tos-resolution-40-2024",
+                "prc-ree-enhanced-tos-annex-a-2024"
+            ],
+            "official_tos_topics": [
+                "Professional TOS: Power System Analysis 9.00% / 20 items; power plants, distribution and substation design 2.25% / 5 items; current program explicitly lists Computer Application in Electrical Power Industry"
+            ],
+            "version_class": "STABLE",
+            "authoring_limits": "Teach model setup and result checks, not proprietary software menus, live NGCP operating settings or current grid-code numerical limits.",
+            "verified_at": "2026-10-01"
         }
     },
     {

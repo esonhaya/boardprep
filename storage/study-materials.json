@@ -6140,17 +6140,32 @@
             }
         ],
         "source_ids": [
-            "prc-electrical-engineering-board-page"
+            "prc-electrical-engineering-board-page",
+            "prc-ree-exam-program-september-2026",
+            "prc-ree-enhanced-tos-resolution-40-2024",
+            "prc-ree-enhanced-tos-annex-a-2024"
         ],
         "exams": [
             "registered-electrical-engineering"
         ],
         "taxonomy": {
-            "subject_id": "registered-electrical-engineering-foundation"
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-controls"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-06"
+        "version": 2,
+        "updated_at": "2026-10-01",
+        "supported_concept_ids": [
+            "b633-ree-allied-instrumentation"
+        ],
+        "exam_focus": {
+            "registered-electrical-engineering": {
+                "priority": "high",
+                "rationale": "Measurement and instrumentation is within the REE Professional TOS.",
+                "official_scope_status": "Current PRB Resolution 40 s.2024 Professional TOS: Instrumentation & Control, Feedback Control System and Research Methods"
+            }
+        }
     },
     {
         "id": "ree-material-safety",
@@ -9114,5 +9129,457 @@
         "status": "published",
         "version": 1,
         "updated_at": "2026-09-30"
+    },
+    {
+        "id": "b637-ree-study-math-trig-analytic-geometry",
+        "title": "REE Mathematics — Trigonometry and Analytic Geometry",
+        "summary": "Angle/period relationships, trigonometric functions and identities, polar/Cartesian representation, vectors and analytic geometry with engineering interpretation.",
+        "notes": [
+            {
+                "heading": "Core ideas",
+                "body": "Represent angles with explicit units and reference direction. Use unit-circle signs, identities, law of sines/cosines, polar and Cartesian coordinates, vectors, lines and conics when appropriate. In phasor-style questions state whether degrees or radians are used and preserve quadrant information."
+            },
+            {
+                "heading": "Worked check",
+                "body": "For 12∠30°, x=12 cos 30°≈10.39 and y=12 sin 30°=6.00, so the rectangular form is approximately 10.39+j6.00. Check magnitude with √(x²+y²) and use the original quadrant to determine the angle."
+            },
+            {
+                "heading": "Common errors and application",
+                "body": "Common errors include calculator mode mismatch, losing the sign of a component, using the wrong inverse-trigonometric quadrant, and confusing a slope with an angle. Prefer interpretation/application questions with explicit geometry; keep the math within PRC-listed scope."
+            }
+        ],
+        "source_ids": [
+            "prc-ree-exam-program-september-2026",
+            "prc-ree-enhanced-tos-annex-a-2024",
+            "openstax-precalculus-2e"
+        ],
+        "exams": [
+            "registered-electrical-engineering"
+        ],
+        "exam_focus": {
+            "registered-electrical-engineering": {
+                "priority": "high",
+                "rationale": "PRC-listed trigonometry and analytic geometry; stable mathematical reasoning, no unsupported exam subweights.",
+                "official_scope_status": "current PRC scope plus leaf-specific technical foundation"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-algebra"
+        },
+        "supported_concept_ids": [
+            "b633-ree-math-trigonometry-analytic-geometry"
+        ],
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-01"
+    },
+    {
+        "id": "b637-ree-study-math-matrices-determinants",
+        "title": "REE Mathematics — Matrices and Determinants",
+        "summary": "Matrix dimensions and operations, determinants, invertibility and small linear systems with solution checks.",
+        "notes": [
+            {
+                "heading": "Core ideas",
+                "body": "Matrix dimensions determine which operations are defined. Addition requires equal dimensions; multiplication requires matching inner dimensions. A square matrix is invertible only when its determinant is nonzero. For a small system Ax=b, a solution may be found by elimination, determinant methods or an inverse when defined."
+            },
+            {
+                "heading": "Worked check",
+                "body": "For 2x+y=11 and x−y=1, the coefficient matrix is [[2,1],[1,−1]] with determinant −3. Elimination gives x=4 and y=3; substitute both values into the original equations to verify."
+            },
+            {
+                "heading": "Common errors and application",
+                "body": "Check row/column orientation before multiplication; do not divide by a zero determinant; preserve signs during row operations. Engineering-current labels may motivate a system, but the result must be checked against the original equations and units."
+            }
+        ],
+        "source_ids": [
+            "prc-ree-exam-program-september-2026",
+            "prc-ree-enhanced-tos-annex-a-2024",
+            "openstax-precalculus-2e"
+        ],
+        "exams": [
+            "registered-electrical-engineering"
+        ],
+        "exam_focus": {
+            "registered-electrical-engineering": {
+                "priority": "high",
+                "rationale": "PRC-listed matrices and determinants; engineering systems are contextual only.",
+                "official_scope_status": "current PRC scope plus leaf-specific technical foundation"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-algebra"
+        },
+        "supported_concept_ids": [
+            "b633-ree-math-matrices-determinants"
+        ],
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-01"
+    },
+    {
+        "id": "b637-ree-study-math-sequences-series",
+        "title": "REE Mathematics — Sequences and Series",
+        "summary": "Arithmetic/geometric sequences, finite sums, recursive patterns, convergence language and engineering-model interpretation.",
+        "notes": [
+            {
+                "heading": "Core ideas",
+                "body": "An arithmetic sequence changes by a constant difference; a geometric sequence changes by a constant ratio. For a geometric sequence with first term a and ratio r, term n is a r^(n−1); a finite sum is a(1−r^n)/(1−r) when r≠1. State whether a question asks for a term or a sum."
+            },
+            {
+                "heading": "Worked check",
+                "body": "If a=12 and r=0.9, the third term is 12(0.9)^2=9.72. The first-three-term sum is 12+10.8+9.72=32.52. These are different requested quantities."
+            },
+            {
+                "heading": "Common errors and application",
+                "body": "Common mistakes are using exponent n instead of n−1, treating a difference as a ratio, and using an infinite-sum formula for a finite sequence. Explain what each term represents before calculating."
+            }
+        ],
+        "source_ids": [
+            "prc-ree-exam-program-september-2026",
+            "prc-ree-enhanced-tos-annex-a-2024",
+            "openstax-precalculus-2e"
+        ],
+        "exams": [
+            "registered-electrical-engineering"
+        ],
+        "exam_focus": {
+            "registered-electrical-engineering": {
+                "priority": "high",
+                "rationale": "PRC-listed sequences and series; use finite undergraduate examples.",
+                "official_scope_status": "current PRC scope plus leaf-specific technical foundation"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-algebra"
+        },
+        "supported_concept_ids": [
+            "b633-ree-math-sequences-series"
+        ],
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-01"
+    },
+    {
+        "id": "b637-ree-study-math-fourier-laplace",
+        "title": "REE Mathematics — Fourier Series and Laplace Transforms",
+        "summary": "Periodic-function representation, Fourier coefficients at introductory level, Laplace transform rules and solving simple initial-value problems.",
+        "notes": [
+            {
+                "heading": "Core ideas",
+                "body": "Fourier series express a periodic function as a sum of a constant term and sinusoidal harmonics; coefficients depend on the stated period and interval. A Laplace transform maps a time-domain function into an algebraic function of s and incorporates initial conditions when transforming derivatives."
+            },
+            {
+                "heading": "Worked check",
+                "body": "For f(t)=cos(3t), the one-sided Laplace transform is s/(s²+9) for Re(s)>0. The denominator uses angular frequency 3 rad/s; do not replace it with a frequency in hertz without conversion."
+            },
+            {
+                "heading": "Common errors and application",
+                "body": "Check period/interval, coefficient normalization, transform table signs, initial-value terms and inverse-transform form. Use superposition for linear systems; do not present a transform result as a current engineering standard or a code requirement."
+            }
+        ],
+        "source_ids": [
+            "prc-ree-exam-program-september-2026",
+            "prc-ree-enhanced-tos-annex-a-2024",
+            "mit-ocw-18-03sc-fourier-laplace"
+        ],
+        "exams": [
+            "registered-electrical-engineering"
+        ],
+        "exam_focus": {
+            "registered-electrical-engineering": {
+                "priority": "high",
+                "rationale": "PRC-listed Fourier series, Laplace transforms and differential equations; no graduate-level transform theory.",
+                "official_scope_status": "current PRC scope plus leaf-specific technical foundation"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "registered-electrical-engineering-mathematics",
+            "domain_id": "ree-mathematics",
+            "topic_id": "ree-math-calculus"
+        },
+        "supported_concept_ids": [
+            "b633-ree-math-fourier-laplace"
+        ],
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-01"
+    },
+    {
+        "id": "b637-ree-study-allied-chemistry",
+        "title": "REE Allied — General Chemistry for Engineers",
+        "summary": "Foundational matter, atoms, bonding, reactions, solutions, energy and basic electrochemical concepts relevant to engineering.",
+        "notes": [
+            {
+                "heading": "Core ideas",
+                "body": "Track conservation of atoms and charge in reactions. Distinguish amount of substance (mol), molar mass, solution volume and concentration. Relate electron transfer to oxidation/reduction and identify the reacting species before using a balanced equation."
+            },
+            {
+                "heading": "Worked check",
+                "body": "A solution contains 0.20 mol solute in 0.50 L solution. Molarity is n/V=0.40 mol/L. Keep volume in litres and distinguish the solution volume from solvent volume."
+            },
+            {
+                "heading": "Common errors and application",
+                "body": "Balance the equation before using mole ratios; check units; do not confuse mass concentration with molarity. Renewable-energy or battery contexts must stay at the general-chemistry level supported by the scope and source."
+            }
+        ],
+        "source_ids": [
+            "prc-ree-exam-program-september-2026",
+            "prc-ree-enhanced-tos-annex-a-2024",
+            "openstax-chemistry-2e"
+        ],
+        "exams": [
+            "registered-electrical-engineering"
+        ],
+        "exam_focus": {
+            "registered-electrical-engineering": {
+                "priority": "high",
+                "rationale": "PRC-listed General Chemistry and chemistry applications; no specialist electrochemistry design.",
+                "official_scope_status": "current PRC scope plus leaf-specific technical foundation"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-chemistry"
+        },
+        "supported_concept_ids": [
+            "b633-ree-allied-chemistry"
+        ],
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-01"
+    },
+    {
+        "id": "b637-ree-study-allied-law-code-ethics",
+        "title": "REE Allied — Electrical Engineering Law, Code and Ethics",
+        "summary": "Professional scope under RA 7920, current PRC ethical duties, responsible practice and safe interpretation of code-governed work.",
+        "notes": [
+            {
+                "heading": "Controlling sources and core ideas",
+                "body": "RA 7920 governs professional practice/licensing and identifies electrical-engineering services; the PRC Board’s Resolution 65 s.2024 is the current revised professional Code of Ethics. Distinguish statute, professional ethics, safety practice and technical-code requirements. The current PRC TOS establishes that these competencies are examinable, not the answer to a technical design question."
+            },
+            {
+                "heading": "Application framework",
+                "body": "For a professional scenario, identify the person’s role and responsibility, the public-safety consequence, the applicable professional duty, and the source hierarchy. If a problem turns on a code edition or numerical design rule, stop and verify the currently adopted Philippine code/standard before answering."
+            },
+            {
+                "heading": "Common errors and limitations",
+                "body": "Do not treat an ethical principle as a substitute for a statutory requirement; do not cite a superseded code clause; do not infer the latest Philippine Electrical Code edition from an instructional text. New question content may test stable professional duties, but code-number and threshold questions are gated."
+            }
+        ],
+        "source_ids": [
+            "prc-ree-exam-program-september-2026",
+            "prc-ree-enhanced-tos-annex-a-2024",
+            "supreme-court-ra-7920-electrical-engineering-law",
+            "prc-ree-ethics-resolution-65-2024"
+        ],
+        "exams": [
+            "registered-electrical-engineering"
+        ],
+        "exam_focus": {
+            "registered-electrical-engineering": {
+                "priority": "high",
+                "rationale": "PRC-listed EE law/code/ethics, BOSH and standards/practices; answer-changing clauses require current primary authority.",
+                "official_scope_status": "current PRC scope plus leaf-specific technical foundation"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-safety"
+        },
+        "supported_concept_ids": [
+            "b633-ree-allied-law-code-ethics"
+        ],
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-01"
+    },
+    {
+        "id": "b637-ree-study-allied-contracts-specifications",
+        "title": "REE Allied — Contracts and Engineering Specifications",
+        "summary": "Purpose and interpretation of project scope, plans, technical specifications, deliverables and acceptance evidence in electrical-engineering work.",
+        "notes": [
+            {
+                "heading": "Core ideas",
+                "body": "A project contract defines parties, scope, deliverables and responsibilities; drawings communicate configuration; specifications state measurable material, workmanship, performance, testing and acceptance requirements. Read them together and identify precedence only when the governing contract states it."
+            },
+            {
+                "heading": "Worked interpretation",
+                "body": "If a drawing shows a device rating that conflicts with a written performance specification, the safe professional action is to identify the discrepancy, consult the contract’s document-precedence clause if present, and request an authorized clarification rather than silently choosing one value."
+            },
+            {
+                "heading": "Common errors and application",
+                "body": "Do not equate a specification with a law, assume every contract has the same document hierarchy, or treat an undocumented verbal change as authoritative. Legal conclusions require current primary law; the present study foundation supports general document reasoning only."
+            }
+        ],
+        "source_ids": [
+            "prc-ree-exam-program-september-2026",
+            "prc-ree-enhanced-tos-annex-a-2024",
+            "supreme-court-ra-7920-electrical-engineering-law",
+            "prc-ree-ethics-resolution-65-2024"
+        ],
+        "exams": [
+            "registered-electrical-engineering"
+        ],
+        "exam_focus": {
+            "registered-electrical-engineering": {
+                "priority": "high",
+                "rationale": "PRC-listed Contracts and Specifications; general professional application, not unsourced procurement-law trivia.",
+                "official_scope_status": "current PRC scope plus leaf-specific technical foundation"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-safety"
+        },
+        "supported_concept_ids": [
+            "b633-ree-allied-contracts-specifications"
+        ],
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-01"
+    },
+    {
+        "id": "b637-ree-study-allied-programming",
+        "title": "REE Allied — Computer Fundamentals and Programming",
+        "summary": "Data representation, algorithm steps, variables, expressions, selection, iteration, functions, arrays and verification of small engineering calculations.",
+        "notes": [
+            {
+                "heading": "Core ideas",
+                "body": "An algorithm is a finite, ordered procedure. Track data type, variable state, operator precedence, branching and loop bounds. Functions isolate a reusable operation; arrays/collections store ordered values. A program’s output is only as sound as the input validation and model assumptions."
+            },
+            {
+                "heading": "Worked check",
+                "body": "For an engineering illustration, read V and R, require R>0, then compute I=V/R. With V=24 V and R=8 Ω, I=3 A. A robust routine rejects zero/negative resistance and labels the output unit; it does not silently accept invalid input."
+            },
+            {
+                "heading": "Common errors and application",
+                "body": "Watch off-by-one loops, integer versus floating-point division, stale variable values, unit inconsistency and unvalidated input. A question may ask which branch executes or why a result is wrong; do not make code-library version trivia part of the exam model."
+            }
+        ],
+        "source_ids": [
+            "prc-ree-exam-program-september-2026",
+            "prc-ree-enhanced-tos-annex-a-2024",
+            "mit-ocw-6-100l-programming"
+        ],
+        "exams": [
+            "registered-electrical-engineering"
+        ],
+        "exam_focus": {
+            "registered-electrical-engineering": {
+                "priority": "high",
+                "rationale": "PRC-listed Computer Fundamentals and Programming; small, language-neutral or introductory Python examples.",
+                "official_scope_status": "current PRC scope plus leaf-specific technical foundation"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "registered-electrical-engineering-engineering-sciences-and-allied-subjects",
+            "domain_id": "engineering-sciences-and-allied-subjects",
+            "topic_id": "ree-allied-safety"
+        },
+        "supported_concept_ids": [
+            "b633-ree-allied-computer-programming"
+        ],
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-01"
+    },
+    {
+        "id": "b637-ree-study-prof-telecommunications",
+        "title": "REE Professional — Telecommunications",
+        "summary": "Signal and channel models, bandwidth, spectrum, sampling, noise, modulation and basic digital communication reasoning.",
+        "notes": [
+            {
+                "heading": "Core ideas",
+                "body": "Represent information as a signal traveling through a channel. Bandwidth and spectrum describe frequency content; noise and interference reduce reliable detection; modulation places information on a carrier; coding can detect or correct some errors. LTI and convolution models explain filtering and channel response."
+            },
+            {
+                "heading": "Worked check",
+                "body": "For a baseband signal band-limited to 3 kHz, ideal uniform sampling requires a rate above 6 kHz to avoid aliasing under the Nyquist assumptions. State the band limit and ideal-reconstruction assumption; real systems require practical margin and filtering."
+            },
+            {
+                "heading": "Common errors and application",
+                "body": "Distinguish bit rate from symbol rate, Hz from rad/s, and signal power from amplitude. Explain what the model assumes before calculating. Avoid present-day frequency assignments or telecom regulatory limits without current local sources."
+            }
+        ],
+        "source_ids": [
+            "prc-ree-exam-program-september-2026",
+            "prc-ree-enhanced-tos-annex-a-2024",
+            "mit-ocw-6-02-digital-communications"
+        ],
+        "exams": [
+            "registered-electrical-engineering"
+        ],
+        "exam_focus": {
+            "registered-electrical-engineering": {
+                "priority": "high",
+                "rationale": "PRC-listed Telecommunications and current professional-subject TOS communication/electronics outcomes.",
+                "official_scope_status": "current PRC scope plus leaf-specific technical foundation"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-controls"
+        },
+        "supported_concept_ids": [
+            "b633-ree-pro-telecommunications"
+        ],
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-01"
+    },
+    {
+        "id": "b637-ree-study-prof-computer-power-applications",
+        "title": "REE Professional — Computer Applications in the Electrical Power Industry",
+        "summary": "Power-system model inputs, per-unit consistency, load-flow purpose, state/constraint interpretation and verification of computational outputs.",
+        "notes": [
+            {
+                "heading": "Core ideas",
+                "body": "A power-system program operates on an explicit network model: buses, branches, source/load data, base quantities, limits and solver assumptions. Load-flow computes a steady-state operating point; results are useful only after checking convergence, units, sign convention, base values and engineering constraints."
+            },
+            {
+                "heading": "Worked interpretation",
+                "body": "If a load-flow solution reports a converged bus voltage outside the stated allowable interval, convergence alone is not a pass. Verify the input/base conventions, locate the limiting bus/branch, and compare the result against the supplied constraints before recommending an action."
+            },
+            {
+                "heading": "Common errors and application",
+                "body": "Do not confuse numerical convergence with a feasible design, mix per-unit bases, ignore slack/reference-bus assumptions, or treat stale inputs as a live grid state. Keep scenarios educational and stable; current operational rules require a separately verified Philippine system authority."
+            }
+        ],
+        "source_ids": [
+            "prc-ree-exam-program-september-2026",
+            "prc-ree-enhanced-tos-annex-a-2024",
+            "mit-ocw-6-061-electric-power-systems"
+        ],
+        "exams": [
+            "registered-electrical-engineering"
+        ],
+        "exam_focus": {
+            "registered-electrical-engineering": {
+                "priority": "high",
+                "rationale": "Current PRC program explicitly lists computer applications in the electrical power industry; use stable analytical workflows.",
+                "official_scope_status": "current PRC scope plus leaf-specific technical foundation"
+            }
+        },
+        "taxonomy": {
+            "subject_id": "registered-electrical-engineering-electrical-engineering-professional-subjects",
+            "domain_id": "electrical-engineering-professional-subjects",
+            "topic_id": "ree-pro-controls"
+        },
+        "supported_concept_ids": [
+            "b633-ree-pro-computer-power-applications"
+        ],
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-01"
     }
 ]
