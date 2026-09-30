@@ -22,9 +22,69 @@ function b632_write(string $root, string $name, array $data): void
 {
     $path = $root . '/storage/' . $name . '.json';
     $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION);
-    if (!is_string($json) || file_put_contents($path, $json . PHP_EOL, LOCK_EX) === false) {
+    if (!is_string($json)) {
         throw new RuntimeException('Unable to persist ' . $path);
     }
+
+    /* Keep the checkpoint valid if the process is killed during a write. */
+    $temporaryPath = $path . '.tmp.' . getmypid() . '.' . bin2hex(random_bytes(6));
+    if (file_put_contents($temporaryPath, $json . PHP_EOL, LOCK_EX) === false || !rename($temporaryPath, $path)) {
+        @unlink($temporaryPath);
+        throw new RuntimeException('Unable to persist ' . $path);
+    }
+}
+
+function b632_checkpoint_counts(array $questions, array $eligibility, array $metadata, array $links): array
+{
+    $ids = [];
+    $batchIds = [];
+    $cseDeclared = [];
+    foreach ($questions as $question) {
+        $id = (string) ($question['id'] ?? '');
+        if ($id === '') continue;
+        $ids[$id] = true;
+        if (($question['batch_marker'] ?? '') === 'batch632') $batchIds[$id] = true;
+    }
+    foreach ($eligibility as $entry) {
+        if (!in_array('civil-service', (array) ($entry['exam_ids'] ?? []), true)) continue;
+        foreach ((array) ($entry['question_ids'] ?? []) as $id) {
+            $id = (string) $id;
+            if ($id !== '') $cseDeclared[$id] = true;
+        }
+    }
+    $maxId = $ids === [] ? 0 : max(array_map('intval', array_keys($ids)));
+    return [
+        'total_canonical' => count($ids),
+        'batch632_canonical' => count($batchIds),
+        'max_canonical_id' => $maxId,
+        'cse_direct_declared_unique' => count($cseDeclared),
+        'reuse_metadata_rows' => count($metadata),
+        'study_link_rows' => count($links),
+    ];
+}
+
+function b632_wave_content_hash(array $questions, array $ids): string
+{
+    $byId = [];
+    foreach ($questions as $question) {
+        $id = (string) ($question['id'] ?? '');
+        if ($id !== '') $byId[$id] = $question;
+    }
+    $rows = [];
+    foreach ($ids as $id) {
+        $question = $byId[(string) $id] ?? null;
+        if (!is_array($question)) continue;
+        $rows[] = [
+            'id' => $question['id'] ?? null,
+            'taxonomy' => $question['taxonomy'] ?? [],
+            'question' => $question['question'] ?? '',
+            'choices' => $question['choices'] ?? [],
+            'answer' => $question['answer'] ?? '',
+            'explanation' => $question['explanation'] ?? '',
+            'batch632' => $question['batch632'] ?? [],
+        ];
+    }
+    return b632_hash($rows);
 }
 
 function b632_hash(mixed $value): string
@@ -1802,6 +1862,8 @@ if($write){
         foreach($waveSpecs as $i=>$s){$id=$firstId+$i;$q=$waveQuestionById[(string)$id]??null;if(!$q||$waveIndex->forExam($q,'civil-service')===null)$waveFailures[]=['id'=>$id,'check'=>'eligible'];if(!$q||count((array)($q['choices']??[]))!==4||count(array_unique((array)($q['choices']??[])))!==4)$waveFailures[]=['id'=>$id,'check'=>'choices'];foreach(b632_sources_for($s) as $sid)if(!isset($sourceIndex[$sid]))$waveFailures[]=['id'=>$id,'check'=>'source','source_id'=>$sid];$ci=b632_calculation_check($s);if($ci['required']&&!$ci['pass'])$waveFailures[]=['id'=>$id,'check'=>'calculation'];if($s['version_sensitive']&&($q['batch632']['version_review']['status']??'')!=='PASS')$waveFailures[]=['id'=>$id,'check'=>'version-review'];if(!isset($knownMeta[(string)$id])||!isset($knownLink[(string)$id]))$waveFailures[]=['id'=>$id,'check'=>'study-or-reuse-metadata'];}
         if($waveFailures)throw new RuntimeException('Wave '.$wave.' quality gate failed before persistence: '.json_encode($waveFailures));
         $questionFile=$waveQuestionSet;$allWaveIds=[];foreach($waveSpecs as $i=>$s)$allWaveIds[]=$firstId+$i;$artifact['wave_status']['last_completed_wave']=$wave;$artifact['wave_status']['waves'][$wave]['status']='PASS';$artifact['wave_status']['waves'][$wave]['ids']=$allWaveIds;$artifact['wave_status']['waves'][$wave]['id_range']=[min($allWaveIds),max($allWaveIds)];$artifact['wave_status']['waves'][$wave]['persisted_new_questions']=count($pendingQuestions);$artifact['wave_status']['waves'][$wave]['quality_gate']='PASS';$artifact['wave_status']['waves'][$wave]['traceability']='100%';$artifact['wave_status']['waves'][$wave]['production_eligibility']='PASS';$artifact['wave_status']['status']='IN_PROGRESS';
+        $artifact['wave_status']['waves'][$wave]['content_hash']=b632_wave_content_hash($questionFile,$allWaveIds);
+        $artifact['wave_status']['waves'][$wave]['current_counts']=b632_checkpoint_counts($questionFile,$eligibility,$metadata,$links);
         b632_write($root,'questions',$questionFile);b632_write($root,'question-eligibility',$eligibility);b632_write($root,'question-reuse-metadata',$metadata);b632_write($root,'study-question-links',$links);b632_write($root,'batch632-cse-overnight-expansion',$artifact);
     }
 }
@@ -1831,7 +1893,18 @@ $artifact['new_cohort']['quantitative_semantics']=$newQuantSemantics+['CALCULATI
 $artifact['new_cohort']['content_hash']=b632_hash(array_map(static fn(array $q):array=>['id'=>$q['id'],'taxonomy'=>$q['taxonomy']??[],'question'=>$q['question']??'','choices'=>$q['choices']??[],'answer'=>$q['answer']??'','explanation'=>$q['explanation']??'','batch632'=>$q['batch632']??[]],$newRows));
 $artifact['validation']['civil_service_context']=$civilServiceContextIntegrity?'PASS':'FAIL';$artifact['validation']['area_pool_reconciliation']=$areaReconciliationPass?'PASS':'FAIL';$hardGateKeys=['canonical_id_uniqueness','taxonomy_integrity','source_study_integrity','traceability','depth','calculation','version_sensitive','dedup','production_path','civil_service_context','area_pool_reconciliation','cross_board_regression'];$hardGatePass=true;foreach($hardGateKeys as $gateKey)if(($artifact['validation'][$gateKey]??'FAIL')!=='PASS')$hardGatePass=false;if(($artifact['validation']['known_to_unknown_regressions']??1)!==0)$hardGatePass=false;$artifact['validation']['hard_gate']=$hardGatePass?'PASS':'FAIL';
 $artifact['determinism']=['audit_hash'=>b632_hash([$artifact['baseline'],$artifact['new_cohort'],$artifact['portfolio_after'],$artifact['traceability'],$artifact['production_path'],$artifact['validation']]),'second_audit_hash'=>b632_hash([$artifact['baseline'],$artifact['new_cohort'],$artifact['portfolio_after'],$artifact['traceability'],$artifact['production_path'],$artifact['validation']]),'audit_identical'=>'YES','eligibility_hash'=>b632_hash($eligibility),'second_eligibility_hash'=>b632_hash($eligibility),'eligibility_identical'=>'YES','area_matrix_hash'=>b632_hash($afterMetrics['civil-service']['area_results']),'duplicate_hash'=>b632_hash([$exactDuplicates,$normalizedDuplicates,$globalDuplicates]),'version_gate_hash'=>b632_hash($versionRows),'calculation_gate_hash'=>b632_hash($calculationRows),'scenario_hash'=>b632_hash($newScenario),'misconception_hash'=>b632_hash($newMis)];
-$artifact['wave_status']['last_completed_wave']=$write?4:((int)($priorArtifact['wave_status']['last_completed_wave']??0));$artifact['wave_status']['status']=$write?'COMPLETE':'PREFLIGHT_READY';$artifact['wave_status']['waves']=$perWave;foreach([1,2,3,4] as $wave)if($write&&isset($artifact['wave_status']['waves'][$wave])){$artifact['wave_status']['waves'][$wave]['status']='PASS';$artifact['wave_status']['waves'][$wave]['ids']=array_values(array_filter($newIds,static fn(int $id):bool=>((int)$specs[$id-$firstId]['wave'])===$wave));}
+$checkpointWaves=$artifact['wave_status']['waves']??[];
+$artifact['wave_status']['last_completed_wave']=$write?4:((int)($priorArtifact['wave_status']['last_completed_wave']??0));
+$artifact['wave_status']['status']=$write?'COMPLETE':'PREFLIGHT_READY';
+$artifact['wave_status']['waves']=$perWave;
+foreach([1,2,3,4] as $wave){
+    if(!isset($artifact['wave_status']['waves'][$wave]))continue;
+    $artifact['wave_status']['waves'][$wave]['status']='PASS';
+    $artifact['wave_status']['waves'][$wave]['ids']=array_values(array_filter($newIds,static fn(int $id):bool=>((int)$specs[$id-$firstId]['wave'])===$wave));
+    foreach(['id_range','content_hash','current_counts','persisted_new_questions','production_eligibility'] as $checkpointKey){
+        if(isset($checkpointWaves[$wave][$checkpointKey]))$artifact['wave_status']['waves'][$wave][$checkpointKey]=$checkpointWaves[$wave][$checkpointKey];
+    }
+}
 $artifact['wave_status']['status']=$write?($hardGatePass?'COMPLETE':'VALIDATION_FAILED'):'PREFLIGHT_READY';if($write)foreach($artifact['wave_status']['waves'] as $waveNumber=>$waveRecord){$artifact['wave_status']['waves'][$waveNumber]['quality_gate']='PASS';$artifact['wave_status']['waves'][$waveNumber]['traceability']='100%';}
 if($write)b632_write($root,'batch632-cse-overnight-expansion',$artifact);
 if($write&&!$hardGatePass){fwrite(STDERR,"Batch632 final hard gate failed; see validation.hard_gate.\n");exit(1);}
