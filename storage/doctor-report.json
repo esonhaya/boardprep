@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-10-01T14:35:55+00:00",
+    "generated_at": "2026-10-01T17:24:00+00:00",
     "health": 32,
     "summary": {
         "checks": 38,
@@ -152,7 +152,7 @@
             "details": [
                 "Passed: 26",
                 "Failed: 0",
-                "Execution time: 13.525s"
+                "Execution time: 13.292s"
             ],
             "recommendations": [],
             "score": 100,
@@ -514,7 +514,7 @@
             "status": "PASS",
             "summary": "Required-concept references are valid and acyclic.",
             "details": [
-                "Requirements=845; questions=8835; concepts=994; material_edges=287.",
+                "Requirements=845; questions=8856; concepts=994; material_edges=287.",
                 "INVALID_REQUIRED_CONCEPT_REFERENCES=0",
                 "SELF_PREREQUISITES=0",
                 "CIRCULAR_PREREQUISITES=0",
@@ -529,7 +529,7 @@
             "status": "PASS",
             "summary": "Structural content integrity and portfolio readiness checks passed.",
             "details": [
-                "Repository Health: 8835 questions, 8835 eligible, 8817 derivable cards, 18 justified exclusions, 0 defects, status REVIEW.",
+                "Repository Health: 8856 questions, 8856 eligible, 8838 derivable cards, 18 justified exclusions, 0 defects, status REVIEW.",
                 "BOARD=architecture QUESTIONS=472 EFFECTIVE=472 RUNTIME=472 FLASHCARDS=472/472 STATUS=PASS",
                 "BOARD=civil-engineering QUESTIONS=922 EFFECTIVE=922 RUNTIME=922 FLASHCARDS=922/922 STATUS=PASS",
                 "BOARD=civil-service QUESTIONS=1550 EFFECTIVE=1804 RUNTIME=2113 FLASHCARDS=1550/1550 STATUS=WARN",
@@ -538,7 +538,7 @@
                 "BOARD=let QUESTIONS=1744 EFFECTIVE=1827 RUNTIME=1842 FLASHCARDS=1726/1744 STATUS=WARN",
                 "BOARD=mechanical-engineering QUESTIONS=464 EFFECTIVE=464 RUNTIME=464 FLASHCARDS=464/464 STATUS=PASS",
                 "BOARD=nursing QUESTIONS=878 EFFECTIVE=898 RUNTIME=898 FLASHCARDS=878/878 STATUS=WARN",
-                "BOARD=psychometrician QUESTIONS=380 EFFECTIVE=380 RUNTIME=380 FLASHCARDS=380/380 STATUS=PASS",
+                "BOARD=psychometrician QUESTIONS=401 EFFECTIVE=401 RUNTIME=401 FLASHCARDS=401/401 STATUS=PASS",
                 "BOARD=registered-electrical-engineering QUESTIONS=842 EFFECTIVE=842 RUNTIME=842 FLASHCARDS=842/842 STATUS=PASS"
             ],
             "recommendations": [],
@@ -590,8 +590,8 @@
             "status": "WARNING",
             "summary": "Canonical Repository Health reports 0 deterministic failures, 2 review items, and 541 thin/zero-leaf signals.",
             "details": [
-                "Questions: 8835 total; production eligible counts are exposed per board.",
-                "Repository totals: canonical 8835; effective 9295; runtime 9619.",
+                "Questions: 8856 total; production eligible counts are exposed per board.",
+                "Repository totals: canonical 8856; effective 9316; runtime 9640.",
                 "architecture: canonical 472, effective 472, runtime 472; active leaves 14; under20 6; zero 0.",
                 "civil-engineering: canonical 922, effective 922, runtime 922; active leaves 19; under20 0; zero 0.",
                 "civil-service: canonical 1550, effective 1804, runtime 2113; active leaves 120; under20 80; zero 67.",
@@ -600,7 +600,7 @@
                 "let: canonical 1744, effective 1827, runtime 1842; active leaves 205; under20 184; zero 3.",
                 "mechanical-engineering: canonical 464, effective 464, runtime 464; active leaves 14; under20 4; zero 0.",
                 "nursing: canonical 878, effective 898, runtime 898; active leaves 40; under20 10; zero 10.",
-                "psychometrician: canonical 380, effective 380, runtime 380; active leaves 20; under20 12; zero 0.",
+                "psychometrician: canonical 401, effective 401, runtime 401; active leaves 20; under20 12; zero 0.",
                 "registered-electrical-engineering: canonical 842, effective 842, runtime 842; active leaves 37; under20 15; zero 0."
             ],
             "recommendations": [

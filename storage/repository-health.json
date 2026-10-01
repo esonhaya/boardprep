@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-10-01T14:28:18+00:00",
+    "generated_at": "2026-10-01T17:39:45+00:00",
     "overall_status": "REVIEW",
     "summary": {
         "overall_status": "REVIEW",
@@ -7,9 +7,9 @@
         "warn_count": 2,
         "fail_count": 0,
         "review_count": 2,
-        "issue_count": 998,
+        "issue_count": 990,
         "pass_entity_count": 0,
-        "warn_entity_count": 978,
+        "warn_entity_count": 970,
         "fail_entity_count": 0,
         "review_entity_count": 20,
         "breakdown": {
@@ -23,24 +23,24 @@
                 "let": 416,
                 "mechanical-engineering": 8,
                 "nursing": 41,
-                "psychometrician": 23,
+                "psychometrician": 15,
                 "registered-electrical-engineering": 19
             },
             "category": {
-                "BALANCE": 956,
+                "BALANCE": 948,
                 "DEPTH_COVERAGE": 22,
                 "SOURCE_STUDY": 19,
                 "TAXONOMY": 1
             },
             "entity_type": {
                 "question": 3,
-                "repository_record": 994,
+                "repository_record": 986,
                 "taxonomy_leaf": 1
             },
             "check_code": {
-                "ACTIVE_UNDER10_LEAF": 256,
+                "ACTIVE_UNDER10_LEAF": 249,
                 "ACTIVE_UNDER20_LEAF": 457,
-                "ACTIVE_UNDER5_LEAF": 148,
+                "ACTIVE_UNDER5_LEAF": 147,
                 "ACTIVE_ZERO_LEAF": 84,
                 "OFFICIAL_AREA_IMBALANCE": 11,
                 "ORPHAN_STUDY_MATERIAL": 16,
@@ -51,8 +51,8 @@
             }
         },
         "flashcards": {
-            "eligible": 8835,
-            "derivable": 8817,
+            "eligible": 8856,
+            "derivable": 8838,
             "justified_exclusion": 18,
             "nonderivable_defect": 0,
             "duplicate_card_key": 0,
@@ -5246,8 +5246,8 @@
                 "error_count": 0,
                 "readiness_counts": {
                     "READY": 0,
-                    "READY_WITH_LIMITS": 19,
-                    "REVIEW": 0,
+                    "READY_WITH_LIMITS": 18,
+                    "REVIEW": 1,
                     "DEFER": 1
                 },
                 "source_authority_counts": {
@@ -5329,7 +5329,7 @@
                         "defer_reason": "",
                         "max_new_questions": 14,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "d4aa56637134c3595e34ba21cce862f893833ef94afde39575598602ada22cda"
                     },
                     {
@@ -5337,10 +5337,10 @@
                         "board_id": "psychometrician",
                         "official_area_id": "abnormal-psychology",
                         "leaf_name": "Theoretical Approaches to Etiology",
-                        "current_question_count": 9,
+                        "current_question_count": 10,
                         "deficit_to_5": 0,
-                        "deficit_to_10": 1,
-                        "deficit_to_20": 11,
+                        "deficit_to_10": 0,
+                        "deficit_to_20": 10,
                         "source_ids": [
                             "apa-ethics-code-2017",
                             "apa-psychological-assessment-guidelines-2020",
@@ -5370,9 +5370,9 @@
                             "gene_environment_interaction"
                         ],
                         "distinct_content_family_count": 3,
-                        "safe_headroom_min": 3,
-                        "safe_headroom_preferred": 6,
-                        "safe_headroom_max": 9,
+                        "safe_headroom_min": 2,
+                        "safe_headroom_preferred": 5,
+                        "safe_headroom_max": 8,
                         "allowed_scope": [
                             "current_prc_tos",
                             "etiological_models",
@@ -5391,20 +5391,20 @@
                         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                         "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 9,
+                        "max_new_questions": 8,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
-                        "evidence_hash": "31ca8652bfbe880befac179d0367834d1a4134cc7a50812b0cb0f0c4a4867939"
+                        "reviewed_at_batch": 643,
+                        "evidence_hash": "599c5e4d0353db618c8085f9ce1f296561babcc5c530faabaf9a2fa443fa5353"
                     },
                     {
                         "leaf_id": "psych-abnormal-interventions",
                         "board_id": "psychometrician",
                         "official_area_id": "abnormal-psychology",
                         "leaf_name": "Therapeutic Interventions",
-                        "current_question_count": 8,
+                        "current_question_count": 10,
                         "deficit_to_5": 0,
-                        "deficit_to_10": 2,
-                        "deficit_to_20": 12,
+                        "deficit_to_10": 0,
+                        "deficit_to_20": 10,
                         "source_ids": [
                             "apa-ethics-code-2017",
                             "apa-psychological-assessment-guidelines-2020",
@@ -5434,9 +5434,9 @@
                             "risk_and_referral"
                         ],
                         "distinct_content_family_count": 3,
-                        "safe_headroom_min": 3,
-                        "safe_headroom_preferred": 5,
-                        "safe_headroom_max": 7,
+                        "safe_headroom_min": 1,
+                        "safe_headroom_preferred": 3,
+                        "safe_headroom_max": 5,
                         "allowed_scope": [
                             "current_prc_tos",
                             "evidence_and_limits",
@@ -5456,10 +5456,10 @@
                         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                         "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 7,
+                        "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
-                        "evidence_hash": "9589725c57d18aeeba30ecc190b62ec84cdafe89e8cc77a14ff930a99e1457ef"
+                        "reviewed_at_batch": 643,
+                        "evidence_hash": "edcae6b6d117abaa8c7c116d2cec252f98e3cd9085d65627c36d5fe347dd77e2"
                     },
                     {
                         "leaf_id": "psych-abnormal-manifestations",
@@ -5523,7 +5523,7 @@
                         "defer_reason": "",
                         "max_new_questions": 9,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "a69c88685b17141288f48c90ec5ab031818125d1c4a6e048143e1b985f813482"
                     },
                     {
@@ -5579,7 +5579,7 @@
                         "defer_reason": "NO_AUTHORITATIVE_SOURCE",
                         "max_new_questions": 0,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "6bb2b54d422e2da5da7e371723c2e3b7129fe3a8f5af0afc27e391e1f9363098"
                     },
                     {
@@ -5645,7 +5645,7 @@
                         "defer_reason": "",
                         "max_new_questions": 8,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "12c8236fde15cfccbf46d5d9d67c259a20ce9cecac38f2aabf3f59b57e5de6d1"
                     },
                     {
@@ -5713,7 +5713,7 @@
                         "defer_reason": "",
                         "max_new_questions": 12,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "2c4d9a9b77b8b56552dc253e839c3e2d406bd73ec7a4c721acb71ea63a210ea0"
                     },
                     {
@@ -5776,7 +5776,7 @@
                         "defer_reason": "",
                         "max_new_questions": 9,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "352a1a7089e415ee813377a5b6a2db99323dd92ae4e9ec6e22ac1c22e69f8cb8"
                     },
                     {
@@ -5843,7 +5843,7 @@
                         "defer_reason": "",
                         "max_new_questions": 14,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "5fa83db82b075be84b1c2f40c6d2553b7e2c2ba8fd69e1cad0a606279cd86af5"
                     },
                     {
@@ -5911,7 +5911,7 @@
                         "defer_reason": "",
                         "max_new_questions": 12,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "6fa0ae51029f147ec6902ebc5cb7e74047767ec2b0dd37b317c3b7702e2342b3"
                     },
                     {
@@ -5919,10 +5919,10 @@
                         "board_id": "psychometrician",
                         "official_area_id": "psychological-assessment",
                         "leaf_name": "Selection of Assessment Methods and Tools",
-                        "current_question_count": 8,
+                        "current_question_count": 10,
                         "deficit_to_5": 0,
-                        "deficit_to_10": 2,
-                        "deficit_to_20": 12,
+                        "deficit_to_10": 0,
+                        "deficit_to_20": 10,
                         "source_ids": [
                             "aera-apa-ncme-testing-standards-2014",
                             "apa-psychological-assessment-guidelines-2020",
@@ -5953,9 +5953,9 @@
                             "purpose_tool_match"
                         ],
                         "distinct_content_family_count": 3,
-                        "safe_headroom_min": 4,
-                        "safe_headroom_preferred": 7,
-                        "safe_headroom_max": 10,
+                        "safe_headroom_min": 2,
+                        "safe_headroom_preferred": 5,
+                        "safe_headroom_max": 8,
                         "allowed_scope": [
                             "current_prc_tos",
                             "population_and_setting_fit",
@@ -5974,20 +5974,20 @@
                         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                         "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 10,
+                        "max_new_questions": 8,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
-                        "evidence_hash": "cc525beef461d16ae547ab3a3bfc4a91c202851d9aa824f9fc314cedea39a84b"
+                        "reviewed_at_batch": 643,
+                        "evidence_hash": "bab7ec1396ef5fb17aa86a3a10fe185dc6d77f2fe18641133a1b3c2e460daa4f"
                     },
                     {
                         "leaf_id": "psych-assessment-uses-limitations",
                         "board_id": "psychometrician",
                         "official_area_id": "psychological-assessment",
                         "leaf_name": "Uses, Benefits, and Limitations of Assessment",
-                        "current_question_count": 3,
-                        "deficit_to_5": 2,
-                        "deficit_to_10": 7,
-                        "deficit_to_20": 17,
+                        "current_question_count": 10,
+                        "deficit_to_5": 0,
+                        "deficit_to_10": 0,
+                        "deficit_to_20": 10,
                         "source_ids": [
                             "aera-apa-ncme-testing-standards-2014",
                             "apa-psychological-assessment-guidelines-2020",
@@ -6017,9 +6017,9 @@
                             "purpose_fit"
                         ],
                         "distinct_content_family_count": 3,
-                        "safe_headroom_min": 2,
-                        "safe_headroom_preferred": 4,
-                        "safe_headroom_max": 6,
+                        "safe_headroom_min": 0,
+                        "safe_headroom_preferred": 0,
+                        "safe_headroom_max": 0,
                         "allowed_scope": [
                             "assessment_purpose",
                             "current_prc_tos",
@@ -6032,16 +6032,17 @@
                             "unverified_exact_threshold"
                         ],
                         "limitations": [
+                            "Batch643 evidence reassessment: the existing norms/core-interpretation material supports one additional distinct score-meaning family beyond the original planning estimate.",
                             "Do not treat a screening result, formative measure, or isolated score as a diagnosis or a universal decision rule."
                         ],
-                        "readiness": "READY_WITH_LIMITS",
-                        "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
-                        "review_reason": "",
+                        "readiness": "REVIEW",
+                        "readiness_reason": "",
+                        "review_reason": "SEMANTIC_HEADROOM_UNCERTAIN",
                         "defer_reason": "",
-                        "max_new_questions": 6,
+                        "max_new_questions": 0,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
-                        "evidence_hash": "0644b7f32340fc522624e0f8b65beb1a39a44282524172c15d6027625e4dffed"
+                        "reviewed_at_batch": 643,
+                        "evidence_hash": "2dcdaad25eff9f08c552e59ba5b29987a01cdd6563c021daaabb180b8e3ec3c0"
                     },
                     {
                         "leaf_id": "psych-development-nature-nurture",
@@ -6103,7 +6104,7 @@
                         "defer_reason": "",
                         "max_new_questions": 12,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "9d763d5a20898f7d2e38ea71d63a1e6600cfc8c88f87789fa1649df15c70c840"
                     },
                     {
@@ -6167,7 +6168,7 @@
                         "defer_reason": "",
                         "max_new_questions": 9,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "029b1a6e0f6b78678fb30e5af8f4c022b7983177791cdfbab4be892e0d13fc04"
                     },
                     {
@@ -6230,7 +6231,7 @@
                         "defer_reason": "",
                         "max_new_questions": 12,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "09da81e6a075dc1364e84640e9b167d79829c65ef8d4495334f2f3bf2ac60d24"
                     },
                     {
@@ -6294,7 +6295,7 @@
                         "defer_reason": "",
                         "max_new_questions": 9,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "c86d81d4885b59b8c40c5b4acb38e0bc7c1bcf318b48b6ad049ccb6ee8de4b3f"
                     },
                     {
@@ -6360,7 +6361,7 @@
                         "defer_reason": "",
                         "max_new_questions": 14,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "e0946a4ada680db816b03aedeea6b94ead091776362032f2d8f7dd3883d26462"
                     },
                     {
@@ -6368,10 +6369,10 @@
                         "board_id": "psychometrician",
                         "official_area_id": "industrial-organizational",
                         "leaf_name": "Organization Theory",
-                        "current_question_count": 7,
+                        "current_question_count": 10,
                         "deficit_to_5": 0,
-                        "deficit_to_10": 3,
-                        "deficit_to_20": 13,
+                        "deficit_to_10": 0,
+                        "deficit_to_20": 10,
                         "source_ids": [
                             "aera-apa-ncme-testing-standards-2014",
                             "apa-personnel-selection-principles-2018",
@@ -6399,9 +6400,9 @@
                             "work_behavior_mechanisms"
                         ],
                         "distinct_content_family_count": 3,
-                        "safe_headroom_min": 3,
-                        "safe_headroom_preferred": 6,
-                        "safe_headroom_max": 9,
+                        "safe_headroom_min": 0,
+                        "safe_headroom_preferred": 3,
+                        "safe_headroom_max": 6,
                         "allowed_scope": [
                             "current_prc_tos",
                             "leadership_and_culture",
@@ -6420,20 +6421,20 @@
                         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                         "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 9,
+                        "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
-                        "evidence_hash": "102701603738aabd229b1f2342ea8c66db7c0f2be759fd1a9e727cb1b1fe5fd8"
+                        "reviewed_at_batch": 643,
+                        "evidence_hash": "693e9ab4faef33d9ce52fdae15c55b695f78a2e51d47a5b5901371d207f8e938"
                     },
                     {
                         "leaf_id": "psych-industrial-structures-systems",
                         "board_id": "psychometrician",
                         "official_area_id": "industrial-organizational",
                         "leaf_name": "Organizational Structures and Systems",
-                        "current_question_count": 6,
+                        "current_question_count": 10,
                         "deficit_to_5": 0,
-                        "deficit_to_10": 4,
-                        "deficit_to_20": 14,
+                        "deficit_to_10": 0,
+                        "deficit_to_20": 10,
                         "source_ids": [
                             "aera-apa-ncme-testing-standards-2014",
                             "apa-personnel-selection-principles-2018",
@@ -6461,9 +6462,9 @@
                             "structure_and_roles"
                         ],
                         "distinct_content_family_count": 3,
-                        "safe_headroom_min": 3,
-                        "safe_headroom_preferred": 5,
-                        "safe_headroom_max": 7,
+                        "safe_headroom_min": 0,
+                        "safe_headroom_preferred": 1,
+                        "safe_headroom_max": 3,
                         "allowed_scope": [
                             "current_prc_tos",
                             "organizational_structures",
@@ -6483,20 +6484,20 @@
                         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                         "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 7,
+                        "max_new_questions": 3,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
-                        "evidence_hash": "9fa38334c85df09c7d4744f75cd529229e1e65a2d8eda775fa5544a666e7a07a"
+                        "reviewed_at_batch": 643,
+                        "evidence_hash": "afdf549a83a88ef646fee4b23647d6867cf8ad07c68d849c63e63825f6d45ead"
                     },
                     {
                         "leaf_id": "psych-industrial-team-dynamics",
                         "board_id": "psychometrician",
                         "official_area_id": "industrial-organizational",
                         "leaf_name": "Team Dynamics",
-                        "current_question_count": 8,
+                        "current_question_count": 10,
                         "deficit_to_5": 0,
-                        "deficit_to_10": 2,
-                        "deficit_to_20": 12,
+                        "deficit_to_10": 0,
+                        "deficit_to_20": 10,
                         "source_ids": [
                             "aera-apa-ncme-testing-standards-2014",
                             "apa-personnel-selection-principles-2018",
@@ -6524,9 +6525,9 @@
                             "team_development"
                         ],
                         "distinct_content_family_count": 3,
-                        "safe_headroom_min": 3,
-                        "safe_headroom_preferred": 6,
-                        "safe_headroom_max": 9,
+                        "safe_headroom_min": 1,
+                        "safe_headroom_preferred": 4,
+                        "safe_headroom_max": 7,
                         "allowed_scope": [
                             "current_prc_tos",
                             "group_processes",
@@ -6546,10 +6547,10 @@
                         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                         "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 9,
+                        "max_new_questions": 7,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
-                        "evidence_hash": "2ec005843f7fb83abb9991886a89948282a8f8bc3be2afdc1c43a42ec34871a4"
+                        "reviewed_at_batch": 643,
+                        "evidence_hash": "e3df196f1148820fa028fda06c7f9caaf608085b88cbb97b0fe8d32daf6773df"
                     }
                 ]
             }
@@ -6766,7 +6767,7 @@
             "status": "WARN",
             "description": "Active leaf balance, documented area deltas, and cheap concentration signals.",
             "fix_guidance": "Use the signal for planning; do not rewrite valid content solely to rebalance.",
-            "issue_count": 956,
+            "issue_count": 948,
             "affected_ids": [
                 "cse-constitutional-principles",
                 "cse-ethical-public-service",
@@ -7012,17 +7013,17 @@
                 "investigation",
                 "forensics",
                 "criminology",
-                "psych-assessment-uses-limitations",
                 "psych-abnormal-mental-health-law",
+                "psych-assessment-uses-limitations",
                 "psych-assessment-selection-tools",
+                "psych-development-theories",
+                "psych-abnormal-manifestations",
                 "psych-abnormal-etiology",
                 "psych-abnormal-interventions",
+                "psych-abnormal-sociocultural-ethics",
                 "psych-industrial-organization-theory",
                 "psych-industrial-structures-systems",
                 "psych-industrial-team-dynamics",
-                "psych-development-theories",
-                "psych-abnormal-manifestations",
-                "psych-abnormal-sociocultural-ethics",
                 "psych-industrial-change-development",
                 "cpa-financial-accounting-accruals-core",
                 "cpa-financial-accounting-receivables-core",
@@ -11113,58 +11114,6 @@
             "category": "BALANCE",
             "board_id": "psychometrician",
             "entity_type": "repository_record",
-            "entity_id": "psych-abnormal-etiology",
-            "message": "Active exam leaf is thin at the current repository size.",
-            "evidence": {
-                "board_id": "psychometrician",
-                "count": 9,
-                "threshold": 10
-            },
-            "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
-            "source_check": "BALANCE",
-            "justified_exclusion": false,
-            "validator": "RepositoryHealthEngine",
-            "priority": "normal",
-            "repairable": false,
-            "metadata": {
-                "board_id": "psychometrician",
-                "count": 9,
-                "threshold": 10
-            }
-        },
-        {
-            "code": "ACTIVE_UNDER10_LEAF",
-            "status": "WARN",
-            "severity": "warning",
-            "category": "BALANCE",
-            "board_id": "psychometrician",
-            "entity_type": "repository_record",
-            "entity_id": "psych-abnormal-interventions",
-            "message": "Active exam leaf is thin at the current repository size.",
-            "evidence": {
-                "board_id": "psychometrician",
-                "count": 8,
-                "threshold": 10
-            },
-            "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
-            "source_check": "BALANCE",
-            "justified_exclusion": false,
-            "validator": "RepositoryHealthEngine",
-            "priority": "normal",
-            "repairable": false,
-            "metadata": {
-                "board_id": "psychometrician",
-                "count": 8,
-                "threshold": 10
-            }
-        },
-        {
-            "code": "ACTIVE_UNDER10_LEAF",
-            "status": "WARN",
-            "severity": "warning",
-            "category": "BALANCE",
-            "board_id": "psychometrician",
-            "entity_type": "repository_record",
             "entity_id": "psych-abnormal-mental-health-law",
             "message": "Active exam leaf is thin at the current repository size.",
             "evidence": {
@@ -11181,136 +11130,6 @@
             "metadata": {
                 "board_id": "psychometrician",
                 "count": 1,
-                "threshold": 10
-            }
-        },
-        {
-            "code": "ACTIVE_UNDER10_LEAF",
-            "status": "WARN",
-            "severity": "warning",
-            "category": "BALANCE",
-            "board_id": "psychometrician",
-            "entity_type": "repository_record",
-            "entity_id": "psych-assessment-selection-tools",
-            "message": "Active exam leaf is thin at the current repository size.",
-            "evidence": {
-                "board_id": "psychometrician",
-                "count": 8,
-                "threshold": 10
-            },
-            "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
-            "source_check": "BALANCE",
-            "justified_exclusion": false,
-            "validator": "RepositoryHealthEngine",
-            "priority": "normal",
-            "repairable": false,
-            "metadata": {
-                "board_id": "psychometrician",
-                "count": 8,
-                "threshold": 10
-            }
-        },
-        {
-            "code": "ACTIVE_UNDER10_LEAF",
-            "status": "WARN",
-            "severity": "warning",
-            "category": "BALANCE",
-            "board_id": "psychometrician",
-            "entity_type": "repository_record",
-            "entity_id": "psych-assessment-uses-limitations",
-            "message": "Active exam leaf is thin at the current repository size.",
-            "evidence": {
-                "board_id": "psychometrician",
-                "count": 3,
-                "threshold": 10
-            },
-            "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
-            "source_check": "BALANCE",
-            "justified_exclusion": false,
-            "validator": "RepositoryHealthEngine",
-            "priority": "normal",
-            "repairable": false,
-            "metadata": {
-                "board_id": "psychometrician",
-                "count": 3,
-                "threshold": 10
-            }
-        },
-        {
-            "code": "ACTIVE_UNDER10_LEAF",
-            "status": "WARN",
-            "severity": "warning",
-            "category": "BALANCE",
-            "board_id": "psychometrician",
-            "entity_type": "repository_record",
-            "entity_id": "psych-industrial-organization-theory",
-            "message": "Active exam leaf is thin at the current repository size.",
-            "evidence": {
-                "board_id": "psychometrician",
-                "count": 7,
-                "threshold": 10
-            },
-            "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
-            "source_check": "BALANCE",
-            "justified_exclusion": false,
-            "validator": "RepositoryHealthEngine",
-            "priority": "normal",
-            "repairable": false,
-            "metadata": {
-                "board_id": "psychometrician",
-                "count": 7,
-                "threshold": 10
-            }
-        },
-        {
-            "code": "ACTIVE_UNDER10_LEAF",
-            "status": "WARN",
-            "severity": "warning",
-            "category": "BALANCE",
-            "board_id": "psychometrician",
-            "entity_type": "repository_record",
-            "entity_id": "psych-industrial-structures-systems",
-            "message": "Active exam leaf is thin at the current repository size.",
-            "evidence": {
-                "board_id": "psychometrician",
-                "count": 6,
-                "threshold": 10
-            },
-            "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
-            "source_check": "BALANCE",
-            "justified_exclusion": false,
-            "validator": "RepositoryHealthEngine",
-            "priority": "normal",
-            "repairable": false,
-            "metadata": {
-                "board_id": "psychometrician",
-                "count": 6,
-                "threshold": 10
-            }
-        },
-        {
-            "code": "ACTIVE_UNDER10_LEAF",
-            "status": "WARN",
-            "severity": "warning",
-            "category": "BALANCE",
-            "board_id": "psychometrician",
-            "entity_type": "repository_record",
-            "entity_id": "psych-industrial-team-dynamics",
-            "message": "Active exam leaf is thin at the current repository size.",
-            "evidence": {
-                "board_id": "psychometrician",
-                "count": 8,
-                "threshold": 10
-            },
-            "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
-            "source_check": "BALANCE",
-            "justified_exclusion": false,
-            "validator": "RepositoryHealthEngine",
-            "priority": "normal",
-            "repairable": false,
-            "metadata": {
-                "board_id": "psychometrician",
-                "count": 8,
                 "threshold": 10
             }
         },
@@ -22583,7 +22402,7 @@
             "message": "Active exam leaf is thin at the current repository size.",
             "evidence": {
                 "board_id": "psychometrician",
-                "count": 9,
+                "count": 10,
                 "threshold": 20
             },
             "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
@@ -22594,7 +22413,7 @@
             "repairable": false,
             "metadata": {
                 "board_id": "psychometrician",
-                "count": 9,
+                "count": 10,
                 "threshold": 20
             }
         },
@@ -22609,7 +22428,7 @@
             "message": "Active exam leaf is thin at the current repository size.",
             "evidence": {
                 "board_id": "psychometrician",
-                "count": 8,
+                "count": 10,
                 "threshold": 20
             },
             "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
@@ -22620,7 +22439,7 @@
             "repairable": false,
             "metadata": {
                 "board_id": "psychometrician",
-                "count": 8,
+                "count": 10,
                 "threshold": 20
             }
         },
@@ -22713,7 +22532,7 @@
             "message": "Active exam leaf is thin at the current repository size.",
             "evidence": {
                 "board_id": "psychometrician",
-                "count": 8,
+                "count": 10,
                 "threshold": 20
             },
             "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
@@ -22724,7 +22543,7 @@
             "repairable": false,
             "metadata": {
                 "board_id": "psychometrician",
-                "count": 8,
+                "count": 10,
                 "threshold": 20
             }
         },
@@ -22739,7 +22558,7 @@
             "message": "Active exam leaf is thin at the current repository size.",
             "evidence": {
                 "board_id": "psychometrician",
-                "count": 3,
+                "count": 10,
                 "threshold": 20
             },
             "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
@@ -22750,7 +22569,7 @@
             "repairable": false,
             "metadata": {
                 "board_id": "psychometrician",
-                "count": 3,
+                "count": 10,
                 "threshold": 20
             }
         },
@@ -22817,7 +22636,7 @@
             "message": "Active exam leaf is thin at the current repository size.",
             "evidence": {
                 "board_id": "psychometrician",
-                "count": 7,
+                "count": 10,
                 "threshold": 20
             },
             "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
@@ -22828,7 +22647,7 @@
             "repairable": false,
             "metadata": {
                 "board_id": "psychometrician",
-                "count": 7,
+                "count": 10,
                 "threshold": 20
             }
         },
@@ -22843,7 +22662,7 @@
             "message": "Active exam leaf is thin at the current repository size.",
             "evidence": {
                 "board_id": "psychometrician",
-                "count": 6,
+                "count": 10,
                 "threshold": 20
             },
             "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
@@ -22854,7 +22673,7 @@
             "repairable": false,
             "metadata": {
                 "board_id": "psychometrician",
-                "count": 6,
+                "count": 10,
                 "threshold": 20
             }
         },
@@ -22869,7 +22688,7 @@
             "message": "Active exam leaf is thin at the current repository size.",
             "evidence": {
                 "board_id": "psychometrician",
-                "count": 8,
+                "count": 10,
                 "threshold": 20
             },
             "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
@@ -22880,7 +22699,7 @@
             "repairable": false,
             "metadata": {
                 "board_id": "psychometrician",
-                "count": 8,
+                "count": 10,
                 "threshold": 20
             }
         },
@@ -28453,32 +28272,6 @@
             "status": "WARN",
             "severity": "warning",
             "category": "BALANCE",
-            "board_id": "psychometrician",
-            "entity_type": "repository_record",
-            "entity_id": "psych-assessment-uses-limitations",
-            "message": "Active exam leaf is thin at the current repository size.",
-            "evidence": {
-                "board_id": "psychometrician",
-                "count": 3,
-                "threshold": 5
-            },
-            "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
-            "source_check": "BALANCE",
-            "justified_exclusion": false,
-            "validator": "RepositoryHealthEngine",
-            "priority": "normal",
-            "repairable": false,
-            "metadata": {
-                "board_id": "psychometrician",
-                "count": 3,
-                "threshold": 5
-            }
-        },
-        {
-            "code": "ACTIVE_UNDER5_LEAF",
-            "status": "WARN",
-            "severity": "warning",
-            "category": "BALANCE",
             "board_id": "let",
             "entity_type": "repository_record",
             "entity_id": "rogers-humanistic",
@@ -32743,7 +32536,7 @@
             "message": "Some active questions do not carry deterministic depth metadata.",
             "evidence": {
                 "board_id": "psychometrician",
-                "unknown_count": 380
+                "unknown_count": 401
             },
             "suggested_action": "Review depth metadata in a bounded audit; do not infer mathematical correctness.",
             "source_check": "DEPTH_COVERAGE",
@@ -32753,7 +32546,7 @@
             "repairable": false,
             "metadata": {
                 "board_id": "psychometrician",
-                "unknown_count": 380
+                "unknown_count": 401
             }
         },
         {
@@ -36747,9 +36540,9 @@
         },
         "psychometrician": {
             "board_id": "psychometrician",
-            "canonical": 380,
-            "effective_declared": 380,
-            "runtime": 380,
+            "canonical": 401,
+            "effective_declared": 401,
+            "runtime": 401,
             "active_leaves": 20,
             "structural_administrative_leaves": 4,
             "structural_administrative_leaf_ids": [
@@ -36759,16 +36552,16 @@
                 "ple-workplace-behavior"
             ],
             "zero": 0,
-            "under5": 2,
-            "under10": 8,
+            "under5": 1,
+            "under10": 1,
             "under20": 12,
             "min": 1,
             "median": 13,
             "leaf_counts": {
                 "psych-assessment-properties-principles": 26,
                 "psych-assessment-research-statistics": 47,
-                "psych-assessment-uses-limitations": 3,
-                "psych-assessment-selection-tools": 8,
+                "psych-assessment-uses-limitations": 10,
+                "psych-assessment-selection-tools": 10,
                 "psych-assessment-administration-interpretation": 42,
                 "psych-assessment-ethics-standards": 26,
                 "psych-development-nature-nurture": 36,
@@ -36776,46 +36569,46 @@
                 "psych-development-theories": 18,
                 "psych-abnormal-manifestations": 12,
                 "psych-abnormal-disorders-symptoms": 32,
-                "psych-abnormal-etiology": 9,
-                "psych-abnormal-interventions": 8,
+                "psych-abnormal-etiology": 10,
+                "psych-abnormal-interventions": 10,
                 "psych-abnormal-sociocultural-ethics": 14,
                 "psych-abnormal-mental-health-law": 1,
-                "psych-industrial-organization-theory": 7,
-                "psych-industrial-structures-systems": 6,
+                "psych-industrial-organization-theory": 10,
+                "psych-industrial-structures-systems": 10,
                 "psych-industrial-hr-development-management": 45,
-                "psych-industrial-team-dynamics": 8,
+                "psych-industrial-team-dynamics": 10,
                 "psych-industrial-change-development": 10
             },
             "repeat_risk": "MODERATE",
             "depth_known": 0,
-            "depth_unknown": 380,
+            "depth_unknown": 401,
             "official_area_balance": [
                 {
                     "area_id": "psychological-assessment",
-                    "actual_share": 40,
+                    "actual_share": 40.15,
                     "target_share": 40,
-                    "delta": 0,
+                    "delta": 0.15,
                     "warning": false
                 },
                 {
                     "area_id": "developmental-psychology",
-                    "actual_share": 20,
+                    "actual_share": 18.95,
                     "target_share": 20,
-                    "delta": 0,
+                    "delta": -1.05,
                     "warning": false
                 },
                 {
                     "area_id": "abnormal-psychology",
-                    "actual_share": 20,
+                    "actual_share": 19.7,
                     "target_share": 20,
-                    "delta": 0,
+                    "delta": -0.3,
                     "warning": false
                 },
                 {
                     "area_id": "industrial-organizational",
-                    "actual_share": 20,
+                    "actual_share": 21.2,
                     "target_share": 20,
-                    "delta": 0,
+                    "delta": 1.2,
                     "warning": false
                 }
             ],
@@ -36825,11 +36618,11 @@
                     "status": "PASS",
                     "dimension": "scenario_family",
                     "source": "question_field",
-                    "observed": 280,
-                    "distinct": 130,
+                    "observed": 301,
+                    "distinct": 144,
                     "top_value": "differential-assessment",
                     "top_count": 15,
-                    "top_share": 0.0536,
+                    "top_share": 0.0498,
                     "warning_threshold": 0.35
                 },
                 "misconception_family": {
@@ -36837,11 +36630,11 @@
                     "status": "PASS",
                     "dimension": "misconception_family",
                     "source": "question_field",
-                    "observed": 280,
-                    "distinct": 273,
+                    "observed": 301,
+                    "distinct": 294,
                     "top_value": "screening-equals-diagnosis",
                     "top_count": 3,
-                    "top_share": 0.0107,
+                    "top_share": 0.01,
                     "warning_threshold": 0.35
                 },
                 "calculation_family": {
@@ -36861,11 +36654,11 @@
                     "status": "PASS",
                     "dimension": "single_leaf",
                     "source": "taxonomy",
-                    "observed": 380,
+                    "observed": 401,
                     "distinct": 20,
                     "top_value": "psych-assessment-research-statistics",
                     "top_count": 47,
-                    "top_share": 0.1237,
+                    "top_share": 0.1172,
                     "warning_threshold": 0.35
                 }
             },
@@ -36882,8 +36675,8 @@
                 "error_count": 0,
                 "readiness_counts": {
                     "READY": 0,
-                    "READY_WITH_LIMITS": 19,
-                    "REVIEW": 0,
+                    "READY_WITH_LIMITS": 18,
+                    "REVIEW": 1,
                     "DEFER": 1
                 },
                 "source_authority_counts": {
@@ -36965,7 +36758,7 @@
                         "defer_reason": "",
                         "max_new_questions": 14,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "d4aa56637134c3595e34ba21cce862f893833ef94afde39575598602ada22cda"
                     },
                     {
@@ -36973,10 +36766,10 @@
                         "board_id": "psychometrician",
                         "official_area_id": "abnormal-psychology",
                         "leaf_name": "Theoretical Approaches to Etiology",
-                        "current_question_count": 9,
+                        "current_question_count": 10,
                         "deficit_to_5": 0,
-                        "deficit_to_10": 1,
-                        "deficit_to_20": 11,
+                        "deficit_to_10": 0,
+                        "deficit_to_20": 10,
                         "source_ids": [
                             "apa-ethics-code-2017",
                             "apa-psychological-assessment-guidelines-2020",
@@ -37006,9 +36799,9 @@
                             "gene_environment_interaction"
                         ],
                         "distinct_content_family_count": 3,
-                        "safe_headroom_min": 3,
-                        "safe_headroom_preferred": 6,
-                        "safe_headroom_max": 9,
+                        "safe_headroom_min": 2,
+                        "safe_headroom_preferred": 5,
+                        "safe_headroom_max": 8,
                         "allowed_scope": [
                             "current_prc_tos",
                             "etiological_models",
@@ -37027,20 +36820,20 @@
                         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                         "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 9,
+                        "max_new_questions": 8,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
-                        "evidence_hash": "31ca8652bfbe880befac179d0367834d1a4134cc7a50812b0cb0f0c4a4867939"
+                        "reviewed_at_batch": 643,
+                        "evidence_hash": "599c5e4d0353db618c8085f9ce1f296561babcc5c530faabaf9a2fa443fa5353"
                     },
                     {
                         "leaf_id": "psych-abnormal-interventions",
                         "board_id": "psychometrician",
                         "official_area_id": "abnormal-psychology",
                         "leaf_name": "Therapeutic Interventions",
-                        "current_question_count": 8,
+                        "current_question_count": 10,
                         "deficit_to_5": 0,
-                        "deficit_to_10": 2,
-                        "deficit_to_20": 12,
+                        "deficit_to_10": 0,
+                        "deficit_to_20": 10,
                         "source_ids": [
                             "apa-ethics-code-2017",
                             "apa-psychological-assessment-guidelines-2020",
@@ -37070,9 +36863,9 @@
                             "risk_and_referral"
                         ],
                         "distinct_content_family_count": 3,
-                        "safe_headroom_min": 3,
-                        "safe_headroom_preferred": 5,
-                        "safe_headroom_max": 7,
+                        "safe_headroom_min": 1,
+                        "safe_headroom_preferred": 3,
+                        "safe_headroom_max": 5,
                         "allowed_scope": [
                             "current_prc_tos",
                             "evidence_and_limits",
@@ -37092,10 +36885,10 @@
                         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                         "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 7,
+                        "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
-                        "evidence_hash": "9589725c57d18aeeba30ecc190b62ec84cdafe89e8cc77a14ff930a99e1457ef"
+                        "reviewed_at_batch": 643,
+                        "evidence_hash": "edcae6b6d117abaa8c7c116d2cec252f98e3cd9085d65627c36d5fe347dd77e2"
                     },
                     {
                         "leaf_id": "psych-abnormal-manifestations",
@@ -37159,7 +36952,7 @@
                         "defer_reason": "",
                         "max_new_questions": 9,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "a69c88685b17141288f48c90ec5ab031818125d1c4a6e048143e1b985f813482"
                     },
                     {
@@ -37215,7 +37008,7 @@
                         "defer_reason": "NO_AUTHORITATIVE_SOURCE",
                         "max_new_questions": 0,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "6bb2b54d422e2da5da7e371723c2e3b7129fe3a8f5af0afc27e391e1f9363098"
                     },
                     {
@@ -37281,7 +37074,7 @@
                         "defer_reason": "",
                         "max_new_questions": 8,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "12c8236fde15cfccbf46d5d9d67c259a20ce9cecac38f2aabf3f59b57e5de6d1"
                     },
                     {
@@ -37349,7 +37142,7 @@
                         "defer_reason": "",
                         "max_new_questions": 12,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "2c4d9a9b77b8b56552dc253e839c3e2d406bd73ec7a4c721acb71ea63a210ea0"
                     },
                     {
@@ -37412,7 +37205,7 @@
                         "defer_reason": "",
                         "max_new_questions": 9,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "352a1a7089e415ee813377a5b6a2db99323dd92ae4e9ec6e22ac1c22e69f8cb8"
                     },
                     {
@@ -37479,7 +37272,7 @@
                         "defer_reason": "",
                         "max_new_questions": 14,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "5fa83db82b075be84b1c2f40c6d2553b7e2c2ba8fd69e1cad0a606279cd86af5"
                     },
                     {
@@ -37547,7 +37340,7 @@
                         "defer_reason": "",
                         "max_new_questions": 12,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "6fa0ae51029f147ec6902ebc5cb7e74047767ec2b0dd37b317c3b7702e2342b3"
                     },
                     {
@@ -37555,10 +37348,10 @@
                         "board_id": "psychometrician",
                         "official_area_id": "psychological-assessment",
                         "leaf_name": "Selection of Assessment Methods and Tools",
-                        "current_question_count": 8,
+                        "current_question_count": 10,
                         "deficit_to_5": 0,
-                        "deficit_to_10": 2,
-                        "deficit_to_20": 12,
+                        "deficit_to_10": 0,
+                        "deficit_to_20": 10,
                         "source_ids": [
                             "aera-apa-ncme-testing-standards-2014",
                             "apa-psychological-assessment-guidelines-2020",
@@ -37589,9 +37382,9 @@
                             "purpose_tool_match"
                         ],
                         "distinct_content_family_count": 3,
-                        "safe_headroom_min": 4,
-                        "safe_headroom_preferred": 7,
-                        "safe_headroom_max": 10,
+                        "safe_headroom_min": 2,
+                        "safe_headroom_preferred": 5,
+                        "safe_headroom_max": 8,
                         "allowed_scope": [
                             "current_prc_tos",
                             "population_and_setting_fit",
@@ -37610,20 +37403,20 @@
                         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                         "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 10,
+                        "max_new_questions": 8,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
-                        "evidence_hash": "cc525beef461d16ae547ab3a3bfc4a91c202851d9aa824f9fc314cedea39a84b"
+                        "reviewed_at_batch": 643,
+                        "evidence_hash": "bab7ec1396ef5fb17aa86a3a10fe185dc6d77f2fe18641133a1b3c2e460daa4f"
                     },
                     {
                         "leaf_id": "psych-assessment-uses-limitations",
                         "board_id": "psychometrician",
                         "official_area_id": "psychological-assessment",
                         "leaf_name": "Uses, Benefits, and Limitations of Assessment",
-                        "current_question_count": 3,
-                        "deficit_to_5": 2,
-                        "deficit_to_10": 7,
-                        "deficit_to_20": 17,
+                        "current_question_count": 10,
+                        "deficit_to_5": 0,
+                        "deficit_to_10": 0,
+                        "deficit_to_20": 10,
                         "source_ids": [
                             "aera-apa-ncme-testing-standards-2014",
                             "apa-psychological-assessment-guidelines-2020",
@@ -37653,9 +37446,9 @@
                             "purpose_fit"
                         ],
                         "distinct_content_family_count": 3,
-                        "safe_headroom_min": 2,
-                        "safe_headroom_preferred": 4,
-                        "safe_headroom_max": 6,
+                        "safe_headroom_min": 0,
+                        "safe_headroom_preferred": 0,
+                        "safe_headroom_max": 0,
                         "allowed_scope": [
                             "assessment_purpose",
                             "current_prc_tos",
@@ -37668,16 +37461,17 @@
                             "unverified_exact_threshold"
                         ],
                         "limitations": [
+                            "Batch643 evidence reassessment: the existing norms/core-interpretation material supports one additional distinct score-meaning family beyond the original planning estimate.",
                             "Do not treat a screening result, formative measure, or isolated score as a diagnosis or a universal decision rule."
                         ],
-                        "readiness": "READY_WITH_LIMITS",
-                        "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
-                        "review_reason": "",
+                        "readiness": "REVIEW",
+                        "readiness_reason": "",
+                        "review_reason": "SEMANTIC_HEADROOM_UNCERTAIN",
                         "defer_reason": "",
-                        "max_new_questions": 6,
+                        "max_new_questions": 0,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
-                        "evidence_hash": "0644b7f32340fc522624e0f8b65beb1a39a44282524172c15d6027625e4dffed"
+                        "reviewed_at_batch": 643,
+                        "evidence_hash": "2dcdaad25eff9f08c552e59ba5b29987a01cdd6563c021daaabb180b8e3ec3c0"
                     },
                     {
                         "leaf_id": "psych-development-nature-nurture",
@@ -37739,7 +37533,7 @@
                         "defer_reason": "",
                         "max_new_questions": 12,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "9d763d5a20898f7d2e38ea71d63a1e6600cfc8c88f87789fa1649df15c70c840"
                     },
                     {
@@ -37803,7 +37597,7 @@
                         "defer_reason": "",
                         "max_new_questions": 9,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "029b1a6e0f6b78678fb30e5af8f4c022b7983177791cdfbab4be892e0d13fc04"
                     },
                     {
@@ -37866,7 +37660,7 @@
                         "defer_reason": "",
                         "max_new_questions": 12,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "09da81e6a075dc1364e84640e9b167d79829c65ef8d4495334f2f3bf2ac60d24"
                     },
                     {
@@ -37930,7 +37724,7 @@
                         "defer_reason": "",
                         "max_new_questions": 9,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "c86d81d4885b59b8c40c5b4acb38e0bc7c1bcf318b48b6ad049ccb6ee8de4b3f"
                     },
                     {
@@ -37996,7 +37790,7 @@
                         "defer_reason": "",
                         "max_new_questions": 14,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
+                        "reviewed_at_batch": 643,
                         "evidence_hash": "e0946a4ada680db816b03aedeea6b94ead091776362032f2d8f7dd3883d26462"
                     },
                     {
@@ -38004,10 +37798,10 @@
                         "board_id": "psychometrician",
                         "official_area_id": "industrial-organizational",
                         "leaf_name": "Organization Theory",
-                        "current_question_count": 7,
+                        "current_question_count": 10,
                         "deficit_to_5": 0,
-                        "deficit_to_10": 3,
-                        "deficit_to_20": 13,
+                        "deficit_to_10": 0,
+                        "deficit_to_20": 10,
                         "source_ids": [
                             "aera-apa-ncme-testing-standards-2014",
                             "apa-personnel-selection-principles-2018",
@@ -38035,9 +37829,9 @@
                             "work_behavior_mechanisms"
                         ],
                         "distinct_content_family_count": 3,
-                        "safe_headroom_min": 3,
-                        "safe_headroom_preferred": 6,
-                        "safe_headroom_max": 9,
+                        "safe_headroom_min": 0,
+                        "safe_headroom_preferred": 3,
+                        "safe_headroom_max": 6,
                         "allowed_scope": [
                             "current_prc_tos",
                             "leadership_and_culture",
@@ -38056,20 +37850,20 @@
                         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                         "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 9,
+                        "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
-                        "evidence_hash": "102701603738aabd229b1f2342ea8c66db7c0f2be759fd1a9e727cb1b1fe5fd8"
+                        "reviewed_at_batch": 643,
+                        "evidence_hash": "693e9ab4faef33d9ce52fdae15c55b695f78a2e51d47a5b5901371d207f8e938"
                     },
                     {
                         "leaf_id": "psych-industrial-structures-systems",
                         "board_id": "psychometrician",
                         "official_area_id": "industrial-organizational",
                         "leaf_name": "Organizational Structures and Systems",
-                        "current_question_count": 6,
+                        "current_question_count": 10,
                         "deficit_to_5": 0,
-                        "deficit_to_10": 4,
-                        "deficit_to_20": 14,
+                        "deficit_to_10": 0,
+                        "deficit_to_20": 10,
                         "source_ids": [
                             "aera-apa-ncme-testing-standards-2014",
                             "apa-personnel-selection-principles-2018",
@@ -38097,9 +37891,9 @@
                             "structure_and_roles"
                         ],
                         "distinct_content_family_count": 3,
-                        "safe_headroom_min": 3,
-                        "safe_headroom_preferred": 5,
-                        "safe_headroom_max": 7,
+                        "safe_headroom_min": 0,
+                        "safe_headroom_preferred": 1,
+                        "safe_headroom_max": 3,
                         "allowed_scope": [
                             "current_prc_tos",
                             "organizational_structures",
@@ -38119,20 +37913,20 @@
                         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                         "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 7,
+                        "max_new_questions": 3,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
-                        "evidence_hash": "9fa38334c85df09c7d4744f75cd529229e1e65a2d8eda775fa5544a666e7a07a"
+                        "reviewed_at_batch": 643,
+                        "evidence_hash": "afdf549a83a88ef646fee4b23647d6867cf8ad07c68d849c63e63825f6d45ead"
                     },
                     {
                         "leaf_id": "psych-industrial-team-dynamics",
                         "board_id": "psychometrician",
                         "official_area_id": "industrial-organizational",
                         "leaf_name": "Team Dynamics",
-                        "current_question_count": 8,
+                        "current_question_count": 10,
                         "deficit_to_5": 0,
-                        "deficit_to_10": 2,
-                        "deficit_to_20": 12,
+                        "deficit_to_10": 0,
+                        "deficit_to_20": 10,
                         "source_ids": [
                             "aera-apa-ncme-testing-standards-2014",
                             "apa-personnel-selection-principles-2018",
@@ -38160,9 +37954,9 @@
                             "team_development"
                         ],
                         "distinct_content_family_count": 3,
-                        "safe_headroom_min": 3,
-                        "safe_headroom_preferred": 6,
-                        "safe_headroom_max": 9,
+                        "safe_headroom_min": 1,
+                        "safe_headroom_preferred": 4,
+                        "safe_headroom_max": 7,
                         "allowed_scope": [
                             "current_prc_tos",
                             "group_processes",
@@ -38182,16 +37976,16 @@
                         "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                         "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 9,
+                        "max_new_questions": 7,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 642,
-                        "evidence_hash": "2ec005843f7fb83abb9991886a89948282a8f8bc3be2afdc1c43a42ec34871a4"
+                        "reviewed_at_batch": 643,
+                        "evidence_hash": "e3df196f1148820fa028fda06c7f9caaf608085b88cbb97b0fe8d32daf6773df"
                     }
                 ]
             },
             "flashcards": {
-                "eligible": 380,
-                "derivable": 380,
+                "eligible": 401,
+                "derivable": 401,
                 "justified_exclusion": 0,
                 "nonderivable_defect": 0,
                 "duplicate_card_key": 0,
@@ -38497,14 +38291,7 @@
         "pronouns-pronoun-antecedent-agreement",
         "pronouns-pronoun-case",
         "pronouns-pronoun-reference",
-        "psych-abnormal-etiology",
-        "psych-abnormal-interventions",
         "psych-abnormal-mental-health-law",
-        "psych-assessment-selection-tools",
-        "psych-assessment-uses-limitations",
-        "psych-industrial-organization-theory",
-        "psych-industrial-structures-systems",
-        "psych-industrial-team-dynamics",
         "rogers-humanistic",
         "science-biology-cells",
         "science-chemistry-matter-particles",
@@ -38770,10 +38557,17 @@
         "cse-word-analogy",
         "me-topic-1-3-concept",
         "me-topic-2-6-concept",
+        "psych-abnormal-etiology",
+        "psych-abnormal-interventions",
         "psych-abnormal-manifestations",
         "psych-abnormal-sociocultural-ethics",
+        "psych-assessment-selection-tools",
+        "psych-assessment-uses-limitations",
         "psych-development-theories",
         "psych-industrial-change-development",
+        "psych-industrial-organization-theory",
+        "psych-industrial-structures-systems",
+        "psych-industrial-team-dynamics",
         "arch-area-a",
         "arch-area-b",
         "arch-area-c",
@@ -42973,58 +42767,6 @@
             "category": "BALANCE",
             "board_id": "psychometrician",
             "entity_type": "repository_record",
-            "entity_id": "psych-abnormal-etiology",
-            "message": "Active exam leaf is thin at the current repository size.",
-            "evidence": {
-                "board_id": "psychometrician",
-                "count": 9,
-                "threshold": 10
-            },
-            "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
-            "source_check": "BALANCE",
-            "justified_exclusion": false,
-            "validator": "RepositoryHealthEngine",
-            "priority": "normal",
-            "repairable": false,
-            "metadata": {
-                "board_id": "psychometrician",
-                "count": 9,
-                "threshold": 10
-            }
-        },
-        {
-            "code": "ACTIVE_UNDER10_LEAF",
-            "status": "WARN",
-            "severity": "warning",
-            "category": "BALANCE",
-            "board_id": "psychometrician",
-            "entity_type": "repository_record",
-            "entity_id": "psych-abnormal-interventions",
-            "message": "Active exam leaf is thin at the current repository size.",
-            "evidence": {
-                "board_id": "psychometrician",
-                "count": 8,
-                "threshold": 10
-            },
-            "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
-            "source_check": "BALANCE",
-            "justified_exclusion": false,
-            "validator": "RepositoryHealthEngine",
-            "priority": "normal",
-            "repairable": false,
-            "metadata": {
-                "board_id": "psychometrician",
-                "count": 8,
-                "threshold": 10
-            }
-        },
-        {
-            "code": "ACTIVE_UNDER10_LEAF",
-            "status": "WARN",
-            "severity": "warning",
-            "category": "BALANCE",
-            "board_id": "psychometrician",
-            "entity_type": "repository_record",
             "entity_id": "psych-abnormal-mental-health-law",
             "message": "Active exam leaf is thin at the current repository size.",
             "evidence": {
@@ -43041,136 +42783,6 @@
             "metadata": {
                 "board_id": "psychometrician",
                 "count": 1,
-                "threshold": 10
-            }
-        },
-        {
-            "code": "ACTIVE_UNDER10_LEAF",
-            "status": "WARN",
-            "severity": "warning",
-            "category": "BALANCE",
-            "board_id": "psychometrician",
-            "entity_type": "repository_record",
-            "entity_id": "psych-assessment-selection-tools",
-            "message": "Active exam leaf is thin at the current repository size.",
-            "evidence": {
-                "board_id": "psychometrician",
-                "count": 8,
-                "threshold": 10
-            },
-            "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
-            "source_check": "BALANCE",
-            "justified_exclusion": false,
-            "validator": "RepositoryHealthEngine",
-            "priority": "normal",
-            "repairable": false,
-            "metadata": {
-                "board_id": "psychometrician",
-                "count": 8,
-                "threshold": 10
-            }
-        },
-        {
-            "code": "ACTIVE_UNDER10_LEAF",
-            "status": "WARN",
-            "severity": "warning",
-            "category": "BALANCE",
-            "board_id": "psychometrician",
-            "entity_type": "repository_record",
-            "entity_id": "psych-assessment-uses-limitations",
-            "message": "Active exam leaf is thin at the current repository size.",
-            "evidence": {
-                "board_id": "psychometrician",
-                "count": 3,
-                "threshold": 10
-            },
-            "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
-            "source_check": "BALANCE",
-            "justified_exclusion": false,
-            "validator": "RepositoryHealthEngine",
-            "priority": "normal",
-            "repairable": false,
-            "metadata": {
-                "board_id": "psychometrician",
-                "count": 3,
-                "threshold": 10
-            }
-        },
-        {
-            "code": "ACTIVE_UNDER10_LEAF",
-            "status": "WARN",
-            "severity": "warning",
-            "category": "BALANCE",
-            "board_id": "psychometrician",
-            "entity_type": "repository_record",
-            "entity_id": "psych-industrial-organization-theory",
-            "message": "Active exam leaf is thin at the current repository size.",
-            "evidence": {
-                "board_id": "psychometrician",
-                "count": 7,
-                "threshold": 10
-            },
-            "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
-            "source_check": "BALANCE",
-            "justified_exclusion": false,
-            "validator": "RepositoryHealthEngine",
-            "priority": "normal",
-            "repairable": false,
-            "metadata": {
-                "board_id": "psychometrician",
-                "count": 7,
-                "threshold": 10
-            }
-        },
-        {
-            "code": "ACTIVE_UNDER10_LEAF",
-            "status": "WARN",
-            "severity": "warning",
-            "category": "BALANCE",
-            "board_id": "psychometrician",
-            "entity_type": "repository_record",
-            "entity_id": "psych-industrial-structures-systems",
-            "message": "Active exam leaf is thin at the current repository size.",
-            "evidence": {
-                "board_id": "psychometrician",
-                "count": 6,
-                "threshold": 10
-            },
-            "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
-            "source_check": "BALANCE",
-            "justified_exclusion": false,
-            "validator": "RepositoryHealthEngine",
-            "priority": "normal",
-            "repairable": false,
-            "metadata": {
-                "board_id": "psychometrician",
-                "count": 6,
-                "threshold": 10
-            }
-        },
-        {
-            "code": "ACTIVE_UNDER10_LEAF",
-            "status": "WARN",
-            "severity": "warning",
-            "category": "BALANCE",
-            "board_id": "psychometrician",
-            "entity_type": "repository_record",
-            "entity_id": "psych-industrial-team-dynamics",
-            "message": "Active exam leaf is thin at the current repository size.",
-            "evidence": {
-                "board_id": "psychometrician",
-                "count": 8,
-                "threshold": 10
-            },
-            "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
-            "source_check": "BALANCE",
-            "justified_exclusion": false,
-            "validator": "RepositoryHealthEngine",
-            "priority": "normal",
-            "repairable": false,
-            "metadata": {
-                "board_id": "psychometrician",
-                "count": 8,
                 "threshold": 10
             }
         },
@@ -54443,7 +54055,7 @@
             "message": "Active exam leaf is thin at the current repository size.",
             "evidence": {
                 "board_id": "psychometrician",
-                "count": 9,
+                "count": 10,
                 "threshold": 20
             },
             "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
@@ -54454,7 +54066,7 @@
             "repairable": false,
             "metadata": {
                 "board_id": "psychometrician",
-                "count": 9,
+                "count": 10,
                 "threshold": 20
             }
         },
@@ -54469,7 +54081,7 @@
             "message": "Active exam leaf is thin at the current repository size.",
             "evidence": {
                 "board_id": "psychometrician",
-                "count": 8,
+                "count": 10,
                 "threshold": 20
             },
             "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
@@ -54480,7 +54092,7 @@
             "repairable": false,
             "metadata": {
                 "board_id": "psychometrician",
-                "count": 8,
+                "count": 10,
                 "threshold": 20
             }
         },
@@ -54573,7 +54185,7 @@
             "message": "Active exam leaf is thin at the current repository size.",
             "evidence": {
                 "board_id": "psychometrician",
-                "count": 8,
+                "count": 10,
                 "threshold": 20
             },
             "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
@@ -54584,7 +54196,7 @@
             "repairable": false,
             "metadata": {
                 "board_id": "psychometrician",
-                "count": 8,
+                "count": 10,
                 "threshold": 20
             }
         },
@@ -54599,7 +54211,7 @@
             "message": "Active exam leaf is thin at the current repository size.",
             "evidence": {
                 "board_id": "psychometrician",
-                "count": 3,
+                "count": 10,
                 "threshold": 20
             },
             "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
@@ -54610,7 +54222,7 @@
             "repairable": false,
             "metadata": {
                 "board_id": "psychometrician",
-                "count": 3,
+                "count": 10,
                 "threshold": 20
             }
         },
@@ -54677,7 +54289,7 @@
             "message": "Active exam leaf is thin at the current repository size.",
             "evidence": {
                 "board_id": "psychometrician",
-                "count": 7,
+                "count": 10,
                 "threshold": 20
             },
             "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
@@ -54688,7 +54300,7 @@
             "repairable": false,
             "metadata": {
                 "board_id": "psychometrician",
-                "count": 7,
+                "count": 10,
                 "threshold": 20
             }
         },
@@ -54703,7 +54315,7 @@
             "message": "Active exam leaf is thin at the current repository size.",
             "evidence": {
                 "board_id": "psychometrician",
-                "count": 6,
+                "count": 10,
                 "threshold": 20
             },
             "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
@@ -54714,7 +54326,7 @@
             "repairable": false,
             "metadata": {
                 "board_id": "psychometrician",
-                "count": 6,
+                "count": 10,
                 "threshold": 20
             }
         },
@@ -54729,7 +54341,7 @@
             "message": "Active exam leaf is thin at the current repository size.",
             "evidence": {
                 "board_id": "psychometrician",
-                "count": 8,
+                "count": 10,
                 "threshold": 20
             },
             "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
@@ -54740,7 +54352,7 @@
             "repairable": false,
             "metadata": {
                 "board_id": "psychometrician",
-                "count": 8,
+                "count": 10,
                 "threshold": 20
             }
         },
@@ -60313,32 +59925,6 @@
             "status": "WARN",
             "severity": "warning",
             "category": "BALANCE",
-            "board_id": "psychometrician",
-            "entity_type": "repository_record",
-            "entity_id": "psych-assessment-uses-limitations",
-            "message": "Active exam leaf is thin at the current repository size.",
-            "evidence": {
-                "board_id": "psychometrician",
-                "count": 3,
-                "threshold": 5
-            },
-            "suggested_action": "Consider the leaf in future content planning; this is not a content-integrity failure.",
-            "source_check": "BALANCE",
-            "justified_exclusion": false,
-            "validator": "RepositoryHealthEngine",
-            "priority": "normal",
-            "repairable": false,
-            "metadata": {
-                "board_id": "psychometrician",
-                "count": 3,
-                "threshold": 5
-            }
-        },
-        {
-            "code": "ACTIVE_UNDER5_LEAF",
-            "status": "WARN",
-            "severity": "warning",
-            "category": "BALANCE",
             "board_id": "let",
             "entity_type": "repository_record",
             "entity_id": "rogers-humanistic",
@@ -64603,7 +64189,7 @@
             "message": "Some active questions do not carry deterministic depth metadata.",
             "evidence": {
                 "board_id": "psychometrician",
-                "unknown_count": 380
+                "unknown_count": 401
             },
             "suggested_action": "Review depth metadata in a bounded audit; do not infer mathematical correctness.",
             "source_check": "DEPTH_COVERAGE",
@@ -64613,7 +64199,7 @@
             "repairable": false,
             "metadata": {
                 "board_id": "psychometrician",
-                "unknown_count": 380
+                "unknown_count": 401
             }
         },
         {
@@ -64643,34 +64229,34 @@
     ],
     "health_score": 0,
     "statistics": {
-        "total_questions": 8835,
-        "total_issues": 998,
+        "total_questions": 8856,
+        "total_issues": 990,
         "errors": 0,
-        "warnings": 978,
+        "warnings": 970,
         "infos": 20,
         "issues_by_category": {
             "SOURCE_STUDY": 19,
             "TAXONOMY": 1,
-            "BALANCE": 956,
+            "BALANCE": 948,
             "DEPTH_COVERAGE": 22
         },
         "issues_by_validator": {
-            "RepositoryHealthEngine": 998
+            "RepositoryHealthEngine": 990
         },
         "questions_per_difficulty": {
             "easy": 970,
-            "medium": 4834,
-            "hard": 3031
+            "medium": 4844,
+            "hard": 3042
         },
         "questions_per_status": {
-            "active": 8835
+            "active": 8856
         },
         "questions_per_board": {
             "let": 1744,
             "civil-service": 1550,
             "criminologist": 451,
             "nursing": 878,
-            "psychometrician": 380,
+            "psychometrician": 401,
             "civil-engineering": 922,
             "cpa": 1132,
             "mechanical-engineering": 464,
@@ -68648,9 +68234,9 @@
             },
             "psychometrician": {
                 "board_id": "psychometrician",
-                "canonical": 380,
-                "effective_declared": 380,
-                "runtime": 380,
+                "canonical": 401,
+                "effective_declared": 401,
+                "runtime": 401,
                 "active_leaves": 20,
                 "structural_administrative_leaves": 4,
                 "structural_administrative_leaf_ids": [
@@ -68660,16 +68246,16 @@
                     "ple-workplace-behavior"
                 ],
                 "zero": 0,
-                "under5": 2,
-                "under10": 8,
+                "under5": 1,
+                "under10": 1,
                 "under20": 12,
                 "min": 1,
                 "median": 13,
                 "leaf_counts": {
                     "psych-assessment-properties-principles": 26,
                     "psych-assessment-research-statistics": 47,
-                    "psych-assessment-uses-limitations": 3,
-                    "psych-assessment-selection-tools": 8,
+                    "psych-assessment-uses-limitations": 10,
+                    "psych-assessment-selection-tools": 10,
                     "psych-assessment-administration-interpretation": 42,
                     "psych-assessment-ethics-standards": 26,
                     "psych-development-nature-nurture": 36,
@@ -68677,46 +68263,46 @@
                     "psych-development-theories": 18,
                     "psych-abnormal-manifestations": 12,
                     "psych-abnormal-disorders-symptoms": 32,
-                    "psych-abnormal-etiology": 9,
-                    "psych-abnormal-interventions": 8,
+                    "psych-abnormal-etiology": 10,
+                    "psych-abnormal-interventions": 10,
                     "psych-abnormal-sociocultural-ethics": 14,
                     "psych-abnormal-mental-health-law": 1,
-                    "psych-industrial-organization-theory": 7,
-                    "psych-industrial-structures-systems": 6,
+                    "psych-industrial-organization-theory": 10,
+                    "psych-industrial-structures-systems": 10,
                     "psych-industrial-hr-development-management": 45,
-                    "psych-industrial-team-dynamics": 8,
+                    "psych-industrial-team-dynamics": 10,
                     "psych-industrial-change-development": 10
                 },
                 "repeat_risk": "MODERATE",
                 "depth_known": 0,
-                "depth_unknown": 380,
+                "depth_unknown": 401,
                 "official_area_balance": [
                     {
                         "area_id": "psychological-assessment",
-                        "actual_share": 40,
+                        "actual_share": 40.15,
                         "target_share": 40,
-                        "delta": 0,
+                        "delta": 0.15,
                         "warning": false
                     },
                     {
                         "area_id": "developmental-psychology",
-                        "actual_share": 20,
+                        "actual_share": 18.95,
                         "target_share": 20,
-                        "delta": 0,
+                        "delta": -1.05,
                         "warning": false
                     },
                     {
                         "area_id": "abnormal-psychology",
-                        "actual_share": 20,
+                        "actual_share": 19.7,
                         "target_share": 20,
-                        "delta": 0,
+                        "delta": -0.3,
                         "warning": false
                     },
                     {
                         "area_id": "industrial-organizational",
-                        "actual_share": 20,
+                        "actual_share": 21.2,
                         "target_share": 20,
-                        "delta": 0,
+                        "delta": 1.2,
                         "warning": false
                     }
                 ],
@@ -68726,11 +68312,11 @@
                         "status": "PASS",
                         "dimension": "scenario_family",
                         "source": "question_field",
-                        "observed": 280,
-                        "distinct": 130,
+                        "observed": 301,
+                        "distinct": 144,
                         "top_value": "differential-assessment",
                         "top_count": 15,
-                        "top_share": 0.0536,
+                        "top_share": 0.0498,
                         "warning_threshold": 0.35
                     },
                     "misconception_family": {
@@ -68738,11 +68324,11 @@
                         "status": "PASS",
                         "dimension": "misconception_family",
                         "source": "question_field",
-                        "observed": 280,
-                        "distinct": 273,
+                        "observed": 301,
+                        "distinct": 294,
                         "top_value": "screening-equals-diagnosis",
                         "top_count": 3,
-                        "top_share": 0.0107,
+                        "top_share": 0.01,
                         "warning_threshold": 0.35
                     },
                     "calculation_family": {
@@ -68762,11 +68348,11 @@
                         "status": "PASS",
                         "dimension": "single_leaf",
                         "source": "taxonomy",
-                        "observed": 380,
+                        "observed": 401,
                         "distinct": 20,
                         "top_value": "psych-assessment-research-statistics",
                         "top_count": 47,
-                        "top_share": 0.1237,
+                        "top_share": 0.1172,
                         "warning_threshold": 0.35
                     }
                 },
@@ -68783,8 +68369,8 @@
                     "error_count": 0,
                     "readiness_counts": {
                         "READY": 0,
-                        "READY_WITH_LIMITS": 19,
-                        "REVIEW": 0,
+                        "READY_WITH_LIMITS": 18,
+                        "REVIEW": 1,
                         "DEFER": 1
                     },
                     "source_authority_counts": {
@@ -68866,7 +68452,7 @@
                             "defer_reason": "",
                             "max_new_questions": 14,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
+                            "reviewed_at_batch": 643,
                             "evidence_hash": "d4aa56637134c3595e34ba21cce862f893833ef94afde39575598602ada22cda"
                         },
                         {
@@ -68874,10 +68460,10 @@
                             "board_id": "psychometrician",
                             "official_area_id": "abnormal-psychology",
                             "leaf_name": "Theoretical Approaches to Etiology",
-                            "current_question_count": 9,
+                            "current_question_count": 10,
                             "deficit_to_5": 0,
-                            "deficit_to_10": 1,
-                            "deficit_to_20": 11,
+                            "deficit_to_10": 0,
+                            "deficit_to_20": 10,
                             "source_ids": [
                                 "apa-ethics-code-2017",
                                 "apa-psychological-assessment-guidelines-2020",
@@ -68907,9 +68493,9 @@
                                 "gene_environment_interaction"
                             ],
                             "distinct_content_family_count": 3,
-                            "safe_headroom_min": 3,
-                            "safe_headroom_preferred": 6,
-                            "safe_headroom_max": 9,
+                            "safe_headroom_min": 2,
+                            "safe_headroom_preferred": 5,
+                            "safe_headroom_max": 8,
                             "allowed_scope": [
                                 "current_prc_tos",
                                 "etiological_models",
@@ -68928,20 +68514,20 @@
                             "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                             "review_reason": "",
                             "defer_reason": "",
-                            "max_new_questions": 9,
+                            "max_new_questions": 8,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
-                            "evidence_hash": "31ca8652bfbe880befac179d0367834d1a4134cc7a50812b0cb0f0c4a4867939"
+                            "reviewed_at_batch": 643,
+                            "evidence_hash": "599c5e4d0353db618c8085f9ce1f296561babcc5c530faabaf9a2fa443fa5353"
                         },
                         {
                             "leaf_id": "psych-abnormal-interventions",
                             "board_id": "psychometrician",
                             "official_area_id": "abnormal-psychology",
                             "leaf_name": "Therapeutic Interventions",
-                            "current_question_count": 8,
+                            "current_question_count": 10,
                             "deficit_to_5": 0,
-                            "deficit_to_10": 2,
-                            "deficit_to_20": 12,
+                            "deficit_to_10": 0,
+                            "deficit_to_20": 10,
                             "source_ids": [
                                 "apa-ethics-code-2017",
                                 "apa-psychological-assessment-guidelines-2020",
@@ -68971,9 +68557,9 @@
                                 "risk_and_referral"
                             ],
                             "distinct_content_family_count": 3,
-                            "safe_headroom_min": 3,
-                            "safe_headroom_preferred": 5,
-                            "safe_headroom_max": 7,
+                            "safe_headroom_min": 1,
+                            "safe_headroom_preferred": 3,
+                            "safe_headroom_max": 5,
                             "allowed_scope": [
                                 "current_prc_tos",
                                 "evidence_and_limits",
@@ -68993,10 +68579,10 @@
                             "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                             "review_reason": "",
                             "defer_reason": "",
-                            "max_new_questions": 7,
+                            "max_new_questions": 5,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
-                            "evidence_hash": "9589725c57d18aeeba30ecc190b62ec84cdafe89e8cc77a14ff930a99e1457ef"
+                            "reviewed_at_batch": 643,
+                            "evidence_hash": "edcae6b6d117abaa8c7c116d2cec252f98e3cd9085d65627c36d5fe347dd77e2"
                         },
                         {
                             "leaf_id": "psych-abnormal-manifestations",
@@ -69060,7 +68646,7 @@
                             "defer_reason": "",
                             "max_new_questions": 9,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
+                            "reviewed_at_batch": 643,
                             "evidence_hash": "a69c88685b17141288f48c90ec5ab031818125d1c4a6e048143e1b985f813482"
                         },
                         {
@@ -69116,7 +68702,7 @@
                             "defer_reason": "NO_AUTHORITATIVE_SOURCE",
                             "max_new_questions": 0,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
+                            "reviewed_at_batch": 643,
                             "evidence_hash": "6bb2b54d422e2da5da7e371723c2e3b7129fe3a8f5af0afc27e391e1f9363098"
                         },
                         {
@@ -69182,7 +68768,7 @@
                             "defer_reason": "",
                             "max_new_questions": 8,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
+                            "reviewed_at_batch": 643,
                             "evidence_hash": "12c8236fde15cfccbf46d5d9d67c259a20ce9cecac38f2aabf3f59b57e5de6d1"
                         },
                         {
@@ -69250,7 +68836,7 @@
                             "defer_reason": "",
                             "max_new_questions": 12,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
+                            "reviewed_at_batch": 643,
                             "evidence_hash": "2c4d9a9b77b8b56552dc253e839c3e2d406bd73ec7a4c721acb71ea63a210ea0"
                         },
                         {
@@ -69313,7 +68899,7 @@
                             "defer_reason": "",
                             "max_new_questions": 9,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
+                            "reviewed_at_batch": 643,
                             "evidence_hash": "352a1a7089e415ee813377a5b6a2db99323dd92ae4e9ec6e22ac1c22e69f8cb8"
                         },
                         {
@@ -69380,7 +68966,7 @@
                             "defer_reason": "",
                             "max_new_questions": 14,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
+                            "reviewed_at_batch": 643,
                             "evidence_hash": "5fa83db82b075be84b1c2f40c6d2553b7e2c2ba8fd69e1cad0a606279cd86af5"
                         },
                         {
@@ -69448,7 +69034,7 @@
                             "defer_reason": "",
                             "max_new_questions": 12,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
+                            "reviewed_at_batch": 643,
                             "evidence_hash": "6fa0ae51029f147ec6902ebc5cb7e74047767ec2b0dd37b317c3b7702e2342b3"
                         },
                         {
@@ -69456,10 +69042,10 @@
                             "board_id": "psychometrician",
                             "official_area_id": "psychological-assessment",
                             "leaf_name": "Selection of Assessment Methods and Tools",
-                            "current_question_count": 8,
+                            "current_question_count": 10,
                             "deficit_to_5": 0,
-                            "deficit_to_10": 2,
-                            "deficit_to_20": 12,
+                            "deficit_to_10": 0,
+                            "deficit_to_20": 10,
                             "source_ids": [
                                 "aera-apa-ncme-testing-standards-2014",
                                 "apa-psychological-assessment-guidelines-2020",
@@ -69490,9 +69076,9 @@
                                 "purpose_tool_match"
                             ],
                             "distinct_content_family_count": 3,
-                            "safe_headroom_min": 4,
-                            "safe_headroom_preferred": 7,
-                            "safe_headroom_max": 10,
+                            "safe_headroom_min": 2,
+                            "safe_headroom_preferred": 5,
+                            "safe_headroom_max": 8,
                             "allowed_scope": [
                                 "current_prc_tos",
                                 "population_and_setting_fit",
@@ -69511,20 +69097,20 @@
                             "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                             "review_reason": "",
                             "defer_reason": "",
-                            "max_new_questions": 10,
+                            "max_new_questions": 8,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
-                            "evidence_hash": "cc525beef461d16ae547ab3a3bfc4a91c202851d9aa824f9fc314cedea39a84b"
+                            "reviewed_at_batch": 643,
+                            "evidence_hash": "bab7ec1396ef5fb17aa86a3a10fe185dc6d77f2fe18641133a1b3c2e460daa4f"
                         },
                         {
                             "leaf_id": "psych-assessment-uses-limitations",
                             "board_id": "psychometrician",
                             "official_area_id": "psychological-assessment",
                             "leaf_name": "Uses, Benefits, and Limitations of Assessment",
-                            "current_question_count": 3,
-                            "deficit_to_5": 2,
-                            "deficit_to_10": 7,
-                            "deficit_to_20": 17,
+                            "current_question_count": 10,
+                            "deficit_to_5": 0,
+                            "deficit_to_10": 0,
+                            "deficit_to_20": 10,
                             "source_ids": [
                                 "aera-apa-ncme-testing-standards-2014",
                                 "apa-psychological-assessment-guidelines-2020",
@@ -69554,9 +69140,9 @@
                                 "purpose_fit"
                             ],
                             "distinct_content_family_count": 3,
-                            "safe_headroom_min": 2,
-                            "safe_headroom_preferred": 4,
-                            "safe_headroom_max": 6,
+                            "safe_headroom_min": 0,
+                            "safe_headroom_preferred": 0,
+                            "safe_headroom_max": 0,
                             "allowed_scope": [
                                 "assessment_purpose",
                                 "current_prc_tos",
@@ -69569,16 +69155,17 @@
                                 "unverified_exact_threshold"
                             ],
                             "limitations": [
+                                "Batch643 evidence reassessment: the existing norms/core-interpretation material supports one additional distinct score-meaning family beyond the original planning estimate.",
                                 "Do not treat a screening result, formative measure, or isolated score as a diagnosis or a universal decision rule."
                             ],
-                            "readiness": "READY_WITH_LIMITS",
-                            "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
-                            "review_reason": "",
+                            "readiness": "REVIEW",
+                            "readiness_reason": "",
+                            "review_reason": "SEMANTIC_HEADROOM_UNCERTAIN",
                             "defer_reason": "",
-                            "max_new_questions": 6,
+                            "max_new_questions": 0,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
-                            "evidence_hash": "0644b7f32340fc522624e0f8b65beb1a39a44282524172c15d6027625e4dffed"
+                            "reviewed_at_batch": 643,
+                            "evidence_hash": "2dcdaad25eff9f08c552e59ba5b29987a01cdd6563c021daaabb180b8e3ec3c0"
                         },
                         {
                             "leaf_id": "psych-development-nature-nurture",
@@ -69640,7 +69227,7 @@
                             "defer_reason": "",
                             "max_new_questions": 12,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
+                            "reviewed_at_batch": 643,
                             "evidence_hash": "9d763d5a20898f7d2e38ea71d63a1e6600cfc8c88f87789fa1649df15c70c840"
                         },
                         {
@@ -69704,7 +69291,7 @@
                             "defer_reason": "",
                             "max_new_questions": 9,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
+                            "reviewed_at_batch": 643,
                             "evidence_hash": "029b1a6e0f6b78678fb30e5af8f4c022b7983177791cdfbab4be892e0d13fc04"
                         },
                         {
@@ -69767,7 +69354,7 @@
                             "defer_reason": "",
                             "max_new_questions": 12,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
+                            "reviewed_at_batch": 643,
                             "evidence_hash": "09da81e6a075dc1364e84640e9b167d79829c65ef8d4495334f2f3bf2ac60d24"
                         },
                         {
@@ -69831,7 +69418,7 @@
                             "defer_reason": "",
                             "max_new_questions": 9,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
+                            "reviewed_at_batch": 643,
                             "evidence_hash": "c86d81d4885b59b8c40c5b4acb38e0bc7c1bcf318b48b6ad049ccb6ee8de4b3f"
                         },
                         {
@@ -69897,7 +69484,7 @@
                             "defer_reason": "",
                             "max_new_questions": 14,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
+                            "reviewed_at_batch": 643,
                             "evidence_hash": "e0946a4ada680db816b03aedeea6b94ead091776362032f2d8f7dd3883d26462"
                         },
                         {
@@ -69905,10 +69492,10 @@
                             "board_id": "psychometrician",
                             "official_area_id": "industrial-organizational",
                             "leaf_name": "Organization Theory",
-                            "current_question_count": 7,
+                            "current_question_count": 10,
                             "deficit_to_5": 0,
-                            "deficit_to_10": 3,
-                            "deficit_to_20": 13,
+                            "deficit_to_10": 0,
+                            "deficit_to_20": 10,
                             "source_ids": [
                                 "aera-apa-ncme-testing-standards-2014",
                                 "apa-personnel-selection-principles-2018",
@@ -69936,9 +69523,9 @@
                                 "work_behavior_mechanisms"
                             ],
                             "distinct_content_family_count": 3,
-                            "safe_headroom_min": 3,
-                            "safe_headroom_preferred": 6,
-                            "safe_headroom_max": 9,
+                            "safe_headroom_min": 0,
+                            "safe_headroom_preferred": 3,
+                            "safe_headroom_max": 6,
                             "allowed_scope": [
                                 "current_prc_tos",
                                 "leadership_and_culture",
@@ -69957,20 +69544,20 @@
                             "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                             "review_reason": "",
                             "defer_reason": "",
-                            "max_new_questions": 9,
+                            "max_new_questions": 6,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
-                            "evidence_hash": "102701603738aabd229b1f2342ea8c66db7c0f2be759fd1a9e727cb1b1fe5fd8"
+                            "reviewed_at_batch": 643,
+                            "evidence_hash": "693e9ab4faef33d9ce52fdae15c55b695f78a2e51d47a5b5901371d207f8e938"
                         },
                         {
                             "leaf_id": "psych-industrial-structures-systems",
                             "board_id": "psychometrician",
                             "official_area_id": "industrial-organizational",
                             "leaf_name": "Organizational Structures and Systems",
-                            "current_question_count": 6,
+                            "current_question_count": 10,
                             "deficit_to_5": 0,
-                            "deficit_to_10": 4,
-                            "deficit_to_20": 14,
+                            "deficit_to_10": 0,
+                            "deficit_to_20": 10,
                             "source_ids": [
                                 "aera-apa-ncme-testing-standards-2014",
                                 "apa-personnel-selection-principles-2018",
@@ -69998,9 +69585,9 @@
                                 "structure_and_roles"
                             ],
                             "distinct_content_family_count": 3,
-                            "safe_headroom_min": 3,
-                            "safe_headroom_preferred": 5,
-                            "safe_headroom_max": 7,
+                            "safe_headroom_min": 0,
+                            "safe_headroom_preferred": 1,
+                            "safe_headroom_max": 3,
                             "allowed_scope": [
                                 "current_prc_tos",
                                 "organizational_structures",
@@ -70020,20 +69607,20 @@
                             "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                             "review_reason": "",
                             "defer_reason": "",
-                            "max_new_questions": 7,
+                            "max_new_questions": 3,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
-                            "evidence_hash": "9fa38334c85df09c7d4744f75cd529229e1e65a2d8eda775fa5544a666e7a07a"
+                            "reviewed_at_batch": 643,
+                            "evidence_hash": "afdf549a83a88ef646fee4b23647d6867cf8ad07c68d849c63e63825f6d45ead"
                         },
                         {
                             "leaf_id": "psych-industrial-team-dynamics",
                             "board_id": "psychometrician",
                             "official_area_id": "industrial-organizational",
                             "leaf_name": "Team Dynamics",
-                            "current_question_count": 8,
+                            "current_question_count": 10,
                             "deficit_to_5": 0,
-                            "deficit_to_10": 2,
-                            "deficit_to_20": 12,
+                            "deficit_to_10": 0,
+                            "deficit_to_20": 10,
                             "source_ids": [
                                 "aera-apa-ncme-testing-standards-2014",
                                 "apa-personnel-selection-principles-2018",
@@ -70061,9 +69648,9 @@
                                 "team_development"
                             ],
                             "distinct_content_family_count": 3,
-                            "safe_headroom_min": 3,
-                            "safe_headroom_preferred": 6,
-                            "safe_headroom_max": 9,
+                            "safe_headroom_min": 1,
+                            "safe_headroom_preferred": 4,
+                            "safe_headroom_max": 7,
                             "allowed_scope": [
                                 "current_prc_tos",
                                 "group_processes",
@@ -70083,16 +69670,16 @@
                             "readiness_reason": "The current PRC TOS and linked source-backed study materials support a bounded BoardPrep-derived leaf; scope remains limited to the listed evidence.",
                             "review_reason": "",
                             "defer_reason": "",
-                            "max_new_questions": 9,
+                            "max_new_questions": 7,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 642,
-                            "evidence_hash": "2ec005843f7fb83abb9991886a89948282a8f8bc3be2afdc1c43a42ec34871a4"
+                            "reviewed_at_batch": 643,
+                            "evidence_hash": "e3df196f1148820fa028fda06c7f9caaf608085b88cbb97b0fe8d32daf6773df"
                         }
                     ]
                 },
                 "flashcards": {
-                    "eligible": 380,
-                    "derivable": 380,
+                    "eligible": 401,
+                    "derivable": 401,
                     "justified_exclusion": 0,
                     "nonderivable_defect": 0,
                     "duplicate_card_key": 0,
@@ -70266,9 +69853,9 @@
             }
         },
         "totals": {
-            "canonical": 8835,
-            "effective_declared": 9295,
-            "runtime": 9619
+            "canonical": 8856,
+            "effective_declared": 9316,
+            "runtime": 9640
         }
     }
 }

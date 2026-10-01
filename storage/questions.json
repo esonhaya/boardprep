@@ -712035,5 +712035,1302 @@
         "scenario_family": "selective_reporting",
         "misconception_family": "selective_reporting",
         "id": 8824
+    },
+    {
+        "id": 8836,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-assessment",
+            "topic_id": "ple-measurement",
+            "concept_id": "psych-assessment-uses-limitations"
+        },
+        "study_material_id": "ple-487--orms-and-core-nterpretation",
+        "study_material_ids": [
+            "ple-487--orms-and-core-nterpretation"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "assessment_purpose"
+        ],
+        "source_ids": [
+            "aera-apa-ncme-testing-standards-2014",
+            "openstax-introductory-statistics-2e",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "medium",
+        "question": "A school needs to decide whether a learner met a prespecified mastery standard, but the available instrument was built to rank learners within a norm group. Which basis should guide the replacement choice?",
+        "choices": [
+            "A criterion-referenced measure aligned with the stated mastery standard.",
+            "A second norm-referenced ranking measure with a larger sample.",
+            "The instrument with the longest report regardless of its purpose.",
+            "Any available measure because all scores have the same meaning."
+        ],
+        "answer": "A criterion-referenced measure aligned with the stated mastery standard.",
+        "explanation": "The assessment method must match the decision purpose: mastery decisions require comparison with a defined standard rather than only relative standing.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "uses-purpose-standard",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "purpose_fit",
+        "misconception_family": "norm_reference_for_mastery"
+    },
+    {
+        "id": 8837,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-assessment",
+            "topic_id": "ple-measurement",
+            "concept_id": "psych-assessment-uses-limitations"
+        },
+        "study_material_id": "ple-487--sychological-ssessment-oundations",
+        "study_material_ids": [
+            "ple-487--sychological-ssessment-oundations"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "limitations_and_consequences"
+        ],
+        "source_ids": [
+            "aera-apa-ncme-testing-standards-2014",
+            "apa-psychological-assessment-guidelines-2020",
+            "lawphil-ra10029",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "hard",
+        "question": "An agency uses a brief screening score to decide a person's complete functional capacity even though the instrument was designed to flag cases for follow-up. What is the most defensible interpretation?",
+        "choices": [
+            "Treat the score as one preliminary signal and obtain corroborating information before a consequential decision.",
+            "Treat the score as a complete profile because it was administered consistently.",
+            "Convert the screening result directly into a diagnosis or final placement.",
+            "Ignore the result entirely because screening instruments have no useful role."
+        ],
+        "answer": "Treat the score as one preliminary signal and obtain corroborating information before a consequential decision.",
+        "explanation": "A screening result can support follow-up but does not by itself establish a complete functional conclusion or diagnosis.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "uses-screening-boundary",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "analysis and professional judgment",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "decision_consequences",
+        "misconception_family": "screening_equals_diagnosis"
+    },
+    {
+        "id": 8838,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-assessment",
+            "topic_id": "ple-measurement",
+            "concept_id": "psych-assessment-uses-limitations"
+        },
+        "study_material_id": "ple-487--orms-and-core-nterpretation",
+        "study_material_ids": [
+            "ple-487--orms-and-core-nterpretation"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "assessment_purpose"
+        ],
+        "source_ids": [
+            "aera-apa-ncme-testing-standards-2014",
+            "openstax-introductory-statistics-2e",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "medium",
+        "question": "A norm-referenced report places a client at the 70th percentile. What does that result support?",
+        "choices": [
+            "Relative standing within the specified norm group, not a percentage-correct result or diagnosis.",
+            "A 70 percent probability that the client has the measured condition.",
+            "A guarantee that the client will outperform every future comparison group.",
+            "A direct measure of the number of items answered correctly."
+        ],
+        "answer": "Relative standing within the specified norm group, not a percentage-correct result or diagnosis.",
+        "explanation": "A percentile rank describes relative position in the stated norm group; it is not a percentage correct, diagnosis, or forecast guarantee.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "uses-percentile-meaning",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "benefit_limitations",
+        "misconception_family": "percentile_equals_percent_correct"
+    },
+    {
+        "id": 8839,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-assessment",
+            "topic_id": "ple-measurement",
+            "concept_id": "psych-assessment-uses-limitations"
+        },
+        "study_material_id": "ple-487--sychological-ssessment-oundations",
+        "study_material_ids": [
+            "ple-487--sychological-ssessment-oundations"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "limitations_and_consequences"
+        ],
+        "source_ids": [
+            "aera-apa-ncme-testing-standards-2014",
+            "apa-psychological-assessment-guidelines-2020",
+            "lawphil-ra10029",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "medium",
+        "question": "A test has strong reliability evidence, but no evidence supports using its scores to make the proposed high-stakes decision. Which conclusion is warranted?",
+        "choices": [
+            "The score interpretation remains unsupported for that use despite the reliability evidence.",
+            "Reliability alone proves that the proposed decision is valid.",
+            "The lack of use evidence does not matter if the score is consistent.",
+            "High-stakes use is justified whenever a test manual is available."
+        ],
+        "answer": "The score interpretation remains unsupported for that use despite the reliability evidence.",
+        "explanation": "Consistency of scores is important but does not establish that a particular interpretation and use are valid for the stated population and decision.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "uses-reliability-validity",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "limitations_and_consequences",
+        "misconception_family": "reliability_equals_validity"
+    },
+    {
+        "id": 8840,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-assessment",
+            "topic_id": "ple-measurement",
+            "concept_id": "psych-assessment-uses-limitations"
+        },
+        "study_material_id": "ple-487--orms-and-core-nterpretation",
+        "study_material_ids": [
+            "ple-487--orms-and-core-nterpretation"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "limitations_and_consequences"
+        ],
+        "source_ids": [
+            "aera-apa-ncme-testing-standards-2014",
+            "openstax-introductory-statistics-2e",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "hard",
+        "question": "Two assessment scores disagree, and the referral decision has significant consequences. What should the examiner do before making a broad conclusion?",
+        "choices": [
+            "Examine measurement error, relevant norms, collateral information, and the stated decision purpose.",
+            "Select the more favorable score and discard the other result.",
+            "Average the scores without checking whether they measure the same construct.",
+            "Treat the disagreement as proof that the person is inconsistent."
+        ],
+        "answer": "Examine measurement error, relevant norms, collateral information, and the stated decision purpose.",
+        "explanation": "Discrepant scores require interpretation of uncertainty, construct, context, and corroborating information before a consequential inference.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "uses-discrepant-evidence",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "analysis and professional judgment",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "decision_consequences",
+        "misconception_family": "single_score_shortcut"
+    },
+    {
+        "id": 8841,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-assessment",
+            "topic_id": "ple-measurement",
+            "concept_id": "psych-assessment-uses-limitations"
+        },
+        "study_material_id": "ple-487--orms-and-core-nterpretation",
+        "study_material_ids": [
+            "ple-487--orms-and-core-nterpretation"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "limitations_and_consequences"
+        ],
+        "source_ids": [
+            "aera-apa-ncme-testing-standards-2014",
+            "openstax-introductory-statistics-2e",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "medium",
+        "question": "A manager wants to use an isolated personality score to predict job performance for a new role. Which safeguard is most important?",
+        "choices": [
+            "Check whether validity evidence supports that interpretation in the relevant job and population.",
+            "Use the score because personality measures apply identically to every job.",
+            "Treat a high score as proof of future performance without job analysis.",
+            "Replace the score with an unstructured impression from one interview."
+        ],
+        "answer": "Check whether validity evidence supports that interpretation in the relevant job and population.",
+        "explanation": "A score interpretation must be supported for the intended job, population, and use; a general score is not automatically a job-performance forecast.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "uses-job-fit-limit",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "limitations_and_consequences",
+        "misconception_family": "trait_score_equals_job_fit"
+    },
+    {
+        "id": 8842,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-assessment",
+            "topic_id": "ple-measurement",
+            "concept_id": "psych-assessment-uses-limitations"
+        },
+        "study_material_id": "ple-487--orms-and-core-nterpretation",
+        "study_material_ids": [
+            "ple-487--orms-and-core-nterpretation"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "assessment_purpose"
+        ],
+        "source_ids": [
+            "aera-apa-ncme-testing-standards-2014",
+            "openstax-introductory-statistics-2e",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "hard",
+        "question": "A formative classroom measure shows improvement after coaching. Which inference is least justified?",
+        "choices": [
+            "That the score alone proves a stable trait or general ability.",
+            "That the observed result may inform the next instructional decision.",
+            "That the interpretation should remain tied to the measure's stated purpose.",
+            "That other evidence can help evaluate whether the change generalizes."
+        ],
+        "answer": "That the score alone proves a stable trait or general ability.",
+        "explanation": "A formative result can support an instructional decision, but it does not by itself establish a stable trait or broad general ability.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "uses-formative-inference",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "analysis and professional judgment",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "limitations_and_consequences",
+        "misconception_family": "formative_score_equals_trait"
+    },
+    {
+        "id": 8843,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-abnormal",
+            "topic_id": "ple-clinical-foundations",
+            "concept_id": "psych-abnormal-etiology"
+        },
+        "study_material_id": "ple-487--ymptom-atterns-and-unctioning",
+        "study_material_ids": [
+            "ple-487--ymptom-atterns-and-unctioning"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "etiological_models",
+            "interaction_and_context"
+        ],
+        "source_ids": [
+            "apa-psychological-assessment-guidelines-2020",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023",
+            "who-icd11-cddr-2024"
+        ],
+        "difficulty": "hard",
+        "question": "Two people present similar distress after different medical and social changes, and the available information is limited. Which formulation is most defensible?",
+        "choices": [
+            "Consider interacting biological, psychological, and contextual explanations without treating one factor as proven cause.",
+            "Assign the same primary cause because the reported distress looks similar.",
+            "Ignore the medical change because context cannot affect psychological symptoms.",
+            "Treat the social stressor as proof of a single diagnosis."
+        ],
+        "answer": "Consider interacting biological, psychological, and contextual explanations without treating one factor as proven cause.",
+        "explanation": "Etiological models organize plausible interacting explanations; they do not prove causation or establish an individual diagnosis from limited information.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "etiology-interaction",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "analysis and professional judgment",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": false,
+        "source_sensitivity": "SENSITIVE_REVIEWED",
+        "version_sensitive_categories": [
+            "CLINICAL_GUIDANCE_SENSITIVE"
+        ],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "interaction_and_context",
+        "misconception_family": "single_cause_shortcut"
+    },
+    {
+        "id": 8844,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-abnormal",
+            "topic_id": "ple-clinical-foundations",
+            "concept_id": "psych-abnormal-interventions"
+        },
+        "study_material_id": "ple-487--bnormal-sychology-oundations",
+        "study_material_ids": [
+            "ple-487--bnormal-sychology-oundations"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "intervention_principles",
+            "risk_and_referral"
+        ],
+        "source_ids": [
+            "apa-ethics-code-2017",
+            "lawphil-ra10029",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023",
+            "who-icd11-cddr-2024"
+        ],
+        "difficulty": "medium",
+        "question": "A referral asks a psychometrician to choose an individualized treatment solely from one test score. What is the appropriate next step?",
+        "choices": [
+            "Use the result to inform referral and risk communication while deferring treatment selection to the appropriate professional.",
+            "Select the treatment most often associated with the score without further assessment.",
+            "Present the score as a treatment prescription because it is standardized.",
+            "Avoid documenting the referral because treatment is outside the test report."
+        ],
+        "answer": "Use the result to inform referral and risk communication while deferring treatment selection to the appropriate professional.",
+        "explanation": "The result may inform referral and communication, but an individualized treatment decision requires the appropriate professional role and fuller evidence.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "interventions-role-boundary",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "source_sensitivity": "SENSITIVE_REVIEWED",
+        "version_sensitive_categories": [
+            "CLINICAL_GUIDANCE_SENSITIVE"
+        ],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "risk_and_referral",
+        "misconception_family": "test_score_as_prescription"
+    },
+    {
+        "id": 8845,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-abnormal",
+            "topic_id": "ple-clinical-foundations",
+            "concept_id": "psych-abnormal-interventions"
+        },
+        "study_material_id": "ple-487--ymptom-atterns-and-unctioning",
+        "study_material_ids": [
+            "ple-487--ymptom-atterns-and-unctioning"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "risk_and_referral",
+            "evidence_and_limits"
+        ],
+        "source_ids": [
+            "apa-psychological-assessment-guidelines-2020",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023",
+            "who-icd11-cddr-2024"
+        ],
+        "difficulty": "hard",
+        "question": "A screening result suggests possible risk, but the vignette provides no information about immediacy, safety, or corroboration. Which response best fits the evidence?",
+        "choices": [
+            "Document the limitation and follow the appropriate referral or escalation pathway rather than prescribing from the score.",
+            "Assume immediate danger solely from the screening label.",
+            "Dismiss the result because screening can never inform a referral.",
+            "Choose a treatment plan without checking safety or professional responsibility."
+        ],
+        "answer": "Document the limitation and follow the appropriate referral or escalation pathway rather than prescribing from the score.",
+        "explanation": "Risk-sensitive work requires acknowledging uncertainty, obtaining appropriate assessment, and using the correct referral or escalation path.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "interventions-risk-escalation",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "analysis and professional judgment",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "source_sensitivity": "SENSITIVE_REVIEWED",
+        "version_sensitive_categories": [
+            "CLINICAL_GUIDANCE_SENSITIVE"
+        ],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "risk_and_referral",
+        "misconception_family": "screening_label_as_risk"
+    },
+    {
+        "id": 8846,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-assessment",
+            "topic_id": "ple-measurement",
+            "concept_id": "psych-assessment-selection-tools"
+        },
+        "study_material_id": "ple-487--alidity-and-est-se",
+        "study_material_ids": [
+            "ple-487--alidity-and-est-se"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "selection_of_methods",
+            "population_and_setting_fit"
+        ],
+        "source_ids": [
+            "aera-apa-ncme-testing-standards-2014",
+            "apa-psychological-assessment-guidelines-2020",
+            "itc-test-adaptation-guidelines-2017",
+            "openstax-introductory-statistics-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "medium",
+        "question": "A bilingual child is referred for reading assessment, but the proposed instrument has norms for monolingual adults. What should be checked first?",
+        "choices": [
+            "Whether the instrument's construct, language, age norms, and administration conditions fit the referral population.",
+            "Whether the instrument is available immediately, regardless of its norms.",
+            "Whether a longer report can compensate for an unsuitable comparison group.",
+            "Whether the same adult interpretation can be transferred without adaptation."
+        ],
+        "answer": "Whether the instrument's construct, language, age norms, and administration conditions fit the referral population.",
+        "explanation": "Selection begins with construct, population, language, setting, and norm fit; convenience does not establish interpretive validity.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "selection-bilingual-fit",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "population_and_setting_fit",
+        "misconception_family": "convenience_over_fit"
+    },
+    {
+        "id": 8847,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-assessment",
+            "topic_id": "ple-measurement",
+            "concept_id": "psych-assessment-selection-tools"
+        },
+        "study_material_id": "ple-487--alidity-and-est-se",
+        "study_material_ids": [
+            "ple-487--alidity-and-est-se"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "selection_of_methods",
+            "population_and_setting_fit"
+        ],
+        "source_ids": [
+            "aera-apa-ncme-testing-standards-2014",
+            "apa-psychological-assessment-guidelines-2020",
+            "itc-test-adaptation-guidelines-2017",
+            "openstax-introductory-statistics-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "hard",
+        "question": "An organization selects a translated test because it is readily available, without evidence that scores are comparable in the intended group. Which issue is central?",
+        "choices": [
+            "Translation alone does not establish equivalence; adaptation and validity evidence for the intended population are needed.",
+            "Availability establishes fairness because every applicant receives the same form.",
+            "A translated title guarantees that the construct has the same meaning.",
+            "The test is valid for the new group whenever its original reliability is high."
+        ],
+        "answer": "Translation alone does not establish equivalence; adaptation and validity evidence for the intended population are needed.",
+        "explanation": "Language conversion is only one part of adaptation; equivalence, fairness, and validity evidence must support the intended use and group.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "selection-translation-equivalence",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "analysis and professional judgment",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "population_and_setting_fit",
+        "misconception_family": "translation_equals_equivalence"
+    },
+    {
+        "id": 8848,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-industrial",
+            "topic_id": "ple-workplace",
+            "concept_id": "psych-industrial-organization-theory"
+        },
+        "study_material_id": "ple-487--ndustrial-rganizational-oundations",
+        "study_material_ids": [
+            "ple-487--ndustrial-rganizational-oundations"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "organization_theory"
+        ],
+        "source_ids": [
+            "aera-apa-ncme-testing-standards-2014",
+            "apa-personnel-selection-principles-2018",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "hard",
+        "question": "A supervisor attributes declining output to employee traits even though job roles, feedback, and resources changed at the same time. Which analysis is strongest?",
+        "choices": [
+            "Examine individual, group, and organizational explanations and their interaction before assigning a single cause.",
+            "Treat the individual trait explanation as sufficient because output is measured per employee.",
+            "Ignore role and resource changes because they are not psychological variables.",
+            "Infer a universal personality effect from the one workplace metric."
+        ],
+        "answer": "Examine individual, group, and organizational explanations and their interaction before assigning a single cause.",
+        "explanation": "I-O analysis separates levels of explanation and considers work design, resources, feedback, and context before attributing an outcome to a person.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "org-levels-analysis",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "analysis and professional judgment",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": false,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "organization_models",
+        "misconception_family": "individual_blame_shortcut"
+    },
+    {
+        "id": 8849,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-industrial",
+            "topic_id": "ple-workplace",
+            "concept_id": "psych-industrial-organization-theory"
+        },
+        "study_material_id": "ple-487--otivation-eadership-and-ork-ehavior",
+        "study_material_ids": [
+            "ple-487--otivation-eadership-and-ork-ehavior"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "leadership_and_culture"
+        ],
+        "source_ids": [
+            "apa-personnel-selection-principles-2018",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "medium",
+        "question": "A team reports that a new leader's preferred style improved morale, but no work or climate evidence was collected. What conclusion is justified?",
+        "choices": [
+            "The preference is not evidence of an organizational effect without a defined outcome and supporting data.",
+            "The preferred style caused the improvement because the leader selected it intentionally.",
+            "Morale reports can be treated as proof of every work outcome.",
+            "No leadership information can ever be useful without a randomized experiment."
+        ],
+        "answer": "The preference is not evidence of an organizational effect without a defined outcome and supporting data.",
+        "explanation": "A leadership preference is not the same as evidence of an effect; the outcome, context, and supporting data must be specified.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "org-leadership-evidence",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": false,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "leadership_and_culture",
+        "misconception_family": "preference_equals_effect"
+    },
+    {
+        "id": 8850,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-industrial",
+            "topic_id": "ple-workplace",
+            "concept_id": "psych-industrial-organization-theory"
+        },
+        "study_material_id": "ple-487--otivation-eadership-and-ork-ehavior",
+        "study_material_ids": [
+            "ple-487--otivation-eadership-and-ork-ehavior"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "leadership_and_culture"
+        ],
+        "source_ids": [
+            "apa-personnel-selection-principles-2018",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "hard",
+        "question": "A workplace survey shows different perceptions across units. Which interpretation best respects the culture–climate distinction?",
+        "choices": [
+            "Treat perceptions as climate evidence and examine shared norms, context, sampling, and response bias before inferring culture.",
+            "Treat different perceptions as proof that each unit has a different culture.",
+            "Ignore the survey because perceptions cannot inform organizational analysis.",
+            "Use the most positive unit as the organization-wide cultural standard."
+        ],
+        "answer": "Treat perceptions as climate evidence and examine shared norms, context, sampling, and response bias before inferring culture.",
+        "explanation": "Climate concerns experienced conditions and perceptions; culture refers to shared meanings and norms, so one survey pattern is not enough to establish culture.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "org-culture-climate",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "analysis and professional judgment",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": false,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "leadership_and_culture",
+        "misconception_family": "climate_equals_culture"
+    },
+    {
+        "id": 8851,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-industrial",
+            "topic_id": "ple-workplace",
+            "concept_id": "psych-industrial-structures-systems"
+        },
+        "study_material_id": "ple-487--ndustrial-rganizational-oundations",
+        "study_material_ids": [
+            "ple-487--ndustrial-rganizational-oundations"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "organizational_structures",
+            "roles_and_accountability"
+        ],
+        "source_ids": [
+            "aera-apa-ncme-testing-standards-2014",
+            "apa-personnel-selection-principles-2018",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "medium",
+        "question": "An organization has repeated delays, and the chart shows overlapping authority for the same task. What should be examined first?",
+        "choices": [
+            "Clarify role boundaries, decision rights, and accountability before attributing the delay to motivation.",
+            "Increase motivation messaging without examining the authority structure.",
+            "Assign the delay to the newest employee because the task is late.",
+            "Remove all shared work so no one can coordinate decisions."
+        ],
+        "answer": "Clarify role boundaries, decision rights, and accountability before attributing the delay to motivation.",
+        "explanation": "Overlapping authority is a structural and accountability signal that should be clarified before an individual motivation explanation is made.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "structures-role-boundaries",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": false,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "structure_and_roles",
+        "misconception_family": "motivation_for_structure"
+    },
+    {
+        "id": 8852,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-industrial",
+            "topic_id": "ple-workplace",
+            "concept_id": "psych-industrial-structures-systems"
+        },
+        "study_material_id": "ple-487--ndustrial-rganizational-oundations",
+        "study_material_ids": [
+            "ple-487--ndustrial-rganizational-oundations"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "organizational_structures",
+            "systems_alignment"
+        ],
+        "source_ids": [
+            "aera-apa-ncme-testing-standards-2014",
+            "apa-personnel-selection-principles-2018",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "hard",
+        "question": "A department reorganizes to match a new strategy, but responsibilities and resources remain unchanged. What is the main diagnostic question?",
+        "choices": [
+            "Whether the formal structure, roles, and resources actually align with the stated strategy.",
+            "Whether the new strategy can be announced more often to compensate for unchanged roles.",
+            "Whether employees can be held responsible before the new work system is specified.",
+            "Whether a single satisfaction score proves that alignment exists."
+        ],
+        "answer": "Whether the formal structure, roles, and resources actually align with the stated strategy.",
+        "explanation": "A reorganization is meaningful only when roles, resources, decision paths, and work systems support the stated strategic objective.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "structures-strategy-alignment",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "analysis and professional judgment",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": false,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "accountability_and_alignment",
+        "misconception_family": "relabeling_equals_alignment"
+    },
+    {
+        "id": 8853,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-industrial",
+            "topic_id": "ple-workplace",
+            "concept_id": "psych-industrial-structures-systems"
+        },
+        "study_material_id": "ple-487--otivation-eadership-and-ork-ehavior",
+        "study_material_ids": [
+            "ple-487--otivation-eadership-and-ork-ehavior"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "organizational_structures",
+            "systems_alignment"
+        ],
+        "source_ids": [
+            "apa-personnel-selection-principles-2018",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "hard",
+        "question": "A single productivity metric falls after a restructuring while workload and staffing also change. What is the most defensible conclusion?",
+        "choices": [
+            "Interpret the metric with role, workload, resource, and context evidence rather than treating it as a complete system diagnosis.",
+            "Treat the metric as proof that the restructuring failed for every unit.",
+            "Assign the change to employee ability because the metric is numerical.",
+            "Ignore staffing and workload because productivity is an individual outcome."
+        ],
+        "answer": "Interpret the metric with role, workload, resource, and context evidence rather than treating it as a complete system diagnosis.",
+        "explanation": "A system-level conclusion requires multiple relevant evidence sources; one metric cannot isolate structure from workload, staffing, and context.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "structures-single-metric",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "analysis and professional judgment",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": false,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "organizational_diagnosis",
+        "misconception_family": "single_metric_diagnosis"
+    },
+    {
+        "id": 8854,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-industrial",
+            "topic_id": "ple-workplace",
+            "concept_id": "psych-industrial-structures-systems"
+        },
+        "study_material_id": "ple-487--otivation-eadership-and-ork-ehavior",
+        "study_material_ids": [
+            "ple-487--otivation-eadership-and-ork-ehavior"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "roles_and_accountability",
+            "systems_alignment"
+        ],
+        "source_ids": [
+            "apa-personnel-selection-principles-2018",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "medium",
+        "question": "Two units share a target but use incompatible reporting responsibilities. Which intervention is most directly relevant?",
+        "choices": [
+            "Align responsibilities, information flows, and accountability with the shared work objective.",
+            "Increase the target without changing the reporting arrangement.",
+            "Evaluate each unit only by the other unit's informal impression.",
+            "Remove reporting so the units can coordinate without a record."
+        ],
+        "answer": "Align responsibilities, information flows, and accountability with the shared work objective.",
+        "explanation": "Shared objectives require compatible roles, information flows, and accountability so the system can coordinate and be evaluated.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "structures-accountability-alignment",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": false,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "accountability_and_alignment",
+        "misconception_family": "target_without_system"
+    },
+    {
+        "id": 8855,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-industrial",
+            "topic_id": "ple-workplace",
+            "concept_id": "psych-industrial-team-dynamics"
+        },
+        "study_material_id": "ple-487--otivation-eadership-and-ork-ehavior",
+        "study_material_ids": [
+            "ple-487--otivation-eadership-and-ork-ehavior"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "team_dynamics",
+            "group_processes"
+        ],
+        "source_ids": [
+            "apa-personnel-selection-principles-2018",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "medium",
+        "question": "A project team misses deadlines, but members report unclear roles and little opportunity to raise concerns. Which assessment is most useful first?",
+        "choices": [
+            "Examine role clarity, communication, and psychological safety before judging individual commitment.",
+            "Judge each member's commitment from the deadline alone.",
+            "Replace the team leader without checking the work process.",
+            "Treat the lack of concerns as proof that the team is functioning well."
+        ],
+        "answer": "Examine role clarity, communication, and psychological safety before judging individual commitment.",
+        "explanation": "Team performance should be interpreted through role clarity, communication, resources, and psychological safety rather than a single individual attribution.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "team-role-safety",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": false,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "group_processes",
+        "misconception_family": "individual_commitment_shortcut"
+    },
+    {
+        "id": 8856,
+        "taxonomy": {
+            "board_id": "psychometrician",
+            "subject_id": "psychology-foundations",
+            "domain_id": "ple-industrial",
+            "topic_id": "ple-workplace",
+            "concept_id": "psych-industrial-team-dynamics"
+        },
+        "study_material_id": "ple-487--otivation-eadership-and-ork-ehavior",
+        "study_material_ids": [
+            "ple-487--otivation-eadership-and-ork-ehavior"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "team_dynamics",
+            "team_effectiveness"
+        ],
+        "source_ids": [
+            "apa-personnel-selection-principles-2018",
+            "openstax-psychology-2e",
+            "prc-psychometrician-enhanced-tos-2023"
+        ],
+        "difficulty": "hard",
+        "question": "A team workshop improves satisfaction ratings for one week, but task coordination does not change. What should an evaluator conclude?",
+        "choices": [
+            "Treat the rating as limited evidence and check sustained team processes and performance outcomes.",
+            "Declare the workshop effective because satisfaction is always the primary outcome.",
+            "Discard all survey information because task coordination is the only valid measure.",
+            "Attribute the unchanged coordination to one resistant member without further evidence."
+        ],
+        "answer": "Treat the rating as limited evidence and check sustained team processes and performance outcomes.",
+        "explanation": "A short-term satisfaction change is one signal; team effectiveness requires attention to sustained processes and relevant work outcomes.",
+        "source": "BoardPrep-authored",
+        "batch_marker": "batch643",
+        "batch643_key": "team-intervention-outcome",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "analysis and professional judgment",
+        "scenario_length": "STANDARD",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": false,
+        "source_sensitivity": "STABLE_FOUNDATIONAL",
+        "version_sensitive_categories": [],
+        "version_sensitive": false,
+        "version_review_status": "CURRENT_VERIFIED",
+        "currentness_verified": true,
+        "professional_context": "PROFESSIONAL",
+        "scenario_family": "team_effectiveness",
+        "misconception_family": "satisfaction_equals_effectiveness"
     }
 ]
