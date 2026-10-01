@@ -19,6 +19,7 @@ final class QuestionValidationService
         self::validateOptions($question, $errors);
         self::validateExplanation($question, $errors);
         self::validateReuseMetadata($question, $errors);
+        self::validateCalculationMetadata($question, $errors);
 
         return [
             'valid' => empty($errors),
@@ -249,6 +250,16 @@ final class QuestionValidationService
         foreach (\App\Services\Question\QuestionReuseMetadataService::validate($question['reuse']) as $error) {
             $errors[] = $error;
         }
+    }
+
+    private static function validateCalculationMetadata(array $question, array &$errors): void
+    {
+        $contract = \App\Services\Question\CalculationMetadataContract::inspect($question);
+        if (($contract['valid'] ?? false) === true) {
+            return;
+        }
+
+        $errors[] = (string) ($contract['message'] ?? 'Invalid calculation metadata');
     }
 
     private static function normalizeText(string $text): string

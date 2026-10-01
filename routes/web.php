@@ -109,7 +109,7 @@ $router->get(
     [DoctorDashboardController::class, "index"]
 );
 
-$router->get(
+$router->post(
     "/developer/doctor/run",
     [DoctorRunController::class, "run"]
 );

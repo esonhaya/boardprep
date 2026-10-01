@@ -30,6 +30,7 @@ final class RuntimeFunctionTestCheck implements CheckInterface
 
         $command =
             escapeshellarg(PHP_BINARY)
+            . ' -d memory_limit=1024M'
             . ' '
             . escapeshellarg($testFile);
 

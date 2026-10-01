@@ -1,10 +1,11 @@
 {
-    "health": 76,
+    "generated_at": "2026-10-01T07:35:18+00:00",
+    "health": 32,
     "summary": {
-        "checks": 30,
-        "pass": 18,
-        "warning": 12,
-        "fail": 0,
+        "checks": 38,
+        "pass": 17,
+        "warning": 19,
+        "fail": 2,
         "info": 0,
         "findings": 1
     },
@@ -22,12 +23,12 @@
             "category": "complexity",
             "rule": "largest_method",
             "title": "Large Method",
-            "message": "testGenerationBehavior contains 123 lines, exceeding the recommended limit of 60.",
-            "file": "./tools/Tests/QuizTest.php",
-            "symbol": "testGenerationBehavior",
+            "message": "analyze contains 414 lines, exceeding the recommended limit of 60.",
+            "file": "./app/Services/Shared/ContentIntegrityService.php",
+            "symbol": "analyze",
             "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
             "evidence": {
-                "lines": 123,
+                "lines": 414,
                 "threshold": 60
             },
             "impact": 100,
@@ -53,12 +54,12 @@
             "priority": "Critical",
             "impact": 100,
             "effort": "Small",
-            "message": "testGenerationBehavior contains 123 lines, exceeding the recommended limit of 60.",
-            "file": "./tools/Tests/QuizTest.php",
-            "symbol": "testGenerationBehavior",
+            "message": "analyze contains 414 lines, exceeding the recommended limit of 60.",
+            "file": "./app/Services/Shared/ContentIntegrityService.php",
+            "symbol": "analyze",
             "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
             "evidence": {
-                "lines": 123,
+                "lines": 414,
                 "threshold": 60
             }
         },
@@ -77,12 +78,12 @@
             "category": "complexity",
             "rule": "largest_method",
             "title": "Large Method",
-            "message": "testGenerationBehavior contains 123 lines, exceeding the recommended limit of 60.",
-            "file": "./tools/Tests/QuizTest.php",
-            "symbol": "testGenerationBehavior",
+            "message": "analyze contains 414 lines, exceeding the recommended limit of 60.",
+            "file": "./app/Services/Shared/ContentIntegrityService.php",
+            "symbol": "analyze",
             "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
             "evidence": {
-                "lines": 123,
+                "lines": 414,
                 "threshold": 60
             },
             "impact": 100,
@@ -105,12 +106,12 @@
                     "category": "complexity",
                     "rule": "largest_method",
                     "title": "Large Method",
-                    "message": "testGenerationBehavior contains 123 lines, exceeding the recommended limit of 60.",
-                    "file": "./tools/Tests/QuizTest.php",
-                    "symbol": "testGenerationBehavior",
+                    "message": "analyze contains 414 lines, exceeding the recommended limit of 60.",
+                    "file": "./app/Services/Shared/ContentIntegrityService.php",
+                    "symbol": "analyze",
                     "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
                     "evidence": {
-                        "lines": 123,
+                        "lines": 414,
                         "threshold": 60
                     },
                     "impact": 100,
@@ -151,8 +152,30 @@
             "details": [
                 "Passed: 26",
                 "Failed: 0",
-                "Execution time: 0.021s"
+                "Execution time: 20.937s"
             ],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Study Plan Contract",
+            "status": "PASS",
+            "summary": "Study-plan fallback and production dashboard contracts are valid.",
+            "details": [
+                "Empty-state fallback: General",
+                "Fallback action: /quiz?",
+                "Production plan: 1-5 items"
+            ],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Static Call Contract",
+            "status": "PASS",
+            "summary": "All statically resolvable static calls are valid.",
+            "details": [],
             "recommendations": [],
             "score": 100,
             "findings": []
@@ -162,14 +185,14 @@
             "status": "PASS",
             "summary": "Current project size",
             "details": [
-                "Controllers : 24",
-                "Services    : 125",
-                "Repositories: 9",
+                "Controllers : 28",
+                "Services    : 282",
+                "Repositories: 11",
                 "Domains     : 1",
-                "Classes     : 320",
-                "Interfaces  : 3",
+                "Classes     : 363",
+                "Interfaces  : 2",
                 "Traits      : 0",
-                "PHP Files   : 391"
+                "PHP Files   : 440"
             ],
             "recommendations": [],
             "score": 100,
@@ -178,18 +201,18 @@
         {
             "title": "Hotspots",
             "status": "WARNING",
-            "summary": "App.php (34)",
+            "summary": "App.php (60)",
             "details": [
-                " 34  App.php",
-                " 33  CheckResult.php",
-                " 27  DoctorContext.php",
-                " 19  web.php",
-                " 19  QuizTest.php",
-                " 19  ServiceTest.php",
-                " 18  BaseDeveloperController.php",
-                " 18  QuestionRepository.php",
-                " 17  DoctorResult.php",
-                " 14  ApplicationSimulator.php"
+                " 60  App.php",
+                " 26  web.php",
+                " 25  TaxonomyStorageService.php",
+                " 24  QuestionRepository.php",
+                " 17  BaseDeveloperController.php",
+                " 17  LearningHistoryService.php",
+                " 17  QuizFlowController.php",
+                " 16  RepositoryHealthEngine.php",
+                " 15  View.php",
+                " 15  BoardViewService.php"
             ],
             "recommendations": [],
             "score": 100,
@@ -197,17 +220,51 @@
         },
         {
             "title": "Dependency Consistency",
-            "status": "PASS",
-            "summary": "No cross-file API inconsistencies detected across 249 application PHP file(s).",
+            "status": "FAIL",
+            "summary": "36 cross-file API consistency issue(s) detected.",
             "details": [
-                "Class resolution ........ PASS",
-                "Method contracts ........ PASS",
-                "Property contracts ...... PASS",
-                "Constructor arguments ... PASS",
-                "Inheritance contracts ... PASS"
+                "./app/Repositories/FlashcardStateRepository.php:26  App\\Repositories\\BaseRepository::all() is an instance method, not static",
+                "./app/Repositories/FlashcardStateRepository.php:34  App\\Repositories\\BaseRepository::find() is an instance method, not static",
+                "./app/Repositories/FlashcardStateRepository.php:46  App\\Repositories\\BaseRepository::all() is an instance method, not static",
+                "./app/Repositories/FlashcardStateRepository.php:110  App\\Repositories\\BaseRepository::create() is an instance method, not static",
+                "./app/Repositories/FlashcardStateRepository.php:113  App\\Repositories\\BaseRepository::update() is an instance method, not static",
+                "./app/Repositories/FlashcardStateRepository.php:118  App\\Repositories\\BaseRepository::delete() is an instance method, not static",
+                "./app/Repositories/FlashcardStateRepository.php:142  App\\Repositories\\BaseRepository::all() is an instance method, not static",
+                "./app/Repositories/FlashcardStateRepository.php:148  App\\Repositories\\BaseRepository::replaceAll() is an instance method, not static",
+                "./app/Repositories/QuestionRepository.php:95  App\\Repositories\\BaseRepository::create() is an instance method, not static",
+                "./app/Repositories/QuestionRepository.php:102  App\\Repositories\\BaseRepository::update() is an instance method, not static",
+                "./app/Repositories/QuestionRepository.php:109  App\\Repositories\\BaseRepository::replaceAll() is an instance method, not static",
+                "./app/Services/Board/BoardViewService.php:67  Referenced class App\\Core\\App\\Services\\Question\\QuestionReuseEligibilityResolver cannot be resolved",
+                "./app/Services/Board/BoardViewService.php:153  Referenced class App\\Core\\App\\Constants\\Status cannot be resolved",
+                "./app/Services/Question/StructuredContentService.php:56  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:62  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:94  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:99  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:104  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:109  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:124  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:126  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:131  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:141  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:145  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:149  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:156  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:217  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:224  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:227  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:230  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:233  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Question/StructuredContentService.php:236  App\\Services\\Question\\StructuredContentService::issue() receives 2 argument(s); expected 3-3",
+                "./app/Services/Quiz/LET/LETVariantExamService.php:20  Referenced type App\\Services\\Quiz\\LET\\QuizSpecification cannot be resolved",
+                "./app/Services/Quiz/LET/LETVariantExamService.php:29  Referenced type App\\Services\\Quiz\\LET\\QuizSpecification cannot be resolved",
+                "./app/Services/Quiz/LET/LETVariantExamService.php:32  Referenced type App\\Services\\Quiz\\LET\\QuizSpecification cannot be resolved",
+                "./app/Services/Shared/QuestionCoverageService.php:97  App\\Services\\Shared\\QuestionCoverageService::taxonomyOrphans() receives 1 argument(s); expected 6-6"
             ],
-            "recommendations": [],
-            "score": 100,
+            "recommendations": [
+                "Fix dependency API mismatches before relying on application simulations.",
+                "Treat typed properties, method signatures, constructors, and inheritance contracts as cross-file APIs."
+            ],
+            "score": 0,
             "findings": []
         },
         {
@@ -228,7 +285,7 @@
             "details": [
                 "Controllers         100",
                 "Services            100",
-                "Dependencies        92",
+                "Dependencies        86",
                 "Maintainability      60",
                 "Technical Debt      100"
             ],
@@ -247,33 +304,37 @@
         },
         {
             "title": "Technical Debt",
-            "status": "PASS",
-            "summary": "Debt Score: 50",
+            "status": "WARNING",
+            "summary": "Debt Score: 60",
             "details": [],
-            "recommendations": [],
+            "recommendations": [
+                "Reduce long files.",
+                "Resolve architectural violations.",
+                "Remove dead code."
+            ],
             "score": 100,
             "findings": []
         },
         {
             "title": "Dead Classes",
             "status": "WARNING",
-            "summary": "50 potentially unused classes.",
+            "summary": "56 potentially unused classes.",
             "details": [
                 "AdaptiveQuizService (./app/Services/Quiz/AdaptiveQuizService.php)",
                 "Arr (./app/Foundation/Arr.php)",
-                "AttemptService (./app/Services/AttemptService.php)",
                 "BlueprintAllocationReconciler (./app/Services/Quiz/Blueprint/BlueprintAllocationReconciler.php)",
                 "BlueprintDifficultyAllocator (./app/Services/Quiz/Blueprint/BlueprintDifficultyAllocator.php)",
+                "BlueprintDistributionDiagnostics (./app/Services/Quiz/Blueprint/BlueprintDistributionDiagnostics.php)",
+                "BlueprintDistributionGuard (./app/Services/Quiz/Blueprint/BlueprintDistributionGuard.php)",
                 "BoardBlueprintResolver (./app/Services/Quiz/Board/BoardBlueprintResolver.php)",
                 "Collection (./app/Foundation/Collection.php)",
-                "Config (./app/Core/Config.php)",
                 "CoverageTracker (./app/Services/Quiz/Coverage/CoverageTracker.php)",
                 "CreateQuestion (./app/Domains/Question/Actions/CreateQuestion.php)",
                 "DeveloperComponentRenderer (./app/Services/Developer/DeveloperComponentRenderer.php)",
-                "DoctorApiController (./app/Controllers/DoctorApiController.php)",
-                "DoctorDashboardController (./app/Controllers/DoctorDashboardController.php)",
+                "DeveloperPageBuilder (./app/Builders/Developer/DeveloperPageBuilder.php)",
                 "DoctorHistoryService (./app/Services/Developer/DoctorHistoryService.php)",
-                "DoctorRunController (./app/Controllers/DoctorRunController.php)"
+                "EntityCardBuilder (./app/Builders/Developer/EntityCardBuilder.php)",
+                "EntityFactory (./app/Support/EntityFactory.php)"
             ],
             "recommendations": [],
             "score": 100,
@@ -282,10 +343,10 @@
         {
             "title": "Technical Debt Breakdown",
             "status": "PASS",
-            "summary": "Debt Score: 590",
+            "summary": "Debt Score: 298",
             "details": [
-                "Largest Methods ...... 590",
-                "Largest Service File .. 0",
+                "Largest Methods ...... 290",
+                "Largest Service File .. 8",
                 "Layer Violations ..... 0",
                 "Legacy Files ......... 0",
                 "Unused Imports ....... 0",
@@ -297,9 +358,12 @@
         },
         {
             "title": "Circular Dependencies",
-            "status": "PASS",
-            "summary": "No circular dependencies detected.",
-            "details": [],
+            "status": "WARNING",
+            "summary": "2 circular dependencies detected.",
+            "details": [
+                "App.php \u2194 Database.php",
+                "QuestionEligibilityService.php \u2194 QuestionReuseEligibilityResolver.php"
+            ],
             "recommendations": [],
             "score": 100,
             "findings": []
@@ -307,31 +371,52 @@
         {
             "title": "Quality Gate",
             "status": "WARNING",
-            "summary": "1 quality gate(s) require attention.",
+            "summary": "2 quality gate(s) require attention.",
             "details": [],
             "recommendations": [],
             "score": 100,
             "findings": []
         },
         {
-            "title": "Largest Controller",
-            "status": "PASS",
-            "summary": "./app/Controllers/QuestionEditorController.php (234 lines)",
+            "title": "Static Call Signatures",
+            "status": "FAIL",
+            "summary": "9 static call signature violation(s).",
             "details": [
-                "Threshold : 300",
-                "Current   : 234"
+                "./app/Services/Shared/ContentPriorityService.php:501 self::key() uses 2 argument(s); expected 1-1.",
+                "./app/Services/Shared/ContentPriorityService.php:805 self::key() uses 3 argument(s); expected 1-1.",
+                "./app/Services/Shared/ContentPriorityService.php:810 self::key() uses 3 argument(s); expected 1-1.",
+                "./app/Services/Shared/ContentPriorityService.php:832 self::key() uses 2 argument(s); expected 1-1.",
+                "./app/Services/Shared/ContentPriorityService.php:833 self::key() uses 3 argument(s); expected 1-1.",
+                "./app/Services/Shared/ContentPriorityService.php:834 self::key() uses 4 argument(s); expected 1-1.",
+                "./app/Services/Shared/QuestionCoverageService.php:48 self::catalogs() uses 5 argument(s); expected 1-1.",
+                "./app/Services/Shared/QuestionCoverageService.php:50 self::emptyIssues() uses 6 argument(s); expected 1-1.",
+                "./app/Services/Shared/QuestionCoverageService.php:97 self::taxonomyOrphans() uses 1 argument(s); expected 6-6."
             ],
             "recommendations": [],
+            "score": 10,
+            "findings": []
+        },
+        {
+            "title": "Largest Controller",
+            "status": "WARNING",
+            "summary": "./app/Controllers/QuestionEditorController.php (435 lines)",
+            "details": [
+                "Threshold : 300",
+                "Current   : 435"
+            ],
+            "recommendations": [
+                "Split ./app/Controllers/QuestionEditorController.php into smaller action-oriented classes."
+            ],
             "score": 100,
             "findings": []
         },
         {
             "title": "Largest Method",
             "status": "WARNING",
-            "summary": "Largest method contains 123 lines.",
+            "summary": "Largest method contains 414 lines.",
             "details": [
-                "Method: testGenerationBehavior",
-                "File: ./tools/Tests/QuizTest.php"
+                "Method: analyze",
+                "File: ./app/Services/Shared/ContentIntegrityService.php"
             ],
             "recommendations": [],
             "score": 70,
@@ -342,12 +427,12 @@
                     "category": "complexity",
                     "rule": "largest_method",
                     "title": "Large Method",
-                    "message": "testGenerationBehavior contains 123 lines, exceeding the recommended limit of 60.",
-                    "file": "./tools/Tests/QuizTest.php",
-                    "symbol": "testGenerationBehavior",
+                    "message": "analyze contains 414 lines, exceeding the recommended limit of 60.",
+                    "file": "./app/Services/Shared/ContentIntegrityService.php",
+                    "symbol": "analyze",
                     "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
                     "evidence": {
-                        "lines": 123,
+                        "lines": 414,
                         "threshold": 60
                     },
                     "impact": 100,
@@ -358,26 +443,30 @@
         },
         {
             "title": "Largest Service",
-            "status": "PASS",
-            "summary": "./app/Services/Quiz/QuizScoringService.php (194 lines)",
+            "status": "WARNING",
+            "summary": "./app/Services/RepositoryHealth/Engine/RepositoryHealthEngine.php (1213 lines)",
             "details": [
                 "Threshold : 250",
-                "Current   : 194"
+                "Current   : 1213"
             ],
-            "recommendations": [],
+            "recommendations": [
+                "Split ./app/Services/RepositoryHealth/Engine/RepositoryHealthEngine.php into smaller collaborators."
+            ],
             "score": 100,
             "findings": []
         },
         {
             "title": "Controller Complexity",
-            "status": "PASS",
+            "status": "WARNING",
             "summary": "app/Controllers/QuestionEditorController.php",
             "details": [
-                "Methods         : 8",
-                "Public Methods  : 7",
-                "Private Methods : 1"
+                "Methods         : 19",
+                "Public Methods  : 11",
+                "Private Methods : 8"
             ],
-            "recommendations": [],
+            "recommendations": [
+                "Review whether the controller should be split by responsibility."
+            ],
             "score": 100,
             "findings": []
         },
@@ -386,9 +475,9 @@
             "status": "WARNING",
             "summary": "Risk Score: 100/100 (High)",
             "details": [
-                "Highest coupling: ./app/Core/App.php (34 dependencies)",
-                "Total application dependencies: 756",
-                "Highly coupled files: 12"
+                "Highest coupling: ./app/Core/App.php (60 dependencies)",
+                "Total application dependencies: 1418",
+                "Highly coupled files: 23"
             ],
             "recommendations": [
                 "Prioritize dependency concentration before major refactoring.",
@@ -400,18 +489,18 @@
         {
             "title": "Change Impact",
             "status": "WARNING",
-            "summary": "App.php affects 32 application file(s)",
+            "summary": "App.php affects 57 application file(s)",
             "details": [
+                "DeveloperToolsController.php",
+                "DoctorApiController.php",
+                "DoctorDashboardController.php",
+                "DoctorRunController.php",
+                "FlashcardController.php",
+                "HomeController.php",
+                "QuizFlowController.php",
+                "Database.php",
                 "Storage.php",
-                "BlueprintService.php",
-                "BlueprintService.php",
-                "BoardService.php",
-                "BoardViewService.php",
-                "LearningHistoryService.php",
-                "LearningStatisticsService.php",
-                "WeaknessStorageService.php",
-                "QuestionDuplicateService.php",
-                "QuestionEditorService.php"
+                "BlueprintService.php"
             ],
             "recommendations": [
                 "Review the affected application files before changing this component.",
@@ -421,15 +510,51 @@
             "findings": []
         },
         {
+            "title": "Prerequisite Integrity",
+            "status": "PASS",
+            "summary": "Required-concept references are valid and acyclic.",
+            "details": [
+                "Requirements=845; questions=8813; concepts=974; material_edges=286.",
+                "INVALID_REQUIRED_CONCEPT_REFERENCES=0",
+                "SELF_PREREQUISITES=0",
+                "CIRCULAR_PREREQUISITES=0",
+                "DUPLICATE_REQUIRED_CONCEPTS=0"
+            ],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Content Integrity",
+            "status": "PASS",
+            "summary": "Structural content integrity and portfolio readiness checks passed.",
+            "details": [
+                "Repository Health: 8813 questions, 8813 eligible, 8795 derivable cards, 18 justified exclusions, 0 defects, status REVIEW.",
+                "BOARD=architecture QUESTIONS=472 EFFECTIVE=472 RUNTIME=472 FLASHCARDS=472/472 STATUS=PASS",
+                "BOARD=civil-engineering QUESTIONS=922 EFFECTIVE=922 RUNTIME=922 FLASHCARDS=922/922 STATUS=PASS",
+                "BOARD=civil-service QUESTIONS=1550 EFFECTIVE=1804 RUNTIME=2113 FLASHCARDS=1550/1550 STATUS=WARN",
+                "BOARD=cpa QUESTIONS=1132 EFFECTIVE=1132 RUNTIME=1132 FLASHCARDS=1132/1132 STATUS=PASS",
+                "BOARD=criminologist QUESTIONS=429 EFFECTIVE=532 RUNTIME=532 FLASHCARDS=429/429 STATUS=WARN",
+                "BOARD=let QUESTIONS=1744 EFFECTIVE=1827 RUNTIME=1842 FLASHCARDS=1726/1744 STATUS=WARN",
+                "BOARD=mechanical-engineering QUESTIONS=464 EFFECTIVE=464 RUNTIME=464 FLASHCARDS=464/464 STATUS=PASS",
+                "BOARD=nursing QUESTIONS=878 EFFECTIVE=898 RUNTIME=898 FLASHCARDS=878/878 STATUS=WARN",
+                "BOARD=psychometrician QUESTIONS=380 EFFECTIVE=380 RUNTIME=380 FLASHCARDS=380/380 STATUS=PASS",
+                "BOARD=registered-electrical-engineering QUESTIONS=842 EFFECTIVE=842 RUNTIME=842 FLASHCARDS=842/842 STATUS=PASS"
+            ],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
             "title": "Dependency Coupling",
             "status": "WARNING",
-            "summary": "./app/Core/App.php (34 dependencies)",
+            "summary": "./app/Core/App.php (60 dependencies)",
             "details": [
-                "34  ./app/Core/App.php",
-                "19  ./routes/web.php",
-                "19  ./tools/Tests/QuizTest.php",
-                "19  ./tools/Tests/ServiceTest.php",
-                "18  ./app/Controllers/BaseDeveloperController.php"
+                "60  ./app/Core/App.php",
+                "26  ./routes/web.php",
+                "25  ./app/Services/Shared/TaxonomyStorageService.php",
+                "24  ./app/Repositories/QuestionRepository.php",
+                "17  ./app/Controllers/BaseDeveloperController.php"
             ],
             "recommendations": [
                 "Review the highest-coupled application component.",
@@ -441,18 +566,18 @@
         {
             "title": "Cyclomatic Complexity",
             "status": "WARNING",
-            "summary": "QuestionMetadataBuilderService.php::build() (25)",
+            "summary": "ContentIntegrityService.php::analyze() (202)",
             "details": [
-                "25  QuestionMetadataBuilderService.php::build()",
-                "25  BaseSpecificationFactory.php::create()",
-                "22  BlueprintService.php::create()",
-                "22  DependencyCouplingCheck.php::run()",
-                "22  DependencyConsistencyScanner.php::parseDeclarations()",
-                "21  ChangeImpactCheck.php::run()",
-                "20  RecommendationService.php::generate()",
-                "20  RegressionCheck.php::run()",
-                "19  DoctorHistoryService.php::compare()",
-                "19  BlueprintValidator.php::validate()"
+                "202  ContentIntegrityService.php::analyze()",
+                "164  ContentQaService.php::analyze()",
+                "108  QuestionEligibilityService.php::editorMappings()",
+                "108  RepositoryHealthEngine.php::boardSummaries()",
+                "100  QuestionReuseEligibilityResolver.php::validateDerivedRelationship()",
+                "99  ContentPriorityService.php::analyze()",
+                "91  QuestionEligibilityService.php::forExam()",
+                "80  QuestionReuseEligibilityResolver.php::resolve()",
+                "73  RepositoryHealthEngine.php::addMetadataIssues()",
+                "70  RepositoryHealthEngine.php::addEligibilityIssues()"
             ],
             "recommendations": [
                 "Reduce branching by extracting smaller methods."
@@ -461,20 +586,44 @@
             "findings": []
         },
         {
+            "title": "Question Coverage",
+            "status": "WARNING",
+            "summary": "Canonical Repository Health reports 0 deterministic failures, 2 review items, and 529 thin/zero-leaf signals.",
+            "details": [
+                "Questions: 8813 total; production eligible counts are exposed per board.",
+                "Repository totals: canonical 8813; effective 9273; runtime 9597.",
+                "architecture: canonical 472, effective 472, runtime 472; active leaves 14; under20 6; zero 0.",
+                "civil-engineering: canonical 922, effective 922, runtime 922; active leaves 19; under20 0; zero 0.",
+                "civil-service: canonical 1550, effective 1804, runtime 2113; active leaves 120; under20 80; zero 67.",
+                "cpa: canonical 1132, effective 1132, runtime 1132; active leaves 113; under20 113; zero 0.",
+                "criminologist: canonical 429, effective 532, runtime 532; active leaves 37; under20 33; zero 4.",
+                "let: canonical 1744, effective 1827, runtime 1842; active leaves 205; under20 184; zero 3.",
+                "mechanical-engineering: canonical 464, effective 464, runtime 464; active leaves 14; under20 4; zero 0.",
+                "nursing: canonical 878, effective 898, runtime 898; active leaves 40; under20 10; zero 10.",
+                "psychometrician: canonical 380, effective 380, runtime 380; active leaves 4; under20 0; zero 0.",
+                "registered-electrical-engineering: canonical 842, effective 842, runtime 842; active leaves 37; under20 15; zero 0."
+            ],
+            "recommendations": [
+                "Use the Repository Health action queue for deterministic repairs and future content planning."
+            ],
+            "score": 100,
+            "findings": []
+        },
+        {
             "title": "Maintainability",
             "status": "WARNING",
-            "summary": "./tools/Doctor/Scanners/DependencyConsistencyScanner.php (36)",
+            "summary": "./app/Services/Question/QuestionEligibilityService.php (10)",
             "details": [
-                " 36  ./tools/Doctor/Scanners/DependencyConsistencyScanner.php",
-                " 44  ./tools/Tests/QuizTest.php",
-                " 54  ./tools/Doctor/Project/BoardPrep/Simulation/HttpSimulator.php",
-                " 55  ./app/Services/Learning/RecommendationService.php",
-                " 56  ./app/Services/Question/QuestionMetadataBuilderService.php",
-                " 56  ./app/Services/Quiz/Specification/BaseSpecificationFactory.php",
-                " 57  ./app/Services/Shared/BlueprintValidator.php",
-                " 58  ./app/Services/Quiz/Blueprint/BlueprintDistributionService.php",
-                " 58  ./tools/Doctor/Scanners/TokenScanner.php",
-                " 60  ./app/Services/Quiz/Blueprint/BlueprintIntegrityValidator.php"
+                " 10  ./app/Services/Question/QuestionEligibilityService.php",
+                " 14  ./app/Services/RepositoryHealth/Engine/RepositoryHealthEngine.php",
+                " 17  ./app/Services/Shared/ContentIntegrityService.php",
+                " 17  ./app/Services/Shared/ContentPriorityService.php",
+                " 18  ./app/Services/Question/QuestionReuseEligibilityResolver.php",
+                " 43  ./app/Services/Shared/ContentQaService.php",
+                " 45  ./app/Controllers/QuestionEditorController.php",
+                " 45  ./app/Services/Flashcard/FlashcardDerivationService.php",
+                " 47  ./app/Services/Question/QuestionEligibilityIndex.php",
+                " 47  ./app/Services/Quiz/LET/LETVariantRegistry.php"
             ],
             "recommendations": [
                 "Improve maintainability by reducing file size, complexity and responsibilities."
@@ -487,20 +636,29 @@
             "status": "WARNING",
             "summary": "Largest methods suitable for extraction.",
             "details": [
-                "123  QuizTest.php::testGenerationBehavior()",
-                "121  QuizScoringService.php::calculate()",
-                "114  RegressionCheck.php::run()",
-                "107  BlueprintExecutor.php::execute()",
-                "106  QuizTest.php::testSubmissionBehavior()",
-                "106  QuizTest.php::testBlueprintCoverageBehavior()",
-                "102  CyclomaticComplexityCheck.php::run()",
-                "101  QuizTest.php::testBlueprintDistributionBehavior()",
-                " 99  QuizStartService.php::start()",
-                " 98  AdaptiveQuizService.php::prioritize()"
+                "414  ContentIntegrityService.php::analyze()",
+                "207  RepositoryHealthEngine.php::boardSummaries()",
+                "180  ContentPriorityService.php::analyze()",
+                "172  ContentQaService.php::analyze()",
+                "116  QuestionEligibilityService.php::editorMappings()",
+                "108  DeveloperToolsController.php::index()",
+                " 96  QuestionEligibilityService.php::validateMapping()",
+                " 92  BoardViewService.php::withSubjects()",
+                " 91  QuestionReuseEligibilityResolver.php::resolve()",
+                " 90  RepositoryHealthEngine.php::addIntegrityIssues()"
             ],
             "recommendations": [
                 "Extract helper methods before adding new functionality."
             ],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "Namespace Contracts",
+            "status": "PASS",
+            "summary": "Namespace and import references resolve.",
+            "details": [],
+            "recommendations": [],
             "score": 100,
             "findings": []
         },
@@ -518,9 +676,11 @@
         },
         {
             "title": "Layer Violations",
-            "status": "PASS",
-            "summary": "No layer violations detected.",
-            "details": [],
+            "status": "WARNING",
+            "summary": "1 layer violations detected.",
+            "details": [
+                "HomeController.php -> QuestionRepository.php"
+            ],
             "recommendations": [
                 "Inject Services instead of Repositories.",
                 "Keep Controllers independent of persistence."
@@ -531,19 +691,11 @@
         {
             "title": "Unused Imports",
             "status": "WARNING",
-            "summary": "11 unused imports found.",
+            "summary": "3 unused imports found.",
             "details": [
-                "./app/Storage/MysqlStorage.php :: StorageException",
                 "./app/Views/developer/components/action-bar.php :: ActionBarViewModel",
-                "./app/Views/developer/components/entity-card.php :: EntityCardViewModel",
                 "./app/Views/developer/components/page-header.php :: PageHeaderViewModel",
-                "./app/Views/developer/components/summary.php :: SummaryViewModel",
-                "./tools/Doctor/Advisor/QuickWinAdvisor.php :: DiagnosticFinding",
-                "./tools/Doctor/Advisor/RecommendationAdvisor.php :: DiagnosticFinding",
-                "./tools/Doctor/DTO/DoctorResult.php :: DiagnosticFinding",
-                "./tools/Doctor/Project/BoardPrep/Simulation/Runner/SimulationRunner.php :: SimulationResult",
-                "./tools/Doctor/Project/BoardPrep/Simulation/Runner/SimulationRunner.php :: SimulationScenario",
-                "./tools/Tests/MethodMetricsAnalyzerTest.php :: Rules"
+                "./app/Views/developer/components/summary.php :: SummaryViewModel"
             ],
             "recommendations": [
                 "Remove unused imports to reduce noise."
@@ -554,11 +706,24 @@
         {
             "title": "Long Parameter Lists",
             "status": "WARNING",
-            "summary": "3 long parameter lists found.",
+            "summary": "16 long parameter lists found.",
             "details": [
-                "app/DTO/QuizSpecification.php (13 parameters)",
-                "app/Services/Quiz/Selection/SelectionRequest.php (6 parameters)",
-                "app/Services/Quiz/Blueprint/BlueprintExecutionResult.php (7 parameters)"
+                "app/DTO/QuizSpecification.php (16 parameters)",
+                "app/Services/Blueprint/Creation/BlueprintCreationInput.php (7 parameters)",
+                "app/Services/Board/ExamContentReadinessService.php (7 parameters)",
+                "app/Services/Flashcard/FlashcardService.php (6 parameters)",
+                "app/Services/Quiz/Blueprint/BlueprintExecutionResult.php (7 parameters)",
+                "app/Services/Quiz/Blueprint/BlueprintExecutionResultFactory.php (7 parameters)",
+                "app/Services/Quiz/Selection/SelectionRequest.php (11 parameters)",
+                "app/Services/RepositoryHealth/Engine/RepositoryHealthEngine.php (9 parameters)",
+                "app/Services/RepositoryHealth/Engine/RepositoryHealthCheckCatalog.php (6 parameters)",
+                "app/Services/Shared/ContentIntegrityService.php (6 parameters)",
+                "app/Services/Shared/ContentPriorityService.php (11 parameters)",
+                "app/Services/Shared/ContentPriorityService.php (7 parameters)",
+                "app/Services/Shared/ContentPriorityService.php (7 parameters)",
+                "app/Services/Shared/ContentQaService.php (8 parameters)",
+                "app/Services/Shared/QuestionCoverageService.php (8 parameters)",
+                "app/Services/Shared/QuestionCoverageService.php (6 parameters)"
             ],
             "recommendations": [
                 "Consider DTOs, value objects or builders for large parameter lists."
@@ -599,9 +764,27 @@
             "summary": "Foundation adoption overview",
             "details": [
                 "Arr        : 0",
-                "Collection : 0",
+                "Collection : 8",
                 "Html       : 0",
                 "Str        : 0"
+            ],
+            "recommendations": [],
+            "score": 100,
+            "findings": []
+        },
+        {
+            "title": "UI Contract Engine",
+            "status": "PASS",
+            "summary": "UI health 100% across 65 production templates; 0 finding(s).",
+            "details": [
+                "LEGACY_PRESENTATIONAL_TABLE=0",
+                "TABLE_MOBILE_RISK=0",
+                "HEADING_WRAP_RISK=0",
+                "COLLECTION_PREVIEW_TOO_LARGE=0",
+                "MISSING_VIEW_ALL=0",
+                "ACTION_EMOJI=0",
+                "FORM_UNLABELLED=0",
+                "ARCHETYPE_INCOMPLETE=0"
             ],
             "recommendations": [],
             "score": 100,
@@ -615,12 +798,12 @@
             "category": "complexity",
             "rule": "largest_method",
             "title": "Large Method",
-            "message": "testGenerationBehavior contains 123 lines, exceeding the recommended limit of 60.",
-            "file": "./tools/Tests/QuizTest.php",
-            "symbol": "testGenerationBehavior",
+            "message": "analyze contains 414 lines, exceeding the recommended limit of 60.",
+            "file": "./app/Services/Shared/ContentIntegrityService.php",
+            "symbol": "analyze",
             "recommendation": "Extract cohesive logic into smaller private methods or collaborators.",
             "evidence": {
-                "lines": 123,
+                "lines": 414,
                 "threshold": 60
             },
             "impact": 100,

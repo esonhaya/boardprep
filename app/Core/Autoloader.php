@@ -183,9 +183,8 @@ final class Autoloader
 
                     if (is_file($file)) {
                         require_once $file;
+                        return;
                     }
-
-                    return;
                 }
 
                 // A small legacy layer is required while the remaining

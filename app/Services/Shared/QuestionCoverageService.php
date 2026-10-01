@@ -6,6 +6,8 @@ namespace App\Services\Shared;
 
 use App\Core\App;
 use App\Repositories\QuestionRepository;
+use App\Services\Question\QuestionEligibilityIndex;
+use App\Services\Question\QuestionReuseEligibilityResolver;
 
 final class QuestionCoverageService
 {
@@ -14,6 +16,12 @@ final class QuestionCoverageService
     public static function analyzeRepository(): array
     {
         $storage = App::storage();
+        $eligibilityIndex = new QuestionEligibilityIndex(
+            $storage->all('question-eligibility'),
+            $storage->all('blueprints'),
+            QuestionReuseEligibilityResolver::productionDerivedRelationships(),
+            $storage->all('question-reuse-overrides')
+        );
 
         return self::analyze(
             (new QuestionRepository($storage))->all(),
@@ -22,7 +30,8 @@ final class QuestionCoverageService
             $storage->all('board-subjects'),
             $storage->all('taxonomy/domains'),
             $storage->all('taxonomy/topics'),
-            $storage->all('taxonomy/concepts')
+            $storage->all('taxonomy/concepts'),
+            $eligibilityIndex
         );
     }
 
@@ -33,7 +42,8 @@ final class QuestionCoverageService
         array $boardSubjects,
         array $domains,
         array $topics,
-        array $concepts
+        array $concepts,
+        ?QuestionEligibilityIndex $eligibilityIndex = null
     ): array {
         $catalog = self::catalogs($boards, $subjects, $domains, $topics, $concepts);
         $inventory = self::emptyInventory(count($questions));
@@ -45,14 +55,27 @@ final class QuestionCoverageService
             $topics,
             $concepts
         );
+        // The previous implementation called QuestionPoolFilter once for
+        // every question. That made the normal Doctor path quadratic over the
+        // repository. The production filter is still the source of truth; we
+        // simply materialize its no-exam eligible ID set once.
+        $eligibleQuestionIds = [];
+        foreach (\QuestionPoolFilter::filter(
+            $questions,
+            new \SelectionRequest('*', null, [], 1)
+        ) as $eligibleQuestion) {
+            if (is_array($eligibleQuestion) && is_scalar($eligibleQuestion['id'] ?? null)) {
+                $eligibleQuestionIds[(string) $eligibleQuestion['id']] = true;
+            }
+        }
         foreach ($questions as $question) {
-            self::inspectQuestion($question, $questions, $catalog, $inventory, $issues);
+            self::inspectQuestion($question, $catalog, $eligibleQuestionIds, $inventory, $issues);
         }
         self::finalizeReport($inventory, $issues);
         return [
             'inventory' => $inventory,
             'issues' => $issues,
-            'blueprints' => self::blueprints($questions, $boards, $subjects, $boardSubjects),
+            'blueprints' => self::blueprints($questions, $boards, $subjects, $boardSubjects, $eligibilityIndex),
         ];
     }
 
@@ -74,7 +97,7 @@ final class QuestionCoverageService
         return ['unknown_taxonomy' => [], 'aliases' => [], 'invalid_difficulty' => [], 'legacy_metadata' => [], 'ineligible' => [], 'taxonomy_orphans' => self::taxonomyOrphans(...$groups)];
     }
 
-    private static function inspectQuestion(mixed $question, array $questions, array $catalog, array &$inventory, array &$issues): void
+    private static function inspectQuestion(mixed $question, array $catalog, array $eligibleQuestionIds, array &$inventory, array &$issues): void
     {
         if (!is_array($question)) return;
         $id = is_scalar($question['id'] ?? null) ? (string) $question['id'] : '<unknown>';
@@ -96,7 +119,7 @@ final class QuestionCoverageService
         $status = is_scalar($question['status'] ?? null) ? strtolower(trim((string) $question['status'])) : '';
         self::increment($inventory['by_status'], $status === '' ? '<missing>' : $status);
         $subject = self::fieldName($question, 'subject', $catalog['subject']);
-        if ($subject === null || !self::eligible($questions, $question, $subject)) {
+        if ($subject === null || !self::eligible($question, $eligibleQuestionIds)) {
             $issues['ineligible'][] = $id;
             return;
         }
@@ -117,7 +140,8 @@ final class QuestionCoverageService
         array $questions,
         array $boards,
         array $subjects,
-        array $relations
+        array $relations,
+        ?QuestionEligibilityIndex $eligibilityIndex = null
     ): array {
         $subjectNames = [];
         foreach ($subjects as $subject) {
@@ -156,7 +180,8 @@ final class QuestionCoverageService
                 $name = $subjectNames[$subjectId];
                 $available = count(\QuestionPoolFilter::filter(
                     $questions,
-                    new \SelectionRequest($name, null, [], $required, null, null, $boardId)
+                    new \SelectionRequest($name, null, [], $required, null, null, $boardId),
+                    $eligibilityIndex
                 ));
                 $categories[] = [
                     'subject' => $subjectId,
@@ -177,18 +202,10 @@ final class QuestionCoverageService
         return $result;
     }
 
-    private static function eligible(array $questions, array $question, string $subject): bool
+    private static function eligible(array $question, array $eligibleQuestionIds): bool
     {
         $id = is_scalar($question['id'] ?? null) ? (string) $question['id'] : '';
-        foreach (\QuestionPoolFilter::filter(
-            $questions,
-            new \SelectionRequest($subject, null, [], 1)
-        ) as $eligible) {
-            if (is_scalar($eligible['id'] ?? null) && (string) $eligible['id'] === $id) {
-                return true;
-            }
-        }
-        return false;
+        return $id !== '' && isset($eligibleQuestionIds[$id]);
     }
 
     private static function fieldName(array $question, string $field, array $catalog): ?string

@@ -19,6 +19,9 @@ final class FlashcardDerivationService
     /** @var array<string, array> */
     private array $statusCache = [];
 
+    /** @var array<string, array|null> */
+    private array $cardCache = [];
+
     private FlashcardExclusionRegistry $exclusions;
 
     public function __construct(
@@ -91,8 +94,13 @@ final class FlashcardDerivationService
 
     public function derive(array $question): ?array
     {
+        $cacheKey = self::statusCacheKey($question);
+        if (array_key_exists($cacheKey, $this->cardCache)) {
+            return $this->cardCache[$cacheKey];
+        }
+
         if (!$this->eligible($question)) {
-            return null;
+            return $this->cardCache[$cacheKey] = null;
         }
 
         $cardType = $this->archetype($question);
@@ -124,7 +132,7 @@ final class FlashcardDerivationService
                 : [],
         ];
 
-        return FlashcardCardValidator::validate($card) === [] ? $card : null;
+        return $this->cardCache[$cacheKey] = FlashcardCardValidator::validate($card) === [] ? $card : null;
     }
 
     private function eligible(array $question): bool

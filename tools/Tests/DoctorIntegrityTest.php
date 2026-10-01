@@ -78,6 +78,40 @@ if (($apiReport['summary']['checks'] ?? null) !== count($apiReport['checks'] ?? 
     throw new RuntimeException('Doctor API report counts do not match its checks.');
 }
 
+$healthApi = (new HttpSimulator($root . '/public/api/doctor.php'))
+    ->request('GET', '/api/doctor.php', ['health' => '1']);
+$healthReport = json_decode($healthApi['output'], true);
+
+if (
+    $healthApi['status'] !== 200
+    || !is_array($healthReport)
+    || !isset($healthReport['summary']['overall_status'])
+    || !isset($healthReport['action_queue'])
+) {
+    throw new RuntimeException('Repository Health API did not return the persisted machine-readable snapshot.');
+}
+
+$filteredDashboard = (new HttpSimulator($root . '/public/index.php'))
+    ->request('GET', '/developer/doctor', [
+        'severity' => 'REVIEW',
+        'category' => 'TAXONOMY',
+    ]);
+
+if (
+    $filteredDashboard['status'] !== 200
+    || !str_contains($filteredDashboard['output'], 'Repository Health Center')
+    || !str_contains($filteredDashboard['output'], 'TAXONOMY_GRANULARITY_REVIEW')
+) {
+    throw new RuntimeException('Repository Health Center filters did not render the requested issue queue.');
+}
+
+$invalidRefresh = (new HttpSimulator($root . '/public/index.php'))
+    ->request('POST', '/developer/doctor/run', [], ['csrf_token' => 'invalid-batch640-token']);
+
+if ($invalidRefresh['status'] !== 419) {
+    throw new RuntimeException('Developer health refresh did not enforce CSRF protection.');
+}
+
 $command = escapeshellarg(PHP_BINARY)
     . ' '
     . escapeshellarg($root . '/tools/doctor.php')

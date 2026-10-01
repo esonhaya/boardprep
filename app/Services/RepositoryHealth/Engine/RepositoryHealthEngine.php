@@ -7,7 +7,7 @@ namespace App\Services\RepositoryHealth\Engine;
 use App\Services\Flashcard\FlashcardDerivationService;
 use App\Services\Flashcard\FlashcardExclusionRegistry;
 use App\Services\Question\QuestionEligibilityIndex;
-use App\Services\Question\QuestionValidationService;
+use App\Services\Question\CalculationMetadataContract;
 use App\Services\RepositoryHealth\DTO\HealthIssue;
 use App\Services\RepositoryHealth\DTO\HealthReport;
 use App\Services\RepositoryHealth\DTO\RepositoryContext;
@@ -23,15 +23,22 @@ use App\Services\Shared\ContentIntegrityService;
  */
 final class RepositoryHealthEngine
 {
+    private static ?HealthReport $lastReport = null;
+
     public static function analyze(): HealthReport
     {
-        return self::build(RepositoryContextFactory::create());
+        return self::$lastReport = self::build(RepositoryContextFactory::create());
     }
 
     /** @param array<string, array> $collections */
     public static function analyzeCollections(array $collections): HealthReport
     {
-        return self::build(RepositoryContextFactory::fromCollections($collections));
+        return self::$lastReport = self::build(RepositoryContextFactory::fromCollections($collections));
+    }
+
+    public static function lastReport(): ?HealthReport
+    {
+        return self::$lastReport;
     }
 
     private static function build(RepositoryContext $context): HealthReport
@@ -60,12 +67,14 @@ final class RepositoryHealthEngine
 
         $issues = [];
         self::addIntegrityIssues($issues, $integrity, $questionById);
+        self::addEligibilityIssues($issues, $collections, $questionById);
         self::addExclusionIssues($issues, $collections, $questionById);
         self::addSourceStudyIssues($issues, $collections, $integrity, $questionById);
         self::addMetadataIssues($issues, $questions, $collections, $questionById);
 
         $boardSummaries = self::boardSummaries($questions, $collections, $issues);
-        $flashcardMetrics = self::flashcardMetrics($questions, $collections);
+        $flashcardMetrics = self::flashcardMetrics($questions, $collections, $deriver);
+        self::addFlashcardMetricIssues($issues, $flashcardMetrics, $questionById);
         foreach ($flashcardMetrics['by_board'] as $boardId => $metrics) {
             if (isset($boardSummaries[$boardId])) {
                 $boardSummaries[$boardId]['flashcards'] = $metrics;
@@ -191,6 +200,84 @@ final class RepositoryHealthEngine
     }
 
     /** @param array<int, HealthIssue> $issues */
+    private static function addEligibilityIssues(array &$issues, array $collections, array $questionById): void
+    {
+        $boards = [];
+        foreach ((array) ($collections['boards'] ?? []) as $board) {
+            if (is_array($board)) {
+                $id = self::normalizeBoard($board['id'] ?? '');
+                if ($id !== '') {
+                    $boards[$id] = true;
+                }
+            }
+        }
+        $directKeys = [];
+        foreach ((array) ($collections['question-eligibility'] ?? []) as $entry) {
+            if (!is_array($entry)) {
+                continue;
+            }
+            $entryId = (string) ($entry['id'] ?? '<missing>');
+            $questionIds = is_array($entry['question_ids'] ?? null) ? $entry['question_ids'] : [];
+            $mappings = is_array($entry['question_mappings'] ?? null) ? $entry['question_mappings'] : [];
+            foreach ($questionIds as $questionIdValue) {
+                $questionId = trim((string) $questionIdValue);
+                $mapping = is_array($mappings[$questionId] ?? null) ? $mappings[$questionId] : [];
+                $examIds = is_array($mapping['exam_ids'] ?? null) ? $mapping['exam_ids'] : (is_array($entry['exam_ids'] ?? null) ? $entry['exam_ids'] : []);
+                foreach ($examIds as $examId) {
+                    $boardId = self::normalizeBoard($examId);
+                    if ($boardId === '' || !isset($boards[$boardId]) || $questionId === '' || !isset($questionById[$questionId])) {
+                        continue;
+                    }
+                    $key = $boardId . '|' . $questionId;
+                    if (isset($directKeys[$key])) {
+                        self::issue($issues, 'FAIL', 'ELIGIBILITY', 'DUPLICATE_EFFECTIVE_CANDIDATE', $entryId, $questionById, 'Multiple direct eligibility rows produce the same effective board/question candidate.', 'Keep one canonical effective eligibility mapping to avoid double weighting.', ['board_id' => $boardId, 'question_id' => $questionId, 'first_entry_id' => $directKeys[$key]]);
+                    } else {
+                        $directKeys[$key] = $entryId;
+                    }
+                }
+            }
+        }
+        $reuseKeys = [];
+        foreach ((array) ($collections['question-reuse-overrides'] ?? []) as $override) {
+            if (!is_array($override)) {
+                continue;
+            }
+            $overrideId = (string) ($override['id'] ?? '<missing>');
+            $questionId = trim((string) ($override['question_id'] ?? ''));
+            $boardId = self::normalizeBoard($override['board_id'] ?? '');
+            if ($questionId === '' || !isset($questionById[$questionId]) || $boardId === '' || !isset($boards[$boardId])) {
+                self::issue($issues, 'FAIL', 'ELIGIBILITY', 'INVALID_OVERRIDE_REFERENCE', $overrideId, $questionById, 'Eligibility override references an unknown question or board.', 'Repair the override reference against canonical question and board records.', ['question_id' => $questionId, 'board_id' => $boardId]);
+                continue;
+            }
+            $key = $questionId . '|' . $boardId;
+            if (isset($reuseKeys[$key])) {
+                self::issue($issues, 'FAIL', 'ELIGIBILITY', 'DUPLICATE_ELIGIBILITY_OVERRIDE', $overrideId, $questionById, 'Multiple eligibility overrides target the same question and board.', 'Keep one canonical override for the question and board.', ['question_id' => $questionId, 'board_id' => $boardId, 'first_override_id' => $reuseKeys[$key]]);
+            } else {
+                $reuseKeys[$key] = $overrideId;
+            }
+        }
+        $derivedKeys = [];
+        foreach ((array) ($collections['concept-derived-eligibility'] ?? []) as $relationship) {
+            if (!is_array($relationship) || ($relationship['record_type'] ?? '') !== 'RELATIONSHIP') {
+                continue;
+            }
+            $relationshipId = (string) ($relationship['id'] ?? '<missing>');
+            $questionId = trim((string) ($relationship['question_id'] ?? ''));
+            $boardId = self::normalizeBoard($relationship['target_board'] ?? '');
+            if ($questionId === '' || !isset($questionById[$questionId]) || $boardId === '' || !isset($boards[$boardId])) {
+                self::issue($issues, 'FAIL', 'ELIGIBILITY', 'INVALID_DERIVED_ELIGIBILITY_REFERENCE', $relationshipId, $questionById, 'Derived eligibility relationship references an unknown question or board.', 'Repair the derived eligibility relationship.', ['question_id' => $questionId, 'board_id' => $boardId]);
+                continue;
+            }
+            $key = $questionId . '|' . $boardId;
+            if (isset($derivedKeys[$key])) {
+                self::issue($issues, 'FAIL', 'ELIGIBILITY', 'DUPLICATE_EFFECTIVE_CANDIDATE', $relationshipId, $questionById, 'Multiple derived eligibility relationships target the same effective candidate.', 'Keep one canonical derived relationship to prevent double weighting.', ['question_id' => $questionId, 'board_id' => $boardId, 'first_relationship_id' => $derivedKeys[$key]]);
+            } else {
+                $derivedKeys[$key] = $relationshipId;
+            }
+        }
+    }
+
+    /** @param array<int, HealthIssue> $issues */
     private static function addExclusionIssues(array &$issues, array $collections, array $questionById): void
     {
         $registry = new FlashcardExclusionRegistry($collections['flashcard-exclusions'] ?? []);
@@ -272,10 +359,14 @@ final class RepositoryHealthEngine
             if ($id === '') {
                 continue;
             }
-            $calculationRequired = ($question['calculation_required'] ?? false) === true;
-            $family = trim((string) ($question['calculation_family'] ?? ''));
-            if ($calculationRequired && $family === '' && !is_array($question['calculation'] ?? null)) {
-                self::issue($issues, 'FAIL', 'CALCULATION', 'CALCULATION_METADATA_CONTRADICTION', $id, $questionById, 'Calculation is required but no calculation family or metadata is present.', 'Add the canonical calculation metadata or correct the flag.', []);
+            $calculation = CalculationMetadataContract::inspect($question);
+            if (($calculation['valid'] ?? false) !== true) {
+                self::issue($issues, 'FAIL', 'CALCULATION', 'CALCULATION_METADATA_CONTRADICTION', $id, $questionById, (string) ($calculation['message'] ?? 'Calculation metadata violates the production contract.'), 'Add the canonical calculation metadata or correct the flag.', [
+                    'contract_code' => $calculation['code'],
+                    'current_family' => $question['calculation_family'] ?? null,
+                    'current_payload_fields' => is_array($question['calculation'] ?? null) ? array_keys($question['calculation']) : [],
+                    'accepted_forms' => ['payload', 'legacy_family'],
+                ]);
             }
             if (($question['version_sensitive'] ?? false) === true
                 && trim((string) ($question['version_review_status'] ?? $question['currentness_review_status'] ?? '')) === '') {
@@ -429,11 +520,8 @@ final class RepositoryHealthEngine
             $expectedLeaves = array_keys($coverageByBoard[$boardId] ?? []);
             $structuralLeaves = [];
             foreach ($expectedLeaves as $expectedLeaf) {
-                foreach ($concepts as $concept) {
-                    if (self::conceptParentId($concept) === (string) $expectedLeaf) {
-                        $structuralLeaves[$expectedLeaf] = true;
-                        break;
-                    }
+                if (self::isStructuralLeaf((string) $expectedLeaf, $leafCounts, $concepts)) {
+                    $structuralLeaves[$expectedLeaf] = true;
                 }
             }
             $activeExpectedLeaves = array_values(array_diff($expectedLeaves, array_keys($structuralLeaves)));
@@ -469,6 +557,20 @@ final class RepositoryHealthEngine
                 'official_area_balance' => self::areaBalance($boardId, $questions, $collections),
                 'concentration' => self::concentration($boardId, $questions, $activeLeaves),
             ];
+            $summary['taxonomy_granularity'] = self::taxonomyGranularity($activeLeaves);
+            if (($summary['taxonomy_granularity']['status'] ?? '') === 'REVIEW') {
+                self::issue(
+                    $issues,
+                    'REVIEW',
+                    'TAXONOMY',
+                    'TAXONOMY_GRANULARITY_REVIEW',
+                    $boardId,
+                    [],
+                    'Taxonomy shape is a coarse/masked signal that requires editorial review.',
+                    'Review board subcompetencies before selecting a large content expansion.',
+                    ['board_id' => $boardId] + $summary['taxonomy_granularity']
+                );
+            }
             foreach ($activeLeaves as $leaf => $count) {
                 if ($count === 0) {
                     self::issue($issues, 'WARN', 'BALANCE', 'ACTIVE_ZERO_LEAF', (string) $leaf, [], 'Active exam leaf has no canonical questions.', 'Prioritize bounded content planning for this active leaf; do not treat structural parent nodes as zero pools.', ['board_id' => $boardId, 'count' => 0]);
@@ -512,22 +614,30 @@ final class RepositoryHealthEngine
         return $result;
     }
 
-    /** @return array{portfolio: array, by_board: array<string, array>} */
-    private static function flashcardMetrics(array $questions, array $collections): array
+    /** @param array<int, HealthIssue> $issues */
+    private static function addFlashcardMetricIssues(array &$issues, array $metrics, array $questionById): void
     {
-        $deriver = new FlashcardDerivationService(
-            null,
-            $collections['study-materials'] ?? [],
-            $collections['study-question-links'] ?? [],
-            $collections['flashcard-exclusions'] ?? []
-        );
-        $portfolio = ['eligible' => 0, 'derivable' => 0, 'justified_exclusion' => 0, 'nonderivable_defect' => 0, 'duplicate_card_key' => 0, 'malformed_card' => 0, 'broken_card_source' => 0];
+        foreach ((array) ($metrics['portfolio']['invalid_card_key_ids'] ?? []) as $id) {
+            self::issue($issues, 'FAIL', 'FLASHCARDS', 'INVALID_CARD_KEY', (string) $id, $questionById, 'Derived flashcard has an invalid stable card key.', 'Repair the card identity inputs and preserve the canonical key format.', []);
+        }
+        foreach ((array) ($metrics['portfolio']['malformed_card_ids'] ?? []) as $id) {
+            self::issue($issues, 'FAIL', 'FLASHCARDS', 'MALFORMED_CARD', (string) $id, $questionById, 'Production flashcard derivation produced a malformed card.', 'Repair the derivation inputs or card contract.', []);
+        }
+        foreach ((array) ($metrics['portfolio']['broken_card_source_ids'] ?? []) as $id) {
+            self::issue($issues, 'FAIL', 'FLASHCARDS', 'BROKEN_CARD_SOURCE', (string) $id, $questionById, 'Derived flashcard has no valid linked study/source chain.', 'Repair the study material and source linkage.', []);
+        }
+    }
+
+    /** @return array{portfolio: array, by_board: array<string, array>} */
+    private static function flashcardMetrics(array $questions, array $collections, FlashcardDerivationService $deriver): array
+    {
+        $portfolio = ['eligible' => 0, 'derivable' => 0, 'justified_exclusion' => 0, 'nonderivable_defect' => 0, 'duplicate_card_key' => 0, 'malformed_card' => 0, 'broken_card_source' => 0, 'invalid_card_key' => 0, 'invalid_card_key_ids' => [], 'malformed_card_ids' => [], 'broken_card_source_ids' => []];
         $byBoard = [];
         $keys = [];
         foreach ($questions as $question) {
             $questionId = self::id($question);
             $board = self::questionBoard($question);
-            $byBoard[$board] ??= ['eligible' => 0, 'derivable' => 0, 'justified_exclusion' => 0, 'nonderivable_defect' => 0, 'duplicate_card_key' => 0, 'malformed_card' => 0, 'broken_card_source' => 0];
+            $byBoard[$board] ??= ['eligible' => 0, 'derivable' => 0, 'justified_exclusion' => 0, 'nonderivable_defect' => 0, 'duplicate_card_key' => 0, 'malformed_card' => 0, 'broken_card_source' => 0, 'invalid_card_key' => 0];
             $status = $deriver->derivationStatus($question);
             if (($status['eligible'] ?? false) !== true) {
                 continue;
@@ -546,9 +656,16 @@ final class RepositoryHealthEngine
                 if ($errors !== []) {
                     $portfolio['malformed_card']++;
                     $byBoard[$board]['malformed_card']++;
+                    $portfolio['malformed_card_ids'][] = $questionId;
+                    if (in_array('INVALID_CARD_KEY', $errors, true)) {
+                        $portfolio['invalid_card_key']++;
+                        $portfolio['invalid_card_key_ids'][] = $questionId;
+                        $byBoard[$board]['invalid_card_key']++;
+                    }
                     if (in_array('BROKEN_CARD_SOURCE', $errors, true)) {
                         $portfolio['broken_card_source']++;
                         $byBoard[$board]['broken_card_source']++;
+                        $portfolio['broken_card_source_ids'][] = $questionId;
                     }
                 }
             } elseif (($status['exclusion'] ?? null) !== null) {
@@ -573,24 +690,14 @@ final class RepositoryHealthEngine
 
     private static function checks(array $issues): array
     {
-        $definitions = [
-            'STRUCTURED_CONTENT' => ['STRUCTURED_CONTENT', 'Structured-content schema and active study metadata.'],
-            'FLASHCARD_DERIVABILITY' => ['FLASHCARDS', 'Production-equivalent flashcard derivation.'],
-            'FLASHCARD_EXCLUSIONS' => ['FLASHCARDS', 'Explicit, reviewable flashcard exclusions.'],
-            'CARD_KEYS' => ['FLASHCARDS', 'Stable and unique derived card identities.'],
-            'QUESTION_COUNTS' => ['COUNTS', 'Canonical/effective/runtime question counts.'],
-            'TRACEABILITY' => ['TRACEABILITY', 'Question to study material and source chain.'],
-            'TAXONOMY' => ['TAXONOMY', 'Taxonomy IDs and parent relationships.'],
-            'ELIGIBILITY' => ['ELIGIBILITY', 'Production eligibility mappings and reachability.'],
-            'DEPTH_COVERAGE' => ['DEPTH_COVERAGE', 'Depth and coverage metadata.'],
-            'SOURCE_STUDY' => ['SOURCE_STUDY', 'Source and study record linkage.'],
-            'CALCULATION_METADATA' => ['CALCULATION', 'Deterministic calculation metadata contradictions.'],
-            'VERSION_CURRENTNESS' => ['CURRENTNESS', 'Deterministic version/currentness debt.'],
-            'BALANCE_DIVERSITY' => ['BALANCE', 'Thin leaves and documented area deltas.'],
-        ];
+        $definitions = RepositoryHealthCheckCatalog::definitions();
         $checks = [];
-        foreach ($definitions as $code => [$category, $description]) {
-            $matching = array_values(array_filter($issues, static fn(HealthIssue $issue): bool => $issue->category === $category));
+        foreach ($definitions as $code => $definition) {
+            $category = $definition['category'];
+            $matching = array_values(array_filter(
+                $issues,
+                static fn(HealthIssue $issue): bool => self::issueBelongsToCheck($issue, $code, $category)
+            ));
             $status = 'PASS';
             foreach ($matching as $issue) {
                 if ($issue->status === 'FAIL') {
@@ -606,21 +713,31 @@ final class RepositoryHealthEngine
             $checks[$code] = [
                 'check_code' => $code,
                 'category' => $category,
+                'owner' => $definition['owner'],
+                'default_severity' => $definition['default_severity'],
+                'entity_type' => $definition['entity_type'],
                 'status' => $status,
-                'description' => $description,
+                'description' => $definition['description'],
+                'fix_guidance' => $definition['fix_guidance'],
                 'issue_count' => count($matching),
                 'affected_ids' => self::issueIds($matching),
             ];
         }
-        $checks['REPOSITORY_HEALTH_FOUNDATION'] = [
-            'check_code' => 'REPOSITORY_HEALTH_FOUNDATION',
-            'category' => 'REPOSITORY',
-            'status' => 'PASS',
-            'description' => 'Canonical machine-readable health facade and action queue are available.',
-            'issue_count' => 0,
-            'affected_ids' => [],
-        ];
         return $checks;
+    }
+
+    private static function issueBelongsToCheck(HealthIssue $issue, string $checkCode, string $category): bool
+    {
+        if ($category !== 'FLASHCARDS') {
+            return $issue->category === $category;
+        }
+
+        return match ($checkCode) {
+            'FLASHCARD_DERIVABILITY' => in_array($issue->code, ['FLASHCARD_NONDERIVABLE'], true),
+            'FLASHCARD_EXCLUSIONS' => in_array($issue->code, ['INVALID_EXCLUSION_RECORD'], true),
+            'CARD_KEYS' => in_array($issue->code, ['DUPLICATE_CARD_KEY', 'INVALID_CARD_KEY', 'MALFORMED_CARD', 'BROKEN_CARD_SOURCE'], true),
+            default => false,
+        };
     }
 
     /** @param array<int, HealthIssue> $issues */
@@ -653,12 +770,21 @@ final class RepositoryHealthEngine
             ksort($values);
         }
         unset($values);
+        $issueCounts = ['FAIL' => 0, 'WARN' => 0, 'REVIEW' => 0, 'PASS' => 0];
+        foreach ($issues as $issue) {
+            $issueCounts[$issue->status] = ($issueCounts[$issue->status] ?? 0) + 1;
+        }
         return [
             'overall_status' => $overall,
             'pass_count' => $counts['PASS'],
             'warn_count' => $counts['WARN'],
             'fail_count' => $counts['FAIL'],
             'review_count' => $counts['REVIEW'],
+            'issue_count' => count($issues),
+            'pass_entity_count' => $issueCounts['PASS'],
+            'warn_entity_count' => $issueCounts['WARN'],
+            'fail_entity_count' => $issueCounts['FAIL'],
+            'review_entity_count' => $issueCounts['REVIEW'],
             'breakdown' => $breakdown,
         ];
     }
@@ -745,6 +871,11 @@ final class RepositoryHealthEngine
             }
         }
         $statistics->boards = $boards;
+        foreach ($boards as $board) {
+            $statistics->totals['canonical'] += (int) ($board['canonical'] ?? 0);
+            $statistics->totals['effective_declared'] += (int) ($board['effective_declared'] ?? 0);
+            $statistics->totals['runtime'] += (int) ($board['runtime'] ?? 0);
+        }
         return $statistics;
     }
 
@@ -895,6 +1026,45 @@ final class RepositoryHealthEngine
         ];
     }
 
+    /**
+     * A planning signal only: a small active taxonomy or generic concept
+     * leaves may indicate a masked/coarse board model, but does not prove
+     * semantic taxonomy quality. It therefore produces REVIEW, not FAIL.
+     *
+     * @param array<string, int> $activeLeaves
+     * @return array<string, mixed>
+     */
+    private static function taxonomyGranularity(array $activeLeaves): array
+    {
+        $leafIds = array_keys($activeLeaves);
+        $generic = array_values(array_filter($leafIds, static fn(string $id): bool => preg_match('/(?:^|-)concept$/i', $id) === 1));
+        if (count($leafIds) <= 4) {
+            return [
+                'status' => 'REVIEW',
+                'signal' => 'SEVERELY_COARSE_OR_MASKED',
+                'active_leaf_count' => count($leafIds),
+                'generic_leaf_count' => count($generic),
+                'note' => 'Very few active leaves are available; editorial taxonomy review is required.',
+            ];
+        }
+        if ($leafIds !== [] && count($generic) / count($leafIds) >= .8) {
+            return [
+                'status' => 'REVIEW',
+                'signal' => 'COARSE_OR_MASKED',
+                'active_leaf_count' => count($leafIds),
+                'generic_leaf_count' => count($generic),
+                'note' => 'Most active leaf identifiers use a generic concept shape; review subcompetency granularity.',
+            ];
+        }
+        return [
+            'status' => 'PASS',
+            'signal' => 'NO_CHEAP_COARSENESS_SIGNAL',
+            'active_leaf_count' => count($leafIds),
+            'generic_leaf_count' => count($generic),
+            'note' => 'No cheap deterministic coarseness signal was found; this is not a semantic quality proof.',
+        ];
+    }
+
     private static function depth(array $question): ?int
     {
         foreach ([$question['depth'] ?? null, $question['required_depth'] ?? null, is_array($question['reuse'] ?? null) ? ($question['reuse']['required_depth'] ?? null) : null] as $value) {
@@ -945,6 +1115,59 @@ final class RepositoryHealthEngine
             }
         }
         return '';
+    }
+
+    /**
+     * A coverage row can retain a legacy umbrella concept after its active
+     * subcompetency has been migrated.  Most such rows declare the parent
+     * explicitly; a small number of historical taxonomy records only retain
+     * the shared name and B633 metadata.  Treat the latter as structural only
+     * when it is empty in the current board and the replacement evidence is
+     * deterministic, so a genuinely active legacy leaf is not hidden.
+     *
+     * @param array<string, int> $leafCounts
+     * @param array<string, array> $concepts
+     */
+    private static function isStructuralLeaf(string $expectedLeaf, array $leafCounts, array $concepts): bool
+    {
+        foreach ($concepts as $concept) {
+            if (self::conceptParentId($concept) === $expectedLeaf) {
+                return true;
+            }
+        }
+
+        if (($leafCounts[$expectedLeaf] ?? 0) !== 0 || !preg_match('/(?:^|-)concept-/', $expectedLeaf)) {
+            return false;
+        }
+
+        $legacy = $concepts[$expectedLeaf] ?? null;
+        if (!is_array($legacy)) {
+            return false;
+        }
+        $legacyName = self::normalizedConceptName($legacy['name'] ?? '');
+        if ($legacyName === '') {
+            return false;
+        }
+
+        foreach ($concepts as $conceptId => $concept) {
+            if (!is_array($concept) || !str_starts_with((string) $conceptId, 'b633-')) {
+                continue;
+            }
+            $metadata = is_array($concept['batch633'] ?? null) ? $concept['batch633'] : [];
+            if ($metadata === [] || self::normalizedConceptName($concept['name'] ?? '') !== $legacyName) {
+                continue;
+            }
+            return true;
+        }
+
+        return false;
+    }
+
+    private static function normalizedConceptName(mixed $name): string
+    {
+        $value = strtolower(trim((string) $name));
+        $value = preg_replace('/\bapplications?\b/', '', $value) ?? $value;
+        return preg_replace('/[^a-z0-9]+/', '', $value) ?? '';
     }
 
     /** @return array<string, array> */

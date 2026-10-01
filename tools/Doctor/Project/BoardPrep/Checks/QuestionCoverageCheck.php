@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Tools\Doctor\Project\BoardPrep\Checks;
 
-use App\Services\Shared\QuestionCoverageService;
-use App\Services\Board\BoardViewService;
-use App\Services\Shared\TaxonomyStorageService;
+use App\Services\RepositoryHealth\Engine\RepositoryHealthEngine;
 use Tools\Doctor\Contracts\CheckInterface;
 use Tools\Doctor\DTO\CheckResult;
 
@@ -14,61 +12,55 @@ final class QuestionCoverageCheck implements CheckInterface
 {
     public function run(): CheckResult
     {
-        $report = QuestionCoverageService::analyzeRepository();
-        $inventory = $report['inventory'];
-        $issues = $report['issues'];
-        $shortages = 0;
+        // ContentIntegrityCheck runs immediately before this check and
+        // publishes the same canonical report. The fallback keeps this check
+        // usable on its own without reintroducing the historical quadratic
+        // coverage scan.
+        $health = RepositoryHealthEngine::lastReport() ?? RepositoryHealthEngine::analyze();
+        $statistics = $health->statistics->toArray();
+        $warnings = 0;
         $details = [
             sprintf(
-                'Questions: %d total, %d production eligible.',
-                $inventory['total'],
-                $inventory['eligible']
+                'Questions: %d total; production eligible counts are exposed per board.',
+                $statistics['totals']['canonical'] ?? $statistics['total_questions'] ?? 0,
             ),
-            'Difficulty: ' . json_encode($inventory['by_difficulty'], JSON_UNESCAPED_UNICODE),
-            'Subjects: ' . json_encode($inventory['by_subject'], JSON_UNESCAPED_UNICODE),
+            sprintf(
+                'Repository totals: canonical %d; effective %d; runtime %d.',
+                $statistics['totals']['canonical'] ?? $statistics['total_questions'] ?? 0,
+                $statistics['totals']['effective_declared'] ?? 0,
+                $statistics['totals']['runtime'] ?? 0
+            ),
         ];
-        foreach (TaxonomyStorageService::boards() as $board) {
-            $view = BoardViewService::find((string) ($board['id'] ?? ''));
-            $readiness = $view['content_readiness'] ?? [];
+        foreach ($health->boardSummaries as $boardId => $board) {
+            $thin = (int) ($board['under20'] ?? 0);
+            $warnings += $thin + (int) ($board['zero'] ?? 0);
             $details[] = sprintf(
-                '%s readiness: %s; %d eligible questions across %d subjects; taxonomy completeness %d%%.',
-                $board['code'] ?? $board['id'] ?? 'Board',
-                $readiness['status'] ?? 'UNKNOWN',
-                (int) ($readiness['eligible_questions'] ?? 0),
-                (int) ($readiness['eligible_subjects'] ?? 0),
-                (int) ($readiness['taxonomy_completeness'] ?? 0)
+                '%s: canonical %d, effective %d, runtime %d; active leaves %d; under20 %d; zero %d.',
+                $boardId,
+                $board['canonical'] ?? 0,
+                $board['effective_declared'] ?? 0,
+                $board['runtime'] ?? 0,
+                $board['active_leaves'] ?? 0,
+                $thin,
+                $board['zero'] ?? 0
             );
         }
-        foreach ($report['blueprints'] as $blueprint) {
-            foreach ($blueprint['categories'] as $category) {
-                if ($category['shortage_per_100'] > 0) {
-                    $shortages++;
-                }
-                $details[] = sprintf(
-                    '%s/%s: requires %d per 100; %d eligible; shortage %d.',
-                    $blueprint['board'],
-                    $category['subject'],
-                    $category['required_per_100'],
-                    $category['available'],
-                    $category['shortage_per_100']
-                );
-            }
-        }
-        $structural = count($issues['unknown_taxonomy'])
-            + count($issues['invalid_difficulty'])
-            + count($issues['ineligible'])
-            + count($issues['taxonomy_orphans']);
-        $warnings = $structural + $shortages;
+        $failures = (int) ($health->summary['fail_count'] ?? 0);
+        $reviews = (int) ($health->summary['review_count'] ?? 0);
+        $status = $failures > 0 ? 'FAIL' : ($warnings > 0 || $reviews > 0 ? 'WARNING' : 'PASS');
 
         return new CheckResult(
             title: 'Question Coverage',
-            status: $warnings === 0 ? 'PASS' : 'WARNING',
-            summary: $warnings === 0
-                ? 'Question coverage and configured blueprints are feasible.'
-                : sprintf('%d structural/eligibility issue(s) and %d blueprint shortage(s).', $structural, $shortages),
-            details: $details,
-            recommendations: $warnings === 0 ? [] : [
-                'Repair structural metadata defects; treat remaining zero/sparse allocations as content shortages.'
+            status: $status,
+            summary: sprintf(
+                'Canonical Repository Health reports %d deterministic failures, %d review items, and %d thin/zero-leaf signals.',
+                $failures,
+                $reviews,
+                $warnings
+            ),
+            details: array_slice($details, 0, 30),
+            recommendations: $status === 'PASS' ? [] : [
+                'Use the Repository Health action queue for deterministic repairs and future content planning.'
             ]
         );
     }

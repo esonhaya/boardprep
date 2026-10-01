@@ -38,6 +38,9 @@ class RepositoryStatistics
 
     public array $boards = [];
 
+    /** @var array{canonical:int, effective_declared:int, runtime:int} */
+    public array $totals = ['canonical' => 0, 'effective_declared' => 0, 'runtime' => 0];
+
     public function toArray(): array
     {
         return [
@@ -57,6 +60,7 @@ class RepositoryStatistics
             'questions_per_concept' => $this->questionsPerConcept,
             'coverage' => $this->coverage,
             'boards' => $this->boards,
+            'totals' => $this->totals,
         ];
     }
 }

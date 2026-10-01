@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace Tools\Doctor\Project\BoardPrep\Checks;
 
-use App\Services\Shared\ContentIntegrityService;
-use App\Services\Shared\ContentPriorityService;
+use App\Services\RepositoryHealth\Engine\RepositoryHealthEngine;
 use Tools\Doctor\Contracts\CheckInterface;
 use Tools\Doctor\DTO\CheckResult;
 
@@ -13,66 +12,35 @@ final class ContentIntegrityCheck implements CheckInterface
 {
     public function run(): CheckResult
     {
-        $priorityReport = ContentPriorityService::analyzeRepository();
-        $report = $priorityReport['integrity'] ?? ContentIntegrityService::analyzeRepository();
-        $portfolio = $report['portfolio'];
-        $status = $portfolio['status'] === 'FAIL' ? 'FAIL' : 'PASS';
+        $health = RepositoryHealthEngine::analyze();
+        $summary = $health->summary;
+        $statistics = $health->statistics->toArray();
+        $portfolio = $health->summary['flashcards'] ?? [];
+        $status = ($summary['fail_count'] ?? 0) > 0 ? 'FAIL' : 'PASS';
         $details = [
             sprintf(
-                'Portfolio: %d questions, %d/%d eligible, %d linked, %d cards, %d justified exclusions, status %s.',
-                $portfolio['total_canonical'],
-                $portfolio['total_eligible'],
-                $portfolio['total_canonical'],
-                $portfolio['total_linked'],
-                $portfolio['total_derivable_cards'],
-                $portfolio['total_justified_exclusions'],
-                $portfolio['status']
+                'Repository Health: %d questions, %d eligible, %d derivable cards, %d justified exclusions, %d defects, status %s.',
+                $statistics['total_questions'] ?? 0,
+                $portfolio['eligible'] ?? 0,
+                $portfolio['derivable'] ?? 0,
+                $portfolio['justified_exclusion'] ?? 0,
+                $portfolio['nonderivable_defect'] ?? 0,
+                $health->overallStatus
             ),
         ];
-        foreach ($report['boards'] as $board) {
+        foreach ($health->boardSummaries as $board) {
             $details[] = sprintf(
-                'BOARD=%s QUESTIONS=%d ELIGIBLE=%d/%d LINKED=%d FLASHCARDS=%d JUSTIFIED_EXCLUSIONS=%d ACCIDENTAL_NON_DERIVABLE=%d INVALID_LINKS=%d BROKEN_ASSETS=%d STATUS=%s',
+                'BOARD=%s QUESTIONS=%d EFFECTIVE=%d RUNTIME=%d FLASHCARDS=%d/%d STATUS=%s',
                 $board['board_id'],
-                $board['canonical_owned'],
-                $board['owned_eligible'],
-                $board['canonical_owned'],
-                $board['linked_questions'],
-                $board['derivable_flashcards'],
-                $board['justified_flashcard_exclusions'],
-                count($board['accidental_non_derivable']),
-                count($board['invalid_study_links']),
-                count($board['broken_structured_assets']),
-                $board['readiness_status']
+                $board['canonical'] ?? 0,
+                $board['effective_declared'] ?? 0,
+                $board['runtime'] ?? 0,
+                $board['flashcards']['derivable'] ?? 0,
+                $board['flashcards']['eligible'] ?? 0,
+                $board['zero'] === 0 ? 'PASS' : 'WARN'
             );
         }
-        if (($report['semantic_review']['standalone_study_materials'] ?? []) !== []) {
-            $details[] = 'SEMANTIC_REVIEW=standalone study materials are surfaced for editorial review: '
-                . implode(', ', $report['semantic_review']['standalone_study_materials']);
-        }
-        foreach ($report['warnings'] as $metric => $ids) {
-            if ($metric === 'standalone_study_materials') {
-                continue;
-            }
-            $details[] = 'WARNING=' . $metric . ': ' . implode(', ', array_map('strval', (array) $ids));
-        }
-        if (($priorityReport['priorities'] ?? []) !== []) {
-            $top = $priorityReport['priorities'][0];
-            $details[] = sprintf(
-                'CONTENT_PRIORITY=%s TARGET=%s ACTION=%s REASONS=%s.',
-                $top['priority'],
-                $top['target'],
-                $top['recommended_action'],
-                implode(',', $top['reason_codes'])
-            );
-        } else {
-            $details[] = 'CONTENT_PRIORITY=NONE actionable content-investment candidate.';
-        }
-        $details[] = sprintf(
-            'CONTENT_PRIORITY_RUNTIME_MS=%s; %d candidate(s) ranked from shared depth, usage, study, and blueprint signals.',
-            $priorityReport['runtime']['total_runtime_ms'] ?? 'unknown',
-            count($priorityReport['priorities'] ?? [])
-        );
-        $defectCount = array_sum(array_map('count', array_filter($report['failures'], 'is_array')));
+        $defectCount = (int) ($summary['fail_count'] ?? 0);
 
         return new CheckResult(
             title: 'Content Integrity',

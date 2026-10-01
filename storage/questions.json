@@ -188588,7 +188588,18 @@
             "ACCOUNTING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4171
+        "id": 4171,
+        "calculation": {
+            "family": "min",
+            "values": [
+                180000,
+                165000
+            ],
+            "expected": 165000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "min"
     },
     {
         "taxonomy": {
@@ -188822,7 +188833,19 @@
             "ACCOUNTING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4174
+        "id": 4174,
+        "calculation": {
+            "family": "sum",
+            "values": [
+                500000,
+                20000,
+                10000
+            ],
+            "expected": 530000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "sum"
     },
     {
         "taxonomy": {
@@ -188978,7 +189001,18 @@
             "ACCOUNTING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4176
+        "id": 4176,
+        "calculation": {
+            "family": "subtract",
+            "values": [
+                1200000,
+                1050000
+            ],
+            "expected": 150000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "subtract"
     },
     {
         "taxonomy": {
@@ -189212,7 +189246,18 @@
             "ACCOUNTING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4179
+        "id": 4179,
+        "calculation": {
+            "family": "divide",
+            "values": [
+                240000,
+                8
+            ],
+            "expected": 30000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "divide"
     },
     {
         "taxonomy": {
@@ -189290,7 +189335,18 @@
             "ACCOUNTING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4180
+        "id": 4180,
+        "calculation": {
+            "family": "subtract",
+            "values": [
+                30000,
+                8000
+            ],
+            "expected": 22000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "subtract"
     },
     {
         "taxonomy": {
@@ -189758,7 +189814,18 @@
             "ACCOUNTING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4186
+        "id": 4186,
+        "calculation": {
+            "family": "multiply",
+            "values": [
+                100000,
+                3.465
+            ],
+            "expected": 346500,
+            "unit": "P",
+            "rounding": "nearest peso"
+        },
+        "calculation_family": "multiply"
     },
     {
         "taxonomy": {
@@ -189989,7 +190056,18 @@
             "ACCOUNTING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4189
+        "id": 4189,
+        "calculation": {
+            "family": "sum",
+            "values": [
+                180000,
+                120000
+            ],
+            "expected": 300000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "sum"
     },
     {
         "taxonomy": {
@@ -190214,7 +190292,17 @@
             "ACCOUNTING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4192
+        "id": 4192,
+        "calculation": {
+            "family": "identity",
+            "values": [
+                250000
+            ],
+            "expected": 250000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "identity"
     },
     {
         "taxonomy": {
@@ -190364,7 +190452,18 @@
             "ACCOUNTING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4194
+        "id": 4194,
+        "calculation": {
+            "family": "percent",
+            "values": [
+                400000,
+                0.35
+            ],
+            "expected": 140000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "percent"
     },
     {
         "taxonomy": {
@@ -190514,7 +190613,18 @@
             "ACCOUNTING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4196
+        "id": 4196,
+        "calculation": {
+            "family": "percent",
+            "values": [
+                1000000,
+                0.4
+            ],
+            "expected": 400000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "percent"
     },
     {
         "taxonomy": {
@@ -190739,7 +190849,18 @@
             "ACCOUNTING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4199
+        "id": 4199,
+        "calculation": {
+            "family": "subtract",
+            "values": [
+                1300000,
+                1100000
+            ],
+            "expected": 200000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "subtract"
     },
     {
         "taxonomy": {
@@ -191039,7 +191160,18 @@
             "ACCOUNTING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4203
+        "id": 4203,
+        "calculation": {
+            "family": "percent",
+            "values": [
+                500000,
+                0.2
+            ],
+            "expected": 100000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "percent"
     },
     {
         "taxonomy": {
@@ -191114,7 +191246,18 @@
             "ACCOUNTING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4204
+        "id": 4204,
+        "calculation": {
+            "family": "multiply",
+            "values": [
+                30000,
+                2
+            ],
+            "expected": 60000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "multiply"
     },
     {
         "taxonomy": {
@@ -191339,7 +191482,18 @@
             "ACCOUNTING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4207
+        "id": 4207,
+        "calculation": {
+            "family": "percent",
+            "values": [
+                90000,
+                0.3
+            ],
+            "expected": 27000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "percent"
     },
     {
         "taxonomy": {
@@ -191414,7 +191568,18 @@
             "ACCOUNTING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4208
+        "id": 4208,
+        "calculation": {
+            "family": "sum",
+            "values": [
+                90000,
+                7000
+            ],
+            "expected": 97000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "sum"
     },
     {
         "taxonomy": {
@@ -191489,7 +191654,18 @@
             "ACCOUNTING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4209
+        "id": 4209,
+        "calculation": {
+            "family": "sum",
+            "values": [
+                60000,
+                45000
+            ],
+            "expected": 105000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "sum"
     },
     {
         "taxonomy": {
@@ -191851,7 +192027,18 @@
         "notHelpfulExplanation": 0,
         "version_sensitivity_categories": [],
         "currentness_verified": null,
-        "id": 4214
+        "id": 4214,
+        "calculation": {
+            "family": "subtract",
+            "values": [
+                80,
+                50
+            ],
+            "expected": 30,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "subtract"
     },
     {
         "taxonomy": {
@@ -191975,7 +192162,18 @@
         "notHelpfulExplanation": 0,
         "version_sensitivity_categories": [],
         "currentness_verified": null,
-        "id": 4216
+        "id": 4216,
+        "calculation": {
+            "family": "divide",
+            "values": [
+                10000,
+                1000
+            ],
+            "expected": 10,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "divide"
     },
     {
         "taxonomy": {
@@ -192099,7 +192297,18 @@
         "notHelpfulExplanation": 0,
         "version_sensitivity_categories": [],
         "currentness_verified": null,
-        "id": 4218
+        "id": 4218,
+        "calculation": {
+            "family": "sum",
+            "values": [
+                80,
+                20
+            ],
+            "expected": 100,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "sum"
     },
     {
         "taxonomy": {
@@ -192223,7 +192432,18 @@
         "notHelpfulExplanation": 0,
         "version_sensitivity_categories": [],
         "currentness_verified": null,
-        "id": 4220
+        "id": 4220,
+        "calculation": {
+            "family": "multiply",
+            "values": [
+                4000,
+                75
+            ],
+            "expected": 300000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "multiply"
     },
     {
         "taxonomy": {
@@ -192347,7 +192567,19 @@
         "notHelpfulExplanation": 0,
         "version_sensitivity_categories": [],
         "currentness_verified": null,
-        "id": 4222
+        "id": 4222,
+        "calculation": {
+            "family": "sum",
+            "values": [
+                20000,
+                80000,
+                -95000
+            ],
+            "expected": 5000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "sum"
     },
     {
         "taxonomy": {
@@ -192471,7 +192703,18 @@
         "notHelpfulExplanation": 0,
         "version_sensitivity_categories": [],
         "currentness_verified": null,
-        "id": 4224
+        "id": 4224,
+        "calculation": {
+            "family": "multiply",
+            "values": [
+                1,
+                2000
+            ],
+            "expected": 2000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "multiply"
     },
     {
         "taxonomy": {
@@ -192595,7 +192838,18 @@
         "notHelpfulExplanation": 0,
         "version_sensitivity_categories": [],
         "currentness_verified": null,
-        "id": 4226
+        "id": 4226,
+        "calculation": {
+            "family": "multiply",
+            "values": [
+                3,
+                1000
+            ],
+            "expected": 3000,
+            "unit": "kg",
+            "rounding": "exact"
+        },
+        "calculation_family": "multiply"
     },
     {
         "taxonomy": {
@@ -192843,7 +193097,18 @@
         "notHelpfulExplanation": 0,
         "version_sensitivity_categories": [],
         "currentness_verified": null,
-        "id": 4230
+        "id": 4230,
+        "calculation": {
+            "family": "subtract",
+            "values": [
+                30,
+                15
+            ],
+            "expected": 15,
+            "unit": "P per unit",
+            "rounding": "exact"
+        },
+        "calculation_family": "subtract"
     },
     {
         "taxonomy": {
@@ -193091,7 +193356,18 @@
         "notHelpfulExplanation": 0,
         "version_sensitivity_categories": [],
         "currentness_verified": null,
-        "id": 4234
+        "id": 4234,
+        "calculation": {
+            "family": "subtract",
+            "values": [
+                118000,
+                100000
+            ],
+            "expected": 18000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "subtract"
     },
     {
         "taxonomy": {
@@ -193215,7 +193491,18 @@
         "notHelpfulExplanation": 0,
         "version_sensitivity_categories": [],
         "currentness_verified": null,
-        "id": 4236
+        "id": 4236,
+        "calculation": {
+            "family": "divide",
+            "values": [
+                60000,
+                3000
+            ],
+            "expected": 20,
+            "unit": "P per hour",
+            "rounding": "exact"
+        },
+        "calculation_family": "divide"
     },
     {
         "taxonomy": {
@@ -194239,7 +194526,18 @@
             "AUDITING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4250
+        "id": 4250,
+        "calculation": {
+            "family": "percent",
+            "values": [
+                2000000,
+                0.75
+            ],
+            "expected": 1500000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "percent"
     },
     {
         "taxonomy": {
@@ -194387,7 +194685,18 @@
             "AUDITING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4252
+        "id": 4252,
+        "calculation": {
+            "family": "percent_add",
+            "values": [
+                10000000,
+                0.05
+            ],
+            "expected": 10500000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "percent_add"
     },
     {
         "taxonomy": {
@@ -194535,7 +194844,18 @@
             "AUDITING_STANDARD_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4254
+        "id": 4254,
+        "calculation": {
+            "family": "ratio_percent",
+            "values": [
+                5,
+                100
+            ],
+            "expected": 5,
+            "unit": "%",
+            "rounding": "whole percent"
+        },
+        "calculation_family": "ratio_percent"
     },
     {
         "taxonomy": {
@@ -195901,7 +196221,18 @@
             "CORPORATE_LEGAL_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4273
+        "id": 4273,
+        "calculation": {
+            "family": "sum",
+            "values": [
+                240000,
+                -42000
+            ],
+            "expected": 198000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "sum"
     },
     {
         "taxonomy": {
@@ -197158,7 +197489,18 @@
             "TAX_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4291
+        "id": 4291,
+        "calculation": {
+            "family": "subtract",
+            "values": [
+                420000,
+                70000
+            ],
+            "expected": 350000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "subtract"
     },
     {
         "taxonomy": {
@@ -197294,7 +197636,18 @@
             "TAX_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4293
+        "id": 4293,
+        "calculation": {
+            "family": "subtract",
+            "values": [
+                240000,
+                90000
+            ],
+            "expected": 150000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "subtract"
     },
     {
         "taxonomy": {
@@ -197430,7 +197783,18 @@
             "TAX_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4295
+        "id": 4295,
+        "calculation": {
+            "family": "percent",
+            "values": [
+                200000,
+                0.07
+            ],
+            "expected": 14000.000000000002,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "percent"
     },
     {
         "taxonomy": {
@@ -197634,7 +197998,18 @@
             "TAX_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4298
+        "id": 4298,
+        "calculation": {
+            "family": "sum",
+            "values": [
+                20000,
+                15000
+            ],
+            "expected": 35000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "sum"
     },
     {
         "taxonomy": {
@@ -197702,7 +198077,18 @@
             "TAX_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4299
+        "id": 4299,
+        "calculation": {
+            "family": "subtract",
+            "values": [
+                180000,
+                125000
+            ],
+            "expected": 55000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "subtract"
     },
     {
         "taxonomy": {
@@ -197838,7 +198224,18 @@
             "TAX_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4301
+        "id": 4301,
+        "calculation": {
+            "family": "subtract",
+            "values": [
+                800000,
+                760000
+            ],
+            "expected": 40000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "subtract"
     },
     {
         "taxonomy": {
@@ -197974,7 +198371,18 @@
             "TAX_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4303
+        "id": 4303,
+        "calculation": {
+            "family": "subtract",
+            "values": [
+                1200000,
+                300000
+            ],
+            "expected": 900000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "subtract"
     },
     {
         "taxonomy": {
@@ -198382,7 +198790,18 @@
             "TAX_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4309
+        "id": 4309,
+        "calculation": {
+            "family": "subtract",
+            "values": [
+                480000,
+                60000
+            ],
+            "expected": 420000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "subtract"
     },
     {
         "taxonomy": {
@@ -198518,7 +198937,18 @@
             "TAX_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4311
+        "id": 4311,
+        "calculation": {
+            "family": "subtract",
+            "values": [
+                8000000,
+                2500000
+            ],
+            "expected": 5500000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "subtract"
     },
     {
         "taxonomy": {
@@ -198654,7 +199084,18 @@
             "TAX_SENSITIVE"
         ],
         "currentness_verified": true,
-        "id": 4313
+        "id": 4313,
+        "calculation": {
+            "family": "percent",
+            "values": [
+                400000,
+                0.05
+            ],
+            "expected": 20000,
+            "unit": "P",
+            "rounding": "exact"
+        },
+        "calculation_family": "percent"
     },
     {
         "id": 4314,
@@ -219254,7 +219695,22 @@
         "unit_sensitive": false,
         "scenario_length": "STANDARD",
         "professional_context": "NEUTRAL",
-        "study_material_id": "ple-487--eliability-and-easurement-rror"
+        "study_material_id": "ple-487--eliability-and-easurement-rror",
+        "calculation": {
+            "family": "mean",
+            "params": {
+                "values": [
+                    72,
+                    76,
+                    80,
+                    84
+                ]
+            },
+            "expected": 78,
+            "unit": "score",
+            "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+        },
+        "calculation_family": "mean"
     },
     {
         "id": 4617,
@@ -219307,7 +219763,19 @@
         "unit_sensitive": false,
         "scenario_length": "STANDARD",
         "professional_context": "NEUTRAL",
-        "study_material_id": "ple-487--eliability-and-easurement-rror"
+        "study_material_id": "ple-487--eliability-and-easurement-rror",
+        "calculation": {
+            "family": "z-score",
+            "params": {
+                "score": 70,
+                "mean": 50,
+                "sd": 10
+            },
+            "expected": 2,
+            "unit": "z",
+            "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+        },
+        "calculation_family": "z-score"
     },
     {
         "id": 4618,
@@ -219360,7 +219828,18 @@
         "unit_sensitive": false,
         "scenario_length": "STANDARD",
         "professional_context": "NEUTRAL",
-        "study_material_id": "ple-487--eliability-and-easurement-rror"
+        "study_material_id": "ple-487--eliability-and-easurement-rror",
+        "calculation": {
+            "family": "sem",
+            "params": {
+                "sd": 12,
+                "reliability": 0.75
+            },
+            "expected": 6,
+            "unit": "points",
+            "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+        },
+        "calculation_family": "sem"
     },
     {
         "id": 4619,
@@ -219413,7 +219892,18 @@
         "unit_sensitive": false,
         "scenario_length": "STANDARD",
         "professional_context": "NEUTRAL",
-        "study_material_id": "ple-487--eliability-and-easurement-rror"
+        "study_material_id": "ple-487--eliability-and-easurement-rror",
+        "calculation": {
+            "family": "item-facility",
+            "params": {
+                "correct": 150,
+                "total": 200
+            },
+            "expected": 0.75,
+            "unit": "proportion",
+            "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+        },
+        "calculation_family": "item-facility"
     },
     {
         "id": 4620,
@@ -219468,7 +219958,18 @@
         "unit_sensitive": false,
         "scenario_length": "STANDARD",
         "professional_context": "PROFESSIONAL",
-        "study_material_id": "ple-487--eliability-and-easurement-rror"
+        "study_material_id": "ple-487--eliability-and-easurement-rror",
+        "calculation": {
+            "family": "sensitivity",
+            "params": {
+                "tp": 36,
+                "fn": 4
+            },
+            "expected": 90,
+            "unit": "%",
+            "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+        },
+        "calculation_family": "sensitivity"
     },
     {
         "id": 4621,
@@ -219523,7 +220024,18 @@
         "unit_sensitive": false,
         "scenario_length": "STANDARD",
         "professional_context": "PROFESSIONAL",
-        "study_material_id": "ple-487--eliability-and-easurement-rror"
+        "study_material_id": "ple-487--eliability-and-easurement-rror",
+        "calculation": {
+            "family": "specificity",
+            "params": {
+                "tn": 45,
+                "fp": 5
+            },
+            "expected": 90,
+            "unit": "%",
+            "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+        },
+        "calculation_family": "specificity"
     },
     {
         "id": 4622,
@@ -219576,7 +220088,18 @@
         "unit_sensitive": false,
         "scenario_length": "STANDARD",
         "professional_context": "NEUTRAL",
-        "study_material_id": "ple-487--eliability-and-easurement-rror"
+        "study_material_id": "ple-487--eliability-and-easurement-rror",
+        "calculation": {
+            "family": "percentage",
+            "params": {
+                "part": 48,
+                "whole": 60
+            },
+            "expected": 80,
+            "unit": "%",
+            "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+        },
+        "calculation_family": "percentage"
     },
     {
         "id": 4623,
@@ -219629,7 +220152,19 @@
         "unit_sensitive": false,
         "scenario_length": "STANDARD",
         "professional_context": "NEUTRAL",
-        "study_material_id": "ple-487--eliability-and-easurement-rror"
+        "study_material_id": "ple-487--eliability-and-easurement-rror",
+        "calculation": {
+            "family": "z-score",
+            "params": {
+                "score": 85,
+                "mean": 100,
+                "sd": 15
+            },
+            "expected": -1,
+            "unit": "z",
+            "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+        },
+        "calculation_family": "z-score"
     },
     {
         "id": 4624,
@@ -219682,7 +220217,18 @@
         "unit_sensitive": false,
         "scenario_length": "STANDARD",
         "professional_context": "NEUTRAL",
-        "study_material_id": "ple-487--eliability-and-easurement-rror"
+        "study_material_id": "ple-487--eliability-and-easurement-rror",
+        "calculation": {
+            "family": "sem-band",
+            "params": {
+                "score": 62,
+                "sem": 4
+            },
+            "expected": 58,
+            "unit": "lower-bound",
+            "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+        },
+        "calculation_family": "sem-band"
     },
     {
         "id": 4625,
@@ -219735,7 +220281,17 @@
         "unit_sensitive": false,
         "scenario_length": "STANDARD",
         "professional_context": "NEUTRAL",
-        "study_material_id": "ple-487--eliability-and-easurement-rror"
+        "study_material_id": "ple-487--eliability-and-easurement-rror",
+        "calculation": {
+            "family": "r-squared",
+            "params": {
+                "r": 0.4
+            },
+            "expected": 16,
+            "unit": "%",
+            "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+        },
+        "calculation_family": "r-squared"
     },
     {
         "id": 4626,
@@ -219788,7 +220344,18 @@
         "unit_sensitive": false,
         "scenario_length": "STANDARD",
         "professional_context": "NEUTRAL",
-        "study_material_id": "ple-487--eliability-and-easurement-rror"
+        "study_material_id": "ple-487--eliability-and-easurement-rror",
+        "calculation": {
+            "family": "proportion",
+            "params": {
+                "correct": 24,
+                "total": 30
+            },
+            "expected": 0.8,
+            "unit": "proportion",
+            "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+        },
+        "calculation_family": "proportion"
     },
     {
         "id": 4627,
@@ -219841,7 +220408,18 @@
         "unit_sensitive": false,
         "scenario_length": "STANDARD",
         "professional_context": "PROFESSIONAL",
-        "study_material_id": "ple-487--eliability-and-easurement-rror"
+        "study_material_id": "ple-487--eliability-and-easurement-rror",
+        "calculation": {
+            "family": "agreement",
+            "params": {
+                "agree": 42,
+                "total": 50
+            },
+            "expected": 84,
+            "unit": "%",
+            "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+        },
+        "calculation_family": "agreement"
     },
     {
         "id": 4628,
@@ -219894,7 +220472,19 @@
         "unit_sensitive": false,
         "scenario_length": "STANDARD",
         "professional_context": "PROFESSIONAL",
-        "study_material_id": "ple-487--eliability-and-easurement-rror"
+        "study_material_id": "ple-487--eliability-and-easurement-rror",
+        "calculation": {
+            "family": "z-score",
+            "params": {
+                "score": 68,
+                "mean": 60,
+                "sd": 8
+            },
+            "expected": 1,
+            "unit": "z",
+            "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+        },
+        "calculation_family": "z-score"
     },
     {
         "id": 4629,
@@ -219947,7 +220537,18 @@
         "unit_sensitive": false,
         "scenario_length": "STANDARD",
         "professional_context": "NEUTRAL",
-        "study_material_id": "ple-487--eliability-and-easurement-rror"
+        "study_material_id": "ple-487--eliability-and-easurement-rror",
+        "calculation": {
+            "family": "confidence-band",
+            "params": {
+                "center": 50,
+                "margin": 3
+            },
+            "expected": 47,
+            "unit": "lower-bound",
+            "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+        },
+        "calculation_family": "confidence-band"
     },
     {
         "id": 4630,
@@ -220000,7 +220601,18 @@
         "unit_sensitive": false,
         "scenario_length": "STANDARD",
         "professional_context": "NEUTRAL",
-        "study_material_id": "ple-487--eliability-and-easurement-rror"
+        "study_material_id": "ple-487--eliability-and-easurement-rror",
+        "calculation": {
+            "family": "range",
+            "params": {
+                "min": 10,
+                "max": 10
+            },
+            "expected": 0,
+            "unit": "score",
+            "rounding": "Answer choice uses exact or stated nearest practical value; tolerance 0.011."
+        },
+        "calculation_family": "range"
     },
     {
         "id": 4631,
@@ -270818,6 +271430,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "add",
+            "params": {
+                "a": 23,
+                "b": 19
+            },
+            "expected": 42,
+            "unit": "intake requests"
         }
     },
     {
@@ -270918,6 +271539,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "subtract",
+            "params": {
+                "a": 96,
+                "b": 37
+            },
+            "expected": 59,
+            "unit": "forms"
         }
     },
     {
@@ -271018,6 +271648,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "multiply",
+            "params": {
+                "a": 14,
+                "b": 8
+            },
+            "expected": 112,
+            "unit": "records"
         }
     },
     {
@@ -271118,6 +271757,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": true
             }
+        },
+        "calculation": {
+            "family": "divide",
+            "params": {
+                "a": 168,
+                "b": 14
+            },
+            "expected": 12,
+            "unit": "files per desk"
         }
     },
     {
@@ -271218,6 +271866,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "add",
+            "params": {
+                "a": 47,
+                "b": 28
+            },
+            "expected": 75,
+            "unit": "applications"
         }
     },
     {
@@ -271318,6 +271975,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "subtract",
+            "params": {
+                "a": 125,
+                "b": 48
+            },
+            "expected": 77,
+            "unit": "receipts"
         }
     },
     {
@@ -271418,6 +272084,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "multiply",
+            "params": {
+                "a": 9,
+                "b": 13
+            },
+            "expected": 117,
+            "unit": "folders"
         }
     },
     {
@@ -271518,6 +272193,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": true
             }
+        },
+        "calculation": {
+            "family": "divide",
+            "params": {
+                "a": 225,
+                "b": 15
+            },
+            "expected": 15,
+            "unit": "records per tray"
         }
     },
     {
@@ -271618,6 +272302,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "add",
+            "params": {
+                "a": 34,
+                "b": 18
+            },
+            "expected": 52,
+            "unit": "walk-in and online requests"
         }
     },
     {
@@ -271718,6 +272411,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "subtract",
+            "params": {
+                "a": 240,
+                "b": 87
+            },
+            "expected": 153,
+            "unit": "unassigned forms"
         }
     },
     {
@@ -271818,6 +272520,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "multiply",
+            "params": {
+                "a": 12,
+                "b": 9
+            },
+            "expected": 108,
+            "unit": "boxes of archived folders"
         }
     },
     {
@@ -271918,6 +272629,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": true
             }
+        },
+        "calculation": {
+            "family": "divide",
+            "params": {
+                "a": 196,
+                "b": 14
+            },
+            "expected": 14,
+            "unit": "claims per reviewer"
         }
     },
     {
@@ -272018,6 +272738,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "add",
+            "params": {
+                "a": 125,
+                "b": 76
+            },
+            "expected": 201,
+            "unit": "morning and afternoon callers"
         }
     },
     {
@@ -272118,6 +272847,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "subtract",
+            "params": {
+                "a": 310,
+                "b": 145
+            },
+            "expected": 165,
+            "unit": "pending applications"
         }
     },
     {
@@ -272218,6 +272956,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "multiply",
+            "params": {
+                "a": 18,
+                "b": 6
+            },
+            "expected": 108,
+            "unit": "packets in each delivery"
         }
     },
     {
@@ -272318,6 +273065,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": true
             }
+        },
+        "calculation": {
+            "family": "divide",
+            "params": {
+                "a": 324,
+                "b": 18
+            },
+            "expected": 18,
+            "unit": "forms per counter"
         }
     },
     {
@@ -272418,6 +273174,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "add",
+            "params": {
+                "a": 58,
+                "b": 67
+            },
+            "expected": 125,
+            "unit": "verified and returned records"
         }
     },
     {
@@ -272518,6 +273283,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "subtract",
+            "params": {
+                "a": 500,
+                "b": 238
+            },
+            "expected": 262,
+            "unit": "records remaining after review"
         }
     },
     {
@@ -273540,6 +274314,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "percentage",
+            "params": {
+                "part": 24,
+                "whole": 120
+            },
+            "expected": 20,
+            "unit": "percent"
         }
     },
     {
@@ -273642,6 +274425,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "percentage",
+            "params": {
+                "part": 27,
+                "whole": 90
+            },
+            "expected": 30,
+            "unit": "percent"
         }
     },
     {
@@ -273744,6 +274536,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "percentage",
+            "params": {
+                "part": 45,
+                "whole": 180
+            },
+            "expected": 25,
+            "unit": "percent"
         }
     },
     {
@@ -273846,6 +274647,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": true
             }
+        },
+        "calculation": {
+            "family": "percentage",
+            "params": {
+                "part": 32,
+                "whole": 80
+            },
+            "expected": 40,
+            "unit": "percent"
         }
     },
     {
@@ -273948,6 +274758,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "percentage",
+            "params": {
+                "part": 42,
+                "whole": 70
+            },
+            "expected": 60,
+            "unit": "percent"
         }
     },
     {
@@ -274050,6 +274869,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "percentage",
+            "params": {
+                "part": 18,
+                "whole": 72
+            },
+            "expected": 25,
+            "unit": "percent"
         }
     },
     {
@@ -274152,6 +274980,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "percentage",
+            "params": {
+                "part": 35,
+                "whole": 140
+            },
+            "expected": 25,
+            "unit": "percent"
         }
     },
     {
@@ -274254,6 +275091,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": true
             }
+        },
+        "calculation": {
+            "family": "percentage",
+            "params": {
+                "part": 48,
+                "whole": 60
+            },
+            "expected": 80,
+            "unit": "percent"
         }
     },
     {
@@ -274357,6 +275203,16 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "ratio-part",
+            "params": {
+                "part_ratio": 3,
+                "total_ratio": 8,
+                "whole": 64
+            },
+            "expected": 24,
+            "unit": "records"
         }
     },
     {
@@ -274460,6 +275316,16 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "ratio-part",
+            "params": {
+                "part_ratio": 2,
+                "total_ratio": 5,
+                "whole": 75
+            },
+            "expected": 30,
+            "unit": "applications"
         }
     },
     {
@@ -274563,6 +275429,16 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "ratio-part",
+            "params": {
+                "part_ratio": 4,
+                "total_ratio": 5,
+                "whole": 90
+            },
+            "expected": 72,
+            "unit": "forms"
         }
     },
     {
@@ -274666,6 +275542,16 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": true
             }
+        },
+        "calculation": {
+            "family": "ratio-part",
+            "params": {
+                "part_ratio": 5,
+                "total_ratio": 12,
+                "whole": 144
+            },
+            "expected": 60,
+            "unit": "files"
         }
     },
     {
@@ -274769,6 +275655,16 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "ratio-part",
+            "params": {
+                "part_ratio": 3,
+                "total_ratio": 5,
+                "whole": 100
+            },
+            "expected": 60,
+            "unit": "requests"
         }
     },
     {
@@ -274872,6 +275768,16 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "ratio-part",
+            "params": {
+                "part_ratio": 7,
+                "total_ratio": 10,
+                "whole": 120
+            },
+            "expected": 84,
+            "unit": "notices"
         }
     },
     {
@@ -274975,6 +275881,16 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "ratio-part",
+            "params": {
+                "part_ratio": 2,
+                "total_ratio": 7,
+                "whole": 98
+            },
+            "expected": 28,
+            "unit": "packets"
         }
     },
     {
@@ -275080,6 +275996,18 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": true
             }
+        },
+        "calculation": {
+            "family": "average",
+            "params": {
+                "values": [
+                    11,
+                    17,
+                    23
+                ]
+            },
+            "expected": 17,
+            "unit": "completed cases per day"
         }
     },
     {
@@ -275185,6 +276113,18 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "average",
+            "params": {
+                "values": [
+                    8,
+                    14,
+                    20
+                ]
+            },
+            "expected": 14,
+            "unit": "processed forms per day"
         }
     },
     {
@@ -275290,6 +276230,18 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "average",
+            "params": {
+                "values": [
+                    15,
+                    21,
+                    30
+                ]
+            },
+            "expected": 22,
+            "unit": "daily visits per day"
         }
     },
     {
@@ -275395,6 +276347,18 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "average",
+            "params": {
+                "values": [
+                    6,
+                    10,
+                    14
+                ]
+            },
+            "expected": 10,
+            "unit": "verified entries per day"
         }
     },
     {
@@ -275500,6 +276464,18 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": true
             }
+        },
+        "calculation": {
+            "family": "average",
+            "params": {
+                "values": [
+                    19,
+                    25,
+                    34
+                ]
+            },
+            "expected": 26,
+            "unit": "resolved requests per day"
         }
     },
     {
@@ -275605,6 +276581,18 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "average",
+            "params": {
+                "values": [
+                    27,
+                    33,
+                    42
+                ]
+            },
+            "expected": 34,
+            "unit": "file transfers per day"
         }
     },
     {
@@ -275710,6 +276698,18 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "average",
+            "params": {
+                "values": [
+                    12,
+                    16,
+                    28
+                ]
+            },
+            "expected": 18.666666666666668,
+            "unit": "daily releases per day"
         }
     },
     {
@@ -275812,6 +276812,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "divide",
+            "params": {
+                "a": 180,
+                "b": 6
+            },
+            "expected": 30,
+            "unit": "applications per hour"
         }
     },
     {
@@ -275914,6 +276923,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": true
             }
+        },
+        "calculation": {
+            "family": "divide",
+            "params": {
+                "a": 156,
+                "b": 12
+            },
+            "expected": 13,
+            "unit": "records per hour"
         }
     },
     {
@@ -276016,6 +277034,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "divide",
+            "params": {
+                "a": 225,
+                "b": 9
+            },
+            "expected": 25,
+            "unit": "forms per hour"
         }
     },
     {
@@ -276118,6 +277145,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "divide",
+            "params": {
+                "a": 84,
+                "b": 7
+            },
+            "expected": 12,
+            "unit": "requests per hour"
         }
     },
     {
@@ -276220,6 +277256,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "divide",
+            "params": {
+                "a": 320,
+                "b": 8
+            },
+            "expected": 40,
+            "unit": "documents per hour"
         }
     },
     {
@@ -276322,6 +277367,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": true
             }
+        },
+        "calculation": {
+            "family": "divide",
+            "params": {
+                "a": 3,
+                "b": 8
+            },
+            "expected": 0.375,
+            "unit": "fraction"
         }
     },
     {
@@ -276424,6 +277478,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "divide",
+            "params": {
+                "a": 5,
+                "b": 12
+            },
+            "expected": 0.4166666666666667,
+            "unit": "fraction"
         }
     },
     {
@@ -276526,6 +277589,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "divide",
+            "params": {
+                "a": 7,
+                "b": 10
+            },
+            "expected": 0.7,
+            "unit": "fraction"
         }
     },
     {
@@ -276628,6 +277700,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "calculation": {
+            "family": "divide",
+            "params": {
+                "a": 9,
+                "b": 16
+            },
+            "expected": 0.5625,
+            "unit": "fraction"
         }
     },
     {
@@ -276730,6 +277811,15 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": true
             }
+        },
+        "calculation": {
+            "family": "divide",
+            "params": {
+                "a": 11,
+                "b": 20
+            },
+            "expected": 0.55,
+            "unit": "fraction"
         }
     },
     {

@@ -10,17 +10,11 @@ final class ProjectSnapshotBuilder
     {
         return (new SourceSnapshotBuilder())
             ->build(
-                static function (
-                    string $path
-                ): bool {
-                    return !str_contains(
-                        str_replace(
-                            "\\",
-                            "/",
-                            $path
-                        ),
-                        "/tools/Doctor/"
-                    );
+                    static function (
+                        string $path
+                    ): bool {
+                    $normalized = str_replace("\\", "/", $path);
+                    return preg_match('~^(?:\\./)?(?:app|bootstrap|config|database|public|routes)/~', $normalized) === 1;
                 }
             );
     }
