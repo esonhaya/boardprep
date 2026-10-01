@@ -12,6 +12,7 @@ use App\Services\RepositoryHealth\DTO\HealthIssue;
 use App\Services\RepositoryHealth\DTO\HealthReport;
 use App\Services\RepositoryHealth\DTO\RepositoryContext;
 use App\Services\RepositoryHealth\DTO\RepositoryStatistics;
+use App\Services\RepositoryHealth\Readiness\SourceReadinessService;
 use App\Services\Shared\ContentIntegrityService;
 
 /**
@@ -73,6 +74,15 @@ final class RepositoryHealthEngine
         self::addMetadataIssues($issues, $questions, $collections, $questionById);
 
         $boardSummaries = self::boardSummaries($questions, $collections, $issues);
+        $readinessValidation = SourceReadinessService::validateCollections($collections, $boardSummaries);
+        self::addSourceReadinessIssues($issues, $readinessValidation);
+        $readinessSummary = SourceReadinessService::summary(
+            $readinessValidation['records'] ?? [],
+            $readinessValidation
+        );
+        if (isset($boardSummaries['criminologist'])) {
+            $boardSummaries['criminologist']['source_readiness'] = $readinessSummary;
+        }
         $flashcardMetrics = self::flashcardMetrics($questions, $collections, $deriver);
         self::addFlashcardMetricIssues($issues, $flashcardMetrics, $questionById);
         foreach ($flashcardMetrics['by_board'] as $boardId => $metrics) {
@@ -83,6 +93,7 @@ final class RepositoryHealthEngine
         $checks = self::checks($issues);
         $summary = self::summary($checks, $issues);
         $summary['flashcards'] = $flashcardMetrics['portfolio'];
+        $summary['source_readiness'] = $readinessSummary;
 
         $report = new HealthReport();
         $report->issues = self::sortIssues($issues);
@@ -104,6 +115,29 @@ final class RepositoryHealthEngine
         $report->statistics = self::statistics($questions, $report->issues, $boardSummaries);
 
         return $report;
+    }
+
+    /** @param array<int, HealthIssue> $issues @param array<string, mixed> $validation */
+    private static function addSourceReadinessIssues(array &$issues, array $validation): void
+    {
+        foreach ((array) ($validation['errors'] ?? []) as $error) {
+            if (!is_array($error)) continue;
+            $leafId = (string) ($error['leaf_id'] ?? '');
+            $evidence = is_array($error['evidence'] ?? null) ? $error['evidence'] : [];
+            $evidence['board_id'] = 'criminologist';
+            $evidence['entity_type'] = 'taxonomy_leaf';
+            self::issue(
+                $issues,
+                'FAIL',
+                'SOURCE_READINESS',
+                (string) ($error['code'] ?? 'SOURCE_READINESS.INVALID_RECORD'),
+                $leafId,
+                [],
+                (string) ($error['message'] ?? 'Source-readiness contract failure.'),
+                'Repair the permanent source-readiness record or resolve the authoritative study/source boundary.',
+                $evidence
+            );
+        }
     }
 
     /** @param array<int, HealthIssue> $issues @param array<string, array> $questionById */
@@ -835,7 +869,11 @@ final class RepositoryHealthEngine
         $issue->suggestedAction = $action;
         $issue->sourceCheck = $category;
         $issue->repairable = $status === 'FAIL';
-        $issue->entityType = isset($questionById[$entityId]) ? 'question' : ($category === 'TAXONOMY' ? 'taxonomy_leaf' : 'repository_record');
+        $issue->entityType = isset($questionById[$entityId])
+            ? 'question'
+            : (isset($evidence['entity_type'])
+                ? (string) $evidence['entity_type']
+                : ($category === 'TAXONOMY' ? 'taxonomy_leaf' : 'repository_record'));
         $issue->entityId = $entityId !== '' ? $entityId : null;
         $issue->boardId = isset($questionById[$entityId]) ? self::questionBoard($questionById[$entityId]) : (isset($evidence['board_id']) ? self::normalizeBoard($evidence['board_id']) : null);
         $issue->evidence = $evidence;

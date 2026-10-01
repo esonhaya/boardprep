@@ -44,6 +44,34 @@ The snapshot contains portfolio totals, per-board summaries, check ownership,
 issue breakdowns, flashcard metrics, and the same action queue. It is refreshed
 by a developer or CI action rather than on learner requests.
 
+## Source-readiness expansion gate
+
+The Criminologist source-first workflow uses the permanent
+`SOURCE_READINESS` contract. Its 37 records live in
+`storage/source-readiness.json`; the contract schema is
+`storage/schemas/source-readiness.schema.json`. Each active leaf has one record
+with resolved source IDs, study-material IDs, supported depth, allowed and
+excluded scope, deterministic threshold deficits, evidence-bounded headroom,
+and one of `READY`, `READY_WITH_LIMITS`, `REVIEW`, or `DEFER`.
+
+The health snapshot exposes the records under
+`board_summaries.criminologist.source_readiness`. A `READY` or
+`READY_WITH_LIMITS` record is an authoring permission, not a quota. `REVIEW`
+and `DEFER` leaves remain visible with exact reasons and cannot receive
+automatic expansion questions. New Criminologist questions are checked by
+`QuestionService` for readiness, depth, scope, source/study chain, structured
+content, and the existing downstream validators; ordinary edits to existing
+questions are not made dependent on this planning contract.
+
+Validate the durable Batch641 evidence with:
+
+```sh
+php -d memory_limit=1024M tools/batch641-criminologist-expansion-audit.php --audit
+```
+
+The audit tool consumes the permanent services; it is not the owner of the
+readiness schema or validation rules.
+
 ## Deterministic versus semantic checks
 
 Structural references, schema contracts, eligibility mappings, card identity,

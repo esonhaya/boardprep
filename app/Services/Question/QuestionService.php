@@ -9,6 +9,7 @@ use App\Exceptions\StorageException;
 use App\Exceptions\ValidationException;
 use App\Repositories\QuestionRepository;
 use App\Services\Shared\QuestionValidationService;
+use App\Services\RepositoryHealth\Readiness\SourceReadinessService;
 
 class QuestionService
 {
@@ -40,6 +41,11 @@ class QuestionService
     public static function validateForCreate(array $question): array
     {
         $validation = self::validateForSave($question);
+        $readiness = SourceReadinessService::validateQuestionForCreate($question);
+        if (($readiness['valid'] ?? true) !== true) {
+            $validation['valid'] = false;
+            $validation['errors'] = array_merge($validation['errors'], (array) ($readiness['errors'] ?? []));
+        }
         $id = $question['id'] ?? null;
 
         if (is_scalar($id) && trim((string) $id) !== ''

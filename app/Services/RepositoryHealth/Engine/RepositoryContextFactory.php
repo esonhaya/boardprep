@@ -53,7 +53,7 @@ class RepositoryContextFactory
             'question-eligibility', 'concept-derived-eligibility',
             'question-reuse-overrides', 'question-reuse-metadata',
             'board-concept-coverage', 'study-materials', 'study-question-links',
-            'sources', 'content-fit-audits', 'flashcard-exclusions',
+            'sources', 'content-fit-audits', 'flashcard-exclusions', 'source-readiness',
         ];
     }
 }

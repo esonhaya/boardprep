@@ -268,7 +268,8 @@ final class QuestionEligibilityService
             static fn(array $mapping): string => (string) ($mapping['board_id'] ?? ''),
             self::editorMappings($question)
         );
-        if (!$allowExistingBoard && in_array($boardId, $existingBoards, true)) {
+        $storedBoards = self::storedBoardMappings($question);
+        if (!$allowExistingBoard && in_array($boardId, $existingBoards, true) && in_array($boardId, $storedBoards, true)) {
             $errors['DUPLICATE_BOARD_MAPPING'] = 'This question is already shared with the selected board.';
         }
         if ($allowExistingBoard && !in_array($boardId, $existingBoards, true)) {
@@ -763,6 +764,41 @@ final class QuestionEligibilityService
     private static function containsId(mixed $ids, string $id): bool
     {
         return is_array($ids) && in_array($id, array_map('strval', $ids), true);
+    }
+
+    /**
+     * Return only persisted board mappings. editorMappings() intentionally
+     * supplies a canonical-taxonomy fallback for new questions; that fallback
+     * must not prevent the first canonical eligibility record from being
+     * written by the authoring path.
+     *
+     * @return string[]
+     */
+    private static function storedBoardMappings(array $question): array
+    {
+        $id = (string) ($question['id'] ?? '');
+        $boards = [];
+        foreach (App::storage()->all('question-eligibility') as $entry) {
+            if (!is_array($entry) || !self::containsId($entry['question_ids'] ?? [], $id)) {
+                continue;
+            }
+            $mapping = is_array($entry['question_mappings'][$id] ?? null) ? $entry['question_mappings'][$id] : [];
+            $examIds = is_array($mapping['exam_ids'] ?? null) ? $mapping['exam_ids'] : ($entry['exam_ids'] ?? []);
+            foreach ((array) $examIds as $examId) {
+                if (is_scalar($examId)) $boards[] = self::normalize((string) $examId);
+            }
+        }
+        foreach (App::storage()->all('question-reuse-overrides') as $override) {
+            if (is_array($override) && (string) ($override['question_id'] ?? '') === $id && ($override['override_type'] ?? '') === 'INCLUDE') {
+                $boards[] = self::normalize((string) ($override['board_id'] ?? ''));
+            }
+        }
+        foreach (QuestionReuseEligibilityResolver::productionDerivedRelationships() as $relationship) {
+            if (is_array($relationship) && (string) ($relationship['question_id'] ?? '') === $id) {
+                $boards[] = self::normalize((string) ($relationship['target_board'] ?? ''));
+            }
+        }
+        return array_values(array_unique(array_filter($boards, static fn(string $board): bool => $board !== '')));
     }
 
     private static function hasOverride(string $questionId, string $board, string $type): bool

@@ -2153,15 +2153,35 @@
     {
         "id": "cle-investigation-application",
         "title": "Investigation Applied Review",
-        "summary": "Scenario-based application and evidence reasoning for this PRC subject.",
+        "summary": "Scenario-based application and evidence reasoning grounded in the current Criminologist TOS, scene guidance, procedural rules, and rights safeguards.",
         "notes": [
             {
-                "heading": "Application focus",
-                "body": "Use fact patterns to distinguish rules, evidence, professional judgment, and lawful limits."
+                "heading": "Scene and evidence sequence",
+                "body": "Control access, document relationships among scene features, preserve context, and collect through a traceable process. A later conclusion cannot restore context destroyed by premature handling."
+            },
+            {
+                "heading": "Interview and reasoning",
+                "body": "Separate an account from corroboration, identify what the record establishes, and state what remains uncertain. Do not convert a single statement or an official-sounding label into proof."
+            },
+            {
+                "heading": "Lawful investigation boundary",
+                "body": "Apply the applicable procedural and rights safeguard before deciding what investigative action is defensible. Accuracy of an item does not by itself cure an unlawful acquisition or missing documentation."
+            },
+            {
+                "heading": "Currentness and scope",
+                "body": "Use stable investigative reasoning and the linked authoritative sources. Avoid unverified thresholds, future-effective rules, or agency-specific procedures not established by the source chain."
             }
         ],
         "source_ids": [
-            "prc-criminology-enhanced-tos-2024"
+            "prc-criminology-enhanced-tos-2024",
+            "prc-criminology-board-page",
+            "nij-crime-scene-guide-2013",
+            "nij-crime-scene-guides-2017",
+            "lawphil-rules-criminal-procedure",
+            "lawphil-rules-evidence-2019",
+            "lawphil-ra7438",
+            "lawphil-ra10173",
+            "prc-2026-examination-schedule"
         ],
         "exams": [
             "criminologist"
@@ -2177,21 +2197,42 @@
             "domain_id": "cle-investigation-methods"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-10-01",
+        "batch_marker": "batch641-source-readiness"
     },
     {
         "id": "cle-forensics-application",
         "title": "Forensics Applied Review",
-        "summary": "Scenario-based application and evidence reasoning for this PRC subject.",
+        "summary": "Scenario-based forensic application bounded by scientific-foundation, validation, limitation, and reporting evidence.",
         "notes": [
             {
-                "heading": "Application focus",
-                "body": "Use fact patterns to distinguish rules, evidence, professional judgment, and lawful limits."
+                "heading": "Scientific foundation",
+                "body": "Ask what the method has been validated to support, what observations were actually made, and what limitations affect the strength of the conclusion."
+            },
+            {
+                "heading": "Bounded conclusions",
+                "body": "Report consistency or an observed feature at the strength supported by the method and quality of the item. Do not turn a limited comparison into an unsupported individualization claim."
+            },
+            {
+                "heading": "Integrity and documentation",
+                "body": "Preserve provenance, document handling and examination decisions, and distinguish an evidence-quality problem from a substantive conclusion."
+            },
+            {
+                "heading": "Current scientific boundary",
+                "body": "NIST and NIJ materials are periodically updated. New questions stay within the linked evidence and avoid claiming that a current standard or method is universal when the source only supports a bounded statement."
             }
         ],
         "source_ids": [
-            "prc-criminology-enhanced-tos-2024"
+            "prc-criminology-enhanced-tos-2024",
+            "prc-criminology-board-page",
+            "nist-forensic-science-standards",
+            "nist-scientific-foundation-reviews",
+            "nist-firearms-toolmarks",
+            "nij-crime-scene-guide-2013",
+            "nij-crime-scene-guides-2017",
+            "lawphil-rules-evidence-2019",
+            "prc-2026-examination-schedule"
         ],
         "exams": [
             "criminologist"
@@ -2207,21 +2248,41 @@
             "domain_id": "cle-forensic-evidence"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-10-01",
+        "batch_marker": "batch641-source-readiness"
     },
     {
         "id": "cle-criminology-application",
         "title": "Criminology Applied Review",
-        "summary": "Scenario-based application and evidence reasoning for this PRC subject.",
+        "summary": "Scenario-based criminology application using theory comparison, measurement caution, prevention evidence, and professional-conduct boundaries.",
         "notes": [
             {
-                "heading": "Application focus",
-                "body": "Use fact patterns to distinguish rules, evidence, professional judgment, and lawful limits."
+                "heading": "Theory and mechanism",
+                "body": "Identify the mechanism a theory proposes, compare the observed facts with that mechanism, and do not treat a correlation or label as a complete causal explanation."
+            },
+            {
+                "heading": "Measurement and interpretation",
+                "body": "Check exposure, denominator, comparison group, and missing information before inferring risk from raw counts or a clustered observation."
+            },
+            {
+                "heading": "Prevention and human impact",
+                "body": "Match a prevention response to the supported mechanism and consider dignity, equity, and unintended effects. Do not promise a result the evidence does not establish."
+            },
+            {
+                "heading": "Research and professional conduct",
+                "body": "Distinguish a planned analysis from a post-hoc finding, disclose material limitations, and apply the current professional-conduct source when integrity or confidentiality is at issue."
             }
         ],
         "source_ids": [
-            "prc-criminology-enhanced-tos-2024"
+            "prc-criminology-enhanced-tos-2024",
+            "prc-criminology-board-page",
+            "prc-criminology-ethics-amendment-2025",
+            "prc-criminology-ethics-2024",
+            "openoregon-introduction-criminology",
+            "openstax-deviance-crime",
+            "nij-deterrence",
+            "prc-2026-examination-schedule"
         ],
         "exams": [
             "criminologist"
@@ -2237,21 +2298,43 @@
             "domain_id": "cle-criminology-theory"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-10-01",
+        "batch_marker": "batch641-source-readiness"
     },
     {
         "id": "cle-corrections-application",
         "title": "Corrections Applied Review",
-        "summary": "Scenario-based application and evidence reasoning for this PRC subject.",
+        "summary": "Scenario-based correctional administration application covering humane custody, classification, rehabilitation, community supervision, and reintegration.",
         "notes": [
             {
-                "heading": "Application focus",
-                "body": "Use fact patterns to distinguish rules, evidence, professional judgment, and lawful limits."
+                "heading": "Custody and dignity",
+                "body": "Secure custody must remain humane, documented, and consistent with the applicable rights and professional boundary. Convenience alone is not a sufficient reason to disregard a safeguard."
+            },
+            {
+                "heading": "Classification and treatment",
+                "body": "Use relevant risk, need, safety, and individual information for classification; do not treat a label or offense category as a complete assessment."
+            },
+            {
+                "heading": "Rehabilitation and community work",
+                "body": "Match interventions to assessed needs, monitor response, coordinate with the responsible agency, and state the evidence limit when the source does not establish an outcome."
+            },
+            {
+                "heading": "Currentness boundary",
+                "body": "BJMP, BuCor, and PPA materials may be agency- or version-specific. Use the linked current or tracked authority and avoid importing an unverified operational threshold into a general question."
             }
         ],
         "source_ids": [
-            "prc-criminology-enhanced-tos-2024"
+            "prc-criminology-enhanced-tos-2024",
+            "prc-criminology-board-page",
+            "prc-criminology-ethics-amendment-2025",
+            "lawphil-ra11131",
+            "lawphil-ra9745",
+            "bjmp-comprehensive-operations-manual-2015",
+            "bucor-mandates-functions",
+            "bucor-reintegration-2025",
+            "probation-quality-manual-2016",
+            "prc-2026-examination-schedule"
         ],
         "exams": [
             "criminologist"
@@ -2267,8 +2350,9 @@
             "domain_id": "cle-correctional-systems"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-10-01",
+        "batch_marker": "batch641-source-readiness"
     },
     {
         "id": "nle-np-i-foundation",

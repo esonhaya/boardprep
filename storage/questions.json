@@ -710811,5 +710811,1229 @@
                 "answer_position": "D"
             }
         }
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-criminal-jurisprudence",
+            "topic_id": "cle-jurisprudence-basics",
+            "concept_id": "cle-jurisprudence-principles"
+        },
+        "study_material_id": "cle-criminal-law-application",
+        "study_material_ids": [
+            "cle-criminal-law-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "current_philippine_criminal_law",
+            "rights_and_lawful_limits"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "lawphil-revised-penal-code",
+            "lawphil-rules-criminal-procedure",
+            "lawphil-rules-evidence-2019",
+            "lawphil-ra7438",
+            "lawphil-ra9745"
+        ],
+        "difficulty": "medium",
+        "question": "A reviewer has a proposed conclusion, several record entries, and one unresolved fact. Which method best keeps the conclusion within the governing authority?",
+        "choices": [
+            "Trace the conclusion to each required element and state the unresolved evidentiary gap.",
+            "Choose the most severe label because the file contains an allegation.",
+            "Treat the official-looking record entry as proof of every element.",
+            "Resolve the issue from the final outcome without identifying the controlling rule."
+        ],
+        "answer": "Trace the conclusion to each required element and state the unresolved evidentiary gap.",
+        "explanation": "Element mapping prevents an allegation or label from substituting for the facts and authority required by the applicable rule.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": true,
+        "ethics_scope_application": false,
+        "scenario_family": "label_as_proof",
+        "misconception_family": "label_as_proof",
+        "id": 8814
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-criminal-jurisprudence",
+            "topic_id": "cle-jurisprudence-basics",
+            "concept_id": "cle-jurisprudence-principles"
+        },
+        "study_material_id": "cle-criminal-law-application",
+        "study_material_ids": [
+            "cle-criminal-law-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "rights_and_lawful_limits",
+            "evidence_and_procedure"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "lawphil-revised-penal-code",
+            "lawphil-rules-criminal-procedure",
+            "lawphil-rules-evidence-2019",
+            "lawphil-ra7438",
+            "lawphil-ra9745"
+        ],
+        "difficulty": "medium",
+        "question": "A case note cites a legal rule but does not identify whether the matter is at investigation, charging, or trial. What should the reviewer do first?",
+        "choices": [
+            "Apply the broadest possible remedy immediately.",
+            "Identify the governing authority and procedural stage before selecting a consequence.",
+            "Treat the cited rule as sufficient regardless of the procedural stage.",
+            "Use the rule most favorable to the conclusion already written."
+        ],
+        "answer": "Identify the governing authority and procedural stage before selecting a consequence.",
+        "explanation": "The same fact can have different consequences at different stages, so stage and authority must be identified before application.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": true,
+        "ethics_scope_application": false,
+        "scenario_family": "stage_blind_application",
+        "misconception_family": "stage_blind_application",
+        "id": 8815
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-corrections",
+            "topic_id": "cle-correctional-systems",
+            "concept_id": "cle-corrections-institutional"
+        },
+        "study_material_id": "cle-corrections-application",
+        "study_material_ids": [
+            "cle-corrections-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "custody_and_dignity",
+            "classification_and_rehabilitation"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "probation-quality-manual-2016",
+            "bjmp-comprehensive-operations-manual-2015",
+            "bucor-mandates-functions",
+            "bucor-reintegration-2025",
+            "prc-criminology-ethics-amendment-2025"
+        ],
+        "difficulty": "medium",
+        "question": "A facility proposes a convenient custody practice that is secure but removes a documented dignity safeguard. What is the best response?",
+        "choices": [
+            "Retain security while applying the lawful, humane safeguard and documenting the decision.",
+            "Use convenience as sufficient reason to remove the safeguard.",
+            "Assume security and dignity are unrelated.",
+            "Apply the practice without recording the authority or review point."
+        ],
+        "answer": "Retain security while applying the lawful, humane safeguard and documenting the decision.",
+        "explanation": "Correctional administration must keep custody secure and humane within the applicable rights and professional boundary.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "scenario_family": "security_cures_all",
+        "misconception_family": "security_cures_all",
+        "id": 8825
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-corrections",
+            "topic_id": "cle-correctional-systems",
+            "concept_id": "cle-corrections-institutional"
+        },
+        "study_material_id": "cle-corrections-application",
+        "study_material_ids": [
+            "cle-corrections-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "custody_and_dignity",
+            "evidence_supported_limits"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "probation-quality-manual-2016",
+            "bjmp-comprehensive-operations-manual-2015",
+            "bucor-mandates-functions",
+            "bucor-reintegration-2025",
+            "prc-criminology-ethics-amendment-2025"
+        ],
+        "difficulty": "medium",
+        "question": "An operational report names a high-risk activity but no approving authority, assigned roles, or review point. What should be required?",
+        "choices": [
+            "A documented authority, role assignment, risk control, and after-action review point.",
+            "More dramatic language about the activity.",
+            "A larger team without clarifying roles.",
+            "Removal of the risk discussion from the report."
+        ],
+        "answer": "A documented authority, role assignment, risk control, and after-action review point.",
+        "explanation": "Accountable administration requires a traceable decision basis and role clarity, not merely a larger operation.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "scenario_family": "accountability_gap",
+        "misconception_family": "accountability_gap",
+        "id": 8826
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-corrections",
+            "topic_id": "cle-correctional-systems",
+            "concept_id": "cle-corrections-community"
+        },
+        "study_material_id": "cle-corrections-application",
+        "study_material_ids": [
+            "cle-corrections-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "reintegration_and_coordination",
+            "classification_and_rehabilitation"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "probation-quality-manual-2016",
+            "bjmp-comprehensive-operations-manual-2015",
+            "bucor-mandates-functions",
+            "bucor-reintegration-2025",
+            "prc-criminology-ethics-amendment-2025"
+        ],
+        "difficulty": "medium",
+        "question": "A community supervision plan lists a release date but no responsible service, follow-up, or coordination path. What is missing?",
+        "choices": [
+            "Continuity and coordination with the responsible services and a review point.",
+            "A more severe label for the person under supervision.",
+            "A promise that the date alone guarantees successful reintegration.",
+            "Removal of community partners from the plan."
+        ],
+        "answer": "Continuity and coordination with the responsible services and a review point.",
+        "explanation": "Community work is more defensible when responsibilities, support, and follow-up are traceable.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "scenario_family": "date_equals_plan",
+        "misconception_family": "date_equals_plan",
+        "id": 8827
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-corrections",
+            "topic_id": "cle-correctional-systems",
+            "concept_id": "cle-corrections-community"
+        },
+        "study_material_id": "cle-corrections-application",
+        "study_material_ids": [
+            "cle-corrections-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "classification_and_rehabilitation",
+            "reintegration_and_coordination"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "probation-quality-manual-2016",
+            "bjmp-comprehensive-operations-manual-2015",
+            "bucor-mandates-functions",
+            "bucor-reintegration-2025",
+            "prc-criminology-ethics-amendment-2025"
+        ],
+        "difficulty": "medium",
+        "question": "A community program assigns the same intervention to everyone based only on an offense label. What should guide the correction?",
+        "choices": [
+            "Use relevant assessed needs, safety, and lawful program criteria rather than the label alone.",
+            "Keep the same intervention because individual differences are irrelevant.",
+            "Use the most restrictive intervention for every person.",
+            "Avoid documenting the basis so the assignment appears uniform."
+        ],
+        "answer": "Use relevant assessed needs, safety, and lawful program criteria rather than the label alone.",
+        "explanation": "A classification or offense label is not a complete assessment of treatment or community needs.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "scenario_family": "label_equals_treatment",
+        "misconception_family": "label_equals_treatment",
+        "id": 8828
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-corrections",
+            "topic_id": "cle-correctional-systems",
+            "concept_id": "cle-corrections-classification"
+        },
+        "study_material_id": "cle-corrections-application",
+        "study_material_ids": [
+            "cle-corrections-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "classification_and_rehabilitation",
+            "custody_and_dignity"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "probation-quality-manual-2016",
+            "bjmp-comprehensive-operations-manual-2015",
+            "bucor-mandates-functions",
+            "bucor-reintegration-2025",
+            "prc-criminology-ethics-amendment-2025"
+        ],
+        "difficulty": "medium",
+        "question": "A classification form records only an offense category and no current risk, need, safety, or individual information. What is the primary deficiency?",
+        "choices": [
+            "The decision lacks the relevant evidence needed for a defensible classification.",
+            "The offense category is always enough for treatment decisions.",
+            "The missing information is irrelevant after admission.",
+            "A more restrictive placement should be selected automatically."
+        ],
+        "answer": "The decision lacks the relevant evidence needed for a defensible classification.",
+        "explanation": "Classification should use relevant risk, need, safety, and individual information rather than a single label.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "scenario_family": "single_label_classification",
+        "misconception_family": "single_label_classification",
+        "id": 8829
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-corrections",
+            "topic_id": "cle-correctional-systems",
+            "concept_id": "cle-corrections-classification"
+        },
+        "study_material_id": "cle-corrections-application",
+        "study_material_ids": [
+            "cle-corrections-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "classification_and_rehabilitation",
+            "evidence_supported_limits"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "probation-quality-manual-2016",
+            "bjmp-comprehensive-operations-manual-2015",
+            "bucor-mandates-functions",
+            "bucor-reintegration-2025",
+            "prc-criminology-ethics-amendment-2025"
+        ],
+        "difficulty": "medium",
+        "question": "Two people receive the same intervention even though their assessed needs and safety information differ. Which review is appropriate?",
+        "choices": [
+            "Recheck the classification and treatment rationale against the documented needs and safety evidence.",
+            "Assume identical treatment is always fair.",
+            "Remove the assessment so the outcomes are easier to compare.",
+            "Use the most restrictive option without reviewing the evidence."
+        ],
+        "answer": "Recheck the classification and treatment rationale against the documented needs and safety evidence.",
+        "explanation": "A defensible intervention is connected to the person’s supported needs and safety context.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "scenario_family": "uniformity_equals_fairness",
+        "misconception_family": "uniformity_equals_fairness",
+        "id": 8830
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-corrections",
+            "topic_id": "cle-correctional-systems",
+            "concept_id": "cle-corrections-reintegration"
+        },
+        "study_material_id": "cle-corrections-application",
+        "study_material_ids": [
+            "cle-corrections-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "reintegration_and_coordination",
+            "classification_and_rehabilitation"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "probation-quality-manual-2016",
+            "bjmp-comprehensive-operations-manual-2015",
+            "bucor-mandates-functions",
+            "bucor-reintegration-2025",
+            "prc-criminology-ethics-amendment-2025"
+        ],
+        "difficulty": "medium",
+        "question": "A pre-release plan lists a date and destination but no continuity of records, services, or responsible contact. What should be added?",
+        "choices": [
+            "A coordinated continuity plan linking the person to responsible services and follow-up.",
+            "A guarantee that the release date alone produces reintegration.",
+            "A new classification label without support services.",
+            "Removal of the receiving community agency from the plan."
+        ],
+        "answer": "A coordinated continuity plan linking the person to responsible services and follow-up.",
+        "explanation": "Reintegration requires continuity and coordination rather than a date treated as a complete plan.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "scenario_family": "date_equals_reintegration",
+        "misconception_family": "date_equals_reintegration",
+        "id": 8831
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-corrections",
+            "topic_id": "cle-correctional-systems",
+            "concept_id": "cle-corrections-reintegration"
+        },
+        "study_material_id": "cle-corrections-application",
+        "study_material_ids": [
+            "cle-corrections-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "reintegration_and_coordination",
+            "custody_and_dignity"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "probation-quality-manual-2016",
+            "bjmp-comprehensive-operations-manual-2015",
+            "bucor-mandates-functions",
+            "bucor-reintegration-2025",
+            "prc-criminology-ethics-amendment-2025"
+        ],
+        "difficulty": "medium",
+        "question": "A community partner requests a full case file for reintegration planning without identifying a lawful purpose or safeguards. What should control?",
+        "choices": [
+            "Share only information supported by lawful purpose, proportionality, and applicable safeguards.",
+            "Release the full file because coordination is always sufficient authority.",
+            "Deny every request without checking the purpose or role.",
+            "Publish the file so all partners can access it."
+        ],
+        "answer": "Share only information supported by lawful purpose, proportionality, and applicable safeguards.",
+        "explanation": "Coordination must be balanced with privacy, lawful purpose, minimum necessary disclosure, and safeguards.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "scenario_family": "coordination_over_privacy",
+        "misconception_family": "coordination_over_privacy",
+        "id": 8832
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-law-enforcement",
+            "topic_id": "cle-law-administration",
+            "concept_id": "cle-administration-accountability"
+        },
+        "study_material_id": "cle-law-enforcement-application",
+        "study_material_ids": [
+            "cle-law-enforcement-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "accountability_and_administration",
+            "risk_control_and_role_clarity"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "prc-criminology-ethics-amendment-2025",
+            "lawphil-ra11131",
+            "lawphil-ra10173",
+            "nij-crime-scene-guides-2017"
+        ],
+        "difficulty": "hard",
+        "question": "A supervisor must approve a proposed information-sharing arrangement, but the request states only the desired outcome. What is the most defensible approval record?",
+        "choices": [
+            "Identify the lawful purpose, authority, minimum necessary information, safeguards, and review responsibility.",
+            "Approve the arrangement because the desired outcome is beneficial.",
+            "Share the entire file so later review has more information.",
+            "Leave the basis undocumented because the supervisor made the decision."
+        ],
+        "answer": "Identify the lawful purpose, authority, minimum necessary information, safeguards, and review responsibility.",
+        "explanation": "A reviewable administrative decision connects purpose, authority, proportionality, safeguards, and responsibility instead of relying on the desired outcome alone.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "scenario_family": "outcome_justifies_process",
+        "misconception_family": "outcome_justifies_process",
+        "id": 8833
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-law-enforcement",
+            "topic_id": "cle-law-administration",
+            "concept_id": "cle-administration-accountability"
+        },
+        "study_material_id": "cle-law-enforcement-application",
+        "study_material_ids": [
+            "cle-law-enforcement-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "privacy_and_public_interest",
+            "accountability_and_administration"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "prc-criminology-ethics-amendment-2025",
+            "lawphil-ra11131",
+            "lawphil-ra10173",
+            "nij-crime-scene-guides-2017"
+        ],
+        "difficulty": "medium",
+        "question": "A community data request includes personal information about people not involved in the stated review. What should the administrator do first?",
+        "choices": [
+            "Check lawful purpose, proportionality, access authority, and safeguards before disclosing information.",
+            "Release all information because the request concerns public safety.",
+            "Delete the records to avoid making a decision.",
+            "Publish the data so the requester cannot be accused of favoritism."
+        ],
+        "answer": "Check lawful purpose, proportionality, access authority, and safeguards before disclosing information.",
+        "explanation": "Privacy-aware administration distinguishes public interest from automatic disclosure and checks the governing authority.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "scenario_family": "public_interest_equals_disclosure",
+        "misconception_family": "public_interest_equals_disclosure",
+        "id": 8834
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-law-enforcement",
+            "topic_id": "cle-law-administration",
+            "concept_id": "cle-administration-accountability"
+        },
+        "study_material_id": "cle-law-enforcement-application",
+        "study_material_ids": [
+            "cle-law-enforcement-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "accountability_and_administration",
+            "evidence_supported_limits"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "prc-criminology-ethics-amendment-2025",
+            "lawphil-ra11131",
+            "lawphil-ra10173",
+            "nij-crime-scene-guides-2017"
+        ],
+        "difficulty": "medium",
+        "question": "A supervisor receives an operational allegation but the record does not identify the source, corroboration, or review channel. What is the most defensible next step?",
+        "choices": [
+            "Preserve the record, identify what can be corroborated, and route it through the proper review channel.",
+            "Treat the allegation as established because it concerns an officer.",
+            "Discard it because an allegation can never be reviewed.",
+            "Publish the allegation before checking its basis."
+        ],
+        "answer": "Preserve the record, identify what can be corroborated, and route it through the proper review channel.",
+        "explanation": "Accountability requires a reviewable record and fair handling of both evidence and uncertainty.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": true,
+        "scenario_family": "allegation_equals_fact",
+        "misconception_family": "allegation_equals_fact",
+        "id": 8835
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-forensics",
+            "topic_id": "cle-forensic-evidence",
+            "concept_id": "cle-forensics-identification"
+        },
+        "study_material_id": "cle-forensics-application",
+        "study_material_ids": [
+            "cle-forensics-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "scientific_foundation",
+            "quality_and_limitations"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "nist-forensic-science-standards",
+            "nist-scientific-foundation-reviews",
+            "nist-firearms-toolmarks",
+            "nij-crime-scene-guide-2013",
+            "lawphil-rules-evidence-2019"
+        ],
+        "difficulty": "hard",
+        "question": "A comparison has limited-quality features and no validated basis for individualization. Which report wording is defensible?",
+        "choices": [
+            "Report the observed similarities and limitations without claiming unique identification.",
+            "Report the reference source as the unique contributor because some features agree.",
+            "Convert consistency into identification without a validated basis.",
+            "Omit the quality limitation so the conclusion is easier to use."
+        ],
+        "answer": "Report the observed similarities and limitations without claiming unique identification.",
+        "explanation": "A limited comparison supports only a qualified conclusion at the strength supported by the method and item quality.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": true,
+        "ethics_scope_application": false,
+        "scenario_family": "consistency_equals_identification",
+        "misconception_family": "consistency_equals_identification",
+        "id": 8816
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-forensics",
+            "topic_id": "cle-forensic-evidence",
+            "concept_id": "cle-forensics-documentation"
+        },
+        "study_material_id": "cle-forensics-application",
+        "study_material_ids": [
+            "cle-forensics-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "quality_and_limitations",
+            "evidence_reporting"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "nist-forensic-science-standards",
+            "nist-scientific-foundation-reviews",
+            "nist-firearms-toolmarks",
+            "nij-crime-scene-guide-2013",
+            "lawphil-rules-evidence-2019"
+        ],
+        "difficulty": "medium",
+        "question": "A trace is visible at a scene, but personnel have not documented its position or restricted access. What should happen before collection?",
+        "choices": [
+            "Collect it immediately before its condition changes.",
+            "Restrict access and document the scene relationship before collection.",
+            "Allow every observer to handle it so possible evidence is not missed.",
+            "Photograph only the trace and omit its relationship to the surrounding scene."
+        ],
+        "answer": "Restrict access and document the scene relationship before collection.",
+        "explanation": "Documentation and access control preserve context that collection alone cannot restore.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": true,
+        "ethics_scope_application": false,
+        "scenario_family": "collection_before_context",
+        "misconception_family": "collection_before_context",
+        "id": 8817
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-forensics",
+            "topic_id": "cle-forensic-evidence",
+            "concept_id": "cle-forensics-laboratory"
+        },
+        "study_material_id": "cle-forensics-application",
+        "study_material_ids": [
+            "cle-forensics-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "scientific_foundation",
+            "quality_and_limitations"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "nist-forensic-science-standards",
+            "nist-scientific-foundation-reviews",
+            "nist-firearms-toolmarks",
+            "nij-crime-scene-guide-2013",
+            "lawphil-rules-evidence-2019"
+        ],
+        "difficulty": "hard",
+        "question": "A laboratory report states a result but gives no information about validation or quality control. What is the best review response?",
+        "choices": [
+            "Accept the strongest interpretation because the report uses technical language.",
+            "Request the validation and quality basis before relying on a stronger conclusion.",
+            "Discard every observation as automatically false.",
+            "Replace the result with the conclusion most useful to the case."
+        ],
+        "answer": "Request the validation and quality basis before relying on a stronger conclusion.",
+        "explanation": "A result must be interpreted with its validation and quality basis; missing support limits the conclusion rather than proving either truth or falsity.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": true,
+        "ethics_scope_application": false,
+        "scenario_family": "technical_language_equals_validation",
+        "misconception_family": "technical_language_equals_validation",
+        "id": 8818
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-forensics",
+            "topic_id": "cle-forensic-evidence",
+            "concept_id": "cle-forensics-limits"
+        },
+        "study_material_id": "cle-forensics-application",
+        "study_material_ids": [
+            "cle-forensics-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "quality_and_limitations",
+            "evidence_reporting"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "nist-forensic-science-standards",
+            "nist-scientific-foundation-reviews",
+            "nist-firearms-toolmarks",
+            "nij-crime-scene-guide-2013",
+            "lawphil-rules-evidence-2019"
+        ],
+        "difficulty": "hard",
+        "question": "A method result is consistent with a reference, but alternative explanations remain plausible. Which conclusion fits the study boundary?",
+        "choices": [
+            "State the observed consistency and the remaining limitation.",
+            "State that the reference is conclusively the source.",
+            "Remove alternative explanations from the report.",
+            "Treat the method label as proof that no limitation exists."
+        ],
+        "answer": "State the observed consistency and the remaining limitation.",
+        "explanation": "Scientific reporting should distinguish an observation from a stronger source-attribution claim not supported by the evidence.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": true,
+        "ethics_scope_application": false,
+        "scenario_family": "observation_equals_source",
+        "misconception_family": "observation_equals_source",
+        "id": 8819
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-criminology",
+            "topic_id": "cle-criminology-theory",
+            "concept_id": "cle-criminology-classical"
+        },
+        "study_material_id": "cle-criminology-application",
+        "study_material_ids": [
+            "cle-criminology-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "criminological_theory",
+            "measurement_and_interpretation"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "openoregon-introduction-criminology",
+            "openstax-deviance-crime",
+            "nij-deterrence",
+            "prc-criminology-ethics-amendment-2025"
+        ],
+        "difficulty": "medium",
+        "question": "A proposed explanation says people weigh consequences before offending. What should a careful criminology reviewer identify?",
+        "choices": [
+            "The theory’s proposed mechanism and the assumptions needed before applying it.",
+            "A universal cause of all offending regardless of context.",
+            "A causal conclusion from the label alone.",
+            "A prevention result without checking how the mechanism is measured."
+        ],
+        "answer": "The theory’s proposed mechanism and the assumptions needed before applying it.",
+        "explanation": "Theory application requires identifying the mechanism and limits rather than treating a theory label as a complete explanation.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": false,
+        "scenario_family": "theory_label_equals_cause",
+        "misconception_family": "theory_label_equals_cause",
+        "id": 8820
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-criminology",
+            "topic_id": "cle-criminology-theory",
+            "concept_id": "cle-criminology-social"
+        },
+        "study_material_id": "cle-criminology-application",
+        "study_material_ids": [
+            "cle-criminology-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "criminological_theory",
+            "measurement_and_interpretation"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "openoregon-introduction-criminology",
+            "openstax-deviance-crime",
+            "nij-deterrence",
+            "prc-criminology-ethics-amendment-2025"
+        ],
+        "difficulty": "medium",
+        "question": "Two neighborhoods have different raw incident counts and different population exposure. What is the cautious interpretation?",
+        "choices": [
+            "Compare appropriate rates and social context before inferring different risk.",
+            "Treat the larger raw count as proof of greater risk.",
+            "Conclude that one neighborhood causes the incidents.",
+            "Ignore exposure because the counts are official."
+        ],
+        "answer": "Compare appropriate rates and social context before inferring different risk.",
+        "explanation": "Raw counts can reflect exposure or population differences and do not by themselves establish comparative risk.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": false,
+        "scenario_family": "raw_count_equals_risk",
+        "misconception_family": "raw_count_equals_risk",
+        "id": 8821
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-criminology",
+            "topic_id": "cle-criminology-theory",
+            "concept_id": "cle-criminology-learning"
+        },
+        "study_material_id": "cle-criminology-application",
+        "study_material_ids": [
+            "cle-criminology-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "criminological_theory",
+            "prevention_and_ethics"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "openoregon-introduction-criminology",
+            "openstax-deviance-crime",
+            "nij-deterrence",
+            "prc-criminology-ethics-amendment-2025"
+        ],
+        "difficulty": "medium",
+        "question": "An intervention changes a behavior after consequences and rewards are altered. Which analysis is most defensible?",
+        "choices": [
+            "Examine the learning mechanism and the conditions under which the behavior changed.",
+            "Treat the observed change as proof of a permanent individual trait.",
+            "Assume the intervention will work identically in every setting.",
+            "Ignore the timing of consequences because the label is familiar."
+        ],
+        "answer": "Examine the learning mechanism and the conditions under which the behavior changed.",
+        "explanation": "Learning explanations are applied through a mechanism and context, not through a fixed label or a universal promise.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": false,
+        "scenario_family": "label_over_mechanism",
+        "misconception_family": "label_over_mechanism",
+        "id": 8822
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-criminology",
+            "topic_id": "cle-criminology-theory",
+            "concept_id": "cle-criminology-victimology"
+        },
+        "study_material_id": "cle-criminology-application",
+        "study_material_ids": [
+            "cle-criminology-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "measurement_and_interpretation",
+            "prevention_and_ethics"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "openoregon-introduction-criminology",
+            "openstax-deviance-crime",
+            "nij-deterrence",
+            "prc-criminology-ethics-amendment-2025"
+        ],
+        "difficulty": "medium",
+        "question": "A victimization pattern is concentrated among people with different exposure and access to protection. What should the reviewer avoid?",
+        "choices": [
+            "Avoid blaming victims and assess exposure, vulnerability, and context before proposing prevention.",
+            "Treat the pattern as proof that victims caused the event.",
+            "Ignore access to protection because the pattern is already visible.",
+            "Promise a prevention outcome without identifying the mechanism."
+        ],
+        "answer": "Avoid blaming victims and assess exposure, vulnerability, and context before proposing prevention.",
+        "explanation": "Victimology requires contextual analysis and dignity-aware prevention rather than attributing causation to the victim.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": false,
+        "scenario_family": "victim_blame_shortcut",
+        "misconception_family": "victim_blame_shortcut",
+        "id": 8823
+    },
+    {
+        "taxonomy": {
+            "board_id": "criminologist",
+            "subject_id": "criminal-justice-foundations",
+            "domain_id": "cle-criminology",
+            "topic_id": "cle-criminology-theory",
+            "concept_id": "cle-criminology-research"
+        },
+        "study_material_id": "cle-criminology-application",
+        "study_material_ids": [
+            "cle-criminology-application"
+        ],
+        "source_scope": [
+            "current_prc_tos",
+            "measurement_and_interpretation",
+            "evidence_supported_limits"
+        ],
+        "source_ids": [
+            "prc-criminology-enhanced-tos-2024",
+            "openoregon-introduction-criminology",
+            "openstax-deviance-crime",
+            "nij-deterrence",
+            "prc-criminology-ethics-amendment-2025"
+        ],
+        "difficulty": "hard",
+        "question": "A researcher tests many subgroup outcomes and highlights only the significant result. What is the main concern?",
+        "choices": [
+            "Selective reporting can exaggerate evidence and the other analyses should be disclosed.",
+            "The selected result becomes the planned primary outcome after the fact.",
+            "The omitted analyses are irrelevant once one result is significant.",
+            "A striking result supports a strong conclusion without describing the search."
+        ],
+        "answer": "Selective reporting can exaggerate evidence and the other analyses should be disclosed.",
+        "explanation": "Transparent reporting is needed because searching many outcomes can produce a striking result by chance.",
+        "source": "BoardPrep-authored",
+        "status": "active",
+        "type": "multiple_choice",
+        "content_blocks": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "apply",
+        "scenario_length": "standard",
+        "professional_judgment": true,
+        "evidence_interpretation": true,
+        "case_interpretation": true,
+        "legal_procedure_application": false,
+        "ethics_scope_application": false,
+        "scenario_family": "selective_reporting",
+        "misconception_family": "selective_reporting",
+        "id": 8824
     }
 ]
