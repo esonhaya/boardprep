@@ -31,13 +31,23 @@ final class ContentIntegrityService
         foreach ([
             'questions', 'boards', 'subjects', 'board-subjects',
             'taxonomy/domains', 'taxonomy/topics', 'taxonomy/concepts',
-            'question-eligibility', 'study-materials', 'study-question-links',
-            'sources',
+            'question-eligibility', 'concept-derived-eligibility',
+            'question-reuse-overrides', 'question-reuse-metadata',
+            'board-concept-coverage', 'study-materials', 'study-question-links',
+            'sources', 'content-fit-audits', 'flashcard-exclusions',
         ] as $collection) {
             $collections[$collection] = App::storage()->all($collection);
         }
 
-        $deriver = App::container()->get(FlashcardDerivationService::class);
+        // Give the production deriver the same immutable snapshot as the
+        // integrity scan. This keeps the health command deterministic and
+        // avoids a second question/study parse for every card.
+        $deriver = new FlashcardDerivationService(
+            null,
+            $collections['study-materials'],
+            $collections['study-question-links'],
+            $collections['flashcard-exclusions']
+        );
         $report = self::analyze(
             $collections,
             static fn(array $question): ?array => $deriver->derive($question),
@@ -82,6 +92,7 @@ final class ContentIntegrityService
         $brokenAssets = [];
         $missingAlt = [];
         $invalidTaxonomy = [];
+        $structuredContentFailures = [];
 
         foreach ($questions as $question) {
             $id = self::id($question);
@@ -103,7 +114,9 @@ final class ContentIntegrityService
             if (self::answerInvalid($question)) {
                 $invalidAnswers[] = $id;
             }
-            foreach (StructuredContentService::validate($question) as $error) {
+            foreach (StructuredContentService::validateDetailed($question) as $detail) {
+                $structuredContentFailures[$id][] = $detail;
+                $error = (string) ($detail['message'] ?? '');
                 $key = str_contains(strtolower($error), 'alt') ? 'alt' : 'asset';
                 if ($key === 'alt') {
                     $missingAlt[] = $id;
@@ -246,6 +259,7 @@ final class ContentIntegrityService
         $cardByKey = [];
         $derivableByQuestion = [];
         $justifiedExclusions = [];
+        $justifiedExclusionRecords = [];
         $accidentalNonDerivable = [];
         foreach ($questions as $question) {
             $questionId = self::id($question);
@@ -257,6 +271,14 @@ final class ContentIntegrityService
             if ($card === null) {
                 if (!$status['derivable'] && $status['justified']) {
                     $justifiedExclusions[] = $questionId;
+                    if (is_array($status['exclusion'] ?? null)) {
+                        $justifiedExclusionRecords[] = $status['exclusion'];
+                    } else {
+                        // A validator/deriver failure is never an exclusion
+                        // without an explicit registry record.
+                        array_pop($justifiedExclusions);
+                        $accidentalNonDerivable[] = $questionId;
+                    }
                 } else {
                     $accidentalNonDerivable[] = $questionId;
                 }
@@ -321,6 +343,7 @@ final class ContentIntegrityService
                 'invalid_taxonomy_references' => array_values(array_filter(array_keys($invalidTaxonomy), static fn(string $id): bool => in_array($id, $owned, true))),
                 'orphan_taxonomy_nodes' => $orphanTaxonomy,
                 'broken_structured_assets' => array_values(array_filter($brokenAssets, static fn(string $id): bool => in_array($id, $owned, true))),
+                'structured_content_failures' => array_values(array_filter(array_keys($structuredContentFailures), static fn(string $id): bool => in_array($id, $owned, true))),
                 'missing_alt_text' => array_values(array_filter($missingAlt, static fn(string $id): bool => in_array($id, $owned, true))),
                 'invalid_answer_keys' => $boardInvalidAnswers,
                 'malformed_questions' => array_values(array_filter(array_keys($malformedQuestions), static fn(string $id): bool => in_array($id, $owned, true))),
@@ -384,6 +407,7 @@ final class ContentIntegrityService
             || $invalidTaxonomy !== []
             || $orphanTaxonomy !== []
             || $brokenAssets !== []
+            || $structuredContentFailures !== []
             || $missingAlt !== []
             || $invalidAnswers !== []
             || $malformedQuestions !== []
@@ -408,6 +432,7 @@ final class ContentIntegrityService
             'total_invalid_taxonomy_refs' => count($invalidTaxonomy),
             'total_derivable_cards' => count($derivableByQuestion),
             'total_justified_exclusions' => count($justifiedExclusions),
+            'justified_exclusions' => $justifiedExclusionRecords,
             'total_accidental_non_derivable' => count($accidentalNonDerivable),
             'total_card_key_collisions' => count($cardCollisions),
             'total_broken_assets' => count(array_unique($brokenAssets)),
@@ -428,9 +453,12 @@ final class ContentIntegrityService
                 'duplicate_ids' => $duplicateHardIds,
                 'duplicate_question_ids' => $duplicateQuestionIds,
                 'broken_assets' => $brokenAssets,
+                'structured_content' => $structuredContentFailures,
+                'structured_content_failures' => $structuredContentFailures,
                 'missing_alt_text' => $missingAlt,
                 'accidental_non_derivable' => $accidentalNonDerivable,
                 'card_key_collisions' => $cardCollisions,
+                'justified_exclusions' => $justifiedExclusionRecords,
             ],
             'warnings' => $portfolioWarnings,
             'semantic_review' => [
@@ -450,25 +478,25 @@ final class ContentIntegrityService
         ];
     }
 
-    /** @return array{derivable:bool,justified:bool,reason:string} */
+    /** @return array{derivable:bool,justified:bool,reason:string,exclusion:?array} */
     public static function derivationStatus(array $question): array
     {
         $status = strtolower((string) ($question['status'] ?? 'active'));
         if ($status === 'archived' || !in_array($status, ['active', 'approved'], true)) {
-            return ['derivable' => false, 'justified' => true, 'reason' => 'inactive'];
+            return ['derivable' => false, 'justified' => false, 'reason' => 'inactive', 'exclusion' => null];
         }
         if (!QuestionValidationService::validate($question)['valid']) {
-            return ['derivable' => false, 'justified' => true, 'reason' => 'invalid-question'];
+            return ['derivable' => false, 'justified' => false, 'reason' => 'invalid-question', 'exclusion' => null];
         }
         if (!is_scalar($question['answer'] ?? null) || trim((string) $question['answer']) === '') {
-            return ['derivable' => false, 'justified' => true, 'reason' => 'missing-answer'];
+            return ['derivable' => false, 'justified' => false, 'reason' => 'missing-answer', 'exclusion' => null];
         }
         $rationale = $question['explanation'] ?? $question['helpfulExplanation'] ?? '';
         if (!is_scalar($rationale) || trim((string) $rationale) === '') {
-            return ['derivable' => false, 'justified' => true, 'reason' => 'missing-rationale'];
+            return ['derivable' => false, 'justified' => false, 'reason' => 'missing-rationale', 'exclusion' => null];
         }
         if (!is_array($question['taxonomy'] ?? null) || trim((string) ($question['taxonomy']['concept_id'] ?? '')) === '') {
-            return ['derivable' => false, 'justified' => true, 'reason' => 'missing-concept'];
+            return ['derivable' => false, 'justified' => false, 'reason' => 'missing-concept', 'exclusion' => null];
         }
         $intent = strtolower(trim((string) ($question['cognitive_intent'] ?? '')));
         if (in_array($intent, ['recall', 'remember', 'recognize', 'classify'], true)
@@ -476,9 +504,9 @@ final class ContentIntegrityService
             && ($question['data_interpretation'] ?? false) !== true
             && ($question['passage_dependent'] ?? false) !== true
             && ($question['content_blocks'] ?? []) === []) {
-            return ['derivable' => false, 'justified' => true, 'reason' => 'low-value-intent'];
+            return ['derivable' => false, 'justified' => false, 'reason' => 'low-value-intent', 'exclusion' => null];
         }
-        return ['derivable' => true, 'justified' => true, 'reason' => ''];
+        return ['derivable' => true, 'justified' => false, 'reason' => '', 'exclusion' => null];
     }
 
     /** @return array<string, array> */

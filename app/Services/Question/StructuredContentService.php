@@ -6,10 +6,40 @@ namespace App\Services\Question;
 
 final class StructuredContentService
 {
-    private const TYPES = ['text', 'equation', 'table', 'figure', 'chart'];
     private const FIGURE_EXTENSIONS = ['svg', 'png', 'jpg', 'jpeg', 'webp'];
 
+    /**
+     * Canonical production shapes. Optional fields are explicit so producer,
+     * validator, renderer, and flashcard consumers share one contract.
+     *
+     * @return array<string, array{required: string[], optional: string[]}>
+     */
+    public static function schema(): array
+    {
+        return [
+            'text' => ['required' => ['value'], 'optional' => ['fallback', 'label']],
+            'equation' => ['required' => ['value'], 'optional' => ['fallback']],
+            'table' => ['required' => ['columns', 'rows'], 'optional' => ['title', 'value']],
+            'chart' => ['required' => ['columns', 'rows'], 'optional' => ['title', 'value']],
+            'figure' => ['required' => ['asset', 'alt'], 'optional' => ['caption']],
+        ];
+    }
+
+    /** Keep the established string API for existing application callers. */
     public static function validate(array $question): array
+    {
+        return array_map(
+            static fn(array $issue): string => $issue['message'],
+            self::validateDetailed($question)
+        );
+    }
+
+    /**
+     * Machine-readable structured-content contract failures.
+     *
+     * @return array<int, array{code: string, message: string, path: string}>
+     */
+    public static function validateDetailed(array $question): array
     {
         $errors = [];
         $blocks = $question['content_blocks'] ?? [];
@@ -17,63 +47,120 @@ final class StructuredContentService
             return $errors;
         }
         if (!is_array($blocks) || array_is_list($blocks) === false) {
-            return ['Invalid structured content blocks'];
+            return [self::issue('INVALID_NESTING', 'Invalid structured content blocks', 'content_blocks')];
         }
+
         foreach ($blocks as $index => $block) {
-            if (!is_array($block) || !in_array($block['type'] ?? '', self::TYPES, true)) {
-                $errors[] = "Invalid structured block {$index}";
+            $path = 'content_blocks.' . $index;
+            if (!is_array($block)) {
+                $errors[] = self::issue('MALFORMED_BLOCK', "Malformed structured block {$index}", $path);
                 continue;
             }
-            $type = $block['type'];
-            if ($type === 'text' || $type === 'equation') {
-                if (trim((string) ($block['value'] ?? '')) === '') {
-                    $errors[] = "Empty {$type} block {$index}";
-                }
-            } elseif ($type === 'table' || $type === 'chart') {
-                self::validateTable($block, $index, $errors);
-            } elseif ($type === 'figure') {
-                $asset = trim((string) ($block['asset'] ?? ''));
-                if ($asset === '') {
-                    $errors[] = "Missing figure asset {$index}";
-                }
-                if (trim((string) ($block['alt'] ?? '')) === '') {
-                    $errors[] = "Missing figure alt text {$index}";
-                }
-                if (self::unsafeFigureAsset($asset)) {
-                    $errors[] = "Unsafe figure asset {$index}";
-                } elseif (!is_file(self::assetPath($asset))) {
-                    $errors[] = "Missing figure file {$index}";
-                }
-                $extension = strtolower((string) pathinfo($asset, PATHINFO_EXTENSION));
-                if (!in_array($extension, self::FIGURE_EXTENSIONS, true)) {
-                    $errors[] = "Unsupported figure type {$index}";
-                }
-                if (in_array($extension, ['png', 'jpg', 'jpeg', 'webp'], true)) {
-                    self::validateRasterProvenance($block, $index, $errors);
-                }
+
+            $type = $block['type'] ?? null;
+            if (!is_string($type) || !array_key_exists($type, self::schema())) {
+                $errors[] = self::issue('UNSUPPORTED_BLOCK_TYPE', "Invalid structured block {$index}", $path . '.type');
+                continue;
             }
+
+            if ($type === 'text' || $type === 'equation') {
+                self::validateScalarField($block, 'value', $type . ' block', $path, $errors);
+                self::validateOptionalScalarField($block, 'fallback', $path, $errors);
+                if ($type === 'text') {
+                    self::validateOptionalScalarField($block, 'label', $path, $errors);
+                }
+                continue;
+            }
+
+            if ($type === 'table' || $type === 'chart') {
+                self::validateTable($block, $index, $errors);
+                self::validateOptionalScalarField($block, 'title', $path, $errors);
+                self::validateOptionalScalarField($block, 'value', $path, $errors);
+                continue;
+            }
+
+            self::validateFigure($block, $index, $errors);
         }
+
         return $errors;
     }
 
     private static function validateTable(array $block, int|string $index, array &$errors): void
     {
-        $columns = $block['columns'] ?? [];
-        $rows = $block['rows'] ?? [];
+        $path = 'content_blocks.' . $index;
+        $columns = $block['columns'] ?? null;
+        $rows = $block['rows'] ?? null;
         if (!is_array($columns) || $columns === [] || !is_array($rows)) {
-            $errors[] = "Malformed table block {$index}";
+            $errors[] = self::issue('MALFORMED_BLOCK', "Malformed table block {$index}", $path);
             return;
         }
         foreach ($columns as $column) {
             if (!is_string($column) || trim($column) === '') {
-                $errors[] = "Invalid table header {$index}";
+                $errors[] = self::issue('INVALID_FIELD_TYPE', "Invalid table header {$index}", $path . '.columns');
             }
         }
         foreach ($rows as $row) {
             if (!is_array($row) || count($row) !== count($columns)) {
-                $errors[] = "Invalid table row {$index}";
+                $errors[] = self::issue('INVALID_NESTING', "Invalid table row {$index}", $path . '.rows');
+                continue;
+            }
+            foreach ($row as $cell) {
+                if (!is_scalar($cell)) {
+                    $errors[] = self::issue('INVALID_FIELD_TYPE', "Invalid table cell {$index}", $path . '.rows');
+                }
             }
         }
+    }
+
+    private static function validateFigure(array $block, int|string $index, array &$errors): void
+    {
+        $path = 'content_blocks.' . $index;
+        self::validateScalarField($block, 'asset', 'figure asset', $path, $errors);
+        self::validateScalarField($block, 'alt', 'figure alt text', $path, $errors);
+        self::validateOptionalScalarField($block, 'caption', $path, $errors);
+
+        $asset = is_scalar($block['asset'] ?? null) ? trim((string) $block['asset']) : '';
+        if ($asset !== '' && self::unsafeFigureAsset($asset)) {
+            $errors[] = self::issue('INVALID_REFERENCE', "Unsafe figure asset {$index}", $path . '.asset');
+        } elseif ($asset !== '' && !is_file(self::assetPath($asset))) {
+            $errors[] = self::issue('INVALID_REFERENCE', "Missing figure file {$index}", $path . '.asset');
+        }
+
+        $extension = strtolower((string) pathinfo($asset, PATHINFO_EXTENSION));
+        if ($asset !== '' && !in_array($extension, self::FIGURE_EXTENSIONS, true)) {
+            $errors[] = self::issue('UNSUPPORTED_SHAPE', "Unsupported figure type {$index}", $path . '.asset');
+        }
+        if (in_array($extension, ['png', 'jpg', 'jpeg', 'webp'], true)) {
+            self::validateRasterProvenance($block, $index, $errors);
+        }
+    }
+
+    private static function validateScalarField(array $block, string $field, string $label, string $path, array &$errors): void
+    {
+        if (!array_key_exists($field, $block)) {
+            $errors[] = self::issue('MISSING_REQUIRED_FIELD', "Missing {$field} in {$label}", $path . '.' . $field);
+            return;
+        }
+        if (!is_scalar($block[$field])) {
+            $errors[] = self::issue('INVALID_FIELD_TYPE', "Invalid {$field} field in {$label}", $path . '.' . $field);
+            return;
+        }
+        if (trim((string) $block[$field]) === '') {
+            $errors[] = self::issue('EMPTY_REQUIRED_VALUE', "Empty {$label}", $path . '.' . $field);
+        }
+    }
+
+    private static function validateOptionalScalarField(array $block, string $field, string $path, array &$errors): void
+    {
+        if (array_key_exists($field, $block) && !is_scalar($block[$field])) {
+            $errors[] = self::issue('INVALID_FIELD_TYPE', "Invalid {$field} field", $path . '.' . $field);
+        }
+    }
+
+    /** @return array{code: string, message: string, path: string} */
+    private static function issue(string $code, string $message, string $path): array
+    {
+        return ['code' => $code, 'message' => $message, 'path' => $path];
     }
 
     public static function render(array $question): string
@@ -82,7 +169,10 @@ final class StructuredContentService
         foreach (($question['content_blocks'] ?? []) as $block) {
             if (!is_array($block)) continue;
             $type = $block['type'] ?? '';
-            if ($type === 'equation') {
+            if ($type === 'text') {
+                $value = htmlspecialchars((string) ($block['value'] ?? ''), ENT_QUOTES, 'UTF-8');
+                $html .= '<p class="question-text-block">' . $value . '</p>';
+            } elseif ($type === 'equation') {
                 $value = htmlspecialchars((string) ($block['value'] ?? ''), ENT_QUOTES, 'UTF-8');
                 $fallback = htmlspecialchars((string) ($block['fallback'] ?? $block['value'] ?? ''), ENT_QUOTES, 'UTF-8');
                 $html .= '<div class="question-equation" role="img" aria-label="' . $fallback . '"><code>' . $value . '</code></div>';
@@ -124,26 +214,26 @@ final class StructuredContentService
     {
         $provenance = $block['provenance'] ?? null;
         if (!is_array($provenance)) {
-            $errors[] = "Missing raster provenance {$index}";
+            $errors[] = self::issue('MISSING_REQUIRED_FIELD', "Missing raster provenance {$index}", 'content_blocks.' . $index . '.provenance');
             return;
         }
 
         $status = strtoupper(trim((string) ($provenance['status'] ?? '')));
         $allowedStatuses = ['VERIFIED', 'INTERNAL', 'PUBLIC_DOMAIN', 'LICENSED'];
         if (!in_array($status, $allowedStatuses, true)) {
-            $errors[] = "Invalid raster provenance status {$index}";
+            $errors[] = self::issue('INVALID_FIELD_TYPE', "Invalid raster provenance status {$index}", 'content_blocks.' . $index . '.provenance.status');
         }
         if (trim((string) ($provenance['creator'] ?? '')) === '') {
-            $errors[] = "Missing raster creator {$index}";
+            $errors[] = self::issue('MISSING_REQUIRED_FIELD', "Missing raster creator {$index}", 'content_blocks.' . $index . '.provenance.creator');
         }
         if ($status !== 'INTERNAL' && trim((string) ($provenance['source_url'] ?? '')) === '') {
-            $errors[] = "Missing raster source URL {$index}";
+            $errors[] = self::issue('MISSING_REQUIRED_FIELD', "Missing raster source URL {$index}", 'content_blocks.' . $index . '.provenance.source_url');
         }
         if ($status !== 'INTERNAL' && trim((string) ($provenance['license'] ?? '')) === '') {
-            $errors[] = "Missing raster license {$index}";
+            $errors[] = self::issue('MISSING_REQUIRED_FIELD', "Missing raster license {$index}", 'content_blocks.' . $index . '.provenance.license');
         }
         if ($status === 'LICENSED' && trim((string) ($provenance['attribution'] ?? '')) === '') {
-            $errors[] = "Missing raster attribution {$index}";
+            $errors[] = self::issue('MISSING_REQUIRED_FIELD', "Missing raster attribution {$index}", 'content_blocks.' . $index . '.provenance.attribution');
         }
     }
 }

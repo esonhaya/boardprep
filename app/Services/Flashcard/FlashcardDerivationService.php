@@ -16,13 +16,26 @@ final class FlashcardDerivationService
     /** @var array<string, array>|null */
     private ?array $studyLinksByQuestion = null;
 
-    public function __construct(private QuestionRepository $questions)
+    /** @var array<string, array> */
+    private array $statusCache = [];
+
+    private FlashcardExclusionRegistry $exclusions;
+
+    public function __construct(
+        private ?QuestionRepository $questions = null,
+        ?array $studyMaterials = null,
+        ?array $studyLinks = null,
+        ?array $exclusions = null
+    )
     {
+        $this->studyMaterials = $studyMaterials === null ? null : self::indexStudyMaterials($studyMaterials);
+        $this->studyLinksByQuestion = $studyLinks === null ? null : self::indexStudyLinks($studyLinks);
+        $this->exclusions = new FlashcardExclusionRegistry($exclusions);
     }
 
     public function forQuestionId(string $questionId): ?array
     {
-        $question = $this->questions->find($questionId);
+        $question = $this->questions?->find($questionId);
 
         return $question === null ? null : $this->derive($question);
     }
@@ -90,7 +103,7 @@ final class FlashcardDerivationService
             ? $question['taxonomy']
             : [];
 
-        return [
+        $card = [
             'card_key' => FlashcardCardKeyBuilder::build($question, $cardType, $revision),
             'question_id' => (string) $question['id'],
             'card_type' => $cardType,
@@ -99,7 +112,7 @@ final class FlashcardDerivationService
             'domain' => (string) ($taxonomy['domain_id'] ?? $question['domain'] ?? ''),
             'topic' => (string) ($taxonomy['topic_id'] ?? $question['topic'] ?? ''),
             'concept_id' => (string) ($taxonomy['concept_id'] ?? $question['concept'] ?? ''),
-            'prompt' => (string) $question['question'],
+            'prompt' => $this->flashcardPrompt($question),
             'answer' => (string) $question['answer'],
             'explanation' => $this->rationale($question),
             'difficulty' => (string) ($question['difficulty'] ?? ''),
@@ -110,6 +123,8 @@ final class FlashcardDerivationService
                 ? $question['content_blocks']
                 : [],
         ];
+
+        return FlashcardCardValidator::validate($card) === [] ? $card : null;
     }
 
     private function eligible(array $question): bool
@@ -121,26 +136,36 @@ final class FlashcardDerivationService
      * Exposes the existing derivation gates to integrity tooling without
      * changing which questions can become cards.
      *
-     * @return array{derivable:bool, justified:bool, reason:string}
+     * @return array{derivable:bool, justified:bool, eligible:bool, reason:string, exclusion:?array}
      */
     public function derivationStatus(array $question): array
     {
+        $cacheKey = self::statusCacheKey($question);
+        if (isset($this->statusCache[$cacheKey])) {
+            return $this->statusCache[$cacheKey];
+        }
+
         $status = strtolower((string) ($question['status'] ?? 'active'));
         if ($status === 'archived' || !in_array($status, ['active', 'approved'], true)) {
-            return ['derivable' => false, 'justified' => true, 'reason' => 'inactive'];
+            return $this->statusCache[$cacheKey] = ['derivable' => false, 'justified' => false, 'eligible' => false, 'reason' => 'inactive', 'exclusion' => null];
         }
         if (!QuestionValidationService::validate($question)['valid']) {
-            return ['derivable' => false, 'justified' => true, 'reason' => 'invalid-question'];
+            return $this->statusCache[$cacheKey] = ['derivable' => false, 'justified' => false, 'eligible' => true, 'reason' => 'invalid-question', 'exclusion' => null];
         }
         if (!is_scalar($question['answer'] ?? null) || trim((string) $question['answer']) === '') {
-            return ['derivable' => false, 'justified' => true, 'reason' => 'missing-answer'];
+            return $this->statusCache[$cacheKey] = ['derivable' => false, 'justified' => false, 'eligible' => true, 'reason' => 'missing-answer', 'exclusion' => null];
         }
         if ($this->rationale($question) === '') {
-            return ['derivable' => false, 'justified' => true, 'reason' => 'missing-rationale'];
+            return $this->statusCache[$cacheKey] = ['derivable' => false, 'justified' => false, 'eligible' => true, 'reason' => 'missing-rationale', 'exclusion' => null];
         }
         if (!is_array($question['taxonomy'] ?? null)
             || trim((string) ($question['taxonomy']['concept_id'] ?? '')) === '') {
-            return ['derivable' => false, 'justified' => true, 'reason' => 'missing-concept'];
+            return $this->statusCache[$cacheKey] = ['derivable' => false, 'justified' => false, 'eligible' => true, 'reason' => 'missing-concept', 'exclusion' => null];
+        }
+
+        $exclusion = $this->exclusions->find($question);
+        if ($exclusion !== null) {
+            return $this->statusCache[$cacheKey] = ['derivable' => false, 'justified' => true, 'eligible' => true, 'reason' => 'explicit-exclusion', 'exclusion' => $exclusion];
         }
 
         $intent = strtolower(trim((string) ($question['cognitive_intent'] ?? '')));
@@ -149,10 +174,16 @@ final class FlashcardDerivationService
             && ($question['data_interpretation'] ?? false) !== true
             && ($question['passage_dependent'] ?? false) !== true
             && ($question['content_blocks'] ?? []) === []) {
-            return ['derivable' => false, 'justified' => true, 'reason' => 'low-value-intent'];
+            return $this->statusCache[$cacheKey] = ['derivable' => false, 'justified' => false, 'eligible' => true, 'reason' => 'low-value-intent', 'exclusion' => null];
         }
 
-        return ['derivable' => true, 'justified' => true, 'reason' => ''];
+        return $this->statusCache[$cacheKey] = ['derivable' => true, 'justified' => false, 'eligible' => true, 'reason' => '', 'exclusion' => null];
+    }
+
+    private static function statusCacheKey(array $question): string
+    {
+        $id = (string) ($question['id'] ?? '');
+        return $id . ':' . sha1((string) json_encode($question, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
     }
 
     private function archetype(array $question): string
@@ -185,6 +216,23 @@ final class FlashcardDerivationService
         return '';
     }
 
+    /**
+     * Keep the question wording as the card prompt while masking a long
+     * answer that is already present in the stem.  This is card metadata only
+     * and prevents a derived card from revealing its answer before review.
+     */
+    private function flashcardPrompt(array $question): string
+    {
+        $prompt = trim((string) ($question['question'] ?? ''));
+        $answer = trim((string) ($question['answer'] ?? ''));
+        if ($prompt === '' || mb_strlen($answer) < 4) {
+            return $prompt;
+        }
+
+        $masked = preg_replace('/' . preg_quote($answer, '/') . '/iu', '[answer]', $prompt);
+        return is_string($masked) && $masked !== '' ? $masked : $prompt;
+    }
+
     private function sourceIds(array $question): array
     {
         return array_values(array_filter(
@@ -196,14 +244,7 @@ final class FlashcardDerivationService
     private function studyReferences(string $questionId): array
     {
         if ($this->studyMaterials === null) {
-            $this->studyMaterials = [];
-            foreach (App::storage()->all('study-materials') as $material) {
-                if (!is_array($material)
-                    || ($material['status'] ?? 'published') !== 'published') {
-                    continue;
-                }
-                $this->studyMaterials[(string) ($material['id'] ?? '')] = $material;
-            }
+            $this->studyMaterials = self::indexStudyMaterials(App::storage()->all('study-materials'));
         }
 
         if ($this->studyLinksByQuestion === null) {
@@ -234,6 +275,38 @@ final class FlashcardDerivationService
         }
 
         return $references;
+    }
+
+    /** @return array<string, array<int, array>> */
+    private static function indexStudyLinks(array $links): array
+    {
+        $indexed = [];
+        foreach ($links as $link) {
+            if (!is_array($link)) {
+                continue;
+            }
+            $questionId = (string) ($link['question_id'] ?? '');
+            if ($questionId !== '') {
+                $indexed[$questionId][] = $link;
+            }
+        }
+        return $indexed;
+    }
+
+    /** @return array<string, array> */
+    private static function indexStudyMaterials(array $materials): array
+    {
+        $indexed = [];
+        foreach ($materials as $material) {
+            if (!is_array($material) || ($material['status'] ?? 'published') !== 'published') {
+                continue;
+            }
+            $id = trim((string) ($material['id'] ?? ''));
+            if ($id !== '') {
+                $indexed[$id] = $material;
+            }
+        }
+        return $indexed;
     }
 
     private function hasBlockType(array $question, array $types): bool

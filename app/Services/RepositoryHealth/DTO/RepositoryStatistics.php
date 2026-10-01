@@ -35,4 +35,28 @@ class RepositoryStatistics
     public array $questionsPerConcept = [];
 
     public array $coverage = [];
+
+    public array $boards = [];
+
+    public function toArray(): array
+    {
+        return [
+            'total_questions' => $this->totalQuestions,
+            'total_issues' => $this->totalIssues,
+            'errors' => $this->errors,
+            'warnings' => $this->warnings,
+            'infos' => $this->infos,
+            'issues_by_category' => $this->issuesByCategory,
+            'issues_by_validator' => $this->issuesByValidator,
+            'questions_per_difficulty' => $this->questionsPerDifficulty,
+            'questions_per_status' => $this->questionsPerStatus,
+            'questions_per_board' => $this->questionsPerBoard,
+            'questions_per_subject' => $this->questionsPerSubject,
+            'questions_per_domain' => $this->questionsPerDomain,
+            'questions_per_topic' => $this->questionsPerTopic,
+            'questions_per_concept' => $this->questionsPerConcept,
+            'coverage' => $this->coverage,
+            'boards' => $this->boards,
+        ];
+    }
 }

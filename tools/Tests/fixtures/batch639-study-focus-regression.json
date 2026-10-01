@@ -1,0 +1,22 @@
+{
+    "defect_class": "UNSUPPORTED_BLOCK_TYPE",
+    "before": {
+        "content_blocks": [
+            {
+                "type": "study_focus",
+                "value": "Apply the controlling engineering principle and its scope.",
+                "fallback": "Use the linked study foundation and source."
+            }
+        ]
+    },
+    "after": {
+        "content_blocks": [
+            {
+                "type": "text",
+                "value": "Study focus: Equilibrium and reactions. Isolate the structure, identify support constraints and all external actions, then apply force and moment equilibrium.",
+                "fallback": "Use the linked study material and its source-backed notes to review this focus.",
+                "label": "STUDY_FOCUS"
+            }
+        ]
+    }
+}

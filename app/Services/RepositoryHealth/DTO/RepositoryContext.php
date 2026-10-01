@@ -15,4 +15,7 @@ class RepositoryContext
     public array $blueprints = [];
 
     public array $taxonomy = [];
+
+    /** @var array<string, array> */
+    public array $collections = [];
 }
