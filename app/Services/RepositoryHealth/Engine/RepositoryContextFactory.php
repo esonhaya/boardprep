@@ -54,6 +54,7 @@ class RepositoryContextFactory
             'question-reuse-overrides', 'question-reuse-metadata',
             'board-concept-coverage', 'study-materials', 'study-question-links',
             'sources', 'content-fit-audits', 'flashcard-exclusions', 'source-readiness',
+            'source-readiness-psychometrician',
         ];
     }
 }

@@ -11,6 +11,25 @@ namespace App\Services\RepositoryHealth\Readiness;
  */
 final class SourceReadinessValidator
 {
+    public const BOARD_OFFICIAL_AREAS = [
+        'criminologist' => [
+            'criminal_jurisprudence_and_procedure',
+            'law_enforcement_administration',
+            'crime_detection_and_investigation',
+            'forensic_science',
+            'criminology',
+            'correctional_administration',
+            'shared_general_foundation',
+        ],
+        'psychometrician' => [
+            'psychological-assessment',
+            'developmental-psychology',
+            'abnormal-psychology',
+            'industrial-organizational',
+        ],
+    ];
+
+    /** @var string[] Backward-compatible Criminologist area list. */
     public const OFFICIAL_AREAS = [
         'criminal_jurisprudence_and_procedure',
         'law_enforcement_administration',
@@ -21,6 +40,13 @@ final class SourceReadinessValidator
         'shared_general_foundation',
     ];
 
+    /** @return string[] */
+    public static function officialAreasForBoard(string $boardId): array
+    {
+        $boardId = strtolower(trim($boardId));
+        return array_values(self::BOARD_OFFICIAL_AREAS[$boardId] ?? []);
+    }
+
     /** @return array{valid: bool, errors: array<int, array<string, mixed>>, records: array<int, array<string, mixed>>} */
     public static function validate(array $records, array $context = []): array
     {
@@ -29,6 +55,9 @@ final class SourceReadinessValidator
         $seen = [];
         $sources = self::index($context['sources'] ?? []);
         $materials = self::index($context['study_materials'] ?? []);
+        $boardId = strtolower(trim((string) ($context['board_id'] ?? 'criminologist')));
+        $officialAreas = array_values(array_unique(array_map('strval', (array) ($context['official_areas'] ?? self::officialAreasForBoard($boardId)))));
+        $expectedBatch = (int) ($context['reviewed_at_batch'] ?? 641);
         $nativeCounts = is_array($context['native_counts'] ?? null) ? $context['native_counts'] : [];
         $activeLeaves = array_values(array_unique(array_map('strval', (array) ($context['active_leaf_ids'] ?? []))));
         sort($activeLeaves, SORT_STRING);
@@ -55,12 +84,15 @@ final class SourceReadinessValidator
                 'materials' => $materials,
                 'native_counts' => $nativeCounts,
                 'active_leaf_ids' => $activeLeaves,
+                'board_id' => $boardId,
+                'official_areas' => $officialAreas,
+                'reviewed_at_batch' => $expectedBatch,
             ]);
         }
 
         foreach ($activeLeaves as $leafId) {
             if (!isset($seen[$leafId])) {
-                self::error($errors, 'SOURCE_READINESS.MISSING_ACTIVE_LEAF', $leafId, 'An active Criminologist leaf has no source-readiness record.', ['board_id' => 'criminologist', 'leaf_id' => $leafId]);
+                self::error($errors, 'SOURCE_READINESS.MISSING_ACTIVE_LEAF', $leafId, 'An active examinable leaf has no source-readiness record.', ['board_id' => $boardId, 'leaf_id' => $leafId]);
             }
         }
 
@@ -78,13 +110,15 @@ final class SourceReadinessValidator
         $materials = is_array($context['materials'] ?? null) ? $context['materials'] : [];
         $leafId = trim((string) ($record['leaf_id'] ?? ''));
         $boardId = trim((string) ($record['board_id'] ?? ''));
-        if ($boardId !== 'criminologist') {
-            self::error($errors, 'SOURCE_READINESS.INVALID_RECORD', $leafId, 'Readiness records in this contract must target the canonical Criminologist board.', ['board_id' => $boardId]);
+        $expectedBoardId = strtolower(trim((string) ($context['board_id'] ?? 'criminologist')));
+        if (strtolower($boardId) !== $expectedBoardId) {
+            self::error($errors, 'SOURCE_READINESS.INVALID_RECORD', $leafId, 'Readiness record targets a different board than its canonical collection.', ['expected_board_id' => $expectedBoardId, 'board_id' => $boardId]);
         }
         if ($leafId === '' || ($context['active_leaf_ids'] !== [] && !in_array($leafId, $context['active_leaf_ids'], true))) {
-            self::error($errors, 'SOURCE_READINESS.INVALID_LEAF', $leafId, 'LEAF_ID does not resolve to exactly one active Criminologist leaf.', ['leaf_id' => $leafId]);
+            self::error($errors, 'SOURCE_READINESS.INVALID_LEAF', $leafId, 'LEAF_ID does not resolve to exactly one active examinable leaf.', ['board_id' => $expectedBoardId, 'leaf_id' => $leafId]);
         }
-        if (!in_array((string) ($record['official_area_id'] ?? ''), self::OFFICIAL_AREAS, true)) {
+        $officialAreas = array_values(array_map('strval', (array) ($context['official_areas'] ?? self::officialAreasForBoard($expectedBoardId))));
+        if (!in_array((string) ($record['official_area_id'] ?? ''), $officialAreas, true)) {
             self::error($errors, 'SOURCE_READINESS.INVALID_OFFICIAL_AREA', $leafId, 'OFFICIAL_AREA_ID does not resolve to a supported current scope area.', ['official_area_id' => $record['official_area_id'] ?? null]);
         }
         if (!is_string($record['leaf_name'] ?? null) || trim($record['leaf_name']) === '') {
@@ -205,8 +239,9 @@ final class SourceReadinessValidator
         if (($record['readiness'] ?? '') !== 'DEFER' && trim((string) ($record['defer_reason'] ?? '')) !== '') {
             self::error($errors, 'SOURCE_READINESS.CONTRADICTION', $leafId, 'DEFER_REASON must be empty outside DEFER.', []);
         }
-        if ((int) ($record['reviewed_at_batch'] ?? 0) !== 641) {
-            self::error($errors, 'SOURCE_READINESS.INVALID_RECORD', $leafId, 'REVIEWED_AT_BATCH must identify Batch641.', ['reviewed_at_batch' => $record['reviewed_at_batch'] ?? null]);
+        $expectedBatch = (int) ($context['reviewed_at_batch'] ?? 641);
+        if ((int) ($record['reviewed_at_batch'] ?? 0) !== $expectedBatch) {
+            self::error($errors, 'SOURCE_READINESS.INVALID_RECORD', $leafId, 'REVIEWED_AT_BATCH does not match the readiness collection contract.', ['expected_batch' => $expectedBatch, 'reviewed_at_batch' => $record['reviewed_at_batch'] ?? null]);
         }
         $hash = trim((string) ($record['evidence_hash'] ?? ''));
         if ($hash === '' || !hash_equals(SourceReadinessRecord::evidenceHash($record), $hash)) {

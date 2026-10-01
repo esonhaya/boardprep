@@ -72,6 +72,23 @@ php -d memory_limit=1024M tools/batch641-criminologist-expansion-audit.php --aud
 The audit tool consumes the permanent services; it is not the owner of the
 readiness schema or validation rules.
 
+Psychometrician uses the same generic readiness contract. Its 20 granular
+BoardPrep-derived leaves are stored in
+`storage/source-readiness-psychometrician.json` and are exposed under
+`board_summaries.psychometrician.source_readiness`. The four current PRC areas
+remain the official scope boundary; the finer leaves are repository taxonomy,
+not claims that PRC published a deeper hierarchy. Run the bounded Batch642
+evidence audit with:
+
+```sh
+php -d memory_limit=1024M tools/batch642-psychometrician-taxonomy-audit.php --audit-only
+```
+
+The audit reports the old-to-new taxonomy map, all 380 classifications,
+structural-parent preservation, true leaf counts, source/study readiness,
+depth distribution, and the Batch643 expansion floor. It does not author
+questions.
+
 ## Deterministic versus semantic checks
 
 Structural references, schema contracts, eligibility mappings, card identity,

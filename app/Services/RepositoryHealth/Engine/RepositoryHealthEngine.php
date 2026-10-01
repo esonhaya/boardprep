@@ -76,12 +76,21 @@ final class RepositoryHealthEngine
         $boardSummaries = self::boardSummaries($questions, $collections, $issues);
         $readinessValidation = SourceReadinessService::validateCollections($collections, $boardSummaries);
         self::addSourceReadinessIssues($issues, $readinessValidation);
-        $readinessSummary = SourceReadinessService::summary(
+        $readinessByBoard = [];
+        foreach ((array) ($readinessValidation['by_board'] ?? []) as $boardId => $boardValidation) {
+            $readinessByBoard[(string) $boardId] = SourceReadinessService::summary(
+                (array) ($boardValidation['records'] ?? []),
+                $boardValidation
+            );
+        }
+        $readinessSummary = $readinessByBoard['criminologist'] ?? SourceReadinessService::summary(
             $readinessValidation['records'] ?? [],
             $readinessValidation
         );
-        if (isset($boardSummaries['criminologist'])) {
-            $boardSummaries['criminologist']['source_readiness'] = $readinessSummary;
+        foreach ($readinessByBoard as $boardId => $boardReadiness) {
+            if (isset($boardSummaries[$boardId])) {
+                $boardSummaries[$boardId]['source_readiness'] = $boardReadiness;
+            }
         }
         $flashcardMetrics = self::flashcardMetrics($questions, $collections, $deriver);
         self::addFlashcardMetricIssues($issues, $flashcardMetrics, $questionById);
@@ -94,6 +103,7 @@ final class RepositoryHealthEngine
         $summary = self::summary($checks, $issues);
         $summary['flashcards'] = $flashcardMetrics['portfolio'];
         $summary['source_readiness'] = $readinessSummary;
+        $summary['source_readiness_by_board'] = $readinessByBoard;
 
         $report = new HealthReport();
         $report->issues = self::sortIssues($issues);
@@ -124,7 +134,7 @@ final class RepositoryHealthEngine
             if (!is_array($error)) continue;
             $leafId = (string) ($error['leaf_id'] ?? '');
             $evidence = is_array($error['evidence'] ?? null) ? $error['evidence'] : [];
-            $evidence['board_id'] = 'criminologist';
+            $evidence['board_id'] = (string) ($error['board_id'] ?? $evidence['board_id'] ?? '');
             $evidence['entity_type'] = 'taxonomy_leaf';
             self::issue(
                 $issues,
@@ -974,20 +984,50 @@ final class RepositoryHealthEngine
             return [];
         }
         $weights = $blueprint['official_weights'];
-        $counts = array_fill_keys(array_map('strval', array_keys($weights)), 0);
+        $areaSources = [];
+        foreach ((array) ($blueprint['sections'] ?? []) as $section) {
+            if (!is_array($section)) {
+                continue;
+            }
+            $sectionId = (string) ($section['id'] ?? '');
+            $target = $section['target_percent'] ?? ($weights[$sectionId] ?? null);
+            if ($sectionId === '' || !is_numeric($target)) {
+                continue;
+            }
+            $areaSources[$sectionId] = (string) ($section['domain_id'] ?? $sectionId);
+        }
+        if ($areaSources === []) {
+            foreach (array_keys($weights) as $area) {
+                $areaSources[(string) $area] = (string) $area;
+            }
+        }
+        $counts = array_fill_keys(array_keys($areaSources), 0);
         foreach ($questions as $question) {
             if (self::questionBoard($question) !== $boardId) {
                 continue;
             }
             $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
             $area = (string) ($taxonomy['domain_id'] ?? $taxonomy['subject_id'] ?? '');
-            if (isset($counts[$area])) {
-                $counts[$area]++;
+            foreach ($areaSources as $outputArea => $sourceArea) {
+                if ($area === $sourceArea) {
+                    $counts[$outputArea]++;
+                    break;
+                }
             }
         }
         $total = array_sum($counts);
         $result = [];
-        foreach ($weights as $area => $target) {
+        foreach ($areaSources as $area => $sourceArea) {
+            $target = $blueprint['sections'] ?? [];
+            foreach ($target as $section) {
+                if (is_array($section) && (string) ($section['id'] ?? '') === (string) $area && is_numeric($section['target_percent'] ?? null)) {
+                    $target = $section['target_percent'];
+                    break;
+                }
+            }
+            if (is_array($target)) {
+                $target = $weights[(string) $area] ?? 0;
+            }
             $actual = $total > 0 ? ($counts[(string) $area] ?? 0) / $total * 100 : 0;
             $delta = $actual - (float) $target;
             $result[] = ['area_id' => (string) $area, 'actual_share' => round($actual, 2), 'target_share' => (float) $target, 'delta' => round($delta, 2), 'warning' => abs($delta) > 10];

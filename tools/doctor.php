@@ -6,6 +6,13 @@ require_once __DIR__ . '/../app/Core/Autoloader.php';
 
 \App\Core\Autoloader::register();
 
+// The static Doctor scans the full repository and its JSON collections. Keep
+// the normal developer entrypoint usable on PHP installations whose CLI
+// default is the small 128M limit; Repository Health has its own bounded path.
+if (!in_array('--health', array_slice($argv ?? [], 1), true)) {
+    @ini_set('memory_limit', '1024M');
+}
+
 if (in_array('--health', array_slice($argv ?? [], 1), true)) {
     $healthArguments = array_slice($argv ?? [], 1);
     $allowedHealthArguments = ['--health', '--json', '--persist'];

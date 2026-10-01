@@ -9,42 +9,161 @@ use App\Core\App;
 /** Permanent source-readiness facade used by health, authoring, and UI. */
 final class SourceReadinessService
 {
-    /** @return array<int, array<string, mixed>> */
-    public static function records(?array $collections = null): array
+    public static function collectionNameForBoard(string $boardId): string
     {
+        $boardId = strtolower(trim($boardId));
+        return $boardId === 'criminologist'
+            ? 'source-readiness'
+            : 'source-readiness-' . $boardId;
+    }
+
+    /** @return array<int, array<string, mixed>> */
+    public static function records(?array $collections = null, ?string $boardId = null): array
+    {
+        $collectionName = $boardId === null
+            ? 'source-readiness'
+            : self::collectionNameForBoard($boardId);
         if ($collections !== null) {
-            return array_values(array_filter($collections['source-readiness'] ?? [], 'is_array'));
+            return array_values(array_filter($collections[$collectionName] ?? [], 'is_array'));
         }
-        return array_values(array_filter(App::storage()->all('source-readiness'), 'is_array'));
+        return array_values(array_filter(App::storage()->all($collectionName), 'is_array'));
     }
 
     /** @param array<string, array> $collections @param array<string, array> $boardSummaries */
     public static function validateCollections(array $collections, array $boardSummaries = []): array
     {
-        // Older isolated health fixtures may not opt into the Batch641
-        // contract yet. Production contexts always include this collection
-        // through RepositoryContextFactory once the snapshot is initialized.
-        if (!array_key_exists('source-readiness', $collections)) {
-            return ['valid' => true, 'errors' => [], 'records' => []];
-        }
-        $nativeCounts = self::nativeLeafCounts($collections, 'criminologist');
-        $activeLeaves = array_keys($nativeCounts);
-        if (isset($boardSummaries['criminologist']['leaf_counts']) && is_array($boardSummaries['criminologist']['leaf_counts'])) {
-            $activeLeaves = array_keys($boardSummaries['criminologist']['leaf_counts']);
-            foreach ($activeLeaves as $leafId) {
-                $nativeCounts[$leafId] = (int) ($boardSummaries['criminologist']['leaf_counts'][$leafId] ?? 0);
+        $validations = [];
+        $allErrors = [];
+        $allRecords = [];
+        foreach (self::readinessCollections($collections) as $collectionName => $records) {
+            if ($records === []) {
+                continue;
             }
+            $boardId = self::boardIdForCollection($collectionName, $records);
+            if ($boardId === '') {
+                $validations[$collectionName] = ['valid' => false, 'errors' => [[
+                    'code' => 'SOURCE_READINESS.INVALID_RECORD',
+                    'leaf_id' => '',
+                    'message' => 'A source-readiness collection has no resolvable board ID.',
+                    'evidence' => ['collection' => $collectionName],
+                ]], 'records' => $records, 'board_id' => ''];
+                $allErrors = array_merge($allErrors, $validations[$collectionName]['errors']);
+                $allRecords = array_merge($allRecords, $records);
+                continue;
+            }
+
+            $nativeCounts = self::nativeLeafCounts($collections, $boardId);
+            $activeLeaves = array_keys($nativeCounts);
+            if (isset($boardSummaries[$boardId]['leaf_counts']) && is_array($boardSummaries[$boardId]['leaf_counts'])) {
+                $activeLeaves = array_keys($boardSummaries[$boardId]['leaf_counts']);
+                foreach ($activeLeaves as $leafId) {
+                    $nativeCounts[$leafId] = (int) ($boardSummaries[$boardId]['leaf_counts'][$leafId] ?? 0);
+                }
+            }
+
+            $validation = SourceReadinessValidator::validate(
+                $records,
+                [
+                    'sources' => $collections['sources'] ?? [],
+                    'study_materials' => $collections['study-materials'] ?? [],
+                    'native_counts' => $nativeCounts,
+                    'active_leaf_ids' => $activeLeaves,
+                    'board_id' => $boardId,
+                    'official_areas' => self::officialAreas($collections, $boardId, $records),
+                    'reviewed_at_batch' => self::reviewedAtBatch($records),
+                ]
+            );
+            $validation['board_id'] = $boardId;
+            $validation['collection'] = $collectionName;
+            $validations[$collectionName] = $validation;
+            foreach ((array) ($validation['errors'] ?? []) as $error) {
+                if (is_array($error)) {
+                    $error['board_id'] = $boardId;
+                    $error['collection'] = $collectionName;
+                    $allErrors[] = $error;
+                }
+            }
+            $allRecords = array_merge($allRecords, (array) ($validation['records'] ?? $records));
         }
 
-        return SourceReadinessValidator::validate(
-            self::records($collections),
-            [
-                'sources' => $collections['sources'] ?? [],
-                'study_materials' => $collections['study-materials'] ?? [],
-                'native_counts' => $nativeCounts,
-                'active_leaf_ids' => $activeLeaves,
-            ]
-        );
+        return [
+            'valid' => $allErrors === [],
+            'errors' => $allErrors,
+            'records' => $allRecords,
+            'by_collection' => $validations,
+            'by_board' => self::indexValidationsByBoard($validations),
+        ];
+    }
+
+    /** @return array<string, array<int, array<string, mixed>>> */
+    private static function readinessCollections(array $collections): array
+    {
+        $result = [];
+        foreach ($collections as $name => $records) {
+            if ($name !== 'source-readiness' && !str_starts_with((string) $name, 'source-readiness-')) {
+                continue;
+            }
+            if (!is_array($records)) {
+                continue;
+            }
+            $result[(string) $name] = array_values(array_filter($records, 'is_array'));
+        }
+        return $result;
+    }
+
+    /** @param array<int, array<string, mixed>> $records */
+    private static function boardIdForCollection(string $collectionName, array $records): string
+    {
+        foreach ($records as $record) {
+            $boardId = strtolower(trim((string) ($record['board_id'] ?? '')));
+            if ($boardId !== '') {
+                return $boardId;
+            }
+        }
+        return $collectionName === 'source-readiness'
+            ? 'criminologist'
+            : strtolower(trim(substr($collectionName, strlen('source-readiness-'))));
+    }
+
+    /** @param array<int, array<string, mixed>> $records */
+    private static function reviewedAtBatch(array $records): int
+    {
+        foreach ($records as $record) {
+            if (is_int($record['reviewed_at_batch'] ?? null)) {
+                return (int) $record['reviewed_at_batch'];
+            }
+        }
+        return 641;
+    }
+
+    /** @param array<string, array> $collections @param array<int, array<string, mixed>> $records @return string[] */
+    private static function officialAreas(array $collections, string $boardId, array $records): array
+    {
+        $areas = SourceReadinessValidator::officialAreasForBoard($boardId);
+        foreach ((array) ($collections['blueprints'] ?? []) as $blueprint) {
+            if (!is_array($blueprint) || strtolower((string) ($blueprint['board_id'] ?? $blueprint['board'] ?? '')) !== strtolower($boardId)) {
+                continue;
+            }
+            foreach ((array) ($blueprint['sections'] ?? []) as $section) {
+                if (is_array($section) && trim((string) ($section['id'] ?? '')) !== '') {
+                    $areas[] = trim((string) $section['id']);
+                }
+            }
+        }
+        return array_values(array_unique(array_filter(array_map('strval', $areas))));
+    }
+
+    /** @param array<string, array> $validations @return array<string, array<string, mixed>> */
+    private static function indexValidationsByBoard(array $validations): array
+    {
+        $result = [];
+        foreach ($validations as $validation) {
+            $boardId = strtolower(trim((string) ($validation['board_id'] ?? '')));
+            if ($boardId === '') continue;
+            $result[$boardId] = $validation;
+        }
+        ksort($result, SORT_STRING);
+        return $result;
     }
 
     /** @param array<int, array<string, mixed>> $records @param array<string, mixed> $validation */
@@ -81,12 +200,16 @@ final class SourceReadinessService
     public static function validateQuestionForCreate(array $question, ?array $collections = null): array
     {
         $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
-        if (strtolower(trim((string) ($taxonomy['board_id'] ?? $question['board'] ?? ''))) !== 'criminologist') {
+        $boardId = strtolower(trim((string) ($taxonomy['board_id'] ?? $question['board'] ?? '')));
+        if ($boardId === '') {
             return ['valid' => true, 'errors' => []];
         }
 
         $collections ??= self::collections();
-        $records = self::records($collections);
+        $records = self::records($collections, $boardId);
+        if ($records === []) {
+            return ['valid' => true, 'errors' => []];
+        }
         $byLeaf = [];
         foreach ($records as $record) {
             if (is_array($record)) $byLeaf[(string) ($record['leaf_id'] ?? '')] = $record;
@@ -100,7 +223,7 @@ final class SourceReadinessService
         if (!in_array((string) ($record['readiness'] ?? ''), ['READY', 'READY_WITH_LIMITS'], true)) {
             $errors[] = 'SOURCE_READINESS_NOT_AUTHORABLE';
         }
-        $currentCount = self::nativeLeafCounts($collections, 'criminologist')[$leafId] ?? 0;
+        $currentCount = self::nativeLeafCounts($collections, $boardId)[$leafId] ?? 0;
         $maxNew = (int) ($record['max_new_questions'] ?? 0);
         $recordCount = (int) ($record['current_question_count'] ?? 0);
         if ($currentCount >= $recordCount + $maxNew) {
@@ -144,10 +267,21 @@ final class SourceReadinessService
     public static function nativeLeafCounts(array $collections, string $boardId): array
     {
         $counts = [];
+        $structuralConcepts = [];
+        foreach ((array) ($collections['taxonomy/concepts'] ?? []) as $concept) {
+            if (!is_array($concept)) {
+                continue;
+            }
+            $parent = trim((string) ($concept['parent_concept_id'] ?? ''));
+            $conceptId = trim((string) ($concept['id'] ?? ''));
+            if ($parent !== '' && $conceptId !== '') {
+                $structuralConcepts[$parent] = true;
+            }
+        }
         foreach ((array) ($collections['board-concept-coverage'] ?? []) as $coverage) {
             if (!is_array($coverage) || strtolower((string) ($coverage['board_id'] ?? '')) !== strtolower($boardId)) continue;
             $leafId = trim((string) ($coverage['concept_id'] ?? ''));
-            if ($leafId !== '') $counts[$leafId] = 0;
+            if ($leafId !== '' && !isset($structuralConcepts[$leafId])) $counts[$leafId] = 0;
         }
         foreach ((array) ($collections['questions'] ?? []) as $question) {
             if (!is_array($question) || strtolower((string) ($question['taxonomy']['board_id'] ?? '')) !== strtolower($boardId)) continue;
@@ -162,7 +296,7 @@ final class SourceReadinessService
     /** @return array<string, array> */
     private static function collections(): array
     {
-        $names = ['questions', 'boards', 'subjects', 'board-subjects', 'blueprints', 'taxonomy/domains', 'taxonomy/topics', 'taxonomy/concepts', 'question-eligibility', 'concept-derived-eligibility', 'question-reuse-overrides', 'question-reuse-metadata', 'board-concept-coverage', 'study-materials', 'study-question-links', 'sources', 'content-fit-audits', 'flashcard-exclusions', 'source-readiness'];
+        $names = ['questions', 'boards', 'subjects', 'board-subjects', 'blueprints', 'taxonomy/domains', 'taxonomy/topics', 'taxonomy/concepts', 'question-eligibility', 'concept-derived-eligibility', 'question-reuse-overrides', 'question-reuse-metadata', 'board-concept-coverage', 'study-materials', 'study-question-links', 'sources', 'content-fit-audits', 'flashcard-exclusions', 'source-readiness', 'source-readiness-psychometrician'];
         $collections = [];
         foreach ($names as $name) $collections[$name] = App::storage()->all($name);
         return $collections;

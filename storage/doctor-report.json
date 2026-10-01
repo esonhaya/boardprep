@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-10-01T10:45:47+00:00",
+    "generated_at": "2026-10-01T14:35:55+00:00",
     "health": 32,
     "summary": {
         "checks": 38,
@@ -152,7 +152,7 @@
             "details": [
                 "Passed: 26",
                 "Failed: 0",
-                "Execution time: 13.186s"
+                "Execution time: 13.525s"
             ],
             "recommendations": [],
             "score": 100,
@@ -305,7 +305,7 @@
         {
             "title": "Technical Debt",
             "status": "WARNING",
-            "summary": "Debt Score: 65",
+            "summary": "Debt Score: 70",
             "details": [],
             "recommendations": [
                 "Reduce long files.",
@@ -343,9 +343,9 @@
         {
             "title": "Technical Debt Breakdown",
             "status": "PASS",
-            "summary": "Debt Score: 298",
+            "summary": "Debt Score: 328",
             "details": [
-                "Largest Methods ...... 290",
+                "Largest Methods ...... 320",
                 "Largest Service File .. 8",
                 "Layer Violations ..... 0",
                 "Legacy Files ......... 0",
@@ -444,10 +444,10 @@
         {
             "title": "Largest Service",
             "status": "WARNING",
-            "summary": "./app/Services/RepositoryHealth/Engine/RepositoryHealthEngine.php (1251 lines)",
+            "summary": "./app/Services/RepositoryHealth/Engine/RepositoryHealthEngine.php (1291 lines)",
             "details": [
                 "Threshold : 250",
-                "Current   : 1251"
+                "Current   : 1291"
             ],
             "recommendations": [
                 "Split ./app/Services/RepositoryHealth/Engine/RepositoryHealthEngine.php into smaller collaborators."
@@ -514,7 +514,7 @@
             "status": "PASS",
             "summary": "Required-concept references are valid and acyclic.",
             "details": [
-                "Requirements=845; questions=8835; concepts=974; material_edges=286.",
+                "Requirements=845; questions=8835; concepts=994; material_edges=287.",
                 "INVALID_REQUIRED_CONCEPT_REFERENCES=0",
                 "SELF_PREREQUISITES=0",
                 "CIRCULAR_PREREQUISITES=0",
@@ -577,7 +577,7 @@
                 "91  QuestionEligibilityService.php::forExam()",
                 "80  QuestionReuseEligibilityResolver.php::resolve()",
                 "73  RepositoryHealthEngine.php::addMetadataIssues()",
-                "71  SourceReadinessService.php::validateQuestionForCreate()"
+                "72  SourceReadinessService.php::validateQuestionForCreate()"
             ],
             "recommendations": [
                 "Reduce branching by extracting smaller methods."
@@ -588,7 +588,7 @@
         {
             "title": "Question Coverage",
             "status": "WARNING",
-            "summary": "Canonical Repository Health reports 0 deterministic failures, 2 review items, and 529 thin/zero-leaf signals.",
+            "summary": "Canonical Repository Health reports 0 deterministic failures, 2 review items, and 541 thin/zero-leaf signals.",
             "details": [
                 "Questions: 8835 total; production eligible counts are exposed per board.",
                 "Repository totals: canonical 8835; effective 9295; runtime 9619.",
@@ -600,7 +600,7 @@
                 "let: canonical 1744, effective 1827, runtime 1842; active leaves 205; under20 184; zero 3.",
                 "mechanical-engineering: canonical 464, effective 464, runtime 464; active leaves 14; under20 4; zero 0.",
                 "nursing: canonical 878, effective 898, runtime 898; active leaves 40; under20 10; zero 10.",
-                "psychometrician: canonical 380, effective 380, runtime 380; active leaves 4; under20 0; zero 0.",
+                "psychometrician: canonical 380, effective 380, runtime 380; active leaves 20; under20 12; zero 0.",
                 "registered-electrical-engineering: canonical 842, effective 842, runtime 842; active leaves 37; under20 15; zero 0."
             ],
             "recommendations": [
@@ -615,14 +615,14 @@
             "summary": "./app/Services/Question/QuestionEligibilityService.php (10)",
             "details": [
                 " 10  ./app/Services/Question/QuestionEligibilityService.php",
-                " 14  ./app/Services/RepositoryHealth/Engine/RepositoryHealthEngine.php",
+                " 12  ./app/Services/RepositoryHealth/Engine/RepositoryHealthEngine.php",
                 " 17  ./app/Services/Shared/ContentIntegrityService.php",
                 " 17  ./app/Services/Shared/ContentPriorityService.php",
                 " 18  ./app/Services/Question/QuestionReuseEligibilityResolver.php",
+                " 40  ./app/Services/RepositoryHealth/Readiness/SourceReadinessService.php",
                 " 43  ./app/Services/Shared/ContentQaService.php",
                 " 45  ./app/Controllers/QuestionEditorController.php",
                 " 45  ./app/Services/Flashcard/FlashcardDerivationService.php",
-                " 46  ./app/Services/RepositoryHealth/Readiness/SourceReadinessService.php",
                 " 47  ./app/Services/Question/QuestionEligibilityIndex.php"
             ],
             "recommendations": [
