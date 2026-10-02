@@ -716586,5 +716586,3673 @@
         "professional_context": "PROFESSIONAL",
         "scenario_family": "team_effectiveness",
         "misconception_family": "satisfaction_equals_effectiveness"
+    },
+    {
+        "id": 8857,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-drawing",
+            "concept_id": "b644-me-engineering-drawing-practice"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "Under the stated third-angle projection convention, where is the top view placed relative to the front view?",
+        "explanation": "In third-angle orthographic projection, the top view is placed above the front view. The convention must be stated rather than inferred from an unstated drawing.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "At an arbitrary position",
+            "To the left of the front view",
+            "Above the front view",
+            "Below the front view"
+        ],
+        "answer": "Above the front view",
+        "study_material_id": "me-material-16",
+        "study_material_ids": [
+            "me-material-16"
+        ],
+        "source_ids": [
+            "nptel-engineering-drawing-iit-guwahati",
+            "prc-mechanical-engineering-tos-resolution-57-2013"
+        ],
+        "source_scope": [
+            "foundational drawing interpretation, views/projections, sections, and dimensioning taught in linked course material"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": false,
+        "scenario_family": "drawing-third-angle-view",
+        "misconception_family": "orthographic_projection",
+        "batch_marker": "batch647",
+        "batch647_key": "drawing-third-angle-view",
+        "batch647_wave": 1,
+        "batch647_evidence": {
+            "content_family": "orthographic_projection",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "foundational drawing interpretation, views/projections, sections, and dimensioning taught in linked course material",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8858,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-drawing",
+            "concept_id": "b644-me-engineering-drawing-practice"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "In a sectional view, what does the hatch convention ordinarily identify?",
+        "explanation": "A section represents interior geometry exposed by the cutting plane; hatching identifies the material cut by that plane, not an unseen void or a manufacturing instruction.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "Material intersected by the cutting plane",
+            "A hidden cavity that was not cut",
+            "A dimension that is not to scale",
+            "A surface that must be machined"
+        ],
+        "answer": "Material intersected by the cutting plane",
+        "study_material_id": "me-material-16",
+        "study_material_ids": [
+            "me-material-16"
+        ],
+        "source_ids": [
+            "nptel-engineering-drawing-iit-guwahati",
+            "prc-mechanical-engineering-tos-resolution-57-2013"
+        ],
+        "source_scope": [
+            "foundational drawing interpretation, views/projections, sections, and dimensioning taught in linked course material"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": false,
+        "scenario_family": "drawing-section-cut-material",
+        "misconception_family": "sectional_view",
+        "batch_marker": "batch647",
+        "batch647_key": "drawing-section-cut-material",
+        "batch647_wave": 1,
+        "batch647_evidence": {
+            "content_family": "sectional_view",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "foundational drawing interpretation, views/projections, sections, and dimensioning taught in linked course material",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8859,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-drawing",
+            "concept_id": "b644-me-engineering-drawing-practice"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "A drawing gives two consecutive axial lengths of 32 mm and 18 mm from a common end face. What overall length do those dimensions define?",
+        "explanation": "The dimensions are consecutive lengths along the same axis, so the overall length is 32 mm + 18 mm = 50 mm.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "14 mm",
+            "576 mm",
+            "32 mm",
+            "50 mm"
+        ],
+        "answer": "50 mm",
+        "study_material_id": "me-material-16",
+        "study_material_ids": [
+            "me-material-16"
+        ],
+        "source_ids": [
+            "nptel-engineering-drawing-iit-guwahati",
+            "prc-mechanical-engineering-tos-resolution-57-2013"
+        ],
+        "source_scope": [
+            "foundational drawing interpretation, views/projections, sections, and dimensioning taught in linked course material"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": false,
+        "scenario_family": "drawing-dimension-chain",
+        "misconception_family": "dimensioning",
+        "batch_marker": "batch647",
+        "batch647_key": "drawing-dimension-chain",
+        "batch647_wave": 1,
+        "calculation": {
+            "family": "drawing_dimension_chain",
+            "expression": "32 mm + 18 mm",
+            "values": [
+                32,
+                18
+            ],
+            "expected": 50,
+            "unit": "mm",
+            "rounding": "exact",
+            "assumptions": "Consecutive, non-overlapping dimensions share the stated datum.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "drawing_dimension_chain",
+        "batch647_evidence": {
+            "content_family": "dimensioning",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "foundational drawing interpretation, views/projections, sections, and dimensioning taught in linked course material",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8860,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-mathematics",
+            "domain_id": "b644-me-domain-mathematics",
+            "topic_id": "b644-me-topic-math-economics",
+            "concept_id": "b644-me-me-law-code-ethics"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "Which authority is the primary basis for identifying the statutory practice and covered-equipment definitions of the Philippine mechanical-engineering profession?",
+        "explanation": "R.A. 8495 and its PRC-linked IRR provide the bounded statutory definitions. Technical standards and unverified ethics text do not replace that statutory source.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "A technical standard whose current edition is unknown",
+            "An unverified copy of a historical ethics code",
+            "Republic Act No. 8495 and its PRC-linked implementing rules",
+            "A general engineering textbook alone"
+        ],
+        "answer": "Republic Act No. 8495 and its PRC-linked implementing rules",
+        "study_material_id": "me-material-18",
+        "study_material_ids": [
+            "me-material-18"
+        ],
+        "source_ids": [
+            "prc-mechanical-engineering-act-8495",
+            "prc-mechanical-engineering-2026-program",
+            "prc-mechanical-engineering-irr-ra8495-resolution-16-1998"
+        ],
+        "source_scope": [
+            "statutory practice and equipment definitions under R.A. 8495"
+        ],
+        "source_sensitivity": "VERSIONED",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [
+            "PHILIPPINE_ME_LAW",
+            "CURRENT_PRC_EXAM_PROGRAM"
+        ],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": false,
+        "scenario_family": "law-statutory-practice-source",
+        "misconception_family": "statutory_scope",
+        "batch_marker": "batch647",
+        "batch647_key": "law-statutory-practice-source",
+        "batch647_wave": 1,
+        "batch647_evidence": {
+            "content_family": "statutory_scope",
+            "official_area_id": "mathematics",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "statutory practice and equipment definitions under R.A. 8495",
+            "currentness": "CURRENT_WITH_LIMITS",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8861,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-02T17:59:17+00:00",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-mathematics",
+            "domain_id": "b644-me-domain-mathematics",
+            "topic_id": "b644-me-topic-math-economics",
+            "concept_id": "b644-me-me-law-code-ethics"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "Under Section 17 of R.A. 8495, which body prescribes the scope and methods of the Mechanical Engineer licensure examination?",
+        "explanation": "Section 17 assigns the examination scope and methods to the Board, the Professional Regulatory Board of Mechanical Engineering. This item tests that bounded statutory power, not broader TOS-adoption authority under another statute.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "The Professional Regulatory Board of Mechanical Engineering",
+            "An individual examinee",
+            "A private review provider",
+            "A textbook publisher"
+        ],
+        "answer": "The Professional Regulatory Board of Mechanical Engineering",
+        "study_material_id": "me-material-18",
+        "study_material_ids": [
+            "me-material-18"
+        ],
+        "source_ids": [
+            "prc-mechanical-engineering-act-8495",
+            "prc-mechanical-engineering-2026-program",
+            "prc-mechanical-engineering-irr-ra8495-resolution-16-1998"
+        ],
+        "source_scope": [
+            "Board, examination, registration, and licensure powers stated in R.A. 8495 and its PRC-linked IRR"
+        ],
+        "source_sensitivity": "VERSIONED",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [
+            "PHILIPPINE_ME_LAW",
+            "CURRENT_PRC_EXAM_PROGRAM"
+        ],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "law-board-examination-authority",
+        "misconception_family": "board_authority",
+        "batch_marker": "batch647",
+        "batch647_key": "law-board-examination-authority",
+        "batch647_wave": 1,
+        "batch647_evidence": {
+            "content_family": "board_authority",
+            "official_area_id": "mathematics",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "Board, examination, registration, and licensure powers stated in R.A. 8495 and its PRC-linked IRR",
+            "currentness": "CURRENT_WITH_LIMITS",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8862,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-mathematics",
+            "domain_id": "b644-me-domain-mathematics",
+            "topic_id": "b644-me-topic-math-economics",
+            "concept_id": "b644-me-me-law-code-ethics"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "Which activity is expressly included in the statutory definition of the practice of mechanical engineering under R.A. 8495?",
+        "explanation": "Section 3(a) of R.A. 8495 includes management or supervision of the erection, installation, alteration, testing, and commissioning of mechanical equipment and processes. This item tests that bounded statutory definition, not legal advice.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "Adopting private technical standards without Board action",
+            "Certifying an electrical installation under a different profession’s statute",
+            "Issuing a building occupancy permit",
+            "Management or supervision of installation, testing, and commissioning of mechanical equipment"
+        ],
+        "answer": "Management or supervision of installation, testing, and commissioning of mechanical equipment",
+        "study_material_id": "me-material-18",
+        "study_material_ids": [
+            "me-material-18"
+        ],
+        "source_ids": [
+            "prc-mechanical-engineering-act-8495",
+            "prc-mechanical-engineering-2026-program",
+            "prc-mechanical-engineering-irr-ra8495-resolution-16-1998"
+        ],
+        "source_scope": [
+            "statutory practice and equipment definitions under R.A. 8495"
+        ],
+        "source_sensitivity": "VERSIONED",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [
+            "PHILIPPINE_ME_LAW",
+            "CURRENT_PRC_EXAM_PROGRAM"
+        ],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": false,
+        "scenario_family": "law-practice-activity-definition",
+        "misconception_family": "statutory_scope",
+        "batch_marker": "batch647",
+        "batch647_key": "law-practice-activity-definition",
+        "batch647_wave": 1,
+        "batch647_evidence": {
+            "content_family": "statutory_scope",
+            "official_area_id": "mathematics",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "statutory practice and equipment definitions under R.A. 8495",
+            "currentness": "CURRENT_WITH_LIMITS",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8863,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-mathematics",
+            "domain_id": "b644-me-domain-mathematics",
+            "topic_id": "b644-me-topic-math-economics",
+            "concept_id": "b644-me-me-law-code-ethics"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "In the PRC program for the August 2026 MELE, what relative weight is assigned to Power Plant Engineering?",
+        "explanation": "The current PRC program assigns 35% to Power Plant Engineering, 35% to Mathematics, and 30% to Machine Design, Materials and Shop Practice.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "40%",
+            "25%",
+            "30%",
+            "35%"
+        ],
+        "answer": "35%",
+        "study_material_id": "me-material-18",
+        "study_material_ids": [
+            "me-material-18"
+        ],
+        "source_ids": [
+            "prc-mechanical-engineering-act-8495",
+            "prc-mechanical-engineering-2026-program",
+            "prc-mechanical-engineering-irr-ra8495-resolution-16-1998"
+        ],
+        "source_scope": [
+            "the current MELE subject areas/weights and bounded historical TOS crosswalk"
+        ],
+        "source_sensitivity": "VERSIONED",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [
+            "PHILIPPINE_ME_LAW",
+            "CURRENT_PRC_EXAM_PROGRAM"
+        ],
+        "numeric": true,
+        "calculation_required": false,
+        "quantitative_semantics": "CONCEPTUAL_QUANTITATIVE",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": false,
+        "scenario_family": "law-current-mele-area-weights",
+        "misconception_family": "licensure_boundary",
+        "batch_marker": "batch647",
+        "batch647_key": "law-current-mele-area-weights",
+        "batch647_wave": 1,
+        "batch647_evidence": {
+            "content_family": "licensure_boundary",
+            "official_area_id": "mathematics",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "the current MELE subject areas/weights and bounded historical TOS crosswalk",
+            "currentness": "CURRENT_WITH_LIMITS",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8864,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-strength",
+            "concept_id": "b644-me-pressure-components"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A thin-walled cylinder has a stated pressure difference of 2.4 MPa, an internal diameter of 500 mm, and wall thickness of 10 mm. Under the supplied thin-wall model, what is the hoop stress?",
+        "explanation": "For the stated membrane model, hoop stress is pD/(2t) = (2.4 N/mm²)(500 mm)/(20 mm) = 60 N/mm² = 60 MPa. No code allowable or joint factor is applied.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "15 MPa",
+            "120 MPa",
+            "60 MPa",
+            "30 MPa"
+        ],
+        "answer": "60 MPa",
+        "study_material_id": "me-material-17",
+        "study_material_ids": [
+            "me-material-17"
+        ],
+        "source_ids": [
+            "mit-thin-walled-pressure-vessels",
+            "prc-mechanical-engineering-tos-resolution-57-2013"
+        ],
+        "source_scope": [
+            "introductory thin-walled cylindrical shell equilibrium and hoop/longitudinal stress with supplied geometry, pressure, material assumptions, and idealization"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "pressure-thin-wall-hoop-stress",
+        "misconception_family": "hoop_and_longitudinal_stress",
+        "batch_marker": "batch647",
+        "batch647_key": "pressure-thin-wall-hoop-stress",
+        "batch647_wave": 1,
+        "calculation": {
+            "family": "thin_wall_hoop_stress",
+            "expression": "pD/(2t)",
+            "values": [
+                2.4,
+                500,
+                10
+            ],
+            "expected": 60,
+            "unit": "MPa",
+            "rounding": "exact",
+            "assumptions": "Pressure is the stated pressure difference; thin-wall cylindrical membrane model; supplied dimensions are consistent.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "thin_wall_hoop_stress",
+        "batch647_evidence": {
+            "content_family": "hoop_and_longitudinal_stress",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "introductory thin-walled cylindrical shell equilibrium and hoop/longitudinal stress with supplied geometry, pressure, material assumptions, and idealization",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8865,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-strength",
+            "concept_id": "b644-me-pressure-components"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "For a closed-end thin-walled cylinder with pressure difference 1.5 MPa, diameter 400 mm, and thickness 10 mm, what longitudinal membrane stress follows from the supplied idealization?",
+        "explanation": "For a closed-end thin-wall cylinder, longitudinal stress is pD/(4t) = (1.5 N/mm²)(400 mm)/(40 mm) = 15 N/mm² = 15 MPa.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "7.5 MPa",
+            "15 MPa",
+            "30 MPa",
+            "60 MPa"
+        ],
+        "answer": "15 MPa",
+        "study_material_id": "me-material-17",
+        "study_material_ids": [
+            "me-material-17"
+        ],
+        "source_ids": [
+            "mit-thin-walled-pressure-vessels",
+            "prc-mechanical-engineering-tos-resolution-57-2013"
+        ],
+        "source_scope": [
+            "introductory thin-walled cylindrical shell equilibrium and hoop/longitudinal stress with supplied geometry, pressure, material assumptions, and idealization"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "pressure-longitudinal-stress",
+        "misconception_family": "hoop_and_longitudinal_stress",
+        "batch_marker": "batch647",
+        "batch647_key": "pressure-longitudinal-stress",
+        "batch647_wave": 1,
+        "calculation": {
+            "family": "thin_wall_longitudinal_stress",
+            "expression": "pD/(4t)",
+            "values": [
+                1.5,
+                400,
+                10
+            ],
+            "expected": 15,
+            "unit": "MPa",
+            "rounding": "exact",
+            "assumptions": "Closed ends; pressure difference and dimensions are supplied; ideal thin-wall membrane model.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "thin_wall_longitudinal_stress",
+        "batch647_evidence": {
+            "content_family": "hoop_and_longitudinal_stress",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "introductory thin-walled cylindrical shell equilibrium and hoop/longitudinal stress with supplied geometry, pressure, material assumptions, and idealization",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8866,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-strength",
+            "concept_id": "b644-me-pressure-components"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "For a closed-end thin-walled cylinder under the stated ideal membrane assumptions, how does longitudinal stress compare with hoop stress?",
+        "explanation": "The ideal relationships are pD/(4t) longitudinally and pD/(2t) circumferentially, so the longitudinal value is half the hoop value under these assumptions.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "It is one-half the hoop stress",
+            "It is zero for any pressure",
+            "It is equal to the hoop stress",
+            "It is twice the hoop stress"
+        ],
+        "answer": "It is one-half the hoop stress",
+        "study_material_id": "me-material-17",
+        "study_material_ids": [
+            "me-material-17"
+        ],
+        "source_ids": [
+            "mit-thin-walled-pressure-vessels",
+            "prc-mechanical-engineering-tos-resolution-57-2013"
+        ],
+        "source_scope": [
+            "introductory thin-walled cylindrical shell equilibrium and hoop/longitudinal stress with supplied geometry, pressure, material assumptions, and idealization"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": false,
+        "scenario_family": "pressure-hoop-longitudinal-comparison",
+        "misconception_family": "pressure_boundary_force_balance",
+        "batch_marker": "batch647",
+        "batch647_key": "pressure-hoop-longitudinal-comparison",
+        "batch647_wave": 1,
+        "batch647_evidence": {
+            "content_family": "pressure_boundary_force_balance",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "introductory thin-walled cylindrical shell equilibrium and hoop/longitudinal stress with supplied geometry, pressure, material assumptions, and idealization",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8867,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-strength",
+            "concept_id": "b644-me-pressure-components"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "What is the central simplification made when a cylindrical pressure boundary is treated with a thin-wall membrane model?",
+        "explanation": "The model idealizes the wall response as membrane stress for the stated geometry. It does not establish code compliance, allowables, joint efficiency, or treatment of local discontinuities.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "The component is automatically code-compliant",
+            "Material strength and pressure can be ignored",
+            "Local joints and openings require no separate treatment",
+            "Wall stresses are represented as membrane stresses using the stated thin-wall geometry and assumptions"
+        ],
+        "answer": "Wall stresses are represented as membrane stresses using the stated thin-wall geometry and assumptions",
+        "study_material_id": "me-material-17",
+        "study_material_ids": [
+            "me-material-17"
+        ],
+        "source_ids": [
+            "mit-thin-walled-pressure-vessels",
+            "prc-mechanical-engineering-tos-resolution-57-2013"
+        ],
+        "source_scope": [
+            "introductory thin-walled cylindrical shell equilibrium and hoop/longitudinal stress with supplied geometry, pressure, material assumptions, and idealization"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "pressure-membrane-idealization",
+        "misconception_family": "thin_wall_assumption",
+        "batch_marker": "batch647",
+        "batch647_key": "pressure-membrane-idealization",
+        "batch647_wave": 1,
+        "batch647_evidence": {
+            "content_family": "thin_wall_assumption",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "introductory thin-walled cylindrical shell equilibrium and hoop/longitudinal stress with supplied geometry, pressure, material assumptions, and idealization",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8868,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-power-plant-engineering",
+            "domain_id": "b644-me-domain-power-plant-engineering",
+            "topic_id": "b644-me-topic-power-generation",
+            "concept_id": "b644-me-hydroelectric-plants"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "Water flows at 0.12 m³/s through a penstock section of 0.06 m². What mean velocity follows from continuity?",
+        "explanation": "For the stated filled section, Q = VA, so V = Q/A = 0.12/0.06 = 2.0 m/s.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "7.2 m/s",
+            "2.0 m/s",
+            "0.0072 m/s",
+            "0.5 m/s"
+        ],
+        "answer": "2.0 m/s",
+        "study_material_id": "me-material-5",
+        "study_material_ids": [
+            "me-material-5"
+        ],
+        "source_ids": [
+            "openstax-university-physics-volume-1",
+            "prc-mechanical-engineering-board-page"
+        ],
+        "source_scope": [
+            "basic hydraulic power and plant-energy relationships"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": false,
+        "scenario_family": "hydro-flow-velocity",
+        "misconception_family": "site_and_flow_interpretation",
+        "batch_marker": "batch647",
+        "batch647_key": "hydro-flow-velocity",
+        "batch647_wave": 1,
+        "calculation": {
+            "family": "continuity_flow_velocity",
+            "expression": "Q/A",
+            "values": [
+                0.12,
+                0.06
+            ],
+            "expected": 2,
+            "unit": "m/s",
+            "rounding": "1 decimal",
+            "assumptions": "Mean incompressible flow in the stated cross-section.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "continuity_flow_velocity",
+        "batch647_evidence": {
+            "content_family": "site_and_flow_interpretation",
+            "official_area_id": "power-plant-engineering",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "basic hydraulic power and plant-energy relationships",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8869,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-power-plant-engineering",
+            "domain_id": "b644-me-domain-power-plant-engineering",
+            "topic_id": "b644-me-topic-power-generation",
+            "concept_id": "b644-me-hydroelectric-plants"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "A hydro site has 68 m gross head and 8 m of stated hydraulic losses. What net head is available to the turbine?",
+        "explanation": "Net head is gross head less the stated hydraulic losses: 68 m - 8 m = 60 m.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "8.5 m",
+            "60 m",
+            "76 m",
+            "544 m"
+        ],
+        "answer": "60 m",
+        "study_material_id": "me-material-5",
+        "study_material_ids": [
+            "me-material-5"
+        ],
+        "source_ids": [
+            "openstax-university-physics-volume-1",
+            "prc-mechanical-engineering-board-page"
+        ],
+        "source_scope": [
+            "basic hydraulic power and plant-energy relationships"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": false,
+        "scenario_family": "hydro-net-head",
+        "misconception_family": "hydraulic_head_power",
+        "batch_marker": "batch647",
+        "batch647_key": "hydro-net-head",
+        "batch647_wave": 1,
+        "calculation": {
+            "family": "net_head_loss_balance",
+            "expression": "H_net = H_gross - h_loss",
+            "values": [
+                68,
+                8
+            ],
+            "expected": 60,
+            "unit": "m",
+            "rounding": "exact",
+            "assumptions": "The supplied losses refer to the same flow and datum.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "net_head_loss_balance",
+        "batch647_evidence": {
+            "content_family": "hydraulic_head_power",
+            "official_area_id": "power-plant-engineering",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "basic hydraulic power and plant-energy relationships",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8870,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-power-plant-engineering",
+            "domain_id": "b644-me-domain-power-plant-engineering",
+            "topic_id": "b644-me-topic-power-generation",
+            "concept_id": "b644-me-hydroelectric-plants"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A turbine-generator receives 25 kW of hydraulic input and delivers 18.75 kW of shaft output. What overall conversion efficiency is indicated?",
+        "explanation": "Efficiency is useful shaft output divided by hydraulic input: 18.75/25 = 0.75, or 75%.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "75%",
+            "25%",
+            "133.3%",
+            "6.25%"
+        ],
+        "answer": "75%",
+        "study_material_id": "me-material-5",
+        "study_material_ids": [
+            "me-material-5"
+        ],
+        "source_ids": [
+            "openstax-university-physics-volume-1",
+            "prc-mechanical-engineering-board-page"
+        ],
+        "source_scope": [
+            "basic hydraulic power and plant-energy relationships"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "hydro-efficiency-from-output",
+        "misconception_family": "plant_efficiency",
+        "batch_marker": "batch647",
+        "batch647_key": "hydro-efficiency-from-output",
+        "batch647_wave": 1,
+        "calculation": {
+            "family": "hydro_conversion_efficiency",
+            "expression": "P_out/P_in",
+            "values": [
+                18.75,
+                25
+            ],
+            "expected": 0.75,
+            "unit": "fraction",
+            "rounding": "exact",
+            "assumptions": "Both power values use the same system boundary.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "hydro_conversion_efficiency",
+        "batch647_evidence": {
+            "content_family": "plant_efficiency",
+            "official_area_id": "power-plant-engineering",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "basic hydraulic power and plant-energy relationships",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8871,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-power-plant-engineering",
+            "domain_id": "b644-me-domain-power-plant-engineering",
+            "topic_id": "b644-me-topic-power-generation",
+            "concept_id": "b644-me-hydroelectric-plants"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "Using g = 9.81 m/s², what gravitational potential-energy change per unit mass corresponds to a net water head of 45 m?",
+        "explanation": "Potential energy per unit mass is gH = (9.81 m/s²)(45 m) = 441.45 J/kg, which rounds to 441 J/kg.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "4,414.5 J/kg",
+            "441 J/kg",
+            "45 J/kg",
+            "4.41 J/kg"
+        ],
+        "answer": "441 J/kg",
+        "study_material_id": "me-material-5",
+        "study_material_ids": [
+            "me-material-5"
+        ],
+        "source_ids": [
+            "openstax-university-physics-volume-1",
+            "prc-mechanical-engineering-board-page"
+        ],
+        "source_scope": [
+            "basic hydraulic power and plant-energy relationships"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": false,
+        "scenario_family": "hydro-specific-potential-energy",
+        "misconception_family": "hydraulic_head_power",
+        "batch_marker": "batch647",
+        "batch647_key": "hydro-specific-potential-energy",
+        "batch647_wave": 1,
+        "calculation": {
+            "family": "head_specific_energy",
+            "expression": "gH",
+            "values": [
+                9.81,
+                45
+            ],
+            "expected": 441.45,
+            "unit": "J/kg",
+            "rounding": "nearest J/kg",
+            "assumptions": "Elevation-head energy only; losses and conversion efficiency are not included.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "head_specific_energy",
+        "batch647_evidence": {
+            "content_family": "hydraulic_head_power",
+            "official_area_id": "power-plant-engineering",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "basic hydraulic power and plant-energy relationships",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8872,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-mathematics",
+            "domain_id": "b644-me-domain-mathematics",
+            "topic_id": "b644-me-topic-math-foundations",
+            "concept_id": "b644-me-math-analytic-geometry"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "What is the area of the triangle with vertices (0, 0), (8, 0), and (3, 5) in a Cartesian plane?",
+        "explanation": "The base from (0,0) to (8,0) is 8 units and the perpendicular height is 5 units, so area = (1/2)(8)(5) = 20 square units.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "10 square units",
+            "20 square units",
+            "13 square units",
+            "40 square units"
+        ],
+        "answer": "20 square units",
+        "study_material_id": "me-material-1",
+        "study_material_ids": [
+            "me-material-1"
+        ],
+        "source_ids": [
+            "openstax-calculus-volume-1",
+            "nist-semtech-engineering-statistics-handbook"
+        ],
+        "source_scope": [
+            "regular-shape mensuration and analytic geometry"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "geometry-coordinate-triangle-area",
+        "misconception_family": "geometric_modeling",
+        "batch_marker": "batch647",
+        "batch647_key": "geometry-coordinate-triangle-area",
+        "batch647_wave": 1,
+        "calculation": {
+            "family": "coordinate_triangle_area",
+            "expression": "1/2 * base * perpendicular_height",
+            "values": [
+                8,
+                5
+            ],
+            "expected": 20,
+            "unit": "square units",
+            "rounding": "exact",
+            "assumptions": "Coordinates are Cartesian and the base lies on the x-axis.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "coordinate_triangle_area",
+        "batch647_evidence": {
+            "content_family": "geometric_modeling",
+            "official_area_id": "mathematics",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "regular-shape mensuration and analytic geometry",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8873,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-mathematics",
+            "domain_id": "b644-me-domain-mathematics",
+            "topic_id": "b644-me-topic-math-foundations",
+            "concept_id": "b644-me-math-analytic-geometry"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "The circle x² + y² - 4x + 6y - 12 = 0 has what center and radius?",
+        "explanation": "Completing squares gives (x - 2)² + (y + 3)² = 25; the center is (2,-3) and the radius is √25 = 5.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "Center (2, -3), radius 25",
+            "Center (2, -3), radius 5",
+            "Center (4, -6), radius 5",
+            "Center (-2, 3), radius 5"
+        ],
+        "answer": "Center (2, -3), radius 5",
+        "study_material_id": "me-material-1",
+        "study_material_ids": [
+            "me-material-1"
+        ],
+        "source_ids": [
+            "openstax-calculus-volume-1",
+            "nist-semtech-engineering-statistics-handbook"
+        ],
+        "source_scope": [
+            "regular-shape mensuration and analytic geometry"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "geometry-circle-center-radius",
+        "misconception_family": "algebra_geometry",
+        "batch_marker": "batch647",
+        "batch647_key": "geometry-circle-center-radius",
+        "batch647_wave": 1,
+        "calculation": {
+            "family": "circle_center_radius",
+            "expression": "complete squares: (x-2)^2+(y+3)^2=25",
+            "values": [
+                25
+            ],
+            "expected": 5,
+            "unit": "coordinate units",
+            "rounding": "exact",
+            "assumptions": "The equation is in a Cartesian coordinate system.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "circle_center_radius",
+        "batch647_evidence": {
+            "content_family": "algebra_geometry",
+            "official_area_id": "mathematics",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "regular-shape mensuration and analytic geometry",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8874,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-power-plant-engineering",
+            "domain_id": "b644-me-domain-power-plant-engineering",
+            "topic_id": "b644-me-topic-power-elements",
+            "concept_id": "b644-me-power-fuels-combustion"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "For complete combustion of 1 kmol of methane, CH₄ + 2O₂ → CO₂ + 2H₂O. How many kmol of oxygen are required theoretically?",
+        "explanation": "Balancing carbon, hydrogen, and oxygen gives CH₄ + 2O₂ → CO₂ + 2H₂O, so one kmol of methane requires two kmol of oxygen.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "1 kmol O₂",
+            "2 kmol O₂",
+            "3 kmol O₂",
+            "4 kmol O₂"
+        ],
+        "answer": "2 kmol O₂",
+        "study_material_id": "me-material-8",
+        "study_material_ids": [
+            "me-material-8"
+        ],
+        "source_ids": [
+            "ubc-introduction-engineering-thermodynamics",
+            "openstax-university-physics-volume-2"
+        ],
+        "source_scope": [
+            "fundamental fuel and combustion calculations/interpretation within the published TOS"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "fuel-methane-stoichiometric-oxygen",
+        "misconception_family": "combustion_balance",
+        "batch_marker": "batch647",
+        "batch647_key": "fuel-methane-stoichiometric-oxygen",
+        "batch647_wave": 1,
+        "calculation": {
+            "family": "stoichiometric_oxygen_balance",
+            "expression": "1 kmol CH4 * 2 kmol O2/kmol CH4",
+            "values": [
+                1,
+                2
+            ],
+            "expected": 2,
+            "unit": "kmol O2",
+            "rounding": "exact",
+            "assumptions": "Complete combustion and the displayed balanced reaction.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "stoichiometric_oxygen_balance",
+        "batch647_evidence": {
+            "content_family": "combustion_balance",
+            "official_area_id": "power-plant-engineering",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "fundamental fuel and combustion calculations/interpretation within the published TOS",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8875,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-power-plant-engineering",
+            "domain_id": "b644-me-domain-power-plant-engineering",
+            "topic_id": "b644-me-topic-power-elements",
+            "concept_id": "b644-me-power-fuels-combustion"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A stated fuel reaction requires 2.0 kmol of theoretical air, while 2.5 kmol is supplied. What percentage of excess air is supplied?",
+        "explanation": "Percent excess air = (actual - theoretical)/theoretical × 100 = (2.5 - 2.0)/2.0 × 100 = 25%.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "20%",
+            "80%",
+            "25%",
+            "125%"
+        ],
+        "answer": "25%",
+        "study_material_id": "me-material-8",
+        "study_material_ids": [
+            "me-material-8"
+        ],
+        "source_ids": [
+            "ubc-introduction-engineering-thermodynamics",
+            "openstax-university-physics-volume-2"
+        ],
+        "source_scope": [
+            "fundamental fuel and combustion calculations/interpretation within the published TOS"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "fuel-excess-air-percent",
+        "misconception_family": "excess_air",
+        "batch_marker": "batch647",
+        "batch647_key": "fuel-excess-air-percent",
+        "batch647_wave": 1,
+        "calculation": {
+            "family": "excess_air_fraction",
+            "expression": "(actual-theoretical)/theoretical*100",
+            "values": [
+                2.5,
+                2
+            ],
+            "expected": 25,
+            "unit": "%",
+            "rounding": "exact",
+            "assumptions": "Actual and theoretical air are on the same molar or mass basis.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "excess_air_fraction",
+        "batch647_evidence": {
+            "content_family": "excess_air",
+            "official_area_id": "power-plant-engineering",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "fundamental fuel and combustion calculations/interpretation within the published TOS",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8876,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-power-plant-engineering",
+            "domain_id": "b644-me-domain-power-plant-engineering",
+            "topic_id": "b644-me-topic-power-generation",
+            "concept_id": "b644-me-gas-combined-cycle"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "In an idealized combined-cycle plant, what is the role of the heat-recovery steam generator?",
+        "explanation": "The bottoming steam cycle recovers part of the gas-turbine exhaust energy and can add work; it does not create energy or remove compressor work.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "It converts the exhaust heat into fuel without an energy input",
+            "It transfers gas-turbine exhaust heat to a steam cycle that can produce additional work",
+            "It guarantees a fixed plant efficiency independent of operating conditions",
+            "It eliminates compressor work from the gas turbine"
+        ],
+        "answer": "It transfers gas-turbine exhaust heat to a steam cycle that can produce additional work",
+        "study_material_id": "me-material-8",
+        "study_material_ids": [
+            "me-material-8"
+        ],
+        "source_ids": [
+            "ubc-introduction-engineering-thermodynamics",
+            "openstax-university-physics-volume-2"
+        ],
+        "source_scope": [
+            "idealized gas-turbine and combined-cycle analysis"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "combined-cycle-heat-recovery-role",
+        "misconception_family": "combined_cycle_heat_recovery",
+        "batch_marker": "batch647",
+        "batch647_key": "combined-cycle-heat-recovery-role",
+        "batch647_wave": 1,
+        "batch647_evidence": {
+            "content_family": "combined_cycle_heat_recovery",
+            "official_area_id": "power-plant-engineering",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "idealized gas-turbine and combined-cycle analysis",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8877,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-power-plant-engineering",
+            "domain_id": "b644-me-domain-power-plant-engineering",
+            "topic_id": "b644-me-topic-power-generation",
+            "concept_id": "b644-me-gas-combined-cycle"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "An idealized gas turbine supplies 40 MW net, its steam bottoming cycle supplies 15 MW net, and fuel input is 180 MW. What combined net thermal efficiency results?",
+        "explanation": "Combined net output is 40 + 15 = 55 MW. Efficiency = 55/180 = 0.3056, or 30.6%. The common fuel-input boundary is stated.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "44.4%",
+            "30.6%",
+            "22.2%",
+            "12.0%"
+        ],
+        "answer": "30.6%",
+        "study_material_id": "me-material-8",
+        "study_material_ids": [
+            "me-material-8"
+        ],
+        "source_ids": [
+            "ubc-introduction-engineering-thermodynamics",
+            "openstax-university-physics-volume-2"
+        ],
+        "source_scope": [
+            "idealized gas-turbine and combined-cycle analysis"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "combined-cycle-overall-efficiency",
+        "misconception_family": "combined_cycle_heat_recovery",
+        "batch_marker": "batch647",
+        "batch647_key": "combined-cycle-overall-efficiency",
+        "batch647_wave": 1,
+        "calculation": {
+            "family": "combined_cycle_efficiency",
+            "expression": "(P_GT_net+P_ST_net)/Q_fuel",
+            "values": [
+                40,
+                15,
+                180
+            ],
+            "expected": 0.3055555556,
+            "unit": "fraction",
+            "rounding": "1 decimal percent",
+            "assumptions": "Both net power outputs share the stated plant boundary and fuel input.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "combined_cycle_efficiency",
+        "batch647_evidence": {
+            "content_family": "combined_cycle_heat_recovery",
+            "official_area_id": "power-plant-engineering",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "idealized gas-turbine and combined-cycle analysis",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8878,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-materials",
+            "concept_id": "b644-me-materials-properties"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "A specimen retains a permanent change in shape after the load is removed. Which behavior did it exhibit?",
+        "explanation": "Elastic deformation recovers when load is removed; a retained shape change indicates plastic deformation. The question does not infer an unsupplied alloy specification.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "Zero strain under load",
+            "A change in density with no deformation",
+            "Plastic deformation beyond its elastic response",
+            "Purely elastic recovery"
+        ],
+        "answer": "Plastic deformation beyond its elastic response",
+        "study_material_id": "me-material-4",
+        "study_material_ids": [
+            "me-material-4"
+        ],
+        "source_ids": [
+            "open-mechanical-design-manufacturing",
+            "openstax-university-physics-volume-1"
+        ],
+        "source_scope": [
+            "general materials behavior and explicitly supplied material properties"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": false,
+        "scenario_family": "materials-plastic-deformation",
+        "misconception_family": "failure_mode_comparison",
+        "batch_marker": "batch647",
+        "batch647_key": "materials-plastic-deformation",
+        "batch647_wave": 1,
+        "batch647_evidence": {
+            "content_family": "failure_mode_comparison",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "general materials behavior and explicitly supplied material properties",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8879,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-materials",
+            "concept_id": "b644-me-materials-properties"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "Two candidate materials meet the stated strength requirement. A formed part must undergo substantial plastic shaping without cracking. Which supplied property is most directly relevant to that requirement?",
+        "explanation": "Ductility describes the capacity for plastic deformation before fracture and is directly relevant to formability. Strength and stiffness remain separate requirements.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "Elastic modulus alone",
+            "Electrical resistivity",
+            "Ductility",
+            "Color"
+        ],
+        "answer": "Ductility",
+        "study_material_id": "me-material-10",
+        "study_material_ids": [
+            "me-material-10"
+        ],
+        "source_ids": [
+            "open-mechanical-design-manufacturing",
+            "openstax-university-physics-volume-1"
+        ],
+        "source_scope": [
+            "general materials behavior and explicitly supplied material properties"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": false,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": true,
+        "scenario_family": "materials-formability-ductility",
+        "misconception_family": "material_selection",
+        "batch_marker": "batch647",
+        "batch647_key": "materials-formability-ductility",
+        "batch647_wave": 1,
+        "batch647_evidence": {
+            "content_family": "material_selection",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "general materials behavior and explicitly supplied material properties",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8880,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-kinematics",
+            "concept_id": "b644-me-mechanism-kinematics"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A gear transmits 180 N·m of torque at a pitch radius of 0.15 m. What tangential pitch-line force corresponds to that torque?",
+        "explanation": "Tangential force is torque divided by pitch radius: 180 N·m / 0.15 m = 1,200 N.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "1,200 N",
+            "1.2 N",
+            "12 N",
+            "27 N"
+        ],
+        "answer": "1,200 N",
+        "study_material_id": "me-material-11",
+        "study_material_ids": [
+            "me-material-11"
+        ],
+        "source_ids": [
+            "open-mechanical-design-manufacturing",
+            "prc-mechanical-engineering-board-page"
+        ],
+        "source_scope": [
+            "mechanism and gear-train analysis represented by the public TOS"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "mechanism-gear-tangential-force",
+        "misconception_family": "gear_train_ratio",
+        "batch_marker": "batch647",
+        "batch647_key": "mechanism-gear-tangential-force",
+        "batch647_wave": 1,
+        "calculation": {
+            "family": "gear_pitchline_force",
+            "expression": "T/r",
+            "values": [
+                180,
+                0.15
+            ],
+            "expected": 1200,
+            "unit": "N",
+            "rounding": "exact",
+            "assumptions": "Torque and pitch radius refer to the same gear and are expressed in consistent units.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "gear_pitchline_force",
+        "batch647_evidence": {
+            "content_family": "gear_train_ratio",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "mechanism and gear-train analysis represented by the public TOS",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8881,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-kinematics",
+            "concept_id": "b644-me-mechanism-kinematics"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "Two ordinary external gears mesh directly. If the driver rotates clockwise, in which direction does the driven gear rotate?",
+        "explanation": "At an external mesh, the contacting pitch surfaces move in opposite tangential directions, so the two gears rotate in opposite directions.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "Counterclockwise",
+            "Its direction cannot be related to the driver",
+            "Clockwise",
+            "It remains stationary"
+        ],
+        "answer": "Counterclockwise",
+        "study_material_id": "me-material-11",
+        "study_material_ids": [
+            "me-material-11"
+        ],
+        "source_ids": [
+            "open-mechanical-design-manufacturing",
+            "prc-mechanical-engineering-board-page"
+        ],
+        "source_scope": [
+            "mechanism and gear-train analysis represented by the public TOS"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": false,
+        "scenario_family": "mechanism-external-gear-direction",
+        "misconception_family": "mechanism_function",
+        "batch_marker": "batch647",
+        "batch647_key": "mechanism-external-gear-direction",
+        "batch647_wave": 1,
+        "batch647_evidence": {
+            "content_family": "mechanism_function",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "mechanism and gear-train analysis represented by the public TOS",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8882,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-mathematics",
+            "domain_id": "b644-me-domain-mathematics",
+            "topic_id": "b644-me-topic-math-engineering-sciences",
+            "concept_id": "b644-me-basic-engineering-sciences"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "Which SI base-unit expression is dimensionally equivalent to pressure?",
+        "explanation": "Pressure is force per area: (kg·m/s²)/m² = kg/(m·s²). Dimensional agreement is a consistency check, not proof that a model is physically complete.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "kg·m/s²",
+            "m/(kg·s²)",
+            "kg·m²/s²",
+            "kg/(m·s²)"
+        ],
+        "answer": "kg/(m·s²)",
+        "study_material_id": "me-material-2",
+        "study_material_ids": [
+            "me-material-2"
+        ],
+        "source_ids": [
+            "openstax-university-physics-volume-1",
+            "nist-semtech-engineering-statistics-handbook"
+        ],
+        "source_scope": [
+            "dimensional consistency for mechanical quantities"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": false,
+        "quantitative_semantics": "CONCEPTUAL_QUANTITATIVE",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": false,
+        "scenario_family": "basic-pressure-dimensions",
+        "misconception_family": "dimensional_analysis",
+        "batch_marker": "batch647",
+        "batch647_key": "basic-pressure-dimensions",
+        "batch647_wave": 1,
+        "batch647_evidence": {
+            "content_family": "dimensional_analysis",
+            "official_area_id": "mathematics",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "dimensional consistency for mechanical quantities",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8883,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-power-plant-engineering",
+            "domain_id": "b644-me-domain-power-plant-engineering",
+            "topic_id": "b644-me-topic-power-elements",
+            "concept_id": "b644-me-power-load-performance"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "A plant averages 54 MW over a stated period and reaches a 90 MW peak during that same period. What load factor applies?",
+        "explanation": "Load factor is average load divided by peak load: 54/90 = 0.60.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "1.67",
+            "36 MW",
+            "0.60",
+            "0.06"
+        ],
+        "answer": "0.60",
+        "study_material_id": "me-material-8",
+        "study_material_ids": [
+            "me-material-8"
+        ],
+        "source_ids": [
+            "ubc-introduction-engineering-thermodynamics",
+            "openstax-university-physics-volume-2"
+        ],
+        "source_scope": [
+            "bounded plant-load and performance interpretation"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": false,
+        "scenario_family": "load-factor-average-to-peak",
+        "misconception_family": "load_profile",
+        "batch_marker": "batch647",
+        "batch647_key": "load-factor-average-to-peak",
+        "batch647_wave": 1,
+        "calculation": {
+            "family": "load_factor",
+            "expression": "P_average/P_peak",
+            "values": [
+                54,
+                90
+            ],
+            "expected": 0.6,
+            "unit": "fraction",
+            "rounding": "exact",
+            "assumptions": "Average and peak refer to the same period and output boundary.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "load_factor",
+        "batch647_evidence": {
+            "content_family": "load_profile",
+            "official_area_id": "power-plant-engineering",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "bounded plant-load and performance interpretation",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8884,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-maintenance",
+            "concept_id": "b644-me-shop-safety-practice"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "A shop worker identifies a recurring unsafe condition but lacks authority to repair the machine. Which response best fits the supported general Philippine OSH framework?",
+        "explanation": "R.A. 11058 and the current D.O. 252-25 framework support worker information and hazard-reporting protections. The scenario does not prescribe an equipment-specific repair sequence.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "Treat production urgency as proof the condition is safe",
+            "Report the hazard through the workplace safety process and avoid undertaking an unauthorized repair",
+            "Disable the machine by improvising an undocumented repair",
+            "Ignore it unless an injury occurs"
+        ],
+        "answer": "Report the hazard through the workplace safety process and avoid undertaking an unauthorized repair",
+        "study_material_id": "me-material-19",
+        "study_material_ids": [
+            "me-material-19"
+        ],
+        "source_ids": [
+            "ra-11058-occupational-safety",
+            "dole-do-252-25-osh-revised-irr-ra-11058"
+        ],
+        "source_scope": [
+            "high-level worker information, hazard-reporting, and unsafe-work protections under R.A. 11058 and current D.O. 252-25"
+        ],
+        "source_sensitivity": "VERSIONED",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [
+            "PHILIPPINE_OSH_REGULATION"
+        ],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": false,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": true,
+        "scenario_family": "shop-worker-hazard-reporting",
+        "misconception_family": "worker_rights_and_reporting",
+        "batch_marker": "batch647",
+        "batch647_key": "shop-worker-hazard-reporting",
+        "batch647_wave": 1,
+        "batch647_evidence": {
+            "content_family": "worker_rights_and_reporting",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "high-level worker information, hazard-reporting, and unsafe-work protections under R.A. 11058 and current D.O. 252-25",
+            "currentness": "CURRENT_WITH_LIMITS",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8885,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-mathematics",
+            "domain_id": "b644-me-domain-mathematics",
+            "topic_id": "b644-me-topic-math-foundations",
+            "concept_id": "b644-me-math-analytic-geometry"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "What is the distance between the Cartesian points (1, 2) and (7, 10)?",
+        "explanation": "The coordinate differences are 6 and 8, so distance = √(6² + 8²) = √100 = 10 units.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "10 units",
+            "100 units",
+            "8 units",
+            "12 units"
+        ],
+        "answer": "10 units",
+        "study_material_id": "me-material-1",
+        "study_material_ids": [
+            "me-material-1"
+        ],
+        "source_ids": [
+            "openstax-calculus-volume-1",
+            "nist-semtech-engineering-statistics-handbook"
+        ],
+        "source_scope": [
+            "regular-shape mensuration and analytic geometry"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": false,
+        "scenario_family": "geometry-point-distance",
+        "misconception_family": "geometric_modeling",
+        "batch_marker": "batch647",
+        "batch647_key": "geometry-point-distance",
+        "batch647_wave": 2,
+        "calculation": {
+            "family": "coordinate_distance",
+            "expression": "sqrt((7-1)^2+(10-2)^2)",
+            "values": [
+                6,
+                8
+            ],
+            "expected": 10,
+            "unit": "coordinate units",
+            "rounding": "exact",
+            "assumptions": "Cartesian coordinates use the same length unit.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "coordinate_distance",
+        "batch647_evidence": {
+            "content_family": "geometric_modeling",
+            "official_area_id": "mathematics",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "regular-shape mensuration and analytic geometry",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8886,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-mathematics",
+            "domain_id": "b644-me-domain-mathematics",
+            "topic_id": "b644-me-topic-math-foundations",
+            "concept_id": "b644-me-math-analytic-geometry"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "At what point do the lines x + y = 11 and x - y = 3 intersect?",
+        "explanation": "Adding the equations gives 2x = 14, so x = 7; substituting gives y = 4.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "(3, 11)",
+            "(11, 3)",
+            "(7, 4)",
+            "(4, 7)"
+        ],
+        "answer": "(7, 4)",
+        "study_material_id": "me-material-1",
+        "study_material_ids": [
+            "me-material-1"
+        ],
+        "source_ids": [
+            "openstax-calculus-volume-1",
+            "nist-semtech-engineering-statistics-handbook"
+        ],
+        "source_scope": [
+            "regular-shape mensuration and analytic geometry"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "geometry-line-intersection",
+        "misconception_family": "algebra_geometry",
+        "batch_marker": "batch647",
+        "batch647_key": "geometry-line-intersection",
+        "batch647_wave": 2,
+        "calculation": {
+            "family": "coordinate_line_intersection",
+            "expression": "solve x+y=11 and x-y=3",
+            "values": [
+                11,
+                3
+            ],
+            "expected": "7,4",
+            "unit": "coordinate units",
+            "rounding": "exact",
+            "assumptions": "Both equations use the same Cartesian coordinates.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "coordinate_line_intersection",
+        "batch647_evidence": {
+            "content_family": "algebra_geometry",
+            "official_area_id": "mathematics",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "regular-shape mensuration and analytic geometry",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8887,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-mathematics",
+            "domain_id": "b644-me-domain-mathematics",
+            "topic_id": "b644-me-topic-math-foundations",
+            "concept_id": "b644-me-math-analytic-geometry"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "What is the slope of the line through (2, 3) and (6, 11)?",
+        "explanation": "Slope is change in y divided by change in x: (11 - 3)/(6 - 2) = 8/4 = 2.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "4",
+            "1/2",
+            "2",
+            "8"
+        ],
+        "answer": "2",
+        "study_material_id": "me-material-1",
+        "study_material_ids": [
+            "me-material-1"
+        ],
+        "source_ids": [
+            "openstax-calculus-volume-1",
+            "nist-semtech-engineering-statistics-handbook"
+        ],
+        "source_scope": [
+            "regular-shape mensuration and analytic geometry"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": false,
+        "scenario_family": "geometry-line-slope",
+        "misconception_family": "geometric_modeling",
+        "batch_marker": "batch647",
+        "batch647_key": "geometry-line-slope",
+        "batch647_wave": 2,
+        "calculation": {
+            "family": "coordinate_line_slope",
+            "expression": "(11-3)/(6-2)",
+            "values": [
+                11,
+                3,
+                6,
+                2
+            ],
+            "expected": 2,
+            "unit": "dimensionless",
+            "rounding": "exact",
+            "assumptions": "The points are distinct and share a Cartesian coordinate system.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "coordinate_line_slope",
+        "batch647_evidence": {
+            "content_family": "geometric_modeling",
+            "official_area_id": "mathematics",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "regular-shape mensuration and analytic geometry",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8888,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-mathematics",
+            "domain_id": "b644-me-domain-mathematics",
+            "topic_id": "b644-me-topic-math-calculus",
+            "concept_id": "b644-me-math-calculus-models"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A modeled response is y(t) = 100e^(-0.2t). What is its instantaneous rate of change at t = 0?",
+        "explanation": "Differentiate: dy/dt = -20e^(-0.2t). At t = 0, the rate is -20 units per time unit.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "-0.2 units/time",
+            "100 units/time",
+            "20 units/time",
+            "-20 units/time"
+        ],
+        "answer": "-20 units/time",
+        "study_material_id": "me-material-1",
+        "study_material_ids": [
+            "me-material-1"
+        ],
+        "source_ids": [
+            "openstax-calculus-volume-1",
+            "nist-semtech-engineering-statistics-handbook"
+        ],
+        "source_scope": [
+            "calculus and elementary engineering-model interpretation"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "calculus-exponential-instantaneous-rate",
+        "misconception_family": "calculus_rate_interpretation",
+        "batch_marker": "batch647",
+        "batch647_key": "calculus-exponential-instantaneous-rate",
+        "batch647_wave": 2,
+        "calculation": {
+            "family": "exponential_model_derivative",
+            "expression": "dy/dt = -20*exp(-0.2t); evaluate at t=0",
+            "values": [
+                -20,
+                0
+            ],
+            "expected": -20,
+            "unit": "units/time",
+            "rounding": "exact",
+            "assumptions": "The stated exponential model is valid at t=0.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "exponential_model_derivative",
+        "batch647_evidence": {
+            "content_family": "calculus_rate_interpretation",
+            "official_area_id": "mathematics",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "calculus and elementary engineering-model interpretation",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8889,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-mathematics",
+            "domain_id": "b644-me-domain-mathematics",
+            "topic_id": "b644-me-topic-math-calculus",
+            "concept_id": "b644-me-math-calculus-models"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A machine cost model is C(x) = 0.5x² + 4x in thousands of pesos. What is its marginal cost at x = 6 units, in thousand pesos per unit?",
+        "explanation": "Marginal cost is dC/dx = x + 4. At x = 6, the rate is 10 thousand pesos per unit.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "6",
+            "22",
+            "10",
+            "4"
+        ],
+        "answer": "10",
+        "study_material_id": "me-material-1",
+        "study_material_ids": [
+            "me-material-1"
+        ],
+        "source_ids": [
+            "openstax-calculus-volume-1",
+            "nist-semtech-engineering-statistics-handbook"
+        ],
+        "source_scope": [
+            "calculus and elementary engineering-model interpretation"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "calculus-linear-model-rate",
+        "misconception_family": "calculus_rate_interpretation",
+        "batch_marker": "batch647",
+        "batch647_key": "calculus-linear-model-rate",
+        "batch647_wave": 2,
+        "calculation": {
+            "family": "marginal_rate_derivative",
+            "expression": "dC/dx = x+4; evaluate at x=6",
+            "values": [
+                6,
+                4
+            ],
+            "expected": 10,
+            "unit": "thousand PHP/unit",
+            "rounding": "exact",
+            "assumptions": "The supplied differentiable cost model is used locally at x=6.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "marginal_rate_derivative",
+        "batch647_evidence": {
+            "content_family": "calculus_rate_interpretation",
+            "official_area_id": "mathematics",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "calculus and elementary engineering-model interpretation",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8890,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-mathematics",
+            "domain_id": "b644-me-domain-mathematics",
+            "topic_id": "b644-me-topic-math-economics",
+            "concept_id": "b644-me-engineering-economics"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "Alternative A costs PHP 40,000 now and PHP 8,000 at each year-end for five years. Using a present-worth factor of 3.79, what is A’s present cost?",
+        "explanation": "Present cost = 40,000 + 8,000(3.79) = PHP 70,320. The result is conditional on the supplied period, timing, and factor.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "PHP 70,320",
+            "PHP 30,320",
+            "PHP 48,000",
+            "PHP 151,600"
+        ],
+        "answer": "PHP 70,320",
+        "study_material_id": "me-material-15",
+        "study_material_ids": [
+            "me-material-15"
+        ],
+        "source_ids": [
+            "ualberta-introduction-engineering-economics",
+            "prc-mechanical-engineering-board-page"
+        ],
+        "source_scope": [
+            "fundamental economic comparison stated with complete assumptions"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": true,
+        "scenario_family": "economics-present-worth-comparison",
+        "misconception_family": "economic_comparison",
+        "batch_marker": "batch647",
+        "batch647_key": "economics-present-worth-comparison",
+        "batch647_wave": 2,
+        "calculation": {
+            "family": "present_worth_cost",
+            "expression": "40000 + 8000*3.79",
+            "values": [
+                40000,
+                8000,
+                3.79
+            ],
+            "expected": 70320,
+            "unit": "PHP",
+            "rounding": "nearest peso",
+            "assumptions": "Five equal end-of-year costs and the stated present-worth factor.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "present_worth_cost",
+        "batch647_evidence": {
+            "content_family": "economic_comparison",
+            "official_area_id": "mathematics",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "fundamental economic comparison stated with complete assumptions",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8891,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-mathematics",
+            "domain_id": "b644-me-domain-mathematics",
+            "topic_id": "b644-me-topic-math-economics",
+            "concept_id": "b644-me-engineering-economics"
+        },
+        "difficulty": "hard",
+        "type": "multiple_choice",
+        "question": "Two feasible alternatives have equal service lives. With a supplied capital-recovery factor of 0.2638, A costs PHP 90,000 initially plus PHP 7,000/year to operate; B costs PHP 120,000 initially plus PHP 3,000/year. Which has the lower equivalent annual cost?",
+        "explanation": "A: 90,000(0.2638) + 7,000 = PHP 30,742/year. B: 120,000(0.2638) + 3,000 = PHP 34,656/year. A is lower under the supplied common service and timing assumptions.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "They are equal",
+            "Alternative A",
+            "The supplied data cannot compare them",
+            "Alternative B"
+        ],
+        "answer": "Alternative A",
+        "study_material_id": "me-material-15",
+        "study_material_ids": [
+            "me-material-15"
+        ],
+        "source_ids": [
+            "ualberta-introduction-engineering-economics",
+            "prc-mechanical-engineering-board-page"
+        ],
+        "source_scope": [
+            "fundamental economic comparison stated with complete assumptions"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "cognitive_intent": "analysis and professional judgment",
+        "professional_judgment": true,
+        "scenario_family": "economics-equivalent-annual-cost",
+        "misconception_family": "economic_comparison",
+        "batch_marker": "batch647",
+        "batch647_key": "economics-equivalent-annual-cost",
+        "batch647_wave": 2,
+        "calculation": {
+            "family": "equivalent_annual_cost",
+            "expression": "A=90000*0.2638+7000; B=120000*0.2638+3000",
+            "values": [
+                90000,
+                0.2638,
+                7000,
+                120000,
+                3000
+            ],
+            "expected": "A=30742; B=34656",
+            "unit": "PHP/year",
+            "rounding": "nearest peso",
+            "assumptions": "Equal service lives and the supplied capital-recovery factor.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "equivalent_annual_cost",
+        "batch647_evidence": {
+            "content_family": "economic_comparison",
+            "official_area_id": "mathematics",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "fundamental economic comparison stated with complete assumptions",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8892,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-mathematics",
+            "domain_id": "b644-me-domain-mathematics",
+            "topic_id": "b644-me-topic-math-engineering-sciences",
+            "concept_id": "b644-me-basic-engineering-sciences"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "Torque and work both reduce to N·m in base SI dimensions. Which conclusion is valid?",
+        "explanation": "Dimensional analysis can show that torque and work share base dimensions, but it cannot make their physical meanings interchangeable. Torque is a moment; work is energy transfer.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "Work is always a vector moment about an axis",
+            "They are dimensionally equivalent but remain different physical quantities identified by context",
+            "They are interchangeable in every equation",
+            "Torque is energy divided by time"
+        ],
+        "answer": "They are dimensionally equivalent but remain different physical quantities identified by context",
+        "study_material_id": "me-material-2",
+        "study_material_ids": [
+            "me-material-2"
+        ],
+        "source_ids": [
+            "openstax-university-physics-volume-1",
+            "nist-semtech-engineering-statistics-handbook"
+        ],
+        "source_scope": [
+            "dimensional consistency for mechanical quantities"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": false,
+        "quantitative_semantics": "CONCEPTUAL_QUANTITATIVE",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": false,
+        "scenario_family": "basic-torque-dimensions",
+        "misconception_family": "dimensional_analysis",
+        "batch_marker": "batch647",
+        "batch647_key": "basic-torque-dimensions",
+        "batch647_wave": 2,
+        "batch647_evidence": {
+            "content_family": "dimensional_analysis",
+            "official_area_id": "mathematics",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "dimensional consistency for mechanical quantities",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8893,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-power-plant-engineering",
+            "domain_id": "b644-me-domain-power-plant-engineering",
+            "topic_id": "b644-me-topic-power-elements",
+            "concept_id": "b644-me-power-load-performance"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A generating unit is rated at 50 MW and averages 25 MW over the stated period. What capacity factor applies?",
+        "explanation": "Capacity factor is average output divided by rated capacity: 25/50 = 0.50.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "0.50",
+            "2.0",
+            "50 MW",
+            "25%"
+        ],
+        "answer": "0.50",
+        "study_material_id": "me-material-8",
+        "study_material_ids": [
+            "me-material-8"
+        ],
+        "source_ids": [
+            "ubc-introduction-engineering-thermodynamics",
+            "openstax-university-physics-volume-2"
+        ],
+        "source_scope": [
+            "bounded plant-load and performance interpretation"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "load-capacity-factor",
+        "misconception_family": "load_profile",
+        "batch_marker": "batch647",
+        "batch647_key": "load-capacity-factor",
+        "batch647_wave": 2,
+        "calculation": {
+            "family": "capacity_factor",
+            "expression": "P_average/P_rated",
+            "values": [
+                25,
+                50
+            ],
+            "expected": 0.5,
+            "unit": "fraction",
+            "rounding": "exact",
+            "assumptions": "Average output and rated capacity use the same power boundary.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "capacity_factor",
+        "batch647_evidence": {
+            "content_family": "load_profile",
+            "official_area_id": "power-plant-engineering",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "bounded plant-load and performance interpretation",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8894,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-power-plant-engineering",
+            "domain_id": "b644-me-domain-power-plant-engineering",
+            "topic_id": "b644-me-topic-power-elements",
+            "concept_id": "b644-me-power-load-performance"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A plant delivers 1,440 MWh over a 30-day period. What is its average delivered power over that period?",
+        "explanation": "Thirty days contain 720 hours. Average power is 1,440 MWh / 720 h = 2 MW.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "1,440 MW",
+            "0.067 MW",
+            "2 MW",
+            "48 MW"
+        ],
+        "answer": "2 MW",
+        "study_material_id": "me-material-8",
+        "study_material_ids": [
+            "me-material-8"
+        ],
+        "source_ids": [
+            "ubc-introduction-engineering-thermodynamics",
+            "openstax-university-physics-volume-2"
+        ],
+        "source_scope": [
+            "bounded plant-load and performance interpretation"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "load-average-from-energy",
+        "misconception_family": "load_profile",
+        "batch_marker": "batch647",
+        "batch647_key": "load-average-from-energy",
+        "batch647_wave": 2,
+        "calculation": {
+            "family": "period_average_load",
+            "expression": "energy/elapsed_hours",
+            "values": [
+                1440,
+                30,
+                24
+            ],
+            "expected": 2,
+            "unit": "MW",
+            "rounding": "exact",
+            "assumptions": "The period is 30 consecutive days and energy is delivered uniformly only for the average calculation.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "period_average_load",
+        "batch647_evidence": {
+            "content_family": "load_profile",
+            "official_area_id": "power-plant-engineering",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "bounded plant-load and performance interpretation",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8895,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-power-plant-engineering",
+            "domain_id": "b644-me-domain-power-plant-engineering",
+            "topic_id": "b644-me-topic-power-generation",
+            "concept_id": "b644-me-internal-combustion-engines"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "An engine develops 80 kW indicated power and 72 kW brake power. What mechanical efficiency is indicated?",
+        "explanation": "Mechanical efficiency is brake power divided by indicated power: 72/80 = 0.90, or 90%.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "111.1%",
+            "8%",
+            "90%",
+            "72%"
+        ],
+        "answer": "90%",
+        "study_material_id": "me-material-8",
+        "study_material_ids": [
+            "me-material-8"
+        ],
+        "source_ids": [
+            "ubc-introduction-engineering-thermodynamics",
+            "openstax-university-physics-volume-2"
+        ],
+        "source_scope": [
+            "fundamental engine and diesel-plant performance"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "engine-mechanical-efficiency",
+        "misconception_family": "component_efficiency",
+        "batch_marker": "batch647",
+        "batch647_key": "engine-mechanical-efficiency",
+        "batch647_wave": 2,
+        "calculation": {
+            "family": "engine_mechanical_efficiency",
+            "expression": "P_brake/P_indicated",
+            "values": [
+                72,
+                80
+            ],
+            "expected": 0.9,
+            "unit": "fraction",
+            "rounding": "exact",
+            "assumptions": "Both powers refer to the same operating condition.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "engine_mechanical_efficiency",
+        "batch647_evidence": {
+            "content_family": "component_efficiency",
+            "official_area_id": "power-plant-engineering",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "fundamental engine and diesel-plant performance",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8896,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-power-plant-engineering",
+            "domain_id": "b644-me-domain-power-plant-engineering",
+            "topic_id": "b644-me-topic-power-generation",
+            "concept_id": "b644-me-gas-combined-cycle"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "In an idealized gas-turbine cycle, the turbine produces 320 kJ/kg and the compressor consumes 110 kJ/kg. What net specific work remains before other plant losses?",
+        "explanation": "Net cycle work is turbine work less compressor work: 320 - 110 = 210 kJ/kg.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "2.91 kJ/kg",
+            "430 kJ/kg",
+            "210 kJ/kg",
+            "110 kJ/kg"
+        ],
+        "answer": "210 kJ/kg",
+        "study_material_id": "me-material-8",
+        "study_material_ids": [
+            "me-material-8"
+        ],
+        "source_ids": [
+            "ubc-introduction-engineering-thermodynamics",
+            "openstax-university-physics-volume-2"
+        ],
+        "source_scope": [
+            "idealized gas-turbine and combined-cycle analysis"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "gas-turbine-net-specific-work",
+        "misconception_family": "gas_turbine_cycle",
+        "batch_marker": "batch647",
+        "batch647_key": "gas-turbine-net-specific-work",
+        "batch647_wave": 2,
+        "calculation": {
+            "family": "gas_turbine_net_work",
+            "expression": "w_turbine - w_compressor",
+            "values": [
+                320,
+                110
+            ],
+            "expected": 210,
+            "unit": "kJ/kg",
+            "rounding": "exact",
+            "assumptions": "The two specific-work terms use the same mass basis and cycle boundary.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "gas_turbine_net_work",
+        "batch647_evidence": {
+            "content_family": "gas_turbine_cycle",
+            "official_area_id": "power-plant-engineering",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "idealized gas-turbine and combined-cycle analysis",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8897,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-power-plant-engineering",
+            "domain_id": "b644-me-domain-power-plant-engineering",
+            "topic_id": "b644-me-topic-power-generation",
+            "concept_id": "b644-me-gas-combined-cycle"
+        },
+        "difficulty": "hard",
+        "type": "multiple_choice",
+        "question": "A heat-recovery steam cycle receives 90 MW of recovered exhaust heat and produces 27 MW net. What conversion efficiency applies to that bottoming-cycle boundary?",
+        "explanation": "For the stated boundary, net output divided by heat supplied is 27/90 = 0.30, or 30%. This does not imply all exhaust heat is recoverable.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "63%",
+            "300%",
+            "3.33%",
+            "30%"
+        ],
+        "answer": "30%",
+        "study_material_id": "me-material-8",
+        "study_material_ids": [
+            "me-material-8"
+        ],
+        "source_ids": [
+            "ubc-introduction-engineering-thermodynamics",
+            "openstax-university-physics-volume-2"
+        ],
+        "source_scope": [
+            "idealized gas-turbine and combined-cycle analysis"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "analysis and professional judgment",
+        "professional_judgment": false,
+        "scenario_family": "combined-cycle-bottoming-efficiency",
+        "misconception_family": "combined_cycle_heat_recovery",
+        "batch_marker": "batch647",
+        "batch647_key": "combined-cycle-bottoming-efficiency",
+        "batch647_wave": 2,
+        "calculation": {
+            "family": "bottoming_cycle_efficiency",
+            "expression": "P_net/Q_recovered",
+            "values": [
+                27,
+                90
+            ],
+            "expected": 0.3,
+            "unit": "fraction",
+            "rounding": "exact",
+            "assumptions": "The stated recovered heat is the bottoming-cycle heat-input boundary.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "bottoming_cycle_efficiency",
+        "batch647_evidence": {
+            "content_family": "combined_cycle_heat_recovery",
+            "official_area_id": "power-plant-engineering",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "idealized gas-turbine and combined-cycle analysis",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8898,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-kinematics",
+            "concept_id": "b644-me-mechanism-kinematics"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "An ideal gear reducer lowers shaft speed to one-third of its input speed. If input torque is 24 N·m and losses are neglected, what output torque is consistent with power conservation?",
+        "explanation": "For an ideal reducer at unchanged power, torque varies inversely with speed. One-third speed corresponds to three times the torque: 24 × 3 = 72 N·m.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "72 N·m",
+            "8 N·m",
+            "216 N·m",
+            "24 N·m"
+        ],
+        "answer": "72 N·m",
+        "study_material_id": "me-material-10",
+        "study_material_ids": [
+            "me-material-10"
+        ],
+        "source_ids": [
+            "open-mechanical-design-manufacturing",
+            "openstax-university-physics-volume-1"
+        ],
+        "source_scope": [
+            "mechanism and gear-train analysis represented by the public TOS"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "mechanism-ideal-gear-torque",
+        "misconception_family": "machine_power",
+        "batch_marker": "batch647",
+        "batch647_key": "mechanism-ideal-gear-torque",
+        "batch647_wave": 2,
+        "calculation": {
+            "family": "ideal_gear_torque_speed_tradeoff",
+            "expression": "T_out=T_in/(omega_out/omega_in)",
+            "values": [
+                24,
+                1,
+                3
+            ],
+            "expected": 72,
+            "unit": "N·m",
+            "rounding": "exact",
+            "assumptions": "Ideal transmission with no losses and the stated speed ratio.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "ideal_gear_torque_speed_tradeoff",
+        "batch647_evidence": {
+            "content_family": "machine_power",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "mechanism and gear-train analysis represented by the public TOS",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8899,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-kinematics",
+            "concept_id": "b644-me-mechanism-kinematics"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A chain sprocket has 20 teeth, chain pitch 25 mm, and rotates at 120 rev/min. What chain speed follows from the stated ideal kinematic relation?",
+        "explanation": "Chain speed = teeth × pitch × revolutions per time = 20 × 25 mm × 120/min = 60,000 mm/min = 60 m/min.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "6 m/min",
+            "600 m/min",
+            "0.6 m/min",
+            "60 m/min"
+        ],
+        "answer": "60 m/min",
+        "study_material_id": "me-material-11",
+        "study_material_ids": [
+            "me-material-11"
+        ],
+        "source_ids": [
+            "open-mechanical-design-manufacturing",
+            "prc-mechanical-engineering-board-page"
+        ],
+        "source_scope": [
+            "mechanism and gear-train analysis represented by the public TOS"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "mechanism-chain-linear-speed",
+        "misconception_family": "gear_train_ratio",
+        "batch_marker": "batch647",
+        "batch647_key": "mechanism-chain-linear-speed",
+        "batch647_wave": 2,
+        "calculation": {
+            "family": "chain_sprocket_speed",
+            "expression": "z*p*N",
+            "values": [
+                20,
+                25,
+                120
+            ],
+            "expected": 60,
+            "unit": "m/min",
+            "rounding": "exact",
+            "assumptions": "The chain engages every stated sprocket tooth once per revolution; pitch and speed are supplied.",
+            "independent_recomputation": "PASS"
+        },
+        "calculation_family": "chain_sprocket_speed",
+        "batch647_evidence": {
+            "content_family": "gear_train_ratio",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "mechanism and gear-train analysis represented by the public TOS",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8900,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-materials",
+            "concept_id": "b644-me-materials-properties"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A component is exposed to a stated impact load. Two candidates meet the static strength requirement, but one has greater supplied toughness. Which property is more directly relevant to resisting fracture under the impact?",
+        "explanation": "Toughness describes energy absorption up to fracture and is directly relevant to impact resistance. The supplied property comparison is used; no alloy grade or heat-treatment claim is inferred.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "Density alone",
+            "Elastic modulus alone",
+            "Color",
+            "Toughness"
+        ],
+        "answer": "Toughness",
+        "study_material_id": "me-material-10",
+        "study_material_ids": [
+            "me-material-10"
+        ],
+        "source_ids": [
+            "open-mechanical-design-manufacturing",
+            "openstax-university-physics-volume-1"
+        ],
+        "source_scope": [
+            "general materials behavior and explicitly supplied material properties"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": false,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": true,
+        "scenario_family": "materials-impact-toughness",
+        "misconception_family": "material_selection",
+        "batch_marker": "batch647",
+        "batch647_key": "materials-impact-toughness",
+        "batch647_wave": 2,
+        "batch647_evidence": {
+            "content_family": "material_selection",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "general materials behavior and explicitly supplied material properties",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8901,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-maintenance",
+            "concept_id": "b644-me-shop-safety-practice"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A worker faces a condition reasonably believed to present imminent danger and raises it through the established safety process. Which response is consistent with the current high-level worker-protection framework?",
+        "explanation": "R.A. 11058 and the revised D.O. 252-25 framework recognize worker OSH protections, including protections relating to unsafe work. The item avoids unsupported thresholds or equipment-specific procedures.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "The worker must continue because output is behind schedule",
+            "The worker must personally redesign the machine guard",
+            "The worker loses all protection if no injury has occurred",
+            "The worker may invoke the applicable protection against unsafe work while the hazard is addressed"
+        ],
+        "answer": "The worker may invoke the applicable protection against unsafe work while the hazard is addressed",
+        "study_material_id": "me-material-19",
+        "study_material_ids": [
+            "me-material-19"
+        ],
+        "source_ids": [
+            "ra-11058-occupational-safety",
+            "dole-do-252-25-osh-revised-irr-ra-11058"
+        ],
+        "source_scope": [
+            "high-level worker information, hazard-reporting, and unsafe-work protections under R.A. 11058 and current D.O. 252-25"
+        ],
+        "source_sensitivity": "VERSIONED",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [
+            "PHILIPPINE_OSH_REGULATION"
+        ],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": false,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": true,
+        "scenario_family": "shop-unsafe-work-refusal",
+        "misconception_family": "worker_rights_and_reporting",
+        "batch_marker": "batch647",
+        "batch647_key": "shop-unsafe-work-refusal",
+        "batch647_wave": 2,
+        "batch647_evidence": {
+            "content_family": "worker_rights_and_reporting",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "high-level worker information, hazard-reporting, and unsafe-work protections under R.A. 11058 and current D.O. 252-25",
+            "currentness": "CURRENT_WITH_LIMITS",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8902,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-maintenance",
+            "concept_id": "b644-me-shop-safety-practice"
+        },
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "A rotating machine has an accessible moving part that creates an obvious contact hazard. What is the best general safeguard decision before routine operation?",
+        "explanation": "General shop-safety reasoning calls for the applicable safeguard and controlled access. The question does not prescribe a machine-specific guard design or standard.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "Ask the operator to work faster to reduce exposure time",
+            "Remove the guard so the part can be watched",
+            "Use the applicable guard or safeguard and keep access controlled under the supplied workplace procedure",
+            "Rely only on a warning label"
+        ],
+        "answer": "Use the applicable guard or safeguard and keep access controlled under the supplied workplace procedure",
+        "study_material_id": "me-material-19",
+        "study_material_ids": [
+            "me-material-19"
+        ],
+        "source_ids": [
+            "ra-11058-occupational-safety",
+            "dole-do-252-25-osh-revised-irr-ra-11058"
+        ],
+        "source_scope": [
+            "stable shop hazard recognition and general safeguards"
+        ],
+        "source_sensitivity": "VERSIONED",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [
+            "PHILIPPINE_OSH_REGULATION"
+        ],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application",
+        "professional_judgment": true,
+        "scenario_family": "shop-general-guarding-decision",
+        "misconception_family": "machine_guarding",
+        "batch_marker": "batch647",
+        "batch647_key": "shop-general-guarding-decision",
+        "batch647_wave": 2,
+        "batch647_evidence": {
+            "content_family": "machine_guarding",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "stable shop hazard recognition and general safeguards",
+            "currentness": "CURRENT_WITH_LIMITS",
+            "qa_status": "PRECHECKED"
+        }
+    },
+    {
+        "id": 8903,
+        "status": "active",
+        "source": "batch647-source-first",
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-03",
+        "updatedAt": "2026-10-03",
+        "taxonomy": {
+            "board_id": "mechanical-engineering",
+            "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+            "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+            "topic_id": "b644-me-topic-machine-production",
+            "concept_id": "b644-me-production-systems"
+        },
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A manufacturer must choose a process for a large, repeated batch of identical parts. Which selection approach is most defensible?",
+        "explanation": "Process selection should match production volume and part requirements while considering capability, cost, equipment limits, and measurement needs. No safety or labor threshold is inferred.",
+        "content_blocks": [],
+        "board": "mechanical-engineering",
+        "choices": [
+            "Ignore tolerance and finish because volume is high",
+            "Compare processes against volume, geometry, material, tolerance, finish, equipment limits, and total cost",
+            "Choose the process used for the previous product regardless of fit",
+            "Select the process with the lowest first-piece cost only"
+        ],
+        "answer": "Compare processes against volume, geometry, material, tolerance, finish, equipment limits, and total cost",
+        "study_material_id": "me-material-12",
+        "study_material_ids": [
+            "me-material-12"
+        ],
+        "source_ids": [
+            "open-manufacturing-processes-4-5",
+            "nist-semtech-engineering-statistics-handbook"
+        ],
+        "source_scope": [
+            "bounded operations and production reasoning in a mechanical manufacturing context"
+        ],
+        "source_sensitivity": "STABLE",
+        "currentness_verified": true,
+        "version_sensitivity_categories": [],
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "cognitive_intent": "application and interpretation",
+        "professional_judgment": false,
+        "scenario_family": "production-process-selection",
+        "misconception_family": "shop_process_selection",
+        "batch_marker": "batch647",
+        "batch647_key": "production-process-selection",
+        "batch647_wave": 2,
+        "batch647_evidence": {
+            "content_family": "shop_process_selection",
+            "official_area_id": "machine-design-materials-shop-practice",
+            "readiness": "READY_WITH_LIMITS",
+            "allowed_scope_match": "bounded operations and production reasoning in a mechanical manufacturing context",
+            "currentness": "NOT_TIME_SENSITIVE",
+            "qa_status": "PRECHECKED"
+        }
     }
 ]

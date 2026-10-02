@@ -63,17 +63,18 @@
         "max_new_questions": 6,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "d1b09344ae602aa3ce874acff19128cf056bc7b50b0c91c76b7481161af58c94"
+        "evidence_hash": "d1b09344ae602aa3ce874acff19128cf056bc7b50b0c91c76b7481161af58c94",
+        "id": "b644-me-math-algebra-trigonometry"
     },
     {
         "leaf_id": "b644-me-math-analytic-geometry",
         "board_id": "mechanical-engineering",
         "official_area_id": "mathematics",
         "leaf_name": "Analytic Geometry and Mensuration",
-        "current_question_count": 3,
-        "deficit_to_5": 2,
-        "deficit_to_10": 7,
-        "deficit_to_20": 17,
+        "current_question_count": 8,
+        "deficit_to_5": 0,
+        "deficit_to_10": 2,
+        "deficit_to_20": 12,
         "source_ids": [
             "nist-semtech-engineering-statistics-handbook",
             "openstax-calculus-volume-1",
@@ -104,8 +105,8 @@
         ],
         "distinct_content_family_count": 4,
         "safe_headroom_min": 0,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 5,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "regular-shape mensuration and analytic geometry"
         ],
@@ -115,24 +116,25 @@
         "limitations": [
             "Use only the mathematical scope represented in the published TOS."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "The previously authorized distinct content headroom has been consumed by Batch 647; no further authoring is permitted until new source-supported families justify renewed headroom.",
+        "review_reason": "Current evidence-bounded headroom is exhausted after Batch 647 additions; review only if new distinct, source-supported content becomes available.",
         "defer_reason": "",
-        "max_new_questions": 5,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "ff4ff064cf863e0f4960091e4848583c95782c370b27b02027cefe304c6ad800"
+        "evidence_hash": "359ecaba1ce53d0d62fd9e39143ce923c80768ad4dc73f48bd2b07ab93abda4d",
+        "id": "b644-me-math-analytic-geometry"
     },
     {
         "leaf_id": "b644-me-math-calculus-models",
         "board_id": "mechanical-engineering",
         "official_area_id": "mathematics",
         "leaf_name": "Calculus, Optimization, and Differential-Equation Models",
-        "current_question_count": 8,
+        "current_question_count": 10,
         "deficit_to_5": 0,
-        "deficit_to_10": 2,
-        "deficit_to_20": 12,
+        "deficit_to_10": 0,
+        "deficit_to_20": 10,
         "source_ids": [
             "nist-semtech-engineering-statistics-handbook",
             "open-mechanical-design-manufacturing",
@@ -168,8 +170,8 @@
         ],
         "distinct_content_family_count": 6,
         "safe_headroom_min": 0,
-        "safe_headroom_preferred": 3,
-        "safe_headroom_max": 6,
+        "safe_headroom_preferred": 1,
+        "safe_headroom_max": 4,
         "allowed_scope": [
             "calculus and elementary engineering-model interpretation"
         ],
@@ -183,10 +185,11 @@
         "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 6,
+        "max_new_questions": 4,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "97dac6d4ee7aa68965bdeabb997c9ac6bb7f6ee9af2f41059b3110a16122f96b"
+        "evidence_hash": "be0be437759fac1c44a6d0affdfa528ecf64226d910b6db7672e6fd13edd6a8a",
+        "id": "b644-me-math-calculus-models"
     },
     {
         "leaf_id": "b644-me-math-vectors-linear-algebra",
@@ -238,7 +241,7 @@
             "advanced numerical linear algebra and control design"
         ],
         "limitations": [
-            "The detailed public TOS does not enumerate advanced matrices/eigenanalysis; remain bounded to foundational applications."
+            "The detailed public TOS does not enumerate advanced matrices\/eigenanalysis; remain bounded to foundational applications."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
@@ -247,7 +250,8 @@
         "max_new_questions": 5,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "848acb9a2f959c1b35fdbf2fabce304ad91a5e95781e911245adc66ea35774de"
+        "evidence_hash": "848acb9a2f959c1b35fdbf2fabce304ad91a5e95781e911245adc66ea35774de",
+        "id": "b644-me-math-vectors-linear-algebra"
     },
     {
         "leaf_id": "b644-me-math-statistics-numerical-methods",
@@ -295,13 +299,13 @@
         "safe_headroom_preferred": 2,
         "safe_headroom_max": 5,
         "allowed_scope": [
-            "basic probability/statistical reasoning and source-supported measurement interpretation"
+            "basic probability\/statistical reasoning and source-supported measurement interpretation"
         ],
         "excluded_scope": [
             "advanced statistical inference, quality-code limits, and unsupported reliability certification"
         ],
         "limitations": [
-            "The current program names Mathematics; the 2013 TOS does not separately enumerate statistics/numerical methods."
+            "The current program names Mathematics; the 2013 TOS does not separately enumerate statistics\/numerical methods."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
@@ -310,17 +314,18 @@
         "max_new_questions": 5,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "f1240d251bccd4656c489cc4f2afe8e51d27d93d15b86e2034f0405970689f7d"
+        "evidence_hash": "f1240d251bccd4656c489cc4f2afe8e51d27d93d15b86e2034f0405970689f7d",
+        "id": "b644-me-math-statistics-numerical-methods"
     },
     {
         "leaf_id": "b644-me-engineering-economics",
         "board_id": "mechanical-engineering",
         "official_area_id": "mathematics",
         "leaf_name": "Engineering Economics and Alternative Analysis",
-        "current_question_count": 8,
+        "current_question_count": 10,
         "deficit_to_5": 0,
-        "deficit_to_10": 2,
-        "deficit_to_20": 12,
+        "deficit_to_10": 0,
+        "deficit_to_20": 10,
         "source_ids": [
             "nist-semtech-engineering-statistics-handbook",
             "open-manufacturing-processes-4-5",
@@ -360,8 +365,8 @@
         ],
         "distinct_content_family_count": 7,
         "safe_headroom_min": 0,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 5,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 3,
         "allowed_scope": [
             "fundamental economic comparison stated with complete assumptions"
         ],
@@ -375,20 +380,21 @@
         "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 5,
+        "max_new_questions": 3,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "dcffb7312d328307c62f384ccdd019a35c29b59768b7afcc51e7b5c632de4438"
+        "evidence_hash": "3628d714a1223ffa03c0ab912ddd10dcac07ca3ecb04c9de21b2ed0613493d89",
+        "id": "b644-me-engineering-economics"
     },
     {
         "leaf_id": "b644-me-basic-engineering-sciences",
         "board_id": "mechanical-engineering",
         "official_area_id": "mathematics",
         "leaf_name": "Basic Engineering Science and Dimensional Reasoning",
-        "current_question_count": 4,
-        "deficit_to_5": 1,
-        "deficit_to_10": 6,
-        "deficit_to_20": 16,
+        "current_question_count": 6,
+        "deficit_to_5": 0,
+        "deficit_to_10": 4,
+        "deficit_to_20": 14,
         "source_ids": [
             "nist-semtech-engineering-statistics-handbook",
             "openstax-university-physics-volume-1",
@@ -420,8 +426,8 @@
         ],
         "distinct_content_family_count": 4,
         "safe_headroom_min": 0,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 3,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 1,
         "allowed_scope": [
             "dimensional consistency for mechanical quantities",
             "frequency and period interpretation for a stated periodic process",
@@ -438,23 +444,24 @@
             "The detailed public PRC TOS is Resolution 57 (2013); the 2026 MELE program names only the Mathematics area and does not restate detailed subareas."
         ],
         "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "A source-traceable, bounded physics/dimensional subset is now covered by the linked study material; chemistry and broader physics remain outside the allowed scope.",
+        "readiness_reason": "A source-traceable, bounded physics\/dimensional subset is now covered by the linked study material; chemistry and broader physics remain outside the allowed scope.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 3,
+        "max_new_questions": 1,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "cafb3e24c179504d7e32bd2addbb19fe2e5a1d2ecba1c3016a03f864a66d540c"
+        "evidence_hash": "a63bff88577aa5720f88dbd110611bb599cf6181972cff7752e6193e8faf8dab",
+        "id": "b644-me-basic-engineering-sciences"
     },
     {
         "leaf_id": "b644-me-me-law-code-ethics",
         "board_id": "mechanical-engineering",
         "official_area_id": "mathematics",
         "leaf_name": "Mechanical Engineering Law, Code, and Professional Ethics",
-        "current_question_count": 0,
-        "deficit_to_5": 5,
-        "deficit_to_10": 10,
-        "deficit_to_20": 20,
+        "current_question_count": 4,
+        "deficit_to_5": 1,
+        "deficit_to_10": 6,
+        "deficit_to_20": 16,
         "source_ids": [
             "prc-mechanical-engineering-2026-program",
             "prc-mechanical-engineering-act-8495",
@@ -484,41 +491,42 @@
         ],
         "distinct_content_family_count": 3,
         "safe_headroom_min": 0,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 4,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "Board, examination, registration, and licensure powers stated in R.A. 8495 and its PRC-linked IRR",
             "statutory practice and equipment definitions under R.A. 8495",
-            "the current MELE subject areas/weights and bounded historical TOS crosswalk"
+            "the current MELE subject areas\/weights and bounded historical TOS crosswalk"
         ],
         "excluded_scope": [
-            "Commonwealth Act 294 / R.A. 5336 provisions repealed by R.A. 8495",
+            "Commonwealth Act 294 \/ R.A. 5336 provisions repealed by R.A. 8495",
             "detailed ethics canons without a current official code text",
             "legal advice or unsourced interpretations",
             "technical standards and clause-level obligations not linked by an active PRC source"
         ],
         "limitations": [
-            "PRC currently links R.A. 8495 and Resolution 16 (s. 1998) as the IRR. Board Resolution No. 06 (s. 2003) is identified in secondary copies as an ethics-code adoption, but the current official PRC page supplies no active code text/effectivity record; detailed canons are excluded.",
+            "PRC currently links R.A. 8495 and Resolution 16 (s. 1998) as the IRR. Board Resolution No. 06 (s. 2003) is identified in secondary copies as an ethics-code adoption, but the current official PRC page supplies no active code text\/effectivity record; detailed canons are excluded.",
             "The 2013 detailed TOS remains the last located detailed MELE specification; the 2026 program supplies only the three subject areas and weights."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "The current official statute, currently PRC-linked IRR, current MELE program, and dedicated legal study material support a narrow statutory/licensure subset; detailed ethics content remains excluded.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "The previously authorized distinct content headroom has been consumed by Batch 647; no further authoring is permitted until new source-supported families justify renewed headroom.",
+        "review_reason": "Current evidence-bounded headroom is exhausted after Batch 647 additions; review only if new distinct, source-supported content becomes available.",
         "defer_reason": "",
-        "max_new_questions": 4,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "48bfcb5d01957667943def3e0d10076f5c5c4dc627c380dc14fa8bf509f9d4ea"
+        "evidence_hash": "62d843eeb1ec7e11fa8068111042d7028f6feec0f74f23ce19bf4f9ab138730d",
+        "id": "b644-me-me-law-code-ethics"
     },
     {
         "leaf_id": "b644-me-power-fuels-combustion",
         "board_id": "mechanical-engineering",
         "official_area_id": "power-plant-engineering",
         "leaf_name": "Power-Plant Fuels and Combustion",
-        "current_question_count": 3,
-        "deficit_to_5": 2,
-        "deficit_to_10": 7,
-        "deficit_to_20": 17,
+        "current_question_count": 5,
+        "deficit_to_5": 0,
+        "deficit_to_10": 5,
+        "deficit_to_20": 15,
         "source_ids": [
             "openstax-university-physics-volume-2",
             "prc-mechanical-engineering-2026-program",
@@ -549,10 +557,10 @@
         ],
         "distinct_content_family_count": 3,
         "safe_headroom_min": 0,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 4,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 2,
         "allowed_scope": [
-            "fundamental fuel and combustion calculations/interpretation within the published TOS"
+            "fundamental fuel and combustion calculations\/interpretation within the published TOS"
         ],
         "excluded_scope": [
             "current emissions limits, fuel regulations, and plant-specific standards not separately sourced"
@@ -564,20 +572,21 @@
         "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 4,
+        "max_new_questions": 2,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "2e39424ad443499549f5d93f2f2f012e0bc8b54c5f25414811edfd7737ffa094"
+        "evidence_hash": "28bf06547397810367a2917bd70cdf6290111877bf03b82251285eecd250390b",
+        "id": "b644-me-power-fuels-combustion"
     },
     {
         "leaf_id": "b644-me-power-load-performance",
         "board_id": "mechanical-engineering",
         "official_area_id": "power-plant-engineering",
         "leaf_name": "Power-Plant Variable Load and Performance",
-        "current_question_count": 4,
-        "deficit_to_5": 1,
-        "deficit_to_10": 6,
-        "deficit_to_20": 16,
+        "current_question_count": 7,
+        "deficit_to_5": 0,
+        "deficit_to_10": 3,
+        "deficit_to_20": 13,
         "source_ids": [
             "openstax-university-physics-volume-2",
             "prc-mechanical-engineering-2026-program",
@@ -607,8 +616,8 @@
         ],
         "distinct_content_family_count": 3,
         "safe_headroom_min": 0,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 4,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 1,
         "allowed_scope": [
             "bounded plant-load and performance interpretation"
         ],
@@ -622,16 +631,17 @@
         "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 4,
+        "max_new_questions": 1,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "d42fb8f4c82cecc0b57f653c95b5983ecae9427523bf6ca3d6b5d1199d87d477"
+        "evidence_hash": "4532371a24463d418c3ebcd9d3cb13532b936805940366293edc2f88f1b0e28b",
+        "id": "b644-me-power-load-performance"
     },
     {
         "leaf_id": "b644-me-thermodynamics",
         "board_id": "mechanical-engineering",
         "official_area_id": "mathematics",
-        "leaf_name": "Thermodynamic Principles and State/Energy Analysis",
+        "leaf_name": "Thermodynamic Principles and State\/Energy Analysis",
         "current_question_count": 30,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
@@ -694,7 +704,8 @@
         "max_new_questions": 6,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "de059ec1fb83d5f4ca217b893130ec78917eb912bd6743183403f200347e15a7"
+        "evidence_hash": "de059ec1fb83d5f4ca217b893130ec78917eb912bd6743183403f200347e15a7",
+        "id": "b644-me-thermodynamics"
     },
     {
         "leaf_id": "b644-me-power-cycles",
@@ -756,17 +767,18 @@
         "max_new_questions": 5,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "c5fedf12eee0f1b3460481958baa2b4fd8ec2cea54c9276756b81b89ed8c4c95"
+        "evidence_hash": "c5fedf12eee0f1b3460481958baa2b4fd8ec2cea54c9276756b81b89ed8c4c95",
+        "id": "b644-me-power-cycles"
     },
     {
         "leaf_id": "b644-me-internal-combustion-engines",
         "board_id": "mechanical-engineering",
         "official_area_id": "power-plant-engineering",
         "leaf_name": "Internal-Combustion Engines and Diesel Plants",
-        "current_question_count": 5,
+        "current_question_count": 6,
         "deficit_to_5": 0,
-        "deficit_to_10": 5,
-        "deficit_to_20": 15,
+        "deficit_to_10": 4,
+        "deficit_to_20": 14,
         "source_ids": [
             "open-mechanical-design-manufacturing",
             "openstax-university-physics-volume-2",
@@ -799,8 +811,8 @@
         ],
         "distinct_content_family_count": 5,
         "safe_headroom_min": 0,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 5,
+        "safe_headroom_preferred": 1,
+        "safe_headroom_max": 4,
         "allowed_scope": [
             "fundamental engine and diesel-plant performance"
         ],
@@ -814,10 +826,11 @@
         "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 5,
+        "max_new_questions": 4,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "ad5ad136be95c2619cf664754c2d928bc01e8e0c15cbac4800547f62f0d80a06"
+        "evidence_hash": "df7cf2ae44137de1ad44622adec7d5b5373a0f6c82c637279cce24b7f3f5096b",
+        "id": "b644-me-internal-combustion-engines"
     },
     {
         "leaf_id": "b644-me-steam-power-boilers",
@@ -880,17 +893,18 @@
         "max_new_questions": 5,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "a47193472873a56e97b647f1257c7295d16039fc4bde1c708cd6c7692c93a239"
+        "evidence_hash": "a47193472873a56e97b647f1257c7295d16039fc4bde1c708cd6c7692c93a239",
+        "id": "b644-me-steam-power-boilers"
     },
     {
         "leaf_id": "b644-me-gas-combined-cycle",
         "board_id": "mechanical-engineering",
         "official_area_id": "power-plant-engineering",
         "leaf_name": "Gas-Turbine and Combined-Cycle Plants",
-        "current_question_count": 3,
-        "deficit_to_5": 2,
-        "deficit_to_10": 7,
-        "deficit_to_20": 17,
+        "current_question_count": 7,
+        "deficit_to_5": 0,
+        "deficit_to_10": 3,
+        "deficit_to_20": 13,
         "source_ids": [
             "nist-semtech-engineering-statistics-handbook",
             "openstax-calculus-volume-1",
@@ -926,8 +940,8 @@
         ],
         "distinct_content_family_count": 3,
         "safe_headroom_min": 0,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 4,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "idealized gas-turbine and combined-cycle analysis"
         ],
@@ -935,26 +949,27 @@
             "current emissions, fuel, and grid-code requirements"
         ],
         "limitations": [
-            "Restrict claims to supplied cycle/component assumptions."
+            "Restrict claims to supplied cycle\/component assumptions."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "The previously authorized distinct content headroom has been consumed by Batch 647; no further authoring is permitted until new source-supported families justify renewed headroom.",
+        "review_reason": "Current evidence-bounded headroom is exhausted after Batch 647 additions; review only if new distinct, source-supported content becomes available.",
         "defer_reason": "",
-        "max_new_questions": 4,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "8177cfeae876f9ccd54a13ec828e828fea05fdb567bf365139e59d5193db3071"
+        "evidence_hash": "fdc6f7d4d2a3e25ca6edd456579dfbc4d95d30112eb92a3dbae9b65f899ae912",
+        "id": "b644-me-gas-combined-cycle"
     },
     {
         "leaf_id": "b644-me-hydroelectric-plants",
         "board_id": "mechanical-engineering",
         "official_area_id": "power-plant-engineering",
         "leaf_name": "Hydroelectric and Hydraulic Power Plants",
-        "current_question_count": 1,
-        "deficit_to_5": 4,
-        "deficit_to_10": 9,
-        "deficit_to_20": 19,
+        "current_question_count": 5,
+        "deficit_to_5": 0,
+        "deficit_to_10": 5,
+        "deficit_to_20": 15,
         "source_ids": [
             "openstax-university-physics-volume-1",
             "prc-mechanical-engineering-2026-program",
@@ -986,8 +1001,8 @@
         ],
         "distinct_content_family_count": 4,
         "safe_headroom_min": 0,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 4,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "basic hydraulic power and plant-energy relationships"
         ],
@@ -997,14 +1012,15 @@
         "limitations": [
             "Existing study material covers energy and fluid principles but is not a hydroelectric-plant design manual."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "The previously authorized distinct content headroom has been consumed by Batch 647; no further authoring is permitted until new source-supported families justify renewed headroom.",
+        "review_reason": "Current evidence-bounded headroom is exhausted after Batch 647 additions; review only if new distinct, source-supported content becomes available.",
         "defer_reason": "",
-        "max_new_questions": 4,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "408fb94e46f7ac7697775b445d73f749dfc13ed9deaf76c5ee9b57633bb62d79"
+        "evidence_hash": "b70fdc07a65a729da2f41a2f2ea0588c342d35be8394e7599e61df8165e433e5",
+        "id": "b644-me-hydroelectric-plants"
     },
     {
         "leaf_id": "b644-me-heat-transfer",
@@ -1071,7 +1087,8 @@
         "max_new_questions": 6,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "d6d29a457f64f67945756b4c2e3d90800182b6185a2bbddff9996d68ed98426a"
+        "evidence_hash": "d6d29a457f64f67945756b4c2e3d90800182b6185a2bbddff9996d68ed98426a",
+        "id": "b644-me-heat-transfer"
     },
     {
         "leaf_id": "b644-me-fluid-mechanics",
@@ -1125,10 +1142,10 @@
             "elementary fluid mechanics bounded to the current PRC Mathematics TOS and stated assumptions"
         ],
         "excluded_scope": [
-            "broad fluid specialization, machinery selection, and unsourced codes/standards"
+            "broad fluid specialization, machinery selection, and unsourced codes\/standards"
         ],
         "limitations": [
-            "PRC states the detailed TOS applies to subsequent MELEs; use this leaf for Mathematics-paper fluid mechanics, not pump/compressor selection."
+            "PRC states the detailed TOS applies to subsequent MELEs; use this leaf for Mathematics-paper fluid mechanics, not pump\/compressor selection."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
@@ -1137,7 +1154,8 @@
         "max_new_questions": 6,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "e3c39e1429a09f053467d756b1e3c7cb5c2a3b3b5dcbfe3082dc951f3c3e43fd"
+        "evidence_hash": "e3c39e1429a09f053467d756b1e3c7cb5c2a3b3b5dcbfe3082dc951f3c3e43fd",
+        "id": "b644-me-fluid-mechanics"
     },
     {
         "leaf_id": "b644-me-fluid-machinery",
@@ -1208,7 +1226,8 @@
         "max_new_questions": 6,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "e7e9a3158a1b77d8bce07552edc3a47b3b0fc7454dbb7a1da9f3c5053d24c60f"
+        "evidence_hash": "e7e9a3158a1b77d8bce07552edc3a47b3b0fc7454dbb7a1da9f3c5053d24c60f",
+        "id": "b644-me-fluid-machinery"
     },
     {
         "leaf_id": "b644-me-hvac-refrigeration",
@@ -1260,22 +1279,23 @@
             "stable refrigeration-cycle and basic HVAC technical principles are study-supported but not authorable until direct MELE scope is confirmed"
         ],
         "excluded_scope": [
-            "all new HVAC/refrigeration question authoring pending direct MELE scope confirmation",
-            "refrigerant restrictions, current HVAC codes, fire/life-safety requirements, and specialty certification"
+            "all new HVAC\/refrigeration question authoring pending direct MELE scope confirmation",
+            "refrigerant restrictions, current HVAC codes, fire\/life-safety requirements, and specialty certification"
         ],
         "limitations": [
-            "R.A. 8495 defines HVAC/refrigeration equipment and professional practice, but that does not establish MELE exam scope.",
-            "The 2024 Certified Plant Mechanic HVAC TOS and 2025 advanced-PME HVAC specialization are different examination/credential regimes and are not used as MELE scope evidence.",
+            "R.A. 8495 defines HVAC\/refrigeration equipment and professional practice, but that does not establish MELE exam scope.",
+            "The 2024 Certified Plant Mechanic HVAC TOS and 2025 advanced-PME HVAC specialization are different examination\/credential regimes and are not used as MELE scope evidence.",
             "The 2026 MELE program does not name HVAC; the publicly located detailed TOS has no explicit HVAC subarea crosswalk for this leaf."
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Technical study support is sufficient for stable HVAC principles, but the official MELE scope linkage remains materially unresolved.",
-        "review_reason": "No direct current PRC MELE scope confirmation was found for this BoardPrep-derived HVAC leaf. The professional-practice definition and separate CPM/advanced-PME scope documents cannot substitute for MELE exam-scope evidence.",
+        "review_reason": "No direct current PRC MELE scope confirmation was found for this BoardPrep-derived HVAC leaf. The professional-practice definition and separate CPM\/advanced-PME scope documents cannot substitute for MELE exam-scope evidence.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "6adc9d8f8d3d7479c3d5e906b511a449f2ff93eba7117e6e29fc22630d714eb7"
+        "evidence_hash": "6adc9d8f8d3d7479c3d5e906b511a449f2ff93eba7117e6e29fc22630d714eb7",
+        "id": "b644-me-hvac-refrigeration"
     },
     {
         "leaf_id": "b644-me-engineering-mechanics",
@@ -1343,17 +1363,18 @@
         "max_new_questions": 5,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "6c4301620cff863d4f2ccda066e24aa75918b17fc29f821402a902595851598e"
+        "evidence_hash": "6c4301620cff863d4f2ccda066e24aa75918b17fc29f821402a902595851598e",
+        "id": "b644-me-engineering-mechanics"
     },
     {
         "leaf_id": "b644-me-mechanism-kinematics",
         "board_id": "mechanical-engineering",
         "official_area_id": "machine-design-materials-shop-practice",
         "leaf_name": "Mechanism Kinematics and Gear Trains",
-        "current_question_count": 3,
-        "deficit_to_5": 2,
-        "deficit_to_10": 7,
-        "deficit_to_20": 17,
+        "current_question_count": 7,
+        "deficit_to_5": 0,
+        "deficit_to_10": 3,
+        "deficit_to_20": 13,
         "source_ids": [
             "nist-semtech-engineering-statistics-handbook",
             "open-mechanical-design-manufacturing",
@@ -1389,8 +1410,8 @@
         ],
         "distinct_content_family_count": 5,
         "safe_headroom_min": 0,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 5,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 1,
         "allowed_scope": [
             "mechanism and gear-train analysis represented by the public TOS"
         ],
@@ -1404,10 +1425,11 @@
         "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 5,
+        "max_new_questions": 1,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "aeed28eda239246423398a93d35ec83186766cde3bd806bbc8594394262f457c"
+        "evidence_hash": "71a210a88267c8f2c45756cbb0fdf5cf73369a0fe85b069df17761749f9a32d0",
+        "id": "b644-me-mechanism-kinematics"
     },
     {
         "leaf_id": "b644-me-strength-materials",
@@ -1463,7 +1485,7 @@
             "design-code allowables and machine-component design decisions assigned to the separate design-stress leaf"
         ],
         "limitations": [
-            "The PRC TOS separately tests stress analysis/combined loading under Machine Design; only general material-response items belong here."
+            "The PRC TOS separately tests stress analysis\/combined loading under Machine Design; only general material-response items belong here."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
@@ -1472,7 +1494,8 @@
         "max_new_questions": 6,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "a6f7089f11c96b5734488121fc120e6ad9762505075c7333c8a9c1d24c65c760"
+        "evidence_hash": "a6f7089f11c96b5734488121fc120e6ad9762505075c7333c8a9c1d24c65c760",
+        "id": "b644-me-strength-materials"
     },
     {
         "leaf_id": "b644-me-machine-design-stress-analysis",
@@ -1538,17 +1561,18 @@
         "max_new_questions": 4,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "ad969291df4e2987e9413f1ac51503ce809fc3ba0e5e8382a526e841deee78d7"
+        "evidence_hash": "ad969291df4e2987e9413f1ac51503ce809fc3ba0e5e8382a526e841deee78d7",
+        "id": "b644-me-machine-design-stress-analysis"
     },
     {
         "leaf_id": "b644-me-pressure-components",
         "board_id": "mechanical-engineering",
         "official_area_id": "machine-design-materials-shop-practice",
         "leaf_name": "Pressure-Containing Components and Thin-Walled Stress",
-        "current_question_count": 0,
-        "deficit_to_5": 5,
-        "deficit_to_10": 10,
-        "deficit_to_20": 20,
+        "current_question_count": 4,
+        "deficit_to_5": 1,
+        "deficit_to_10": 6,
+        "deficit_to_20": 16,
         "source_ids": [
             "mit-thin-walled-pressure-vessels",
             "prc-mechanical-engineering-2026-program",
@@ -1578,27 +1602,28 @@
         ],
         "distinct_content_family_count": 4,
         "safe_headroom_min": 0,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 4,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
-            "introductory thin-walled cylindrical shell equilibrium and hoop/longitudinal stress with supplied geometry, pressure, material assumptions, and idealization"
+            "introductory thin-walled cylindrical shell equilibrium and hoop\/longitudinal stress with supplied geometry, pressure, material assumptions, and idealization"
         ],
         "excluded_scope": [
-            "pressure-vessel/piping code design, code allowables, joint efficiency, corrosion allowance, certification, and inspection rules",
-            "steel-tube, flat-plate, and pipe/fitting design beyond the supported thin-wall cylinder model"
+            "pressure-vessel\/piping code design, code allowables, joint efficiency, corrosion allowance, certification, and inspection rules",
+            "steel-tube, flat-plate, and pipe\/fitting design beyond the supported thin-wall cylinder model"
         ],
         "limitations": [
             "PRC Resolution 57 (2013) names multiple pressure-related subareas, while the technical source supports only introductory thin-walled cylindrical mechanics.",
             "The 2026 program does not restate detailed subareas; no current code-design coverage is inferred."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "MIT OpenCourseWare mechanics and the existing focused study note are sufficient for a limited thin-walled-cylinder subset; unsupported tube/plate/fitting and code design remain excluded.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "The previously authorized distinct content headroom has been consumed by Batch 647; no further authoring is permitted until new source-supported families justify renewed headroom.",
+        "review_reason": "Current evidence-bounded headroom is exhausted after Batch 647 additions; review only if new distinct, source-supported content becomes available.",
         "defer_reason": "",
-        "max_new_questions": 4,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "6c3104beca17b67c34ea71c8573c87d2fd7afe78a60ae16fb9eb17394ced53c7"
+        "evidence_hash": "34d464c2bc7ec8ba7de7f6115f825ad2d7c30ed5a5ff6fe2acf488a0706557e4",
+        "id": "b644-me-pressure-components"
     },
     {
         "leaf_id": "b644-me-stability-fatigue",
@@ -1662,7 +1687,8 @@
         "max_new_questions": 4,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "52efa2908819b99a110534be276b9166211ec260866ef4f608bb3e1551484bf1"
+        "evidence_hash": "52efa2908819b99a110534be276b9166211ec260866ef4f608bb3e1551484bf1",
+        "id": "b644-me-stability-fatigue"
     },
     {
         "leaf_id": "b644-me-machine-power-transmission",
@@ -1732,7 +1758,8 @@
         "max_new_questions": 6,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "6a94af8492f5f25fb3ee92dce3580ffc27ab250dc2df9e7ec7e6c99d7281ed1c"
+        "evidence_hash": "6a94af8492f5f25fb3ee92dce3580ffc27ab250dc2df9e7ec7e6c99d7281ed1c",
+        "id": "b644-me-machine-power-transmission"
     },
     {
         "leaf_id": "b644-me-bearings-lubrication",
@@ -1782,13 +1809,13 @@
         "safe_headroom_preferred": 2,
         "safe_headroom_max": 4,
         "allowed_scope": [
-            "generic bearing/lubrication principles covered by existing material"
+            "generic bearing\/lubrication principles covered by existing material"
         ],
         "excluded_scope": [
             "manufacturer-specific bearing ratings and current lubricant specifications"
         ],
         "limitations": [
-            "Use rating/duty assumptions supplied by the problem; no vendor-specific life claim."
+            "Use rating\/duty assumptions supplied by the problem; no vendor-specific life claim."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
@@ -1797,17 +1824,18 @@
         "max_new_questions": 4,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "dc787abab72a0f208e477610c6c7ef04b958eed6636bcfb05a8b73db59ce2709"
+        "evidence_hash": "dc787abab72a0f208e477610c6c7ef04b958eed6636bcfb05a8b73db59ce2709",
+        "id": "b644-me-bearings-lubrication"
     },
     {
         "leaf_id": "b644-me-materials-properties",
         "board_id": "mechanical-engineering",
         "official_area_id": "machine-design-materials-shop-practice",
         "leaf_name": "Engineering Materials and Property-Based Selection",
-        "current_question_count": 3,
-        "deficit_to_5": 2,
-        "deficit_to_10": 7,
-        "deficit_to_20": 17,
+        "current_question_count": 6,
+        "deficit_to_5": 0,
+        "deficit_to_10": 4,
+        "deficit_to_20": 14,
         "source_ids": [
             "nist-semtech-engineering-statistics-handbook",
             "open-mechanical-design-manufacturing",
@@ -1840,8 +1868,8 @@
         ],
         "distinct_content_family_count": 3,
         "safe_headroom_min": 0,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 4,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 1,
         "allowed_scope": [
             "general materials behavior and explicitly supplied material properties"
         ],
@@ -1855,10 +1883,11 @@
         "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 4,
+        "max_new_questions": 1,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "cb8dc317c86bf313125235fadae390dffe83c1636758bc926bad7c9b982631d0"
+        "evidence_hash": "ad10ae22a8e55b90fa9770b43505f3b9feb2d0b3b22e4e6d18ef5e7f8b52c63e",
+        "id": "b644-me-materials-properties"
     },
     {
         "leaf_id": "b644-me-tolerances-metrology",
@@ -1914,10 +1943,10 @@
         "safe_headroom_preferred": 2,
         "safe_headroom_max": 5,
         "allowed_scope": [
-            "tolerance/measurement calculations and calibration interpretation under stated conventions"
+            "tolerance\/measurement calculations and calibration interpretation under stated conventions"
         ],
         "excluded_scope": [
-            "current ISO/ASME fit classes and legal calibration accreditation requirements unless explicitly sourced"
+            "current ISO\/ASME fit classes and legal calibration accreditation requirements unless explicitly sourced"
         ],
         "limitations": [
             "Do not infer a formal tolerance class or accreditation status from nominal dimensions alone."
@@ -1929,7 +1958,8 @@
         "max_new_questions": 5,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "b84c9bae8dc62b063c3fb26b39d15e86ba853ae31e734a039a9b5ebf43f7a31d"
+        "evidence_hash": "b84c9bae8dc62b063c3fb26b39d15e86ba853ae31e734a039a9b5ebf43f7a31d",
+        "id": "b644-me-tolerances-metrology"
     },
     {
         "leaf_id": "b644-me-manufacturing-shop-practice",
@@ -1985,7 +2015,7 @@
             "current machine safety code, regulated welding certification, and machine-specific procedures"
         ],
         "limitations": [
-            "Use process assumptions and conversions shown; certification/safety rules require current official references."
+            "Use process assumptions and conversions shown; certification\/safety rules require current official references."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
@@ -1994,17 +2024,18 @@
         "max_new_questions": 6,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "8aaf466be1b579a390327ff552ee01a0b8d5913a66176feba4296bef0cc84330"
+        "evidence_hash": "8aaf466be1b579a390327ff552ee01a0b8d5913a66176feba4296bef0cc84330",
+        "id": "b644-me-manufacturing-shop-practice"
     },
     {
         "leaf_id": "b644-me-production-systems",
         "board_id": "mechanical-engineering",
         "official_area_id": "machine-design-materials-shop-practice",
         "leaf_name": "Industrial Production, Capacity, and Inventory Systems",
-        "current_question_count": 9,
+        "current_question_count": 10,
         "deficit_to_5": 0,
-        "deficit_to_10": 1,
-        "deficit_to_20": 11,
+        "deficit_to_10": 0,
+        "deficit_to_20": 10,
         "source_ids": [
             "nist-semtech-engineering-statistics-handbook",
             "open-manufacturing-processes-4-5",
@@ -2042,8 +2073,8 @@
         ],
         "distinct_content_family_count": 8,
         "safe_headroom_min": 0,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 4,
+        "safe_headroom_preferred": 1,
+        "safe_headroom_max": 3,
         "allowed_scope": [
             "bounded operations and production reasoning in a mechanical manufacturing context"
         ],
@@ -2057,10 +2088,11 @@
         "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 4,
+        "max_new_questions": 3,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "03b57a6386f94f5c2698e5245f91e2a6a027f893a941243d3b6053ca686fc8f4"
+        "evidence_hash": "9a15c9f5f34e5db37944d661137a643084f88d7a6d987b9b2e6109a2b05e8f60",
+        "id": "b644-me-production-systems"
     },
     {
         "leaf_id": "b644-me-quality-reliability-maintenance",
@@ -2115,13 +2147,13 @@
         "safe_headroom_preferred": 3,
         "safe_headroom_max": 6,
         "allowed_scope": [
-            "reliability/maintenance reasoning and basic models explicitly stated in linked sources"
+            "reliability\/maintenance reasoning and basic models explicitly stated in linked sources"
         ],
         "excluded_scope": [
             "regulated safety certification, manufacturer limits, and code-based inspection intervals"
         ],
         "limitations": [
-            "Failure-model conclusions are valid only under stated distribution/constant-rate assumptions."
+            "Failure-model conclusions are valid only under stated distribution\/constant-rate assumptions."
         ],
         "readiness": "READY_WITH_LIMITS",
         "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
@@ -2130,17 +2162,18 @@
         "max_new_questions": 6,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "983a7517e5e5c95ea4ccf5587ccaf0c0a3d8f3ef21268c3ed7dc8fed1b5a1a23"
+        "evidence_hash": "983a7517e5e5c95ea4ccf5587ccaf0c0a3d8f3ef21268c3ed7dc8fed1b5a1a23",
+        "id": "b644-me-quality-reliability-maintenance"
     },
     {
         "leaf_id": "b644-me-shop-safety-practice",
         "board_id": "mechanical-engineering",
         "official_area_id": "machine-design-materials-shop-practice",
         "leaf_name": "Mechanical Shop Safety and Energy-Control Practice",
-        "current_question_count": 4,
-        "deficit_to_5": 1,
-        "deficit_to_10": 6,
-        "deficit_to_20": 16,
+        "current_question_count": 7,
+        "deficit_to_5": 0,
+        "deficit_to_10": 3,
+        "deficit_to_20": 13,
         "source_ids": [
             "dole-bwc-workplace-electrical-safety",
             "dole-do-252-25-osh-revised-irr-ra-11058",
@@ -2175,15 +2208,15 @@
         ],
         "distinct_content_family_count": 6,
         "safe_headroom_min": 0,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 4,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 1,
         "allowed_scope": [
             "high-level worker information, hazard-reporting, and unsafe-work protections under R.A. 11058 and current D.O. 252-25",
             "isolation, stored-energy control, and verification reasoning when no equipment-specific sequence is inferred",
             "stable shop hazard recognition and general safeguards"
         ],
         "excluded_scope": [
-            "exact lockout/tagout sequence unless supplied by a current applicable procedure",
+            "exact lockout\/tagout sequence unless supplied by a current applicable procedure",
             "machine-specific guard design and technical standards",
             "numerical penalties, detailed establishment classification, or sector-specific requirements not needed for the scenario",
             "obsolete D.O. 198-18 thresholds or obligations"
@@ -2193,23 +2226,24 @@
             "The public MELE program includes Shop Practice within the 30% subject but does not publish a separate safety subarea; keep authoring at the general shop-practice level and avoid claiming an explicit PRC safety subarea."
         ],
         "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Current DOLE/BWC authority, R.A. 11058, and focused study synthesis support a limited general shop-safety subset with explicit regulatory and procedural exclusions.",
+        "readiness_reason": "Current DOLE\/BWC authority, R.A. 11058, and focused study synthesis support a limited general shop-safety subset with explicit regulatory and procedural exclusions.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 4,
+        "max_new_questions": 1,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "ea0dac72206a088187e35b5eed35f987f84712029b05ea1c27c9e735b2f993a4"
+        "evidence_hash": "185b63e07484384d3a544c72a0af3bb9b7b69ae0a71c8e68f555c1811e317ac4",
+        "id": "b644-me-shop-safety-practice"
     },
     {
         "leaf_id": "b644-me-engineering-drawing-practice",
         "board_id": "mechanical-engineering",
         "official_area_id": "machine-design-materials-shop-practice",
         "leaf_name": "Engineering Drawing and Design Communication",
-        "current_question_count": 0,
-        "deficit_to_5": 5,
-        "deficit_to_10": 10,
-        "deficit_to_20": 20,
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
         "source_ids": [
             "nptel-engineering-drawing-iit-guwahati",
             "prc-mechanical-engineering-2026-program",
@@ -2239,24 +2273,25 @@
         ],
         "distinct_content_family_count": 5,
         "safe_headroom_min": 0,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 3,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
-            "foundational drawing interpretation, views/projections, sections, and dimensioning taught in linked course material"
+            "foundational drawing interpretation, views\/projections, sections, and dimensioning taught in linked course material"
         ],
         "excluded_scope": [
-            "current ISO/ASME drafting-standard conformity, manufacturing tolerances, and code-specific drawing requirements not covered by linked material"
+            "current ISO\/ASME drafting-standard conformity, manufacturing tolerances, and code-specific drawing requirements not covered by linked material"
         ],
         "limitations": [
             "PRC Resolution 57 (2013) names Engineering Drawing Practices at 2.27; no replacement detailed TOS was located. NPTEL material supports foundational practice only, not current standards compliance."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "The previously authorized distinct content headroom has been consumed by Batch 647; no further authoring is permitted until new source-supported families justify renewed headroom.",
+        "review_reason": "Current evidence-bounded headroom is exhausted after Batch 647 additions; review only if new distinct, source-supported content becomes available.",
         "defer_reason": "",
-        "max_new_questions": 3,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 646,
-        "evidence_hash": "cb24fa6b9b96db94c586e0bc3911091319693c52350b531c7d9bdeedd8bdd568"
+        "evidence_hash": "94e053b7efe1b6533bb01d71c1589b693dd0f18cc743489ebe5603797459474b",
+        "id": "b644-me-engineering-drawing-practice"
     }
 ]
