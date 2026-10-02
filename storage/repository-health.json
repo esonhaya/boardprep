@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-10-02T09:11:25+00:00",
+    "generated_at": "2026-10-02T15:49:58+00:00",
     "overall_status": "REVIEW",
     "summary": {
         "overall_status": "REVIEW",
@@ -7,14 +7,14 @@
         "warn_count": 2,
         "fail_count": 0,
         "review_count": 1,
-        "issue_count": 1045,
+        "issue_count": 1047,
         "pass_entity_count": 0,
         "warn_entity_count": 1024,
         "fail_entity_count": 0,
-        "review_entity_count": 21,
+        "review_entity_count": 23,
         "breakdown": {
             "board": {
-                "UNSCOPED": 30,
+                "UNSCOPED": 32,
                 "architecture": 12,
                 "civil-engineering": 1,
                 "civil-service": 282,
@@ -29,11 +29,11 @@
             "category": {
                 "BALANCE": 1002,
                 "DEPTH_COVERAGE": 22,
-                "SOURCE_STUDY": 21
+                "SOURCE_STUDY": 23
             },
             "entity_type": {
                 "question": 3,
-                "repository_record": 1042
+                "repository_record": 1044
             },
             "check_code": {
                 "ACTIVE_UNDER10_LEAF": 264,
@@ -41,7 +41,7 @@
                 "ACTIVE_UNDER5_LEAF": 159,
                 "ACTIVE_ZERO_LEAF": 87,
                 "OFFICIAL_AREA_IMBALANCE": 12,
-                "ORPHAN_STUDY_MATERIAL": 18,
+                "ORPHAN_STUDY_MATERIAL": 20,
                 "SOURCE_SEMANTIC_FIT_REVIEW": 3,
                 "UNKNOWN_COVERAGE": 12,
                 "UNKNOWN_DEPTH": 10
@@ -5243,21 +5243,21 @@
                 "error_count": 0,
                 "readiness_counts": {
                     "READY": 0,
-                    "READY_WITH_LIMITS": 30,
-                    "REVIEW": 5,
+                    "READY_WITH_LIMITS": 34,
+                    "REVIEW": 1,
                     "DEFER": 0
                 },
                 "source_authority_counts": {
-                    "STRONG": 28,
-                    "ADEQUATE": 7,
+                    "STRONG": 30,
+                    "ADEQUATE": 5,
                     "WEAK": 0,
                     "NONE": 0,
                     "UNKNOWN": 0
                 },
                 "study_coverage_counts": {
                     "COMPLETE": 4,
-                    "SUFFICIENT": 25,
-                    "PARTIAL": 6,
+                    "SUFFICIENT": 29,
+                    "PARTIAL": 2,
                     "MISSING": 0,
                     "INVALID": 0,
                     "UNKNOWN": 0
@@ -5274,7 +5274,6 @@
                         "deficit_to_20": 16,
                         "source_ids": [
                             "nist-semtech-engineering-statistics-handbook",
-                            "openstax-calculus-volume-1",
                             "openstax-university-physics-volume-1",
                             "openstax-university-physics-volume-2",
                             "prc-mechanical-engineering-2026-program",
@@ -5282,48 +5281,53 @@
                             "prc-mechanical-engineering-tos-adoption-notice-2013",
                             "prc-mechanical-engineering-tos-resolution-57-2013"
                         ],
-                        "source_count": 8,
+                        "source_count": 7,
                         "primary_source_count": 5,
                         "source_authority": "ADEQUATE",
-                        "source_currentness": "NOT_TIME_SENSITIVE",
+                        "source_currentness": "CURRENT_WITH_LIMITS",
                         "source_scope_fit": "PARTIAL",
                         "source_conflict_status": "NONE",
                         "study_material_ids": [
-                            "me-material-1",
                             "me-material-2"
                         ],
-                        "study_material_count": 2,
-                        "study_coverage": "PARTIAL",
+                        "study_material_count": 1,
+                        "study_coverage": "SUFFICIENT",
                         "study_source_traceability": "COMPLETE",
                         "supported_depth_min": 2,
                         "supported_depth_max": 3,
                         "distinct_content_families": [
-                            "basic_chemistry",
+                            "ac_impedance",
                             "basic_physics",
-                            "cycles_engines",
-                            "dimensional_analysis"
+                            "dimensional_analysis",
+                            "periodic_motion"
                         ],
                         "distinct_content_family_count": 4,
                         "safe_headroom_min": 0,
-                        "safe_headroom_preferred": 0,
-                        "safe_headroom_max": 0,
+                        "safe_headroom_preferred": 1,
+                        "safe_headroom_max": 3,
                         "allowed_scope": [
-                            "foundational physics and unit/dimensional interpretation"
+                            "dimensional consistency for mechanical quantities",
+                            "frequency and period interpretation for a stated periodic process",
+                            "magnitude and phase interpretation of supplied ideal series resistance and inductive reactance"
                         ],
                         "excluded_scope": [
-                            "specialist electrical engineering, advanced chemistry, and code-specific values"
+                            "advanced physics or engineering design",
+                            "current technical-code values",
+                            "general chemistry not represented in the allowed subset",
+                            "specialist electrical design and component selection"
                         ],
                         "limitations": [
-                            "The latest official program names Mathematics; the last detailed PRC TOS explicitly lists Chemistry and Physics under Mathematics."
+                            "Author only within the narrow physical-quantity families supported by the linked OpenStax physics and NIST material; do not treat this leaf as a catch-all science category.",
+                            "The detailed public PRC TOS is Resolution 57 (2013); the 2026 MELE program names only the Mathematics area and does not restate detailed subareas."
                         ],
-                        "readiness": "REVIEW",
-                        "readiness_reason": "Existing placements are preserved; the linked material/source evidence does not yet support safe authoring across the complete official subarea.",
-                        "review_reason": "The existing study/source chain covers only a subset of the old TOS Chemistry and Physics topics; close the source/study breadth gap before authoring.",
+                        "readiness": "READY_WITH_LIMITS",
+                        "readiness_reason": "A source-traceable, bounded physics/dimensional subset is now covered by the linked study material; chemistry and broader physics remain outside the allowed scope.",
+                        "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 0,
+                        "max_new_questions": 3,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
-                        "evidence_hash": "efd8b15dd67bc9a64fc41c91fd46d8f8bb4e2ee378a6cb3f4857dd6b86dba2a3"
+                        "reviewed_at_batch": 646,
+                        "evidence_hash": "cafb3e24c179504d7e32bd2addbb19fe2e5a1d2ecba1c3016a03f864a66d540c"
                     },
                     {
                         "leaf_id": "b644-me-bearings-lubrication",
@@ -5387,7 +5391,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "dc787abab72a0f208e477610c6c7ef04b958eed6636bcfb05a8b73db59ce2709"
                     },
                     {
@@ -5445,7 +5449,7 @@
                         "defer_reason": "",
                         "max_new_questions": 3,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "cb24fa6b9b96db94c586e0bc3911091319693c52350b531c7d9bdeedd8bdd568"
                     },
                     {
@@ -5513,7 +5517,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "dcffb7312d328307c62f384ccdd019a35c29b59768b7afcc51e7b5c632de4438"
                     },
                     {
@@ -5581,7 +5585,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "6c4301620cff863d4f2ccda066e24aa75918b17fc29f821402a902595851598e"
                     },
                     {
@@ -5652,7 +5656,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "e7e9a3158a1b77d8bce07552edc3a47b3b0fc7454dbb7a1da9f3c5053d24c60f"
                     },
                     {
@@ -5718,7 +5722,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "e3c39e1429a09f053467d756b1e3c7cb5c2a3b3b5dcbfe3082dc951f3c3e43fd"
                     },
                     {
@@ -5782,7 +5786,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "8177cfeae876f9ccd54a13ec828e828fea05fdb567bf365139e59d5193db3071"
                     },
                     {
@@ -5849,7 +5853,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "d6d29a457f64f67945756b4c2e3d90800182b6185a2bbddff9996d68ed98426a"
                     },
                     {
@@ -5862,28 +5866,26 @@
                         "deficit_to_10": 0,
                         "deficit_to_20": 1,
                         "source_ids": [
-                            "nist-semtech-engineering-statistics-handbook",
-                            "openstax-calculus-volume-1",
                             "openstax-university-physics-volume-1",
                             "openstax-university-physics-volume-2",
                             "prc-mechanical-engineering-2026-program",
+                            "prc-mechanical-engineering-act-8495",
                             "prc-mechanical-engineering-board-page",
                             "prc-mechanical-engineering-tos-adoption-notice-2013",
                             "prc-mechanical-engineering-tos-resolution-57-2013",
                             "ubc-introduction-engineering-thermodynamics"
                         ],
-                        "source_count": 9,
+                        "source_count": 8,
                         "primary_source_count": 5,
                         "source_authority": "ADEQUATE",
                         "source_currentness": "CURRENT_WITH_LIMITS",
                         "source_scope_fit": "PARTIAL",
                         "source_conflict_status": "NONE",
                         "study_material_ids": [
-                            "me-material-1",
                             "me-material-6",
                             "me-material-9"
                         ],
-                        "study_material_count": 3,
+                        "study_material_count": 2,
                         "study_coverage": "SUFFICIENT",
                         "study_source_traceability": "COMPLETE",
                         "supported_depth_min": 2,
@@ -5891,32 +5893,35 @@
                         "distinct_content_families": [
                             "cooling_loads",
                             "humidity_control",
-                            "production_systems",
                             "psychrometric_interpretation",
                             "refrigeration_cycle",
-                            "thermodynamics"
+                            "refrigeration_performance",
+                            "thermodynamic_systems"
                         ],
                         "distinct_content_family_count": 6,
                         "safe_headroom_min": 0,
                         "safe_headroom_preferred": 0,
                         "safe_headroom_max": 0,
                         "allowed_scope": [
-                            "fundamental thermodynamic interpretation without current code or refrigerant-specific claims"
+                            "stable refrigeration-cycle and basic HVAC technical principles are study-supported but not authorable until direct MELE scope is confirmed"
                         ],
                         "excluded_scope": [
-                            "HVAC code, refrigerant restrictions, fire/life-safety standards, and specialty certification content"
+                            "all new HVAC/refrigeration question authoring pending direct MELE scope confirmation",
+                            "refrigerant restrictions, current HVAC codes, fire/life-safety requirements, and specialty certification"
                         ],
                         "limitations": [
-                            "The 2026 MELE program does not name HVAC as a subject; R.A. 8495 includes HVAC in the practice definition, but that alone does not establish licensure-exam scope."
+                            "R.A. 8495 defines HVAC/refrigeration equipment and professional practice, but that does not establish MELE exam scope.",
+                            "The 2024 Certified Plant Mechanic HVAC TOS and 2025 advanced-PME HVAC specialization are different examination/credential regimes and are not used as MELE scope evidence.",
+                            "The 2026 MELE program does not name HVAC; the publicly located detailed TOS has no explicit HVAC subarea crosswalk for this leaf."
                         ],
                         "readiness": "REVIEW",
-                        "readiness_reason": "Existing placements are preserved; the linked material/source evidence does not yet support safe authoring across the complete official subarea.",
-                        "review_reason": "Retain existing bank content and mapped study support; obtain current PRC confirmation of MELE scope before expansion.",
+                        "readiness_reason": "Technical study support is sufficient for stable HVAC principles, but the official MELE scope linkage remains materially unresolved.",
+                        "review_reason": "No direct current PRC MELE scope confirmation was found for this BoardPrep-derived HVAC leaf. The professional-practice definition and separate CPM/advanced-PME scope documents cannot substitute for MELE exam-scope evidence.",
                         "defer_reason": "",
                         "max_new_questions": 0,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
-                        "evidence_hash": "d1105c3a739c8a63733f8b2e31af1ad0dd22962b52b01319e100ee08d312dd8c"
+                        "reviewed_at_batch": 646,
+                        "evidence_hash": "6adc9d8f8d3d7479c3d5e906b511a449f2ff93eba7117e6e29fc22630d714eb7"
                     },
                     {
                         "leaf_id": "b644-me-hydroelectric-plants",
@@ -5975,7 +5980,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "408fb94e46f7ac7697775b445d73f749dfc13ed9deaf76c5ee9b57633bb62d79"
                     },
                     {
@@ -6036,7 +6041,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "ad5ad136be95c2619cf664754c2d928bc01e8e0c15cbac4800547f62f0d80a06"
                     },
                     {
@@ -6102,7 +6107,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "ad969291df4e2987e9413f1ac51503ce809fc3ba0e5e8382a526e841deee78d7"
                     },
                     {
@@ -6172,7 +6177,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "6a94af8492f5f25fb3ee92dce3580ffc27ab250dc2df9e7ec7e6c99d7281ed1c"
                     },
                     {
@@ -6237,7 +6242,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "8aaf466be1b579a390327ff552ee01a0b8d5913a66176feba4296bef0cc84330"
                     },
                     {
@@ -6298,7 +6303,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "cb8dc317c86bf313125235fadae390dffe83c1636758bc926bad7c9b982631d0"
                     },
                     {
@@ -6364,7 +6369,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "d1b09344ae602aa3ce874acff19128cf056bc7b50b0c91c76b7481161af58c94"
                     },
                     {
@@ -6423,7 +6428,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "ff4ff064cf863e0f4960091e4848583c95782c370b27b02027cefe304c6ad800"
                     },
                     {
@@ -6487,7 +6492,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "97dac6d4ee7aa68965bdeabb997c9ac6bb7f6ee9af2f41059b3110a16122f96b"
                     },
                     {
@@ -6550,7 +6555,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "f1240d251bccd4656c489cc4f2afe8e51d27d93d15b86e2034f0405970689f7d"
                     },
                     {
@@ -6611,7 +6616,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "848acb9a2f959c1b35fdbf2fabce304ad91a5e95781e911245adc66ea35774de"
                     },
                     {
@@ -6626,49 +6631,57 @@
                         "source_ids": [
                             "prc-mechanical-engineering-2026-program",
                             "prc-mechanical-engineering-act-8495",
+                            "prc-mechanical-engineering-board-page",
+                            "prc-mechanical-engineering-irr-ra8495-resolution-16-1998",
                             "prc-mechanical-engineering-tos-adoption-notice-2013",
                             "prc-mechanical-engineering-tos-resolution-57-2013"
                         ],
-                        "source_count": 4,
-                        "primary_source_count": 4,
-                        "source_authority": "ADEQUATE",
+                        "source_count": 6,
+                        "primary_source_count": 6,
+                        "source_authority": "STRONG",
                         "source_currentness": "CURRENT_WITH_LIMITS",
                         "source_scope_fit": "PARTIAL",
                         "source_conflict_status": "NONE",
                         "study_material_ids": [
-                            "me-material-15"
+                            "me-material-18"
                         ],
                         "study_material_count": 1,
-                        "study_coverage": "PARTIAL",
+                        "study_coverage": "SUFFICIENT",
                         "study_source_traceability": "COMPLETE",
                         "supported_depth_min": 1,
                         "supported_depth_max": 3,
                         "distinct_content_families": [
+                            "board_authority",
                             "licensure_boundary",
-                            "professional_ethics",
                             "statutory_scope"
                         ],
                         "distinct_content_family_count": 3,
                         "safe_headroom_min": 0,
-                        "safe_headroom_preferred": 0,
-                        "safe_headroom_max": 0,
+                        "safe_headroom_preferred": 2,
+                        "safe_headroom_max": 4,
                         "allowed_scope": [
-                            "statutory facts explicitly supported by R.A. 8495 and current PRC sources"
+                            "Board, examination, registration, and licensure powers stated in R.A. 8495 and its PRC-linked IRR",
+                            "statutory practice and equipment definitions under R.A. 8495",
+                            "the current MELE subject areas/weights and bounded historical TOS crosswalk"
                         ],
                         "excluded_scope": [
-                            "unverified code revisions, interpretation of non-Philippine law, and unsourced professional rules"
+                            "Commonwealth Act 294 / R.A. 5336 provisions repealed by R.A. 8495",
+                            "detailed ethics canons without a current official code text",
+                            "legal advice or unsourced interpretations",
+                            "technical standards and clause-level obligations not linked by an active PRC source"
                         ],
                         "limitations": [
-                            "The current PRC TOS explicitly includes Mechanical Engineering Law, Code and Ethics; BoardPrep lacks a dedicated, fully traceable study treatment for this leaf."
+                            "PRC currently links R.A. 8495 and Resolution 16 (s. 1998) as the IRR. Board Resolution No. 06 (s. 2003) is identified in secondary copies as an ethics-code adoption, but the current official PRC page supplies no active code text/effectivity record; detailed canons are excluded.",
+                            "The 2013 detailed TOS remains the last located detailed MELE specification; the 2026 program supplies only the three subject areas and weights."
                         ],
-                        "readiness": "REVIEW",
-                        "readiness_reason": "Existing placements are preserved; the linked material/source evidence does not yet support safe authoring across the complete official subarea.",
-                        "review_reason": "The study material is broad and does not establish complete law/code/ethics coverage; preserve mapped content, but close the study and source traceability gap before authoring.",
+                        "readiness": "READY_WITH_LIMITS",
+                        "readiness_reason": "The current official statute, currently PRC-linked IRR, current MELE program, and dedicated legal study material support a narrow statutory/licensure subset; detailed ethics content remains excluded.",
+                        "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 0,
+                        "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
-                        "evidence_hash": "25d7745b9668655fad796c6e8392bdd7a7a18d7c0a4f85658b2dba895897bc54"
+                        "reviewed_at_batch": 646,
+                        "evidence_hash": "48bfcb5d01957667943def3e0d10076f5c5c4dc627c380dc14fa8bf509f9d4ea"
                     },
                     {
                         "leaf_id": "b644-me-mechanism-kinematics",
@@ -6731,7 +6744,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "aeed28eda239246423398a93d35ec83186766cde3bd806bbc8594394262f457c"
                     },
                     {
@@ -6793,7 +6806,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "c5fedf12eee0f1b3460481958baa2b4fd8ec2cea54c9276756b81b89ed8c4c95"
                     },
                     {
@@ -6852,7 +6865,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "2e39424ad443499549f5d93f2f2f012e0bc8b54c5f25414811edfd7737ffa094"
                     },
                     {
@@ -6910,7 +6923,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "d42fb8f4c82cecc0b57f653c95b5983ecae9427523bf6ca3d6b5d1199d87d477"
                     },
                     {
@@ -6925,11 +6938,12 @@
                         "source_ids": [
                             "mit-thin-walled-pressure-vessels",
                             "prc-mechanical-engineering-2026-program",
+                            "prc-mechanical-engineering-board-page",
                             "prc-mechanical-engineering-tos-adoption-notice-2013",
                             "prc-mechanical-engineering-tos-resolution-57-2013"
                         ],
-                        "source_count": 4,
-                        "primary_source_count": 3,
+                        "source_count": 5,
+                        "primary_source_count": 4,
                         "source_authority": "ADEQUATE",
                         "source_currentness": "NOT_TIME_SENSITIVE",
                         "source_scope_fit": "PARTIAL",
@@ -6938,7 +6952,7 @@
                             "me-material-17"
                         ],
                         "study_material_count": 1,
-                        "study_coverage": "PARTIAL",
+                        "study_coverage": "SUFFICIENT",
                         "study_source_traceability": "COMPLETE",
                         "supported_depth_min": 2,
                         "supported_depth_max": 3,
@@ -6950,25 +6964,27 @@
                         ],
                         "distinct_content_family_count": 4,
                         "safe_headroom_min": 0,
-                        "safe_headroom_preferred": 0,
-                        "safe_headroom_max": 0,
+                        "safe_headroom_preferred": 2,
+                        "safe_headroom_max": 4,
                         "allowed_scope": [
-                            "introductory thin-walled cylinder stress using supplied pressure, dimensions, and idealizations"
+                            "introductory thin-walled cylindrical shell equilibrium and hoop/longitudinal stress with supplied geometry, pressure, material assumptions, and idealization"
                         ],
                         "excluded_scope": [
-                            "vessel/piping code design, allowable stresses, weld-joint factors, corrosion allowance, certified sizing, and unsupported flat-plate/tube standards"
+                            "pressure-vessel/piping code design, code allowables, joint efficiency, corrosion allowance, certification, and inspection rules",
+                            "steel-tube, flat-plate, and pipe/fitting design beyond the supported thin-wall cylinder model"
                         ],
                         "limitations": [
-                            "MIT course notes support introductory thin-walled pressure-vessel mechanics only. The linked evidence does not establish current code rules or complete coverage of steel tubes, flat plates, and pipe/fitting design."
+                            "PRC Resolution 57 (2013) names multiple pressure-related subareas, while the technical source supports only introductory thin-walled cylindrical mechanics.",
+                            "The 2026 program does not restate detailed subareas; no current code-design coverage is inferred."
                         ],
-                        "readiness": "REVIEW",
-                        "readiness_reason": "Existing placements are preserved; the linked material/source evidence does not yet support safe authoring across the complete official subarea.",
-                        "review_reason": "Official Resolution 57 (2013) separately names thin cylinders, steel tubes, flat plates, and pipe/fittings; present source/study evidence supports only foundational thin-walled cylinder mechanics. Broaden source and study support before future authoring.",
+                        "readiness": "READY_WITH_LIMITS",
+                        "readiness_reason": "MIT OpenCourseWare mechanics and the existing focused study note are sufficient for a limited thin-walled-cylinder subset; unsupported tube/plate/fitting and code design remain excluded.",
+                        "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 0,
+                        "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
-                        "evidence_hash": "29f59e0f3d8ad635e8ce2a0a5f93f1c53f9fe2f7a0a737fc43e467585cf70d38"
+                        "reviewed_at_batch": 646,
+                        "evidence_hash": "6c3104beca17b67c34ea71c8573c87d2fd7afe78a60ae16fb9eb17394ced53c7"
                     },
                     {
                         "leaf_id": "b644-me-production-systems",
@@ -7033,7 +7049,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "03b57a6386f94f5c2698e5245f91e2a6a027f893a941243d3b6053ca686fc8f4"
                     },
                     {
@@ -7103,7 +7119,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "983a7517e5e5c95ea4ccf5587ccaf0c0a3d8f3ef21268c3ed7dc8fed1b5a1a23"
                     },
                     {
@@ -7116,54 +7132,64 @@
                         "deficit_to_10": 6,
                         "deficit_to_20": 16,
                         "source_ids": [
-                            "nist-semtech-engineering-statistics-handbook",
-                            "open-mechanical-design-manufacturing",
+                            "dole-bwc-workplace-electrical-safety",
+                            "dole-do-252-25-osh-revised-irr-ra-11058",
                             "prc-mechanical-engineering-2026-program",
                             "prc-mechanical-engineering-act-8495",
                             "prc-mechanical-engineering-board-page",
                             "prc-mechanical-engineering-tos-adoption-notice-2013",
-                            "prc-mechanical-engineering-tos-resolution-57-2013"
+                            "prc-mechanical-engineering-tos-resolution-57-2013",
+                            "ra-11058-occupational-safety"
                         ],
-                        "source_count": 7,
-                        "primary_source_count": 6,
-                        "source_authority": "ADEQUATE",
+                        "source_count": 8,
+                        "primary_source_count": 8,
+                        "source_authority": "STRONG",
                         "source_currentness": "CURRENT_WITH_LIMITS",
                         "source_scope_fit": "PARTIAL",
                         "source_conflict_status": "NONE",
                         "study_material_ids": [
-                            "me-material-14"
+                            "me-material-19"
                         ],
                         "study_material_count": 1,
-                        "study_coverage": "PARTIAL",
+                        "study_coverage": "SUFFICIENT",
                         "study_source_traceability": "COMPLETE",
                         "supported_depth_min": 2,
                         "supported_depth_max": 3,
                         "distinct_content_families": [
                             "energy_isolation",
                             "hazard_recognition",
-                            "safe_maintenance_decision"
+                            "machine_guarding",
+                            "safe_maintenance_decision",
+                            "stored_energy_control",
+                            "worker_rights_and_reporting"
                         ],
-                        "distinct_content_family_count": 3,
+                        "distinct_content_family_count": 6,
                         "safe_headroom_min": 0,
-                        "safe_headroom_preferred": 0,
-                        "safe_headroom_max": 0,
+                        "safe_headroom_preferred": 2,
+                        "safe_headroom_max": 4,
                         "allowed_scope": [
-                            "general hazard-recognition language supported by the stated scenario and law-defined practice context"
+                            "high-level worker information, hazard-reporting, and unsafe-work protections under R.A. 11058 and current D.O. 252-25",
+                            "isolation, stored-energy control, and verification reasoning when no equipment-specific sequence is inferred",
+                            "stable shop hazard recognition and general safeguards"
                         ],
                         "excluded_scope": [
-                            "specific Philippine OSH requirements, lockout/tagout sequences, current machinery standards, and certification rules"
+                            "exact lockout/tagout sequence unless supplied by a current applicable procedure",
+                            "machine-specific guard design and technical standards",
+                            "numerical penalties, detailed establishment classification, or sector-specific requirements not needed for the scenario",
+                            "obsolete D.O. 198-18 thresholds or obligations"
                         ],
                         "limitations": [
-                            "No up-to-date Philippine OSH technical source is linked; avoid future authoring until that gap is closed."
+                            "D.O. 252-25 is the current revised IRR, effective 2025-05-16; prior D.O. 198-18 is superseded.",
+                            "The public MELE program includes Shop Practice within the 30% subject but does not publish a separate safety subarea; keep authoring at the general shop-practice level and avoid claiming an explicit PRC safety subarea."
                         ],
-                        "readiness": "REVIEW",
-                        "readiness_reason": "Existing placements are preserved; the linked material/source evidence does not yet support safe authoring across the complete official subarea.",
-                        "review_reason": "Existing study notes mention energy isolation but a current authoritative Philippine OSH source is absent.",
+                        "readiness": "READY_WITH_LIMITS",
+                        "readiness_reason": "Current DOLE/BWC authority, R.A. 11058, and focused study synthesis support a limited general shop-safety subset with explicit regulatory and procedural exclusions.",
+                        "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 0,
+                        "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
-                        "evidence_hash": "ae704543cd916fb8ab4fa8d14beea1d3ffc0591e7f56400878998cd2459ffb72"
+                        "reviewed_at_batch": 646,
+                        "evidence_hash": "ea0dac72206a088187e35b5eed35f987f84712029b05ea1c27c9e735b2f993a4"
                     },
                     {
                         "leaf_id": "b644-me-stability-fatigue",
@@ -7226,7 +7252,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "52efa2908819b99a110534be276b9166211ec260866ef4f608bb3e1551484bf1"
                     },
                     {
@@ -7289,7 +7315,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "a47193472873a56e97b647f1257c7295d16039fc4bde1c708cd6c7692c93a239"
                     },
                     {
@@ -7354,7 +7380,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "a6f7089f11c96b5734488121fc120e6ad9762505075c7333c8a9c1d24c65c760"
                     },
                     {
@@ -7423,7 +7449,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "de059ec1fb83d5f4ca217b893130ec78917eb912bd6743183403f200347e15a7"
                     },
                     {
@@ -7494,7 +7520,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "b84c9bae8dc62b063c3fb26b39d15e86ba853ae31e734a039a9b5ebf43f7a31d"
                     }
                 ]
@@ -8956,7 +8982,7 @@
             "status": "REVIEW",
             "description": "Source and study record linkage and deterministic references.",
             "fix_guidance": "Repair the source/study record or its internal link.",
-            "issue_count": 21,
+            "issue_count": 23,
             "affected_ids": [
                 "let-education-laws-review",
                 "cle-investigation-application",
@@ -8976,6 +9002,8 @@
                 "ree-material-controls",
                 "me-material-16",
                 "me-material-17",
+                "me-material-18",
+                "me-material-19",
                 1300,
                 1306,
                 1316
@@ -9620,6 +9648,42 @@
             "board_id": null,
             "entity_type": "repository_record",
             "entity_id": "me-material-17",
+            "message": "Study material is not linked to a question; editorial intent is not deterministic.",
+            "evidence": [],
+            "suggested_action": "Review whether the material should remain standalone.",
+            "source_check": "SOURCE_STUDY",
+            "justified_exclusion": false,
+            "validator": "RepositoryHealthEngine",
+            "priority": "review",
+            "repairable": false,
+            "metadata": []
+        },
+        {
+            "code": "ORPHAN_STUDY_MATERIAL",
+            "status": "REVIEW",
+            "severity": "review",
+            "category": "SOURCE_STUDY",
+            "board_id": null,
+            "entity_type": "repository_record",
+            "entity_id": "me-material-18",
+            "message": "Study material is not linked to a question; editorial intent is not deterministic.",
+            "evidence": [],
+            "suggested_action": "Review whether the material should remain standalone.",
+            "source_check": "SOURCE_STUDY",
+            "justified_exclusion": false,
+            "validator": "RepositoryHealthEngine",
+            "priority": "review",
+            "repairable": false,
+            "metadata": []
+        },
+        {
+            "code": "ORPHAN_STUDY_MATERIAL",
+            "status": "REVIEW",
+            "severity": "review",
+            "category": "SOURCE_STUDY",
+            "board_id": null,
+            "entity_type": "repository_record",
+            "entity_id": "me-material-19",
             "message": "Study material is not linked to a question; editorial intent is not deterministic.",
             "evidence": [],
             "suggested_action": "Review whether the material should remain standalone.",
@@ -40151,21 +40215,21 @@
                 "error_count": 0,
                 "readiness_counts": {
                     "READY": 0,
-                    "READY_WITH_LIMITS": 30,
-                    "REVIEW": 5,
+                    "READY_WITH_LIMITS": 34,
+                    "REVIEW": 1,
                     "DEFER": 0
                 },
                 "source_authority_counts": {
-                    "STRONG": 28,
-                    "ADEQUATE": 7,
+                    "STRONG": 30,
+                    "ADEQUATE": 5,
                     "WEAK": 0,
                     "NONE": 0,
                     "UNKNOWN": 0
                 },
                 "study_coverage_counts": {
                     "COMPLETE": 4,
-                    "SUFFICIENT": 25,
-                    "PARTIAL": 6,
+                    "SUFFICIENT": 29,
+                    "PARTIAL": 2,
                     "MISSING": 0,
                     "INVALID": 0,
                     "UNKNOWN": 0
@@ -40182,7 +40246,6 @@
                         "deficit_to_20": 16,
                         "source_ids": [
                             "nist-semtech-engineering-statistics-handbook",
-                            "openstax-calculus-volume-1",
                             "openstax-university-physics-volume-1",
                             "openstax-university-physics-volume-2",
                             "prc-mechanical-engineering-2026-program",
@@ -40190,48 +40253,53 @@
                             "prc-mechanical-engineering-tos-adoption-notice-2013",
                             "prc-mechanical-engineering-tos-resolution-57-2013"
                         ],
-                        "source_count": 8,
+                        "source_count": 7,
                         "primary_source_count": 5,
                         "source_authority": "ADEQUATE",
-                        "source_currentness": "NOT_TIME_SENSITIVE",
+                        "source_currentness": "CURRENT_WITH_LIMITS",
                         "source_scope_fit": "PARTIAL",
                         "source_conflict_status": "NONE",
                         "study_material_ids": [
-                            "me-material-1",
                             "me-material-2"
                         ],
-                        "study_material_count": 2,
-                        "study_coverage": "PARTIAL",
+                        "study_material_count": 1,
+                        "study_coverage": "SUFFICIENT",
                         "study_source_traceability": "COMPLETE",
                         "supported_depth_min": 2,
                         "supported_depth_max": 3,
                         "distinct_content_families": [
-                            "basic_chemistry",
+                            "ac_impedance",
                             "basic_physics",
-                            "cycles_engines",
-                            "dimensional_analysis"
+                            "dimensional_analysis",
+                            "periodic_motion"
                         ],
                         "distinct_content_family_count": 4,
                         "safe_headroom_min": 0,
-                        "safe_headroom_preferred": 0,
-                        "safe_headroom_max": 0,
+                        "safe_headroom_preferred": 1,
+                        "safe_headroom_max": 3,
                         "allowed_scope": [
-                            "foundational physics and unit/dimensional interpretation"
+                            "dimensional consistency for mechanical quantities",
+                            "frequency and period interpretation for a stated periodic process",
+                            "magnitude and phase interpretation of supplied ideal series resistance and inductive reactance"
                         ],
                         "excluded_scope": [
-                            "specialist electrical engineering, advanced chemistry, and code-specific values"
+                            "advanced physics or engineering design",
+                            "current technical-code values",
+                            "general chemistry not represented in the allowed subset",
+                            "specialist electrical design and component selection"
                         ],
                         "limitations": [
-                            "The latest official program names Mathematics; the last detailed PRC TOS explicitly lists Chemistry and Physics under Mathematics."
+                            "Author only within the narrow physical-quantity families supported by the linked OpenStax physics and NIST material; do not treat this leaf as a catch-all science category.",
+                            "The detailed public PRC TOS is Resolution 57 (2013); the 2026 MELE program names only the Mathematics area and does not restate detailed subareas."
                         ],
-                        "readiness": "REVIEW",
-                        "readiness_reason": "Existing placements are preserved; the linked material/source evidence does not yet support safe authoring across the complete official subarea.",
-                        "review_reason": "The existing study/source chain covers only a subset of the old TOS Chemistry and Physics topics; close the source/study breadth gap before authoring.",
+                        "readiness": "READY_WITH_LIMITS",
+                        "readiness_reason": "A source-traceable, bounded physics/dimensional subset is now covered by the linked study material; chemistry and broader physics remain outside the allowed scope.",
+                        "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 0,
+                        "max_new_questions": 3,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
-                        "evidence_hash": "efd8b15dd67bc9a64fc41c91fd46d8f8bb4e2ee378a6cb3f4857dd6b86dba2a3"
+                        "reviewed_at_batch": 646,
+                        "evidence_hash": "cafb3e24c179504d7e32bd2addbb19fe2e5a1d2ecba1c3016a03f864a66d540c"
                     },
                     {
                         "leaf_id": "b644-me-bearings-lubrication",
@@ -40295,7 +40363,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "dc787abab72a0f208e477610c6c7ef04b958eed6636bcfb05a8b73db59ce2709"
                     },
                     {
@@ -40353,7 +40421,7 @@
                         "defer_reason": "",
                         "max_new_questions": 3,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "cb24fa6b9b96db94c586e0bc3911091319693c52350b531c7d9bdeedd8bdd568"
                     },
                     {
@@ -40421,7 +40489,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "dcffb7312d328307c62f384ccdd019a35c29b59768b7afcc51e7b5c632de4438"
                     },
                     {
@@ -40489,7 +40557,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "6c4301620cff863d4f2ccda066e24aa75918b17fc29f821402a902595851598e"
                     },
                     {
@@ -40560,7 +40628,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "e7e9a3158a1b77d8bce07552edc3a47b3b0fc7454dbb7a1da9f3c5053d24c60f"
                     },
                     {
@@ -40626,7 +40694,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "e3c39e1429a09f053467d756b1e3c7cb5c2a3b3b5dcbfe3082dc951f3c3e43fd"
                     },
                     {
@@ -40690,7 +40758,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "8177cfeae876f9ccd54a13ec828e828fea05fdb567bf365139e59d5193db3071"
                     },
                     {
@@ -40757,7 +40825,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "d6d29a457f64f67945756b4c2e3d90800182b6185a2bbddff9996d68ed98426a"
                     },
                     {
@@ -40770,28 +40838,26 @@
                         "deficit_to_10": 0,
                         "deficit_to_20": 1,
                         "source_ids": [
-                            "nist-semtech-engineering-statistics-handbook",
-                            "openstax-calculus-volume-1",
                             "openstax-university-physics-volume-1",
                             "openstax-university-physics-volume-2",
                             "prc-mechanical-engineering-2026-program",
+                            "prc-mechanical-engineering-act-8495",
                             "prc-mechanical-engineering-board-page",
                             "prc-mechanical-engineering-tos-adoption-notice-2013",
                             "prc-mechanical-engineering-tos-resolution-57-2013",
                             "ubc-introduction-engineering-thermodynamics"
                         ],
-                        "source_count": 9,
+                        "source_count": 8,
                         "primary_source_count": 5,
                         "source_authority": "ADEQUATE",
                         "source_currentness": "CURRENT_WITH_LIMITS",
                         "source_scope_fit": "PARTIAL",
                         "source_conflict_status": "NONE",
                         "study_material_ids": [
-                            "me-material-1",
                             "me-material-6",
                             "me-material-9"
                         ],
-                        "study_material_count": 3,
+                        "study_material_count": 2,
                         "study_coverage": "SUFFICIENT",
                         "study_source_traceability": "COMPLETE",
                         "supported_depth_min": 2,
@@ -40799,32 +40865,35 @@
                         "distinct_content_families": [
                             "cooling_loads",
                             "humidity_control",
-                            "production_systems",
                             "psychrometric_interpretation",
                             "refrigeration_cycle",
-                            "thermodynamics"
+                            "refrigeration_performance",
+                            "thermodynamic_systems"
                         ],
                         "distinct_content_family_count": 6,
                         "safe_headroom_min": 0,
                         "safe_headroom_preferred": 0,
                         "safe_headroom_max": 0,
                         "allowed_scope": [
-                            "fundamental thermodynamic interpretation without current code or refrigerant-specific claims"
+                            "stable refrigeration-cycle and basic HVAC technical principles are study-supported but not authorable until direct MELE scope is confirmed"
                         ],
                         "excluded_scope": [
-                            "HVAC code, refrigerant restrictions, fire/life-safety standards, and specialty certification content"
+                            "all new HVAC/refrigeration question authoring pending direct MELE scope confirmation",
+                            "refrigerant restrictions, current HVAC codes, fire/life-safety requirements, and specialty certification"
                         ],
                         "limitations": [
-                            "The 2026 MELE program does not name HVAC as a subject; R.A. 8495 includes HVAC in the practice definition, but that alone does not establish licensure-exam scope."
+                            "R.A. 8495 defines HVAC/refrigeration equipment and professional practice, but that does not establish MELE exam scope.",
+                            "The 2024 Certified Plant Mechanic HVAC TOS and 2025 advanced-PME HVAC specialization are different examination/credential regimes and are not used as MELE scope evidence.",
+                            "The 2026 MELE program does not name HVAC; the publicly located detailed TOS has no explicit HVAC subarea crosswalk for this leaf."
                         ],
                         "readiness": "REVIEW",
-                        "readiness_reason": "Existing placements are preserved; the linked material/source evidence does not yet support safe authoring across the complete official subarea.",
-                        "review_reason": "Retain existing bank content and mapped study support; obtain current PRC confirmation of MELE scope before expansion.",
+                        "readiness_reason": "Technical study support is sufficient for stable HVAC principles, but the official MELE scope linkage remains materially unresolved.",
+                        "review_reason": "No direct current PRC MELE scope confirmation was found for this BoardPrep-derived HVAC leaf. The professional-practice definition and separate CPM/advanced-PME scope documents cannot substitute for MELE exam-scope evidence.",
                         "defer_reason": "",
                         "max_new_questions": 0,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
-                        "evidence_hash": "d1105c3a739c8a63733f8b2e31af1ad0dd22962b52b01319e100ee08d312dd8c"
+                        "reviewed_at_batch": 646,
+                        "evidence_hash": "6adc9d8f8d3d7479c3d5e906b511a449f2ff93eba7117e6e29fc22630d714eb7"
                     },
                     {
                         "leaf_id": "b644-me-hydroelectric-plants",
@@ -40883,7 +40952,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "408fb94e46f7ac7697775b445d73f749dfc13ed9deaf76c5ee9b57633bb62d79"
                     },
                     {
@@ -40944,7 +41013,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "ad5ad136be95c2619cf664754c2d928bc01e8e0c15cbac4800547f62f0d80a06"
                     },
                     {
@@ -41010,7 +41079,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "ad969291df4e2987e9413f1ac51503ce809fc3ba0e5e8382a526e841deee78d7"
                     },
                     {
@@ -41080,7 +41149,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "6a94af8492f5f25fb3ee92dce3580ffc27ab250dc2df9e7ec7e6c99d7281ed1c"
                     },
                     {
@@ -41145,7 +41214,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "8aaf466be1b579a390327ff552ee01a0b8d5913a66176feba4296bef0cc84330"
                     },
                     {
@@ -41206,7 +41275,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "cb8dc317c86bf313125235fadae390dffe83c1636758bc926bad7c9b982631d0"
                     },
                     {
@@ -41272,7 +41341,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "d1b09344ae602aa3ce874acff19128cf056bc7b50b0c91c76b7481161af58c94"
                     },
                     {
@@ -41331,7 +41400,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "ff4ff064cf863e0f4960091e4848583c95782c370b27b02027cefe304c6ad800"
                     },
                     {
@@ -41395,7 +41464,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "97dac6d4ee7aa68965bdeabb997c9ac6bb7f6ee9af2f41059b3110a16122f96b"
                     },
                     {
@@ -41458,7 +41527,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "f1240d251bccd4656c489cc4f2afe8e51d27d93d15b86e2034f0405970689f7d"
                     },
                     {
@@ -41519,7 +41588,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "848acb9a2f959c1b35fdbf2fabce304ad91a5e95781e911245adc66ea35774de"
                     },
                     {
@@ -41534,49 +41603,57 @@
                         "source_ids": [
                             "prc-mechanical-engineering-2026-program",
                             "prc-mechanical-engineering-act-8495",
+                            "prc-mechanical-engineering-board-page",
+                            "prc-mechanical-engineering-irr-ra8495-resolution-16-1998",
                             "prc-mechanical-engineering-tos-adoption-notice-2013",
                             "prc-mechanical-engineering-tos-resolution-57-2013"
                         ],
-                        "source_count": 4,
-                        "primary_source_count": 4,
-                        "source_authority": "ADEQUATE",
+                        "source_count": 6,
+                        "primary_source_count": 6,
+                        "source_authority": "STRONG",
                         "source_currentness": "CURRENT_WITH_LIMITS",
                         "source_scope_fit": "PARTIAL",
                         "source_conflict_status": "NONE",
                         "study_material_ids": [
-                            "me-material-15"
+                            "me-material-18"
                         ],
                         "study_material_count": 1,
-                        "study_coverage": "PARTIAL",
+                        "study_coverage": "SUFFICIENT",
                         "study_source_traceability": "COMPLETE",
                         "supported_depth_min": 1,
                         "supported_depth_max": 3,
                         "distinct_content_families": [
+                            "board_authority",
                             "licensure_boundary",
-                            "professional_ethics",
                             "statutory_scope"
                         ],
                         "distinct_content_family_count": 3,
                         "safe_headroom_min": 0,
-                        "safe_headroom_preferred": 0,
-                        "safe_headroom_max": 0,
+                        "safe_headroom_preferred": 2,
+                        "safe_headroom_max": 4,
                         "allowed_scope": [
-                            "statutory facts explicitly supported by R.A. 8495 and current PRC sources"
+                            "Board, examination, registration, and licensure powers stated in R.A. 8495 and its PRC-linked IRR",
+                            "statutory practice and equipment definitions under R.A. 8495",
+                            "the current MELE subject areas/weights and bounded historical TOS crosswalk"
                         ],
                         "excluded_scope": [
-                            "unverified code revisions, interpretation of non-Philippine law, and unsourced professional rules"
+                            "Commonwealth Act 294 / R.A. 5336 provisions repealed by R.A. 8495",
+                            "detailed ethics canons without a current official code text",
+                            "legal advice or unsourced interpretations",
+                            "technical standards and clause-level obligations not linked by an active PRC source"
                         ],
                         "limitations": [
-                            "The current PRC TOS explicitly includes Mechanical Engineering Law, Code and Ethics; BoardPrep lacks a dedicated, fully traceable study treatment for this leaf."
+                            "PRC currently links R.A. 8495 and Resolution 16 (s. 1998) as the IRR. Board Resolution No. 06 (s. 2003) is identified in secondary copies as an ethics-code adoption, but the current official PRC page supplies no active code text/effectivity record; detailed canons are excluded.",
+                            "The 2013 detailed TOS remains the last located detailed MELE specification; the 2026 program supplies only the three subject areas and weights."
                         ],
-                        "readiness": "REVIEW",
-                        "readiness_reason": "Existing placements are preserved; the linked material/source evidence does not yet support safe authoring across the complete official subarea.",
-                        "review_reason": "The study material is broad and does not establish complete law/code/ethics coverage; preserve mapped content, but close the study and source traceability gap before authoring.",
+                        "readiness": "READY_WITH_LIMITS",
+                        "readiness_reason": "The current official statute, currently PRC-linked IRR, current MELE program, and dedicated legal study material support a narrow statutory/licensure subset; detailed ethics content remains excluded.",
+                        "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 0,
+                        "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
-                        "evidence_hash": "25d7745b9668655fad796c6e8392bdd7a7a18d7c0a4f85658b2dba895897bc54"
+                        "reviewed_at_batch": 646,
+                        "evidence_hash": "48bfcb5d01957667943def3e0d10076f5c5c4dc627c380dc14fa8bf509f9d4ea"
                     },
                     {
                         "leaf_id": "b644-me-mechanism-kinematics",
@@ -41639,7 +41716,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "aeed28eda239246423398a93d35ec83186766cde3bd806bbc8594394262f457c"
                     },
                     {
@@ -41701,7 +41778,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "c5fedf12eee0f1b3460481958baa2b4fd8ec2cea54c9276756b81b89ed8c4c95"
                     },
                     {
@@ -41760,7 +41837,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "2e39424ad443499549f5d93f2f2f012e0bc8b54c5f25414811edfd7737ffa094"
                     },
                     {
@@ -41818,7 +41895,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "d42fb8f4c82cecc0b57f653c95b5983ecae9427523bf6ca3d6b5d1199d87d477"
                     },
                     {
@@ -41833,11 +41910,12 @@
                         "source_ids": [
                             "mit-thin-walled-pressure-vessels",
                             "prc-mechanical-engineering-2026-program",
+                            "prc-mechanical-engineering-board-page",
                             "prc-mechanical-engineering-tos-adoption-notice-2013",
                             "prc-mechanical-engineering-tos-resolution-57-2013"
                         ],
-                        "source_count": 4,
-                        "primary_source_count": 3,
+                        "source_count": 5,
+                        "primary_source_count": 4,
                         "source_authority": "ADEQUATE",
                         "source_currentness": "NOT_TIME_SENSITIVE",
                         "source_scope_fit": "PARTIAL",
@@ -41846,7 +41924,7 @@
                             "me-material-17"
                         ],
                         "study_material_count": 1,
-                        "study_coverage": "PARTIAL",
+                        "study_coverage": "SUFFICIENT",
                         "study_source_traceability": "COMPLETE",
                         "supported_depth_min": 2,
                         "supported_depth_max": 3,
@@ -41858,25 +41936,27 @@
                         ],
                         "distinct_content_family_count": 4,
                         "safe_headroom_min": 0,
-                        "safe_headroom_preferred": 0,
-                        "safe_headroom_max": 0,
+                        "safe_headroom_preferred": 2,
+                        "safe_headroom_max": 4,
                         "allowed_scope": [
-                            "introductory thin-walled cylinder stress using supplied pressure, dimensions, and idealizations"
+                            "introductory thin-walled cylindrical shell equilibrium and hoop/longitudinal stress with supplied geometry, pressure, material assumptions, and idealization"
                         ],
                         "excluded_scope": [
-                            "vessel/piping code design, allowable stresses, weld-joint factors, corrosion allowance, certified sizing, and unsupported flat-plate/tube standards"
+                            "pressure-vessel/piping code design, code allowables, joint efficiency, corrosion allowance, certification, and inspection rules",
+                            "steel-tube, flat-plate, and pipe/fitting design beyond the supported thin-wall cylinder model"
                         ],
                         "limitations": [
-                            "MIT course notes support introductory thin-walled pressure-vessel mechanics only. The linked evidence does not establish current code rules or complete coverage of steel tubes, flat plates, and pipe/fitting design."
+                            "PRC Resolution 57 (2013) names multiple pressure-related subareas, while the technical source supports only introductory thin-walled cylindrical mechanics.",
+                            "The 2026 program does not restate detailed subareas; no current code-design coverage is inferred."
                         ],
-                        "readiness": "REVIEW",
-                        "readiness_reason": "Existing placements are preserved; the linked material/source evidence does not yet support safe authoring across the complete official subarea.",
-                        "review_reason": "Official Resolution 57 (2013) separately names thin cylinders, steel tubes, flat plates, and pipe/fittings; present source/study evidence supports only foundational thin-walled cylinder mechanics. Broaden source and study support before future authoring.",
+                        "readiness": "READY_WITH_LIMITS",
+                        "readiness_reason": "MIT OpenCourseWare mechanics and the existing focused study note are sufficient for a limited thin-walled-cylinder subset; unsupported tube/plate/fitting and code design remain excluded.",
+                        "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 0,
+                        "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
-                        "evidence_hash": "29f59e0f3d8ad635e8ce2a0a5f93f1c53f9fe2f7a0a737fc43e467585cf70d38"
+                        "reviewed_at_batch": 646,
+                        "evidence_hash": "6c3104beca17b67c34ea71c8573c87d2fd7afe78a60ae16fb9eb17394ced53c7"
                     },
                     {
                         "leaf_id": "b644-me-production-systems",
@@ -41941,7 +42021,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "03b57a6386f94f5c2698e5245f91e2a6a027f893a941243d3b6053ca686fc8f4"
                     },
                     {
@@ -42011,7 +42091,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "983a7517e5e5c95ea4ccf5587ccaf0c0a3d8f3ef21268c3ed7dc8fed1b5a1a23"
                     },
                     {
@@ -42024,54 +42104,64 @@
                         "deficit_to_10": 6,
                         "deficit_to_20": 16,
                         "source_ids": [
-                            "nist-semtech-engineering-statistics-handbook",
-                            "open-mechanical-design-manufacturing",
+                            "dole-bwc-workplace-electrical-safety",
+                            "dole-do-252-25-osh-revised-irr-ra-11058",
                             "prc-mechanical-engineering-2026-program",
                             "prc-mechanical-engineering-act-8495",
                             "prc-mechanical-engineering-board-page",
                             "prc-mechanical-engineering-tos-adoption-notice-2013",
-                            "prc-mechanical-engineering-tos-resolution-57-2013"
+                            "prc-mechanical-engineering-tos-resolution-57-2013",
+                            "ra-11058-occupational-safety"
                         ],
-                        "source_count": 7,
-                        "primary_source_count": 6,
-                        "source_authority": "ADEQUATE",
+                        "source_count": 8,
+                        "primary_source_count": 8,
+                        "source_authority": "STRONG",
                         "source_currentness": "CURRENT_WITH_LIMITS",
                         "source_scope_fit": "PARTIAL",
                         "source_conflict_status": "NONE",
                         "study_material_ids": [
-                            "me-material-14"
+                            "me-material-19"
                         ],
                         "study_material_count": 1,
-                        "study_coverage": "PARTIAL",
+                        "study_coverage": "SUFFICIENT",
                         "study_source_traceability": "COMPLETE",
                         "supported_depth_min": 2,
                         "supported_depth_max": 3,
                         "distinct_content_families": [
                             "energy_isolation",
                             "hazard_recognition",
-                            "safe_maintenance_decision"
+                            "machine_guarding",
+                            "safe_maintenance_decision",
+                            "stored_energy_control",
+                            "worker_rights_and_reporting"
                         ],
-                        "distinct_content_family_count": 3,
+                        "distinct_content_family_count": 6,
                         "safe_headroom_min": 0,
-                        "safe_headroom_preferred": 0,
-                        "safe_headroom_max": 0,
+                        "safe_headroom_preferred": 2,
+                        "safe_headroom_max": 4,
                         "allowed_scope": [
-                            "general hazard-recognition language supported by the stated scenario and law-defined practice context"
+                            "high-level worker information, hazard-reporting, and unsafe-work protections under R.A. 11058 and current D.O. 252-25",
+                            "isolation, stored-energy control, and verification reasoning when no equipment-specific sequence is inferred",
+                            "stable shop hazard recognition and general safeguards"
                         ],
                         "excluded_scope": [
-                            "specific Philippine OSH requirements, lockout/tagout sequences, current machinery standards, and certification rules"
+                            "exact lockout/tagout sequence unless supplied by a current applicable procedure",
+                            "machine-specific guard design and technical standards",
+                            "numerical penalties, detailed establishment classification, or sector-specific requirements not needed for the scenario",
+                            "obsolete D.O. 198-18 thresholds or obligations"
                         ],
                         "limitations": [
-                            "No up-to-date Philippine OSH technical source is linked; avoid future authoring until that gap is closed."
+                            "D.O. 252-25 is the current revised IRR, effective 2025-05-16; prior D.O. 198-18 is superseded.",
+                            "The public MELE program includes Shop Practice within the 30% subject but does not publish a separate safety subarea; keep authoring at the general shop-practice level and avoid claiming an explicit PRC safety subarea."
                         ],
-                        "readiness": "REVIEW",
-                        "readiness_reason": "Existing placements are preserved; the linked material/source evidence does not yet support safe authoring across the complete official subarea.",
-                        "review_reason": "Existing study notes mention energy isolation but a current authoritative Philippine OSH source is absent.",
+                        "readiness": "READY_WITH_LIMITS",
+                        "readiness_reason": "Current DOLE/BWC authority, R.A. 11058, and focused study synthesis support a limited general shop-safety subset with explicit regulatory and procedural exclusions.",
+                        "review_reason": "",
                         "defer_reason": "",
-                        "max_new_questions": 0,
+                        "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
-                        "evidence_hash": "ae704543cd916fb8ab4fa8d14beea1d3ffc0591e7f56400878998cd2459ffb72"
+                        "reviewed_at_batch": 646,
+                        "evidence_hash": "ea0dac72206a088187e35b5eed35f987f84712029b05ea1c27c9e735b2f993a4"
                     },
                     {
                         "leaf_id": "b644-me-stability-fatigue",
@@ -42134,7 +42224,7 @@
                         "defer_reason": "",
                         "max_new_questions": 4,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "52efa2908819b99a110534be276b9166211ec260866ef4f608bb3e1551484bf1"
                     },
                     {
@@ -42197,7 +42287,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "a47193472873a56e97b647f1257c7295d16039fc4bde1c708cd6c7692c93a239"
                     },
                     {
@@ -42262,7 +42352,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "a6f7089f11c96b5734488121fc120e6ad9762505075c7333c8a9c1d24c65c760"
                     },
                     {
@@ -42331,7 +42421,7 @@
                         "defer_reason": "",
                         "max_new_questions": 6,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "de059ec1fb83d5f4ca217b893130ec78917eb912bd6743183403f200347e15a7"
                     },
                     {
@@ -42402,7 +42492,7 @@
                         "defer_reason": "",
                         "max_new_questions": 5,
                         "planned_new_questions": 0,
-                        "reviewed_at_batch": 644,
+                        "reviewed_at_batch": 646,
                         "evidence_hash": "b84c9bae8dc62b063c3fb26b39d15e86ba853ae31e734a039a9b5ebf43f7a31d"
                     }
                 ]
@@ -44179,6 +44269,8 @@
         "let-education-laws-review",
         "me-material-16",
         "me-material-17",
+        "me-material-18",
+        "me-material-19",
         "nle-integrated-process",
         "nle-np-iv-endocrine",
         "portfolio-architecture-foundation",
@@ -45027,6 +45119,42 @@
             "board_id": null,
             "entity_type": "repository_record",
             "entity_id": "me-material-17",
+            "message": "Study material is not linked to a question; editorial intent is not deterministic.",
+            "evidence": [],
+            "suggested_action": "Review whether the material should remain standalone.",
+            "source_check": "SOURCE_STUDY",
+            "justified_exclusion": false,
+            "validator": "RepositoryHealthEngine",
+            "priority": "review",
+            "repairable": false,
+            "metadata": []
+        },
+        {
+            "code": "ORPHAN_STUDY_MATERIAL",
+            "status": "REVIEW",
+            "severity": "review",
+            "category": "SOURCE_STUDY",
+            "board_id": null,
+            "entity_type": "repository_record",
+            "entity_id": "me-material-18",
+            "message": "Study material is not linked to a question; editorial intent is not deterministic.",
+            "evidence": [],
+            "suggested_action": "Review whether the material should remain standalone.",
+            "source_check": "SOURCE_STUDY",
+            "justified_exclusion": false,
+            "validator": "RepositoryHealthEngine",
+            "priority": "review",
+            "repairable": false,
+            "metadata": []
+        },
+        {
+            "code": "ORPHAN_STUDY_MATERIAL",
+            "status": "REVIEW",
+            "severity": "review",
+            "category": "SOURCE_STUDY",
+            "board_id": null,
+            "entity_type": "repository_record",
+            "entity_id": "me-material-19",
             "message": "Study material is not linked to a question; editorial intent is not deterministic.",
             "evidence": [],
             "suggested_action": "Review whether the material should remain standalone.",
@@ -71675,17 +71803,17 @@
     "health_score": 0,
     "statistics": {
         "total_questions": 8856,
-        "total_issues": 1045,
+        "total_issues": 1047,
         "errors": 0,
         "warnings": 1024,
-        "infos": 21,
+        "infos": 23,
         "issues_by_category": {
-            "SOURCE_STUDY": 21,
+            "SOURCE_STUDY": 23,
             "BALANCE": 1002,
             "DEPTH_COVERAGE": 22
         },
         "issues_by_validator": {
-            "RepositoryHealthEngine": 1045
+            "RepositoryHealthEngine": 1047
         },
         "questions_per_difficulty": {
             "easy": 970,
@@ -75598,21 +75726,21 @@
                     "error_count": 0,
                     "readiness_counts": {
                         "READY": 0,
-                        "READY_WITH_LIMITS": 30,
-                        "REVIEW": 5,
+                        "READY_WITH_LIMITS": 34,
+                        "REVIEW": 1,
                         "DEFER": 0
                     },
                     "source_authority_counts": {
-                        "STRONG": 28,
-                        "ADEQUATE": 7,
+                        "STRONG": 30,
+                        "ADEQUATE": 5,
                         "WEAK": 0,
                         "NONE": 0,
                         "UNKNOWN": 0
                     },
                     "study_coverage_counts": {
                         "COMPLETE": 4,
-                        "SUFFICIENT": 25,
-                        "PARTIAL": 6,
+                        "SUFFICIENT": 29,
+                        "PARTIAL": 2,
                         "MISSING": 0,
                         "INVALID": 0,
                         "UNKNOWN": 0
@@ -75629,7 +75757,6 @@
                             "deficit_to_20": 16,
                             "source_ids": [
                                 "nist-semtech-engineering-statistics-handbook",
-                                "openstax-calculus-volume-1",
                                 "openstax-university-physics-volume-1",
                                 "openstax-university-physics-volume-2",
                                 "prc-mechanical-engineering-2026-program",
@@ -75637,48 +75764,53 @@
                                 "prc-mechanical-engineering-tos-adoption-notice-2013",
                                 "prc-mechanical-engineering-tos-resolution-57-2013"
                             ],
-                            "source_count": 8,
+                            "source_count": 7,
                             "primary_source_count": 5,
                             "source_authority": "ADEQUATE",
-                            "source_currentness": "NOT_TIME_SENSITIVE",
+                            "source_currentness": "CURRENT_WITH_LIMITS",
                             "source_scope_fit": "PARTIAL",
                             "source_conflict_status": "NONE",
                             "study_material_ids": [
-                                "me-material-1",
                                 "me-material-2"
                             ],
-                            "study_material_count": 2,
-                            "study_coverage": "PARTIAL",
+                            "study_material_count": 1,
+                            "study_coverage": "SUFFICIENT",
                             "study_source_traceability": "COMPLETE",
                             "supported_depth_min": 2,
                             "supported_depth_max": 3,
                             "distinct_content_families": [
-                                "basic_chemistry",
+                                "ac_impedance",
                                 "basic_physics",
-                                "cycles_engines",
-                                "dimensional_analysis"
+                                "dimensional_analysis",
+                                "periodic_motion"
                             ],
                             "distinct_content_family_count": 4,
                             "safe_headroom_min": 0,
-                            "safe_headroom_preferred": 0,
-                            "safe_headroom_max": 0,
+                            "safe_headroom_preferred": 1,
+                            "safe_headroom_max": 3,
                             "allowed_scope": [
-                                "foundational physics and unit/dimensional interpretation"
+                                "dimensional consistency for mechanical quantities",
+                                "frequency and period interpretation for a stated periodic process",
+                                "magnitude and phase interpretation of supplied ideal series resistance and inductive reactance"
                             ],
                             "excluded_scope": [
-                                "specialist electrical engineering, advanced chemistry, and code-specific values"
+                                "advanced physics or engineering design",
+                                "current technical-code values",
+                                "general chemistry not represented in the allowed subset",
+                                "specialist electrical design and component selection"
                             ],
                             "limitations": [
-                                "The latest official program names Mathematics; the last detailed PRC TOS explicitly lists Chemistry and Physics under Mathematics."
+                                "Author only within the narrow physical-quantity families supported by the linked OpenStax physics and NIST material; do not treat this leaf as a catch-all science category.",
+                                "The detailed public PRC TOS is Resolution 57 (2013); the 2026 MELE program names only the Mathematics area and does not restate detailed subareas."
                             ],
-                            "readiness": "REVIEW",
-                            "readiness_reason": "Existing placements are preserved; the linked material/source evidence does not yet support safe authoring across the complete official subarea.",
-                            "review_reason": "The existing study/source chain covers only a subset of the old TOS Chemistry and Physics topics; close the source/study breadth gap before authoring.",
+                            "readiness": "READY_WITH_LIMITS",
+                            "readiness_reason": "A source-traceable, bounded physics/dimensional subset is now covered by the linked study material; chemistry and broader physics remain outside the allowed scope.",
+                            "review_reason": "",
                             "defer_reason": "",
-                            "max_new_questions": 0,
+                            "max_new_questions": 3,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
-                            "evidence_hash": "efd8b15dd67bc9a64fc41c91fd46d8f8bb4e2ee378a6cb3f4857dd6b86dba2a3"
+                            "reviewed_at_batch": 646,
+                            "evidence_hash": "cafb3e24c179504d7e32bd2addbb19fe2e5a1d2ecba1c3016a03f864a66d540c"
                         },
                         {
                             "leaf_id": "b644-me-bearings-lubrication",
@@ -75742,7 +75874,7 @@
                             "defer_reason": "",
                             "max_new_questions": 4,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "dc787abab72a0f208e477610c6c7ef04b958eed6636bcfb05a8b73db59ce2709"
                         },
                         {
@@ -75800,7 +75932,7 @@
                             "defer_reason": "",
                             "max_new_questions": 3,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "cb24fa6b9b96db94c586e0bc3911091319693c52350b531c7d9bdeedd8bdd568"
                         },
                         {
@@ -75868,7 +76000,7 @@
                             "defer_reason": "",
                             "max_new_questions": 5,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "dcffb7312d328307c62f384ccdd019a35c29b59768b7afcc51e7b5c632de4438"
                         },
                         {
@@ -75936,7 +76068,7 @@
                             "defer_reason": "",
                             "max_new_questions": 5,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "6c4301620cff863d4f2ccda066e24aa75918b17fc29f821402a902595851598e"
                         },
                         {
@@ -76007,7 +76139,7 @@
                             "defer_reason": "",
                             "max_new_questions": 6,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "e7e9a3158a1b77d8bce07552edc3a47b3b0fc7454dbb7a1da9f3c5053d24c60f"
                         },
                         {
@@ -76073,7 +76205,7 @@
                             "defer_reason": "",
                             "max_new_questions": 6,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "e3c39e1429a09f053467d756b1e3c7cb5c2a3b3b5dcbfe3082dc951f3c3e43fd"
                         },
                         {
@@ -76137,7 +76269,7 @@
                             "defer_reason": "",
                             "max_new_questions": 4,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "8177cfeae876f9ccd54a13ec828e828fea05fdb567bf365139e59d5193db3071"
                         },
                         {
@@ -76204,7 +76336,7 @@
                             "defer_reason": "",
                             "max_new_questions": 6,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "d6d29a457f64f67945756b4c2e3d90800182b6185a2bbddff9996d68ed98426a"
                         },
                         {
@@ -76217,28 +76349,26 @@
                             "deficit_to_10": 0,
                             "deficit_to_20": 1,
                             "source_ids": [
-                                "nist-semtech-engineering-statistics-handbook",
-                                "openstax-calculus-volume-1",
                                 "openstax-university-physics-volume-1",
                                 "openstax-university-physics-volume-2",
                                 "prc-mechanical-engineering-2026-program",
+                                "prc-mechanical-engineering-act-8495",
                                 "prc-mechanical-engineering-board-page",
                                 "prc-mechanical-engineering-tos-adoption-notice-2013",
                                 "prc-mechanical-engineering-tos-resolution-57-2013",
                                 "ubc-introduction-engineering-thermodynamics"
                             ],
-                            "source_count": 9,
+                            "source_count": 8,
                             "primary_source_count": 5,
                             "source_authority": "ADEQUATE",
                             "source_currentness": "CURRENT_WITH_LIMITS",
                             "source_scope_fit": "PARTIAL",
                             "source_conflict_status": "NONE",
                             "study_material_ids": [
-                                "me-material-1",
                                 "me-material-6",
                                 "me-material-9"
                             ],
-                            "study_material_count": 3,
+                            "study_material_count": 2,
                             "study_coverage": "SUFFICIENT",
                             "study_source_traceability": "COMPLETE",
                             "supported_depth_min": 2,
@@ -76246,32 +76376,35 @@
                             "distinct_content_families": [
                                 "cooling_loads",
                                 "humidity_control",
-                                "production_systems",
                                 "psychrometric_interpretation",
                                 "refrigeration_cycle",
-                                "thermodynamics"
+                                "refrigeration_performance",
+                                "thermodynamic_systems"
                             ],
                             "distinct_content_family_count": 6,
                             "safe_headroom_min": 0,
                             "safe_headroom_preferred": 0,
                             "safe_headroom_max": 0,
                             "allowed_scope": [
-                                "fundamental thermodynamic interpretation without current code or refrigerant-specific claims"
+                                "stable refrigeration-cycle and basic HVAC technical principles are study-supported but not authorable until direct MELE scope is confirmed"
                             ],
                             "excluded_scope": [
-                                "HVAC code, refrigerant restrictions, fire/life-safety standards, and specialty certification content"
+                                "all new HVAC/refrigeration question authoring pending direct MELE scope confirmation",
+                                "refrigerant restrictions, current HVAC codes, fire/life-safety requirements, and specialty certification"
                             ],
                             "limitations": [
-                                "The 2026 MELE program does not name HVAC as a subject; R.A. 8495 includes HVAC in the practice definition, but that alone does not establish licensure-exam scope."
+                                "R.A. 8495 defines HVAC/refrigeration equipment and professional practice, but that does not establish MELE exam scope.",
+                                "The 2024 Certified Plant Mechanic HVAC TOS and 2025 advanced-PME HVAC specialization are different examination/credential regimes and are not used as MELE scope evidence.",
+                                "The 2026 MELE program does not name HVAC; the publicly located detailed TOS has no explicit HVAC subarea crosswalk for this leaf."
                             ],
                             "readiness": "REVIEW",
-                            "readiness_reason": "Existing placements are preserved; the linked material/source evidence does not yet support safe authoring across the complete official subarea.",
-                            "review_reason": "Retain existing bank content and mapped study support; obtain current PRC confirmation of MELE scope before expansion.",
+                            "readiness_reason": "Technical study support is sufficient for stable HVAC principles, but the official MELE scope linkage remains materially unresolved.",
+                            "review_reason": "No direct current PRC MELE scope confirmation was found for this BoardPrep-derived HVAC leaf. The professional-practice definition and separate CPM/advanced-PME scope documents cannot substitute for MELE exam-scope evidence.",
                             "defer_reason": "",
                             "max_new_questions": 0,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
-                            "evidence_hash": "d1105c3a739c8a63733f8b2e31af1ad0dd22962b52b01319e100ee08d312dd8c"
+                            "reviewed_at_batch": 646,
+                            "evidence_hash": "6adc9d8f8d3d7479c3d5e906b511a449f2ff93eba7117e6e29fc22630d714eb7"
                         },
                         {
                             "leaf_id": "b644-me-hydroelectric-plants",
@@ -76330,7 +76463,7 @@
                             "defer_reason": "",
                             "max_new_questions": 4,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "408fb94e46f7ac7697775b445d73f749dfc13ed9deaf76c5ee9b57633bb62d79"
                         },
                         {
@@ -76391,7 +76524,7 @@
                             "defer_reason": "",
                             "max_new_questions": 5,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "ad5ad136be95c2619cf664754c2d928bc01e8e0c15cbac4800547f62f0d80a06"
                         },
                         {
@@ -76457,7 +76590,7 @@
                             "defer_reason": "",
                             "max_new_questions": 4,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "ad969291df4e2987e9413f1ac51503ce809fc3ba0e5e8382a526e841deee78d7"
                         },
                         {
@@ -76527,7 +76660,7 @@
                             "defer_reason": "",
                             "max_new_questions": 6,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "6a94af8492f5f25fb3ee92dce3580ffc27ab250dc2df9e7ec7e6c99d7281ed1c"
                         },
                         {
@@ -76592,7 +76725,7 @@
                             "defer_reason": "",
                             "max_new_questions": 6,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "8aaf466be1b579a390327ff552ee01a0b8d5913a66176feba4296bef0cc84330"
                         },
                         {
@@ -76653,7 +76786,7 @@
                             "defer_reason": "",
                             "max_new_questions": 4,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "cb8dc317c86bf313125235fadae390dffe83c1636758bc926bad7c9b982631d0"
                         },
                         {
@@ -76719,7 +76852,7 @@
                             "defer_reason": "",
                             "max_new_questions": 6,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "d1b09344ae602aa3ce874acff19128cf056bc7b50b0c91c76b7481161af58c94"
                         },
                         {
@@ -76778,7 +76911,7 @@
                             "defer_reason": "",
                             "max_new_questions": 5,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "ff4ff064cf863e0f4960091e4848583c95782c370b27b02027cefe304c6ad800"
                         },
                         {
@@ -76842,7 +76975,7 @@
                             "defer_reason": "",
                             "max_new_questions": 6,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "97dac6d4ee7aa68965bdeabb997c9ac6bb7f6ee9af2f41059b3110a16122f96b"
                         },
                         {
@@ -76905,7 +77038,7 @@
                             "defer_reason": "",
                             "max_new_questions": 5,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "f1240d251bccd4656c489cc4f2afe8e51d27d93d15b86e2034f0405970689f7d"
                         },
                         {
@@ -76966,7 +77099,7 @@
                             "defer_reason": "",
                             "max_new_questions": 5,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "848acb9a2f959c1b35fdbf2fabce304ad91a5e95781e911245adc66ea35774de"
                         },
                         {
@@ -76981,49 +77114,57 @@
                             "source_ids": [
                                 "prc-mechanical-engineering-2026-program",
                                 "prc-mechanical-engineering-act-8495",
+                                "prc-mechanical-engineering-board-page",
+                                "prc-mechanical-engineering-irr-ra8495-resolution-16-1998",
                                 "prc-mechanical-engineering-tos-adoption-notice-2013",
                                 "prc-mechanical-engineering-tos-resolution-57-2013"
                             ],
-                            "source_count": 4,
-                            "primary_source_count": 4,
-                            "source_authority": "ADEQUATE",
+                            "source_count": 6,
+                            "primary_source_count": 6,
+                            "source_authority": "STRONG",
                             "source_currentness": "CURRENT_WITH_LIMITS",
                             "source_scope_fit": "PARTIAL",
                             "source_conflict_status": "NONE",
                             "study_material_ids": [
-                                "me-material-15"
+                                "me-material-18"
                             ],
                             "study_material_count": 1,
-                            "study_coverage": "PARTIAL",
+                            "study_coverage": "SUFFICIENT",
                             "study_source_traceability": "COMPLETE",
                             "supported_depth_min": 1,
                             "supported_depth_max": 3,
                             "distinct_content_families": [
+                                "board_authority",
                                 "licensure_boundary",
-                                "professional_ethics",
                                 "statutory_scope"
                             ],
                             "distinct_content_family_count": 3,
                             "safe_headroom_min": 0,
-                            "safe_headroom_preferred": 0,
-                            "safe_headroom_max": 0,
+                            "safe_headroom_preferred": 2,
+                            "safe_headroom_max": 4,
                             "allowed_scope": [
-                                "statutory facts explicitly supported by R.A. 8495 and current PRC sources"
+                                "Board, examination, registration, and licensure powers stated in R.A. 8495 and its PRC-linked IRR",
+                                "statutory practice and equipment definitions under R.A. 8495",
+                                "the current MELE subject areas/weights and bounded historical TOS crosswalk"
                             ],
                             "excluded_scope": [
-                                "unverified code revisions, interpretation of non-Philippine law, and unsourced professional rules"
+                                "Commonwealth Act 294 / R.A. 5336 provisions repealed by R.A. 8495",
+                                "detailed ethics canons without a current official code text",
+                                "legal advice or unsourced interpretations",
+                                "technical standards and clause-level obligations not linked by an active PRC source"
                             ],
                             "limitations": [
-                                "The current PRC TOS explicitly includes Mechanical Engineering Law, Code and Ethics; BoardPrep lacks a dedicated, fully traceable study treatment for this leaf."
+                                "PRC currently links R.A. 8495 and Resolution 16 (s. 1998) as the IRR. Board Resolution No. 06 (s. 2003) is identified in secondary copies as an ethics-code adoption, but the current official PRC page supplies no active code text/effectivity record; detailed canons are excluded.",
+                                "The 2013 detailed TOS remains the last located detailed MELE specification; the 2026 program supplies only the three subject areas and weights."
                             ],
-                            "readiness": "REVIEW",
-                            "readiness_reason": "Existing placements are preserved; the linked material/source evidence does not yet support safe authoring across the complete official subarea.",
-                            "review_reason": "The study material is broad and does not establish complete law/code/ethics coverage; preserve mapped content, but close the study and source traceability gap before authoring.",
+                            "readiness": "READY_WITH_LIMITS",
+                            "readiness_reason": "The current official statute, currently PRC-linked IRR, current MELE program, and dedicated legal study material support a narrow statutory/licensure subset; detailed ethics content remains excluded.",
+                            "review_reason": "",
                             "defer_reason": "",
-                            "max_new_questions": 0,
+                            "max_new_questions": 4,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
-                            "evidence_hash": "25d7745b9668655fad796c6e8392bdd7a7a18d7c0a4f85658b2dba895897bc54"
+                            "reviewed_at_batch": 646,
+                            "evidence_hash": "48bfcb5d01957667943def3e0d10076f5c5c4dc627c380dc14fa8bf509f9d4ea"
                         },
                         {
                             "leaf_id": "b644-me-mechanism-kinematics",
@@ -77086,7 +77227,7 @@
                             "defer_reason": "",
                             "max_new_questions": 5,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "aeed28eda239246423398a93d35ec83186766cde3bd806bbc8594394262f457c"
                         },
                         {
@@ -77148,7 +77289,7 @@
                             "defer_reason": "",
                             "max_new_questions": 5,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "c5fedf12eee0f1b3460481958baa2b4fd8ec2cea54c9276756b81b89ed8c4c95"
                         },
                         {
@@ -77207,7 +77348,7 @@
                             "defer_reason": "",
                             "max_new_questions": 4,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "2e39424ad443499549f5d93f2f2f012e0bc8b54c5f25414811edfd7737ffa094"
                         },
                         {
@@ -77265,7 +77406,7 @@
                             "defer_reason": "",
                             "max_new_questions": 4,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "d42fb8f4c82cecc0b57f653c95b5983ecae9427523bf6ca3d6b5d1199d87d477"
                         },
                         {
@@ -77280,11 +77421,12 @@
                             "source_ids": [
                                 "mit-thin-walled-pressure-vessels",
                                 "prc-mechanical-engineering-2026-program",
+                                "prc-mechanical-engineering-board-page",
                                 "prc-mechanical-engineering-tos-adoption-notice-2013",
                                 "prc-mechanical-engineering-tos-resolution-57-2013"
                             ],
-                            "source_count": 4,
-                            "primary_source_count": 3,
+                            "source_count": 5,
+                            "primary_source_count": 4,
                             "source_authority": "ADEQUATE",
                             "source_currentness": "NOT_TIME_SENSITIVE",
                             "source_scope_fit": "PARTIAL",
@@ -77293,7 +77435,7 @@
                                 "me-material-17"
                             ],
                             "study_material_count": 1,
-                            "study_coverage": "PARTIAL",
+                            "study_coverage": "SUFFICIENT",
                             "study_source_traceability": "COMPLETE",
                             "supported_depth_min": 2,
                             "supported_depth_max": 3,
@@ -77305,25 +77447,27 @@
                             ],
                             "distinct_content_family_count": 4,
                             "safe_headroom_min": 0,
-                            "safe_headroom_preferred": 0,
-                            "safe_headroom_max": 0,
+                            "safe_headroom_preferred": 2,
+                            "safe_headroom_max": 4,
                             "allowed_scope": [
-                                "introductory thin-walled cylinder stress using supplied pressure, dimensions, and idealizations"
+                                "introductory thin-walled cylindrical shell equilibrium and hoop/longitudinal stress with supplied geometry, pressure, material assumptions, and idealization"
                             ],
                             "excluded_scope": [
-                                "vessel/piping code design, allowable stresses, weld-joint factors, corrosion allowance, certified sizing, and unsupported flat-plate/tube standards"
+                                "pressure-vessel/piping code design, code allowables, joint efficiency, corrosion allowance, certification, and inspection rules",
+                                "steel-tube, flat-plate, and pipe/fitting design beyond the supported thin-wall cylinder model"
                             ],
                             "limitations": [
-                                "MIT course notes support introductory thin-walled pressure-vessel mechanics only. The linked evidence does not establish current code rules or complete coverage of steel tubes, flat plates, and pipe/fitting design."
+                                "PRC Resolution 57 (2013) names multiple pressure-related subareas, while the technical source supports only introductory thin-walled cylindrical mechanics.",
+                                "The 2026 program does not restate detailed subareas; no current code-design coverage is inferred."
                             ],
-                            "readiness": "REVIEW",
-                            "readiness_reason": "Existing placements are preserved; the linked material/source evidence does not yet support safe authoring across the complete official subarea.",
-                            "review_reason": "Official Resolution 57 (2013) separately names thin cylinders, steel tubes, flat plates, and pipe/fittings; present source/study evidence supports only foundational thin-walled cylinder mechanics. Broaden source and study support before future authoring.",
+                            "readiness": "READY_WITH_LIMITS",
+                            "readiness_reason": "MIT OpenCourseWare mechanics and the existing focused study note are sufficient for a limited thin-walled-cylinder subset; unsupported tube/plate/fitting and code design remain excluded.",
+                            "review_reason": "",
                             "defer_reason": "",
-                            "max_new_questions": 0,
+                            "max_new_questions": 4,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
-                            "evidence_hash": "29f59e0f3d8ad635e8ce2a0a5f93f1c53f9fe2f7a0a737fc43e467585cf70d38"
+                            "reviewed_at_batch": 646,
+                            "evidence_hash": "6c3104beca17b67c34ea71c8573c87d2fd7afe78a60ae16fb9eb17394ced53c7"
                         },
                         {
                             "leaf_id": "b644-me-production-systems",
@@ -77388,7 +77532,7 @@
                             "defer_reason": "",
                             "max_new_questions": 4,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "03b57a6386f94f5c2698e5245f91e2a6a027f893a941243d3b6053ca686fc8f4"
                         },
                         {
@@ -77458,7 +77602,7 @@
                             "defer_reason": "",
                             "max_new_questions": 6,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "983a7517e5e5c95ea4ccf5587ccaf0c0a3d8f3ef21268c3ed7dc8fed1b5a1a23"
                         },
                         {
@@ -77471,54 +77615,64 @@
                             "deficit_to_10": 6,
                             "deficit_to_20": 16,
                             "source_ids": [
-                                "nist-semtech-engineering-statistics-handbook",
-                                "open-mechanical-design-manufacturing",
+                                "dole-bwc-workplace-electrical-safety",
+                                "dole-do-252-25-osh-revised-irr-ra-11058",
                                 "prc-mechanical-engineering-2026-program",
                                 "prc-mechanical-engineering-act-8495",
                                 "prc-mechanical-engineering-board-page",
                                 "prc-mechanical-engineering-tos-adoption-notice-2013",
-                                "prc-mechanical-engineering-tos-resolution-57-2013"
+                                "prc-mechanical-engineering-tos-resolution-57-2013",
+                                "ra-11058-occupational-safety"
                             ],
-                            "source_count": 7,
-                            "primary_source_count": 6,
-                            "source_authority": "ADEQUATE",
+                            "source_count": 8,
+                            "primary_source_count": 8,
+                            "source_authority": "STRONG",
                             "source_currentness": "CURRENT_WITH_LIMITS",
                             "source_scope_fit": "PARTIAL",
                             "source_conflict_status": "NONE",
                             "study_material_ids": [
-                                "me-material-14"
+                                "me-material-19"
                             ],
                             "study_material_count": 1,
-                            "study_coverage": "PARTIAL",
+                            "study_coverage": "SUFFICIENT",
                             "study_source_traceability": "COMPLETE",
                             "supported_depth_min": 2,
                             "supported_depth_max": 3,
                             "distinct_content_families": [
                                 "energy_isolation",
                                 "hazard_recognition",
-                                "safe_maintenance_decision"
+                                "machine_guarding",
+                                "safe_maintenance_decision",
+                                "stored_energy_control",
+                                "worker_rights_and_reporting"
                             ],
-                            "distinct_content_family_count": 3,
+                            "distinct_content_family_count": 6,
                             "safe_headroom_min": 0,
-                            "safe_headroom_preferred": 0,
-                            "safe_headroom_max": 0,
+                            "safe_headroom_preferred": 2,
+                            "safe_headroom_max": 4,
                             "allowed_scope": [
-                                "general hazard-recognition language supported by the stated scenario and law-defined practice context"
+                                "high-level worker information, hazard-reporting, and unsafe-work protections under R.A. 11058 and current D.O. 252-25",
+                                "isolation, stored-energy control, and verification reasoning when no equipment-specific sequence is inferred",
+                                "stable shop hazard recognition and general safeguards"
                             ],
                             "excluded_scope": [
-                                "specific Philippine OSH requirements, lockout/tagout sequences, current machinery standards, and certification rules"
+                                "exact lockout/tagout sequence unless supplied by a current applicable procedure",
+                                "machine-specific guard design and technical standards",
+                                "numerical penalties, detailed establishment classification, or sector-specific requirements not needed for the scenario",
+                                "obsolete D.O. 198-18 thresholds or obligations"
                             ],
                             "limitations": [
-                                "No up-to-date Philippine OSH technical source is linked; avoid future authoring until that gap is closed."
+                                "D.O. 252-25 is the current revised IRR, effective 2025-05-16; prior D.O. 198-18 is superseded.",
+                                "The public MELE program includes Shop Practice within the 30% subject but does not publish a separate safety subarea; keep authoring at the general shop-practice level and avoid claiming an explicit PRC safety subarea."
                             ],
-                            "readiness": "REVIEW",
-                            "readiness_reason": "Existing placements are preserved; the linked material/source evidence does not yet support safe authoring across the complete official subarea.",
-                            "review_reason": "Existing study notes mention energy isolation but a current authoritative Philippine OSH source is absent.",
+                            "readiness": "READY_WITH_LIMITS",
+                            "readiness_reason": "Current DOLE/BWC authority, R.A. 11058, and focused study synthesis support a limited general shop-safety subset with explicit regulatory and procedural exclusions.",
+                            "review_reason": "",
                             "defer_reason": "",
-                            "max_new_questions": 0,
+                            "max_new_questions": 4,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
-                            "evidence_hash": "ae704543cd916fb8ab4fa8d14beea1d3ffc0591e7f56400878998cd2459ffb72"
+                            "reviewed_at_batch": 646,
+                            "evidence_hash": "ea0dac72206a088187e35b5eed35f987f84712029b05ea1c27c9e735b2f993a4"
                         },
                         {
                             "leaf_id": "b644-me-stability-fatigue",
@@ -77581,7 +77735,7 @@
                             "defer_reason": "",
                             "max_new_questions": 4,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "52efa2908819b99a110534be276b9166211ec260866ef4f608bb3e1551484bf1"
                         },
                         {
@@ -77644,7 +77798,7 @@
                             "defer_reason": "",
                             "max_new_questions": 5,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "a47193472873a56e97b647f1257c7295d16039fc4bde1c708cd6c7692c93a239"
                         },
                         {
@@ -77709,7 +77863,7 @@
                             "defer_reason": "",
                             "max_new_questions": 6,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "a6f7089f11c96b5734488121fc120e6ad9762505075c7333c8a9c1d24c65c760"
                         },
                         {
@@ -77778,7 +77932,7 @@
                             "defer_reason": "",
                             "max_new_questions": 6,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "de059ec1fb83d5f4ca217b893130ec78917eb912bd6743183403f200347e15a7"
                         },
                         {
@@ -77849,7 +78003,7 @@
                             "defer_reason": "",
                             "max_new_questions": 5,
                             "planned_new_questions": 0,
-                            "reviewed_at_batch": 644,
+                            "reviewed_at_batch": 646,
                             "evidence_hash": "b84c9bae8dc62b063c3fb26b39d15e86ba853ae31e734a039a9b5ebf43f7a31d"
                         }
                     ]

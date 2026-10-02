@@ -5401,7 +5401,7 @@
     {
         "id": "me-material-2",
         "title": "Engineering sciences",
-        "summary": "Concept-focused Mechanical Engineering review for engineering sciences, with governing relationships, assumptions, and interpretation checks used by linked practice items.",
+        "summary": "Focused, source-traceable review for dimensional reasoning and foundational physical-science relationships used in the linked Mechanical Engineering items; chemistry, specialist electrical design, and unrelated science breadth are excluded.",
         "notes": [
             {
                 "heading": "Dimensional reasoning",
@@ -5418,12 +5418,21 @@
             {
                 "heading": "Engineering evidence",
                 "body": "When an input property has wide measured spread, propagate or bound that uncertainty and obtain representative data when the decision is sensitive; do not hide variability behind a single nominal value."
+            },
+            {
+                "heading": "Periodic quantities",
+                "body": "For a stated periodic process, frequency is cycles per unit time and period is its reciprocal. Use the stated interval and units; this is a basic physical-quantity interpretation, not machine-dynamics design."
+            },
+            {
+                "heading": "AC impedance boundary",
+                "body": "For a supplied ideal series resistance and inductive reactance, treat the orthogonal components as a complex impedance: magnitude is the vector magnitude and phase is the arctangent of reactance over resistance. Exclude circuit design, component selection, and specialist electrical-engineering code requirements."
             }
         ],
         "source_ids": [
-            "prc-mechanical-engineering-board-page",
+            "nist-semtech-engineering-statistics-handbook",
+            "openstax-university-physics-volume-1",
             "openstax-university-physics-volume-2",
-            "nist-semtech-engineering-statistics-handbook"
+            "prc-mechanical-engineering-board-page"
         ],
         "exams": [
             "mechanical-engineering"
@@ -5441,8 +5450,8 @@
         },
         "technical_support_state": "STRONG",
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-10-02"
     },
     {
         "id": "me-material-3",
@@ -5746,7 +5755,7 @@
     {
         "id": "me-material-9",
         "title": "Refrigeration and HVAC",
-        "summary": "Source-backed pump, compressor, heat-exchanger, refrigeration, and air-conditioning review for system selection and performance.",
+        "summary": "Source-backed fundamentals for refrigeration-cycle performance, psychrometric interpretation, sensible/latent loads, and basic HVAC operation, with an explicit boundary against current-code and refrigerant-specific claims.",
         "notes": [
             {
                 "heading": "Pumps and systems",
@@ -5767,6 +5776,10 @@
             {
                 "heading": "Operating checks",
                 "body": "Cavitation symptoms require an available-versus-required suction-head check. Superheat protects a compressor from liquid, while condenser heat rejection is cooling effect plus compressor work."
+            },
+            {
+                "heading": "Stable HVAC principles and currentness boundary",
+                "body": "Refrigeration energy balances, COP relationships, sensible/latent load distinction, and psychrometric interpretation are treated as stable technical principles when state points and assumptions are supplied. Refrigerant restrictions, safety classifications, energy-code requirements, and edition-specific equipment standards are version-sensitive and excluded unless a current controlling source is attached. Technical support does not by itself establish MELE exam scope."
             }
         ],
         "source_ids": [
@@ -5792,8 +5805,8 @@
         },
         "technical_support_state": "STRONG",
         "status": "published",
-        "version": 7,
-        "updated_at": "2026-09-28"
+        "version": 8,
+        "updated_at": "2026-10-02"
     },
     {
         "id": "me-material-10",
@@ -6077,16 +6090,15 @@
         "taxonomy": {
             "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
             "concept_ids": [
-                "b644-me-engineering-economics",
-                "b644-me-me-law-code-ethics"
+                "b644-me-engineering-economics"
             ],
             "board_id": "mechanical-engineering",
             "boardprep_taxonomy_batch": 644
         },
         "technical_support_state": "STRONG",
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-10-02"
     },
     {
         "id": "ree-material-mathematics",
@@ -10163,6 +10175,98 @@
         },
         "technical_support_state": "PARTIAL",
         "confidence": "authoritative_educational_reference",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-02"
+    },
+    {
+        "id": "me-material-18",
+        "title": "Mechanical Engineering Law and licensure scope — R.A. 8495",
+        "summary": "Original, source-traceable statutory study support for bounded Philippine mechanical-engineering practice, Board authority, examination, registration, and licensure facts under R.A. 8495 and its PRC-linked IRR.",
+        "notes": [
+            {
+                "heading": "Practice and equipment boundary",
+                "body": "Use the definitions and professional-practice categories in R.A. 8495 to distinguish regulated mechanical-engineering work and covered equipment. A statutory practice definition is not itself an exam blueprint."
+            },
+            {
+                "heading": "Board and examination authority",
+                "body": "R.A. 8495 assigns the Board authority over registration, licensure, practice rules, and examination syllabi. The 2026 PRC program supplies the current three MELE areas and weights; the publicly located detailed subarea TOS remains the 2013 Resolution 57 crosswalk."
+            },
+            {
+                "heading": "Registration and practice",
+                "body": "Study only statutory categories, licensing boundaries, and Board powers expressly supported by R.A. 8495 and the currently PRC-linked implementing rules. Do not treat an old repealed-law provision as current merely because it appears in an older ethics document."
+            },
+            {
+                "heading": "Ethics/code version firewall",
+                "body": "R.A. 8495 authorizes the Board to adopt a Code of Ethical and Professional Standards, and secondary copies identify Board Resolution No. 06 (s. 2003) as an adopted code. The current PRC board page has no active linked code text or currentness notice for that resolution. Treat the historical adoption as a lead, not as verification of the operative text; exclude detailed ethical canons, clause numbers, and technical-standard obligations until the controlling official text and current status are confirmed."
+            }
+        ],
+        "source_ids": [
+            "prc-mechanical-engineering-2026-program",
+            "prc-mechanical-engineering-board-page",
+            "prc-mechanical-engineering-tos-adoption-notice-2013",
+            "prc-mechanical-engineering-tos-resolution-57-2013",
+            "prc-mechanical-engineering-act-8495",
+            "prc-mechanical-engineering-irr-ra8495-resolution-16-1998"
+        ],
+        "exams": [
+            "mechanical-engineering"
+        ],
+        "taxonomy": {
+            "subject_id": "mechanical-engineering-engineering-sciences",
+            "concept_ids": [
+                "b644-me-me-law-code-ethics"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 646
+        },
+        "technical_support_state": "STRONG",
+        "confidence": "official_statutory_and_scope_synthesis",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-02"
+    },
+    {
+        "id": "me-material-19",
+        "title": "Mechanical shop safety and current Philippine OSH boundaries",
+        "summary": "Original, source-traceable study support for stable shop hazard-control principles and the current high-level duties and worker protections under R.A. 11058 and D.O. 252-25.",
+        "notes": [
+            {
+                "heading": "Stable hazard-control principles",
+                "body": "Identify the hazard, use the applicable guard or safeguard, isolate hazardous energy, address stored or residual energy, and verify a safe state before access. These are general decision principles; a scenario must supply any equipment-specific procedure."
+            },
+            {
+                "heading": "Current Philippine OSH framework",
+                "body": "R.A. 11058 establishes general workplace OSH duties and worker protections. DOLE D.O. 252-25 is the revised IRR effective 2025-05-16 and replaces the prior D.O. 198-18 IRR. Use current controlling text for legal requirements; do not copy prior-order thresholds."
+            },
+            {
+                "heading": "Bounded question scope",
+                "body": "Supported study topics include hazard recognition, safeguards, energy-isolation reasoning, worker information/reporting/refusal protections at the general statutory level, and safe maintenance decisions. Exclude detailed machinery design standards, exact compliance classifications, numerical penalties, and task-specific lockout steps not stated by the source."
+            }
+        ],
+        "source_ids": [
+            "prc-mechanical-engineering-2026-program",
+            "prc-mechanical-engineering-board-page",
+            "prc-mechanical-engineering-tos-adoption-notice-2013",
+            "prc-mechanical-engineering-tos-resolution-57-2013",
+            "prc-mechanical-engineering-act-8495",
+            "ra-11058-occupational-safety",
+            "dole-do-252-25-osh-revised-irr-ra-11058",
+            "dole-bwc-workplace-electrical-safety"
+        ],
+        "exams": [
+            "mechanical-engineering"
+        ],
+        "taxonomy": {
+            "subject_id": "mechanical-engineering-engineering-sciences",
+            "concept_ids": [
+                "b644-me-shop-safety-practice"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 646
+        },
+        "technical_support_state": "STRONG",
+        "confidence": "official_regulatory_and_technical_synthesis",
         "status": "published",
         "version": 1,
         "updated_at": "2026-10-02"

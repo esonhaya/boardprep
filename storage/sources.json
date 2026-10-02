@@ -3149,5 +3149,35 @@
         "status": "verified_reference",
         "confidence": "authoritative_educational_reference",
         "notes": "MIT mechanics-of-materials lecture derives thin-walled pressure-vessel stress from equilibrium. Supports idealized foundational reasoning only; explicitly excludes code design, joint efficiency, corrosion allowances, and current allowable stresses."
+    },
+    {
+        "id": "prc-mechanical-engineering-irr-ra8495-resolution-16-1998",
+        "title": "Implementing Rules and Regulations of R.A. No. 8495 — PRB Mechanical Engineering Resolution No. 16 (s. 1998)",
+        "source_type": "OFFICIAL_REGULATION",
+        "authority": "Professional Regulation Commission; Professional Regulatory Board of Mechanical Engineering",
+        "url": "https://www.prc.gov.ph/sites/default/files/ME%20IRR%20Reso%2016%20s%201998.pdf",
+        "publication_date": "1998",
+        "retrieved_at": "2026-10-02",
+        "version": "Resolution No. 16 (s. 1998), currently linked in the PRC Mechanical Engineering board page IRR section",
+        "status": "official_reference",
+        "confidence": "authoritative_reference",
+        "source_role": "REGULATORY_SOURCE",
+        "volatility": "CURRENTNESS_TRACKED",
+        "notes": "Official PRC-linked implementing rules for R.A. 8495. Used for bounded current statutory/licensure facts only. The PRC board page does not currently link a separate operative ME Code of Ethics document in its Code of Ethics tab; no detailed ethics rule is inferred from this IRR record."
+    },
+    {
+        "id": "dole-do-252-25-osh-revised-irr-ra-11058",
+        "title": "DOLE Department Order No. 252-25 — Revised Implementing Rules and Regulations of R.A. No. 11058",
+        "source_type": "OFFICIAL_REGULATION",
+        "authority": "Department of Labor and Employment; Bureau of Working Conditions",
+        "url": "https://bwc.dole.gov.ph/3063-2/",
+        "publication_date": "2025-05-01",
+        "retrieved_at": "2026-10-02",
+        "version": "Signed 2025-04-28; published 2025-05-01; effective 2025-05-16; revised IRR of R.A. 11058",
+        "status": "official_reference",
+        "confidence": "authoritative_reference",
+        "source_role": "REGULATORY_SOURCE",
+        "volatility": "CURRENTNESS_TRACKED",
+        "notes": "Official BWC explainer states that D.O. 252-25 was signed 2025-04-28, published 2025-05-01, took effect 2025-05-16, and superseded the D.O. 198-18 IRR. The official BWC/OSHC Department Orders indexes continue listing D.O. 252-25; use for current general OSH duties, not unsourced machine-specific standards or exact compliance thresholds."
     }
 ]
