@@ -161,6 +161,52 @@ final class QuestionEligibilityIndex
             : null;
     }
 
+    /**
+     * Return a per-exam candidate ID set suitable for a later exact
+     * `forExam()` check.  This is deliberately an over-inclusive index:
+     * excluded IDs may be present, and the production resolver remains the
+     * final authority.  It lets Repository Health avoid feeding unrelated
+     * questions through runtime normalization and eligibility checks once
+     * per board.
+     *
+     * @return array<string, array<string, true>>
+     */
+    public function potentialQuestionIdsByExam(): array
+    {
+        $idsByExam = [];
+        foreach ($this->entriesByQuestion as $questionId => $entries) {
+            foreach ($entries as $entry) {
+                foreach ((array) ($entry['exam_ids'] ?? []) as $exam) {
+                    if (is_scalar($exam)) {
+                        $normalizedExam = self::normalize((string) $exam);
+                        if ($normalizedExam !== '') {
+                            $idsByExam[$normalizedExam][$questionId] = true;
+                        }
+                    }
+                }
+            }
+        }
+        foreach ($this->overridesByQuestionBoard as $questionId => $boards) {
+            foreach ($boards as $boardId => $_overrides) {
+                $idsByExam[$boardId][$questionId] = true;
+            }
+        }
+        foreach ($this->derivedByQuestion as $questionId => $entries) {
+            foreach ($entries as $entry) {
+                $exam = self::normalize((string) ($entry['target_board'] ?? ''));
+                if ($exam !== '') {
+                    $idsByExam[$exam][$questionId] = true;
+                }
+            }
+        }
+        ksort($idsByExam, SORT_STRING);
+        foreach ($idsByExam as &$questionIds) {
+            ksort($questionIds, SORT_STRING);
+        }
+        unset($questionIds);
+        return $idsByExam;
+    }
+
     private function resolvedSubject(array $question, string $exam, string $subject): string
     {
         $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];

@@ -26,15 +26,20 @@ final class RepositoryHealthEngine
 {
     private static ?HealthReport $lastReport = null;
 
-    public static function analyze(): HealthReport
+    public static function analyze(bool $profile = false): HealthReport
     {
-        return self::$lastReport = self::build(RepositoryContextFactory::create());
+        $profiler = $profile ? new RepositoryHealthProfiler() : null;
+        $context = $profiler === null
+            ? RepositoryContextFactory::create()
+            : $profiler->measure('shared_initialization.context_and_repository_loads', static fn(): RepositoryContext => RepositoryContextFactory::create($profiler));
+        return self::$lastReport = self::build($context, $profiler);
     }
 
     /** @param array<string, array> $collections */
-    public static function analyzeCollections(array $collections): HealthReport
+    public static function analyzeCollections(array $collections, bool $profile = false): HealthReport
     {
-        return self::$lastReport = self::build(RepositoryContextFactory::fromCollections($collections));
+        $profiler = $profile ? new RepositoryHealthProfiler() : null;
+        return self::$lastReport = self::build(RepositoryContextFactory::fromCollections($collections), $profiler);
     }
 
     public static function lastReport(): ?HealthReport
@@ -42,10 +47,12 @@ final class RepositoryHealthEngine
         return self::$lastReport;
     }
 
-    private static function build(RepositoryContext $context): HealthReport
+    private static function build(RepositoryContext $context, ?RepositoryHealthProfiler $profiler = null): HealthReport
     {
         $collections = $context->collections;
-        $questions = array_values(array_filter($collections['questions'] ?? [], 'is_array'));
+        $questions = $profiler === null
+            ? array_values(array_filter($collections['questions'] ?? [], 'is_array'))
+            : $profiler->measure('shared_question_snapshot_projection', static fn(): array => array_values(array_filter($collections['questions'] ?? [], 'is_array')));
         $questionById = [];
         foreach ($questions as $question) {
             $id = self::id($question);
@@ -60,22 +67,39 @@ final class RepositoryHealthEngine
             $collections['study-question-links'] ?? [],
             $collections['flashcard-exclusions'] ?? []
         );
-        $integrity = ContentIntegrityService::analyze(
-            $collections,
-            static fn(array $question): ?array => $deriver->derive($question),
-            static fn(array $question): array => $deriver->derivationStatus($question)
-        );
+        $integrityHook = $profiler === null ? null : static function (string $operation, int $startedAt, array $checkCodes = []) use ($profiler): void {
+            $profiler->recordDuration($operation, $startedAt, $checkCodes);
+        };
+        $integrityCounterHook = $profiler === null ? null : static function (string $counter, int $amount) use ($profiler): void {
+            $profiler->increment($counter, $amount);
+        };
+        $integrity = $profiler === null
+            ? ContentIntegrityService::analyze(
+                $collections,
+                static fn(array $question): ?array => $deriver->derive($question),
+                static fn(array $question): array => $deriver->derivationStatus($question)
+            )
+            : $profiler->measure('shared_content_integrity_scan', static fn(): array => ContentIntegrityService::analyze(
+                $collections,
+                static fn(array $question): ?array => $deriver->derive($question),
+                static fn(array $question): array => $deriver->derivationStatus($question),
+                $integrityHook,
+                $integrityCounterHook
+            ));
 
         $issues = [];
-        self::addIntegrityIssues($issues, $integrity, $questionById);
-        self::addEligibilityIssues($issues, $collections, $questionById);
-        self::addExclusionIssues($issues, $collections, $questionById);
-        self::addSourceStudyIssues($issues, $collections, $integrity, $questionById);
-        self::addMetadataIssues($issues, $questions, $collections, $questionById);
+        $run = static function (string $operation, callable $callback, array $checkCodes = []) use ($profiler): mixed {
+            return $profiler === null ? $callback() : $profiler->measure($operation, $callback, $checkCodes);
+        };
+        $run('issue_mapping.integrity', static function () use (&$issues, $integrity, $questionById): void { self::addIntegrityIssues($issues, $integrity, $questionById); });
+        $run('check.eligibility_validation', static function () use (&$issues, $collections, $questionById): void { self::addEligibilityIssues($issues, $collections, $questionById); }, ['ELIGIBILITY']);
+        $run('check.flashcard_exclusion_validation', static function () use (&$issues, $collections, $questionById): void { self::addExclusionIssues($issues, $collections, $questionById); }, ['FLASHCARD_EXCLUSIONS']);
+        $run('check.source_study_validation', static function () use (&$issues, $collections, $integrity, $questionById): void { self::addSourceStudyIssues($issues, $collections, $integrity, $questionById); }, ['SOURCE_STUDY']);
+        $run('check.metadata_validation', static function () use (&$issues, $questions, $collections, $questionById): void { self::addMetadataIssues($issues, $questions, $collections, $questionById); }, ['CALCULATION_METADATA']);
 
-        $boardSummaries = self::boardSummaries($questions, $collections, $issues);
-        $readinessValidation = SourceReadinessService::validateCollections($collections, $boardSummaries);
-        self::addSourceReadinessIssues($issues, $readinessValidation);
+        $boardSummaries = $run('check.board_summaries_and_balance', static function () use ($questions, $collections, &$issues, $profiler): array { return self::boardSummaries($questions, $collections, $issues, $profiler); });
+        $readinessValidation = $run('check.source_readiness_validation', static fn(): array => SourceReadinessService::validateCollections($collections, $boardSummaries), ['SOURCE_READINESS']);
+        $run('issue_mapping.source_readiness', static function () use (&$issues, $readinessValidation): void { self::addSourceReadinessIssues($issues, $readinessValidation); });
         $readinessByBoard = [];
         foreach ((array) ($readinessValidation['by_board'] ?? []) as $boardId => $boardValidation) {
             $readinessByBoard[(string) $boardId] = SourceReadinessService::summary(
@@ -92,21 +116,21 @@ final class RepositoryHealthEngine
                 $boardSummaries[$boardId]['source_readiness'] = $boardReadiness;
             }
         }
-        $flashcardMetrics = self::flashcardMetrics($questions, $collections, $deriver);
-        self::addFlashcardMetricIssues($issues, $flashcardMetrics, $questionById);
+        $flashcardMetrics = $run('check.flashcard_metrics', static fn(): array => self::flashcardMetrics($questions, $collections, $deriver, $profiler), ['FLASHCARD_DERIVABILITY']);
+        $run('issue_mapping.flashcard_metrics', static function () use (&$issues, $flashcardMetrics, $questionById): void { self::addFlashcardMetricIssues($issues, $flashcardMetrics, $questionById); });
         foreach ($flashcardMetrics['by_board'] as $boardId => $metrics) {
             if (isset($boardSummaries[$boardId])) {
                 $boardSummaries[$boardId]['flashcards'] = $metrics;
             }
         }
-        $checks = self::checks($issues);
-        $summary = self::summary($checks, $issues);
+        $checks = self::checks($issues, $profiler);
+        $summary = $run('shared_result_aggregation', static fn(): array => self::summary($checks, $issues));
         $summary['flashcards'] = $flashcardMetrics['portfolio'];
         $summary['source_readiness'] = $readinessSummary;
         $summary['source_readiness_by_board'] = $readinessByBoard;
 
         $report = new HealthReport();
-        $report->issues = self::sortIssues($issues);
+        $report->issues = $run('shared_issue_sorting', static fn(): array => self::sortIssues($issues));
         $report->checks = $checks;
         $report->summary = $summary;
         $report->overallStatus = $summary['overall_status'];
@@ -116,13 +140,16 @@ final class RepositoryHealthEngine
             $integrity['portfolio']['justified_exclusions'] ?? [],
             'is_array'
         ));
-        $report->affectedIds = self::affectedIds($report->issues);
+        $report->affectedIds = $run('shared_affected_id_aggregation', static fn(): array => self::affectedIds($report->issues));
         $report->actionQueue = array_values(array_filter(
             array_map(static fn(HealthIssue $issue): array => $issue->toArray(), $report->issues),
             static fn(array $issue): bool => in_array($issue['status'], ['FAIL', 'WARN', 'REVIEW'], true)
         ));
-        $report->healthScore = self::healthScore($report->issues);
-        $report->statistics = self::statistics($questions, $report->issues, $boardSummaries);
+        $report->healthScore = $run('shared_health_score_aggregation', static fn(): float => self::healthScore($report->issues));
+        $report->statistics = $run('shared_statistics_aggregation', static fn(): RepositoryStatistics => self::statistics($questions, $report->issues, $boardSummaries));
+        if ($profiler !== null) {
+            $report->profiling = $profiler->report();
+        }
 
         return $report;
     }
@@ -449,7 +476,7 @@ final class RepositoryHealthEngine
     }
 
     /** @param array<int, HealthIssue> $issues */
-    private static function boardSummaries(array $questions, array $collections, array &$issues): array
+    private static function boardSummaries(array $questions, array $collections, array &$issues, ?RepositoryHealthProfiler $profiler = null): array
     {
         $boardIds = [];
         foreach ((array) ($collections['boards'] ?? []) as $board) {
@@ -464,12 +491,53 @@ final class RepositoryHealthEngine
                 $boardIds[$id] = true;
             }
         }
-        $index = new QuestionEligibilityIndex(
-            $collections['question-eligibility'] ?? [],
-            $collections['blueprints'] ?? [],
-            $collections['concept-derived-eligibility'] ?? [],
-            $collections['question-reuse-overrides'] ?? []
-        );
+        if ($profiler !== null) $profiler->increment('eligibility_index_builds');
+        $index = $profiler === null
+            ? new QuestionEligibilityIndex(
+                $collections['question-eligibility'] ?? [],
+                $collections['blueprints'] ?? [],
+                $collections['concept-derived-eligibility'] ?? [],
+                $collections['question-reuse-overrides'] ?? []
+            )
+            : $profiler->measure('eligibility_index_build', static fn(): QuestionEligibilityIndex => new QuestionEligibilityIndex(
+                $collections['question-eligibility'] ?? [],
+                $collections['blueprints'] ?? [],
+                $collections['concept-derived-eligibility'] ?? [],
+                $collections['question-reuse-overrides'] ?? []
+            ), ['ELIGIBILITY']);
+        $potentialIdsByBoard = $index->potentialQuestionIdsByExam();
+        $questionRowsById = [];
+        foreach ($questions as $position => $question) {
+            $questionId = self::id($question);
+            if ($questionId === '') {
+                continue;
+            }
+            $questionRowsById[$questionId][] = ['position' => $position, 'question' => $question];
+            $nativeBoard = self::questionBoard($question);
+            if ($nativeBoard !== '') {
+                $potentialIdsByBoard[$nativeBoard][$questionId] = true;
+            }
+            if (!array_key_exists('board', $question) && !array_key_exists('taxonomy', $question)) {
+                foreach (array_keys($boardIds) as $candidateBoard) {
+                    $potentialIdsByBoard[$candidateBoard][$questionId] = true;
+                }
+            }
+        }
+        $candidateQuestionsByBoard = [];
+        foreach (array_keys($boardIds) as $candidateBoard) {
+            $candidateRows = [];
+            foreach (array_keys($potentialIdsByBoard[$candidateBoard] ?? []) as $questionId) {
+                foreach ($questionRowsById[$questionId] ?? [] as $row) {
+                    $candidateRows[] = $row;
+                }
+            }
+            usort($candidateRows, static fn(array $a, array $b): int => $a['position'] <=> $b['position']);
+            $candidateQuestionsByBoard[$candidateBoard] = array_column($candidateRows, 'question');
+        }
+        if ($profiler !== null) {
+            $profiler->increment('eligibility_candidate_question_memberships', array_sum(array_map('count', $candidateQuestionsByBoard)));
+            $profiler->increment('eligibility_candidate_id_sets', count($candidateQuestionsByBoard));
+        }
         $coverageByBoard = [];
         foreach ((array) ($collections['board-concept-coverage'] ?? []) as $coverage) {
             if (!is_array($coverage)) {
@@ -521,6 +589,7 @@ final class RepositoryHealthEngine
                 $effective[$questionId] = true;
             }
             $depths = [];
+            $countScanStartedAt = $profiler === null ? 0 : hrtime(true);
             foreach ($questions as $question) {
                 $id = self::id($question);
                 if ($id === '') {
@@ -538,6 +607,10 @@ final class RepositoryHealthEngine
                     $depths[] = $depth;
                 }
             }
+            if ($profiler !== null) {
+                $profiler->increment('board_question_count_scans');
+                $profiler->recordDuration('board.native_question_leaf_and_depth_counts', $countScanStartedAt, ['QUESTION_COUNTS']);
+            }
             if ($effective === [] && $owned !== []) {
                 // Fixture contexts without eligibility collections still get
                 // a useful native count; production storage always uses the
@@ -545,14 +618,20 @@ final class RepositoryHealthEngine
                 $effective = $owned;
             }
             $runtime = [];
+            $filterStartedAt = $profiler === null ? 0 : hrtime(true);
             try {
                 $runtime = \QuestionPoolFilter::filter(
-                    $questions,
+                    $candidateQuestionsByBoard[$boardId] ?? [],
                     new \SelectionRequest('*', null, [], 1, null, null, $boardId),
                     $index
                 );
             } catch (\Throwable $exception) {
                 self::issue($issues, 'FAIL', 'ELIGIBILITY', 'PRODUCTION_REACHABILITY_ERROR', $boardId, [], 'Production selection could not evaluate this board.', 'Repair the eligibility mapping or selection contract.', ['exception' => $exception->getMessage()]);
+            }
+            if ($profiler !== null) {
+                $profiler->increment('eligibility_filter_executions');
+                $profiler->increment('eligibility_filter_questions', count($candidateQuestionsByBoard[$boardId] ?? []));
+                $profiler->recordDuration('board.production_reachability_filter', $filterStartedAt, ['ELIGIBILITY']);
             }
             $runtimeIds = [];
             foreach ($runtime as $question) {
@@ -562,6 +641,7 @@ final class RepositoryHealthEngine
                 }
             }
             $expectedLeaves = array_keys($coverageByBoard[$boardId] ?? []);
+            $balanceStartedAt = $profiler === null ? 0 : hrtime(true);
             $structuralLeaves = [];
             foreach ($expectedLeaves as $expectedLeaf) {
                 if (self::isStructuralLeaf((string) $expectedLeaf, $leafCounts, $concepts)) {
@@ -653,6 +733,10 @@ final class RepositoryHealthEngine
                 );
             }
             $result[$boardId] = $summary;
+            if ($profiler !== null) {
+                $profiler->increment('balance_summary_executions');
+                $profiler->recordDuration('board.balance_depth_concentration_metrics', $balanceStartedAt, ['BALANCE_DIVERSITY']);
+            }
         }
         ksort($result);
         return $result;
@@ -673,21 +757,26 @@ final class RepositoryHealthEngine
     }
 
     /** @return array{portfolio: array, by_board: array<string, array>} */
-    private static function flashcardMetrics(array $questions, array $collections, FlashcardDerivationService $deriver): array
+    private static function flashcardMetrics(array $questions, array $collections, FlashcardDerivationService $deriver, ?RepositoryHealthProfiler $profiler = null): array
     {
         $portfolio = ['eligible' => 0, 'derivable' => 0, 'justified_exclusion' => 0, 'nonderivable_defect' => 0, 'duplicate_card_key' => 0, 'malformed_card' => 0, 'broken_card_source' => 0, 'invalid_card_key' => 0, 'invalid_card_key_ids' => [], 'malformed_card_ids' => [], 'broken_card_source_ids' => []];
         $byBoard = [];
         $keys = [];
+        $statusChecks = 0;
+        $derivationCalls = 0;
+        $cardValidations = 0;
         foreach ($questions as $question) {
             $questionId = self::id($question);
             $board = self::questionBoard($question);
             $byBoard[$board] ??= ['eligible' => 0, 'derivable' => 0, 'justified_exclusion' => 0, 'nonderivable_defect' => 0, 'duplicate_card_key' => 0, 'malformed_card' => 0, 'broken_card_source' => 0, 'invalid_card_key' => 0];
+            if ($profiler !== null) $statusChecks++;
             $status = $deriver->derivationStatus($question);
             if (($status['eligible'] ?? false) !== true) {
                 continue;
             }
             $portfolio['eligible']++;
             $byBoard[$board]['eligible']++;
+            if ($profiler !== null) $derivationCalls++;
             $card = $deriver->derive($question);
             if (is_array($card)) {
                 $portfolio['derivable']++;
@@ -696,6 +785,7 @@ final class RepositoryHealthEngine
                 if ($key !== '') {
                     $keys[$key][] = [$questionId, $board];
                 }
+                if ($profiler !== null) $cardValidations++;
                 $errors = \App\Services\Flashcard\FlashcardCardValidator::validate($card);
                 if ($errors !== []) {
                     $portfolio['malformed_card']++;
@@ -729,14 +819,21 @@ final class RepositoryHealthEngine
                 $byBoard[$board]['duplicate_card_key']++;
             }
         }
+        if ($profiler !== null) {
+            $profiler->increment('flashcard_status_checks', $statusChecks);
+            $profiler->increment('flashcard_derivation_calls', $derivationCalls);
+            $profiler->increment('flashcard_card_validations', $cardValidations);
+            $profiler->increment('duplicate_check_passes');
+        }
         return ['portfolio' => $portfolio, 'by_board' => $byBoard];
     }
 
-    private static function checks(array $issues): array
+    private static function checks(array $issues, ?RepositoryHealthProfiler $profiler = null): array
     {
         $definitions = RepositoryHealthCheckCatalog::definitions();
         $checks = [];
         foreach ($definitions as $code => $definition) {
+            $checkStartedAt = hrtime(true);
             $category = $definition['category'];
             $matching = array_values(array_filter(
                 $issues,
@@ -766,6 +863,7 @@ final class RepositoryHealthEngine
                 'issue_count' => count($matching),
                 'affected_ids' => self::issueIds($matching),
             ];
+            $profiler?->recordCheckExecution((string) $code, $checkStartedAt, $matching);
         }
         return $checks;
     }

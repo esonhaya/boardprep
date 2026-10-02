@@ -28,6 +28,9 @@ class HealthReport
 
     public string $generatedAt = '';
 
+    /** Optional CLI diagnostics; intentionally excluded from the stable report payload. */
+    public ?array $profiling = null;
+
     public function toArray(): array
     {
         return [

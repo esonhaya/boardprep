@@ -15,18 +15,22 @@ if (!in_array('--health', array_slice($argv ?? [], 1), true)) {
 
 if (in_array('--health', array_slice($argv ?? [], 1), true)) {
     $healthArguments = array_slice($argv ?? [], 1);
-    $allowedHealthArguments = ['--health', '--json', '--persist'];
+    $allowedHealthArguments = ['--health', '--json', '--persist', '--profile'];
     $invalidHealthArguments = array_values(array_diff($healthArguments, $allowedHealthArguments));
     if ($invalidHealthArguments !== []) {
         fwrite(STDERR, 'Unknown Repository Health option: ' . $invalidHealthArguments[0] . PHP_EOL);
         exit(2);
     }
 
+    $healthCommandStartedAt = hrtime(true);
+    $profileRequested = in_array('--profile', $healthArguments, true);
     putenv('APP_ENV=testing');
     putenv('APP_DEBUG=false');
     \App\Core\App::boot();
-    $healthReport = \App\Services\RepositoryHealth\Engine\RepositoryHealthEngine::analyze();
+    $healthReport = \App\Services\RepositoryHealth\Engine\RepositoryHealthEngine::analyze($profileRequested);
+    $materializationStartedAt = hrtime(true);
     $healthArray = $healthReport->toArray();
+    $reportMaterializationMs = max(0.0, (hrtime(true) - $materializationStartedAt) / 1_000_000);
     if (in_array('--persist', $healthArguments, true)) {
         $healthPath = dirname(__DIR__) . '/storage/repository-health.json';
         $healthJson = json_encode($healthArray, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
@@ -35,7 +39,32 @@ if (in_array('--health', array_slice($argv ?? [], 1), true)) {
         rename($temporary, $healthPath);
     }
     if (in_array('--json', $healthArguments, true)) {
-        echo json_encode($healthArray, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR), PHP_EOL;
+        $jsonFlags = JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR;
+        if ($profileRequested) {
+            $serializationStartedAt = hrtime(true);
+            json_encode($healthArray, $jsonFlags);
+            $serializationMs = max(0.0, (hrtime(true) - $serializationStartedAt) / 1_000_000);
+            $profile = $healthReport->profiling ?? [];
+            $profile['report_materialization_ms'] = round($reportMaterializationMs, 3);
+            $profile['json_serialization_ms'] = round($serializationMs, 3);
+            $profile['cli_end_to_end_runtime_ms'] = round((hrtime(true) - $healthCommandStartedAt) / 1_000_000, 3);
+            $profile['peak_memory_bytes'] = memory_get_peak_usage(true);
+            $profile['end_memory_bytes'] = memory_get_usage(true);
+            $profile['operations'][] = [
+                'operation' => 'cli.report_materialization_and_json_serialization',
+                'duration_ms' => round($reportMaterializationMs + $serializationMs, 3),
+                'execution_count' => 1,
+                'percent_total' => 0.0,
+                'start_ms' => null,
+                'end_ms' => null,
+                'memory_before_bytes' => null,
+                'memory_after_bytes' => memory_get_usage(true),
+                'peak_delta_bytes' => 0,
+            ];
+            usort($profile['operations'], static fn(array $a, array $b): int => ($b['duration_ms'] ?? 0) <=> ($a['duration_ms'] ?? 0));
+            $healthArray['profiling'] = $profile;
+        }
+        echo json_encode($healthArray, $jsonFlags), PHP_EOL;
     } else {
         printf(
             "REPOSITORY_HEALTH_STATUS=%s PASS=%d WARN=%d FAIL=%d REVIEW=%d ISSUES=%d\n",
@@ -51,6 +80,18 @@ if (in_array('--health', array_slice($argv ?? [], 1), true)) {
         }
         foreach (array_slice($healthReport->actionQueue, 0, 20) as $issue) {
             printf("ACTION=%s STATUS=%s ENTITY=%s MESSAGE=%s\n", $issue['code'], $issue['status'], (string) ($issue['entity_id'] ?? ''), $issue['message']);
+        }
+        if ($profileRequested) {
+            $profile = $healthReport->profiling ?? [];
+            printf("PROFILE_ENGINE_RUNTIME_MS=%.3f PEAK_MEMORY_BYTES=%d END_MEMORY_BYTES=%d\n", (float) ($profile['total_runtime_ms'] ?? 0), (int) ($profile['peak_memory_bytes'] ?? 0), (int) ($profile['end_memory_bytes'] ?? 0));
+            printf("%-34s %12s %9s %10s %s\n", 'CHECK', 'TIME_MS', '% TOTAL', 'FINDINGS', 'SEVERITIES');
+            foreach ((array) ($profile['check_timings'] ?? []) as $check) {
+                printf("%-34s %12.3f %8.2f%% %10d %s\n", $check['check_id'], (float) $check['duration_ms'], (float) $check['percent_total'], (int) $check['finding_count'], json_encode($check['severity_counts'] ?? []));
+            }
+            printf("%-48s %12s %9s %10s\n", 'SHARED OPERATION', 'TIME_MS', '% TOTAL', 'CALLS');
+            foreach (array_slice((array) ($profile['operations'] ?? []), 0, 15) as $operation) {
+                printf("%-48s %12.3f %8.2f%% %10d\n", $operation['operation'], (float) $operation['duration_ms'], (float) ($operation['percent_total'] ?? 0), (int) $operation['execution_count']);
+            }
         }
     }
     exit($healthReport->overallStatus === 'FAIL' ? 1 : 0);

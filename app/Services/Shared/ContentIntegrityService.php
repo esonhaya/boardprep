@@ -62,8 +62,9 @@ final class ContentIntegrityService
      * @param null|callable(array):(?array) $deriveOverride
      * @param null|callable(array):array $statusOverride
      */
-    public static function analyze(array $collections, ?callable $deriveOverride = null, ?callable $statusOverride = null): array
+    public static function analyze(array $collections, ?callable $deriveOverride = null, ?callable $statusOverride = null, ?callable $profileHook = null, ?callable $counterHook = null): array
     {
+        $phaseStartedAt = $profileHook === null ? 0 : hrtime(true);
         $questions = self::arrays($collections['questions'] ?? []);
         $boards = self::arrays($collections['boards'] ?? []);
         $subjects = self::index($collections['subjects'] ?? []);
@@ -83,6 +84,10 @@ final class ContentIntegrityService
         }
         $duplicateTaxonomyIds = array_values(array_filter($duplicateRecordIds, static fn(string $value): bool => str_starts_with($value, 'taxonomy/')));
         $duplicateHardIds = array_values(array_diff($duplicateRecordIds, $duplicateTaxonomyIds));
+        if ($profileHook !== null) {
+            $profileHook('integrity.shared_indexes', $phaseStartedAt, []);
+            $phaseStartedAt = hrtime(true);
+        }
 
         $questionIds = [];
         $duplicateQuestionIds = [];
@@ -128,6 +133,10 @@ final class ContentIntegrityService
                 $invalidTaxonomy[$id][] = $error;
             }
         }
+        if ($profileHook !== null) {
+            $profileHook('integrity.question_validation_and_taxonomy', $phaseStartedAt, ['STRUCTURED_CONTENT']);
+            $phaseStartedAt = hrtime(true);
+        }
 
         $validBoardIds = [];
         foreach ($boards as $board) {
@@ -163,6 +172,10 @@ final class ContentIntegrityService
                     $eligibilityByBoard[$boardId][$questionId] = true;
                 }
             }
+        }
+        if ($profileHook !== null) {
+            $profileHook('integrity.eligibility_validation', $phaseStartedAt, ['ELIGIBILITY']);
+            $phaseStartedAt = hrtime(true);
         }
 
         $sourceErrors = [];
@@ -216,6 +229,10 @@ final class ContentIntegrityService
                 $linksByMaterial[$materialId][] = $link;
             }
         }
+        if ($profileHook !== null) {
+            $profileHook('integrity.source_study_indexes', $phaseStartedAt, ['SOURCE_STUDY']);
+            $phaseStartedAt = hrtime(true);
+        }
 
         $orphanMaterials = [];
         foreach ($materials as $materialId => $material) {
@@ -247,6 +264,10 @@ final class ContentIntegrityService
                 $orphanTaxonomy[] = 'board-subject:' . (self::id($relation) ?: $boardId . ':' . $subjectId);
             }
         }
+        if ($profileHook !== null) {
+            $profileHook('integrity.taxonomy_parent_validation', $phaseStartedAt, ['TAXONOMY']);
+            $phaseStartedAt = hrtime(true);
+        }
 
         $derive = $deriveOverride;
         $statusForQuestion = $statusOverride;
@@ -261,12 +282,16 @@ final class ContentIntegrityService
         $justifiedExclusions = [];
         $justifiedExclusionRecords = [];
         $accidentalNonDerivable = [];
+        $flashcardDerivationCalls = 0;
+        $flashcardStatusCalls = 0;
         foreach ($questions as $question) {
             $questionId = self::id($question);
             if ($questionId === '') {
                 continue;
             }
+            if ($counterHook !== null) $flashcardDerivationCalls++;
             $card = $derive($question);
+            if ($counterHook !== null) $flashcardStatusCalls++;
             $status = $statusForQuestion($question);
             if ($card === null) {
                 if (!$status['derivable'] && $status['justified']) {
@@ -290,11 +315,20 @@ final class ContentIntegrityService
                 $cardByKey[$key][] = $questionId;
             }
         }
+        if ($counterHook !== null) {
+            $counterHook('flashcard_derivation_calls', $flashcardDerivationCalls);
+            $counterHook('flashcard_status_checks', $flashcardStatusCalls);
+            $counterHook('duplicate_check_passes', 1);
+        }
         $cardCollisions = [];
         foreach ($cardByKey as $key => $ids) {
             if (count(array_unique($ids)) > 1) {
                 $cardCollisions[$key] = array_values(array_unique($ids));
             }
+        }
+        if ($profileHook !== null) {
+            $profileHook('integrity.flashcard_derivation_and_keys', $phaseStartedAt, ['FLASHCARD_DERIVABILITY']);
+            $phaseStartedAt = hrtime(true);
         }
 
         $boardResults = [];
@@ -306,6 +340,8 @@ final class ContentIntegrityService
                 continue;
             }
             $owned = array_values(array_unique($questionsByBoard[$boardId] ?? []));
+            $ownedSet = array_fill_keys($owned, true);
+            $belongsToBoard = static fn(string $id): bool => isset($ownedSet[$id]);
             $eligible = array_keys($eligibilityByBoard[$boardId] ?? []);
             $missing = array_values(array_diff($owned, $eligible));
             $shared = array_values(array_diff($eligible, $owned));
@@ -331,34 +367,61 @@ final class ContentIntegrityService
                 }
                 return false;
             });
-            $boardExclusions = array_values(array_filter($justifiedExclusions, static fn(string $id): bool => in_array($id, $owned, true)));
-            $boardDerivable = array_values(array_filter(array_keys($derivableByQuestion), static fn(string $id): bool => in_array($id, $owned, true)));
-            $boardInvalidAnswers = array_values(array_filter($invalidAnswers, static fn(string $id): bool => in_array($id, $owned, true)));
+            $boardExclusionCount = 0;
+            foreach ($justifiedExclusions as $id) {
+                if (isset($ownedSet[$id])) $boardExclusionCount++;
+            }
+            $boardDerivableCount = 0;
+            foreach ($derivableByQuestion as $id => $_) {
+                if (isset($ownedSet[$id])) $boardDerivableCount++;
+            }
+            $boardInvalidAnswers = array_values(array_filter($invalidAnswers, $belongsToBoard));
+            $boardCardKeyCollisions = [];
+            foreach ($cardCollisions as $key => $ids) {
+                $ownedCollisionCount = 0;
+                foreach ($ids as $id) {
+                    if (isset($ownedSet[$id])) $ownedCollisionCount++;
+                }
+                if ($ownedCollisionCount > 1) $boardCardKeyCollisions[] = $key;
+            }
+            $boardUniqueCardKeyCount = 0;
+            foreach ($cardByKey as $ids) {
+                foreach ($ids as $id) {
+                    if (isset($ownedSet[$id])) {
+                        $boardUniqueCardKeyCount++;
+                        break;
+                    }
+                }
+            }
+            $ownedEligibleCount = 0;
+            foreach ($eligible as $id) {
+                if (isset($ownedSet[$id])) $ownedEligibleCount++;
+            }
             $hard = [
                 'missing_eligibility' => $missing,
                 'invalid_eligibility' => array_values(array_unique($invalidEligibilityByBoard[$boardId] ?? [])),
                 'unlinked_questions' => $unlinked,
                 'invalid_study_links' => array_values($boardInvalidLinks),
                 'duplicate_study_links' => $duplicateLinks,
-                'invalid_taxonomy_references' => array_values(array_filter(array_keys($invalidTaxonomy), static fn(string $id): bool => in_array($id, $owned, true))),
+                'invalid_taxonomy_references' => array_values(array_filter(array_keys($invalidTaxonomy), $belongsToBoard)),
                 'orphan_taxonomy_nodes' => $orphanTaxonomy,
-                'broken_structured_assets' => array_values(array_filter($brokenAssets, static fn(string $id): bool => in_array($id, $owned, true))),
-                'structured_content_failures' => array_values(array_filter(array_keys($structuredContentFailures), static fn(string $id): bool => in_array($id, $owned, true))),
-                'missing_alt_text' => array_values(array_filter($missingAlt, static fn(string $id): bool => in_array($id, $owned, true))),
+                'broken_structured_assets' => array_values(array_filter($brokenAssets, $belongsToBoard)),
+                'structured_content_failures' => array_values(array_filter(array_keys($structuredContentFailures), $belongsToBoard)),
+                'missing_alt_text' => array_values(array_filter($missingAlt, $belongsToBoard)),
                 'invalid_answer_keys' => $boardInvalidAnswers,
-                'malformed_questions' => array_values(array_filter(array_keys($malformedQuestions), static fn(string $id): bool => in_array($id, $owned, true))),
-                'duplicate_question_ids' => array_values(array_filter($duplicateQuestionIds, static fn(string $id): bool => in_array($id, $owned, true))),
-                'accidental_non_derivable' => array_values(array_filter($accidentalNonDerivable, static fn(string $id): bool => in_array($id, $owned, true))),
-                'card_key_collisions' => array_values(array_filter(array_keys($cardCollisions), static fn(string $key): bool => count(array_intersect($cardCollisions[$key], $owned)) > 1)),
+                'malformed_questions' => array_values(array_filter(array_keys($malformedQuestions), $belongsToBoard)),
+                'duplicate_question_ids' => array_values(array_filter($duplicateQuestionIds, $belongsToBoard)),
+                'accidental_non_derivable' => array_values(array_filter($accidentalNonDerivable, $belongsToBoard)),
+                'card_key_collisions' => $boardCardKeyCollisions,
             ];
             $hardCount = array_sum(array_map('count', $hard));
-            $status = $hardCount > 0 ? 'FAIL' : (count($boardExclusions) > 0 ? 'PASS_WITH_JUSTIFIED_EXCLUSIONS' : 'PASS');
+            $status = $hardCount > 0 ? 'FAIL' : ($boardExclusionCount > 0 ? 'PASS_WITH_JUSTIFIED_EXCLUSIONS' : 'PASS');
             $boardResults[$boardId] = [
                 'board_id' => $boardId,
                 'board_name' => (string) ($board['name'] ?? $boardId),
                 'canonical_owned' => count($owned),
                 'eligibility_references' => count($eligible),
-                'owned_eligible' => count(array_intersect($owned, $eligible)),
+                'owned_eligible' => $ownedEligibleCount,
                 'missing_eligibility' => $missing,
                 'shared_eligibility' => $shared,
                 'invalid_eligibility' => $hard['invalid_eligibility'],
@@ -372,10 +435,10 @@ final class ContentIntegrityService
                 'taxonomy_coverage' => count($owned) === 0 ? 100 : round((count($owned) - count($hard['invalid_taxonomy_references'])) / count($owned) * 100, 1),
                 'invalid_taxonomy_references' => $hard['invalid_taxonomy_references'],
                 'orphan_taxonomy_nodes' => $orphanTaxonomy,
-                'derivable_flashcards' => count($boardDerivable),
-                'justified_flashcard_exclusions' => count($boardExclusions),
+                'derivable_flashcards' => $boardDerivableCount,
+                'justified_flashcard_exclusions' => $boardExclusionCount,
                 'accidental_non_derivable' => $hard['accidental_non_derivable'],
-                'unique_card_keys' => count(array_filter($cardByKey, static fn(array $ids): bool => count(array_intersect($ids, $owned)) > 0)),
+                'unique_card_keys' => $boardUniqueCardKeyCount,
                 'card_key_collisions' => $hard['card_key_collisions'],
                 'broken_structured_assets' => $hard['broken_structured_assets'],
                 'missing_alt_text' => $hard['missing_alt_text'],
@@ -391,6 +454,9 @@ final class ContentIntegrityService
             if ($status === 'FAIL') {
                 $portfolioDefects[$boardId] = $hard;
             }
+        }
+        if ($profileHook !== null) {
+            $profileHook('integrity.board_reachability_aggregation', $phaseStartedAt, ['QUESTION_COUNTS']);
         }
 
         if ($orphanMaterials !== []) {
