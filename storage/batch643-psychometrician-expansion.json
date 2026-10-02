@@ -1,6 +1,31 @@
 {
     "batch": 643,
     "title": "Psychometrician source-first foundation closure and evidence-bounded expansion",
+    "RECOVERY": {
+        "INTERRUPTION_RECOVERED": "YES",
+        "HEAD_AT_RECOVERY": "0eb9704ba293e0aa3402af5d01a2d3392c005b73",
+        "BATCH643_WORKTREE_HEAD_AT_RECOVERY": "bbb63226f7d90db0f318e55a6ebd849fcd596f29",
+        "BATCH643_COMMIT_ALREADY_PRESENT": "YES",
+        "CURRENT_CHECKOUT_ON_REQUIRED_LINEAGE": "NO",
+        "PREEXISTING_BATCH643_NEW_QUESTIONS": 21,
+        "PREEXISTING_VALID": 14,
+        "PREEXISTING_REPAIRED": 7,
+        "PREEXISTING_REJECTED": 0,
+        "POST_RECOVERY_VALID": 21,
+        "REPAIRED_QUESTION_IDS": [
+            "8837",
+            "8843",
+            "8845",
+            "8846",
+            "8847",
+            "8848",
+            "8853"
+        ],
+        "RESUMED_FROM_PHASE": "WAVE2_DECISION_GATE",
+        "RESUMED_FROM_WAVE": "WAVE3_SELECTION_GATE",
+        "DUPLICATE_WORK_AVOIDED": 21,
+        "NEW_QUESTION_IDS_CREATED_DURING_RECOVERY": 0
+    },
     "lineage": {
         "expected_head": "45dc5e139a2d75e8b862bce9005f9dd61e792301",
         "batch641": "9dd8ee898ddbe0e6949f6acda8c481cb11e8da40",
@@ -2805,12 +2830,20 @@
                 "with_study": 2,
                 "with_source": 2,
                 "with_supported_scope": 2,
+                "eligibility_pass": 2,
+                "source_validity_pass": 2,
+                "traceability_pass": 2,
+                "derivable": 2,
                 "structured_content_pass": 2,
                 "flashcard_derivable": 2,
                 "calculation_metadata_pass": 2,
                 "version_currentness_pass": 2,
                 "exact_duplicates": 0,
                 "normalized_duplicates": 0,
+                "semantic_duplicates": 0,
+                "template_duplicates": 0,
+                "semantic_duplicate_ids": [],
+                "template_duplicate_ids": [],
                 "defects": [],
                 "cards": [
                     {
@@ -2911,12 +2944,20 @@
                 "with_study": 19,
                 "with_source": 19,
                 "with_supported_scope": 19,
+                "eligibility_pass": 19,
+                "source_validity_pass": 19,
+                "traceability_pass": 19,
+                "derivable": 19,
                 "structured_content_pass": 19,
                 "flashcard_derivable": 19,
                 "calculation_metadata_pass": 19,
                 "version_currentness_pass": 19,
                 "exact_duplicates": 0,
                 "normalized_duplicates": 0,
+                "semantic_duplicates": 0,
+                "template_duplicates": 0,
+                "semantic_duplicate_ids": [],
+                "template_duplicate_ids": [],
                 "defects": [],
                 "cards": [
                     {
@@ -6949,7 +6990,7 @@
             "study_ids": [
                 "ple-487--sychological-ssessment-oundations"
             ],
-            "content_family": "decision_consequences",
+            "content_family": "score_precision_at_threshold",
             "readiness_state": "REVIEW",
             "evidence_hash": "2dcdaad25eff9f08c552e59ba5b29987a01cdd6563c021daaabb180b8e3ec3c0",
             "wave": 1
@@ -7064,7 +7105,7 @@
             "study_ids": [
                 "ple-487--ymptom-atterns-and-unctioning"
             ],
-            "content_family": "interaction_and_context",
+            "content_family": "vulnerability_stress_interaction",
             "readiness_state": "READY_WITH_LIMITS",
             "evidence_hash": "599c5e4d0353db618c8085f9ce1f296561babcc5c530faabaf9a2fa443fa5353",
             "wave": 2
@@ -7103,7 +7144,7 @@
             "study_ids": [
                 "ple-487--ymptom-atterns-and-unctioning"
             ],
-            "content_family": "risk_and_referral",
+            "content_family": "intervention_outcome_evaluation",
             "readiness_state": "READY_WITH_LIMITS",
             "evidence_hash": "edcae6b6d117abaa8c7c116d2cec252f98e3cd9085d65627c36d5fe347dd77e2",
             "wave": 2
@@ -7123,7 +7164,7 @@
             "study_ids": [
                 "ple-487--alidity-and-est-se"
             ],
-            "content_family": "population_and_setting_fit",
+            "content_family": "accessible_response_mode",
             "readiness_state": "READY_WITH_LIMITS",
             "evidence_hash": "bab7ec1396ef5fb17aa86a3a10fe185dc6d77f2fe18641133a1b3c2e460daa4f",
             "wave": 2
@@ -7143,7 +7184,7 @@
             "study_ids": [
                 "ple-487--alidity-and-est-se"
             ],
-            "content_family": "population_and_setting_fit",
+            "content_family": "item_response_process",
             "readiness_state": "READY_WITH_LIMITS",
             "evidence_hash": "bab7ec1396ef5fb17aa86a3a10fe185dc6d77f2fe18641133a1b3c2e460daa4f",
             "wave": 2
@@ -7162,7 +7203,7 @@
             "study_ids": [
                 "ple-487--ndustrial-rganizational-oundations"
             ],
-            "content_family": "organization_models",
+            "content_family": "levels_of_analysis",
             "readiness_state": "READY_WITH_LIMITS",
             "evidence_hash": "693e9ab4faef33d9ce52fdae15c55b695f78a2e51d47a5b5901371d207f8e938",
             "wave": 2
@@ -7252,9 +7293,9 @@
                 "prc-psychometrician-enhanced-tos-2023"
             ],
             "study_ids": [
-                "ple-487--otivation-eadership-and-ork-ehavior"
+                "ple-487--ndustrial-rganizational-oundations"
             ],
-            "content_family": "organizational_diagnosis",
+            "content_family": "centralization_delegation_tradeoff",
             "readiness_state": "READY_WITH_LIMITS",
             "evidence_hash": "afdf549a83a88ef646fee4b23647d6867cf8ad07c68d849c63e63825f6d45ead",
             "wave": 2
@@ -7349,11 +7390,30 @@
             "to10": 9,
             "to20": 115
         },
+        "distribution": {
+            "min": 1,
+            "median": 13,
+            "p25": 10,
+            "p75": 27.5,
+            "max": 47
+        },
+        "authorable_thresholds": {
+            "zero": 0,
+            "under5": 0,
+            "under10": 0,
+            "under20": 10
+        },
         "area_counts": {
             "abnormal-psychology": 79,
             "developmental-psychology": 76,
             "industrial-organizational": 85,
             "psychological-assessment": 161
+        },
+        "area_percentages": {
+            "abnormal-psychology": 19.7,
+            "developmental-psychology": 18.95,
+            "industrial-organizational": 21.2,
+            "psychological-assessment": 40.15
         },
         "depth_counts": {
             "D1": 0,
@@ -7369,12 +7429,20 @@
             "with_study": 21,
             "with_source": 21,
             "with_supported_scope": 21,
+            "eligibility_pass": 21,
+            "source_validity_pass": 21,
+            "traceability_pass": 21,
+            "derivable": 21,
             "structured_content_pass": 21,
             "flashcard_derivable": 21,
             "calculation_metadata_pass": 21,
             "version_currentness_pass": 21,
             "exact_duplicates": 0,
             "normalized_duplicates": 0,
+            "semantic_duplicates": 0,
+            "template_duplicates": 0,
+            "semantic_duplicate_ids": [],
+            "template_duplicate_ids": [],
             "defects": [],
             "cards": [
                 {
@@ -7463,6 +7531,329 @@
                 }
             ]
         },
+        "wave3_gate": {
+            "authorable_under20_leaf_count": 10,
+            "candidate_with_safe_minimum_headroom_count": 8,
+            "candidate_safe_headroom": {
+                "safe_min": 19,
+                "safe_preferred": 47,
+                "safe_max": 75
+            },
+            "candidates": [
+                {
+                    "leaf_id": "psych-abnormal-etiology",
+                    "current_question_count": 10,
+                    "readiness": "READY_WITH_LIMITS",
+                    "source_authority": "STRONG",
+                    "source_currentness": "CURRENT_WITH_LIMITS",
+                    "study_coverage": "COMPLETE",
+                    "study_source_traceability": "COMPLETE",
+                    "distinct_content_families": [
+                        "biopsychosocial_explanation",
+                        "diathesis_stress",
+                        "gene_environment_interaction"
+                    ],
+                    "depth_distribution": {
+                        "D3": 5,
+                        "D4": 5
+                    },
+                    "missing_supported_depths": [
+                        "D2"
+                    ],
+                    "safe_headroom_min": 2,
+                    "safe_headroom_preferred": 5,
+                    "safe_headroom_max": 8
+                },
+                {
+                    "leaf_id": "psych-abnormal-interventions",
+                    "current_question_count": 10,
+                    "readiness": "READY_WITH_LIMITS",
+                    "source_authority": "STRONG",
+                    "source_currentness": "CURRENT_WITH_LIMITS",
+                    "study_coverage": "COMPLETE",
+                    "study_source_traceability": "COMPLETE",
+                    "distinct_content_families": [
+                        "intervention_fit",
+                        "risk_and_referral",
+                        "outcome_evidence"
+                    ],
+                    "depth_distribution": {
+                        "D3": 5,
+                        "D4": 5
+                    },
+                    "missing_supported_depths": [
+                        "D2"
+                    ],
+                    "safe_headroom_min": 1,
+                    "safe_headroom_preferred": 3,
+                    "safe_headroom_max": 5
+                },
+                {
+                    "leaf_id": "psych-abnormal-manifestations",
+                    "current_question_count": 12,
+                    "readiness": "READY_WITH_LIMITS",
+                    "source_authority": "STRONG",
+                    "source_currentness": "CURRENT_WITH_LIMITS",
+                    "study_coverage": "COMPLETE",
+                    "study_source_traceability": "COMPLETE",
+                    "distinct_content_families": [
+                        "normality_and_context",
+                        "functioning_and_impairment",
+                        "cultural_formulation"
+                    ],
+                    "depth_distribution": {
+                        "D3": 3,
+                        "D4": 9
+                    },
+                    "missing_supported_depths": [
+                        "D2"
+                    ],
+                    "safe_headroom_min": 3,
+                    "safe_headroom_preferred": 6,
+                    "safe_headroom_max": 9
+                },
+                {
+                    "leaf_id": "psych-abnormal-sociocultural-ethics",
+                    "current_question_count": 14,
+                    "readiness": "READY_WITH_LIMITS",
+                    "source_authority": "STRONG",
+                    "source_currentness": "CURRENT_WITH_LIMITS",
+                    "study_coverage": "COMPLETE",
+                    "study_source_traceability": "COMPLETE",
+                    "distinct_content_families": [
+                        "cultural_formulation",
+                        "ethical_classification",
+                        "collateral_and_communication"
+                    ],
+                    "depth_distribution": {
+                        "D3": 6,
+                        "D4": 7,
+                        "D2": 1
+                    },
+                    "missing_supported_depths": [],
+                    "safe_headroom_min": 3,
+                    "safe_headroom_preferred": 6,
+                    "safe_headroom_max": 8
+                },
+                {
+                    "leaf_id": "psych-assessment-selection-tools",
+                    "current_question_count": 10,
+                    "readiness": "READY_WITH_LIMITS",
+                    "source_authority": "STRONG",
+                    "source_currentness": "CURRENT_WITH_LIMITS",
+                    "study_coverage": "COMPLETE",
+                    "study_source_traceability": "COMPLETE",
+                    "distinct_content_families": [
+                        "purpose_tool_match",
+                        "population_context_fit",
+                        "battery_design"
+                    ],
+                    "depth_distribution": {
+                        "D4": 8,
+                        "D3": 2
+                    },
+                    "missing_supported_depths": [
+                        "D2"
+                    ],
+                    "safe_headroom_min": 2,
+                    "safe_headroom_preferred": 5,
+                    "safe_headroom_max": 8
+                },
+                {
+                    "leaf_id": "psych-development-theories",
+                    "current_question_count": 18,
+                    "readiness": "READY_WITH_LIMITS",
+                    "source_authority": "STRONG",
+                    "source_currentness": "CURRENT_WITH_LIMITS",
+                    "study_coverage": "COMPLETE",
+                    "study_source_traceability": "COMPLETE",
+                    "distinct_content_families": [
+                        "cognitive_development",
+                        "psychosocial_development",
+                        "social_learning",
+                        "ecological_and_contextual_theory"
+                    ],
+                    "depth_distribution": {
+                        "D4": 3,
+                        "D3": 6,
+                        "D2": 9
+                    },
+                    "missing_supported_depths": [],
+                    "safe_headroom_min": 4,
+                    "safe_headroom_preferred": 8,
+                    "safe_headroom_max": 12
+                },
+                {
+                    "leaf_id": "psych-industrial-change-development",
+                    "current_question_count": 10,
+                    "readiness": "READY_WITH_LIMITS",
+                    "source_authority": "STRONG",
+                    "source_currentness": "CURRENT_WITH_LIMITS",
+                    "study_coverage": "COMPLETE",
+                    "study_source_traceability": "COMPLETE",
+                    "distinct_content_families": [
+                        "change_drivers",
+                        "organizational_intervention",
+                        "change_evaluation",
+                        "well_being_and_unintended_effects"
+                    ],
+                    "depth_distribution": {
+                        "D3": 6,
+                        "D4": 4
+                    },
+                    "missing_supported_depths": [
+                        "D2"
+                    ],
+                    "safe_headroom_min": 3,
+                    "safe_headroom_preferred": 6,
+                    "safe_headroom_max": 9
+                },
+                {
+                    "leaf_id": "psych-industrial-organization-theory",
+                    "current_question_count": 10,
+                    "readiness": "READY_WITH_LIMITS",
+                    "source_authority": "STRONG",
+                    "source_currentness": "CURRENT_WITH_LIMITS",
+                    "study_coverage": "COMPLETE",
+                    "study_source_traceability": "COMPLETE",
+                    "distinct_content_families": [
+                        "organization_models",
+                        "leadership_and_culture",
+                        "work_behavior_mechanisms"
+                    ],
+                    "depth_distribution": {
+                        "D3": 5,
+                        "D4": 4,
+                        "D2": 1
+                    },
+                    "missing_supported_depths": [],
+                    "safe_headroom_min": 0,
+                    "safe_headroom_preferred": 3,
+                    "safe_headroom_max": 6
+                },
+                {
+                    "leaf_id": "psych-industrial-structures-systems",
+                    "current_question_count": 10,
+                    "readiness": "READY_WITH_LIMITS",
+                    "source_authority": "STRONG",
+                    "source_currentness": "CURRENT_WITH_LIMITS",
+                    "study_coverage": "COMPLETE",
+                    "study_source_traceability": "COMPLETE",
+                    "distinct_content_families": [
+                        "structure_and_roles",
+                        "accountability_and_alignment",
+                        "organizational_diagnosis"
+                    ],
+                    "depth_distribution": {
+                        "D4": 7,
+                        "D3": 3
+                    },
+                    "missing_supported_depths": [
+                        "D2"
+                    ],
+                    "safe_headroom_min": 0,
+                    "safe_headroom_preferred": 1,
+                    "safe_headroom_max": 3
+                },
+                {
+                    "leaf_id": "psych-industrial-team-dynamics",
+                    "current_question_count": 10,
+                    "readiness": "READY_WITH_LIMITS",
+                    "source_authority": "STRONG",
+                    "source_currentness": "CURRENT_WITH_LIMITS",
+                    "study_coverage": "COMPLETE",
+                    "study_source_traceability": "COMPLETE",
+                    "distinct_content_families": [
+                        "team_development",
+                        "group_processes",
+                        "conflict_and_psychological_safety"
+                    ],
+                    "depth_distribution": {
+                        "D3": 4,
+                        "D4": 5,
+                        "D2": 1
+                    },
+                    "missing_supported_depths": [],
+                    "safe_headroom_min": 1,
+                    "safe_headroom_preferred": 4,
+                    "safe_headroom_max": 7
+                }
+            ],
+            "actionable_missing_content_families": [],
+            "candidate_depth_gaps": [
+                {
+                    "leaf_id": "psych-abnormal-etiology",
+                    "missing_supported_depths": [
+                        "D2"
+                    ]
+                },
+                {
+                    "leaf_id": "psych-abnormal-interventions",
+                    "missing_supported_depths": [
+                        "D2"
+                    ]
+                },
+                {
+                    "leaf_id": "psych-abnormal-manifestations",
+                    "missing_supported_depths": [
+                        "D2"
+                    ]
+                },
+                {
+                    "leaf_id": "psych-assessment-selection-tools",
+                    "missing_supported_depths": [
+                        "D2"
+                    ]
+                },
+                {
+                    "leaf_id": "psych-industrial-change-development",
+                    "missing_supported_depths": [
+                        "D2"
+                    ]
+                },
+                {
+                    "leaf_id": "psych-industrial-structures-systems",
+                    "missing_supported_depths": [
+                        "D2"
+                    ]
+                }
+            ],
+            "new_cohort_scenario_family_counts": {
+                "accessible_response_mode": 1,
+                "accountability_and_alignment": 2,
+                "benefit_limitations": 1,
+                "centralization_delegation_tradeoff": 1,
+                "decision_consequences": 1,
+                "group_processes": 1,
+                "intervention_outcome_evaluation": 1,
+                "item_response_process": 1,
+                "leadership_and_culture": 2,
+                "levels_of_analysis": 1,
+                "limitations_and_consequences": 3,
+                "purpose_fit": 1,
+                "risk_and_referral": 1,
+                "score_precision_at_threshold": 1,
+                "structure_and_roles": 1,
+                "team_effectiveness": 1,
+                "vulnerability_stress_interaction": 1
+            },
+            "repeated_scenario_families": {
+                "accountability_and_alignment": 2,
+                "leadership_and_culture": 2,
+                "limitations_and_consequences": 3
+            },
+            "max_scenario_family_count": 3,
+            "semantic_duplicates": 0,
+            "template_duplicates": 0,
+            "justified": false,
+            "status": "NOT_STARTED",
+            "decision_reason": "The bounded same-leaf review found no additional candidate family with a clear quality and depth benefit after the foundation cohort. Remaining safe headroom is retained; supported D2 gaps alone do not justify count-filling items where the underlying concept is already covered or the new item would repeat current reasoning."
+        },
+        "wave4_gate": {
+            "run": false,
+            "status": "NOT_STARTED",
+            "reason": "No separate deficiency remained that justified another authoring wave."
+        },
         "remaining_headroom": {
             "safe_min": 54,
             "safe_preferred": 113,
@@ -7472,14 +7863,21 @@
             "foundation_objectives_met": true,
             "authorable_under5_closed": true,
             "authorable_under10_closed": true,
-            "evidence_headroom_exhausted": true,
+            "evidence_headroom_exhausted": false,
             "semantic_diversity_limit": true,
-            "depth_gaps_closed": true,
+            "depth_gaps_closed": false,
+            "depth_gaps_remain_non_actionable": true,
+            "safe_headroom_retained": true,
             "area_balance_limit": false,
             "source_limit": false,
             "currentness_limit": false,
             "quality_limit": true,
             "max_new_limit": false,
+            "wave3_justified": false,
+            "wave3_status": "NOT_STARTED",
+            "wave3_reason": "Foundation targets are met for every authorable leaf. Remaining under-20 candidates do not justify more content after the bounded semantic-diversity and depth review; retain remaining headroom for later evidence-backed work.",
+            "wave4_run": false,
+            "wave4_status": "NOT_STARTED",
             "why_expansion_stopped": "FOUNDATION_OBJECTIVES_MET for every authorable leaf; the one remaining raw under-10 leaf is the explicitly deferred mental-health-law leaf. The 21-question cohort added D2/D3/D4 coverage, and further Wave3 additions were deferred until marginal semantic diversity is reassessed.",
             "further_psychometrician_expansion_justified": "REVIEW_AFTER_FOUNDATION"
         },
