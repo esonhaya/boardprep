@@ -5364,7 +5364,34 @@
             "mechanical-engineering"
         ],
         "taxonomy": {
-            "subject_id": "mechanical-engineering-mathematics"
+            "subject_id": "mechanical-engineering-mathematics",
+            "concept_ids": [
+                "b644-me-basic-engineering-sciences",
+                "b644-me-bearings-lubrication",
+                "b644-me-engineering-economics",
+                "b644-me-engineering-mechanics",
+                "b644-me-fluid-machinery",
+                "b644-me-fluid-mechanics",
+                "b644-me-gas-combined-cycle",
+                "b644-me-heat-transfer",
+                "b644-me-hvac-refrigeration",
+                "b644-me-machine-design-stress-analysis",
+                "b644-me-machine-power-transmission",
+                "b644-me-manufacturing-shop-practice",
+                "b644-me-math-algebra-trigonometry",
+                "b644-me-math-analytic-geometry",
+                "b644-me-math-calculus-models",
+                "b644-me-math-statistics-numerical-methods",
+                "b644-me-math-vectors-linear-algebra",
+                "b644-me-mechanism-kinematics",
+                "b644-me-quality-reliability-maintenance",
+                "b644-me-stability-fatigue",
+                "b644-me-strength-materials",
+                "b644-me-thermodynamics",
+                "b644-me-tolerances-metrology"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 644
         },
         "technical_support_state": "STRONG",
         "status": "published",
@@ -5402,7 +5429,15 @@
             "mechanical-engineering"
         ],
         "taxonomy": {
-            "subject_id": "mechanical-engineering-engineering-sciences"
+            "subject_id": "mechanical-engineering-engineering-sciences",
+            "concept_ids": [
+                "b644-me-basic-engineering-sciences",
+                "b644-me-materials-properties",
+                "b644-me-math-vectors-linear-algebra",
+                "b644-me-tolerances-metrology"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 644
         },
         "technical_support_state": "STRONG",
         "status": "published",
@@ -5439,7 +5474,12 @@
             "mechanical-engineering"
         ],
         "taxonomy": {
-            "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects"
+            "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+            "concept_ids": [
+                "b644-me-engineering-mechanics"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 644
         },
         "technical_support_state": "STRONG",
         "status": "published",
@@ -5481,7 +5521,18 @@
             "mechanical-engineering"
         ],
         "taxonomy": {
-            "subject_id": "mechanical-engineering-mathematics"
+            "subject_id": "mechanical-engineering-mathematics",
+            "concept_ids": [
+                "b644-me-engineering-mechanics",
+                "b644-me-machine-design-stress-analysis",
+                "b644-me-machine-power-transmission",
+                "b644-me-materials-properties",
+                "b644-me-math-calculus-models",
+                "b644-me-stability-fatigue",
+                "b644-me-strength-materials"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 644
         },
         "technical_support_state": "STRONG",
         "status": "published",
@@ -5522,7 +5573,16 @@
             "mechanical-engineering"
         ],
         "taxonomy": {
-            "subject_id": "mechanical-engineering-engineering-sciences"
+            "subject_id": "mechanical-engineering-engineering-sciences",
+            "concept_ids": [
+                "b644-me-fluid-machinery",
+                "b644-me-fluid-mechanics",
+                "b644-me-hydroelectric-plants",
+                "b644-me-thermodynamics",
+                "b644-me-tolerances-metrology"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 644
         },
         "technical_support_state": "STRONG",
         "status": "published",
@@ -5564,7 +5624,19 @@
             "mechanical-engineering"
         ],
         "taxonomy": {
-            "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects"
+            "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+            "concept_ids": [
+                "b644-me-fluid-machinery",
+                "b644-me-gas-combined-cycle",
+                "b644-me-heat-transfer",
+                "b644-me-hvac-refrigeration",
+                "b644-me-power-cycles",
+                "b644-me-power-fuels-combustion",
+                "b644-me-steam-power-boilers",
+                "b644-me-thermodynamics"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 644
         },
         "technical_support_state": "STRONG",
         "status": "published",
@@ -5602,7 +5674,12 @@
             "mechanical-engineering"
         ],
         "taxonomy": {
-            "subject_id": "mechanical-engineering-mathematics"
+            "subject_id": "mechanical-engineering-mathematics",
+            "concept_ids": [
+                "b644-me-heat-transfer"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 644
         },
         "technical_support_state": "STRONG",
         "status": "published",
@@ -5645,7 +5722,21 @@
             "mechanical-engineering"
         ],
         "taxonomy": {
-            "subject_id": "mechanical-engineering-engineering-sciences"
+            "subject_id": "mechanical-engineering-engineering-sciences",
+            "concept_ids": [
+                "b644-me-fluid-machinery",
+                "b644-me-gas-combined-cycle",
+                "b644-me-hydroelectric-plants",
+                "b644-me-internal-combustion-engines",
+                "b644-me-machine-power-transmission",
+                "b644-me-power-cycles",
+                "b644-me-power-fuels-combustion",
+                "b644-me-power-load-performance",
+                "b644-me-steam-power-boilers",
+                "b644-me-thermodynamics"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 644
         },
         "technical_support_state": "STRONG",
         "status": "published",
@@ -5688,7 +5779,16 @@
             "mechanical-engineering"
         ],
         "taxonomy": {
-            "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects"
+            "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+            "concept_ids": [
+                "b644-me-fluid-machinery",
+                "b644-me-fluid-mechanics",
+                "b644-me-gas-combined-cycle",
+                "b644-me-heat-transfer",
+                "b644-me-hvac-refrigeration"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 644
         },
         "technical_support_state": "STRONG",
         "status": "published",
@@ -5730,7 +5830,21 @@
             "mechanical-engineering"
         ],
         "taxonomy": {
-            "subject_id": "mechanical-engineering-mathematics"
+            "subject_id": "mechanical-engineering-mathematics",
+            "concept_ids": [
+                "b644-me-bearings-lubrication",
+                "b644-me-engineering-mechanics",
+                "b644-me-machine-design-stress-analysis",
+                "b644-me-machine-power-transmission",
+                "b644-me-materials-properties",
+                "b644-me-math-algebra-trigonometry",
+                "b644-me-mechanism-kinematics",
+                "b644-me-quality-reliability-maintenance",
+                "b644-me-stability-fatigue",
+                "b644-me-strength-materials"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 644
         },
         "technical_support_state": "STRONG",
         "status": "published",
@@ -5767,7 +5881,15 @@
             "mechanical-engineering"
         ],
         "taxonomy": {
-            "subject_id": "mechanical-engineering-engineering-sciences"
+            "subject_id": "mechanical-engineering-engineering-sciences",
+            "concept_ids": [
+                "b644-me-bearings-lubrication",
+                "b644-me-machine-power-transmission",
+                "b644-me-math-algebra-trigonometry",
+                "b644-me-mechanism-kinematics"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 644
         },
         "status": "published",
         "version": 2,
@@ -5809,7 +5931,16 @@
             "mechanical-engineering"
         ],
         "taxonomy": {
-            "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects"
+            "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+            "concept_ids": [
+                "b644-me-engineering-economics",
+                "b644-me-manufacturing-shop-practice",
+                "b644-me-production-systems",
+                "b644-me-quality-reliability-maintenance",
+                "b644-me-tolerances-metrology"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 644
         },
         "technical_support_state": "STRONG",
         "status": "published",
@@ -5847,7 +5978,15 @@
             "mechanical-engineering"
         ],
         "taxonomy": {
-            "subject_id": "mechanical-engineering-mathematics"
+            "subject_id": "mechanical-engineering-mathematics",
+            "concept_ids": [
+                "b644-me-engineering-economics",
+                "b644-me-math-statistics-numerical-methods",
+                "b644-me-production-systems",
+                "b644-me-quality-reliability-maintenance"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 644
         },
         "status": "published",
         "version": 2,
@@ -5888,7 +6027,18 @@
             "mechanical-engineering"
         ],
         "taxonomy": {
-            "subject_id": "mechanical-engineering-engineering-sciences"
+            "subject_id": "mechanical-engineering-engineering-sciences",
+            "concept_ids": [
+                "b644-me-bearings-lubrication",
+                "b644-me-math-algebra-trigonometry",
+                "b644-me-math-statistics-numerical-methods",
+                "b644-me-production-systems",
+                "b644-me-quality-reliability-maintenance",
+                "b644-me-shop-safety-practice",
+                "b644-me-tolerances-metrology"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 644
         },
         "technical_support_state": "STRONG",
         "status": "published",
@@ -5925,7 +6075,13 @@
             "mechanical-engineering"
         ],
         "taxonomy": {
-            "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects"
+            "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
+            "concept_ids": [
+                "b644-me-engineering-economics",
+                "b644-me-me-law-code-ethics"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 644
         },
         "technical_support_state": "STRONG",
         "status": "published",
@@ -9930,5 +10086,85 @@
             ],
             "source_chain_validated": true
         }
+    },
+    {
+        "id": "me-material-16",
+        "title": "Engineering drawing and design communication",
+        "summary": "Foundational mechanical drawing interpretation aligned to the PRC TOS Engineering Drawing Practices subarea, limited to views, sections, projections, dimensioning, and working-drawing communication.",
+        "notes": [
+            {
+                "heading": "Views and projections",
+                "body": "Read orthographic views together to infer object geometry; use the stated projection convention and do not infer an unstated view."
+            },
+            {
+                "heading": "Sections and representation",
+                "body": "Use section views to interpret internal features and distinguish cut material from visible edges under the drawing conventions taught in the linked course."
+            },
+            {
+                "heading": "Dimensions and working drawings",
+                "body": "Interpret dimension placement, units, leaders, and relationships as presented. Do not claim conformance to a current ISO/ASME drafting standard unless the exact standard and edition are separately verified."
+            }
+        ],
+        "source_ids": [
+            "prc-mechanical-engineering-board-page",
+            "prc-mechanical-engineering-tos-resolution-57-2013",
+            "nptel-engineering-drawing-iit-guwahati"
+        ],
+        "exams": [
+            "mechanical-engineering"
+        ],
+        "taxonomy": {
+            "subject_id": "mechanical-engineering-machine-design-materials-shop-practice",
+            "concept_ids": [
+                "b644-me-engineering-drawing-practice"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 644
+        },
+        "technical_support_state": "STRONG",
+        "confidence": "authoritative_educational_reference",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-02"
+    },
+    {
+        "id": "me-material-17",
+        "title": "Pressure-containing components: introductory thin-wall mechanics",
+        "summary": "Source-bounded introduction to thin-walled pressure-vessel equilibrium and hoop/longitudinal stress. This material is not a pressure-vessel or piping code guide and does not fully cover the PRC TOS steel-tube, flat-plate, or pipe/fitting topics.",
+        "notes": [
+            {
+                "heading": "Scope of the model",
+                "body": "Use only the thin-wall idealization and geometry stated in the problem. The membrane-stress relationship is conditional on the assumptions used by the linked mechanics-of-materials notes."
+            },
+            {
+                "heading": "Pressure and stress interpretation",
+                "body": "Relate pressure forces to resisting wall forces for the stated cylindrical geometry. Distinguish hoop and longitudinal stress where the model and end condition support that distinction."
+            },
+            {
+                "heading": "Excluded design rules",
+                "body": "This note does not set code allowables, joint efficiency, corrosion allowance, minimum thickness, inspection intervals, or approved pipe/vessel design. Obtain a verified current standard before any code-sensitive authoring."
+            }
+        ],
+        "source_ids": [
+            "prc-mechanical-engineering-board-page",
+            "prc-mechanical-engineering-tos-resolution-57-2013",
+            "mit-thin-walled-pressure-vessels"
+        ],
+        "exams": [
+            "mechanical-engineering"
+        ],
+        "taxonomy": {
+            "subject_id": "mechanical-engineering-machine-design-materials-shop-practice",
+            "concept_ids": [
+                "b644-me-pressure-components"
+            ],
+            "board_id": "mechanical-engineering",
+            "boardprep_taxonomy_batch": 644
+        },
+        "technical_support_state": "PARTIAL",
+        "confidence": "authoritative_educational_reference",
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-02"
     }
 ]

@@ -1052,16 +1052,16 @@
     },
     {
         "id": "prc-mechanical-engineering-2026-program",
-        "title": "February 2026 Mechanical Engineers Licensure Examination Program",
+        "title": "August 2026 Mechanical Engineers Licensure Examination Program",
         "source_type": "OFFICIAL_PROGRAM",
         "authority": "Professional Regulation Commission; Professional Regulatory Board of Mechanical Engineering",
-        "url": "https://www.prc.gov.ph/sites/default/files/RA%20-%20MECHANICAL%20ENGINEER%20FEB%202026_merged.pdf",
-        "publication_date": null,
-        "retrieved_at": "2026-09-28",
-        "version": "February 2026 official program",
+        "url": "https://www.prc.gov.ph/sites/default/files/exam%20program%20aug%202026%20mele%20signed.pdf",
+        "publication_date": "2026-06-01",
+        "retrieved_at": "2026-10-02",
+        "version": "August 2026 official program; approved 2026-06-01",
         "status": "official_reference",
         "confidence": "authoritative_reference",
-        "notes": "Official PRC examination program used only for current scope and relative subject weights: Mathematics 35%, Power Plant Engineering 35%, and Machine Design, Materials and Shop Practice 30%. It is not used as the sole instructional derivation source."
+        "notes": "Latest published PRC MELE program located as of 2026-10-02, for the August 7-9, 2026 examination. It lists Power Plant Engineering 35%, Mathematics 35%, and Machine Design, Materials and Shop Practice 30%. It supersedes the February 2026 exam-specific program while retaining the same three areas and weights. It is not used as the sole instructional derivation source."
     },
     {
         "id": "prc-architecture-exam-program-2025",
@@ -3071,5 +3071,83 @@
         "status": "verified_reference",
         "confidence": "authoritative_reference",
         "notes": "Regulatory implementation context for the profession; version-sensitive propositions remain bounded to the current text and are not used for unverified numerical claims."
+    },
+    {
+        "id": "prc-mechanical-engineering-tos-adoption-notice-2013",
+        "title": "PRC Notice: Board of Mechanical Engineering Adopts New Syllabi",
+        "source_type": "OFFICIAL_PRB_NOTICE",
+        "authority": "Professional Regulation Commission; Professional Regulatory Board of Mechanical Engineering",
+        "url": "https://www.prc.gov.ph/article/board-mechanical-engineering-adopts-new-syllabi/2933",
+        "publication_date": "2013-09-24",
+        "retrieved_at": "2026-10-02",
+        "version": "PRC notice concerning Board Resolution No. 57 (s. 2013)",
+        "status": "official_reference",
+        "confidence": "authoritative_reference",
+        "notes": "PRC states the TOS was to apply from the September 2013 examination and every subsequent MELE; current detailed publication status remains uncertain because no later detailed TOS was located."
+    },
+    {
+        "id": "prc-mechanical-engineering-tos-resolution-57-2013",
+        "title": "PRB Mechanical Engineering Resolution No. 57 (s. 2013), Modified Syllabi / Tables of Specifications",
+        "source_type": "OFFICIAL_TOS",
+        "authority": "Professional Regulation Commission; Professional Regulatory Board of Mechanical Engineering",
+        "url": "https://www.prc.gov.ph/sites/default/files/Board%20of%20Mechanical%20Engineering%20-%20Syllabi_0.pdf",
+        "publication_date": "2013-07-25",
+        "retrieved_at": "2026-10-02",
+        "version": "Resolution No. 57, Series of 2013; detailed TOS publicly linked by the PRC board page",
+        "status": "official_reference",
+        "confidence": "authoritative_reference",
+        "notes": "Last publicly located detailed MELE TOS. PRC adoption notice says it applied from September 2013 and subsequent examinations; the 2026 program retains three exam areas and weights but does not publish a replacement detailed TOS. Use for historical subarea evidence with explicit current-title crosswalk caution."
+    },
+    {
+        "id": "prc-mechanical-engineering-act-8495",
+        "title": "Republic Act No. 8495 — Philippine Mechanical Engineering Act of 1998",
+        "source_type": "PRIMARY_LAW",
+        "authority": "Republic of the Philippines; Professional Regulation Commission",
+        "url": "https://www.prc.gov.ph/sites/default/files/Mechanical%20Engineering%20-%20Board%20Law_0.PDF",
+        "publication_date": "1998-02-12",
+        "retrieved_at": "2026-10-02",
+        "version": "R.A. 8495 as currently linked from the PRC Mechanical Engineering board page",
+        "status": "official_reference",
+        "confidence": "authoritative_reference",
+        "notes": "Defines mechanical-engineering practice/equipment and Board authority; practice scope is not by itself an exam blueprint."
+    },
+    {
+        "id": "prc-me-resolution-22a-2025-career-progression",
+        "title": "PRC Resolution No. 22(A), Series of 2025 — Mechanical Engineer Career Progression and Specialization",
+        "source_type": "OFFICIAL_PRB_RESOLUTION",
+        "authority": "Professional Regulation Commission; Professional Regulatory Board of Mechanical Engineering",
+        "url": "https://www.prc.gov.ph/sites/default/files/3_2025-22%28A%29%20ME_Reso.pdf",
+        "publication_date": "2025",
+        "retrieved_at": "2026-10-02",
+        "version": "Resolution 22(A), s. 2025",
+        "status": "official_reference",
+        "confidence": "authoritative_reference",
+        "notes": "Career progression/specialization credential framework; reviewed and excluded as a replacement MELE examination TOS."
+    },
+    {
+        "id": "nptel-engineering-drawing-iit-guwahati",
+        "title": "NPTEL Engineering Drawing — IIT Guwahati",
+        "source_type": "ACADEMIC_COURSE",
+        "authority": "National Programme on Technology Enhanced Learning; Indian Institute of Technology Guwahati",
+        "url": "https://nptel.ac.in/courses/112103019",
+        "publication_date": null,
+        "retrieved_at": "2026-10-02",
+        "version": "Public course outline and archived lessons; current standards are not inferred",
+        "status": "verified_reference",
+        "confidence": "authoritative_educational_reference",
+        "notes": "Supports foundational engineering drawing, layout/lettering, line conventions, views/projections, sections, and dimensioning. It does not establish current Philippine or international drafting-standard requirements."
+    },
+    {
+        "id": "mit-thin-walled-pressure-vessels",
+        "title": "Thin-Walled Pressure Vessels — MIT OpenCourseWare, Mechanics and Materials I",
+        "source_type": "ACADEMIC_COURSE",
+        "authority": "Massachusetts Institute of Technology OpenCourseWare; David Roylance",
+        "url": "https://ocw.mit.edu/courses/3-91-mechanical-behavior-of-plastics-spring-2007/0be49aef0263a94601f18b28c64af705_06_pv.pdf",
+        "publication_date": "2001-08-23",
+        "retrieved_at": "2026-10-02",
+        "version": "MIT OCW lecture notes; stable mechanics only, not a current pressure-vessel code",
+        "status": "verified_reference",
+        "confidence": "authoritative_educational_reference",
+        "notes": "MIT mechanics-of-materials lecture derives thin-walled pressure-vessel stress from equilibrium. Supports idealized foundational reasoning only; explicitly excludes code design, joint efficiency, corrosion allowances, and current allowable stresses."
     }
 ]

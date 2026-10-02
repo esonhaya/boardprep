@@ -277,39 +277,6 @@
         }
     },
     {
-        "id": "mechanical-engineering-mechanical-engineering-mathematics",
-        "board_id": "mechanical-engineering",
-        "subject_id": "mechanical-engineering-mathematics",
-        "settings": {
-            "role": "general",
-            "required": true,
-            "sort_order": 1,
-            "official_weighting": null
-        }
-    },
-    {
-        "id": "mechanical-engineering-mechanical-engineering-engineering-sciences",
-        "board_id": "mechanical-engineering",
-        "subject_id": "mechanical-engineering-engineering-sciences",
-        "settings": {
-            "role": "general",
-            "required": true,
-            "sort_order": 2,
-            "official_weighting": null
-        }
-    },
-    {
-        "id": "mechanical-engineering-mechanical-engineering-mechanical-engineering-professional-subjects",
-        "board_id": "mechanical-engineering",
-        "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
-        "settings": {
-            "role": "general",
-            "required": true,
-            "sort_order": 3,
-            "official_weighting": null
-        }
-    },
-    {
         "id": "registered-electrical-engineering-registered-electrical-engineering-mathematics",
         "board_id": "registered-electrical-engineering",
         "subject_id": "registered-electrical-engineering-mathematics",
@@ -468,6 +435,42 @@
             "required": true,
             "sort_order": 14,
             "blueprint_weight": 10
+        }
+    },
+    {
+        "id": "mechanical-engineering-mathematics",
+        "board_id": "mechanical-engineering",
+        "subject_id": "b644-me-subject-mathematics",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 1,
+            "official_weighting": 35,
+            "weighting_source": "prc-mechanical-engineering-2026-program"
+        }
+    },
+    {
+        "id": "mechanical-engineering-power-plant-engineering",
+        "board_id": "mechanical-engineering",
+        "subject_id": "b644-me-subject-power-plant-engineering",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 2,
+            "official_weighting": 35,
+            "weighting_source": "prc-mechanical-engineering-2026-program"
+        }
+    },
+    {
+        "id": "mechanical-engineering-machine-design-materials-shop-practice",
+        "board_id": "mechanical-engineering",
+        "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+        "settings": {
+            "role": "general",
+            "required": true,
+            "sort_order": 3,
+            "official_weighting": 30,
+            "weighting_source": "prc-mechanical-engineering-2026-program"
         }
     }
 ]

@@ -229,7 +229,8 @@
         "name": "Mathematics",
         "description": "Mathematics foundation area for Registered Mechanical Engineer Licensure Examination",
         "category": "professional",
-        "status": "active"
+        "status": "deprecated",
+        "batch644_migration_action": "DEPRECATE"
     },
     {
         "id": "mechanical-engineering-engineering-sciences",
@@ -237,7 +238,8 @@
         "name": "Engineering Sciences",
         "description": "Engineering Sciences foundation area for Registered Mechanical Engineer Licensure Examination",
         "category": "professional",
-        "status": "active"
+        "status": "deprecated",
+        "batch644_migration_action": "DEPRECATE"
     },
     {
         "id": "mechanical-engineering-mechanical-engineering-professional-subjects",
@@ -245,7 +247,8 @@
         "name": "Mechanical Engineering Professional Subjects",
         "description": "Mechanical Engineering Professional Subjects foundation area for Registered Mechanical Engineer Licensure Examination",
         "category": "professional",
-        "status": "active"
+        "status": "deprecated",
+        "batch644_migration_action": "DEPRECATE"
     },
     {
         "id": "registered-electrical-engineering-mathematics",
@@ -342,5 +345,35 @@
         "description": "Introductory vocational teaching, common competencies, safety, assessment, workplace learning, and industry alignment.",
         "category": "specialization",
         "status": "active"
+    },
+    {
+        "id": "b644-me-subject-mathematics",
+        "code": "ME644",
+        "name": "Mathematics",
+        "description": "Current official MELE subject area; BoardPrep taxonomy descendants are derived subcompetencies, not separately named PRC competencies.",
+        "category": "professional",
+        "status": "active",
+        "official_area_id": "mathematics",
+        "board_id": "mechanical-engineering"
+    },
+    {
+        "id": "b644-me-subject-power-plant-engineering",
+        "code": "ME644",
+        "name": "Power Plant Engineering",
+        "description": "Current official MELE subject area; BoardPrep taxonomy descendants are derived subcompetencies, not separately named PRC competencies.",
+        "category": "professional",
+        "status": "active",
+        "official_area_id": "power-plant-engineering",
+        "board_id": "mechanical-engineering"
+    },
+    {
+        "id": "b644-me-subject-machine-design-materials-shop-practice",
+        "code": "ME644",
+        "name": "Machine Design, Materials and Shop Practice",
+        "description": "Current official MELE subject area; BoardPrep taxonomy descendants are derived subcompetencies, not separately named PRC competencies.",
+        "category": "professional",
+        "status": "active",
+        "official_area_id": "machine-design-materials-shop-practice",
+        "board_id": "mechanical-engineering"
     }
 ]

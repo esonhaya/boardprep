@@ -472,34 +472,59 @@
         "board_id": "mechanical-engineering",
         "board": "mechanical-engineering",
         "subject": "mechanical-engineering-foundation",
-        "name": "Registered Mechanical Engineer Licensure Examination BoardPrep Foundation Scope",
-        "version": 1,
+        "name": "Registered Mechanical Engineer Licensure Examination — Current PRC Subject Areas",
+        "version": 2,
         "status": "active",
         "questionCount": 120,
         "foundation": true,
-        "official_weighting": false,
+        "official_weighting": true,
         "sections": [
             {
-                "id": "mechanical-engineering-mathematics",
+                "id": "mathematics",
                 "name": "Mathematics",
-                "target_percent": null
+                "domain_id": "b644-me-domain-mathematics",
+                "target_percent": 35,
+                "official_weight_percent": 35,
+                "source_id": "prc-mechanical-engineering-2026-program"
             },
             {
-                "id": "mechanical-engineering-engineering-sciences",
-                "name": "Engineering Sciences",
-                "target_percent": null
+                "id": "power-plant-engineering",
+                "name": "Power Plant Engineering",
+                "domain_id": "b644-me-domain-power-plant-engineering",
+                "target_percent": 35,
+                "official_weight_percent": 35,
+                "source_id": "prc-mechanical-engineering-2026-program"
             },
             {
-                "id": "mechanical-engineering-mechanical-engineering-professional-subjects",
-                "name": "Mechanical Engineering Professional Subjects",
-                "target_percent": null
+                "id": "machine-design-materials-shop-practice",
+                "name": "Machine Design, Materials and Shop Practice",
+                "domain_id": "b644-me-domain-machine-design-materials-shop-practice",
+                "target_percent": 30,
+                "official_weight_percent": 30,
+                "source_id": "prc-mechanical-engineering-2026-program"
             }
         ],
-        "label": "Foundation scope only; official weighting unavailable in the current repository record.",
-        "source_id": "prc-mechanical-engineering-board-page",
-        "source_version": "official PRC reference",
-        "official_structure": "Official subject areas are represented for future content planning; no unsupported internal weighting is claimed.",
-        "official_weights": null,
+        "label": "Latest PRC program (August 2026) confirms current subject names and weights; no new detailed TOS identified after Resolution 57 (2013).",
+        "source_id": "prc-mechanical-engineering-2026-program",
+        "source_version": "August 2026 PRC examination program (approved 2026-06-01); detailed TOS crosswalk Resolution 57 (2013)",
+        "official_structure": "Latest PRC program for the August 2026 MELE: Power Plant Engineering 35%, Mathematics 35%, Machine Design, Materials and Shop Practice 30%. It supersedes the February 2026 exam-specific program without changing its three areas or weights. The TOS subareas are recorded as last-published detailed scope with a title/effectivity caution.",
+        "official_weights": [
+            {
+                "id": "mathematics",
+                "name": "Mathematics",
+                "weight_percent": 35
+            },
+            {
+                "id": "power-plant-engineering",
+                "name": "Power Plant Engineering",
+                "weight_percent": 35
+            },
+            {
+                "id": "machine-design-materials-shop-practice",
+                "name": "Machine Design, Materials and Shop Practice",
+                "weight_percent": 30
+            }
+        ],
         "internal_targets": false
     },
     {

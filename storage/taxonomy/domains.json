@@ -1184,19 +1184,25 @@
         "id": "mechanical-engineering-mathematics",
         "subject_id": "mechanical-engineering-mathematics",
         "code": "ME",
-        "name": "Mechanical Engineering Mathematics"
+        "name": "Mechanical Engineering Mathematics",
+        "status": "deprecated",
+        "batch644_migration_action": "DEPRECATE"
     },
     {
         "id": "mechanical-engineering-engineering-sciences",
         "subject_id": "mechanical-engineering-engineering-sciences",
         "code": "ME",
-        "name": "Mechanical Engineering Engineering Sciences"
+        "name": "Mechanical Engineering Engineering Sciences",
+        "status": "deprecated",
+        "batch644_migration_action": "DEPRECATE"
     },
     {
         "id": "mechanical-engineering-mechanical-engineering-professional-subjects",
         "subject_id": "mechanical-engineering-mechanical-engineering-professional-subjects",
         "code": "ME",
-        "name": "Mechanical Engineering Mechanical Engineering Professional Subjects"
+        "name": "Mechanical Engineering Mechanical Engineering Professional Subjects",
+        "status": "deprecated",
+        "batch644_migration_action": "DEPRECATE"
     },
     {
         "id": "engineering-sciences-and-allied-subjects",
@@ -1407,5 +1413,35 @@
             "keywords": [],
             "common_misconceptions": []
         }
+    },
+    {
+        "id": "b644-me-domain-mathematics",
+        "subject_id": "b644-me-subject-mathematics",
+        "code": "ME644",
+        "name": "Mathematics",
+        "description": "Current official PRC MELE area: Mathematics.",
+        "status": "active",
+        "board_id": "mechanical-engineering",
+        "official_area_id": "mathematics"
+    },
+    {
+        "id": "b644-me-domain-power-plant-engineering",
+        "subject_id": "b644-me-subject-power-plant-engineering",
+        "code": "ME644",
+        "name": "Power Plant Engineering",
+        "description": "Current official PRC MELE area: Power Plant Engineering.",
+        "status": "active",
+        "board_id": "mechanical-engineering",
+        "official_area_id": "power-plant-engineering"
+    },
+    {
+        "id": "b644-me-domain-machine-design-materials-shop-practice",
+        "subject_id": "b644-me-subject-machine-design-materials-shop-practice",
+        "code": "ME644",
+        "name": "Machine Design, Materials and Shop Practice",
+        "description": "Current official PRC MELE area: Machine Design, Materials and Shop Practice.",
+        "status": "active",
+        "board_id": "mechanical-engineering",
+        "official_area_id": "machine-design-materials-shop-practice"
     }
 ]

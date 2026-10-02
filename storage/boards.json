@@ -157,7 +157,7 @@
         "organization_id": "prc",
         "code": "ME",
         "name": "Registered Mechanical Engineer Licensure Examination",
-        "description": "Mechanical engineering foundation preparation with official syllabus references and no inferred weighting.",
+        "description": "Mechanical engineering preparation aligned to the current PRC MELE subject areas and weights; subcompetencies are BoardPrep-derived crosswalks to the last detailed public TOS.",
         "visual": {
             "accent": "orange",
             "secondary_accent": "blue",
@@ -172,8 +172,9 @@
                 "minimum_questions": 80,
                 "minimum_subjects": 3
             },
-            "official_weighting_status": "UNAVAILABLE",
-            "readiness_label": "FOUNDATION / BLUEPRINT ONLY"
+            "official_weighting_status": "VERIFIED_CURRENT_PROGRAM",
+            "readiness_label": "CURRENT EXAM AREAS / GRANULAR TAXONOMY",
+            "blueprint_version": 2
         }
     },
     {
