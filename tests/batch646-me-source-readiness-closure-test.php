@@ -86,6 +86,12 @@ $assert($questionHash !== false && hash_equals((string) ($batch646['taxonomy_and
 $assert(($batch646['taxonomy_and_questions']['question_store_unchanged'] ?? false) === true, 'Audit artifact does not attest the frozen question bank.');
 $assert(($batch646['validation']['traceability'] ?? '') === 'PASS', 'Audit traceability result must reflect resolved study/source chains.');
 $assert((int) ($batch646['readiness_revalidation']['broken_traceability'] ?? -1) === 0, 'All readiness study/source chains must resolve.');
+$readinessEvidence = (array) ($batch646['readiness_records'] ?? []);
+$assert((int) ($readinessEvidence['record_count'] ?? 0) === 35 && count($readinessEvidence['records'] ?? []) === 35, 'Durable audit artifact must include all 35 ME readiness records.');
+$sourceInventory = (array) ($batch646['source_inventory'] ?? []);
+$studyInventory = (array) ($batch646['study_inventory'] ?? []);
+$assert(($sourceInventory['all_readiness_and_study_source_ids_resolve'] ?? false) === true, 'Durable source inventory contains an unresolved source ID.');
+$assert(($studyInventory['all_source_ids_resolve'] ?? false) === true && ($studyInventory['all_taxonomy_ids_resolve'] ?? false) === true, 'Durable study inventory contains a broken source or taxonomy link.');
 $unapprovedStudySourceRefs = (int) ($batch646['study_changes']['study_sources_outside_leaf_readiness_allowlist'] ?? -1);
 $unapprovedStudySourceEvidence = (array) ($batch646['study_changes']['study_sources_outside_leaf_readiness_allowlist_evidence'] ?? []);
 $assert($unapprovedStudySourceRefs >= 0 && $unapprovedStudySourceRefs === count($unapprovedStudySourceEvidence), 'Out-of-allowlist references must be reported separately, not mislabeled as broken traceability.');

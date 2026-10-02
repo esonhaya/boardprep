@@ -972,6 +972,61 @@ function b646_audit(?float $providedRuntimeMs): array
     $sourceRecordsChanged = count($sourceIdsAdded);
     $studyRecordsAdded = count(array_filter($materials, static fn(array $m): bool => in_array((string) ($m['id'] ?? ''), ['me-material-18', 'me-material-19'], true)));
 
+    $meLeafIds = array_fill_keys(array_keys($readinessByLeaf), true);
+    $taxonomyConceptIds = [];
+    foreach ((array) ($collections['taxonomy/concepts'] ?? []) as $concept) {
+        if (isset($concept['id'])) $taxonomyConceptIds[(string) $concept['id']] = true;
+    }
+    $meStudyMaterials = array_values(array_filter($materials, static function (array $material) use ($meLeafIds): bool {
+        $taxonomy = (array) ($material['taxonomy'] ?? []);
+        $conceptIds = array_map('strval', (array) ($taxonomy['concept_ids'] ?? []));
+        return in_array(B646_BOARD, array_map('strval', (array) ($material['exams'] ?? [])), true)
+            || strtolower(trim((string) ($taxonomy['board_id'] ?? ''))) === B646_BOARD
+            || array_intersect(array_keys($meLeafIds), $conceptIds) !== [];
+    }));
+    usort($meStudyMaterials, static fn(array $a, array $b): int => strcmp((string) ($a['id'] ?? ''), (string) ($b['id'] ?? '')));
+    $inventorySourceIds = [];
+    foreach ($readinessByLeaf as $record) {
+        foreach ((array) ($record['source_ids'] ?? []) as $sourceId) $inventorySourceIds[(string) $sourceId] = true;
+    }
+    foreach ($meStudyMaterials as $material) {
+        foreach ((array) ($material['source_ids'] ?? []) as $sourceId) $inventorySourceIds[(string) $sourceId] = true;
+    }
+    $inventorySourceIds = array_keys($inventorySourceIds);
+    sort($inventorySourceIds, SORT_STRING);
+    $sourceMetadataFields = ['id', 'title', 'url', 'normalized_url', 'issuer', 'document_id', 'document_number', 'source_type', 'authority', 'authority_classification', 'currentness', 'effectivity', 'effective_date', 'status'];
+    $sourceInventoryRecords = [];
+    foreach ($inventorySourceIds as $sourceId) {
+        $source = $sourceById[$sourceId] ?? null;
+        if (!is_array($source)) continue;
+        $metadata = array_intersect_key($source, array_fill_keys($sourceMetadataFields, true));
+        $metadata['source_role'] = b646_sourceRole($source);
+        $sourceInventoryRecords[] = $metadata;
+    }
+    $studyInventoryRecords = [];
+    foreach ($meStudyMaterials as $material) {
+        $materialSourceIds = array_values(array_unique(array_map('strval', (array) ($material['source_ids'] ?? []))));
+        $conceptIds = array_values(array_unique(array_map('strval', (array) ($material['taxonomy']['concept_ids'] ?? []))));
+        sort($materialSourceIds, SORT_STRING);
+        sort($conceptIds, SORT_STRING);
+        $studyInventoryRecords[] = [
+            'id' => (string) ($material['id'] ?? ''),
+            'title' => (string) ($material['title'] ?? ''),
+            'exams' => array_values(array_unique(array_map('strval', (array) ($material['exams'] ?? [])))),
+            'board_id' => (string) ($material['taxonomy']['board_id'] ?? ''),
+            'concept_ids' => $conceptIds,
+            'source_ids' => $materialSourceIds,
+            'version' => $material['version'] ?? null,
+            'updated_at' => $material['updated_at'] ?? null,
+            'status' => $material['status'] ?? null,
+            'technical_support_state' => $material['technical_support_state'] ?? null,
+            'confidence' => $material['confidence'] ?? null,
+            'source_ids_resolve' => count(array_diff($materialSourceIds, array_keys($sourceById))) === 0,
+            'taxonomy_ids_resolve' => count(array_diff($conceptIds, array_keys($taxonomyConceptIds))) === 0,
+            'content_bodies_included' => false,
+        ];
+    }
+
     $report = [
         'title' => 'BOARDPREP — BATCH 646 MECHANICAL ENGINEERING SOURCE/STUDY/SCOPE GAP CLOSURE + READINESS REVALIDATION + EXPANSION GATE RECALIBRATION',
         'batch' => 646,
@@ -1017,6 +1072,18 @@ function b646_audit(?float $providedRuntimeMs): array
             'authorable_leaf_health' => (array) ($b644['authorable_health'] ?? []),
         ],
         'five_leaf_closure' => $fiveLeafClosure,
+        'source_inventory' => [
+            'record_count' => count($sourceInventoryRecords),
+            'records' => $sourceInventoryRecords,
+            'all_readiness_and_study_source_ids_resolve' => count(array_diff($inventorySourceIds, array_keys($sourceById))) === 0,
+        ],
+        'study_inventory' => [
+            'record_count' => count($studyInventoryRecords),
+            'records' => $studyInventoryRecords,
+            'all_source_ids_resolve' => count(array_filter($studyInventoryRecords, static fn(array $r): bool => $r['source_ids_resolve'] !== true)) === 0,
+            'all_taxonomy_ids_resolve' => count(array_filter($studyInventoryRecords, static fn(array $r): bool => $r['taxonomy_ids_resolve'] !== true)) === 0,
+            'study_content_bodies_included' => false,
+        ],
         'source_changes' => [
             'source_records_before' => $sourceBeforeCount,
             'source_records_after' => count($sources),
@@ -1066,6 +1133,11 @@ function b646_audit(?float $providedRuntimeMs): array
             'validator' => 'SourceReadinessService::validateCollections + SourceReadinessValidator',
             'validation' => $meValidation['valid'] ? 'PASS' : 'FAIL',
             'authoring_gate_samples' => $authoringGate,
+        ],
+        'readiness_records' => [
+            'record_count' => count($meRecordsSorted),
+            'records' => $meRecordsSorted,
+            'all_records_validated_by_permanent_service' => (bool) ($meValidation['valid'] ?? false),
         ],
         'taxonomy_and_questions' => [
             'canonical' => count($activeQuestions), 'active_leaves' => $rawStats['active_leaves'], 'structural_nodes' => $structuralNodes,

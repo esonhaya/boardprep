@@ -608,6 +608,755 @@
             }
         }
     },
+    "source_inventory": {
+        "record_count": 19,
+        "records": [
+            {
+                "id": "dole-bwc-workplace-electrical-safety",
+                "title": "DOLE Bureau of Working Conditions — workplace safety and energy-isolation guidance",
+                "source_type": "SAFETY_REFERENCE",
+                "authority": "Department of Labor and Employment, Bureau of Working Conditions",
+                "url": "https://bwc.dole.gov.ph/3475-2/",
+                "status": "verified_reference",
+                "source_role": "PRIMARY_OFFICIAL"
+            },
+            {
+                "id": "dole-do-252-25-osh-revised-irr-ra-11058",
+                "title": "DOLE Department Order No. 252-25 — Revised Implementing Rules and Regulations of R.A. No. 11058",
+                "source_type": "OFFICIAL_REGULATION",
+                "authority": "Department of Labor and Employment; Bureau of Working Conditions",
+                "url": "https://bwc.dole.gov.ph/3063-2/",
+                "status": "official_reference",
+                "source_role": "PRIMARY_OFFICIAL"
+            },
+            {
+                "id": "mit-thin-walled-pressure-vessels",
+                "title": "Thin-Walled Pressure Vessels — MIT OpenCourseWare, Mechanics and Materials I",
+                "source_type": "ACADEMIC_COURSE",
+                "authority": "Massachusetts Institute of Technology OpenCourseWare; David Roylance",
+                "url": "https://ocw.mit.edu/courses/3-91-mechanical-behavior-of-plastics-spring-2007/0be49aef0263a94601f18b28c64af705_06_pv.pdf",
+                "status": "verified_reference",
+                "source_role": "ACADEMIC"
+            },
+            {
+                "id": "nist-semtech-engineering-statistics-handbook",
+                "title": "NIST/SEMATECH Engineering Statistics Handbook",
+                "source_type": "OFFICIAL_GUIDANCE",
+                "authority": "National Institute of Standards and Technology; SEMATECH",
+                "url": "https://www.nist.gov/programs-projects/nistsematech-engineering-statistics-handbook",
+                "status": "verified_reference",
+                "source_role": "AUTHORITATIVE_TECHNICAL"
+            },
+            {
+                "id": "nptel-engineering-drawing-iit-guwahati",
+                "title": "NPTEL Engineering Drawing — IIT Guwahati",
+                "source_type": "ACADEMIC_COURSE",
+                "authority": "National Programme on Technology Enhanced Learning; Indian Institute of Technology Guwahati",
+                "url": "https://nptel.ac.in/courses/112103019",
+                "status": "verified_reference",
+                "source_role": "ACADEMIC"
+            },
+            {
+                "id": "open-manufacturing-processes-4-5",
+                "title": "Manufacturing Processes 4–5",
+                "source_type": "SECONDARY_REVIEW",
+                "authority": "LamNgeun Virasak; Open Oregon Educational Resources",
+                "url": "https://open.umn.edu/opentextbooks/textbooks/645",
+                "status": "verified_reference",
+                "source_role": "SECONDARY"
+            },
+            {
+                "id": "open-mechanical-design-manufacturing",
+                "title": "Introduction to Mechanical Design and Manufacturing",
+                "source_type": "SECONDARY_REVIEW",
+                "authority": "David Jensen; University of Arkansas",
+                "url": "https://open.umn.edu/opentextbooks/textbooks/introduction-to-mechanical-design-and-manufacturing",
+                "status": "verified_reference",
+                "source_role": "ACADEMIC"
+            },
+            {
+                "id": "openstax-calculus-volume-1",
+                "title": "Calculus Volume 1",
+                "source_type": "SECONDARY_REVIEW",
+                "authority": "OpenStax, Rice University",
+                "url": "https://openstax.org/details/books/calculus-volume-1",
+                "status": "verified_reference",
+                "source_role": "ACADEMIC"
+            },
+            {
+                "id": "openstax-university-physics-volume-1",
+                "title": "University Physics Volume 1",
+                "source_type": "SECONDARY_REVIEW",
+                "authority": "OpenStax, Rice University",
+                "url": "https://openstax.org/details/books/university-physics-volume-1",
+                "status": "verified_reference",
+                "source_role": "ACADEMIC"
+            },
+            {
+                "id": "openstax-university-physics-volume-2",
+                "title": "University Physics Volume 2",
+                "source_type": "SECONDARY_REVIEW",
+                "authority": "OpenStax, Rice University",
+                "url": "https://openstax.org/details/books/university-physics-volume-2",
+                "status": "verified_reference",
+                "source_role": "ACADEMIC"
+            },
+            {
+                "id": "prc-mechanical-engineering-2026-program",
+                "title": "August 2026 Mechanical Engineers Licensure Examination Program",
+                "source_type": "OFFICIAL_PROGRAM",
+                "authority": "Professional Regulation Commission; Professional Regulatory Board of Mechanical Engineering",
+                "url": "https://www.prc.gov.ph/sites/default/files/exam%20program%20aug%202026%20mele%20signed.pdf",
+                "status": "official_reference",
+                "source_role": "PRIMARY_OFFICIAL"
+            },
+            {
+                "id": "prc-mechanical-engineering-act-8495",
+                "title": "Republic Act No. 8495 — Philippine Mechanical Engineering Act of 1998",
+                "source_type": "PRIMARY_LAW",
+                "authority": "Republic of the Philippines; Professional Regulation Commission",
+                "url": "https://www.prc.gov.ph/sites/default/files/Mechanical%20Engineering%20-%20Board%20Law_0.PDF",
+                "status": "official_reference",
+                "source_role": "PRIMARY_OFFICIAL"
+            },
+            {
+                "id": "prc-mechanical-engineering-board-page",
+                "title": "PRC Mechanical Engineering Syllabus Resources",
+                "source_type": "OFFICIAL_EXAM_SPEC",
+                "authority": "Professional Regulation Commission; Professional Regulatory Board of Mechanical Engineering",
+                "url": "https://www.prc.gov.ph/Pages/PRBv4/MechanicalEngineering.htm",
+                "status": "official_reference",
+                "source_role": "PRIMARY_OFFICIAL"
+            },
+            {
+                "id": "prc-mechanical-engineering-irr-ra8495-resolution-16-1998",
+                "title": "Implementing Rules and Regulations of R.A. No. 8495 — PRB Mechanical Engineering Resolution No. 16 (s. 1998)",
+                "source_type": "OFFICIAL_REGULATION",
+                "authority": "Professional Regulation Commission; Professional Regulatory Board of Mechanical Engineering",
+                "url": "https://www.prc.gov.ph/sites/default/files/ME%20IRR%20Reso%2016%20s%201998.pdf",
+                "status": "official_reference",
+                "source_role": "PRIMARY_OFFICIAL"
+            },
+            {
+                "id": "prc-mechanical-engineering-tos-adoption-notice-2013",
+                "title": "PRC Notice: Board of Mechanical Engineering Adopts New Syllabi",
+                "source_type": "OFFICIAL_PRB_NOTICE",
+                "authority": "Professional Regulation Commission; Professional Regulatory Board of Mechanical Engineering",
+                "url": "https://www.prc.gov.ph/article/board-mechanical-engineering-adopts-new-syllabi/2933",
+                "status": "official_reference",
+                "source_role": "PRIMARY_OFFICIAL"
+            },
+            {
+                "id": "prc-mechanical-engineering-tos-resolution-57-2013",
+                "title": "PRB Mechanical Engineering Resolution No. 57 (s. 2013), Modified Syllabi / Tables of Specifications",
+                "source_type": "OFFICIAL_TOS",
+                "authority": "Professional Regulation Commission; Professional Regulatory Board of Mechanical Engineering",
+                "url": "https://www.prc.gov.ph/sites/default/files/Board%20of%20Mechanical%20Engineering%20-%20Syllabi_0.pdf",
+                "status": "official_reference",
+                "source_role": "PRIMARY_OFFICIAL"
+            },
+            {
+                "id": "ra-11058-occupational-safety",
+                "title": "Republic Act No. 11058 — Occupational Safety and Health Standards Law",
+                "source_type": "LAW",
+                "authority": "Republic of the Philippines; Official Gazette / Lawphil text",
+                "url": "https://lawphil.net/statutes/repacts/ra2018/ra_11058_2018.html",
+                "status": "verified_reference",
+                "source_role": "PROFESSIONAL_REFERENCE"
+            },
+            {
+                "id": "ualberta-introduction-engineering-economics",
+                "title": "Introduction to Engineering Economics",
+                "source_type": "SECONDARY_REVIEW",
+                "authority": "University of Alberta Engineering at Alberta Courses",
+                "url": "https://engcourses-uofa.ca/books/introduction-to-engineering-economics/",
+                "status": "verified_reference",
+                "source_role": "ACADEMIC"
+            },
+            {
+                "id": "ubc-introduction-engineering-thermodynamics",
+                "title": "Introduction to Engineering Thermodynamics",
+                "source_type": "SECONDARY_REVIEW",
+                "authority": "Claire Yu Yan; BCcampus Open Education",
+                "url": "https://pressbooks.bccampus.ca/thermo1/",
+                "status": "verified_reference",
+                "source_role": "SECONDARY"
+            }
+        ],
+        "all_readiness_and_study_source_ids_resolve": true
+    },
+    "study_inventory": {
+        "record_count": 20,
+        "records": [
+            {
+                "id": "me-material-1",
+                "title": "Engineering mathematics",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-basic-engineering-sciences",
+                    "b644-me-bearings-lubrication",
+                    "b644-me-engineering-economics",
+                    "b644-me-engineering-mechanics",
+                    "b644-me-fluid-machinery",
+                    "b644-me-fluid-mechanics",
+                    "b644-me-gas-combined-cycle",
+                    "b644-me-heat-transfer",
+                    "b644-me-hvac-refrigeration",
+                    "b644-me-machine-design-stress-analysis",
+                    "b644-me-machine-power-transmission",
+                    "b644-me-manufacturing-shop-practice",
+                    "b644-me-math-algebra-trigonometry",
+                    "b644-me-math-analytic-geometry",
+                    "b644-me-math-calculus-models",
+                    "b644-me-math-statistics-numerical-methods",
+                    "b644-me-math-vectors-linear-algebra",
+                    "b644-me-mechanism-kinematics",
+                    "b644-me-quality-reliability-maintenance",
+                    "b644-me-stability-fatigue",
+                    "b644-me-strength-materials",
+                    "b644-me-thermodynamics",
+                    "b644-me-tolerances-metrology"
+                ],
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "openstax-calculus-volume-1",
+                    "prc-mechanical-engineering-board-page"
+                ],
+                "version": 2,
+                "updated_at": "2026-09-07",
+                "status": "published",
+                "technical_support_state": "STRONG",
+                "confidence": null,
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-10",
+                "title": "Machine design",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-bearings-lubrication",
+                    "b644-me-engineering-mechanics",
+                    "b644-me-machine-design-stress-analysis",
+                    "b644-me-machine-power-transmission",
+                    "b644-me-materials-properties",
+                    "b644-me-math-algebra-trigonometry",
+                    "b644-me-mechanism-kinematics",
+                    "b644-me-quality-reliability-maintenance",
+                    "b644-me-stability-fatigue",
+                    "b644-me-strength-materials"
+                ],
+                "source_ids": [
+                    "open-mechanical-design-manufacturing",
+                    "openstax-university-physics-volume-1",
+                    "prc-mechanical-engineering-board-page"
+                ],
+                "version": 7,
+                "updated_at": "2026-09-28",
+                "status": "published",
+                "technical_support_state": "STRONG",
+                "confidence": null,
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-11",
+                "title": "Machine elements",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-bearings-lubrication",
+                    "b644-me-machine-power-transmission",
+                    "b644-me-math-algebra-trigonometry",
+                    "b644-me-mechanism-kinematics"
+                ],
+                "source_ids": [
+                    "open-mechanical-design-manufacturing",
+                    "prc-mechanical-engineering-board-page"
+                ],
+                "version": 2,
+                "updated_at": "2026-09-07",
+                "status": "published",
+                "technical_support_state": null,
+                "confidence": null,
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-12",
+                "title": "Manufacturing processes",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-engineering-economics",
+                    "b644-me-manufacturing-shop-practice",
+                    "b644-me-production-systems",
+                    "b644-me-quality-reliability-maintenance",
+                    "b644-me-tolerances-metrology"
+                ],
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-manufacturing-processes-4-5",
+                    "open-mechanical-design-manufacturing",
+                    "prc-mechanical-engineering-board-page"
+                ],
+                "version": 7,
+                "updated_at": "2026-09-28",
+                "status": "published",
+                "technical_support_state": "STRONG",
+                "confidence": null,
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-13",
+                "title": "Industrial engineering",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-engineering-economics",
+                    "b644-me-math-statistics-numerical-methods",
+                    "b644-me-production-systems",
+                    "b644-me-quality-reliability-maintenance"
+                ],
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-manufacturing-processes-4-5",
+                    "prc-mechanical-engineering-board-page"
+                ],
+                "version": 2,
+                "updated_at": "2026-09-07",
+                "status": "published",
+                "technical_support_state": null,
+                "confidence": null,
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-14",
+                "title": "Maintenance and quality",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-bearings-lubrication",
+                    "b644-me-math-algebra-trigonometry",
+                    "b644-me-math-statistics-numerical-methods",
+                    "b644-me-production-systems",
+                    "b644-me-quality-reliability-maintenance",
+                    "b644-me-shop-safety-practice",
+                    "b644-me-tolerances-metrology"
+                ],
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-mechanical-design-manufacturing",
+                    "prc-mechanical-engineering-board-page"
+                ],
+                "version": 7,
+                "updated_at": "2026-09-28",
+                "status": "published",
+                "technical_support_state": "STRONG",
+                "confidence": null,
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-15",
+                "title": "Engineering economics",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-engineering-economics"
+                ],
+                "source_ids": [
+                    "prc-mechanical-engineering-board-page",
+                    "ualberta-introduction-engineering-economics"
+                ],
+                "version": 3,
+                "updated_at": "2026-10-02",
+                "status": "published",
+                "technical_support_state": "STRONG",
+                "confidence": null,
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-16",
+                "title": "Engineering drawing and design communication",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-engineering-drawing-practice"
+                ],
+                "source_ids": [
+                    "nptel-engineering-drawing-iit-guwahati",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "version": 1,
+                "updated_at": "2026-10-02",
+                "status": "published",
+                "technical_support_state": "STRONG",
+                "confidence": "authoritative_educational_reference",
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-17",
+                "title": "Pressure-containing components: introductory thin-wall mechanics",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-pressure-components"
+                ],
+                "source_ids": [
+                    "mit-thin-walled-pressure-vessels",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "version": 1,
+                "updated_at": "2026-10-02",
+                "status": "published",
+                "technical_support_state": "PARTIAL",
+                "confidence": "authoritative_educational_reference",
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-18",
+                "title": "Mechanical Engineering Law and licensure scope — R.A. 8495",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-me-law-code-ethics"
+                ],
+                "source_ids": [
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-act-8495",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-irr-ra8495-resolution-16-1998",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "version": 1,
+                "updated_at": "2026-10-02",
+                "status": "published",
+                "technical_support_state": "STRONG",
+                "confidence": "official_statutory_and_scope_synthesis",
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-19",
+                "title": "Mechanical shop safety and current Philippine OSH boundaries",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-shop-safety-practice"
+                ],
+                "source_ids": [
+                    "dole-bwc-workplace-electrical-safety",
+                    "dole-do-252-25-osh-revised-irr-ra-11058",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-act-8495",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013",
+                    "ra-11058-occupational-safety"
+                ],
+                "version": 1,
+                "updated_at": "2026-10-02",
+                "status": "published",
+                "technical_support_state": "STRONG",
+                "confidence": "official_regulatory_and_technical_synthesis",
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-2",
+                "title": "Engineering sciences",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-basic-engineering-sciences",
+                    "b644-me-materials-properties",
+                    "b644-me-math-vectors-linear-algebra",
+                    "b644-me-tolerances-metrology"
+                ],
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "openstax-university-physics-volume-1",
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-board-page"
+                ],
+                "version": 3,
+                "updated_at": "2026-10-02",
+                "status": "published",
+                "technical_support_state": "STRONG",
+                "confidence": null,
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-3",
+                "title": "Statics and dynamics",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-engineering-mechanics"
+                ],
+                "source_ids": [
+                    "openstax-university-physics-volume-1",
+                    "prc-mechanical-engineering-board-page"
+                ],
+                "version": 2,
+                "updated_at": "2026-09-07",
+                "status": "published",
+                "technical_support_state": "STRONG",
+                "confidence": null,
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-4",
+                "title": "Mechanics of materials",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-engineering-mechanics",
+                    "b644-me-machine-design-stress-analysis",
+                    "b644-me-machine-power-transmission",
+                    "b644-me-materials-properties",
+                    "b644-me-math-calculus-models",
+                    "b644-me-stability-fatigue",
+                    "b644-me-strength-materials"
+                ],
+                "source_ids": [
+                    "open-mechanical-design-manufacturing",
+                    "openstax-university-physics-volume-1",
+                    "prc-mechanical-engineering-board-page"
+                ],
+                "version": 7,
+                "updated_at": "2026-09-28",
+                "status": "published",
+                "technical_support_state": "STRONG",
+                "confidence": null,
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-5",
+                "title": "Fluid mechanics",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-fluid-machinery",
+                    "b644-me-fluid-mechanics",
+                    "b644-me-hydroelectric-plants",
+                    "b644-me-thermodynamics",
+                    "b644-me-tolerances-metrology"
+                ],
+                "source_ids": [
+                    "openstax-university-physics-volume-1",
+                    "prc-mechanical-engineering-board-page"
+                ],
+                "version": 7,
+                "updated_at": "2026-09-28",
+                "status": "published",
+                "technical_support_state": "STRONG",
+                "confidence": null,
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-6",
+                "title": "Thermal science",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-fluid-machinery",
+                    "b644-me-gas-combined-cycle",
+                    "b644-me-heat-transfer",
+                    "b644-me-hvac-refrigeration",
+                    "b644-me-power-cycles",
+                    "b644-me-power-fuels-combustion",
+                    "b644-me-steam-power-boilers",
+                    "b644-me-thermodynamics"
+                ],
+                "source_ids": [
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-board-page",
+                    "ubc-introduction-engineering-thermodynamics"
+                ],
+                "version": 7,
+                "updated_at": "2026-09-28",
+                "status": "published",
+                "technical_support_state": "STRONG",
+                "confidence": null,
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-7",
+                "title": "Heat transfer",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-heat-transfer"
+                ],
+                "source_ids": [
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-board-page",
+                    "ubc-introduction-engineering-thermodynamics"
+                ],
+                "version": 2,
+                "updated_at": "2026-09-07",
+                "status": "published",
+                "technical_support_state": "STRONG",
+                "confidence": null,
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-8",
+                "title": "Power systems",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-fluid-machinery",
+                    "b644-me-gas-combined-cycle",
+                    "b644-me-hydroelectric-plants",
+                    "b644-me-internal-combustion-engines",
+                    "b644-me-machine-power-transmission",
+                    "b644-me-power-cycles",
+                    "b644-me-power-fuels-combustion",
+                    "b644-me-power-load-performance",
+                    "b644-me-steam-power-boilers",
+                    "b644-me-thermodynamics"
+                ],
+                "source_ids": [
+                    "open-mechanical-design-manufacturing",
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-board-page",
+                    "ubc-introduction-engineering-thermodynamics"
+                ],
+                "version": 7,
+                "updated_at": "2026-09-28",
+                "status": "published",
+                "technical_support_state": "STRONG",
+                "confidence": null,
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "me-material-9",
+                "title": "Refrigeration and HVAC",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "mechanical-engineering",
+                "concept_ids": [
+                    "b644-me-fluid-machinery",
+                    "b644-me-fluid-mechanics",
+                    "b644-me-gas-combined-cycle",
+                    "b644-me-heat-transfer",
+                    "b644-me-hvac-refrigeration"
+                ],
+                "source_ids": [
+                    "openstax-university-physics-volume-1",
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-board-page",
+                    "ubc-introduction-engineering-thermodynamics"
+                ],
+                "version": 8,
+                "updated_at": "2026-10-02",
+                "status": "published",
+                "technical_support_state": "STRONG",
+                "confidence": null,
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            },
+            {
+                "id": "portfolio-mechanical-engineering-foundation",
+                "title": "Registered Mechanical Engineer Licensure Examination Foundation Orientation",
+                "exams": [
+                    "mechanical-engineering"
+                ],
+                "board_id": "",
+                "concept_ids": [],
+                "source_ids": [
+                    "prc-mechanical-engineering-board-page"
+                ],
+                "version": 1,
+                "updated_at": "2026-09-01",
+                "status": "published",
+                "technical_support_state": null,
+                "confidence": null,
+                "source_ids_resolve": true,
+                "taxonomy_ids_resolve": true,
+                "content_bodies_included": false
+            }
+        ],
+        "all_source_ids_resolve": true,
+        "all_taxonomy_ids_resolve": true,
+        "study_content_bodies_included": false
+    },
     "source_changes": {
         "source_records_before": 226,
         "source_records_after": 228,
@@ -905,6 +1654,2272 @@
                 "errors": []
             }
         }
+    },
+    "readiness_records": {
+        "record_count": 35,
+        "records": [
+            {
+                "leaf_id": "b644-me-basic-engineering-sciences",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "mathematics",
+                "leaf_name": "Basic Engineering Science and Dimensional Reasoning",
+                "current_question_count": 4,
+                "deficit_to_5": 1,
+                "deficit_to_10": 6,
+                "deficit_to_20": 16,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "openstax-university-physics-volume-1",
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 7,
+                "primary_source_count": 5,
+                "source_authority": "ADEQUATE",
+                "source_currentness": "CURRENT_WITH_LIMITS",
+                "source_scope_fit": "PARTIAL",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-2"
+                ],
+                "study_material_count": 1,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 3,
+                "distinct_content_families": [
+                    "ac_impedance",
+                    "basic_physics",
+                    "dimensional_analysis",
+                    "periodic_motion"
+                ],
+                "distinct_content_family_count": 4,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 1,
+                "safe_headroom_max": 3,
+                "allowed_scope": [
+                    "dimensional consistency for mechanical quantities",
+                    "frequency and period interpretation for a stated periodic process",
+                    "magnitude and phase interpretation of supplied ideal series resistance and inductive reactance"
+                ],
+                "excluded_scope": [
+                    "advanced physics or engineering design",
+                    "current technical-code values",
+                    "general chemistry not represented in the allowed subset",
+                    "specialist electrical design and component selection"
+                ],
+                "limitations": [
+                    "Author only within the narrow physical-quantity families supported by the linked OpenStax physics and NIST material; do not treat this leaf as a catch-all science category.",
+                    "The detailed public PRC TOS is Resolution 57 (2013); the 2026 MELE program names only the Mathematics area and does not restate detailed subareas."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "A source-traceable, bounded physics/dimensional subset is now covered by the linked study material; chemistry and broader physics remain outside the allowed scope.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 3,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "cafb3e24c179504d7e32bd2addbb19fe2e5a1d2ecba1c3016a03f864a66d540c"
+            },
+            {
+                "leaf_id": "b644-me-bearings-lubrication",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "machine-design-materials-shop-practice",
+                "leaf_name": "Bearings, Lubrication, and Service Life",
+                "current_question_count": 11,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 9,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-mechanical-design-manufacturing",
+                    "openstax-calculus-volume-1",
+                    "openstax-university-physics-volume-1",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 8,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-10",
+                    "me-material-11",
+                    "me-material-14"
+                ],
+                "study_material_count": 4,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "alignment_and_contamination",
+                    "bearing_life",
+                    "bearing_selection",
+                    "lubrication_diagnosis",
+                    "machine_power"
+                ],
+                "distinct_content_family_count": 5,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 4,
+                "allowed_scope": [
+                    "generic bearing/lubrication principles covered by existing material"
+                ],
+                "excluded_scope": [
+                    "manufacturer-specific bearing ratings and current lubricant specifications"
+                ],
+                "limitations": [
+                    "Use rating/duty assumptions supplied by the problem; no vendor-specific life claim."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 4,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "dc787abab72a0f208e477610c6c7ef04b958eed6636bcfb05a8b73db59ce2709"
+            },
+            {
+                "leaf_id": "b644-me-engineering-drawing-practice",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "machine-design-materials-shop-practice",
+                "leaf_name": "Engineering Drawing and Design Communication",
+                "current_question_count": 0,
+                "deficit_to_5": 5,
+                "deficit_to_10": 10,
+                "deficit_to_20": 20,
+                "source_ids": [
+                    "nptel-engineering-drawing-iit-guwahati",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 4,
+                "primary_source_count": 3,
+                "source_authority": "STRONG",
+                "source_currentness": "CURRENT_WITH_LIMITS",
+                "source_scope_fit": "STRONG",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-16"
+                ],
+                "study_material_count": 1,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 3,
+                "distinct_content_families": [
+                    "dimensioning",
+                    "drawing_interpretation",
+                    "orthographic_projection",
+                    "sectional_view",
+                    "working_drawing"
+                ],
+                "distinct_content_family_count": 5,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 1,
+                "safe_headroom_max": 3,
+                "allowed_scope": [
+                    "foundational drawing interpretation, views/projections, sections, and dimensioning taught in linked course material"
+                ],
+                "excluded_scope": [
+                    "current ISO/ASME drafting-standard conformity, manufacturing tolerances, and code-specific drawing requirements not covered by linked material"
+                ],
+                "limitations": [
+                    "PRC Resolution 57 (2013) names Engineering Drawing Practices at 2.27; no replacement detailed TOS was located. NPTEL material supports foundational practice only, not current standards compliance."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 3,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "cb24fa6b9b96db94c586e0bc3911091319693c52350b531c7d9bdeedd8bdd568"
+            },
+            {
+                "leaf_id": "b644-me-engineering-economics",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "mathematics",
+                "leaf_name": "Engineering Economics and Alternative Analysis",
+                "current_question_count": 8,
+                "deficit_to_5": 0,
+                "deficit_to_10": 2,
+                "deficit_to_20": 12,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-manufacturing-processes-4-5",
+                    "open-mechanical-design-manufacturing",
+                    "openstax-calculus-volume-1",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013",
+                    "ualberta-introduction-engineering-economics"
+                ],
+                "source_count": 9,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-12",
+                    "me-material-13",
+                    "me-material-15"
+                ],
+                "study_material_count": 4,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "break_even",
+                    "cash_flow_comparison",
+                    "economics",
+                    "inventory_economics",
+                    "manufacturing",
+                    "present_worth",
+                    "replacement_analysis"
+                ],
+                "distinct_content_family_count": 7,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 5,
+                "allowed_scope": [
+                    "fundamental economic comparison stated with complete assumptions"
+                ],
+                "excluded_scope": [
+                    "tax, accounting, contract, or jurisdiction-specific rules not sourced for the current exam"
+                ],
+                "limitations": [
+                    "Use the exact economic competencies in Resolution 57 (2013), which PRC states applies to subsequent MELEs; do not infer newer regulatory or accounting content."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 5,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "dcffb7312d328307c62f384ccdd019a35c29b59768b7afcc51e7b5c632de4438"
+            },
+            {
+                "leaf_id": "b644-me-engineering-mechanics",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "machine-design-materials-shop-practice",
+                "leaf_name": "Engineering Mechanics: Statics and Dynamics",
+                "current_question_count": 41,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 0,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-mechanical-design-manufacturing",
+                    "openstax-calculus-volume-1",
+                    "openstax-university-physics-volume-1",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 8,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "STRONG",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-10",
+                    "me-material-3",
+                    "me-material-4"
+                ],
+                "study_material_count": 4,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "equilibrium",
+                    "impulse_momentum",
+                    "machine_power",
+                    "manufacturing",
+                    "rotational_kinematics",
+                    "stress_strain",
+                    "vibration",
+                    "work_energy"
+                ],
+                "distinct_content_family_count": 8,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 5,
+                "allowed_scope": [
+                    "fundamental mechanics and kinematics with stated system boundaries"
+                ],
+                "excluded_scope": [
+                    "advanced controls and finite-element simulation"
+                ],
+                "limitations": [
+                    "The current TOS explicitly names kinematic analysis in the machine-design paper; mechanics beyond it is BoardPrep-derived."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 5,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "6c4301620cff863d4f2ccda066e24aa75918b17fc29f821402a902595851598e"
+            },
+            {
+                "leaf_id": "b644-me-fluid-machinery",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "power-plant-engineering",
+                "leaf_name": "Pumps, Compressors, Fans, and Fluid Machinery",
+                "current_question_count": 33,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 0,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "openstax-calculus-volume-1",
+                    "openstax-university-physics-volume-1",
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013",
+                    "ubc-introduction-engineering-thermodynamics"
+                ],
+                "source_count": 9,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "STRONG",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-5",
+                    "me-material-6",
+                    "me-material-8",
+                    "me-material-9"
+                ],
+                "study_material_count": 5,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "affinity_laws",
+                    "cavitation_and_diagnosis",
+                    "compressor_efficiency",
+                    "cycles_engines",
+                    "fluid_flow",
+                    "fluid_power",
+                    "machine_power",
+                    "manufacturing",
+                    "pump_curve_and_system"
+                ],
+                "distinct_content_family_count": 9,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 3,
+                "safe_headroom_max": 6,
+                "allowed_scope": [
+                    "basic machinery performance supported by current linked technical material"
+                ],
+                "excluded_scope": [
+                    "code-based equipment sizing, pressure-vessel design, and vendor guarantees"
+                ],
+                "limitations": [
+                    "Pump and compressor calculations must retain stated operating assumptions and efficiency definitions."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 6,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "e7e9a3158a1b77d8bce07552edc3a47b3b0fc7454dbb7a1da9f3c5053d24c60f"
+            },
+            {
+                "leaf_id": "b644-me-fluid-mechanics",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "mathematics",
+                "leaf_name": "Fluid Mechanics and Internal Flow",
+                "current_question_count": 36,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 0,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "openstax-calculus-volume-1",
+                    "openstax-university-physics-volume-1",
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013",
+                    "ubc-introduction-engineering-thermodynamics"
+                ],
+                "source_count": 9,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-5",
+                    "me-material-9"
+                ],
+                "study_material_count": 3,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "algebra_geometry",
+                    "continuity_and_flow",
+                    "fluid_flow",
+                    "hydrostatics",
+                    "momentum_balance",
+                    "pipe_loss_and_regime"
+                ],
+                "distinct_content_family_count": 6,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 3,
+                "safe_headroom_max": 6,
+                "allowed_scope": [
+                    "elementary fluid mechanics bounded to the current PRC Mathematics TOS and stated assumptions"
+                ],
+                "excluded_scope": [
+                    "broad fluid specialization, machinery selection, and unsourced codes/standards"
+                ],
+                "limitations": [
+                    "PRC states the detailed TOS applies to subsequent MELEs; use this leaf for Mathematics-paper fluid mechanics, not pump/compressor selection."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 6,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "e3c39e1429a09f053467d756b1e3c7cb5c2a3b3b5dcbfe3082dc951f3c3e43fd"
+            },
+            {
+                "leaf_id": "b644-me-gas-combined-cycle",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "power-plant-engineering",
+                "leaf_name": "Gas-Turbine and Combined-Cycle Plants",
+                "current_question_count": 3,
+                "deficit_to_5": 2,
+                "deficit_to_10": 7,
+                "deficit_to_20": 17,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "openstax-calculus-volume-1",
+                    "openstax-university-physics-volume-1",
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013",
+                    "ubc-introduction-engineering-thermodynamics"
+                ],
+                "source_count": 9,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-6",
+                    "me-material-8",
+                    "me-material-9"
+                ],
+                "study_material_count": 4,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "combined_cycle_heat_recovery",
+                    "component_efficiency",
+                    "gas_turbine_cycle"
+                ],
+                "distinct_content_family_count": 3,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 4,
+                "allowed_scope": [
+                    "idealized gas-turbine and combined-cycle analysis"
+                ],
+                "excluded_scope": [
+                    "current emissions, fuel, and grid-code requirements"
+                ],
+                "limitations": [
+                    "Restrict claims to supplied cycle/component assumptions."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 4,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "8177cfeae876f9ccd54a13ec828e828fea05fdb567bf365139e59d5193db3071"
+            },
+            {
+                "leaf_id": "b644-me-heat-transfer",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "power-plant-engineering",
+                "leaf_name": "Heat Transfer and Heat-Exchanger Analysis",
+                "current_question_count": 26,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 0,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "openstax-calculus-volume-1",
+                    "openstax-university-physics-volume-1",
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013",
+                    "ubc-introduction-engineering-thermodynamics"
+                ],
+                "source_count": 9,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-6",
+                    "me-material-7",
+                    "me-material-9"
+                ],
+                "study_material_count": 4,
+                "study_coverage": "COMPLETE",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "algebra_geometry",
+                    "conduction_resistance",
+                    "convection_and_fins",
+                    "heat_exchanger_performance",
+                    "heat_transfer",
+                    "radiation"
+                ],
+                "distinct_content_family_count": 6,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 3,
+                "safe_headroom_max": 6,
+                "allowed_scope": [
+                    "classical heat-transfer principles and stated heat-exchanger calculations"
+                ],
+                "excluded_scope": [
+                    "current pressure-equipment design codes and vendor-specific guarantees"
+                ],
+                "limitations": [
+                    "Material-property data and current equipment standards must be verified when itemized."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 6,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "d6d29a457f64f67945756b4c2e3d90800182b6185a2bbddff9996d68ed98426a"
+            },
+            {
+                "leaf_id": "b644-me-hvac-refrigeration",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "power-plant-engineering",
+                "leaf_name": "Refrigeration, Air Conditioning, and Psychrometric Loads",
+                "current_question_count": 19,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 1,
+                "source_ids": [
+                    "openstax-university-physics-volume-1",
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-act-8495",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013",
+                    "ubc-introduction-engineering-thermodynamics"
+                ],
+                "source_count": 8,
+                "primary_source_count": 5,
+                "source_authority": "ADEQUATE",
+                "source_currentness": "CURRENT_WITH_LIMITS",
+                "source_scope_fit": "PARTIAL",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-6",
+                    "me-material-9"
+                ],
+                "study_material_count": 2,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "cooling_loads",
+                    "humidity_control",
+                    "psychrometric_interpretation",
+                    "refrigeration_cycle",
+                    "refrigeration_performance",
+                    "thermodynamic_systems"
+                ],
+                "distinct_content_family_count": 6,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 0,
+                "safe_headroom_max": 0,
+                "allowed_scope": [
+                    "stable refrigeration-cycle and basic HVAC technical principles are study-supported but not authorable until direct MELE scope is confirmed"
+                ],
+                "excluded_scope": [
+                    "all new HVAC/refrigeration question authoring pending direct MELE scope confirmation",
+                    "refrigerant restrictions, current HVAC codes, fire/life-safety requirements, and specialty certification"
+                ],
+                "limitations": [
+                    "R.A. 8495 defines HVAC/refrigeration equipment and professional practice, but that does not establish MELE exam scope.",
+                    "The 2024 Certified Plant Mechanic HVAC TOS and 2025 advanced-PME HVAC specialization are different examination/credential regimes and are not used as MELE scope evidence.",
+                    "The 2026 MELE program does not name HVAC; the publicly located detailed TOS has no explicit HVAC subarea crosswalk for this leaf."
+                ],
+                "readiness": "REVIEW",
+                "readiness_reason": "Technical study support is sufficient for stable HVAC principles, but the official MELE scope linkage remains materially unresolved.",
+                "review_reason": "No direct current PRC MELE scope confirmation was found for this BoardPrep-derived HVAC leaf. The professional-practice definition and separate CPM/advanced-PME scope documents cannot substitute for MELE exam-scope evidence.",
+                "defer_reason": "",
+                "max_new_questions": 0,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "6adc9d8f8d3d7479c3d5e906b511a449f2ff93eba7117e6e29fc22630d714eb7"
+            },
+            {
+                "leaf_id": "b644-me-hydroelectric-plants",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "power-plant-engineering",
+                "leaf_name": "Hydroelectric and Hydraulic Power Plants",
+                "current_question_count": 1,
+                "deficit_to_5": 4,
+                "deficit_to_10": 9,
+                "deficit_to_20": 19,
+                "source_ids": [
+                    "openstax-university-physics-volume-1",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013",
+                    "ubc-introduction-engineering-thermodynamics"
+                ],
+                "source_count": 6,
+                "primary_source_count": 4,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-5",
+                    "me-material-8"
+                ],
+                "study_material_count": 2,
+                "study_coverage": "PARTIAL",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "cycles_engines",
+                    "hydraulic_head_power",
+                    "plant_efficiency",
+                    "site_and_flow_interpretation"
+                ],
+                "distinct_content_family_count": 4,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 4,
+                "allowed_scope": [
+                    "basic hydraulic power and plant-energy relationships"
+                ],
+                "excluded_scope": [
+                    "dam safety, water rights, and current environmental permitting"
+                ],
+                "limitations": [
+                    "Existing study material covers energy and fluid principles but is not a hydroelectric-plant design manual."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 4,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "408fb94e46f7ac7697775b445d73f749dfc13ed9deaf76c5ee9b57633bb62d79"
+            },
+            {
+                "leaf_id": "b644-me-internal-combustion-engines",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "power-plant-engineering",
+                "leaf_name": "Internal-Combustion Engines and Diesel Plants",
+                "current_question_count": 5,
+                "deficit_to_5": 0,
+                "deficit_to_10": 5,
+                "deficit_to_20": 15,
+                "source_ids": [
+                    "open-mechanical-design-manufacturing",
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013",
+                    "ubc-introduction-engineering-thermodynamics"
+                ],
+                "source_count": 7,
+                "primary_source_count": 4,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-8"
+                ],
+                "study_material_count": 1,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "brake_power",
+                    "cycles_engines",
+                    "diesel_plant_selection",
+                    "engine_cycles",
+                    "engine_efficiency"
+                ],
+                "distinct_content_family_count": 5,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 5,
+                "allowed_scope": [
+                    "fundamental engine and diesel-plant performance"
+                ],
+                "excluded_scope": [
+                    "emissions compliance and current engine certification"
+                ],
+                "limitations": [
+                    "Emission and fuel-quality requirements are not covered by the linked study sources."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 5,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "ad5ad136be95c2619cf664754c2d928bc01e8e0c15cbac4800547f62f0d80a06"
+            },
+            {
+                "leaf_id": "b644-me-machine-design-stress-analysis",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "machine-design-materials-shop-practice",
+                "leaf_name": "Machine-Design Stress Analysis and Combined Loading",
+                "current_question_count": 17,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 3,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-mechanical-design-manufacturing",
+                    "openstax-calculus-volume-1",
+                    "openstax-university-physics-volume-1",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 8,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-10",
+                    "me-material-4"
+                ],
+                "study_material_count": 3,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "algebra_geometry",
+                    "combined_loading",
+                    "design_factor",
+                    "preliminary_member_sizing",
+                    "simple_design_stress",
+                    "stress_concentration",
+                    "stress_strain"
+                ],
+                "distinct_content_family_count": 7,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 4,
+                "allowed_scope": [
+                    "bounded design stress analysis and combined-load calculations in the published Machine Design TOS"
+                ],
+                "excluded_scope": [
+                    "current code allowables, certified design, and unsourced safety factors"
+                ],
+                "limitations": [
+                    "Use only stated loads, geometry, material values, and criteria; this is not a professional design approval."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 4,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "ad969291df4e2987e9413f1ac51503ce809fc3ba0e5e8382a526e841deee78d7"
+            },
+            {
+                "leaf_id": "b644-me-machine-power-transmission",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "machine-design-materials-shop-practice",
+                "leaf_name": "Machine Elements and Mechanical Power Transmission",
+                "current_question_count": 31,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 0,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-mechanical-design-manufacturing",
+                    "openstax-calculus-volume-1",
+                    "openstax-university-physics-volume-1",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013",
+                    "ubc-introduction-engineering-thermodynamics"
+                ],
+                "source_count": 9,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "STRONG",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-10",
+                    "me-material-11",
+                    "me-material-4",
+                    "me-material-8"
+                ],
+                "study_material_count": 5,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "belt_chain_drive",
+                    "brake_clutch_capacity",
+                    "component_selection",
+                    "fasteners_and_joints",
+                    "gear_force_and_ratio",
+                    "machine_power",
+                    "shaft_power_and_torque",
+                    "spring_and_flywheel_energy"
+                ],
+                "distinct_content_family_count": 8,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 3,
+                "safe_headroom_max": 6,
+                "allowed_scope": [
+                    "fundamental machine-element relationships and stated component models"
+                ],
+                "excluded_scope": [
+                    "unsourced design standards, proprietary ratings, and code-certified component design"
+                ],
+                "limitations": [
+                    "Do not conflate power transmission ratios with fatigue, lubrication, or bearing-life assessment."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 6,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "6a94af8492f5f25fb3ee92dce3580ffc27ab250dc2df9e7ec7e6c99d7281ed1c"
+            },
+            {
+                "leaf_id": "b644-me-manufacturing-shop-practice",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "machine-design-materials-shop-practice",
+                "leaf_name": "Manufacturing, Machining, and Shop Practice",
+                "current_question_count": 17,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 3,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-manufacturing-processes-4-5",
+                    "open-mechanical-design-manufacturing",
+                    "openstax-calculus-volume-1",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 8,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "CURRENT_WITH_LIMITS",
+                "source_scope_fit": "STRONG",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-12"
+                ],
+                "study_material_count": 2,
+                "study_coverage": "COMPLETE",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "algebra_geometry",
+                    "cnc_setup",
+                    "joining_and_heat_treatment",
+                    "machine_power",
+                    "machining_parameters",
+                    "manufacturing",
+                    "shop_process_selection"
+                ],
+                "distinct_content_family_count": 7,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 3,
+                "safe_headroom_max": 6,
+                "allowed_scope": [
+                    "fundamental manufacturing processes and calculations represented by the open textbook"
+                ],
+                "excluded_scope": [
+                    "current machine safety code, regulated welding certification, and machine-specific procedures"
+                ],
+                "limitations": [
+                    "Use process assumptions and conversions shown; certification/safety rules require current official references."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 6,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "8aaf466be1b579a390327ff552ee01a0b8d5913a66176feba4296bef0cc84330"
+            },
+            {
+                "leaf_id": "b644-me-materials-properties",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "machine-design-materials-shop-practice",
+                "leaf_name": "Engineering Materials and Property-Based Selection",
+                "current_question_count": 3,
+                "deficit_to_5": 2,
+                "deficit_to_10": 7,
+                "deficit_to_20": 17,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-mechanical-design-manufacturing",
+                    "openstax-university-physics-volume-1",
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 7,
+                "primary_source_count": 4,
+                "source_authority": "STRONG",
+                "source_currentness": "CURRENT_WITH_LIMITS",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-10",
+                    "me-material-2",
+                    "me-material-4"
+                ],
+                "study_material_count": 3,
+                "study_coverage": "PARTIAL",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "failure_mode_comparison",
+                    "material_selection",
+                    "property_interpretation"
+                ],
+                "distinct_content_family_count": 3,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 4,
+                "allowed_scope": [
+                    "general materials behavior and explicitly supplied material properties"
+                ],
+                "excluded_scope": [
+                    "current alloy specifications, heat-treatment schedules, and certification requirements not sourced"
+                ],
+                "limitations": [
+                    "Use generic property relationships only; standard-specific grades require a current primary source."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 4,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "cb8dc317c86bf313125235fadae390dffe83c1636758bc926bad7c9b982631d0"
+            },
+            {
+                "leaf_id": "b644-me-math-algebra-trigonometry",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "mathematics",
+                "leaf_name": "Algebra and Plane Trigonometry",
+                "current_question_count": 12,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 8,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-mechanical-design-manufacturing",
+                    "openstax-calculus-volume-1",
+                    "openstax-university-physics-volume-1",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 8,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-10",
+                    "me-material-11",
+                    "me-material-14"
+                ],
+                "study_material_count": 4,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "algebra_geometry",
+                    "algebraic_solution",
+                    "equation_interpretation",
+                    "machine_power",
+                    "statistics",
+                    "trigonometric_relationship"
+                ],
+                "distinct_content_family_count": 6,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 3,
+                "safe_headroom_max": 6,
+                "allowed_scope": [
+                    "elementary algebra and plane trigonometry within the public PRC TOS"
+                ],
+                "excluded_scope": [
+                    "advanced topics not supported by the public TOS"
+                ],
+                "limitations": [
+                    "The detailed public TOS is Resolution 57 (2013); the 2026 program retains the Mathematics area but publishes no detailed replacement TOS."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 6,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "d1b09344ae602aa3ce874acff19128cf056bc7b50b0c91c76b7481161af58c94"
+            },
+            {
+                "leaf_id": "b644-me-math-analytic-geometry",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "mathematics",
+                "leaf_name": "Analytic Geometry and Mensuration",
+                "current_question_count": 3,
+                "deficit_to_5": 2,
+                "deficit_to_10": 7,
+                "deficit_to_20": 17,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "openstax-calculus-volume-1",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 6,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1"
+                ],
+                "study_material_count": 1,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "algebra_geometry",
+                    "geometric_modeling",
+                    "geometric_optimization",
+                    "measurement_and_geometry"
+                ],
+                "distinct_content_family_count": 4,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 5,
+                "allowed_scope": [
+                    "regular-shape mensuration and analytic geometry"
+                ],
+                "excluded_scope": [
+                    "surveying standards and code-based geometric tolerances"
+                ],
+                "limitations": [
+                    "Use only the mathematical scope represented in the published TOS."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 5,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "ff4ff064cf863e0f4960091e4848583c95782c370b27b02027cefe304c6ad800"
+            },
+            {
+                "leaf_id": "b644-me-math-calculus-models",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "mathematics",
+                "leaf_name": "Calculus, Optimization, and Differential-Equation Models",
+                "current_question_count": 8,
+                "deficit_to_5": 0,
+                "deficit_to_10": 2,
+                "deficit_to_20": 12,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-mechanical-design-manufacturing",
+                    "openstax-calculus-volume-1",
+                    "openstax-university-physics-volume-1",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 8,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "STRONG",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-4"
+                ],
+                "study_material_count": 2,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "accumulation",
+                    "calculus",
+                    "differential_equation_model",
+                    "manufacturing",
+                    "optimization",
+                    "rate_of_change"
+                ],
+                "distinct_content_family_count": 6,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 3,
+                "safe_headroom_max": 6,
+                "allowed_scope": [
+                    "calculus and elementary engineering-model interpretation"
+                ],
+                "excluded_scope": [
+                    "numerical design beyond supplied model assumptions"
+                ],
+                "limitations": [
+                    "Model assumptions and units must be explicit; no unsupported professional design inference."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 6,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "97dac6d4ee7aa68965bdeabb997c9ac6bb7f6ee9af2f41059b3110a16122f96b"
+            },
+            {
+                "leaf_id": "b644-me-math-statistics-numerical-methods",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "mathematics",
+                "leaf_name": "Probability, Statistics, and Numerical Interpretation",
+                "current_question_count": 12,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 8,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "openstax-calculus-volume-1",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 6,
+                "primary_source_count": 5,
+                "source_authority": "ADEQUATE",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "PARTIAL",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-13",
+                    "me-material-14"
+                ],
+                "study_material_count": 3,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "descriptive_statistics",
+                    "interpolation_and_approximation",
+                    "probability",
+                    "regression_diagnostics",
+                    "sampling_uncertainty",
+                    "statistics"
+                ],
+                "distinct_content_family_count": 6,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 5,
+                "allowed_scope": [
+                    "basic probability/statistical reasoning and source-supported measurement interpretation"
+                ],
+                "excluded_scope": [
+                    "advanced statistical inference, quality-code limits, and unsupported reliability certification"
+                ],
+                "limitations": [
+                    "The current program names Mathematics; the 2013 TOS does not separately enumerate statistics/numerical methods."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 5,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "f1240d251bccd4656c489cc4f2afe8e51d27d93d15b86e2034f0405970689f7d"
+            },
+            {
+                "leaf_id": "b644-me-math-vectors-linear-algebra",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "mathematics",
+                "leaf_name": "Vectors, Matrices, and Linear Systems",
+                "current_question_count": 19,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 1,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "openstax-calculus-volume-1",
+                    "openstax-university-physics-volume-1",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 7,
+                "primary_source_count": 5,
+                "source_authority": "ADEQUATE",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "PARTIAL",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-2"
+                ],
+                "study_material_count": 2,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "algebra_geometry",
+                    "linear_system_interpretation",
+                    "matrix_operation",
+                    "vector_resolution"
+                ],
+                "distinct_content_family_count": 4,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 5,
+                "allowed_scope": [
+                    "elementary vectors and linear algebra directly represented by existing material"
+                ],
+                "excluded_scope": [
+                    "advanced numerical linear algebra and control design"
+                ],
+                "limitations": [
+                    "The detailed public TOS does not enumerate advanced matrices/eigenanalysis; remain bounded to foundational applications."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 5,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "848acb9a2f959c1b35fdbf2fabce304ad91a5e95781e911245adc66ea35774de"
+            },
+            {
+                "leaf_id": "b644-me-me-law-code-ethics",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "mathematics",
+                "leaf_name": "Mechanical Engineering Law, Code, and Professional Ethics",
+                "current_question_count": 0,
+                "deficit_to_5": 5,
+                "deficit_to_10": 10,
+                "deficit_to_20": 20,
+                "source_ids": [
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-act-8495",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-irr-ra8495-resolution-16-1998",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 6,
+                "primary_source_count": 6,
+                "source_authority": "STRONG",
+                "source_currentness": "CURRENT_WITH_LIMITS",
+                "source_scope_fit": "PARTIAL",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-18"
+                ],
+                "study_material_count": 1,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 1,
+                "supported_depth_max": 3,
+                "distinct_content_families": [
+                    "board_authority",
+                    "licensure_boundary",
+                    "statutory_scope"
+                ],
+                "distinct_content_family_count": 3,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 4,
+                "allowed_scope": [
+                    "Board, examination, registration, and licensure powers stated in R.A. 8495 and its PRC-linked IRR",
+                    "statutory practice and equipment definitions under R.A. 8495",
+                    "the current MELE subject areas/weights and bounded historical TOS crosswalk"
+                ],
+                "excluded_scope": [
+                    "Commonwealth Act 294 / R.A. 5336 provisions repealed by R.A. 8495",
+                    "detailed ethics canons without a current official code text",
+                    "legal advice or unsourced interpretations",
+                    "technical standards and clause-level obligations not linked by an active PRC source"
+                ],
+                "limitations": [
+                    "PRC currently links R.A. 8495 and Resolution 16 (s. 1998) as the IRR. Board Resolution No. 06 (s. 2003) is identified in secondary copies as an ethics-code adoption, but the current official PRC page supplies no active code text/effectivity record; detailed canons are excluded.",
+                    "The 2013 detailed TOS remains the last located detailed MELE specification; the 2026 program supplies only the three subject areas and weights."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "The current official statute, currently PRC-linked IRR, current MELE program, and dedicated legal study material support a narrow statutory/licensure subset; detailed ethics content remains excluded.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 4,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "48bfcb5d01957667943def3e0d10076f5c5c4dc627c380dc14fa8bf509f9d4ea"
+            },
+            {
+                "leaf_id": "b644-me-mechanism-kinematics",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "machine-design-materials-shop-practice",
+                "leaf_name": "Mechanism Kinematics and Gear Trains",
+                "current_question_count": 3,
+                "deficit_to_5": 2,
+                "deficit_to_10": 7,
+                "deficit_to_20": 17,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-mechanical-design-manufacturing",
+                    "openstax-calculus-volume-1",
+                    "openstax-university-physics-volume-1",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 8,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-10",
+                    "me-material-11"
+                ],
+                "study_material_count": 3,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "cam_motion",
+                    "gear_train_ratio",
+                    "linkage_kinematics",
+                    "machine_power",
+                    "mechanism_function"
+                ],
+                "distinct_content_family_count": 5,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 5,
+                "allowed_scope": [
+                    "mechanism and gear-train analysis represented by the public TOS"
+                ],
+                "excluded_scope": [
+                    "automated multibody simulation and proprietary gear standards"
+                ],
+                "limitations": [
+                    "Distinguish kinematic ratio from component strength or transmission capacity."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 5,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "aeed28eda239246423398a93d35ec83186766cde3bd806bbc8594394262f457c"
+            },
+            {
+                "leaf_id": "b644-me-power-cycles",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "power-plant-engineering",
+                "leaf_name": "Power Cycles and Cycle Performance",
+                "current_question_count": 19,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 1,
+                "source_ids": [
+                    "open-mechanical-design-manufacturing",
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013",
+                    "ubc-introduction-engineering-thermodynamics"
+                ],
+                "source_count": 7,
+                "primary_source_count": 4,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-6",
+                    "me-material-8"
+                ],
+                "study_material_count": 2,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "cycle_efficiency",
+                    "cycles_engines",
+                    "otto_diesel_cycles",
+                    "rankine_brayton_cycles",
+                    "regeneration_and_reheat"
+                ],
+                "distinct_content_family_count": 5,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 5,
+                "allowed_scope": [
+                    "idealized cycle analysis and performance interpretation"
+                ],
+                "excluded_scope": [
+                    "plant performance guarantees and current equipment codes"
+                ],
+                "limitations": [
+                    "Keep idealized Otto, Diesel, Brayton, and Rankine assumptions separate."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 5,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "c5fedf12eee0f1b3460481958baa2b4fd8ec2cea54c9276756b81b89ed8c4c95"
+            },
+            {
+                "leaf_id": "b644-me-power-fuels-combustion",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "power-plant-engineering",
+                "leaf_name": "Power-Plant Fuels and Combustion",
+                "current_question_count": 3,
+                "deficit_to_5": 2,
+                "deficit_to_10": 7,
+                "deficit_to_20": 17,
+                "source_ids": [
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013",
+                    "ubc-introduction-engineering-thermodynamics"
+                ],
+                "source_count": 6,
+                "primary_source_count": 4,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-6",
+                    "me-material-8"
+                ],
+                "study_material_count": 2,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "combustion_balance",
+                    "excess_air",
+                    "fuel_properties"
+                ],
+                "distinct_content_family_count": 3,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 4,
+                "allowed_scope": [
+                    "fundamental fuel and combustion calculations/interpretation within the published TOS"
+                ],
+                "excluded_scope": [
+                    "current emissions limits, fuel regulations, and plant-specific standards not separately sourced"
+                ],
+                "limitations": [
+                    "Use stated fuel composition and idealization; current emissions requirements are outside this leaf."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 4,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "2e39424ad443499549f5d93f2f2f012e0bc8b54c5f25414811edfd7737ffa094"
+            },
+            {
+                "leaf_id": "b644-me-power-load-performance",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "power-plant-engineering",
+                "leaf_name": "Power-Plant Variable Load and Performance",
+                "current_question_count": 4,
+                "deficit_to_5": 1,
+                "deficit_to_10": 6,
+                "deficit_to_20": 16,
+                "source_ids": [
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013",
+                    "ubc-introduction-engineering-thermodynamics"
+                ],
+                "source_count": 6,
+                "primary_source_count": 4,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-8"
+                ],
+                "study_material_count": 1,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "load_profile",
+                    "output_and_performance",
+                    "plant_efficiency"
+                ],
+                "distinct_content_family_count": 3,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 4,
+                "allowed_scope": [
+                    "bounded plant-load and performance interpretation"
+                ],
+                "excluded_scope": [
+                    "grid-code compliance and current dispatch regulation"
+                ],
+                "limitations": [
+                    "Do not infer current grid or environmental requirements from generic thermodynamic sources."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 4,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "d42fb8f4c82cecc0b57f653c95b5983ecae9427523bf6ca3d6b5d1199d87d477"
+            },
+            {
+                "leaf_id": "b644-me-pressure-components",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "machine-design-materials-shop-practice",
+                "leaf_name": "Pressure-Containing Components and Thin-Walled Stress",
+                "current_question_count": 0,
+                "deficit_to_5": 5,
+                "deficit_to_10": 10,
+                "deficit_to_20": 20,
+                "source_ids": [
+                    "mit-thin-walled-pressure-vessels",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 5,
+                "primary_source_count": 4,
+                "source_authority": "ADEQUATE",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "PARTIAL",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-17"
+                ],
+                "study_material_count": 1,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 3,
+                "distinct_content_families": [
+                    "hoop_and_longitudinal_stress",
+                    "pressure_boundary_force_balance",
+                    "pressure_component_interpretation",
+                    "thin_wall_assumption"
+                ],
+                "distinct_content_family_count": 4,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 4,
+                "allowed_scope": [
+                    "introductory thin-walled cylindrical shell equilibrium and hoop/longitudinal stress with supplied geometry, pressure, material assumptions, and idealization"
+                ],
+                "excluded_scope": [
+                    "pressure-vessel/piping code design, code allowables, joint efficiency, corrosion allowance, certification, and inspection rules",
+                    "steel-tube, flat-plate, and pipe/fitting design beyond the supported thin-wall cylinder model"
+                ],
+                "limitations": [
+                    "PRC Resolution 57 (2013) names multiple pressure-related subareas, while the technical source supports only introductory thin-walled cylindrical mechanics.",
+                    "The 2026 program does not restate detailed subareas; no current code-design coverage is inferred."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "MIT OpenCourseWare mechanics and the existing focused study note are sufficient for a limited thin-walled-cylinder subset; unsupported tube/plate/fitting and code design remain excluded.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 4,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "6c3104beca17b67c34ea71c8573c87d2fd7afe78a60ae16fb9eb17394ced53c7"
+            },
+            {
+                "leaf_id": "b644-me-production-systems",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "machine-design-materials-shop-practice",
+                "leaf_name": "Industrial Production, Capacity, and Inventory Systems",
+                "current_question_count": 9,
+                "deficit_to_5": 0,
+                "deficit_to_10": 1,
+                "deficit_to_20": 11,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-manufacturing-processes-4-5",
+                    "open-mechanical-design-manufacturing",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 7,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "STRONG",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-12",
+                    "me-material-13",
+                    "me-material-14"
+                ],
+                "study_material_count": 3,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "bottleneck_and_throughput",
+                    "cycles_engines",
+                    "inventory_control",
+                    "production_flow",
+                    "production_systems",
+                    "reliability",
+                    "stress_strain",
+                    "takt_and_capacity"
+                ],
+                "distinct_content_family_count": 8,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 4,
+                "allowed_scope": [
+                    "bounded operations and production reasoning in a mechanical manufacturing context"
+                ],
+                "excluded_scope": [
+                    "unverified industrial safety or sector-specific labor standards"
+                ],
+                "limitations": [
+                    "Economic models retain their stated assumptions; do not generalize an EOQ result beyond the modeled system."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 4,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "03b57a6386f94f5c2698e5245f91e2a6a027f893a941243d3b6053ca686fc8f4"
+            },
+            {
+                "leaf_id": "b644-me-quality-reliability-maintenance",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "machine-design-materials-shop-practice",
+                "leaf_name": "Quality, Reliability, and Maintenance Engineering",
+                "current_question_count": 29,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 0,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-manufacturing-processes-4-5",
+                    "open-mechanical-design-manufacturing",
+                    "openstax-calculus-volume-1",
+                    "openstax-university-physics-volume-1",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 9,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "STRONG",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-10",
+                    "me-material-12",
+                    "me-material-13",
+                    "me-material-14"
+                ],
+                "study_material_count": 5,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "availability_and_mtbf",
+                    "condition_monitoring",
+                    "maintenance_strategy",
+                    "manufacturing",
+                    "process_quality",
+                    "reliability",
+                    "reliability_models",
+                    "statistics"
+                ],
+                "distinct_content_family_count": 8,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 3,
+                "safe_headroom_max": 6,
+                "allowed_scope": [
+                    "reliability/maintenance reasoning and basic models explicitly stated in linked sources"
+                ],
+                "excluded_scope": [
+                    "regulated safety certification, manufacturer limits, and code-based inspection intervals"
+                ],
+                "limitations": [
+                    "Failure-model conclusions are valid only under stated distribution/constant-rate assumptions."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 6,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "983a7517e5e5c95ea4ccf5587ccaf0c0a3d8f3ef21268c3ed7dc8fed1b5a1a23"
+            },
+            {
+                "leaf_id": "b644-me-shop-safety-practice",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "machine-design-materials-shop-practice",
+                "leaf_name": "Mechanical Shop Safety and Energy-Control Practice",
+                "current_question_count": 4,
+                "deficit_to_5": 1,
+                "deficit_to_10": 6,
+                "deficit_to_20": 16,
+                "source_ids": [
+                    "dole-bwc-workplace-electrical-safety",
+                    "dole-do-252-25-osh-revised-irr-ra-11058",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-act-8495",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013",
+                    "ra-11058-occupational-safety"
+                ],
+                "source_count": 8,
+                "primary_source_count": 8,
+                "source_authority": "STRONG",
+                "source_currentness": "CURRENT_WITH_LIMITS",
+                "source_scope_fit": "PARTIAL",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-19"
+                ],
+                "study_material_count": 1,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 3,
+                "distinct_content_families": [
+                    "energy_isolation",
+                    "hazard_recognition",
+                    "machine_guarding",
+                    "safe_maintenance_decision",
+                    "stored_energy_control",
+                    "worker_rights_and_reporting"
+                ],
+                "distinct_content_family_count": 6,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 4,
+                "allowed_scope": [
+                    "high-level worker information, hazard-reporting, and unsafe-work protections under R.A. 11058 and current D.O. 252-25",
+                    "isolation, stored-energy control, and verification reasoning when no equipment-specific sequence is inferred",
+                    "stable shop hazard recognition and general safeguards"
+                ],
+                "excluded_scope": [
+                    "exact lockout/tagout sequence unless supplied by a current applicable procedure",
+                    "machine-specific guard design and technical standards",
+                    "numerical penalties, detailed establishment classification, or sector-specific requirements not needed for the scenario",
+                    "obsolete D.O. 198-18 thresholds or obligations"
+                ],
+                "limitations": [
+                    "D.O. 252-25 is the current revised IRR, effective 2025-05-16; prior D.O. 198-18 is superseded.",
+                    "The public MELE program includes Shop Practice within the 30% subject but does not publish a separate safety subarea; keep authoring at the general shop-practice level and avoid claiming an explicit PRC safety subarea."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Current DOLE/BWC authority, R.A. 11058, and focused study synthesis support a limited general shop-safety subset with explicit regulatory and procedural exclusions.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 4,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "ea0dac72206a088187e35b5eed35f987f84712029b05ea1c27c9e735b2f993a4"
+            },
+            {
+                "leaf_id": "b644-me-stability-fatigue",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "machine-design-materials-shop-practice",
+                "leaf_name": "Column Stability, Variable Loading, and Fatigue",
+                "current_question_count": 12,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 8,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-mechanical-design-manufacturing",
+                    "openstax-calculus-volume-1",
+                    "openstax-university-physics-volume-1",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 8,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-10",
+                    "me-material-4"
+                ],
+                "study_material_count": 3,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "column_buckling",
+                    "fatigue_design",
+                    "stress_concentration",
+                    "stress_strain",
+                    "variable_loading"
+                ],
+                "distinct_content_family_count": 5,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 4,
+                "allowed_scope": [
+                    "ideal elastic-column and stated fatigue models"
+                ],
+                "excluded_scope": [
+                    "certified life prediction, code-required safety factors, and unsourced material allowables"
+                ],
+                "limitations": [
+                    "Fatigue or Euler results remain conditional on idealized loads, end conditions, material, and environment."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 4,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "52efa2908819b99a110534be276b9166211ec260866ef4f608bb3e1551484bf1"
+            },
+            {
+                "leaf_id": "b644-me-steam-power-boilers",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "power-plant-engineering",
+                "leaf_name": "Steam Power Plants, Boilers, and Auxiliaries",
+                "current_question_count": 6,
+                "deficit_to_5": 0,
+                "deficit_to_10": 4,
+                "deficit_to_20": 14,
+                "source_ids": [
+                    "open-mechanical-design-manufacturing",
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013",
+                    "ubc-introduction-engineering-thermodynamics"
+                ],
+                "source_count": 7,
+                "primary_source_count": 4,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-6",
+                    "me-material-8"
+                ],
+                "study_material_count": 2,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "boiler_components",
+                    "cycles_engines",
+                    "feedwater_auxiliaries",
+                    "plant_component_function",
+                    "steam_plant_cycle",
+                    "thermodynamics"
+                ],
+                "distinct_content_family_count": 6,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 5,
+                "allowed_scope": [
+                    "fundamental steam-plant and boiler component principles"
+                ],
+                "excluded_scope": [
+                    "boiler inspection code, statutory pressure limits, and current inspection procedures"
+                ],
+                "limitations": [
+                    "Pressure-vessel and boiler compliance requires current Philippine code sources not present in the study chain."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 5,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "a47193472873a56e97b647f1257c7295d16039fc4bde1c708cd6c7692c93a239"
+            },
+            {
+                "leaf_id": "b644-me-strength-materials",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "mathematics",
+                "leaf_name": "Strength of Materials: Stress, Strain, and Deformation",
+                "current_question_count": 25,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 0,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-mechanical-design-manufacturing",
+                    "openstax-calculus-volume-1",
+                    "openstax-university-physics-volume-1",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 8,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-10",
+                    "me-material-4"
+                ],
+                "study_material_count": 3,
+                "study_coverage": "COMPLETE",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "algebra_geometry",
+                    "axial_stress_strain",
+                    "deflection",
+                    "stress_strain",
+                    "thermal_stress",
+                    "torsion_and_bending"
+                ],
+                "distinct_content_family_count": 6,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 3,
+                "safe_headroom_max": 6,
+                "allowed_scope": [
+                    "general Strength of Materials competencies named in the PRC Mathematics TOS using stated properties"
+                ],
+                "excluded_scope": [
+                    "design-code allowables and machine-component design decisions assigned to the separate design-stress leaf"
+                ],
+                "limitations": [
+                    "The PRC TOS separately tests stress analysis/combined loading under Machine Design; only general material-response items belong here."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 6,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "a6f7089f11c96b5734488121fc120e6ad9762505075c7333c8a9c1d24c65c760"
+            },
+            {
+                "leaf_id": "b644-me-thermodynamics",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "mathematics",
+                "leaf_name": "Thermodynamic Principles and State/Energy Analysis",
+                "current_question_count": 30,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 0,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-mechanical-design-manufacturing",
+                    "openstax-calculus-volume-1",
+                    "openstax-university-physics-volume-1",
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013",
+                    "ubc-introduction-engineering-thermodynamics"
+                ],
+                "source_count": 10,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "NOT_TIME_SENSITIVE",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-5",
+                    "me-material-6",
+                    "me-material-8"
+                ],
+                "study_material_count": 4,
+                "study_coverage": "COMPLETE",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "closed_system_energy",
+                    "cycles_engines",
+                    "entropy_and_irreversibility",
+                    "fluid_flow",
+                    "state_properties",
+                    "steady_flow_energy",
+                    "thermodynamics"
+                ],
+                "distinct_content_family_count": 7,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 3,
+                "safe_headroom_max": 6,
+                "allowed_scope": [
+                    "classical thermodynamic principles and energy balances with declared assumptions"
+                ],
+                "excluded_scope": [
+                    "refrigerant-code compliance, plant cycle design, and current equipment certification"
+                ],
+                "limitations": [
+                    "Stable principles are time-insensitive; plant-cycle or plant-component application belongs in its corresponding Power Plant Engineering competency."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 6,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "de059ec1fb83d5f4ca217b893130ec78917eb912bd6743183403f200347e15a7"
+            },
+            {
+                "leaf_id": "b644-me-tolerances-metrology",
+                "board_id": "mechanical-engineering",
+                "official_area_id": "machine-design-materials-shop-practice",
+                "leaf_name": "Tolerances, Fits, Measurement, and Metrology",
+                "current_question_count": 11,
+                "deficit_to_5": 0,
+                "deficit_to_10": 0,
+                "deficit_to_20": 9,
+                "source_ids": [
+                    "nist-semtech-engineering-statistics-handbook",
+                    "open-manufacturing-processes-4-5",
+                    "open-mechanical-design-manufacturing",
+                    "openstax-calculus-volume-1",
+                    "openstax-university-physics-volume-1",
+                    "openstax-university-physics-volume-2",
+                    "prc-mechanical-engineering-2026-program",
+                    "prc-mechanical-engineering-board-page",
+                    "prc-mechanical-engineering-tos-adoption-notice-2013",
+                    "prc-mechanical-engineering-tos-resolution-57-2013"
+                ],
+                "source_count": 10,
+                "primary_source_count": 5,
+                "source_authority": "STRONG",
+                "source_currentness": "CURRENT_WITH_LIMITS",
+                "source_scope_fit": "DIRECT",
+                "source_conflict_status": "NONE",
+                "study_material_ids": [
+                    "me-material-1",
+                    "me-material-12",
+                    "me-material-14",
+                    "me-material-2",
+                    "me-material-5"
+                ],
+                "study_material_count": 5,
+                "study_coverage": "SUFFICIENT",
+                "study_source_traceability": "COMPLETE",
+                "supported_depth_min": 2,
+                "supported_depth_max": 4,
+                "distinct_content_families": [
+                    "fits_and_allowances",
+                    "fluid_flow",
+                    "machine_power",
+                    "manufacturing",
+                    "measurement_and_calibration",
+                    "measurement_uncertainty",
+                    "metrology",
+                    "tolerance_stack_up"
+                ],
+                "distinct_content_family_count": 8,
+                "safe_headroom_min": 0,
+                "safe_headroom_preferred": 2,
+                "safe_headroom_max": 5,
+                "allowed_scope": [
+                    "tolerance/measurement calculations and calibration interpretation under stated conventions"
+                ],
+                "excluded_scope": [
+                    "current ISO/ASME fit classes and legal calibration accreditation requirements unless explicitly sourced"
+                ],
+                "limitations": [
+                    "Do not infer a formal tolerance class or accreditation status from nominal dimensions alone."
+                ],
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_reason": "Authoring is bounded to the explicit PRC crosswalk and source-supported study scope recorded for this leaf.",
+                "review_reason": "",
+                "defer_reason": "",
+                "max_new_questions": 5,
+                "planned_new_questions": 0,
+                "reviewed_at_batch": 646,
+                "evidence_hash": "b84c9bae8dc62b063c3fb26b39d15e86ba853ae31e734a039a9b5ebf43f7a31d"
+            }
+        ],
+        "all_records_validated_by_permanent_service": true
     },
     "taxonomy_and_questions": {
         "canonical": 464,
@@ -9078,8 +12093,8 @@
         "eligibility": "PASS_NO_CONTENT_OR_ELIGIBILITY_MUTATION"
     },
     "determinism": {
-        "audit_hash": "851a3ec9a77442fb6adb252417dcaaff1c3e1c742ccf3802ce462cd8e1f75d71",
-        "second_audit_hash": "851a3ec9a77442fb6adb252417dcaaff1c3e1c742ccf3802ce462cd8e1f75d71",
+        "audit_hash": "f694ac3ba89ad2ce38f8e854fd47c12e42d6196069ab9b26866300002f331d16",
+        "second_audit_hash": "f694ac3ba89ad2ce38f8e854fd47c12e42d6196069ab9b26866300002f331d16",
         "audit_identical": "YES",
         "five_leaf_readiness_identical": true,
         "source_ids_identical": true,
