@@ -218658,5 +218658,59 @@
                 }
             ]
         }
+    },
+    {
+        "id": "question-reuse-8948",
+        "question_id": "8948",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 2,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch652-let-close-cse-readiness:cse652-343caf16b5e3dc75",
+                    "note": "Batch653 uses exact Batch652 scope, source, study, depth, level applicability and proposition authority.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8949",
+        "question_id": "8949",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 2,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch652-let-close-cse-readiness:cse652-e85215ed9fef916f",
+                    "note": "Batch653 uses exact Batch652 scope, source, study, depth, level applicability and proposition authority.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8950",
+        "question_id": "8950",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 2,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch652-let-close-cse-readiness:cse652-47ac8005d7364ca2",
+                    "note": "Batch653 uses exact Batch652 scope, source, study, depth, level applicability and proposition authority.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
     }
 ]

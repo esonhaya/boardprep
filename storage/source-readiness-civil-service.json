@@ -59,12 +59,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -108,7 +108,35 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + LOGIC/STATISTICS_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "aea354c0bb2a7eb102c9c08dbc98fbdb2e80659370acd703348ab4d122007fe0",
+                "families_observed": [
+                    "category-confusion",
+                    "context-not-relation",
+                    "object-association",
+                    "object-category",
+                    "object-not-function",
+                    "opposite-action",
+                    "quantity-unit-confusion",
+                    "similar-word-not-function",
+                    "surface-association",
+                    "surface-category-match",
+                    "surface-pairing",
+                    "tool-quantity-confusion",
+                    "verb-object-confusion"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "c00096847ee3ac1e0b69e8913be5d85600fa174091aa16abd326613d41c660fc"
     },
@@ -178,12 +206,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -236,7 +264,41 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + LOGIC/STATISTICS_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "71b533093dbf7b72f17e8d0110ff9481875f85dee6f6609ab320d85f60d0780d",
+                "families_observed": [
+                    "control-as-guarantee",
+                    "correlation-as-proof",
+                    "cost-as-only-outcome",
+                    "desirable-outcome-as-assumption",
+                    "identifier-linkage-assumed",
+                    "intervention-guarantees-result",
+                    "larger-sample-as-bias-cure",
+                    "priority-lane-as-capacity",
+                    "recommendation-without-mechanism",
+                    "single-cause-assumption",
+                    "single-cause-attribution",
+                    "source-as-infallible",
+                    "surface-fix-guarantees-result",
+                    "symptom-equals-cause",
+                    "tool-guarantees-result",
+                    "training-as-default",
+                    "translation-as-guarantee",
+                    "universal-access-assumption",
+                    "universal-preference"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "b9288e51406bc58dd270b1dbc54b46b43c2c82f4247fe0270825f39638ce480a"
     },
@@ -297,12 +359,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -347,7 +409,32 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + LOGIC/STATISTICS_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "5285b9797c8ba31635c82f2684ad2103fcb8aed15412ce6354482693e6fd8c59",
+                "families_observed": [
+                    "affirming-consequent",
+                    "affirming-property",
+                    "affirming-the-consequent",
+                    "causal-overclaim",
+                    "contrapositive-reversal",
+                    "missing-necessary-condition",
+                    "necessary-condition-ignored",
+                    "necessary-condition-missed",
+                    "one-way-rule-reversal",
+                    "some-to-all"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "cd3ec55030f7a53f142e678a0439117db7f406430e5e14792fde6a4b771a1fa7"
     },
@@ -412,12 +499,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -468,7 +555,36 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + LOGIC/STATISTICS_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "459323083ff049a155ef21533760b509a0265a8c0a389263e45710ae3a7f5f58",
+                "families_observed": [
+                    "absolute-as-relative",
+                    "attendance-as-access",
+                    "confounder-ignored",
+                    "count-as-performance",
+                    "count-as-rate",
+                    "denominator-ignored",
+                    "difference-missed",
+                    "intermediate-change-as-net",
+                    "last-change-as-total",
+                    "rate-equals-total",
+                    "response-bias-ignored",
+                    "total-as-rate",
+                    "total-beats-rate",
+                    "totals-as-rate"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "8dca42b22275af6f0cb21d5e168be15f090965d312eb2c056a9067bf0f3d6d31"
     },
@@ -524,12 +640,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "The repository places this leaf under Analytical Ability, while the controlling CSC 2026 scope names number sequence under Numerical Ability; do not authorize this placement until an official crosswalk resolves the area conflict.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Current CSC scope places number sequence under Numerical Ability; this repository leaf remains under Analytical Ability. Keep quarantined; no question or mapping moved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -560,7 +676,27 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": "The repository places this leaf under Analytical Ability, while the controlling CSC 2026 scope names number sequence under Numerical Ability; do not authorize this placement until an official crosswalk resolves the area conflict."
+            "scope_blocker": "The repository places this leaf under Analytical Ability, while the controlling CSC 2026 scope names number sequence under Numerical Ability; do not authorize this placement until an official crosswalk resolves the area conflict.",
+            "batch653_review": {
+                "blocker_classes": [
+                    "OFFICIAL_AREA_MISMATCH"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + LOGIC/STATISTICS_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL"
+                ],
+                "disposition": "BLOCKED",
+                "question_ids": [],
+                "question_signature_hash": "83478883bcaaff4f5d7bc015d35768b3e3f988348d571c13e368a51784285380",
+                "families_observed": [
+                    "cycle-break",
+                    "difference-only",
+                    "off-by-one",
+                    "surface-difference",
+                    "wrong-direction"
+                ],
+                "review_summary": "Current CSC scope places number sequence under Numerical Ability; this repository leaf remains under Analytical Ability. Keep quarantined; no question or mapping moved."
+            }
         },
         "evidence_hash": "e9ddc187bd3b1079773d538f1f8a43e9f3438b78c6f843ec44e20441ff5b7f52"
     },
@@ -625,12 +761,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -670,7 +806,36 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + LOGIC/STATISTICS_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "8a79368f0f9ce8571100482cb3372354398bbf226c48e6e7a38f40cdc2f35a25",
+                "families_observed": [
+                    "apply-second-step",
+                    "carry-between-positions",
+                    "category-confusion",
+                    "context-not-relation",
+                    "leading-position-loss",
+                    "leading-zero-loss",
+                    "middle-digit-moved",
+                    "object-not-function",
+                    "one-step-shift",
+                    "partial-reversal",
+                    "reverse-entire-string",
+                    "shared-setting-not-function",
+                    "surface-association",
+                    "wraparound-confusion"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "211aca981a9c3afa45324452afe8aa8e6243e65b9c36310d693967208f155c0c"
     },
@@ -732,12 +897,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -776,7 +941,34 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + PURDUE_CLERICAL_STUDY",
+                "exam_levels": [
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "ccadd0c8d5cdcdc2fa16553408bde7cfe89415fc95e07a90a6295fe32dc6abea",
+                "families_observed": [
+                    "boundary-placement",
+                    "inconsistent-rule",
+                    "month-change-too-early",
+                    "near-prefix-order",
+                    "numeric-or-prefix-order-confusion",
+                    "prefix-or-secondary-key-error",
+                    "prefix-order",
+                    "punctuation-dominates",
+                    "secondary-key-ignored",
+                    "shared-prefix-error",
+                    "skip-first-difference",
+                    "stop-after-primary-key"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "2b989b19370b3e64d750a9e8cead04bd6a9cb138739f97e3b6600c48cfdded34"
     },
@@ -826,12 +1018,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -852,7 +1044,21 @@
             ],
             "existing_family_labels": [],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + LOGIC/STATISTICS_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "9e0dc06ecf2391850e3bd67dcfd3e55560c0c46d52e2c317cdd2eaaf1af53740",
+                "families_observed": [],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "69a7e2dcea7f3b8a22ef6ab28bab8181388f7e7035713e161b2d1ca4e1d9fde7"
     },
@@ -918,12 +1124,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -975,7 +1181,38 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + OPENSTAX_PREALGEBRA/STATISTICS",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "4b3dc25b96a374047932f65eb6ead75bb80c8ebda0c120173784e03ca2f8c174",
+                "families_observed": [
+                    "choose-lower-middle",
+                    "discount-as-final-price",
+                    "mean",
+                    "mean-as-item",
+                    "mean-as-total",
+                    "mean-confused-with-value",
+                    "mean-denominator-error",
+                    "mean-divided-again",
+                    "mean-total",
+                    "missing_mean",
+                    "sum-as-mean",
+                    "sum-not-mean",
+                    "sum-reported-as-mean",
+                    "sum-vs-mean",
+                    "target-mean-as-total"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "48ef451217d50e03213cab03818e4862f70b793f1352a7319c6ce3e37c5060cf"
     },
@@ -1037,12 +1274,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -1098,7 +1335,34 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + OPENSTAX_PREALGEBRA/STATISTICS",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "6710f24ec6c3cd1f68f419afd3fd3990e27393a8e658d19523132daedad332e1",
+                "families_observed": [
+                    "decimal-hours-as-minutes",
+                    "decimal-place-error",
+                    "decimal-time",
+                    "ignore-damaged-items",
+                    "operation-confusion",
+                    "operations-not-reversed",
+                    "perimeter-for-area",
+                    "range",
+                    "reverse-subtraction",
+                    "reverse_operations",
+                    "unit_conversion"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "00174fd27a101769c40ffb3bb88aed9e3c92b607b4c630f453aebca64099a1db"
     },
@@ -1182,12 +1446,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -1259,7 +1523,53 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + PHILIPPINE_STATUTES + CIVIC_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "2a92f9cc604b8f2768d904fefd4bb3f47770bc1db7234f3256ae71bc32de7b21",
+                "families_observed": [
+                    "access-as-unlimited",
+                    "accusation-equals-guilt",
+                    "association-as-policy-control",
+                    "belief-as-detention-basis",
+                    "belief-as-ground",
+                    "convenience-is-authority",
+                    "counsel-as-acquittal",
+                    "custodial-right-overclaim",
+                    "custodial-safeguard-overclaim",
+                    "debt-as-criminal-imprisonment",
+                    "delay-as-automatic-dismissal",
+                    "due-process-as-outcome",
+                    "efficiency-over-dignity",
+                    "eminent-domain-without-compensation",
+                    "exception-without-facts",
+                    "favored-viewpoint",
+                    "free-exercise-as-unlimited-exemption",
+                    "legislative-verdict",
+                    "notice-as-verdict",
+                    "outcome-justifies-method",
+                    "privacy-as-absolute-or-none",
+                    "process-as-guaranteed-outcome",
+                    "public-by-default",
+                    "repeat-case-confusion",
+                    "retaliation-as-control",
+                    "retroactivity-confusion",
+                    "right-as-unlimited",
+                    "rights-as-absolute-outcome",
+                    "search-authority-assumed",
+                    "self-incrimination-as-required-testimony"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "0c40d272aca5a3a30c27543eb6a40cd119774acdc2ce87395bc89a3179fc211b"
     },
@@ -1335,12 +1645,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -1398,7 +1708,45 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + PHILIPPINE_STATUTES + CIVIC_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "bfe9eaf0c35a3993e05d6dd33a14f7afcec25dd13dbee325a59b24f8e77a3205",
+                "families_observed": [
+                    "access-as-unlimited",
+                    "attendees-as-population",
+                    "challenge-as-disloyalty",
+                    "channel-as-guarantee",
+                    "channel-count-as-equity",
+                    "consultation-as-veto",
+                    "formalism-as-access",
+                    "input-as-binding-result",
+                    "loudest-group-as-consensus",
+                    "loudest-group-as-public",
+                    "missing-group-as-zero",
+                    "nonattendance-as-consent",
+                    "nonresponse-as-consent",
+                    "notice-after-decision",
+                    "outcome-as-only-proof",
+                    "outcome-as-only-proof-of-participation",
+                    "participation-as-veto",
+                    "publication-as-access",
+                    "publication-equals-access",
+                    "silence-as-consent",
+                    "view-as-proof",
+                    "volume-as-representativeness"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "58d1b5a714213baf37d40253e2ecb1a8222d66c3e9c708679c441395bc753302"
     },
@@ -1407,10 +1755,10 @@
         "board_id": "civil-service",
         "official_area_id": "analytical-ability",
         "leaf_name": "Conditional Logic",
-        "current_question_count": 0,
-        "deficit_to_5": 5,
-        "deficit_to_10": 10,
-        "deficit_to_20": 20,
+        "current_question_count": 1,
+        "deficit_to_5": 4,
+        "deficit_to_10": 9,
+        "deficit_to_20": 19,
         "source_ids": [
             "csc-cse-ppt-calendar-2027",
             "csc-cse-ppt-scope-2026",
@@ -1435,9 +1783,9 @@
             "NECESSARY_VS_SUFFICIENT_CONDITION_INFERENCE"
         ],
         "distinct_content_family_count": 1,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "cse-conditional-logic"
         ],
@@ -1451,13 +1799,13 @@
             "No exam weights are stated by CSC.",
             "Flat/shared rows are not counted as native depth."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "One bounded, source/study-supported unused proposition is available; this is readiness evidence, not an instruction to author in Batch652.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "The item contrasts classification of sufficiency and necessity; existing logical items ask one-way consequences but do not test the paired rule-type distinction.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -1474,7 +1822,7 @@
             },
             "scope_blocker": ""
         },
-        "evidence_hash": "2eac8f2a23e9e175073ce3ac6647fb96790d14ae30d5a1c36c5eb565564a62fe"
+        "evidence_hash": "b25b92cb8b1f3bae0236d1e738cb614e907d12d4a066072d4ef1ee8e34b69169"
     },
     {
         "leaf_id": "cse-conflict-of-interest",
@@ -1540,12 +1888,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -1584,7 +1932,37 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + PHILIPPINE_STATUTES + CIVIC_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "4a55968ce77db3f464ad900b2ccbb75b0312fbfde620f5d9f9287d7ff85ca1d7",
+                "families_observed": [
+                    "after-hours-as-no-conflict",
+                    "conflict-only-if-biased",
+                    "conflict-requires-proven-loss",
+                    "convenience-over-integrity",
+                    "friendship-exception",
+                    "gift-is-gratitude",
+                    "inside-information-use",
+                    "no-personal-inspection-as-exception",
+                    "nominal-value-as-blanket-permission",
+                    "personal-signature-as-only-trigger",
+                    "private-interest-is-neutral",
+                    "private-sharing-as-harmless",
+                    "relationship-is-irrelevant",
+                    "role-overlap-ignored"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "986fcb94b1ca3f6d1e78248d1e86999c7505e3719f24118b883c5935a0b6a456"
     },
@@ -1646,12 +2024,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -1711,7 +2089,30 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + PHILIPPINE_STATUTES + CIVIC_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "cbadc1cb49e734b814d1d972f3360ccb627b9d507707174e05676c68e26ddd27",
+                "families_observed": [
+                    "branch-confusion",
+                    "monarchy-confusion",
+                    "notice-is-optional",
+                    "office-as-personal-property",
+                    "office-as-private-asset",
+                    "same-result-always",
+                    "single-office-control"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "0d64b52b07cd5227db9d0f63118174fda59365ac1b3fcacecc48de88ad938920"
     },
@@ -1806,12 +2207,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -1915,7 +2316,66 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + KWF/PURDUE/READING_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "7d9f18b85b9848769f5c40c8b56547850245c01f5e660bbff648b92113de6a55",
+                "families_observed": [
+                    "association-as-causation",
+                    "association-as-cause",
+                    "average-as-uniform",
+                    "compatibility-as-proof",
+                    "completion-only-population",
+                    "condition-as-immediate-approval",
+                    "condition-as-result",
+                    "condition-ignored",
+                    "conditional-as-unconditional",
+                    "contrast-as-reversal",
+                    "count-rate-confusion",
+                    "endpoint-as-persistence",
+                    "exception-assumed",
+                    "feasibility-as-approval",
+                    "irrelevant-detail",
+                    "label-as-proof",
+                    "limitation-as-falsity",
+                    "literal-sense-substitution",
+                    "mean-as-everyone",
+                    "median-as-full-description",
+                    "median-as-uniform",
+                    "one-field-or-order-omission",
+                    "one-subgroup-as-total",
+                    "only-ignored",
+                    "pending-as-false",
+                    "plausibility-as-proof",
+                    "premature-as-final",
+                    "process-compliance-as-effect",
+                    "provisional-as-false",
+                    "provisional-means-final",
+                    "qualification-as-reversal",
+                    "qualification-ignored",
+                    "qualifier-ignored",
+                    "sample-period-as-ever",
+                    "short-trend-as-long-term",
+                    "single-change-as-trend",
+                    "stage-as-outcome",
+                    "subgroup-as-universal",
+                    "support-as-certainty",
+                    "support-as-proof",
+                    "tentative-as-final",
+                    "tentative-as-rejection",
+                    "time-period-omitted"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "f2ba2a5d462992e5d27ba6800e39478601bd292851b137aac98a4cea5584405e"
     },
@@ -1990,12 +2450,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -2067,7 +2527,46 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + LOGIC/STATISTICS_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "90736fffcd42f064dc4e439dffe166ab5975e943d6adaebf663605c318b0689b",
+                "families_observed": [
+                    "absolute-change-as-percent",
+                    "aggregate-as-no-change",
+                    "choose-lower-middle",
+                    "confounder-ignored",
+                    "count-rate-confusion",
+                    "count-without-exposure",
+                    "denominator-expansion",
+                    "difference-as-rate",
+                    "examples-as-exhaustive",
+                    "failure-to-reduce",
+                    "local-as-universal",
+                    "mean-as-every-case",
+                    "missing-channel-ignored",
+                    "numerator-as-percent",
+                    "rate-without-population",
+                    "ratio-as-difference",
+                    "raw-total-as-fair-comparison",
+                    "sample-size-alone",
+                    "single-cause-attribution",
+                    "single-change-attribution",
+                    "single-check-as-permanent-proof",
+                    "summary-as-full-rule",
+                    "total-beats-rate",
+                    "trend-to-cause"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "ef3655dc5ca9da335b7b96722c1a4de811f413931d0359d58ddd17877d574782"
     },
@@ -2114,9 +2613,9 @@
             "trend-to-cause"
         ],
         "distinct_content_family_count": 11,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "cse-data-trends"
         ],
@@ -2130,13 +2629,13 @@
             "No exam weights are stated by CSC.",
             "Flat/shared rows are not counted as native depth."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "One bounded, source/study-supported unused proposition is available; this is readiness evidence, not an instruction to author in Batch652.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "The fresh gate found the same denominator/rate-comparison proposition already in cse-data-trends (daily rate comparison) and cse-data-interpretation (IDs 6760, 6771, 6772). No substitution authorized.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -2179,7 +2678,7 @@
             },
             "scope_blocker": ""
         },
-        "evidence_hash": "f3d97ce0944c61bcc80f422cb4959eb7431ad5cc2b32799919fd7351b13825dd"
+        "evidence_hash": "377ebccc7e81655877bf6c1dee0fa244b09382cf6b0e2b8a014dd8ccdf0055d3"
     },
     {
         "leaf_id": "cse-document-control",
@@ -2213,9 +2712,9 @@
             "EXACT_RECORD_COMPARISON_PRESERVE_IDENTIFIER"
         ],
         "distinct_content_family_count": 1,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "cse-document-control",
             "SUBPROFESSIONAL_CSE_PPT_ONLY"
@@ -2232,13 +2731,13 @@
             "Flat/shared rows are not counted as native depth.",
             "Clerical Ability is named for the Subprofessional CSE-PPT; do not generalize this plan to the Professional level."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "One bounded, source/study-supported unused proposition is available; this is readiness evidence, not an instruction to author in Batch652.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "DUPLICATIVE: same-board cse-record-comparison already tests leading zeroes, punctuation/trailing spaces, and transposed characters (including IDs 6438, 6451, 6494, 6498). No replacement authorized.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -2255,7 +2754,7 @@
             },
             "scope_blocker": ""
         },
-        "evidence_hash": "1ec787e45ef7272543be3c27898c93d8d9e81b11f35c0684cdb38506bc03fdda"
+        "evidence_hash": "ee1210a0e9a7d25a52318f85afa5a901123d254a42a89e07091e022bfb6d5b90"
     },
     {
         "leaf_id": "cse-environmental-public-interest",
@@ -2330,12 +2829,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -2410,7 +2909,45 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + PHILIPPINE_STATUTES + CIVIC_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "32a09ff6737bbbb8517c63b2f67e7706d3a7cd1ba9a84d2f6df84ac84f6730f0",
+                "families_observed": [
+                    "access-as-unlimited",
+                    "after-hours-burning",
+                    "air-solid-waste-confusion",
+                    "claim-as-measurement",
+                    "control-only-after-release",
+                    "cost-externalization",
+                    "dilution-as-control",
+                    "local-plan-as-substitute",
+                    "local-responsibility-as-exclusive",
+                    "measurement-change-ignored",
+                    "mixed-waste-shortcut",
+                    "monitoring-as-anecdote",
+                    "no-complaint-no-impact",
+                    "notice-as-liability-finding",
+                    "participation-as-veto",
+                    "record-gap-ignored",
+                    "sensory-test-as-compliance",
+                    "single-benefit-planning",
+                    "single-site-as-region",
+                    "small-means-no-impact",
+                    "source-measurement-as-area-quality",
+                    "trend-as-cause"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "ef9c30f9dda77d0a5e425bd412a1c0bb0afb452708331405f174853797c9b491"
     },
@@ -2484,12 +3021,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -2540,7 +3077,43 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + PHILIPPINE_STATUTES + CIVIC_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "0efcafe99844ea4a1e21465cc7fc6363293a4b1614f26a944d5134ff17b29602",
+                "families_observed": [
+                    "amending-act-vs-original-act",
+                    "barangay-municipal-duty-reversal",
+                    "consultation-after-finalization",
+                    "denominator-manipulation",
+                    "disposal-only-model",
+                    "disposal-only-thinking",
+                    "facility-as-disposal-only",
+                    "household-only-scope",
+                    "measured-channel-as-total",
+                    "mixed-waste-default",
+                    "national-only-facility",
+                    "plan-duration-and-scope",
+                    "plan-owner-confusion",
+                    "report-is-proof-or-nothing",
+                    "same-container-for-all-types",
+                    "selective-recording",
+                    "single-channel-as-total",
+                    "single-site-boundary",
+                    "uncertainty-as-proof",
+                    "waste-law-confusion"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "416a5bbf8b577213c448864b868775fee3f5daf090e61ba6281f6665aa5dcad9"
     },
@@ -2617,12 +3190,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -2698,7 +3271,48 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + KWF/PURDUE/READING_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "6f6775f2589d12e401e14386477fb32249dfeef0e6f69522142351d791c6bb85",
+                "families_observed": [
+                    "auxiliary-error",
+                    "comma-after-subject",
+                    "comma-splice",
+                    "comma-splice-however",
+                    "conjunctive-adverb-punctuation",
+                    "dangling-modifier",
+                    "dangling-participle",
+                    "fewer-less",
+                    "first-noun-controls",
+                    "homophone-confusion",
+                    "inconsistent-list-separators",
+                    "intervening-phrase-error",
+                    "its-its-confusion",
+                    "less-fewer",
+                    "modifier-nearest-noun",
+                    "parallel-instructions",
+                    "plural-nearest-noun",
+                    "relative-clause-agreement",
+                    "semicolon-coordination",
+                    "sentence-fragment",
+                    "tense-inconsistency",
+                    "tense-marker-conflict",
+                    "unclear-antecedent",
+                    "unclear-pronoun-reference",
+                    "unmatched-comparison"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "b369c4ed256d9dcac7ec0a6dd575b707bb1734c3c1afe61cbe7f4f04f919f45c"
     },
@@ -2761,12 +3375,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -2849,7 +3463,30 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + PHILIPPINE_STATUTES + CIVIC_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "7377bdd3192a20186eb1576c5b04c13c443065180cb4d64f2896f0a719353eed",
+                "families_observed": [
+                    "certainty-without-evidence",
+                    "conceal-conflict",
+                    "gift-is-gratitude",
+                    "loyalty-means-omission",
+                    "partisan-service",
+                    "promise-without-authority",
+                    "public-resource-as-private"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "fe95960db7d0cb1dd3f0baf0fc574f569736856a8679ff8f90de48f653ae77bc"
     },
@@ -2936,12 +3573,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -3029,7 +3666,58 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + LOGIC/STATISTICS_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "054f0c9d0a821216849d58d37985ad05fce8504d7f82416042567d7885275575",
+                "families_observed": [
+                    "aggregate-hides-pattern",
+                    "anecdote-as-trend",
+                    "availability-as-universal",
+                    "average-hides-subgroup",
+                    "before-after-as-proof",
+                    "before-after-confounding",
+                    "completers-as-all",
+                    "correlation-as-causation",
+                    "count-only-comparison",
+                    "denominator-definition-ignored",
+                    "descriptive-trend-as-cause",
+                    "document-existence-as-effect",
+                    "equal-count-equal-rate",
+                    "familiarity-as-evidence",
+                    "fastest-case-as-general-result",
+                    "indicator-equivalence",
+                    "label-as-common-construct",
+                    "maximum-as-typical",
+                    "measurement-change-ignored",
+                    "omitted-variable-ignored",
+                    "output-as-efficiency",
+                    "percentage-without-base",
+                    "pilot-as-proof",
+                    "pilot-overclaim",
+                    "possibility-as-certainty",
+                    "rate-without-denominator",
+                    "recorded-count-as-event-count",
+                    "response-as-representativeness",
+                    "response-rate-as-representativeness",
+                    "sample-as-population",
+                    "single-change-attribution",
+                    "single-channel-as-all-reports",
+                    "total-as-rate",
+                    "unadjusted-comparison",
+                    "unlike-measures-compared",
+                    "visual-magnitude-as-data"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "6eb4c4c2d35ec8208a82efb2d63205ababc292b71560ffa9f75dccb2191524cf"
     },
@@ -3087,12 +3775,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -3154,7 +3842,30 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + PURDUE_CLERICAL_STUDY",
+                "exam_levels": [
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "b2d1bdfb207112c5a5bc66be2a9982fd5956b5af1ec8b951c30984b6342220b5",
+                "families_observed": [
+                    "color-as-index",
+                    "latest-first",
+                    "new-file-default",
+                    "primary-key-only",
+                    "random-filing",
+                    "surname-order",
+                    "transfer-unrecorded",
+                    "wrong-key"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "0e3e5c4b54f6d50d2fe8bfc9698291389f53caffaf508edd0a197fc6b45840d8"
     },
@@ -3227,12 +3938,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -3293,7 +4004,45 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + PURDUE_CLERICAL_STUDY",
+                "exam_levels": [
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "be96efacd9d7b54804d20d594d06046875526f0d6c52f99231fd9fe03823ed9d",
+                "families_observed": [
+                    "ad-hoc-tie-break",
+                    "character-count-order",
+                    "compare-later-letter",
+                    "date-default-assumption",
+                    "date-key-reversal",
+                    "given-name-first",
+                    "given-name-skip",
+                    "ignore-secondary-key",
+                    "lexical-number-order",
+                    "lexicographic-vs-numeric",
+                    "month-before-year",
+                    "neighbor-order",
+                    "new-file-default",
+                    "numeric-or-prefix-order-confusion",
+                    "prefix-match-only",
+                    "prefix-or-secondary-key-error",
+                    "random-filing",
+                    "reverse-key-order",
+                    "secondary-before-primary",
+                    "secondary-key-first",
+                    "secondary-key-ignored",
+                    "surname-as-unique-key",
+                    "transfer-unrecorded"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "3622d3c477db848c6d7a67ffbfd80674bc13ae6afde24cf4c791a6dcb40d2998"
     },
@@ -3354,12 +4103,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -3399,7 +4148,32 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + KWF/PURDUE/READING_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "b19bd1c846df109b1560473a4f3de828bc18b8001fefd2a61e1f301475bbad25",
+                "families_observed": [
+                    "basis-as-decision",
+                    "carefulness-as-speed",
+                    "compliance-as-replacement",
+                    "indication-as-proof",
+                    "literal-or-overbroad-meaning",
+                    "opposition-as-sequence",
+                    "possibility-as-certainty",
+                    "preliminary-as-false",
+                    "proposal-as-final"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "138e6b3f83bba0904c0d20221fafd602fb9fdcdd2a25ff2eb4ef2ae7e23cb47e"
     },
@@ -3466,12 +4240,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -3519,7 +4293,39 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + OPENSTAX_PREALGEBRA/STATISTICS",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "e08750a7ea1a3cfeb178ccb3fcf6a7d117cc6220c53fcb050118de7b3e2967d1",
+                "families_observed": [
+                    "add-denominators",
+                    "decimal-place-shift",
+                    "decimal_to_fraction",
+                    "denominator-addition",
+                    "denominator-numerator-reversal",
+                    "divide-by-reciprocal-error",
+                    "failure-to-simplify",
+                    "fraction-complement",
+                    "fraction-denominator-only",
+                    "fraction-operation",
+                    "fraction_complement",
+                    "fraction_remaining",
+                    "scale-by-numerator",
+                    "subtract-denominators",
+                    "subtract-one-part-only",
+                    "time_to_fill"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "40e71a3b51778eaead81f2ddc44e62519227efc8adf2800fb31630e4f4c29e34"
     },
@@ -3595,12 +4401,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -3660,7 +4466,45 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + PHILIPPINE_STATUTES + CIVIC_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "01cdb787af70645b1307d64a74b429a6161c26c60ac137b0598a55c8213562db",
+                "families_observed": [
+                    "administration-as-legislation",
+                    "all-functions-same",
+                    "appointment-branch-confusion",
+                    "bill-origin-chamber",
+                    "branch-function-confusion",
+                    "branch-role-confusion",
+                    "commission-as-department",
+                    "commission-function-confusion",
+                    "court-as-lawmaker",
+                    "court-as-legislature",
+                    "court-rule-scope",
+                    "delegation-as-unlimited",
+                    "good-goal-creates-power",
+                    "implementation-as-independent-law",
+                    "implementation-as-lawmaking",
+                    "judicial-legislative-confusion",
+                    "missing-group-as-zero",
+                    "no-explanation-rule",
+                    "notice-after-decision",
+                    "record-as-burden",
+                    "review-as-legislation",
+                    "review-without-case"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "4f546d6902cb20486e35ffa2bd722e89a2597c68b47aada576b0a7b73ff8e663"
     },
@@ -3735,12 +4579,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -3801,7 +4645,46 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + KWF/PURDUE/READING_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "275770cc4eef25ed6bc6b8840f03992f921802641d0b8cfde45d91b32684bd33",
+                "families_observed": [
+                    "antecedent-number-mismatch",
+                    "article-reference",
+                    "collective-singular-overgeneralization",
+                    "comma-changes-scope",
+                    "comma-splice",
+                    "conditional-tense",
+                    "connector-mismatch",
+                    "contraction-confusion",
+                    "dangling-modifier",
+                    "each-singular",
+                    "either-or-mismatch",
+                    "idiomatic-preposition",
+                    "incomplete-comparison",
+                    "independent-clause-punctuation",
+                    "informal-vague-wording",
+                    "less-fewer",
+                    "nearest-noun-agreement",
+                    "nearest-plural-controls",
+                    "of-phrase-agreement",
+                    "relative-pronoun",
+                    "tense-shift",
+                    "unclear-which-reference",
+                    "who-whom-confusion"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "7c4f4779d476d2af98a1b9b18080144ab1d91f32b06883cc40d7ef683d553867"
     },
@@ -3880,12 +4763,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -3947,7 +4830,48 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + PHILIPPINE_STATUTES + CIVIC_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "407050d59659a6348cebdee2c24beac9469338108f5e19652feb7c0520cc05c6",
+                "families_observed": [
+                    "absolute-right-assumption",
+                    "access-as-favor",
+                    "accusation-as-judgment",
+                    "allegation-as-finding",
+                    "association-as-compulsion",
+                    "coercion-as-permitted-investigation",
+                    "data-maximization",
+                    "efficiency-over-respect",
+                    "formal-equality-as-access",
+                    "formal-equality-suffices",
+                    "formal-rule-equals-fairness",
+                    "group-difference-as-inherent",
+                    "humiliation-is-not-harm",
+                    "incomplete-record-dismissal",
+                    "intent-alone-decides",
+                    "more-data-as-better",
+                    "more-data-is-better",
+                    "religion-as-qualification",
+                    "right-as-guaranteed-outcome",
+                    "shame-as-compliance",
+                    "speedy-as-immediate",
+                    "state-policy-mislocation",
+                    "status-based-dignity",
+                    "uniformity-as-equality",
+                    "written-rule-as-fairness"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "2b085fb282081cea2b9e5f3d04b899f610e686b3a7920a612b3e5a04bdae49c1"
     },
@@ -4013,12 +4937,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -4064,7 +4988,37 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + LOGIC/STATISTICS_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "0f4456615eae52b789110a98de0b27454221270279f308ebb1e410b5b2b5706a",
+                "families_observed": [
+                    "affirming-condition",
+                    "affirming-consequent",
+                    "conditional-reversal",
+                    "contrapositive-reversal",
+                    "exception-assumed",
+                    "ignoring-conjunctive-conditions",
+                    "listed-ground-as-exhaustive-law",
+                    "listed-ground-as-only-law",
+                    "missing-condition",
+                    "necessary-condition-missed",
+                    "one-condition-suffices",
+                    "one-element-suffices",
+                    "or-as-and",
+                    "partial-condition",
+                    "reverse-only-if"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "1e27af37ef032473a7e106eca0c7151d087fbadb77f4b549b4fd6ed68c713e6e"
     },
@@ -4128,12 +5082,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -4171,7 +5125,35 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + KWF/PURDUE/READING_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "1ad5578466a3a8e3bab6405d95aef707fbe89613466bc6472eab663ffc0d6cd1",
+                "families_observed": [
+                    "adverb-attachment",
+                    "condition-attachment",
+                    "dangling-modifier",
+                    "dangling-participle",
+                    "misplaced-only",
+                    "misplaced-participial-phrase",
+                    "misplaced-relative-clause",
+                    "modifier-attaches-to-verb",
+                    "only-misplacement",
+                    "only-scope-shift",
+                    "phrase-placement",
+                    "time-phrase-attachment"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "8c0b88fbf7de10bd444f326cec24b3c1fb816ebd3f04f22dfe72f041ef5d5e16"
     },
@@ -4237,12 +5219,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -4293,7 +5275,38 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + OPENSTAX_PREALGEBRA/STATISTICS",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "45dde64bba044fb753baf09bd4ecf6764f451bac517da2b8f50e0ce170a1f31c",
+                "families_observed": [
+                    "accept-nearby-value",
+                    "add-instead-of-multiply",
+                    "apply-one-rule-to-all-terms",
+                    "constant-difference",
+                    "constant-difference-assumed",
+                    "difference-direction",
+                    "difference-error",
+                    "difference-only",
+                    "multiply-position-without-offset",
+                    "repeat-additive-step",
+                    "skip-prime-or-count-odd",
+                    "square-instead-of-cube",
+                    "square-pattern-missed",
+                    "subtract-fixed-amount",
+                    "wrong-direction"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "db1b16142be52e454fd5a9cb8d217317de55d42b75791f9cec520639597d14a7"
     },
@@ -4371,12 +5384,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -4440,7 +5453,49 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + KWF/PURDUE/READING_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "f25f5096108198c8188cce5788d3fb1995ea26fd32ae5087a7035fa835de7dd8",
+                "families_observed": [
+                    "after-as-because",
+                    "cause-for-contrast",
+                    "closing-with-unrelated-fact",
+                    "consequence-for-contrast",
+                    "contrast-for-cause",
+                    "contrast-for-example",
+                    "contrast-for-sequence",
+                    "contrast-missed",
+                    "contrast-transition",
+                    "count-equals-rate",
+                    "count-rate-confusion",
+                    "detail-not-evidence",
+                    "example-as-contrast",
+                    "example-as-universal-proof",
+                    "example-for-sequence",
+                    "irrelevant-link",
+                    "limitation-as-falsity",
+                    "raw-count-as-rate",
+                    "referent-shift",
+                    "sample-to-universal",
+                    "sample-to-universe",
+                    "sequence-for-qualification",
+                    "sequence-transition",
+                    "short-observation-as-permanent",
+                    "temporal-order-as-causation",
+                    "transition-as-decoration"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "a05576745aa59c92f5a37a976fda26c87203a2c484153c23122d64a3ccfb370b"
     },
@@ -4514,12 +5569,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -4587,7 +5642,45 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + KWF/PURDUE/READING_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "1c877b1d410e5cc099b3d2d5f6f35fb483b073ad2f063cab29d7f8779319d12e",
+                "families_observed": [
+                    "action-before-issue",
+                    "chronology-reversed",
+                    "conclusion-before-evidence",
+                    "conclusion-before-issue",
+                    "conditional-step-before-check",
+                    "decorative-detail-as-evidence",
+                    "detail-before-topic",
+                    "evidence-without-claim",
+                    "excluded-cases-as-included",
+                    "irrelevant-support",
+                    "limitation-ignored",
+                    "local-to-universal",
+                    "mechanism-as-example-only",
+                    "observation-to-causation",
+                    "omit-denominator-boundary",
+                    "proposal-as-finding",
+                    "rate-without-denominator",
+                    "recommendation-before-basis",
+                    "recommendation-without-support",
+                    "solution-without-mechanism",
+                    "timeline-without-claim",
+                    "unsupported-recommendation"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "8c04d73a08b872432003fdba2fc67e12d128a97b530bf41f8e318123e5c78467"
     },
@@ -4651,12 +5744,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -4694,7 +5787,35 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + KWF/PURDUE/READING_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "f4013d3ed50263e5dd41972236eb4e869f8375895a808507811752c9073d0bab",
+                "families_observed": [
+                    "adjective-series-break",
+                    "heading-form-mismatch",
+                    "infinitive-series-break",
+                    "mismatched-correlatives",
+                    "mixed-forms",
+                    "mixed-gerund-infinitive",
+                    "mixed-grammatical-form",
+                    "mixed-grammatical-forms",
+                    "mixed-list-structure",
+                    "nonparallel-alternatives",
+                    "nonparallel-list",
+                    "noun-series-break"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "ea445a91e7cb73788eb69a50e149cbad82e36c2471e6e990b1c235df16710e50"
     },
@@ -4772,12 +5893,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -4854,7 +5975,50 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + OPENSTAX_PREALGEBRA/STATISTICS",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "16222021cd8a3042e40e824dfabdf42e5671092223b64aeab6f66a423c23776a",
+                "families_observed": [
+                    "apply-addition-before-percent",
+                    "change-as-percent-of-final",
+                    "difference-as-percent",
+                    "discount-as-final-price",
+                    "discount-as-total",
+                    "divide-by-final-value",
+                    "final-as-base",
+                    "final-base",
+                    "multiply-instead-of-divide",
+                    "new-base-error",
+                    "new-value-as-base",
+                    "new-value-used-as-base",
+                    "part-as-whole",
+                    "part-whole-reversal",
+                    "part_percent_total",
+                    "percent-added-as-pesos",
+                    "percent-as-amount",
+                    "percent-as-whole",
+                    "percent-base",
+                    "percent-base-confusion",
+                    "percent-change",
+                    "percent_change",
+                    "percent_discount",
+                    "percent_increase",
+                    "percent_of_count",
+                    "percent_then_add",
+                    "reverse_percent"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "c96b7eb749540b2764ad9d83560a639545a813a2dc599fc50c2177be632d67f5"
     },
@@ -4919,12 +6083,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -4963,7 +6127,36 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + KWF/PURDUE/READING_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "99ae6809e46d914a92263bdba12cdf7fe8edd97b614ce6882e2d857708e221d5",
+                "families_observed": [
+                    "ambiguous-antecedent",
+                    "ambiguous-document-reference",
+                    "ambiguous-it",
+                    "ambiguous-nearest-antecedent",
+                    "ambiguous-pronoun",
+                    "ambiguous-thing-antecedent",
+                    "competing-person-antecedent",
+                    "nearest-noun-assumption",
+                    "number-mismatch",
+                    "pronoun-ambiguity",
+                    "relative-pronoun-role",
+                    "unclear-it",
+                    "vague-demonstrative"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "3eb0815d91d972daf9d1ea9a4902b061a917667520cf7a726243ea66775845f5"
     },
@@ -5038,12 +6231,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -5105,7 +6298,47 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + PURDUE_CLERICAL_STUDY",
+                "exam_levels": [
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "0d8aac5cca4a55bacdd0ab0d2c6f30a8a7d70fb790a55f46f524d01ae64c0ae5",
+                "families_observed": [
+                    "agreement-and-spelling",
+                    "and-or-confusion",
+                    "capitalization-punctuation",
+                    "comma-splice",
+                    "consonant-doubling",
+                    "double-letter-error",
+                    "head-noun-agreement",
+                    "ie-ei-error",
+                    "implicit-destination-deadline",
+                    "intervening-phrase",
+                    "missing-action-detail",
+                    "order-reversal",
+                    "parallel-infinitive",
+                    "parallel-predicate",
+                    "parallel-verb-form",
+                    "possessive-apostrophe",
+                    "pronoun-reference-guess",
+                    "spelling-error",
+                    "subject-verb-number",
+                    "than-then",
+                    "transition-punctuation",
+                    "transposition-and-omission",
+                    "visual-similarity",
+                    "vowel-error",
+                    "who-whom-subject"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "b9d3c33801a2458bf5d0d7d5051b6493b6135959981147f24db22713329bf18f"
     },
@@ -5181,12 +6414,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -5243,7 +6476,45 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + PHILIPPINE_STATUTES + CIVIC_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "b097cfaca7512794f571d50cb367d9d98204582f4264febb58b6454b3de5d400",
+                "families_observed": [
+                    "all-or-nothing-access",
+                    "audit-trail-destruction",
+                    "blanket-release-or-refusal",
+                    "calendar-days-or-acknowledgment-only",
+                    "concealment-as-resolution",
+                    "error-concealment",
+                    "error-is-permanent",
+                    "larger-number-default",
+                    "loyalty-means-omission",
+                    "no-explanation-rule",
+                    "number-without-definition",
+                    "outcome-without-basis",
+                    "percentage-without-base",
+                    "public-access-as-unlimited",
+                    "raw-average-as-fair-comparison",
+                    "selective-reporting",
+                    "silent-correction",
+                    "silent-delay",
+                    "three-signatories-as-absolute",
+                    "uncertainty-as-inaction",
+                    "undefined-metric",
+                    "unlike-denominators"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "d3cb7d5b875ddf837af88bd3fb3dc96414ec93ae344907412692689b5e1c6a8a"
     },
@@ -5315,12 +6586,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -5367,7 +6638,41 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + PHILIPPINE_STATUTES + CIVIC_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "a1bb9a1f007648ed7c891f860843141c5513e38be9aaf37c99bbe9fe9fbf3200",
+                "families_observed": [
+                    "acknowledgment-as-action",
+                    "benefit-erases-risk",
+                    "completion-only-coverage",
+                    "complexity-as-precision",
+                    "cost-only-analysis",
+                    "favoritism-as-flexibility",
+                    "gift-after-decision",
+                    "informal-favoritism",
+                    "partisan-service",
+                    "plain-language-as-rule-change",
+                    "private-convenience",
+                    "private-priority",
+                    "public-records-as-unrestricted",
+                    "silence-as-consent",
+                    "silent-procedure-change",
+                    "speed-over-accuracy",
+                    "technicality-as-clarity",
+                    "uniform-access-assumption"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "b7d9ee9360e8907066e2fe4cbd39ef1e7be61f9922dbade5a200b1dab02d9e34"
     },
@@ -5376,10 +6681,10 @@
         "board_id": "civil-service",
         "official_area_id": "numerical-ability",
         "leaf_name": "Quantitative Comparison",
-        "current_question_count": 0,
-        "deficit_to_5": 5,
-        "deficit_to_10": 10,
-        "deficit_to_20": 20,
+        "current_question_count": 1,
+        "deficit_to_5": 4,
+        "deficit_to_10": 9,
+        "deficit_to_20": 19,
         "source_ids": [
             "csc-cse-ppt-calendar-2027",
             "csc-cse-ppt-scope-2026",
@@ -5404,9 +6709,9 @@
             "RATE_COMPARISON_AFTER_UNIT_NORMALIZATION"
         ],
         "distinct_content_family_count": 1,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "cse-quantitative-comparison"
         ],
@@ -5420,13 +6725,13 @@
             "No exam weights are stated by CSC.",
             "Flat/shared rows are not counted as native depth."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "One bounded, source/study-supported unused proposition is available; this is readiness evidence, not an instruction to author in Batch652.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "The item tests the method of normalizing unlike time units before rate comparison, not computing a new rate; no existing CSE item asks this unit-compatibility rule.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -5443,7 +6748,7 @@
             },
             "scope_blocker": ""
         },
-        "evidence_hash": "f55d27d7ba5a7b0ec3b3dca2ec88a07efd573bdfd6102c570a3a5e7129d7354d"
+        "evidence_hash": "a59e3eb52def575b135e98d573f87c777a1bf60f9bf1352aea4d0c024437fe23"
     },
     {
         "leaf_id": "cse-rates-work",
@@ -5510,12 +6815,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -5571,7 +6876,41 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + OPENSTAX_PREALGEBRA/STATISTICS",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "02f52e952f72f6a5a176bb6432ebc663e4fade73665bccb5a40d990ded5d6266",
+                "families_observed": [
+                    "add-workers-and-hours",
+                    "decimal-as-minutes-digit",
+                    "distance_time",
+                    "divide-by-rate",
+                    "divide-rate-time",
+                    "hours-not-converted",
+                    "multiply-distance-time",
+                    "multiply-for-unit-rate",
+                    "multiply-instead-of-divide",
+                    "multiply-rate",
+                    "rate-not-scaled",
+                    "rate-scale",
+                    "rate-time",
+                    "rate-time-division",
+                    "rate_scale",
+                    "sum-as-average",
+                    "time-multiplied-instead-of-divided",
+                    "total-confused-with-rate"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "7be1a5904c07cbf7d86e11dff3fe5043a73957fd5de03b79d6fe1ed083b9054f"
     },
@@ -5633,12 +6972,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -5685,7 +7024,34 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + OPENSTAX_PREALGEBRA/STATISTICS",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "586de8fa312843f54760ef76531ad4553d168e37736524ea521e2cf8ea15cd9c",
+                "families_observed": [
+                    "largest-ratio-part-miscalculated",
+                    "multiply",
+                    "parts-not-total",
+                    "ratio",
+                    "ratio-not-scaled",
+                    "ratio-part",
+                    "ratio-part-reversal",
+                    "ratio-part-swap",
+                    "ratio-parts-as-values",
+                    "ratio-reversal",
+                    "smaller-part-confusion"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "e7f407633d962d7a1ffb341ea30dc46535436d7887bd31b64ddf00e149c904cf"
     },
@@ -5762,12 +7128,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -5849,7 +7215,48 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + KWF/PURDUE/READING_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "b9a1e04c6cfab39a4183fddfed5ea1706b9c637f8407c52013150ad42cdc2042",
+                "families_observed": [
+                    "apply-exception-to-all-cases",
+                    "causal-overclaim",
+                    "coincidence-as-causation",
+                    "count-as-outcome",
+                    "detail-mistaken-for-measured-outcome",
+                    "excluded-subgroup-as-zero",
+                    "ignore-alternative-explanation",
+                    "ignore-confounding-differences",
+                    "limitation-erases-observation",
+                    "local-result-as-universal",
+                    "measurement-as-outcome",
+                    "measurement-change-ignored",
+                    "monitoring-dismissed",
+                    "omitted-cases-ignored",
+                    "one-measure-dominates",
+                    "pilot-equals-proof",
+                    "sample-equals-population",
+                    "sample-generalization",
+                    "sample-overgeneralization",
+                    "single-cause-attribution",
+                    "treat-pilot-as-final-policy",
+                    "treat-tentative-as-final",
+                    "trend-as-cause-or-forecast",
+                    "uniform-access-assumption",
+                    "urgency-by-feeling"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "518897e48137f33ea2392eaa9d5afeb800b20abbdfbff6a0fd3adfe0b1ba3ad7"
     },
@@ -5928,12 +7335,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -6002,7 +7409,51 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + PURDUE_CLERICAL_STUDY",
+                "exam_levels": [
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "f4ee6fab0ca25f67653413a13daf9df71d808c8961d6e666ea1c68b9fc54dad4",
+                "families_observed": [
+                    "count-all-fields",
+                    "digit-transposition",
+                    "field-position-confusion",
+                    "guess-from-pattern",
+                    "invisible-space-ignored",
+                    "letter-digit-confusion",
+                    "locale-order-confusion",
+                    "memory-as-check",
+                    "name-as-unique-key",
+                    "name-match-hides-id-error",
+                    "near-match",
+                    "near-match-accepted",
+                    "neighbor-imputation",
+                    "neighbor-skip",
+                    "normalization-error",
+                    "numeric-equivalence-as-key-match",
+                    "numeric-equivalence-normalizes-id",
+                    "partial-match",
+                    "partial-match-as-duplicate",
+                    "same-name-means-same-record",
+                    "semantic-equivalence-as-exact",
+                    "single-field-overlook",
+                    "single-field-overlooked",
+                    "status-overlook",
+                    "subtract-one-category",
+                    "subtract-only-one-status",
+                    "time-digit-error",
+                    "transposed-group",
+                    "transposition-overlooked"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "a485eb62657b62cbe51eaa80ef6120001f0187dffba9de83d550dcc6e13c59e8"
     },
@@ -6076,12 +7527,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -6154,7 +7605,45 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + KWF/PURDUE/READING_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "48168d1ecc80a6b0f1fab4387f59200d55a83e55d10cbfdce09eaaae0d067725",
+                "families_observed": [
+                    "cause-for-time",
+                    "concession-for-consequence",
+                    "concession-for-sequence",
+                    "conditional-verb-form",
+                    "consequence-for-concession",
+                    "contrast-as-cause",
+                    "contrast-as-consequence",
+                    "contrast-for-cause",
+                    "contrast-for-consequence",
+                    "future-clause-error",
+                    "intervening-noun-controls",
+                    "intervening-plural-controls",
+                    "irregular-verb-error",
+                    "mixed-list-form",
+                    "nearest-subject-error",
+                    "parallel-form-error",
+                    "plural-near-noun-controls",
+                    "reason-contrast",
+                    "sequence-for-contrast",
+                    "tense-form-confusion",
+                    "tense-mismatch",
+                    "there-their-theyre"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "e7f1c3af2f621aab48ebe850277d9494ef3d52ba11511c066b440a1ad70b1304"
     },
@@ -6230,12 +7719,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -6299,7 +7788,47 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + KWF/PURDUE/READING_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "a892890a5f6fb62d06f0f9094f8552fc4ad5851c00e12786ba0c4a6b0b3cded2",
+                "families_observed": [
+                    "agent-omitted",
+                    "cause-relationship-omitted",
+                    "clause-boundary-error",
+                    "comma-splice",
+                    "concurrent-change-as-proof",
+                    "conditional-fragment",
+                    "dangling-opening-clause",
+                    "dependent-clause-as-complete",
+                    "dependent-fragment",
+                    "double-conjunction",
+                    "faulty-comparison",
+                    "fragment-or-order-error",
+                    "fused-clause",
+                    "misplaced-limiter",
+                    "missing-relationship",
+                    "mixed-verb-series",
+                    "modifier-scope",
+                    "modifier-with-no-agent",
+                    "only-scope-shift",
+                    "run-on-sentence",
+                    "semicolon-before-dependent-clause",
+                    "semicolon-fragment",
+                    "subordinate-fragment",
+                    "unmatched-comparison"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "db2d0de12dd9bfb9380f0cb99acc091d287aa624962ea8d763d79eac97528319"
     },
@@ -6373,12 +7902,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -6436,7 +7965,45 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + LOGIC/STATISTICS_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "9d154421fedde796b61c36c3352efacb5684f770dc180608bfb65b7f05dfa389",
+                "families_observed": [
+                    "add-before-multiply",
+                    "add-instead-of-multiply",
+                    "additive-difference",
+                    "constant-decrement",
+                    "constant-difference-assumed",
+                    "constant-increment",
+                    "cycle-break",
+                    "cycle-order-error",
+                    "difference-error",
+                    "difference-not-pattern",
+                    "difference-rule-overfit",
+                    "divide-by-two-instead",
+                    "omit-final-subtraction",
+                    "repeat-addition",
+                    "repeat-last-difference",
+                    "repeat-last-increase",
+                    "repeat-previous-multiplier",
+                    "sign-reversal",
+                    "single-pair-rule",
+                    "single-pattern-assumption",
+                    "single-sequence-misread",
+                    "subtract-three",
+                    "wrong-direction"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "75e80ad8cde36a3552988c972fe40d1cbef4514f0d879ac98021a8c907fa7352"
     },
@@ -6494,12 +8061,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -6563,7 +8130,30 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + PURDUE_CLERICAL_STUDY",
+                "exam_levels": [
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "8ce2704a3ea856f1b4b9aafacb7d8188d72e08553e2f7120c08b6bbeff32deef",
+                "families_observed": [
+                    "consonant-count-error",
+                    "d-g-confusion",
+                    "double-letter-omission",
+                    "double-r-error",
+                    "suffix-confusion",
+                    "suffix-vowel-error",
+                    "vowel-order-error",
+                    "vowel-transposition"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "4fa8fbe05fed204b8d15c1d4c4fa395117643f4270962fff84c624b50a8ce0f9"
     },
@@ -6628,12 +8218,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -6676,7 +8266,36 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + LOGIC/STATISTICS_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "b589d4ce8bba3eff20e98cb6b4b6efc8938272f626e011539bc70cb5edd979da",
+                "families_observed": [
+                    "affirming-consequent",
+                    "affirming-the-consequent",
+                    "category-overlap",
+                    "category-overreach",
+                    "category-reversal",
+                    "contrapositive-reversal",
+                    "denying-antecedent",
+                    "evidence-status-as-truth",
+                    "existence-as-universal-link",
+                    "missing-necessary-proof",
+                    "necessary-as-sufficient",
+                    "necessary-condition-missed",
+                    "some-to-all",
+                    "subset-direction"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "4dfa64171b977a006d60dcc3e409f7816f5a17fb7a8dbab44c30c052d28c057a"
     },
@@ -6726,12 +8345,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -6751,7 +8370,21 @@
             ],
             "existing_family_labels": [],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + LOGIC/STATISTICS_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "8b5d5185b27eb1b47938f7a1eb90bd1310fc58cd5cc5aca7879212f95b6b12fd",
+                "families_observed": [],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "87738cb30dc8efe2b7531a9eabab71b0a32073a58e5bd3ff0c24080f74c6954f"
     },
@@ -6760,10 +8393,10 @@
         "board_id": "civil-service",
         "official_area_id": "analytical-ability",
         "leaf_name": "Word Analogy",
-        "current_question_count": 10,
+        "current_question_count": 11,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
-        "deficit_to_20": 10,
+        "deficit_to_20": 9,
         "source_ids": [
             "csc-cse-ppt-calendar-2027",
             "csc-cse-ppt-scope-2026",
@@ -6788,9 +8421,9 @@
             "DEGREE_OF_INTENSITY_ANALOGICAL_RELATION"
         ],
         "distinct_content_family_count": 1,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "cse-word-analogy"
         ],
@@ -6804,13 +8437,13 @@
             "No exam weights are stated by CSC.",
             "Flat/shared rows are not counted as native depth."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "One bounded, source/study-supported unused proposition is available; this is readiness evidence, not an instruction to author in Batch652.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "The existing ten word analogies cover synonym, antonym, guide/result, origin/result, tool/quantity, trait/challenge, role/product, premise/conclusion, collection/member, and map/location; none tests graded intensity.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -6838,7 +8471,7 @@
             },
             "scope_blocker": ""
         },
-        "evidence_hash": "a40c80d9fad1bd6ab8c2d108a26dd2695e39e1503d62a1d4e313e74506131329"
+        "evidence_hash": "88462da3474df0a722eb1584d39aa7666996f399d501fdd5246fc0441ab88cc6"
     },
     {
         "leaf_id": "cse-word-meaning",
@@ -6913,12 +8546,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -6999,7 +8632,48 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "CONTENT_FAMILY_UNPROVEN"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + KWF/PURDUE/READING_STUDY",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "REVIEW",
+                "question_ids": [],
+                "question_signature_hash": "58da2786c3f998acdfca59e7d928d575c6e0282b2d5f674497cdb4cb9bccff48",
+                "families_observed": [
+                    "agreement-as-accuracy",
+                    "assertion-as-support",
+                    "complementary-as-contradictory",
+                    "concise-as-incomplete",
+                    "condition-confusion",
+                    "consistency-as-identical-context",
+                    "defer-as-deny",
+                    "difference-hidden-by-average",
+                    "difference-means-agreement",
+                    "different-units-as-comparable",
+                    "difficulty-as-illegality",
+                    "initial-means-final",
+                    "limited-as-false",
+                    "literal-meaning",
+                    "open-means-invisible",
+                    "pending-as-after",
+                    "plausible-as-proven",
+                    "qualification-as-proof",
+                    "qualified-as-credentialed",
+                    "representative-as-complete",
+                    "retain-as-replace",
+                    "sequence-meaning",
+                    "short-means-incomplete",
+                    "single-source-as-strong",
+                    "tentative-as-false"
+                ],
+                "review_summary": "Source authority and study traceability are adequate, but high repeat risk plus multiple overlapping proposition families require item-level family proof before any new authorization; no cosmetic/paraphrase cohort is approved."
+            }
         },
         "evidence_hash": "c08ff433391e2b5f8c3872199ed25c46f5602bdc28ee2419490f8d6fc561caf8"
     },
@@ -7051,12 +8725,12 @@
             "Flat/shared rows are not counted as native depth."
         ],
         "readiness": "REVIEW",
-        "readiness_reason": "No additional high-value proposition was authorized by this batch review; existing count/family concentration requires a fresh semantic gate before more content.",
-        "review_reason": "No item-level evidence supports positive marginal high-value headroom for this leaf in the present CSE production plan.",
+        "readiness_reason": "Batch653 closes the current authorized CSE cohort; further authoring requires a new proposition-level gate.",
+        "review_reason": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
-        "reviewed_at_batch": 652,
+        "reviewed_at_batch": 653,
         "evidence_basis": {
             "official_scope_source_ids": [
                 "csc-cse-ppt-scope-2026",
@@ -7189,7 +8863,24 @@
                 true
             ],
             "candidate_proposition": null,
-            "scope_blocker": ""
+            "scope_blocker": "",
+            "batch653_review": {
+                "blocker_classes": [
+                    "PROPOSITION_EXHAUSTED"
+                ],
+                "source_group": "CSE_OFFICIAL_SCOPE + OPENSTAX_PREALGEBRA/STATISTICS",
+                "exam_levels": [
+                    "PROFESSIONAL",
+                    "SUBPROFESSIONAL"
+                ],
+                "disposition": "EVIDENCE_EXHAUSTED",
+                "question_ids": [],
+                "question_signature_hash": "532584439fcc36ae00a40653b8b2f0301dc079dde016381058c9636bd1eba2f8",
+                "families_observed": [
+                    "operation-confusion"
+                ],
+                "review_summary": "Grouped review of current leaf questions and linked study/source scope found no additional high/medium-value proposition distinct from existing coverage; numerical deficit alone is not authorization."
+            }
         },
         "evidence_hash": "9dccb6b427c13e6f393baaea0459a5cd2d40cc4694453e31f982c5728a7711ef"
     }

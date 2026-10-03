@@ -723320,5 +723320,236 @@
             ],
             "authorized_by": "batch651-let-family-proof"
         }
+    },
+    {
+        "id": 8948,
+        "board": "civil-service",
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "analytical-reasoning",
+            "topic_id": "analytical-assumptions",
+            "concept_id": "cse-conditional-logic"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "Rule 1 says that if a file has a verified receipt, it is entered into tracking. Rule 2 says that a supervisor authorization is required before payment release. Which interpretation preserves the difference between a sufficient and a necessary condition?",
+        "choices": [
+            "A verified receipt is sufficient for tracking entry; supervisor authorization is necessary for payment release.",
+            "Tracking entry is necessary before a receipt can be verified; supervisor authorization alone guarantees payment.",
+            "A verified receipt is necessary and sufficient for payment release; supervisor authorization is optional.",
+            "Payment release is necessary for tracking entry; a receipt is only evidence that payment occurred."
+        ],
+        "answer": "A verified receipt is sufficient for tracking entry; supervisor authorization is necessary for payment release.",
+        "explanation": "The first rule says the receipt condition guarantees tracking entry, so it is sufficient for that result. “Required before” makes supervisor authorization necessary for release, but does not say it alone guarantees release.",
+        "content_blocks": [],
+        "source_ids": [
+            "csc-cse-ppt-calendar-2027",
+            "csc-cse-ppt-scope-2026",
+            "open-textbook-logic-critical-thinking",
+            "openstax-introductory-statistics-2e"
+        ],
+        "study_material_id": "cse-analytical-foundation",
+        "study_material_ids": [
+            "cse-analytical-foundation"
+        ],
+        "source_scope": [
+            "cse-conditional-logic"
+        ],
+        "study_focus": "Classify sufficient and necessary conditions across two short rules without reversing either implication.",
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "passage_dependent": false,
+        "data_interpretation": false,
+        "case_interpretation": true,
+        "professional_judgment": false,
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NONCALCULATION",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "civil_service_levels": [
+            "PROFESSIONAL"
+        ],
+        "misconception_family": "NECESSARY_VS_SUFFICIENT_CONDITION_INFERENCE",
+        "batch_marker": "batch653-cse",
+        "batch653": {
+            "plan_id": "cse652-343caf16b5e3dc75",
+            "leaf_id": "cse-conditional-logic",
+            "official_area_id": "analytical-ability",
+            "exam_levels": [
+                "PROFESSIONAL"
+            ],
+            "content_family": "NECESSARY_VS_SUFFICIENT_CONDITION_INFERENCE",
+            "depth": 2,
+            "source_ids": [
+                "csc-cse-ppt-calendar-2027",
+                "csc-cse-ppt-scope-2026",
+                "open-textbook-logic-critical-thinking",
+                "openstax-introductory-statistics-2e"
+            ],
+            "study_material_ids": [
+                "cse-analytical-foundation"
+            ],
+            "authorized_by": "batch652-let-close-cse-readiness",
+            "currentness_check": "UNCHANGED"
+        },
+        "updatedAt": "2026-10-03T16:32:40+00:00"
+    },
+    {
+        "id": 8949,
+        "board": "civil-service",
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "numerical-ability",
+            "domain_id": "data-interpretation",
+            "topic_id": "data-interpretation",
+            "concept_id": "cse-quantitative-comparison"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "One office reports 48 processed forms per hour; another reports 72 forms per 90 minutes. Before deciding which office has the higher processing rate, what is the sound comparison method?",
+        "choices": [
+            "Compare 72 directly with 48 because both figures count forms.",
+            "Express both rates using the same time unit, then compare the normalized rates.",
+            "Compare only the reported time intervals; the longer interval indicates the faster office.",
+            "Use the larger count and disregard the different observation periods."
+        ],
+        "answer": "Express both rates using the same time unit, then compare the normalized rates.",
+        "explanation": "A rate combines a count with its time base. Raw counts from unequal intervals are not comparable as rates until both are expressed on a common time unit.",
+        "content_blocks": [],
+        "source_ids": [
+            "csc-cse-ppt-calendar-2027",
+            "csc-cse-ppt-scope-2026",
+            "openstax-introductory-statistics-2e",
+            "openstax-prealgebra-2e"
+        ],
+        "study_material_id": "cse-numerical-foundation",
+        "study_material_ids": [
+            "cse-numerical-foundation"
+        ],
+        "source_scope": [
+            "cse-quantitative-comparison"
+        ],
+        "study_focus": "Choose a valid rate-comparison method when the reported time units differ; no numerical rate needs to be calculated.",
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "passage_dependent": false,
+        "data_interpretation": false,
+        "case_interpretation": true,
+        "professional_judgment": false,
+        "numeric": true,
+        "calculation_required": false,
+        "quantitative_semantics": "CONCEPTUAL_QUANTITATIVE",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "civil_service_levels": [
+            "PROFESSIONAL",
+            "SUBPROFESSIONAL"
+        ],
+        "misconception_family": "RATE_COMPARISON_AFTER_UNIT_NORMALIZATION",
+        "batch_marker": "batch653-cse",
+        "batch653": {
+            "plan_id": "cse652-e85215ed9fef916f",
+            "leaf_id": "cse-quantitative-comparison",
+            "official_area_id": "numerical-ability",
+            "exam_levels": [
+                "PROFESSIONAL",
+                "SUBPROFESSIONAL"
+            ],
+            "content_family": "RATE_COMPARISON_AFTER_UNIT_NORMALIZATION",
+            "depth": 2,
+            "source_ids": [
+                "csc-cse-ppt-calendar-2027",
+                "csc-cse-ppt-scope-2026",
+                "openstax-introductory-statistics-2e",
+                "openstax-prealgebra-2e"
+            ],
+            "study_material_ids": [
+                "cse-numerical-foundation"
+            ],
+            "authorized_by": "batch652-let-close-cse-readiness",
+            "currentness_check": "UNCHANGED"
+        }
+    },
+    {
+        "id": 8950,
+        "board": "civil-service",
+        "taxonomy": {
+            "board_id": "civil-service",
+            "subject_id": "analytical-logical",
+            "domain_id": "analytical-reasoning",
+            "topic_id": "analytical-analogy",
+            "concept_id": "cse-word-analogy"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "Drizzle is to downpour as breeze is to:",
+        "choices": [
+            "gale",
+            "cloud",
+            "umbrella",
+            "wind vane"
+        ],
+        "answer": "gale",
+        "explanation": "A downpour is a much more intense form of rain than drizzle; a gale is a much more intense form of wind than a breeze. The relation is degree of intensity, not association or instrument.",
+        "content_blocks": [],
+        "source_ids": [
+            "csc-cse-ppt-calendar-2027",
+            "csc-cse-ppt-scope-2026",
+            "open-textbook-logic-critical-thinking",
+            "openstax-introductory-statistics-2e"
+        ],
+        "study_material_id": "cse-analytical-foundation",
+        "study_material_ids": [
+            "cse-analytical-foundation"
+        ],
+        "source_scope": [
+            "cse-word-analogy"
+        ],
+        "study_focus": "Preserve a graded-intensity relationship between two word pairs and distinguish it from association.",
+        "cognitive_intent": "apply and interpret",
+        "multistep": true,
+        "passage_dependent": false,
+        "data_interpretation": false,
+        "case_interpretation": true,
+        "professional_judgment": false,
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NONCALCULATION",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "civil_service_levels": [
+            "PROFESSIONAL"
+        ],
+        "misconception_family": "DEGREE_OF_INTENSITY_ANALOGICAL_RELATION",
+        "batch_marker": "batch653-cse",
+        "batch653": {
+            "plan_id": "cse652-47ac8005d7364ca2",
+            "leaf_id": "cse-word-analogy",
+            "official_area_id": "analytical-ability",
+            "exam_levels": [
+                "PROFESSIONAL"
+            ],
+            "content_family": "DEGREE_OF_INTENSITY_ANALOGICAL_RELATION",
+            "depth": 2,
+            "source_ids": [
+                "csc-cse-ppt-calendar-2027",
+                "csc-cse-ppt-scope-2026",
+                "open-textbook-logic-critical-thinking",
+                "openstax-introductory-statistics-2e"
+            ],
+            "study_material_ids": [
+                "cse-analytical-foundation"
+            ],
+            "authorized_by": "batch652-let-close-cse-readiness",
+            "currentness_check": "UNCHANGED"
+        }
     }
 ]

@@ -67949,5 +67949,110 @@
                 }
             }
         }
+    },
+    {
+        "id": "eligibility-question-8948",
+        "question_ids": [
+            "8948"
+        ],
+        "exam_ids": [
+            "civil-service"
+        ],
+        "subject_ids": {
+            "civil-service": "analytical-logical"
+        },
+        "question_mappings": {
+            "8948": {
+                "exam_ids": [
+                    "civil-service"
+                ],
+                "subject_ids": {
+                    "civil-service": "analytical-logical"
+                },
+                "placements": {
+                    "civil-service": {
+                        "board_id": "civil-service",
+                        "subject_id": "analytical-logical",
+                        "domain_id": "analytical-reasoning",
+                        "topic_id": "analytical-assumptions",
+                        "concept_id": "cse-conditional-logic",
+                        "blueprint_node": "analytical-logical",
+                        "let_level": null,
+                        "let_component": null,
+                        "specialization_id": null
+                    }
+                }
+            }
+        }
+    },
+    {
+        "id": "eligibility-question-8949",
+        "question_ids": [
+            "8949"
+        ],
+        "exam_ids": [
+            "civil-service"
+        ],
+        "subject_ids": {
+            "civil-service": "numerical-ability"
+        },
+        "question_mappings": {
+            "8949": {
+                "exam_ids": [
+                    "civil-service"
+                ],
+                "subject_ids": {
+                    "civil-service": "numerical-ability"
+                },
+                "placements": {
+                    "civil-service": {
+                        "board_id": "civil-service",
+                        "subject_id": "numerical-ability",
+                        "domain_id": "data-interpretation",
+                        "topic_id": "data-interpretation",
+                        "concept_id": "cse-quantitative-comparison",
+                        "blueprint_node": "numerical-ability",
+                        "let_level": null,
+                        "let_component": null,
+                        "specialization_id": null
+                    }
+                }
+            }
+        }
+    },
+    {
+        "id": "eligibility-question-8950",
+        "question_ids": [
+            "8950"
+        ],
+        "exam_ids": [
+            "civil-service"
+        ],
+        "subject_ids": {
+            "civil-service": "analytical-logical"
+        },
+        "question_mappings": {
+            "8950": {
+                "exam_ids": [
+                    "civil-service"
+                ],
+                "subject_ids": {
+                    "civil-service": "analytical-logical"
+                },
+                "placements": {
+                    "civil-service": {
+                        "board_id": "civil-service",
+                        "subject_id": "analytical-logical",
+                        "domain_id": "analytical-reasoning",
+                        "topic_id": "analytical-analogy",
+                        "concept_id": "cse-word-analogy",
+                        "blueprint_node": "analytical-logical",
+                        "let_level": null,
+                        "let_component": null,
+                        "specialization_id": null
+                    }
+                }
+            }
+        }
     }
 ]
