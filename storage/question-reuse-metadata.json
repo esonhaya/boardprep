@@ -217866,5 +217866,725 @@
                 }
             ]
         }
+    },
+    {
+        "id": "question-reuse-8904",
+        "question_id": "8904",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 4,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:context-clues-contrast-clues",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8905",
+        "question_id": "8905",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:context-clues-example-clues",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8906",
+        "question_id": "8906",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 4,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:critical-reading-fact-and-opinion",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8907",
+        "question_id": "8907",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 4,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:text-structure-compare-and-contrast",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8908",
+        "question_id": "8908",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 4,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:context-clues-definition-clues",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8909",
+        "question_id": "8909",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:context-clues-inference-clues",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8910",
+        "question_id": "8910",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 4,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:inference-implicit-meaning",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8911",
+        "question_id": "8911",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:modifiers-adjective-modifiers",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8912",
+        "question_id": "8912",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:modifiers-adverb-modifiers",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8913",
+        "question_id": "8913",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:parallelism-faulty-comparisons",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8914",
+        "question_id": "8914",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:parts-of-speech-adjectives",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8915",
+        "question_id": "8915",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:parts-of-speech-nouns",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8916",
+        "question_id": "8916",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:parts-of-speech-verbs",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8917",
+        "question_id": "8917",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:prepositions-prepositional-phrases",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8918",
+        "question_id": "8918",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:pronouns-pronoun-case",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8919",
+        "question_id": "8919",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:sentence-structure-compound-sentences",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8920",
+        "question_id": "8920",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:sentence-structure-fragments",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8921",
+        "question_id": "8921",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:subject-verb-agreement-collective-nouns",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8922",
+        "question_id": "8922",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 4,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:text-structure-problem-and-solution",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8923",
+        "question_id": "8923",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:verb-tenses-future-tense",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8924",
+        "question_id": "8924",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:verb-tenses-present-tense",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8925",
+        "question_id": "8925",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:critical-reading-argument-evaluation",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8926",
+        "question_id": "8926",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 4,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:main-idea-and-support-supporting-evidence",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8927",
+        "question_id": "8927",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:parts-of-speech-adverbs",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8928",
+        "question_id": "8928",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 4,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:parts-of-speech-adverbs",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8929",
+        "question_id": "8929",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 2,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:prepositions-preposition-choice",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8930",
+        "question_id": "8930",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:sentence-structure-run-on-sentences",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8931",
+        "question_id": "8931",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:text-structure-cause-and-effect",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8932",
+        "question_id": "8932",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:verb-tenses-past-tense",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8933",
+        "question_id": "8933",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 4,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:main-idea-and-support-central-idea",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8934",
+        "question_id": "8934",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:modifiers-misplaced-modifiers",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8935",
+        "question_id": "8935",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:pronouns-pronoun-antecedent-agreement",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8936",
+        "question_id": "8936",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:pronouns-pronoun-reference",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8937",
+        "question_id": "8937",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:math-algebra-functions",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8938",
+        "question_id": "8938",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:math-algebra-patterns",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8939",
+        "question_id": "8939",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:math-geometry-angle-relationships",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8940",
+        "question_id": "8940",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:math-number-sense-fractions",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8941",
+        "question_id": "8941",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:math-problem-solving-modeling",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8942",
+        "question_id": "8942",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:math-statistics-mean-median",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8943",
+        "question_id": "8943",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch649-let-source-readiness:subject-verb-agreement-singular-subjects",
+                    "note": "Question scope, depth, source, and study chain use the exact Batch649 READY_WITH_LIMITS leaf boundary.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
     }
 ]

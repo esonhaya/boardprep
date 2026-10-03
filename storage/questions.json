@@ -720254,5 +720254,2815 @@
             "currentness": "NOT_TIME_SENSITIVE",
             "qa_status": "PRECHECKED"
         }
+    },
+    {
+        "id": 8904,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "reading-comprehension",
+            "topic_id": "context-clues",
+            "concept_id": "context-clues-contrast-clues"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "hard",
+        "type": "multiple_choice",
+        "question": "The restoration used inexpensive native seedlings; nevertheless, the first storm removed many plants from the exposed shore. In this sentence, nevertheless signals that:",
+        "choices": [
+            "the storm occurred before the planting.",
+            "the low cost guarantees later survival.",
+            "the later result contrasts with the expectation created by the low cost.",
+            "the seedlings were not native."
+        ],
+        "answer": "the later result contrasts with the expectation created by the low cost.",
+        "explanation": "“Nevertheless” marks a contrast: affordability is favorable, but the exposed site still experienced losses.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-reading-foundation",
+        "study_material_ids": [
+            "let-english-reading-foundation"
+        ],
+        "source_scope": [
+            "context-clues-contrast-clues"
+        ],
+        "study_focus": "Interpret a contrast marker by relating the two adjacent propositions.",
+        "cognitive_intent": "analysis and interpretation",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-context-clues-contrast-clues-language_in_context-8904",
+        "misconception_family": "LANGUAGE_IN_CONTEXT",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "context-clues-contrast-clues",
+            "content_family": "LANGUAGE_IN_CONTEXT",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 4,
+            "study_material_id": "let-english-reading-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "context-clues-contrast-clues"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8905,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "reading-comprehension",
+            "topic_id": "context-clues",
+            "concept_id": "context-clues-example-clues"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "The archive preserves ephemera, including ticket stubs, handwritten programs, and temporary event notices. What does ephemera most nearly mean here?",
+        "choices": [
+            "Items created for temporary use that can document an event.",
+            "Official rules that remain in force indefinitely.",
+            "Tools used to restore damaged paper.",
+            "Books written as complete histories."
+        ],
+        "answer": "Items created for temporary use that can document an event.",
+        "explanation": "The examples are short-lived printed or handwritten items associated with an event, so they clarify “ephemera” as temporary materials worth preserving.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-reading-foundation",
+        "study_material_ids": [
+            "let-english-reading-foundation"
+        ],
+        "source_scope": [
+            "context-clues-example-clues"
+        ],
+        "study_focus": "Use a series of examples to infer the category named by an unfamiliar term.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-context-clues-example-clues-language_in_context-8905",
+        "misconception_family": "LANGUAGE_IN_CONTEXT",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "context-clues-example-clues",
+            "content_family": "LANGUAGE_IN_CONTEXT",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-reading-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "context-clues-example-clues"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8906,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "reading-comprehension",
+            "topic_id": "critical-reading",
+            "concept_id": "critical-reading-fact-and-opinion"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "hard",
+        "type": "multiple_choice",
+        "question": "A school report states that the revised schedule began in August and that 18 of 24 surveyed learners preferred it. The principal calls the schedule “the fairest option for every class.” Which statement is an opinion rather than a directly reported fact?",
+        "choices": [
+            "The revised schedule began in August.",
+            "Eighteen surveyed learners preferred the schedule.",
+            "The report surveyed 24 learners.",
+            "The schedule is the fairest option for every class."
+        ],
+        "answer": "The schedule is the fairest option for every class.",
+        "explanation": "The first three statements are checkable details explicitly reported; “fairest” is an evaluative judgment that the survey count alone does not establish.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-reading-foundation",
+        "study_material_ids": [
+            "let-english-reading-foundation"
+        ],
+        "source_scope": [
+            "critical-reading-fact-and-opinion"
+        ],
+        "study_focus": "Separate verifiable report details from a value judgment that interprets them.",
+        "cognitive_intent": "analysis and interpretation",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-critical-reading-fact-and-opinion-meaning_or_text_interpretation-8906",
+        "misconception_family": "MEANING_OR_TEXT_INTERPRETATION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "critical-reading-fact-and-opinion",
+            "content_family": "MEANING_OR_TEXT_INTERPRETATION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 4,
+            "study_material_id": "let-english-reading-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "critical-reading-fact-and-opinion"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8907,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "reading-comprehension",
+            "topic_id": "text-structure",
+            "concept_id": "text-structure-compare-and-contrast"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "hard",
+        "type": "multiple_choice",
+        "question": "A library compared two reminder systems. Both sent notices before a due date, but the first used printed cards while the second sent text messages; the library reported fewer late returns with texts and noted that phone access varied. Which feature is the basis of the comparison?",
+        "choices": [
+            "Whether each system sent a reminder before the due date.",
+            "Whether the library had books available.",
+            "Whether every borrower owned a phone.",
+            "Whether printed cards were cheaper to produce."
+        ],
+        "answer": "Whether each system sent a reminder before the due date.",
+        "explanation": "The passage explicitly identifies a reminder before the due date as common to both systems; medium and reported outcomes are the contrasts.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-reading-foundation",
+        "study_material_ids": [
+            "let-english-reading-foundation"
+        ],
+        "source_scope": [
+            "text-structure-compare-and-contrast"
+        ],
+        "study_focus": "Identify the shared comparison dimension before interpreting differences.",
+        "cognitive_intent": "analysis and interpretation",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-text-structure-compare-and-contrast-meaning_or_text_interpretation-8907",
+        "misconception_family": "MEANING_OR_TEXT_INTERPRETATION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "text-structure-compare-and-contrast",
+            "content_family": "MEANING_OR_TEXT_INTERPRETATION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 4,
+            "study_material_id": "let-english-reading-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "text-structure-compare-and-contrast"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8908,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "reading-comprehension",
+            "topic_id": "context-clues",
+            "concept_id": "context-clues-definition-clues"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "hard",
+        "type": "multiple_choice",
+        "question": "The report describes the result as provisional, meaning that it is accepted only for now while additional observations are collected. What does provisional mean in this context?",
+        "choices": [
+            "Final and no longer open to revision.",
+            "Tentative pending further evidence.",
+            "Unrelated to the observations.",
+            "Incorrect by definition."
+        ],
+        "answer": "Tentative pending further evidence.",
+        "explanation": "The passage directly explains the word: the result is temporary and may change when more observations arrive.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-reading-foundation",
+        "study_material_ids": [
+            "let-english-reading-foundation"
+        ],
+        "source_scope": [
+            "context-clues-definition-clues"
+        ],
+        "study_focus": "Use an explicit restatement to determine a word’s contextual meaning.",
+        "cognitive_intent": "analysis and interpretation",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-context-clues-definition-clues-language_in_context-8908",
+        "misconception_family": "LANGUAGE_IN_CONTEXT",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "context-clues-definition-clues",
+            "content_family": "LANGUAGE_IN_CONTEXT",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 4,
+            "study_material_id": "let-english-reading-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "context-clues-definition-clues"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8909,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "reading-comprehension",
+            "topic_id": "context-clues",
+            "concept_id": "context-clues-inference-clues"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "The mangrove plot beside the seawall retained more seedlings than the plot facing open waves. The project team will measure wave exposure before recommending another site. Which meaning of retained is supported by these clues?",
+        "choices": [
+            "Kept or continued to have.",
+            "Replaced with a different species.",
+            "Measured for height only.",
+            "Transferred to the seawall."
+        ],
+        "answer": "Kept or continued to have.",
+        "explanation": "The contrast between the plots and the count of seedlings indicate that the sheltered plot continued to have more living seedlings.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-reading-foundation",
+        "study_material_ids": [
+            "let-english-reading-foundation"
+        ],
+        "source_scope": [
+            "context-clues-inference-clues"
+        ],
+        "study_focus": "Infer a word’s meaning from the outcome and contrast surrounding it.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-context-clues-inference-clues-meaning_or_text_interpretation-8909",
+        "misconception_family": "MEANING_OR_TEXT_INTERPRETATION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "context-clues-inference-clues",
+            "content_family": "MEANING_OR_TEXT_INTERPRETATION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-reading-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "context-clues-inference-clues"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8910,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "reading-comprehension",
+            "topic_id": "inference",
+            "concept_id": "inference-implicit-meaning"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "hard",
+        "type": "multiple_choice",
+        "question": "A town posted a draft flood plan online, accepted comments for two weeks, and scheduled a meeting with residents before approving it. What is most strongly implied?",
+        "choices": [
+            "The posted draft is already a final regulation.",
+            "Residents are being given an opportunity to inform the decision before it is final.",
+            "The town has rejected all technical evidence.",
+            "The meeting will replace the need for a written plan."
+        ],
+        "answer": "Residents are being given an opportunity to inform the decision before it is final.",
+        "explanation": "A draft, comment period, and pre-approval meeting together show that the decision remains open to public input; they do not establish that every comment will be adopted.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-reading-foundation",
+        "study_material_ids": [
+            "let-english-reading-foundation"
+        ],
+        "source_scope": [
+            "inference-implicit-meaning"
+        ],
+        "study_focus": "Combine multiple stated procedural clues without claiming more than they warrant.",
+        "cognitive_intent": "analysis and interpretation",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-inference-implicit-meaning-meaning_or_text_interpretation-8910",
+        "misconception_family": "MEANING_OR_TEXT_INTERPRETATION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "inference-implicit-meaning",
+            "content_family": "MEANING_OR_TEXT_INTERPRETATION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 4,
+            "study_material_id": "let-english-reading-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "inference-implicit-meaning"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8911,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "modifiers",
+            "concept_id": "modifiers-adjective-modifiers"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "An editor needs a concise phrase in which coastal describes the kind of maps that were updated. Which sentence uses coastal as an adjective modifying maps?",
+        "choices": [
+            "The coastal maps were updated.",
+            "The maps were coastally updated.",
+            "The staff mapped the coast.",
+            "The coast was mapped after the update."
+        ],
+        "answer": "The coastal maps were updated.",
+        "explanation": "“Coastal” directly modifies the noun “maps”; the other choices use an adverb, a noun, or a passive verb phrase instead.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "modifiers-adjective-modifiers"
+        ],
+        "study_focus": "Identify an adjective by the noun it modifies, distinguishing it from a related adverb or noun.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-modifiers-adjective-modifiers-language_in_context-8911",
+        "misconception_family": "LANGUAGE_IN_CONTEXT",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "modifiers-adjective-modifiers",
+            "content_family": "LANGUAGE_IN_CONTEXT",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "modifiers-adjective-modifiers"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8912,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "modifiers",
+            "concept_id": "modifiers-adverb-modifiers"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A notice should say that the office checked the figures with care. Which revision places the adverb so that it modifies checked?",
+        "choices": [
+            "The office carefully checked the figures.",
+            "The carefully office checked the figures.",
+            "The office checked the careful figures.",
+            "The office checked the figures careful."
+        ],
+        "answer": "The office carefully checked the figures.",
+        "explanation": "“Carefully” is an adverb modifying the verb “checked”; the other placements either modify the wrong word or use the adjective form.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "modifiers-adverb-modifiers"
+        ],
+        "study_focus": "Revise modifier placement and form so the adverb clearly modifies the intended verb.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-modifiers-adverb-modifiers-error_analysis_or_revision-8912",
+        "misconception_family": "ERROR_ANALYSIS_OR_REVISION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "modifiers-adverb-modifiers",
+            "content_family": "ERROR_ANALYSIS_OR_REVISION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "modifiers-adverb-modifiers"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8913,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "parallelism",
+            "concept_id": "parallelism-faulty-comparisons"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A report intends to compare the time needed by two filing methods. Which sentence makes the comparison between like quantities?",
+        "choices": [
+            "Filing by the portal takes less time than filing on paper.",
+            "The portal takes less time than paper filing.",
+            "Filing by the portal is faster than the paper files.",
+            "Portal filing takes less time than when staff used paper."
+        ],
+        "answer": "Filing by the portal takes less time than filing on paper.",
+        "explanation": "The correct sentence compares the time required for each method. The other choices compare unlike things or leave the compared action unclear.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "parallelism-faulty-comparisons"
+        ],
+        "study_focus": "Repair a faulty comparison by making the compared terms grammatically and logically parallel.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-parallelism-faulty-comparisons-error_analysis_or_revision-8913",
+        "misconception_family": "ERROR_ANALYSIS_OR_REVISION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "parallelism-faulty-comparisons",
+            "content_family": "ERROR_ANALYSIS_OR_REVISION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "parallelism-faulty-comparisons"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8914,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "parts-of-speech",
+            "concept_id": "parts-of-speech-adjectives"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "In “The measurements became clearer after the technician replaced the cracked tube,” which word is a predicative adjective describing measurements?",
+        "choices": [
+            "measurements",
+            "became",
+            "clearer",
+            "replaced"
+        ],
+        "answer": "clearer",
+        "explanation": "“Clearer” follows the linking verb “became” and describes the subject “measurements”; it is a predicative adjective.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "parts-of-speech-adjectives"
+        ],
+        "study_focus": "Recognize an adjective in a predicate complement rather than only before a noun.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-parts-of-speech-adjectives-language_in_context-8914",
+        "misconception_family": "LANGUAGE_IN_CONTEXT",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "parts-of-speech-adjectives",
+            "content_family": "LANGUAGE_IN_CONTEXT",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "parts-of-speech-adjectives"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8915,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "parts-of-speech",
+            "concept_id": "parts-of-speech-nouns"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "In “The annotations from the reviewer were decisive,” which word is the head noun of the subject phrase?",
+        "choices": [
+            "annotations",
+            "from",
+            "reviewer",
+            "were"
+        ],
+        "answer": "annotations",
+        "explanation": "“Annotations” is the subject phrase’s head noun; “from the reviewer” is a prepositional phrase modifying it, and “were” is the verb.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "parts-of-speech-nouns"
+        ],
+        "study_focus": "Distinguish a phrase’s head noun from a noun inside a modifying prepositional phrase.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-parts-of-speech-nouns-language_in_context-8915",
+        "misconception_family": "LANGUAGE_IN_CONTEXT",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "parts-of-speech-nouns",
+            "content_family": "LANGUAGE_IN_CONTEXT",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "parts-of-speech-nouns"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8916,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "parts-of-speech",
+            "concept_id": "parts-of-speech-verbs"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "In “The copied forms were missing from the archive,” which word is the finite verb that anchors the clause in tense?",
+        "choices": [
+            "copied",
+            "forms",
+            "were",
+            "missing"
+        ],
+        "answer": "were",
+        "explanation": "“Were” is the finite past-tense verb; “copied” and “missing” describe the forms in this construction.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "parts-of-speech-verbs"
+        ],
+        "study_focus": "Distinguish a finite, tensed verb from participial forms that describe a noun or state.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-parts-of-speech-verbs-language_in_context-8916",
+        "misconception_family": "LANGUAGE_IN_CONTEXT",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "parts-of-speech-verbs",
+            "content_family": "LANGUAGE_IN_CONTEXT",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "parts-of-speech-verbs"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8917,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "prepositions",
+            "concept_id": "prepositions-prepositional-phrases"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "In “After the inspection, the clerk filed the signed forms,” what relationship does the opening prepositional phrase express?",
+        "choices": [
+            "The time when the forms were filed.",
+            "The person who signed the forms.",
+            "The reason the inspection was canceled.",
+            "The location of the clerk."
+        ],
+        "answer": "The time when the forms were filed.",
+        "explanation": "“After the inspection” is a time phrase modifying the filing action; it does not identify the signer, cause, or location.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "prepositions-prepositional-phrases"
+        ],
+        "study_focus": "Interpret the relationship expressed by a prepositional phrase in context.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-prepositions-prepositional-phrases-meaning_or_text_interpretation-8917",
+        "misconception_family": "MEANING_OR_TEXT_INTERPRETATION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "prepositions-prepositional-phrases",
+            "content_family": "MEANING_OR_TEXT_INTERPRETATION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "prepositions-prepositional-phrases"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8918,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "pronouns",
+            "concept_id": "pronouns-pronoun-case"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "The coordinator invited Lea and ___ to explain the revised process. Which pronoun has the correct case?",
+        "choices": [
+            "I",
+            "me",
+            "my",
+            "mine"
+        ],
+        "answer": "me",
+        "explanation": "The pronoun is the direct object of “invited,” so the objective form “me” is required.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "pronouns-pronoun-case"
+        ],
+        "study_focus": "Select pronoun case from the pronoun’s grammatical role, not from a removed compound phrase.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-pronouns-pronoun-case-error_analysis_or_revision-8918",
+        "misconception_family": "ERROR_ANALYSIS_OR_REVISION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "pronouns-pronoun-case",
+            "content_family": "ERROR_ANALYSIS_OR_REVISION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "pronouns-pronoun-case"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8919,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "sentence-structure",
+            "concept_id": "sentence-structure-compound-sentences"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "Two complete statements must remain parallel in importance: the archive was closed, and staff moved the consultation online. Which revision correctly joins them with a semicolon?",
+        "choices": [
+            "The archive was closed; staff moved the consultation online.",
+            "The archive was closed, staff moved the consultation online.",
+            "The archive was closed; because staff moved the consultation online.",
+            "The archive was closed staff moved; the consultation online."
+        ],
+        "answer": "The archive was closed; staff moved the consultation online.",
+        "explanation": "A semicolon can join two closely related independent clauses. The comma alone creates a splice, while the other choices leave a fragment or break the clause.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "sentence-structure-compound-sentences"
+        ],
+        "study_focus": "Recognize how two independent clauses form a compound sentence without a comma splice.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-sentence-structure-compound-sentences-error_analysis_or_revision-8919",
+        "misconception_family": "ERROR_ANALYSIS_OR_REVISION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "sentence-structure-compound-sentences",
+            "content_family": "ERROR_ANALYSIS_OR_REVISION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "sentence-structure-compound-sentences"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8920,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "sentence-structure",
+            "concept_id": "sentence-structure-fragments"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A draft reads: “The inspectors reviewing the damaged footbridge before reopening it.” Which revision supplies the missing finite verb while preserving the intended meaning?",
+        "choices": [
+            "The inspectors reviewed the damaged footbridge before reopening it.",
+            "The inspectors, reviewing the damaged footbridge before reopening it.",
+            "Reviewing the damaged footbridge before reopening it.",
+            "The damaged footbridge before reopening it was reviewed."
+        ],
+        "answer": "The inspectors reviewed the damaged footbridge before reopening it.",
+        "explanation": "The original is a noun phrase with a participial phrase but no finite predicate. “Reviewed” completes the clause and preserves who acted.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "sentence-structure-fragments"
+        ],
+        "study_focus": "Diagnose a fragment caused by a missing predicate and supply a complete clause.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-sentence-structure-fragments-error_analysis_or_revision-8920",
+        "misconception_family": "ERROR_ANALYSIS_OR_REVISION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "sentence-structure-fragments",
+            "content_family": "ERROR_ANALYSIS_OR_REVISION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "sentence-structure-fragments"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8921,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "subject-verb-agreement",
+            "concept_id": "subject-verb-agreement-collective-nouns"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "The committee of curriculum specialists, rather than the individual specialists, ___ the final recommendation. Which form agrees with the subject?",
+        "choices": [
+            "review",
+            "reviews",
+            "have reviewed",
+            "were reviewing"
+        ],
+        "answer": "reviews",
+        "explanation": "The grammatical subject is the collective noun “committee,” treated here as one decision-making body; the plural noun in the of-phrase does not control the verb.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "subject-verb-agreement-collective-nouns"
+        ],
+        "study_focus": "Locate a collective noun as the subject and ignore a plural noun inside an intervening phrase.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-subject-verb-agreement-collective-nouns-error_analysis_or_revision-8921",
+        "misconception_family": "ERROR_ANALYSIS_OR_REVISION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "subject-verb-agreement-collective-nouns",
+            "content_family": "ERROR_ANALYSIS_OR_REVISION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "subject-verb-agreement-collective-nouns"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8922,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "reading-comprehension",
+            "topic_id": "text-structure",
+            "concept_id": "text-structure-problem-and-solution"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "hard",
+        "type": "multiple_choice",
+        "question": "A clinic found that patients often missed follow-up appointments because reminder dates were written on separate cards. It introduced one shared appointment log; missed visits then declined, although staff plan to check whether transport problems also affected attendance. Which statement best describes the passage’s structure?",
+        "choices": [
+            "It presents an access problem, describes a record-keeping response, and qualifies the reported outcome.",
+            "It lists unrelated events in chronological order only.",
+            "It compares two clinics with identical appointment systems.",
+            "It argues that transport is the sole cause of missed visits."
+        ],
+        "answer": "It presents an access problem, describes a record-keeping response, and qualifies the reported outcome.",
+        "explanation": "The passage follows problem, proposed solution, and a cautious note about another possible factor; it does not establish a single cause.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-reading-foundation",
+        "study_material_ids": [
+            "let-english-reading-foundation"
+        ],
+        "source_scope": [
+            "text-structure-problem-and-solution"
+        ],
+        "study_focus": "Trace a problem-solution pattern while preserving the passage’s stated limitation.",
+        "cognitive_intent": "analysis and interpretation",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-text-structure-problem-and-solution-meaning_or_text_interpretation-8922",
+        "misconception_family": "MEANING_OR_TEXT_INTERPRETATION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "text-structure-problem-and-solution",
+            "content_family": "MEANING_OR_TEXT_INTERPRETATION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 4,
+            "study_material_id": "let-english-reading-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "text-structure-problem-and-solution"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8923,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "verb-tenses",
+            "concept_id": "verb-tenses-future-tense"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "The inspection report is due Monday. The work plan should state that the team will finish the review before that deadline. Which sentence expresses completion before a future point?",
+        "choices": [
+            "By Monday, the team will have completed the review.",
+            "On Monday, the team completed the review.",
+            "The team had completed the review by Monday last week.",
+            "The team completes the review yesterday."
+        ],
+        "answer": "By Monday, the team will have completed the review.",
+        "explanation": "“Will have completed” is future perfect: it presents completion as occurring before the future reference point Monday.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "verb-tenses-future-tense"
+        ],
+        "study_focus": "Use future perfect aspect to show an action completed before a stated future deadline.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-verb-tenses-future-tense-language_in_context-8923",
+        "misconception_family": "LANGUAGE_IN_CONTEXT",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "verb-tenses-future-tense",
+            "content_family": "LANGUAGE_IN_CONTEXT",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "verb-tenses-future-tense"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8924,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "verb-tenses",
+            "concept_id": "verb-tenses-present-tense"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A science guide states a general process: “When water reaches its boiling point, it ___ into vapor.” Which form best expresses the general relationship?",
+        "choices": [
+            "changed",
+            "changes",
+            "will have changed",
+            "was changing"
+        ],
+        "answer": "changes",
+        "explanation": "The simple present expresses a general process stated as a continuing rule, not one completed event or a future prediction.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "verb-tenses-present-tense"
+        ],
+        "study_focus": "Use the simple present for a general process stated as a standing relationship.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-verb-tenses-present-tense-language_in_context-8924",
+        "misconception_family": "LANGUAGE_IN_CONTEXT",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "verb-tenses-present-tense",
+            "content_family": "LANGUAGE_IN_CONTEXT",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "verb-tenses-present-tense"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8925,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "reading-comprehension",
+            "topic_id": "critical-reading",
+            "concept_id": "critical-reading-argument-evaluation"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A vendor claims a new queue system “eliminates waiting.” The report shows that the median wait fell from 18 minutes to 11 minutes during one week, but gives no information about the longest waits. Which evaluation is most defensible?",
+        "choices": [
+            "The claim is fully proven because the median decreased.",
+            "The result is encouraging, but the reported median does not show that waiting was eliminated or describe the longest waits.",
+            "The system had no effect because some waiting remained possible.",
+            "The report proves the same result will occur at every service counter."
+        ],
+        "answer": "The result is encouraging, but the reported median does not show that waiting was eliminated or describe the longest waits.",
+        "explanation": "A lower median supports a reduction in typical wait time, but it neither shows zero waiting nor describes the distribution’s longest waits.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-reading-foundation",
+        "study_material_ids": [
+            "let-english-reading-foundation"
+        ],
+        "source_scope": [
+            "critical-reading-argument-evaluation"
+        ],
+        "study_focus": "Evaluate whether the evidence supports the strength and breadth of a claim.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-critical-reading-argument-evaluation-meaning_or_text_interpretation-8925",
+        "misconception_family": "MEANING_OR_TEXT_INTERPRETATION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "critical-reading-argument-evaluation",
+            "content_family": "MEANING_OR_TEXT_INTERPRETATION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-reading-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "critical-reading-argument-evaluation"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8926,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "reading-comprehension",
+            "topic_id": "main-idea-and-support",
+            "concept_id": "main-idea-and-support-supporting-evidence"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "hard",
+        "type": "multiple_choice",
+        "question": "A coastal barangay planted trees along two paths. After six months, the shaded path had lower midday surface temperatures; the report also notes that its surface was lighter and received less direct sun. Which detail is direct evidence for the reported temperature difference?",
+        "choices": [
+            "The planting occurred in a coastal barangay.",
+            "The shaded path recorded lower midday surface temperatures.",
+            "Both paths were used by residents.",
+            "The report was prepared after six months."
+        ],
+        "answer": "The shaded path recorded lower midday surface temperatures.",
+        "explanation": "The measured lower temperature is the observation directly supporting the report’s comparison; the other details give context or timing.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-reading-foundation",
+        "study_material_ids": [
+            "let-english-reading-foundation"
+        ],
+        "source_scope": [
+            "main-idea-and-support-supporting-evidence"
+        ],
+        "study_focus": "Select the reported observation that directly supports the stated comparison.",
+        "cognitive_intent": "analysis and interpretation",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-main-idea-and-support-supporting-evidence-meaning_or_text_interpretation-8926",
+        "misconception_family": "MEANING_OR_TEXT_INTERPRETATION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "main-idea-and-support-supporting-evidence",
+            "content_family": "MEANING_OR_TEXT_INTERPRETATION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 4,
+            "study_material_id": "let-english-reading-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "main-idea-and-support-supporting-evidence"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8927,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "parts-of-speech",
+            "concept_id": "parts-of-speech-adverbs"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "In “The unusually quiet room helped the class concentrate,” which word modifies the adjective quiet?",
+        "choices": [
+            "room",
+            "helped",
+            "unusually",
+            "concentrate"
+        ],
+        "answer": "unusually",
+        "explanation": "“Unusually” is an adverb modifying the adjective “quiet,” expressing degree rather than manner of the action.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "parts-of-speech-adverbs"
+        ],
+        "study_focus": "Recognize an adverb modifying an adjective rather than a verb.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-parts-of-speech-adverbs-language_in_context-8927",
+        "misconception_family": "LANGUAGE_IN_CONTEXT",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "parts-of-speech-adverbs",
+            "content_family": "LANGUAGE_IN_CONTEXT",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "parts-of-speech-adverbs"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8928,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "parts-of-speech",
+            "concept_id": "parts-of-speech-adverbs"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "hard",
+        "type": "multiple_choice",
+        "question": "In “Fortunately, the backup remained legible,” what does fortunately chiefly modify?",
+        "choices": [
+            "The noun backup alone.",
+            "The adjective legible alone.",
+            "The whole clause, signaling the writer’s evaluation of the situation.",
+            "The past-tense verb remained as a manner of action."
+        ],
+        "answer": "The whole clause, signaling the writer’s evaluation of the situation.",
+        "explanation": "“Fortunately” is a sentence adverb commenting on the clause as a whole; it does not describe how the backup remained.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "parts-of-speech-adverbs"
+        ],
+        "study_focus": "Recognize a sentence adverb that expresses the writer’s stance toward a complete proposition.",
+        "cognitive_intent": "analysis and interpretation",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-parts-of-speech-adverbs-meaning_or_text_interpretation-8928",
+        "misconception_family": "MEANING_OR_TEXT_INTERPRETATION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "parts-of-speech-adverbs",
+            "content_family": "MEANING_OR_TEXT_INTERPRETATION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 4,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "parts-of-speech-adverbs"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8929,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "prepositions",
+            "concept_id": "prepositions-preposition-choice"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "The editor divided the report ___ four sections so different teams could review them. Which preposition expresses the intended partition?",
+        "choices": [
+            "into",
+            "between",
+            "during",
+            "beside"
+        ],
+        "answer": "into",
+        "explanation": "“Divide into” introduces the parts created from a whole; the other prepositions express different relationships.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "prepositions-preposition-choice"
+        ],
+        "study_focus": "Select a preposition that matches the stated whole-to-parts relationship.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-prepositions-preposition-choice-language_in_context-8929",
+        "misconception_family": "LANGUAGE_IN_CONTEXT",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "prepositions-preposition-choice",
+            "content_family": "LANGUAGE_IN_CONTEXT",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 2,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "prepositions-preposition-choice"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8930,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "sentence-structure",
+            "concept_id": "sentence-structure-run-on-sentences"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "Two complete observations should be connected to show a cause: the sensor lost power, and the display went blank. Which revision is grammatical and keeps that relationship?",
+        "choices": [
+            "The sensor lost power, so the display went blank.",
+            "The sensor lost power the display went blank.",
+            "The sensor lost power, the display went blank.",
+            "The sensor lost power; because the display went blank."
+        ],
+        "answer": "The sensor lost power, so the display went blank.",
+        "explanation": "“So” joins the independent clauses and marks the stated result. The bare sequence and comma splice are run-ons; the semicolon-plus-because choice is incomplete.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "sentence-structure-run-on-sentences"
+        ],
+        "study_focus": "Repair a run-on while preserving the logical relation between independent clauses.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-sentence-structure-run-on-sentences-error_analysis_or_revision-8930",
+        "misconception_family": "ERROR_ANALYSIS_OR_REVISION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "sentence-structure-run-on-sentences",
+            "content_family": "ERROR_ANALYSIS_OR_REVISION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "sentence-structure-run-on-sentences"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8931,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "reading-comprehension",
+            "topic_id": "text-structure",
+            "concept_id": "text-structure-cause-and-effect"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A roof drain became blocked with leaves. During the next rain, water overflowed onto the walkway; after workers cleared the drain, the overflow stopped. Which sequence best represents the cause-and-effect structure?",
+        "choices": [
+            "Clearing the drain caused the rain to begin.",
+            "The blockage led to overflow, and clearing it removed the obstruction associated with that overflow.",
+            "The walkway caused leaves to collect on the roof.",
+            "The rain stopped because the walkway was repaired."
+        ],
+        "answer": "The blockage led to overflow, and clearing it removed the obstruction associated with that overflow.",
+        "explanation": "The passage links a blocked drain to overflow and then reports that clearing the obstruction stopped it; it does not claim the walkway caused the blockage.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-reading-foundation",
+        "study_material_ids": [
+            "let-english-reading-foundation"
+        ],
+        "source_scope": [
+            "text-structure-cause-and-effect"
+        ],
+        "study_focus": "Trace an explicitly stated cause, its effect, and the result of removing the cause.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-text-structure-cause-and-effect-meaning_or_text_interpretation-8931",
+        "misconception_family": "MEANING_OR_TEXT_INTERPRETATION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "text-structure-cause-and-effect",
+            "content_family": "MEANING_OR_TEXT_INTERPRETATION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-reading-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "text-structure-cause-and-effect"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8932,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "verb-tenses",
+            "concept_id": "verb-tenses-past-tense"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A completed inspection happened on a date that has passed: “On Tuesday, the team ___ the damaged railing.” Which form matches the finished time reference?",
+        "choices": [
+            "inspects",
+            "has inspected",
+            "inspected",
+            "will inspect"
+        ],
+        "answer": "inspected",
+        "explanation": "The finished time marker “On Tuesday” calls for the simple past “inspected.”",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "verb-tenses-past-tense"
+        ],
+        "study_focus": "Match a verb tense to an explicitly finished time period.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-verb-tenses-past-tense-error_analysis_or_revision-8932",
+        "misconception_family": "ERROR_ANALYSIS_OR_REVISION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "verb-tenses-past-tense",
+            "content_family": "ERROR_ANALYSIS_OR_REVISION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "verb-tenses-past-tense"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8933,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "reading-comprehension",
+            "topic_id": "main-idea-and-support",
+            "concept_id": "main-idea-and-support-central-idea"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "hard",
+        "type": "multiple_choice",
+        "question": "A community center replaced a sign-up notebook with a shared calendar. Fewer double bookings followed, but the coordinator also trained staff to confirm reservations. The center plans to review both changes after another month. Which statement best captures the passage as a whole?",
+        "choices": [
+            "The shared calendar alone eliminated every booking problem.",
+            "A reservation process was revised and early results improved, but the report does not isolate the contribution of each change.",
+            "Staff training was unnecessary once the notebook was removed.",
+            "The center will stop recording reservations after one month."
+        ],
+        "answer": "A reservation process was revised and early results improved, but the report does not isolate the contribution of each change.",
+        "explanation": "The central idea covers both the process change and the cautious report of improvement; it avoids claiming a single proven cause.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-reading-foundation",
+        "study_material_ids": [
+            "let-english-reading-foundation"
+        ],
+        "source_scope": [
+            "main-idea-and-support-central-idea"
+        ],
+        "study_focus": "Synthesize the full passage rather than selecting a supporting detail or overstating causation.",
+        "cognitive_intent": "analysis and interpretation",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-main-idea-and-support-central-idea-meaning_or_text_interpretation-8933",
+        "misconception_family": "MEANING_OR_TEXT_INTERPRETATION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "main-idea-and-support-central-idea",
+            "content_family": "MEANING_OR_TEXT_INTERPRETATION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 4,
+            "study_material_id": "let-english-reading-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "main-idea-and-support-central-idea"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8934,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "modifiers",
+            "concept_id": "modifiers-misplaced-modifiers"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "The intended meaning is that the analyst, after reviewing the final spreadsheet, found the duplicate entries. Which sentence avoids a dangling opening modifier?",
+        "choices": [
+            "After reviewing the final spreadsheet, the analyst found the duplicate entries.",
+            "After reviewing the final spreadsheet, the duplicate entries were found.",
+            "The duplicate entries, after reviewing the final spreadsheet, were found.",
+            "The analyst found, after reviewing, the final spreadsheet duplicate entries."
+        ],
+        "answer": "After reviewing the final spreadsheet, the analyst found the duplicate entries.",
+        "explanation": "The opening phrase correctly modifies “the analyst,” the person who performed the review; the other choices leave the reviewer unclear or disrupt the intended relation.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "modifiers-misplaced-modifiers"
+        ],
+        "study_focus": "Attach an introductory participial phrase to the person who performs its action.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-modifiers-misplaced-modifiers-error_analysis_or_revision-8934",
+        "misconception_family": "ERROR_ANALYSIS_OR_REVISION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "modifiers-misplaced-modifiers",
+            "content_family": "ERROR_ANALYSIS_OR_REVISION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "modifiers-misplaced-modifiers"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8935,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "pronouns",
+            "concept_id": "pronouns-pronoun-antecedent-agreement"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "Both the mentor and the trainee submitted a reflection. The report must refer to the two people together: “___ described what they would revise next.” Which subject pronoun agrees with the compound antecedent?",
+        "choices": [
+            "Each",
+            "They",
+            "It",
+            "She"
+        ],
+        "answer": "They",
+        "explanation": "The compound antecedent names two people, so the plural pronoun “they” agrees in number and preserves the intended reference.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "pronouns-pronoun-antecedent-agreement"
+        ],
+        "study_focus": "Match a pronoun to a compound antecedent rather than to either noun alone.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-pronouns-pronoun-antecedent-agreement-error_analysis_or_revision-8935",
+        "misconception_family": "ERROR_ANALYSIS_OR_REVISION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "pronouns-pronoun-antecedent-agreement",
+            "content_family": "ERROR_ANALYSIS_OR_REVISION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "pronouns-pronoun-antecedent-agreement"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8936,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "pronouns",
+            "concept_id": "pronouns-pronoun-reference"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A report says, “The board revised the attendance policy after the school met, and this surprised families.” The writer means that the policy revision surprised families. Which revision makes the referent explicit?",
+        "choices": [
+            "The board revised the attendance policy after the school met, and the policy change surprised families.",
+            "The board revised the attendance policy after the school met, and this surprised families.",
+            "After the school met, the board revised it, which surprised them.",
+            "The board revised the attendance policy after it met, and they surprised families."
+        ],
+        "answer": "The board revised the attendance policy after the school met, and the policy change surprised families.",
+        "explanation": "Naming “the policy change” removes the ambiguous demonstrative “this”; the other choices retain or add unclear pronoun references.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "pronouns-pronoun-reference"
+        ],
+        "study_focus": "Replace a vague pronoun with the intended antecedent when several events could be its referent.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-pronouns-pronoun-reference-error_analysis_or_revision-8936",
+        "misconception_family": "ERROR_ANALYSIS_OR_REVISION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 1,
+            "leaf_id": "pronouns-pronoun-reference",
+            "content_family": "ERROR_ANALYSIS_OR_REVISION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "pronouns-pronoun-reference"
+            ],
+            "derivable": true
+        }
+    },
+    {
+        "id": 8937,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "mathematics",
+            "domain_id": "algebra",
+            "topic_id": "math-algebra",
+            "concept_id": "math-algebra-functions"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A spreadsheet applies the rule f(x) = 3x − 2 to each entered value. What output should it display when x = 5?",
+        "choices": [
+            "13",
+            "15",
+            "9",
+            "17"
+        ],
+        "answer": "13",
+        "explanation": "Substitute 5 for x, multiply first, then subtract 2: f(5) = 3(5) − 2 = 13. The other choices reflect omitting or misapplying part of the rule.",
+        "content_blocks": [],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "deped-math-curriculum-guide",
+            "openstax-algebra-and-trigonometry"
+        ],
+        "study_material_id": "let-specialization-mathematics-application",
+        "study_material_ids": [
+            "let-specialization-mathematics-application"
+        ],
+        "source_scope": [
+            "math-algebra-functions"
+        ],
+        "study_focus": "Evaluate a function rule for a stated input and verify the output.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-math-algebra-functions-quantitative_application-8937",
+        "misconception_family": "QUANTITATIVE_APPLICATION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 2,
+            "leaf_id": "math-algebra-functions",
+            "content_family": "QUANTITATIVE_APPLICATION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "readiness_evidence_hash_before": "166b4de440eac9b5de4aceafa0953287fe5270183e993fbd93cca64119250529",
+            "native_question_count_before": 5,
+            "remaining_headroom_before": 1,
+            "remaining_family_count_before": 3,
+            "depth": 3,
+            "study_material_id": "let-specialization-mathematics-application",
+            "source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-math-curriculum-guide",
+                "openstax-algebra-and-trigonometry"
+            ],
+            "scope": [
+                "math-algebra-functions"
+            ],
+            "unused_family_evidence": "The five existing leaf items cover one-output validity, table/rule translation, equivalent representations, input/output distinction, and relation validity; none evaluates a stated rule numerically.",
+            "derivable": true,
+            "specialization_id": "secondary-mathematics"
+        },
+        "calculation": {
+            "family": "function_evaluation",
+            "values": [
+                3,
+                5,
+                -2
+            ],
+            "expected": 13,
+            "unit": "function output",
+            "rounding": "exact"
+        },
+        "calculation_family": "function_evaluation"
+    },
+    {
+        "id": 8938,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "mathematics",
+            "domain_id": "algebra",
+            "topic_id": "math-algebra",
+            "concept_id": "math-algebra-patterns"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A sequence begins 4, 9, 14, 19, … and continues with the same rule. What is its eighth term?",
+        "choices": [
+            "39",
+            "35",
+            "40",
+            "44"
+        ],
+        "answer": "39",
+        "explanation": "The common difference is 5. From the first term to the eighth there are seven equal increases, so 4 + 7(5) = 39.",
+        "content_blocks": [],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "deped-math-curriculum-guide",
+            "openstax-algebra-and-trigonometry"
+        ],
+        "study_material_id": "let-specialization-mathematics-application",
+        "study_material_ids": [
+            "let-specialization-mathematics-application"
+        ],
+        "source_scope": [
+            "math-algebra-patterns"
+        ],
+        "study_focus": "Apply a verified arithmetic-pattern rule to determine a later term.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-math-algebra-patterns-quantitative_application-8938",
+        "misconception_family": "QUANTITATIVE_APPLICATION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 2,
+            "leaf_id": "math-algebra-patterns",
+            "content_family": "QUANTITATIVE_APPLICATION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "readiness_evidence_hash_before": "6476790e753d610e5be7710ef388fd34825c1896b72c7e2ba5ad6de09abe385c",
+            "native_question_count_before": 5,
+            "remaining_headroom_before": 1,
+            "remaining_family_count_before": 3,
+            "depth": 3,
+            "study_material_id": "let-specialization-mathematics-application",
+            "source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-math-curriculum-guide",
+                "openstax-algebra-and-trigonometry"
+            ],
+            "scope": [
+                "math-algebra-patterns"
+            ],
+            "unused_family_evidence": "The existing five items ask learners to identify, test, represent, or reject a pattern rule; none computes a specified later term from an explicit sequence.",
+            "derivable": true,
+            "specialization_id": "secondary-mathematics"
+        },
+        "calculation": {
+            "family": "arithmetic_sequence_term",
+            "values": [
+                4,
+                5,
+                8
+            ],
+            "expected": 39,
+            "unit": "term value",
+            "rounding": "exact"
+        },
+        "calculation_family": "arithmetic_sequence_term"
+    },
+    {
+        "id": 8939,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "mathematics",
+            "domain_id": "geometry",
+            "topic_id": "math-geometry",
+            "concept_id": "math-geometry-angle-relationships"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "Two parallel lines are crossed by a transversal. An interior angle at the upper intersection measures 68°. What is the measure of its alternate interior angle at the lower intersection?",
+        "choices": [
+            "68°",
+            "112°",
+            "22°",
+            "180°"
+        ],
+        "answer": "68°",
+        "explanation": "Alternate interior angles formed by parallel lines and a transversal are congruent, so the corresponding angle also measures 68°. The supplementary value belongs to a same-side interior pair.",
+        "content_blocks": [],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "deped-math-curriculum-guide",
+            "openstax-algebra-and-trigonometry"
+        ],
+        "study_material_id": "let-specialization-mathematics-application",
+        "study_material_ids": [
+            "let-specialization-mathematics-application"
+        ],
+        "source_scope": [
+            "math-geometry-angle-relationships"
+        ],
+        "study_focus": "Select the parallel-line angle relationship that matches the described positions.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-math-geometry-angle-relationships-model_or_representation_selection-8939",
+        "misconception_family": "MODEL_OR_REPRESENTATION_SELECTION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 2,
+            "leaf_id": "math-geometry-angle-relationships",
+            "content_family": "MODEL_OR_REPRESENTATION_SELECTION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "readiness_evidence_hash_before": "76c8581f3cd11de22e83b3c0e09f431720b475f7828f142f0dc7cd45c31d2892",
+            "native_question_count_before": 5,
+            "remaining_headroom_before": 1,
+            "remaining_family_count_before": 3,
+            "depth": 3,
+            "study_material_id": "let-specialization-mathematics-application",
+            "source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-math-curriculum-guide",
+                "openstax-algebra-and-trigonometry"
+            ],
+            "scope": [
+                "math-geometry-angle-relationships"
+            ],
+            "unused_family_evidence": "The five existing items address complementary/supplementary angles, a linear pair, checking a shared vertex/line, and justifying a basic relationship; alternate-interior congruence for parallel lines is not among their tested propositions.",
+            "derivable": true,
+            "specialization_id": "secondary-mathematics"
+        }
+    },
+    {
+        "id": 8940,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "mathematics",
+            "domain_id": "number-sense",
+            "topic_id": "math-number-sense",
+            "concept_id": "math-number-sense-fractions"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A school garden has 40 plots, and three-fifths are assigned to herbs. How many plots are assigned to herbs?",
+        "choices": [
+            "24 plots",
+            "8 plots",
+            "32 plots",
+            "120 plots"
+        ],
+        "answer": "24 plots",
+        "explanation": "Three-fifths of 40 is (3 ÷ 5) × 40 = 24 plots. Eight uses only one of the five equal groups, while 32 uses the complementary four-fifths.",
+        "content_blocks": [],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "deped-math-curriculum-guide",
+            "openstax-algebra-and-trigonometry"
+        ],
+        "study_material_id": "let-specialization-mathematics-application",
+        "study_material_ids": [
+            "let-specialization-mathematics-application"
+        ],
+        "source_scope": [
+            "math-number-sense-fractions"
+        ],
+        "study_focus": "Find a stated fractional part of a whole number of equal units.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-math-number-sense-fractions-quantitative_application-8940",
+        "misconception_family": "QUANTITATIVE_APPLICATION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 2,
+            "leaf_id": "math-number-sense-fractions",
+            "content_family": "QUANTITATIVE_APPLICATION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "readiness_evidence_hash_before": "01f8fe45399aa5dec5daeb6722bd80fbc6f8e9374a6d016e8a5a7b32e1cd6ae0",
+            "native_question_count_before": 5,
+            "remaining_headroom_before": 1,
+            "remaining_family_count_before": 6,
+            "depth": 3,
+            "study_material_id": "let-specialization-mathematics-application",
+            "source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-math-curriculum-guide",
+                "openstax-algebra-and-trigonometry"
+            ],
+            "scope": [
+                "math-number-sense-fractions"
+            ],
+            "unused_family_evidence": "The five existing items address fraction operations, comparison, numerator/denominator meaning, ratio order, and range checking; none determines a fractional part of a counted set.",
+            "derivable": true,
+            "specialization_id": "secondary-mathematics"
+        },
+        "calculation": {
+            "family": "fraction_of_a_set",
+            "values": [
+                3,
+                5,
+                40
+            ],
+            "expected": 24,
+            "unit": "plots",
+            "rounding": "exact"
+        },
+        "calculation_family": "fraction_of_a_set"
+    },
+    {
+        "id": 8941,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "mathematics",
+            "domain_id": "problem-solving",
+            "topic_id": "math-problem-solving",
+            "concept_id": "math-problem-solving-modeling"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A copy center charges a fixed setup fee of ₱20 plus ₱3 per copy. If the total charge is ₱65, how many copies were made?",
+        "choices": [
+            "15 copies",
+            "21 copies",
+            "45 copies",
+            "85 copies"
+        ],
+        "answer": "15 copies",
+        "explanation": "Let c be the number of copies. The situation gives 20 + 3c = 65, so c = (65 − 20) ÷ 3 = 15. The fixed fee must be removed before dividing by the per-copy charge.",
+        "content_blocks": [],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "deped-math-curriculum-guide",
+            "openstax-algebra-and-trigonometry"
+        ],
+        "study_material_id": "let-specialization-mathematics-application",
+        "study_material_ids": [
+            "let-specialization-mathematics-application"
+        ],
+        "source_scope": [
+            "math-problem-solving-modeling"
+        ],
+        "study_focus": "Translate a fixed-fee plus per-unit situation into a linear equation and solve for the unknown.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-math-problem-solving-modeling-quantitative_application-8941",
+        "misconception_family": "QUANTITATIVE_APPLICATION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 2,
+            "leaf_id": "math-problem-solving-modeling",
+            "content_family": "QUANTITATIVE_APPLICATION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "readiness_evidence_hash_before": "312f5d6c818b9ba1963638b8795c2c5bdf91a0296159716240b8bad3fa9022e4",
+            "native_question_count_before": 5,
+            "remaining_headroom_before": 1,
+            "remaining_family_count_before": 6,
+            "depth": 3,
+            "study_material_id": "let-specialization-mathematics-application",
+            "source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-math-curriculum-guide",
+                "openstax-algebra-and-trigonometry"
+            ],
+            "scope": [
+                "math-problem-solving-modeling"
+            ],
+            "unused_family_evidence": "The five existing items cover defining unknowns, choosing a rate relation, checking reasonableness, stating assumptions, and interpreting a computed result; none solves a fixed-plus-variable cost model.",
+            "derivable": true,
+            "specialization_id": "secondary-mathematics"
+        },
+        "calculation": {
+            "family": "linear_model_solution",
+            "values": [
+                65,
+                20,
+                3
+            ],
+            "expected": 15,
+            "unit": "copies",
+            "rounding": "exact"
+        },
+        "calculation_family": "linear_model_solution"
+    },
+    {
+        "id": 8942,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "mathematics",
+            "domain_id": "statistics-and-probability",
+            "topic_id": "math-statistics",
+            "concept_id": "math-statistics-mean-median"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "Daily wait times are 8, 9, 10, 12, and 44 minutes; the 44-minute wait resulted from one unusual disruption. Which summary measure best represents a typical day without being pulled upward by that extreme value?",
+        "choices": [
+            "The median, the middle observation after ordering.",
+            "The mean, the total divided by the number of observations.",
+            "The range, the difference between the largest and smallest values.",
+            "The maximum, the largest observation."
+        ],
+        "answer": "The median, the middle observation after ordering.",
+        "explanation": "The median is the middle observation (10 minutes) and remains less affected by one extreme high value. The mean is pulled upward, while range and maximum are not measures of central tendency.",
+        "content_blocks": [],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "deped-math-curriculum-guide",
+            "openstax-algebra-and-trigonometry"
+        ],
+        "study_material_id": "let-specialization-mathematics-application",
+        "study_material_ids": [
+            "let-specialization-mathematics-application"
+        ],
+        "source_scope": [
+            "math-statistics-mean-median"
+        ],
+        "study_focus": "Choose a measure of center that fits a distribution with one extreme observation.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-math-statistics-mean-median-result_or_data_interpretation-8942",
+        "misconception_family": "RESULT_OR_DATA_INTERPRETATION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 2,
+            "leaf_id": "math-statistics-mean-median",
+            "content_family": "RESULT_OR_DATA_INTERPRETATION",
+            "readiness_before": "READY_WITH_LIMITS",
+            "readiness_evidence_hash_before": "c22ac159c405bd179eb6756f3de66828f4209e8d890668865a7e89827cee38df",
+            "native_question_count_before": 5,
+            "remaining_headroom_before": 1,
+            "remaining_family_count_before": 6,
+            "depth": 3,
+            "study_material_id": "let-specialization-mathematics-application",
+            "source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-math-curriculum-guide",
+                "openstax-algebra-and-trigonometry"
+            ],
+            "scope": [
+                "math-statistics-mean-median"
+            ],
+            "unused_family_evidence": "The existing five leaf items calculate means, medians, or a total from a supplied mean; none interprets how a single extreme observation affects the choice of a typical-value measure.",
+            "derivable": true,
+            "specialization_id": "secondary-mathematics"
+        }
+    },
+    {
+        "id": 8943,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "english",
+            "domain_id": "grammar",
+            "topic_id": "subject-verb-agreement",
+            "concept_id": "subject-verb-agreement-singular-subjects"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "An editor is revising a science memo. The draft reads, “Checking each amended form before filing keep the audit trail reliable.” Which revision corrects the agreement while preserving the intended meaning?",
+        "choices": [
+            "Checking each amended form before filing keeps the audit trail reliable.",
+            "Checking each amended form before filing keep the audit trail reliable.",
+            "Checking each amended form before filing are keeping the audit trail reliable.",
+            "Checking each amended form before filing have kept the audit trail reliable."
+        ],
+        "answer": "Checking each amended form before filing keeps the audit trail reliable.",
+        "explanation": "The gerund phrase “Checking each amended form before filing” functions as one singular subject, so it takes “keeps.” The nearby plural “forms” does not control the verb.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "purdue-owl-writing",
+            "openstax-reading-writing"
+        ],
+        "study_material_id": "let-english-grammar-foundation",
+        "study_material_ids": [
+            "let-english-grammar-foundation"
+        ],
+        "source_scope": [
+            "subject-verb-agreement-singular-subjects"
+        ],
+        "study_focus": "Revise agreement when a gerund phrase is the singular subject, without letting a nearby plural noun control the verb.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": false,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b650-subject-verb-agreement-singular-subjects-error_analysis_or_revision-8943",
+        "misconception_family": "ERROR_ANALYSIS_OR_REVISION",
+        "batch_marker": "batch650",
+        "batch650": {
+            "wave": 2,
+            "leaf_id": "subject-verb-agreement-singular-subjects",
+            "content_family": "ERROR_ANALYSIS_OR_REVISION",
+            "specialization_id": null,
+            "readiness_before": "READY_WITH_LIMITS",
+            "readiness_evidence_hash_before": "22377ab71ef28e92b43379e96513abbb3611d428780f670520550ad667d5f2ad",
+            "native_question_count_before": 5,
+            "remaining_headroom_before": 1,
+            "remaining_family_count_before": 5,
+            "depth": 3,
+            "study_material_id": "let-english-grammar-foundation",
+            "source_ids": [
+                "deped-k12-english-curriculum-guide",
+                "purdue-owl-writing",
+                "openstax-reading-writing"
+            ],
+            "scope": [
+                "subject-verb-agreement-singular-subjects"
+            ],
+            "unused_family_evidence": "The five existing questions classify as interpretation or analysis and none asks the learner to revise agreement for a gerund phrase functioning as subject; this applies the leaf through a distinct sentence-editing family.",
+            "derivable": true
+        }
     }
 ]

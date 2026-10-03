@@ -1,0 +1,1634 @@
+{
+    "title": "BoardPrep Batch650 LET source-first production expansion",
+    "batch": 650,
+    "lineage": {
+        "expected_parent": "0eb9d8e09c28c386cfd3b9acab54a1330ab6e469",
+        "worktree_branch": "batch650-let-expansion",
+        "main_head_before": "0eb9704ba293e0aa3402af5d01a2d3392c005b73",
+        "push": false
+    },
+    "official_scope_check": {
+        "reviewed_at": "2026-10-03",
+        "controlling_scope_sources": [
+            "prc-let-enhanced-tos-2025",
+            "prc-resolution-20-2025",
+            "prc-lept-program-march-2026"
+        ],
+        "fresh_prc_check": "No newer controlling LEPT exam-area, weight, specialization-scope, TOS, or licensure-structure source was found; 2026 PRB resolutions listed as current are registration-without-examination actions and 2026 schedule amendments are testing-center/date administration.",
+        "scope_unchanged": true
+    },
+    "baseline": {
+        "canonical_total_before": 8903,
+        "let_native_before": 1744,
+        "effective_declared_total_before": 9363,
+        "runtime_total_before": 9687,
+        "question_store_hash_before": "fd6a62264ac81c21b46c0e849a7525da4fd3097f03c67fd66f5bbd991751aef8",
+        "eligibility_hash_before": "5e271d710ff190f17b0f1038b471d40bc8e1388244712f6be8bb3bb4a02f64ce",
+        "batch649_raw": {
+            "leaf_count": 205,
+            "zero": 3,
+            "under5": 65,
+            "under10": 163,
+            "under20": 184,
+            "min": 0,
+            "median": 5,
+            "p25": 3,
+            "p75": 5,
+            "max": 97,
+            "deficit_to_5": 200,
+            "deficit_to_10": 1010,
+            "deficit_to_20": 2771
+        },
+        "batch649_authorable": {
+            "leaf_count": 148,
+            "zero": 0,
+            "under5": 32,
+            "under10": 126,
+            "under20": 142,
+            "min": 1,
+            "median": 5,
+            "p25": 5,
+            "p75": 5,
+            "max": 28,
+            "deficit_to_5": 85,
+            "deficit_to_10": 715,
+            "deficit_to_20": 2074
+        }
+    },
+    "wave1": {
+        "planned": 33,
+        "drafted": 33,
+        "accepted": 33,
+        "repaired": 0,
+        "rejected": 0,
+        "candidate_leaves": 32,
+        "leaf_assignments": {
+            "context-clues-contrast-clues": 1,
+            "context-clues-definition-clues": 1,
+            "context-clues-example-clues": 1,
+            "context-clues-inference-clues": 1,
+            "critical-reading-argument-evaluation": 1,
+            "critical-reading-fact-and-opinion": 1,
+            "inference-implicit-meaning": 1,
+            "main-idea-and-support-central-idea": 1,
+            "main-idea-and-support-supporting-evidence": 1,
+            "modifiers-adjective-modifiers": 1,
+            "modifiers-adverb-modifiers": 1,
+            "modifiers-misplaced-modifiers": 1,
+            "parallelism-faulty-comparisons": 1,
+            "parts-of-speech-adjectives": 1,
+            "parts-of-speech-adverbs": 2,
+            "parts-of-speech-nouns": 1,
+            "parts-of-speech-verbs": 1,
+            "prepositions-preposition-choice": 1,
+            "prepositions-prepositional-phrases": 1,
+            "pronouns-pronoun-antecedent-agreement": 1,
+            "pronouns-pronoun-case": 1,
+            "pronouns-pronoun-reference": 1,
+            "sentence-structure-compound-sentences": 1,
+            "sentence-structure-fragments": 1,
+            "sentence-structure-run-on-sentences": 1,
+            "subject-verb-agreement-collective-nouns": 1,
+            "text-structure-cause-and-effect": 1,
+            "text-structure-compare-and-contrast": 1,
+            "text-structure-problem-and-solution": 1,
+            "verb-tenses-future-tense": 1,
+            "verb-tenses-past-tense": 1,
+            "verb-tenses-present-tense": 1
+        },
+        "question_ids": [
+            "8904",
+            "8905",
+            "8906",
+            "8907",
+            "8908",
+            "8909",
+            "8910",
+            "8911",
+            "8912",
+            "8913",
+            "8914",
+            "8915",
+            "8916",
+            "8917",
+            "8918",
+            "8919",
+            "8920",
+            "8921",
+            "8922",
+            "8923",
+            "8924",
+            "8925",
+            "8926",
+            "8927",
+            "8928",
+            "8929",
+            "8930",
+            "8931",
+            "8932",
+            "8933",
+            "8934",
+            "8935",
+            "8936"
+        ],
+        "content_families": [
+            {
+                "id": "8904",
+                "leaf_id": "context-clues-contrast-clues",
+                "family": "LANGUAGE_IN_CONTEXT"
+            },
+            {
+                "id": "8905",
+                "leaf_id": "context-clues-example-clues",
+                "family": "LANGUAGE_IN_CONTEXT"
+            },
+            {
+                "id": "8906",
+                "leaf_id": "critical-reading-fact-and-opinion",
+                "family": "MEANING_OR_TEXT_INTERPRETATION"
+            },
+            {
+                "id": "8907",
+                "leaf_id": "text-structure-compare-and-contrast",
+                "family": "MEANING_OR_TEXT_INTERPRETATION"
+            },
+            {
+                "id": "8908",
+                "leaf_id": "context-clues-definition-clues",
+                "family": "LANGUAGE_IN_CONTEXT"
+            },
+            {
+                "id": "8909",
+                "leaf_id": "context-clues-inference-clues",
+                "family": "MEANING_OR_TEXT_INTERPRETATION"
+            },
+            {
+                "id": "8910",
+                "leaf_id": "inference-implicit-meaning",
+                "family": "MEANING_OR_TEXT_INTERPRETATION"
+            },
+            {
+                "id": "8911",
+                "leaf_id": "modifiers-adjective-modifiers",
+                "family": "LANGUAGE_IN_CONTEXT"
+            },
+            {
+                "id": "8912",
+                "leaf_id": "modifiers-adverb-modifiers",
+                "family": "ERROR_ANALYSIS_OR_REVISION"
+            },
+            {
+                "id": "8913",
+                "leaf_id": "parallelism-faulty-comparisons",
+                "family": "ERROR_ANALYSIS_OR_REVISION"
+            },
+            {
+                "id": "8914",
+                "leaf_id": "parts-of-speech-adjectives",
+                "family": "LANGUAGE_IN_CONTEXT"
+            },
+            {
+                "id": "8915",
+                "leaf_id": "parts-of-speech-nouns",
+                "family": "LANGUAGE_IN_CONTEXT"
+            },
+            {
+                "id": "8916",
+                "leaf_id": "parts-of-speech-verbs",
+                "family": "LANGUAGE_IN_CONTEXT"
+            },
+            {
+                "id": "8917",
+                "leaf_id": "prepositions-prepositional-phrases",
+                "family": "MEANING_OR_TEXT_INTERPRETATION"
+            },
+            {
+                "id": "8918",
+                "leaf_id": "pronouns-pronoun-case",
+                "family": "ERROR_ANALYSIS_OR_REVISION"
+            },
+            {
+                "id": "8919",
+                "leaf_id": "sentence-structure-compound-sentences",
+                "family": "ERROR_ANALYSIS_OR_REVISION"
+            },
+            {
+                "id": "8920",
+                "leaf_id": "sentence-structure-fragments",
+                "family": "ERROR_ANALYSIS_OR_REVISION"
+            },
+            {
+                "id": "8921",
+                "leaf_id": "subject-verb-agreement-collective-nouns",
+                "family": "ERROR_ANALYSIS_OR_REVISION"
+            },
+            {
+                "id": "8922",
+                "leaf_id": "text-structure-problem-and-solution",
+                "family": "MEANING_OR_TEXT_INTERPRETATION"
+            },
+            {
+                "id": "8923",
+                "leaf_id": "verb-tenses-future-tense",
+                "family": "LANGUAGE_IN_CONTEXT"
+            },
+            {
+                "id": "8924",
+                "leaf_id": "verb-tenses-present-tense",
+                "family": "LANGUAGE_IN_CONTEXT"
+            },
+            {
+                "id": "8925",
+                "leaf_id": "critical-reading-argument-evaluation",
+                "family": "MEANING_OR_TEXT_INTERPRETATION"
+            },
+            {
+                "id": "8926",
+                "leaf_id": "main-idea-and-support-supporting-evidence",
+                "family": "MEANING_OR_TEXT_INTERPRETATION"
+            },
+            {
+                "id": "8927",
+                "leaf_id": "parts-of-speech-adverbs",
+                "family": "LANGUAGE_IN_CONTEXT"
+            },
+            {
+                "id": "8928",
+                "leaf_id": "parts-of-speech-adverbs",
+                "family": "MEANING_OR_TEXT_INTERPRETATION"
+            },
+            {
+                "id": "8929",
+                "leaf_id": "prepositions-preposition-choice",
+                "family": "LANGUAGE_IN_CONTEXT"
+            },
+            {
+                "id": "8930",
+                "leaf_id": "sentence-structure-run-on-sentences",
+                "family": "ERROR_ANALYSIS_OR_REVISION"
+            },
+            {
+                "id": "8931",
+                "leaf_id": "text-structure-cause-and-effect",
+                "family": "MEANING_OR_TEXT_INTERPRETATION"
+            },
+            {
+                "id": "8932",
+                "leaf_id": "verb-tenses-past-tense",
+                "family": "ERROR_ANALYSIS_OR_REVISION"
+            },
+            {
+                "id": "8933",
+                "leaf_id": "main-idea-and-support-central-idea",
+                "family": "MEANING_OR_TEXT_INTERPRETATION"
+            },
+            {
+                "id": "8934",
+                "leaf_id": "modifiers-misplaced-modifiers",
+                "family": "ERROR_ANALYSIS_OR_REVISION"
+            },
+            {
+                "id": "8935",
+                "leaf_id": "pronouns-pronoun-antecedent-agreement",
+                "family": "ERROR_ANALYSIS_OR_REVISION"
+            },
+            {
+                "id": "8936",
+                "leaf_id": "pronouns-pronoun-reference",
+                "family": "ERROR_ANALYSIS_OR_REVISION"
+            }
+        ],
+        "qa": {
+            "source_study_scope_depth_defects": [],
+            "traceable": 40,
+            "flashcard_derivable": 40,
+            "calculation_questions": 4
+        },
+        "post_metrics": {
+            "let_native": 1777,
+            "raw": {
+                "zero": 3,
+                "under5": 60,
+                "under10": 163,
+                "under20": 184
+            },
+            "authorable": {
+                "zero": 0,
+                "under5": 0,
+                "under10": 95,
+                "under20": 111
+            }
+        },
+        "readiness_validation": {
+            "valid": true,
+            "errors": []
+        },
+        "run_now": false
+    },
+    "wave2_gate": {
+        "status": "APPROVED_AND_EXECUTED",
+        "candidate_leaves_after_wave1": 95,
+        "candidate_components": {
+            "SPECIALIZATION": 93,
+            "GENERAL_EDUCATION": 2
+        },
+        "mathematical_deficit_to_10": 475,
+        "evidence_supported_planned": 7,
+        "selected_leaves": [
+            {
+                "leaf_id": "math-algebra-functions",
+                "component": "SPECIALIZATION",
+                "specialization_id": "secondary-mathematics",
+                "question_id": "8937",
+                "current_count_before": 5,
+                "current_count_after": 6,
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_evidence_hash": "166b4de440eac9b5de4aceafa0953287fe5270183e993fbd93cca64119250529",
+                "content_family": "QUANTITATIVE_APPLICATION",
+                "family_evidence": "The five existing leaf items cover one-output validity, table/rule translation, equivalent representations, input/output distinction, and relation validity; none evaluates a stated rule numerically.",
+                "depth": 3,
+                "headroom_before": 1,
+                "planned_new": 1,
+                "sources": [
+                    "prc-let-enhanced-tos-2025",
+                    "deped-math-curriculum-guide",
+                    "openstax-algebra-and-trigonometry"
+                ],
+                "study_material_id": "let-specialization-mathematics-application"
+            },
+            {
+                "leaf_id": "math-algebra-patterns",
+                "component": "SPECIALIZATION",
+                "specialization_id": "secondary-mathematics",
+                "question_id": "8938",
+                "current_count_before": 5,
+                "current_count_after": 6,
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_evidence_hash": "6476790e753d610e5be7710ef388fd34825c1896b72c7e2ba5ad6de09abe385c",
+                "content_family": "QUANTITATIVE_APPLICATION",
+                "family_evidence": "The existing five items ask learners to identify, test, represent, or reject a pattern rule; none computes a specified later term from an explicit sequence.",
+                "depth": 3,
+                "headroom_before": 1,
+                "planned_new": 1,
+                "sources": [
+                    "prc-let-enhanced-tos-2025",
+                    "deped-math-curriculum-guide",
+                    "openstax-algebra-and-trigonometry"
+                ],
+                "study_material_id": "let-specialization-mathematics-application"
+            },
+            {
+                "leaf_id": "math-geometry-angle-relationships",
+                "component": "SPECIALIZATION",
+                "specialization_id": "secondary-mathematics",
+                "question_id": "8939",
+                "current_count_before": 5,
+                "current_count_after": 6,
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_evidence_hash": "76c8581f3cd11de22e83b3c0e09f431720b475f7828f142f0dc7cd45c31d2892",
+                "content_family": "MODEL_OR_REPRESENTATION_SELECTION",
+                "family_evidence": "The five existing items address complementary/supplementary angles, a linear pair, checking a shared vertex/line, and justifying a basic relationship; alternate-interior congruence for parallel lines is not among their tested propositions.",
+                "depth": 3,
+                "headroom_before": 1,
+                "planned_new": 1,
+                "sources": [
+                    "prc-let-enhanced-tos-2025",
+                    "deped-math-curriculum-guide",
+                    "openstax-algebra-and-trigonometry"
+                ],
+                "study_material_id": "let-specialization-mathematics-application"
+            },
+            {
+                "leaf_id": "math-number-sense-fractions",
+                "component": "SPECIALIZATION",
+                "specialization_id": "secondary-mathematics",
+                "question_id": "8940",
+                "current_count_before": 5,
+                "current_count_after": 6,
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_evidence_hash": "01f8fe45399aa5dec5daeb6722bd80fbc6f8e9374a6d016e8a5a7b32e1cd6ae0",
+                "content_family": "QUANTITATIVE_APPLICATION",
+                "family_evidence": "The five existing items address fraction operations, comparison, numerator/denominator meaning, ratio order, and range checking; none determines a fractional part of a counted set.",
+                "depth": 3,
+                "headroom_before": 1,
+                "planned_new": 1,
+                "sources": [
+                    "prc-let-enhanced-tos-2025",
+                    "deped-math-curriculum-guide",
+                    "openstax-algebra-and-trigonometry"
+                ],
+                "study_material_id": "let-specialization-mathematics-application"
+            },
+            {
+                "leaf_id": "math-problem-solving-modeling",
+                "component": "SPECIALIZATION",
+                "specialization_id": "secondary-mathematics",
+                "question_id": "8941",
+                "current_count_before": 5,
+                "current_count_after": 6,
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_evidence_hash": "312f5d6c818b9ba1963638b8795c2c5bdf91a0296159716240b8bad3fa9022e4",
+                "content_family": "QUANTITATIVE_APPLICATION",
+                "family_evidence": "The five existing items cover defining unknowns, choosing a rate relation, checking reasonableness, stating assumptions, and interpreting a computed result; none solves a fixed-plus-variable cost model.",
+                "depth": 3,
+                "headroom_before": 1,
+                "planned_new": 1,
+                "sources": [
+                    "prc-let-enhanced-tos-2025",
+                    "deped-math-curriculum-guide",
+                    "openstax-algebra-and-trigonometry"
+                ],
+                "study_material_id": "let-specialization-mathematics-application"
+            },
+            {
+                "leaf_id": "math-statistics-mean-median",
+                "component": "SPECIALIZATION",
+                "specialization_id": "secondary-mathematics",
+                "question_id": "8942",
+                "current_count_before": 5,
+                "current_count_after": 6,
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_evidence_hash": "c22ac159c405bd179eb6756f3de66828f4209e8d890668865a7e89827cee38df",
+                "content_family": "RESULT_OR_DATA_INTERPRETATION",
+                "family_evidence": "The existing five leaf items calculate means, medians, or a total from a supplied mean; none interprets how a single extreme observation affects the choice of a typical-value measure.",
+                "depth": 3,
+                "headroom_before": 1,
+                "planned_new": 1,
+                "sources": [
+                    "prc-let-enhanced-tos-2025",
+                    "deped-math-curriculum-guide",
+                    "openstax-algebra-and-trigonometry"
+                ],
+                "study_material_id": "let-specialization-mathematics-application"
+            },
+            {
+                "leaf_id": "subject-verb-agreement-singular-subjects",
+                "component": "GENERAL_EDUCATION",
+                "specialization_id": "",
+                "question_id": "8943",
+                "current_count_before": 5,
+                "current_count_after": 6,
+                "readiness": "READY_WITH_LIMITS",
+                "readiness_evidence_hash": "22377ab71ef28e92b43379e96513abbb3611d428780f670520550ad667d5f2ad",
+                "content_family": "ERROR_ANALYSIS_OR_REVISION",
+                "family_evidence": "The five existing questions classify as interpretation or analysis and none asks the learner to revise agreement for a gerund phrase functioning as subject; this applies the leaf through a distinct sentence-editing family.",
+                "depth": 3,
+                "headroom_before": 1,
+                "planned_new": 1,
+                "sources": [
+                    "deped-k12-english-curriculum-guide",
+                    "purdue-owl-writing",
+                    "openstax-reading-writing"
+                ],
+                "study_material_id": "let-english-grammar-foundation"
+            }
+        ],
+        "selected_by_component": {
+            "SPECIALIZATION": 6,
+            "GENERAL_EDUCATION": 1
+        },
+        "why_bounded": "Seven per-leaf semantic reviews demonstrated one remaining source-supported high-value family each: one General Education editing family and six Mathematics specialization families. The remaining under-10 deficit is not a quota; unreviewed candidate leaves require fresh item-level family evidence, while ProfEd and shared REVIEW candidates remain blocked.",
+        "unselected_priority_candidates": [
+            {
+                "leaf_id": "pronouns-pronoun-antecedent-agreement",
+                "reason": "The exact Wave1 item already exercises pronoun agreement with a compound antecedent. Existing evidence did not establish a distinct remaining high-value family beyond that proposition, so its remaining numerical headroom was not treated as authoring permission."
+            }
+        ],
+        "profed_new_questions": 0,
+        "shared_review_new_questions": 0
+    },
+    "wave2": {
+        "candidate_leaves": 95,
+        "candidate_components": {
+            "SPECIALIZATION": 93,
+            "GENERAL_EDUCATION": 2
+        },
+        "mathematical_deficit_to_10": 475,
+        "planned": 7,
+        "accepted": 7,
+        "repaired": 0,
+        "rejected": 0,
+        "candidate_leaves_selected": 7,
+        "question_ids": [
+            "8937",
+            "8938",
+            "8939",
+            "8940",
+            "8941",
+            "8942",
+            "8943"
+        ],
+        "leaf_assignments": {
+            "math-algebra-functions": 1,
+            "math-algebra-patterns": 1,
+            "math-geometry-angle-relationships": 1,
+            "math-number-sense-fractions": 1,
+            "math-problem-solving-modeling": 1,
+            "math-statistics-mean-median": 1,
+            "subject-verb-agreement-singular-subjects": 1
+        },
+        "content_families": [
+            {
+                "id": "8937",
+                "leaf_id": "math-algebra-functions",
+                "family": "QUANTITATIVE_APPLICATION"
+            },
+            {
+                "id": "8938",
+                "leaf_id": "math-algebra-patterns",
+                "family": "QUANTITATIVE_APPLICATION"
+            },
+            {
+                "id": "8939",
+                "leaf_id": "math-geometry-angle-relationships",
+                "family": "MODEL_OR_REPRESENTATION_SELECTION"
+            },
+            {
+                "id": "8940",
+                "leaf_id": "math-number-sense-fractions",
+                "family": "QUANTITATIVE_APPLICATION"
+            },
+            {
+                "id": "8941",
+                "leaf_id": "math-problem-solving-modeling",
+                "family": "QUANTITATIVE_APPLICATION"
+            },
+            {
+                "id": "8942",
+                "leaf_id": "math-statistics-mean-median",
+                "family": "RESULT_OR_DATA_INTERPRETATION"
+            },
+            {
+                "id": "8943",
+                "leaf_id": "subject-verb-agreement-singular-subjects",
+                "family": "ERROR_ANALYSIS_OR_REVISION"
+            }
+        ],
+        "qa": {
+            "defects": [],
+            "traceable": 7,
+            "calculation_questions": 4
+        },
+        "run_now": false
+    },
+    "post_wave1": {
+        "let_native": 1777,
+        "raw": {
+            "zero": 3,
+            "under5": 60,
+            "under10": 163,
+            "under20": 184
+        },
+        "authorable": {
+            "zero": 0,
+            "under5": 0,
+            "under10": 95,
+            "under20": 111
+        }
+    },
+    "components": {
+        "gened": {
+            "active_leaves": 50,
+            "native_questions": 302,
+            "effective_questions": 385,
+            "runtime_questions": 400,
+            "new_questions": 34,
+            "raw": {
+                "zero": 3,
+                "under5": 30,
+                "under10": 36,
+                "under20": 50
+            },
+            "authorable": {
+                "zero": 0,
+                "under5": 0,
+                "under10": 1,
+                "under20": 10
+            },
+            "readiness_counts": {
+                "READY": 0,
+                "READY_WITH_LIMITS": 10,
+                "REVIEW": 40,
+                "DEFER": 0
+            },
+            "limitations": "Counts use the permanent component placements; readiness remains leaf-scoped."
+        },
+        "profed": {
+            "active_leaves": 40,
+            "native_questions": 301,
+            "effective_questions": 301,
+            "runtime_questions": 301,
+            "new_questions": 0,
+            "raw": {
+                "zero": 0,
+                "under5": 30,
+                "under10": 34,
+                "under20": 34
+            },
+            "authorable": {
+                "zero": 0,
+                "under5": 0,
+                "under10": 0,
+                "under20": 0
+            },
+            "readiness_counts": {
+                "READY": 0,
+                "READY_WITH_LIMITS": 0,
+                "REVIEW": 40,
+                "DEFER": 0
+            },
+            "limitations": "Batch649 source/currentness review remains blocking; no Batch650 authoring was performed."
+        }
+    },
+    "specializations": {
+        "total": 15,
+        "zero_pools": 0,
+        "rows": [
+            {
+                "id": "elementary-early-childhood-education",
+                "official_name": "Early Childhood Education",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 35,
+                "effective_count": 35,
+                "runtime_count": 35,
+                "active_leaves": 7,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 7,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 7,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 7,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "elementary-special-needs-education",
+                "official_name": "Special Needs Education",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 35,
+                "effective_count": 35,
+                "runtime_count": 35,
+                "active_leaves": 7,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 7,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 7,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 7,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-culture-and-arts-education",
+                "official_name": "Culture and Arts Education",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 40,
+                "effective_count": 40,
+                "runtime_count": 40,
+                "active_leaves": 8,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 8,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 8,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 8,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "SUFFICIENT"
+            },
+            {
+                "id": "secondary-english",
+                "official_name": "English",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 130,
+                "effective_count": 50,
+                "runtime_count": 50,
+                "active_leaves": 10,
+                "native_per_leaf": {
+                    "min": 10,
+                    "median": 13,
+                    "max": 14
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 0,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 10,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 0,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-filipino",
+                "official_name": "Filipino",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 185,
+                "effective_count": 45,
+                "runtime_count": 45,
+                "active_leaves": 9,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 81
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 7,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 7,
+                    "REVIEW": 2,
+                    "DEFER": 0
+                },
+                "authorable_under10": 7,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-mathematics",
+                "official_name": "Mathematics",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 211,
+                "effective_count": 61,
+                "runtime_count": 61,
+                "active_leaves": 11,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 6,
+                    "max": 97
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 9,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 3,
+                    "REVIEW": 8,
+                    "DEFER": 0
+                },
+                "authorable_under10": 3,
+                "new_native_questions": 6,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-physical-education",
+                "official_name": "Physical Education",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 40,
+                "effective_count": 40,
+                "runtime_count": 40,
+                "active_leaves": 8,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 8,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 8,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 8,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "SUFFICIENT"
+            },
+            {
+                "id": "secondary-science",
+                "official_name": "Science",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 185,
+                "effective_count": 55,
+                "runtime_count": 55,
+                "active_leaves": 11,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 16,
+                    "max": 24
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 1,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 11,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 1,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-social-studies",
+                "official_name": "Social Studies",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 225,
+                "effective_count": 50,
+                "runtime_count": 50,
+                "active_leaves": 10,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 29,
+                    "max": 33
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 3,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 5,
+                    "REVIEW": 5,
+                    "DEFER": 0
+                },
+                "authorable_under10": 3,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-technical-vocational-teacher-education",
+                "official_name": "Technical-Vocational Teacher Education",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 40,
+                "effective_count": 40,
+                "runtime_count": 40,
+                "active_leaves": 8,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 8,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 8,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 8,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "SUFFICIENT"
+            },
+            {
+                "id": "secondary-tle-agriculture-and-fishery-arts",
+                "official_name": "Agriculture and Fishery Arts",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 50,
+                "effective_count": 50,
+                "runtime_count": 50,
+                "active_leaves": 10,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 10,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 10,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 10,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-tle-home-economics",
+                "official_name": "Home Economics",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 25,
+                "effective_count": 50,
+                "runtime_count": 50,
+                "active_leaves": 5,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 5,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 5,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 5,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-tle-industrial-arts",
+                "official_name": "Industrial Arts",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 35,
+                "effective_count": 60,
+                "runtime_count": 60,
+                "active_leaves": 7,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 7,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 7,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 7,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-tle-information-and-communication-technology",
+                "official_name": "Information and Communication Technology",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 30,
+                "effective_count": 55,
+                "runtime_count": 55,
+                "active_leaves": 6,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 6,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 6,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 6,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-values-education",
+                "official_name": "Values Education",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 35,
+                "effective_count": 35,
+                "runtime_count": 35,
+                "active_leaves": 7,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 7,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 7,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 7,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            }
+        ]
+    },
+    "final": {
+        "total_canonical": 8943,
+        "total_effective_declared": 9403,
+        "total_runtime": 9727,
+        "native_by_board": {
+            "let": 1784,
+            "civil-service": 1550,
+            "nursing": 878,
+            "criminologist": 451,
+            "civil-engineering": 922,
+            "mechanical-engineering": 511,
+            "registered-electrical-engineering": 842,
+            "architecture": 472,
+            "psychometrician": 401,
+            "cpa": 1132
+        },
+        "effective_declared_by_board": {
+            "let": 1867,
+            "civil-service": 1804,
+            "nursing": 898,
+            "criminologist": 554,
+            "civil-engineering": 922,
+            "mechanical-engineering": 511,
+            "registered-electrical-engineering": 842,
+            "architecture": 472,
+            "psychometrician": 401,
+            "cpa": 1132
+        },
+        "runtime_by_board": {
+            "let": 1882,
+            "civil-service": 2113,
+            "nursing": 898,
+            "criminologist": 554,
+            "civil-engineering": 922,
+            "mechanical-engineering": 511,
+            "registered-electrical-engineering": 842,
+            "architecture": 472,
+            "psychometrician": 401,
+            "cpa": 1132
+        },
+        "let_native": 1784,
+        "let_effective_declared": 1867,
+        "let_runtime": 1882,
+        "raw": {
+            "zero": 3,
+            "under5": 60,
+            "under10": 163,
+            "under20": 184
+        },
+        "authorable": {
+            "zero": 0,
+            "under5": 0,
+            "under10": 88,
+            "under20": 104
+        },
+        "readiness_counts": {
+            "READY": 0,
+            "READY_WITH_LIMITS": 110,
+            "REVIEW": 95,
+            "DEFER": 0
+        },
+        "specializations": [
+            {
+                "id": "elementary-early-childhood-education",
+                "official_name": "Early Childhood Education",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 35,
+                "effective_count": 35,
+                "runtime_count": 35,
+                "active_leaves": 7,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 7,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 7,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 7,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "elementary-special-needs-education",
+                "official_name": "Special Needs Education",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 35,
+                "effective_count": 35,
+                "runtime_count": 35,
+                "active_leaves": 7,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 7,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 7,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 7,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-culture-and-arts-education",
+                "official_name": "Culture and Arts Education",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 40,
+                "effective_count": 40,
+                "runtime_count": 40,
+                "active_leaves": 8,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 8,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 8,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 8,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "SUFFICIENT"
+            },
+            {
+                "id": "secondary-english",
+                "official_name": "English",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 130,
+                "effective_count": 50,
+                "runtime_count": 50,
+                "active_leaves": 10,
+                "native_per_leaf": {
+                    "min": 10,
+                    "median": 13,
+                    "max": 14
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 0,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 10,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 0,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-filipino",
+                "official_name": "Filipino",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 185,
+                "effective_count": 45,
+                "runtime_count": 45,
+                "active_leaves": 9,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 81
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 7,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 7,
+                    "REVIEW": 2,
+                    "DEFER": 0
+                },
+                "authorable_under10": 7,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-mathematics",
+                "official_name": "Mathematics",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 211,
+                "effective_count": 61,
+                "runtime_count": 61,
+                "active_leaves": 11,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 6,
+                    "max": 97
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 9,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 3,
+                    "REVIEW": 8,
+                    "DEFER": 0
+                },
+                "authorable_under10": 3,
+                "new_native_questions": 6,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-physical-education",
+                "official_name": "Physical Education",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 40,
+                "effective_count": 40,
+                "runtime_count": 40,
+                "active_leaves": 8,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 8,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 8,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 8,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "SUFFICIENT"
+            },
+            {
+                "id": "secondary-science",
+                "official_name": "Science",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 185,
+                "effective_count": 55,
+                "runtime_count": 55,
+                "active_leaves": 11,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 16,
+                    "max": 24
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 1,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 11,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 1,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-social-studies",
+                "official_name": "Social Studies",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 225,
+                "effective_count": 50,
+                "runtime_count": 50,
+                "active_leaves": 10,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 29,
+                    "max": 33
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 3,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 5,
+                    "REVIEW": 5,
+                    "DEFER": 0
+                },
+                "authorable_under10": 3,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-technical-vocational-teacher-education",
+                "official_name": "Technical-Vocational Teacher Education",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 40,
+                "effective_count": 40,
+                "runtime_count": 40,
+                "active_leaves": 8,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 8,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 8,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 8,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "SUFFICIENT"
+            },
+            {
+                "id": "secondary-tle-agriculture-and-fishery-arts",
+                "official_name": "Agriculture and Fishery Arts",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 50,
+                "effective_count": 50,
+                "runtime_count": 50,
+                "active_leaves": 10,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 10,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 10,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 10,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-tle-home-economics",
+                "official_name": "Home Economics",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 25,
+                "effective_count": 50,
+                "runtime_count": 50,
+                "active_leaves": 5,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 5,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 5,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 5,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-tle-industrial-arts",
+                "official_name": "Industrial Arts",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 35,
+                "effective_count": 60,
+                "runtime_count": 60,
+                "active_leaves": 7,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 7,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 7,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 7,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-tle-information-and-communication-technology",
+                "official_name": "Information and Communication Technology",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 30,
+                "effective_count": 55,
+                "runtime_count": 55,
+                "active_leaves": 6,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 6,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 6,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 6,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            },
+            {
+                "id": "secondary-values-education",
+                "official_name": "Values Education",
+                "official_scope_status": "OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified",
+                "native_question_count": 35,
+                "effective_count": 35,
+                "runtime_count": 35,
+                "active_leaves": 7,
+                "native_per_leaf": {
+                    "min": 5,
+                    "median": 5,
+                    "max": 5
+                },
+                "zero": 0,
+                "under5": 0,
+                "under10": 7,
+                "readiness_counts": {
+                    "READY": 0,
+                    "READY_WITH_LIMITS": 7,
+                    "REVIEW": 0,
+                    "DEFER": 0
+                },
+                "authorable_under10": 7,
+                "new_native_questions": 0,
+                "repeat_risk": "HIGH",
+                "source_state": "ADEQUATE",
+                "study_state": "MIXED"
+            }
+        ],
+        "zero_specialization_pools": 0
+    },
+    "validation": {
+        "wave1_exact_plan": true,
+        "wave2_gate": true,
+        "readiness": true,
+        "new_question_count": 40,
+        "new_ids_contiguous": true,
+        "question_semantic_freeze": "Existing canonical question records must be byte-for-byte content-identical in the commit diff; production delta contains only new Batch650 IDs.",
+        "question_deletions": 0,
+        "question_semantic_rewrites": 0,
+        "question_mapping_changes": 0,
+        "new_questions_professional_education": 0,
+        "new_questions_shared_review_leaves": 0,
+        "question_store_hash_after": "1ad0a498275dcd61a00bb5266bfe36fca79f9bd7d5ee2695f057697d53856680",
+        "eligibility_hash_after": "47e6ee3fd333b14d03c4737a1f3725412b47949e77eae9f1392a1aeff1066f86",
+        "existing_question_semantics_unchanged": true,
+        "existing_eligibility_semantics_unchanged": true,
+        "source_study_traceability_count": 40,
+        "flashcard_derivability_count": 40,
+        "calculation_recomputation_defects": 0,
+        "wave1_failures": [],
+        "wave2_failures": []
+    },
+    "health_regressions_expected": {
+        "overall_canonical": 8943,
+        "total_effective_declared": 9403,
+        "total_runtime": 9727,
+        "native_by_board": {
+            "let": 1784,
+            "civil-service": 1550,
+            "nursing": 878,
+            "criminologist": 451,
+            "civil-engineering": 922,
+            "mechanical-engineering": 511,
+            "registered-electrical-engineering": 842,
+            "architecture": 472,
+            "psychometrician": 401,
+            "cpa": 1132
+        },
+        "effective_declared_by_board": {
+            "let": 1867,
+            "civil-service": 1804,
+            "nursing": 898,
+            "criminologist": 554,
+            "civil-engineering": 922,
+            "mechanical-engineering": 511,
+            "registered-electrical-engineering": 842,
+            "architecture": 472,
+            "psychometrician": 401,
+            "cpa": 1132
+        },
+        "runtime_by_board": {
+            "let": 1882,
+            "civil-service": 2113,
+            "nursing": 898,
+            "criminologist": 554,
+            "civil-engineering": 922,
+            "mechanical-engineering": 511,
+            "registered-electrical-engineering": 842,
+            "architecture": 472,
+            "psychometrician": 401,
+            "cpa": 1132
+        },
+        "me_native_unchanged": true,
+        "profed_unchanged": true
+    },
+    "next_gate": {
+        "decision": "LET_SELECTIVE_DEEPENING_ONLY",
+        "wave3_pre_authorized_additions": 0,
+        "remaining_authorable_under10_leaves": 88,
+        "remaining_safe_headroom_max": 88,
+        "remaining_candidate_family_labels": 718,
+        "rationale": "The authorable zero and under-5 cohort is closed. Authorable under-10 leaves remain, but Batch649 family labels do not replace item-level duplicate/repeat review; this batch verified only seven discrete unused families and consumed their bounded headroom. Continue only through selective source-first family gates, not a portfolio-wide count quota.",
+        "next_priority": "Selectively review current RWL General Education and native specialization leaves for item-level unused high-value families; preserve native/effective/runtime separation and keep ProfEd/shared REVIEW blocked."
+    },
+    "audit_hash": "f48e92a9fcdf974169abffe1a24047130d83f760c1b0dad370ecc5a44e0509af",
+    "determinism": {
+        "audit_hash": "f48e92a9fcdf974169abffe1a24047130d83f760c1b0dad370ecc5a44e0509af",
+        "runtime_excluded": true,
+        "timestamps_excluded": true
+    }
+}

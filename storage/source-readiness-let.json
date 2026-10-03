@@ -1024,73 +1024,6 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Contrast Clues",
-        "current_question_count": 1,
-        "deficit_to_5": 4,
-        "deficit_to_10": 9,
-        "deficit_to_20": 19,
-        "source_ids": [
-            "deped-k12-english-curriculum-guide",
-            "openstax-reading-writing",
-            "prc-lept-alignment-guidance-2025",
-            "prc-lept-program-march-2026",
-            "prc-let-enhanced-tos-2025",
-            "prc-resolution-20-2025",
-            "purdue-owl-writing"
-        ],
-        "source_count": 7,
-        "primary_source_count": 5,
-        "source_authority": "ADEQUATE",
-        "source_currentness": "NOT_TIME_SENSITIVE",
-        "source_scope_fit": "PARTIAL",
-        "source_conflict_status": "NONE",
-        "study_material_ids": [
-            "let-english-reading-foundation"
-        ],
-        "study_material_count": 1,
-        "study_coverage": "SUFFICIENT",
-        "study_source_traceability": "COMPLETE",
-        "supported_depth_min": 4,
-        "supported_depth_max": 4,
-        "distinct_content_families": [
-            "ANALYSIS_OR_SYNTHESIS",
-            "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
-            "MEANING_OR_TEXT_INTERPRETATION"
-        ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
-        "allowed_scope": [
-            "context-clues-contrast-clues"
-        ],
-        "excluded_scope": [
-            "Adjacent leaves and unlisted sibling topics are excluded.",
-            "Edition-specific, future-effective, or unsourced legal/curriculum particulars are excluded."
-        ],
-        "limitations": [
-            "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
-            "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
-            "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
-        ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
-        "defer_reason": "",
-        "max_new_questions": 1,
-        "planned_new_questions": 0,
-        "reviewed_at_batch": 649,
-        "scope_specialization_ids": [],
-        "scope_component_ids": [
-            "GENERAL_EDUCATION"
-        ],
-        "evidence_hash": "11f55335a9403554ccbf832389fb0cbbe8b99ef273e1487e4a4e490caf65f39d"
-    },
-    {
-        "leaf_id": "context-clues-definition-clues",
-        "board_id": "let",
-        "official_area_id": "general-education",
-        "leaf_name": "Definition Clues",
         "current_question_count": 2,
         "deficit_to_5": 3,
         "deficit_to_10": 8,
@@ -1121,13 +1054,78 @@
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
             "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "allowed_scope": [
+            "context-clues-contrast-clues"
+        ],
+        "excluded_scope": [
+            "Adjacent leaves and unlisted sibling topics are excluded.",
+            "Edition-specific, future-effective, or unsourced legal/curriculum particulars are excluded."
+        ],
+        "limitations": [
+            "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+            "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+            "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
+        ],
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
+        "defer_reason": "",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "reviewed_at_batch": 649,
+        "scope_specialization_ids": [],
+        "scope_component_ids": [
+            "GENERAL_EDUCATION"
+        ],
+        "evidence_hash": "eaf43e4316f8ad510fa49e0ddda4c298b48350cd42f828940379405ba5189c7b"
+    },
+    {
+        "leaf_id": "context-clues-definition-clues",
+        "board_id": "let",
+        "official_area_id": "general-education",
+        "leaf_name": "Definition Clues",
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "openstax-reading-writing",
+            "prc-lept-alignment-guidance-2025",
+            "prc-lept-program-march-2026",
+            "prc-let-enhanced-tos-2025",
+            "prc-resolution-20-2025",
+            "purdue-owl-writing"
+        ],
+        "source_count": 7,
+        "primary_source_count": 5,
+        "source_authority": "ADEQUATE",
+        "source_currentness": "NOT_TIME_SENSITIVE",
+        "source_scope_fit": "PARTIAL",
+        "source_conflict_status": "NONE",
+        "study_material_ids": [
+            "let-english-reading-foundation"
+        ],
+        "study_material_count": 1,
+        "study_coverage": "SUFFICIENT",
+        "study_source_traceability": "COMPLETE",
+        "supported_depth_min": 4,
+        "supported_depth_max": 4,
+        "distinct_content_families": [
+            "ANALYSIS_OR_SYNTHESIS",
+            "ERROR_ANALYSIS_OR_REVISION",
+            "MEANING_OR_TEXT_INTERPRETATION"
+        ],
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "context-clues-definition-clues"
         ],
@@ -1140,28 +1138,28 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "0bc471a987e266381ef6dda58b63d79289c6a21374a652f105f9701e7c99a3ac"
+        "evidence_hash": "47355cfe60d8de2819a931df695411a0d5b79c2424596041ac0c56cee21cfe91"
     },
     {
         "leaf_id": "context-clues-example-clues",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Example Clues",
-        "current_question_count": 1,
-        "deficit_to_5": 4,
-        "deficit_to_10": 9,
-        "deficit_to_20": 19,
+        "current_question_count": 2,
+        "deficit_to_5": 3,
+        "deficit_to_10": 8,
+        "deficit_to_20": 18,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -1188,13 +1186,12 @@
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
             "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "context-clues-example-clues"
         ],
@@ -1207,91 +1204,24 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "52584c89e519827d9449661d0344790a0fa046791e09be182ee8664a6152ebde"
+        "evidence_hash": "965469b82e41d925b1013e4653437bcf84bb6542b75884b8c0034cb22e41aaed"
     },
     {
         "leaf_id": "context-clues-inference-clues",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Inference Clues",
-        "current_question_count": 2,
-        "deficit_to_5": 3,
-        "deficit_to_10": 8,
-        "deficit_to_20": 18,
-        "source_ids": [
-            "deped-k12-english-curriculum-guide",
-            "openstax-reading-writing",
-            "prc-lept-alignment-guidance-2025",
-            "prc-lept-program-march-2026",
-            "prc-let-enhanced-tos-2025",
-            "prc-resolution-20-2025",
-            "purdue-owl-writing"
-        ],
-        "source_count": 7,
-        "primary_source_count": 5,
-        "source_authority": "ADEQUATE",
-        "source_currentness": "NOT_TIME_SENSITIVE",
-        "source_scope_fit": "PARTIAL",
-        "source_conflict_status": "NONE",
-        "study_material_ids": [
-            "let-english-reading-foundation"
-        ],
-        "study_material_count": 1,
-        "study_coverage": "SUFFICIENT",
-        "study_source_traceability": "COMPLETE",
-        "supported_depth_min": 3,
-        "supported_depth_max": 4,
-        "distinct_content_families": [
-            "ANALYSIS_OR_SYNTHESIS",
-            "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
-            "MEANING_OR_TEXT_INTERPRETATION"
-        ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
-        "allowed_scope": [
-            "context-clues-inference-clues"
-        ],
-        "excluded_scope": [
-            "Adjacent leaves and unlisted sibling topics are excluded.",
-            "Edition-specific, future-effective, or unsourced legal/curriculum particulars are excluded."
-        ],
-        "limitations": [
-            "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
-            "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
-            "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
-        ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
-        "defer_reason": "",
-        "max_new_questions": 1,
-        "planned_new_questions": 0,
-        "reviewed_at_batch": 649,
-        "scope_specialization_ids": [],
-        "scope_component_ids": [
-            "GENERAL_EDUCATION"
-        ],
-        "evidence_hash": "14cf9f8fe6fb772d0c786d9d09bc7ed8f33e3245f22401430bff9e688fd56db3"
-    },
-    {
-        "leaf_id": "critical-reading-argument-evaluation",
-        "board_id": "let",
-        "official_area_id": "general-education",
-        "leaf_name": "Argument Evaluation",
         "current_question_count": 3,
         "deficit_to_5": 2,
         "deficit_to_10": 7,
@@ -1322,13 +1252,78 @@
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
             "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
-            "MEANING_OR_TEXT_INTERPRETATION"
+            "LANGUAGE_IN_CONTEXT"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "allowed_scope": [
+            "context-clues-inference-clues"
+        ],
+        "excluded_scope": [
+            "Adjacent leaves and unlisted sibling topics are excluded.",
+            "Edition-specific, future-effective, or unsourced legal/curriculum particulars are excluded."
+        ],
+        "limitations": [
+            "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+            "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+            "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
+        ],
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
+        "defer_reason": "",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "reviewed_at_batch": 649,
+        "scope_specialization_ids": [],
+        "scope_component_ids": [
+            "GENERAL_EDUCATION"
+        ],
+        "evidence_hash": "78e89e4de3e6b94af44f2349558779f833fbd58d6c2e3e3afc0d45b6771add0c"
+    },
+    {
+        "leaf_id": "critical-reading-argument-evaluation",
+        "board_id": "let",
+        "official_area_id": "general-education",
+        "leaf_name": "Argument Evaluation",
+        "current_question_count": 4,
+        "deficit_to_5": 1,
+        "deficit_to_10": 6,
+        "deficit_to_20": 16,
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "openstax-reading-writing",
+            "prc-lept-alignment-guidance-2025",
+            "prc-lept-program-march-2026",
+            "prc-let-enhanced-tos-2025",
+            "prc-resolution-20-2025",
+            "purdue-owl-writing"
+        ],
+        "source_count": 7,
+        "primary_source_count": 5,
+        "source_authority": "ADEQUATE",
+        "source_currentness": "NOT_TIME_SENSITIVE",
+        "source_scope_fit": "PARTIAL",
+        "source_conflict_status": "NONE",
+        "study_material_ids": [
+            "let-english-reading-foundation"
+        ],
+        "study_material_count": 1,
+        "study_coverage": "SUFFICIENT",
+        "study_source_traceability": "COMPLETE",
+        "supported_depth_min": 3,
+        "supported_depth_max": 4,
+        "distinct_content_families": [
+            "ANALYSIS_OR_SYNTHESIS",
+            "ERROR_ANALYSIS_OR_REVISION",
+            "LANGUAGE_IN_CONTEXT"
+        ],
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "critical-reading-argument-evaluation"
         ],
@@ -1341,18 +1336,18 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "6f72d9a322a92d5fb3d666243e16909d36bdbe3b8630c1071f47942d978b82f4"
+        "evidence_hash": "7bbaa364626e05dbdf2d2dd2080f3b27297dd96ead6fcd64015e6ed13f8c3215"
     },
     {
         "leaf_id": "critical-reading-evidence-quality",
@@ -1425,10 +1420,10 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Fact and Opinion",
-        "current_question_count": 1,
-        "deficit_to_5": 4,
-        "deficit_to_10": 9,
-        "deficit_to_20": 19,
+        "current_question_count": 2,
+        "deficit_to_5": 3,
+        "deficit_to_10": 8,
+        "deficit_to_20": 18,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -1455,13 +1450,12 @@
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
             "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
-            "MEANING_OR_TEXT_INTERPRETATION"
+            "LANGUAGE_IN_CONTEXT"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "critical-reading-fact-and-opinion"
         ],
@@ -1474,18 +1468,18 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "faca7d3a0c311ff6ba65703ac802428b54dcbdab800797c8cf9b1905ddd642c3"
+        "evidence_hash": "19c97e567da727d43d89924fcbb6412a26cc2aff6e8d8d86a7e112e651cf398c"
     },
     {
         "leaf_id": "cse-constitutional-principles",
@@ -4224,10 +4218,10 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Implicit Meaning",
-        "current_question_count": 2,
-        "deficit_to_5": 3,
-        "deficit_to_10": 8,
-        "deficit_to_20": 18,
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -4254,13 +4248,12 @@
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
             "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
-            "MEANING_OR_TEXT_INTERPRETATION"
+            "LANGUAGE_IN_CONTEXT"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "inference-implicit-meaning"
         ],
@@ -4273,18 +4266,18 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "8509ad605c28852f449e663d9e4d1bd1d19053b0fdb01b112b5ddb1ad073712a"
+        "evidence_hash": "a46d035689128b89c04d97b237d2b3ffd2922a4c78d55c1f72c33bb729f119ff"
     },
     {
         "leaf_id": "kohlberg-moral-reasoning",
@@ -4740,10 +4733,10 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Central Idea",
-        "current_question_count": 4,
-        "deficit_to_5": 1,
-        "deficit_to_10": 6,
-        "deficit_to_20": 16,
+        "current_question_count": 5,
+        "deficit_to_5": 0,
+        "deficit_to_10": 5,
+        "deficit_to_20": 15,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -4770,13 +4763,12 @@
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
             "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
-            "MEANING_OR_TEXT_INTERPRETATION"
+            "LANGUAGE_IN_CONTEXT"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "main-idea-and-support-central-idea"
         ],
@@ -4789,28 +4781,28 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "1efabd24ec6f770bd674c3f9489a7413f9bb9890887d91e3c7358b0f95459c14"
+        "evidence_hash": "bb49c0891889cf3a8c994a81fc01797f5550261d6d2fa96062cbb08b8b783b05"
     },
     {
         "leaf_id": "main-idea-and-support-supporting-evidence",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Supporting Evidence",
-        "current_question_count": 3,
-        "deficit_to_5": 2,
-        "deficit_to_10": 7,
-        "deficit_to_20": 17,
+        "current_question_count": 4,
+        "deficit_to_5": 1,
+        "deficit_to_10": 6,
+        "deficit_to_20": 16,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -4837,13 +4829,12 @@
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
             "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
-            "MEANING_OR_TEXT_INTERPRETATION"
+            "LANGUAGE_IN_CONTEXT"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "main-idea-and-support-supporting-evidence"
         ],
@@ -4856,18 +4847,18 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "2da6e9ac4935399ab8d604ac3f1c9914c6e2a226d6b9b07ad1b6a0a97ae5f856"
+        "evidence_hash": "f2f1567f9ef5ce1e760d2e6194c97b550b2cbbdf1402c500be14fc759f1e54fc"
     },
     {
         "leaf_id": "maslow-needs",
@@ -4940,10 +4931,10 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Functions and Representations",
-        "current_question_count": 5,
+        "current_question_count": 6,
         "deficit_to_5": 0,
-        "deficit_to_10": 5,
-        "deficit_to_20": 15,
+        "deficit_to_10": 4,
+        "deficit_to_20": 14,
         "source_ids": [
             "deped-math-curriculum-guide",
             "openstax-algebra-and-trigonometry",
@@ -4968,13 +4959,12 @@
         "supported_depth_max": 4,
         "distinct_content_families": [
             "MODEL_OR_REPRESENTATION_SELECTION",
-            "QUANTITATIVE_APPLICATION",
             "RESULT_OR_DATA_INTERPRETATION"
         ],
-        "distinct_content_family_count": 3,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 2,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "math-algebra-functions"
         ],
@@ -4988,11 +4978,11 @@
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
             "Specialization placement is limited to the listed official registry identities; shared availability is not native specialization depth."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [
@@ -5001,7 +4991,7 @@
         "scope_component_ids": [
             "SPECIALIZATION"
         ],
-        "evidence_hash": "166b4de440eac9b5de4aceafa0953287fe5270183e993fbd93cca64119250529"
+        "evidence_hash": "61c68f2f5c6fc02ef3b3efdfee084381d513e04bedee49e8b3285251a241564c"
     },
     {
         "leaf_id": "math-algebra-linear-equations",
@@ -5079,10 +5069,10 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Patterns and Relationships",
-        "current_question_count": 5,
+        "current_question_count": 6,
         "deficit_to_5": 0,
-        "deficit_to_10": 5,
-        "deficit_to_20": 15,
+        "deficit_to_10": 4,
+        "deficit_to_20": 14,
         "source_ids": [
             "deped-math-curriculum-guide",
             "openstax-algebra-and-trigonometry",
@@ -5107,13 +5097,12 @@
         "supported_depth_max": 4,
         "distinct_content_families": [
             "MODEL_OR_REPRESENTATION_SELECTION",
-            "QUANTITATIVE_APPLICATION",
             "RESULT_OR_DATA_INTERPRETATION"
         ],
-        "distinct_content_family_count": 3,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 2,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "math-algebra-patterns"
         ],
@@ -5127,11 +5116,11 @@
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
             "Specialization placement is limited to the listed official registry identities; shared availability is not native specialization depth."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [
@@ -5140,17 +5129,17 @@
         "scope_component_ids": [
             "SPECIALIZATION"
         ],
-        "evidence_hash": "6476790e753d610e5be7710ef388fd34825c1896b72c7e2ba5ad6de09abe385c"
+        "evidence_hash": "f651554f6a524bab99509b73bbd2d60df223fb66b05118168427a3d120a4d5ca"
     },
     {
         "leaf_id": "math-geometry-angle-relationships",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Angle Relationships",
-        "current_question_count": 5,
+        "current_question_count": 6,
         "deficit_to_5": 0,
-        "deficit_to_10": 5,
-        "deficit_to_20": 15,
+        "deficit_to_10": 4,
+        "deficit_to_20": 14,
         "source_ids": [
             "deped-math-curriculum-guide",
             "openstax-algebra-and-trigonometry",
@@ -5174,14 +5163,13 @@
         "supported_depth_min": 2,
         "supported_depth_max": 4,
         "distinct_content_families": [
-            "MODEL_OR_REPRESENTATION_SELECTION",
             "QUANTITATIVE_APPLICATION",
             "RESULT_OR_DATA_INTERPRETATION"
         ],
-        "distinct_content_family_count": 3,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 2,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "math-geometry-angle-relationships"
         ],
@@ -5195,11 +5183,11 @@
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
             "Specialization placement is limited to the listed official registry identities; shared availability is not native specialization depth."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [
@@ -5208,7 +5196,7 @@
         "scope_component_ids": [
             "SPECIALIZATION"
         ],
-        "evidence_hash": "76c8581f3cd11de22e83b3c0e09f431720b475f7828f142f0dc7cd45c31d2892"
+        "evidence_hash": "34ccbfa99e7b0ac54cfde31308ee0225c9bd49ceb9e9d9500cef8345ab67aaa1"
     },
     {
         "leaf_id": "math-geometry-area-perimeter",
@@ -5351,10 +5339,10 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Fractions and Proportional Reasoning",
-        "current_question_count": 5,
+        "current_question_count": 6,
         "deficit_to_5": 0,
-        "deficit_to_10": 5,
-        "deficit_to_20": 15,
+        "deficit_to_10": 4,
+        "deficit_to_20": 14,
         "source_ids": [
             "deped-math-curriculum-guide",
             "openstax-algebra-and-trigonometry",
@@ -5382,13 +5370,12 @@
             "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION",
             "MODEL_OR_REPRESENTATION_SELECTION",
-            "QUANTITATIVE_APPLICATION",
             "RESULT_OR_DATA_INTERPRETATION"
         ],
-        "distinct_content_family_count": 6,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 5,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "math-number-sense-fractions"
         ],
@@ -5402,11 +5389,11 @@
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
             "Specialization placement is limited to the listed official registry identities; shared availability is not native specialization depth."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [
@@ -5415,7 +5402,7 @@
         "scope_component_ids": [
             "SPECIALIZATION"
         ],
-        "evidence_hash": "01f8fe45399aa5dec5daeb6722bd80fbc6f8e9374a6d016e8a5a7b32e1cd6ae0"
+        "evidence_hash": "9d0a11bc210a2d24a11a45e9d902fb457702bd4fde7b2a403fed306ef9fac4d2"
     },
     {
         "leaf_id": "math-number-sense-operations",
@@ -5493,10 +5480,10 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Mathematical Modeling",
-        "current_question_count": 5,
+        "current_question_count": 6,
         "deficit_to_5": 0,
-        "deficit_to_10": 5,
-        "deficit_to_20": 15,
+        "deficit_to_10": 4,
+        "deficit_to_20": 14,
         "source_ids": [
             "deped-math-curriculum-guide",
             "openstax-algebra-and-trigonometry",
@@ -5524,13 +5511,12 @@
             "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION",
             "MODEL_OR_REPRESENTATION_SELECTION",
-            "QUANTITATIVE_APPLICATION",
             "RESULT_OR_DATA_INTERPRETATION"
         ],
-        "distinct_content_family_count": 6,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 5,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "math-problem-solving-modeling"
         ],
@@ -5544,11 +5530,11 @@
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
             "Specialization placement is limited to the listed official registry identities; shared availability is not native specialization depth."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [
@@ -5557,17 +5543,17 @@
         "scope_component_ids": [
             "SPECIALIZATION"
         ],
-        "evidence_hash": "312f5d6c818b9ba1963638b8795c2c5bdf91a0296159716240b8bad3fa9022e4"
+        "evidence_hash": "41ab9618e453414f9031a089ff0719dfecebb686180b710200f56e8d66fe33de"
     },
     {
         "leaf_id": "math-statistics-mean-median",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Mean and Median",
-        "current_question_count": 5,
+        "current_question_count": 6,
         "deficit_to_5": 0,
-        "deficit_to_10": 5,
-        "deficit_to_20": 15,
+        "deficit_to_10": 4,
+        "deficit_to_20": 14,
         "source_ids": [
             "deped-math-curriculum-guide",
             "openstax-algebra-and-trigonometry",
@@ -5595,13 +5581,12 @@
             "CREATIVE_PROCESS_DECISION",
             "MODEL_OR_REPRESENTATION_SELECTION",
             "PEDAGOGICAL_APPLICATION",
-            "QUANTITATIVE_APPLICATION",
-            "RESULT_OR_DATA_INTERPRETATION"
+            "QUANTITATIVE_APPLICATION"
         ],
-        "distinct_content_family_count": 6,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 5,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "math-statistics-mean-median"
         ],
@@ -5615,11 +5600,11 @@
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
             "Specialization placement is limited to the listed official registry identities; shared availability is not native specialization depth."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [
@@ -5628,7 +5613,7 @@
         "scope_component_ids": [
             "SPECIALIZATION"
         ],
-        "evidence_hash": "c22ac159c405bd179eb6756f3de66828f4209e8d890668865a7e89827cee38df"
+        "evidence_hash": "c8452090c20fa4f162a95cf4d79f45c3fe2ed3a626a89f805271c20bb16c0e01"
     },
     {
         "leaf_id": "math-statistics-probability",
@@ -5703,10 +5688,10 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Adjective Modifiers",
-        "current_question_count": 2,
-        "deficit_to_5": 3,
-        "deficit_to_10": 8,
-        "deficit_to_20": 18,
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -5733,13 +5718,12 @@
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
             "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "modifiers-adjective-modifiers"
         ],
@@ -5752,28 +5736,28 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "63932bbe7eda0ea0be019daaedb226d87f8db165be80acd8413e19a3be8dae50"
+        "evidence_hash": "30e2cce0eb0f77df341433d6f9643a67e727cb7ade1be2d0e6ec51534e27d07c"
     },
     {
         "leaf_id": "modifiers-adverb-modifiers",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Adverb Modifiers",
-        "current_question_count": 2,
-        "deficit_to_5": 3,
-        "deficit_to_10": 8,
-        "deficit_to_20": 18,
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -5799,14 +5783,13 @@
         "supported_depth_max": 4,
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
-            "ERROR_ANALYSIS_OR_REVISION",
             "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "modifiers-adverb-modifiers"
         ],
@@ -5819,18 +5802,18 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "e11550ce58e59ca35dd980d47da6f5c4cd81ebb1883cff291c28c1d3758bd56a"
+        "evidence_hash": "5c1509bdbbe4ecde84689f0581393195535e1f5809054daf427b666f0b19287a"
     },
     {
         "leaf_id": "modifiers-dangling-modifiers",
@@ -5911,10 +5894,10 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Misplaced Modifiers",
-        "current_question_count": 4,
-        "deficit_to_5": 1,
-        "deficit_to_10": 6,
-        "deficit_to_20": 16,
+        "current_question_count": 5,
+        "deficit_to_5": 0,
+        "deficit_to_10": 5,
+        "deficit_to_20": 15,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -5941,15 +5924,14 @@
         "supported_depth_max": 3,
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
-            "ERROR_ANALYSIS_OR_REVISION",
             "INTERPRETATION_OR_INFERENCE",
             "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 5,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 4,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "modifiers-misplaced-modifiers"
         ],
@@ -5962,28 +5944,28 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "c79410833d258b2ab0af2b5cd9212b18cf4334d237fe5c0cb63e40c932bd284c"
+        "evidence_hash": "54cfcc4059c1ced854d78fbc4d2927a415fdacbaf8fba6dc9fe855cbb6b8933d"
     },
     {
         "leaf_id": "parallelism-faulty-comparisons",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Faulty Comparisons",
-        "current_question_count": 2,
-        "deficit_to_5": 3,
-        "deficit_to_10": 8,
-        "deficit_to_20": 18,
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -6009,14 +5991,13 @@
         "supported_depth_max": 3,
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
-            "ERROR_ANALYSIS_OR_REVISION",
             "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "parallelism-faulty-comparisons"
         ],
@@ -6029,18 +6010,18 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "1e953dbddae31a2dcdd1b1f751f617ff69a20adde7b512979b48cb6a26d567b6"
+        "evidence_hash": "93f9480d7398a8cc98b7f1695cc78db7a93ad9562def64ab342559d445c2fdab"
     },
     {
         "leaf_id": "parallelism-parallel-items",
@@ -6195,10 +6176,10 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Adjectives",
-        "current_question_count": 2,
-        "deficit_to_5": 3,
-        "deficit_to_10": 8,
-        "deficit_to_20": 18,
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -6227,14 +6208,13 @@
             "ARTWORK_OR_CULTURAL_INTERPRETATION",
             "CREATIVE_PROCESS_DECISION",
             "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION",
             "PEDAGOGICAL_APPLICATION"
         ],
-        "distinct_content_family_count": 7,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 6,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "parts-of-speech-adjectives"
         ],
@@ -6247,28 +6227,28 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "63a0b67c6a4a74989a7125b085e7d540970344203132c82d09b30069bdf10ec3"
+        "evidence_hash": "55ed361d8ca72d382853328c6f0b24686df24344b2f425010a38c8e533cd3653"
     },
     {
         "leaf_id": "parts-of-speech-adverbs",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Adverbs",
-        "current_question_count": 3,
-        "deficit_to_5": 2,
-        "deficit_to_10": 7,
-        "deficit_to_20": 17,
+        "current_question_count": 5,
+        "deficit_to_5": 0,
+        "deficit_to_10": 5,
+        "deficit_to_20": 15,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -6299,14 +6279,12 @@
             "CREATIVE_PROCESS_DECISION",
             "ERROR_ANALYSIS_OR_REVISION",
             "INTERPRETATION_OR_INFERENCE",
-            "LANGUAGE_IN_CONTEXT",
-            "MEANING_OR_TEXT_INTERPRETATION",
             "PEDAGOGICAL_APPLICATION"
         ],
-        "distinct_content_family_count": 8,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 2,
+        "distinct_content_family_count": 6,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "parts-of-speech-adverbs"
         ],
@@ -6319,28 +6297,28 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 2,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "424821ab2f6bb75acd5f8b416af5af14e70c3a733a82a5744bb79ea534b87482"
+        "evidence_hash": "f02433218e8274d5ef6102b9b5e58e8def7fa84cf19784aaecd1aef30ef0a836"
     },
     {
         "leaf_id": "parts-of-speech-nouns",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Nouns",
-        "current_question_count": 2,
-        "deficit_to_5": 3,
-        "deficit_to_10": 8,
-        "deficit_to_20": 18,
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -6369,14 +6347,13 @@
             "ARTWORK_OR_CULTURAL_INTERPRETATION",
             "CREATIVE_PROCESS_DECISION",
             "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION",
             "PEDAGOGICAL_APPLICATION"
         ],
-        "distinct_content_family_count": 7,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 6,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "parts-of-speech-nouns"
         ],
@@ -6389,28 +6366,28 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "76f1fcb3b24e88e80da522c09e75a646266f9340aeb7124e40534a2e0c7bc2f4"
+        "evidence_hash": "1c4fd23470c78fd4b41d83ae9670a25be8bf3f5670da2d8f28cbfdaf615faac1"
     },
     {
         "leaf_id": "parts-of-speech-verbs",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Verbs",
-        "current_question_count": 2,
-        "deficit_to_5": 3,
-        "deficit_to_10": 8,
-        "deficit_to_20": 18,
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -6439,14 +6416,13 @@
             "ARTWORK_OR_CULTURAL_INTERPRETATION",
             "CREATIVE_PROCESS_DECISION",
             "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION",
             "PEDAGOGICAL_APPLICATION"
         ],
-        "distinct_content_family_count": 7,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 6,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "parts-of-speech-verbs"
         ],
@@ -6459,18 +6435,18 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "52950a999611e23f5c0a56b9d2e744fed2c6876ad41eaafdeaf135c8893ffb58"
+        "evidence_hash": "62c60575f023537c6e4420556a9688b620b612f268e09bf03d81da00b4a1beb2"
     },
     {
         "leaf_id": "pavlov-classical-conditioning",
@@ -7343,10 +7319,10 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Preposition Choice",
-        "current_question_count": 3,
-        "deficit_to_5": 2,
-        "deficit_to_10": 7,
-        "deficit_to_20": 17,
+        "current_question_count": 4,
+        "deficit_to_5": 1,
+        "deficit_to_10": 6,
+        "deficit_to_20": 16,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -7375,13 +7351,12 @@
             "ANALYSIS_OR_SYNTHESIS",
             "ERROR_ANALYSIS_OR_REVISION",
             "INTERPRETATION_OR_INFERENCE",
-            "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 5,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 4,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "prepositions-preposition-choice"
         ],
@@ -7394,28 +7369,28 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "73599c46ebddbccc70c02398a768ed92328830a085b0bdecc5f16e35999aec08"
+        "evidence_hash": "a4e1deff17669fda548151a18422e78578c1681fec6aad1baf4b39b8c932dc9b"
     },
     {
         "leaf_id": "prepositions-prepositional-phrases",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Prepositional Phrases",
-        "current_question_count": 2,
-        "deficit_to_5": 3,
-        "deficit_to_10": 8,
-        "deficit_to_20": 18,
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -7442,13 +7417,12 @@
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
             "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
-            "MEANING_OR_TEXT_INTERPRETATION"
+            "LANGUAGE_IN_CONTEXT"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "prepositions-prepositional-phrases"
         ],
@@ -7461,18 +7435,18 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "94ccc9cf224deeaad15b82a63c9bec0ac8d71b71bfc10ee316df34cb00be2a57"
+        "evidence_hash": "bf2d5ec139e47cd217f7950e6ca90b3c67e63826dfed0471fbb05fa247584ce9"
     },
     {
         "leaf_id": "prof-assessment-validity",
@@ -7914,10 +7888,10 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Pronoun-Antecedent Agreement",
-        "current_question_count": 4,
-        "deficit_to_5": 1,
-        "deficit_to_10": 6,
-        "deficit_to_20": 16,
+        "current_question_count": 5,
+        "deficit_to_5": 0,
+        "deficit_to_10": 5,
+        "deficit_to_20": 15,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -7946,16 +7920,15 @@
             "ANALYSIS_OR_SYNTHESIS",
             "DEVELOPMENT_OR_ACCESS_INTERPRETATION",
             "EDUCATIONAL_SCENARIO_APPLICATION",
-            "ERROR_ANALYSIS_OR_REVISION",
             "INCLUSIVE_SUPPORT_DECISION",
             "INTERPRETATION_OR_INFERENCE",
             "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 8,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 2,
+        "distinct_content_family_count": 7,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 1,
+        "safe_headroom_max": 1,
         "allowed_scope": [
             "pronouns-pronoun-antecedent-agreement"
         ],
@@ -7972,24 +7945,24 @@
         "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
         "review_reason": "",
         "defer_reason": "",
-        "max_new_questions": 2,
+        "max_new_questions": 1,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "7116842afad83e5a66f936306d77935d4ee6e0d38d968568ef692e3501adf3bf"
+        "evidence_hash": "1ddcb8760342924de375dcef9c40b0092d99e58bdc60e2573003f06dcc46943c"
     },
     {
         "leaf_id": "pronouns-pronoun-case",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Pronoun Case",
-        "current_question_count": 2,
-        "deficit_to_5": 3,
-        "deficit_to_10": 8,
-        "deficit_to_20": 18,
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -8015,14 +7988,13 @@
         "supported_depth_max": 4,
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
-            "ERROR_ANALYSIS_OR_REVISION",
             "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "pronouns-pronoun-case"
         ],
@@ -8035,28 +8007,28 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "6fac2d90ed364087ee5eb8b5dc9aaa75c628de9600f91de1ffe703b9ad28a9e8"
+        "evidence_hash": "efb1f9784c92dd5b8184f15254436f4c893b2ba8643baec4ae637880be4773cb"
     },
     {
         "leaf_id": "pronouns-pronoun-reference",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Pronoun Reference",
-        "current_question_count": 4,
-        "deficit_to_5": 1,
-        "deficit_to_10": 6,
-        "deficit_to_20": 16,
+        "current_question_count": 5,
+        "deficit_to_5": 0,
+        "deficit_to_10": 5,
+        "deficit_to_20": 15,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -8083,15 +8055,14 @@
         "supported_depth_max": 4,
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
-            "ERROR_ANALYSIS_OR_REVISION",
             "INTERPRETATION_OR_INFERENCE",
             "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 5,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 4,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "pronouns-pronoun-reference"
         ],
@@ -8104,18 +8075,18 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "3427137ca0c8e2166b74573fa03be73de7d1821ac4b4b33b4454b932f1b7d78d"
+        "evidence_hash": "0e9e7bb759629984474eb49f76bb241c0bbdc7ab9c6c198429ec537b7d48ba5e"
     },
     {
         "leaf_id": "rogers-humanistic",
@@ -9046,10 +9017,10 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Compound Sentences",
-        "current_question_count": 2,
-        "deficit_to_5": 3,
-        "deficit_to_10": 8,
-        "deficit_to_20": 18,
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -9075,14 +9046,13 @@
         "supported_depth_max": 3,
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
-            "ERROR_ANALYSIS_OR_REVISION",
             "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "sentence-structure-compound-sentences"
         ],
@@ -9095,28 +9065,28 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "e18da9ff4edbf40d41e9fe48ef6d483992e5d26ac407ae15b39bb43d3e5f8c72"
+        "evidence_hash": "bc55e6aed0a27a7c0d97e5743ab4926348cbd7bdf65a78e582c7f91ca06707ed"
     },
     {
         "leaf_id": "sentence-structure-fragments",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Fragments",
-        "current_question_count": 2,
-        "deficit_to_5": 3,
-        "deficit_to_10": 8,
-        "deficit_to_20": 18,
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -9142,14 +9112,13 @@
         "supported_depth_max": 3,
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
-            "ERROR_ANALYSIS_OR_REVISION",
             "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "sentence-structure-fragments"
         ],
@@ -9162,28 +9131,28 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "f719360c16d433f1eee930bdba7f8f4cd03f8732e0146134f6b8f816c49cbe75"
+        "evidence_hash": "013e7d0e244c2e19061e9e0476729393947843ffe0b8e0fdef042e78c535c27b"
     },
     {
         "leaf_id": "sentence-structure-run-on-sentences",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Run-on Sentences",
-        "current_question_count": 3,
-        "deficit_to_5": 2,
-        "deficit_to_10": 7,
-        "deficit_to_20": 17,
+        "current_question_count": 4,
+        "deficit_to_5": 1,
+        "deficit_to_10": 6,
+        "deficit_to_20": 16,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -9210,15 +9179,14 @@
         "supported_depth_max": 4,
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
-            "ERROR_ANALYSIS_OR_REVISION",
             "INTERPRETATION_OR_INFERENCE",
             "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 5,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 4,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "sentence-structure-run-on-sentences"
         ],
@@ -9231,18 +9199,18 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "5f608fbef04b774b6aee999266a050d55e84e9eb31f27909c4ae09503111e3db"
+        "evidence_hash": "bb7631f34ac39533bc641ddad34d370d39638d7ce462ec1480a701a4b68a1c24"
     },
     {
         "leaf_id": "skinner-operant-conditioning",
@@ -10207,10 +10175,10 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Collective Nouns",
-        "current_question_count": 2,
-        "deficit_to_5": 3,
-        "deficit_to_10": 8,
-        "deficit_to_20": 18,
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -10236,14 +10204,13 @@
         "supported_depth_max": 3,
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
-            "ERROR_ANALYSIS_OR_REVISION",
             "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "subject-verb-agreement-collective-nouns"
         ],
@@ -10256,18 +10223,18 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "a012355d5fbe205f163cf4a9ea8b20ebf38545978a025f4ac3f5d86e86e3fd7b"
+        "evidence_hash": "4307aa5eb6dda79248820998b1ed2a93a0f0db601b986c901f10982c5e829774"
     },
     {
         "leaf_id": "subject-verb-agreement-compound-subjects",
@@ -10422,10 +10389,10 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Singular Subjects",
-        "current_question_count": 5,
+        "current_question_count": 6,
         "deficit_to_5": 0,
-        "deficit_to_10": 5,
-        "deficit_to_20": 15,
+        "deficit_to_10": 4,
+        "deficit_to_20": 14,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -10452,15 +10419,14 @@
         "supported_depth_max": 3,
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
-            "ERROR_ANALYSIS_OR_REVISION",
             "INTERPRETATION_OR_INFERENCE",
             "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 5,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 4,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "subject-verb-agreement-singular-subjects"
         ],
@@ -10473,28 +10439,28 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "22377ab71ef28e92b43379e96513abbb3611d428780f670520550ad667d5f2ad"
+        "evidence_hash": "d2e1e7f4ee2e3b6158326a25dec9253171c5a28c25547d629835e06dc52176d5"
     },
     {
         "leaf_id": "text-structure-cause-and-effect",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Cause and Effect",
-        "current_question_count": 3,
-        "deficit_to_5": 2,
-        "deficit_to_10": 7,
-        "deficit_to_20": 17,
+        "current_question_count": 4,
+        "deficit_to_5": 1,
+        "deficit_to_10": 6,
+        "deficit_to_20": 16,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -10521,13 +10487,12 @@
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
             "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
-            "MEANING_OR_TEXT_INTERPRETATION"
+            "LANGUAGE_IN_CONTEXT"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "text-structure-cause-and-effect"
         ],
@@ -10540,91 +10505,24 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "90a5e05a5ff485d95aeac686c872ab4961de4463b2901c364a82e3849c1a3919"
+        "evidence_hash": "a3ab4cfbc9e1b4ce26bedb74ef197a0e29021f3efaf32a129b47d3ef06438f8b"
     },
     {
         "leaf_id": "text-structure-compare-and-contrast",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Compare and Contrast",
-        "current_question_count": 1,
-        "deficit_to_5": 4,
-        "deficit_to_10": 9,
-        "deficit_to_20": 19,
-        "source_ids": [
-            "deped-k12-english-curriculum-guide",
-            "openstax-reading-writing",
-            "prc-lept-alignment-guidance-2025",
-            "prc-lept-program-march-2026",
-            "prc-let-enhanced-tos-2025",
-            "prc-resolution-20-2025",
-            "purdue-owl-writing"
-        ],
-        "source_count": 7,
-        "primary_source_count": 5,
-        "source_authority": "ADEQUATE",
-        "source_currentness": "NOT_TIME_SENSITIVE",
-        "source_scope_fit": "PARTIAL",
-        "source_conflict_status": "NONE",
-        "study_material_ids": [
-            "let-english-reading-foundation"
-        ],
-        "study_material_count": 1,
-        "study_coverage": "SUFFICIENT",
-        "study_source_traceability": "COMPLETE",
-        "supported_depth_min": 4,
-        "supported_depth_max": 4,
-        "distinct_content_families": [
-            "ANALYSIS_OR_SYNTHESIS",
-            "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
-            "MEANING_OR_TEXT_INTERPRETATION"
-        ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
-        "allowed_scope": [
-            "text-structure-compare-and-contrast"
-        ],
-        "excluded_scope": [
-            "Adjacent leaves and unlisted sibling topics are excluded.",
-            "Edition-specific, future-effective, or unsourced legal/curriculum particulars are excluded."
-        ],
-        "limitations": [
-            "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
-            "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
-            "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
-        ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
-        "defer_reason": "",
-        "max_new_questions": 1,
-        "planned_new_questions": 0,
-        "reviewed_at_batch": 649,
-        "scope_specialization_ids": [],
-        "scope_component_ids": [
-            "GENERAL_EDUCATION"
-        ],
-        "evidence_hash": "38860f373698111fe0c8366546519301325dc7cb1a439ccfcbcbf9b4a0e2d1a4"
-    },
-    {
-        "leaf_id": "text-structure-problem-and-solution",
-        "board_id": "let",
-        "official_area_id": "general-education",
-        "leaf_name": "Problem and Solution",
         "current_question_count": 2,
         "deficit_to_5": 3,
         "deficit_to_10": 8,
@@ -10655,13 +10553,78 @@
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
             "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
-            "MEANING_OR_TEXT_INTERPRETATION"
+            "LANGUAGE_IN_CONTEXT"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "allowed_scope": [
+            "text-structure-compare-and-contrast"
+        ],
+        "excluded_scope": [
+            "Adjacent leaves and unlisted sibling topics are excluded.",
+            "Edition-specific, future-effective, or unsourced legal/curriculum particulars are excluded."
+        ],
+        "limitations": [
+            "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+            "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+            "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
+        ],
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
+        "defer_reason": "",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "reviewed_at_batch": 649,
+        "scope_specialization_ids": [],
+        "scope_component_ids": [
+            "GENERAL_EDUCATION"
+        ],
+        "evidence_hash": "4898776fcf3608f3dea52fc044f0465fd742eb601a32ab2cc17050fc3759ef7a"
+    },
+    {
+        "leaf_id": "text-structure-problem-and-solution",
+        "board_id": "let",
+        "official_area_id": "general-education",
+        "leaf_name": "Problem and Solution",
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
+        "source_ids": [
+            "deped-k12-english-curriculum-guide",
+            "openstax-reading-writing",
+            "prc-lept-alignment-guidance-2025",
+            "prc-lept-program-march-2026",
+            "prc-let-enhanced-tos-2025",
+            "prc-resolution-20-2025",
+            "purdue-owl-writing"
+        ],
+        "source_count": 7,
+        "primary_source_count": 5,
+        "source_authority": "ADEQUATE",
+        "source_currentness": "NOT_TIME_SENSITIVE",
+        "source_scope_fit": "PARTIAL",
+        "source_conflict_status": "NONE",
+        "study_material_ids": [
+            "let-english-reading-foundation"
+        ],
+        "study_material_count": 1,
+        "study_coverage": "SUFFICIENT",
+        "study_source_traceability": "COMPLETE",
+        "supported_depth_min": 4,
+        "supported_depth_max": 4,
+        "distinct_content_families": [
+            "ANALYSIS_OR_SYNTHESIS",
+            "ERROR_ANALYSIS_OR_REVISION",
+            "LANGUAGE_IN_CONTEXT"
+        ],
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "text-structure-problem-and-solution"
         ],
@@ -10674,18 +10637,18 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "ad9d1630df9ae3f959a910efdc15ad266b0300bf0e99808474ecedc8732e50ad"
+        "evidence_hash": "838669f6f1a22f624ed44287e5f378d3b16aacb0a368e5302626dbfadc70c478"
     },
     {
         "leaf_id": "text-structure-sequence",
@@ -14193,10 +14156,10 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Future Tense",
-        "current_question_count": 2,
-        "deficit_to_5": 3,
-        "deficit_to_10": 8,
-        "deficit_to_20": 18,
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -14223,13 +14186,12 @@
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
             "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "verb-tenses-future-tense"
         ],
@@ -14242,28 +14204,28 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "5642d651dc49925255259a03e4083bfd48e50cdd421a82f20b1b8bde66e48800"
+        "evidence_hash": "7f2ee10c0bedc5a2c501fbe429c4f7470cbecc0de9c2c8eaa47b794af940f961"
     },
     {
         "leaf_id": "verb-tenses-past-tense",
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Past Tense",
-        "current_question_count": 3,
-        "deficit_to_5": 2,
-        "deficit_to_10": 7,
-        "deficit_to_20": 17,
+        "current_question_count": 4,
+        "deficit_to_5": 1,
+        "deficit_to_10": 6,
+        "deficit_to_20": 16,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -14290,15 +14252,14 @@
         "supported_depth_max": 3,
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
-            "ERROR_ANALYSIS_OR_REVISION",
             "INTERPRETATION_OR_INFERENCE",
             "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 5,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 4,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "verb-tenses-past-tense"
         ],
@@ -14311,18 +14272,18 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "acd0a37f39066b779ef2ac36b630f8f51bfe011d6b56999f89e1dd9f3907eefd"
+        "evidence_hash": "8dffcce737c63173bb49286111458ef29b56b92f73c62e3ded9339a9015f0c05"
     },
     {
         "leaf_id": "verb-tenses-perfect-tenses",
@@ -14403,10 +14364,10 @@
         "board_id": "let",
         "official_area_id": "general-education",
         "leaf_name": "Present Tense",
-        "current_question_count": 2,
-        "deficit_to_5": 3,
-        "deficit_to_10": 8,
-        "deficit_to_20": 18,
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
         "source_ids": [
             "deped-k12-english-curriculum-guide",
             "openstax-reading-writing",
@@ -14433,13 +14394,12 @@
         "distinct_content_families": [
             "ANALYSIS_OR_SYNTHESIS",
             "ERROR_ANALYSIS_OR_REVISION",
-            "LANGUAGE_IN_CONTEXT",
             "MEANING_OR_TEXT_INTERPRETATION"
         ],
-        "distinct_content_family_count": 4,
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 1,
-        "safe_headroom_max": 1,
+        "distinct_content_family_count": 3,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
         "allowed_scope": [
             "verb-tenses-present-tense"
         ],
@@ -14452,18 +14412,18 @@
             "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
             "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
         ],
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "Authorable only within the exact leaf boundary, cited source chain, supported depth, and positive evidence-backed headroom.",
-        "review_reason": "",
+        "readiness": "REVIEW",
+        "readiness_reason": "Prior authoring permission was exhausted by the bounded Batch650 production allocation.",
+        "review_reason": "Batch650 consumed the Batch649 evidence-bounded high-value family/headroom for this leaf; a fresh semantic family and headroom gate is required before further authoring.",
         "defer_reason": "",
-        "max_new_questions": 1,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 649,
         "scope_specialization_ids": [],
         "scope_component_ids": [
             "GENERAL_EDUCATION"
         ],
-        "evidence_hash": "f895c3b16a39facf79bbe3406c10664a9469f8419023a2285d99de5ab26e3d32"
+        "evidence_hash": "5fefa7a9a164a82bc0ae7631965c960019a8b4a509394e6ef37f10eb46cf8488"
     },
     {
         "leaf_id": "verb-tenses-tense-consistency",
