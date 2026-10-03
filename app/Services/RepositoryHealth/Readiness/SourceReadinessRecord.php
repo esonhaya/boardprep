@@ -18,6 +18,24 @@ final class SourceReadinessRecord
     public const STUDY_COVERAGE = ['COMPLETE', 'SUFFICIENT', 'PARTIAL', 'MISSING', 'INVALID', 'UNKNOWN'];
     public const TRACEABILITY = ['COMPLETE', 'PARTIAL', 'BROKEN', 'NONE', 'UNKNOWN'];
     public const READINESS = ['READY', 'READY_WITH_LIMITS', 'REVIEW', 'DEFER'];
+    public const VISUAL_SUITABILITY = ['TEXT_SUITABLE', 'TEXT_SUITABLE_WITH_LIMITS', 'VISUAL_PREFERRED', 'VISUAL_REQUIRED', 'MIXED', 'UNKNOWN'];
+    public const REPEAT_RISK = ['LOW', 'MODERATE', 'HIGH', 'CRITICAL', 'UNKNOWN'];
+    public const BLOCKER_CLASSES = [
+        'OFFICIAL_SCOPE_GRANULARITY',
+        'OFFICIAL_AREA_MISMATCH',
+        'SOURCE_SCOPE_FIT',
+        'SOURCE_AUTHORITY',
+        'SOURCE_CURRENTNESS',
+        'STUDY_COVERAGE',
+        'STUDY_TRACEABILITY',
+        'DEPTH_UNKNOWN',
+        'CONTENT_FAMILY_UNPROVEN',
+        'PROPOSITION_EXHAUSTED',
+        'SHARED_COVERAGE_SUFFICIENT',
+        'TIME_SENSITIVE_SCOPE',
+        'STRUCTURAL_OR_PLACEMENT',
+        'OTHER_EXPLICIT',
+    ];
 
     /** @return array<string, mixed> */
     public static function normalize(array $record): array
@@ -29,6 +47,7 @@ final class SourceReadinessRecord
             'allowed_scope',
             'excluded_scope',
             'limitations',
+            'blocker_classes',
             'scope_specialization_ids',
             'scope_component_ids',
         ] as $field) {
@@ -97,6 +116,22 @@ final class SourceReadinessRecord
             'readiness',
         ] as $field) {
             $payload[$field] = $record[$field] ?? null;
+        }
+        // Optional editorial classifications are evidence-bearing metadata,
+        // not values inferred by deterministic health checks. Include them in
+        // the hash only when a record explicitly stores them so existing
+        // readiness collections remain backward compatible.
+        foreach ([
+            'visual_suitability',
+            'repeat_risk',
+            'evidence_exhausted',
+            'shared_coverage_sufficient',
+            'numerical_headroom',
+            'evidence_headroom',
+            'text_format_headroom',
+            'high_value_headroom',
+        ] as $field) {
+            if (array_key_exists($field, $record)) $payload[$field] = $record[$field];
         }
         foreach (['scope_specialization_ids', 'scope_component_ids'] as $field) {
             if (array_key_exists($field, $record)) $payload[$field] = $record[$field];

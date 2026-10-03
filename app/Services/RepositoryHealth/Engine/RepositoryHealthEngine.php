@@ -48,6 +48,44 @@ final class RepositoryHealthEngine
         return self::$lastReport;
     }
 
+    /**
+     * Return one board's readiness view from an already-built health snapshot.
+     * This is intentionally a projection over the global indexes; it does not
+     * initialize or rescan repository collections for each leaf.
+     *
+     * @return array<string, mixed>
+     */
+    public static function readinessAudit(string $boardId, ?HealthReport $report = null): array
+    {
+        $boardId = self::normalizeBoard($boardId);
+        $report ??= self::$lastReport ?? self::analyze();
+        $board = is_array($report->boardSummaries[$boardId] ?? null) ? $report->boardSummaries[$boardId] : null;
+        $readiness = is_array($report->summary['source_readiness_by_board'][$boardId] ?? null)
+            ? $report->summary['source_readiness_by_board'][$boardId]
+            : null;
+        $issues = [];
+        foreach ($report->issues as $issue) {
+            $data = $issue->toArray();
+            $evidence = is_array($data['evidence'] ?? null) ? $data['evidence'] : [];
+            if (($data['board_id'] ?? null) === $boardId || ($evidence['board_id'] ?? null) === $boardId || (($data['entity_id'] ?? '') === $boardId && ($data['category'] ?? '') !== '')) {
+                $issues[] = $data;
+            }
+        }
+        return [
+            'audit_level' => 'DEEP_READINESS_AUDIT',
+            'board_id' => $boardId,
+            'board_summary' => $board,
+            'readiness' => $readiness,
+            'issues' => $issues,
+            'deterministic_status' => [
+                'fail_count' => count(array_filter($issues, static fn(array $issue): bool => ($issue['status'] ?? '') === 'FAIL')),
+                'warn_count' => count(array_filter($issues, static fn(array $issue): bool => ($issue['status'] ?? '') === 'WARN')),
+                'review_count' => count(array_filter($issues, static fn(array $issue): bool => ($issue['status'] ?? '') === 'REVIEW')),
+            ],
+            'semantic_review_boundary' => 'Stored editorial metadata is summarized; proposition novelty, source meaning, question equivalence, and visual suitability are not inferred.',
+        ];
+    }
+
     private static function build(RepositoryContext $context, ?RepositoryHealthProfiler $profiler = null): HealthReport
     {
         $collections = $context->collections;
@@ -105,7 +143,8 @@ final class RepositoryHealthEngine
         foreach ((array) ($readinessValidation['by_board'] ?? []) as $boardId => $boardValidation) {
             $readinessByBoard[(string) $boardId] = SourceReadinessService::summary(
                 (array) ($boardValidation['records'] ?? []),
-                $boardValidation
+                $boardValidation,
+                $boardSummaries[(string) $boardId] ?? null
             );
         }
         $readinessSummary = $readinessByBoard['criminologist'] ?? SourceReadinessService::summary(
@@ -581,37 +620,46 @@ final class RepositoryHealthEngine
                 $derivedByBoard[$board][$questionId] = true;
             }
         }
+        // Build native placement and depth indexes once. The previous path
+        // rescanned the complete question bank once per board and ignored the
+        // canonical question-reuse metadata when a question did not duplicate
+        // its required depth inline.
+        $reuseDepthByQuestion = [];
+        foreach ((array) ($collections['question-reuse-metadata'] ?? []) as $metadata) {
+            if (!is_array($metadata)) continue;
+            $questionId = trim((string) ($metadata['question_id'] ?? ''));
+            $depth = $metadata['reuse']['required_depth'] ?? $metadata['required_depth'] ?? null;
+            if ($questionId !== '' && (is_int($depth) || (is_string($depth) && ctype_digit(trim($depth)))) && (int) $depth > 0) {
+                $reuseDepthByQuestion[$questionId] = (int) $depth;
+            }
+        }
+        $ownedByBoard = [];
+        $leafCountsByBoard = [];
+        $depthsByBoard = [];
+        $countIndexStartedAt = $profiler === null ? 0 : hrtime(true);
+        foreach ($questions as $question) {
+            $id = self::id($question);
+            $board = self::questionBoard($question);
+            if ($id === '' || $board === '') continue;
+            $ownedByBoard[$board][$id] = true;
+            $leaf = self::leafId($question);
+            if ($leaf !== '') $leafCountsByBoard[$board][$leaf] = ($leafCountsByBoard[$board][$leaf] ?? 0) + 1;
+            $depth = self::depth($question, $reuseDepthByQuestion);
+            if ($depth !== null) $depthsByBoard[$board][] = $depth;
+        }
+        if ($profiler !== null) {
+            $profiler->increment('global_question_count_index_builds');
+            $profiler->recordDuration('global.native_question_leaf_and_depth_index', $countIndexStartedAt, ['QUESTION_COUNTS']);
+        }
         $result = [];
         foreach (array_keys($boardIds) as $boardId) {
-            $owned = [];
-            $leafCounts = [];
+            $owned = $ownedByBoard[$boardId] ?? [];
+            $leafCounts = $leafCountsByBoard[$boardId] ?? [];
             $effective = $directByBoard[$boardId] ?? [];
             foreach (array_diff_key($derivedByBoard[$boardId] ?? [], $effective) as $questionId => $_) {
                 $effective[$questionId] = true;
             }
-            $depths = [];
-            $countScanStartedAt = $profiler === null ? 0 : hrtime(true);
-            foreach ($questions as $question) {
-                $id = self::id($question);
-                if ($id === '') {
-                    continue;
-                }
-                if (self::questionBoard($question) === $boardId) {
-                    $owned[$id] = true;
-                    $leaf = self::leafId($question);
-                    if ($leaf !== '') {
-                        $leafCounts[$leaf] = ($leafCounts[$leaf] ?? 0) + 1;
-                    }
-                }
-                $depth = self::depth($question);
-                if ($depth !== null && self::questionBoard($question) === $boardId) {
-                    $depths[] = $depth;
-                }
-            }
-            if ($profiler !== null) {
-                $profiler->increment('board_question_count_scans');
-                $profiler->recordDuration('board.native_question_leaf_and_depth_counts', $countScanStartedAt, ['QUESTION_COUNTS']);
-            }
+            $depths = $depthsByBoard[$boardId] ?? [];
             if ($effective === [] && $owned !== []) {
                 // Fixture contexts without eligibility collections still get
                 // a useful native count; production storage always uses the
@@ -1153,15 +1201,40 @@ final class RepositoryHealthEngine
                 $areaSources[(string) $area] = (string) $area;
             }
         }
+        foreach ((array) ($blueprint['official_areas'] ?? []) as $officialArea) {
+            if (!is_array($officialArea)) continue;
+            $officialAreaId = trim((string) ($officialArea['id'] ?? ''));
+            if ($officialAreaId !== '' && !isset($areaSources[$officialAreaId]) && isset($weights[$officialAreaId])) {
+                $areaSources[$officialAreaId] = $officialAreaId;
+            }
+        }
+        // Granular coverage rows may carry the official weighting component
+        // even when the question taxonomy retains an internal domain/topic.
+        // This is a deterministic placement mapping, not a semantic area
+        // inference; one leaf resolves to one stored blueprint node.
+        $coverageAreaByLeaf = [];
+        foreach ((array) ($collections['board-concept-coverage'] ?? []) as $coverage) {
+            if (!is_array($coverage) || self::normalizeBoard($coverage['board_id'] ?? $coverage['board'] ?? '') !== $boardId) continue;
+            $leafId = trim((string) ($coverage['concept_id'] ?? ''));
+            $areaId = trim((string) ($coverage['blueprint_node_id'] ?? $coverage['official_area_id'] ?? ''));
+            if ($leafId !== '' && $areaId !== '' && isset($areaSources[$areaId])) $coverageAreaByLeaf[$leafId] = $areaId;
+        }
         $counts = array_fill_keys(array_keys($areaSources), 0);
         foreach ($questions as $question) {
             if (self::questionBoard($question) !== $boardId) {
                 continue;
             }
             $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
-            $area = (string) ($taxonomy['domain_id'] ?? $taxonomy['subject_id'] ?? '');
+            $leafId = self::leafId($question);
+            $candidates = array_values(array_filter([
+                $coverageAreaByLeaf[$leafId] ?? null,
+                $taxonomy['official_area_id'] ?? null,
+                $taxonomy['blueprint_node_id'] ?? null,
+                $taxonomy['domain_id'] ?? null,
+                $taxonomy['subject_id'] ?? null,
+            ], static fn(mixed $value): bool => trim((string) $value) !== ''));
             foreach ($areaSources as $outputArea => $sourceArea) {
-                if ($area === $sourceArea) {
+                if (in_array((string) $outputArea, array_map('strval', $candidates), true) || in_array((string) $sourceArea, array_map('strval', $candidates), true)) {
                     $counts[$outputArea]++;
                     break;
                 }
@@ -1295,7 +1368,8 @@ final class RepositoryHealthEngine
         ];
     }
 
-    private static function depth(array $question): ?int
+    /** @param array<string, int> $reuseDepthByQuestion */
+    private static function depth(array $question, array $reuseDepthByQuestion = []): ?int
     {
         foreach ([$question['depth'] ?? null, $question['required_depth'] ?? null, is_array($question['reuse'] ?? null) ? ($question['reuse']['required_depth'] ?? null) : null] as $value) {
             if (is_int($value) || (is_string($value) && ctype_digit(trim($value)))) {
@@ -1304,6 +1378,10 @@ final class RepositoryHealthEngine
                     return $depth;
                 }
             }
+        }
+        $questionId = self::id($question);
+        if ($questionId !== '' && isset($reuseDepthByQuestion[$questionId]) && $reuseDepthByQuestion[$questionId] > 0) {
+            return (int) $reuseDepthByQuestion[$questionId];
         }
         return null;
     }

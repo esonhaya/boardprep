@@ -81,6 +81,7 @@ class RepositoryContextFactory
             'source-readiness-mechanical-engineering',
             'source-readiness-let',
             'source-readiness-civil-service',
+            'source-readiness-architecture',
         ];
     }
 }

@@ -15,8 +15,14 @@ if (!in_array('--health', array_slice($argv ?? [], 1), true)) {
 
 if (in_array('--health', array_slice($argv ?? [], 1), true)) {
     $healthArguments = array_slice($argv ?? [], 1);
-    $allowedHealthArguments = ['--health', '--json', '--persist', '--profile'];
-    $invalidHealthArguments = array_values(array_diff($healthArguments, $allowedHealthArguments));
+    $readinessOptions = array_values(array_filter($healthArguments, static fn(string $argument): bool => str_starts_with($argument, '--readiness=')));
+    $invalidHealthArguments = array_values(array_filter(
+        $healthArguments,
+        static fn(string $argument): bool => !in_array($argument, ['--health', '--json', '--persist', '--profile'], true) && !str_starts_with($argument, '--readiness=')
+    ));
+    if (count($readinessOptions) > 1 || ($readinessOptions !== [] && trim(substr($readinessOptions[0], strlen('--readiness='))) === '')) {
+        $invalidHealthArguments[] = $readinessOptions[1] ?? $readinessOptions[0] ?? '--readiness=';
+    }
     if ($invalidHealthArguments !== []) {
         fwrite(STDERR, 'Unknown Repository Health option: ' . $invalidHealthArguments[0] . PHP_EOL);
         exit(2);
@@ -28,6 +34,8 @@ if (in_array('--health', array_slice($argv ?? [], 1), true)) {
     putenv('APP_DEBUG=false');
     \App\Core\App::boot();
     $healthReport = \App\Services\RepositoryHealth\Engine\RepositoryHealthEngine::analyze($profileRequested);
+    $readinessBoard = $readinessOptions === [] ? null : strtolower(trim(substr($readinessOptions[0], strlen('--readiness='))));
+    $readinessAudit = $readinessBoard === null ? null : \App\Services\RepositoryHealth\Engine\RepositoryHealthEngine::readinessAudit($readinessBoard, $healthReport);
     $materializationStartedAt = hrtime(true);
     $healthArray = $healthReport->toArray();
     $reportMaterializationMs = max(0.0, (hrtime(true) - $materializationStartedAt) / 1_000_000);
@@ -40,6 +48,17 @@ if (in_array('--health', array_slice($argv ?? [], 1), true)) {
     }
     if (in_array('--json', $healthArguments, true)) {
         $jsonFlags = JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR;
+        if ($readinessAudit !== null) {
+            echo json_encode([
+                'readiness_audit' => $readinessAudit,
+                'health' => [
+                    'overall_status' => $healthReport->overallStatus,
+                    'summary' => $healthReport->summary,
+                    'fail_entity_count' => (int) ($healthReport->summary['fail_count'] ?? 0),
+                ],
+            ], $jsonFlags), PHP_EOL;
+            exit($healthReport->overallStatus === 'FAIL' ? 1 : 0);
+        }
         if ($profileRequested) {
             $serializationStartedAt = hrtime(true);
             json_encode($healthArray, $jsonFlags);
@@ -66,6 +85,24 @@ if (in_array('--health', array_slice($argv ?? [], 1), true)) {
         }
         echo json_encode($healthArray, $jsonFlags), PHP_EOL;
     } else {
+        if ($readinessAudit !== null) {
+            $board = (array) ($readinessAudit['board_summary'] ?? []);
+            $readiness = (array) ($readinessAudit['readiness'] ?? []);
+            $states = (array) ($readiness['readiness_counts'] ?? []);
+            printf(
+                "READINESS_AUDIT_BOARD=%s NATIVE=%s EFFECTIVE=%s RUNTIME=%s ACTIVE_LEAVES=%s READY=%d RWL=%d REVIEW=%d DEFER=%d\n",
+                $readinessBoard,
+                $board['canonical'] ?? 'UNKNOWN',
+                $board['effective_declared'] ?? 'UNKNOWN',
+                $board['runtime'] ?? 'UNKNOWN',
+                $board['active_leaves'] ?? 'UNKNOWN',
+                (int) ($states['READY'] ?? 0),
+                (int) ($states['READY_WITH_LIMITS'] ?? 0),
+                (int) ($states['REVIEW'] ?? 0),
+                (int) ($states['DEFER'] ?? 0)
+            );
+            exit($healthReport->overallStatus === 'FAIL' ? 1 : 0);
+        }
         printf(
             "REPOSITORY_HEALTH_STATUS=%s PASS=%d WARN=%d FAIL=%d REVIEW=%d ISSUES=%d\n",
             $healthReport->overallStatus,

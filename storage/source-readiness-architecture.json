@@ -1,0 +1,955 @@
+[
+    {
+        "leaf_id": "b633-arch-history-theory-precedent",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-a",
+        "leaf_name": "History, theory, precedent, and spatial order",
+        "current_question_count": 38,
+        "source_ids": [
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "nps-preservation-briefs",
+            "mit-4-111-intro-architecture"
+        ],
+        "primary_source_count": 5,
+        "study_material_ids": [
+            "architecture-1-1-foundation",
+            "architecture-1-3-foundation"
+        ],
+        "source_authority": "STRONG",
+        "visual_suitability": "TEXT_SUITABLE",
+        "repeat_risk": "MODERATE",
+        "distinct_content_families": [
+            "precedent-analysis",
+            "spatial-order",
+            "context-transfer",
+            "theory-application"
+        ],
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "readiness": "REVIEW",
+        "readiness_reason": "The source and study chain is complete, but the existing family inventory does not establish a defensible additional text proposition without semantic review.",
+        "review_reason": "Content-family and proposition-exhaustion review is required before any further text expansion.",
+        "excluded_scope": [
+            "cosmetic style recognition",
+            "unbounded historical recall"
+        ],
+        "limitations": [
+            "No automatic text-only expansion is authorized from numerical deficit alone."
+        ],
+        "blocker_classes": [
+            "CONTENT_FAMILY_UNPROVEN",
+            "PROPOSITION_EXHAUSTED"
+        ],
+        "evidence_exhausted": true,
+        "source_count": 6,
+        "study_material_count": 2,
+        "deficit_to_5": 0,
+        "deficit_to_10": 0,
+        "deficit_to_20": 0,
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_family_count": 4,
+        "allowed_scope": [],
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "STRONG",
+        "source_conflict_status": "NONE",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "defer_reason": "",
+        "reviewed_at_batch": 654,
+        "evidence_hash": "d9781befd60a9dd9533b62f2cbf8bbcee940c26b4ee40a4dd26b1ac0d60b69d5"
+    },
+    {
+        "leaf_id": "b633-arch-history-vernacular-climate",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-a",
+        "leaf_name": "Vernacular, tropical, and climate-responsive traditions",
+        "current_question_count": 25,
+        "source_ids": [
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "mit-4-111-intro-architecture",
+            "mit-4-401-environmental-buildings"
+        ],
+        "primary_source_count": 4,
+        "study_material_ids": [
+            "architecture-1-1-foundation",
+            "architecture-1-2-foundation"
+        ],
+        "source_authority": "ADEQUATE",
+        "visual_suitability": "TEXT_SUITABLE_WITH_LIMITS",
+        "repeat_risk": "MODERATE",
+        "distinct_content_families": [
+            "climate-response",
+            "cultural-context",
+            "material-adaptation"
+        ],
+        "safe_headroom_min": 1,
+        "safe_headroom_preferred": 2,
+        "safe_headroom_max": 2,
+        "readiness": "READY_WITH_LIMITS",
+        "readiness_reason": "A bounded text cohort remains supportable when each item states the climate, material, and performance assumptions.",
+        "allowed_scope": [
+            "climate_response",
+            "passive_strategy",
+            "vernacular_adaptation"
+        ],
+        "excluded_scope": [
+            "image-dependent identification",
+            "unbounded regional catalogues"
+        ],
+        "limitations": [
+            "Keep propositions tied to stated climate and material evidence; do not treat form recognition as proof."
+        ],
+        "numerical_headroom": 2,
+        "evidence_headroom": 2,
+        "text_format_headroom": 2,
+        "high_value_headroom": 1,
+        "source_count": 6,
+        "study_material_count": 2,
+        "deficit_to_5": 0,
+        "deficit_to_10": 0,
+        "deficit_to_20": 0,
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_family_count": 3,
+        "blocker_classes": [],
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "STRONG",
+        "source_conflict_status": "NONE",
+        "max_new_questions": 2,
+        "planned_new_questions": 0,
+        "review_reason": "",
+        "defer_reason": "",
+        "reviewed_at_batch": 654,
+        "evidence_hash": "2e317e162f65b7ffb802041ba26d0530529bc1b1181f7863a30770203b8e3dd6"
+    },
+    {
+        "leaf_id": "b633-arch-history-conservation",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-a",
+        "leaf_name": "Conservation, restoration, and adaptive reuse",
+        "current_question_count": 37,
+        "source_ids": [
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "nps-preservation-briefs",
+            "mit-4-111-intro-architecture"
+        ],
+        "primary_source_count": 5,
+        "study_material_ids": [
+            "architecture-1-1-foundation",
+            "architecture-1-2-foundation",
+            "architecture-1-3-foundation"
+        ],
+        "source_authority": "STRONG",
+        "visual_suitability": "TEXT_SUITABLE",
+        "repeat_risk": "MODERATE",
+        "distinct_content_families": [
+            "significance-assessment",
+            "documentation",
+            "compatible-change",
+            "adaptive-reuse"
+        ],
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "readiness": "REVIEW",
+        "readiness_reason": "The source and study chain is complete, but the current family inventory is already broad enough that additional text items require proposition-level review.",
+        "review_reason": "Proposition exhaustion and family overlap must be reviewed manually before authorizing more items.",
+        "excluded_scope": [
+            "undocumented reconstruction claims",
+            "generic preservation slogans"
+        ],
+        "limitations": [
+            "Do not expand from the deficit-to-20 signal without a distinct documented intervention decision."
+        ],
+        "blocker_classes": [
+            "CONTENT_FAMILY_UNPROVEN",
+            "PROPOSITION_EXHAUSTED"
+        ],
+        "evidence_exhausted": true,
+        "source_count": 6,
+        "study_material_count": 3,
+        "deficit_to_5": 0,
+        "deficit_to_10": 0,
+        "deficit_to_20": 0,
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_family_count": 4,
+        "allowed_scope": [],
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "STRONG",
+        "source_conflict_status": "NONE",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "defer_reason": "",
+        "reviewed_at_batch": 654,
+        "evidence_hash": "d4e400a5fd6068a7b16ef9722de95d9d8747858d40628ece814055fed0668989"
+    },
+    {
+        "leaf_id": "b633-arch-practice-scope",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-a",
+        "leaf_name": "Architectural scope, services, and decision records",
+        "current_question_count": 98,
+        "source_ids": [
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "ra-9266-architecture-act",
+            "ra-9266-architecture-irr"
+        ],
+        "primary_source_count": 6,
+        "study_material_ids": [
+            "architecture-2-1-foundation"
+        ],
+        "source_authority": "STRONG",
+        "visual_suitability": "TEXT_SUITABLE",
+        "repeat_risk": "MODERATE",
+        "distinct_content_families": [
+            "service-scope",
+            "role-boundary",
+            "decision-record",
+            "deliverable-responsibility",
+            "authorization"
+        ],
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "readiness": "REVIEW",
+        "readiness_reason": "Regulatory support is strong, but the high existing count means numeric room does not establish a new defensible proposition family.",
+        "review_reason": "Manual review is required to distinguish new scope reasoning from cosmetic legal paraphrase.",
+        "excluded_scope": [
+            "legal advice beyond the stored facts",
+            "duplicate statutory wording"
+        ],
+        "limitations": [
+            "Currentness must be rechecked before any future regulatory item is authored."
+        ],
+        "blocker_classes": [
+            "CONTENT_FAMILY_UNPROVEN",
+            "PROPOSITION_EXHAUSTED"
+        ],
+        "evidence_exhausted": true,
+        "source_count": 6,
+        "study_material_count": 1,
+        "deficit_to_5": 0,
+        "deficit_to_10": 0,
+        "deficit_to_20": 0,
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_family_count": 5,
+        "allowed_scope": [],
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "STRONG",
+        "source_conflict_status": "NONE",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "defer_reason": "",
+        "reviewed_at_batch": 654,
+        "evidence_hash": "1a4d44eda4361a36349ce28572ef9fd71034bf56755f23af66a338b1a2061f81"
+    },
+    {
+        "leaf_id": "b633-arch-practice-coordination",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-a",
+        "leaf_name": "Consultant coordination and change control",
+        "current_question_count": 20,
+        "source_ids": [
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "ra-9266-architecture-act",
+            "mit-4-461-building-technology"
+        ],
+        "primary_source_count": 5,
+        "study_material_ids": [
+            "architecture-2-2-foundation"
+        ],
+        "source_authority": "ADEQUATE",
+        "visual_suitability": "TEXT_SUITABLE",
+        "repeat_risk": "LOW",
+        "distinct_content_families": [
+            "consultant-interface",
+            "change-control",
+            "information-integrity"
+        ],
+        "safe_headroom_min": 2,
+        "safe_headroom_preferred": 3,
+        "safe_headroom_max": 4,
+        "readiness": "READY_WITH_LIMITS",
+        "readiness_reason": "A small application cohort is supportable when the item identifies the information status, interface, authority, and downstream consequence.",
+        "allowed_scope": [
+            "change_control",
+            "consultant_interface",
+            "information_status"
+        ],
+        "excluded_scope": [
+            "unbounded project-management advice",
+            "specialist design calculations"
+        ],
+        "limitations": [
+            "Use controlled coordination scenarios with a stated decision record; do not claim a universal project answer."
+        ],
+        "numerical_headroom": 4,
+        "evidence_headroom": 4,
+        "text_format_headroom": 4,
+        "high_value_headroom": 2,
+        "source_count": 6,
+        "study_material_count": 1,
+        "deficit_to_5": 0,
+        "deficit_to_10": 0,
+        "deficit_to_20": 0,
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_family_count": 3,
+        "blocker_classes": [],
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "STRONG",
+        "source_conflict_status": "NONE",
+        "max_new_questions": 4,
+        "planned_new_questions": 0,
+        "review_reason": "",
+        "defer_reason": "",
+        "reviewed_at_batch": 654,
+        "evidence_hash": "60e2b5ed651212efed0a025512b28412b7760e35c4e61a516b31a650ae29bd8c"
+    },
+    {
+        "leaf_id": "b633-arch-practice-public-responsibility",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-a",
+        "leaf_name": "Professional judgment and public responsibility",
+        "current_question_count": 10,
+        "source_ids": [
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "ra-9266-architecture-act",
+            "ra-9266-architecture-irr",
+            "bp344-2024-irr"
+        ],
+        "primary_source_count": 7,
+        "study_material_ids": [
+            "architecture-2-3-foundation"
+        ],
+        "source_authority": "STRONG",
+        "visual_suitability": "TEXT_SUITABLE",
+        "repeat_risk": "LOW",
+        "distinct_content_families": [
+            "public-safety",
+            "accessibility-duty",
+            "professional-ethics"
+        ],
+        "safe_headroom_min": 2,
+        "safe_headroom_preferred": 3,
+        "safe_headroom_max": 4,
+        "readiness": "READY_WITH_LIMITS",
+        "readiness_reason": "A bounded public-duty cohort remains supportable when the facts identify the affected users, risk, and professional responsibility.",
+        "allowed_scope": [
+            "accessibility_duty",
+            "professional_ethics",
+            "public_safety"
+        ],
+        "excluded_scope": [
+            "unsupported disciplinary conclusions",
+            "generic ethical slogans"
+        ],
+        "limitations": [
+            "Keep regulatory references current and distinguish professional judgment from a final legal determination."
+        ],
+        "numerical_headroom": 4,
+        "evidence_headroom": 4,
+        "text_format_headroom": 4,
+        "high_value_headroom": 2,
+        "source_count": 7,
+        "study_material_count": 1,
+        "deficit_to_5": 0,
+        "deficit_to_10": 0,
+        "deficit_to_20": 10,
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_family_count": 3,
+        "blocker_classes": [],
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "STRONG",
+        "source_conflict_status": "NONE",
+        "max_new_questions": 4,
+        "planned_new_questions": 0,
+        "review_reason": "",
+        "defer_reason": "",
+        "reviewed_at_batch": 654,
+        "evidence_hash": "2f1ff9a512c2200f9c9cbba9dff369d5c62483066068f0d7072118dfdd3129ba"
+    },
+    {
+        "leaf_id": "b633-arch-technical-envelope",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-b",
+        "leaf_name": "Envelope, moisture, thermal, and acoustic assemblies",
+        "current_question_count": 51,
+        "source_ids": [
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "mit-4-401-environmental-buildings",
+            "mit-4-461-building-technology",
+            "wbdg-building-enclosure"
+        ],
+        "primary_source_count": 5,
+        "study_material_ids": [
+            "architecture-3-1-foundation"
+        ],
+        "source_authority": "ADEQUATE",
+        "visual_suitability": "TEXT_SUITABLE_WITH_LIMITS",
+        "repeat_risk": "MODERATE",
+        "distinct_content_families": [
+            "water-air-thermal-control",
+            "acoustic-assembly",
+            "maintainability"
+        ],
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "readiness": "REVIEW",
+        "readiness_reason": "The evidence chain supports the existing bounded content, but further text expansion needs manual assembly-level novelty review.",
+        "review_reason": "The remaining numeric room is not sufficient evidence of an unused assembly proposition.",
+        "excluded_scope": [
+            "unbounded specialist envelope design",
+            "code-edition-specific limits without current verification"
+        ],
+        "limitations": [
+            "No automatic expansion until a distinct, independently supported assembly decision is documented."
+        ],
+        "blocker_classes": [
+            "CONTENT_FAMILY_UNPROVEN",
+            "PROPOSITION_EXHAUSTED"
+        ],
+        "evidence_exhausted": true,
+        "source_count": 7,
+        "study_material_count": 1,
+        "deficit_to_5": 0,
+        "deficit_to_10": 0,
+        "deficit_to_20": 0,
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_family_count": 3,
+        "allowed_scope": [],
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "STRONG",
+        "source_conflict_status": "NONE",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "defer_reason": "",
+        "reviewed_at_batch": 654,
+        "evidence_hash": "5b8781e274452a65c9d99c8d617fe27d26e389a1b704110be37e51a9dfad4882"
+    },
+    {
+        "leaf_id": "b633-arch-technical-structural",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-b",
+        "leaf_name": "Structural conceptualization and load-path coordination",
+        "current_question_count": 10,
+        "source_ids": [
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "mit-4-401-environmental-buildings",
+            "mit-4-461-building-technology",
+            "wbdg-building-enclosure"
+        ],
+        "primary_source_count": 5,
+        "study_material_ids": [
+            "architecture-3-1-foundation"
+        ],
+        "source_authority": "ADEQUATE",
+        "visual_suitability": "TEXT_SUITABLE_WITH_LIMITS",
+        "repeat_risk": "HIGH",
+        "distinct_content_families": [
+            "load-path",
+            "system-selection",
+            "architect-engineer-coordination"
+        ],
+        "safe_headroom_min": 2,
+        "safe_headroom_preferred": 3,
+        "safe_headroom_max": 4,
+        "readiness": "READY_WITH_LIMITS",
+        "readiness_reason": "A bounded conceptual structural cohort is supportable when the load path and design assumptions are explicit and no unsupported calculation is required.",
+        "allowed_scope": [
+            "load_path",
+            "system_selection",
+            "coordination"
+        ],
+        "excluded_scope": [
+            "sealed structural design",
+            "unbounded member sizing"
+        ],
+        "limitations": [
+            "Conceptual reasoning only; any numerical proposition requires an independently recomputable calculation record."
+        ],
+        "numerical_headroom": 4,
+        "evidence_headroom": 4,
+        "text_format_headroom": 4,
+        "high_value_headroom": 2,
+        "source_count": 7,
+        "study_material_count": 1,
+        "deficit_to_5": 0,
+        "deficit_to_10": 0,
+        "deficit_to_20": 10,
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_family_count": 3,
+        "blocker_classes": [],
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "STRONG",
+        "source_conflict_status": "NONE",
+        "max_new_questions": 4,
+        "planned_new_questions": 0,
+        "review_reason": "",
+        "defer_reason": "",
+        "reviewed_at_batch": 654,
+        "evidence_hash": "c9380134037f1b3e5f29a9868ae09db99b1eb8bb193321c064421d2e863528aa"
+    },
+    {
+        "leaf_id": "b633-arch-technical-systems",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-b",
+        "leaf_name": "Water, drainage, ventilation, and electrical coordination",
+        "current_question_count": 12,
+        "source_ids": [
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "mit-4-401-environmental-buildings",
+            "pd1096-national-building-code",
+            "bp344-2024-irr",
+            "ra9514-fire-code-irr"
+        ],
+        "primary_source_count": 7,
+        "study_material_ids": [
+            "architecture-3-2-foundation"
+        ],
+        "source_authority": "STRONG",
+        "visual_suitability": "TEXT_SUITABLE_WITH_LIMITS",
+        "repeat_risk": "MODERATE",
+        "distinct_content_families": [
+            "utilities-coordination",
+            "life-safety",
+            "serviceability",
+            "bounded-calculation"
+        ],
+        "safe_headroom_min": 2,
+        "safe_headroom_preferred": 3,
+        "safe_headroom_max": 4,
+        "readiness": "READY_WITH_LIMITS",
+        "readiness_reason": "A bounded systems cohort is supportable when coordination consequences are explicit and calculation items carry independent recomputation metadata.",
+        "allowed_scope": [
+            "utilities_coordination",
+            "life_safety",
+            "serviceability",
+            "bounded_calculation"
+        ],
+        "excluded_scope": [
+            "unbounded specialist sizing",
+            "stale code editions"
+        ],
+        "limitations": [
+            "Version-sensitive requirements must be rechecked; calculation propositions require independent recomputation."
+        ],
+        "numerical_headroom": 4,
+        "evidence_headroom": 4,
+        "text_format_headroom": 4,
+        "high_value_headroom": 2,
+        "source_count": 8,
+        "study_material_count": 1,
+        "deficit_to_5": 0,
+        "deficit_to_10": 0,
+        "deficit_to_20": 8,
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_family_count": 4,
+        "blocker_classes": [],
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "STRONG",
+        "source_conflict_status": "NONE",
+        "max_new_questions": 4,
+        "planned_new_questions": 0,
+        "review_reason": "",
+        "defer_reason": "",
+        "reviewed_at_batch": 654,
+        "evidence_hash": "f836484368f0410d6679087454faf0db38b99c635cc63a576b829bb70a289df0"
+    },
+    {
+        "leaf_id": "b633-arch-technical-construction",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-b",
+        "leaf_name": "Construction quantities, sequencing, and interfaces",
+        "current_question_count": 19,
+        "source_ids": [
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "mit-4-461-building-technology",
+            "mit-4-463-structural-systems"
+        ],
+        "primary_source_count": 4,
+        "study_material_ids": [
+            "architecture-3-3-foundation"
+        ],
+        "source_authority": "ADEQUATE",
+        "visual_suitability": "TEXT_SUITABLE",
+        "repeat_risk": "MODERATE",
+        "distinct_content_families": [
+            "quantity",
+            "sequencing",
+            "interface-risk",
+            "constructability"
+        ],
+        "safe_headroom_min": 1,
+        "safe_headroom_preferred": 2,
+        "safe_headroom_max": 3,
+        "readiness": "READY_WITH_LIMITS",
+        "readiness_reason": "A small constructability cohort is supportable when the sequence, quantity assumption, and interface consequence are explicit.",
+        "allowed_scope": [
+            "constructability",
+            "interface-risk",
+            "quantity",
+            "sequencing"
+        ],
+        "excluded_scope": [
+            "unbounded cost estimating",
+            "specialist means-and-methods claims"
+        ],
+        "limitations": [
+            "Keep quantities independently recomputable and avoid treating one construction sequence as universally controlling."
+        ],
+        "numerical_headroom": 3,
+        "evidence_headroom": 3,
+        "text_format_headroom": 3,
+        "high_value_headroom": 1,
+        "source_count": 6,
+        "study_material_count": 1,
+        "deficit_to_5": 0,
+        "deficit_to_10": 0,
+        "deficit_to_20": 1,
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_family_count": 4,
+        "blocker_classes": [],
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "STRONG",
+        "source_conflict_status": "NONE",
+        "max_new_questions": 3,
+        "planned_new_questions": 0,
+        "review_reason": "",
+        "defer_reason": "",
+        "reviewed_at_batch": 654,
+        "evidence_hash": "dd2e23a37171f13b2ee7ff97b0a7b7106145021913e3938c574ba8a4631d2c41"
+    },
+    {
+        "leaf_id": "b633-arch-site-climate",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-c",
+        "leaf_name": "Site climate, orientation, terrain, and environmental response",
+        "current_question_count": 103,
+        "source_ids": [
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "mit-4-111-intro-architecture",
+            "mit-4-401-environmental-buildings"
+        ],
+        "primary_source_count": 4,
+        "study_material_ids": [
+            "architecture-4-1-foundation"
+        ],
+        "source_authority": "STRONG",
+        "visual_suitability": "VISUAL_PREFERRED",
+        "repeat_risk": "HIGH",
+        "distinct_content_families": [
+            "orientation",
+            "microclimate",
+            "terrain-vegetation",
+            "environmental-response"
+        ],
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "readiness": "REVIEW",
+        "readiness_reason": "Meaningful text questions exist, but the current family inventory and visual dependency require manual review before another text-only cohort is authorized.",
+        "review_reason": "Further expansion is not authorized until a proposition-level review separates valid environmental reasoning from cosmetic scenario variants.",
+        "excluded_scope": [
+            "image-free claims that require plan comparison",
+            "cosmetic climate keywords"
+        ],
+        "limitations": [
+            "Visual-dependent site alternatives remain outside ordinary text-only expansion."
+        ],
+        "blocker_classes": [
+            "CONTENT_FAMILY_UNPROVEN",
+            "PROPOSITION_EXHAUSTED"
+        ],
+        "evidence_exhausted": true,
+        "source_count": 6,
+        "study_material_count": 1,
+        "deficit_to_5": 0,
+        "deficit_to_10": 0,
+        "deficit_to_20": 0,
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_family_count": 4,
+        "allowed_scope": [],
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "STRONG",
+        "source_conflict_status": "NONE",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "defer_reason": "",
+        "reviewed_at_batch": 654,
+        "evidence_hash": "20187e7a7de96e458f7070c5184fb1cdb7bbd4a2fc9d748ccef6b0f1c851b4c4"
+    },
+    {
+        "leaf_id": "b633-arch-site-circulation",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-c",
+        "leaf_name": "Circulation, adjacency, accessibility, and functional zoning",
+        "current_question_count": 6,
+        "source_ids": [
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "mit-4-111-intro-architecture",
+            "bp344-2024-irr",
+            "ra9514-fire-code-irr"
+        ],
+        "primary_source_count": 6,
+        "study_material_ids": [
+            "architecture-4-2-foundation"
+        ],
+        "source_authority": "ADEQUATE",
+        "visual_suitability": "VISUAL_PREFERRED",
+        "repeat_risk": "HIGH",
+        "distinct_content_families": [
+            "adjacency",
+            "zoning",
+            "egress-accessibility",
+            "wayfinding"
+        ],
+        "safe_headroom_min": 1,
+        "safe_headroom_preferred": 2,
+        "safe_headroom_max": 3,
+        "readiness": "READY_WITH_LIMITS",
+        "readiness_reason": "A small text cohort remains possible when the scenario states the adjacency and egress constraints; plan-comparison variants require visual review.",
+        "allowed_scope": [
+            "adjacency",
+            "egress_accessibility",
+            "wayfinding"
+        ],
+        "excluded_scope": [
+            "plan-reading without a visual fixture",
+            "unbounded code-distance claims"
+        ],
+        "limitations": [
+            "Text-only items must state all geometry needed for the decision; visual alternatives are not authorized here."
+        ],
+        "numerical_headroom": 3,
+        "evidence_headroom": 3,
+        "text_format_headroom": 3,
+        "high_value_headroom": 1,
+        "source_count": 7,
+        "study_material_count": 1,
+        "deficit_to_5": 0,
+        "deficit_to_10": 4,
+        "deficit_to_20": 14,
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_family_count": 4,
+        "blocker_classes": [],
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "STRONG",
+        "source_conflict_status": "NONE",
+        "max_new_questions": 3,
+        "planned_new_questions": 0,
+        "review_reason": "",
+        "defer_reason": "",
+        "reviewed_at_batch": 654,
+        "evidence_hash": "2c98e0e65cec2649cf738607f0bc835b480bb150b55cdd06e93689f3415415c7"
+    },
+    {
+        "leaf_id": "b633-arch-site-capacity",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-c",
+        "leaf_name": "Site capacity, growth, phasing, and spatial alternatives",
+        "current_question_count": 6,
+        "source_ids": [
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "mit-4-111-intro-architecture",
+            "mit-4-401-environmental-buildings",
+            "bp344-2024-irr"
+        ],
+        "primary_source_count": 5,
+        "study_material_ids": [
+            "architecture-4-3-foundation"
+        ],
+        "source_authority": "ADEQUATE",
+        "visual_suitability": "VISUAL_PREFERRED",
+        "repeat_risk": "HIGH",
+        "distinct_content_families": [
+            "site-coverage",
+            "phasing-growth",
+            "infrastructure",
+            "spatial-alternative"
+        ],
+        "safe_headroom_min": 1,
+        "safe_headroom_preferred": 2,
+        "safe_headroom_max": 3,
+        "readiness": "READY_WITH_LIMITS",
+        "readiness_reason": "A small text cohort remains possible when capacity assumptions and phasing criteria are explicit; spatial alternatives need visual review.",
+        "allowed_scope": [
+            "phasing_growth",
+            "site_coverage",
+            "spatial_alternative"
+        ],
+        "excluded_scope": [
+            "plan-reading without a visual fixture",
+            "unbounded zoning calculations"
+        ],
+        "limitations": [
+            "Text-only items must contain the complete capacity assumptions and are bounded to planning reasoning."
+        ],
+        "numerical_headroom": 3,
+        "evidence_headroom": 3,
+        "text_format_headroom": 3,
+        "high_value_headroom": 1,
+        "source_count": 7,
+        "study_material_count": 1,
+        "deficit_to_5": 0,
+        "deficit_to_10": 4,
+        "deficit_to_20": 14,
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_family_count": 4,
+        "blocker_classes": [],
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "STRONG",
+        "source_conflict_status": "NONE",
+        "max_new_questions": 3,
+        "planned_new_questions": 0,
+        "review_reason": "",
+        "defer_reason": "",
+        "reviewed_at_batch": 654,
+        "evidence_hash": "17d109ce3096190c25ae68cce2f4dd8a5d3fa6f7f4d15b097d4e77abbfd2cdd1"
+    },
+    {
+        "leaf_id": "b633-arch-site-spatial-analysis",
+        "board_id": "architecture",
+        "official_area_id": "arch-area-c",
+        "leaf_name": "Plan, diagram, and visual-spatial analysis",
+        "current_question_count": 37,
+        "source_ids": [
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "mit-4-111-intro-architecture",
+            "mit-4-401-environmental-buildings",
+            "bp344-2024-irr",
+            "ra9514-fire-code-irr"
+        ],
+        "primary_source_count": 6,
+        "study_material_ids": [
+            "architecture-4-1-foundation",
+            "architecture-4-2-foundation",
+            "architecture-4-3-foundation"
+        ],
+        "source_authority": "STRONG",
+        "visual_suitability": "VISUAL_REQUIRED",
+        "repeat_risk": "CRITICAL",
+        "distinct_content_families": [
+            "plan-reading",
+            "diagram-interpretation",
+            "spatial-reasoning"
+        ],
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "readiness": "DEFER",
+        "readiness_reason": "The competency is supported by current sources and study material but is not safe for ordinary text-only expansion.",
+        "defer_reason": "Visual-required plan and diagram reasoning needs a future visual-question capability with controlled fixtures.",
+        "excluded_scope": [
+            "text-only plan interpretation",
+            "image-dependent identification without a visual fixture"
+        ],
+        "limitations": [
+            "Do not manufacture ordinary text questions to increase the numerical pool."
+        ],
+        "blocker_classes": [
+            "OTHER_EXPLICIT"
+        ],
+        "evidence_exhausted": true,
+        "source_count": 8,
+        "study_material_count": 3,
+        "deficit_to_5": 0,
+        "deficit_to_10": 0,
+        "deficit_to_20": 0,
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_family_count": 3,
+        "allowed_scope": [],
+        "study_coverage": "COMPLETE",
+        "study_source_traceability": "COMPLETE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "STRONG",
+        "source_conflict_status": "NONE",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "review_reason": "",
+        "reviewed_at_batch": 654,
+        "evidence_hash": "f976a3c20760aa3b61b3b7bbffd3df9dc4869d8f60deed01b296a1e541d6d664"
+    }
+]

@@ -178,16 +178,36 @@ final class SourceReadinessService
         return $result;
     }
 
-    /** @param array<int, array<string, mixed>> $records @param array<string, mixed> $validation */
-    public static function summary(array $records, array $validation = []): array
+    /**
+     * Summarize the persisted readiness contract without inferring semantic
+     * claims from question wording. The optional board summary is supplied by
+     * RepositoryHealthEngine so native/effective/runtime counts and structural
+     * leaf handling remain owned by the existing health path.
+     *
+     * @param array<int, array<string, mixed>> $records
+     * @param array<string, mixed> $validation
+     * @param array<string, mixed>|null $boardSummary
+     */
+    public static function summary(array $records, array $validation = [], ?array $boardSummary = null): array
     {
         $counts = ['READY' => 0, 'READY_WITH_LIMITS' => 0, 'REVIEW' => 0, 'DEFER' => 0];
         $authorities = array_fill_keys(SourceReadinessRecord::AUTHORITIES, 0);
         $coverage = array_fill_keys(SourceReadinessRecord::STUDY_COVERAGE, 0);
+        $visualSuitability = array_fill_keys(SourceReadinessRecord::VISUAL_SUITABILITY, 0);
+        $repeatRisk = array_fill_keys(SourceReadinessRecord::REPEAT_RISK, 0);
+        $blockerCounts = array_fill_keys(SourceReadinessRecord::BLOCKER_CLASSES, 0);
         $byLeaf = [];
         $headroom = ['min' => 0, 'preferred' => 0, 'max' => 0];
         $currentness = [];
         $traceability = [];
+        $thinRecords = [];
+        $authorableRecords = [];
+        $textSuitableRecords = [];
+        $visualLimitedRecords = [];
+        $evidenceExhaustedRecords = [];
+        $headroomDimensions = ['numerical' => 0, 'evidence' => 0, 'text_format' => 0, 'high_value' => 0];
+        $hasHeadroomDimensions = false;
+        $evidenceExhaustedCount = 0;
         foreach ($records as $record) {
             if (!is_array($record)) continue;
             $readiness = (string) ($record['readiness'] ?? '');
@@ -203,10 +223,72 @@ final class SourceReadinessService
             $currentness[$currentnessValue] = ($currentness[$currentnessValue] ?? 0) + 1;
             $traceabilityValue = (string) ($record['study_source_traceability'] ?? 'UNKNOWN');
             $traceability[$traceabilityValue] = ($traceability[$traceabilityValue] ?? 0) + 1;
+            $visualValue = (string) ($record['visual_suitability'] ?? 'UNKNOWN');
+            if (isset($visualSuitability[$visualValue])) $visualSuitability[$visualValue]++;
+            $repeatValue = (string) ($record['repeat_risk'] ?? 'UNKNOWN');
+            if (isset($repeatRisk[$repeatValue])) $repeatRisk[$repeatValue]++;
+            foreach (self::blockerClasses($record) as $blocker) {
+                $blockerCounts[$blocker] = ($blockerCounts[$blocker] ?? 0) + 1;
+            }
+            if (array_key_exists('evidence_exhausted', $record)) {
+                $evidenceExhaustedRecords[] = $record;
+                if ($record['evidence_exhausted'] === true) $evidenceExhaustedCount++;
+            }
+            foreach ([
+                'numerical' => 'numerical_headroom',
+                'evidence' => 'evidence_headroom',
+                'text_format' => 'text_format_headroom',
+                'high_value' => 'high_value_headroom',
+            ] as $dimension => $field) {
+                if (array_key_exists($field, $record) && is_int($record[$field])) {
+                    $hasHeadroomDimensions = true;
+                    $headroomDimensions[$dimension] += $record[$field];
+                }
+            }
             $leafId = (string) ($record['leaf_id'] ?? '');
-            if ($leafId !== '') $byLeaf[$leafId] = $record;
+            if ($leafId !== '') {
+                $byLeaf[$leafId] = $record;
+                $thinRecords[] = $record;
+                if (in_array($readiness, ['READY', 'READY_WITH_LIMITS'], true) && (int) ($record['max_new_questions'] ?? 0) > 0) {
+                    $authorableRecords[] = $record;
+                }
+                if ($visualValue === 'TEXT_SUITABLE') $textSuitableRecords[] = $record;
+                if (in_array($visualValue, ['VISUAL_PREFERRED', 'VISUAL_REQUIRED', 'MIXED'], true)) $visualLimitedRecords[] = $record;
+            }
         }
         ksort($byLeaf, SORT_STRING);
+        $rawThinness = self::thinness($thinRecords);
+        $authorableThinness = self::thinness($authorableRecords);
+        $textSuitableThinness = self::thinness($textSuitableRecords);
+        $visualLimitedThinness = self::thinness($visualLimitedRecords);
+        $evidenceExhaustedThinness = self::thinness(array_values(array_filter(
+            $evidenceExhaustedRecords,
+            static fn(array $record): bool => ($record['evidence_exhausted'] ?? false) === true
+        )));
+        if (is_array($boardSummary)) {
+            $rawThinness = [
+                'zero' => (int) ($boardSummary['zero'] ?? $rawThinness['zero']),
+                'under5' => (int) ($boardSummary['under5'] ?? $rawThinness['under5']),
+                'under10' => (int) ($boardSummary['under10'] ?? $rawThinness['under10']),
+                'under20' => (int) ($boardSummary['under20'] ?? $rawThinness['under20']),
+            ];
+        }
+        foreach ([$currentness, $traceability, $blockerCounts] as &$map) ksort($map, SORT_STRING);
+        unset($map);
+        $sourceStudyDefects = self::defectCounts($records, $validation);
+        $currentnessValues = array_keys(array_filter($currentness, static fn(int $count): bool => $count > 0));
+        $currentnessStatus = $currentnessValues === [] ? null : (count($currentnessValues) === 1 ? $currentnessValues[0] : 'MIXED');
+        $boardMetrics = null;
+        if (is_array($boardSummary)) {
+            $boardMetrics = [
+                'native' => isset($boardSummary['canonical']) ? (int) $boardSummary['canonical'] : null,
+                'effective' => isset($boardSummary['effective_declared']) ? (int) $boardSummary['effective_declared'] : null,
+                'runtime' => isset($boardSummary['runtime']) ? (int) $boardSummary['runtime'] : null,
+                'active_leaves' => isset($boardSummary['active_leaves']) ? (int) $boardSummary['active_leaves'] : null,
+            ];
+        }
+        $hasAnyVisualMetadata = array_sum($visualSuitability) - $visualSuitability['UNKNOWN'] > 0;
+        $hasAnyRepeatMetadata = array_sum($repeatRisk) - $repeatRisk['UNKNOWN'] > 0;
         return [
             'record_count' => count($records),
             'valid' => ($validation['valid'] ?? false) === true,
@@ -217,8 +299,87 @@ final class SourceReadinessService
             'source_currentness_counts' => $currentness,
             'study_traceability_counts' => $traceability,
             'safe_headroom' => $headroom,
+            'board_counts' => $boardMetrics,
+            'raw_thinness' => $rawThinness,
+            'authorable_thinness' => $authorableThinness,
+            'text_suitable_thinness' => $textSuitableThinness,
+            'visual_limited_thinness' => $visualLimitedThinness,
+            'evidence_exhausted_thinness' => $evidenceExhaustedThinness,
+            'visual_suitability_counts' => $visualSuitability,
+            'visual_suitability_metadata' => $hasAnyVisualMetadata,
+            'repeat_risk_counts' => $repeatRisk,
+            'repeat_risk_metadata' => $hasAnyRepeatMetadata,
+            'evidence_exhausted_count' => $evidenceExhaustedCount,
+            'headroom_dimensions' => $hasHeadroomDimensions ? $headroomDimensions : null,
+            'high_value_headroom' => $hasHeadroomDimensions ? $headroomDimensions['high_value'] : null,
+            'source_study_defects' => $sourceStudyDefects,
+            'currentness_status' => $currentnessStatus,
+            'blocker_counts' => $blockerCounts,
+            'review_blocker_counts' => $blockerCounts,
             'records' => array_values($byLeaf),
         ];
+    }
+
+    /** @param array<int, array<string, mixed>> $records @return array{zero:int,under5:int,under10:int,under20:int} */
+    private static function thinness(array $records): array
+    {
+        $counts = [];
+        foreach ($records as $record) {
+            if (is_array($record) && array_key_exists('current_question_count', $record)) {
+                $counts[] = (int) $record['current_question_count'];
+            }
+        }
+        return [
+            'zero' => count(array_filter($counts, static fn(int $count): bool => $count === 0)),
+            'under5' => count(array_filter($counts, static fn(int $count): bool => $count < 5)),
+            'under10' => count(array_filter($counts, static fn(int $count): bool => $count < 10)),
+            'under20' => count(array_filter($counts, static fn(int $count): bool => $count < 20)),
+        ];
+    }
+
+    /** @param array<string, mixed> $record @return string[] */
+    private static function blockerClasses(array $record): array
+    {
+        $found = [];
+        $walk = static function (mixed $value) use (&$walk, &$found): void {
+            if (!is_array($value)) return;
+            foreach ($value as $key => $child) {
+                if (in_array((string) $key, ['blocker_classes', 'blocker_categories', 'blockers'], true)) {
+                    foreach ((array) $child as $candidate) {
+                        $candidate = strtoupper(trim((string) $candidate));
+                        if (in_array($candidate, SourceReadinessRecord::BLOCKER_CLASSES, true)) $found[$candidate] = true;
+                        elseif ($candidate !== '') $found['OTHER_EXPLICIT'] = true;
+                    }
+                } else {
+                    $walk($child);
+                }
+            }
+        };
+        $walk($record);
+        $classes = array_keys($found);
+        sort($classes, SORT_STRING);
+        return $classes;
+    }
+
+    /** @param array<int, array<string, mixed>> $records @param array<string, mixed> $validation */
+    private static function defectCounts(array $records, array $validation): array
+    {
+        $counts = ['source' => 0, 'study' => 0, 'traceability' => 0, 'currentness' => 0];
+        foreach ($records as $record) {
+            if (!is_array($record)) continue;
+            if (in_array((string) ($record['source_authority'] ?? ''), ['WEAK', 'NONE', 'UNKNOWN'], true) || in_array((string) ($record['source_scope_fit'] ?? ''), ['NONE', 'UNKNOWN'], true)) $counts['source']++;
+            if (in_array((string) ($record['study_coverage'] ?? ''), ['MISSING', 'INVALID', 'UNKNOWN'], true)) $counts['study']++;
+            if (in_array((string) ($record['study_source_traceability'] ?? ''), ['BROKEN', 'NONE', 'UNKNOWN'], true)) $counts['traceability']++;
+            if (in_array((string) ($record['source_currentness'] ?? ''), ['SUPERSEDED', 'FUTURE_EFFECTIVE', 'CONFLICTING', 'UNKNOWN'], true)) $counts['currentness']++;
+        }
+        foreach ((array) ($validation['errors'] ?? []) as $error) {
+            if (!is_array($error)) continue;
+            $code = (string) ($error['code'] ?? '');
+            if (str_contains($code, 'INVALID_SOURCE')) $counts['source']++;
+            if (str_contains($code, 'INVALID_STUDY')) $counts['study']++;
+            if (str_contains($code, 'TRACEABILITY')) $counts['traceability']++;
+        }
+        return $counts;
     }
 
     /** @param array<string, array> $collections */
@@ -298,7 +459,8 @@ final class SourceReadinessService
             if (!is_array($concept)) {
                 continue;
             }
-            $parent = trim((string) ($concept['parent_concept_id'] ?? ''));
+            $batchMetadata = is_array($concept['batch633'] ?? null) ? $concept['batch633'] : [];
+            $parent = trim((string) ($concept['parent_concept_id'] ?? $batchMetadata['parent_concept_id'] ?? ''));
             $conceptId = trim((string) ($concept['id'] ?? ''));
             if ($parent !== '' && $conceptId !== '') {
                 $structuralConcepts[$parent] = true;
@@ -327,7 +489,7 @@ final class SourceReadinessService
     /** @return array<string, array> */
     private static function collections(): array
     {
-        $names = ['questions', 'boards', 'subjects', 'board-subjects', 'blueprints', 'taxonomy/domains', 'taxonomy/topics', 'taxonomy/concepts', 'question-eligibility', 'concept-derived-eligibility', 'question-reuse-overrides', 'question-reuse-metadata', 'board-concept-coverage', 'study-materials', 'study-question-links', 'sources', 'content-fit-audits', 'flashcard-exclusions', 'source-readiness', 'source-readiness-psychometrician', 'source-readiness-mechanical-engineering', 'source-readiness-civil-service'];
+        $names = ['questions', 'boards', 'subjects', 'board-subjects', 'blueprints', 'taxonomy/domains', 'taxonomy/topics', 'taxonomy/concepts', 'question-eligibility', 'concept-derived-eligibility', 'question-reuse-overrides', 'question-reuse-metadata', 'board-concept-coverage', 'study-materials', 'study-question-links', 'sources', 'content-fit-audits', 'flashcard-exclusions', 'source-readiness', 'source-readiness-psychometrician', 'source-readiness-mechanical-engineering', 'source-readiness-civil-service', 'source-readiness-architecture'];
         $collections = [];
         foreach ($names as $name) $collections[$name] = App::storage()->all($name);
         return $collections;

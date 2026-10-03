@@ -146,6 +146,30 @@ final class SourceReadinessValidator
         foreach (['scope_specialization_ids', 'scope_component_ids'] as $field) {
             if (array_key_exists($field, $record)) self::validateUniqueStringList($record, $field, $leafId, $errors);
         }
+        if (array_key_exists('visual_suitability', $record) && (!is_string($record['visual_suitability']) || !in_array($record['visual_suitability'], SourceReadinessRecord::VISUAL_SUITABILITY, true))) {
+            self::error($errors, 'SOURCE_READINESS.INVALID_ENUM', $leafId, 'visual_suitability has an unsupported value.', ['field' => 'visual_suitability', 'value' => $record['visual_suitability']]);
+        }
+        if (array_key_exists('repeat_risk', $record) && (!is_string($record['repeat_risk']) || !in_array($record['repeat_risk'], SourceReadinessRecord::REPEAT_RISK, true))) {
+            self::error($errors, 'SOURCE_READINESS.INVALID_ENUM', $leafId, 'repeat_risk has an unsupported value.', ['field' => 'repeat_risk', 'value' => $record['repeat_risk']]);
+        }
+        if (array_key_exists('blocker_classes', $record)) {
+            foreach ((array) $record['blocker_classes'] as $blocker) {
+                if (!in_array((string) $blocker, SourceReadinessRecord::BLOCKER_CLASSES, true)) {
+                    self::error($errors, 'SOURCE_READINESS.INVALID_ENUM', $leafId, 'blocker_classes contains an unsupported blocker category.', ['blocker' => $blocker]);
+                    break;
+                }
+            }
+        }
+        foreach (['evidence_exhausted', 'shared_coverage_sufficient'] as $field) {
+            if (array_key_exists($field, $record) && !is_bool($record[$field])) {
+                self::error($errors, 'SOURCE_READINESS.INVALID_RECORD', $leafId, strtoupper($field) . ' must be boolean.', ['field' => $field]);
+            }
+        }
+        foreach (['numerical_headroom', 'evidence_headroom', 'text_format_headroom', 'high_value_headroom'] as $field) {
+            if (array_key_exists($field, $record) && (!is_int($record[$field]) || $record[$field] < 0)) {
+                self::error($errors, 'SOURCE_READINESS.INVALID_RECORD', $leafId, strtoupper($field) . ' must be a non-negative integer.', ['field' => $field]);
+            }
+        }
 
         $sourceIds = is_array($record['source_ids'] ?? null) ? array_map('strval', $record['source_ids']) : [];
         $materialIds = is_array($record['study_material_ids'] ?? null) ? array_map('strval', $record['study_material_ids']) : [];
@@ -293,7 +317,7 @@ final class SourceReadinessValidator
     /** @param array<string, mixed> $record @param array<int, array<string, mixed>> $errors */
     private static function validateRawTypeShape(array $record, array &$errors, string $leafId): void
     {
-        foreach (['source_ids', 'study_material_ids', 'distinct_content_families', 'allowed_scope', 'excluded_scope', 'limitations', 'scope_specialization_ids', 'scope_component_ids'] as $field) {
+        foreach (['source_ids', 'study_material_ids', 'distinct_content_families', 'allowed_scope', 'excluded_scope', 'limitations', 'blocker_classes', 'scope_specialization_ids', 'scope_component_ids'] as $field) {
             if (in_array($field, ['scope_specialization_ids', 'scope_component_ids'], true) && !array_key_exists($field, $record)) continue;
             if (array_key_exists($field, $record) && (!is_array($record[$field]) || array_is_list($record[$field]) === false)) {
                 self::error($errors, 'SOURCE_READINESS.INVALID_RECORD', $leafId, strtoupper($field) . ' must be a JSON array.', ['field' => $field]);
@@ -314,6 +338,21 @@ final class SourceReadinessValidator
         foreach (['leaf_id', 'board_id', 'official_area_id', 'leaf_name', 'source_authority', 'source_currentness', 'source_scope_fit', 'source_conflict_status', 'study_coverage', 'study_source_traceability', 'readiness', 'readiness_reason', 'review_reason', 'defer_reason', 'evidence_hash'] as $field) {
             if (array_key_exists($field, $record) && !is_string($record[$field])) {
                 self::error($errors, 'SOURCE_READINESS.INVALID_RECORD', $leafId, strtoupper($field) . ' must be a string.', ['field' => $field]);
+            }
+        }
+        foreach (['visual_suitability', 'repeat_risk'] as $field) {
+            if (array_key_exists($field, $record) && !is_string($record[$field])) {
+                self::error($errors, 'SOURCE_READINESS.INVALID_RECORD', $leafId, strtoupper($field) . ' must be a string.', ['field' => $field]);
+            }
+        }
+        foreach (['evidence_exhausted', 'shared_coverage_sufficient'] as $field) {
+            if (array_key_exists($field, $record) && !is_bool($record[$field])) {
+                self::error($errors, 'SOURCE_READINESS.INVALID_RECORD', $leafId, strtoupper($field) . ' must be boolean.', ['field' => $field]);
+            }
+        }
+        foreach (['numerical_headroom', 'evidence_headroom', 'text_format_headroom', 'high_value_headroom'] as $field) {
+            if (array_key_exists($field, $record) && !is_int($record[$field])) {
+                self::error($errors, 'SOURCE_READINESS.INVALID_RECORD', $leafId, strtoupper($field) . ' must be an integer.', ['field' => $field]);
             }
         }
     }
