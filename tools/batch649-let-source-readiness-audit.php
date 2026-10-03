@@ -812,7 +812,7 @@ function b649_run(array $argv): void
     foreach (array_values(array_filter((array) ($collections['let-specializations'] ?? []), 'is_array')) as $specialization) {
         $id = (string) ($specialization['id'] ?? '');
         if ($id === '') continue;
-        $specializationRows[$id] = ['id' => $id, 'official_name' => (string) ($specialization['official_name'] ?? $id), 'level' => (string) ($specialization['level'] ?? ''), 'official_scope_status' => 'OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified', 'question_ids' => [], 'effective_ids' => [], 'runtime_ids' => [], 'leaf_native_counts' => [], 'leaf_ids' => [], 'shared_in_question_ids' => [], 'shared_out_question_ids' => [], 'readiness_counts' => ['READY' => 0, 'READY_WITH_LIMITS' => 0, 'REVIEW' => 0, 'DEFER' => 0], 'source_states' => [], 'study_states' => [], 'headroom' => ['min' => 0, 'preferred' => 0, 'max' => 0], 'native_specific_headroom' => ['min' => 0, 'preferred' => 0, 'max' => 0], 'shared_coverage_headroom' => ['min' => 0, 'preferred' => 0, 'max' => 0], 'shared_coverage_only_leaf_ids' => [], 'family_counts' => [], 'depth_counts' => [], 'unknown_family_questions' => 0];
+        $specializationRows[$id] = ['id' => $id, 'official_name' => (string) ($specialization['official_name'] ?? $id), 'level' => (string) ($specialization['level'] ?? ''), 'official_scope_status' => 'OFFICIAL_ACTIVE; PRC Resolution 20 s.2025 and September 2026 operational labels verified', 'question_ids' => [], 'native_leaf_question_ids' => [], 'effective_ids' => [], 'runtime_ids' => [], 'leaf_native_counts' => [], 'leaf_ids' => [], 'shared_in_question_ids' => [], 'shared_out_question_ids' => [], 'readiness_counts' => ['READY' => 0, 'READY_WITH_LIMITS' => 0, 'REVIEW' => 0, 'DEFER' => 0], 'source_states' => [], 'study_states' => [], 'headroom' => ['min' => 0, 'preferred' => 0, 'max' => 0], 'native_specific_headroom' => ['min' => 0, 'preferred' => 0, 'max' => 0], 'shared_coverage_headroom' => ['min' => 0, 'preferred' => 0, 'max' => 0], 'shared_coverage_only_leaf_ids' => [], 'family_counts' => [], 'depth_counts' => [], 'unknown_family_questions' => 0];
     }
     foreach ($questions as $question) {
         $qid = (string) ($question['id'] ?? '');
@@ -834,11 +834,13 @@ function b649_run(array $argv): void
             if ($native || $eligibility !== null) $specializationRows[$specId]['effective_ids'][$qid] = true;
             if (strtolower((string) ($question['status'] ?? 'active')) === 'active' && ($native || $eligibility !== null)) $specializationRows[$specId]['runtime_ids'][$qid] = true;
             if ($native) $specializationRows[$specId]['question_ids'][$qid] = true;
+            $primaryNativeSpecialization = $primarySpec === $specId || ($primarySpec === '' && count($specIds) === 1);
+            if ($native && $primaryNativeSpecialization) $specializationRows[$specId]['native_leaf_question_ids'][$leafId][$qid] = true;
             if ($native && count($specIds) > 1) {
                 if ($primarySpec === $specId) $specializationRows[$specId]['shared_out_question_ids'][$qid] = true;
                 else $specializationRows[$specId]['shared_in_question_ids'][$qid] = true;
             }
-            if ($native && ($primarySpec === $specId || count($specIds) === 1)) {
+            if ($native && $primaryNativeSpecialization) {
                 if ($family === 'UNCLASSIFIED') $specializationRows[$specId]['unknown_family_questions']++;
                 else $specializationRows[$specId]['family_counts'][$family] = ($specializationRows[$specId]['family_counts'][$family] ?? 0) + 1;
                 if ($depth !== null) $specializationRows[$specId]['depth_counts']['D' . $depth] = ($specializationRows[$specId]['depth_counts']['D' . $depth] ?? 0) + 1;
@@ -850,13 +852,14 @@ function b649_run(array $argv): void
             if (isset($specializationRows[$specId])) $specializationRows[$specId]['leaf_ids'][$leafId] = true;
         }
     }
+    $specializationNativeLeafCountsReconcile = true;
     foreach ($specializationRows as $specId => &$spec) {
         foreach ($spec['leaf_ids'] as $leafId => $_) {
             $leaf = $leafInventory[$leafId] ?? null;
             if (!is_array($leaf)) continue;
             $record = (array) ($leaf['readiness_record'] ?? []);
-            $sharedLeaf = !in_array($specId, (array) ($leaf['native_specialization_ids'] ?? []), true);
-            $nativeCount = (int) $leaf['native_question_count'];
+            $nativeCount = count((array) ($spec['native_leaf_question_ids'][$leafId] ?? []));
+            $sharedLeaf = $nativeCount === 0;
             $spec['leaf_native_counts'][$leafId] = $sharedLeaf ? 0 : $nativeCount;
             $state = (string) ($record['readiness'] ?? 'REVIEW');
             $spec['readiness_counts'][$state] = ($spec['readiness_counts'][$state] ?? 0) + 1;
@@ -879,6 +882,7 @@ function b649_run(array $argv): void
         $authorableSpecStats = b649_stats($authorableLeafCounts);
         $familyCount = count($spec['family_counts']);
         $spec['native_question_count'] = count($spec['question_ids']) - count($spec['shared_in_question_ids']);
+        if (array_sum($spec['leaf_native_counts']) !== $spec['native_question_count']) $specializationNativeLeafCountsReconcile = false;
         $unknownRate = $spec['native_question_count'] === 0 ? 1.0 : $spec['unknown_family_questions'] / $spec['native_question_count'];
         $classifiedFamilyCounts = array_values($spec['family_counts']);
         $familyConcentration = $spec['native_question_count'] > 0 && $classifiedFamilyCounts !== [] ? max($classifiedFamilyCounts) / $spec['native_question_count'] : $unknownRate;
@@ -912,7 +916,7 @@ function b649_run(array $argv): void
         $spec['family_count'] = $familyCount;
         $spec['observed_families'] = array_keys($spec['family_counts']); sort($spec['observed_families'], SORT_STRING);
         $spec['depth_distribution'] = $spec['depth_counts'];
-        foreach (['question_ids','effective_ids','runtime_ids','leaf_ids','shared_in_question_ids','shared_out_question_ids','leaf_native_counts','source_states','study_states','family_counts','depth_counts'] as $private) unset($spec[$private]);
+        foreach (['question_ids','native_leaf_question_ids','effective_ids','runtime_ids','leaf_ids','shared_in_question_ids','shared_out_question_ids','leaf_native_counts','source_states','study_states','family_counts','depth_counts'] as $private) unset($spec[$private]);
     }
     unset($spec);
     ksort($specializationRows, SORT_STRING);
@@ -1286,7 +1290,7 @@ function b649_run(array $argv): void
         'regressions' => $globalRegression,
         'repository_health' => ['before_overall' => $healthBefore['overall_status'] ?? '', 'after_overall' => $healthAfter['overall_status'] ?? '', 'fail_entities_before' => $healthBeforeSummary['fail_entity_count'] ?? 0, 'fail_entities_after' => $healthSummary['fail_entity_count'] ?? 0, 'warn_entities_after' => $healthSummary['warn_entity_count'] ?? 0, 'review_entities_after' => $healthSummary['review_entity_count'] ?? 0, 'issue_counts_by_code' => $issueCounts, 'new_fail_ids' => $newDeterministicFailIds, 'runtime_profiled' => false, 'batch648_known_orphans' => 16, 'batch648_cpa_source_semantic_review_findings' => 3, 'batch648_let_review_findings' => count($letSourceStudyReviewFindings)],
         'determinism' => ['readiness_record_hash' => b649_hash($readinessRecords), 'readiness_ids_hash' => b649_hash(array_map(static fn(array $r): string => (string) $r['leaf_id'], $readinessRecords)), 'specialization_set_hash' => b649_hash(array_keys($specializationRows)), 'leaf_inventory_hash' => b649_hash(array_values($leafInventory)), 'question_store_hashes' => b649_fileHashes($root), 'runtime_excluded_from_hash' => true],
-        'validation' => ['permanent_readiness' => ($letValidation['valid'] ?? false) === true, 'all_collection_readiness' => ($validationAll['valid'] ?? false) === true, 'official_specializations' => $specializationTotal === 15, 'official_scope_sources_present' => $missingOfficialSourceIds === [], 'specialization_ids_resolve' => $readinessIntegrity['invalid_specialization_ids'] === 0, 'scope_components_valid' => $readinessIntegrity['invalid_scope_component_ids'] === 0, 'shared_flat_placements' => $flatCount === 38, 'specialization_variant_placements' => count($sharedVariantRows) === 25 && $sharedVariantEdgeCount === 75 && count(array_filter($sharedVariantRows, static fn(array $row): bool => ($row['classification'] ?? '') !== 'VALID_SHARED_COMPETENCY')) === 0, 'major_area_native_union' => $areaNativeUnion === (int) ($b648Global['native_by_board']['let'] ?? -1), 'major_area_effective_union' => $areaEffectiveUnion === (int) ($b648Global['effective_declared_by_board']['let'] ?? -1), 'major_area_runtime_union' => $areaRuntimeUnion === (int) ($b648Global['runtime_by_board']['let'] ?? -1), 'duplicate_effective' => (int) ($regressions['duplicate_effective'] ?? -1) === 0, 'double_weighting' => (int) ($regressions['double_weighting'] ?? -1) === 0, 'content_freeze' => $beforeHashes === b649_fileHashes($root), 'global_counts' => $globalRegression['all_expected_global_counts_match'], 'fail_entities' => (int) ($healthSummary['fail_entity_count'] ?? -1)],
+        'validation' => ['permanent_readiness' => ($letValidation['valid'] ?? false) === true, 'all_collection_readiness' => ($validationAll['valid'] ?? false) === true, 'official_specializations' => $specializationTotal === 15, 'official_scope_sources_present' => $missingOfficialSourceIds === [], 'specialization_ids_resolve' => $readinessIntegrity['invalid_specialization_ids'] === 0, 'scope_components_valid' => $readinessIntegrity['invalid_scope_component_ids'] === 0, 'shared_flat_placements' => $flatCount === 38, 'specialization_variant_placements' => count($sharedVariantRows) === 25 && $sharedVariantEdgeCount === 75 && count(array_filter($sharedVariantRows, static fn(array $row): bool => ($row['classification'] ?? '') !== 'VALID_SHARED_COMPETENCY')) === 0, 'specialization_native_leaf_counts_reconcile' => $specializationNativeLeafCountsReconcile, 'major_area_native_union' => $areaNativeUnion === (int) ($b648Global['native_by_board']['let'] ?? -1), 'major_area_effective_union' => $areaEffectiveUnion === (int) ($b648Global['effective_declared_by_board']['let'] ?? -1), 'major_area_runtime_union' => $areaRuntimeUnion === (int) ($b648Global['runtime_by_board']['let'] ?? -1), 'duplicate_effective' => (int) ($regressions['duplicate_effective'] ?? -1) === 0, 'double_weighting' => (int) ($regressions['double_weighting'] ?? -1) === 0, 'content_freeze' => $beforeHashes === b649_fileHashes($root), 'global_counts' => $globalRegression['all_expected_global_counts_match'], 'fail_entities' => (int) ($healthSummary['fail_entity_count'] ?? -1)],
     ];
     $artifact['audit_hash'] = b649_hash($artifact);
     $auditPath = b649_path($root, $options['output'], $root . '/' . B649_ARTIFACT_FILE);
@@ -1295,6 +1299,7 @@ function b649_run(array $argv): void
     if (($healthSummary['fail_entity_count'] ?? 1) !== 0) b649_fail('Repository Health after Batch649 reports FAIL entities.');
     if ($flatCount !== 38 || $specializationTotal !== 15 || $zeroSpecializationPools !== 0 || count($sharedVariantRows) !== 25 || $sharedVariantEdgeCount !== 75) b649_fail('LET structural/specialization invariants failed.');
     if ($areaNativeUnion !== (int) ($b648Global['native_by_board']['let'] ?? -1) || $areaEffectiveUnion !== (int) ($b648Global['effective_declared_by_board']['let'] ?? -1) || $areaRuntimeUnion !== (int) ($b648Global['runtime_by_board']['let'] ?? -1)) b649_fail('LET major-area question pools do not reconcile to unique board totals.');
+    if (!$specializationNativeLeafCountsReconcile) b649_fail('Specialization-native leaf question counts do not reconcile to native specialization pools.');
     if ($beforeHashes !== b649_fileHashes($root)) b649_fail('A question, eligibility, or taxonomy freeze hash changed during Batch649.');
     if ($sourceInventory['invalid'] !== 0 || $missingOfficialSourceIds !== [] || $readinessIntegrity['invalid_source_ids'] !== 0 || $readinessIntegrity['invalid_study_ids'] !== 0 || $readinessIntegrity['invalid_specialization_ids'] !== 0 || $readinessIntegrity['invalid_scope_component_ids'] !== 0 || $readinessIntegrity['cross_field_contradictions'] !== 0) b649_fail('Source/readiness integrity checks failed.');
     fwrite(STDOUT, json_encode(['audit_hash' => $artifact['audit_hash'], 'readiness_records' => count($readinessRecords), 'readiness_counts' => $readinessCounts, 'flat_shared' => $flatCount, 'specializations' => $specializationTotal, 'wave1_candidates' => count($wave1Candidates), 'wave1_planned' => $wave1PlanCount, 'decision' => $decision, 'health_fail_entities' => $healthSummary['fail_entity_count'] ?? null, 'artifact' => $auditPath, 'mode' => $options['mode']], JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR) . PHP_EOL);
