@@ -29,7 +29,10 @@ final class SourceReadinessRecord
             'allowed_scope',
             'excluded_scope',
             'limitations',
+            'scope_specialization_ids',
+            'scope_component_ids',
         ] as $field) {
+            if (in_array($field, ['scope_specialization_ids', 'scope_component_ids'], true) && !array_key_exists($field, $record)) continue;
             $values = is_array($record[$field] ?? null) ? $record[$field] : [];
             $values = array_values(array_unique(array_map(
                 static fn(mixed $value): string => trim((string) $value),
@@ -94,6 +97,18 @@ final class SourceReadinessRecord
             'readiness',
         ] as $field) {
             $payload[$field] = $record[$field] ?? null;
+        }
+        foreach (['scope_specialization_ids', 'scope_component_ids'] as $field) {
+            if (array_key_exists($field, $record)) $payload[$field] = $record[$field];
+        }
+        if (array_key_exists('scope_component_ids', $record)) {
+            foreach ([
+                'current_question_count', 'deficit_to_5', 'deficit_to_10', 'deficit_to_20',
+                'source_count', 'primary_source_count', 'study_material_count',
+                'distinct_content_family_count',
+            ] as $field) {
+                $payload[$field] = $record[$field] ?? null;
+            }
         }
 
         return hash('sha256', json_encode(

@@ -149,6 +149,17 @@ final class SourceReadinessService
                     $areas[] = trim((string) $section['id']);
                 }
             }
+            foreach ((array) ($blueprint['official_areas'] ?? []) as $area) {
+                if (is_array($area) && trim((string) ($area['id'] ?? '')) !== '') {
+                    $areas[] = trim((string) $area['id']);
+                }
+            }
+            foreach ((array) ($blueprint['variants'] ?? []) as $variant) {
+                if (!is_array($variant)) continue;
+                foreach ((array) ($variant['official_weights'] ?? []) as $component => $_weight) {
+                    if (trim((string) $component) !== '') $areas[] = trim((string) $component);
+                }
+            }
         }
         return array_values(array_unique(array_filter(array_map('strval', $areas))));
     }

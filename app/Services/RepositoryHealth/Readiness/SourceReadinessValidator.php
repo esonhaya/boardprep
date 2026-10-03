@@ -136,6 +136,9 @@ final class SourceReadinessValidator
         foreach (['distinct_content_families', 'allowed_scope', 'excluded_scope', 'limitations'] as $field) {
             self::validateStringList($record, $field, $leafId, $errors);
         }
+        foreach (['scope_specialization_ids', 'scope_component_ids'] as $field) {
+            if (array_key_exists($field, $record)) self::validateUniqueStringList($record, $field, $leafId, $errors);
+        }
 
         $sourceIds = is_array($record['source_ids'] ?? null) ? array_map('strval', $record['source_ids']) : [];
         $materialIds = is_array($record['study_material_ids'] ?? null) ? array_map('strval', $record['study_material_ids']) : [];
@@ -283,7 +286,8 @@ final class SourceReadinessValidator
     /** @param array<string, mixed> $record @param array<int, array<string, mixed>> $errors */
     private static function validateRawTypeShape(array $record, array &$errors, string $leafId): void
     {
-        foreach (['source_ids', 'study_material_ids', 'distinct_content_families', 'allowed_scope', 'excluded_scope', 'limitations'] as $field) {
+        foreach (['source_ids', 'study_material_ids', 'distinct_content_families', 'allowed_scope', 'excluded_scope', 'limitations', 'scope_specialization_ids', 'scope_component_ids'] as $field) {
+            if (in_array($field, ['scope_specialization_ids', 'scope_component_ids'], true) && !array_key_exists($field, $record)) continue;
             if (array_key_exists($field, $record) && (!is_array($record[$field]) || array_is_list($record[$field]) === false)) {
                 self::error($errors, 'SOURCE_READINESS.INVALID_RECORD', $leafId, strtoupper($field) . ' must be a JSON array.', ['field' => $field]);
                 continue;

@@ -79,6 +79,7 @@ class RepositoryContextFactory
             'sources', 'content-fit-audits', 'flashcard-exclusions', 'source-readiness',
             'source-readiness-psychometrician',
             'source-readiness-mechanical-engineering',
+            'source-readiness-let',
         ];
     }
 }
