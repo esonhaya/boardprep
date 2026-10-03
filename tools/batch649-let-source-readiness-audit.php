@@ -332,7 +332,7 @@ function b649_buildReadiness(array $collections, array $baseline, array $fileHas
     foreach ((array) ($collections['question-reuse-metadata'] ?? []) as $row) {
         if (is_array($row) && isset($row['question_id'])) $reuseByQuestion[(string) $row['question_id']] = (array) ($row['reuse'] ?? []);
     }
-    $nativeByLeaf = $effectiveByLeaf = $runtimeByLeaf = $depthByLeaf = $familyCountsByLeaf = $calculationByLeaf = $questionIdsByLeaf = $componentByLeaf = $specializationByLeaf = $materialIdsByLeaf = $unclassifiedFamilyCountByLeaf = [];
+    $nativeByLeaf = $effectiveByLeaf = $runtimeByLeaf = $depthByLeaf = $familyCountsByLeaf = $calculationByLeaf = $questionIdsByLeaf = $componentByLeaf = $specializationByLeaf = $nativeSpecializationByLeaf = $materialIdsByLeaf = $unclassifiedFamilyCountByLeaf = [];
     $questionsById = [];
     foreach ($questions as $question) {
         $qid = (string) ($question['id'] ?? '');
@@ -369,8 +369,13 @@ function b649_buildReadiness(array $collections, array $baseline, array $fileHas
             $component = strtoupper(trim((string) ($placement['component'] ?? $placement['let_component'] ?? '')));
             if (in_array($component, ['GENERAL_EDUCATION', 'PROFESSIONAL_EDUCATION', 'SPECIALIZATION'], true)) $components[$component] = true;
         }
+        $primaryPlacement = is_array($question['let_placement'] ?? null) ? $question['let_placement'] : (array) ($placements[0] ?? []);
+        $primarySpecializationId = trim((string) ($primaryPlacement['specialization_id'] ?? ''));
         if ($leafId !== '' && isset($leafEvidence[$leafId])) {
             foreach (array_keys($specIds) as $specId) $specializationByLeaf[$leafId][$specId] = true;
+            if ($boardId === 'let' && $primarySpecializationId !== '' && isset($specIds[$primarySpecializationId])) {
+                $nativeSpecializationByLeaf[$leafId][$primarySpecializationId] = true;
+            }
             foreach (array_keys($components) as $component) $componentByLeaf[$leafId][$component] = true;
         }
         if ($eligibility === null) continue;
@@ -451,6 +456,8 @@ function b649_buildReadiness(array $collections, array $baseline, array $fileHas
         $primarySourceCount = count(array_filter($sourceRoles, 'b649_roleIsPrimary'));
         $contentSourceCount = count(array_filter($sourceRoles, static fn(string $role): bool => in_array($role, ['OFFICIAL_CURRICULUM', 'AUTHORITATIVE_SUBJECT_MATTER', 'ACADEMIC_SUPPORT'], true)));
         $specializationIds = b649_ids(array_keys($specializationByLeaf[$leafId] ?? []));
+        $nativeSpecializationIds = b649_ids(array_keys($nativeSpecializationByLeaf[$leafId] ?? []));
+        $sharedSpecializationIds = array_values(array_diff($specializationIds, $nativeSpecializationIds));
         $components = b649_ids(array_keys($componentByLeaf[$leafId] ?? []));
         $flatClass = $flatClasses[$leafId] ?? null;
         $primaryArea = b649_primaryArea((string) $leafId, $taxonomy, $flatClasses, $specializationIds);
@@ -587,6 +594,8 @@ function b649_buildReadiness(array $collections, array $baseline, array $fileHas
             'path_depth' => (int) ($taxonomy['path_depth'] ?? 0),
             'flat_shared_classification' => $flatClass,
             'scope_specialization_ids' => $specializationIds,
+            'native_specialization_ids' => $nativeSpecializationIds,
+            'shared_specialization_ids' => $sharedSpecializationIds,
             'scope_component_ids' => $components,
             'native_question_count' => $nativeCount,
             'effective_declared_question_count' => count($effectiveByLeaf[$leafId] ?? []),
@@ -826,10 +835,10 @@ function b649_run(array $argv): void
             if (strtolower((string) ($question['status'] ?? 'active')) === 'active' && ($native || $eligibility !== null)) $specializationRows[$specId]['runtime_ids'][$qid] = true;
             if ($native) $specializationRows[$specId]['question_ids'][$qid] = true;
             if ($native && count($specIds) > 1) {
-                $specializationRows[$specId]['shared_in_question_ids'][$qid] = true;
                 if ($primarySpec === $specId) $specializationRows[$specId]['shared_out_question_ids'][$qid] = true;
+                else $specializationRows[$specId]['shared_in_question_ids'][$qid] = true;
             }
-            if ($native && count($specIds) === 1) {
+            if ($native && ($primarySpec === $specId || count($specIds) === 1)) {
                 if ($family === 'UNCLASSIFIED') $specializationRows[$specId]['unknown_family_questions']++;
                 else $specializationRows[$specId]['family_counts'][$family] = ($specializationRows[$specId]['family_counts'][$family] ?? 0) + 1;
                 if ($depth !== null) $specializationRows[$specId]['depth_counts']['D' . $depth] = ($specializationRows[$specId]['depth_counts']['D' . $depth] ?? 0) + 1;
@@ -846,7 +855,7 @@ function b649_run(array $argv): void
             $leaf = $leafInventory[$leafId] ?? null;
             if (!is_array($leaf)) continue;
             $record = (array) ($leaf['readiness_record'] ?? []);
-            $sharedLeaf = count((array) ($leaf['scope_specialization_ids'] ?? [])) > 1;
+            $sharedLeaf = !in_array($specId, (array) ($leaf['native_specialization_ids'] ?? []), true);
             $nativeCount = (int) $leaf['native_question_count'];
             $spec['leaf_native_counts'][$leafId] = $sharedLeaf ? 0 : $nativeCount;
             $state = (string) ($record['readiness'] ?? 'REVIEW');
@@ -864,7 +873,7 @@ function b649_run(array $argv): void
         $poolStats = b649_stats($spec['leaf_native_counts']);
         $authorableLeafCounts = [];
         foreach ($spec['leaf_native_counts'] as $leafId => $count) {
-            $sharedLeaf = count((array) ($leafInventory[$leafId]['scope_specialization_ids'] ?? [])) > 1;
+            $sharedLeaf = !in_array($specId, (array) ($leafInventory[$leafId]['native_specialization_ids'] ?? []), true);
             if (!$sharedLeaf && ($leafInventory[$leafId]['authorable'] ?? false) === true) $authorableLeafCounts[$leafId] = $count;
         }
         $authorableSpecStats = b649_stats($authorableLeafCounts);
@@ -923,9 +932,11 @@ function b649_run(array $argv): void
         if (count($ids) < 2) continue;
         $conceptId = (string) ($question['taxonomy']['concept_id'] ?? '');
         $class = in_array($conceptId, B649_SHARED_TLE_LEAVES, true) && count($ids) === 4 ? 'VALID_SHARED_COMPETENCY' : 'SEMANTICALLY_AMBIGUOUS';
-        $sharedVariantRows[] = ['question_id' => (string) ($question['id'] ?? ''), 'leaf_id' => $conceptId, 'specialization_ids' => $ids, 'classification' => $class, 'native_board' => b649_questionBoard($question)];
+        $primaryPlacement = is_array($question['let_placement'] ?? null) ? $question['let_placement'] : (array) ($placements[0] ?? []);
+        $sharedVariantRows[] = ['question_id' => (string) ($question['id'] ?? ''), 'leaf_id' => $conceptId, 'native_specialization_id' => (string) ($primaryPlacement['specialization_id'] ?? ''), 'shared_in_specialization_ids' => array_values(array_diff($ids, [(string) ($primaryPlacement['specialization_id'] ?? '')])), 'specialization_ids' => $ids, 'classification' => $class, 'native_board' => b649_questionBoard($question)];
     }
     usort($sharedVariantRows, static fn(array $a, array $b): int => [(string) $a['leaf_id'], (string) $a['question_id']] <=> [(string) $b['leaf_id'], (string) $b['question_id']]);
+    $sharedVariantEdgeCount = array_sum(array_map(static fn(array $row): int => count((array) ($row['shared_in_specialization_ids'] ?? [])), $sharedVariantRows));
 
     $questionById = b649_index($questions);
     $componentForArea = static fn(string $area): string => match ($area) {
@@ -954,7 +965,11 @@ function b649_run(array $argv): void
         $native = b649_questionBoard($question) === 'let';
         $eligibility = $eligibilityIndex->forExam($question, 'let');
         $taxonomyLeaf = trim((string) ($question['taxonomy']['concept_id'] ?? ''));
-        $nativeComponent = $componentForArea((string) ($leafInventory[$taxonomyLeaf]['major_area'] ?? 'general-education'));
+        $primaryPlacement = LETVariantRegistry::questionPlacement($question, $eligibility);
+        $nativeComponent = strtoupper(trim((string) ($primaryPlacement['component'] ?? '')));
+        if (!in_array($nativeComponent, ['GENERAL_EDUCATION', 'PROFESSIONAL_EDUCATION', 'SPECIALIZATION'], true)) {
+            $nativeComponent = $componentForArea((string) ($leafInventory[$taxonomyLeaf]['major_area'] ?? 'general-education'));
+        }
         if ($native) $nativeQuestionComponents[$nativeComponent][$qid] = true;
         if ($native) $effectiveComponentSets[$nativeComponent][$qid] = true;
         if (isset($effectiveIds[$qid]) && $eligibility !== null) {
@@ -972,6 +987,30 @@ function b649_run(array $argv): void
         $componentQuestionSets[$component]['effective'] = $effectiveComponentSets[$component] ?? [];
         $componentQuestionSets[$component]['runtime'] = $runtimeComponentSets[$component] ?? [];
     }
+    $componentAvailability = ['native' => [], 'effective' => [], 'runtime' => []];
+    foreach (['native', 'effective', 'runtime'] as $kind) {
+        foreach (['GENERAL_EDUCATION', 'PROFESSIONAL_EDUCATION', 'SPECIALIZATION'] as $component) {
+            foreach (array_keys($componentQuestionSets[$component][$kind] ?? []) as $qid) $componentAvailability[$kind][$qid][$component] = true;
+        }
+    }
+    $crossAreaOverlapCounts = ['native' => 0, 'effective' => 0, 'runtime' => 0];
+    $crossAreaOverlapByKindAndPair = ['effective' => [], 'runtime' => []];
+    foreach (['native', 'effective', 'runtime'] as $kind) {
+        foreach ($componentAvailability[$kind] as $qid => $components) {
+            $componentIds = array_keys($components);
+            if (count($componentIds) < 2) continue;
+            $crossAreaOverlapCounts[$kind]++;
+            if ($kind === 'native') continue;
+            sort($componentIds, SORT_STRING);
+            $pair = implode('|', $componentIds);
+            $crossAreaOverlapByKindAndPair[$kind][$pair] = ($crossAreaOverlapByKindAndPair[$kind][$pair] ?? 0) + 1;
+        }
+    }
+    foreach ($crossAreaOverlapByKindAndPair as &$overlapCounts) ksort($overlapCounts, SORT_STRING);
+    unset($overlapCounts);
+    $areaNativeUnion = count($componentAvailability['native']);
+    $areaEffectiveUnion = count($componentAvailability['effective']);
+    $areaRuntimeUnion = count($componentAvailability['runtime']);
     $majorAreas = [];
     foreach (['general-education' => 'GENERAL_EDUCATION', 'professional-education' => 'PROFESSIONAL_EDUCATION', 'specialization' => 'SPECIALIZATION'] as $areaId => $component) {
         $leafIds = [];
@@ -1004,7 +1043,7 @@ function b649_run(array $argv): void
         }
         $riskRisk = $areaRiskCounts['HIGH'] + $areaRiskCounts['CRITICAL'] >= max(1, (int) ceil(count($leafIds) * 0.35)) ? 'HIGH' : (($areaRiskCounts['MODERATE'] + $areaRiskCounts['HIGH'] + $areaRiskCounts['CRITICAL']) >= max(1, (int) ceil(count($leafIds) * 0.25)) ? 'MODERATE' : 'LOW');
         $studyState = $areaStudyCounts['PARTIAL'] + $areaStudyCounts['MISSING'] + $areaStudyCounts['INVALID'] > 0 ? 'MIXED_WITH_REVIEW_EXCEPTIONS' : 'SUFFICIENT';
-        $majorAreas[$areaId] = ['active_leaves' => count($leafIds), 'native_canonical' => count($componentQuestionSets[$component]['native'] ?? []), 'shared_in' => max(0, count($componentQuestionSets[$component]['effective'] ?? []) - count($componentQuestionSets[$component]['native'] ?? [])), 'shared_out' => count($sharedOutComponentSets[$component] ?? []), 'effective_declared' => count($componentQuestionSets[$component]['effective'] ?? []), 'runtime' => count($componentQuestionSets[$component]['runtime'] ?? []), 'raw_leaf_health' => $areaStats, 'readiness_counts' => $areaReady, 'authorable_zero' => $areaAuthorableStats['zero'], 'authorable_under5' => $areaAuthorableStats['under5'], 'authorable_under10' => $areaAuthorableStats['under10'], 'authorable_under20' => $areaAuthorableStats['under20'], 'source_state' => 'ADEQUATE_WITH_SCOPE_LIMITS', 'source_authority_counts' => $areaAuthorityCounts, 'source_currentness_counts' => $areaCurrentnessCounts, 'version_sensitive_leaf_count' => count($areaVersionSensitiveLeaves), 'version_sensitive_leaf_ids' => $areaVersionSensitiveLeaves, 'study_state' => $studyState, 'study_coverage_counts' => $areaStudyCounts, 'study_traceability_counts' => $areaTraceabilityCounts, 'headroom' => $areaHeadroom, 'repeat_risk' => $riskRisk, 'repeat_risk_counts' => $areaRiskCounts];
+        $majorAreas[$areaId] = ['active_leaves' => count($leafIds), 'native_canonical' => count($componentQuestionSets[$component]['native'] ?? []), 'shared_in' => max(0, count($componentQuestionSets[$component]['effective'] ?? []) - count($componentQuestionSets[$component]['native'] ?? [])), 'shared_out' => count($sharedOutComponentSets[$component] ?? []), 'effective_declared' => count($componentQuestionSets[$component]['effective'] ?? []), 'runtime' => count($componentQuestionSets[$component]['runtime'] ?? []), 'question_count_attribution' => 'explicit LET primary component; legacy no-placement questions use the taxonomy leaf home component', 'leaf_health_attribution' => 'one primary taxonomy leaf home per leaf; readiness applies to the leaf and is not a component-specific question count', 'raw_leaf_health' => $areaStats, 'readiness_counts' => $areaReady, 'authorable_zero' => $areaAuthorableStats['zero'], 'authorable_under5' => $areaAuthorableStats['under5'], 'authorable_under10' => $areaAuthorableStats['under10'], 'authorable_under20' => $areaAuthorableStats['under20'], 'source_state' => 'ADEQUATE_WITH_SCOPE_LIMITS', 'source_authority_counts' => $areaAuthorityCounts, 'source_currentness_counts' => $areaCurrentnessCounts, 'version_sensitive_leaf_count' => count($areaVersionSensitiveLeaves), 'version_sensitive_leaf_ids' => $areaVersionSensitiveLeaves, 'study_state' => $studyState, 'study_coverage_counts' => $areaStudyCounts, 'study_traceability_counts' => $areaTraceabilityCounts, 'headroom' => $areaHeadroom, 'repeat_risk' => $riskRisk, 'repeat_risk_counts' => $areaRiskCounts];
     }
 
     $wave1Candidates = [];
@@ -1221,9 +1260,9 @@ function b649_run(array $argv): void
             'readiness' => $readinessIntegrity + ['model' => 'FULL_READINESS_MODEL', 'record_ids' => array_keys($leafInventory)],
             'source_inventory' => $sourceInventory,
             'study_inventory' => ['let_study_materials' => count($letMaterials), 'coverage_counts' => $studyInventoryCounts, 'traceability_counts' => $traceabilityCounts, 'leaf_coverage_counts' => $leafStudyCoverageCounts, 'leaf_traceability_counts' => $leafTraceabilityCounts, 'repair_order' => ['REUSE', 'REORGANIZE', 'EXTEND', 'SPLIT', 'NEW'], 'reused' => count($letMaterials), 'reorganized' => 0, 'extended' => 0, 'split' => 0, 'new' => 0, 'materials' => $studyInventory],
-            'structure' => ['unique_active_leaves' => count($leafInventory), 'general_education_leaves' => $majorAreas['general-education']['active_leaves'], 'professional_education_leaves' => $majorAreas['professional-education']['active_leaves'], 'specialization_primary_area_leaves' => $majorAreas['specialization']['active_leaves'], 'distinct_specialization_placement_leaves' => count($specializationPlacementLeafIds), 'major_area_leaf_counts_are_primary_assignment' => true, 'major_area_question_counts' => $majorAreas, 'flat_shared_placements' => $flatCount, 'taxonomy_changes' => 0],
+            'structure' => ['unique_active_leaves' => count($leafInventory), 'general_education_leaves' => $majorAreas['general-education']['active_leaves'], 'professional_education_leaves' => $majorAreas['professional-education']['active_leaves'], 'specialization_primary_area_leaves' => $majorAreas['specialization']['active_leaves'], 'distinct_specialization_placement_leaves' => count($specializationPlacementLeafIds), 'major_area_leaf_counts_are_primary_assignment' => true, 'major_area_question_counts_are_explicit_placement_pools' => true, 'major_area_question_counts_are_nonexclusive_availability_pools' => true, 'major_area_question_counts' => $majorAreas, 'cross_area_question_overlap' => ['native_question_overlap_count' => $crossAreaOverlapCounts['native'], 'effective_question_overlap_count' => $crossAreaOverlapCounts['effective'], 'runtime_question_overlap_count' => $crossAreaOverlapCounts['runtime'], 'effective_overlap_by_component_set' => $crossAreaOverlapByKindAndPair['effective'], 'runtime_overlap_by_component_set' => $crossAreaOverlapByKindAndPair['runtime'], 'native_union' => $areaNativeUnion, 'effective_union' => $areaEffectiveUnion, 'runtime_union' => $areaRuntimeUnion, 'note' => 'Shared General/Professional availability is reported in each component pool; per-area sums may exceed unique LET global totals, while each per-area set and the global union are deduplicated canonical question IDs.'], 'flat_shared_placements' => $flatCount, 'taxonomy_changes' => 0],
             'specializations' => ['total' => $specializationTotal, 'zero_pools' => $zeroSpecializationPools, 'summaries' => array_values($specializationRows)],
-            'shared_placements' => ['total_flat_shared_placements' => $flatCount, 'classification_counts' => $sharedClassCounts, 'review_required' => $sharedReviewCount, 'flat_shared_rows' => $flatPlacementRows, 'specialization_variant_placements' => ['total' => count($sharedVariantRows), 'classification_counts' => array_count_values(array_column($sharedVariantRows, 'classification')), 'records' => $sharedVariantRows], 'native_depth_rule' => 'Shared-in variant availability is excluded from specialization-native canonical depth; no equivalence or mapping is activated.'],
+            'shared_placements' => ['total_flat_shared_placements' => $flatCount, 'classification_counts' => $sharedClassCounts, 'review_required' => $sharedReviewCount, 'flat_shared_rows' => $flatPlacementRows, 'specialization_variant_placements' => ['total' => $sharedVariantEdgeCount, 'distinct_native_question_rows' => count($sharedVariantRows), 'shared_receiver_edges' => $sharedVariantEdgeCount, 'question_row_classification_counts' => array_count_values(array_column($sharedVariantRows, 'classification')), 'records' => $sharedVariantRows], 'native_depth_rule' => 'A shared-variant question counts as native only in its explicit primary specialization; it counts as shared-in in the receiving specializations, and shared availability is excluded from receiver-native depth. No equivalence or mapping is activated.'],
             'raw_leaf_health' => $rawStats,
             'authorable_leaf_health' => $authorableStats,
             'authorable_non_authorable_counts' => ['authorable_zero' => $authorableStats['zero'], 'authorable_under5' => $authorableStats['under5'], 'authorable_under10' => $authorableStats['under10'], 'authorable_under20' => $authorableStats['under20'], 'nonauthorable_zero' => max(0, $rawStats['zero'] - $authorableStats['zero']), 'nonauthorable_under5' => max(0, $rawStats['under5'] - $authorableStats['under5']), 'nonauthorable_under10' => max(0, $rawStats['under10'] - $authorableStats['under10']), 'nonauthorable_under20' => max(0, $rawStats['under20'] - $authorableStats['under20'])],
@@ -1247,14 +1286,15 @@ function b649_run(array $argv): void
         'regressions' => $globalRegression,
         'repository_health' => ['before_overall' => $healthBefore['overall_status'] ?? '', 'after_overall' => $healthAfter['overall_status'] ?? '', 'fail_entities_before' => $healthBeforeSummary['fail_entity_count'] ?? 0, 'fail_entities_after' => $healthSummary['fail_entity_count'] ?? 0, 'warn_entities_after' => $healthSummary['warn_entity_count'] ?? 0, 'review_entities_after' => $healthSummary['review_entity_count'] ?? 0, 'issue_counts_by_code' => $issueCounts, 'new_fail_ids' => $newDeterministicFailIds, 'runtime_profiled' => false, 'batch648_known_orphans' => 16, 'batch648_cpa_source_semantic_review_findings' => 3, 'batch648_let_review_findings' => count($letSourceStudyReviewFindings)],
         'determinism' => ['readiness_record_hash' => b649_hash($readinessRecords), 'readiness_ids_hash' => b649_hash(array_map(static fn(array $r): string => (string) $r['leaf_id'], $readinessRecords)), 'specialization_set_hash' => b649_hash(array_keys($specializationRows)), 'leaf_inventory_hash' => b649_hash(array_values($leafInventory)), 'question_store_hashes' => b649_fileHashes($root), 'runtime_excluded_from_hash' => true],
-        'validation' => ['permanent_readiness' => ($letValidation['valid'] ?? false) === true, 'all_collection_readiness' => ($validationAll['valid'] ?? false) === true, 'official_specializations' => $specializationTotal === 15, 'official_scope_sources_present' => $missingOfficialSourceIds === [], 'specialization_ids_resolve' => $readinessIntegrity['invalid_specialization_ids'] === 0, 'scope_components_valid' => $readinessIntegrity['invalid_scope_component_ids'] === 0, 'shared_flat_placements' => $flatCount === 38, 'duplicate_effective' => (int) ($regressions['duplicate_effective'] ?? -1) === 0, 'double_weighting' => (int) ($regressions['double_weighting'] ?? -1) === 0, 'content_freeze' => $beforeHashes === b649_fileHashes($root), 'global_counts' => $globalRegression['all_expected_global_counts_match'], 'fail_entities' => (int) ($healthSummary['fail_entity_count'] ?? -1)],
+        'validation' => ['permanent_readiness' => ($letValidation['valid'] ?? false) === true, 'all_collection_readiness' => ($validationAll['valid'] ?? false) === true, 'official_specializations' => $specializationTotal === 15, 'official_scope_sources_present' => $missingOfficialSourceIds === [], 'specialization_ids_resolve' => $readinessIntegrity['invalid_specialization_ids'] === 0, 'scope_components_valid' => $readinessIntegrity['invalid_scope_component_ids'] === 0, 'shared_flat_placements' => $flatCount === 38, 'specialization_variant_placements' => count($sharedVariantRows) === 25 && $sharedVariantEdgeCount === 75 && count(array_filter($sharedVariantRows, static fn(array $row): bool => ($row['classification'] ?? '') !== 'VALID_SHARED_COMPETENCY')) === 0, 'major_area_native_union' => $areaNativeUnion === (int) ($b648Global['native_by_board']['let'] ?? -1), 'major_area_effective_union' => $areaEffectiveUnion === (int) ($b648Global['effective_declared_by_board']['let'] ?? -1), 'major_area_runtime_union' => $areaRuntimeUnion === (int) ($b648Global['runtime_by_board']['let'] ?? -1), 'duplicate_effective' => (int) ($regressions['duplicate_effective'] ?? -1) === 0, 'double_weighting' => (int) ($regressions['double_weighting'] ?? -1) === 0, 'content_freeze' => $beforeHashes === b649_fileHashes($root), 'global_counts' => $globalRegression['all_expected_global_counts_match'], 'fail_entities' => (int) ($healthSummary['fail_entity_count'] ?? -1)],
     ];
     $artifact['audit_hash'] = b649_hash($artifact);
     $auditPath = b649_path($root, $options['output'], $root . '/' . B649_ARTIFACT_FILE);
     b649_write($auditPath, $artifact);
     if (($letValidation['valid'] ?? false) !== true) b649_fail('Permanent LET readiness validation failed; inspect audit errors.');
     if (($healthSummary['fail_entity_count'] ?? 1) !== 0) b649_fail('Repository Health after Batch649 reports FAIL entities.');
-    if ($flatCount !== 38 || $specializationTotal !== 15 || $zeroSpecializationPools !== 0) b649_fail('LET structural/specialization invariants failed.');
+    if ($flatCount !== 38 || $specializationTotal !== 15 || $zeroSpecializationPools !== 0 || count($sharedVariantRows) !== 25 || $sharedVariantEdgeCount !== 75) b649_fail('LET structural/specialization invariants failed.');
+    if ($areaNativeUnion !== (int) ($b648Global['native_by_board']['let'] ?? -1) || $areaEffectiveUnion !== (int) ($b648Global['effective_declared_by_board']['let'] ?? -1) || $areaRuntimeUnion !== (int) ($b648Global['runtime_by_board']['let'] ?? -1)) b649_fail('LET major-area question pools do not reconcile to unique board totals.');
     if ($beforeHashes !== b649_fileHashes($root)) b649_fail('A question, eligibility, or taxonomy freeze hash changed during Batch649.');
     if ($sourceInventory['invalid'] !== 0 || $missingOfficialSourceIds !== [] || $readinessIntegrity['invalid_source_ids'] !== 0 || $readinessIntegrity['invalid_study_ids'] !== 0 || $readinessIntegrity['invalid_specialization_ids'] !== 0 || $readinessIntegrity['invalid_scope_component_ids'] !== 0 || $readinessIntegrity['cross_field_contradictions'] !== 0) b649_fail('Source/readiness integrity checks failed.');
     fwrite(STDOUT, json_encode(['audit_hash' => $artifact['audit_hash'], 'readiness_records' => count($readinessRecords), 'readiness_counts' => $readinessCounts, 'flat_shared' => $flatCount, 'specializations' => $specializationTotal, 'wave1_candidates' => count($wave1Candidates), 'wave1_planned' => $wave1PlanCount, 'decision' => $decision, 'health_fail_entities' => $healthSummary['fail_entity_count'] ?? null, 'artifact' => $auditPath, 'mode' => $options['mode']], JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR) . PHP_EOL);

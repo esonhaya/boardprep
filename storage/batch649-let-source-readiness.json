@@ -52520,14 +52520,18 @@
             "specialization_primary_area_leaves": 73,
             "distinct_specialization_placement_leaves": 124,
             "major_area_leaf_counts_are_primary_assignment": true,
+            "major_area_question_counts_are_explicit_placement_pools": true,
+            "major_area_question_counts_are_nonexclusive_availability_pools": true,
             "major_area_question_counts": {
                 "general-education": {
                     "active_leaves": 91,
-                    "native_canonical": 1047,
-                    "shared_in": 83,
-                    "shared_out": 250,
-                    "effective_declared": 1130,
-                    "runtime": 1145,
+                    "native_canonical": 853,
+                    "shared_in": 103,
+                    "shared_out": 76,
+                    "effective_declared": 956,
+                    "runtime": 971,
+                    "question_count_attribution": "explicit LET primary component; legacy no-placement questions use the taxonomy leaf home component",
+                    "leaf_health_attribution": "one primary taxonomy leaf home per leaf; readiness applies to the leaf and is not a component-specific question count",
                     "raw_leaf_health": {
                         "leaf_count": 91,
                         "zero": 3,
@@ -52598,11 +52602,13 @@
                 },
                 "professional-education": {
                     "active_leaves": 41,
-                    "native_canonical": 332,
-                    "shared_in": 0,
-                    "shared_out": 5,
-                    "effective_declared": 332,
-                    "runtime": 332,
+                    "native_canonical": 271,
+                    "shared_in": 76,
+                    "shared_out": 20,
+                    "effective_declared": 347,
+                    "runtime": 347,
+                    "question_count_attribution": "explicit LET primary component; legacy no-placement questions use the taxonomy leaf home component",
+                    "leaf_health_attribution": "one primary taxonomy leaf home per leaf; readiness applies to the leaf and is not a component-specific question count",
                     "raw_leaf_health": {
                         "leaf_count": 41,
                         "zero": 0,
@@ -52701,11 +52707,13 @@
                 },
                 "specialization": {
                     "active_leaves": 73,
-                    "native_canonical": 365,
-                    "shared_in": 255,
+                    "native_canonical": 620,
+                    "shared_in": 0,
                     "shared_out": 0,
                     "effective_declared": 620,
                     "runtime": 620,
+                    "question_count_attribution": "explicit LET primary component; legacy no-placement questions use the taxonomy leaf home component",
+                    "leaf_health_attribution": "one primary taxonomy leaf home per leaf; readiness applies to the leaf and is not a component-specific question count",
                     "raw_leaf_health": {
                         "leaf_count": 73,
                         "zero": 0,
@@ -52777,6 +52785,21 @@
                         "CRITICAL": 0
                     }
                 }
+            },
+            "cross_area_question_overlap": {
+                "native_question_overlap_count": 0,
+                "effective_question_overlap_count": 96,
+                "runtime_question_overlap_count": 96,
+                "effective_overlap_by_component_set": {
+                    "GENERAL_EDUCATION|PROFESSIONAL_EDUCATION": 96
+                },
+                "runtime_overlap_by_component_set": {
+                    "GENERAL_EDUCATION|PROFESSIONAL_EDUCATION": 96
+                },
+                "native_union": 1744,
+                "effective_union": 1827,
+                "runtime_union": 1842,
+                "note": "Shared General/Professional availability is reported in each component pool; per-area sums may exceed unique LET global totals, while each per-area set and the global union are deduplicated canonical question IDs."
             },
             "flat_shared_placements": 38,
             "taxonomy_changes": 0
@@ -53724,86 +53747,79 @@
                         "max": 10
                     },
                     "native_specific_headroom": {
-                        "min": 5,
-                        "preferred": 5,
-                        "max": 5
+                        "min": 10,
+                        "preferred": 10,
+                        "max": 10
                     },
                     "shared_coverage_headroom": {
-                        "min": 5,
-                        "preferred": 5,
-                        "max": 5
+                        "min": 0,
+                        "preferred": 0,
+                        "max": 0
                     },
-                    "shared_coverage_only_leaf_ids": [
-                        "tle-occupational-safety",
-                        "tle-measurement-and-quality",
-                        "tle-design-process",
-                        "tle-resource-and-entrepreneurship",
-                        "tle-technology-literacy"
-                    ],
-                    "unknown_family_questions": 25,
-                    "native_question_count": 25,
+                    "shared_coverage_only_leaf_ids": [],
+                    "unknown_family_questions": 50,
+                    "native_question_count": 50,
                     "family_metadata_unknown_rate": 1,
                     "family_concentration": 1,
-                    "shared_in": 25,
+                    "shared_in": 0,
                     "shared_out": 25,
                     "effective_count": 50,
                     "runtime_count": 50,
                     "active_leaves": 10,
                     "native_leaf_health": {
                         "leaf_count": 10,
-                        "zero": 5,
-                        "under5": 5,
-                        "under10": 10,
-                        "under20": 10,
-                        "min": 0,
-                        "median": 2.5,
-                        "p25": 0,
-                        "p75": 5,
-                        "max": 5,
-                        "deficit_to_5": 25,
-                        "deficit_to_10": 75,
-                        "deficit_to_20": 175
-                    },
-                    "authorable_leaf_health": {
-                        "leaf_count": 5,
                         "zero": 0,
                         "under5": 0,
-                        "under10": 5,
-                        "under20": 5,
+                        "under10": 10,
+                        "under20": 10,
                         "min": 5,
                         "median": 5,
                         "p25": 5,
                         "p75": 5,
                         "max": 5,
                         "deficit_to_5": 0,
-                        "deficit_to_10": 25,
-                        "deficit_to_20": 75
+                        "deficit_to_10": 50,
+                        "deficit_to_20": 150
                     },
-                    "zero": 5,
-                    "under5": 5,
+                    "authorable_leaf_health": {
+                        "leaf_count": 10,
+                        "zero": 0,
+                        "under5": 0,
+                        "under10": 10,
+                        "under20": 10,
+                        "min": 5,
+                        "median": 5,
+                        "p25": 5,
+                        "p75": 5,
+                        "max": 5,
+                        "deficit_to_5": 0,
+                        "deficit_to_10": 50,
+                        "deficit_to_20": 150
+                    },
+                    "zero": 0,
+                    "under5": 0,
                     "under10": 10,
                     "under20": 10,
                     "authorable_zero": 0,
                     "authorable_under5": 0,
-                    "authorable_under10": 5,
-                    "authorable_under20": 5,
-                    "shared_coverage_only_leaf_count": 5,
-                    "shared_coverage_only_authorable_zero": 5,
+                    "authorable_under10": 10,
+                    "authorable_under20": 10,
+                    "shared_coverage_only_leaf_count": 0,
+                    "shared_coverage_only_authorable_zero": 0,
                     "source_state": "ADEQUATE",
                     "study_state": "MIXED",
                     "repeat_risk": "HIGH",
                     "expansion_state": "SELECTIVE_DEEPENING",
                     "primary_deficiencies": [
-                        "SHARED_COVERAGE_ONLY_NATIVE_DEPTH (5 leaves; excluded from native authorable zeros)",
-                        "SELECTIVE_NATIVE_DEPTH_BELOW_10 (5 leaves; not a quota)",
+                        "SELECTIVE_NATIVE_DEPTH_BELOW_10 (10 leaves; not a quota)",
                         "HIGH_REPEAT_RISK (0 observed family labels; concentration/metadata limits apply)"
                     ],
                     "family_count": 0,
                     "observed_families": [],
                     "depth_distribution": {
-                        "D2": 5,
-                        "D3": 10,
-                        "D4": 10
+                        "D2": 10,
+                        "D3": 20,
+                        "D4": 20
                     }
                 },
                 {
@@ -54632,14 +54648,22 @@
                 }
             ],
             "specialization_variant_placements": {
-                "total": 25,
-                "classification_counts": {
+                "total": 75,
+                "distinct_native_question_rows": 25,
+                "shared_receiver_edges": 75,
+                "question_row_classification_counts": {
                     "VALID_SHARED_COMPETENCY": 25
                 },
                 "records": [
                     {
                         "question_id": "6028",
                         "leaf_id": "tle-design-process",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54652,6 +54676,12 @@
                     {
                         "question_id": "6029",
                         "leaf_id": "tle-design-process",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54664,6 +54694,12 @@
                     {
                         "question_id": "6030",
                         "leaf_id": "tle-design-process",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54676,6 +54712,12 @@
                     {
                         "question_id": "6031",
                         "leaf_id": "tle-design-process",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54688,6 +54730,12 @@
                     {
                         "question_id": "6032",
                         "leaf_id": "tle-design-process",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54700,6 +54748,12 @@
                     {
                         "question_id": "6023",
                         "leaf_id": "tle-measurement-and-quality",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54712,6 +54766,12 @@
                     {
                         "question_id": "6024",
                         "leaf_id": "tle-measurement-and-quality",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54724,6 +54784,12 @@
                     {
                         "question_id": "6025",
                         "leaf_id": "tle-measurement-and-quality",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54736,6 +54802,12 @@
                     {
                         "question_id": "6026",
                         "leaf_id": "tle-measurement-and-quality",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54748,6 +54820,12 @@
                     {
                         "question_id": "6027",
                         "leaf_id": "tle-measurement-and-quality",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54760,6 +54838,12 @@
                     {
                         "question_id": "6018",
                         "leaf_id": "tle-occupational-safety",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54772,6 +54856,12 @@
                     {
                         "question_id": "6019",
                         "leaf_id": "tle-occupational-safety",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54784,6 +54874,12 @@
                     {
                         "question_id": "6020",
                         "leaf_id": "tle-occupational-safety",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54796,6 +54892,12 @@
                     {
                         "question_id": "6021",
                         "leaf_id": "tle-occupational-safety",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54808,6 +54910,12 @@
                     {
                         "question_id": "6022",
                         "leaf_id": "tle-occupational-safety",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54820,6 +54928,12 @@
                     {
                         "question_id": "6033",
                         "leaf_id": "tle-resource-and-entrepreneurship",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54832,6 +54946,12 @@
                     {
                         "question_id": "6034",
                         "leaf_id": "tle-resource-and-entrepreneurship",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54844,6 +54964,12 @@
                     {
                         "question_id": "6035",
                         "leaf_id": "tle-resource-and-entrepreneurship",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54856,6 +54982,12 @@
                     {
                         "question_id": "6036",
                         "leaf_id": "tle-resource-and-entrepreneurship",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54868,6 +55000,12 @@
                     {
                         "question_id": "6037",
                         "leaf_id": "tle-resource-and-entrepreneurship",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54880,6 +55018,12 @@
                     {
                         "question_id": "6038",
                         "leaf_id": "tle-technology-literacy",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54892,6 +55036,12 @@
                     {
                         "question_id": "6039",
                         "leaf_id": "tle-technology-literacy",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54904,6 +55054,12 @@
                     {
                         "question_id": "6040",
                         "leaf_id": "tle-technology-literacy",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54916,6 +55072,12 @@
                     {
                         "question_id": "6041",
                         "leaf_id": "tle-technology-literacy",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54928,6 +55090,12 @@
                     {
                         "question_id": "6042",
                         "leaf_id": "tle-technology-literacy",
+                        "native_specialization_id": "secondary-tle-agriculture-and-fishery-arts",
+                        "shared_in_specialization_ids": [
+                            "secondary-tle-home-economics",
+                            "secondary-tle-industrial-arts",
+                            "secondary-tle-information-and-communication-technology"
+                        ],
                         "specialization_ids": [
                             "secondary-tle-agriculture-and-fishery-arts",
                             "secondary-tle-home-economics",
@@ -54939,7 +55107,7 @@
                     }
                 ]
             },
-            "native_depth_rule": "Shared-in variant availability is excluded from specialization-native canonical depth; no equivalence or mapping is activated."
+            "native_depth_rule": "A shared-variant question counts as native only in its explicit primary specialization; it counts as shared-in in the receiving specializations, and shared availability is excluded from receiver-native depth. No equivalence or mapping is activated."
         },
         "raw_leaf_health": {
             "leaf_count": 205,
@@ -63692,6 +63860,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -63847,6 +64017,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -64002,6 +64174,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -64160,6 +64334,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -64325,6 +64501,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -64475,6 +64653,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -64627,6 +64807,10 @@
                 "scope_specialization_ids": [
                     "secondary-culture-and-arts-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-culture-and-arts-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -64799,6 +64983,10 @@
                 "scope_specialization_ids": [
                     "secondary-culture-and-arts-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-culture-and-arts-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -64971,6 +65159,10 @@
                 "scope_specialization_ids": [
                     "secondary-culture-and-arts-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-culture-and-arts-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -65143,6 +65335,10 @@
                 "scope_specialization_ids": [
                     "secondary-culture-and-arts-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-culture-and-arts-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -65315,6 +65511,10 @@
                 "scope_specialization_ids": [
                     "secondary-culture-and-arts-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-culture-and-arts-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -65493,6 +65693,10 @@
                 "scope_specialization_ids": [
                     "secondary-culture-and-arts-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-culture-and-arts-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -65671,6 +65875,10 @@
                 "scope_specialization_ids": [
                     "secondary-culture-and-arts-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-culture-and-arts-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -65850,6 +66058,10 @@
                 "scope_specialization_ids": [
                     "secondary-culture-and-arts-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-culture-and-arts-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -66021,6 +66233,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -66174,6 +66388,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -66327,6 +66543,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -66480,6 +66698,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -66634,6 +66854,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -66788,6 +67010,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -66943,6 +67167,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -67096,6 +67322,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "SEMANTICALLY_AMBIGUOUS",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -67226,6 +67454,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "SEMANTICALLY_AMBIGUOUS",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -67356,6 +67586,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "SEMANTICALLY_AMBIGUOUS",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -67488,6 +67720,10 @@
                 "scope_specialization_ids": [
                     "elementary-early-childhood-education"
                 ],
+                "native_specialization_ids": [
+                    "elementary-early-childhood-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -67654,6 +67890,10 @@
                 "scope_specialization_ids": [
                     "elementary-early-childhood-education"
                 ],
+                "native_specialization_ids": [
+                    "elementary-early-childhood-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -67826,6 +68066,10 @@
                 "scope_specialization_ids": [
                     "elementary-early-childhood-education"
                 ],
+                "native_specialization_ids": [
+                    "elementary-early-childhood-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -67986,6 +68230,10 @@
                 "scope_specialization_ids": [
                     "elementary-early-childhood-education"
                 ],
+                "native_specialization_ids": [
+                    "elementary-early-childhood-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -68146,6 +68394,10 @@
                 "scope_specialization_ids": [
                     "elementary-early-childhood-education"
                 ],
+                "native_specialization_ids": [
+                    "elementary-early-childhood-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -68318,6 +68570,10 @@
                 "scope_specialization_ids": [
                     "elementary-early-childhood-education"
                 ],
+                "native_specialization_ids": [
+                    "elementary-early-childhood-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -68484,6 +68740,10 @@
                 "scope_specialization_ids": [
                     "elementary-early-childhood-education"
                 ],
+                "native_specialization_ids": [
+                    "elementary-early-childhood-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -68650,6 +68910,10 @@
                 "scope_specialization_ids": [
                     "secondary-english"
                 ],
+                "native_specialization_ids": [
+                    "secondary-english"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -68817,6 +69081,10 @@
                 "scope_specialization_ids": [
                     "secondary-science"
                 ],
+                "native_specialization_ids": [
+                    "secondary-science"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -68975,6 +69243,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -69133,6 +69403,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -69285,6 +69557,10 @@
                 "scope_specialization_ids": [
                     "secondary-filipino"
                 ],
+                "native_specialization_ids": [
+                    "secondary-filipino"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -69452,6 +69728,10 @@
                 "scope_specialization_ids": [
                     "secondary-filipino"
                 ],
+                "native_specialization_ids": [
+                    "secondary-filipino"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -69603,6 +69883,10 @@
                 "scope_specialization_ids": [
                     "secondary-filipino"
                 ],
+                "native_specialization_ids": [
+                    "secondary-filipino"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -69773,6 +70057,10 @@
                 "scope_specialization_ids": [
                     "secondary-filipino"
                 ],
+                "native_specialization_ids": [
+                    "secondary-filipino"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -69924,6 +70212,10 @@
                 "scope_specialization_ids": [
                     "secondary-filipino"
                 ],
+                "native_specialization_ids": [
+                    "secondary-filipino"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -70075,6 +70367,10 @@
                 "scope_specialization_ids": [
                     "secondary-filipino"
                 ],
+                "native_specialization_ids": [
+                    "secondary-filipino"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -70226,6 +70522,10 @@
                 "scope_specialization_ids": [
                     "secondary-filipino"
                 ],
+                "native_specialization_ids": [
+                    "secondary-filipino"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -70377,6 +70677,10 @@
                 "scope_specialization_ids": [
                     "secondary-filipino"
                 ],
+                "native_specialization_ids": [
+                    "secondary-filipino"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -70528,6 +70832,10 @@
                 "scope_specialization_ids": [
                     "secondary-filipino"
                 ],
+                "native_specialization_ids": [
+                    "secondary-filipino"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -70677,6 +70985,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -70831,6 +71141,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -70985,6 +71297,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -71145,6 +71459,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -71299,6 +71615,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -71461,6 +71779,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -71615,6 +71935,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -71769,6 +72091,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -71923,6 +72247,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -72080,6 +72406,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -72234,6 +72562,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -72388,6 +72718,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -72542,6 +72874,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -72696,6 +73030,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -72850,6 +73186,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -73004,6 +73342,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -73172,6 +73512,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -73327,6 +73669,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -73480,6 +73824,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -73647,6 +73993,10 @@
                 "scope_specialization_ids": [
                     "secondary-social-studies"
                 ],
+                "native_specialization_ids": [
+                    "secondary-social-studies"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -73820,6 +74170,10 @@
                 "scope_specialization_ids": [
                     "secondary-social-studies"
                 ],
+                "native_specialization_ids": [
+                    "secondary-social-studies"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -73999,6 +74353,10 @@
                 "scope_specialization_ids": [
                     "secondary-social-studies"
                 ],
+                "native_specialization_ids": [
+                    "secondary-social-studies"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -74170,6 +74528,10 @@
                 "scope_specialization_ids": [
                     "secondary-social-studies"
                 ],
+                "native_specialization_ids": [
+                    "secondary-social-studies"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -74353,6 +74715,10 @@
                 "scope_specialization_ids": [
                     "secondary-social-studies"
                 ],
+                "native_specialization_ids": [
+                    "secondary-social-studies"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -74524,6 +74890,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -74678,6 +75046,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -74831,6 +75201,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -74985,6 +75357,10 @@
                 "scope_specialization_ids": [
                     "secondary-mathematics"
                 ],
+                "native_specialization_ids": [
+                    "secondary-mathematics"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -75139,6 +75515,10 @@
                 "scope_specialization_ids": [
                     "secondary-mathematics"
                 ],
+                "native_specialization_ids": [
+                    "secondary-mathematics"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -75304,6 +75684,10 @@
                 "scope_specialization_ids": [
                     "secondary-mathematics"
                 ],
+                "native_specialization_ids": [
+                    "secondary-mathematics"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -75458,6 +75842,10 @@
                 "scope_specialization_ids": [
                     "secondary-mathematics"
                 ],
+                "native_specialization_ids": [
+                    "secondary-mathematics"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -75612,6 +76000,10 @@
                 "scope_specialization_ids": [
                     "secondary-mathematics"
                 ],
+                "native_specialization_ids": [
+                    "secondary-mathematics"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -75764,6 +76156,10 @@
                 "scope_specialization_ids": [
                     "secondary-mathematics"
                 ],
+                "native_specialization_ids": [
+                    "secondary-mathematics"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -75916,6 +76312,10 @@
                 "scope_specialization_ids": [
                     "secondary-mathematics"
                 ],
+                "native_specialization_ids": [
+                    "secondary-mathematics"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -76076,6 +76476,10 @@
                 "scope_specialization_ids": [
                     "secondary-mathematics"
                 ],
+                "native_specialization_ids": [
+                    "secondary-mathematics"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -76240,6 +76644,10 @@
                 "scope_specialization_ids": [
                     "secondary-mathematics"
                 ],
+                "native_specialization_ids": [
+                    "secondary-mathematics"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -76400,6 +76808,10 @@
                 "scope_specialization_ids": [
                     "secondary-mathematics"
                 ],
+                "native_specialization_ids": [
+                    "secondary-mathematics"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -76558,6 +76970,10 @@
                 "scope_specialization_ids": [
                     "secondary-mathematics"
                 ],
+                "native_specialization_ids": [
+                    "secondary-mathematics"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -76708,6 +77124,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -76861,6 +77279,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -77017,6 +77437,10 @@
                 "scope_specialization_ids": [
                     "secondary-english"
                 ],
+                "native_specialization_ids": [
+                    "secondary-english"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION",
                     "SPECIALIZATION"
@@ -77184,6 +77608,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -77341,6 +77767,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -77496,6 +77924,10 @@
                 "scope_specialization_ids": [
                     "secondary-english"
                 ],
+                "native_specialization_ids": [
+                    "secondary-english"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION",
                     "SPECIALIZATION"
@@ -77665,6 +78097,10 @@
                 "scope_specialization_ids": [
                     "secondary-english"
                 ],
+                "native_specialization_ids": [
+                    "secondary-english"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION",
                     "SPECIALIZATION"
@@ -77832,6 +78268,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -77991,6 +78429,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -78155,6 +78595,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -78314,6 +78756,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -78473,6 +78917,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -78636,6 +79082,10 @@
                 "scope_specialization_ids": [
                     "secondary-physical-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-physical-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -78799,6 +79249,10 @@
                 "scope_specialization_ids": [
                     "secondary-physical-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-physical-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -78963,6 +79417,10 @@
                 "scope_specialization_ids": [
                     "secondary-physical-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-physical-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -79127,6 +79585,10 @@
                 "scope_specialization_ids": [
                     "secondary-physical-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-physical-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -79296,6 +79758,10 @@
                 "scope_specialization_ids": [
                     "secondary-physical-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-physical-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -79459,6 +79925,10 @@
                 "scope_specialization_ids": [
                     "secondary-physical-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-physical-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -79628,6 +80098,10 @@
                 "scope_specialization_ids": [
                     "secondary-physical-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-physical-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -79797,6 +80271,10 @@
                 "scope_specialization_ids": [
                     "secondary-physical-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-physical-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -79958,6 +80436,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -80122,6 +80602,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -80276,6 +80758,10 @@
                 "scope_specialization_ids": [
                     "secondary-english"
                 ],
+                "native_specialization_ids": [
+                    "secondary-english"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION",
                     "SPECIALIZATION"
@@ -80443,6 +80929,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -80601,6 +81089,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -80754,6 +81244,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -80919,6 +81411,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -81086,6 +81580,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "SEMANTICALLY_AMBIGUOUS",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -81286,6 +81782,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -81452,6 +81950,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -81615,6 +82115,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -81777,6 +82279,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -81941,6 +82445,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -82095,6 +82601,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -82253,6 +82761,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -82412,6 +82922,10 @@
                 "scope_specialization_ids": [
                     "secondary-science"
                 ],
+                "native_specialization_ids": [
+                    "secondary-science"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -82590,6 +83104,10 @@
                 "scope_specialization_ids": [
                     "secondary-science"
                 ],
+                "native_specialization_ids": [
+                    "secondary-science"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -82768,6 +83286,10 @@
                 "scope_specialization_ids": [
                     "secondary-science"
                 ],
+                "native_specialization_ids": [
+                    "secondary-science"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -82952,6 +83474,10 @@
                 "scope_specialization_ids": [
                     "secondary-science"
                 ],
+                "native_specialization_ids": [
+                    "secondary-science"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -83130,6 +83656,10 @@
                 "scope_specialization_ids": [
                     "secondary-science"
                 ],
+                "native_specialization_ids": [
+                    "secondary-science"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -83308,6 +83838,10 @@
                 "scope_specialization_ids": [
                     "secondary-science"
                 ],
+                "native_specialization_ids": [
+                    "secondary-science"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -83490,6 +84024,10 @@
                 "scope_specialization_ids": [
                     "secondary-science"
                 ],
+                "native_specialization_ids": [
+                    "secondary-science"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -83668,6 +84206,10 @@
                 "scope_specialization_ids": [
                     "secondary-science"
                 ],
+                "native_specialization_ids": [
+                    "secondary-science"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -83844,6 +84386,10 @@
                 "scope_specialization_ids": [
                     "secondary-science"
                 ],
+                "native_specialization_ids": [
+                    "secondary-science"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -84020,6 +84566,10 @@
                 "scope_specialization_ids": [
                     "secondary-science"
                 ],
+                "native_specialization_ids": [
+                    "secondary-science"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -84196,6 +84746,10 @@
                 "scope_specialization_ids": [
                     "secondary-english"
                 ],
+                "native_specialization_ids": [
+                    "secondary-english"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION",
                     "SPECIALIZATION"
@@ -84363,6 +84917,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -84516,6 +85072,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -84669,6 +85227,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -84827,6 +85387,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -84996,6 +85558,10 @@
                 "scope_specialization_ids": [
                     "elementary-special-needs-education"
                 ],
+                "native_specialization_ids": [
+                    "elementary-special-needs-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -85159,6 +85725,10 @@
                 "scope_specialization_ids": [
                     "elementary-special-needs-education"
                 ],
+                "native_specialization_ids": [
+                    "elementary-special-needs-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -85328,6 +85898,10 @@
                 "scope_specialization_ids": [
                     "elementary-special-needs-education"
                 ],
+                "native_specialization_ids": [
+                    "elementary-special-needs-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -85491,6 +86065,10 @@
                 "scope_specialization_ids": [
                     "elementary-special-needs-education"
                 ],
+                "native_specialization_ids": [
+                    "elementary-special-needs-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -85654,6 +86232,10 @@
                 "scope_specialization_ids": [
                     "elementary-special-needs-education"
                 ],
+                "native_specialization_ids": [
+                    "elementary-special-needs-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -85817,6 +86399,10 @@
                 "scope_specialization_ids": [
                     "elementary-special-needs-education"
                 ],
+                "native_specialization_ids": [
+                    "elementary-special-needs-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -85980,6 +86566,10 @@
                 "scope_specialization_ids": [
                     "elementary-special-needs-education"
                 ],
+                "native_specialization_ids": [
+                    "elementary-special-needs-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -86143,6 +86733,10 @@
                 "scope_specialization_ids": [
                     "secondary-social-studies"
                 ],
+                "native_specialization_ids": [
+                    "secondary-social-studies"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -86300,6 +86894,10 @@
                 "scope_specialization_ids": [
                     "secondary-social-studies"
                 ],
+                "native_specialization_ids": [
+                    "secondary-social-studies"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -86497,6 +87095,10 @@
                 "scope_specialization_ids": [
                     "secondary-social-studies"
                 ],
+                "native_specialization_ids": [
+                    "secondary-social-studies"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -86654,6 +87256,10 @@
                 "scope_specialization_ids": [
                     "secondary-social-studies"
                 ],
+                "native_specialization_ids": [
+                    "secondary-social-studies"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -86817,6 +87423,10 @@
                 "scope_specialization_ids": [
                     "secondary-social-studies"
                 ],
+                "native_specialization_ids": [
+                    "secondary-social-studies"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -87010,6 +87620,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -87165,6 +87777,10 @@
                 "scope_specialization_ids": [
                     "secondary-english"
                 ],
+                "native_specialization_ids": [
+                    "secondary-english"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION",
                     "SPECIALIZATION"
@@ -87334,6 +87950,10 @@
                 "scope_specialization_ids": [
                     "secondary-english"
                 ],
+                "native_specialization_ids": [
+                    "secondary-english"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION",
                     "SPECIALIZATION"
@@ -87501,6 +88121,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -87659,6 +88281,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -87813,6 +88437,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -87966,6 +88592,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -88119,6 +88747,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -88274,6 +88904,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -88433,6 +89065,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-agriculture-and-fishery-arts"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-agriculture-and-fishery-arts"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -88617,6 +89253,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-agriculture-and-fishery-arts"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-agriculture-and-fishery-arts"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -88802,6 +89442,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-agriculture-and-fishery-arts"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-agriculture-and-fishery-arts"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -88992,6 +89636,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-agriculture-and-fishery-arts"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-agriculture-and-fishery-arts"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -89188,6 +89836,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-agriculture-and-fishery-arts"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-agriculture-and-fishery-arts"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -89376,6 +90028,14 @@
                     "secondary-tle-industrial-arts",
                     "secondary-tle-information-and-communication-technology"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-agriculture-and-fishery-arts"
+                ],
+                "shared_specialization_ids": [
+                    "secondary-tle-home-economics",
+                    "secondary-tle-industrial-arts",
+                    "secondary-tle-information-and-communication-technology"
+                ],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -89560,6 +90220,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-home-economics"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-home-economics"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -89739,6 +90403,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-home-economics"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-home-economics"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -89923,6 +90591,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-home-economics"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-home-economics"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -90102,6 +90774,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-home-economics"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-home-economics"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -90287,6 +90963,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-home-economics"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-home-economics"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -90471,6 +91151,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-industrial-arts"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-industrial-arts"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -90658,6 +91342,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-industrial-arts"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-industrial-arts"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -90845,6 +91533,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-industrial-arts"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-industrial-arts"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -91026,6 +91718,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-industrial-arts"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-industrial-arts"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -91207,6 +91903,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-industrial-arts"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-industrial-arts"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -91388,6 +92088,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-industrial-arts"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-industrial-arts"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -91570,6 +92274,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-industrial-arts"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-industrial-arts"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -91751,6 +92459,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-information-and-communication-technology"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-information-and-communication-technology"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -91929,6 +92641,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-information-and-communication-technology"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-information-and-communication-technology"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -92108,6 +92824,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-information-and-communication-technology"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-information-and-communication-technology"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -92287,6 +93007,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-information-and-communication-technology"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-information-and-communication-technology"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -92471,6 +93195,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-information-and-communication-technology"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-information-and-communication-technology"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -92650,6 +93378,10 @@
                 "scope_specialization_ids": [
                     "secondary-tle-information-and-communication-technology"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-information-and-communication-technology"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -92827,6 +93559,14 @@
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [
                     "secondary-tle-agriculture-and-fishery-arts",
+                    "secondary-tle-home-economics",
+                    "secondary-tle-industrial-arts",
+                    "secondary-tle-information-and-communication-technology"
+                ],
+                "native_specialization_ids": [
+                    "secondary-tle-agriculture-and-fishery-arts"
+                ],
+                "shared_specialization_ids": [
                     "secondary-tle-home-economics",
                     "secondary-tle-industrial-arts",
                     "secondary-tle-information-and-communication-technology"
@@ -93019,6 +93759,14 @@
                     "secondary-tle-industrial-arts",
                     "secondary-tle-information-and-communication-technology"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-agriculture-and-fishery-arts"
+                ],
+                "shared_specialization_ids": [
+                    "secondary-tle-home-economics",
+                    "secondary-tle-industrial-arts",
+                    "secondary-tle-information-and-communication-technology"
+                ],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -93202,6 +93950,14 @@
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [
                     "secondary-tle-agriculture-and-fishery-arts",
+                    "secondary-tle-home-economics",
+                    "secondary-tle-industrial-arts",
+                    "secondary-tle-information-and-communication-technology"
+                ],
+                "native_specialization_ids": [
+                    "secondary-tle-agriculture-and-fishery-arts"
+                ],
+                "shared_specialization_ids": [
                     "secondary-tle-home-economics",
                     "secondary-tle-industrial-arts",
                     "secondary-tle-information-and-communication-technology"
@@ -93399,6 +94155,14 @@
                     "secondary-tle-industrial-arts",
                     "secondary-tle-information-and-communication-technology"
                 ],
+                "native_specialization_ids": [
+                    "secondary-tle-agriculture-and-fishery-arts"
+                ],
+                "shared_specialization_ids": [
+                    "secondary-tle-home-economics",
+                    "secondary-tle-industrial-arts",
+                    "secondary-tle-information-and-communication-technology"
+                ],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -93583,6 +94347,10 @@
                 "scope_specialization_ids": [
                     "secondary-technical-vocational-teacher-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-technical-vocational-teacher-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -93753,6 +94521,10 @@
                 "scope_specialization_ids": [
                     "secondary-technical-vocational-teacher-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-technical-vocational-teacher-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -93923,6 +94695,10 @@
                 "scope_specialization_ids": [
                     "secondary-technical-vocational-teacher-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-technical-vocational-teacher-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -94098,6 +94874,10 @@
                 "scope_specialization_ids": [
                     "secondary-technical-vocational-teacher-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-technical-vocational-teacher-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -94268,6 +95048,10 @@
                 "scope_specialization_ids": [
                     "secondary-technical-vocational-teacher-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-technical-vocational-teacher-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -94443,6 +95227,10 @@
                 "scope_specialization_ids": [
                     "secondary-technical-vocational-teacher-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-technical-vocational-teacher-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -94613,6 +95401,10 @@
                 "scope_specialization_ids": [
                     "secondary-technical-vocational-teacher-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-technical-vocational-teacher-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -94789,6 +95581,10 @@
                 "scope_specialization_ids": [
                     "secondary-technical-vocational-teacher-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-technical-vocational-teacher-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -94958,6 +95754,10 @@
                 "scope_specialization_ids": [
                     "secondary-values-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-values-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -95118,6 +95918,10 @@
                 "scope_specialization_ids": [
                     "secondary-values-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-values-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -95278,6 +96082,10 @@
                 "scope_specialization_ids": [
                     "secondary-values-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-values-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -95438,6 +96246,10 @@
                 "scope_specialization_ids": [
                     "secondary-values-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-values-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -95598,6 +96410,10 @@
                 "scope_specialization_ids": [
                     "secondary-values-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-values-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -95764,6 +96580,10 @@
                 "scope_specialization_ids": [
                     "secondary-values-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-values-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -95924,6 +96744,10 @@
                 "scope_specialization_ids": [
                     "secondary-values-education"
                 ],
+                "native_specialization_ids": [
+                    "secondary-values-education"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "SPECIALIZATION"
                 ],
@@ -96082,6 +96906,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -96235,6 +97061,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -96394,6 +97222,10 @@
                 "scope_specialization_ids": [
                     "secondary-english"
                 ],
+                "native_specialization_ids": [
+                    "secondary-english"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION",
                     "SPECIALIZATION"
@@ -96561,6 +97393,8 @@
                 "path_depth": 3,
                 "flat_shared_classification": null,
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION"
                 ],
@@ -96716,6 +97550,10 @@
                 "scope_specialization_ids": [
                     "secondary-english"
                 ],
+                "native_specialization_ids": [
+                    "secondary-english"
+                ],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "GENERAL_EDUCATION",
                     "SPECIALIZATION"
@@ -96883,6 +97721,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -97044,6 +97884,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -97206,6 +98048,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -97358,6 +98202,8 @@
                 "path_depth": 1,
                 "flat_shared_classification": "GENED_PROFED_SHARED",
                 "scope_specialization_ids": [],
+                "native_specialization_ids": [],
+                "shared_specialization_ids": [],
                 "scope_component_ids": [
                     "PROFESSIONAL_EDUCATION"
                 ],
@@ -97639,7 +98485,7 @@
         "readiness_record_hash": "86ee1a6e2a35877cfcaddd5c2867a7c875f25d3d51c06657e5e30c86ea19b0e9",
         "readiness_ids_hash": "eeded13181a8005a568ff87befdccc1598312012f72e3d280ac77a39ec26d1e6",
         "specialization_set_hash": "73baac5210deaa916fb52ac6493e329514e32a1a18add08b45d9279e505d881c",
-        "leaf_inventory_hash": "afb3a399f9f68d0391799cfaaed927dd9ba4f8e69e865321c66f8025e5cbbc61",
+        "leaf_inventory_hash": "30883527d552c8d2d094af442f1d1f8c731deac12c702bbfaa3292a56284b5f3",
         "question_store_hashes": {
             "storage/questions.json": "d5cdfd7e47da93542b2697a120f82c4ff9643c797af5ec0973ca8308a9acbb5e",
             "storage/questions/questions.json": "1c1ce3aa8ec3c0a80a67242747d121308c17293b8cefa6d56cf4b2794617a861",
@@ -97669,11 +98515,15 @@
         "specialization_ids_resolve": true,
         "scope_components_valid": true,
         "shared_flat_placements": true,
+        "specialization_variant_placements": true,
+        "major_area_native_union": true,
+        "major_area_effective_union": true,
+        "major_area_runtime_union": true,
         "duplicate_effective": true,
         "double_weighting": true,
         "content_freeze": true,
         "global_counts": true,
         "fail_entities": 0
     },
-    "audit_hash": "7f5dfc1911c493e54174f473fc840d4413ac2c4053ae4c25bf03c080b798382a"
+    "audit_hash": "ace9e7b2c239952459b88dab0f0b42b5c8ac35257b13cfcb2772fd5197b963ec"
 }
