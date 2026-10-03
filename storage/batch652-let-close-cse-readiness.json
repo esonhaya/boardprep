@@ -1,0 +1,2795 @@
+{
+    "title": "BoardPrep Batch 652 LET closure and CSE source-readiness foundation",
+    "batch": 652,
+    "review_date": "2026-10-03",
+    "lineage": {
+        "expected_head": "5ae58228ca3b40894d1829be472b893f28436cf0",
+        "head_before": "5ae58228ca3b40894d1829be472b893f28436cf0",
+        "branch": "batch652-let-close-cse-readiness",
+        "main_head": "0eb9704ba293e0aa3402af5d01a2d3392c005b73",
+        "ancestry_pass": true,
+        "pushed": false
+    },
+    "currentness": {
+        "let": "UNCHANGED",
+        "let_check_date": "2026-10-03",
+        "let_basis": "Narrow official PRC search confirmed no controlling source change affecting the exact four Batch651 plans; Batch649 scope research not repeated.",
+        "cse": "CURRENT_WITH_LIMITS",
+        "official_scope_sources": [
+            "csc-cse-ppt-scope-2026",
+            "csc-cse-ppt-calendar-2027"
+        ],
+        "scope_summary": "CSC 2026 detailed announcement names General Information, Verbal, Analytical, Numerical and Subprofessional Clerical; 2027 calendar defers the specific scope to a later individual announcement. No official weights found.",
+        "future_effective_scope": "CY2027 individual announcement pending; quarantine changes until published."
+    },
+    "let_closure": {
+        "planned": 4,
+        "accepted": 4,
+        "rejected": 0,
+        "accepted_ids": [
+            "8944",
+            "8945",
+            "8946",
+            "8947"
+        ],
+        "plans": [
+            {
+                "plan_id": "b652-2c2b1e0630f0ab7e",
+                "question_id": "8944",
+                "leaf_id": "social-history-context-and-causation"
+            },
+            {
+                "plan_id": "b652-540ef67b4683e497",
+                "question_id": "8945",
+                "leaf_id": "pe-health-and-wellness"
+            },
+            {
+                "plan_id": "b652-92843504440ecfba",
+                "question_id": "8946",
+                "leaf_id": "cae-art-elements-and-principles"
+            },
+            {
+                "plan_id": "b652-c4688d5efb188489",
+                "question_id": "8947",
+                "leaf_id": "environmental-stewardship-protection"
+            }
+        ],
+        "native_before": 1784,
+        "native_after": 1788,
+        "effective_before": 1867,
+        "effective_after": 1871,
+        "runtime_before": 1882,
+        "runtime_after": 1886,
+        "source_traceability": "PASS",
+        "study_traceability": "PASS",
+        "duplicates": "PASS",
+        "flashcard_derivability": "PASS",
+        "remaining_high_value_headroom": 0,
+        "closure_state": "FOUNDATION_SUFFICIENT_EVIDENCE_EXHAUSTED"
+    },
+    "content_freeze": {
+        "cse_new_questions": 0,
+        "cse_question_rewrites": 0,
+        "cse_question_deletions": 0,
+        "question_hash_before": "1ad0a498275dcd61a00bb5266bfe36fca79f9bd7d5ee2695f057697d53856680",
+        "question_hash_after_filtered": "1ad0a498275dcd61a00bb5266bfe36fca79f9bd7d5ee2695f057697d53856680",
+        "question_identical_outside_four_let": true,
+        "eligibility_hash_before": "47e6ee3fd333b14d03c4737a1f3725412b47949e77eae9f1392a1aeff1066f86",
+        "eligibility_hash_after_filtered": "47e6ee3fd333b14d03c4737a1f3725412b47949e77eae9f1392a1aeff1066f86",
+        "eligibility_identical_outside_four_let": true,
+        "cse_eligibility_unchanged": true,
+        "new_taxonomy_leaves": 0,
+        "taxonomy_mapping_changes": 0
+    },
+    "baseline": {
+        "global_canonical": 8947,
+        "global_effective_declared": 9407,
+        "global_runtime": 9731,
+        "let_native": 1788,
+        "cse_native": 1550,
+        "cse_effective_declared": 1804,
+        "cse_runtime": 2113
+    },
+    "cse": {
+        "native": 1550,
+        "effective_declared": 1804,
+        "runtime": 2113,
+        "coverage_rows": 120,
+        "raw_health": {
+            "leaf_count": 120,
+            "zero": 67,
+            "under5": 67,
+            "under10": 67,
+            "under20": 80,
+            "min": 0,
+            "median": 0,
+            "p25": 0,
+            "p75": 25,
+            "max": 121
+        },
+        "core_exam_leaf_count": 56,
+        "core_native_health": {
+            "leaf_count": 56,
+            "zero": 3,
+            "under5": 3,
+            "under10": 3,
+            "under20": 16,
+            "min": 0,
+            "median": 25.5,
+            "p25": 17.5,
+            "p75": 35.5,
+            "max": 121
+        },
+        "core_authorable_health": {
+            "leaf_count": 5,
+            "zero": 3,
+            "under5": 3,
+            "under10": 3,
+            "under20": 5,
+            "min": 0,
+            "median": 0,
+            "p25": 0,
+            "p75": 10,
+            "max": 14
+        },
+        "row_class_counts": {
+            "CORE_EXAM_LEAF": 56,
+            "VALID_SHARED_COMPETENCY": 54,
+            "STRUCTURAL_CONTAINER": 0,
+            "LEGACY_FLAT_PLACEMENT": 0,
+            "DUPLICATE_SEMANTIC_PLACEMENT": 0,
+            "AMBIGUOUS_PLACEMENT": 0,
+            "OUT_OF_SCOPE": 10,
+            "OTHER_JUSTIFIED": 0
+        },
+        "rows": [
+            {
+                "leaf_id": "critical-reading-evidence-quality",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 5,
+                "shared_runtime": 15,
+                "effective_declared": 5,
+                "runtime": 15,
+                "native_source_boards": {
+                    "let": 15
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "pronouns-pronoun-reference",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 4,
+                "shared_runtime": 4,
+                "effective_declared": 4,
+                "runtime": 4,
+                "native_source_boards": {
+                    "let": 5
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "authors-purpose-and-tone-purpose",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 6,
+                "shared_runtime": 16,
+                "effective_declared": 6,
+                "runtime": 16,
+                "native_source_boards": {
+                    "let": 16
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "modifiers-dangling-modifiers",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 3,
+                "shared_runtime": 3,
+                "effective_declared": 3,
+                "runtime": 3,
+                "native_source_boards": {
+                    "let": 13
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "text-structure-sequence",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 12,
+                "effective_declared": 2,
+                "runtime": 12,
+                "native_source_boards": {
+                    "let": 12
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "parallelism-parallel-structure",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 4,
+                "shared_runtime": 4,
+                "effective_declared": 4,
+                "runtime": 4,
+                "native_source_boards": {
+                    "let": 14
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "subject-verb-agreement-compound-subjects",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 3,
+                "shared_runtime": 3,
+                "effective_declared": 3,
+                "runtime": 3,
+                "native_source_boards": {
+                    "let": 13
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "filipino-gramatika-wastong-gamit",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 23,
+                "shared_runtime": 23,
+                "effective_declared": 23,
+                "runtime": 23,
+                "native_source_boards": {
+                    "let": 69
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "filipino-pagbasa-pangunahing-diwan",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 32,
+                "shared_runtime": 32,
+                "effective_declared": 32,
+                "runtime": 32,
+                "native_source_boards": {
+                    "let": 81
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "math-number-sense-operations",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "numerical-ability",
+                "native": 0,
+                "shared_in": 11,
+                "shared_runtime": 92,
+                "effective_declared": 11,
+                "runtime": 92,
+                "native_source_boards": {
+                    "let": 97
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "math-algebra-linear-equations",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "numerical-ability",
+                "native": 0,
+                "shared_in": 9,
+                "shared_runtime": 58,
+                "effective_declared": 9,
+                "runtime": 58,
+                "native_source_boards": {
+                    "let": 63
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "science-biology-cells",
+                "structural_class": "OUT_OF_SCOPE",
+                "official_area_id": "general-information",
+                "native": 0,
+                "shared_in": 4,
+                "shared_runtime": 17,
+                "effective_declared": 4,
+                "runtime": 17,
+                "native_source_boards": {
+                    "let": 22
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "science-chemistry-matter-particles",
+                "structural_class": "OUT_OF_SCOPE",
+                "official_area_id": "general-information",
+                "native": 0,
+                "shared_in": 3,
+                "shared_runtime": 15,
+                "effective_declared": 3,
+                "runtime": 15,
+                "native_source_boards": {
+                    "let": 20
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "science-physics-motion-graphs",
+                "structural_class": "OUT_OF_SCOPE",
+                "official_area_id": "general-information",
+                "native": 0,
+                "shared_in": 1,
+                "shared_runtime": 10,
+                "effective_declared": 1,
+                "runtime": 10,
+                "native_source_boards": {
+                    "let": 15
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "science-electricity-series-parallel",
+                "structural_class": "OUT_OF_SCOPE",
+                "official_area_id": "general-information",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 8,
+                "effective_declared": 2,
+                "runtime": 8,
+                "native_source_boards": {
+                    "let": 13
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "science-optics-reflection",
+                "structural_class": "OUT_OF_SCOPE",
+                "official_area_id": "general-information",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 8,
+                "effective_declared": 2,
+                "runtime": 8,
+                "native_source_boards": {
+                    "let": 13
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "science-earth-stratigraphy",
+                "structural_class": "OUT_OF_SCOPE",
+                "official_area_id": "general-information",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 11,
+                "effective_declared": 2,
+                "runtime": 11,
+                "native_source_boards": {
+                    "let": 16
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "science-ecology-population",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "general-information",
+                "native": 0,
+                "shared_in": 3,
+                "shared_runtime": 14,
+                "effective_declared": 3,
+                "runtime": 14,
+                "native_source_boards": {
+                    "let": 19
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "science-data-evidence",
+                "structural_class": "OUT_OF_SCOPE",
+                "official_area_id": "general-information",
+                "native": 0,
+                "shared_in": 1,
+                "shared_runtime": 18,
+                "effective_declared": 1,
+                "runtime": 18,
+                "native_source_boards": {
+                    "let": 23
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "social-history-primary-sources",
+                "structural_class": "OUT_OF_SCOPE",
+                "official_area_id": "general-information",
+                "native": 0,
+                "shared_in": 12,
+                "shared_runtime": 22,
+                "effective_declared": 12,
+                "runtime": 22,
+                "native_source_boards": {
+                    "let": 27
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "social-civics-public-good",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "general-information",
+                "native": 0,
+                "shared_in": 13,
+                "shared_runtime": 23,
+                "effective_declared": 13,
+                "runtime": 23,
+                "native_source_boards": {
+                    "let": 28
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "text-structure-problem-and-solution",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 2,
+                "effective_declared": 2,
+                "runtime": 2,
+                "native_source_boards": {
+                    "let": 3
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "verb-tenses-tense-consistency",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 3,
+                "shared_runtime": 3,
+                "effective_declared": 3,
+                "runtime": 3,
+                "native_source_boards": {
+                    "let": 13
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "inference-implicit-meaning",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 2,
+                "effective_declared": 2,
+                "runtime": 2,
+                "native_source_boards": {
+                    "let": 3
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "parallelism-parallel-items",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 4,
+                "shared_runtime": 4,
+                "effective_declared": 4,
+                "runtime": 4,
+                "native_source_boards": {
+                    "let": 14
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "sentence-structure-complex-sentences",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 3,
+                "shared_runtime": 3,
+                "effective_declared": 3,
+                "runtime": 3,
+                "native_source_boards": {
+                    "let": 13
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "english-inference-evidence",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 5,
+                "shared_runtime": 5,
+                "effective_declared": 5,
+                "runtime": 5,
+                "native_source_boards": {
+                    "let": 10
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "science-inquiry-evidence",
+                "structural_class": "OUT_OF_SCOPE",
+                "official_area_id": "general-information",
+                "native": 0,
+                "shared_in": 1,
+                "shared_runtime": 19,
+                "effective_declared": 1,
+                "runtime": 19,
+                "native_source_boards": {
+                    "let": 24
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "science-physics-force-balance",
+                "structural_class": "OUT_OF_SCOPE",
+                "official_area_id": "general-information",
+                "native": 0,
+                "shared_in": 1,
+                "shared_runtime": 10,
+                "effective_declared": 1,
+                "runtime": 10,
+                "native_source_boards": {
+                    "let": 15
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "analytical-assumption-identification",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "analytical-ability",
+                "native": 23,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 23,
+                "runtime": 23,
+                "native_source_boards": {
+                    "civil-service": 23
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "analytical-conclusion-validity",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "analytical-ability",
+                "native": 24,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 24,
+                "runtime": 24,
+                "native_source_boards": {
+                    "civil-service": 24
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "analytical-analogy-structure",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "analytical-ability",
+                "native": 20,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 20,
+                "runtime": 20,
+                "native_source_boards": {
+                    "civil-service": 20
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "analytical-sequence-rule",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "analytical-ability",
+                "native": 15,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 15,
+                "runtime": 15,
+                "native_source_boards": {
+                    "civil-service": 15
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "analytical-data-comparison",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "analytical-ability",
+                "native": 26,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 26,
+                "runtime": 26,
+                "native_source_boards": {
+                    "civil-service": 26
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-constitutional-principles",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "general-information",
+                "native": 42,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 42,
+                "runtime": 42,
+                "native_source_boards": {
+                    "civil-service": 42
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-ethical-public-service",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "general-information",
+                "native": 65,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 65,
+                "runtime": 65,
+                "native_source_boards": {
+                    "civil-service": 65
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-environmental-public-interest",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "general-information",
+                "native": 42,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 42,
+                "runtime": 42,
+                "native_source_boards": {
+                    "civil-service": 42
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-word-meaning",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "verbal-ability",
+                "native": 45,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 45,
+                "runtime": 45,
+                "native_source_boards": {
+                    "civil-service": 45
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-sentence-completion",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "verbal-ability",
+                "native": 40,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 40,
+                "runtime": 40,
+                "native_source_boards": {
+                    "civil-service": 40
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-error-recognition",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "verbal-ability",
+                "native": 40,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 40,
+                "runtime": 40,
+                "native_source_boards": {
+                    "civil-service": 40
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-sentence-structure",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "verbal-ability",
+                "native": 29,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 29,
+                "runtime": 29,
+                "native_source_boards": {
+                    "civil-service": 29
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-paragraph-organization",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "verbal-ability",
+                "native": 35,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 35,
+                "runtime": 35,
+                "native_source_boards": {
+                    "civil-service": 35
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-reading-comprehension",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "verbal-ability",
+                "native": 46,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 46,
+                "runtime": 46,
+                "native_source_boards": {
+                    "civil-service": 46
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-basic-operations",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "numerical-ability",
+                "native": 34,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 34,
+                "runtime": 34,
+                "native_source_boards": {
+                    "civil-service": 34
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-number-sequence",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "numerical-ability",
+                "native": 25,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 25,
+                "runtime": 25,
+                "native_source_boards": {
+                    "civil-service": 25
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-word-problems",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "numerical-ability",
+                "native": 121,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 121,
+                "runtime": 121,
+                "native_source_boards": {
+                    "civil-service": 121
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-assumptions-conclusions",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "analytical-ability",
+                "native": 11,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 11,
+                "runtime": 11,
+                "native_source_boards": {
+                    "civil-service": 11
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-word-analogy",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "analytical-ability",
+                "native": 10,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 10,
+                "runtime": 10,
+                "native_source_boards": {
+                    "civil-service": 10
+                },
+                "cse_eligible": true,
+                "authoring_needed": true
+            },
+            {
+                "leaf_id": "cse-symbolic-abstract",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "analytical-ability",
+                "native": 10,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 10,
+                "runtime": 10,
+                "native_source_boards": {
+                    "civil-service": 10
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-data-interpretation",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "analytical-ability",
+                "native": 37,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 37,
+                "runtime": 37,
+                "native_source_boards": {
+                    "civil-service": 37
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "main-idea-and-support-central-idea",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 4,
+                "shared_runtime": 4,
+                "effective_declared": 4,
+                "runtime": 4,
+                "native_source_boards": {
+                    "let": 5
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "main-idea-and-support-supporting-evidence",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 3,
+                "shared_runtime": 3,
+                "effective_declared": 3,
+                "runtime": 3,
+                "native_source_boards": {
+                    "let": 4
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "inference-evidence-based-conclusions",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 11,
+                "effective_declared": 2,
+                "runtime": 11,
+                "native_source_boards": {
+                    "let": 11
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "context-clues-inference-clues",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 2,
+                "effective_declared": 2,
+                "runtime": 2,
+                "native_source_boards": {
+                    "let": 3
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "text-structure-cause-and-effect",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 3,
+                "shared_runtime": 3,
+                "effective_declared": 3,
+                "runtime": 3,
+                "native_source_boards": {
+                    "let": 4
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "authors-purpose-and-tone-tone",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 4,
+                "shared_runtime": 14,
+                "effective_declared": 4,
+                "runtime": 14,
+                "native_source_boards": {
+                    "let": 14
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "critical-reading-argument-evaluation",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 3,
+                "shared_runtime": 3,
+                "effective_declared": 3,
+                "runtime": 3,
+                "native_source_boards": {
+                    "let": 4
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "context-clues-contrast-clues",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 1,
+                "shared_runtime": 1,
+                "effective_declared": 1,
+                "runtime": 1,
+                "native_source_boards": {
+                    "let": 2
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "context-clues-definition-clues",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 2,
+                "effective_declared": 2,
+                "runtime": 2,
+                "native_source_boards": {
+                    "let": 3
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "text-structure-compare-and-contrast",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 1,
+                "shared_runtime": 1,
+                "effective_declared": 1,
+                "runtime": 1,
+                "native_source_boards": {
+                    "let": 2
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "critical-reading-fact-and-opinion",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 1,
+                "shared_runtime": 1,
+                "effective_declared": 1,
+                "runtime": 1,
+                "native_source_boards": {
+                    "let": 2
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "context-clues-example-clues",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 1,
+                "shared_runtime": 1,
+                "effective_declared": 1,
+                "runtime": 1,
+                "native_source_boards": {
+                    "let": 2
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "modifiers-misplaced-modifiers",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 4,
+                "shared_runtime": 4,
+                "effective_declared": 4,
+                "runtime": 4,
+                "native_source_boards": {
+                    "let": 5
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "modifiers-adverb-modifiers",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 2,
+                "effective_declared": 2,
+                "runtime": 2,
+                "native_source_boards": {
+                    "let": 3
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "modifiers-adjective-modifiers",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 2,
+                "effective_declared": 2,
+                "runtime": 2,
+                "native_source_boards": {
+                    "let": 3
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "sentence-structure-fragments",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 2,
+                "effective_declared": 2,
+                "runtime": 2,
+                "native_source_boards": {
+                    "let": 3
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "sentence-structure-run-on-sentences",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 3,
+                "shared_runtime": 3,
+                "effective_declared": 3,
+                "runtime": 3,
+                "native_source_boards": {
+                    "let": 4
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "sentence-structure-compound-sentences",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 2,
+                "effective_declared": 2,
+                "runtime": 2,
+                "native_source_boards": {
+                    "let": 3
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "subject-verb-agreement-singular-subjects",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 5,
+                "shared_runtime": 5,
+                "effective_declared": 5,
+                "runtime": 5,
+                "native_source_boards": {
+                    "let": 6
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "subject-verb-agreement-indefinite-pronouns",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 3,
+                "shared_runtime": 3,
+                "effective_declared": 3,
+                "runtime": 3,
+                "native_source_boards": {
+                    "let": 13
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "subject-verb-agreement-collective-nouns",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 2,
+                "effective_declared": 2,
+                "runtime": 2,
+                "native_source_boards": {
+                    "let": 3
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "verb-tenses-past-tense",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 3,
+                "shared_runtime": 3,
+                "effective_declared": 3,
+                "runtime": 3,
+                "native_source_boards": {
+                    "let": 4
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "verb-tenses-present-tense",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 2,
+                "effective_declared": 2,
+                "runtime": 2,
+                "native_source_boards": {
+                    "let": 3
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "verb-tenses-perfect-tenses",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 4,
+                "shared_runtime": 4,
+                "effective_declared": 4,
+                "runtime": 4,
+                "native_source_boards": {
+                    "let": 14
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "verb-tenses-future-tense",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 2,
+                "effective_declared": 2,
+                "runtime": 2,
+                "native_source_boards": {
+                    "let": 3
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "pronouns-pronoun-antecedent-agreement",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 4,
+                "shared_runtime": 4,
+                "effective_declared": 4,
+                "runtime": 4,
+                "native_source_boards": {
+                    "let": 5
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "pronouns-pronoun-case",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 2,
+                "effective_declared": 2,
+                "runtime": 2,
+                "native_source_boards": {
+                    "let": 3
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "parallelism-faulty-comparisons",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 2,
+                "effective_declared": 2,
+                "runtime": 2,
+                "native_source_boards": {
+                    "let": 3
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "prepositions-preposition-choice",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 3,
+                "shared_runtime": 3,
+                "effective_declared": 3,
+                "runtime": 3,
+                "native_source_boards": {
+                    "let": 4
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "prepositions-prepositional-phrases",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 2,
+                "effective_declared": 2,
+                "runtime": 2,
+                "native_source_boards": {
+                    "let": 3
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "prepositions-idiomatic-prepositions",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 3,
+                "shared_runtime": 3,
+                "effective_declared": 3,
+                "runtime": 3,
+                "native_source_boards": {
+                    "let": 13
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "parts-of-speech-nouns",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 2,
+                "effective_declared": 2,
+                "runtime": 2,
+                "native_source_boards": {
+                    "let": 3
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "parts-of-speech-verbs",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 2,
+                "effective_declared": 2,
+                "runtime": 2,
+                "native_source_boards": {
+                    "let": 3
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "parts-of-speech-adjectives",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 2,
+                "shared_runtime": 2,
+                "effective_declared": 2,
+                "runtime": 2,
+                "native_source_boards": {
+                    "let": 3
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "parts-of-speech-adverbs",
+                "structural_class": "VALID_SHARED_COMPETENCY",
+                "official_area_id": "verbal-ability",
+                "native": 0,
+                "shared_in": 3,
+                "shared_runtime": 3,
+                "effective_declared": 3,
+                "runtime": 3,
+                "native_source_boards": {
+                    "let": 5
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-filing",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "clerical-ability",
+                "native": 43,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 43,
+                "runtime": 43,
+                "native_source_boards": {
+                    "civil-service": 43
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-spelling",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "clerical-ability",
+                "native": 45,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 45,
+                "runtime": 45,
+                "native_source_boards": {
+                    "civil-service": 45
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-contextual-inference",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "verbal-ability",
+                "native": 50,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 50,
+                "runtime": 50,
+                "native_source_boards": {
+                    "civil-service": 50
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-paragraph-cohesion",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "verbal-ability",
+                "native": 27,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 27,
+                "runtime": 27,
+                "native_source_boards": {
+                    "civil-service": 27
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-grammar-application",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "verbal-ability",
+                "native": 27,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 27,
+                "runtime": 27,
+                "native_source_boards": {
+                    "civil-service": 27
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-pronoun-reference",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "verbal-ability",
+                "native": 15,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 15,
+                "runtime": 15,
+                "native_source_boards": {
+                    "civil-service": 15
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-modifier-placement",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "verbal-ability",
+                "native": 15,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 15,
+                "runtime": 15,
+                "native_source_boards": {
+                    "civil-service": 15
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-parallel-structure",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "verbal-ability",
+                "native": 15,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 15,
+                "runtime": 15,
+                "native_source_boards": {
+                    "civil-service": 15
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-filipino-word-usage",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "verbal-ability",
+                "native": 20,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 20,
+                "runtime": 20,
+                "native_source_boards": {
+                    "civil-service": 20
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-percentages",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "numerical-ability",
+                "native": 39,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 39,
+                "runtime": 39,
+                "native_source_boards": {
+                    "civil-service": 39
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-ratios-proportions",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "numerical-ability",
+                "native": 25,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 25,
+                "runtime": 25,
+                "native_source_boards": {
+                    "civil-service": 25
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-averages",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "numerical-ability",
+                "native": 26,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 26,
+                "runtime": 26,
+                "native_source_boards": {
+                    "civil-service": 26
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-rates-work",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "numerical-ability",
+                "native": 27,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 27,
+                "runtime": 27,
+                "native_source_boards": {
+                    "civil-service": 27
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-fractions-decimals",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "numerical-ability",
+                "native": 21,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 21,
+                "runtime": 21,
+                "native_source_boards": {
+                    "civil-service": 21
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-quantitative-comparison",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "numerical-ability",
+                "native": 0,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 0,
+                "runtime": 0,
+                "native_source_boards": [],
+                "cse_eligible": false,
+                "authoring_needed": true
+            },
+            {
+                "leaf_id": "cse-government-functions",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "general-information",
+                "native": 27,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 27,
+                "runtime": 27,
+                "native_source_boards": {
+                    "civil-service": 27
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-bill-of-rights",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "general-information",
+                "native": 31,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 31,
+                "runtime": 31,
+                "native_source_boards": {
+                    "civil-service": 31
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-public-accountability",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "general-information",
+                "native": 24,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 24,
+                "runtime": 24,
+                "native_source_boards": {
+                    "civil-service": 24
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-conflict-of-interest",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "general-information",
+                "native": 14,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 14,
+                "runtime": 14,
+                "native_source_boards": {
+                    "civil-service": 14
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-human-rights-dignity",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "general-information",
+                "native": 26,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 26,
+                "runtime": 26,
+                "native_source_boards": {
+                    "civil-service": 26
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-environmental-stewardship",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "general-information",
+                "native": 20,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 20,
+                "runtime": 20,
+                "native_source_boards": {
+                    "civil-service": 20
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-public-interest",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "general-information",
+                "native": 18,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 18,
+                "runtime": 18,
+                "native_source_boards": {
+                    "civil-service": 18
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-civic-participation",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "general-information",
+                "native": 25,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 25,
+                "runtime": 25,
+                "native_source_boards": {
+                    "civil-service": 25
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-logical-conditions",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "analytical-ability",
+                "native": 20,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 20,
+                "runtime": 20,
+                "native_source_boards": {
+                    "civil-service": 20
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-syllogistic-reasoning",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "analytical-ability",
+                "native": 18,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 18,
+                "runtime": 18,
+                "native_source_boards": {
+                    "civil-service": 18
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-sequence-inference",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "analytical-ability",
+                "native": 24,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 24,
+                "runtime": 24,
+                "native_source_boards": {
+                    "civil-service": 24
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-data-trends",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "analytical-ability",
+                "native": 14,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 14,
+                "runtime": 14,
+                "native_source_boards": {
+                    "civil-service": 14
+                },
+                "cse_eligible": true,
+                "authoring_needed": true
+            },
+            {
+                "leaf_id": "cse-evidence-strength",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "analytical-ability",
+                "native": 41,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 41,
+                "runtime": 41,
+                "native_source_boards": {
+                    "civil-service": 41
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-abstract-transformations",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "analytical-ability",
+                "native": 15,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 15,
+                "runtime": 15,
+                "native_source_boards": {
+                    "civil-service": 15
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-conditional-logic",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "analytical-ability",
+                "native": 0,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 0,
+                "runtime": 0,
+                "native_source_boards": [],
+                "cse_eligible": false,
+                "authoring_needed": true
+            },
+            {
+                "leaf_id": "cse-filing-system-selection",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "clerical-ability",
+                "native": 27,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 27,
+                "runtime": 27,
+                "native_source_boards": {
+                    "civil-service": 27
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-alphabetical-order",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "clerical-ability",
+                "native": 16,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 16,
+                "runtime": 16,
+                "native_source_boards": {
+                    "civil-service": 16
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-record-comparison",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "clerical-ability",
+                "native": 29,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 29,
+                "runtime": 29,
+                "native_source_boards": {
+                    "civil-service": 29
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-proofreading",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "clerical-ability",
+                "native": 26,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 26,
+                "runtime": 26,
+                "native_source_boards": {
+                    "civil-service": 26
+                },
+                "cse_eligible": true,
+                "authoring_needed": false
+            },
+            {
+                "leaf_id": "cse-document-control",
+                "structural_class": "CORE_EXAM_LEAF",
+                "official_area_id": "clerical-ability",
+                "native": 0,
+                "shared_in": 0,
+                "shared_runtime": 0,
+                "effective_declared": 0,
+                "runtime": 0,
+                "native_source_boards": [],
+                "cse_eligible": false,
+                "authoring_needed": true
+            }
+        ],
+        "official_area_counts": {
+            "general-information": {
+                "native": 334,
+                "effective_declared": 379,
+                "runtime": 509
+            },
+            "verbal-ability": {
+                "native": 404,
+                "effective_declared": 593,
+                "runtime": 642
+            },
+            "numerical-ability": {
+                "native": 318,
+                "effective_declared": 338,
+                "runtime": 468
+            },
+            "analytical-ability": {
+                "native": 308,
+                "effective_declared": 308,
+                "runtime": 308
+            },
+            "clerical-ability": {
+                "native": 186,
+                "effective_declared": 186,
+                "runtime": 186
+            }
+        },
+        "scope_currentness": "CURRENT_WITH_LIMITS",
+        "source_inventory": {
+            "PRIMARY_OFFICIAL": 2,
+            "OFFICIAL_SUPPORTING": 0,
+            "AUTHORITATIVE_SUBJECT": 6,
+            "ACADEMIC": 5,
+            "SECONDARY": 0,
+            "WEAK": 0,
+            "INVALID": 0
+        },
+        "new_sources": 1,
+        "reused_source_ids": [
+            "csc-cse-ppt-calendar-2027",
+            "csc-cse-ppt-scope-2026",
+            "open-textbook-logic-critical-thinking",
+            "openstax-introductory-statistics-2e",
+            "purdue-owl-grammar",
+            "openstax-prealgebra-2e",
+            "1987-philippine-constitution",
+            "republic-act-6713",
+            "republic-act-8749",
+            "republic-act-9003",
+            "universal-declaration-human-rights",
+            "kwf-diksiyonaryo",
+            "openstax-reading-writing"
+        ],
+        "study_material_count": 8,
+        "study_coverage": {
+            "COMPLETE": 0,
+            "SUFFICIENT": 56,
+            "PARTIAL": 0,
+            "MISSING": 0,
+            "INVALID": 0,
+            "UNKNOWN": 0
+        },
+        "study_traceability": {
+            "COMPLETE": 56,
+            "PARTIAL": 0,
+            "BROKEN": 0,
+            "NONE": 0
+        },
+        "readiness_counts": {
+            "READY": 0,
+            "READY_WITH_LIMITS": 5,
+            "REVIEW": 51,
+            "DEFER": 0
+        },
+        "readiness_record_count": 56,
+        "readiness_record_hashes": {
+            "analytical-analogy-structure": "c00096847ee3ac1e0b69e8913be5d85600fa174091aa16abd326613d41c660fc",
+            "analytical-assumption-identification": "b9288e51406bc58dd270b1dbc54b46b43c2c82f4247fe0270825f39638ce480a",
+            "analytical-conclusion-validity": "cd3ec55030f7a53f142e678a0439117db7f406430e5e14792fde6a4b771a1fa7",
+            "analytical-data-comparison": "8dca42b22275af6f0cb21d5e168be15f090965d312eb2c056a9067bf0f3d6d31",
+            "analytical-sequence-rule": "e9ddc187bd3b1079773d538f1f8a43e9f3438b78c6f843ec44e20441ff5b7f52",
+            "cse-abstract-transformations": "211aca981a9c3afa45324452afe8aa8e6243e65b9c36310d693967208f155c0c",
+            "cse-alphabetical-order": "2b989b19370b3e64d750a9e8cead04bd6a9cb138739f97e3b6600c48cfdded34",
+            "cse-assumptions-conclusions": "69a7e2dcea7f3b8a22ef6ab28bab8181388f7e7035713e161b2d1ca4e1d9fde7",
+            "cse-averages": "48ef451217d50e03213cab03818e4862f70b793f1352a7319c6ce3e37c5060cf",
+            "cse-basic-operations": "00174fd27a101769c40ffb3bb88aed9e3c92b607b4c630f453aebca64099a1db",
+            "cse-bill-of-rights": "0c40d272aca5a3a30c27543eb6a40cd119774acdc2ce87395bc89a3179fc211b",
+            "cse-civic-participation": "58d1b5a714213baf37d40253e2ecb1a8222d66c3e9c708679c441395bc753302",
+            "cse-conditional-logic": "2eac8f2a23e9e175073ce3ac6647fb96790d14ae30d5a1c36c5eb565564a62fe",
+            "cse-conflict-of-interest": "986fcb94b1ca3f6d1e78248d1e86999c7505e3719f24118b883c5935a0b6a456",
+            "cse-constitutional-principles": "0d64b52b07cd5227db9d0f63118174fda59365ac1b3fcacecc48de88ad938920",
+            "cse-contextual-inference": "f2ba2a5d462992e5d27ba6800e39478601bd292851b137aac98a4cea5584405e",
+            "cse-data-interpretation": "ef3655dc5ca9da335b7b96722c1a4de811f413931d0359d58ddd17877d574782",
+            "cse-data-trends": "f3d97ce0944c61bcc80f422cb4959eb7431ad5cc2b32799919fd7351b13825dd",
+            "cse-document-control": "1ec787e45ef7272543be3c27898c93d8d9e81b11f35c0684cdb38506bc03fdda",
+            "cse-environmental-public-interest": "ef9c30f9dda77d0a5e425bd412a1c0bb0afb452708331405f174853797c9b491",
+            "cse-environmental-stewardship": "416a5bbf8b577213c448864b868775fee3f5daf090e61ba6281f6665aa5dcad9",
+            "cse-error-recognition": "b369c4ed256d9dcac7ec0a6dd575b707bb1734c3c1afe61cbe7f4f04f919f45c",
+            "cse-ethical-public-service": "fe95960db7d0cb1dd3f0baf0fc574f569736856a8679ff8f90de48f653ae77bc",
+            "cse-evidence-strength": "6eb4c4c2d35ec8208a82efb2d63205ababc292b71560ffa9f75dccb2191524cf",
+            "cse-filing": "0e3e5c4b54f6d50d2fe8bfc9698291389f53caffaf508edd0a197fc6b45840d8",
+            "cse-filing-system-selection": "3622d3c477db848c6d7a67ffbfd80674bc13ae6afde24cf4c791a6dcb40d2998",
+            "cse-filipino-word-usage": "138e6b3f83bba0904c0d20221fafd602fb9fdcdd2a25ff2eb4ef2ae7e23cb47e",
+            "cse-fractions-decimals": "40e71a3b51778eaead81f2ddc44e62519227efc8adf2800fb31630e4f4c29e34",
+            "cse-government-functions": "4f546d6902cb20486e35ffa2bd722e89a2597c68b47aada576b0a7b73ff8e663",
+            "cse-grammar-application": "7c4f4779d476d2af98a1b9b18080144ab1d91f32b06883cc40d7ef683d553867",
+            "cse-human-rights-dignity": "2b085fb282081cea2b9e5f3d04b899f610e686b3a7920a612b3e5a04bdae49c1",
+            "cse-logical-conditions": "1e27af37ef032473a7e106eca0c7151d087fbadb77f4b549b4fd6ed68c713e6e",
+            "cse-modifier-placement": "8c0b88fbf7de10bd444f326cec24b3c1fb816ebd3f04f22dfe72f041ef5d5e16",
+            "cse-number-sequence": "db1b16142be52e454fd5a9cb8d217317de55d42b75791f9cec520639597d14a7",
+            "cse-paragraph-cohesion": "a05576745aa59c92f5a37a976fda26c87203a2c484153c23122d64a3ccfb370b",
+            "cse-paragraph-organization": "8c04d73a08b872432003fdba2fc67e12d128a97b530bf41f8e318123e5c78467",
+            "cse-parallel-structure": "ea445a91e7cb73788eb69a50e149cbad82e36c2471e6e990b1c235df16710e50",
+            "cse-percentages": "c96b7eb749540b2764ad9d83560a639545a813a2dc599fc50c2177be632d67f5",
+            "cse-pronoun-reference": "3eb0815d91d972daf9d1ea9a4902b061a917667520cf7a726243ea66775845f5",
+            "cse-proofreading": "b9d3c33801a2458bf5d0d7d5051b6493b6135959981147f24db22713329bf18f",
+            "cse-public-accountability": "d3cb7d5b875ddf837af88bd3fb3dc96414ec93ae344907412692689b5e1c6a8a",
+            "cse-public-interest": "b7d9ee9360e8907066e2fe4cbd39ef1e7be61f9922dbade5a200b1dab02d9e34",
+            "cse-quantitative-comparison": "f55d27d7ba5a7b0ec3b3dca2ec88a07efd573bdfd6102c570a3a5e7129d7354d",
+            "cse-rates-work": "7be1a5904c07cbf7d86e11dff3fe5043a73957fd5de03b79d6fe1ed083b9054f",
+            "cse-ratios-proportions": "e7f407633d962d7a1ffb341ea30dc46535436d7887bd31b64ddf00e149c904cf",
+            "cse-reading-comprehension": "518897e48137f33ea2392eaa9d5afeb800b20abbdfbff6a0fd3adfe0b1ba3ad7",
+            "cse-record-comparison": "a485eb62657b62cbe51eaa80ef6120001f0187dffba9de83d550dcc6e13c59e8",
+            "cse-sentence-completion": "e7f1c3af2f621aab48ebe850277d9494ef3d52ba11511c066b440a1ad70b1304",
+            "cse-sentence-structure": "db2d0de12dd9bfb9380f0cb99acc091d287aa624962ea8d763d79eac97528319",
+            "cse-sequence-inference": "75e80ad8cde36a3552988c972fe40d1cbef4514f0d879ac98021a8c907fa7352",
+            "cse-spelling": "4fa8fbe05fed204b8d15c1d4c4fa395117643f4270962fff84c624b50a8ce0f9",
+            "cse-syllogistic-reasoning": "4dfa64171b977a006d60dcc3e409f7816f5a17fb7a8dbab44c30c052d28c057a",
+            "cse-symbolic-abstract": "87738cb30dc8efe2b7531a9eabab71b0a32073a58e5bd3ff0c24080f74c6954f",
+            "cse-word-analogy": "a40c80d9fad1bd6ab8c2d108a26dd2695e39e1503d62a1d4e313e74506131329",
+            "cse-word-meaning": "c08ff433391e2b5f8c3872199ed25c46f5602bdc28ee2419490f8d6fc561caf8",
+            "cse-word-problems": "9dccb6b427c13e6f393baaea0459a5cd2d40cc4694453e31f982c5728a7711ef"
+        },
+        "existing_family_inventory": {
+            "leaves_with_family_labels": 50,
+            "unique_family_labels": 834,
+            "proposition_signature_counts": {
+                "analytical-assumption-identification": 23,
+                "analytical-conclusion-validity": 24,
+                "analytical-analogy-structure": 20,
+                "analytical-sequence-rule": 15,
+                "analytical-data-comparison": 26,
+                "cse-constitutional-principles": 42,
+                "cse-ethical-public-service": 65,
+                "cse-environmental-public-interest": 42,
+                "cse-word-meaning": 45,
+                "cse-sentence-completion": 40,
+                "cse-error-recognition": 40,
+                "cse-sentence-structure": 29,
+                "cse-paragraph-organization": 35,
+                "cse-reading-comprehension": 46,
+                "cse-basic-operations": 34,
+                "cse-number-sequence": 25,
+                "cse-word-problems": 121,
+                "cse-assumptions-conclusions": 11,
+                "cse-word-analogy": 10,
+                "cse-symbolic-abstract": 10,
+                "cse-data-interpretation": 37,
+                "cse-filing": 43,
+                "cse-spelling": 45,
+                "cse-contextual-inference": 50,
+                "cse-paragraph-cohesion": 27,
+                "cse-grammar-application": 27,
+                "cse-pronoun-reference": 15,
+                "cse-modifier-placement": 15,
+                "cse-parallel-structure": 15,
+                "cse-percentages": 39,
+                "cse-ratios-proportions": 25,
+                "cse-averages": 26,
+                "cse-rates-work": 27,
+                "cse-fractions-decimals": 21,
+                "cse-government-functions": 27,
+                "cse-bill-of-rights": 31,
+                "cse-public-accountability": 24,
+                "cse-conflict-of-interest": 14,
+                "cse-human-rights-dignity": 26,
+                "cse-environmental-stewardship": 20,
+                "cse-public-interest": 18,
+                "cse-civic-participation": 25,
+                "cse-logical-conditions": 20,
+                "cse-syllogistic-reasoning": 18,
+                "cse-sequence-inference": 24,
+                "cse-data-trends": 14,
+                "cse-evidence-strength": 41,
+                "cse-abstract-transformations": 15,
+                "cse-filing-system-selection": 27,
+                "cse-alphabetical-order": 16,
+                "cse-record-comparison": 29,
+                "cse-proofreading": 26,
+                "cse-filipino-word-usage": 20
+            }
+        },
+        "production_candidates": [
+            {
+                "plan_id": "cse652-343caf16b5e3dc75",
+                "leaf_id": "cse-conditional-logic",
+                "official_area_id": "analytical-ability",
+                "current_native_count": 0,
+                "readiness": "READY_WITH_LIMITS",
+                "unused_content_families": [
+                    "NECESSARY_VS_SUFFICIENT_CONDITION_INFERENCE"
+                ],
+                "proposition_summaries": [
+                    "Distinguish a necessary condition from a sufficient one in a short conditional argument; test whether satisfying a prerequisite alone establishes the outcome."
+                ],
+                "source_ids": [
+                    "csc-cse-ppt-calendar-2027",
+                    "csc-cse-ppt-scope-2026",
+                    "open-textbook-logic-critical-thinking",
+                    "openstax-introductory-statistics-2e"
+                ],
+                "study_material_ids": [
+                    "cse-analytical-foundation"
+                ],
+                "allowed_scope": [
+                    "cse-conditional-logic"
+                ],
+                "supported_depth": [
+                    2,
+                    3
+                ],
+                "high_value_headroom": 1,
+                "limitations": [
+                    "Current detailed scope is CSC Announcement No. 03 s. 2026; the CY2027 calendar defers specific scope to a later individual announcement.",
+                    "No exam weights are stated by CSC.",
+                    "Flat/shared rows are not counted as native depth."
+                ],
+                "calculation_class": "NONCALCULATION",
+                "confidence": "ADEQUATE",
+                "marginal_value": "HIGH",
+                "currentness_class": "CURRENT_WITH_LIMITS",
+                "status": "WAVE1_READY",
+                "novelty_basis": "No native items are mapped to this leaf; the analytical study note explicitly distinguishes necessary and sufficient conditions."
+            },
+            {
+                "plan_id": "cse652-25465527b24a6654",
+                "leaf_id": "cse-data-trends",
+                "official_area_id": "analytical-ability",
+                "current_native_count": 14,
+                "readiness": "READY_WITH_LIMITS",
+                "unused_content_families": [
+                    "DENOMINATOR_CHANGE_COMPARABILITY"
+                ],
+                "proposition_summaries": [
+                    "Determine whether two reported rates can be compared when their denominators or observation groups changed; require a comparable base before interpreting a trend."
+                ],
+                "source_ids": [
+                    "csc-cse-ppt-calendar-2027",
+                    "csc-cse-ppt-scope-2026",
+                    "open-textbook-logic-critical-thinking",
+                    "openstax-introductory-statistics-2e"
+                ],
+                "study_material_ids": [
+                    "cse-analytical-foundation"
+                ],
+                "allowed_scope": [
+                    "cse-data-trends"
+                ],
+                "supported_depth": [
+                    2,
+                    3
+                ],
+                "high_value_headroom": 1,
+                "limitations": [
+                    "Current detailed scope is CSC Announcement No. 03 s. 2026; the CY2027 calendar defers specific scope to a later individual announcement.",
+                    "No exam weights are stated by CSC.",
+                    "Flat/shared rows are not counted as native depth."
+                ],
+                "calculation_class": "NONCALCULATION",
+                "confidence": "ADEQUATE",
+                "marginal_value": "HIGH",
+                "currentness_class": "CURRENT_WITH_LIMITS",
+                "status": "WAVE2_CONTINGENT",
+                "novelty_basis": "Existing leaf propositions include levels, rates, changes, confounders, and causal limits; none isolates denominator-change comparability. The analytical study material explicitly requires checking denominators and comparison groups."
+            },
+            {
+                "plan_id": "cse652-933d320062af5ea5",
+                "leaf_id": "cse-document-control",
+                "official_area_id": "clerical-ability",
+                "current_native_count": 0,
+                "readiness": "READY_WITH_LIMITS",
+                "unused_content_families": [
+                    "EXACT_RECORD_COMPARISON_PRESERVE_IDENTIFIER"
+                ],
+                "proposition_summaries": [
+                    "Compare two clerical records field by field, preserve leading zeroes and punctuation, and identify a near-match caused by a transposed character."
+                ],
+                "source_ids": [
+                    "csc-cse-ppt-calendar-2027",
+                    "csc-cse-ppt-scope-2026",
+                    "purdue-owl-grammar"
+                ],
+                "study_material_ids": [
+                    "cse-clerical-foundation"
+                ],
+                "allowed_scope": [
+                    "cse-document-control",
+                    "SUBPROFESSIONAL_CSE_PPT_ONLY"
+                ],
+                "supported_depth": [
+                    2,
+                    2
+                ],
+                "high_value_headroom": 1,
+                "limitations": [
+                    "Current detailed scope is CSC Announcement No. 03 s. 2026; the CY2027 calendar defers specific scope to a later individual announcement.",
+                    "No exam weights are stated by CSC.",
+                    "Flat/shared rows are not counted as native depth.",
+                    "Clerical Ability is named for the Subprofessional CSE-PPT; do not generalize this plan to the Professional level."
+                ],
+                "calculation_class": "NONCALCULATION",
+                "confidence": "ADEQUATE",
+                "marginal_value": "HIGH",
+                "currentness_class": "CURRENT_WITH_LIMITS",
+                "status": "WAVE1_READY",
+                "novelty_basis": "No native items are mapped to this leaf; the clerical study note explicitly requires preserving leading zeroes and transposed-character differences."
+            },
+            {
+                "plan_id": "cse652-e85215ed9fef916f",
+                "leaf_id": "cse-quantitative-comparison",
+                "official_area_id": "numerical-ability",
+                "current_native_count": 0,
+                "readiness": "READY_WITH_LIMITS",
+                "unused_content_families": [
+                    "RATE_COMPARISON_AFTER_UNIT_NORMALIZATION"
+                ],
+                "proposition_summaries": [
+                    "Compare two rates only after normalizing unlike time units; distinguish a rate comparison from a raw-count comparison."
+                ],
+                "source_ids": [
+                    "csc-cse-ppt-calendar-2027",
+                    "csc-cse-ppt-scope-2026",
+                    "openstax-introductory-statistics-2e",
+                    "openstax-prealgebra-2e"
+                ],
+                "study_material_ids": [
+                    "cse-numerical-foundation"
+                ],
+                "allowed_scope": [
+                    "cse-quantitative-comparison"
+                ],
+                "supported_depth": [
+                    2,
+                    3
+                ],
+                "high_value_headroom": 1,
+                "limitations": [
+                    "Current detailed scope is CSC Announcement No. 03 s. 2026; the CY2027 calendar defers specific scope to a later individual announcement.",
+                    "No exam weights are stated by CSC.",
+                    "Flat/shared rows are not counted as native depth."
+                ],
+                "calculation_class": "CONCEPTUAL_QUANTITATIVE",
+                "confidence": "ADEQUATE",
+                "marginal_value": "HIGH",
+                "currentness_class": "CURRENT_WITH_LIMITS",
+                "status": "WAVE1_READY",
+                "novelty_basis": "No native items are mapped to this leaf; the numerical study note explicitly supports compatible-unit rate comparison and independent magnitude checks."
+            },
+            {
+                "plan_id": "cse652-47ac8005d7364ca2",
+                "leaf_id": "cse-word-analogy",
+                "official_area_id": "analytical-ability",
+                "current_native_count": 10,
+                "readiness": "READY_WITH_LIMITS",
+                "unused_content_families": [
+                    "DEGREE_OF_INTENSITY_ANALOGICAL_RELATION"
+                ],
+                "proposition_summaries": [
+                    "Recognize a graded-intensity relationship between two words and preserve that relationship in a second pair rather than substituting a synonym or opposite."
+                ],
+                "source_ids": [
+                    "csc-cse-ppt-calendar-2027",
+                    "csc-cse-ppt-scope-2026",
+                    "open-textbook-logic-critical-thinking",
+                    "openstax-introductory-statistics-2e"
+                ],
+                "study_material_ids": [
+                    "cse-analytical-foundation"
+                ],
+                "allowed_scope": [
+                    "cse-word-analogy"
+                ],
+                "supported_depth": [
+                    2,
+                    2
+                ],
+                "high_value_headroom": 1,
+                "limitations": [
+                    "Current detailed scope is CSC Announcement No. 03 s. 2026; the CY2027 calendar defers specific scope to a later individual announcement.",
+                    "No exam weights are stated by CSC.",
+                    "Flat/shared rows are not counted as native depth."
+                ],
+                "calculation_class": "NONCALCULATION",
+                "confidence": "ADEQUATE",
+                "marginal_value": "HIGH",
+                "currentness_class": "CURRENT_WITH_LIMITS",
+                "status": "WAVE1_READY",
+                "novelty_basis": "The ten existing items test antonym, synonym, guide/result, origin/development, instrument/quantity, trait/challenge, role/product, premise/conclusion, collection/member, and map/location. None tests a graded-intensity relationship; the CSC expressly lists word analogy under Analytical Ability, and the linked analogy study supports the bounded relation."
+            }
+        ],
+        "wave1": [
+            {
+                "plan_id": "cse652-343caf16b5e3dc75",
+                "leaf_id": "cse-conditional-logic",
+                "official_area_id": "analytical-ability",
+                "current_native_count": 0,
+                "readiness": "READY_WITH_LIMITS",
+                "unused_content_families": [
+                    "NECESSARY_VS_SUFFICIENT_CONDITION_INFERENCE"
+                ],
+                "proposition_summaries": [
+                    "Distinguish a necessary condition from a sufficient one in a short conditional argument; test whether satisfying a prerequisite alone establishes the outcome."
+                ],
+                "source_ids": [
+                    "csc-cse-ppt-calendar-2027",
+                    "csc-cse-ppt-scope-2026",
+                    "open-textbook-logic-critical-thinking",
+                    "openstax-introductory-statistics-2e"
+                ],
+                "study_material_ids": [
+                    "cse-analytical-foundation"
+                ],
+                "allowed_scope": [
+                    "cse-conditional-logic"
+                ],
+                "supported_depth": [
+                    2,
+                    3
+                ],
+                "high_value_headroom": 1,
+                "limitations": [
+                    "Current detailed scope is CSC Announcement No. 03 s. 2026; the CY2027 calendar defers specific scope to a later individual announcement.",
+                    "No exam weights are stated by CSC.",
+                    "Flat/shared rows are not counted as native depth."
+                ],
+                "calculation_class": "NONCALCULATION",
+                "confidence": "ADEQUATE",
+                "marginal_value": "HIGH",
+                "currentness_class": "CURRENT_WITH_LIMITS",
+                "status": "WAVE1_READY",
+                "novelty_basis": "No native items are mapped to this leaf; the analytical study note explicitly distinguishes necessary and sufficient conditions."
+            },
+            {
+                "plan_id": "cse652-933d320062af5ea5",
+                "leaf_id": "cse-document-control",
+                "official_area_id": "clerical-ability",
+                "current_native_count": 0,
+                "readiness": "READY_WITH_LIMITS",
+                "unused_content_families": [
+                    "EXACT_RECORD_COMPARISON_PRESERVE_IDENTIFIER"
+                ],
+                "proposition_summaries": [
+                    "Compare two clerical records field by field, preserve leading zeroes and punctuation, and identify a near-match caused by a transposed character."
+                ],
+                "source_ids": [
+                    "csc-cse-ppt-calendar-2027",
+                    "csc-cse-ppt-scope-2026",
+                    "purdue-owl-grammar"
+                ],
+                "study_material_ids": [
+                    "cse-clerical-foundation"
+                ],
+                "allowed_scope": [
+                    "cse-document-control",
+                    "SUBPROFESSIONAL_CSE_PPT_ONLY"
+                ],
+                "supported_depth": [
+                    2,
+                    2
+                ],
+                "high_value_headroom": 1,
+                "limitations": [
+                    "Current detailed scope is CSC Announcement No. 03 s. 2026; the CY2027 calendar defers specific scope to a later individual announcement.",
+                    "No exam weights are stated by CSC.",
+                    "Flat/shared rows are not counted as native depth.",
+                    "Clerical Ability is named for the Subprofessional CSE-PPT; do not generalize this plan to the Professional level."
+                ],
+                "calculation_class": "NONCALCULATION",
+                "confidence": "ADEQUATE",
+                "marginal_value": "HIGH",
+                "currentness_class": "CURRENT_WITH_LIMITS",
+                "status": "WAVE1_READY",
+                "novelty_basis": "No native items are mapped to this leaf; the clerical study note explicitly requires preserving leading zeroes and transposed-character differences."
+            },
+            {
+                "plan_id": "cse652-e85215ed9fef916f",
+                "leaf_id": "cse-quantitative-comparison",
+                "official_area_id": "numerical-ability",
+                "current_native_count": 0,
+                "readiness": "READY_WITH_LIMITS",
+                "unused_content_families": [
+                    "RATE_COMPARISON_AFTER_UNIT_NORMALIZATION"
+                ],
+                "proposition_summaries": [
+                    "Compare two rates only after normalizing unlike time units; distinguish a rate comparison from a raw-count comparison."
+                ],
+                "source_ids": [
+                    "csc-cse-ppt-calendar-2027",
+                    "csc-cse-ppt-scope-2026",
+                    "openstax-introductory-statistics-2e",
+                    "openstax-prealgebra-2e"
+                ],
+                "study_material_ids": [
+                    "cse-numerical-foundation"
+                ],
+                "allowed_scope": [
+                    "cse-quantitative-comparison"
+                ],
+                "supported_depth": [
+                    2,
+                    3
+                ],
+                "high_value_headroom": 1,
+                "limitations": [
+                    "Current detailed scope is CSC Announcement No. 03 s. 2026; the CY2027 calendar defers specific scope to a later individual announcement.",
+                    "No exam weights are stated by CSC.",
+                    "Flat/shared rows are not counted as native depth."
+                ],
+                "calculation_class": "CONCEPTUAL_QUANTITATIVE",
+                "confidence": "ADEQUATE",
+                "marginal_value": "HIGH",
+                "currentness_class": "CURRENT_WITH_LIMITS",
+                "status": "WAVE1_READY",
+                "novelty_basis": "No native items are mapped to this leaf; the numerical study note explicitly supports compatible-unit rate comparison and independent magnitude checks."
+            },
+            {
+                "plan_id": "cse652-47ac8005d7364ca2",
+                "leaf_id": "cse-word-analogy",
+                "official_area_id": "analytical-ability",
+                "current_native_count": 10,
+                "readiness": "READY_WITH_LIMITS",
+                "unused_content_families": [
+                    "DEGREE_OF_INTENSITY_ANALOGICAL_RELATION"
+                ],
+                "proposition_summaries": [
+                    "Recognize a graded-intensity relationship between two words and preserve that relationship in a second pair rather than substituting a synonym or opposite."
+                ],
+                "source_ids": [
+                    "csc-cse-ppt-calendar-2027",
+                    "csc-cse-ppt-scope-2026",
+                    "open-textbook-logic-critical-thinking",
+                    "openstax-introductory-statistics-2e"
+                ],
+                "study_material_ids": [
+                    "cse-analytical-foundation"
+                ],
+                "allowed_scope": [
+                    "cse-word-analogy"
+                ],
+                "supported_depth": [
+                    2,
+                    2
+                ],
+                "high_value_headroom": 1,
+                "limitations": [
+                    "Current detailed scope is CSC Announcement No. 03 s. 2026; the CY2027 calendar defers specific scope to a later individual announcement.",
+                    "No exam weights are stated by CSC.",
+                    "Flat/shared rows are not counted as native depth."
+                ],
+                "calculation_class": "NONCALCULATION",
+                "confidence": "ADEQUATE",
+                "marginal_value": "HIGH",
+                "currentness_class": "CURRENT_WITH_LIMITS",
+                "status": "WAVE1_READY",
+                "novelty_basis": "The ten existing items test antonym, synonym, guide/result, origin/development, instrument/quantity, trait/challenge, role/product, premise/conclusion, collection/member, and map/location. None tests a graded-intensity relationship; the CSC expressly lists word analogy under Analytical Ability, and the linked analogy study supports the bounded relation."
+            }
+        ],
+        "wave2": [
+            {
+                "plan_id": "cse652-25465527b24a6654",
+                "leaf_id": "cse-data-trends",
+                "official_area_id": "analytical-ability",
+                "current_native_count": 14,
+                "readiness": "READY_WITH_LIMITS",
+                "unused_content_families": [
+                    "DENOMINATOR_CHANGE_COMPARABILITY"
+                ],
+                "proposition_summaries": [
+                    "Determine whether two reported rates can be compared when their denominators or observation groups changed; require a comparable base before interpreting a trend."
+                ],
+                "source_ids": [
+                    "csc-cse-ppt-calendar-2027",
+                    "csc-cse-ppt-scope-2026",
+                    "open-textbook-logic-critical-thinking",
+                    "openstax-introductory-statistics-2e"
+                ],
+                "study_material_ids": [
+                    "cse-analytical-foundation"
+                ],
+                "allowed_scope": [
+                    "cse-data-trends"
+                ],
+                "supported_depth": [
+                    2,
+                    3
+                ],
+                "high_value_headroom": 1,
+                "limitations": [
+                    "Current detailed scope is CSC Announcement No. 03 s. 2026; the CY2027 calendar defers specific scope to a later individual announcement.",
+                    "No exam weights are stated by CSC.",
+                    "Flat/shared rows are not counted as native depth."
+                ],
+                "calculation_class": "NONCALCULATION",
+                "confidence": "ADEQUATE",
+                "marginal_value": "HIGH",
+                "currentness_class": "CURRENT_WITH_LIMITS",
+                "status": "WAVE2_CONTINGENT",
+                "novelty_basis": "Existing leaf propositions include levels, rates, changes, confounders, and causal limits; none isolates denominator-change comparability. The analytical study material explicitly requires checking denominators and comparison groups."
+            }
+        ],
+        "wave3_preauthorized": 0,
+        "safe_range": {
+            "min": 4,
+            "preferred": 5,
+            "max": 5
+        },
+        "repeat_risk": {
+            "overall": "MODERATE",
+            "GENERAL_INFORMATION": "LOW",
+            "VERBAL": "HIGH",
+            "NUMERICAL": "MODERATE",
+            "ANALYTICAL": "HIGH",
+            "CLERICAL": "MODERATE",
+            "basis": "High native volume is concentrated in a small number of leaves; stored family labels are sparse. Four bounded propositions survived review; balance is not a quota."
+        },
+        "scope_blockers": [
+            {
+                "leaf_id": "analytical-sequence-rule",
+                "official_area_id": "analytical-ability",
+                "expected_official_area_id": "numerical-ability",
+                "classification": "REVIEW",
+                "reason": "The repository places this leaf under Analytical Ability, while the controlling CSC 2026 scope names number sequence under Numerical Ability; do not authorize this placement until an official crosswalk resolves the area conflict."
+            }
+        ],
+        "decision": "CSE_SMALL_SOURCE_FIRST_COHORT_READY",
+        "decision_reason": "Three true zero leaves and two additional leaves have concrete, bounded unused propositions after source/study review. The remaining deficits are not a numeric quota; batch production should re-evaluate the contingent Wave2 after Wave1 QA. An apparent number-sequence candidate is quarantined because the repository area conflicts with the controlling CSC scope.",
+        "taxonomy_migration": "NONE"
+    },
+    "repository_health_before": {
+        "overall_status": "REVIEW",
+        "pass_checks": 12,
+        "warn_checks": 2,
+        "fail_checks": 0,
+        "review_checks": 1,
+        "fail_entities": 0,
+        "warn_entities": 1009,
+        "review_entities": 19,
+        "runtime_ms": 19910,
+        "profile_used": false,
+        "check_codes": {
+            "REVIEW:ORPHAN_STUDY_MATERIAL": 16,
+            "REVIEW:SOURCE_SEMANTIC_FIT_REVIEW": 3,
+            "WARNING:ACTIVE_UNDER10_LEAF": 261,
+            "WARNING:ACTIVE_UNDER20_LEAF": 480,
+            "WARNING:ACTIVE_UNDER5_LEAF": 150,
+            "WARNING:ACTIVE_ZERO_LEAF": 84,
+            "WARNING:OFFICIAL_AREA_IMBALANCE": 12,
+            "WARNING:UNKNOWN_COVERAGE": 12,
+            "WARNING:UNKNOWN_DEPTH": 10
+        },
+        "review_findings": [
+            {
+                "code": "ORPHAN_STUDY_MATERIAL",
+                "board_id": null,
+                "entity_id": "cle-investigation-application",
+                "effect": "maintenance_only_unscoped_orphan"
+            },
+            {
+                "code": "ORPHAN_STUDY_MATERIAL",
+                "board_id": null,
+                "entity_id": "cpa-material-13",
+                "effect": "maintenance_only_unscoped_orphan"
+            },
+            {
+                "code": "ORPHAN_STUDY_MATERIAL",
+                "board_id": null,
+                "entity_id": "cpa-material-14",
+                "effect": "maintenance_only_unscoped_orphan"
+            },
+            {
+                "code": "ORPHAN_STUDY_MATERIAL",
+                "board_id": null,
+                "entity_id": "cpa-material-7",
+                "effect": "maintenance_only_unscoped_orphan"
+            },
+            {
+                "code": "ORPHAN_STUDY_MATERIAL",
+                "board_id": null,
+                "entity_id": "cpa-material-8",
+                "effect": "maintenance_only_unscoped_orphan"
+            },
+            {
+                "code": "ORPHAN_STUDY_MATERIAL",
+                "board_id": null,
+                "entity_id": "cpa-material-9",
+                "effect": "maintenance_only_unscoped_orphan"
+            },
+            {
+                "code": "ORPHAN_STUDY_MATERIAL",
+                "board_id": null,
+                "entity_id": "let-education-laws-review",
+                "effect": "maintenance_only_unscoped_orphan"
+            },
+            {
+                "code": "ORPHAN_STUDY_MATERIAL",
+                "board_id": null,
+                "entity_id": "nle-integrated-process",
+                "effect": "maintenance_only_unscoped_orphan"
+            },
+            {
+                "code": "ORPHAN_STUDY_MATERIAL",
+                "board_id": null,
+                "entity_id": "nle-np-iv-endocrine",
+                "effect": "maintenance_only_unscoped_orphan"
+            },
+            {
+                "code": "ORPHAN_STUDY_MATERIAL",
+                "board_id": null,
+                "entity_id": "portfolio-architecture-foundation",
+                "effect": "maintenance_only_unscoped_orphan"
+            },
+            {
+                "code": "ORPHAN_STUDY_MATERIAL",
+                "board_id": null,
+                "entity_id": "portfolio-civil-engineering-foundation",
+                "effect": "maintenance_only_unscoped_orphan"
+            },
+            {
+                "code": "ORPHAN_STUDY_MATERIAL",
+                "board_id": null,
+                "entity_id": "portfolio-mechanical-engineering-foundation",
+                "effect": "maintenance_only_unscoped_orphan"
+            },
+            {
+                "code": "ORPHAN_STUDY_MATERIAL",
+                "board_id": null,
+                "entity_id": "portfolio-registered-electrical-engineering-foundation",
+                "effect": "maintenance_only_unscoped_orphan"
+            },
+            {
+                "code": "ORPHAN_STUDY_MATERIAL",
+                "board_id": null,
+                "entity_id": "ree-material-controls",
+                "effect": "maintenance_only_unscoped_orphan"
+            },
+            {
+                "code": "ORPHAN_STUDY_MATERIAL",
+                "board_id": null,
+                "entity_id": "ree-material-design",
+                "effect": "maintenance_only_unscoped_orphan"
+            },
+            {
+                "code": "ORPHAN_STUDY_MATERIAL",
+                "board_id": null,
+                "entity_id": "ree-material-protection",
+                "effect": "maintenance_only_unscoped_orphan"
+            },
+            {
+                "code": "SOURCE_SEMANTIC_FIT_REVIEW",
+                "board_id": "cpa",
+                "entity_id": "1300",
+                "effect": "source_fit_review_not_board_selection_gate"
+            },
+            {
+                "code": "SOURCE_SEMANTIC_FIT_REVIEW",
+                "board_id": "cpa",
+                "entity_id": "1306",
+                "effect": "source_fit_review_not_board_selection_gate"
+            },
+            {
+                "code": "SOURCE_SEMANTIC_FIT_REVIEW",
+                "board_id": "cpa",
+                "entity_id": "1316",
+                "effect": "source_fit_review_not_board_selection_gate"
+            }
+        ],
+        "warning_reconciliation": {
+            "balance": 987,
+            "depth_coverage": 22,
+            "total_warn_entities": 1009,
+            "balance_components": {
+                "zero_leaf_threshold_findings": 84,
+                "under5_leaf_threshold_findings": 150,
+                "under10_leaf_threshold_findings": 261,
+                "under20_leaf_threshold_findings": 480,
+                "official_area_imbalance_findings": 12
+            },
+            "note": "Threshold findings nest (a zero leaf can also be under5, under10, and under20); they are not 1009 unique board defects. Health uses native ownership counts; CSE shared flat rows explain its largest native/effective mismatch."
+        },
+        "calculation_metadata_check": {
+            "check_code": "CALCULATION_METADATA",
+            "category": "CALCULATION",
+            "owner": "CalculationMetadataContract",
+            "default_severity": "FAIL",
+            "entity_type": "question",
+            "status": "PASS",
+            "description": "Calculation metadata contract and deterministic contradictions.",
+            "fix_guidance": "Persist the canonical calculation payload or correct the calculation flag.",
+            "issue_count": 0,
+            "affected_ids": []
+        },
+        "eligibility_check": {
+            "check_code": "ELIGIBILITY",
+            "category": "ELIGIBILITY",
+            "owner": "QuestionEligibilityIndex",
+            "default_severity": "FAIL",
+            "entity_type": "question",
+            "status": "PASS",
+            "description": "Production eligibility mappings and reachability.",
+            "fix_guidance": "Repair eligibility records or the production index.",
+            "issue_count": 0,
+            "affected_ids": []
+        },
+        "review_orphan_study_count": 16,
+        "review_source_semantic_fit_ids": [
+            "1300",
+            "1306",
+            "1316"
+        ]
+    },
+    "health_after": {
+        "overall_status": "REVIEW",
+        "status": "REVIEW",
+        "fail_checks": 0,
+        "fail_entities": [],
+        "warn_checks": 2,
+        "review_checks": 1,
+        "issue_count": 767,
+        "warn_entities": 748,
+        "review_entities": 19,
+        "runtime_excluded": true
+    },
+    "global_regressions": {
+        "native_by_board": {
+            "let": 1788,
+            "civil-service": 1550,
+            "nursing": 878,
+            "criminologist": 451,
+            "civil-engineering": 922,
+            "mechanical-engineering": 511,
+            "registered-electrical-engineering": 842,
+            "architecture": 472,
+            "psychometrician": 401,
+            "cpa": 1132
+        },
+        "nursing_dosage": "24/16/8",
+        "cpa_cy2029_leakage": 0,
+        "calculation_metadata_contradictions": 0,
+        "duplicate_effective": 0,
+        "double_weighting": 0,
+        "new_different_id_equivalence": 0,
+        "flashcard_defects": 0
+    },
+    "audit_hash": "1bda12917186762db647f9e190d5d688975909178d8aec19266637a793269193"
+}

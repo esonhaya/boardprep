@@ -27,6 +27,13 @@ final class SourceReadinessValidator
             'abnormal-psychology',
             'industrial-organizational',
         ],
+        'civil-service' => [
+            'general-information',
+            'verbal-ability',
+            'numerical-ability',
+            'analytical-ability',
+            'clerical-ability',
+        ],
     ];
 
     /** @var string[] Backward-compatible Criminologist area list. */

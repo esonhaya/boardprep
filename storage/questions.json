@@ -723064,5 +723064,261 @@
             "unused_family_evidence": "The five existing questions classify as interpretation or analysis and none asks the learner to revise agreement for a gerund phrase functioning as subject; this applies the leaf through a distinct sentence-editing family.",
             "derivable": true
         }
+    },
+    {
+        "id": 8946,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "culture-and-arts-education",
+            "domain_id": "cae-arts-and-culture",
+            "topic_id": "cae-art-elements-and-principles",
+            "concept_id": "cae-art-elements-and-principles"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "easy",
+        "type": "multiple_choice",
+        "question": "A class is examining a poster. The artist uses dark outlines and a bright accent color; the accent directs attention to one figure, while the figures are arranged evenly around the center. Which pair names the organizing principles rather than the formal elements?",
+        "choices": [
+            "Dark outlines and the bright accent color.",
+            "Emphasis and balance.",
+            "The figure and the poster.",
+            "Color and line."
+        ],
+        "answer": "Emphasis and balance.",
+        "explanation": "Emphasis describes how attention is directed and balance describes how visual weight is arranged. Dark outlines and color are formal elements used to create those effects.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-arts-curriculum-guide-2020"
+        ],
+        "study_material_id": "let-zero-pool-cae-foundation",
+        "study_material_ids": [
+            "let-zero-pool-cae-foundation"
+        ],
+        "source_scope": [
+            "cae-art-elements-and-principles"
+        ],
+        "study_focus": "Distinguish visual-art components from organizing principles and apply the distinction to a composition.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b652-cae-art-elements-and-principles-formal_element_vs_organizing_principle_classification",
+        "misconception_family": "FORMAL_ELEMENT_VS_ORGANIZING_PRINCIPLE_CLASSIFICATION",
+        "batch_marker": "batch652-let",
+        "batch652": {
+            "phase": "LET_CLOSURE",
+            "plan_id": "b652-92843504440ecfba",
+            "leaf_id": "cae-art-elements-and-principles",
+            "specialization_id": "secondary-culture-and-arts-education",
+            "content_family": "FORMAL_ELEMENT_VS_ORGANIZING_PRINCIPLE_CLASSIFICATION",
+            "depth": 2,
+            "source_ids": [
+                "deped-arts-curriculum-guide-2020"
+            ],
+            "study_material_ids": [
+                "let-zero-pool-cae-foundation"
+            ],
+            "authorized_by": "batch651-let-family-proof"
+        }
+    },
+    {
+        "id": 8947,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "science",
+            "domain_id": "environmental-science",
+            "topic_id": "environmental-stewardship",
+            "concept_id": "environmental-stewardship-protection"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A pond model shows that increased nutrient input is followed by more algae, more decomposition, and lower dissolved oxygen. If nutrient input is reduced while other conditions remain stable, which prediction follows from the stated model?",
+        "choices": [
+            "The model supports less pressure toward algal growth and oxygen decline, but it does not guarantee immediate ecosystem recovery.",
+            "Fish numbers must immediately return to their previous level.",
+            "The model proves that a particular nearby farm caused the original change.",
+            "Dissolved oxygen must rise by the same amount that nutrients fall."
+        ],
+        "answer": "The model supports less pressure toward algal growth and oxygen decline, but it does not guarantee immediate ecosystem recovery.",
+        "explanation": "The stated chain supports a conditional prediction about the direction of pressure when nutrient input falls. It supplies neither a guaranteed recovery time nor evidence identifying an external cause or a one-to-one numerical effect.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-science-curriculum-guide"
+        ],
+        "study_material_id": "let-specialization-science-application",
+        "study_material_ids": [
+            "let-specialization-science-application"
+        ],
+        "source_scope": [
+            "environmental-stewardship-protection"
+        ],
+        "study_focus": "Interpret a stated ecosystem causal model and limit the prediction to the evidence it contains.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "data_interpretation": true,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b652-environmental-stewardship-protection-ecosystem_causal_prediction",
+        "misconception_family": "ECOSYSTEM_CAUSAL_PREDICTION",
+        "batch_marker": "batch652-let",
+        "batch652": {
+            "phase": "LET_CLOSURE",
+            "plan_id": "b652-c4688d5efb188489",
+            "leaf_id": "environmental-stewardship-protection",
+            "specialization_id": "secondary-science",
+            "content_family": "ECOSYSTEM_CAUSAL_PREDICTION",
+            "depth": 3,
+            "source_ids": [
+                "deped-science-curriculum-guide"
+            ],
+            "study_material_ids": [
+                "let-specialization-science-application"
+            ],
+            "authorized_by": "batch651-let-family-proof"
+        }
+    },
+    {
+        "id": 8945,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "physical-education",
+            "domain_id": "pe-movement-and-fitness",
+            "topic_id": "pe-fitness-and-wellness",
+            "concept_id": "pe-health-and-wellness"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A physical education teacher uses the Philippine Physical Activity Pyramid while planning a class week. Which use best fits the model?",
+        "choices": [
+            "Treat each learner’s pyramid position as a diagnostic score that determines fitness.",
+            "Use the model to plan balanced activity patterns, then adapt participation separately to learners’ readiness and context.",
+            "Require every learner to follow the identical activity volume shown, regardless of health or access.",
+            "Use the model only to rank sports by competitive difficulty."
+        ],
+        "answer": "Use the model to plan balanced activity patterns, then adapt participation separately to learners’ readiness and context.",
+        "explanation": "The pyramid is a planning model for balanced activity and relative participation, not an individual diagnostic instrument. Safe planning still accounts for readiness and context.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-pe-curriculum-guide"
+        ],
+        "study_material_id": "let-zero-pool-pe-foundation",
+        "study_material_ids": [
+            "let-zero-pool-pe-foundation"
+        ],
+        "source_scope": [
+            "pe-health-and-wellness"
+        ],
+        "study_focus": "Interpret a physical-activity planning model and distinguish it from individual diagnosis or prescription.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b652-pe-health-and-wellness-activity_planning_model_interpretation",
+        "misconception_family": "ACTIVITY_PLANNING_MODEL_INTERPRETATION",
+        "batch_marker": "batch652-let",
+        "batch652": {
+            "phase": "LET_CLOSURE",
+            "plan_id": "b652-540ef67b4683e497",
+            "leaf_id": "pe-health-and-wellness",
+            "specialization_id": "secondary-physical-education",
+            "content_family": "ACTIVITY_PLANNING_MODEL_INTERPRETATION",
+            "depth": 3,
+            "source_ids": [
+                "deped-pe-curriculum-guide"
+            ],
+            "study_material_ids": [
+                "let-zero-pool-pe-foundation"
+            ],
+            "authorized_by": "batch651-let-family-proof"
+        }
+    },
+    {
+        "id": 8944,
+        "board": "let",
+        "taxonomy": {
+            "board_id": "let",
+            "subject_id": "social-studies",
+            "domain_id": "philippine-history",
+            "topic_id": "social-history",
+            "concept_id": "social-history-context-and-causation"
+        },
+        "status": "active",
+        "source": "BoardPrep-authored",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A researcher compares a dated 1905 attendance ledger with a historian’s 1980 account of a meeting held in 1905. Which conclusion is best supported by the source types?",
+        "choices": [
+            "The ledger is contemporaneous primary evidence about the attendance it records, but by itself it cannot establish why each person attended.",
+            "The later account is automatically primary because it discusses the event in greater detail.",
+            "The ledger proves that everyone listed supported the meeting’s purpose.",
+            "Neither source can provide evidence about an event that occurred before 1980."
+        ],
+        "answer": "The ledger is contemporaneous primary evidence about the attendance it records, but by itself it cannot establish why each person attended.",
+        "explanation": "The dated ledger was created at the time and is primary evidence for recorded attendance. Its provenance and entries do not, without further evidence, establish participants’ motives; the later account is an interpretation.",
+        "content_blocks": [],
+        "source_ids": [
+            "deped-araling-panlipunan-curriculum-guide"
+        ],
+        "study_material_id": "let-specialization-social-studies-application",
+        "study_material_ids": [
+            "let-specialization-social-studies-application"
+        ],
+        "source_scope": [
+            "social-history-context-and-causation"
+        ],
+        "study_focus": "Classify contemporaneous evidence and bound a historical claim to what the source can establish.",
+        "cognitive_intent": "application and interpretation",
+        "multistep": true,
+        "data_interpretation": false,
+        "table_dependent": false,
+        "scenario_length": "standard",
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NON_NUMERICAL",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "scenario_family": "b652-social-history-context-and-causation-historical_source_classification",
+        "misconception_family": "HISTORICAL_SOURCE_CLASSIFICATION",
+        "batch_marker": "batch652-let",
+        "batch652": {
+            "phase": "LET_CLOSURE",
+            "plan_id": "b652-2c2b1e0630f0ab7e",
+            "leaf_id": "social-history-context-and-causation",
+            "specialization_id": "secondary-social-studies",
+            "content_family": "HISTORICAL_SOURCE_CLASSIFICATION",
+            "depth": 3,
+            "source_ids": [
+                "deped-araling-panlipunan-curriculum-guide"
+            ],
+            "study_material_ids": [
+                "let-specialization-social-studies-application"
+            ],
+            "authorized_by": "batch651-let-family-proof"
+        }
     }
 ]

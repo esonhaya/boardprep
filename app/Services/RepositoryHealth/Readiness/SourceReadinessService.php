@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\RepositoryHealth\Readiness;
 
 use App\Core\App;
+use App\Services\RepositoryHealth\CivilService\CivilServiceCoverageModel;
 
 /** Permanent source-readiness facade used by health, authoring, and UI. */
 final class SourceReadinessService
@@ -184,6 +185,9 @@ final class SourceReadinessService
         $authorities = array_fill_keys(SourceReadinessRecord::AUTHORITIES, 0);
         $coverage = array_fill_keys(SourceReadinessRecord::STUDY_COVERAGE, 0);
         $byLeaf = [];
+        $headroom = ['min' => 0, 'preferred' => 0, 'max' => 0];
+        $currentness = [];
+        $traceability = [];
         foreach ($records as $record) {
             if (!is_array($record)) continue;
             $readiness = (string) ($record['readiness'] ?? '');
@@ -192,6 +196,13 @@ final class SourceReadinessService
             if (isset($authorities[$authority])) $authorities[$authority]++;
             $studyCoverage = (string) ($record['study_coverage'] ?? '');
             if (isset($coverage[$studyCoverage])) $coverage[$studyCoverage]++;
+            $headroom['min'] += (int) ($record['safe_headroom_min'] ?? 0);
+            $headroom['preferred'] += (int) ($record['safe_headroom_preferred'] ?? 0);
+            $headroom['max'] += (int) ($record['safe_headroom_max'] ?? 0);
+            $currentnessValue = (string) ($record['source_currentness'] ?? 'UNKNOWN');
+            $currentness[$currentnessValue] = ($currentness[$currentnessValue] ?? 0) + 1;
+            $traceabilityValue = (string) ($record['study_source_traceability'] ?? 'UNKNOWN');
+            $traceability[$traceabilityValue] = ($traceability[$traceabilityValue] ?? 0) + 1;
             $leafId = (string) ($record['leaf_id'] ?? '');
             if ($leafId !== '') $byLeaf[$leafId] = $record;
         }
@@ -203,6 +214,9 @@ final class SourceReadinessService
             'readiness_counts' => $counts,
             'source_authority_counts' => $authorities,
             'study_coverage_counts' => $coverage,
+            'source_currentness_counts' => $currentness,
+            'study_traceability_counts' => $traceability,
+            'safe_headroom' => $headroom,
             'records' => array_values($byLeaf),
         ];
     }
@@ -279,6 +293,7 @@ final class SourceReadinessService
     {
         $counts = [];
         $structuralConcepts = [];
+        $civilServiceCoreLeaves = [];
         foreach ((array) ($collections['taxonomy/concepts'] ?? []) as $concept) {
             if (!is_array($concept)) {
                 continue;
@@ -291,6 +306,10 @@ final class SourceReadinessService
         }
         foreach ((array) ($collections['board-concept-coverage'] ?? []) as $coverage) {
             if (!is_array($coverage) || strtolower((string) ($coverage['board_id'] ?? '')) !== strtolower($boardId)) continue;
+            if (strtolower($boardId) === 'civil-service') {
+                if (!CivilServiceCoverageModel::isCoreExamLeaf($coverage)) continue;
+                $civilServiceCoreLeaves[trim((string) ($coverage['concept_id'] ?? ''))] = true;
+            }
             $leafId = trim((string) ($coverage['concept_id'] ?? ''));
             if ($leafId !== '' && !isset($structuralConcepts[$leafId])) $counts[$leafId] = 0;
         }
@@ -298,6 +317,7 @@ final class SourceReadinessService
             if (!is_array($question) || strtolower((string) ($question['taxonomy']['board_id'] ?? '')) !== strtolower($boardId)) continue;
             if (strtolower((string) ($question['status'] ?? 'active')) === 'archived') continue;
             $leafId = trim((string) ($question['taxonomy']['concept_id'] ?? ''));
+            if (strtolower($boardId) === 'civil-service' && !isset($civilServiceCoreLeaves[$leafId])) continue;
             if ($leafId !== '') $counts[$leafId] = ($counts[$leafId] ?? 0) + 1;
         }
         ksort($counts, SORT_STRING);
@@ -307,7 +327,7 @@ final class SourceReadinessService
     /** @return array<string, array> */
     private static function collections(): array
     {
-        $names = ['questions', 'boards', 'subjects', 'board-subjects', 'blueprints', 'taxonomy/domains', 'taxonomy/topics', 'taxonomy/concepts', 'question-eligibility', 'concept-derived-eligibility', 'question-reuse-overrides', 'question-reuse-metadata', 'board-concept-coverage', 'study-materials', 'study-question-links', 'sources', 'content-fit-audits', 'flashcard-exclusions', 'source-readiness', 'source-readiness-psychometrician', 'source-readiness-mechanical-engineering'];
+        $names = ['questions', 'boards', 'subjects', 'board-subjects', 'blueprints', 'taxonomy/domains', 'taxonomy/topics', 'taxonomy/concepts', 'question-eligibility', 'concept-derived-eligibility', 'question-reuse-overrides', 'question-reuse-metadata', 'board-concept-coverage', 'study-materials', 'study-question-links', 'sources', 'content-fit-audits', 'flashcard-exclusions', 'source-readiness', 'source-readiness-psychometrician', 'source-readiness-mechanical-engineering', 'source-readiness-civil-service'];
         $collections = [];
         foreach ($names as $name) $collections[$name] = App::storage()->all($name);
         return $collections;

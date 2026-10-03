@@ -12,6 +12,7 @@ use App\Services\RepositoryHealth\DTO\HealthIssue;
 use App\Services\RepositoryHealth\DTO\HealthReport;
 use App\Services\RepositoryHealth\DTO\RepositoryContext;
 use App\Services\RepositoryHealth\DTO\RepositoryStatistics;
+use App\Services\RepositoryHealth\CivilService\CivilServiceCoverageModel;
 use App\Services\RepositoryHealth\Readiness\SourceReadinessService;
 use App\Services\Shared\ContentIntegrityService;
 
@@ -640,7 +641,49 @@ final class RepositoryHealthEngine
                     $runtimeIds[$id] = true;
                 }
             }
-            $expectedLeaves = array_keys($coverageByBoard[$boardId] ?? []);
+            $allExpectedLeaves = array_keys($coverageByBoard[$boardId] ?? []);
+            $expectedLeaves = $allExpectedLeaves;
+            $cseScopeReconciliation = null;
+            if ($boardId === 'civil-service') {
+                $classCounts = [
+                    'CORE_EXAM_LEAF' => 0,
+                    'VALID_SHARED_COMPETENCY' => 0,
+                    'STRUCTURAL_CONTAINER' => 0,
+                    'LEGACY_FLAT_PLACEMENT' => 0,
+                    'DUPLICATE_SEMANTIC_PLACEMENT' => 0,
+                    'AMBIGUOUS_PLACEMENT' => 0,
+                    'OUT_OF_SCOPE' => 0,
+                    'OTHER_JUSTIFIED' => 0,
+                ];
+                $coreLeaves = [];
+                foreach ($coverageByBoard[$boardId] ?? [] as $conceptId => $coverageRow) {
+                    $class = CivilServiceCoverageModel::classifyRow($coverageRow);
+                    $classCounts[$class] = ($classCounts[$class] ?? 0) + 1;
+                    if ($class === 'CORE_EXAM_LEAF') $coreLeaves[] = (string) $conceptId;
+                }
+                sort($coreLeaves, SORT_STRING);
+                $expectedLeaves = $coreLeaves;
+                $rawCounts = [];
+                foreach ($allExpectedLeaves as $leaf) $rawCounts[] = (int) ($leafCounts[$leaf] ?? 0);
+                sort($rawCounts, SORT_NUMERIC);
+                $cseScopeReconciliation = [
+                    'coverage_rows' => count($allExpectedLeaves),
+                    'class_counts' => $classCounts,
+                    'core_exam_leaf_ids' => $coreLeaves,
+                    'core_exam_leaf_count' => count($coreLeaves),
+                    'raw_coverage_leaf_health' => [
+                        'zero' => count(array_filter($rawCounts, static fn(int $n): bool => $n === 0)),
+                        'under5' => count(array_filter($rawCounts, static fn(int $n): bool => $n < 5)),
+                        'under10' => count(array_filter($rawCounts, static fn(int $n): bool => $n < 10)),
+                        'under20' => count(array_filter($rawCounts, static fn(int $n): bool => $n < 20)),
+                        'min' => $rawCounts === [] ? 0 : min($rawCounts),
+                        'median' => self::median($rawCounts),
+                    ],
+                    'actionable_health_basis' => 'CORE_EXAM_LEAF only; flat/shared and out-of-scope rows remain visible but do not create native zero/under-threshold warnings.',
+                ];
+                $coreLeafSet = array_fill_keys($coreLeaves, true);
+                $leafCounts = array_intersect_key($leafCounts, $coreLeafSet);
+            }
             $balanceStartedAt = $profiler === null ? 0 : hrtime(true);
             $structuralLeaves = [];
             foreach ($expectedLeaves as $expectedLeaf) {
@@ -681,6 +724,17 @@ final class RepositoryHealthEngine
                 'official_area_balance' => self::areaBalance($boardId, $questions, $collections),
                 'concentration' => self::concentration($boardId, $questions, $activeLeaves),
             ];
+            if ($cseScopeReconciliation !== null) {
+                $cseScopeReconciliation['core_leaf_health'] = [
+                    'zero' => $summary['zero'],
+                    'under5' => $summary['under5'],
+                    'under10' => $summary['under10'],
+                    'under20' => $summary['under20'],
+                    'min' => $summary['min'],
+                    'median' => $summary['median'],
+                ];
+                $summary['scope_reconciliation'] = $cseScopeReconciliation;
+            }
             $summary['taxonomy_granularity'] = self::taxonomyGranularity($activeLeaves);
             if (($summary['taxonomy_granularity']['status'] ?? '') === 'REVIEW') {
                 self::issue(

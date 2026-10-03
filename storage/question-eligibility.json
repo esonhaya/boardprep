@@ -67809,5 +67809,145 @@
                 }
             }
         }
+    },
+    {
+        "id": "eligibility-question-8946",
+        "question_ids": [
+            "8946"
+        ],
+        "exam_ids": [
+            "let"
+        ],
+        "subject_ids": {
+            "let": "culture-and-arts-education"
+        },
+        "question_mappings": {
+            "8946": {
+                "exam_ids": [
+                    "let"
+                ],
+                "subject_ids": {
+                    "let": "culture-and-arts-education"
+                },
+                "placements": {
+                    "let": {
+                        "board_id": "let",
+                        "subject_id": "culture-and-arts-education",
+                        "domain_id": "cae-arts-and-culture",
+                        "topic_id": "cae-art-elements-and-principles",
+                        "concept_id": "cae-art-elements-and-principles",
+                        "blueprint_node": "secondary-culture-and-arts-education",
+                        "let_level": "SECONDARY",
+                        "let_component": "SPECIALIZATION",
+                        "specialization_id": "secondary-culture-and-arts-education"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "id": "eligibility-question-8947",
+        "question_ids": [
+            "8947"
+        ],
+        "exam_ids": [
+            "let"
+        ],
+        "subject_ids": {
+            "let": "science"
+        },
+        "question_mappings": {
+            "8947": {
+                "exam_ids": [
+                    "let"
+                ],
+                "subject_ids": {
+                    "let": "science"
+                },
+                "placements": {
+                    "let": {
+                        "board_id": "let",
+                        "subject_id": "science",
+                        "domain_id": "environmental-science",
+                        "topic_id": "environmental-stewardship",
+                        "concept_id": "environmental-stewardship-protection",
+                        "blueprint_node": "secondary-science",
+                        "let_level": "SECONDARY",
+                        "let_component": "SPECIALIZATION",
+                        "specialization_id": "secondary-science"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "id": "eligibility-question-8945",
+        "question_ids": [
+            "8945"
+        ],
+        "exam_ids": [
+            "let"
+        ],
+        "subject_ids": {
+            "let": "physical-education"
+        },
+        "question_mappings": {
+            "8945": {
+                "exam_ids": [
+                    "let"
+                ],
+                "subject_ids": {
+                    "let": "physical-education"
+                },
+                "placements": {
+                    "let": {
+                        "board_id": "let",
+                        "subject_id": "physical-education",
+                        "domain_id": "pe-movement-and-fitness",
+                        "topic_id": "pe-fitness-and-wellness",
+                        "concept_id": "pe-health-and-wellness",
+                        "blueprint_node": "secondary-physical-education",
+                        "let_level": "SECONDARY",
+                        "let_component": "SPECIALIZATION",
+                        "specialization_id": "secondary-physical-education"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "id": "eligibility-question-8944",
+        "question_ids": [
+            "8944"
+        ],
+        "exam_ids": [
+            "let"
+        ],
+        "subject_ids": {
+            "let": "social-studies"
+        },
+        "question_mappings": {
+            "8944": {
+                "exam_ids": [
+                    "let"
+                ],
+                "subject_ids": {
+                    "let": "social-studies"
+                },
+                "placements": {
+                    "let": {
+                        "board_id": "let",
+                        "subject_id": "social-studies",
+                        "domain_id": "philippine-history",
+                        "topic_id": "social-history",
+                        "concept_id": "social-history-context-and-causation",
+                        "blueprint_node": "secondary-social-studies",
+                        "let_level": "SECONDARY",
+                        "let_component": "SPECIALIZATION",
+                        "specialization_id": "secondary-social-studies"
+                    }
+                }
+            }
+        }
     }
 ]

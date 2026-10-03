@@ -80,6 +80,7 @@ class RepositoryContextFactory
             'source-readiness-psychometrician',
             'source-readiness-mechanical-engineering',
             'source-readiness-let',
+            'source-readiness-civil-service',
         ];
     }
 }

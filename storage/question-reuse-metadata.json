@@ -218586,5 +218586,77 @@
                 }
             ]
         }
+    },
+    {
+        "id": "question-reuse-8946",
+        "question_id": "8946",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 2,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch651-let-family-proof:b652-92843504440ecfba",
+                    "note": "One-item bounded plan uses exact Batch651 source, study, scope, depth and novelty evidence.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8947",
+        "question_id": "8947",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch651-let-family-proof:b652-c4688d5efb188489",
+                    "note": "One-item bounded plan uses exact Batch651 source, study, scope, depth and novelty evidence.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8945",
+        "question_id": "8945",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch651-let-family-proof:b652-540ef67b4683e497",
+                    "note": "One-item bounded plan uses exact Batch651 source, study, scope, depth and novelty evidence.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
+    },
+    {
+        "id": "question-reuse-8944",
+        "question_id": "8944",
+        "reuse": {
+            "reuse_policy": "REVIEW",
+            "required_depth": 3,
+            "context_mode": "NEUTRAL",
+            "metadata_status": "VERIFIED",
+            "metadata_provenance": [
+                {
+                    "type": "OFFICIAL_SOURCE",
+                    "reference": "batch651-let-family-proof:b652-2c2b1e0630f0ab7e",
+                    "note": "One-item bounded plan uses exact Batch651 source, study, scope, depth and novelty evidence.",
+                    "verified_status": "VERIFIED"
+                }
+            ]
+        }
     }
 ]
