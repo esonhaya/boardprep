@@ -1,4 +1,4 @@
-# BoardPrep v1.0.0
+# BoardPrep v1.0.1
 
 BoardPrep is a PHP application with a file-backed JSON store by default. It
 requires PHP 8.1 or newer and a readable, writable storage directory.
@@ -78,7 +78,8 @@ Run `php tools/function-test.php`, `php tools/http-test.php`,
 `php tools/doctor.php --release --json` from the repository root. Developer-route tests
 require `APP_ENV=testing`.
 
-The concise operator handoff is in
+The current operational patch candidate is BoardPrep v1.0.1; immutable
+content remains based on v1.0.0. The concise operator handoff is in
 [`docs/RELEASE_RUNBOOK_V1.md`](docs/RELEASE_RUNBOOK_V1.md). The existing
 `tools/release.php` package builder creates a deterministic production-only
 archive and embeds the product version and exact committed build revision in

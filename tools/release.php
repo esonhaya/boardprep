@@ -15,12 +15,11 @@ declare(strict_types=1);
  * release accidentally.
  */
 
-const RELEASE = 'v1.0.0';
-
 $root = dirname(__DIR__);
 $releaseConfig = is_file($root . '/config/release.php') ? (array) require $root . '/config/release.php' : [];
 $productVersion = (string) ($releaseConfig['product_version'] ?? '1.0.0');
 $releaseTag = (string) ($releaseConfig['release_tag'] ?? 'v1.0.0');
+$releaseName = $releaseTag !== '' ? $releaseTag : 'v' . $productVersion;
 $outputArgument = null;
 foreach (array_slice($argv, 1) as $argument) {
     if (str_starts_with($argument, '--output=')) {
@@ -163,8 +162,10 @@ try {
             'docs/MVP_RELEASE_SCOPE.md',
             'docs/RELEASE_CHECKLIST_v0.1.0.md',
             'docs/RELEASE_NOTES_v0.1.0.md',
+            'docs/RELEASE_NOTES_V1.0.1.md',
             'docs/RELEASE_RUNBOOK_V1.md',
             'docs/POST_V1_BASELINE.md',
+            'docs/PRODUCTION_HANDOFF_V1.0.1.md',
             'tools/doctor.php',
             'tools/backup.php',
             'tools/restore.php',
@@ -224,7 +225,7 @@ try {
     $boards = json_decode((string) file_get_contents($tree . '/storage/boards.json'), true, 512, JSON_THROW_ON_ERROR);
     $manifest = [
         'product' => 'BoardPrep',
-        'release' => RELEASE,
+        'release' => $releaseName,
         'product_version' => $productVersion,
         'release_tag' => $releaseTag,
         'release_commit' => $head,

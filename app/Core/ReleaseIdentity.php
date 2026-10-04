@@ -18,7 +18,7 @@ final class ReleaseIdentity
 
         $product = (string) ($config['product'] ?? 'BoardPrep');
         $version = (string) ($config['product_version'] ?? '1.0.0');
-        $tag = (string) ($config['release_tag'] ?? 'v1.0.0');
+        $tag = (string) ($config['release_tag'] ?? 'v' . $version);
         $baseline = (string) ($config['baseline_commit'] ?? '');
 
         $manifest = self::readManifest($root);

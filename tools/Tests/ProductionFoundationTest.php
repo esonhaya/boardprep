@@ -36,6 +36,8 @@ $environment = [
 [$status, $stdout] = $run('tools/doctor.php --preflight --json', $environment);
 $preflight = json_decode(trim($stdout), true);
 $assert($status === 0 && is_array($preflight) && ($preflight['status'] ?? '') === 'PASS', 'healthy production preflight did not pass');
+$assert(($preflight['checks']['RELEASE_IDENTITY_CONTRACT']['status'] ?? '') === 'PASS', 'release identity did not match the deployment profile');
+$assert(($preflight['checks']['MUTABLE_JSON']['status'] ?? '') === 'PASS', 'present mutable JSON stores did not pass validation');
 
 [$status] = $run('tools/doctor.php --preflight --json', array_merge($environment, ['APP_DEBUG' => 'true']));
 $assert($status !== 0, 'production preflight accepted APP_DEBUG=true');
@@ -57,6 +59,7 @@ $assert($status === 0 && is_array($smoke) && ($smoke['status'] ?? '') === 'PASS'
 [$status, $stdout] = $run('public/health.php', $environment);
 $health = json_decode(trim($stdout), true);
 $assert($status === 0 && is_array($health) && ($health['status'] ?? '') === 'PASS', 'public health response did not pass');
+$assert(($health['product_version'] ?? '') === '1.0.1', 'public health did not expose the patch release identity');
 
 $temporary = sys_get_temp_dir() . '/boardprep-foundation-' . bin2hex(random_bytes(4));
 $backup = $temporary . '/backup';

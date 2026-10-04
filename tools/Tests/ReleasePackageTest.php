@@ -96,7 +96,7 @@ try {
     $assert($entriesOne === $entriesTwo, 'normalized package inventories differ');
 
     $prefix = array_key_first($entriesOne);
-    $assert(is_string($prefix) && preg_match('#^BoardPrep_v1\.0\.0_[^/]+/#', $prefix) === 1, 'package root is not release-scoped');
+    $assert(is_string($prefix) && preg_match('#^BoardPrep_v1\.0\.1_[^/]+/#', $prefix) === 1, 'package root is not release-scoped');
     $packageRoot = substr($prefix, 0, strpos($prefix, '/') + 1);
     $required = [
         'RELEASE_MANIFEST.json',
@@ -117,6 +117,8 @@ try {
         'config/deployment-profile.json',
         'docs/RELEASE_RUNBOOK_V1.md',
         'docs/POST_V1_BASELINE.md',
+        'docs/RELEASE_NOTES_V1.0.1.md',
+        'docs/PRODUCTION_HANDOFF_V1.0.1.md',
     ];
     foreach ($required as $path) {
         $assert(isset($entriesOne[$packageRoot . $path]), "required package file missing: {$path}");
@@ -132,8 +134,8 @@ try {
 
     $manifest = json_decode((string) $zipOne->getFromName($packageRoot . 'RELEASE_MANIFEST.json'), true, 512, JSON_THROW_ON_ERROR);
     $head = trim((string) shell_exec('git -C ' . escapeshellarg($root) . ' rev-parse HEAD'));
-    $assert(($manifest['release'] ?? null) === 'v1.0.0', 'release manifest version is incorrect');
-    $assert(($manifest['product_version'] ?? null) === '1.0.0', 'product version is incorrect');
+    $assert(($manifest['release'] ?? null) === 'v1.0.1', 'release manifest version is incorrect');
+    $assert(($manifest['product_version'] ?? null) === '1.0.1', 'product version is incorrect');
     $assert(($manifest['release_commit'] ?? null) === $head, 'release manifest commit does not match HEAD');
     $packagedQuestions = json_decode((string) $zipOne->getFromName($packageRoot . 'storage/questions.json'), true, 512, JSON_THROW_ON_ERROR);
     $packagedBoards = json_decode((string) $zipOne->getFromName($packageRoot . 'storage/boards.json'), true, 512, JSON_THROW_ON_ERROR);

@@ -165,6 +165,37 @@ final class ProductionReadinessService
             ['errors' => $jsonErrors]
         );
 
+        $mutableJsonErrors = [];
+        $mutableJsonPresent = [];
+        foreach (array_merge(
+            (array) ($profile['json_mutable_stores'] ?? []),
+            (array) ($profile['json_optional_mutable_stores'] ?? [])
+        ) as $relative) {
+            $relative = ltrim((string) $relative, '/');
+            $path = $storagePath . '/' . $relative;
+            if (!is_file($path)) {
+                continue;
+            }
+            $mutableJsonPresent[] = $relative;
+            try {
+                $data = json_decode((string) file_get_contents($path), true, 512, JSON_THROW_ON_ERROR);
+                if (!is_array($data) || !array_is_list($data)) {
+                    $mutableJsonErrors[] = $relative . ':expected-list';
+                }
+            } catch (JsonException) {
+                $mutableJsonErrors[] = $relative . ':malformed';
+            }
+        }
+        self::check(
+            $checks,
+            'MUTABLE_JSON',
+            $mutableJsonErrors === [] ? 'PASS' : 'FAIL',
+            $mutableJsonErrors === []
+                ? 'Present mutable JSON stores parse with the expected list shape.'
+                : 'One or more present mutable JSON stores are invalid.',
+            ['present' => $mutableJsonPresent, 'errors' => $mutableJsonErrors]
+        );
+
         $driver = strtolower((string) (Environment::get('DB_DRIVER', 'json') ?? 'json'));
         $allowedDrivers = array_map('strtolower', array_map('strval', (array) ($profile['database_modes'] ?? ['json', 'sqlite', 'mysql'])));
         self::check(
@@ -197,6 +228,24 @@ final class ProductionReadinessService
             preg_match('/^[0-9a-f]{40}$/', $release['build_commit']) === 1 ? 'PASS' : 'WARN',
             preg_match('/^[0-9a-f]{40}$/', $release['build_commit']) === 1 ? 'Product and build identity are discoverable.' : 'Product identity is available but no committed build identity was found.',
             ['product_version' => $release['product_version'], 'release_tag' => $release['release_tag']]
+        );
+        $expectedProductVersion = trim((string) ($profile['product_version'] ?? ''));
+        $expectedReleaseTag = trim((string) ($profile['release_tag'] ?? ''));
+        $identityContractPasses = ($expectedProductVersion === '' || $release['product_version'] === $expectedProductVersion)
+            && ($expectedReleaseTag === '' || $release['release_tag'] === $expectedReleaseTag);
+        self::check(
+            $checks,
+            'RELEASE_IDENTITY_CONTRACT',
+            $identityContractPasses ? 'PASS' : 'FAIL',
+            $identityContractPasses
+                ? 'Product version and release tag match the deployment profile.'
+                : 'Product version or release tag does not match the deployment profile.',
+            [
+                'expected_product_version' => $expectedProductVersion,
+                'actual_product_version' => $release['product_version'],
+                'expected_release_tag' => $expectedReleaseTag,
+                'actual_release_tag' => $release['release_tag'],
+            ]
         );
 
         $frontControllerText = is_file($root . '/public/index.php') ? (string) file_get_contents($root . '/public/index.php') : '';
@@ -315,7 +364,7 @@ final class ProductionReadinessService
                 'liveness' => 'PASS',
                 'readiness' => 'FAIL',
                 'product' => 'BoardPrep',
-                'product_version' => '1.0.0',
+                'product_version' => '1.0.1',
                 'build_commit' => '',
             ];
         }

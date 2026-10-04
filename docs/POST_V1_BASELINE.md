@@ -9,6 +9,8 @@ Batch-specific worktree.
 
 - Release content baseline: `4753c03c11d5808c2ea80a9ab414ff73bd767d32`
 - Product identity: `BoardPrep v1.0.0` (`v1.0.0` remains immutable)
+- Current operational patch: `BoardPrep v1.0.1` (Batch660 candidate; the
+  immutable v1.0.0 content baseline is unchanged)
 - Global canonical/effective/runtime: `8962 / 9422 / 9746`
 - Native board counts: LET 1788; CSE 1553; Nursing 878; Criminologist 451;
   Civil Engineering 922; Mechanical Engineering 511; REE 842; Architecture
@@ -48,6 +50,17 @@ production-only package with `php tools/release.php`. Snapshot mutable state
 with `php tools/backup.php --output=/path/to/backup`; verify a non-destructive
 restore plan with `php tools/restore.php --input=/path/to/backup
 --destination=/path/to/restore --dry-run`.
+
+The shortest post-v1 operational path is:
+
+    php tools/doctor.php --preflight --json
+    php tools/doctor.php --smoke --json
+    php tools/doctor.php --health --portfolio --json
+    php tools/doctor.php --release --json
+
+Before a real update, create and verify a mutable-state backup. The v1.0.1
+patch must not be used to overwrite production state or the immutable v1.0.0
+tag.
 
 ## Future work categories
 

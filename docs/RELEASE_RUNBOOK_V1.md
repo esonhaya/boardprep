@@ -1,7 +1,8 @@
 # BoardPrep v1 deployment runbook
 
-This is the operator path for the `BoardPrep v1.0.0` release and later
-operational commits. It describes the repository's actual PHP web-app
+This is the operator path for the immutable `BoardPrep v1.0.0` content release
+and the `BoardPrep v1.0.1` production-hardening patch. It describes the
+repository's actual PHP web-app
 deployment model; it does not claim that a hosting provider, domain, or TLS
 certificate is provisioned.
 
@@ -88,6 +89,11 @@ The package is built from `git archive`, so uncommitted files, `.git`, test
 fixtures, local sessions, and development caches cannot enter it. The package
 manifest identifies `product_version`, `release_tag`, and `build_commit`.
 
+For the first live deployment, use the exact package and non-secret input
+contract in `PRODUCTION_HANDOFF_V1.0.1.md`. Do not deploy from a dirty
+checkout. The `v1.0.0` tag is immutable; `v1.0.1` is a backward-compatible
+operational patch and does not change question content.
+
 ## Post-deploy smoke
 
 Against the real URL, verify:
@@ -102,7 +108,8 @@ Against the real URL, verify:
 - no debug output, stack trace, filesystem path, or secret is visible.
 
 These HTTP checks require a real server/domain/TLS target and are not claimed by
-the local Batch659 audit.
+the local production-like audit. A first deployment is accepted only after
+the same checklist succeeds against the real URL.
 
 ## Rollback
 
@@ -124,3 +131,8 @@ Use event-driven maintenance categories: `BUGFIX`, `CURRENTNESS_UPDATE`,
 `PERFORMANCE`, and `SECURITY`. Question expansion is evidence-backed only;
 numeric thinness is not a release requirement. Architecture visual questions
 remain a post-release feature backlog.
+
+Keep backups outside the public document root; retain the previous release
+directory or archive until the new one passes smoke. Simple shared-hosting
+replacement during a maintenance window is supported. A release-directory and
+symlink strategy is optional, not required, and zero-downtime is not claimed.

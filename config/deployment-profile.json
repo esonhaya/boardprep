@@ -1,7 +1,7 @@
 {
     "product": "BoardPrep",
-    "product_version": "1.0.0",
-    "release_tag": "v1.0.0",
+    "product_version": "1.0.1",
+    "release_tag": "v1.0.1",
     "php_min_version": "8.1.0",
     "php_memory_limit": "512M",
     "required_extensions": [
@@ -55,6 +55,15 @@
     "release_command": "php tools/doctor.php --release --json",
     "preflight_command": "php tools/doctor.php --preflight --json",
     "smoke_command": "php tools/doctor.php --smoke --json",
+    "backup_scope": "mutable_runtime_state_only",
+    "production_data_excluded_from_package": [
+        "storage/attempts.json",
+        "storage/weakness.json",
+        "storage/question-statistics.json",
+        "storage/flashcard_state.json",
+        "storage/runtime",
+        ".env"
+    ],
     "backup_command": "php tools/backup.php --output=/path/to/backup",
     "restore_command": "php tools/restore.php --input=/path/to/backup --destination=/path/to/restore --dry-run"
 }
