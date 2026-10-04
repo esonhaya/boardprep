@@ -9,6 +9,8 @@ require_once __DIR__ . '/../app/Core/Autoloader.php';
 
 \App\Core\Autoloader::register();
 
+\App\Core\SecurityHeaders::apply();
+
 use App\Core\ExceptionHandler;
 use App\Core\Router;
 

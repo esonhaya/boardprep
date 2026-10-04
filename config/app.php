@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 use App\Core\Environment;
 
+$release = require __DIR__ . '/release.php';
+
 return [
 
     'name' => 'BoardPrep',
 
-    'version' => '0.1.0',
+    'version' => (string) ($release['product_version'] ?? '1.0.0'),
 
     'environment' => Environment::get('APP_ENV', 'production'),
 

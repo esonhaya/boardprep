@@ -1,4 +1,4 @@
-# BoardPrep
+# BoardPrep v1.0.0
 
 BoardPrep is a PHP application with a file-backed JSON store by default. It
 requires PHP 8.1 or newer and a readable, writable storage directory.
@@ -81,7 +81,15 @@ require `APP_ENV=testing`.
 The concise operator handoff is in
 [`docs/RELEASE_RUNBOOK_V1.md`](docs/RELEASE_RUNBOOK_V1.md). The existing
 `tools/release.php` package builder creates a deterministic production-only
-archive and embeds the exact committed release revision in its manifest.
+archive and embeds the product version and exact committed build revision in
+its manifest. Before deployment, run `php tools/doctor.php --preflight --json`
+and `php tools/doctor.php --smoke --json`.
+
+The deployment profile is tracked in `config/deployment-profile.json`.
+Mutable learner state is backed up separately from canonical content with
+`php tools/backup.php --output=/path/to/backup`; restore is explicit and
+supports a dry run. The lightweight `public/health.php` endpoint exposes only
+liveness, readiness, version, and build identity.
 
 Developer simulation: `php tools/doctor.php --simulate`. This runs the registered
 scenario suite after the ordinary Doctor checks and is deeper than those checks.

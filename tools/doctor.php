@@ -13,6 +13,56 @@ if (!in_array('--health', array_slice($argv ?? [], 1), true)) {
     @ini_set('memory_limit', '1024M');
 }
 
+$doctorArguments = array_slice($argv ?? [], 1);
+
+if (in_array('--preflight', $doctorArguments, true)) {
+    $invalidPreflightArguments = array_values(array_filter(
+        $doctorArguments,
+        static fn(string $argument): bool => in_array($argument, ['--preflight', '--json'], true) === false
+    ));
+    if ($invalidPreflightArguments !== []) {
+        fwrite(STDERR, 'Unknown Preflight option: ' . $invalidPreflightArguments[0] . PHP_EOL);
+        exit(2);
+    }
+    $preflight = \App\Services\Operations\ProductionReadinessService::preflight(dirname(__DIR__));
+    if (in_array('--json', $doctorArguments, true)) {
+        echo json_encode($preflight, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR), PHP_EOL;
+    } else {
+        printf(
+            "PREFLIGHT=%s FAIL=%d WARN=%d PRODUCT_VERSION=%s BUILD_COMMIT=%s\n",
+            (string) ($preflight['status'] ?? 'UNKNOWN'),
+            count((array) ($preflight['failures'] ?? [])),
+            count((array) ($preflight['warnings'] ?? [])),
+            (string) ($preflight['product_version'] ?? 'UNKNOWN'),
+            (string) ($preflight['build_commit'] ?? 'UNKNOWN')
+        );
+    }
+    exit(($preflight['status'] ?? '') === 'FAIL' ? 1 : 0);
+}
+
+if (in_array('--smoke', $doctorArguments, true)) {
+    $invalidSmokeArguments = array_values(array_filter(
+        $doctorArguments,
+        static fn(string $argument): bool => in_array($argument, ['--smoke', '--json'], true) === false
+    ));
+    if ($invalidSmokeArguments !== []) {
+        fwrite(STDERR, 'Unknown Smoke option: ' . $invalidSmokeArguments[0] . PHP_EOL);
+        exit(2);
+    }
+    $smoke = \App\Services\Operations\ProductionReadinessService::smoke(dirname(__DIR__));
+    if (in_array('--json', $doctorArguments, true)) {
+        echo json_encode($smoke, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR), PHP_EOL;
+    } else {
+        printf(
+            "SMOKE=%s FAIL=%d RUNTIME_MS=%s\n",
+            (string) ($smoke['status'] ?? 'UNKNOWN'),
+            count((array) ($smoke['failures'] ?? [])),
+            (string) ($smoke['runtime_ms'] ?? '0')
+        );
+    }
+    exit(($smoke['status'] ?? '') === 'FAIL' ? 1 : 0);
+}
+
 if (in_array('--release', array_slice($argv ?? [], 1), true)) {
     $releaseArguments = array_slice($argv ?? [], 1);
     $invalidReleaseArguments = array_values(array_filter(

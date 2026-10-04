@@ -8,16 +8,19 @@ declare(strict_types=1);
 @ini_set('memory_limit', '1024M');
 
 /**
- * Build a production-only RC package from committed Git state.
+ * Build a production-only BoardPrep package from committed Git state.
  *
  * The working tree is intentionally never copied.  Git archive is the
  * source of truth so dirty files and untracked local assets cannot enter a
  * release accidentally.
  */
 
-const RELEASE = 'RC1.1';
+const RELEASE = 'v1.0.0';
 
 $root = dirname(__DIR__);
+$releaseConfig = is_file($root . '/config/release.php') ? (array) require $root . '/config/release.php' : [];
+$productVersion = (string) ($releaseConfig['product_version'] ?? '1.0.0');
+$releaseTag = (string) ($releaseConfig['release_tag'] ?? 'v1.0.0');
 $outputArgument = null;
 foreach (array_slice($argv, 1) as $argument) {
     if (str_starts_with($argument, '--output=')) {
@@ -109,7 +112,7 @@ if (!preg_match('/^[0-9a-f]{40}$/', $head) || !preg_match('/^[0-9a-f]+$/', $shor
     releaseFail('Unable to resolve the committed Git source tree.');
 }
 
-$output = $outputArgument ?? "BoardPrep_RC1.1_{$shortHead}.zip";
+$output = $outputArgument ?? "BoardPrep_v{$productVersion}_{$shortHead}.zip";
 if (!str_starts_with($output, '/')) {
     $output = getcwd() . '/' . $output;
 }
@@ -129,7 +132,7 @@ if (!mkdir($temporary, 0777, true) || !mkdir($source, 0777, true)) {
 }
 
 try {
-    $prefix = "BoardPrep_RC1.1_{$shortHead}/";
+    $prefix = "BoardPrep_v{$productVersion}_{$shortHead}/";
     $archiveCommand = 'git -C ' . escapeshellarg($root)
         . ' archive --format=tar --prefix=' . escapeshellarg($prefix) . ' HEAD';
     $descriptor = [
@@ -147,7 +150,7 @@ try {
         releaseFail(trim($error) !== '' ? trim($error) : 'Git archive failed.');
     }
     releaseCommand('tar -xf ' . escapeshellarg($tar) . ' -C ' . escapeshellarg($source), $source);
-    $tree = $source . '/BoardPrep_RC1.1_' . $shortHead;
+    $tree = $source . '/BoardPrep_v' . $productVersion . '_' . $shortHead;
 
     $includedFiles = releaseFiles(
         $tree,
@@ -160,15 +163,22 @@ try {
             'docs/MVP_RELEASE_SCOPE.md',
             'docs/RELEASE_CHECKLIST_v0.1.0.md',
             'docs/RELEASE_NOTES_v0.1.0.md',
+            'docs/RELEASE_RUNBOOK_V1.md',
+            'docs/POST_V1_BASELINE.md',
+            'tools/doctor.php',
+            'tools/backup.php',
+            'tools/restore.php',
+            'tools/release.php',
             'tools/db-migrate.php',
         ],
         [
             'app',
             'bootstrap',
             'config',
-            'database/migrations',
-            'public',
-            'routes',
+        'database/migrations',
+        'public',
+        'routes',
+        'tools/Doctor',
         ]
     );
     $includedFiles = releaseFiles(
@@ -215,7 +225,10 @@ try {
     $manifest = [
         'product' => 'BoardPrep',
         'release' => RELEASE,
+        'product_version' => $productVersion,
+        'release_tag' => $releaseTag,
         'release_commit' => $head,
+        'build_commit' => $head,
         'release_commit_short' => $shortHead,
         'source' => 'git committed tree',
         'source_commit_date' => $commitDate,
@@ -249,7 +262,7 @@ try {
         releaseFail('Unable to finalize package archive.');
     }
 
-    printf("PACKAGE=%s\nCOMMIT=%s\nFILES=%d\nQUESTIONS=%d\nBOARDS=%d\n", $output, $shortHead, count($manifest['included_files']), $manifest['canonical_questions'], $manifest['registered_boards']);
+    printf("PACKAGE=%s\nPRODUCT_VERSION=%s\nCOMMIT=%s\nFILES=%d\nQUESTIONS=%d\nBOARDS=%d\n", $output, $productVersion, $shortHead, count($manifest['included_files']), $manifest['canonical_questions'], $manifest['registered_boards']);
 } finally {
     releaseRemoveTree($temporary);
 }

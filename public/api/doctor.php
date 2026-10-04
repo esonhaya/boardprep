@@ -8,6 +8,7 @@ ini_set('display_errors', '0');
 require_once dirname(__DIR__, 2) . '/app/Core/Autoloader.php';
 
 \App\Core\Autoloader::register();
+\App\Core\SecurityHeaders::apply();
 
 try {
     require dirname(__DIR__, 2) . '/bootstrap/app.php';

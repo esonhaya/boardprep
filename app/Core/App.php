@@ -77,6 +77,11 @@ class App
 
     private function configureRuntime(): void
     {
+        $memoryLimit = trim((string) (Environment::get('APP_MEMORY_LIMIT', '512M') ?? '512M'));
+        if ($memoryLimit !== '') {
+            @ini_set('memory_limit', $memoryLimit);
+        }
+
         $environment = $this->config['environment'] ?? null;
         if (!is_string($environment) || !in_array($environment, ['production', 'development', 'testing'], true)) {
             throw new \RuntimeException('APP_ENV must be production, development, or testing.');

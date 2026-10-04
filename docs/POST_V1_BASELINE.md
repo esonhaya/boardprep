@@ -7,7 +7,8 @@ Batch-specific worktree.
 
 ## Release baseline
 
-- Release content baseline: `5cc14e20aeb7773c3871e41d3f9b3c0d7cb03de3`
+- Release content baseline: `4753c03c11d5808c2ea80a9ab414ff73bd767d32`
+- Product identity: `BoardPrep v1.0.0` (`v1.0.0` remains immutable)
 - Global canonical/effective/runtime: `8962 / 9422 / 9746`
 - Native board counts: LET 1788; CSE 1553; Nursing 878; Criminologist 451;
   Civil Engineering 922; Mechanical Engineering 511; REE 842; Architecture
@@ -30,6 +31,8 @@ Run from a committed checkout with the repository's PHP runtime:
 ```sh
 env APP_ENV=testing APP_DEBUG=false php -d memory_limit=1024M tools/doctor.php --health --portfolio --json
 env APP_ENV=testing APP_DEBUG=false php -d memory_limit=1024M tools/doctor.php --release --json
+APP_ENV=production APP_DEBUG=false php tools/doctor.php --preflight --json
+APP_ENV=production APP_DEBUG=false php tools/doctor.php --smoke --json
 php tools/Tests/RuntimeConfigurationTest.php
 php tools/Tests/ReleaseReadinessContractTest.php
 php tools/Tests/ReleasePackageTest.php
@@ -38,6 +41,13 @@ php tools/Tests/ReleasePackageTest.php
 Use the permanent Doctor/Developer Health summaries as the source of current
 state. The Batch657 projection remains a compact release-candidate audit
 orchestrator; it is not a replacement health framework.
+
+The machine-readable deployment profile is
+[`config/deployment-profile.json`](../config/deployment-profile.json). Build a
+production-only package with `php tools/release.php`. Snapshot mutable state
+with `php tools/backup.php --output=/path/to/backup`; verify a non-destructive
+restore plan with `php tools/restore.php --input=/path/to/backup
+--destination=/path/to/restore --dry-run`.
 
 ## Future work categories
 

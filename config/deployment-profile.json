@@ -1,0 +1,60 @@
+{
+    "product": "BoardPrep",
+    "product_version": "1.0.0",
+    "release_tag": "v1.0.0",
+    "php_min_version": "8.1.0",
+    "php_memory_limit": "512M",
+    "required_extensions": [
+        "json",
+        "session",
+        "pdo"
+    ],
+    "optional_extensions": [
+        "pdo_sqlite",
+        "pdo_mysql",
+        "zip"
+    ],
+    "document_root": "public",
+    "front_controller": "public/index.php",
+    "rewrite_required": true,
+    "config_required": [
+        "APP_ENV",
+        "APP_DEBUG",
+        "APP_TIMEZONE",
+        "DB_DRIVER"
+    ],
+    "writable_paths": [
+        "storage"
+    ],
+    "canonical_content": [
+        "storage/boards.json",
+        "storage/subjects.json",
+        "storage/questions.json",
+        "storage/question-eligibility.json",
+        "storage/study-materials.json",
+        "storage/study-question-links.json",
+        "storage/taxonomy/domains.json",
+        "storage/taxonomy/topics.json",
+        "storage/taxonomy/concepts.json"
+    ],
+    "json_mutable_stores": [
+        "attempts.json",
+        "weakness.json",
+        "question-statistics.json",
+        "flashcard_state.json"
+    ],
+    "json_optional_mutable_stores": [
+        "blueprints.json"
+    ],
+    "database_modes": [
+        "json",
+        "sqlite",
+        "mysql"
+    ],
+    "health_command": "php tools/doctor.php --health --portfolio --json",
+    "release_command": "php tools/doctor.php --release --json",
+    "preflight_command": "php tools/doctor.php --preflight --json",
+    "smoke_command": "php tools/doctor.php --smoke --json",
+    "backup_command": "php tools/backup.php --output=/path/to/backup",
+    "restore_command": "php tools/restore.php --input=/path/to/backup --destination=/path/to/restore --dry-run"
+}

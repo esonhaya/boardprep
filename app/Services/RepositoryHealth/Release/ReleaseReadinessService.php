@@ -282,7 +282,7 @@ final class ReleaseReadinessService
             $checks[$code] = ['status' => $status, 'reason' => $reason, 'evidence' => $evidence];
         };
 
-        $requiredFiles = ['.env.example', 'config/app.php', 'public/index.php', 'routes/web.php', 'app/Core/App.php', 'app/Core/ExceptionHandler.php', 'app/Core/SessionConfiguration.php', 'app/Storage/JsonStorage.php'];
+        $requiredFiles = ['.env.example', 'config/app.php', 'config/release.php', 'config/deployment-profile.json', 'public/index.php', 'public/health.php', 'routes/web.php', 'app/Core/App.php', 'app/Core/ExceptionHandler.php', 'app/Core/SessionConfiguration.php', 'app/Core/SecurityHeaders.php', 'app/Storage/JsonStorage.php'];
         $missingFiles = array_values(array_filter($requiredFiles, static fn(string $file): bool => !is_file($root . '/' . $file)));
         $record('REQUIRED_RUNTIME_FILES', $missingFiles === [] ? 'PASS' : 'FAIL', $missingFiles === [] ? 'Configuration, front-controller, route, exception, session, and storage contracts are present.' : 'Required runtime files are missing.', ['missing' => $missingFiles]);
 
@@ -300,6 +300,11 @@ final class ReleaseReadinessService
             && $has('app/Controllers/DoctorApiController.php', "App::config('environment') === 'production'")
             && $has('app/Controllers/DoctorRunController.php', "App::config('environment') === 'production'");
         $record('DEVELOPER_ADMIN_BOUNDARY', $developerGuard ? 'PASS' : 'FAIL', $developerGuard ? 'Developer and admin maintenance surfaces are unavailable in production.' : 'Developer/admin route boundary is incomplete.');
+
+        $securityHeaders = $has('app/Core/SecurityHeaders.php', 'X-Content-Type-Options: nosniff')
+            && $has('app/Core/SecurityHeaders.php', 'X-Frame-Options: SAMEORIGIN')
+            && $has('public/index.php', 'SecurityHeaders::apply');
+        $record('SECURITY_HEADERS', $securityHeaders ? 'PASS' : 'FAIL', $securityHeaders ? 'Baseline browser security headers are applied by the front controller.' : 'Baseline browser security headers are incomplete.');
 
         $sessionSafe = $has('app/Core/SessionConfiguration.php', "session.use_strict_mode")
             && $has('app/Core/SessionConfiguration.php', "'httponly' => true")
@@ -330,7 +335,8 @@ final class ReleaseReadinessService
         $documentation = str_contains($readme, 'public/')
             && str_contains($readme, 'APP_STORAGE_PATH')
             && str_contains($readme, 'tools/doctor.php')
-            && str_contains($readme, 'backup');
+            && str_contains($readme, 'backup')
+            && is_file($root . '/docs/RELEASE_RUNBOOK_V1.md');
         $record('OPERATING_DOCUMENTATION', $documentation ? 'PASS' : 'WARN', $documentation ? 'README documents runtime, storage, health, tests, and backup expectations.' : 'Operating documentation is incomplete.');
 
         $status = 'PASS';
@@ -463,7 +469,7 @@ final class ReleaseReadinessService
             'study_experience' => ['tools/Tests/FlashcardIntegrationTest.php'],
             'security_sanity' => ['tools/Tests/ProductionQuizCsrfTest.php'],
             'repository_determinism' => ['tools/Tests/ReleaseReadinessContractTest.php'],
-            'production_configuration' => ['tools/Tests/RuntimeConfigurationTest.php'],
+            'production_configuration' => ['tools/Tests/RuntimeConfigurationTest.php', 'tools/Tests/ProductionFoundationTest.php'],
             'release_packaging' => ['tools/Tests/ReleasePackageTest.php'],
         ];
         $checks = [];
