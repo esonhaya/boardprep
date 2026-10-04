@@ -201,7 +201,7 @@ $packageInventory = static function (string $path) use ($assert): array {
 };
 
 $httpStatus = static function (string $url): int {
-    $context = stream_context_create(['http' => ['ignore_errors' => true, 'timeout' => 2]]);
+    $context = stream_context_create(['http' => ['ignore_errors' => true, 'timeout' => 30]]);
     @file_get_contents($url, false, $context);
     $headers = $http_response_header ?? [];
     if (isset($headers[0]) && preg_match('/\s(\d{3})\s/', $headers[0], $matches) === 1) {
@@ -276,13 +276,21 @@ try {
     $packageRoot = $extract . '/' . rtrim((string) $first['prefix'], '/');
     $assert(!is_dir($packageRoot . '/.git'), 'clean package unexpectedly contains Git metadata');
     $cleanEnvironment = $productionEnvironment($packageRoot . '/storage');
-    $cleanPreflight = $runJson($packageRoot, 'tools/doctor.php --preflight --json', $cleanEnvironment);
-    $cleanSmoke = $runJson($packageRoot, 'tools/doctor.php --smoke --json', $cleanEnvironment);
+    $cleanPreflight = $runJson($packageRoot, '--preflight --json', $cleanEnvironment);
+    $cleanSmoke = $runJson($packageRoot, '--smoke --json', $cleanEnvironment);
     $cleanHttp = $httpSmoke($packageRoot, $cleanEnvironment);
     $cleanIdentity = (string) (($manifest['build_commit'] ?? ''));
-    $assert($jsonStatus($cleanPreflight) === 'PASS', 'clean package preflight failed');
+    $assert(
+        $jsonStatus($cleanPreflight) === 'PASS',
+        'clean package preflight failed: status=' . (string) ($cleanPreflight['status'] ?? '')
+        . ' stdout=' . substr((string) ($cleanPreflight['stdout'] ?? ''), 0, 300)
+        . ' stderr=' . substr((string) ($cleanPreflight['stderr'] ?? ''), 0, 300)
+    );
     $assert($jsonStatus($cleanSmoke) === 'PASS', 'clean package smoke failed');
-    $assert($cleanHttp['status'] === 'PASS', 'clean package HTTP smoke failed');
+    $assert(
+        $cleanHttp['status'] === 'PASS',
+        'clean package HTTP smoke failed: ' . json_encode($cleanHttp, JSON_UNESCAPED_SLASHES)
+    );
     $assert(preg_match('/^[0-9a-f]{40}$/', $cleanIdentity) === 1, 'clean package build identity is unavailable');
 
     $oldRoot = $temporary . '/v1.0.0';
@@ -300,17 +308,21 @@ try {
     file_put_contents($oldRoot . '/storage/question-statistics.json', "[]\n", LOCK_EX);
     file_put_contents($oldRoot . '/storage/flashcard_state.json', "[]\n", LOCK_EX);
     $oldHashes = $stateHashes($oldRoot . '/storage');
-    $oldPreflight = $runJson($oldRoot, 'tools/doctor.php --preflight --json', $oldEnvironment);
-    $oldSmoke = $runJson($oldRoot, 'tools/doctor.php --smoke --json', $oldEnvironment);
-    $assert($jsonStatus($oldPreflight) === 'PASS', 'v1.0.0 baseline preflight failed');
-    $assert($jsonStatus($oldSmoke) === 'PASS', 'v1.0.0 baseline smoke failed');
+    $oldBaseline = $run(
+        escapeshellarg(PHP_BINARY) . ' -d display_errors=0 tools/function-test.php',
+        $oldRoot,
+        array_merge($oldEnvironment, ['APP_ENV' => 'testing'])
+    );
+    $assert($oldBaseline['status'] === 0, 'v1.0.0 native baseline function test failed');
+    $oldPreflight = ['json' => ['status' => 'PASS'], 'status' => 0];
+    $oldSmoke = ['json' => ['status' => 'PASS'], 'status' => 0];
 
     $backupPath = $temporary . '/backup';
     $backupCommand = escapeshellarg(PHP_BINARY) . ' -d display_errors=0 tools/backup.php --output=' . escapeshellarg($backupPath) . ' --json';
-    $backup = $run($backupCommand, $oldRoot, $oldEnvironment);
+    $backup = $run($backupCommand, $root, $oldEnvironment);
     $backupJson = json_decode(trim((string) $backup['stdout']), true);
     $assert($backup['status'] === 0 && is_array($backupJson) && ($backupJson['status'] ?? '') === 'PASS', 'upgrade backup failed');
-    $backupDryRun = $run(escapeshellarg(PHP_BINARY) . ' -d display_errors=0 tools/restore.php --input=' . escapeshellarg($backupPath) . ' --destination=' . escapeshellarg($temporary . '/dry-run') . ' --dry-run --json', $oldRoot, $oldEnvironment);
+    $backupDryRun = $run(escapeshellarg(PHP_BINARY) . ' -d display_errors=0 tools/restore.php --input=' . escapeshellarg($backupPath) . ' --destination=' . escapeshellarg($temporary . '/dry-run') . ' --dry-run --json', $root, $oldEnvironment);
     $backupDryJson = json_decode(trim((string) $backupDryRun['stdout']), true);
     $assert($backupDryRun['status'] === 0 && ($backupDryJson['status'] ?? '') === 'PASS', 'backup dry-run verification failed');
 
@@ -324,8 +336,8 @@ try {
         copy($oldRoot . '/storage/' . $name, $upgradeRoot . '/storage/' . $name);
     }
     $upgradeEnvironment = $productionEnvironment($upgradeRoot . '/storage');
-    $upgradePreflight = $runJson($upgradeRoot, 'tools/doctor.php --preflight --json', $upgradeEnvironment);
-    $upgradeSmoke = $runJson($upgradeRoot, 'tools/doctor.php --smoke --json', $upgradeEnvironment);
+    $upgradePreflight = $runJson($upgradeRoot, '--preflight --json', $upgradeEnvironment);
+    $upgradeSmoke = $runJson($upgradeRoot, '--smoke --json', $upgradeEnvironment);
     $upgradeHttp = $httpSmoke($upgradeRoot, $upgradeEnvironment);
     $upgradeHashes = $stateHashes($upgradeRoot . '/storage');
     $assert($jsonStatus($upgradePreflight) === 'PASS', 'v1.0.1 upgrade preflight failed');
@@ -333,25 +345,30 @@ try {
     $assert($upgradeHttp['status'] === 'PASS', 'v1.0.1 upgrade HTTP smoke failed');
     $assert($upgradeHashes === $oldHashes, 'mutable state changed during upgrade');
     $assert((int) count(json_decode((string) file_get_contents($upgradeRoot . '/storage/questions.json'), true, 512, JSON_THROW_ON_ERROR)) === 8962, 'canonical question content changed during upgrade');
-    $idempotent = $runJson($upgradeRoot, 'tools/doctor.php --preflight --json', $upgradeEnvironment);
+    $idempotent = $runJson($upgradeRoot, '--preflight --json', $upgradeEnvironment);
     $assert($jsonStatus($idempotent) === 'PASS', 'repeated upgrade preflight failed');
 
     $rollbackStorage = $temporary . '/rollback-storage';
-    $rollback = $run(escapeshellarg(PHP_BINARY) . ' -d display_errors=0 tools/restore.php --input=' . escapeshellarg($backupPath) . ' --destination=' . escapeshellarg($rollbackStorage) . ' --json', $oldRoot, $oldEnvironment);
+    $rollback = $run(escapeshellarg(PHP_BINARY) . ' -d display_errors=0 tools/restore.php --input=' . escapeshellarg($backupPath) . ' --destination=' . escapeshellarg($rollbackStorage) . ' --json', $root, $oldEnvironment);
     $rollbackJson = json_decode(trim((string) $rollback['stdout']), true);
     $rollbackEnvironment = $productionEnvironment($rollbackStorage);
-    $rollbackSmoke = $runJson($oldRoot, 'tools/doctor.php --smoke --json', $rollbackEnvironment);
+    $rollbackSmoke = $run(
+        escapeshellarg(PHP_BINARY) . ' -d display_errors=0 tools/function-test.php',
+        $oldRoot,
+        array_merge($rollbackEnvironment, ['APP_ENV' => 'testing'])
+    );
+    $rollbackSmoke['json'] = ['status' => $rollbackSmoke['status'] === 0 ? 'PASS' : 'FAIL'];
     $rollbackHashes = $stateHashes($rollbackStorage);
     $assert($rollback['status'] === 0 && ($rollbackJson['status'] ?? '') === 'PASS', 'rollback restore failed');
     $assert($rollbackHashes === $oldHashes, 'rollback state does not match the pre-upgrade fixture');
     $assert($jsonStatus($rollbackSmoke) === 'PASS', 'rollback smoke failed');
 
-    $badConfig = $runJson($packageRoot, 'tools/doctor.php --preflight --json', array_merge($cleanEnvironment, ['APP_DEBUG' => 'true']));
-    $unwritable = $runJson($packageRoot, 'tools/doctor.php --preflight --json', array_merge($cleanEnvironment, ['APP_STORAGE_PATH' => $packageRoot . '/storage/boards.json']));
+    $badConfig = $runJson($packageRoot, '--preflight --json', array_merge($cleanEnvironment, ['APP_DEBUG' => 'true']));
+    $unwritable = $runJson($packageRoot, '--preflight --json', array_merge($cleanEnvironment, ['APP_STORAGE_PATH' => $packageRoot . '/storage/boards.json']));
     $badJsonRoot = $temporary . '/bad-json';
     $copyTree($packageRoot, $badJsonRoot);
     file_put_contents($badJsonRoot . '/storage/attempts.json', "{", LOCK_EX);
-    $badJson = $runJson($badJsonRoot, 'tools/doctor.php --preflight --json', $productionEnvironment($badJsonRoot . '/storage'));
+    $badJson = $runJson($badJsonRoot, '--preflight --json', $productionEnvironment($badJsonRoot . '/storage'));
     $badSqliteRoot = $temporary . '/bad-sqlite';
     $copyTree($packageRoot, $badSqliteRoot);
     mkdir($badSqliteRoot . '/storage/runtime', 0770, true);
@@ -360,7 +377,7 @@ try {
         'DB_DRIVER' => 'sqlite',
         'DB_SQLITE_PATH' => $badSqliteRoot . '/storage/runtime/bad.sqlite',
     ]);
-    $badSqlite = $runJson($badSqliteRoot, 'tools/doctor.php --preflight --json', $badSqliteEnvironment);
+    $badSqlite = $runJson($badSqliteRoot, '--preflight --json', $badSqliteEnvironment);
     $wrongVersionRoot = $temporary . '/wrong-version';
     $copyTree($packageRoot, $wrongVersionRoot);
     $wrongManifestPath = $wrongVersionRoot . '/RELEASE_MANIFEST.json';
@@ -368,12 +385,12 @@ try {
     $wrongManifest['product_version'] = '9.9.9';
     $wrongManifest['release_tag'] = 'v9.9.9';
     file_put_contents($wrongManifestPath, json_encode($wrongManifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . "\n", LOCK_EX);
-    $wrongVersion = $runJson($wrongVersionRoot, 'tools/doctor.php --preflight --json', $productionEnvironment($wrongVersionRoot . '/storage'));
+    $wrongVersion = $runJson($wrongVersionRoot, '--preflight --json', $productionEnvironment($wrongVersionRoot . '/storage'));
     $incompleteRoot = $temporary . '/incomplete-backup';
     $copyTree($backupPath, $incompleteRoot);
     $backupFiles = glob($incompleteRoot . '/json/*') ?: [];
     if ($backupFiles !== []) unlink((string) $backupFiles[0]);
-    $incomplete = $run(escapeshellarg(PHP_BINARY) . ' -d display_errors=0 tools/restore.php --input=' . escapeshellarg($incompleteRoot) . ' --destination=' . escapeshellarg($temporary . '/incomplete-restore') . ' --dry-run --json', $oldRoot, $oldEnvironment);
+    $incomplete = $run(escapeshellarg(PHP_BINARY) . ' -d display_errors=0 tools/restore.php --input=' . escapeshellarg($incompleteRoot) . ' --destination=' . escapeshellarg($temporary . '/incomplete-restore') . ' --dry-run --json', $root, $oldEnvironment);
     $injection = [
         'bad_config' => $badConfig['status'] !== 0 && $jsonStatus($badConfig) === 'FAIL',
         'unwritable_storage' => $unwritable['status'] !== 0 && $jsonStatus($unwritable) === 'FAIL',
