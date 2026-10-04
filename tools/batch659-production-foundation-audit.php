@@ -36,6 +36,20 @@ $release = is_file($root . '/storage/release-readiness.json')
     : [];
 $health = is_array($health) ? $health : [];
 $release = is_array($release) ? $release : [];
+if ($release === [] && is_file($root . '/storage/production-readiness-v1.json')) {
+    $storedArtifact = json_decode((string) file_get_contents($root . '/storage/production-readiness-v1.json'), true);
+    if (is_array($storedArtifact['release'] ?? null)) {
+        $storedRelease = (array) $storedArtifact['release'];
+        $release = [
+            'release_readiness' => [
+                'release_domains' => (array) ($storedRelease['domains'] ?? []),
+                'release_gate' => ['status' => (string) ($storedRelease['gate'] ?? 'UNKNOWN')],
+                'release_decision' => (string) ($storedRelease['decision'] ?? 'UNKNOWN'),
+                'priority_counts' => (array) ($storedRelease['priority_counts'] ?? []),
+            ],
+        ];
+    }
+}
 
 $preflight = \App\Services\Operations\ProductionReadinessService::preflight($root);
 $smoke = \App\Services\Operations\ProductionReadinessService::smoke($root);
