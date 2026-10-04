@@ -21,8 +21,8 @@ final class ReleaseReadinessService
         'ELIGIBILITY_INTEGRITY', 'SECURITY_SANITY',
     ];
 
-    /** @param array<string, mixed> $flowEvidence @param array<string, mixed> $performance */
-    public static function audit(HealthReport $report, array $flowEvidence = [], array $performance = []): array
+    /** @param array<string, mixed> $flowEvidence @param array<string, mixed> $performance @param array<string, mixed>|null $production */
+    public static function audit(HealthReport $report, array $flowEvidence = [], array $performance = [], ?array $production = null): array
     {
         $summary = $report->summary;
         $issues = array_map(static fn($issue): array => $issue->toArray(), $report->issues);
@@ -115,20 +115,51 @@ final class ReleaseReadinessService
         $domains['ROUTE_COMPLETENESS'] = self::domainFromRouteScan($flowEvidence);
         $domains['SECURITY_SANITY'] = self::flowDomain($flowEvidence, 'security_sanity');
         $domains['STUDY_FLASHCARD_EXPERIENCE'] = $domains['STUDY_EXPERIENCE'];
+        $production ??= self::productionConfiguration(dirname(__DIR__, 4));
+        $productionFlow = is_array($flowEvidence['checks']['production_configuration'] ?? null)
+            ? $flowEvidence['checks']['production_configuration']
+            : null;
+        if ($productionFlow !== null) {
+            $production['runtime_tests'] = [
+                'status' => (string) ($productionFlow['status'] ?? 'UNKNOWN'),
+                'tests' => $productionFlow['tests'] ?? [],
+            ];
+            if (($productionFlow['status'] ?? '') === 'FAIL') {
+                $production['status'] = 'FAIL';
+                $production['reason'] = 'Production configuration or bootstrap contract failed.';
+            }
+        }
+        $domains['PRODUCTION_CONFIGURATION'] = self::domain(
+            strtoupper((string) ($production['status'] ?? 'UNKNOWN')),
+            $production,
+            (string) ($production['reason'] ?? 'Production configuration audit.')
+        );
+        $domains['RELEASE_PACKAGING'] = self::flowDomain($flowEvidence, 'release_packaging');
 
         $actions = [];
         foreach ($domains as $name => $domain) {
             $status = (string) ($domain['status'] ?? 'UNKNOWN');
             if ($status === 'FAIL') {
-                $actions[] = self::action('P0', $name, $name, (string) ($domain['reason'] ?? 'Release-critical domain failed.'), true, 'Repair the deterministic failure and rerun the release gate.');
+                $actions[] = self::action('P0', $name, $name, (string) ($domain['reason'] ?? 'Release-critical domain failed.'), true, 'Repair the deterministic failure and rerun the release gate.', 'PRE_RELEASE');
             } elseif ($status === 'REVIEW') {
-                $actions[] = self::action('P1', $name, $name, (string) ($domain['reason'] ?? 'Domain requires bounded review.'), false, 'Review the recorded evidence before release or explicitly accept the debt.');
+                $sourceReviewOnly = $name === 'SOURCE_TRACEABILITY'
+                    && (int) (($domain['evidence']['hard_source_defects'] ?? 0)) === 0
+                    && (int) (($domain['evidence']['source_readiness_failures'] ?? 0)) === 0;
+                $actions[] = self::action(
+                    $sourceReviewOnly ? 'P2' : 'P1',
+                    $name,
+                    $name,
+                    (string) ($domain['reason'] ?? 'Domain requires bounded review.'),
+                    false,
+                    $sourceReviewOnly ? 'Retain the conservative editorial review queue and revisit it with new evidence.' : 'Review the recorded evidence before release or explicitly accept the debt.',
+                    $sourceReviewOnly ? 'POST_RELEASE' : 'PRE_RELEASE'
+                );
             } elseif ($status === 'WARN') {
-                $actions[] = self::action('P2', $name, $name, (string) ($domain['reason'] ?? 'Domain has a non-blocking warning.'), false, 'Track the warning in the next maintenance pass.');
+                $actions[] = self::action('P2', $name, $name, (string) ($domain['reason'] ?? 'Domain has a non-blocking warning.'), false, 'Track the warning in the next maintenance pass.', 'MAINTENANCE');
             }
         }
-        $actions[] = self::action('P3', 'CONTENT', 'evidence-exhausted-and-thin-leaves', 'Numeric thinness and evidence-exhausted leaves remain planning signals, not release blockers.', false, 'Keep future expansion post-release and evidence-backed.');
-        $actions[] = self::action('P3', 'FEATURE', 'architecture-visual-backlog', 'Architecture visual question capability is useful later and does not block v1 text release.', false, 'Plan as a post-release feature.');
+        $actions[] = self::action('P3', 'CONTENT', 'evidence-exhausted-and-thin-leaves', 'Numeric thinness and evidence-exhausted leaves remain planning signals, not release blockers.', false, 'Keep future expansion post-release and evidence-backed.', 'POST_RELEASE');
+        $actions[] = self::action('P3', 'FEATURE', 'architecture-visual-backlog', 'Architecture visual question capability is useful later and does not block v1 text release.', false, 'Plan as a post-release feature.', 'POST_RELEASE');
         $actions = self::sortActions($actions);
         $p0 = array_values(array_filter($actions, static fn(array $action): bool => ($action['priority'] ?? '') === 'P0'));
         $counts = ['P0' => 0, 'P1' => 0, 'P2' => 0, 'P3' => 0];
@@ -227,6 +258,123 @@ final class ReleaseReadinessService
         ];
     }
 
+    /**
+     * Bounded static production contract over the existing application
+     * architecture. It checks configuration and safety boundaries without
+     * attempting a semantic penetration test or printing secret values.
+     *
+     * @return array<string, mixed>
+     */
+    public static function productionConfiguration(string $root): array
+    {
+        $root = rtrim($root, '/');
+        $checks = [];
+        $findings = [];
+
+        $read = static function (string $relative) use ($root): string {
+            $path = $root . '/' . ltrim($relative, '/');
+            return is_file($path) ? (string) file_get_contents($path) : '';
+        };
+        $has = static function (string $relative, string $needle) use ($read): bool {
+            return str_contains($read($relative), $needle);
+        };
+        $record = static function (string $code, string $status, string $reason, array $evidence = []) use (&$checks): void {
+            $checks[$code] = ['status' => $status, 'reason' => $reason, 'evidence' => $evidence];
+        };
+
+        $requiredFiles = ['.env.example', 'config/app.php', 'public/index.php', 'routes/web.php', 'app/Core/App.php', 'app/Core/ExceptionHandler.php', 'app/Core/SessionConfiguration.php', 'app/Storage/JsonStorage.php'];
+        $missingFiles = array_values(array_filter($requiredFiles, static fn(string $file): bool => !is_file($root . '/' . $file)));
+        $record('REQUIRED_RUNTIME_FILES', $missingFiles === [] ? 'PASS' : 'FAIL', $missingFiles === [] ? 'Configuration, front-controller, route, exception, session, and storage contracts are present.' : 'Required runtime files are missing.', ['missing' => $missingFiles]);
+
+        $debugGuard = $has('app/Core/App.php', "APP_DEBUG must be false when APP_ENV=production")
+            && $has('public/index.php', "ini_set('display_errors', '0')")
+            && $has('public/api/doctor.php', "ini_set('display_errors', '0')");
+        $record('PRODUCTION_DEBUG_GUARD', $debugGuard ? 'PASS' : 'FAIL', $debugGuard ? 'Production rejects debug mode and suppresses display_errors.' : 'Production debug/display-errors guard is incomplete.');
+
+        $errorSafe = $has('app/Core/ExceptionHandler.php', 'error_log(')
+            && $has('app/Core/ExceptionHandler.php', 'Something went wrong.')
+            && $has('app/Core/ExceptionHandler.php', 'getTraceAsString');
+        $record('ERROR_PRESENTATION', $errorSafe ? 'PASS' : 'FAIL', $errorSafe ? 'Production errors are generic while diagnostic detail is logged/debug-gated.' : 'Production error presentation contract is incomplete.');
+
+        $developerGuard = $has('routes/web.php', "App::config('environment') !== 'production'")
+            && $has('app/Controllers/DoctorApiController.php', "App::config('environment') === 'production'")
+            && $has('app/Controllers/DoctorRunController.php', "App::config('environment') === 'production'");
+        $record('DEVELOPER_ADMIN_BOUNDARY', $developerGuard ? 'PASS' : 'FAIL', $developerGuard ? 'Developer and admin maintenance surfaces are unavailable in production.' : 'Developer/admin route boundary is incomplete.');
+
+        $sessionSafe = $has('app/Core/SessionConfiguration.php', "session.use_strict_mode")
+            && $has('app/Core/SessionConfiguration.php', "'httponly' => true")
+            && $has('app/Core/SessionConfiguration.php', "'samesite' => 'Lax'")
+            && $has('app/Core/SessionConfiguration.php', "'secure' => " . '$https');
+        $record('SESSION_COOKIE_SAFETY', $sessionSafe ? 'PASS' : 'FAIL', $sessionSafe ? 'Strict session IDs and HttpOnly/SameSite/Secure-aware cookies are configured.' : 'Session cookie safety contract is incomplete.');
+
+        $storageSafe = $has('app/Storage/JsonStorage.php', 'LOCK_EX')
+            && $has('app/Storage/JsonStorage.php', 'rename($temp, $path)')
+            && $has('app/Core/Database.php', 'is_readable($path)')
+            && $has('app/Core/Database.php', 'is_writable($path)');
+        $record('STORAGE_WRITE_SAFETY', $storageSafe ? 'PASS' : 'FAIL', $storageSafe ? 'File-backed writes are locked/atomic and storage paths are validated.' : 'Storage write safety contract is incomplete.');
+
+        $csrfSafe = $has('app/Services/Shared/CsrfTokenService.php', 'hash_equals')
+            && $has('app/Controllers/QuestionEditorController.php', 'self::requireCsrf()')
+            && $has('app/Controllers/QuizFlowController.php', 'CsrfTokenService::valid');
+        $record('CSRF_MUTATION_BOUNDARY', $csrfSafe ? 'PASS' : 'FAIL', $csrfSafe ? 'Critical browser mutations use the existing session CSRF contract.' : 'Critical mutation CSRF coverage is incomplete.');
+
+        $debugFindings = self::scanTrackedProductionFiles($root, '/\b(?:var_dump|print_r|dd|debug_backtrace|phpinfo)\s*\(/i', static function (string $path): bool {
+            return str_starts_with($path, 'app/') || str_starts_with($path, 'public/') || str_starts_with($path, 'routes/') || str_starts_with($path, 'config/');
+        });
+        $record('DEBUG_LEAKAGE', $debugFindings === [] ? 'PASS' : 'FAIL', $debugFindings === [] ? 'No obvious debug dump calls were found in production-executable paths.' : 'Debug dump calls were found in production-executable paths.', ['count' => count($debugFindings), 'paths' => array_slice($debugFindings, 0, 10)]);
+
+        $secretFindings = self::scanTrackedProductionFiles($root, '/-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|\bAKIA[0-9A-Z]{16}\b|\b(?:gh[pousr]|xox[baprs])-[A-Za-z0-9-]{20,}\b/i');
+        $record('SECRET_SAFETY', $secretFindings === [] ? 'PASS' : 'FAIL', $secretFindings === [] ? 'No high-confidence tracked credential or private-key markers were found.' : 'High-confidence tracked secret markers were found; rotate and remove them.', ['count' => count($secretFindings), 'paths' => array_slice($secretFindings, 0, 10)]);
+
+        $readme = $read('README.md');
+        $documentation = str_contains($readme, 'public/')
+            && str_contains($readme, 'APP_STORAGE_PATH')
+            && str_contains($readme, 'tools/doctor.php')
+            && str_contains($readme, 'backup');
+        $record('OPERATING_DOCUMENTATION', $documentation ? 'PASS' : 'WARN', $documentation ? 'README documents runtime, storage, health, tests, and backup expectations.' : 'Operating documentation is incomplete.');
+
+        $status = 'PASS';
+        foreach ($checks as $check) {
+            if (($check['status'] ?? '') === 'FAIL') {
+                $status = 'FAIL';
+                break;
+            }
+            if (($check['status'] ?? '') === 'WARN') $status = 'WARN';
+        }
+        foreach ($checks as $code => $check) {
+            if (($check['status'] ?? '') === 'FAIL') {
+                $findings[] = ['code' => $code, 'severity' => 'P0', 'path_count' => count((array) ($check['evidence']['paths'] ?? []))];
+            }
+        }
+
+        return [
+            'status' => $status,
+            'reason' => $status === 'PASS' ? 'Production configuration and safety contracts passed.' : 'Production configuration requires remediation.',
+            'checks' => $checks,
+            'findings' => $findings,
+            'secret_findings_count' => count($secretFindings),
+            'debug_leakage_count' => count($debugFindings),
+        ];
+    }
+
+    /** @return array<int, string> */
+    private static function scanTrackedProductionFiles(string $root, string $pattern, ?callable $filter = null): array
+    {
+        $command = 'git -C ' . escapeshellarg($root) . ' ls-files -z';
+        $output = shell_exec($command);
+        if (!is_string($output)) return [];
+        $findings = [];
+        foreach (explode("\0", $output) as $path) {
+            if ($path === '' || ($filter !== null && !$filter($path))) continue;
+            $absolute = $root . '/' . $path;
+            if (!is_file($absolute)) continue;
+            $contents = (string) file_get_contents($absolute);
+            if (preg_match($pattern, $contents) === 1) $findings[] = $path;
+        }
+        sort($findings, SORT_STRING);
+        return $findings;
+    }
+
     /** @param array<string, mixed> $flowEvidence */
     private static function flowDomain(array $flowEvidence, string $key, ?string $fallback = null): array
     {
@@ -260,7 +408,7 @@ final class ReleaseReadinessService
     }
 
     /** @param array<string, mixed> $issue */
-    private static function action(string $priority, string $domain, string $entity, string $reason, bool $deterministic, string $next): array
+    private static function action(string $priority, string $domain, string $entity, string $reason, bool $deterministic, string $next, string $timing): array
     {
         return [
             'priority' => $priority,
@@ -268,6 +416,8 @@ final class ReleaseReadinessService
             'entity' => $entity,
             'reason' => $reason,
             'deterministic_or_editorial' => $deterministic ? 'DETERMINISTIC' : 'EDITORIAL_OR_REVIEW',
+            'release_blocking' => $deterministic,
+            'recommended_timing' => $timing,
             'suggested_next_action' => $next,
         ];
     }
@@ -313,6 +463,8 @@ final class ReleaseReadinessService
             'study_experience' => ['tools/Tests/FlashcardIntegrationTest.php'],
             'security_sanity' => ['tools/Tests/ProductionQuizCsrfTest.php'],
             'repository_determinism' => ['tools/Tests/ReleaseReadinessContractTest.php'],
+            'production_configuration' => ['tools/Tests/RuntimeConfigurationTest.php'],
+            'release_packaging' => ['tools/Tests/ReleasePackageTest.php'],
         ];
         $checks = [];
         foreach ($groups as $group => $scripts) {

@@ -3,6 +3,10 @@
 
 declare(strict_types=1);
 
+// Packaging validates and serializes the full curated bank. Keep the
+// repository-native release command independent of a small CLI default.
+@ini_set('memory_limit', '1024M');
+
 /**
  * Build a production-only RC package from committed Git state.
  *
@@ -177,6 +181,7 @@ try {
         'storage/board-subjects.json',
         'storage/boards.json',
         'storage/blueprints.json',
+        'storage/flashcard-exclusions.json',
         'storage/let-specializations.json',
         'storage/exam-intelligence.json',
         'storage/board-concept-coverage.json',

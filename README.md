@@ -74,8 +74,14 @@ server is a smoke-test aid, not a recommended production server.
 
 Run `php tools/function-test.php`, `php tools/http-test.php`,
 `php tools/Tests/RuntimeConfigurationTest.php`, `php tools/Tests/QuizTest.php`,
-and `php tools/doctor.php` from the repository root. Developer-route tests
+`php tools/Tests/ReleaseReadinessContractTest.php`, and
+`php tools/doctor.php --release --json` from the repository root. Developer-route tests
 require `APP_ENV=testing`.
+
+The concise operator handoff is in
+[`docs/RELEASE_RUNBOOK_V1.md`](docs/RELEASE_RUNBOOK_V1.md). The existing
+`tools/release.php` package builder creates a deterministic production-only
+archive and embeds the exact committed release revision in its manifest.
 
 Developer simulation: `php tools/doctor.php --simulate`. This runs the registered
 scenario suite after the ordinary Doctor checks and is deeper than those checks.

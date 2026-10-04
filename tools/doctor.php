@@ -33,6 +33,7 @@ if (in_array('--release', array_slice($argv ?? [], 1), true)) {
         ? []
         : \App\Services\RepositoryHealth\Release\ReleaseReadinessService::runFlowChecks(dirname(__DIR__));
     $routeCompleteness = \App\Services\RepositoryHealth\Release\ReleaseReadinessService::routeCompleteness(dirname(__DIR__));
+    $productionConfiguration = \App\Services\RepositoryHealth\Release\ReleaseReadinessService::productionConfiguration(dirname(__DIR__));
     $release = \App\Services\RepositoryHealth\Release\ReleaseReadinessService::audit(
         $releaseReport,
         $flowEvidence + ['route_completeness' => $routeCompleteness],
@@ -40,7 +41,8 @@ if (in_array('--release', array_slice($argv ?? [], 1), true)) {
             'status' => 'PASS',
             'default_health_runtime_ms' => $healthRuntimeMs,
             'sample_count' => 1,
-        ]
+        ],
+        $productionConfiguration
     );
     $payload = [
         'health' => [

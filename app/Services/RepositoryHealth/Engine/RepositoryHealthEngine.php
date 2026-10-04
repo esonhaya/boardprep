@@ -1067,6 +1067,9 @@ final class RepositoryHealthEngine
         $reviewRequired = 0;
         $futureOnly = 0;
         $futureLeakage = 0;
+        $reviewedStatusCounts = [];
+        $reviewedByBoard = [];
+        $reviewRequiredByBoard = [];
         foreach ($questions as $question) {
             if (!is_array($question)) continue;
             $batch636 = is_array($question['batch636'] ?? null) ? $question['batch636'] : [];
@@ -1079,10 +1082,29 @@ final class RepositoryHealthEngine
                 $reviewed++;
                 if (strtoupper((string) ($versionReview['cy2029'] ?? '')) === 'FUTURE_ONLY') $futureOnly++;
                 if (($versionReview['future_rule_used'] ?? false) === true || ($versionReview['future_effective_used'] ?? false) === true) $futureLeakage++;
+                $reviewStatus = 'STORED_REVIEW_OBJECT';
+            } elseif ($sensitive && self::storedCurrentnessStatus($question) !== null) {
+                // Older modernization batches stored the normalized review
+                // outcome directly on the question. Treat that explicit
+                // metadata as evidence; do not require a second nested
+                // version_review object and falsely reopen currentness debt.
+                $reviewed++;
+                $reviewStatus = self::storedCurrentnessStatus($question);
             } elseif ($sensitive) {
                 $reviewRequired++;
+                $board = self::questionBoardId($question);
+                if ($board !== '') $reviewRequiredByBoard[$board] = ($reviewRequiredByBoard[$board] ?? 0) + 1;
+                continue;
+            } else {
+                continue;
             }
+            $reviewedStatusCounts[$reviewStatus] = ($reviewedStatusCounts[$reviewStatus] ?? 0) + 1;
+            $board = self::questionBoardId($question);
+            if ($board !== '') $reviewedByBoard[$board] = ($reviewedByBoard[$board] ?? 0) + 1;
         }
+        ksort($reviewedStatusCounts, SORT_STRING);
+        ksort($reviewedByBoard, SORT_STRING);
+        ksort($reviewRequiredByBoard, SORT_STRING);
         return [
             'status' => $futureLeakage > 0 ? 'FAIL' : ($reviewRequired > 0 ? 'REVIEW_REQUIRED' : 'CURRENT'),
             'version_sensitive' => $versionSensitive,
@@ -1090,7 +1112,24 @@ final class RepositoryHealthEngine
             'review_required' => $reviewRequired,
             'future_effective_only' => $futureOnly,
             'future_effective_leakage' => $futureLeakage,
+            'reviewed_status_counts' => $reviewedStatusCounts,
+            'reviewed_by_board' => $reviewedByBoard,
+            'review_required_by_board' => $reviewRequiredByBoard,
         ];
+    }
+
+    private static function storedCurrentnessStatus(array $question): ?string
+    {
+        $status = strtoupper(trim((string) ($question['version_review_status'] ?? $question['currentness_review_status'] ?? '')));
+        return in_array($status, ['PASS', 'CURRENT', 'CURRENT_WITH_LIMITS', 'NOT_TIME_SENSITIVE'], true)
+            ? $status
+            : null;
+    }
+
+    private static function questionBoardId(array $question): string
+    {
+        $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+        return strtolower(trim((string) ($question['board_id'] ?? $question['board'] ?? $taxonomy['board_id'] ?? '')));
     }
 
     private static function checks(array $issues, ?RepositoryHealthProfiler $profiler = null): array

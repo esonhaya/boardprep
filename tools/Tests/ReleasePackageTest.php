@@ -67,7 +67,7 @@ if (!mkdir($temporary, 0777, true)) {
 
 try {
     $releaseTool = $root . '/tools/release.php';
-    $php = escapeshellarg(PHP_BINARY);
+    $php = escapeshellarg(PHP_BINARY) . ' -d memory_limit=1024M';
     $tool = escapeshellarg($releaseTool);
     $run("{$php} {$tool} --output=" . escapeshellarg($packageOne), $root);
     $run("{$php} {$tool} --output=" . escapeshellarg($packageTwo), $root);
@@ -104,6 +104,7 @@ try {
         'app/Core/App.php',
         'storage/board-concept-coverage.json',
         'storage/concept-derived-eligibility.json',
+        'storage/flashcard-exclusions.json',
         'storage/question-reuse-metadata.json',
         'storage/questions.json',
         'storage/question-eligibility.json',
@@ -131,6 +132,8 @@ try {
     $packagedBoards = json_decode((string) $zipOne->getFromName($packageRoot . 'storage/boards.json'), true, 512, JSON_THROW_ON_ERROR);
     $packagedEligibility = json_decode((string) $zipOne->getFromName($packageRoot . 'storage/question-eligibility.json'), true, 512, JSON_THROW_ON_ERROR);
     $packagedLinks = json_decode((string) $zipOne->getFromName($packageRoot . 'storage/study-question-links.json'), true, 512, JSON_THROW_ON_ERROR);
+    $packagedMaterials = json_decode((string) $zipOne->getFromName($packageRoot . 'storage/study-materials.json'), true, 512, JSON_THROW_ON_ERROR);
+    $packagedExclusions = json_decode((string) $zipOne->getFromName($packageRoot . 'storage/flashcard-exclusions.json'), true, 512, JSON_THROW_ON_ERROR);
     $expectedCanonical = is_array($packagedQuestions) ? count($packagedQuestions) : 0;
     $expectedBoards = is_array($packagedBoards) ? count($packagedBoards) : 0;
     $assert(($manifest['canonical_questions'] ?? null) === $expectedCanonical, 'release manifest canonical count does not match packaged question storage');
@@ -184,8 +187,14 @@ PHP;
     }
     $expectedDerivable = 0;
     $expectedJustifiedExclusions = 0;
+    $deriver = new App\Services\Flashcard\FlashcardDerivationService(
+        null,
+        is_array($packagedMaterials) ? $packagedMaterials : [],
+        is_array($packagedLinks) ? $packagedLinks : [],
+        is_array($packagedExclusions) ? $packagedExclusions : []
+    );
     foreach (is_array($packagedQuestions) ? $packagedQuestions : [] as $question) {
-        $status = App\Services\Shared\ContentIntegrityService::derivationStatus($question);
+        $status = $deriver->derivationStatus($question);
         if ($status['derivable']) {
             $expectedDerivable++;
         } elseif ($status['justified']) {

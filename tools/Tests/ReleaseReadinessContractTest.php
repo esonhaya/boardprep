@@ -46,6 +46,11 @@ $routes = ReleaseReadinessService::routeCompleteness(dirname(__DIR__, 2));
 $assert((int) ($routes['active'] ?? 0) > 0, 'Release route scan found no registered routes.');
 $assert((int) ($routes['stub'] ?? 0) === 0, 'Release route scan found an unexpected stub.');
 
+$production = ReleaseReadinessService::productionConfiguration(dirname(__DIR__, 2));
+$assert(($production['status'] ?? '') === 'PASS', 'Production configuration contract did not pass.');
+$assert((int) ($production['secret_findings_count'] ?? -1) === 0, 'Production configuration reported a tracked secret.');
+$assert((int) ($production['debug_leakage_count'] ?? -1) === 0, 'Production configuration reported executable debug leakage.');
+
 $unknownReport = RepositoryHealthEngine::analyzeCollections([]);
 $unknownRelease = ReleaseReadinessService::audit($unknownReport);
 $assert(($unknownRelease['release_domains']['LEARNER_CORE_FLOWS']['status'] ?? '') === 'UNKNOWN', 'Missing flow evidence was invented as a passing result.');
@@ -64,6 +69,23 @@ $editorialRelease = ReleaseReadinessService::audit(
 );
 $assert(($editorialRelease['release_gate']['status'] ?? '') === 'PASS', 'Nonblocking evidence/thinness debt incorrectly blocked an otherwise passing gate.');
 $assert(($editorialRelease['priority_counts']['P0'] ?? -1) === 0, 'Nonblocking editorial debt became a P0 action.');
+$contentAction = array_values(array_filter(
+    (array) ($editorialRelease['action_queue'] ?? []),
+    static fn(array $action): bool => ($action['entity'] ?? '') === 'evidence-exhausted-and-thin-leaves'
+))[0] ?? [];
+$assert(array_key_exists('release_blocking', $contentAction) && ($contentAction['release_blocking'] ?? true) === false, 'Action queue omitted release-blocking classification.');
+$assert(($contentAction['recommended_timing'] ?? '') === 'POST_RELEASE', 'Action queue omitted post-release timing.');
+
+$storedCurrentness = RepositoryHealthEngine::analyzeCollections([
+    'questions' => [
+        ['id' => 'stored-pass', 'board_id' => 'civil-service', 'version_sensitive' => true, 'version_review_status' => 'PASS'],
+        ['id' => 'stored-limits', 'board_id' => 'architecture', 'version_sensitive' => true, 'currentness_review_status' => 'CURRENT_WITH_LIMITS'],
+    ],
+]);
+$currentness = (array) (($storedCurrentness->summary['currentness'] ?? []));
+$assert(($currentness['review_required'] ?? -1) === 0, 'Explicit stored currentness outcomes were treated as unresolved.');
+$assert(($currentness['reviewed'] ?? -1) === 2, 'Explicit stored currentness outcomes were not counted as reviewed.');
+$assert(($currentness['reviewed_status_counts']['PASS'] ?? 0) === 1 && ($currentness['reviewed_status_counts']['CURRENT_WITH_LIMITS'] ?? 0) === 1, 'Stored currentness states were not summarized.');
 
 $futureReport = RepositoryHealthEngine::analyzeCollections([
     'questions' => [[

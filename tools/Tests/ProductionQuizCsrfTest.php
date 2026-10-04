@@ -47,7 +47,19 @@ try {
         throw new RuntimeException('production quiz rejected a valid CSRF-protected start');
     }
 
-    echo "[PASS] production quiz mutations require and accept the session CSRF token.\n";
+    foreach (['/developer', '/developer/doctor', '/question-editor'] as $protectedPath) {
+        $protected = $http->request('GET', $protectedPath, [], [], [], $cookies);
+        if ($protected['status'] !== 404) {
+            throw new RuntimeException('production exposed a developer/admin route: ' . $protectedPath);
+        }
+    }
+    $doctorApi = new HttpSimulator($root . '/public/api/doctor.php');
+    $apiResponse = $doctorApi->request('GET', '/api/doctor.php', [], [], [], $cookies);
+    if ($apiResponse['status'] !== 404) {
+        throw new RuntimeException('production exposed the Doctor API.');
+    }
+
+    echo "[PASS] production quiz mutations require CSRF and developer/admin routes remain unavailable.\n";
 } finally {
     $sessionPath = $root . '/storage/doctor/simulation-sessions/sess-' . $sessionId;
     @unlink($sessionPath);
