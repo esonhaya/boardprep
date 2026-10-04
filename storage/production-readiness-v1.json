@@ -1,0 +1,188 @@
+{
+    "build_commit": "efc19bcf6deafd65c654ca63006cf19d4df31f59",
+    "counts": {
+        "boards": {
+            "architecture": {
+                "effective": 484,
+                "native": 484,
+                "runtime": 484
+            },
+            "civil-engineering": {
+                "effective": 922,
+                "native": 922,
+                "runtime": 922
+            },
+            "civil-service": {
+                "effective": 1807,
+                "native": 1553,
+                "runtime": 2116
+            },
+            "cpa": {
+                "effective": 1132,
+                "native": 1132,
+                "runtime": 1132
+            },
+            "criminologist": {
+                "effective": 554,
+                "native": 451,
+                "runtime": 554
+            },
+            "let": {
+                "effective": 1871,
+                "native": 1788,
+                "runtime": 1886
+            },
+            "mechanical-engineering": {
+                "effective": 511,
+                "native": 511,
+                "runtime": 511
+            },
+            "nursing": {
+                "effective": 898,
+                "native": 878,
+                "runtime": 898
+            },
+            "psychometrician": {
+                "effective": 401,
+                "native": 401,
+                "runtime": 401
+            },
+            "registered-electrical-engineering": {
+                "effective": 842,
+                "native": 842,
+                "runtime": 842
+            }
+        },
+        "global_canonical": 8962,
+        "global_effective": 9422,
+        "global_runtime": 9746
+    },
+    "deployment_blockers": {
+        "LOCAL_COMPLETE": [
+            "profile",
+            "preflight",
+            "smoke",
+            "package_process",
+            "backup_restore_contract",
+            "runbook"
+        ],
+        "OPTIONAL_POST_DEPLOY": [
+            "monitoring_and_log_rotation_tuning"
+        ],
+        "REQUIRES_CREDENTIAL": [
+            "hosting_or_server_access"
+        ],
+        "REQUIRES_DOMAIN": [
+            "dns_or_public_url"
+        ],
+        "REQUIRES_HTTPS": [
+            "certificate_and_https_termination"
+        ],
+        "REQUIRES_SERVER": [
+            "web_server_document_root",
+            "real_post_deploy_http_smoke"
+        ]
+    },
+    "deployment_profile": "PASS",
+    "hard_integrity": {
+        "calculation_contradictions": 0,
+        "double_weighting": 0,
+        "duplicate_effective": 0,
+        "flashcard_defects": 0,
+        "future_effective_leakage": 0,
+        "source_study_hard_defects": 0
+    },
+    "next_milestone": "ACTUAL_PRODUCTION_DEPLOYMENT",
+    "package": {
+        "source": "git archive HEAD",
+        "tests_excluded": true,
+        "uncommitted_files_excluded": true
+    },
+    "patch_release_recommended": "YES",
+    "persistence": {
+        "canonical_content_excluded": true,
+        "mutable_backup": "PASS",
+        "restore_dry_run": "PASS"
+    },
+    "post_v1_policy": {
+        "content": "evidence-backed only",
+        "currentness": "event-driven maintenance",
+        "visual_backlog": "Architecture visual capability"
+    },
+    "preflight": {
+        "failures": [],
+        "status": "PASS",
+        "warnings": []
+    },
+    "product": "BoardPrep",
+    "product_version": "1.0.0",
+    "release": {
+        "decision": "RELEASE_READY_WITH_NONBLOCKING_DEBT",
+        "domains": {
+            "ADMIN_CORE_FLOWS": "PASS",
+            "ATTEMPT_SAFETY": "PASS",
+            "CALCULATION_INTEGRITY": "PASS",
+            "CONTENT_INTEGRITY": "PASS",
+            "CURRENTNESS": "PASS",
+            "DEVELOPER_HEALTH": "PASS",
+            "ELIGIBILITY_INTEGRITY": "PASS",
+            "FLASHCARD_INTEGRITY": "PASS",
+            "HISTORY": "PASS",
+            "LEARNER_CORE_FLOWS": "PASS",
+            "PERFORMANCE": "PASS",
+            "PRODUCTION_CONFIGURATION": "PASS",
+            "PROGRESS_STATE": "PASS",
+            "RELEASE_PACKAGING": "PASS",
+            "REPOSITORY_DETERMINISM": "PASS",
+            "RESULT_REVIEW": "PASS",
+            "ROUTE_COMPLETENESS": "PASS",
+            "SECURITY_SANITY": "PASS",
+            "SHARED_QUESTION_SAFETY": "PASS",
+            "SIMULATOR_RECOVERY": "PASS",
+            "SOURCE_TRACEABILITY": "REVIEW",
+            "STUDY_EXPERIENCE": "PASS",
+            "STUDY_FLASHCARD_EXPERIENCE": "PASS",
+            "STUDY_TRACEABILITY": "PASS",
+            "TAXONOMY_INTEGRITY": "PASS"
+        },
+        "gate": "PASS",
+        "p0": 0,
+        "p1": 0,
+        "p2": 1,
+        "p3": 2
+    },
+    "release_tag": "v1.0.0",
+    "repository_health": {
+        "checks": {
+            "BALANCE_DIVERSITY": "WARN",
+            "CALCULATION_METADATA": "PASS",
+            "CARD_KEYS": "PASS",
+            "DEPTH_COVERAGE": "WARN",
+            "ELIGIBILITY": "PASS",
+            "FLASHCARD_DERIVABILITY": "PASS",
+            "FLASHCARD_EXCLUSIONS": "PASS",
+            "QUESTION_COUNTS": "PASS",
+            "REPOSITORY_HEALTH_FOUNDATION": "PASS",
+            "SOURCE_READINESS": "PASS",
+            "SOURCE_STUDY": "REVIEW",
+            "STRUCTURED_CONTENT": "PASS",
+            "TAXONOMY": "PASS",
+            "TRACEABILITY": "PASS",
+            "VERSION_CURRENTNESS": "PASS"
+        },
+        "fail_entities": 0,
+        "status": "REVIEW"
+    },
+    "security": {
+        "debug_leakage": 0,
+        "public_health": "SANITIZED",
+        "status": "PASS",
+        "tracked_secrets": 0
+    },
+    "smoke": {
+        "failures": [],
+        "status": "PASS"
+    },
+    "v1_baseline_commit": "4753c03c11d5808c2ea80a9ab414ff73bd767d32",
+    "semantic_hash": "6e227ee2104481f3c7123a2b9a3dbfaef53d8f5638187da609ae70d85c7a1d01"
+}
