@@ -84,7 +84,7 @@ final class BackupService
         ];
         if ($dryRun) return ['status' => 'PASS', 'dry_run' => true, 'destination' => self::label($output, $root), 'manifest' => $manifest];
 
-        if (!mkdir($output, 0770, true) && !is_dir($output)) throw new RuntimeException('Unable to create backup destination.');
+        if (!is_dir($output) && !mkdir($output, 0770, true) && !is_dir($output)) throw new RuntimeException('Unable to create backup destination.');
         foreach ($files as $file) {
             $destination = $output . '/' . $file['relative'];
             $directory = dirname($destination);

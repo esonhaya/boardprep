@@ -18,21 +18,19 @@ putenv('APP_DEBUG=false');
 $write = in_array('--write', array_slice($argv ?? [], 1), true);
 $json = in_array('--json', array_slice($argv ?? [], 1), true);
 
-$runJson = static function (string $command) use ($root): array {
-    $descriptor = [0 => ['file', '/dev/null', 'r'], 1 => ['pipe', 'w'], 2 => ['pipe', 'w']];
-    $process = proc_open($command, $descriptor, $pipes, $root);
-    if (!is_resource($process)) return [255, null];
-    $stdout = stream_get_contents($pipes[1]) ?: '';
-    fclose($pipes[1]);
-    fclose($pipes[2]);
-    $status = proc_close($process);
-    $decoded = json_decode(trim($stdout), true);
-    return [$status, is_array($decoded) ? $decoded : null];
-};
-
-$health = is_file($root . '/storage/repository-health.json')
-    ? json_decode((string) file_get_contents($root . '/storage/repository-health.json'), true)
-    : [];
+$appBooted = false;
+try {
+    // Persisted snapshots may predate the current checkout.  The permanent
+    // engine is authoritative for this compact audit projection.
+    \App\Core\App::boot();
+    $appBooted = true;
+} catch (\Throwable) {
+    $appBooted = false;
+}
+$healthReport = $appBooted
+    ? \App\Services\RepositoryHealth\Engine\RepositoryHealthEngine::analyze(false)
+    : null;
+$health = $healthReport?->toArray() ?? [];
 $release = is_file($root . '/storage/release-readiness.json')
     ? json_decode((string) file_get_contents($root . '/storage/release-readiness.json'), true)
     : [];
@@ -44,6 +42,8 @@ $smoke = \App\Services\Operations\ProductionReadinessService::smoke($root);
 $identity = \App\Core\ReleaseIdentity::current($root);
 $healthSummary = (array) ($health['summary'] ?? []);
 $releaseReadiness = (array) ($release['release_readiness'] ?? $release);
+$healthIssues = array_values(array_filter((array) ($health['issues'] ?? []), 'is_array'));
+$productionConfiguration = \App\Services\RepositoryHealth\Release\ReleaseReadinessService::productionConfiguration($root);
 $releaseDomains = [];
 foreach ((array) ($releaseReadiness['release_domains'] ?? []) as $domain => $value) {
     $releaseDomains[(string) $domain] = (string) (($value['status'] ?? 'UNKNOWN'));
@@ -60,12 +60,31 @@ foreach ((array) ($health['board_summaries'] ?? []) as $board => $summary) {
 }
 ksort($boardCounts, SORT_STRING);
 
+$globalCounts = [
+    'canonical' => array_sum(array_column($boardCounts, 'native')),
+    'effective' => array_sum(array_column($boardCounts, 'effective')),
+    'runtime' => array_sum(array_column($boardCounts, 'runtime')),
+];
+
+$sourceStudyHardDefects = 0;
+foreach ((array) ($healthSummary['source_readiness_by_board'] ?? []) as $readiness) {
+    if (!is_array($readiness)) continue;
+    foreach (['source', 'study', 'traceability', 'currentness'] as $field) {
+        $sourceStudyHardDefects += (int) (($readiness['source_study_defects'][$field] ?? 0));
+    }
+}
+$issueCount = static function (callable $predicate) use ($healthIssues): int {
+    return count(array_filter($healthIssues, $predicate));
+};
 $hard = [
-    'source_study_hard_defects' => 0,
-    'flashcard_defects' => (int) (($healthSummary['flashcards']['nonderivable_defect'] ?? 0)),
-    'calculation_contradictions' => 0,
-    'duplicate_effective' => 0,
-    'double_weighting' => 0,
+    'source_study_hard_defects' => $sourceStudyHardDefects,
+    'flashcard_defects' => (int) (($healthSummary['flashcards']['nonderivable_defect'] ?? 0))
+        + (int) (($healthSummary['flashcards']['duplicate_card_key'] ?? 0))
+        + (int) (($healthSummary['flashcards']['malformed_card'] ?? 0))
+        + (int) (($healthSummary['flashcards']['broken_card_source'] ?? 0)),
+    'calculation_contradictions' => $issueCount(static fn(array $issue): bool => ($issue['status'] ?? '') === 'FAIL' && str_contains((string) ($issue['code'] ?? ''), 'CALCULATION_METADATA')),
+    'duplicate_effective' => $issueCount(static fn(array $issue): bool => ($issue['status'] ?? '') === 'FAIL' && ($issue['code'] ?? '') === 'DUPLICATE_EFFECTIVE_CANDIDATE'),
+    'double_weighting' => $issueCount(static fn(array $issue): bool => ($issue['status'] ?? '') === 'FAIL' && ($issue['code'] ?? '') === 'DOUBLE_WEIGHTING'),
     'future_effective_leakage' => (int) (($healthSummary['currentness']['future_effective_leakage'] ?? 0)),
 ];
 $healthChecks = [];
@@ -83,7 +102,7 @@ $semantic = [
     'deployment_profile' => is_file($root . '/config/deployment-profile.json') ? 'PASS' : 'FAIL',
     'preflight' => ['status' => $preflight['status'], 'failures' => array_values((array) ($preflight['failures'] ?? [])), 'warnings' => array_values((array) ($preflight['warnings'] ?? []))],
     'smoke' => ['status' => $smoke['status'], 'failures' => array_values((array) ($smoke['failures'] ?? []))],
-    'repository_health' => ['status' => (string) ($health['overall_status'] ?? 'UNKNOWN'), 'fail_entities' => (int) ($healthSummary['fail_entity_count'] ?? 0), 'checks' => $healthChecks],
+    'repository_health' => ['status' => (string) ($health['overall_status'] ?? 'UNKNOWN'), 'fail_entities' => (int) ($healthSummary['fail_count'] ?? $healthSummary['fail_entity_count'] ?? 0), 'checks' => $healthChecks],
     'release' => [
         'gate' => (string) (($releaseReadiness['release_gate']['status'] ?? 'UNKNOWN')),
         'decision' => (string) (($releaseReadiness['release_decision'] ?? 'UNKNOWN')),
@@ -94,13 +113,20 @@ $semantic = [
         'domains' => $releaseDomains,
     ],
     'counts' => [
-        'global_canonical' => array_sum(array_column($boardCounts, 'native')),
+        'global_canonical' => $globalCounts['canonical'],
+        'global_effective' => $globalCounts['effective'],
+        'global_runtime' => $globalCounts['runtime'],
         'boards' => $boardCounts,
     ],
     'hard_integrity' => $hard,
     'package' => ['source' => 'git archive HEAD', 'uncommitted_files_excluded' => true, 'tests_excluded' => true],
     'persistence' => ['mutable_backup' => 'PASS', 'restore_dry_run' => 'PASS', 'canonical_content_excluded' => true],
-    'security' => ['tracked_secrets' => 0, 'debug_leakage' => 0, 'public_health' => 'SANITIZED'],
+    'security' => [
+        'status' => (string) ($productionConfiguration['status'] ?? 'UNKNOWN'),
+        'tracked_secrets' => (int) ($productionConfiguration['secret_findings_count'] ?? 0),
+        'debug_leakage' => (int) ($productionConfiguration['debug_leakage_count'] ?? 0),
+        'public_health' => 'SANITIZED',
+    ],
     'deployment_blockers' => [
         'LOCAL_COMPLETE' => ['profile', 'preflight', 'smoke', 'package_process', 'backup_restore_contract', 'runbook'],
         'REQUIRES_SERVER' => ['web_server_document_root', 'real_post_deploy_http_smoke'],
