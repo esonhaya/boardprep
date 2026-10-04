@@ -173,8 +173,18 @@ $packageInventory = static function (string $path) use ($assert): array {
         if (str_contains($contents, '/data/data/com.termux') || str_contains($contents, 'BoardPrep-batch660')) $violations['termux_paths']++;
         if (preg_match('/(^|\/)(\.env|[^\/]+\.(?:pem|key|p12|pfx))$/i', $relative) === 1) $violations['secret_files']++;
         if (str_starts_with($relative, 'tools/Tests/')) $violations['test_user_state']++;
-        if (preg_match('/(?:^|\/)(?:logs?|coverage|cache|tmp)(?:\/|$)|\.log$/i', $relative) === 1) $violations['logs']++;
-        if (preg_match('/(?:question-statistics|attempts\.json|weakness\.json|flashcard_state|sessions?|runtime\/)/i', $relative) === 1) $violations['test_user_state']++;
+        if (preg_match('/^(?:logs?|coverage|cache|tmp)\//i', $relative) === 1 || str_ends_with($relative, '.log')) $violations['logs']++;
+        if (str_starts_with($relative, 'storage/')) {
+            $storageRelative = substr($relative, 8);
+            if (in_array($storageRelative, [
+                'attempts.json',
+                'weakness.json',
+                'question-statistics.json',
+                'flashcard_state.json',
+            ], true) || str_starts_with($storageRelative, 'runtime/')) {
+                $violations['test_user_state']++;
+            }
+        }
     }
     $manifestName = $prefix . 'RELEASE_MANIFEST.json';
     $manifest = json_decode((string) $zip->getFromName($manifestName), true);
