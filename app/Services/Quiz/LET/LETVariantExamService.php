@@ -15,7 +15,7 @@ use App\Services\Question\QuestionReuseEligibilityResolver;
  */
 final class LETVariantExamService
 {
-    public static function execute(array $questions, \QuizSpecification $specification): \BlueprintExecutionResult
+    public static function execute(array $questions, \QuizSpecification $specification, ?QuestionEligibilityIndex $eligibilityIndex = null): \BlueprintExecutionResult
     {
         $validation = LETVariantRegistry::validateConfiguration($specification->letVariant);
         if (($validation['valid'] ?? false) !== true) {
@@ -43,7 +43,7 @@ final class LETVariantExamService
             );
         }
 
-        $index = new QuestionEligibilityIndex(
+        $index = $eligibilityIndex ?? new QuestionEligibilityIndex(
             App::storage()->all('question-eligibility'),
             App::storage()->all('blueprints'),
             QuestionReuseEligibilityResolver::productionDerivedRelationships(),

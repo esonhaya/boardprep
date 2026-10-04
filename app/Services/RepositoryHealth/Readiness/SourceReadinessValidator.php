@@ -152,6 +152,11 @@ final class SourceReadinessValidator
         if (array_key_exists('repeat_risk', $record) && (!is_string($record['repeat_risk']) || !in_array($record['repeat_risk'], SourceReadinessRecord::REPEAT_RISK, true))) {
             self::error($errors, 'SOURCE_READINESS.INVALID_ENUM', $leafId, 'repeat_risk has an unsupported value.', ['field' => 'repeat_risk', 'value' => $record['repeat_risk']]);
         }
+        foreach (['closure_state' => SourceReadinessRecord::CLOSURE_STATES, 'scope_status' => SourceReadinessRecord::SCOPE_STATUSES] as $field => $allowed) {
+            if (array_key_exists($field, $record) && (!is_string($record[$field]) || !in_array($record[$field], $allowed, true))) {
+                self::error($errors, 'SOURCE_READINESS.INVALID_ENUM', $leafId, "{$field} has an unsupported value.", ['field' => $field, 'value' => $record[$field]]);
+            }
+        }
         if (array_key_exists('blocker_classes', $record)) {
             foreach ((array) $record['blocker_classes'] as $blocker) {
                 if (!in_array((string) $blocker, SourceReadinessRecord::BLOCKER_CLASSES, true)) {
@@ -340,7 +345,7 @@ final class SourceReadinessValidator
                 self::error($errors, 'SOURCE_READINESS.INVALID_RECORD', $leafId, strtoupper($field) . ' must be a string.', ['field' => $field]);
             }
         }
-        foreach (['visual_suitability', 'repeat_risk'] as $field) {
+        foreach (['visual_suitability', 'repeat_risk', 'closure_state', 'scope_status'] as $field) {
             if (array_key_exists($field, $record) && !is_string($record[$field])) {
                 self::error($errors, 'SOURCE_READINESS.INVALID_RECORD', $leafId, strtoupper($field) . ' must be a string.', ['field' => $field]);
             }

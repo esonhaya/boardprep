@@ -261,6 +261,7 @@ PHP;
     ): string {
         return
             escapeshellarg(PHP_BINARY)
+            . ' -d memory_limit=1024M'
             . ' -d display_errors=0'
             . ' -d log_errors=0'
             . ' -r '

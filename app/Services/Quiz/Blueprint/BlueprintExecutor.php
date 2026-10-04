@@ -8,7 +8,8 @@ final class BlueprintExecutor
         array $questions,
         array $boardBlueprint,
         array $subjectBlueprints,
-        QuizSpecification $specification
+        QuizSpecification $specification,
+        ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null
     ): BlueprintExecutionResult {
         $requests = BlueprintRequestPlanBuilder::build(
             $boardBlueprint,
@@ -32,9 +33,39 @@ final class BlueprintExecutor
             $requests
         );
 
+        // An explicit subject + topic is a scoped learner request, even when
+        // the surrounding mode is an exam blueprint. The exam distribution
+        // still applies when no topic is selected, but it must not allocate a
+        // one-question/topic session to unrelated subjects and then report an
+        // empty quiz.
+        if (($specification->topics[0] ?? null) !== null
+            && trim($specification->subject) !== ''
+            && trim($specification->subject) !== '*') {
+            $subjectRequests = array_values(array_filter(
+                $requests,
+                static fn(SelectionRequest $request): bool => strcasecmp(trim($request->subject), trim($specification->subject)) === 0
+            ));
+            if ($subjectRequests !== []) {
+                $base = $subjectRequests[0];
+                $requests = [new SelectionRequest(
+                    subject: $base->subject,
+                    domain: $base->domain,
+                    difficultyDistribution: $base->difficultyDistribution,
+                    questionCount: $specification->questionCount,
+                    topic: $specification->topics[0],
+                    concept: $specification->concepts[0] ?? null,
+                    exam: $specification->board,
+                    letVariant: $specification->letVariant,
+                    letComponent: $base->letComponent,
+                    civilServiceLevel: $specification->civilServiceLevel
+                )];
+            }
+        }
+
         $selected = BlueprintRequestExecutor::execute(
             $questions,
-            $requests
+            $requests,
+            $eligibilityIndex
         );
 
         $coverage = BlueprintCoverageFinalizer::analyze(

@@ -75,7 +75,12 @@ final class BlueprintResolverService
             }
         }
 
-        if ($allocations === [] || abs(array_sum($allocations) - 100.0) > 0.00001) {
+        // RuntimeAllocationService normalizes positive weights. A board may
+        // store a relative blueprint (for example while optional tracks are
+        // represented in the same table), so requiring an exact 100 total
+        // here incorrectly turns a valid exam configuration into an empty
+        // quiz.
+        if ($allocations === [] || array_sum($allocations) <= 0.0) {
             return ['board' => [], 'subjects' => []];
         }
 

@@ -59,7 +59,15 @@ class QuestionService
 
     public static function save(array $question): array
     {
-        self::assertValid(self::validateForCreate($question));
+        // A draft is an admin review artifact, not production authorization.
+        // It still must satisfy canonical question validation, but source
+        // readiness/headroom gates apply when the record is being created for
+        // active/approved use. This keeps REVIEW leaves draftable without
+        // allowing an unready question into runtime selection.
+        $validation = strtolower((string) ($question['status'] ?? 'active')) === 'draft'
+            ? self::validateForSave($question)
+            : self::validateForCreate($question);
+        self::assertValid($validation);
         $reuse = self::takeReuseMetadata($question);
         $repository = self::repository();
         $created = $repository->create($question);

@@ -2,19 +2,21 @@
 
 declare(strict_types=1);
 
+use App\Services\Question\QuestionEligibilityIndex;
 use App\Services\Quiz\LET\LETVariantExamService;
 
 final class QuizGenerationService
 {
     public static function generate(
         array $questions,
-        QuizSpecification $specification
+        QuizSpecification $specification,
+        ?QuestionEligibilityIndex $eligibilityIndex = null
     ): BlueprintExecutionResult {
 
         if (strtolower(trim($specification->board)) === 'let'
             && $specification->mode === 'exam'
             && $specification->letVariant !== null) {
-            return LETVariantExamService::execute($questions, $specification);
+            return LETVariantExamService::execute($questions, $specification, $eligibilityIndex);
         }
 
         $blueprints =
@@ -49,7 +51,9 @@ final class QuizGenerationService
                 $subjectBlueprints,
 
             specification:
-                $specification
+                $specification,
+            eligibilityIndex:
+                $eligibilityIndex
         );
     }
 }

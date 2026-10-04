@@ -11,7 +11,8 @@ final class BlueprintRequestExecutor
      */
     public static function execute(
         array $questions,
-        array $requests
+        array $requests,
+        ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null
     ): array {
         $session = new SelectionSession();
         $selected = [];
@@ -28,12 +29,14 @@ final class BlueprintRequestExecutor
                     letVariant: $request->letVariant,
                     letComponent: $request->letComponent,
                     exam: $request->exam
-                )
+                ),
+                $eligibilityIndex
             );
 
             $result = QuestionSelectionService::fulfillRequest(
                 $eligibleSubjectPool,
-                $request
+                $request,
+                $eligibilityIndex
             );
 
             $chunk = ShortageRecoveryService::recover(
@@ -68,8 +71,8 @@ final class BlueprintRequestExecutor
                     letComponent: $request->letComponent,
                     exam: $request->exam
                 );
-                $eligible = QuestionPoolFilter::filter($available, $recoveryRequest);
-                $result = QuestionSelectionService::fulfillRequest($eligible, $recoveryRequest);
+                $eligible = QuestionPoolFilter::filter($available, $recoveryRequest, $eligibilityIndex);
+                $result = QuestionSelectionService::fulfillRequest($eligible, $recoveryRequest, $eligibilityIndex);
                 $chunk = SelectionDeduplicator::unique(
                     ShortageRecoveryService::recover($result, $eligible)
                 );

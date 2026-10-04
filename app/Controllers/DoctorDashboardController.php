@@ -19,6 +19,7 @@ final class DoctorDashboardController
 
         $report = [];
         $repositoryHealth = [];
+        $releaseReadiness = [];
         $healthFilters = [
             'severity' => Request::queryString('severity'),
             'board' => Request::queryString('board'),
@@ -48,6 +49,13 @@ final class DoctorDashboardController
             if (is_array($decoded)) {
                 $repositoryHealth = $decoded;
             }
+        }
+
+        $releaseFile = dirname(__DIR__, 2) . '/storage/release-readiness.json';
+        if (is_file($releaseFile)) {
+            $contents = file_get_contents($releaseFile);
+            $decoded = $contents === false ? null : json_decode($contents, true);
+            if (is_array($decoded)) $releaseReadiness = $decoded;
         }
 
         $healthIssues = HealthReport::filterActionQueue(

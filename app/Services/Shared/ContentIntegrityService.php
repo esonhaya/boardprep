@@ -235,9 +235,14 @@ final class ContentIntegrityService
         }
 
         $orphanMaterials = [];
+        $justifiedStandaloneMaterials = [];
         foreach ($materials as $materialId => $material) {
             if (($linksByMaterial[$materialId] ?? []) === []) {
-                $orphanMaterials[] = $materialId;
+                if (($material['standalone_resource'] ?? false) === true && trim((string) ($material['standalone_reason'] ?? '')) !== '') {
+                    $justifiedStandaloneMaterials[] = $materialId;
+                } else {
+                    $orphanMaterials[] = $materialId;
+                }
             }
         }
 
@@ -431,6 +436,7 @@ final class ContentIntegrityService
                 'invalid_study_links' => $hard['invalid_study_links'],
                 'duplicate_study_links' => $duplicateLinks,
                 'orphan_study_materials' => array_values(array_intersect(array_keys($boardMaterials), $orphanMaterials)),
+                'justified_standalone_study_materials' => array_values(array_intersect(array_keys($boardMaterials), $justifiedStandaloneMaterials)),
                 'broken_source_references' => $materialSourceErrors,
                 'taxonomy_coverage' => count($owned) === 0 ? 100 : round((count($owned) - count($hard['invalid_taxonomy_references'])) / count($owned) * 100, 1),
                 'invalid_taxonomy_references' => $hard['invalid_taxonomy_references'],
@@ -451,6 +457,9 @@ final class ContentIntegrityService
             if ($boardResults[$boardId]['orphan_study_materials'] !== []) {
                 $boardResults[$boardId]['semantic_review_warnings'][] = 'Standalone study materials are not question-linked; review editorial intent.';
             }
+            if ($boardResults[$boardId]['justified_standalone_study_materials'] !== []) {
+                $boardResults[$boardId]['semantic_review_warnings'][] = 'Explicitly reviewed standalone study materials are retained as justified exclusions.';
+            }
             if ($status === 'FAIL') {
                 $portfolioDefects[$boardId] = $hard;
             }
@@ -461,6 +470,9 @@ final class ContentIntegrityService
 
         if ($orphanMaterials !== []) {
             $portfolioWarnings['standalone_study_materials'] = $orphanMaterials;
+        }
+        if ($justifiedStandaloneMaterials !== []) {
+            $portfolioWarnings['justified_standalone_study_materials'] = $justifiedStandaloneMaterials;
         }
         if ($duplicateTaxonomyIds !== []) {
             $portfolioWarnings['duplicate_taxonomy_ids'] = $duplicateTaxonomyIds;
@@ -494,6 +506,7 @@ final class ContentIntegrityService
             'total_invalid_links' => count($invalidLinks),
             'total_duplicate_links' => count($duplicateLinks),
             'total_orphan_materials' => count($orphanMaterials),
+            'total_justified_standalone_study_materials' => count($justifiedStandaloneMaterials),
             'total_invalid_source_refs' => count(array_unique(array_merge($sourceErrors, $materialSourceErrors))),
             'total_invalid_taxonomy_refs' => count($invalidTaxonomy),
             'total_derivable_cards' => count($derivableByQuestion),
@@ -530,6 +543,7 @@ final class ContentIntegrityService
             'semantic_review' => [
                 'concept_fit' => 'Manual/editorial quality gate; structural traceability is automated.',
                 'standalone_study_materials' => $orphanMaterials,
+                'justified_standalone_study_materials' => $justifiedStandaloneMaterials,
             ],
             'runtime' => [
                 'integrity_runtime_ms' => null,

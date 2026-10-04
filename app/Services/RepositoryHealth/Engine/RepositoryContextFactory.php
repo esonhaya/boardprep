@@ -82,6 +82,7 @@ class RepositoryContextFactory
             'source-readiness-let',
             'source-readiness-civil-service',
             'source-readiness-architecture',
+            'readiness-closures',
         ];
     }
 }

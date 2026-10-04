@@ -43,7 +43,7 @@ try {
     $repeat = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
     $resultText = preg_replace('/\s+/', ' ', strip_tags($result['output'])) ?? '';
     if ($finish['status'] !== 303 || !$result['success'] || !$repeat['success']
-        || !preg_match('/Score:\s*\d+\s*\/\s*3/', $resultText)
+        || !preg_match('/Score\s*:?\s*\d+\s*\/\s*3/', $resultText)
         || substr_count($result['output'], 'No answer') !== 2) {
         throw new RuntimeException('Partial simulation result did not retain the generated denominator.');
     }

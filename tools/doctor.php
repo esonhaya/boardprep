@@ -13,6 +13,66 @@ if (!in_array('--health', array_slice($argv ?? [], 1), true)) {
     @ini_set('memory_limit', '1024M');
 }
 
+if (in_array('--release', array_slice($argv ?? [], 1), true)) {
+    $releaseArguments = array_slice($argv ?? [], 1);
+    $invalidReleaseArguments = array_values(array_filter(
+        $releaseArguments,
+        static fn(string $argument): bool => !in_array($argument, ['--release', '--json', '--persist', '--no-tests'], true)
+    ));
+    if ($invalidReleaseArguments !== []) {
+        fwrite(STDERR, 'Unknown Release Readiness option: ' . $invalidReleaseArguments[0] . PHP_EOL);
+        exit(2);
+    }
+    putenv('APP_ENV=testing');
+    putenv('APP_DEBUG=false');
+    \App\Core\App::boot();
+    $healthStartedAt = hrtime(true);
+    $releaseReport = \App\Services\RepositoryHealth\Engine\RepositoryHealthEngine::analyze(false);
+    $healthRuntimeMs = round((hrtime(true) - $healthStartedAt) / 1_000_000, 3);
+    $flowEvidence = in_array('--no-tests', $releaseArguments, true)
+        ? []
+        : \App\Services\RepositoryHealth\Release\ReleaseReadinessService::runFlowChecks(dirname(__DIR__));
+    $routeCompleteness = \App\Services\RepositoryHealth\Release\ReleaseReadinessService::routeCompleteness(dirname(__DIR__));
+    $release = \App\Services\RepositoryHealth\Release\ReleaseReadinessService::audit(
+        $releaseReport,
+        $flowEvidence + ['route_completeness' => $routeCompleteness],
+        [
+            'status' => 'PASS',
+            'default_health_runtime_ms' => $healthRuntimeMs,
+            'sample_count' => 1,
+        ]
+    );
+    $payload = [
+        'health' => [
+            'overall_status' => $releaseReport->overallStatus,
+            'summary' => $releaseReport->summary,
+            'fail_entity_count' => (int) ($releaseReport->summary['fail_count'] ?? 0),
+        ],
+        'release_readiness' => $release,
+    ];
+    if (in_array('--persist', $releaseArguments, true)) {
+        $releasePath = dirname(__DIR__) . '/storage/release-readiness.json';
+        $releaseJson = json_encode($payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
+        $temporary = $releasePath . '.tmp';
+        file_put_contents($temporary, $releaseJson . PHP_EOL, LOCK_EX);
+        rename($temporary, $releasePath);
+    }
+    if (in_array('--json', $releaseArguments, true)) {
+        echo json_encode($payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR), PHP_EOL;
+    } else {
+        printf(
+            "RELEASE_DECISION=%s GATE=%s P0=%d P1=%d P2=%d P3=%d\n",
+            (string) ($release['release_decision'] ?? 'UNKNOWN'),
+            (string) ($release['release_gate']['status'] ?? 'UNKNOWN'),
+            (int) ($release['priority_counts']['P0'] ?? 0),
+            (int) ($release['priority_counts']['P1'] ?? 0),
+            (int) ($release['priority_counts']['P2'] ?? 0),
+            (int) ($release['priority_counts']['P3'] ?? 0)
+        );
+    }
+    exit(($release['release_gate']['status'] ?? '') === 'PASS' ? 0 : 1);
+}
+
 if (in_array('--health', array_slice($argv ?? [], 1), true)) {
     $healthArguments = array_slice($argv ?? [], 1);
     $readinessOptions = array_values(array_filter($healthArguments, static fn(string $argument): bool => str_starts_with($argument, '--readiness=')));

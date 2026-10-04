@@ -14,6 +14,7 @@ use App\Services\RepositoryHealth\DTO\RepositoryContext;
 use App\Services\RepositoryHealth\DTO\RepositoryStatistics;
 use App\Services\RepositoryHealth\CivilService\CivilServiceCoverageModel;
 use App\Services\RepositoryHealth\Readiness\SourceReadinessService;
+use App\Services\RepositoryHealth\Readiness\ReadinessClosureService;
 use App\Services\Shared\ContentIntegrityService;
 
 /**
@@ -82,6 +83,7 @@ final class RepositoryHealthEngine
                 'warn_count' => count(array_filter($issues, static fn(array $issue): bool => ($issue['status'] ?? '') === 'WARN')),
                 'review_count' => count(array_filter($issues, static fn(array $issue): bool => ($issue['status'] ?? '') === 'REVIEW')),
             ],
+            'portfolio_state' => self::portfolioOperationalState($boardId, $board, $readiness, []),
             'semantic_review_boundary' => 'Stored editorial metadata is summarized; proposition novelty, source meaning, question equivalence, and visual suitability are not inferred.',
         ];
     }
@@ -124,6 +126,7 @@ final class RepositoryHealthEngine
             if (is_array($readinessSummary)) unset($readinessSummary['records']);
             $recordCount = is_array($readiness) ? (int) ($readiness['record_count'] ?? 0) : 0;
             $activeLeaves = array_key_exists('active_leaves', $board) ? (int) $board['active_leaves'] : null;
+            $operationalState = self::portfolioOperationalState($boardId, $board, $readinessSummary, $issueCounts[$boardId] ?? []);
             $rows[] = [
                 'board_id' => $boardId,
                 'native' => array_key_exists('canonical', $board) ? (int) $board['canonical'] : null,
@@ -137,6 +140,11 @@ final class RepositoryHealthEngine
                 'readiness_model_status' => $readiness === null
                     ? 'LEGACY_NO_READINESS_MODEL'
                     : ($recordCount === $activeLeaves ? 'FULL_READINESS_MODEL' : 'PARTIAL_READINESS_MODEL'),
+                'operational_state' => $operationalState,
+                'closure_state' => is_array($readinessSummary) ? ($readinessSummary['closure_state'] ?? null) : null,
+                'high_value_headroom' => is_array($readinessSummary) ? ($readinessSummary['high_value_headroom'] ?? null) : null,
+                'evidence_exhausted' => is_array($readinessSummary) ? ($readinessSummary['evidence_exhausted'] ?? null) : null,
+                'visual_limited' => is_array($readinessSummary) ? self::visualLimitedCount($readinessSummary) : null,
                 'source_readiness' => $readinessSummary,
                 'deterministic_issue_counts' => [
                     'FAIL' => (int) ($issueCounts[$boardId]['FAIL'] ?? 0),
@@ -151,6 +159,57 @@ final class RepositoryHealthEngine
             'boards' => $rows,
             'semantic_review_boundary' => 'Stored readiness and health metadata are summarized; proposition novelty, source meaning, question equivalence, and visual suitability are not inferred.',
         ];
+    }
+
+    /** @param array<string, mixed> $board @param array<string, mixed>|null $readiness @param array<string, int> $issueCounts */
+    private static function portfolioOperationalState(string $boardId, array $board, ?array $readiness, array $issueCounts): string
+    {
+        if ($readiness === null) {
+            return ((int) ($issueCounts['FAIL'] ?? 0) > 0) ? 'DETERMINISTIC_FAIL' : 'FOUNDATION_SUFFICIENT';
+        }
+        $defects = (array) ($readiness['source_study_defects'] ?? []);
+        $hardReadinessDefects = array_sum(array_map('intval', $defects));
+        if ((int) ($issueCounts['FAIL'] ?? 0) > 0 || $hardReadinessDefects > 0 || (int) ($readiness['error_count'] ?? 0) > 0) {
+            return 'DETERMINISTIC_FAIL';
+        }
+        if ((int) ($defects['source'] ?? 0) > 0 || (int) ($defects['study'] ?? 0) > 0 || (int) ($defects['traceability'] ?? 0) > 0) {
+            return 'SOURCE_READINESS_NEEDED';
+        }
+        if ((int) ($defects['currentness'] ?? 0) > 0) {
+            return 'CURRENTNESS_REVIEW_NEEDED';
+        }
+        $reviews = (array) ($readiness['source_study_reviews'] ?? []);
+        if ((int) ($reviews['currentness_unknown'] ?? 0) > 0) {
+            return 'CURRENTNESS_REVIEW_NEEDED';
+        }
+        $taxonomyStatus = strtoupper((string) ($board['taxonomy_granularity']['status'] ?? ''));
+        if ($taxonomyStatus === 'REVIEW') {
+            return 'TAXONOMY_MODERNIZATION_NEEDED';
+        }
+        $highValue = $readiness['high_value_headroom'] ?? null;
+        $closureState = strtoupper((string) ($readiness['operational_state'] ?? $readiness['closure_state'] ?? ''));
+        if (is_int($highValue) && $highValue > 0 && (int) ($readiness['authorable_thinness']['under20'] ?? 0) >= 0) {
+            return 'SELECTIVE_PRODUCTION_ONLY';
+        }
+        if ($closureState === 'VISUAL_LIMITED' || (self::visualLimitedCount($readiness) > 0 && is_int($highValue) && $highValue === 0)) {
+            return 'VISUAL_LIMITED';
+        }
+        if ($closureState === 'FOUNDATION_SUFFICIENT' || $closureState === 'EVIDENCE_EXHAUSTED' || ($readiness['evidence_exhausted'] ?? false) === true) {
+            return 'FOUNDATION_SUFFICIENT';
+        }
+        if (strtoupper((string) ($board['taxonomy_granularity']['status'] ?? '')) === 'UNKNOWN') {
+            return 'UNKNOWN_REQUIRES_MANUAL_REVIEW';
+        }
+        return 'MAINTENANCE_ONLY';
+    }
+
+    /** @param array<string, mixed> $readiness */
+    private static function visualLimitedCount(array $readiness): int
+    {
+        $counts = (array) ($readiness['visual_suitability_counts'] ?? []);
+        return (int) ($counts['VISUAL_PREFERRED'] ?? 0)
+            + (int) ($counts['VISUAL_REQUIRED'] ?? 0)
+            + (int) ($counts['MIXED'] ?? 0);
     }
 
     private static function build(RepositoryContext $context, ?RepositoryHealthProfiler $profiler = null): HealthReport
@@ -205,13 +264,15 @@ final class RepositoryHealthEngine
 
         $boardSummaries = $run('check.board_summaries_and_balance', static function () use ($questions, $collections, &$issues, $profiler): array { return self::boardSummaries($questions, $collections, $issues, $profiler); });
         $readinessValidation = $run('check.source_readiness_validation', static fn(): array => SourceReadinessService::validateCollections($collections, $boardSummaries), ['SOURCE_READINESS']);
+        $readinessClosures = ReadinessClosureService::byBoard((array) ($collections['readiness-closures'] ?? []));
         $run('issue_mapping.source_readiness', static function () use (&$issues, $readinessValidation): void { self::addSourceReadinessIssues($issues, $readinessValidation); });
         $readinessByBoard = [];
         foreach ((array) ($readinessValidation['by_board'] ?? []) as $boardId => $boardValidation) {
             $readinessByBoard[(string) $boardId] = SourceReadinessService::summary(
                 (array) ($boardValidation['records'] ?? []),
                 $boardValidation,
-                $boardSummaries[(string) $boardId] ?? null
+                $boardSummaries[(string) $boardId] ?? null,
+                $readinessClosures[(string) $boardId] ?? null
             );
         }
         $readinessSummary = $readinessByBoard['criminologist'] ?? SourceReadinessService::summary(
@@ -235,6 +296,7 @@ final class RepositoryHealthEngine
         $summary['flashcards'] = $flashcardMetrics['portfolio'];
         $summary['source_readiness'] = $readinessSummary;
         $summary['source_readiness_by_board'] = $readinessByBoard;
+        $summary['currentness'] = self::currentnessSummary($questions);
 
         $report = new HealthReport();
         $report->issues = $run('shared_issue_sorting', static fn(): array => self::sortIssues($issues));
@@ -995,6 +1057,40 @@ final class RepositoryHealthEngine
             $profiler->increment('duplicate_check_passes');
         }
         return ['portfolio' => $portfolio, 'by_board' => $byBoard];
+    }
+
+    /** @param array<int, array<string, mixed>> $questions @return array<string, mixed> */
+    private static function currentnessSummary(array $questions): array
+    {
+        $versionSensitive = 0;
+        $reviewed = 0;
+        $reviewRequired = 0;
+        $futureOnly = 0;
+        $futureLeakage = 0;
+        foreach ($questions as $question) {
+            if (!is_array($question)) continue;
+            $batch636 = is_array($question['batch636'] ?? null) ? $question['batch636'] : [];
+            $versionReview = is_array($question['version_review'] ?? null)
+                ? $question['version_review']
+                : (is_array($batch636['version_review'] ?? null) ? $batch636['version_review'] : []);
+            $sensitive = ($question['version_sensitive'] ?? false) === true || ($batch636['version_sensitive'] ?? false) === true;
+            if ($sensitive) $versionSensitive++;
+            if ($versionReview !== []) {
+                $reviewed++;
+                if (strtoupper((string) ($versionReview['cy2029'] ?? '')) === 'FUTURE_ONLY') $futureOnly++;
+                if (($versionReview['future_rule_used'] ?? false) === true || ($versionReview['future_effective_used'] ?? false) === true) $futureLeakage++;
+            } elseif ($sensitive) {
+                $reviewRequired++;
+            }
+        }
+        return [
+            'status' => $futureLeakage > 0 ? 'FAIL' : ($reviewRequired > 0 ? 'REVIEW_REQUIRED' : 'CURRENT'),
+            'version_sensitive' => $versionSensitive,
+            'reviewed' => $reviewed,
+            'review_required' => $reviewRequired,
+            'future_effective_only' => $futureOnly,
+            'future_effective_leakage' => $futureLeakage,
+        ];
     }
 
     private static function checks(array $issues, ?RepositoryHealthProfiler $profiler = null): array

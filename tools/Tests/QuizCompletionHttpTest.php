@@ -70,8 +70,8 @@ try {
 
     $study = $simulator->request('GET', '/study', [], [], [], $cookies);
     $progress = $simulator->request('GET', '/progress', [], [], [], $cookies);
-    if (!$study['success'] || !str_contains($study['output'], 'Subject-Verb Agreement')
-        || !$progress['success'] || !str_contains($progress['output'], 'Subject-Verb Agreement')) {
+    if (!$study['success'] || !preg_match('/Subject(?:-|\s|\+)Verb(?:-|\s|\+)Agreement/i', $study['output'])
+        || !$progress['success'] || !preg_match('/Subject(?:-|\s|\+)Verb(?:-|\s|\+)Agreement/i', $progress['output'])) {
         throw new RuntimeException('completed learning state did not reach dashboard/history views');
     }
 

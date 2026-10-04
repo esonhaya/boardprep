@@ -51,6 +51,8 @@
       "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
       "scope_specialization_ids": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
       "scope_component_ids": {"type": "array", "items": {"enum": ["GENERAL_EDUCATION", "PROFESSIONAL_EDUCATION", "SPECIALIZATION"]}, "uniqueItems": true},
+      "closure_state": {"enum": ["OPEN", "FOUNDATION_SUFFICIENT", "EVIDENCE_EXHAUSTED", "VISUAL_LIMITED", "CURRENTNESS_LIMITED"]},
+      "scope_status": {"enum": ["ACTIONABLE", "STRUCTURAL_NOT_ACTIONABLE"]},
       "readiness": {"enum": ["READY", "READY_WITH_LIMITS", "REVIEW", "DEFER"]},
       "readiness_reason": {"type": "string"},
       "review_reason": {"type": "string"},

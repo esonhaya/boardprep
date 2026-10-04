@@ -18,6 +18,8 @@ final class SourceReadinessRecord
     public const STUDY_COVERAGE = ['COMPLETE', 'SUFFICIENT', 'PARTIAL', 'MISSING', 'INVALID', 'UNKNOWN'];
     public const TRACEABILITY = ['COMPLETE', 'PARTIAL', 'BROKEN', 'NONE', 'UNKNOWN'];
     public const READINESS = ['READY', 'READY_WITH_LIMITS', 'REVIEW', 'DEFER'];
+    public const CLOSURE_STATES = ['OPEN', 'FOUNDATION_SUFFICIENT', 'EVIDENCE_EXHAUSTED', 'VISUAL_LIMITED', 'CURRENTNESS_LIMITED'];
+    public const SCOPE_STATUSES = ['ACTIONABLE', 'STRUCTURAL_NOT_ACTIONABLE'];
     public const VISUAL_SUITABILITY = ['TEXT_SUITABLE', 'TEXT_SUITABLE_WITH_LIMITS', 'VISUAL_PREFERRED', 'VISUAL_REQUIRED', 'MIXED', 'UNKNOWN'];
     public const REPEAT_RISK = ['LOW', 'MODERATE', 'HIGH', 'CRITICAL', 'UNKNOWN'];
     public const BLOCKER_CLASSES = [
@@ -131,6 +133,9 @@ final class SourceReadinessRecord
             'text_format_headroom',
             'high_value_headroom',
         ] as $field) {
+            if (array_key_exists($field, $record)) $payload[$field] = $record[$field];
+        }
+        foreach (['closure_state', 'scope_status'] as $field) {
             if (array_key_exists($field, $record)) $payload[$field] = $record[$field];
         }
         foreach (['scope_specialization_ids', 'scope_component_ids'] as $field) {

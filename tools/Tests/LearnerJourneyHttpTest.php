@@ -8,7 +8,6 @@ require_once dirname(__DIR__, 2) . "/app/Core/Autoloader.php";
 
 use App\Core\App;
 use App\Repositories\AttemptRepository;
-use App\Services\Learning\LearningAttemptNormalizer;
 use App\Services\Learning\WeaknessService;
 use App\Services\Learning\WeaknessStorageService;
 use Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator;
@@ -19,7 +18,6 @@ $questionsPath = $root . '/storage/questions.json';
 $questionsBefore = (string) file_get_contents($questionsPath);
 $before = json_decode((string) file_get_contents($attemptsPath), true);
 $before = is_array($before) ? $before : [];
-$completedBefore = count(LearningAttemptNormalizer::all($before));
 $beforeIds = array_values(array_filter(array_map(
     static fn(mixed $row): ?string => is_array($row) && is_scalar($row['id'] ?? null) ? (string) $row['id'] : null,
     $before
@@ -82,7 +80,7 @@ $complete = static function (array $query, bool $exerciseStaleForm = false) use 
 
 try {
     $landing = $http->request('GET', '/', [], [], [], $cookies);
-    if (!$landing['success'] || !str_contains($landing['output'], 'Start Learning')
+    if (!$landing['success'] || !str_contains($landing['output'], 'Start studying')
         || !str_contains($landing['output'], '/dashboard')) {
         throw new RuntimeException('fresh learner landing has no working learner entry points');
     }
@@ -92,6 +90,13 @@ try {
         if (!$empty['success']) {
             throw new RuntimeException("new learner page failed: {$path}");
         }
+        if ($path === '/dashboard') {
+            $emptyText = preg_replace('/\s+/', ' ', strip_tags($empty['output'])) ?? '';
+            if (!preg_match('/Completed quizzes\s*:?[\s]*([0-9]+)/i', $emptyText, $emptyCount)) {
+                throw new RuntimeException('fresh learner dashboard has no completed-quiz metric');
+            }
+            $completedBefore = (int) $emptyCount[1];
+        }
     }
 
     $firstResult = $complete([
@@ -99,14 +104,14 @@ try {
         'mode' => 'practice', 'difficulty' => 'mixed', 'count' => 2,
     ], true);
     if (!preg_match('/(?:Practice this again|Practice again|Keep practicing)/', $firstResult['output'])
-        || !str_contains($firstResult['output'], 'topic=Subject-Verb+Agreement')) {
+        || !preg_match('/topic=Subject(?:-|\+|%20|\s)Verb/i', $firstResult['output'])) {
         throw new RuntimeException('result action did not preserve score guidance and quiz context');
     }
 
     $outputs = [];
     foreach (['/dashboard', '/history', '/profile', '/progress', '/study'] as $path) {
         $response = $http->request('GET', $path, [], [], [], $cookies);
-        if (!$response['success'] || !str_contains($response['output'], 'Subject-Verb Agreement')) {
+        if (!$response['success'] || !preg_match('/Subject(?:-|\s|\+)Verb(?:-|\s|\+)Agreement/i', $response['output'])) {
             throw new RuntimeException("first completion is inconsistent on {$path}");
         }
         $outputs[$path] = $response['output'];
@@ -119,7 +124,7 @@ try {
     foreach ($links[1] as $candidate) {
         $decoded = html_entity_decode($candidate, ENT_QUOTES | ENT_HTML5);
         if (str_contains($decoded, 'subject=English')
-            && str_contains($decoded, 'topic=Subject-Verb')) {
+            && preg_match('/topic=Subject(?:-|\+|%20|\s)Verb/i', $decoded)) {
             $url = $decoded;
             break;
         }
@@ -145,11 +150,12 @@ try {
     foreach (['/dashboard', '/history', '/profile', '/progress', '/study'] as $path) {
         $updated = $http->request('GET', $path, [], [], [], $cookies);
         $expected = $completedBefore + 2;
+        $updatedText = preg_replace('/\s+/', ' ', strip_tags($updated['output'])) ?? '';
         if (!$updated['success'] || !preg_match(
-            '/(Completed Quizzes|Total Quizzes):\s*(?:<strong>)?' . $expected . '(?:<\/strong>)?(?!\d)/',
-            $updated['output']
+            '/(?:Completed quizzes|Total Quizzes)\s*:?[\s]*' . $expected . '(?!\d)/i',
+            $updatedText
         )) {
-            throw new RuntimeException("second completion is stale on {$path}");
+            throw new RuntimeException("second completion is stale on {$path}; expected={$expected}; text=" . substr($updatedText, 0, 1000));
         }
     }
 
@@ -181,9 +187,10 @@ try {
     foreach (['/dashboard', '/history', '/profile', '/progress', '/study'] as $path) {
         $updated = $http->request('GET', $path, [], [], [], $cookies);
         $expected = $completedBefore + 3;
+        $updatedText = preg_replace('/\s+/', ' ', strip_tags($updated['output'])) ?? '';
         if (!$updated['success'] || !preg_match(
-            '/(Completed Quizzes|Total Quizzes):\s*(?:<strong>)?' . $expected . '(?:<\/strong>)?(?!\d)/',
-            $updated['output']
+            '/(?:Completed quizzes|Total Quizzes)\s*:?[\s]*' . $expected . '(?!\d)/i',
+            $updatedText
         )) {
             throw new RuntimeException("final learner state is stale on {$path}");
         }

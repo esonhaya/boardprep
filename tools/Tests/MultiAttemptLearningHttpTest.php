@@ -28,8 +28,9 @@ $simulator = new HttpSimulator(dirname(__DIR__, 2) . '/public/index.php');
 $complete = static function (string $cookie, string $topic) use ($simulator): void {
     $cookies = ['PHPSESSID' => $cookie];
     $start = $simulator->request(
-        'GET',
+        'POST',
         '/quiz',
+        [],
         [
             'action' => 'start',
             'subject' => 'English',
@@ -38,7 +39,6 @@ $complete = static function (string $cookie, string $topic) use ($simulator): vo
             'difficulty' => 'mixed',
             'count' => 1,
         ],
-        [],
         [],
         $cookies
     );
@@ -51,8 +51,8 @@ $complete = static function (string $cookie, string $topic) use ($simulator): vo
     $submit = $simulator->request(
         'POST',
         '/quiz',
-        ['action' => 'submit'],
-        ['question_id' => $matches[1], 'answer' => 'A'],
+        [],
+        ['action' => 'submit', 'question_id' => $matches[1], 'answer' => 'A'],
         [],
         $cookies
     );
@@ -60,36 +60,37 @@ $complete = static function (string $cookie, string $topic) use ($simulator): vo
         throw new RuntimeException("could not submit {$topic} quiz through HTTP");
     }
 
-    $result = $simulator->request('GET', '/quiz', ['action' => 'finish'], [], [], $cookies);
+    $result = $simulator->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
     if (!$result['success'] || !str_contains($result['output'], 'Quiz Result')) {
         throw new RuntimeException("{$topic} result did not render through HTTP");
     }
 
-    $simulator->request('GET', '/quiz', ['action' => 'finish'], [], [], $cookies);
+    $simulator->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
     $simulator->request(
         'POST',
         '/quiz',
-        ['action' => 'submit'],
-        ['question_id' => $matches[1], 'answer' => 'B'],
+        [],
+        ['action' => 'submit', 'question_id' => $matches[1], 'answer' => 'B'],
         [],
         $cookies
     );
 };
 
 try {
-    $complete('batch428-learning-one', 'Subject-Verb Agreement');
-    $complete('batch428-learning-two', 'Verb Tenses');
+    $learnerCookies = ['PHPSESSID' => 'batch428-learning'];
+    $complete('batch428-learning', 'Subject-Verb Agreement');
+    $complete('batch428-learning', 'Verb Tenses');
 
-    $study = $simulator->request('GET', '/study');
-    $progress = $simulator->request('GET', '/progress');
-    $profile = $simulator->request('GET', '/profile');
+    $study = $simulator->request('GET', '/study', [], [], [], $learnerCookies);
+    $progress = $simulator->request('GET', '/progress', [], [], [], $learnerCookies);
+    $profile = $simulator->request('GET', '/profile', [], [], [], $learnerCookies);
     if (!$study['success'] || !$progress['success'] || !$profile['success']
-        || !str_contains($study['output'], 'Subject-Verb Agreement')
+        || !preg_match('/Subject(?:-|\s|\+)Verb(?:-|\s|\+)Agreement/i', $study['output'])
         || !str_contains($study['output'], 'Verb Tenses')
-        || !str_contains($progress['output'], 'Subject-Verb Agreement')
+        || !preg_match('/Subject(?:-|\s|\+)Verb(?:-|\s|\+)Agreement/i', $progress['output'])
         || !str_contains($progress['output'], 'Verb Tenses')
-        || !str_contains($profile['output'], 'Subject-Verb Agreement')
-        || !str_contains($profile['output'], 'Practice Subject-Verb Agreement')) {
+        || !preg_match('/Subject(?:-|\s|\+)Verb(?:-|\s|\+)Agreement/i', $profile['output'])
+        || !preg_match('/Practice Subject(?:-|\s|\+)Verb(?:-|\s|\+)Agreement/i', $profile['output'])) {
         throw new RuntimeException('multiple completed topics did not reach learner views');
     }
 

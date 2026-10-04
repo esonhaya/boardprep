@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "boardprep://schemas/readiness-closures.schema.json",
+  "title": "BoardPrep board-level readiness closure records",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["board_id", "closure_state", "operational_state", "closure_reason"],
+    "properties": {
+      "board_id": {"type": "string", "minLength": 1},
+      "closure_state": {"enum": ["OPEN", "FOUNDATION_SUFFICIENT", "EVIDENCE_EXHAUSTED", "VISUAL_LIMITED", "CURRENTNESS_LIMITED"]},
+      "operational_state": {"type": "string", "minLength": 1},
+      "closure_reason": {"type": "string", "minLength": 1},
+      "evidence_exhausted": {"type": "boolean"},
+      "numerical_headroom": {"type": ["integer", "null"], "minimum": 0},
+      "evidence_headroom": {"type": ["integer", "null"], "minimum": 0},
+      "text_format_headroom": {"type": ["integer", "null"], "minimum": 0},
+      "high_value_headroom": {"type": ["integer", "null"], "minimum": 0},
+      "reviewed_at_batch": {"type": "integer", "minimum": 641}
+    },
+    "additionalProperties": true
+  }
+}

@@ -7,6 +7,8 @@ use App\Core\Request;
 use App\Core\Response;
 use App\Core\View;
 use App\Repositories\QuestionRepository;
+use App\Services\Question\QuestionEligibilityIndex;
+use App\Services\Question\QuestionReuseEligibilityResolver;
 use App\Services\Quiz\Start\QuizStartPreparationService;
 use App\Services\Quiz\Start\QuizStartSessionWriter;
 use App\Services\Quiz\Start\QuizStartViewModelFactory;
@@ -33,8 +35,18 @@ class QuizStartService
             }
         }
         $questions = App::container()->get(QuestionRepository::class)->all();
+        // Build the immutable eligibility index once per start request. The
+        // selector may make several passes over the same bank; sharing this
+        // map avoids a storage-backed eligibility lookup for every question
+        // and keeps learner start latency bounded as the bank grows.
+        $eligibilityIndex = new QuestionEligibilityIndex(
+            App::storage()->all('question-eligibility'),
+            App::storage()->all('blueprints'),
+            QuestionReuseEligibilityResolver::productionDerivedRelationships(),
+            App::storage()->all('question-reuse-overrides')
+        );
         try {
-            $preparation = QuizStartPreparationService::prepare($input, $questions);
+            $preparation = QuizStartPreparationService::prepare($input, $questions, $eligibilityIndex);
         } catch (\InvalidArgumentException $exception) {
             QuizStartSessionWriter::clear();
             SessionService::flash('error', $exception->getMessage());

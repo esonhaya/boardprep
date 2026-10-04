@@ -1,0 +1,1002 @@
+{
+    "title": "BOARDPREP — BATCH 656 RELEASE CONVERGENCE",
+    "batch": 656,
+    "lineage": {
+        "expected_parent": "433fd3d3c1c97848b46fea78edacce229478e3cb",
+        "head_before": "433fd3d3c1c97848b46fea78edacce229478e3cb",
+        "main_reference": "0eb9704ba293e0aa3402af5d01a2d3392c005b73",
+        "content_freeze": true,
+        "new_questions": 0
+    },
+    "let_reconciliation": {
+        "previous_closure": "FOUNDATION_SUFFICIENT_EVIDENCE_EXHAUSTED",
+        "automated_selection_before": "SOURCE_READINESS_NEEDED",
+        "source_findings_before": 38,
+        "source_findings_reconciled": {
+            "scope_fit_unknown_review_only": 35,
+            "structural_cse_rows": 3,
+            "invalid_source_ids": 0,
+            "validator_errors": 0
+        },
+        "classification": "TOOLING_FALSE_POSITIVE_PLUS_STRUCTURAL_NOT_ACTIONABLE",
+        "hard_defects_after": {
+            "source": 0,
+            "study": 0,
+            "traceability": 0,
+            "currentness": 0
+        },
+        "review_only_after": {
+            "source_scope_fit_unknown": 35,
+            "source_authority_unknown": 0,
+            "study_coverage_unknown": 0,
+            "traceability_unknown": 0,
+            "currentness_unknown": 0,
+            "structural_not_actionable": 3
+        }
+    },
+    "triage_classifier": {
+        "generic": true,
+        "closure_precedence": true,
+        "raw_thinness_overrides_closure": false,
+        "before_state": "SOURCE_READINESS_NEEDED",
+        "after_state": "FOUNDATION_SUFFICIENT"
+    },
+    "portfolio_deterministic_debt": {
+        "before": {
+            "source": 38,
+            "study": 19,
+            "traceability": 3,
+            "currentness": 3,
+            "orphan_study_materials": 16,
+            "cpa_source_fit_review": 3
+        },
+        "after": {
+            "source_readiness_hard_defects": 0,
+            "repository_defects": {
+                "source": 0,
+                "study": 0,
+                "traceability": 0,
+                "currentness": 0,
+                "depth": 0,
+                "taxonomy": 0,
+                "eligibility": 0,
+                "flashcard": 0,
+                "calculation": 0,
+                "duplicate_effective": 0
+            },
+            "orphan_study_materials_unexplained": 0,
+            "justified_standalone_study_materials": 16,
+            "health_fail_entities": 0
+        }
+    },
+    "orphan_study_resolution": {
+        "before": 16,
+        "unexplained_after": 0,
+        "justified_standalone": 16
+    },
+    "cpa_source_fit": {
+        "before": 3,
+        "true_defects_after": 0,
+        "classification": "CONSERVATIVE_REVIEW",
+        "question_ids": [
+            "1300",
+            "1306",
+            "1316"
+        ]
+    },
+    "me_stale_expectation": {
+        "historical": {
+            "READY_WITH_LIMITS": 34,
+            "REVIEW": 1
+        },
+        "current_canonical": {
+            "READY_WITH_LIMITS": 28,
+            "REVIEW": 7
+        },
+        "resolution": "TEST_EXPECTATION_UPDATED_TO_CURRENT_CANONICAL_STATE"
+    },
+    "repository_health": {
+        "overall_status": "REVIEW",
+        "fail_entities": 0,
+        "issue_breakdown": {
+            "ACTIVE_UNDER10_LEAF": 197,
+            "ACTIVE_UNDER20_LEAF": 415,
+            "ACTIVE_UNDER5_LEAF": 81,
+            "ACTIVE_ZERO_LEAF": 18,
+            "CONCENTRATION_CALCULATION_FAMILY": 1,
+            "OFFICIAL_AREA_IMBALANCE": 8,
+            "SOURCE_SEMANTIC_FIT_REVIEW": 3,
+            "UNKNOWN_COVERAGE": 12
+        },
+        "canonical_total": 8962,
+        "effective_total": 9422,
+        "runtime_total": 9746,
+        "native_by_board": {
+            "architecture": 484,
+            "civil-engineering": 922,
+            "civil-service": 1553,
+            "cpa": 1132,
+            "criminologist": 451,
+            "let": 1788,
+            "mechanical-engineering": 511,
+            "nursing": 878,
+            "psychometrician": 401,
+            "registered-electrical-engineering": 842
+        },
+        "effective_by_board": {
+            "architecture": 484,
+            "civil-engineering": 922,
+            "civil-service": 1807,
+            "cpa": 1132,
+            "criminologist": 554,
+            "let": 1871,
+            "mechanical-engineering": 511,
+            "nursing": 898,
+            "psychometrician": 401,
+            "registered-electrical-engineering": 842
+        },
+        "runtime_by_board": {
+            "architecture": 484,
+            "civil-engineering": 922,
+            "civil-service": 2116,
+            "cpa": 1132,
+            "criminologist": 554,
+            "let": 1886,
+            "mechanical-engineering": 511,
+            "nursing": 898,
+            "psychometrician": 401,
+            "registered-electrical-engineering": 842
+        },
+        "flashcard_defects": 0,
+        "calculation_contradictions": 0,
+        "duplicate_effective": 0,
+        "double_weighting": 0,
+        "nursing_dosage": "24/16/8",
+        "cpa_cy2029_leakage": 0
+    },
+    "release": {
+        "domains": {
+            "CONTENT_INTEGRITY": {
+                "status": "PASS",
+                "evidence": {
+                    "repository_health_failures": 0
+                },
+                "reason": "No deterministic repository integrity failure was reported."
+            },
+            "TAXONOMY_INTEGRITY": {
+                "status": "PASS",
+                "evidence": {
+                    "failures": 0
+                },
+                "reason": "Taxonomy parent and placement integrity is projected from Repository Health."
+            },
+            "SOURCE_TRACEABILITY": {
+                "status": "REVIEW",
+                "evidence": {
+                    "hard_source_defects": 0,
+                    "source_readiness_failures": 0,
+                    "review_signals": 46
+                },
+                "reason": "Hard source defects block release; semantic fit and scope uncertainty remain review signals."
+            },
+            "STUDY_TRACEABILITY": {
+                "status": "PASS",
+                "evidence": {
+                    "hard_study_defects": 0,
+                    "hard_traceability_defects": 0
+                },
+                "reason": "Question-to-study and study-to-source chains are projected from the indexed health snapshot."
+            },
+            "FLASHCARD_INTEGRITY": {
+                "status": "PASS",
+                "evidence": {
+                    "hard_defects": 0,
+                    "justified_exclusions": 18
+                },
+                "reason": "Eligible questions must derive valid, uniquely keyed cards or carry an explicit exclusion."
+            },
+            "CALCULATION_INTEGRITY": {
+                "status": "PASS",
+                "evidence": {
+                    "contradictions": 0
+                },
+                "reason": "Calculation metadata contradictions are release-blocking."
+            },
+            "ELIGIBILITY_INTEGRITY": {
+                "status": "PASS",
+                "evidence": {
+                    "failures": 0
+                },
+                "reason": "Effective eligibility and duplicate-candidate checks are release-critical."
+            },
+            "CURRENTNESS": {
+                "status": "REVIEW",
+                "evidence": {
+                    "future_effective_leakage": 0,
+                    "readiness_currentness_defects": 0,
+                    "question_review_required": 58
+                },
+                "reason": "Currentness is explicit; future-effective material cannot answer a current question."
+            },
+            "LEARNER_CORE_FLOWS": {
+                "status": "PASS",
+                "evidence": {
+                    "tests": [
+                        {
+                            "script": "tools/Tests/LearnerJourneyHttpTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] fresh learner completes practice, review, recommendation, targeted retry, and simulation.\n[PASS] stale forms, result refresh, exact-once persistence, taxonomy, and final learning state verified.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        },
+                        {
+                            "script": "tools/Tests/LearnerDashboardReliabilityTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] learner dashboard normalizes one consistent attempt population.\n[PASS] learner dashboard preserves subject/topic context and timestamp fallback.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        },
+                        {
+                            "script": "tools/Tests/LearnerExperienceConsistencyTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] learner metrics cover malformed, incomplete, repeated-topic, and empty states.\n[PASS] every recommendation and study-plan action carries canonical quiz context.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        },
+                        {
+                            "script": "tools/Tests/LearningProfileActionViewTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] learning profile recommendations render canonical quiz actions.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        },
+                        {
+                            "script": "tools/Tests/ProgressRecommendationViewTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] progress recommendations render canonical quiz actions.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        },
+                        {
+                            "script": "tools/Tests/LearnerNavigationUxTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "le\n[PASS] study empty states offer practice\n[PASS] study library offers practice and flashcards\n[PASS] progress exposes quiz next step\n[PASS] flashcard empty state has return actions\n[PASS] flashcard review has contextual return actions\n[PASS] quiz no-question state returns to setup\n[PASS] exam empty state offers recovery actions\n[PASS] learner navigation UX contracts verified. Assertions: 8\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        },
+                        {
+                            "script": "tools/Tests/LearnerMobileAccessibilityViewTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": " associated\n[PASS] answer choices use a labelled fieldset and full-size labels\n[PASS] quiz feedback is announced\n[PASS] review correctness has textual and structural state\n[PASS] mobile navigation and controls meet touch sizing contract\n[PASS] long learner content can wrap safely\n[PASS] keyboard focus remains visible\n[PASS] learner mobile accessibility view contracts verified. Assertions: 10\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        }
+                    ],
+                    "passed": true
+                },
+                "reason": "Focused release-flow evidence."
+            },
+            "ATTEMPT_SAFETY": {
+                "status": "PASS",
+                "evidence": {
+                    "tests": [
+                        {
+                            "script": "tools/Tests/MultiAttemptLearningHttpTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] two HTTP completions accumulate distinct learning state exactly once.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        },
+                        {
+                            "script": "tools/Tests/ApplicationResilienceTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] malformed quiz state is rejected before rendering or result persistence.\n[PASS] learner attempt retries are idempotent by canonical session identity.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        }
+                    ],
+                    "passed": true
+                },
+                "reason": "Focused release-flow evidence."
+            },
+            "RESULT_REVIEW": {
+                "status": "PASS",
+                "evidence": {
+                    "tests": [
+                        {
+                            "script": "tools/Tests/HistoryResultHttpTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] Owned history result renders through the production router with score, review, study, flashcard, and return actions.\n[PASS] Foreign, unknown, request-owner override, and GET mutation boundaries hold.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        },
+                        {
+                            "script": "tools/Tests/QuizCompletionHttpTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] HTTP completion renders result and persists one attempt across retries.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        }
+                    ],
+                    "passed": true
+                },
+                "reason": "Focused release-flow evidence."
+            },
+            "PROGRESS_STATE": {
+                "status": "PASS",
+                "evidence": {
+                    "tests": [
+                        {
+                            "script": "tools/Tests/LearnerJourneyHttpTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] fresh learner completes practice, review, recommendation, targeted retry, and simulation.\n[PASS] stale forms, result refresh, exact-once persistence, taxonomy, and final learning state verified.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        },
+                        {
+                            "script": "tools/Tests/LearnerDashboardReliabilityTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] learner dashboard normalizes one consistent attempt population.\n[PASS] learner dashboard preserves subject/topic context and timestamp fallback.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        },
+                        {
+                            "script": "tools/Tests/LearnerExperienceConsistencyTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] learner metrics cover malformed, incomplete, repeated-topic, and empty states.\n[PASS] every recommendation and study-plan action carries canonical quiz context.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        },
+                        {
+                            "script": "tools/Tests/LearningProfileActionViewTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] learning profile recommendations render canonical quiz actions.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        },
+                        {
+                            "script": "tools/Tests/ProgressRecommendationViewTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] progress recommendations render canonical quiz actions.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        },
+                        {
+                            "script": "tools/Tests/LearnerNavigationUxTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "le\n[PASS] study empty states offer practice\n[PASS] study library offers practice and flashcards\n[PASS] progress exposes quiz next step\n[PASS] flashcard empty state has return actions\n[PASS] flashcard review has contextual return actions\n[PASS] quiz no-question state returns to setup\n[PASS] exam empty state offers recovery actions\n[PASS] learner navigation UX contracts verified. Assertions: 8\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        },
+                        {
+                            "script": "tools/Tests/LearnerMobileAccessibilityViewTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": " associated\n[PASS] answer choices use a labelled fieldset and full-size labels\n[PASS] quiz feedback is announced\n[PASS] review correctness has textual and structural state\n[PASS] mobile navigation and controls meet touch sizing contract\n[PASS] long learner content can wrap safely\n[PASS] keyboard focus remains visible\n[PASS] learner mobile accessibility view contracts verified. Assertions: 10\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        }
+                    ],
+                    "passed": true
+                },
+                "reason": "Focused release-flow evidence."
+            },
+            "HISTORY": {
+                "status": "PASS",
+                "evidence": {
+                    "tests": [
+                        {
+                            "script": "tools/Tests/HistoryResultHttpTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] Owned history result renders through the production router with score, review, study, flashcard, and return actions.\n[PASS] Foreign, unknown, request-owner override, and GET mutation boundaries hold.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        },
+                        {
+                            "script": "tools/Tests/QuizCompletionHttpTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] HTTP completion renders result and persists one attempt across retries.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        }
+                    ],
+                    "passed": true
+                },
+                "reason": "Focused release-flow evidence."
+            },
+            "SIMULATOR_RECOVERY": {
+                "status": "PASS",
+                "evidence": {
+                    "tests": [
+                        {
+                            "script": "tools/Tests/ExamSimulationHttpTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] Partial/full-boundary exam HTTP journey and exact-once isolation verified.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        }
+                    ],
+                    "passed": true
+                },
+                "reason": "Focused release-flow evidence."
+            },
+            "ADMIN_CORE_FLOWS": {
+                "status": "PASS",
+                "evidence": {
+                    "tests": [
+                        {
+                            "script": "tools/Tests/QuestionEditorEligibilityTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] Admin board eligibility overview, share, placement, unshare, protection, validation, and duplicate-draft states verified.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        },
+                        {
+                            "script": "tools/Tests/QuestionAuthoringWorkflowIntegrationTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] authoring persists, reloads, reaches quiz selection, and rejects invalid writes.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        }
+                    ],
+                    "passed": true
+                },
+                "reason": "Focused release-flow evidence."
+            },
+            "SHARED_QUESTION_SAFETY": {
+                "status": "PASS",
+                "evidence": {
+                    "tests": [
+                        {
+                            "script": "tools/Tests/CrossBoardCanonicalReuseTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] Cross-board canonical eligibility, blueprint mapping, production selection, and board isolation verified.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        }
+                    ],
+                    "passed": true
+                },
+                "reason": "Focused release-flow evidence."
+            },
+            "STUDY_EXPERIENCE": {
+                "status": "PASS",
+                "evidence": {
+                    "tests": [
+                        {
+                            "script": "tools/Tests/FlashcardIntegrationTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] Quiz miss -> result action -> missed flashcard -> reveal -> rating journey completed through public/index.php.\n[PASS] Weakness, dashboard, progress, study, PRG, and foreign-attempt boundaries verified.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        }
+                    ],
+                    "passed": true
+                },
+                "reason": "Focused release-flow evidence."
+            },
+            "DEVELOPER_HEALTH": {
+                "status": "PASS",
+                "evidence": {
+                    "health_failures": 0
+                },
+                "reason": "The same RepositoryHealthEngine snapshot powers the release summary."
+            },
+            "PERFORMANCE": {
+                "status": "PASS",
+                "evidence": {
+                    "status": "PASS",
+                    "default_health_runtime_ms": 20471.263,
+                    "health_samples_ms": [
+                        18228.58,
+                        20651.62,
+                        20471.263
+                    ],
+                    "portfolio_runtime_ms": 7.991,
+                    "baseline_health_runtime_ms": 21683,
+                    "regression_percent": -5.588,
+                    "sample_count": 3
+                },
+                "reason": "Performance evidence was supplied."
+            },
+            "REPOSITORY_DETERMINISM": {
+                "status": "PASS",
+                "evidence": {
+                    "tests": [
+                        {
+                            "script": "tools/Tests/ReleaseReadinessContractTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "release_readiness_contract=PASS\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        }
+                    ],
+                    "passed": true
+                },
+                "reason": "Focused release-flow evidence."
+            },
+            "ROUTE_COMPLETENESS": {
+                "status": "PASS",
+                "evidence": {
+                    "active": 59,
+                    "intentional_internal": 5,
+                    "deprecated": 0,
+                    "stub": 0,
+                    "broken": 0,
+                    "unknown": 0,
+                    "marker_examples": []
+                },
+                "reason": "User-facing route and placeholder scan."
+            },
+            "SECURITY_SANITY": {
+                "status": "PASS",
+                "evidence": {
+                    "tests": [
+                        {
+                            "script": "tools/Tests/ProductionQuizCsrfTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] production quiz mutations require and accept the session CSRF token.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        }
+                    ],
+                    "passed": true
+                },
+                "reason": "Focused release-flow evidence."
+            },
+            "STUDY_FLASHCARD_EXPERIENCE": {
+                "status": "PASS",
+                "evidence": {
+                    "tests": [
+                        {
+                            "script": "tools/Tests/FlashcardIntegrationTest.php",
+                            "status": "PASS",
+                            "exit_code": 0,
+                            "output_tail": "[PASS] Quiz miss -> result action -> missed flashcard -> reveal -> rating journey completed through public/index.php.\n[PASS] Weakness, dashboard, progress, study, PRG, and foreign-attempt boundaries verified.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                        }
+                    ],
+                    "passed": true
+                },
+                "reason": "Focused release-flow evidence."
+            }
+        },
+        "release_gate": {
+            "status": "PASS",
+            "reason": "No P0 blockers and every critical flow/integrity domain passed.",
+            "p0_count": 0
+        },
+        "release_decision": "RELEASE_READY_WITH_NONBLOCKING_DEBT",
+        "priority_counts": {
+            "P0": 0,
+            "P1": 2,
+            "P2": 0,
+            "P3": 2
+        },
+        "p0_blockers": [],
+        "action_queue_summary": [
+            {
+                "priority": "P1",
+                "domain": "CURRENTNESS",
+                "entity": "CURRENTNESS",
+                "deterministic_or_editorial": "EDITORIAL_OR_REVIEW",
+                "suggested_next_action": "Review the recorded evidence before release or explicitly accept the debt."
+            },
+            {
+                "priority": "P1",
+                "domain": "SOURCE_TRACEABILITY",
+                "entity": "SOURCE_TRACEABILITY",
+                "deterministic_or_editorial": "EDITORIAL_OR_REVIEW",
+                "suggested_next_action": "Review the recorded evidence before release or explicitly accept the debt."
+            },
+            {
+                "priority": "P3",
+                "domain": "CONTENT",
+                "entity": "evidence-exhausted-and-thin-leaves",
+                "deterministic_or_editorial": "EDITORIAL_OR_REVIEW",
+                "suggested_next_action": "Keep future expansion post-release and evidence-backed."
+            },
+            {
+                "priority": "P3",
+                "domain": "FEATURE",
+                "entity": "architecture-visual-backlog",
+                "deterministic_or_editorial": "EDITORIAL_OR_REVIEW",
+                "suggested_next_action": "Plan as a post-release feature."
+            }
+        ],
+        "criteria": {
+            "p0_blockers": true,
+            "repository_health_fail": true,
+            "critical_learner_and_admin_flows": true,
+            "eligibility_integrity": true,
+            "source_study_hard_defects": true,
+            "flashcard_hard_defects": true,
+            "calculation_hard_defects": true,
+            "future_effective_leakage": true
+        }
+    },
+    "product_audit": {
+        "learner_flow_checks": {
+            "learner_core_flows": {
+                "status": "PASS",
+                "tests": [
+                    {
+                        "script": "tools/Tests/LearnerJourneyHttpTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] fresh learner completes practice, review, recommendation, targeted retry, and simulation.\n[PASS] stale forms, result refresh, exact-once persistence, taxonomy, and final learning state verified.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    },
+                    {
+                        "script": "tools/Tests/LearnerDashboardReliabilityTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] learner dashboard normalizes one consistent attempt population.\n[PASS] learner dashboard preserves subject/topic context and timestamp fallback.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    },
+                    {
+                        "script": "tools/Tests/LearnerExperienceConsistencyTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] learner metrics cover malformed, incomplete, repeated-topic, and empty states.\n[PASS] every recommendation and study-plan action carries canonical quiz context.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    },
+                    {
+                        "script": "tools/Tests/LearningProfileActionViewTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] learning profile recommendations render canonical quiz actions.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    },
+                    {
+                        "script": "tools/Tests/ProgressRecommendationViewTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] progress recommendations render canonical quiz actions.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    },
+                    {
+                        "script": "tools/Tests/LearnerNavigationUxTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "le\n[PASS] study empty states offer practice\n[PASS] study library offers practice and flashcards\n[PASS] progress exposes quiz next step\n[PASS] flashcard empty state has return actions\n[PASS] flashcard review has contextual return actions\n[PASS] quiz no-question state returns to setup\n[PASS] exam empty state offers recovery actions\n[PASS] learner navigation UX contracts verified. Assertions: 8\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    },
+                    {
+                        "script": "tools/Tests/LearnerMobileAccessibilityViewTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": " associated\n[PASS] answer choices use a labelled fieldset and full-size labels\n[PASS] quiz feedback is announced\n[PASS] review correctness has textual and structural state\n[PASS] mobile navigation and controls meet touch sizing contract\n[PASS] long learner content can wrap safely\n[PASS] keyboard focus remains visible\n[PASS] learner mobile accessibility view contracts verified. Assertions: 10\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    }
+                ],
+                "passed": true
+            },
+            "attempt_safety": {
+                "status": "PASS",
+                "tests": [
+                    {
+                        "script": "tools/Tests/MultiAttemptLearningHttpTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] two HTTP completions accumulate distinct learning state exactly once.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    },
+                    {
+                        "script": "tools/Tests/ApplicationResilienceTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] malformed quiz state is rejected before rendering or result persistence.\n[PASS] learner attempt retries are idempotent by canonical session identity.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    }
+                ],
+                "passed": true
+            },
+            "result_review": {
+                "status": "PASS",
+                "tests": [
+                    {
+                        "script": "tools/Tests/HistoryResultHttpTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] Owned history result renders through the production router with score, review, study, flashcard, and return actions.\n[PASS] Foreign, unknown, request-owner override, and GET mutation boundaries hold.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    },
+                    {
+                        "script": "tools/Tests/QuizCompletionHttpTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] HTTP completion renders result and persists one attempt across retries.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    }
+                ],
+                "passed": true
+            },
+            "simulator_recovery": {
+                "status": "PASS",
+                "tests": [
+                    {
+                        "script": "tools/Tests/ExamSimulationHttpTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] Partial/full-boundary exam HTTP journey and exact-once isolation verified.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    }
+                ],
+                "passed": true
+            },
+            "admin_core_flows": {
+                "status": "PASS",
+                "tests": [
+                    {
+                        "script": "tools/Tests/QuestionEditorEligibilityTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] Admin board eligibility overview, share, placement, unshare, protection, validation, and duplicate-draft states verified.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    },
+                    {
+                        "script": "tools/Tests/QuestionAuthoringWorkflowIntegrationTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] authoring persists, reloads, reaches quiz selection, and rejects invalid writes.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    }
+                ],
+                "passed": true
+            },
+            "shared_question_safety": {
+                "status": "PASS",
+                "tests": [
+                    {
+                        "script": "tools/Tests/CrossBoardCanonicalReuseTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] Cross-board canonical eligibility, blueprint mapping, production selection, and board isolation verified.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    }
+                ],
+                "passed": true
+            },
+            "study_experience": {
+                "status": "PASS",
+                "tests": [
+                    {
+                        "script": "tools/Tests/FlashcardIntegrationTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] Quiz miss -> result action -> missed flashcard -> reveal -> rating journey completed through public/index.php.\n[PASS] Weakness, dashboard, progress, study, PRG, and foreign-attempt boundaries verified.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    }
+                ],
+                "passed": true
+            },
+            "security_sanity": {
+                "status": "PASS",
+                "tests": [
+                    {
+                        "script": "tools/Tests/ProductionQuizCsrfTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] production quiz mutations require and accept the session CSRF token.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    }
+                ],
+                "passed": true
+            },
+            "repository_determinism": {
+                "status": "PASS",
+                "tests": [
+                    {
+                        "script": "tools/Tests/ReleaseReadinessContractTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "release_readiness_contract=PASS\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    }
+                ],
+                "passed": true
+            }
+        },
+        "admin_flow_checks": {
+            "admin_core_flows": {
+                "status": "PASS",
+                "tests": [
+                    {
+                        "script": "tools/Tests/QuestionEditorEligibilityTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] Admin board eligibility overview, share, placement, unshare, protection, validation, and duplicate-draft states verified.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    },
+                    {
+                        "script": "tools/Tests/QuestionAuthoringWorkflowIntegrationTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] authoring persists, reloads, reaches quiz selection, and rejects invalid writes.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    }
+                ],
+                "passed": true
+            },
+            "shared_question_safety": {
+                "status": "PASS",
+                "tests": [
+                    {
+                        "script": "tools/Tests/CrossBoardCanonicalReuseTest.php",
+                        "status": "PASS",
+                        "exit_code": 0,
+                        "output_tail": "[PASS] Cross-board canonical eligibility, blueprint mapping, production selection, and board isolation verified.\nWARNING: linker: Warning: \"/data/data/com.termux/files/usr/lib/node_modules/@mmmbuto/codex-cli-termux/bin/libc++_shared.so\" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)\n"
+                    }
+                ],
+                "passed": true
+            }
+        },
+        "route_completeness": {
+            "active": 59,
+            "intentional_internal": 5,
+            "deprecated": 0,
+            "stub": 0,
+            "broken": 0,
+            "unknown": 0,
+            "marker_examples": []
+        },
+        "security_sanity": "PASS",
+        "manual_boundary": "Only deterministic contracts and bounded focused tests were automated; semantic editorial claims remain review metadata."
+    },
+    "portfolio_final_states": {
+        "architecture": {
+            "board_id": "architecture",
+            "native": 484,
+            "effective": 484,
+            "runtime": 484,
+            "active_leaves": 14,
+            "operational_state": "VISUAL_LIMITED",
+            "readiness_model_status": "FULL_READINESS_MODEL",
+            "source_defects": 0,
+            "study_defects": 0,
+            "traceability_defects": 0,
+            "currentness_defects": 0,
+            "high_value_headroom": 0
+        },
+        "civil-engineering": {
+            "board_id": "civil-engineering",
+            "native": 922,
+            "effective": 922,
+            "runtime": 922,
+            "active_leaves": 19,
+            "operational_state": "FOUNDATION_SUFFICIENT",
+            "readiness_model_status": "LEGACY_NO_READINESS_MODEL",
+            "source_defects": null,
+            "study_defects": null,
+            "traceability_defects": null,
+            "currentness_defects": null,
+            "high_value_headroom": null
+        },
+        "civil-service": {
+            "board_id": "civil-service",
+            "native": 1553,
+            "effective": 1807,
+            "runtime": 2116,
+            "active_leaves": 56,
+            "operational_state": "MAINTENANCE_ONLY",
+            "readiness_model_status": "FULL_READINESS_MODEL",
+            "source_defects": 0,
+            "study_defects": 0,
+            "traceability_defects": 0,
+            "currentness_defects": 0,
+            "high_value_headroom": null
+        },
+        "cpa": {
+            "board_id": "cpa",
+            "native": 1132,
+            "effective": 1132,
+            "runtime": 1132,
+            "active_leaves": 113,
+            "operational_state": "FOUNDATION_SUFFICIENT",
+            "readiness_model_status": "LEGACY_NO_READINESS_MODEL",
+            "source_defects": null,
+            "study_defects": null,
+            "traceability_defects": null,
+            "currentness_defects": null,
+            "high_value_headroom": null
+        },
+        "criminologist": {
+            "board_id": "criminologist",
+            "native": 451,
+            "effective": 554,
+            "runtime": 554,
+            "active_leaves": 37,
+            "operational_state": "MAINTENANCE_ONLY",
+            "readiness_model_status": "FULL_READINESS_MODEL",
+            "source_defects": 0,
+            "study_defects": 0,
+            "traceability_defects": 0,
+            "currentness_defects": 0,
+            "high_value_headroom": null
+        },
+        "let": {
+            "board_id": "let",
+            "native": 1788,
+            "effective": 1871,
+            "runtime": 1886,
+            "active_leaves": 205,
+            "operational_state": "FOUNDATION_SUFFICIENT",
+            "readiness_model_status": "FULL_READINESS_MODEL",
+            "source_defects": 0,
+            "study_defects": 0,
+            "traceability_defects": 0,
+            "currentness_defects": 0,
+            "high_value_headroom": 0
+        },
+        "mechanical-engineering": {
+            "board_id": "mechanical-engineering",
+            "native": 511,
+            "effective": 511,
+            "runtime": 511,
+            "active_leaves": 35,
+            "operational_state": "MAINTENANCE_ONLY",
+            "readiness_model_status": "FULL_READINESS_MODEL",
+            "source_defects": 0,
+            "study_defects": 0,
+            "traceability_defects": 0,
+            "currentness_defects": 0,
+            "high_value_headroom": null
+        },
+        "nursing": {
+            "board_id": "nursing",
+            "native": 878,
+            "effective": 898,
+            "runtime": 898,
+            "active_leaves": 40,
+            "operational_state": "FOUNDATION_SUFFICIENT",
+            "readiness_model_status": "LEGACY_NO_READINESS_MODEL",
+            "source_defects": null,
+            "study_defects": null,
+            "traceability_defects": null,
+            "currentness_defects": null,
+            "high_value_headroom": null
+        },
+        "psychometrician": {
+            "board_id": "psychometrician",
+            "native": 401,
+            "effective": 401,
+            "runtime": 401,
+            "active_leaves": 20,
+            "operational_state": "CURRENTNESS_REVIEW_NEEDED",
+            "readiness_model_status": "FULL_READINESS_MODEL",
+            "source_defects": 0,
+            "study_defects": 0,
+            "traceability_defects": 0,
+            "currentness_defects": 0,
+            "high_value_headroom": null
+        },
+        "registered-electrical-engineering": {
+            "board_id": "registered-electrical-engineering",
+            "native": 842,
+            "effective": 842,
+            "runtime": 842,
+            "active_leaves": 37,
+            "operational_state": "FOUNDATION_SUFFICIENT",
+            "readiness_model_status": "LEGACY_NO_READINESS_MODEL",
+            "source_defects": null,
+            "study_defects": null,
+            "traceability_defects": null,
+            "currentness_defects": null,
+            "high_value_headroom": null
+        }
+    },
+    "remaining_work": {
+        "release_blocking": [],
+        "pre_release_high_value": [
+            {
+                "priority": "P1",
+                "domain": "CURRENTNESS",
+                "entity": "CURRENTNESS",
+                "reason": "Currentness is explicit; future-effective material cannot answer a current question.",
+                "deterministic_or_editorial": "EDITORIAL_OR_REVIEW",
+                "suggested_next_action": "Review the recorded evidence before release or explicitly accept the debt."
+            },
+            {
+                "priority": "P1",
+                "domain": "SOURCE_TRACEABILITY",
+                "entity": "SOURCE_TRACEABILITY",
+                "reason": "Hard source defects block release; semantic fit and scope uncertainty remain review signals.",
+                "deterministic_or_editorial": "EDITORIAL_OR_REVIEW",
+                "suggested_next_action": "Review the recorded evidence before release or explicitly accept the debt."
+            }
+        ],
+        "post_release_content": [
+            "evidence-exhausted numeric thinness and future authorized content plans"
+        ],
+        "post_release_features": [
+            "Architecture visual question capability"
+        ],
+        "maintenance": [
+            "currentness review queue and justified editorial review signals"
+        ],
+        "estimated_release_batches": {
+            "min": 0,
+            "likely": 0,
+            "max": 1
+        },
+        "next_milestone": "V1_RELEASE_CANDIDATE_FINAL_GATE"
+    },
+    "performance": {
+        "status": "PASS",
+        "default_health_runtime_ms": 20471.263,
+        "health_samples_ms": [
+            18228.58,
+            20651.62,
+            20471.263
+        ],
+        "portfolio_runtime_ms": 7.991,
+        "baseline_health_runtime_ms": 21683,
+        "regression_percent": -5.588,
+        "sample_count": 3
+    },
+    "known_technical_noise_remaining": {
+        "justified_standalone_study_materials": 16,
+        "conservative_cpa_source_fit_reviews": 3,
+        "historical_hayadoctor_submodule_contract_test": "INHERITED_ENVIRONMENT_DEPENDENCY",
+        "historical_batch_hash_tests": "PREVIOUS_BATCH_SNAPSHOT_EXPECTATIONS"
+    },
+    "metadata_changes": [],
+    "determinism": {
+        "audit_hash": "d4dff8b7100d6abf2e788a01d2796ece450beb02c6ebcc417dd2192bd2bf609a",
+        "second_audit_hash": "d4dff8b7100d6abf2e788a01d2796ece450beb02c6ebcc417dd2192bd2bf609a",
+        "identical": true,
+        "stable_projection": "timestamps, test output, and runtimes excluded"
+    }
+}

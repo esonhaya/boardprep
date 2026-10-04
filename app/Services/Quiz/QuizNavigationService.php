@@ -72,7 +72,7 @@ class QuizNavigationService
     {
         if (SessionService::get('quiz_completed', false) === true
             || SessionService::has('attempt_persisted')) {
-            Response::redirect('/quiz?action=finish');
+            Response::redirect('/quiz?action=result');
         }
     }
 
@@ -94,7 +94,12 @@ class QuizNavigationService
 
         $current = self::current() + 1;
         if ($current >= count($questions)) {
-            Response::redirect('/quiz?action=finish');
+            // Exam-mode submission reaches this boundary through a browser
+            // redirect. Persist the result before landing on the idempotent
+            // result reader; the old GET-only finish redirect could discard
+            // the completed attempt because that action accepts POST only.
+            \QuizResultService::build();
+            Response::redirect('/quiz?action=result');
         }
 
         if (!\App\Services\Quiz\Session\QuizSessionQuestion::isCurrent($questions[$current] ?? null)) {

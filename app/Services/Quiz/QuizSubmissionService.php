@@ -44,7 +44,7 @@ class QuizSubmissionService
     private static function redirectIfAlreadyPersisted(): void
     {
         if (SessionService::has("attempt_persisted")) {
-            Response::redirect("/quiz?action=finish");
+            Response::redirect("/quiz?action=result");
         }
     }
 

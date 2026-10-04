@@ -188,7 +188,7 @@ final class SourceReadinessService
      * @param array<string, mixed> $validation
      * @param array<string, mixed>|null $boardSummary
      */
-    public static function summary(array $records, array $validation = [], ?array $boardSummary = null): array
+    public static function summary(array $records, array $validation = [], ?array $boardSummary = null, ?array $closure = null): array
     {
         $counts = ['READY' => 0, 'READY_WITH_LIMITS' => 0, 'REVIEW' => 0, 'DEFER' => 0];
         $authorities = array_fill_keys(SourceReadinessRecord::AUTHORITIES, 0);
@@ -276,6 +276,7 @@ final class SourceReadinessService
         foreach ([$currentness, $traceability, $blockerCounts] as &$map) ksort($map, SORT_STRING);
         unset($map);
         $sourceStudyDefects = self::defectCounts($records, $validation);
+        $sourceStudyReviews = self::reviewCounts($records);
         $currentnessValues = array_keys(array_filter($currentness, static fn(int $count): bool => $count > 0));
         $currentnessStatus = $currentnessValues === [] ? null : (count($currentnessValues) === 1 ? $currentnessValues[0] : 'MIXED');
         $boardMetrics = null;
@@ -311,13 +312,14 @@ final class SourceReadinessService
             'repeat_risk_metadata' => $hasAnyRepeatMetadata,
             'evidence_exhausted_count' => $evidenceExhaustedCount,
             'headroom_dimensions' => $hasHeadroomDimensions ? $headroomDimensions : null,
-            'high_value_headroom' => $hasHeadroomDimensions ? $headroomDimensions['high_value'] : null,
+            'high_value_headroom' => $hasHeadroomDimensions ? $headroomDimensions['high_value'] : (is_int($closure['high_value_headroom'] ?? null) ? (int) $closure['high_value_headroom'] : null),
             'source_study_defects' => $sourceStudyDefects,
+            'source_study_reviews' => $sourceStudyReviews,
             'currentness_status' => $currentnessStatus,
             'blocker_counts' => $blockerCounts,
             'review_blocker_counts' => $blockerCounts,
             'records' => array_values($byLeaf),
-        ];
+        ] + self::closureFields($closure);
     }
 
     /** @param array<int, array<string, mixed>> $records @return array{zero:int,under5:int,under10:int,under20:int} */
@@ -367,10 +369,16 @@ final class SourceReadinessService
         $counts = ['source' => 0, 'study' => 0, 'traceability' => 0, 'currentness' => 0];
         foreach ($records as $record) {
             if (!is_array($record)) continue;
-            if (in_array((string) ($record['source_authority'] ?? ''), ['WEAK', 'NONE', 'UNKNOWN'], true) || in_array((string) ($record['source_scope_fit'] ?? ''), ['NONE', 'UNKNOWN'], true)) $counts['source']++;
-            if (in_array((string) ($record['study_coverage'] ?? ''), ['MISSING', 'INVALID', 'UNKNOWN'], true)) $counts['study']++;
-            if (in_array((string) ($record['study_source_traceability'] ?? ''), ['BROKEN', 'NONE', 'UNKNOWN'], true)) $counts['traceability']++;
-            if (in_array((string) ($record['source_currentness'] ?? ''), ['SUPERSEDED', 'FUTURE_EFFECTIVE', 'CONFLICTING', 'UNKNOWN'], true)) $counts['currentness']++;
+            if (self::isStructuralException($record)) continue;
+            // A REVIEW/DEFER leaf with zero authorization can carry an
+            // intentional evidence limitation. It is a review signal, not a
+            // broken production chain. Validator errors below remain hard.
+            $actionable = in_array((string) ($record['readiness'] ?? ''), ['READY', 'READY_WITH_LIMITS'], true)
+                || (int) ($record['max_new_questions'] ?? 0) > 0;
+            if ($actionable && (in_array((string) ($record['source_authority'] ?? ''), ['WEAK', 'NONE', 'UNKNOWN'], true) || (string) ($record['source_scope_fit'] ?? '') === 'NONE')) $counts['source']++;
+            if ($actionable && in_array((string) ($record['study_coverage'] ?? ''), ['MISSING', 'INVALID', 'UNKNOWN'], true)) $counts['study']++;
+            if ($actionable && in_array((string) ($record['study_source_traceability'] ?? ''), ['BROKEN', 'NONE', 'UNKNOWN'], true)) $counts['traceability']++;
+            if ($actionable && in_array((string) ($record['source_currentness'] ?? ''), ['SUPERSEDED', 'FUTURE_EFFECTIVE', 'CONFLICTING', 'UNKNOWN'], true)) $counts['currentness']++;
         }
         foreach ((array) ($validation['errors'] ?? []) as $error) {
             if (!is_array($error)) continue;
@@ -380,6 +388,52 @@ final class SourceReadinessService
             if (str_contains($code, 'TRACEABILITY')) $counts['traceability']++;
         }
         return $counts;
+    }
+
+    /** @param array<int, array<string, mixed>> $records @return array<string, int> */
+    private static function reviewCounts(array $records): array
+    {
+        $counts = [
+            'source_scope_fit_unknown' => 0,
+            'source_authority_unknown' => 0,
+            'study_coverage_unknown' => 0,
+            'traceability_unknown' => 0,
+            'currentness_unknown' => 0,
+            'structural_not_actionable' => 0,
+        ];
+        foreach ($records as $record) {
+            if (!is_array($record)) continue;
+            if (self::isStructuralException($record)) {
+                $counts['structural_not_actionable']++;
+                continue;
+            }
+            if (($record['source_scope_fit'] ?? '') === 'UNKNOWN') $counts['source_scope_fit_unknown']++;
+            if (($record['source_authority'] ?? '') === 'UNKNOWN') $counts['source_authority_unknown']++;
+            if (($record['study_coverage'] ?? '') === 'UNKNOWN') $counts['study_coverage_unknown']++;
+            if (($record['study_source_traceability'] ?? '') === 'UNKNOWN') $counts['traceability_unknown']++;
+            if (($record['source_currentness'] ?? '') === 'UNKNOWN') $counts['currentness_unknown']++;
+        }
+        return $counts;
+    }
+
+    /** @param array<string, mixed> $record */
+    private static function isStructuralException(array $record): bool
+    {
+        return ($record['scope_status'] ?? '') === 'STRUCTURAL_NOT_ACTIONABLE';
+    }
+
+    /** @return array<string, mixed> */
+    private static function closureFields(?array $closure): array
+    {
+        if (!is_array($closure)) return [];
+        $fields = [];
+        foreach (['board_id', 'closure_state', 'operational_state', 'closure_reason', 'evidence_exhausted', 'numerical_headroom', 'evidence_headroom', 'text_format_headroom', 'high_value_headroom', 'reviewed_at_batch'] as $field) {
+            if (array_key_exists($field, $closure)) $fields[$field] = $closure[$field];
+        }
+        // Keep the compact object for API consumers while also exposing the
+        // normalized fields at the summary level used by the indexed
+        // portfolio projection. Both views are derived from the same record.
+        return $fields === [] ? [] : array_merge(['closure' => $fields], $fields);
     }
 
     /** @param array<string, array> $collections */

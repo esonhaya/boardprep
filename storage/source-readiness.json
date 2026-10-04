@@ -2414,7 +2414,11 @@
         "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 641,
-        "evidence_hash": "5fd81de9f92f9c1464be993f74e126f8b09f45b5706f9b86a7e562d0e2a201df"
+        "evidence_hash": "bae6d464b91747a5e7a1d2e033ccefca9ecf03f1f97a005ae9ffbc06f5edce2e",
+        "scope_status": "STRUCTURAL_NOT_ACTIONABLE",
+        "blocker_classes": [
+            "STRUCTURAL_OR_PLACEMENT"
+        ]
     },
     {
         "leaf_id": "cse-ethical-public-service",
@@ -2461,7 +2465,11 @@
         "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 641,
-        "evidence_hash": "d614c31426171aa90f0a4ec69e4fe315e336a6cd4ff09c502e86962c2ade8aae"
+        "evidence_hash": "608eb5b6d137e561db494970d1ee4469b45503eb5f43e9fb2e59ad21730a0c95",
+        "scope_status": "STRUCTURAL_NOT_ACTIONABLE",
+        "blocker_classes": [
+            "STRUCTURAL_OR_PLACEMENT"
+        ]
     },
     {
         "leaf_id": "social-civics-public-good",
@@ -2509,7 +2517,11 @@
         "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 641,
-        "evidence_hash": "a1b03506dc85a0b6bc5f966a78417269dd2374597986ed5cd13155a82d3ef655"
+        "evidence_hash": "b1c0b45d39d59f50afcd0496d73796d37519e5dad3348cdaee79f585aef19bdb",
+        "scope_status": "STRUCTURAL_NOT_ACTIONABLE",
+        "blocker_classes": [
+            "STRUCTURAL_OR_PLACEMENT"
+        ]
     },
     {
         "leaf_id": "social-history-primary-sources",
@@ -2557,6 +2569,10 @@
         "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 641,
-        "evidence_hash": "8a2fff458d1cc584ac114c60948082a2af8620b1e1e768007117f3d86438d7fc"
+        "evidence_hash": "b05d6a02d0623d3d66d4220d0a018be00488ff3fa95c9a03a74f19b700e140c1",
+        "scope_status": "STRUCTURAL_NOT_ACTIONABLE",
+        "blocker_classes": [
+            "STRUCTURAL_OR_PLACEMENT"
+        ]
     }
 ]
