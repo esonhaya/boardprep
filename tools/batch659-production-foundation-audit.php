@@ -45,7 +45,12 @@ if ($release === [] && is_file($root . '/storage/production-readiness-v1.json'))
                 'release_domains' => (array) ($storedRelease['domains'] ?? []),
                 'release_gate' => ['status' => (string) ($storedRelease['gate'] ?? 'UNKNOWN')],
                 'release_decision' => (string) ($storedRelease['decision'] ?? 'UNKNOWN'),
-                'priority_counts' => (array) ($storedRelease['priority_counts'] ?? []),
+                'priority_counts' => (array) ($storedRelease['priority_counts'] ?? [
+                    'P0' => (int) ($storedRelease['p0'] ?? 0),
+                    'P1' => (int) ($storedRelease['p1'] ?? 0),
+                    'P2' => (int) ($storedRelease['p2'] ?? 0),
+                    'P3' => (int) ($storedRelease['p3'] ?? 0),
+                ]),
             ],
         ];
     }
@@ -60,7 +65,9 @@ $healthIssues = array_values(array_filter((array) ($health['issues'] ?? []), 'is
 $productionConfiguration = \App\Services\RepositoryHealth\Release\ReleaseReadinessService::productionConfiguration($root);
 $releaseDomains = [];
 foreach ((array) ($releaseReadiness['release_domains'] ?? []) as $domain => $value) {
-    $releaseDomains[(string) $domain] = (string) (($value['status'] ?? 'UNKNOWN'));
+    $releaseDomains[(string) $domain] = is_array($value)
+        ? (string) ($value['status'] ?? 'UNKNOWN')
+        : (string) $value;
 }
 
 $boardCounts = [];
