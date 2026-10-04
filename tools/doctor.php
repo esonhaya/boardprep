@@ -16,9 +16,10 @@ if (!in_array('--health', array_slice($argv ?? [], 1), true)) {
 if (in_array('--health', array_slice($argv ?? [], 1), true)) {
     $healthArguments = array_slice($argv ?? [], 1);
     $readinessOptions = array_values(array_filter($healthArguments, static fn(string $argument): bool => str_starts_with($argument, '--readiness=')));
+    $portfolioRequested = in_array('--portfolio', $healthArguments, true);
     $invalidHealthArguments = array_values(array_filter(
         $healthArguments,
-        static fn(string $argument): bool => !in_array($argument, ['--health', '--json', '--persist', '--profile'], true) && !str_starts_with($argument, '--readiness=')
+        static fn(string $argument): bool => !in_array($argument, ['--health', '--json', '--persist', '--profile', '--portfolio'], true) && !str_starts_with($argument, '--readiness=')
     ));
     if (count($readinessOptions) > 1 || ($readinessOptions !== [] && trim(substr($readinessOptions[0], strlen('--readiness='))) === '')) {
         $invalidHealthArguments[] = $readinessOptions[1] ?? $readinessOptions[0] ?? '--readiness=';
@@ -36,6 +37,7 @@ if (in_array('--health', array_slice($argv ?? [], 1), true)) {
     $healthReport = \App\Services\RepositoryHealth\Engine\RepositoryHealthEngine::analyze($profileRequested);
     $readinessBoard = $readinessOptions === [] ? null : strtolower(trim(substr($readinessOptions[0], strlen('--readiness='))));
     $readinessAudit = $readinessBoard === null ? null : \App\Services\RepositoryHealth\Engine\RepositoryHealthEngine::readinessAudit($readinessBoard, $healthReport);
+    $portfolioAudit = $portfolioRequested ? \App\Services\RepositoryHealth\Engine\RepositoryHealthEngine::portfolioReadinessAudit(null, $healthReport) : null;
     $materializationStartedAt = hrtime(true);
     $healthArray = $healthReport->toArray();
     $reportMaterializationMs = max(0.0, (hrtime(true) - $materializationStartedAt) / 1_000_000);
@@ -48,15 +50,17 @@ if (in_array('--health', array_slice($argv ?? [], 1), true)) {
     }
     if (in_array('--json', $healthArguments, true)) {
         $jsonFlags = JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR;
-        if ($readinessAudit !== null) {
-            echo json_encode([
-                'readiness_audit' => $readinessAudit,
+        if ($readinessAudit !== null || $portfolioAudit !== null) {
+            $payload = [
                 'health' => [
                     'overall_status' => $healthReport->overallStatus,
                     'summary' => $healthReport->summary,
                     'fail_entity_count' => (int) ($healthReport->summary['fail_count'] ?? 0),
                 ],
-            ], $jsonFlags), PHP_EOL;
+            ];
+            if ($readinessAudit !== null) $payload['readiness_audit'] = $readinessAudit;
+            if ($portfolioAudit !== null) $payload['portfolio_audit'] = $portfolioAudit;
+            echo json_encode($payload, $jsonFlags), PHP_EOL;
             exit($healthReport->overallStatus === 'FAIL' ? 1 : 0);
         }
         if ($profileRequested) {
@@ -101,6 +105,13 @@ if (in_array('--health', array_slice($argv ?? [], 1), true)) {
                 (int) ($states['REVIEW'] ?? 0),
                 (int) ($states['DEFER'] ?? 0)
             );
+            exit($healthReport->overallStatus === 'FAIL' ? 1 : 0);
+        }
+        if ($portfolioAudit !== null) {
+            printf("PORTFOLIO_BOARDS=%d\n", count((array) ($portfolioAudit['boards'] ?? [])));
+            foreach ((array) ($portfolioAudit['boards'] ?? []) as $row) {
+                printf("BOARD=%s NATIVE=%s ACTIVE_LEAVES=%s READINESS_MODEL=%s\n", (string) ($row['board_id'] ?? ''), (string) ($row['native'] ?? 'UNKNOWN'), (string) ($row['active_leaves'] ?? 'UNKNOWN'), (string) ($row['readiness_model_status'] ?? 'UNKNOWN'));
+            }
             exit($healthReport->overallStatus === 'FAIL' ? 1 : 0);
         }
         printf(

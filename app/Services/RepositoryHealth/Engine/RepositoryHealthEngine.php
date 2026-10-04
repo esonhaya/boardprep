@@ -86,6 +86,73 @@ final class RepositoryHealthEngine
         ];
     }
 
+    /**
+     * Project the already-built health snapshot into one compact row per
+     * board.  This is deliberately an index projection: it does not run a
+     * readiness audit once per board or re-read any collection.
+     *
+     * @param string[]|null $boardIds
+     * @return array{audit_level:string,boards:array<int,array<string,mixed>>,semantic_review_boundary:string}
+     */
+    public static function portfolioReadinessAudit(?array $boardIds = null, ?HealthReport $report = null): array
+    {
+        $report ??= self::$lastReport ?? self::analyze();
+        $available = array_keys($report->boardSummaries);
+        $requested = $boardIds === null ? $available : array_map([self::class, 'normalizeBoard'], $boardIds);
+        $requested = array_values(array_unique(array_filter($requested, static fn(string $id): bool => $id !== '')));
+        sort($requested, SORT_STRING);
+
+        $issueCounts = [];
+        foreach ($report->issues as $issue) {
+            $data = $issue->toArray();
+            $evidence = is_array($data['evidence'] ?? null) ? $data['evidence'] : [];
+            $boardId = self::normalizeBoard($data['board_id'] ?? $evidence['board_id'] ?? '');
+            if ($boardId === '' || !in_array($boardId, $requested, true)) continue;
+            $status = strtoupper((string) ($data['status'] ?? ''));
+            $issueCounts[$boardId][$status] = ($issueCounts[$boardId][$status] ?? 0) + 1;
+        }
+
+        $rows = [];
+        foreach ($requested as $boardId) {
+            $board = is_array($report->boardSummaries[$boardId] ?? null)
+                ? $report->boardSummaries[$boardId]
+                : [];
+            $readiness = is_array($report->summary['source_readiness_by_board'][$boardId] ?? null)
+                ? $report->summary['source_readiness_by_board'][$boardId]
+                : null;
+            $readinessSummary = $readiness;
+            if (is_array($readinessSummary)) unset($readinessSummary['records']);
+            $recordCount = is_array($readiness) ? (int) ($readiness['record_count'] ?? 0) : 0;
+            $activeLeaves = array_key_exists('active_leaves', $board) ? (int) $board['active_leaves'] : null;
+            $rows[] = [
+                'board_id' => $boardId,
+                'native' => array_key_exists('canonical', $board) ? (int) $board['canonical'] : null,
+                'effective' => array_key_exists('effective_declared', $board) ? (int) $board['effective_declared'] : null,
+                'runtime' => array_key_exists('runtime', $board) ? (int) $board['runtime'] : null,
+                'active_leaves' => $activeLeaves,
+                'depth_known' => array_key_exists('depth_known', $board) ? (int) $board['depth_known'] : null,
+                'depth_unknown' => array_key_exists('depth_unknown', $board) ? (int) $board['depth_unknown'] : null,
+                'taxonomy_granularity_status' => $board['taxonomy_granularity'] ?? null,
+                'repeat_risk' => $board['repeat_risk'] ?? null,
+                'readiness_model_status' => $readiness === null
+                    ? 'LEGACY_NO_READINESS_MODEL'
+                    : ($recordCount === $activeLeaves ? 'FULL_READINESS_MODEL' : 'PARTIAL_READINESS_MODEL'),
+                'source_readiness' => $readinessSummary,
+                'deterministic_issue_counts' => [
+                    'FAIL' => (int) ($issueCounts[$boardId]['FAIL'] ?? 0),
+                    'WARN' => (int) ($issueCounts[$boardId]['WARN'] ?? 0),
+                    'REVIEW' => (int) ($issueCounts[$boardId]['REVIEW'] ?? 0),
+                ],
+            ];
+        }
+
+        return [
+            'audit_level' => 'PORTFOLIO_READINESS_SUMMARY',
+            'boards' => $rows,
+            'semantic_review_boundary' => 'Stored readiness and health metadata are summarized; proposition novelty, source meaning, question equivalence, and visual suitability are not inferred.',
+        ];
+    }
+
     private static function build(RepositoryContext $context, ?RepositoryHealthProfiler $profiler = null): HealthReport
     {
         $collections = $context->collections;

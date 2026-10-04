@@ -723551,5 +723551,1485 @@
             "authorized_by": "batch652-let-close-cse-readiness",
             "currentness_check": "UNCHANGED"
         }
+    },
+    {
+        "id": 8951,
+        "board": "architecture",
+        "taxonomy": {
+            "board_id": "architecture",
+            "subject_id": "architecture-history-and-theory",
+            "domain_id": "architecture-history-theory",
+            "topic_id": "architecture-history-application",
+            "concept_id": "b633-arch-history-vernacular-climate",
+            "parent_concept_id": "architecture-history-context",
+            "subcompetency_id": "b633-arch-history-vernacular-climate",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "Batch654 authorized leaf and current granular coverage row."
+        },
+        "status": "active",
+        "source": "Batch655-authorized",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A community hall is planned for a hot-humid coastal site with heavy seasonal rain, prevailing breezes from the east, and locally available light timber. Mechanical cooling is limited. Which response most directly transfers a climate-performance lesson from vernacular practice?",
+        "choices": [
+            "Use deep roof overhangs and a raised, well-drained floor with operable openings placed to support the stated breeze.",
+            "Seal all openings and rely on dark interior finishes to absorb humidity.",
+            "Copy a familiar roof silhouette while ignoring orientation and rain exposure.",
+            "Use full-height west glazing without shading because daylight is always the priority."
+        ],
+        "answer": "Use deep roof overhangs and a raised, well-drained floor with operable openings placed to support the stated breeze.",
+        "explanation": "The response addresses the stated heat, wind, rain, and ground-moisture conditions together. It transfers performance logic rather than treating a recognizable vernacular form as a universal template.",
+        "content_blocks": [],
+        "source_ids": [
+            "mit-4-111-intro-architecture",
+            "mit-4-401-environmental-buildings",
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi"
+        ],
+        "study_material_id": "architecture-1-1-foundation",
+        "study_material_ids": [
+            "architecture-1-1-foundation",
+            "architecture-1-2-foundation"
+        ],
+        "source_scope": [
+            "climate_response",
+            "passive_strategy"
+        ],
+        "study_focus": "Apply climate, wind, rainfall, and material constraints to a passive vernacular adaptation without relying on image recognition.",
+        "cognitive_intent": "apply and evaluate",
+        "multistep": true,
+        "passage_dependent": false,
+        "data_interpretation": false,
+        "case_interpretation": true,
+        "professional_judgment": false,
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NONCALCULATION",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "source_sensitivity": "STABLE",
+        "technical_reasoning": true,
+        "figure_dependent": false,
+        "site_plan_spatial": false,
+        "context_dependent": true,
+        "context_necessary": true,
+        "long_scenario": true,
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-04T00:00:00+08:00",
+        "updatedAt": "2026-10-04T00:00:00+08:00",
+        "batch_marker": "batch655-architecture",
+        "batch655": {
+            "plan_id": "ARCH-654-001",
+            "wave": "WAVE1",
+            "leaf_id": "b633-arch-history-vernacular-climate",
+            "official_area_id": "arch-area-a",
+            "proposition_summary": "Select a passive climate response from stated sun, wind, rainfall, and material constraints.",
+            "content_family": "climate-response",
+            "target_depth": 3,
+            "question_mode": "TEXT_MCQ",
+            "calculation_class": "NONCALCULATION",
+            "visual_suitability": "TEXT_SUITABLE_WITH_LIMITS",
+            "source_ids": [
+                "mit-4-111-intro-architecture",
+                "mit-4-401-environmental-buildings",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "prc-architecture-exam-program-june-2026",
+                "prc-architecture-syllabi"
+            ],
+            "study_material_ids": [
+                "architecture-1-1-foundation",
+                "architecture-1-2-foundation"
+            ],
+            "novelty_basis": "Bounded climate-and-material application distinct from recognition.",
+            "currentness_class": "CURRENT_WITH_LIMITS",
+            "marginal_value": "HIGH",
+            "confidence": "HIGH",
+            "limitations": [
+                "Keep propositions tied to stated climate and material evidence; do not treat form recognition as proof."
+            ],
+            "proposition_signature": {
+                "concept": "passive climate adaptation",
+                "reasoning_operation": "match response to stated environmental constraints",
+                "material_context": "hot-humid coastal hall with light timber",
+                "visual_dependency": "NONE"
+            },
+            "format_review": {
+                "text_without_figure": true,
+                "visual_required_forbidden": false
+            },
+            "novelty_review": "Distinct proposition signature and content family reviewed against the same-leaf inventory; exact/normalized duplicates rejected.",
+            "qa_status": "PASS",
+            "authorized_by": "batch654-architecture-readiness"
+        }
+    },
+    {
+        "id": 8952,
+        "board": "architecture",
+        "taxonomy": {
+            "board_id": "architecture",
+            "subject_id": "architecture-planning-and-practice",
+            "domain_id": "architecture-planning-practice",
+            "topic_id": "architecture-practice-decisions",
+            "concept_id": "b633-arch-practice-coordination",
+            "parent_concept_id": "architecture-professional-judgment",
+            "subcompetency_id": "b633-arch-practice-coordination",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "Batch654 authorized leaf and current granular coverage row."
+        },
+        "status": "active",
+        "source": "Batch655-authorized",
+        "difficulty": "hard",
+        "type": "multiple_choice",
+        "question": "On a coordination set, the structural consultant's issued revision relocates a column. The architectural set and a contractor's email still show the prior position, and the consultant's revision has not yet been accepted as a project change. What should the architect do first?",
+        "choices": [
+            "Confirm the current issued status and decision authority, log the discrepancy, and coordinate affected drawings and specifications before issuing an instruction.",
+            "Tell the contractor to use the consultant email because it has the newest date.",
+            "Move the column in the architectural plan only and let each trade resolve the consequences.",
+            "Ask the contractor to choose the position that is easiest to build."
+        ],
+        "answer": "Confirm the current issued status and decision authority, log the discrepancy, and coordinate affected drawings and specifications before issuing an instruction.",
+        "explanation": "A dated document is not automatically an authorized project change. The safe interface response verifies information status and authority, records the conflict, and coordinates every affected document before work proceeds.",
+        "content_blocks": [],
+        "source_ids": [
+            "mit-4-461-building-technology",
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "ra-9266-architecture-act"
+        ],
+        "study_material_id": "architecture-2-2-foundation",
+        "study_material_ids": [
+            "architecture-2-2-foundation"
+        ],
+        "source_scope": [
+            "information_status",
+            "consultant_interface"
+        ],
+        "study_focus": "Resolve a consultant interface by checking issue status, authority, and downstream coordination before giving an instruction.",
+        "cognitive_intent": "apply and evaluate",
+        "multistep": true,
+        "passage_dependent": false,
+        "data_interpretation": false,
+        "case_interpretation": true,
+        "professional_judgment": true,
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NONCALCULATION",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "source_sensitivity": "STABLE",
+        "technical_reasoning": true,
+        "figure_dependent": false,
+        "site_plan_spatial": false,
+        "context_dependent": true,
+        "context_necessary": true,
+        "long_scenario": true,
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-04T00:00:00+08:00",
+        "updatedAt": "2026-10-04T00:00:00+08:00",
+        "batch_marker": "batch655-architecture",
+        "batch655": {
+            "plan_id": "ARCH-654-002",
+            "wave": "WAVE1",
+            "leaf_id": "b633-arch-practice-coordination",
+            "official_area_id": "arch-area-a",
+            "proposition_summary": "Resolve a consultant interface by checking information status, authority, and downstream coordination.",
+            "content_family": "consultant-interface",
+            "target_depth": 4,
+            "question_mode": "TEXT_MCQ",
+            "calculation_class": "NONCALCULATION",
+            "visual_suitability": "TEXT_SUITABLE",
+            "source_ids": [
+                "mit-4-461-building-technology",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "prc-architecture-exam-program-june-2026",
+                "prc-architecture-syllabi",
+                "ra-9266-architecture-act"
+            ],
+            "study_material_ids": [
+                "architecture-2-2-foundation"
+            ],
+            "novelty_basis": "Controlled change scenario, not a coordination definition paraphrase.",
+            "currentness_class": "CURRENT_WITH_LIMITS",
+            "marginal_value": "HIGH",
+            "confidence": "HIGH",
+            "limitations": [
+                "Use controlled coordination scenarios with a stated decision record; do not claim a universal project answer."
+            ],
+            "proposition_signature": {
+                "concept": "consultant interface control",
+                "reasoning_operation": "check information status and authority before coordination",
+                "material_context": "conflicting structural and architectural revisions",
+                "visual_dependency": "NONE"
+            },
+            "format_review": {
+                "text_without_figure": true,
+                "visual_required_forbidden": false
+            },
+            "novelty_review": "Distinct proposition signature and content family reviewed against the same-leaf inventory; exact/normalized duplicates rejected.",
+            "qa_status": "PASS",
+            "authorized_by": "batch654-architecture-readiness"
+        }
+    },
+    {
+        "id": 8953,
+        "board": "architecture",
+        "taxonomy": {
+            "board_id": "architecture",
+            "subject_id": "architecture-planning-and-practice",
+            "domain_id": "architecture-planning-practice",
+            "topic_id": "architecture-practice-decisions",
+            "concept_id": "b633-arch-practice-public-responsibility",
+            "parent_concept_id": "architecture-professional-judgment",
+            "subcompetency_id": "b633-arch-practice-public-responsibility",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "Batch654 authorized leaf and current granular coverage row."
+        },
+        "status": "active",
+        "source": "Batch655-authorized",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "An accessible public library entry has a 450-mm level change. The client asks to keep only a short stair and remove the continuous route to save area. Which response best meets the professional responsibility in the stated situation?",
+        "choices": [
+            "Explain the conflict, retain a continuous usable accessible route, verify the current requirements, and document the decision and its consequences.",
+            "Accept the request because the client preference controls the entry design.",
+            "Call the entry accessible if staff can carry a user over the level change.",
+            "Leave the route unresolved until after construction so the contractor can improvise."
+        ],
+        "answer": "Explain the conflict, retain a continuous usable accessible route, verify the current requirements, and document the decision and its consequences.",
+        "explanation": "The stated level change and public use create a safety and accessibility responsibility. The architect must preserve a usable route and verify the applicable current requirements rather than treating preference or staff assistance as a design solution.",
+        "content_blocks": [],
+        "source_ids": [
+            "bp344-2024-irr",
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "ra-9266-architecture-act",
+            "ra-9266-architecture-irr"
+        ],
+        "study_material_id": "architecture-2-3-foundation",
+        "study_material_ids": [
+            "architecture-2-3-foundation"
+        ],
+        "source_scope": [
+            "accessibility_duty",
+            "public_safety"
+        ],
+        "study_focus": "Prioritize public safety and accessibility when a client preference conflicts with a stated user risk, without inventing a regulatory dimension.",
+        "cognitive_intent": "apply and evaluate",
+        "multistep": true,
+        "passage_dependent": false,
+        "data_interpretation": false,
+        "case_interpretation": true,
+        "professional_judgment": true,
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NONCALCULATION",
+        "currentness_verified": true,
+        "version_sensitive": true,
+        "source_sensitivity": "REGULATORY",
+        "technical_reasoning": false,
+        "figure_dependent": false,
+        "site_plan_spatial": false,
+        "context_dependent": true,
+        "context_necessary": true,
+        "long_scenario": true,
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-04T00:00:00+08:00",
+        "updatedAt": "2026-10-04T00:00:00+08:00",
+        "batch_marker": "batch655-architecture",
+        "batch655": {
+            "plan_id": "ARCH-654-003",
+            "wave": "WAVE1",
+            "leaf_id": "b633-arch-practice-public-responsibility",
+            "official_area_id": "arch-area-a",
+            "proposition_summary": "Prioritize a public-safety or accessibility response when client preference conflicts with a stated user risk.",
+            "content_family": "public-safety",
+            "target_depth": 3,
+            "question_mode": "TEXT_MCQ",
+            "calculation_class": "NONCALCULATION",
+            "visual_suitability": "TEXT_SUITABLE",
+            "source_ids": [
+                "bp344-2024-irr",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "prc-architecture-exam-program-june-2026",
+                "prc-architecture-syllabi",
+                "ra-9266-architecture-act",
+                "ra-9266-architecture-irr"
+            ],
+            "study_material_ids": [
+                "architecture-2-3-foundation"
+            ],
+            "novelty_basis": "Fact-specific professional judgment with users and consequences stated.",
+            "currentness_class": "CURRENT_WITH_LIMITS",
+            "marginal_value": "HIGH",
+            "confidence": "HIGH",
+            "limitations": [
+                "Keep regulatory references current and distinguish professional judgment from a final legal determination."
+            ],
+            "proposition_signature": {
+                "concept": "public accessibility duty",
+                "reasoning_operation": "prioritize user safety over stated client preference",
+                "material_context": "public library entry with level change",
+                "visual_dependency": "NONE"
+            },
+            "format_review": {
+                "text_without_figure": true,
+                "visual_required_forbidden": false
+            },
+            "novelty_review": "Distinct proposition signature and content family reviewed against the same-leaf inventory; exact/normalized duplicates rejected.",
+            "qa_status": "PASS",
+            "authorized_by": "batch654-architecture-readiness"
+        },
+        "version_review_status": "CURRENT_WITH_LIMITS"
+    },
+    {
+        "id": 8954,
+        "board": "architecture",
+        "taxonomy": {
+            "board_id": "architecture",
+            "subject_id": "architecture-utilities-and-construction",
+            "domain_id": "architecture-utilities-construction",
+            "topic_id": "architecture-systems-coordination",
+            "concept_id": "b633-arch-technical-structural",
+            "parent_concept_id": "architecture-technical-integration",
+            "subcompetency_id": "b633-arch-technical-structural",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "Batch654 authorized leaf and current granular coverage row."
+        },
+        "status": "active",
+        "source": "Batch655-authorized",
+        "difficulty": "hard",
+        "type": "multiple_choice",
+        "question": "A 12-m clear-span community hall must keep its central floor free of columns. Supports can be placed along the perimeter, and a separate engineer will size members. Which conceptual choice best matches the stated load path?",
+        "choices": [
+            "Use a spanning truss or deep-girder system bearing at perimeter supports, with reactions transferred into the supporting foundations.",
+            "Use short beams spanning between columns that are not present in the central floor.",
+            "Hang the roof from nonstructural partitions so the perimeter supports carry no reactions.",
+            "Choose the thinnest floor finish because finish thickness determines the roof load path."
+        ],
+        "answer": "Use a spanning truss or deep-girder system bearing at perimeter supports, with reactions transferred into the supporting foundations.",
+        "explanation": "The system must span the stated clear space and deliver its reactions to the available perimeter supports. Member sizing remains an engineering task; the item tests the conceptual load path only.",
+        "content_blocks": [],
+        "source_ids": [
+            "mit-4-401-environmental-buildings",
+            "mit-4-461-building-technology",
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "wbdg-building-enclosure"
+        ],
+        "study_material_id": "architecture-3-1-foundation",
+        "study_material_ids": [
+            "architecture-3-1-foundation"
+        ],
+        "source_scope": [
+            "load_path",
+            "system_selection"
+        ],
+        "study_focus": "Select a conceptual structural system from explicit span and support assumptions without claiming sealed member design.",
+        "cognitive_intent": "apply and evaluate",
+        "multistep": true,
+        "passage_dependent": false,
+        "data_interpretation": false,
+        "case_interpretation": true,
+        "professional_judgment": false,
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "CONCEPTUAL_QUANTITATIVE",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "source_sensitivity": "STABLE",
+        "technical_reasoning": true,
+        "figure_dependent": false,
+        "site_plan_spatial": false,
+        "context_dependent": true,
+        "context_necessary": true,
+        "long_scenario": true,
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-04T00:00:00+08:00",
+        "updatedAt": "2026-10-04T00:00:00+08:00",
+        "batch_marker": "batch655-architecture",
+        "batch655": {
+            "plan_id": "ARCH-654-004",
+            "wave": "WAVE1",
+            "leaf_id": "b633-arch-technical-structural",
+            "official_area_id": "arch-area-b",
+            "proposition_summary": "Choose the conceptual structural system whose load path matches stated span and support assumptions.",
+            "content_family": "load-path",
+            "target_depth": 4,
+            "question_mode": "TEXT_MCQ",
+            "calculation_class": "CONCEPTUAL_QUANTITATIVE",
+            "visual_suitability": "TEXT_SUITABLE_WITH_LIMITS",
+            "source_ids": [
+                "mit-4-401-environmental-buildings",
+                "mit-4-461-building-technology",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "prc-architecture-exam-program-june-2026",
+                "prc-architecture-syllabi",
+                "wbdg-building-enclosure"
+            ],
+            "study_material_ids": [
+                "architecture-3-1-foundation"
+            ],
+            "novelty_basis": "Explicit load-path reasoning without sealed member design.",
+            "currentness_class": "CURRENT_WITH_LIMITS",
+            "marginal_value": "HIGH",
+            "confidence": "ADEQUATE",
+            "limitations": [
+                "Conceptual reasoning only; any numerical proposition requires an independently recomputable calculation record."
+            ],
+            "proposition_signature": {
+                "concept": "structural load path",
+                "reasoning_operation": "match system behavior to span and support assumptions",
+                "material_context": "12-m clear-span hall with perimeter supports",
+                "visual_dependency": "NONE"
+            },
+            "format_review": {
+                "text_without_figure": true,
+                "visual_required_forbidden": false
+            },
+            "novelty_review": "Distinct proposition signature and content family reviewed against the same-leaf inventory; exact/normalized duplicates rejected.",
+            "qa_status": "PASS",
+            "authorized_by": "batch654-architecture-readiness"
+        }
+    },
+    {
+        "id": 8955,
+        "board": "architecture",
+        "taxonomy": {
+            "board_id": "architecture",
+            "subject_id": "architecture-utilities-and-construction",
+            "domain_id": "architecture-utilities-construction",
+            "topic_id": "architecture-systems-coordination",
+            "concept_id": "b633-arch-technical-systems",
+            "parent_concept_id": "architecture-technical-integration",
+            "subcompetency_id": "b633-arch-technical-systems",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "Batch654 authorized leaf and current granular coverage row."
+        },
+        "status": "active",
+        "source": "Batch655-authorized",
+        "difficulty": "hard",
+        "type": "multiple_choice",
+        "question": "During renovation, new washrooms are stacked above occupied rooms. The proposed route crosses multiple beams, has no accessible cleanout, and leaves no space for valve maintenance. Which coordination response is strongest?",
+        "choices": [
+            "Reserve an aligned service zone or shaft, coordinate penetrations and the drainage route, and preserve access and maintenance space before fixing the ceiling.",
+            "Conceal the pipes above the ceiling and defer access until a leak occurs.",
+            "Move the fixtures without checking the route, structure, or maintenance clearances.",
+            "Select a pipe size from the fixture count alone and treat the coordination problem as solved."
+        ],
+        "answer": "Reserve an aligned service zone or shaft, coordinate penetrations and the drainage route, and preserve access and maintenance space before fixing the ceiling.",
+        "explanation": "A workable utility solution needs a connected route, coordinated penetrations, and service access. Fixture count or concealment alone does not resolve structural, drainage, and maintenance interfaces.",
+        "content_blocks": [],
+        "source_ids": [
+            "bp344-2024-irr",
+            "mit-4-401-environmental-buildings",
+            "pd1096-national-building-code",
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "ra9514-fire-code-irr"
+        ],
+        "study_material_id": "architecture-3-2-foundation",
+        "study_material_ids": [
+            "architecture-3-2-foundation"
+        ],
+        "source_scope": [
+            "utilities_coordination",
+            "serviceability"
+        ],
+        "study_focus": "Coordinate a water and drainage route with access, penetrations, and maintenance constraints before architectural zones are fixed.",
+        "cognitive_intent": "apply and evaluate",
+        "multistep": true,
+        "passage_dependent": false,
+        "data_interpretation": false,
+        "case_interpretation": true,
+        "professional_judgment": true,
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NONCALCULATION",
+        "currentness_verified": true,
+        "version_sensitive": true,
+        "source_sensitivity": "REGULATORY",
+        "technical_reasoning": true,
+        "figure_dependent": false,
+        "site_plan_spatial": false,
+        "context_dependent": true,
+        "context_necessary": true,
+        "long_scenario": true,
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-04T00:00:00+08:00",
+        "updatedAt": "2026-10-04T00:00:00+08:00",
+        "batch_marker": "batch655-architecture",
+        "batch655": {
+            "plan_id": "ARCH-654-005",
+            "wave": "WAVE1",
+            "leaf_id": "b633-arch-technical-systems",
+            "official_area_id": "arch-area-b",
+            "proposition_summary": "Select a coordinated water, drainage, ventilation, or life-safety response from stated service constraints.",
+            "content_family": "utilities-coordination",
+            "target_depth": 4,
+            "question_mode": "TEXT_MCQ",
+            "calculation_class": "NONCALCULATION",
+            "visual_suitability": "TEXT_SUITABLE_WITH_LIMITS",
+            "source_ids": [
+                "bp344-2024-irr",
+                "mit-4-401-environmental-buildings",
+                "pd1096-national-building-code",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "prc-architecture-exam-program-june-2026",
+                "prc-architecture-syllabi",
+                "ra9514-fire-code-irr"
+            ],
+            "study_material_ids": [
+                "architecture-3-2-foundation"
+            ],
+            "novelty_basis": "Cross-system consequence distinct from isolated component recognition.",
+            "currentness_class": "CURRENT_WITH_LIMITS",
+            "marginal_value": "HIGH",
+            "confidence": "HIGH",
+            "limitations": [
+                "Version-sensitive requirements must be rechecked; calculation propositions require independent recomputation."
+            ],
+            "proposition_signature": {
+                "concept": "utilities serviceability coordination",
+                "reasoning_operation": "resolve route, penetration, and maintenance consequences together",
+                "material_context": "stacked washrooms over occupied rooms",
+                "visual_dependency": "NONE"
+            },
+            "format_review": {
+                "text_without_figure": true,
+                "visual_required_forbidden": false
+            },
+            "novelty_review": "Distinct proposition signature and content family reviewed against the same-leaf inventory; exact/normalized duplicates rejected.",
+            "qa_status": "PASS",
+            "authorized_by": "batch654-architecture-readiness"
+        },
+        "version_review_status": "CURRENT_WITH_LIMITS"
+    },
+    {
+        "id": 8956,
+        "board": "architecture",
+        "taxonomy": {
+            "board_id": "architecture",
+            "subject_id": "architecture-utilities-and-construction",
+            "domain_id": "architecture-utilities-construction",
+            "topic_id": "architecture-systems-coordination",
+            "concept_id": "b633-arch-technical-construction",
+            "parent_concept_id": "architecture-technical-integration",
+            "subcompetency_id": "b633-arch-technical-construction",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "Batch654 authorized leaf and current granular coverage row."
+        },
+        "status": "active",
+        "source": "Batch655-authorized",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A rectangular wall is 18.0 m long and 3.0 m high. It has two door openings, each 0.9 m by 2.1 m, and four window openings, each 1.2 m by 1.0 m. If the order includes 5% waste on the net wall area, what wall-finish quantity should be ordered, to the nearest 0.1 m²?",
+        "choices": [
+            "47.7 m²",
+            "45.4 m²",
+            "49.2 m²",
+            "50.4 m²"
+        ],
+        "answer": "47.7 m²",
+        "explanation": "Gross area is 18.0 × 3.0 = 54.0 m². Openings are (2 × 0.9 × 2.1) + (4 × 1.2 × 1.0) = 8.58 m², so net area is 45.42 m². Applying 5% waste gives 45.42 × 1.05 = 47.691 m², or 47.7 m².",
+        "content_blocks": [],
+        "source_ids": [
+            "mit-4-461-building-technology",
+            "mit-4-463-structural-systems",
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi"
+        ],
+        "study_material_id": "architecture-3-3-foundation",
+        "study_material_ids": [
+            "architecture-3-3-foundation"
+        ],
+        "source_scope": [
+            "quantity",
+            "constructability"
+        ],
+        "study_focus": "Recompute net wall-finish area after openings and an explicit waste allowance, keeping units and assumptions visible.",
+        "cognitive_intent": "apply and evaluate",
+        "multistep": true,
+        "passage_dependent": false,
+        "data_interpretation": false,
+        "case_interpretation": true,
+        "professional_judgment": false,
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "source_sensitivity": "STABLE",
+        "technical_reasoning": true,
+        "figure_dependent": false,
+        "site_plan_spatial": false,
+        "context_dependent": true,
+        "context_necessary": true,
+        "long_scenario": true,
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-04T00:00:00+08:00",
+        "updatedAt": "2026-10-04T00:00:00+08:00",
+        "batch_marker": "batch655-architecture",
+        "batch655": {
+            "plan_id": "ARCH-654-006",
+            "wave": "WAVE1",
+            "leaf_id": "b633-arch-technical-construction",
+            "official_area_id": "arch-area-b",
+            "proposition_summary": "Recompute a bounded construction quantity from explicit measurement and waste assumptions.",
+            "content_family": "quantity",
+            "target_depth": 3,
+            "question_mode": "TEXT_MCQ",
+            "calculation_class": "CALCULATION_REQUIRED",
+            "visual_suitability": "TEXT_SUITABLE",
+            "source_ids": [
+                "mit-4-461-building-technology",
+                "mit-4-463-structural-systems",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "prc-architecture-exam-program-june-2026",
+                "prc-architecture-syllabi"
+            ],
+            "study_material_ids": [
+                "architecture-3-3-foundation"
+            ],
+            "novelty_basis": "Independent recomputation with a stored unit and assumption record.",
+            "currentness_class": "CURRENT_WITH_LIMITS",
+            "marginal_value": "HIGH",
+            "confidence": "ADEQUATE",
+            "limitations": [
+                "Keep quantities independently recomputable and avoid treating one construction sequence as universally controlling."
+            ],
+            "proposition_signature": {
+                "concept": "net construction quantity",
+                "reasoning_operation": "subtract openings then apply explicit waste allowance",
+                "material_context": "wall finish with doors and windows",
+                "visual_dependency": "NONE"
+            },
+            "format_review": {
+                "text_without_figure": true,
+                "visual_required_forbidden": false
+            },
+            "novelty_review": "Distinct proposition signature and content family reviewed against the same-leaf inventory; exact/normalized duplicates rejected.",
+            "qa_status": "PASS",
+            "authorized_by": "batch654-architecture-readiness"
+        },
+        "calculation_family": "CONSTRUCTION_NET_AREA_WITH_WASTE",
+        "calculation": {
+            "family": "CONSTRUCTION_NET_AREA_WITH_WASTE",
+            "expression": "((18.0 × 3.0) − (2 × 0.9 × 2.1) − (4 × 1.2 × 1.0)) × 1.05",
+            "result": "47.691",
+            "unit": "m²",
+            "rounding": "nearest 0.1 m²",
+            "assumptions": [
+                "waste applies to net finish area",
+                "all dimensions are in metres"
+            ]
+        }
+    },
+    {
+        "id": 8957,
+        "board": "architecture",
+        "taxonomy": {
+            "board_id": "architecture",
+            "subject_id": "architecture-architectural-design-and-site-planning",
+            "domain_id": "architecture-design-site",
+            "topic_id": "architecture-site-reasoning",
+            "concept_id": "b633-arch-site-circulation",
+            "parent_concept_id": "architecture-spatial-integration",
+            "subcompetency_id": "b633-arch-site-circulation",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "Batch654 authorized leaf and current granular coverage row."
+        },
+        "status": "active",
+        "source": "Batch655-authorized",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "An outpatient clinic has a public entry, reception, two consultation rooms, a staff/service entry, and a fire exit. The brief requires a continuous accessible public route from entry to reception and consultation, service deliveries not to cross the waiting area, and the exit route to remain unobstructed. Which text-described arrangement best satisfies all three?",
+        "choices": [
+            "Run the public entry to reception and consultation; connect the staff/service entry to a back-of-house route; and keep the fire exit connected to an unobstructed escape path.",
+            "Route deliveries through the waiting area because it is the shortest path, then place the fire exit behind the reception desk.",
+            "Put the consultation rooms on an upper level reached only by stairs, while keeping the service entry at the public door.",
+            "Place reception at the fire exit and use the same narrow route for public arrival, deliveries, and emergency movement."
+        ],
+        "answer": "Run the public entry to reception and consultation; connect the staff/service entry to a back-of-house route; and keep the fire exit connected to an unobstructed escape path.",
+        "explanation": "The selected arrangement states each required relationship: a continuous public route, separated service movement, and an unobstructed exit path. A short or symmetrical route is not sufficient when it conflicts with access or life safety.",
+        "content_blocks": [],
+        "source_ids": [
+            "bp344-2024-irr",
+            "mit-4-111-intro-architecture",
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "ra9514-fire-code-irr"
+        ],
+        "study_material_id": "architecture-4-2-foundation",
+        "study_material_ids": [
+            "architecture-4-2-foundation"
+        ],
+        "source_scope": [
+            "adjacency",
+            "egress_accessibility",
+            "wayfinding"
+        ],
+        "study_focus": "Choose a complete text-described circulation arrangement satisfying adjacency, accessibility, service separation, and exit continuity constraints.",
+        "cognitive_intent": "apply and evaluate",
+        "multistep": true,
+        "passage_dependent": false,
+        "data_interpretation": false,
+        "case_interpretation": true,
+        "professional_judgment": true,
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NONCALCULATION",
+        "currentness_verified": true,
+        "version_sensitive": true,
+        "source_sensitivity": "REGULATORY",
+        "technical_reasoning": false,
+        "figure_dependent": false,
+        "site_plan_spatial": true,
+        "context_dependent": true,
+        "context_necessary": true,
+        "long_scenario": true,
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-04T00:00:00+08:00",
+        "updatedAt": "2026-10-04T00:00:00+08:00",
+        "batch_marker": "batch655-architecture",
+        "batch655": {
+            "plan_id": "ARCH-654-007",
+            "wave": "WAVE1",
+            "leaf_id": "b633-arch-site-circulation",
+            "official_area_id": "arch-area-c",
+            "proposition_summary": "Choose the circulation or egress response satisfying stated adjacency, accessibility, and wayfinding constraints.",
+            "content_family": "adjacency",
+            "target_depth": 3,
+            "question_mode": "TEXT_MCQ",
+            "calculation_class": "NONCALCULATION",
+            "visual_suitability": "VISUAL_PREFERRED",
+            "source_ids": [
+                "bp344-2024-irr",
+                "mit-4-111-intro-architecture",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "prc-architecture-exam-program-june-2026",
+                "prc-architecture-syllabi",
+                "ra9514-fire-code-irr"
+            ],
+            "study_material_ids": [
+                "architecture-4-2-foundation"
+            ],
+            "novelty_basis": "Complete text-specified scenario; no unstated plan comparison.",
+            "currentness_class": "CURRENT_WITH_LIMITS",
+            "marginal_value": "MEDIUM",
+            "confidence": "ADEQUATE",
+            "limitations": [
+                "Text-only items must state all geometry needed for the decision; visual alternatives are not authorized here."
+            ],
+            "proposition_signature": {
+                "concept": "circulation and adjacency",
+                "reasoning_operation": "satisfy three stated movement constraints simultaneously",
+                "material_context": "outpatient clinic public, service, and exit routes",
+                "visual_dependency": "TEXT_COMPLETE; IMAGE_WOULD_ADD_AUTHENTICITY"
+            },
+            "format_review": {
+                "text_without_figure": true,
+                "visual_required_forbidden": false
+            },
+            "novelty_review": "Distinct proposition signature and content family reviewed against the same-leaf inventory; exact/normalized duplicates rejected.",
+            "qa_status": "PASS",
+            "authorized_by": "batch654-architecture-readiness"
+        },
+        "version_review_status": "CURRENT_WITH_LIMITS"
+    },
+    {
+        "id": 8958,
+        "board": "architecture",
+        "taxonomy": {
+            "board_id": "architecture",
+            "subject_id": "architecture-architectural-design-and-site-planning",
+            "domain_id": "architecture-design-site",
+            "topic_id": "architecture-site-reasoning",
+            "concept_id": "b633-arch-site-capacity",
+            "parent_concept_id": "architecture-spatial-integration",
+            "subcompetency_id": "b633-arch-site-capacity",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "Batch654 authorized leaf and current granular coverage row."
+        },
+        "status": "active",
+        "source": "Batch655-authorized",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "A 60 m by 40 m site must retain a continuous landscaped and drainage zone along its south edge, keep north access open for emergency and service movement, and reserve the east side for a future wing. Which phase-one strategy best preserves all three criteria?",
+        "choices": [
+            "Use a compact footprint in the west or central buildable zone, reserve the east for expansion, and preserve both the south zone and the north access spine.",
+            "Spread phase one across the full site so no single area appears underused, even if the south zone and east expansion reserve are interrupted.",
+            "Place phase one on the east edge and use the future expansion area for initial parking and storage.",
+            "Close the north access with the first building and rely on a temporary service route through the south drainage zone."
+        ],
+        "answer": "Use a compact footprint in the west or central buildable zone, reserve the east for expansion, and preserve both the south zone and the north access spine.",
+        "explanation": "The compact phase preserves the stated landscape and drainage zone, protects the required access spine, and keeps the east expansion reserve available. Maximizing the first footprint would consume the very capacity the brief requires.",
+        "content_blocks": [],
+        "source_ids": [
+            "bp344-2024-irr",
+            "mit-4-111-intro-architecture",
+            "mit-4-401-environmental-buildings",
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi"
+        ],
+        "study_material_id": "architecture-4-3-foundation",
+        "study_material_ids": [
+            "architecture-4-3-foundation"
+        ],
+        "source_scope": [
+            "phasing_growth",
+            "site_coverage",
+            "spatial_alternative"
+        ],
+        "study_focus": "Compare a complete text-described site-phasing alternative against access, landscape, drainage, service, and future-growth criteria.",
+        "cognitive_intent": "apply and evaluate",
+        "multistep": true,
+        "passage_dependent": false,
+        "data_interpretation": false,
+        "case_interpretation": true,
+        "professional_judgment": true,
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NONCALCULATION",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "source_sensitivity": "STABLE",
+        "technical_reasoning": true,
+        "figure_dependent": false,
+        "site_plan_spatial": true,
+        "context_dependent": true,
+        "context_necessary": true,
+        "long_scenario": true,
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-04T00:00:00+08:00",
+        "updatedAt": "2026-10-04T00:00:00+08:00",
+        "batch_marker": "batch655-architecture",
+        "batch655": {
+            "plan_id": "ARCH-654-008",
+            "wave": "WAVE1",
+            "leaf_id": "b633-arch-site-capacity",
+            "official_area_id": "arch-area-c",
+            "proposition_summary": "Compare a phasing or site-capacity alternative against stated access, service, landscape, and growth criteria.",
+            "content_family": "phasing-growth",
+            "target_depth": 3,
+            "question_mode": "TEXT_MCQ",
+            "calculation_class": "NONCALCULATION",
+            "visual_suitability": "VISUAL_PREFERRED",
+            "source_ids": [
+                "bp344-2024-irr",
+                "mit-4-111-intro-architecture",
+                "mit-4-401-environmental-buildings",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "prc-architecture-exam-program-june-2026",
+                "prc-architecture-syllabi"
+            ],
+            "study_material_ids": [
+                "architecture-4-3-foundation"
+            ],
+            "novelty_basis": "Criteria-based site scenario with all decision constraints stated.",
+            "currentness_class": "CURRENT_WITH_LIMITS",
+            "marginal_value": "MEDIUM",
+            "confidence": "ADEQUATE",
+            "limitations": [
+                "Text-only items must contain the complete capacity assumptions and are bounded to planning reasoning."
+            ],
+            "proposition_signature": {
+                "concept": "site phasing and growth",
+                "reasoning_operation": "compare alternatives against simultaneous site criteria",
+                "material_context": "60 m by 40 m phased site with protected edges",
+                "visual_dependency": "TEXT_COMPLETE; DIAGRAM_WOULD_ADD_AUTHENTICITY"
+            },
+            "format_review": {
+                "text_without_figure": true,
+                "visual_required_forbidden": false
+            },
+            "novelty_review": "Distinct proposition signature and content family reviewed against the same-leaf inventory; exact/normalized duplicates rejected.",
+            "qa_status": "PASS",
+            "authorized_by": "batch654-architecture-readiness"
+        }
+    },
+    {
+        "id": 8959,
+        "board": "architecture",
+        "taxonomy": {
+            "board_id": "architecture",
+            "subject_id": "architecture-history-and-theory",
+            "domain_id": "architecture-history-theory",
+            "topic_id": "architecture-history-application",
+            "concept_id": "b633-arch-history-vernacular-climate",
+            "parent_concept_id": "architecture-history-context",
+            "subcompetency_id": "b633-arch-history-vernacular-climate",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "Batch654 authorized leaf and current granular coverage row."
+        },
+        "status": "active",
+        "source": "Batch655-authorized",
+        "difficulty": "hard",
+        "type": "multiple_choice",
+        "question": "A vernacular wall system used in a dry inland setting relies on high thermal mass, small shaded openings, and night flushing. A new coastal site is humid with wind-driven rain and locally available treated timber. Which adaptation demonstrates transfer of performance logic rather than decorative copying?",
+        "choices": [
+            "Retain shade, rain control, and controlled ventilation while selecting and detailing durable moisture-resistant timber in a raised, drained assembly for the new exposure.",
+            "Reproduce the thick inland wall exactly, even though the coastal material and moisture conditions differ.",
+            "Copy the wall pattern as decoration while ignoring drainage, ventilation, and material durability.",
+            "Maximize unshaded glass because a coastal setting makes the original climate response irrelevant."
+        ],
+        "answer": "Retain shade, rain control, and controlled ventilation while selecting and detailing durable moisture-resistant timber in a raised, drained assembly for the new exposure.",
+        "explanation": "Adaptation preserves the environmental logic while changing the material and detailing to suit the new humid, wind-driven-rain exposure. Literal form transfer would ignore the conditions that made the original system perform.",
+        "content_blocks": [],
+        "source_ids": [
+            "mit-4-111-intro-architecture",
+            "mit-4-401-environmental-buildings",
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi"
+        ],
+        "study_material_id": "architecture-1-1-foundation",
+        "study_material_ids": [
+            "architecture-1-1-foundation",
+            "architecture-1-2-foundation"
+        ],
+        "source_scope": [
+            "vernacular_adaptation",
+            "climate_response"
+        ],
+        "study_focus": "Distinguish climate-performance adaptation from decorative transfer when climate and material exposure change.",
+        "cognitive_intent": "apply and evaluate",
+        "multistep": true,
+        "passage_dependent": false,
+        "data_interpretation": false,
+        "case_interpretation": true,
+        "professional_judgment": false,
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NONCALCULATION",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "source_sensitivity": "STABLE",
+        "technical_reasoning": true,
+        "figure_dependent": false,
+        "site_plan_spatial": false,
+        "context_dependent": true,
+        "context_necessary": true,
+        "long_scenario": true,
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-04T00:00:00+08:00",
+        "updatedAt": "2026-10-04T00:00:00+08:00",
+        "batch_marker": "batch655-architecture",
+        "batch655": {
+            "plan_id": "ARCH-654-009",
+            "wave": "WAVE2_CONTINGENT",
+            "leaf_id": "b633-arch-history-vernacular-climate",
+            "official_area_id": "arch-area-a",
+            "proposition_summary": "Distinguish a climate-responsive vernacular adaptation from a decorative form transfer under changed conditions.",
+            "content_family": "material-adaptation",
+            "target_depth": 4,
+            "question_mode": "TEXT_MCQ",
+            "calculation_class": "NONCALCULATION",
+            "visual_suitability": "TEXT_SUITABLE_WITH_LIMITS",
+            "source_ids": [
+                "mit-4-111-intro-architecture",
+                "mit-4-401-environmental-buildings",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "prc-architecture-exam-program-june-2026",
+                "prc-architecture-syllabi"
+            ],
+            "study_material_ids": [
+                "architecture-1-1-foundation",
+                "architecture-1-2-foundation"
+            ],
+            "novelty_basis": "Performance-logic transfer rather than image identification.",
+            "currentness_class": "CURRENT_WITH_LIMITS",
+            "marginal_value": "MEDIUM",
+            "confidence": "ADEQUATE",
+            "limitations": [
+                "Keep propositions tied to stated climate and material evidence; do not treat form recognition as proof."
+            ],
+            "proposition_signature": {
+                "concept": "vernacular material adaptation",
+                "reasoning_operation": "separate performance logic from decorative form under changed exposure",
+                "material_context": "dry inland wall logic adapted to humid coastal timber construction",
+                "visual_dependency": "NONE"
+            },
+            "format_review": {
+                "text_without_figure": true,
+                "visual_required_forbidden": false
+            },
+            "novelty_review": "Distinct proposition signature and content family reviewed against the same-leaf inventory; exact/normalized duplicates rejected.",
+            "qa_status": "PASS",
+            "authorized_by": "batch654-architecture-readiness"
+        }
+    },
+    {
+        "id": 8960,
+        "board": "architecture",
+        "taxonomy": {
+            "board_id": "architecture",
+            "subject_id": "architecture-planning-and-practice",
+            "domain_id": "architecture-planning-practice",
+            "topic_id": "architecture-practice-decisions",
+            "concept_id": "b633-arch-practice-coordination",
+            "parent_concept_id": "architecture-professional-judgment",
+            "subcompetency_id": "b633-arch-practice-coordination",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "Batch654 authorized leaf and current granular coverage row."
+        },
+        "status": "active",
+        "source": "Batch655-authorized",
+        "difficulty": "hard",
+        "type": "multiple_choice",
+        "question": "An owner approves a door-hardware change in a meeting, but the change affects fire rating, frame coordination, security, and schedule. What should the architect record and communicate?",
+        "choices": [
+            "Document the authorized change and its implications, update affected drawings, specifications, and schedules, and issue a controlled revision to the affected disciplines and contractor.",
+            "Mark the floor plan only and let the hardware supplier update the remaining documents.",
+            "Ask the contractor to choose a compatible product and treat the choice as the project record.",
+            "Keep the old documents in circulation so the change can be reconciled after installation."
+        ],
+        "answer": "Document the authorized change and its implications, update affected drawings, specifications, and schedules, and issue a controlled revision to the affected disciplines and contractor.",
+        "explanation": "An authorized change still has downstream performance and coordination effects. A controlled record and coordinated document update preserve a single reliable instruction for the people who must act on it.",
+        "content_blocks": [],
+        "source_ids": [
+            "mit-4-461-building-technology",
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "ra-9266-architecture-act"
+        ],
+        "study_material_id": "architecture-2-2-foundation",
+        "study_material_ids": [
+            "architecture-2-2-foundation"
+        ],
+        "source_scope": [
+            "change_control",
+            "information_status"
+        ],
+        "study_focus": "Record and communicate an authorized design change while preserving drawing, specification, schedule, and trade interfaces.",
+        "cognitive_intent": "apply and evaluate",
+        "multistep": true,
+        "passage_dependent": false,
+        "data_interpretation": false,
+        "case_interpretation": true,
+        "professional_judgment": true,
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NONCALCULATION",
+        "currentness_verified": true,
+        "version_sensitive": false,
+        "source_sensitivity": "STABLE",
+        "technical_reasoning": true,
+        "figure_dependent": false,
+        "site_plan_spatial": false,
+        "context_dependent": true,
+        "context_necessary": true,
+        "long_scenario": false,
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-04T00:00:00+08:00",
+        "updatedAt": "2026-10-04T00:00:00+08:00",
+        "batch_marker": "batch655-architecture",
+        "batch655": {
+            "plan_id": "ARCH-654-010",
+            "wave": "WAVE2_CONTINGENT",
+            "leaf_id": "b633-arch-practice-coordination",
+            "official_area_id": "arch-area-a",
+            "proposition_summary": "Record and communicate an authorized design change while preserving drawing and specification interfaces.",
+            "content_family": "change-control",
+            "target_depth": 4,
+            "question_mode": "TEXT_MCQ",
+            "calculation_class": "NONCALCULATION",
+            "visual_suitability": "TEXT_SUITABLE",
+            "source_ids": [
+                "mit-4-461-building-technology",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "prc-architecture-exam-program-june-2026",
+                "prc-architecture-syllabi",
+                "ra-9266-architecture-act"
+            ],
+            "study_material_ids": [
+                "architecture-2-2-foundation"
+            ],
+            "novelty_basis": "Change-control record distinct from interface resolution.",
+            "currentness_class": "CURRENT_WITH_LIMITS",
+            "marginal_value": "MEDIUM",
+            "confidence": "ADEQUATE",
+            "limitations": [
+                "Use controlled coordination scenarios with a stated decision record; do not claim a universal project answer."
+            ],
+            "proposition_signature": {
+                "concept": "design change control",
+                "reasoning_operation": "propagate an authorized change through affected interfaces",
+                "material_context": "door hardware change affecting fire, frame, security, and schedule",
+                "visual_dependency": "NONE"
+            },
+            "format_review": {
+                "text_without_figure": true,
+                "visual_required_forbidden": false
+            },
+            "novelty_review": "Distinct proposition signature and content family reviewed against the same-leaf inventory; exact/normalized duplicates rejected.",
+            "qa_status": "PASS",
+            "authorized_by": "batch654-architecture-readiness"
+        }
+    },
+    {
+        "id": 8961,
+        "board": "architecture",
+        "taxonomy": {
+            "board_id": "architecture",
+            "subject_id": "architecture-planning-and-practice",
+            "domain_id": "architecture-planning-practice",
+            "topic_id": "architecture-practice-decisions",
+            "concept_id": "b633-arch-practice-public-responsibility",
+            "parent_concept_id": "architecture-professional-judgment",
+            "subcompetency_id": "b633-arch-practice-public-responsibility",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "Batch654 authorized leaf and current granular coverage row."
+        },
+        "status": "active",
+        "source": "Batch655-authorized",
+        "difficulty": "medium",
+        "type": "multiple_choice",
+        "question": "An architect is asked to sign a foundation recommendation for a site with unverified soil data. No geotechnical specialist has been engaged, but the project deadline is near. What is the most responsible response?",
+        "choices": [
+            "State the limitation, obtain qualified specialist verification, avoid certifying an unsupported conclusion, and document the interim risk to the client and project team.",
+            "Sign the recommendation with a disclaimer because the deadline makes verification impractical.",
+            "Use a neighboring site report as proof that the same foundation is suitable here.",
+            "Omit the uncertainty from the record so the project can proceed without delay."
+        ],
+        "answer": "State the limitation, obtain qualified specialist verification, avoid certifying an unsupported conclusion, and document the interim risk to the client and project team.",
+        "explanation": "The missing soil evidence is material to the foundation decision. Protecting the public requires an honest boundary on competence and a qualified verification path, not a disclaimer that disguises an unsupported certification.",
+        "content_blocks": [],
+        "source_ids": [
+            "bp344-2024-irr",
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "ra-9266-architecture-act",
+            "ra-9266-architecture-irr"
+        ],
+        "study_material_id": "architecture-2-3-foundation",
+        "study_material_ids": [
+            "architecture-2-3-foundation"
+        ],
+        "source_scope": [
+            "professional_ethics"
+        ],
+        "study_focus": "Communicate a material specialist boundary and protect public responsibility when evidence is incomplete.",
+        "cognitive_intent": "apply and evaluate",
+        "multistep": true,
+        "passage_dependent": false,
+        "data_interpretation": false,
+        "case_interpretation": true,
+        "professional_judgment": true,
+        "numeric": false,
+        "calculation_required": false,
+        "quantitative_semantics": "NONCALCULATION",
+        "currentness_verified": true,
+        "version_sensitive": true,
+        "source_sensitivity": "REGULATORY",
+        "technical_reasoning": false,
+        "figure_dependent": false,
+        "site_plan_spatial": false,
+        "context_dependent": true,
+        "context_necessary": true,
+        "long_scenario": false,
+        "unit_sensitive": false,
+        "table_dependent": false,
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-04T00:00:00+08:00",
+        "updatedAt": "2026-10-04T00:00:00+08:00",
+        "batch_marker": "batch655-architecture",
+        "batch655": {
+            "plan_id": "ARCH-654-011",
+            "wave": "WAVE2_CONTINGENT",
+            "leaf_id": "b633-arch-practice-public-responsibility",
+            "official_area_id": "arch-area-a",
+            "proposition_summary": "Communicate material uncertainty or a specialist boundary while protecting public responsibility.",
+            "content_family": "professional-ethics",
+            "target_depth": 3,
+            "question_mode": "TEXT_MCQ",
+            "calculation_class": "NONCALCULATION",
+            "visual_suitability": "TEXT_SUITABLE",
+            "source_ids": [
+                "bp344-2024-irr",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "prc-architecture-exam-program-june-2026",
+                "prc-architecture-syllabi",
+                "ra-9266-architecture-act",
+                "ra-9266-architecture-irr"
+            ],
+            "study_material_ids": [
+                "architecture-2-3-foundation"
+            ],
+            "novelty_basis": "Communication/referral scenario distinct from safety prioritization.",
+            "currentness_class": "CURRENT_WITH_LIMITS",
+            "marginal_value": "MEDIUM",
+            "confidence": "ADEQUATE",
+            "limitations": [
+                "Keep regulatory references current and distinguish professional judgment from a final legal determination."
+            ],
+            "proposition_signature": {
+                "concept": "professional specialist boundary",
+                "reasoning_operation": "identify uncertainty and refer before certifying",
+                "material_context": "foundation recommendation without verified geotechnical data",
+                "visual_dependency": "NONE"
+            },
+            "format_review": {
+                "text_without_figure": true,
+                "visual_required_forbidden": false
+            },
+            "novelty_review": "Distinct proposition signature and content family reviewed against the same-leaf inventory; exact/normalized duplicates rejected.",
+            "qa_status": "PASS",
+            "authorized_by": "batch654-architecture-readiness"
+        },
+        "version_review_status": "CURRENT_WITH_LIMITS"
+    },
+    {
+        "id": 8962,
+        "board": "architecture",
+        "taxonomy": {
+            "board_id": "architecture",
+            "subject_id": "architecture-utilities-and-construction",
+            "domain_id": "architecture-utilities-construction",
+            "topic_id": "architecture-systems-coordination",
+            "concept_id": "b633-arch-technical-systems",
+            "parent_concept_id": "architecture-technical-integration",
+            "subcompetency_id": "b633-arch-technical-systems",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "Batch654 authorized leaf and current granular coverage row."
+        },
+        "status": "active",
+        "source": "Batch655-authorized",
+        "difficulty": "hard",
+        "type": "multiple_choice",
+        "question": "During a controlled drainage test, a temporary service line flows at 2.5 L/s for 8 minutes. Using 60 seconds per minute and 1,000 L per cubic metre, what volume passes during the test?",
+        "choices": [
+            "1,200 L (1.2 m³)",
+            "20 L (0.02 m³)",
+            "300 L (0.3 m³)",
+            "2,500 L (2.5 m³)"
+        ],
+        "answer": "1,200 L (1.2 m³)",
+        "explanation": "The test lasts 8 × 60 = 480 seconds. Flow volume is 2.5 L/s × 480 s = 1,200 L, or 1.2 m³. That result is a stated coordination input; it does not by itself complete pipe sizing.",
+        "content_blocks": [],
+        "source_ids": [
+            "bp344-2024-irr",
+            "mit-4-401-environmental-buildings",
+            "pd1096-national-building-code",
+            "prc-architecture-exam-program-2024",
+            "prc-architecture-exam-program-2025",
+            "prc-architecture-exam-program-june-2026",
+            "prc-architecture-syllabi",
+            "ra9514-fire-code-irr"
+        ],
+        "study_material_id": "architecture-3-2-foundation",
+        "study_material_ids": [
+            "architecture-3-2-foundation"
+        ],
+        "source_scope": [
+            "bounded_calculation",
+            "utilities_coordination"
+        ],
+        "study_focus": "Recompute a bounded service volume from explicit flow, duration, and units, then retain the result as a coordination input rather than a full sizing claim.",
+        "cognitive_intent": "apply and evaluate",
+        "multistep": true,
+        "passage_dependent": false,
+        "data_interpretation": false,
+        "case_interpretation": true,
+        "professional_judgment": true,
+        "numeric": true,
+        "calculation_required": true,
+        "quantitative_semantics": "CALCULATION_REQUIRED",
+        "currentness_verified": true,
+        "version_sensitive": true,
+        "source_sensitivity": "REGULATORY",
+        "technical_reasoning": true,
+        "figure_dependent": false,
+        "site_plan_spatial": false,
+        "context_dependent": true,
+        "context_necessary": true,
+        "long_scenario": false,
+        "unit_sensitive": true,
+        "table_dependent": false,
+        "timesUsed": 0,
+        "timesCorrect": 0,
+        "timesIncorrect": 0,
+        "bookmarks": 0,
+        "reports": 0,
+        "helpfulExplanation": 0,
+        "notHelpfulExplanation": 0,
+        "createdAt": "2026-10-04T00:00:00+08:00",
+        "updatedAt": "2026-10-04T00:00:00+08:00",
+        "batch_marker": "batch655-architecture",
+        "batch655": {
+            "plan_id": "ARCH-654-012",
+            "wave": "WAVE2_CONTINGENT",
+            "leaf_id": "b633-arch-technical-systems",
+            "official_area_id": "arch-area-b",
+            "proposition_summary": "Recompute a bounded service quantity from stated flow, duration, and units, then check coordination implications.",
+            "content_family": "bounded-calculation",
+            "target_depth": 4,
+            "question_mode": "TEXT_MCQ",
+            "calculation_class": "CALCULATION_REQUIRED",
+            "visual_suitability": "TEXT_SUITABLE_WITH_LIMITS",
+            "source_ids": [
+                "bp344-2024-irr",
+                "mit-4-401-environmental-buildings",
+                "pd1096-national-building-code",
+                "prc-architecture-exam-program-2024",
+                "prc-architecture-exam-program-2025",
+                "prc-architecture-exam-program-june-2026",
+                "prc-architecture-syllabi",
+                "ra9514-fire-code-irr"
+            ],
+            "study_material_ids": [
+                "architecture-3-2-foundation"
+            ],
+            "novelty_basis": "Independent recomputation plus interface check; no specialist sizing claim.",
+            "currentness_class": "CURRENT_WITH_LIMITS",
+            "marginal_value": "MEDIUM",
+            "confidence": "ADEQUATE",
+            "limitations": [
+                "Version-sensitive requirements must be rechecked; calculation propositions require independent recomputation."
+            ],
+            "proposition_signature": {
+                "concept": "bounded service quantity",
+                "reasoning_operation": "normalize time units and compute flow volume",
+                "material_context": "temporary drainage test flow and duration",
+                "visual_dependency": "NONE"
+            },
+            "format_review": {
+                "text_without_figure": true,
+                "visual_required_forbidden": false
+            },
+            "novelty_review": "Distinct proposition signature and content family reviewed against the same-leaf inventory; exact/normalized duplicates rejected.",
+            "qa_status": "PASS",
+            "authorized_by": "batch654-architecture-readiness"
+        },
+        "calculation_family": "FLOW_DURATION_VOLUME",
+        "calculation": {
+            "family": "FLOW_DURATION_VOLUME",
+            "expression": "2.5 L/s × 8 min × 60 s/min",
+            "result": "1200",
+            "unit": "L",
+            "converted_result": "1.2 m³",
+            "assumptions": [
+                "constant stated flow for the test duration",
+                "one minute equals 60 seconds"
+            ]
+        },
+        "version_review_status": "CURRENT_WITH_LIMITS"
     }
 ]

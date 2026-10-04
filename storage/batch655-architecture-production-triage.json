@@ -1,0 +1,835 @@
+{
+    "artifact": "batch655-architecture-production-triage",
+    "batch": 655,
+    "review_date": "2026-10-04",
+    "lineage": {
+        "expected_head": "eccec1486a06d0d66182bb1ad3b33d795d5ddfd8",
+        "expected_parent": "030436584c6e4921a63d7c4a1469f8fc97f76eb7",
+        "head_before": "eccec1486a06d0d66182bb1ad3b33d795d5ddfd8",
+        "branch": "batch655-architecture-production-triage",
+        "main_head": "0eb9704ba293e0aa3402af5d01a2d3392c005b73",
+        "ancestry_pass": true,
+        "main_unchanged": true,
+        "unrelated_work_preserved": true,
+        "pushed": false
+    },
+    "architecture_baseline": {
+        "native": 472,
+        "effective": 472,
+        "runtime": 472,
+        "active_leaves": 14,
+        "raw_zero_under5_under10_under20": {
+            "zero": 0,
+            "under5": 0,
+            "under10": 2,
+            "under20": 6
+        },
+        "loaded_from_batch654": true
+    },
+    "currentness": {
+        "classification": "UNCHANGED",
+        "controlling_source_id": "prc-architecture-exam-program-june-2026",
+        "official_areas": {
+            "arch-area-a": 30,
+            "arch-area-b": 30,
+            "arch-area-c": 40
+        },
+        "scope_change_detected": false,
+        "source_status": "official_reference"
+    },
+    "production": {
+        "plans_loaded": [
+            "ARCH-654-001",
+            "ARCH-654-002",
+            "ARCH-654-003",
+            "ARCH-654-004",
+            "ARCH-654-005",
+            "ARCH-654-006",
+            "ARCH-654-007",
+            "ARCH-654-008",
+            "ARCH-654-009",
+            "ARCH-654-010",
+            "ARCH-654-011",
+            "ARCH-654-012"
+        ],
+        "wave1": {
+            "planned": 8,
+            "accepted": 8,
+            "repaired": 0,
+            "rejected": [],
+            "question_ids": [
+                8951,
+                8952,
+                8953,
+                8954,
+                8955,
+                8956,
+                8957,
+                8958
+            ]
+        },
+        "post_wave1_recalculation": {
+            "performed_by_permanent_engine": true
+        },
+        "wave2": {
+            "planned": 4,
+            "accepted": 4,
+            "repaired": 0,
+            "rejected": [],
+            "question_ids": [
+                8959,
+                8960,
+                8961,
+                8962
+            ]
+        },
+        "wave3_preauthorized": 0,
+        "total_new": 12,
+        "accepted_ids": [
+            8951,
+            8952,
+            8953,
+            8954,
+            8955,
+            8956,
+            8957,
+            8958,
+            8959,
+            8960,
+            8961,
+            8962
+        ],
+        "new_id_range": "8951-8962",
+        "architecture_native_before": 472,
+        "architecture_native_after": 484,
+        "source_traceability": "PASS",
+        "study_traceability": "PASS",
+        "duplicates": 0,
+        "flashcard_derivability": "PASS",
+        "structured_content": "PASS",
+        "currentness": "PASS",
+        "depth": "PASS",
+        "area_placement": "PASS",
+        "format_suitability": "PASS",
+        "calculation_items": 2,
+        "calculation_recomputed": "PASS",
+        "plan_rejections": [],
+        "question_freeze_after_wave2": "PASS"
+    },
+    "architecture_final": {
+        "native": 484,
+        "effective": 484,
+        "runtime": 484,
+        "active_leaves": 14,
+        "raw_zero_under5_under10_under20": {
+            "zero": 0,
+            "under5": 0,
+            "under10": 2,
+            "under20": 5
+        },
+        "authorable_zero_under5_under10_under20": {
+            "zero": 0,
+            "under5": 0,
+            "under10": 0,
+            "under20": 0
+        },
+        "readiness_counts": {
+            "READY": 0,
+            "READY_WITH_LIMITS": 0,
+            "REVIEW": 13,
+            "DEFER": 1
+        },
+        "source_study_defects": {
+            "source": 0,
+            "study": 0,
+            "traceability": 0,
+            "currentness": 0
+        },
+        "traceability": {
+            "COMPLETE": 14
+        },
+        "headroom": {
+            "numerical": 15,
+            "evidence": 15,
+            "text_format": 15,
+            "high_value_text": 0,
+            "safe_remaining": {
+                "min": 1,
+                "preferred": 8,
+                "max": 15
+            },
+            "authorized_before": {
+                "min": 8,
+                "preferred": 12,
+                "max": 12
+            }
+        },
+        "evidence_exhausted": {
+            "zero": 0,
+            "under5": 0,
+            "under10": 0,
+            "under20": 0
+        },
+        "high_value_headroom": 0,
+        "closure_state": "ARCHITECTURE_TEXT_EVIDENCE_EXHAUSTED",
+        "area_balance": [
+            {
+                "area_id": "arch-area-a",
+                "native": 234,
+                "actual_share": 48.35,
+                "official_weight": 30
+            },
+            {
+                "area_id": "arch-area-b",
+                "native": 96,
+                "actual_share": 19.83,
+                "official_weight": 30
+            },
+            {
+                "area_id": "arch-area-c",
+                "native": 154,
+                "actual_share": 31.82,
+                "official_weight": 40
+            }
+        ],
+        "repeat_risk": {
+            "overall": "MODERATE",
+            "counts": {
+                "LOW": 2,
+                "MODERATE": 7,
+                "HIGH": 4,
+                "CRITICAL": 1,
+                "UNKNOWN": 0
+            },
+            "by_leaf": {
+                "b633-arch-history-conservation": "MODERATE",
+                "b633-arch-history-theory-precedent": "MODERATE",
+                "b633-arch-history-vernacular-climate": "MODERATE",
+                "b633-arch-practice-coordination": "LOW",
+                "b633-arch-practice-public-responsibility": "LOW",
+                "b633-arch-practice-scope": "MODERATE",
+                "b633-arch-site-capacity": "HIGH",
+                "b633-arch-site-circulation": "HIGH",
+                "b633-arch-site-climate": "HIGH",
+                "b633-arch-site-spatial-analysis": "CRITICAL",
+                "b633-arch-technical-construction": "MODERATE",
+                "b633-arch-technical-envelope": "MODERATE",
+                "b633-arch-technical-structural": "HIGH",
+                "b633-arch-technical-systems": "MODERATE"
+            }
+        }
+    },
+    "visual_backlog": {
+        "preferred_count": 3,
+        "required_count": 1,
+        "priority_counts": {
+            "HIGH": 3,
+            "MEDIUM": 0,
+            "LOW": 1,
+            "UNKNOWN": 0
+        },
+        "rows": [
+            {
+                "leaf_id": "b633-arch-site-capacity",
+                "visual_suitability": "VISUAL_PREFERRED",
+                "text_headroom_remaining": 2,
+                "visual_headroom_estimate": 3,
+                "why_visual_adds_value": "Phasing and site-capacity trade-offs gain material value from diagrams showing protected edges, access spines, and expansion reserves.",
+                "source_study_ready": "COMPLETE/COMPLETE",
+                "future_capability_priority": "HIGH"
+            },
+            {
+                "leaf_id": "b633-arch-site-circulation",
+                "visual_suitability": "VISUAL_PREFERRED",
+                "text_headroom_remaining": 2,
+                "visual_headroom_estimate": 3,
+                "why_visual_adds_value": "A route/adjacency competency is naturally evaluated through plan relationships; text coverage remains bounded and visual alternatives would improve authenticity.",
+                "source_study_ready": "COMPLETE/COMPLETE",
+                "future_capability_priority": "HIGH"
+            },
+            {
+                "leaf_id": "b633-arch-site-climate",
+                "visual_suitability": "VISUAL_PREFERRED",
+                "text_headroom_remaining": 0,
+                "visual_headroom_estimate": 0,
+                "why_visual_adds_value": "The leaf is already densely covered and evidence-exhausted; visuals are enrichment rather than a current text-gap repair.",
+                "source_study_ready": "COMPLETE/COMPLETE",
+                "future_capability_priority": "LOW"
+            },
+            {
+                "leaf_id": "b633-arch-site-spatial-analysis",
+                "visual_suitability": "VISUAL_REQUIRED",
+                "text_headroom_remaining": 0,
+                "visual_headroom_estimate": "UNKNOWN",
+                "why_visual_adds_value": "The stored contract marks plan/diagram analysis as visual-required; ordinary text expansion would weaken the competency.",
+                "source_study_ready": "COMPLETE/COMPLETE",
+                "future_capability_priority": "HIGH"
+            }
+        ],
+        "text_only_headroom": 4,
+        "visual_headroom": {
+            "known_max": 6,
+            "unknown_leaf_count": 1
+        },
+        "capability_decision": "VISUAL_CAPABILITY_USEFUL_LATER"
+    },
+    "portfolio_triage": {
+        "boards_triaged": 10,
+        "rows": [
+            {
+                "board_id": "let",
+                "native": 1788,
+                "effective": 1871,
+                "runtime": 1886,
+                "active_leaves": 205,
+                "taxonomy_granularity_status": {
+                    "status": "PASS",
+                    "signal": "NO_CHEAP_COARSENESS_SIGNAL",
+                    "active_leaf_count": 205,
+                    "generic_leaf_count": 0,
+                    "note": "No cheap deterministic coarseness signal was found; this is not a semantic quality proof."
+                },
+                "readiness_model_status": "FULL_READINESS_MODEL",
+                "ready": 0,
+                "rwl": 106,
+                "review": 99,
+                "defer": 0,
+                "raw_zero_under5_under10_under20": {
+                    "zero": 3,
+                    "under5": 60,
+                    "under10": 163,
+                    "under20": 184
+                },
+                "authorable_zero_under5_under10_under20": {
+                    "zero": 0,
+                    "under5": 0,
+                    "under10": 84,
+                    "under20": 100
+                },
+                "source_defects": 38,
+                "study_defects": 6,
+                "currentness_defects": 3,
+                "depth_defects": 0,
+                "blocker_count": 0,
+                "high_value_headroom": "UNKNOWN",
+                "evidence_exhausted": 0,
+                "visual_limited": 0,
+                "repeat_risk": {
+                    "LOW": 0,
+                    "MODERATE": 0,
+                    "HIGH": 0,
+                    "CRITICAL": 0,
+                    "UNKNOWN": 205
+                },
+                "operational_state": "SOURCE_READINESS_NEEDED",
+                "priority_score": 4550,
+                "deterministic_review_issue_count": 0
+            },
+            {
+                "board_id": "nursing",
+                "native": 878,
+                "effective": 898,
+                "runtime": 898,
+                "active_leaves": 40,
+                "taxonomy_granularity_status": {
+                    "status": "PASS",
+                    "signal": "NO_CHEAP_COARSENESS_SIGNAL",
+                    "active_leaf_count": 40,
+                    "generic_leaf_count": 0,
+                    "note": "No cheap deterministic coarseness signal was found; this is not a semantic quality proof."
+                },
+                "readiness_model_status": "LEGACY_NO_READINESS_MODEL",
+                "ready": "UNKNOWN",
+                "rwl": "UNKNOWN",
+                "review": "UNKNOWN",
+                "defer": "UNKNOWN",
+                "raw_zero_under5_under10_under20": "UNKNOWN",
+                "authorable_zero_under5_under10_under20": "UNKNOWN",
+                "source_defects": "UNKNOWN",
+                "study_defects": "UNKNOWN",
+                "currentness_defects": "UNKNOWN",
+                "depth_defects": 0,
+                "blocker_count": "UNKNOWN",
+                "high_value_headroom": "UNKNOWN",
+                "evidence_exhausted": "UNKNOWN",
+                "visual_limited": "UNKNOWN",
+                "repeat_risk": "UNKNOWN",
+                "operational_state": "SOURCE_READINESS_NEEDED",
+                "priority_score": 500,
+                "deterministic_review_issue_count": 0
+            },
+            {
+                "board_id": "criminologist",
+                "native": 451,
+                "effective": 554,
+                "runtime": 554,
+                "active_leaves": 37,
+                "taxonomy_granularity_status": {
+                    "status": "PASS",
+                    "signal": "NO_CHEAP_COARSENESS_SIGNAL",
+                    "active_leaf_count": 37,
+                    "generic_leaf_count": 0,
+                    "note": "No cheap deterministic coarseness signal was found; this is not a semantic quality proof."
+                },
+                "readiness_model_status": "FULL_READINESS_MODEL",
+                "ready": 0,
+                "rwl": 33,
+                "review": 0,
+                "defer": 4,
+                "raw_zero_under5_under10_under20": {
+                    "zero": 4,
+                    "under5": 4,
+                    "under10": 4,
+                    "under20": 33
+                },
+                "authorable_zero_under5_under10_under20": {
+                    "zero": 0,
+                    "under5": 0,
+                    "under10": 0,
+                    "under20": 29
+                },
+                "source_defects": 4,
+                "study_defects": 0,
+                "currentness_defects": 0,
+                "depth_defects": 0,
+                "blocker_count": 0,
+                "high_value_headroom": "UNKNOWN",
+                "evidence_exhausted": 0,
+                "visual_limited": 0,
+                "repeat_risk": {
+                    "LOW": 0,
+                    "MODERATE": 0,
+                    "HIGH": 0,
+                    "CRITICAL": 0,
+                    "UNKNOWN": 37
+                },
+                "operational_state": "SOURCE_READINESS_NEEDED",
+                "priority_score": 400,
+                "deterministic_review_issue_count": 0
+            },
+            {
+                "board_id": "psychometrician",
+                "native": 401,
+                "effective": 401,
+                "runtime": 401,
+                "active_leaves": 20,
+                "taxonomy_granularity_status": {
+                    "status": "PASS",
+                    "signal": "NO_CHEAP_COARSENESS_SIGNAL",
+                    "active_leaf_count": 20,
+                    "generic_leaf_count": 0,
+                    "note": "No cheap deterministic coarseness signal was found; this is not a semantic quality proof."
+                },
+                "readiness_model_status": "FULL_READINESS_MODEL",
+                "ready": 0,
+                "rwl": 18,
+                "review": 1,
+                "defer": 1,
+                "raw_zero_under5_under10_under20": {
+                    "zero": 0,
+                    "under5": 1,
+                    "under10": 1,
+                    "under20": 12
+                },
+                "authorable_zero_under5_under10_under20": {
+                    "zero": 0,
+                    "under5": 0,
+                    "under10": 0,
+                    "under20": 10
+                },
+                "source_defects": 1,
+                "study_defects": 0,
+                "currentness_defects": 1,
+                "depth_defects": 0,
+                "blocker_count": 0,
+                "high_value_headroom": "UNKNOWN",
+                "evidence_exhausted": 0,
+                "visual_limited": 0,
+                "repeat_risk": {
+                    "LOW": 0,
+                    "MODERATE": 0,
+                    "HIGH": 0,
+                    "CRITICAL": 0,
+                    "UNKNOWN": 20
+                },
+                "operational_state": "SOURCE_READINESS_NEEDED",
+                "priority_score": 190,
+                "deterministic_review_issue_count": 0
+            },
+            {
+                "board_id": "cpa",
+                "native": 1132,
+                "effective": 1132,
+                "runtime": 1132,
+                "active_leaves": 113,
+                "taxonomy_granularity_status": {
+                    "status": "PASS",
+                    "signal": "NO_CHEAP_COARSENESS_SIGNAL",
+                    "active_leaf_count": 113,
+                    "generic_leaf_count": 0,
+                    "note": "No cheap deterministic coarseness signal was found; this is not a semantic quality proof."
+                },
+                "readiness_model_status": "LEGACY_NO_READINESS_MODEL",
+                "ready": "UNKNOWN",
+                "rwl": "UNKNOWN",
+                "review": "UNKNOWN",
+                "defer": "UNKNOWN",
+                "raw_zero_under5_under10_under20": "UNKNOWN",
+                "authorable_zero_under5_under10_under20": "UNKNOWN",
+                "source_defects": "UNKNOWN",
+                "study_defects": "UNKNOWN",
+                "currentness_defects": "UNKNOWN",
+                "depth_defects": 0,
+                "blocker_count": "UNKNOWN",
+                "high_value_headroom": "UNKNOWN",
+                "evidence_exhausted": "UNKNOWN",
+                "visual_limited": "UNKNOWN",
+                "repeat_risk": "UNKNOWN",
+                "operational_state": "CURRENTNESS_REVIEW_NEEDED",
+                "priority_score": 150,
+                "deterministic_review_issue_count": 3
+            },
+            {
+                "board_id": "architecture",
+                "native": 484,
+                "effective": 484,
+                "runtime": 484,
+                "active_leaves": 14,
+                "taxonomy_granularity_status": {
+                    "status": "PASS",
+                    "signal": "NO_CHEAP_COARSENESS_SIGNAL",
+                    "active_leaf_count": 14,
+                    "generic_leaf_count": 0,
+                    "note": "No cheap deterministic coarseness signal was found; this is not a semantic quality proof."
+                },
+                "readiness_model_status": "FULL_READINESS_MODEL",
+                "ready": 0,
+                "rwl": 0,
+                "review": 13,
+                "defer": 1,
+                "raw_zero_under5_under10_under20": {
+                    "zero": 0,
+                    "under5": 0,
+                    "under10": 2,
+                    "under20": 5
+                },
+                "authorable_zero_under5_under10_under20": {
+                    "zero": 0,
+                    "under5": 0,
+                    "under10": 0,
+                    "under20": 0
+                },
+                "source_defects": 0,
+                "study_defects": 0,
+                "currentness_defects": 0,
+                "depth_defects": 0,
+                "blocker_count": 19,
+                "high_value_headroom": 0,
+                "evidence_exhausted": 6,
+                "visual_limited": 4,
+                "repeat_risk": {
+                    "LOW": 2,
+                    "MODERATE": 7,
+                    "HIGH": 4,
+                    "CRITICAL": 1,
+                    "UNKNOWN": 0
+                },
+                "operational_state": "VISUAL_LIMITED",
+                "priority_score": 0,
+                "deterministic_review_issue_count": 0
+            },
+            {
+                "board_id": "civil-engineering",
+                "native": 922,
+                "effective": 922,
+                "runtime": 922,
+                "active_leaves": 19,
+                "taxonomy_granularity_status": {
+                    "status": "PASS",
+                    "signal": "NO_CHEAP_COARSENESS_SIGNAL",
+                    "active_leaf_count": 19,
+                    "generic_leaf_count": 0,
+                    "note": "No cheap deterministic coarseness signal was found; this is not a semantic quality proof."
+                },
+                "readiness_model_status": "LEGACY_NO_READINESS_MODEL",
+                "ready": "UNKNOWN",
+                "rwl": "UNKNOWN",
+                "review": "UNKNOWN",
+                "defer": "UNKNOWN",
+                "raw_zero_under5_under10_under20": "UNKNOWN",
+                "authorable_zero_under5_under10_under20": "UNKNOWN",
+                "source_defects": "UNKNOWN",
+                "study_defects": "UNKNOWN",
+                "currentness_defects": "UNKNOWN",
+                "depth_defects": 0,
+                "blocker_count": "UNKNOWN",
+                "high_value_headroom": "UNKNOWN",
+                "evidence_exhausted": "UNKNOWN",
+                "visual_limited": "UNKNOWN",
+                "repeat_risk": "UNKNOWN",
+                "operational_state": "FOUNDATION_SUFFICIENT",
+                "priority_score": 0,
+                "deterministic_review_issue_count": 0
+            },
+            {
+                "board_id": "civil-service",
+                "native": 1553,
+                "effective": 1807,
+                "runtime": 2116,
+                "active_leaves": 56,
+                "taxonomy_granularity_status": {
+                    "status": "PASS",
+                    "signal": "NO_CHEAP_COARSENESS_SIGNAL",
+                    "active_leaf_count": 56,
+                    "generic_leaf_count": 0,
+                    "note": "No cheap deterministic coarseness signal was found; this is not a semantic quality proof."
+                },
+                "readiness_model_status": "FULL_READINESS_MODEL",
+                "ready": 0,
+                "rwl": 0,
+                "review": 56,
+                "defer": 0,
+                "raw_zero_under5_under10_under20": {
+                    "zero": 1,
+                    "under5": 3,
+                    "under10": 3,
+                    "under20": 16
+                },
+                "authorable_zero_under5_under10_under20": {
+                    "zero": 0,
+                    "under5": 0,
+                    "under10": 0,
+                    "under20": 0
+                },
+                "source_defects": 0,
+                "study_defects": 0,
+                "currentness_defects": 0,
+                "depth_defects": 0,
+                "blocker_count": 51,
+                "high_value_headroom": "UNKNOWN",
+                "evidence_exhausted": 0,
+                "visual_limited": 0,
+                "repeat_risk": {
+                    "LOW": 0,
+                    "MODERATE": 0,
+                    "HIGH": 0,
+                    "CRITICAL": 0,
+                    "UNKNOWN": 56
+                },
+                "operational_state": "EVIDENCE_LIMITED",
+                "priority_score": 0,
+                "deterministic_review_issue_count": 0
+            },
+            {
+                "board_id": "mechanical-engineering",
+                "native": 511,
+                "effective": 511,
+                "runtime": 511,
+                "active_leaves": 35,
+                "taxonomy_granularity_status": {
+                    "status": "PASS",
+                    "signal": "NO_CHEAP_COARSENESS_SIGNAL",
+                    "active_leaf_count": 35,
+                    "generic_leaf_count": 0,
+                    "note": "No cheap deterministic coarseness signal was found; this is not a semantic quality proof."
+                },
+                "readiness_model_status": "FULL_READINESS_MODEL",
+                "ready": 0,
+                "rwl": 28,
+                "review": 7,
+                "defer": 0,
+                "raw_zero_under5_under10_under20": {
+                    "zero": 0,
+                    "under5": 3,
+                    "under10": 14,
+                    "under20": 27
+                },
+                "authorable_zero_under5_under10_under20": {
+                    "zero": 0,
+                    "under5": 0,
+                    "under10": 8,
+                    "under20": 20
+                },
+                "source_defects": 0,
+                "study_defects": 0,
+                "currentness_defects": 0,
+                "depth_defects": 0,
+                "blocker_count": 0,
+                "high_value_headroom": "UNKNOWN",
+                "evidence_exhausted": 0,
+                "visual_limited": 0,
+                "repeat_risk": {
+                    "LOW": 0,
+                    "MODERATE": 0,
+                    "HIGH": 0,
+                    "CRITICAL": 0,
+                    "UNKNOWN": 35
+                },
+                "operational_state": "UNKNOWN_REQUIRES_MANUAL_REVIEW",
+                "priority_score": 0,
+                "deterministic_review_issue_count": 0
+            },
+            {
+                "board_id": "registered-electrical-engineering",
+                "native": 842,
+                "effective": 842,
+                "runtime": 842,
+                "active_leaves": 37,
+                "taxonomy_granularity_status": {
+                    "status": "PASS",
+                    "signal": "NO_CHEAP_COARSENESS_SIGNAL",
+                    "active_leaf_count": 37,
+                    "generic_leaf_count": 0,
+                    "note": "No cheap deterministic coarseness signal was found; this is not a semantic quality proof."
+                },
+                "readiness_model_status": "LEGACY_NO_READINESS_MODEL",
+                "ready": "UNKNOWN",
+                "rwl": "UNKNOWN",
+                "review": "UNKNOWN",
+                "defer": "UNKNOWN",
+                "raw_zero_under5_under10_under20": "UNKNOWN",
+                "authorable_zero_under5_under10_under20": "UNKNOWN",
+                "source_defects": "UNKNOWN",
+                "study_defects": "UNKNOWN",
+                "currentness_defects": "UNKNOWN",
+                "depth_defects": 0,
+                "blocker_count": "UNKNOWN",
+                "high_value_headroom": "UNKNOWN",
+                "evidence_exhausted": "UNKNOWN",
+                "visual_limited": "UNKNOWN",
+                "repeat_risk": "UNKNOWN",
+                "operational_state": "FOUNDATION_SUFFICIENT",
+                "priority_score": 0,
+                "deterministic_review_issue_count": 0
+            }
+        ],
+        "state_counts": {
+            "CURRENTNESS_REVIEW_NEEDED": 1,
+            "EVIDENCE_LIMITED": 1,
+            "FOUNDATION_SUFFICIENT": 2,
+            "SOURCE_READINESS_NEEDED": 4,
+            "UNKNOWN_REQUIRES_MANUAL_REVIEW": 1,
+            "VISUAL_LIMITED": 1
+        },
+        "priority_order": [
+            "let",
+            "nursing",
+            "criminologist",
+            "psychometrician",
+            "cpa",
+            "architecture",
+            "civil-engineering",
+            "civil-service",
+            "mechanical-engineering",
+            "registered-electrical-engineering"
+        ],
+        "next_primary_milestone": "LET_SOURCE_READINESS_DEFECT_CLOSURE",
+        "manual_comparison_required": false,
+        "runtime_ms": 5.048
+    },
+    "tooling": {
+        "permanent_portfolio_projection": "ADDED",
+        "doctor_cli": "php tools/doctor.php --health --portfolio --json",
+        "board_scoped_readiness": "REUSED",
+        "developer_health_ui": "REUSED_EXISTING_PORTFOLIO_TABLE",
+        "batch_specific_semantics": [
+            "exact_plan_compliance",
+            "question_qa",
+            "post_wave_recalculation",
+            "closure_review",
+            "visual_backlog",
+            "portfolio_triage"
+        ]
+    },
+    "health": {
+        "status": "REVIEW",
+        "fail_entities": 0,
+        "fail_ids": [],
+        "check_statuses": {
+            "STRUCTURED_CONTENT": "PASS",
+            "FLASHCARD_DERIVABILITY": "PASS",
+            "FLASHCARD_EXCLUSIONS": "PASS",
+            "CARD_KEYS": "PASS",
+            "QUESTION_COUNTS": "PASS",
+            "TRACEABILITY": "PASS",
+            "TAXONOMY": "PASS",
+            "ELIGIBILITY": "PASS",
+            "DEPTH_COVERAGE": "WARN",
+            "SOURCE_STUDY": "REVIEW",
+            "CALCULATION_METADATA": "PASS",
+            "VERSION_CURRENTNESS": "PASS",
+            "SOURCE_READINESS": "PASS",
+            "BALANCE_DIVERSITY": "WARN",
+            "REPOSITORY_HEALTH_FOUNDATION": "PASS"
+        },
+        "runtime_ms": 17874.83,
+        "performance": {
+            "baseline_ms": 17251.019,
+            "final_ms": 17874.83,
+            "regression_percent": 3.6160820412985544
+        }
+    },
+    "global_regressions": {
+        "native_counts_before": {
+            "architecture": 472,
+            "civil-engineering": 922,
+            "civil-service": 1553,
+            "cpa": 1132,
+            "criminologist": 451,
+            "let": 1788,
+            "mechanical-engineering": 511,
+            "nursing": 878,
+            "psychometrician": 401,
+            "registered-electrical-engineering": 842
+        },
+        "native_counts_after": {
+            "architecture": 484,
+            "civil-engineering": 922,
+            "civil-service": 1553,
+            "cpa": 1132,
+            "criminologist": 451,
+            "let": 1788,
+            "mechanical-engineering": 511,
+            "nursing": 878,
+            "psychometrician": 401,
+            "registered-electrical-engineering": 842
+        },
+        "other_board_counts_unchanged": true,
+        "nursing_dosage": "24/16/8",
+        "cpa_cy2029_leakage": 0,
+        "flashcard_defects": 0,
+        "calculation_metadata_contradictions": 0,
+        "duplicate_effective": 0,
+        "double_weighting": 0,
+        "new_different_id_equivalence": 0,
+        "known_inherited_issues": [
+            "16 orphan study materials",
+            "3 CPA source-fit findings",
+            "stale Batch646 Mechanical Engineering readiness expectation"
+        ]
+    },
+    "decision": {
+        "architecture_state": "ARCHITECTURE_TEXT_EVIDENCE_EXHAUSTED",
+        "visual_capability_needed": "VISUAL_CAPABILITY_USEFUL_LATER",
+        "next_primary_milestone": "LET_SOURCE_READINESS_DEFECT_CLOSURE",
+        "reason": "The exact twelve text-compatible propositions were consumed; remaining numeric room is not high-value text authorization, while visual opportunities remain a separate future backlog."
+    },
+    "determinism": {
+        "projection_fields": [
+            "loaded_plan_ids",
+            "accepted_ids",
+            "readiness_states",
+            "headroom",
+            "visual_backlog",
+            "portfolio_rows",
+            "priority_order",
+            "selected_next_target",
+            "health_fail_ids",
+            "global_counts"
+        ],
+        "runtime_excluded_from_hash": true,
+        "second_audit_hash": "7e9d173264127230cd485c4b64aa7695ec2d794c7bd8e1ddcd3ebb25c260acdf",
+        "identical": true
+    },
+    "audit_hash": "7e9d173264127230cd485c4b64aa7695ec2d794c7bd8e1ddcd3ebb25c260acdf"
+}

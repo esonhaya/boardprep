@@ -62,7 +62,7 @@
         "max_new_questions": 0,
         "planned_new_questions": 0,
         "defer_reason": "",
-        "reviewed_at_batch": 654,
+        "reviewed_at_batch": 655,
         "evidence_hash": "d9781befd60a9dd9533b62f2cbf8bbcee940c26b4ee40a4dd26b1ac0d60b69d5"
     },
     {
@@ -70,7 +70,7 @@
         "board_id": "architecture",
         "official_area_id": "arch-area-a",
         "leaf_name": "Vernacular, tropical, and climate-responsive traditions",
-        "current_question_count": 25,
+        "current_question_count": 27,
         "source_ids": [
             "prc-architecture-exam-program-2024",
             "prc-architecture-exam-program-2025",
@@ -92,11 +92,11 @@
             "cultural-context",
             "material-adaptation"
         ],
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 2,
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "A bounded text cohort remains supportable when each item states the climate, material, and performance assumptions.",
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "readiness": "REVIEW",
+        "readiness_reason": "Batch655 consumed the exact authorized text cohort; any remaining numerical room requires a new proposition-level review and is not an automatic production quota.",
         "allowed_scope": [
             "climate_response",
             "passive_strategy",
@@ -109,10 +109,10 @@
         "limitations": [
             "Keep propositions tied to stated climate and material evidence; do not treat form recognition as proof."
         ],
-        "numerical_headroom": 2,
-        "evidence_headroom": 2,
-        "text_format_headroom": 2,
-        "high_value_headroom": 1,
+        "numerical_headroom": 0,
+        "evidence_headroom": 0,
+        "text_format_headroom": 0,
+        "high_value_headroom": 0,
         "source_count": 6,
         "study_material_count": 2,
         "deficit_to_5": 0,
@@ -121,18 +121,20 @@
         "supported_depth_min": 2,
         "supported_depth_max": 4,
         "distinct_content_family_count": 3,
-        "blocker_classes": [],
+        "blocker_classes": [
+            "PROPOSITION_EXHAUSTED"
+        ],
         "study_coverage": "COMPLETE",
         "study_source_traceability": "COMPLETE",
         "source_currentness": "CURRENT_WITH_LIMITS",
         "source_scope_fit": "STRONG",
         "source_conflict_status": "NONE",
-        "max_new_questions": 2,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
-        "review_reason": "",
+        "review_reason": "PROPOSITION_EXHAUSTED: no additional high-value text proposition is authorized in the current Architecture cycle.",
         "defer_reason": "",
-        "reviewed_at_batch": 654,
-        "evidence_hash": "2e317e162f65b7ffb802041ba26d0530529bc1b1181f7863a30770203b8e3dd6"
+        "reviewed_at_batch": 655,
+        "evidence_hash": "d556cbca954f85599e3df3903b9f2c7cc2de57148f904df8c33ad898d3f66958"
     },
     {
         "leaf_id": "b633-arch-history-conservation",
@@ -198,7 +200,7 @@
         "max_new_questions": 0,
         "planned_new_questions": 0,
         "defer_reason": "",
-        "reviewed_at_batch": 654,
+        "reviewed_at_batch": 655,
         "evidence_hash": "d4e400a5fd6068a7b16ef9722de95d9d8747858d40628ece814055fed0668989"
     },
     {
@@ -264,7 +266,7 @@
         "max_new_questions": 0,
         "planned_new_questions": 0,
         "defer_reason": "",
-        "reviewed_at_batch": 654,
+        "reviewed_at_batch": 655,
         "evidence_hash": "1a4d44eda4361a36349ce28572ef9fd71034bf56755f23af66a338b1a2061f81"
     },
     {
@@ -272,7 +274,7 @@
         "board_id": "architecture",
         "official_area_id": "arch-area-a",
         "leaf_name": "Consultant coordination and change control",
-        "current_question_count": 20,
+        "current_question_count": 22,
         "source_ids": [
             "prc-architecture-exam-program-2024",
             "prc-architecture-exam-program-2025",
@@ -293,11 +295,11 @@
             "change-control",
             "information-integrity"
         ],
-        "safe_headroom_min": 2,
-        "safe_headroom_preferred": 3,
-        "safe_headroom_max": 4,
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "A small application cohort is supportable when the item identifies the information status, interface, authority, and downstream consequence.",
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 1,
+        "safe_headroom_max": 2,
+        "readiness": "REVIEW",
+        "readiness_reason": "Batch655 consumed the exact authorized text cohort; any remaining numerical room requires a new proposition-level review and is not an automatic production quota.",
         "allowed_scope": [
             "change_control",
             "consultant_interface",
@@ -310,10 +312,10 @@
         "limitations": [
             "Use controlled coordination scenarios with a stated decision record; do not claim a universal project answer."
         ],
-        "numerical_headroom": 4,
-        "evidence_headroom": 4,
-        "text_format_headroom": 4,
-        "high_value_headroom": 2,
+        "numerical_headroom": 2,
+        "evidence_headroom": 2,
+        "text_format_headroom": 2,
+        "high_value_headroom": 0,
         "source_count": 6,
         "study_material_count": 1,
         "deficit_to_5": 0,
@@ -322,25 +324,27 @@
         "supported_depth_min": 2,
         "supported_depth_max": 4,
         "distinct_content_family_count": 3,
-        "blocker_classes": [],
+        "blocker_classes": [
+            "PROPOSITION_EXHAUSTED"
+        ],
         "study_coverage": "COMPLETE",
         "study_source_traceability": "COMPLETE",
         "source_currentness": "CURRENT_WITH_LIMITS",
         "source_scope_fit": "STRONG",
         "source_conflict_status": "NONE",
-        "max_new_questions": 4,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
-        "review_reason": "",
+        "review_reason": "PROPOSITION_EXHAUSTED: no additional high-value text proposition is authorized in the current Architecture cycle.",
         "defer_reason": "",
-        "reviewed_at_batch": 654,
-        "evidence_hash": "60e2b5ed651212efed0a025512b28412b7760e35c4e61a516b31a650ae29bd8c"
+        "reviewed_at_batch": 655,
+        "evidence_hash": "a5017223f51cf6b36f1a79d461a2bc1c403ba7d96c352c1a7fec752ce71bb4d9"
     },
     {
         "leaf_id": "b633-arch-practice-public-responsibility",
         "board_id": "architecture",
         "official_area_id": "arch-area-a",
         "leaf_name": "Professional judgment and public responsibility",
-        "current_question_count": 10,
+        "current_question_count": 12,
         "source_ids": [
             "prc-architecture-exam-program-2024",
             "prc-architecture-exam-program-2025",
@@ -362,11 +366,11 @@
             "accessibility-duty",
             "professional-ethics"
         ],
-        "safe_headroom_min": 2,
-        "safe_headroom_preferred": 3,
-        "safe_headroom_max": 4,
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "A bounded public-duty cohort remains supportable when the facts identify the affected users, risk, and professional responsibility.",
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 1,
+        "safe_headroom_max": 2,
+        "readiness": "REVIEW",
+        "readiness_reason": "Batch655 consumed the exact authorized text cohort; any remaining numerical room requires a new proposition-level review and is not an automatic production quota.",
         "allowed_scope": [
             "accessibility_duty",
             "professional_ethics",
@@ -379,30 +383,32 @@
         "limitations": [
             "Keep regulatory references current and distinguish professional judgment from a final legal determination."
         ],
-        "numerical_headroom": 4,
-        "evidence_headroom": 4,
-        "text_format_headroom": 4,
-        "high_value_headroom": 2,
+        "numerical_headroom": 2,
+        "evidence_headroom": 2,
+        "text_format_headroom": 2,
+        "high_value_headroom": 0,
         "source_count": 7,
         "study_material_count": 1,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
-        "deficit_to_20": 10,
+        "deficit_to_20": 8,
         "supported_depth_min": 2,
         "supported_depth_max": 4,
         "distinct_content_family_count": 3,
-        "blocker_classes": [],
+        "blocker_classes": [
+            "PROPOSITION_EXHAUSTED"
+        ],
         "study_coverage": "COMPLETE",
         "study_source_traceability": "COMPLETE",
         "source_currentness": "CURRENT_WITH_LIMITS",
         "source_scope_fit": "STRONG",
         "source_conflict_status": "NONE",
-        "max_new_questions": 4,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
-        "review_reason": "",
+        "review_reason": "PROPOSITION_EXHAUSTED: no additional high-value text proposition is authorized in the current Architecture cycle.",
         "defer_reason": "",
-        "reviewed_at_batch": 654,
-        "evidence_hash": "2f1ff9a512c2200f9c9cbba9dff369d5c62483066068f0d7072118dfdd3129ba"
+        "reviewed_at_batch": 655,
+        "evidence_hash": "65b2c35e3b025aa06f4e346391f2412dbe5e1482b276697ce651c5e8caabdce4"
     },
     {
         "leaf_id": "b633-arch-technical-envelope",
@@ -466,7 +472,7 @@
         "max_new_questions": 0,
         "planned_new_questions": 0,
         "defer_reason": "",
-        "reviewed_at_batch": 654,
+        "reviewed_at_batch": 655,
         "evidence_hash": "5b8781e274452a65c9d99c8d617fe27d26e389a1b704110be37e51a9dfad4882"
     },
     {
@@ -474,7 +480,7 @@
         "board_id": "architecture",
         "official_area_id": "arch-area-b",
         "leaf_name": "Structural conceptualization and load-path coordination",
-        "current_question_count": 10,
+        "current_question_count": 11,
         "source_ids": [
             "prc-architecture-exam-program-2024",
             "prc-architecture-exam-program-2025",
@@ -496,11 +502,11 @@
             "system-selection",
             "architect-engineer-coordination"
         ],
-        "safe_headroom_min": 2,
-        "safe_headroom_preferred": 3,
-        "safe_headroom_max": 4,
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "A bounded conceptual structural cohort is supportable when the load path and design assumptions are explicit and no unsupported calculation is required.",
+        "safe_headroom_min": 1,
+        "safe_headroom_preferred": 2,
+        "safe_headroom_max": 3,
+        "readiness": "REVIEW",
+        "readiness_reason": "Batch655 consumed the exact authorized text cohort; any remaining numerical room requires a new proposition-level review and is not an automatic production quota.",
         "allowed_scope": [
             "load_path",
             "system_selection",
@@ -513,37 +519,39 @@
         "limitations": [
             "Conceptual reasoning only; any numerical proposition requires an independently recomputable calculation record."
         ],
-        "numerical_headroom": 4,
-        "evidence_headroom": 4,
-        "text_format_headroom": 4,
-        "high_value_headroom": 2,
+        "numerical_headroom": 3,
+        "evidence_headroom": 3,
+        "text_format_headroom": 3,
+        "high_value_headroom": 0,
         "source_count": 7,
         "study_material_count": 1,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
-        "deficit_to_20": 10,
+        "deficit_to_20": 9,
         "supported_depth_min": 2,
         "supported_depth_max": 4,
         "distinct_content_family_count": 3,
-        "blocker_classes": [],
+        "blocker_classes": [
+            "PROPOSITION_EXHAUSTED"
+        ],
         "study_coverage": "COMPLETE",
         "study_source_traceability": "COMPLETE",
         "source_currentness": "CURRENT_WITH_LIMITS",
         "source_scope_fit": "STRONG",
         "source_conflict_status": "NONE",
-        "max_new_questions": 4,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
-        "review_reason": "",
+        "review_reason": "PROPOSITION_EXHAUSTED: no additional high-value text proposition is authorized in the current Architecture cycle.",
         "defer_reason": "",
-        "reviewed_at_batch": 654,
-        "evidence_hash": "c9380134037f1b3e5f29a9868ae09db99b1eb8bb193321c064421d2e863528aa"
+        "reviewed_at_batch": 655,
+        "evidence_hash": "3b478bb9c4c449896e7b5317a02de3d8913c3fe8f9b682dd8bb179c71a8011c7"
     },
     {
         "leaf_id": "b633-arch-technical-systems",
         "board_id": "architecture",
         "official_area_id": "arch-area-b",
         "leaf_name": "Water, drainage, ventilation, and electrical coordination",
-        "current_question_count": 12,
+        "current_question_count": 14,
         "source_ids": [
             "prc-architecture-exam-program-2024",
             "prc-architecture-exam-program-2025",
@@ -567,11 +575,11 @@
             "serviceability",
             "bounded-calculation"
         ],
-        "safe_headroom_min": 2,
-        "safe_headroom_preferred": 3,
-        "safe_headroom_max": 4,
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "A bounded systems cohort is supportable when coordination consequences are explicit and calculation items carry independent recomputation metadata.",
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 1,
+        "safe_headroom_max": 2,
+        "readiness": "REVIEW",
+        "readiness_reason": "Batch655 consumed the exact authorized text cohort; any remaining numerical room requires a new proposition-level review and is not an automatic production quota.",
         "allowed_scope": [
             "utilities_coordination",
             "life_safety",
@@ -585,37 +593,39 @@
         "limitations": [
             "Version-sensitive requirements must be rechecked; calculation propositions require independent recomputation."
         ],
-        "numerical_headroom": 4,
-        "evidence_headroom": 4,
-        "text_format_headroom": 4,
-        "high_value_headroom": 2,
+        "numerical_headroom": 2,
+        "evidence_headroom": 2,
+        "text_format_headroom": 2,
+        "high_value_headroom": 0,
         "source_count": 8,
         "study_material_count": 1,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
-        "deficit_to_20": 8,
+        "deficit_to_20": 6,
         "supported_depth_min": 2,
         "supported_depth_max": 4,
         "distinct_content_family_count": 4,
-        "blocker_classes": [],
+        "blocker_classes": [
+            "PROPOSITION_EXHAUSTED"
+        ],
         "study_coverage": "COMPLETE",
         "study_source_traceability": "COMPLETE",
         "source_currentness": "CURRENT_WITH_LIMITS",
         "source_scope_fit": "STRONG",
         "source_conflict_status": "NONE",
-        "max_new_questions": 4,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
-        "review_reason": "",
+        "review_reason": "PROPOSITION_EXHAUSTED: no additional high-value text proposition is authorized in the current Architecture cycle.",
         "defer_reason": "",
-        "reviewed_at_batch": 654,
-        "evidence_hash": "f836484368f0410d6679087454faf0db38b99c635cc63a576b829bb70a289df0"
+        "reviewed_at_batch": 655,
+        "evidence_hash": "23643c097cb53de800ca149c5a63c9743dd93d370c36845eed4e8868ce445b3e"
     },
     {
         "leaf_id": "b633-arch-technical-construction",
         "board_id": "architecture",
         "official_area_id": "arch-area-b",
         "leaf_name": "Construction quantities, sequencing, and interfaces",
-        "current_question_count": 19,
+        "current_question_count": 20,
         "source_ids": [
             "prc-architecture-exam-program-2024",
             "prc-architecture-exam-program-2025",
@@ -637,11 +647,11 @@
             "interface-risk",
             "constructability"
         ],
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 3,
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "A small constructability cohort is supportable when the sequence, quantity assumption, and interface consequence are explicit.",
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 1,
+        "safe_headroom_max": 2,
+        "readiness": "REVIEW",
+        "readiness_reason": "Batch655 consumed the exact authorized text cohort; any remaining numerical room requires a new proposition-level review and is not an automatic production quota.",
         "allowed_scope": [
             "constructability",
             "interface-risk",
@@ -655,30 +665,32 @@
         "limitations": [
             "Keep quantities independently recomputable and avoid treating one construction sequence as universally controlling."
         ],
-        "numerical_headroom": 3,
-        "evidence_headroom": 3,
-        "text_format_headroom": 3,
-        "high_value_headroom": 1,
+        "numerical_headroom": 2,
+        "evidence_headroom": 2,
+        "text_format_headroom": 2,
+        "high_value_headroom": 0,
         "source_count": 6,
         "study_material_count": 1,
         "deficit_to_5": 0,
         "deficit_to_10": 0,
-        "deficit_to_20": 1,
+        "deficit_to_20": 0,
         "supported_depth_min": 2,
         "supported_depth_max": 4,
         "distinct_content_family_count": 4,
-        "blocker_classes": [],
+        "blocker_classes": [
+            "PROPOSITION_EXHAUSTED"
+        ],
         "study_coverage": "COMPLETE",
         "study_source_traceability": "COMPLETE",
         "source_currentness": "CURRENT_WITH_LIMITS",
         "source_scope_fit": "STRONG",
         "source_conflict_status": "NONE",
-        "max_new_questions": 3,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
-        "review_reason": "",
+        "review_reason": "PROPOSITION_EXHAUSTED: no additional high-value text proposition is authorized in the current Architecture cycle.",
         "defer_reason": "",
-        "reviewed_at_batch": 654,
-        "evidence_hash": "dd2e23a37171f13b2ee7ff97b0a7b7106145021913e3938c574ba8a4631d2c41"
+        "reviewed_at_batch": 655,
+        "evidence_hash": "542da9d91a0f53fa0b1adfcf87a6c5867eb963b2ac925b0aa627d36986e3f441"
     },
     {
         "leaf_id": "b633-arch-site-climate",
@@ -742,7 +754,7 @@
         "max_new_questions": 0,
         "planned_new_questions": 0,
         "defer_reason": "",
-        "reviewed_at_batch": 654,
+        "reviewed_at_batch": 655,
         "evidence_hash": "20187e7a7de96e458f7070c5184fb1cdb7bbd4a2fc9d748ccef6b0f1c851b4c4"
     },
     {
@@ -750,7 +762,7 @@
         "board_id": "architecture",
         "official_area_id": "arch-area-c",
         "leaf_name": "Circulation, adjacency, accessibility, and functional zoning",
-        "current_question_count": 6,
+        "current_question_count": 7,
         "source_ids": [
             "prc-architecture-exam-program-2024",
             "prc-architecture-exam-program-2025",
@@ -773,11 +785,11 @@
             "egress-accessibility",
             "wayfinding"
         ],
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 3,
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "A small text cohort remains possible when the scenario states the adjacency and egress constraints; plan-comparison variants require visual review.",
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 1,
+        "safe_headroom_max": 2,
+        "readiness": "REVIEW",
+        "readiness_reason": "Batch655 consumed the exact authorized text cohort; any remaining numerical room requires a new proposition-level review and is not an automatic production quota.",
         "allowed_scope": [
             "adjacency",
             "egress_accessibility",
@@ -790,37 +802,39 @@
         "limitations": [
             "Text-only items must state all geometry needed for the decision; visual alternatives are not authorized here."
         ],
-        "numerical_headroom": 3,
-        "evidence_headroom": 3,
-        "text_format_headroom": 3,
-        "high_value_headroom": 1,
+        "numerical_headroom": 2,
+        "evidence_headroom": 2,
+        "text_format_headroom": 2,
+        "high_value_headroom": 0,
         "source_count": 7,
         "study_material_count": 1,
         "deficit_to_5": 0,
-        "deficit_to_10": 4,
-        "deficit_to_20": 14,
+        "deficit_to_10": 3,
+        "deficit_to_20": 13,
         "supported_depth_min": 2,
         "supported_depth_max": 4,
         "distinct_content_family_count": 4,
-        "blocker_classes": [],
+        "blocker_classes": [
+            "PROPOSITION_EXHAUSTED"
+        ],
         "study_coverage": "COMPLETE",
         "study_source_traceability": "COMPLETE",
         "source_currentness": "CURRENT_WITH_LIMITS",
         "source_scope_fit": "STRONG",
         "source_conflict_status": "NONE",
-        "max_new_questions": 3,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
-        "review_reason": "",
+        "review_reason": "PROPOSITION_EXHAUSTED: no additional high-value text proposition is authorized in the current Architecture cycle.",
         "defer_reason": "",
-        "reviewed_at_batch": 654,
-        "evidence_hash": "2c98e0e65cec2649cf738607f0bc835b480bb150b55cdd06e93689f3415415c7"
+        "reviewed_at_batch": 655,
+        "evidence_hash": "0e4848d606b0e0f54eb693bc7aec2ec10e9ead511f43f737915f9a96ef60f8a0"
     },
     {
         "leaf_id": "b633-arch-site-capacity",
         "board_id": "architecture",
         "official_area_id": "arch-area-c",
         "leaf_name": "Site capacity, growth, phasing, and spatial alternatives",
-        "current_question_count": 6,
+        "current_question_count": 7,
         "source_ids": [
             "prc-architecture-exam-program-2024",
             "prc-architecture-exam-program-2025",
@@ -843,11 +857,11 @@
             "infrastructure",
             "spatial-alternative"
         ],
-        "safe_headroom_min": 1,
-        "safe_headroom_preferred": 2,
-        "safe_headroom_max": 3,
-        "readiness": "READY_WITH_LIMITS",
-        "readiness_reason": "A small text cohort remains possible when capacity assumptions and phasing criteria are explicit; spatial alternatives need visual review.",
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 1,
+        "safe_headroom_max": 2,
+        "readiness": "REVIEW",
+        "readiness_reason": "Batch655 consumed the exact authorized text cohort; any remaining numerical room requires a new proposition-level review and is not an automatic production quota.",
         "allowed_scope": [
             "phasing_growth",
             "site_coverage",
@@ -860,30 +874,32 @@
         "limitations": [
             "Text-only items must contain the complete capacity assumptions and are bounded to planning reasoning."
         ],
-        "numerical_headroom": 3,
-        "evidence_headroom": 3,
-        "text_format_headroom": 3,
-        "high_value_headroom": 1,
+        "numerical_headroom": 2,
+        "evidence_headroom": 2,
+        "text_format_headroom": 2,
+        "high_value_headroom": 0,
         "source_count": 7,
         "study_material_count": 1,
         "deficit_to_5": 0,
-        "deficit_to_10": 4,
-        "deficit_to_20": 14,
+        "deficit_to_10": 3,
+        "deficit_to_20": 13,
         "supported_depth_min": 2,
         "supported_depth_max": 4,
         "distinct_content_family_count": 4,
-        "blocker_classes": [],
+        "blocker_classes": [
+            "PROPOSITION_EXHAUSTED"
+        ],
         "study_coverage": "COMPLETE",
         "study_source_traceability": "COMPLETE",
         "source_currentness": "CURRENT_WITH_LIMITS",
         "source_scope_fit": "STRONG",
         "source_conflict_status": "NONE",
-        "max_new_questions": 3,
+        "max_new_questions": 0,
         "planned_new_questions": 0,
-        "review_reason": "",
+        "review_reason": "PROPOSITION_EXHAUSTED: no additional high-value text proposition is authorized in the current Architecture cycle.",
         "defer_reason": "",
-        "reviewed_at_batch": 654,
-        "evidence_hash": "17d109ce3096190c25ae68cce2f4dd8a5d3fa6f7f4d15b097d4e77abbfd2cdd1"
+        "reviewed_at_batch": 655,
+        "evidence_hash": "b61c4e626694e0a67ef0c662eccb19de5ad7cfed983573cf8313bc346ae46b3f"
     },
     {
         "leaf_id": "b633-arch-site-spatial-analysis",
@@ -949,7 +965,7 @@
         "max_new_questions": 0,
         "planned_new_questions": 0,
         "review_reason": "",
-        "reviewed_at_batch": 654,
+        "reviewed_at_batch": 655,
         "evidence_hash": "f976a3c20760aa3b61b3b7bbffd3df9dc4869d8f60deed01b296a1e541d6d664"
     }
 ]
