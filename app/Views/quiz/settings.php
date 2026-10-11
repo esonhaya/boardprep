@@ -48,12 +48,8 @@ value="<?= htmlspecialchars((string) (($settings['topics'][0] ?? '')), ENT_QUOTE
 <div class="form-field"><label for="quiz-subject">Subject</label>
 
 <select id="quiz-subject" name="subject">
-<option value="English" data-exam="default" <?= ($settings['subject'] ?? 'English') === 'English' ? 'selected' : '' ?>>English</option>
-<option value="general-information" data-exam="cse" <?= ($settings['subject'] ?? '') === 'general-information' ? 'selected' : '' ?>>General Information</option>
-<option value="verbal-ability" data-exam="cse" <?= ($settings['subject'] ?? '') === 'verbal-ability' ? 'selected' : '' ?>>Verbal Ability</option>
-<option value="analytical-logical" data-exam="cse" <?= ($settings['subject'] ?? '') === 'analytical-logical' ? 'selected' : '' ?>>Analytical Ability</option>
-<option value="numerical-ability" data-exam="cse" <?= ($settings['subject'] ?? '') === 'numerical-ability' ? 'selected' : '' ?>>Numerical Ability</option>
-<option value="clerical-ability" data-exam="cse" data-level="SUBPROFESSIONAL" <?= ($settings['subject'] ?? '') === 'clerical-ability' ? 'selected' : '' ?>>Clerical Ability</option>
+<option value="*" data-exam="all" <?= ($settings['subject'] ?? '') === '*' ? 'selected' : '' ?>>All available subjects</option>
+<?php foreach (($boards ?? []) as $board): foreach (($board['practice_subjects'] ?? []) as $subject): $subjectValue = (string) ($subject['id'] ?? ''); ?><option value="<?= htmlspecialchars($subjectValue, ENT_QUOTES, 'UTF-8') ?>" data-exam="<?= htmlspecialchars((string) ($board['code'] ?? ''), ENT_QUOTES, 'UTF-8') ?>" <?= ($settings['subject'] ?? '') === $subjectValue ? 'selected' : '' ?>><?= htmlspecialchars((string) ($subject['name'] ?? $subjectValue), ENT_QUOTES, 'UTF-8') ?></option><?php endforeach; endforeach; ?>
 </select></div>
 
 

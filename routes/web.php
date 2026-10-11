@@ -35,6 +35,8 @@ $router->get(
 );
 $router->get("/exams", [HomeController::class, "exams"]);
 $router->get("/privacy", [DataHandlingController::class, "index"]);
+$router->get("/privacy/export", [DataHandlingController::class, "export"]);
+$router->post("/privacy/data/clear", [DataHandlingController::class, "clear"]);
 
 $router->get(
     "/grammar",

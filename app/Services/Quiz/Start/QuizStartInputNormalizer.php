@@ -53,7 +53,9 @@ final class QuizStartInputNormalizer
         }
         $subject = self::text($input['subject'] ?? '');
         if ($subject === '') {
-            $subject = in_array(strtolower($board), ['cse', 'civil-service'], true) ? 'general-information' : 'English';
+            $subject = in_array(strtolower($board), ['cse', 'civil-service'], true)
+                ? 'general-information'
+                : (strtolower($board) === 'let' ? 'english' : '*');
         }
         if ($civilServiceLevel === 'PROFESSIONAL' && in_array(strtolower($subject), ['clerical-ability', 'clerical ability'], true)) {
             throw new \InvalidArgumentException('Clerical Ability is available only for the Subprofessional examination.');

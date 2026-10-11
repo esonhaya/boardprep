@@ -1,6 +1,7 @@
 # BoardPrep product completeness and launch gate
 
-This is the evidence-based product audit for the v1.0.1 product baseline. It is
+This is the evidence-based product audit for the v1.0.1 baseline, revalidated
+on the Batch 663 branch. It is
 separate from technical `RELEASE_GATE`: release/content checks do not prove that
 learners can use every workflow, that a deployment is correctly configured, or
 that a human has accepted the presentation.
@@ -19,7 +20,10 @@ missing capabilities, and product gate. The command is local/CLI-only; no
 installer, administration, Doctor, or product-audit endpoint is public. A
 non-zero exit while mandatory product evidence is unresolved is intentional.
 Update `config/product-readiness.json` only when new evidence is reviewed; do not
-convert an untested item to PASS because a file or route exists.
+convert an untested item to PASS because a file or route exists. It checks
+board-matrix completeness, privacy routes and test registration, exam-mode
+disclosure, and the twelve-case human matrix; those checks do not replace
+running the HTTP tests.
 
 The gate rules are:
 
@@ -34,13 +38,15 @@ The gate rules are:
 
 ## Runtime inventory
 
-`routes/web.php` has 17 production web route registrations:
+`routes/web.php` has 19 production web route registrations:
 
 | Method | Route | Handler |
 |---|---|---|
 | GET | `/` | `HomeController::index` |
 | GET | `/exams` | `HomeController::exams` |
 | GET | `/privacy` | `DataHandlingController::index` |
+| GET | `/privacy/export` | `DataHandlingController::export` |
+| POST | `/privacy/data/clear` | `DataHandlingController::clear` |
 | GET | `/grammar` | Inline static view |
 | GET | `/dashboard` | `DashboardController::index` |
 | GET | `/history` | `HistoryController::index` |
@@ -104,49 +110,58 @@ repositories, JSON storage files, templates, assets, and tests. Main areas are:
 
 | Journey or surface | Current classification | Evidence and remaining limit |
 |---|---|---|
-| Home, entry links, board listing | `IMPLEMENTED_AND_VERIFIED` / `PARTIAL` | `LearnerJourneyHttpTest.php` and `PublicBoardDiscoveryTest.php`; public listing shows ten populated boards, but not every detail-to-result journey is individually executed. |
-| Practice, question selection, answer feedback, submit, score and review | `IMPLEMENTED_AND_VERIFIED` | `LearnerJourneyHttpTest.php`, `QuizCompletionHttpTest.php`, `QuizStartFailureHttpTest.php`, and `QuizSessionResilienceTest.php` cover production routes and recovery. |
-| History, historical result, progress, dashboard and recommendations | `IMPLEMENTED_AND_VERIFIED` | `HistoryResultHttpTest.php`, `MultiAttemptLearningHttpTest.php`, and learner journey tests; attempt reads are scoped to the random learner identity. |
+| Home, entry links, board listing and board detail | `IMPLEMENTED_AND_VERIFIED` | `TenBoardLearnerJourneyHttpTest.php` and `PublicBoardDiscoveryTest.php` exercise production HTTP board entry for all ten boards. Browser and human presentation remain unverified. |
+| Practice, question selection, answer feedback, submit, score, explanation, retry and recovery | `IMPLEMENTED_AND_VERIFIED` | `TenBoardLearnerJourneyHttpTest.php` exercises each board with a source-linked eligible question; `LearnerJourneyHttpTest.php`, `QuizStartFailureHttpTest.php`, and `QuizSessionResilienceTest.php` add generic lifecycle/recovery coverage. |
+| History, historical result, progress, dashboard and recommendations | `IMPLEMENTED_AND_VERIFIED` | `TenBoardLearnerJourneyHttpTest.php`, `HistoryResultHttpTest.php`, `MultiAttemptLearningHttpTest.php`, and learner journey tests; attempts remain scoped to the random learner identity. |
 | Adaptive practice and weakness analysis | `IMPLEMENTED_AND_VERIFIED` | Focused learning/recommendation tests plus the multi-page HTTP journey; behavior remains bounded by actual completed attempts. |
 | Exam mode | `PARTIAL` | `ExamSimulationHttpTest.php` verifies answer withholding and partial result persistence for LET. Setup now states there is no timer and no claim of a complete official-format replica for every board. |
 | Flashcards | `IMPLEMENTED_AND_VERIFIED` | `FlashcardHttpTest.php` and integration/scheduling tests cover reveal, rating, CSRF, persisted state, and learner isolation. |
-| Source-first study support | `IMPLEMENTED_AND_VERIFIED` after Batch 662 | All 8,962 canonical questions have study-material links. Batch 662 connects those links from practice feedback and result review, plus direct board-filtered and flashcard references. |
+| Source-first study support | `IMPLEMENTED_AND_VERIFIED` | Board-specific study libraries, question feedback links, and published material/source navigation are exercised by `TenBoardLearnerJourneyHttpTest.php`, `StudyLibraryNavigationTest.php`, and source/reference tests. This verifies linkage/rendering, not every resource's educational quality. |
 | Resume/reload, stale requests and retry | `IMPLEMENTED_AND_VERIFIED` in HTTP/simulation tests | Session is browser-cookie based; no account recovery or cross-device continuity is provided. |
 | Empty/error states | `IMPLEMENTED_AND_VERIFIED` structurally and in focused paths | Existing empty-state, invalid-action, shortage, and start-failure tests cover key paths; no claim that every copy has human acceptance. |
 | Mobile, visual layout, keyboard and assistive technology | `IMPLEMENTED_UNVERIFIED` | Static view/accessibility contracts exist. Playwright and a real browser/device were unavailable in this environment; visual and practical accessibility are NOT_VERIFIED. |
-| Returning learner state | `IMPLEMENTED_AND_VERIFIED` within the same PHP session | Random session identity scopes history, weakness and flashcards. A new browser/session is a different anonymous learner. |
+| Anonymous data visibility, export, deletion and returning learner state | `PARTIAL` | `AnonymousLearnerPrivacyHttpTest.php` verifies session-scoped export/deletion, CSRF, confirmation, session rotation, idempotence, and JSON/SQLite isolation. Owner-approved terms and external log/backup retention remain outstanding. |
+
+The 14 feature rows reconcile to 10 `IMPLEMENTED_AND_VERIFIED`, 2 `PARTIAL`,
+1 `IMPLEMENTED_UNVERIFIED`, and 1 `INTENTIONALLY_DEFERRED`. This is distinct
+from the ten-board matrix and from the technical release gate.
 
 `tools/Tests/` has meaningful feature and HTTP tests, but the count of tests is
 not proof of coverage. Some legacy tests are source/contract assertions. The
 manual matrix in `docs/HUMAN_TESTER_READINESS.md` is authoritative for the
-12 learner acceptance cases; all remain `NOT_RUN` until a real tester records
-evidence. The Playwright workflow is documented in `README.md`; a missing
-Playwright install is NOT_VERIFIED, not PASS.
+12 learner acceptance cases; automation does not change any human status, and
+no human acceptance was conducted in Batch 663. The Playwright workflow is
+documented in `README.md`; no supported browser engine was available here, so
+rendered mobile, visual accessibility, and browser-interaction evidence remain
+`NOT_VERIFIED`.
 
 ### Ten-board evidence
 
-Every board is in the public listing and has board-filtered published study
-materials. `StudyLibraryNavigationTest.php` exercises all ten board filters via
-the production HTTP route. The full learner workflow (board detail, practice,
-exam mode where applicable, explanation, result, history, progress, and
-resources) is not individually proven for all ten; most use common generic
-controllers and templates, but that is not equivalent to an end-to-end pass.
+`TenBoardLearnerJourneyHttpTest.php` uses reduced fixtures selected from
+canonical question, eligibility, and source data and exercises production HTTP
+routes for all ten boards. Each passes discovery/detail, board-filtered study,
+effective-subject routing, eligibility, practice answer, scoring, explanation,
+published study reference, result review, history, progress, another attempt,
+and stale-action recovery. This is automated HTTP evidence, not browser
+rendering or human acceptance.
 
 | Board | Inventory status | Evidence limit |
 |---|---|---|
-| LET | `PARTIAL` | Detail, learner practice/result journey, exam-mode HTTP, and board-scoped study materials have targeted coverage; not human accepted. |
-| CSE | `IMPLEMENTED_UNVERIFIED` | Listed and board-filtered materials are covered; the board-specific full learner HTTP journey is not. Requires Professional/Subprofessional selection. |
-| NURSING | `IMPLEMENTED_UNVERIFIED` | Listed and board-filtered materials are covered; the board-specific full learner HTTP journey is not. |
-| CRIMINOLOGIST | `IMPLEMENTED_UNVERIFIED` | Listed and board-filtered materials are covered; the board-specific full learner HTTP journey is not. |
-| CIVIL_ENGINEERING | `IMPLEMENTED_UNVERIFIED` | Listed and board-filtered materials are covered; the board-specific full learner HTTP journey is not. |
-| MECHANICAL_ENGINEERING | `IMPLEMENTED_UNVERIFIED` | Listed and board-filtered materials are covered; the board-specific full learner HTTP journey is not. |
-| REE | `IMPLEMENTED_UNVERIFIED` | Listed and board-filtered materials are covered; the board-specific full learner HTTP journey is not. |
-| ARCHITECTURE | `PARTIAL` | Detail/material filter covered; no board-specific full learner HTTP journey. |
-| PSYCHOMETRICIAN | `IMPLEMENTED_UNVERIFIED` | Listed and board-filtered materials are covered; the board-specific full learner HTTP journey is not. |
-| CPA | `IMPLEMENTED_UNVERIFIED` | Listed and board-filtered materials are covered; the board-specific full learner HTTP journey is not. |
+| LET | `AUTOMATED_PASS` | Representative production HTTP path passes. Browser and human acceptance remain `NOT_VERIFIED`. |
+| CSE | `AUTOMATED_PASS` | Subprofessional path, eligibility, and complete representative HTTP path pass. Browser and human acceptance remain `NOT_VERIFIED`. |
+| NURSING | `AUTOMATED_PASS` | Representative production HTTP path passes. Browser and human acceptance remain `NOT_VERIFIED`. |
+| CRIMINOLOGIST | `AUTOMATED_PASS` | Representative production HTTP path passes, including code normalization. Browser and human acceptance remain `NOT_VERIFIED`. |
+| CIVIL_ENGINEERING | `AUTOMATED_PASS` | Representative production HTTP path passes, including code normalization. Browser and human acceptance remain `NOT_VERIFIED`. |
+| MECHANICAL_ENGINEERING | `AUTOMATED_PASS` | Representative production HTTP path passes, including code normalization. Browser and human acceptance remain `NOT_VERIFIED`. |
+| REE | `AUTOMATED_PASS` | Representative production HTTP path passes, including code normalization. Browser and human acceptance remain `NOT_VERIFIED`. |
+| ARCHITECTURE | `AUTOMATED_PASS` | Representative production HTTP path passes, including code normalization. Browser and human acceptance remain `NOT_VERIFIED`. |
+| PSYCHOMETRICIAN | `AUTOMATED_PASS` | Representative production HTTP path passes, including code normalization. Browser and human acceptance remain `NOT_VERIFIED`. |
+| CPA | `AUTOMATED_PASS` | Representative production HTTP path passes. Browser and human acceptance remain `NOT_VERIFIED`. |
 
-The machine-readable `board_assessment` records these limits board by board.
-No board is labeled fully verified merely because its content count is nonzero.
+The machine-readable `board_assessment` records this automated evidence board
+by board. `IMPLEMENTED_AND_VERIFIED` means the reduced-fixture HTTP journey
+passed; it does not imply full content coverage, visual acceptance, or official
+exam-format fidelity.
 
 ## Administration and identity
 
@@ -167,16 +182,20 @@ Learners are anonymous, not registered accounts. `LearnerIdentityService`
 generates a random ID stored in the PHP session. `AttemptRepository`, weakness
 storage, and flashcard state are scoped by that ID; user-supplied owner IDs do
 not override it. Attempts/answer review and derived state are persisted in
-private JSON by default or mutable-state SQLite when configured. Clearing a
-cookie can make old records inaccessible to the learner without deleting them.
-There is no login recovery, cross-device state, self-service export, or
-self-service deletion. The last capabilities are not represented as features.
+private JSON by default or mutable-state SQLite when configured. The privacy
+page shows counts and offers JSON export plus confirmed, CSRF-protected deletion
+for this session's attempts, weakness summaries, and flashcard review state; it
+also clears and rotates that browser session. It cannot erase PHP/host access or
+error logs, off-host backups, or copies outside these collections. Clearing
+cookies can still make retained records inaccessible; there is no login
+recovery or cross-device continuity.
 
-`/privacy` now explains the implemented anonymous state model and its limits.
-It is not a deployment-specific legal policy. The site operator still needs to
-provide its identity/contact, retention and deletion policy, and actual hosting,
-log, and backup practices before launch. The user-facing notice intentionally
-does not invent those facts.
+`/privacy` explains the anonymous state model and conditionally displays
+owner-supplied terms. Until `PRIVACY_OPERATOR_NAME`,
+`PRIVACY_OPERATOR_CONTACT`, `PRIVACY_RETENTION_NOTICE`,
+`PRIVACY_HOSTING_NOTICE`, and `PRIVACY_TERMS_APPROVED=true` are supplied and
+reviewed, it displays a launch-blocking warning. The application does not invent
+legal or host-specific facts.
 
 ## Security, persistence, and isolation
 
@@ -228,13 +247,15 @@ and dependencies. Missing capabilities are kept in a separate collection.
 | `BP662-DEF-005` | P2 | Exam mode could be mistaken for a timed official replica. | Fixed with limitation: setup states no timer and no universal official-format claim. | No |
 | `BP662-DEF-006` | P2 | Question-to-material mappings were not visible from quiz feedback/results. | Fixed: practice and both current/historical review link relevant published materials. | No |
 | `BP662-DEF-007` | P3 | The source validator rejected valid committed source categories. | Fixed: validator accepts the existing source taxonomy; regression test passes. | No |
+| `BP663-DEF-001` | P1 | Seven short board codes did not normalize to their canonical eligibility IDs. | Fixed and covered by all-board production HTTP journeys. | No |
+| `BP663-DEF-002` | P1 | Board subject actions and quiz settings were disconnected from effective eligible subjects. | Fixed: both detail links and selector are generated from runtime effective subject IDs. | No |
 
-Blocking missing capability `BP662-CAP-001` is site-specific privacy terms and
-data controls. Cross-device accounts (`CAP-002`) and full timed official-format
-simulators for every board (`CAP-003`) are intentionally deferred beyond the
-frozen MVP. Production authoring (`CAP-004`) is intentionally deferred because
-curated content is release-managed; revisit only if an operator requirement
-shows that manual reviewed releases are inadequate.
+`BP662-CAP-001` remains the blocking owner-approved privacy-terms capability.
+`BP663-CAP-001` records the now-implemented learner-scoped export/deletion
+controls as closed; those controls do not erase external logs or backups.
+Cross-device accounts (`CAP-002`) and full timed official-format simulators for
+every board (`CAP-003`) remain intentionally deferred. Production authoring
+(`CAP-004`) remains deferred because curated content is release-managed.
 
 ## Roadmap by dependency and impact
 
@@ -253,14 +274,11 @@ shows that manual reviewed releases are inadequate.
 - Exercise the exact package on the chosen provider/domain over HTTPS. Verify
   PHP version/extensions, Secure cookie behavior, rewrite rules, private
   storage/session paths, backup/restore access, and safe HTTP exposure checks.
-- Run a board-specific production learner smoke for all ten boards, including
-  board-level subject/eligibility edge cases, exam mode claims, result/history,
-  progress, explanations, and resource navigation.
+- Owner-approve actual privacy terms and reconcile the application's deletion
+  scope with host-controlled access/error logs and off-host backups.
 
 ### Should fix before launch
 
-- Establish an operator-run learner data deletion/export procedure that is
-  consistent with the chosen host’s backups/logs and approved retention terms.
 - Confirm representative concurrent writes and storage recovery against the
   provider’s actual JSON lock/rename or SQLite filesystem behavior.
 - If live authoring is needed, first define a separate authenticated,

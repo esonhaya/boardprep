@@ -1,7 +1,7 @@
 {
     "schema_version": 1,
-    "assessment_id": "batch662-product-completeness",
-    "baseline_commit": "9995bf7d290ec4cf348113e9792b34a1f621ad64",
+    "assessment_id": "batch663-product-experience",
+    "baseline_commit": "4b27490fdcdfb3f6968af74e7564e07a91974e76",
     "release": "v1.0.1",
     "technical_release_gate": "SEPARATE: php tools/doctor.php --release --json",
     "feature_assessment": [
@@ -15,11 +15,11 @@
         },
         {
             "FEATURE": "Board discovery and board detail",
-            "STATUS": "PARTIAL",
+            "STATUS": "IMPLEMENTED_AND_VERIFIED",
             "SCOPE_INCLUDED": true,
             "LAUNCH_CRITICAL": true,
-            "EVIDENCE": ["PublicBoardDiscoveryTest verifies the 10-board listing and detail routes for LET and Architecture; other board-specific detail journeys are not individually verified."],
-            "TEST_COVERAGE": ["tools/Tests/PublicBoardDiscoveryTest.php"]
+            "EVIDENCE": ["Batch 663 production HTTP fixture traverses board detail, effective subject link, study library, eligible practice, answer, explanation, result, history, progress, retry, and stale-action recovery for all ten boards."],
+            "TEST_COVERAGE": ["tools/Tests/TenBoardLearnerJourneyHttpTest.php", "tools/Tests/PublicBoardDiscoveryTest.php"]
         },
         {
             "FEATURE": "Practice quiz lifecycle, question selection, answers, explanations, submission, results, and recovery",
@@ -114,21 +114,21 @@
             "STATUS": "PARTIAL",
             "SCOPE_INCLUDED": true,
             "LAUNCH_CRITICAL": true,
-            "EVIDENCE": ["Batch 662 adds an in-product data notice describing anonymous identity and stored learner state. Operator identity, contact, retention schedule, deletion process, and hosting log/backup terms remain provider-specific and unverified."],
-            "TEST_COVERAGE": ["tools/Tests/ProductReadinessTest.php"]
+            "EVIDENCE": ["Batch 663 provides session-scoped saved-data counts, a privacy export, and CSRF/confirmation-protected deletion with session rotation. Deployment owner identity, contact, approved retention, hosting logs, and backup practices remain unsupplied."],
+            "TEST_COVERAGE": ["tools/Tests/AnonymousLearnerPrivacyHttpTest.php", "tools/Tests/ProductReadinessTest.php"]
         }
     ],
     "board_assessment": [
-        {"BOARD": "LET", "STATUS": "PARTIAL", "EVIDENCE": "Public detail, practice lifecycle, exam-mode lifecycle, and study-material filter have targeted coverage; the complete set of board-specific flows and human presentation are not accepted."},
-        {"BOARD": "CSE", "STATUS": "IMPLEMENTED_UNVERIFIED", "EVIDENCE": "Listed among the ten populated boards and has published study materials; no independent full learner HTTP journey was run in Batch 662."},
-        {"BOARD": "NURSING", "STATUS": "IMPLEMENTED_UNVERIFIED", "EVIDENCE": "Listed among the ten populated boards and has published study materials; no independent full learner HTTP journey was run in Batch 662."},
-        {"BOARD": "CRIMINOLOGIST", "STATUS": "IMPLEMENTED_UNVERIFIED", "EVIDENCE": "Listed among the ten populated boards and has published study materials; no independent full learner HTTP journey was run in Batch 662."},
-        {"BOARD": "CIVIL_ENGINEERING", "STATUS": "IMPLEMENTED_UNVERIFIED", "EVIDENCE": "Listed among the ten populated boards and has published study materials; no independent full learner HTTP journey was run in Batch 662."},
-        {"BOARD": "MECHANICAL_ENGINEERING", "STATUS": "IMPLEMENTED_UNVERIFIED", "EVIDENCE": "Listed among the ten populated boards and has published study materials; no independent full learner HTTP journey was run in Batch 662."},
-        {"BOARD": "REE", "STATUS": "IMPLEMENTED_UNVERIFIED", "EVIDENCE": "Listed among the ten populated boards and has published study materials; no independent full learner HTTP journey was run in Batch 662."},
-        {"BOARD": "ARCHITECTURE", "STATUS": "PARTIAL", "EVIDENCE": "Public detail route and study-material filter are covered; no independent full practice/history/progress/explanation journey was run in Batch 662."},
-        {"BOARD": "PSYCHOMETRICIAN", "STATUS": "IMPLEMENTED_UNVERIFIED", "EVIDENCE": "Listed among the ten populated boards and has published study materials; no independent full learner HTTP journey was run in Batch 662."},
-        {"BOARD": "CPA", "STATUS": "IMPLEMENTED_UNVERIFIED", "EVIDENCE": "Listed among the ten populated boards and has published study materials; no independent full learner HTTP journey was run in Batch 662."}
+        {"BOARD": "LET", "STATUS": "IMPLEMENTED_AND_VERIFIED", "EVIDENCE": "TenBoardLearnerJourneyHttpTest traverses board detail, effective subject practice, study reference, correct answer, score, history, progress, retry, and stale-action recovery via production HTTP. Browser and human acceptance remain NOT_VERIFIED."},
+        {"BOARD": "CSE", "STATUS": "IMPLEMENTED_AND_VERIFIED", "EVIDENCE": "TenBoardLearnerJourneyHttpTest verifies Professional/Subprofessional configuration (Subprofessional fixture), board eligibility, study, scoring, explanation, result, history, progress, retry, and persistence via production HTTP. Browser and human acceptance remain NOT_VERIFIED."},
+        {"BOARD": "NURSING", "STATUS": "IMPLEMENTED_AND_VERIFIED", "EVIDENCE": "TenBoardLearnerJourneyHttpTest traverses the complete representative production HTTP learner path and verifies the selected question is eligible for NURSING. Browser and human acceptance remain NOT_VERIFIED."},
+        {"BOARD": "CRIMINOLOGIST", "STATUS": "IMPLEMENTED_AND_VERIFIED", "EVIDENCE": "TenBoardLearnerJourneyHttpTest traverses the complete representative production HTTP learner path and verifies the selected question is eligible for CRIMINOLOGIST. Browser and human acceptance remain NOT_VERIFIED."},
+        {"BOARD": "CIVIL_ENGINEERING", "STATUS": "IMPLEMENTED_AND_VERIFIED", "EVIDENCE": "TenBoardLearnerJourneyHttpTest traverses the complete representative production HTTP learner path and verifies the selected question is eligible for CIVIL_ENGINEERING. Browser and human acceptance remain NOT_VERIFIED."},
+        {"BOARD": "MECHANICAL_ENGINEERING", "STATUS": "IMPLEMENTED_AND_VERIFIED", "EVIDENCE": "TenBoardLearnerJourneyHttpTest traverses the complete representative production HTTP learner path and verifies the selected question is eligible for MECHANICAL_ENGINEERING. Browser and human acceptance remain NOT_VERIFIED."},
+        {"BOARD": "REE", "STATUS": "IMPLEMENTED_AND_VERIFIED", "EVIDENCE": "TenBoardLearnerJourneyHttpTest traverses the complete representative production HTTP learner path and verifies the selected question is eligible for REE. Browser and human acceptance remain NOT_VERIFIED."},
+        {"BOARD": "ARCHITECTURE", "STATUS": "IMPLEMENTED_AND_VERIFIED", "EVIDENCE": "TenBoardLearnerJourneyHttpTest traverses the complete representative production HTTP learner path and verifies the selected question is eligible for ARCHITECTURE. Browser and human acceptance remain NOT_VERIFIED."},
+        {"BOARD": "PSYCHOMETRICIAN", "STATUS": "IMPLEMENTED_AND_VERIFIED", "EVIDENCE": "TenBoardLearnerJourneyHttpTest traverses the complete representative production HTTP learner path and verifies the selected question is eligible for PSYCHOMETRICIAN. Browser and human acceptance remain NOT_VERIFIED."},
+        {"BOARD": "CPA", "STATUS": "IMPLEMENTED_AND_VERIFIED", "EVIDENCE": "TenBoardLearnerJourneyHttpTest traverses the complete representative production HTTP learner path and verifies the selected question is eligible for CPA. Browser and human acceptance remain NOT_VERIFIED."}
     ],
     "findings": [
         {
@@ -228,22 +228,64 @@
             "TEST_COVERAGE": "tools/Tests/SourceStudyLibraryTest.php",
             "RELEASE_BLOCKING": false,
             "DEPENDENCIES": []
+        },
+        {
+            "ID": "BP663-DEF-001",
+            "FEATURE": "Board-code eligibility routing",
+            "USER_IMPACT": "Practice entry points for seven board codes could lead to an empty question pool even though the selected board had eligible questions.",
+            "EVIDENCE": "QuestionEligibilityService and QuestionEligibilityIndex normalized LET/CSE aliases only; direct checks found no match for CLE, NLE, PLE, CE, ME, REE, or ARCH against their configured board IDs. TenBoardLearnerJourneyHttpTest now exercises each public code through production HTTP.",
+            "REPRODUCTION": "Start /quiz with exam=CLE, NLE, PLE, CE, ME, REE, or ARCH and a board-eligible subject; before the fix selection returned no eligible question.",
+            "SEVERITY": "P1",
+            "ROOT_CAUSE": "Board short codes were not normalized to the canonical board IDs used by eligibility records.",
+            "STATUS": "FIXED",
+            "FIX_COMMIT": "PENDING_BATCH663_COMMIT",
+            "TEST_COVERAGE": "tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+            "RELEASE_BLOCKING": true,
+            "DEPENDENCIES": []
+        },
+        {
+            "ID": "BP663-DEF-002",
+            "FEATURE": "Effective board subjects and practice setup",
+            "USER_IMPACT": "Board detail pages could omit available subjects, and practice settings exposed only LET/CSE subject options, making direct focused practice inaccessible or misleading for other boards.",
+            "EVIDENCE": "home/exam.php rendered configured board-subject relations and linked subject codes, while runtime eligibility resolves effective blueprint subjects. Quiz settings contained hard-coded English/CSE options. TenBoardLearnerJourneyHttpTest verifies displayed effective subjects lead to an eligible question and complete results for every board.",
+            "REPRODUCTION": "Open /exams?exam=CPA or another board and follow a displayed subject into practice; before the fix, the page could show no usable subject action or submit a nonmatching subject.",
+            "SEVERITY": "P1",
+            "ROOT_CAUSE": "The board detail and quiz setup UI were not built from the same effective subject IDs used by question eligibility and selection.",
+            "STATUS": "FIXED",
+            "FIX_COMMIT": "PENDING_BATCH663_COMMIT",
+            "TEST_COVERAGE": "tools/Tests/TenBoardLearnerJourneyHttpTest.php; tools/Tests/PublicBoardDiscoveryTest.php",
+            "RELEASE_BLOCKING": true,
+            "DEPENDENCIES": []
         }
     ],
     "missing_capabilities": [
         {
             "ID": "BP662-CAP-001",
-            "FEATURE": "Site-specific privacy terms and learner data controls",
-            "USER_IMPACT": "Learners cannot identify the deployment operator, review a fixed retention policy, request deletion/export through BoardPrep, or see provider-specific log and backup practices.",
-            "EVIDENCE": "The in-product notice explicitly discloses the absence of account, export, and deletion features; hosting provider and operator details are unknown.",
-            "REPRODUCTION": "Read /privacy and compare its deployment-specific disclosures with the deployed site's actual owner and retention terms.",
+            "FEATURE": "Owner-approved deployment privacy terms and provider/log/backup disclosures",
+            "USER_IMPACT": "Learners cannot yet identify the real site operator, contact channel, approved retention policy, or deployment-specific hosting/log/backup practices.",
+            "EVIDENCE": "The privacy page supports owner-supplied environment configuration and clearly blocks public readiness when terms are absent. No real owner/provider values or approval were supplied for this batch.",
+            "REPRODUCTION": "Open /privacy with no approved PRIVACY_* configuration; the application warns that public launch must wait for owner-approved terms.",
             "SEVERITY": "P2",
-            "ROOT_CAUSE": "No site operator, provider, contact, retention decision, or deletion process was supplied for this audit.",
+            "ROOT_CAUSE": "The application cannot invent legal/operator facts; the deployment owner and host must provide and approve these terms.",
             "STATUS": "MISSING",
             "FIX_COMMIT": "",
-            "TEST_COVERAGE": "tools/Tests/ProductReadinessTest.php verifies disclosure only, not provider/legal readiness.",
+            "TEST_COVERAGE": "tools/Tests/AnonymousLearnerPrivacyHttpTest.php verifies safe fail-closed disclosure; provider/legal approval remains unverified.",
             "RELEASE_BLOCKING": true,
             "DEPENDENCIES": ["Real deployment owner and hosting contract", "Owner/legal review"]
+        },
+        {
+            "ID": "BP663-CAP-001",
+            "FEATURE": "Session-scoped learner data export and deletion",
+            "USER_IMPACT": "Without these controls, anonymous learners could neither inspect nor clear the application records tied to their current browser session.",
+            "EVIDENCE": "Production privacy HTTP tests verify scoped export, CSRF and explicit confirmation, deletion of attempts/weakness/flashcard state, session rotation, idempotence, and preservation of another learner and aggregate statistics.",
+            "REPRODUCTION": "Open /privacy, export the current session's records, then confirm a POST to /privacy/data/clear.",
+            "SEVERITY": "P2",
+            "ROOT_CAUSE": "The frozen release had disclosure only and no learner-facing data control route.",
+            "STATUS": "CLOSED",
+            "FIX_COMMIT": "PENDING_BATCH663_COMMIT",
+            "TEST_COVERAGE": "tools/Tests/AnonymousLearnerPrivacyHttpTest.php",
+            "RELEASE_BLOCKING": true,
+            "DEPENDENCIES": ["Owner-approved retention and hosting/log/backup terms remain tracked separately in BP662-CAP-001"]
         },
         {
             "ID": "BP662-CAP-002",
@@ -315,9 +357,9 @@
         },
         {
             "EVIDENCE": "Per-board full learner journeys for all ten boards",
-            "STATUS": "NOT_VERIFIED",
+            "STATUS": "PASS",
             "REQUIRED": true,
-            "REASON": "Board list/detail and shared generic flows have limited coverage; not all ten board-specific journeys were independently executed."
+            "REASON": "tools/Tests/TenBoardLearnerJourneyHttpTest.php passed production-route fixture journeys for each board. This does not claim real-browser or human acceptance."
         }
     ]
 }

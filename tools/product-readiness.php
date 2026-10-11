@@ -202,15 +202,92 @@ $inventory = [
 
 $productionRouteCount = count(array_filter($routes, static fn(array $route): bool => $route['access'] === 'PRODUCTION'));
 $developerRouteCount = count($routes) - $productionRouteCount;
+$routeKeys = array_fill_keys(array_map(
+    static fn(array $route): string => $route['method'] . ' ' . $route['path'],
+    $routes
+), true);
+$expectedBoards = [
+    'LET', 'CSE', 'NURSING', 'CRIMINOLOGIST', 'CIVIL_ENGINEERING',
+    'MECHANICAL_ENGINEERING', 'REE', 'ARCHITECTURE', 'PSYCHOMETRICIAN', 'CPA',
+];
+$assessedBoards = array_values(array_filter((array) ($register['board_assessment'] ?? []), 'is_array'));
+$assessedBoardNames = array_map(static fn(array $board): string => (string) ($board['BOARD'] ?? ''), $assessedBoards);
+sort($assessedBoardNames);
+$sortedExpectedBoards = $expectedBoards;
+sort($sortedExpectedBoards);
+$boardMatrixComplete = $assessedBoardNames === $sortedExpectedBoards
+    && count(array_filter($assessedBoards, static fn(array $board): bool => ($board['STATUS'] ?? '') === 'IMPLEMENTED_AND_VERIFIED')) === count($expectedBoards);
+$privacyRoutesComplete = isset($routeKeys['GET /privacy/export'], $routeKeys['POST /privacy/data/clear']);
+$privacyTestRegistered = is_file($root . '/tools/Tests/AnonymousLearnerPrivacyHttpTest.php')
+    && is_file($root . '/app/Services/Privacy/AnonymousLearnerDataService.php');
+$boardJourneyTestRegistered = is_file($root . '/tools/Tests/TenBoardLearnerJourneyHttpTest.php');
+$mobileStructuralTestsRegistered = is_file($root . '/tools/Tests/LearnerMobileAccessibilityViewTest.php')
+    && is_file($root . '/tools/Tests/LearnerNavigationUxTest.php');
+$quizSettings = (string) @file_get_contents($root . '/app/Views/quiz/settings.php');
+$unsupportedExamModeDisclosed = str_contains($quizSettings, 'does not enforce a timer')
+    && str_contains($quizSettings, 'does not reproduce every official board-exam format');
+
+require_once $root . '/app/Core/Autoloader.php';
+\App\Core\Autoloader::register();
+$privacyOwnerTermsConfigured = false;
+try {
+    \App\Core\Environment::load($root . '/.env');
+    $privacyValues = array_map(
+        static fn(string $key): string => trim((string) (\App\Core\Environment::get($key, '') ?? '')),
+        ['PRIVACY_OPERATOR_NAME', 'PRIVACY_OPERATOR_CONTACT', 'PRIVACY_RETENTION_NOTICE', 'PRIVACY_HOSTING_NOTICE']
+    );
+    $privacyOwnerApproved = filter_var(
+        \App\Core\Environment::get('PRIVACY_TERMS_APPROVED', 'false'),
+        FILTER_VALIDATE_BOOLEAN
+    );
+    $privacyOwnerTermsConfigured = $privacyOwnerApproved && !in_array('', $privacyValues, true);
+} catch (Throwable) {
+    $privacyOwnerTermsConfigured = false;
+}
+
+$humanAcceptancePath = $root . '/docs/HUMAN_TESTER_READINESS.md';
+$humanAcceptance = (string) @file_get_contents($humanAcceptancePath);
+$humanCases = [];
+preg_match_all('/^\| (MVP-\d{2}) \|.*?HUMAN_STATUS=([A-Z_]+).*?\|$/m', $humanAcceptance, $humanCaseMatches, PREG_SET_ORDER);
+foreach ($humanCaseMatches as $match) {
+    $humanCases[$match[1]] = $match[2];
+}
+$expectedHumanCases = array_map(static fn(int $number): string => sprintf('MVP-%02d', $number), range(1, 12));
+$humanAcceptanceInventoryComplete = array_keys($humanCases) === $expectedHumanCases;
+$humanCasesNotPassed = array_values(array_filter(
+    $humanCases,
+    static fn(string $status): bool => $status !== 'PASS'
+));
+
+$criticalCapabilityChecks = [
+    'privacy_control_routes' => $privacyRoutesComplete,
+    'privacy_service_and_http_regression_test' => $privacyTestRegistered,
+    'ten_board_http_journey_test' => $boardJourneyTestRegistered,
+    'ten_board_assessment_matrix_complete' => $boardMatrixComplete,
+    'unsupported_exam_mode_claim_disclosed' => $unsupportedExamModeDisclosed,
+    'human_acceptance_matrix_complete' => $humanAcceptanceInventoryComplete,
+    'owner_approved_privacy_terms_configured' => $privacyOwnerTermsConfigured,
+];
+$failedCapabilityChecks = array_keys(array_filter(
+    $criticalCapabilityChecks,
+    static fn(bool $passed): bool => !$passed
+));
+
 $featureComplete = $invalidFeatures === []
     && $incompleteFeatures === []
     && $incompleteBoards === []
+    && $boardMatrixComplete
+    && $privacyRoutesComplete
+    && $privacyTestRegistered
+    && $boardJourneyTestRegistered
+    && $unsupportedExamModeDisclosed
     && $openSeverityCounts['P0'] === 0
     && $openSeverityCounts['P1'] === 0;
 $launchReady = $featureComplete
     && $openFindings === []
     && $blockingCapabilities === []
-    && $missingEvidence === [];
+    && $missingEvidence === []
+    && $privacyOwnerTermsConfigured;
 $head = trim((string) @shell_exec('git -C ' . escapeshellarg($root) . ' rev-parse HEAD 2>/dev/null'));
 
 $report = [
@@ -224,6 +301,21 @@ $report = [
     'product_launch_ready' => $launchReady,
     'production_web_route_count' => $productionRouteCount,
     'nonproduction_web_route_count' => $developerRouteCount,
+    'critical_capability_checks' => $criticalCapabilityChecks,
+    'failed_critical_capability_checks' => $failedCapabilityChecks,
+    'board_matrix_complete' => $boardMatrixComplete,
+    'privacy_owner_terms_configured' => $privacyOwnerTermsConfigured,
+    'human_acceptance_matrix' => [
+        'case_count' => count($humanCases),
+        'inventory_complete' => $humanAcceptanceInventoryComplete,
+        'status_by_case' => $humanCases,
+        'not_passed' => $humanCasesNotPassed,
+    ],
+    'automated_capability_tests_registered' => [
+        'privacy_and_isolation' => $privacyTestRegistered,
+        'ten_board_http_journeys' => $boardJourneyTestRegistered,
+        'mobile_accessibility_structural' => $mobileStructuralTestsRegistered,
+    ],
     'feature_status_counts' => array_count_values(array_map(
         static fn(array $feature): string => (string) ($feature['STATUS'] ?? 'INVALID'),
         array_filter((array) ($register['feature_assessment'] ?? []), 'is_array')
@@ -255,6 +347,10 @@ if ($jsonOutput) {
     echo 'PRODUCT_LAUNCH_READY=' . ($launchReady ? 'PASS' : 'NO') . PHP_EOL;
     echo 'PRODUCTION_WEB_ROUTES=' . $productionRouteCount . PHP_EOL;
     echo 'NONPRODUCTION_WEB_ROUTES=' . $developerRouteCount . PHP_EOL;
+    echo 'BOARD_MATRIX_COMPLETE=' . ($boardMatrixComplete ? 'YES' : 'NO') . PHP_EOL;
+    echo 'PRIVACY_CONTROLS=' . ($privacyRoutesComplete && $privacyTestRegistered ? 'YES' : 'NO') . PHP_EOL;
+    echo 'OWNER_PRIVACY_TERMS=' . ($privacyOwnerTermsConfigured ? 'APPROVED' : 'MISSING_OR_UNAPPROVED') . PHP_EOL;
+    echo 'HUMAN_ACCEPTANCE_CASES=' . count($humanCases) . '/12; NOT_PASSED=' . count($humanCasesNotPassed) . PHP_EOL;
     echo 'OPEN_P0_P1=' . ($openSeverityCounts['P0'] + $openSeverityCounts['P1']) . PHP_EOL;
     echo 'BLOCKING_CAPABILITIES=' . count($blockingCapabilities) . PHP_EOL;
     echo 'MANDATORY_EVIDENCE_NOT_PASSED=' . count($missingEvidence) . PHP_EOL;

@@ -105,6 +105,19 @@ Case-level classification: `AUTOMATED_CONFIRMED=5`,
 `AUTOMATED_PARTIAL=7`, and `HUMAN_REQUIRED=12` for the learner-facing
 presentation, comprehension, or practical interaction assertions.
 
+### Batch 663 evidence note
+
+The Batch 663 production-route fixture `tools/Tests/TenBoardLearnerJourneyHttpTest.php`
+passed the representative entry-to-result and return journey on all ten board
+codes, including study navigation, eligibility, scoring, explanations, history,
+progress, retry, and stale-action recovery. `AnonymousLearnerPrivacyHttpTest.php`
+passed scoped export/deletion and JSON/SQLite isolation checks. The structural
+mobile/accessibility tests passed, but no browser engine was available. These
+are automated HTTP/markup/storage results only: they do not complete a case's
+visual, comprehension, touch, keyboard, screen-reader, or human acceptance.
+All twelve `HUMAN_STATUS` values therefore remain `NOT_RUN`; the current local
+automated results must be rerun for any release-candidate build.
+
 ## Result record and evidence
 
 Use one block per case. Leave `STATUS=NOT_RUN` until that case is actually

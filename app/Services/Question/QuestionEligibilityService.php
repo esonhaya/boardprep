@@ -817,6 +817,16 @@ final class QuestionEligibilityService
     private static function normalize(string $value): string
     {
         $value = strtolower(trim($value));
-        return ['cse' => 'civil-service', 'let' => 'let'][$value] ?? $value;
+        return [
+            'cse' => 'civil-service',
+            'let' => 'let',
+            'cle' => 'criminologist',
+            'nle' => 'nursing',
+            'ple' => 'psychometrician',
+            'ce' => 'civil-engineering',
+            'me' => 'mechanical-engineering',
+            'ree' => 'registered-electrical-engineering',
+            'arch' => 'architecture',
+        ][$value] ?? $value;
     }
 }

@@ -92,7 +92,9 @@ try {
     $privacy = $http->request('GET', '/privacy', [], [], [], ['PHPSESSID' => $sessionId]);
     if ($privacy['status'] !== 200
         || !str_contains($privacy['output'], 'No learner accounts')
-        || !str_contains($privacy['output'], 'There is no learner-facing export or deletion control')
+        || !str_contains($privacy['output'], 'Download my saved learning data')
+        || !str_contains($privacy['output'], 'Clear my learning data')
+        || !str_contains($privacy['output'], 'Public launch must wait')
         || !str_contains($privacy['output'], 'BoardPrep v1.0.1')
         || str_contains($privacy['output'], $root)) {
         throw new RuntimeException('Production data disclosure or release identity did not render safely.');

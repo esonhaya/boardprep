@@ -16,6 +16,17 @@ return [
 
     'timezone' => Environment::get('APP_TIMEZONE', 'UTC'),
 
+    'privacy' => [
+        'operator_name' => Environment::get('PRIVACY_OPERATOR_NAME', ''),
+        'operator_contact' => Environment::get('PRIVACY_OPERATOR_CONTACT', ''),
+        'retention_notice' => Environment::get('PRIVACY_RETENTION_NOTICE', ''),
+        'hosting_notice' => Environment::get('PRIVACY_HOSTING_NOTICE', ''),
+        'terms_approved' => filter_var(
+            Environment::get('PRIVACY_TERMS_APPROVED', 'false'),
+            FILTER_VALIDATE_BOOLEAN
+        ),
+    ],
+
     'database' => [
 
         'driver' => Environment::get('DB_DRIVER', 'json'),

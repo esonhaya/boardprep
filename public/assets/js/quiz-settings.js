@@ -9,12 +9,14 @@
     const isCivilService = () => ['cse', 'civil-service'].includes(String(exam.value).trim().toLowerCase());
     const update = () => {
         const cse = isCivilService();
+        const selectedExam = String(exam.value).trim().toLowerCase();
         civilServiceFields.hidden = !cse;
         civilServiceLevel.required = cse;
         letFields.hidden = String(exam.value).trim().toLowerCase() !== 'let';
 
         for (const option of subject.options) {
-            const examAllowed = cse ? option.dataset.exam === 'cse' : option.dataset.exam !== 'cse';
+            const examAllowed = option.dataset.exam === 'all'
+                || String(option.dataset.exam || '').trim().toLowerCase() === selectedExam;
             const levelAllowed = !cse || !option.dataset.level || option.dataset.level === civilServiceLevel.value;
             option.hidden = !examAllowed || !levelAllowed;
             option.disabled = !examAllowed || !levelAllowed;
@@ -22,7 +24,7 @@
 
         const selected = subject.selectedOptions[0];
         if (!selected || selected.disabled) {
-            subject.value = cse ? 'general-information' : 'English';
+            subject.value = cse ? 'general-information' : (selectedExam === 'let' ? 'english' : '*');
         }
     };
 
