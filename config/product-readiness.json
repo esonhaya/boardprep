@@ -238,7 +238,7 @@
             "SEVERITY": "P1",
             "ROOT_CAUSE": "Board short codes were not normalized to the canonical board IDs used by eligibility records.",
             "STATUS": "FIXED",
-            "FIX_COMMIT": "PENDING_BATCH663_COMMIT",
+            "FIX_COMMIT": "087596c0f2dd01621fd8ec5e026784870b625ab1",
             "TEST_COVERAGE": "tools/Tests/TenBoardLearnerJourneyHttpTest.php",
             "RELEASE_BLOCKING": true,
             "DEPENDENCIES": []
@@ -252,7 +252,7 @@
             "SEVERITY": "P1",
             "ROOT_CAUSE": "The board detail and quiz setup UI were not built from the same effective subject IDs used by question eligibility and selection.",
             "STATUS": "FIXED",
-            "FIX_COMMIT": "PENDING_BATCH663_COMMIT",
+            "FIX_COMMIT": "087596c0f2dd01621fd8ec5e026784870b625ab1",
             "TEST_COVERAGE": "tools/Tests/TenBoardLearnerJourneyHttpTest.php; tools/Tests/PublicBoardDiscoveryTest.php",
             "RELEASE_BLOCKING": true,
             "DEPENDENCIES": []
@@ -282,7 +282,7 @@
             "SEVERITY": "P2",
             "ROOT_CAUSE": "The frozen release had disclosure only and no learner-facing data control route.",
             "STATUS": "CLOSED",
-            "FIX_COMMIT": "PENDING_BATCH663_COMMIT",
+            "FIX_COMMIT": "087596c0f2dd01621fd8ec5e026784870b625ab1",
             "TEST_COVERAGE": "tools/Tests/AnonymousLearnerPrivacyHttpTest.php",
             "RELEASE_BLOCKING": true,
             "DEPENDENCIES": ["Owner-approved retention and hosting/log/backup terms remain tracked separately in BP662-CAP-001"]
