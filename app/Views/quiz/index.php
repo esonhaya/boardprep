@@ -8,10 +8,51 @@ $mode = $mode ?? "practice";
 $feedback = $feedback ?? null;
 $studyReferences = is_array($studyReferences ?? null) ? $studyReferences : [];
 $progressValue = $total > 0 ? min(100, max(0, (int) round(($current + 1) / $total * 100))) : 0;
+$quizSession = \SessionService::get('quiz_session', []);
+$quizSession = is_array($quizSession) ? $quizSession : [];
+$boardValue = $quizSession['board'] ?? $quizSession['exam'] ?? '';
+$boardLabel = \App\Services\Shared\TaxonomyStorageService::label('boards', $boardValue);
+if ($boardLabel === '' && is_scalar($boardValue)) {
+    $boardLabel = trim((string) $boardValue);
+}
+$subjectValue = is_scalar($quizSession['subject'] ?? null) ? trim((string) $quizSession['subject']) : '';
+$subjectLabel = $subjectValue === '*'
+    ? 'All available subjects'
+    : \App\Services\Shared\TaxonomyStorageService::label('subjects', $subjectValue);
+if ($subjectLabel === '' && $subjectValue !== '*') {
+    $subjectLabel = $subjectValue;
+}
+$variantLabels = [];
+$letLevel = is_scalar($quizSession['let_level'] ?? null) ? trim((string) $quizSession['let_level']) : '';
+if ($letLevel !== '') {
+    $variantLabels[] = ucfirst(strtolower($letLevel));
+}
+$specializationId = is_scalar($quizSession['let_specialization_id'] ?? null)
+    ? trim((string) $quizSession['let_specialization_id'])
+    : '';
+if ($specializationId !== '') {
+    $specializationLabel = \App\Services\Shared\TaxonomyStorageService::label('let-specializations', $specializationId);
+    if ($specializationLabel !== '') {
+        $variantLabels[] = $specializationLabel;
+    }
+}
+$civilServiceLevel = is_scalar($quizSession['civil_service_level'] ?? null)
+    ? trim((string) $quizSession['civil_service_level'])
+    : '';
+if ($civilServiceLevel !== '') {
+    $variantLabels[] = ucfirst(strtolower(str_replace('_', ' ', $civilServiceLevel)));
+}
 
 ?>
 
 <section class="quiz-shell" aria-label="Practice question">
+<?php if ($boardLabel !== '' || $subjectLabel !== '' || $variantLabels !== []): ?>
+<p class="quiz-context" aria-label="Selected study context">
+    <?php if ($boardLabel !== ''): ?><span><strong>Board</strong> <?= htmlspecialchars($boardLabel, ENT_QUOTES, 'UTF-8') ?></span><?php endif; ?>
+    <?php if ($subjectLabel !== ''): ?><span><strong>Subject</strong> <?= htmlspecialchars($subjectLabel, ENT_QUOTES, 'UTF-8') ?></span><?php endif; ?>
+    <?php foreach ($variantLabels as $variantLabel): ?><span><?= htmlspecialchars($variantLabel, ENT_QUOTES, 'UTF-8') ?></span><?php endforeach; ?>
+</p>
+<?php endif; ?>
 <div class="quiz-meta"><span class="quiz-position">Question <?= $current + 1 ?> / <?= $total ?></span><span class="quiz-mode-label">
 Mode:
 <strong>

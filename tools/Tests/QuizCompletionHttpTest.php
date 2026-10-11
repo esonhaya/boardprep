@@ -72,6 +72,7 @@ try {
         [],
         [
             'action' => 'start',
+            'exam' => 'LET',
             'subject' => 'English',
             'topic' => 'Subject-Verb Agreement',
             'mode' => 'exam',
@@ -83,8 +84,14 @@ try {
         $cookies
     );
 
-    if (!$start['success'] || !str_contains($start['output'], 'Question 1 / 1')) {
-        throw new RuntimeException('HTTP completion test could not start one-question quiz');
+    if (!$start['success'] || !str_contains($start['output'], 'Question 1 / 1')
+        || preg_match('/<strong>Board<\/strong>\s*Licensure Examination for Teachers/', $start['output']) !== 1
+        || preg_match('/<strong>Subject<\/strong>\s*English/', $start['output']) !== 1) {
+        preg_match('/<p class="quiz-context"[^>]*>.*?<\/p>/s', $start['output'], $contextMatch);
+        throw new RuntimeException(
+            'HTTP completion test could not start a context-labeled one-question quiz: '
+            . (isset($contextMatch[0]) ? strip_tags($contextMatch[0]) : 'context block not rendered')
+        );
     }
 
     if (!preg_match('/name="question_id"\s+value="([^"]+)"/', $start['output'], $matches)) {
@@ -156,7 +163,7 @@ try {
         }
     }
     @rmdir($fixturePath);
-    @unlink($root . '/storage/doctor/simulation-sessions/sess-' . $cookies['PHPSESSID']);
+    @unlink($root . '/storage/doctor/simulation-sessions/sess_' . $cookies['PHPSESSID']);
     foreach ($originalEnvironment as $environmentKey => $value) {
         if ($value === false) {
             putenv($environmentKey);
