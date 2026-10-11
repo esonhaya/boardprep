@@ -18,13 +18,24 @@ $doctorArguments = array_slice($argv ?? [], 1);
 if (in_array('--preflight', $doctorArguments, true)) {
     $invalidPreflightArguments = array_values(array_filter(
         $doctorArguments,
-        static fn(string $argument): bool => in_array($argument, ['--preflight', '--json'], true) === false
+        static fn(string $argument): bool => !in_array($argument, ['--preflight', '--json'], true)
+            && !(str_starts_with($argument, '--root=') && trim(substr($argument, 7)) !== '')
     ));
     if ($invalidPreflightArguments !== []) {
         fwrite(STDERR, 'Unknown Preflight option: ' . $invalidPreflightArguments[0] . PHP_EOL);
         exit(2);
     }
-    $preflight = \App\Services\Operations\ProductionReadinessService::preflight(dirname(__DIR__));
+    $preflightRoot = dirname(__DIR__);
+    foreach ($doctorArguments as $argument) {
+        if (!str_starts_with($argument, '--root=')) continue;
+        $requestedRoot = realpath(substr($argument, 7));
+        if ($requestedRoot === false || !is_dir($requestedRoot)) {
+            fwrite(STDERR, "Preflight root must be an existing application directory.\n");
+            exit(2);
+        }
+        $preflightRoot = $requestedRoot;
+    }
+    $preflight = \App\Services\Operations\ProductionReadinessService::preflight($preflightRoot);
     if (in_array('--json', $doctorArguments, true)) {
         echo json_encode($preflight, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR), PHP_EOL;
     } else {

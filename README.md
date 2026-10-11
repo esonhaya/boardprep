@@ -7,15 +7,16 @@ requires PHP 8.1 or newer and a readable, writable storage directory.
 
 Copy `.env.example` to `.env` and adjust it for the local machine. `.env` is
 ignored and must never be committed. The supported local default is
-`DB_DRIVER=json`; BoardPrep creates `APP_STORAGE_PATH` when it is missing.
+`DB_DRIVER=json`; BoardPrep creates `APP_STORAGE_PATH` when it is missing, but
+an external storage directory must first contain the release's canonical JSON
+files.
 Process environment variables take precedence over values in `.env`.
 
 `APP_TIMEZONE` must be a PHP timezone identifier such as `UTC` or
-`Asia/Manila`. SQLite is supported for the mutable attempts proof domain and
+`Asia/Manila`. SQLite is supported for mutable learner state and
 requires `pdo_sqlite`; set `DB_DRIVER=sqlite` and optionally
-`DB_SQLITE_PATH=/absolute/path/to/boardprep.sqlite`. MySQL remains optional;
-selecting `DB_DRIVER=mysql` requires the `pdo_mysql` extension and the
-documented `DB_*` connection settings.
+`DB_SQLITE_PATH=/absolute/path/to/boardprep.sqlite`. MySQL support is not
+claimed by the v1.0.1 production profile; use JSON or SQLite for this release.
 
 `APP_ENV` must be `production`, `development`, or `testing`. Production rejects
 `APP_DEBUG=true`; developer authoring and Doctor HTTP routes are available only
@@ -24,21 +25,25 @@ error log while learner-facing production responses remain generic.
 
 ## Deployment and runtime
 
-Use PHP 8.1 or newer with the `json`, `session`, and `PDO` extensions. Configure the web
-server document root as `public/`, deny directory listing, serve existing files
-directly, and send every other request to `public/index.php`. Never expose the
+Use PHP 8.1 or newer with `json`, `session`, `PDO`, and `mbstring`. The
+recommended document root is `public/`; serve existing files directly and send
+every other request to `public/index.php`. When a provider fixes the document
+root at `public_html`, keep the package in a sibling private directory and use
+the front-controller shim described in
+[`docs/RELEASE_RUNBOOK_V1.md`](docs/RELEASE_RUNBOOK_V1.md). Never expose the
 repository root: `.env`, `app/`, `config/`, `database/`, `storage/`, and `tools/`
-are not public content.
+are private application files.
 
 For the default JSON driver, `APP_STORAGE_PATH` must point to durable storage
-that the PHP process can read, write, and create files/directories in. BoardPrep
-creates a missing storage directory and collection files, then fails startup
-with a generic HTTP 500 and a detailed server-log entry if storage is
-unavailable. JSON uses locked atomic writes, but remains a file-backed,
-single-instance deployment profile and is not a substitute for a transactional
-multi-instance database. Use SQLite for the recommended local production
-profile. Back up this directory before deployment or migration. MySQL does not
-use this filesystem store.
+that the PHP process can read, write, and create files/directories in. Keep it
+outside the actual public document root. If it points to a separate data
+directory, seed that directory with the release's canonical `storage/` JSON
+files before first use; preflight checks those files there as well as
+writeability. The simplest shared-hosting layout keeps the package's `storage/`
+directory in the private application tree. JSON uses locked atomic writes and
+is a single-instance profile. SQLite is supported for mutable learner state
+when `pdo_sqlite` is available; canonical content and other JSON collections
+still use `APP_STORAGE_PATH`.
 
 For SQLite, initialize the schema and import legacy mutable user state without
 deleting the JSON source:

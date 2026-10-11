@@ -7,11 +7,11 @@
     "required_extensions": [
         "json",
         "session",
-        "pdo"
+        "pdo",
+        "mbstring"
     ],
     "optional_extensions": [
         "pdo_sqlite",
-        "pdo_mysql",
         "zip"
     ],
     "document_root": "public",
@@ -48,8 +48,7 @@
     ],
     "database_modes": [
         "json",
-        "sqlite",
-        "mysql"
+        "sqlite"
     ],
     "health_command": "php tools/doctor.php --health --portfolio --json",
     "release_command": "php tools/doctor.php --release --json",

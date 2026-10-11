@@ -1,96 +1,64 @@
 # BoardPrep v1.0.1 production handoff
 
-This handoff is intentionally provider-neutral. Local engineering is complete;
-the remaining step is an actual server/domain deployment.
+This describes the retained v1.0.1 package. No hosting account, domain, or TLS
+endpoint has been provisioned or tested.
 
-## Required server profile
+## Artifact identity
 
-- PHP 8.1 or newer; required extensions: json, session, and PDO.
-- public/ is the document root and non-file routes reach public/index.php.
-- Durable writable storage is required. JSON is a single-instance default;
-  SQLite is supported for mutable state when pdo_sqlite is available.
-- HTTPS is required for an internet-facing learner/admin deployment.
-- CLI access is useful for preflight, smoke, backup, restore, and release
-  checks but is not required if the host supplies an equivalent controlled
-  process.
+- Archive: `BoardPrep_v1.0.1_d18db80.zip`
+- Build commit: `d18db80238d689e8198b2db468e47953f8d96d21`
+- SHA-256: `61e80681f14713be2f878f1233aba2289225aea10071ecaa927b4a866084baef`
+- Canonical questions: 8,962; the package excludes mutable learner state,
+  `.env`, logs, and Git metadata.
 
-Canonical educational content ships in the release package. Mutable attempts,
-progress, history, flashcard state, statistics, configuration, databases,
-backups, logs, and sessions must remain outside the replaceable release files.
+The release tag and archive remain immutable. Compare the downloaded archive's
+SHA-256 before extraction.
 
-## Non-secret deployment input contract
+## Hosting contract
 
-Supply these values outside Git:
+- PHP 8.1+ with `json`, `session`, `PDO`, and `mbstring`; PHP memory limit of
+  512 MB. `pdo_sqlite` is optional for SQLite mutable-state storage.
+- JSON is the default single-instance profile. SQLite supports mutable learner
+  state while canonical content and other collections remain JSON. MySQL is
+  not claimed by this release.
+- Prefer `public/` as document root. Fixed `public_html` hosts require the
+  private-app shim and assets-only copy described in
+  [`RELEASE_RUNBOOK_V1.md`](RELEASE_RUNBOOK_V1.md).
+- Keep the entire package, `.env`, canonical and mutable storage, SQLite,
+  backups, and logs outside the actual public document root. If
+  `APP_STORAGE_PATH` is separate, seed it with the package's canonical JSON
+  files before first use.
+- SSH is optional. Without it, server-side Doctor, backup, restore, and CLI
+  smoke checks are unavailable; local checks do not verify provider settings.
+
+The retained archive's embedded Doctor predates the Batch 661 `mbstring` and
+`PUBLIC_DATA_ISOLATION` checks. Batch 661's source Doctor supports
+`--preflight --root=/path/to/extracted/package` without modifying that package.
+The exact command and limits are in the runbook. No public install or
+diagnostic endpoint is required.
+
+## Deployment record
+
+Record only non-secret values in the deployment worksheet:
 
     HOST_TYPE=shared_hosting|vps|other
-    HOST_ADDRESS=<hostname-or-ip>
     ACCESS_METHOD=ssh|sftp|control_panel|other
-    REMOTE_DEPLOY_PATH=<absolute-or-host-relative-path>
-    DOMAIN=<domain-or-local-url>
+    REMOTE_DEPLOY_PATH=<account path>
+    DOMAIN=<domain>
     HTTPS_STATUS=ready|pending|not_available
-    PHP_VERSION=<server-version>
+    PHP_VERSION=<server version>
     EXISTING_PRODUCTION_DATA=yes|no
-    ADMIN_SETUP=existing|needs-provisioning|not-applicable
+    ADMIN_SETUP=not-applicable-no-production-admin-in-v1.0.1
 
-Never place passwords, private keys, API tokens, or database secrets in this
-file or in the repository. APP_DEBUG=false is mandatory in production.
+Never record passwords, private keys, tokens, or database secrets here.
 
-## First deployment
+## Admin boundary
 
-1. Select the exact v1.0.1 artifact and record its SHA-256.
-2. Configure .env from .env.example; keep it outside public/.
-3. Prepare the writable persistent-storage path and correct permissions.
-4. Back up any existing mutable data before replacing code.
-5. Upload/extract the package with public/ as document root.
-6. Run php tools/doctor.php --preflight --json and
-   php tools/doctor.php --smoke --json where CLI is available.
-7. Verify the HTTP smoke checklist below before accepting traffic.
+The production v1.0.1 app has no learner login, production admin route, or
+first-admin bootstrap flow. Developer authoring and Doctor HTTP routes are
+disabled in production. Do not expose them by running the public app in
+development mode. If production content administration is required, this
+release does not provide it.
 
-On basic shared hosting, use a maintenance window: upload a new release
-directory, preserve the existing mutable storage/configuration, switch the
-document root or files together as the host permits, then smoke-test. On a
-VPS, a release-directory/current-link strategy is optional; do not claim
-zero-downtime unless the host actually provides it.
-
-## Update and rollback
-
-Before every update, back up mutable state with tools/backup.php and retain
-the previous known-good release. If preflight, smoke, release identity,
-storage integrity, authorization, or user-state preservation fails, stop
-traffic and restore the previous release. Restore persistent data only when
-compatibility requires it, using a verified backup and an explicit destination.
-Keep backups outside the public document root with simple operator-managed
-retention.
-
-## Post-deploy smoke
-
-Against the real URL verify:
-
-- home/dashboard and board selection;
-- study page and attempt start;
-- one answer submission and result;
-- progress, review, history, and resume;
-- /health.php returns only safe liveness/readiness/version fields;
-- admin access works only through the configured protected path;
-- Developer Health is not public;
-- no debug output, stack trace, filesystem path, or secret is visible.
-
-Use a test learner only when necessary and remove its data afterward. Do not
-use a destructive smoke action against real learner records.
-
-## Admin and diagnostics
-
-There is no default production admin credential. Provision an administrator
-through the existing authenticated/configured procedure supplied for the
-deployment; do not add a public bootstrap route. Detailed Developer Health is
-an authenticated/developer diagnostic surface, while public/health.php is
-the minimal uptime/readiness check.
-
-## Operations baseline
-
-Monitor HTTP availability, the safe health response, application error logs,
-storage capacity, and backup success. Rotate application/server logs according
-to the hosting provider's facilities. Trigger maintenance from events:
-production bug, official scope/currentness change, new authoritative evidence,
-security issue, or a supported feature request. Numeric question thinness is
-not a deployment or release requirement.
+Follow [`RELEASE_RUNBOOK_V1.md`](RELEASE_RUNBOOK_V1.md) for provider selection,
+layout, deployment, backup, rollback, HTTP checks, and troubleshooting.

@@ -64,7 +64,11 @@ final class ProductionReadinessService
         );
 
         $missingExtensions = [];
-        foreach ((array) ($profile['required_extensions'] ?? []) as $extension) {
+        $requiredExtensions = array_values(array_unique(array_merge(
+            ['mbstring'],
+            (array) ($profile['required_extensions'] ?? [])
+        )));
+        foreach ($requiredExtensions as $extension) {
             $extension = (string) $extension;
             if ($extension !== '' && !extension_loaded($extension)) {
                 $missingExtensions[] = $extension;
@@ -124,6 +128,38 @@ final class ProductionReadinessService
                 ? 'Configured storage is readable and writable.'
                 : 'Configured storage must exist and be readable and writable.',
             ['configured' => self::pathLabel($storagePath, $root)]
+        );
+
+        $driver = strtolower((string) (Environment::get('DB_DRIVER', 'json') ?? 'json'));
+        $configuredPublicPath = trim((string) (Environment::get('APP_PUBLIC_PATH', '') ?? ''));
+        $publicPath = $configuredPublicPath !== ''
+            ? self::absolutePath($configuredPublicPath, $root)
+            : $root . '/public';
+        $exposedPaths = [];
+        if (!is_dir($publicPath)) {
+            $exposedPaths[] = 'public_root_missing';
+        }
+        if (self::pathIsWithin($root, $publicPath)) {
+            $exposedPaths[] = 'application_root';
+        }
+        if (self::pathIsWithin($storagePath, $publicPath)) {
+            $exposedPaths[] = 'storage';
+        }
+        if ($driver === 'sqlite' && self::pathIsWithin(self::configuredSqlitePath($root), $publicPath)) {
+            $exposedPaths[] = 'sqlite';
+        }
+        $environmentFile = $root . '/.env';
+        if (is_file($environmentFile) && self::pathIsWithin($environmentFile, $publicPath)) {
+            $exposedPaths[] = 'environment_file';
+        }
+        self::check(
+            $checks,
+            'PUBLIC_DATA_ISOLATION',
+            $exposedPaths === [] ? 'PASS' : 'FAIL',
+            $exposedPaths === []
+                ? 'Writable state and configuration are outside the configured public document root.'
+                : 'Writable state or configuration overlaps the configured public document root.',
+            ['affected' => $exposedPaths]
         );
 
         $canonicalMissing = [];
@@ -196,8 +232,8 @@ final class ProductionReadinessService
             ['present' => $mutableJsonPresent, 'errors' => $mutableJsonErrors]
         );
 
-        $driver = strtolower((string) (Environment::get('DB_DRIVER', 'json') ?? 'json'));
-        $allowedDrivers = array_map('strtolower', array_map('strval', (array) ($profile['database_modes'] ?? ['json', 'sqlite', 'mysql'])));
+        $profileDrivers = array_map('strtolower', array_map('strval', (array) ($profile['database_modes'] ?? ['json', 'sqlite'])));
+        $allowedDrivers = array_values(array_intersect($profileDrivers, ['json', 'sqlite']));
         self::check(
             $checks,
             'DATABASE_DRIVER',
@@ -445,6 +481,24 @@ final class ProductionReadinessService
     {
         if ($path === '' || $path[0] === '/') return $path;
         return rtrim($root, '/') . '/' . ltrim($path, '/');
+    }
+
+    private static function pathIsWithin(string $path, string $directory): bool
+    {
+        $resolvedPath = self::resolvedPath($path);
+        $resolvedDirectory = self::resolvedPath($directory);
+        if ($resolvedPath === $resolvedDirectory) return true;
+        if ($resolvedDirectory === DIRECTORY_SEPARATOR) return str_starts_with($resolvedPath, DIRECTORY_SEPARATOR);
+        return str_starts_with($resolvedPath, rtrim($resolvedDirectory, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR);
+    }
+
+    private static function resolvedPath(string $path): string
+    {
+        $resolved = realpath($path);
+        if ($resolved !== false) return $resolved;
+        $parent = realpath(dirname($path));
+        $candidate = ($parent !== false ? $parent : dirname($path)) . DIRECTORY_SEPARATOR . basename($path);
+        return rtrim($candidate, DIRECTORY_SEPARATOR) ?: DIRECTORY_SEPARATOR;
     }
 
     private static function pathLabel(string $path, string $root): string
