@@ -1,7 +1,7 @@
 {
     "schema_version": 1,
-    "assessment_id": "batch664-browser-mobile-acceptance",
-    "baseline_commit": "25ca6708062468ad35f90aae78609d9e7c4d87a0",
+    "assessment_id": "batch665-product-deepening",
+    "baseline_commit": "7a3323135826f40124fe605b59c2fb33e67e2163",
     "release": "v1.0.1",
     "browser_validation": {
         "STATUS": "TEST_PREPARED_NOT_EXECUTED",
@@ -56,8 +56,8 @@
             "STATUS": "IMPLEMENTED_AND_VERIFIED",
             "SCOPE_INCLUDED": true,
             "LAUNCH_CRITICAL": true,
-            "EVIDENCE": ["Learner-facing aggregates and recommendations are tied to the current session identity and exercised across learner pages."],
-            "TEST_COVERAGE": ["tools/Tests/LearnerJourneyHttpTest.php", "tools/Tests/LearnerDashboardReliabilityTest.php", "tools/Tests/LearningProgressTest.php", "tools/Tests/ProgressRecommendationViewTest.php"]
+            "EVIDENCE": ["Learner-facing aggregates and recommendations are tied to the current session identity. Batch 665 keeps subject/topic performance, weakness recommendations, study-plan actions, and result retries scoped to the recorded board and LET/CSE exam variant; the ten-board production HTTP test follows the retry action rendered on each result page."],
+            "TEST_COVERAGE": ["tools/Tests/LearnerJourneyHttpTest.php", "tools/Tests/LearnerDashboardReliabilityTest.php", "tools/Tests/LearningProgressTest.php", "tools/Tests/ProgressRecommendationViewTest.php", "tools/Tests/BoardScopedLearningContextTest.php", "tools/Tests/QuizResultActionBoardContextTest.php", "tools/Tests/TenBoardLearnerJourneyHttpTest.php"]
         },
         {
             "FEATURE": "Exam mode",
@@ -325,6 +325,34 @@
             "FIX_COMMIT": "4baae1272f7b56cce7613292ff7649a72e0ef807",
             "TEST_COVERAGE": "tools/Tests/ProductReadinessTest.php asserts the live wording is recognized; the readiness output now reports the check PASS.",
             "RELEASE_BLOCKING": false,
+            "DEPENDENCIES": []
+        },
+        {
+            "ID": "BP665-DEF-001",
+            "FEATURE": "Result retry loses examination context",
+            "USER_IMPACT": "A learner retrying a completed engineering, health, accounting, architecture, or other non-CSE examination could be routed into LET practice instead of the board they just used.",
+            "EVIDENCE": "The Batch 665 baseline unit test reproduced result retry URLs without an exam parameter for all non-CSE boards. The production ten-board journey now extracts the rendered result action, validates its board, and starts the retry from that action.",
+            "REPRODUCTION": "Complete a practice attempt for a non-LET board and activate the primary retry action on its result page; before the fix, the generated URL omitted exam and QuizStartInputNormalizer defaulted to LET.",
+            "SEVERITY": "P1",
+            "ROOT_CAUSE": "QuizResultActionService only included board context for CSE/Civil Service even though completed sessions retain the board for every examination.",
+            "STATUS": "FIXED",
+            "FIX_COMMIT": "092bd8ea216e0c190ee8a280e30d4cf9388e69c7",
+            "TEST_COVERAGE": "tools/Tests/QuizResultActionBoardContextTest.php; tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+            "RELEASE_BLOCKING": true,
+            "DEPENDENCIES": []
+        },
+        {
+            "ID": "BP665-DEF-002",
+            "FEATURE": "Progress and adaptive recommendations merge boards and candidate variants",
+            "USER_IMPACT": "Scores for similarly named subjects and topics on different boards or candidate variants could be averaged together, and generated practice links could launch the wrong examination.",
+            "EVIDENCE": "The Batch 665 baseline analytics fixture combined CE/ME statics scores into one row and generated an unscoped recommendation. BoardScopedLearningContextTest now verifies board, LET level/specialization, and CSE level separation and validates generated action context.",
+            "REPRODUCTION": "Create attempts for CE and ME with the same subject/topic and different percentages; before the fix, topic analytics returned one blended row and its practice action defaulted to LET.",
+            "SEVERITY": "P1",
+            "ROOT_CAUSE": "Topic and subject aggregation keys used only topic/subject, while recommendation, study-plan, and presentation paths dropped board and variant context.",
+            "STATUS": "FIXED",
+            "FIX_COMMIT": "092bd8ea216e0c190ee8a280e30d4cf9388e69c7",
+            "TEST_COVERAGE": "tools/Tests/BoardScopedLearningContextTest.php; tools/Tests/TenBoardLearnerJourneyHttpTest.php",
+            "RELEASE_BLOCKING": true,
             "DEPENDENCIES": []
         }
     ],
