@@ -1,3 +1,4 @@
+<div class="privacy-page">
 <section class="page-header">
     <div>
         <p class="eyebrow">Learner information</p>
@@ -23,7 +24,7 @@
     </ul>
     <p>These controls apply to the current anonymous session only. Clearing browser cookies or using another browser can make previous records inaccessible without deleting them.</p>
     <p><a class="button button-outline" href="/privacy/export">Download my saved learning data</a></p>
-    <form method="post" action="/privacy/data/clear">
+    <form class="privacy-delete-form" method="post" action="/privacy/data/clear">
         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars((string) ($csrfToken ?? ''), ENT_QUOTES, 'UTF-8') ?>">
         <div class="form-field">
             <label>
@@ -31,7 +32,7 @@
                 I understand this clears saved learning data for this browser session.
             </label>
         </div>
-        <button type="submit" class="button button-outline">Clear my learning data</button>
+        <button type="submit" class="button button-danger">Clear my learning data</button>
     </form>
 </section>
 
@@ -56,3 +57,4 @@
 <?php endif; ?>
 
 <p class="muted-note">Deleting app records does not erase hosting access/error logs, external backups, or copies retained outside BoardPrep. The site operator and hosting provider control those systems and must state their own practices. Clearing browser cookies alone does not delete server-side records.</p>
+</div>

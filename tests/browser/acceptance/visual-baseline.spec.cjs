@@ -56,7 +56,7 @@ async function startQuiz(page, {
   await subjectSelect.selectOption(subjectOption.value);
   await page.locator('#quiz-count').selectOption(count);
   await page.locator('#quiz-difficulty').selectOption(difficulty);
-  await page.getByRole('button', { name: 'Start quiz' }).click();
+  await page.getByRole('button', { name: 'Start practice' }).click();
   await expect(page.locator('.quiz-question')).toBeVisible();
 }
 

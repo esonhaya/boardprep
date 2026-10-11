@@ -7,17 +7,18 @@ $total = $total ?? 0;
 $mode = $mode ?? "practice";
 $feedback = $feedback ?? null;
 $studyReferences = is_array($studyReferences ?? null) ? $studyReferences : [];
+$progressValue = $total > 0 ? min(100, max(0, (int) round(($current + 1) / $total * 100))) : 0;
 
 ?>
 
-<div class="quiz-shell">
-<div class="quiz-meta"><span>Question <?= $current + 1 ?> / <?= $total ?></span><span>
+<section class="quiz-shell" aria-label="Practice question">
+<div class="quiz-meta"><span class="quiz-position">Question <?= $current + 1 ?> / <?= $total ?></span><span class="quiz-mode-label">
 Mode:
 <strong>
-<?= ucfirst($mode) ?>
+<?= $mode === 'exam' ? 'Exam-style · untimed' : htmlspecialchars(ucfirst((string) $mode), ENT_QUOTES, 'UTF-8') ?>
 </strong>
 </span></div>
-<div class="progress-bar" aria-label="Quiz progress"><span style="width:<?= $total > 0 ? (($current + 1) / $total * 100) : 0 ?>%"></span></div>
+<div class="progress-bar" role="progressbar" aria-label="Practice progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="<?= $progressValue ?>"><span aria-hidden="true" style="width:<?= $progressValue ?>%"></span></div>
 
 
 <?php if(!$question): ?>
@@ -33,7 +34,7 @@ No question available.
 <?php endif; ?>
 
 
-<h1 class="quiz-question">
+<h1 class="quiz-question" id="practice-question-heading">
 <?= htmlspecialchars($question["question"]) ?>
 </h1>
 
@@ -182,4 +183,4 @@ Submit Answer
 </form>
 
 
-<?php endif; ?></div>
+<?php endif; ?></section>

@@ -1,12 +1,12 @@
 <?php $flash = \SessionService::consumeFlash(); $csrfToken = \App\Services\Shared\CsrfTokenService::token(); ?>
 
 <?php if (is_array($flash) && ($flash['type'] ?? '') === 'error'): ?>
-<p role="alert">
+<p class="alert alert-danger" role="alert">
 <?= htmlspecialchars((string) ($flash['message'] ?? 'Unable to generate that quiz.')) ?>
 </p>
 <?php endif; ?>
 
-<section class="page-header"><div><p class="eyebrow">Practice setup</p><h1>Choose how you want to study</h1><p>Set the examination context first, then tailor the session to your review goal.</p></div></section>
+<div class="practice-setup-page"><section class="page-header"><div><p class="eyebrow">Practice setup</p><h1>Choose how you want to study</h1><p>Set the examination context first, then tailor the session to your review goal.</p></div></section>
 
 <?php $settings = is_array($settings ?? null) ? $settings : []; ?>
 
@@ -36,12 +36,12 @@ value="<?= htmlspecialchars((string) (($settings['topics'][0] ?? '')), ENT_QUOTE
 
 <div class="form-field"><label for="quiz-exam">Examination</label><select id="quiz-exam" name="exam"><?php foreach (($boards ?? []) as $board): ?><option value="<?= htmlspecialchars((string) ($board['code'] ?? '')) ?>" <?= strtoupper((string) ($settings['board'] ?? 'LET')) === strtoupper((string) ($board['code'] ?? '')) ? 'selected' : '' ?>><?= htmlspecialchars((string) ($board['name'] ?? '')) ?></option><?php endforeach; ?></select></div>
 
-<div id="let-variant-fields" <?= strtolower((string) ($settings['board'] ?? '')) === 'let' ? '' : 'hidden' ?>>
+<div id="let-variant-fields" class="quiz-variant-fields" <?= strtolower((string) ($settings['board'] ?? '')) === 'let' ? '' : 'hidden' ?>>
 <div class="form-field"><label for="let-level">LET candidate level</label><select id="let-level" name="let_level"><option value="">Legacy board-wide practice</option><option value="ELEMENTARY" <?= strtoupper((string) ($settings['let_level'] ?? '')) === 'ELEMENTARY' ? 'selected' : '' ?>>Elementary</option><option value="SECONDARY" <?= strtoupper((string) ($settings['let_level'] ?? '')) === 'SECONDARY' ? 'selected' : '' ?>>Secondary</option></select><small class="form-help">Choose a level for variant-safe blueprint filtering. Secondary requires a specialization.</small></div>
 <div class="form-field"><label for="let-specialization">LET specialization</label><select id="let-specialization" name="let_specialization"><option value="">No specialization</option><?php foreach (($letSpecializations ?? []) as $specialization): ?><option value="<?= htmlspecialchars((string) ($specialization['id'] ?? '')) ?>" data-level="<?= htmlspecialchars((string) ($specialization['level'] ?? '')) ?>" <?= (string) (($settings['let_specialization'] ?? '')) === (string) ($specialization['id'] ?? '') ? 'selected' : '' ?>><?= htmlspecialchars((string) ($specialization['official_name'] ?? $specialization['id'] ?? '')) ?> (<?= htmlspecialchars((string) ($specialization['level'] ?? '')) ?>)</option><?php endforeach; ?></select><small class="form-help">Historical labels resolve to stable identities; ambiguous MAPEH/BTLEd qualification labels are not silently assigned.</small></div>
 </div>
 
-<div id="civil-service-fields" <?= in_array(strtolower((string) ($settings['board'] ?? '')), ['cse', 'civil-service'], true) ? '' : 'hidden' ?>>
+<div id="civil-service-fields" class="quiz-variant-fields" <?= in_array(strtolower((string) ($settings['board'] ?? '')), ['cse', 'civil-service'], true) ? '' : 'hidden' ?>>
 <div class="form-field"><label for="civil-service-level">Civil Service examination level</label><select id="civil-service-level" name="civil_service_level"><option value="">Select level</option><option value="PROFESSIONAL" <?= strtoupper((string) ($settings['civil_service_level'] ?? '')) === 'PROFESSIONAL' ? 'selected' : '' ?>>Professional</option><option value="SUBPROFESSIONAL" <?= strtoupper((string) ($settings['civil_service_level'] ?? '')) === 'SUBPROFESSIONAL' ? 'selected' : '' ?>>Subprofessional</option></select><small class="form-help">Subprofessional includes Clerical Ability; Professional selections exclude it.</small></div>
 </div>
 
@@ -111,20 +111,18 @@ Practice Mode
 </option>
 
 <option value="exam" <?= ($settings['mode'] ?? '') === 'exam' ? 'selected' : '' ?>>
-Exam Simulation
+Exam-style practice (untimed)
 </option>
 
 <option value="review" <?= ($settings['mode'] ?? '') === 'review' ? 'selected' : '' ?>>
 Review Mode
 </option>
 
-</select></div>
-
-<small class="form-help">Exam mode hides answer feedback until you finish. It does not enforce a timer or reproduce every official board-exam format.</small>
+</select><small class="form-help mode-disclosure">Exam-style practice hides answer feedback until you finish. It is untimed and does not reproduce every official board-exam format.</small></div>
 
 
 
-<label for="quiz-adaptive">
+<div class="form-field adaptive-option"><label for="quiz-adaptive">
 
 <input
 id="quiz-adaptive"
@@ -142,17 +140,14 @@ Adaptive Learning
 
 Prioritizes questions from your weak topics.
 
-</small>
+</small></div>
 
-
-<br>
-
-
-<button type="submit">
-Start quiz
-</button>
+<div class="form-actions"><button type="submit" class="practice-start-button">
+Start practice
+</button></div>
 
 
 </form>
+</div>
 
 <script src="/assets/js/quiz-settings.js" defer></script>

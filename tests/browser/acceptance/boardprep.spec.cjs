@@ -77,7 +77,7 @@ async function startQuiz(page, {
   await subjectSelect.selectOption(subjectOption.value);
   await page.locator('#quiz-count').selectOption(count);
   await page.locator('#quiz-difficulty').selectOption(difficulty);
-  await page.getByRole('button', { name: 'Start quiz' }).click();
+  await page.getByRole('button', { name: 'Start practice' }).click();
   await expect(page.locator('.quiz-question')).toBeVisible();
 }
 
@@ -94,7 +94,7 @@ async function configureAvailableBoardQuiz(page, exam) {
   await page.locator('#quiz-subject').selectOption(subject);
   await page.locator('#quiz-count').selectOption('5');
   await page.locator('#quiz-mode').selectOption('practice');
-  await page.getByRole('button', { name: 'Start quiz' }).click();
+  await page.getByRole('button', { name: 'Start practice' }).click();
   await expect(page.locator('.quiz-question')).toBeVisible();
 }
 

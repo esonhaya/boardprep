@@ -31,31 +31,30 @@
     <div class="site-header-inner">
         <?php $brandClass = "brand site-brand"; require __DIR__ . "/../components/brand.php"; ?>
         <button class="mobile-menu-button" type="button" aria-expanded="false" aria-controls="learner-nav">
-            <span class="sr-only">Toggle navigation</span><span aria-hidden="true">☰</span>
+            <span class="sr-only">Open primary navigation</span><span aria-hidden="true">☰</span>
         </button>
     </div>
 
     <?php $currentPath = parse_url($_SERVER["REQUEST_URI"] ?? "/", PHP_URL_PATH) ?: "/"; ?>
-    <nav id="learner-nav" aria-label="Primary navigation">
-
-        <a href="/"<?= $currentPath === "/" ? ' aria-current="page"' : "" ?>>
+    <?php
+    $isStudyPath = in_array($currentPath, ["/study", "/study-library"], true);
+    $isProgressPath = in_array($currentPath, ["/progress", "/dashboard"], true);
+    ?>
+    <nav id="learner-nav" class="learner-navigation" aria-label="Primary navigation">
+        <a class="site-nav-link" href="/"<?= $currentPath === "/" ? ' aria-current="page"' : "" ?>>
             <?php $icon='home';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Home
         </a>
-        <a href="/quiz"<?= $currentPath === "/quiz" ? ' aria-current="page"' : "" ?>><?php $icon='practice';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Practice</a>
-        <a href="/quiz?mode=exam"><?php $icon='exam';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Exam mode</a>
-        <a href="/history"<?= $currentPath === "/history" ? ' aria-current="page"' : "" ?>>
+        <a class="site-nav-link" href="/exams"<?= $currentPath === "/exams" ? ' aria-current="page"' : "" ?>><?php $icon='exam';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Exams</a>
+        <a class="site-nav-link" href="/study-library"<?= $isStudyPath ? ' aria-current="page"' : "" ?>><?php $icon='book';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Study</a>
+        <a class="site-nav-link" href="/quiz"<?= str_starts_with($currentPath, "/quiz") ? ' aria-current="page"' : "" ?>><?php $icon='practice';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Practice</a>
+        <a class="site-nav-link" href="/flashcards"<?= str_starts_with($currentPath, "/flashcards") ? ' aria-current="page"' : "" ?>><?php $icon='book';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Flashcards</a>
+        <a class="site-nav-link" href="/progress"<?= $isProgressPath ? ' aria-current="page"' : "" ?>><?php $icon='progress';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Progress</a>
+        <a class="site-nav-link" href="/history"<?= str_starts_with($currentPath, "/history") ? ' aria-current="page"' : "" ?>>
             <?php $icon='history';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>History
         </a>
-        <a href="/progress"<?= $currentPath === "/progress" ? ' aria-current="page"' : "" ?>>
-            <?php $icon='progress';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Progress
-        </a>
-        <a href="/flashcards"<?= str_starts_with($currentPath, "/flashcards") ? ' aria-current="page"' : "" ?>>
-            <?php $icon='book';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Flashcards
-        </a>
-        <a href="/exams"<?= $currentPath === "/exams" ? ' aria-current="page"' : "" ?>><?php $icon='book';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Exams &amp; subjects</a>
-        <a href="/study-library"<?= $currentPath === "/study-library" ? ' aria-current="page"' : "" ?>><?php $icon='book';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Study materials</a>
+        <a class="site-nav-link" href="/privacy"<?= str_starts_with($currentPath, "/privacy") ? ' aria-current="page"' : "" ?>><?php $icon='settings';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Privacy</a>
         <?php if (\App\Core\App::config('environment') !== 'production'): ?>
-            <a href="/developer"<?= str_starts_with($currentPath, "/developer") ? ' aria-current="page"' : "" ?>>
+            <a class="site-nav-link" href="/developer"<?= str_starts_with($currentPath, "/developer") ? ' aria-current="page"' : "" ?>>
                 <?php $icon='settings';$iconSize='sm';require __DIR__ . "/../components/icon.php"; ?>Developer
             </a>
         <?php endif; ?>
@@ -65,8 +64,6 @@
 </header>
 
 <main id="main-content" tabindex="-1">
-
-<span class="sr-only">Learning Overview Recommended Next Step Subject Performance Recent Quiz History</span>
 
 <?php $layoutFlash = \SessionService::consumeFlash(); ?>
 <?php if (is_array($layoutFlash) && is_scalar($layoutFlash["message"] ?? null)): ?>

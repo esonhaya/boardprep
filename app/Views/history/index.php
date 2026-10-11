@@ -13,8 +13,8 @@ $summary = $summary ?? [];
 </section>
 
 <?php if ($history === []): ?>
-    <div class="empty-state"><p>No completed quizzes yet.</p>
-    <p><a href="/quiz?action=start&amp;subject=English&amp;topic=&amp;mode=practice&amp;count=5&amp;difficulty=mixed">Set up your first practice quiz</a></p>
+    <div class="empty-state"><h2>No completed quizzes yet</h2><p>Your completed practice sessions will appear here.</p>
+    <p><a class="button button-green" href="/quiz">Set up your first practice quiz</a></p>
     </div>
 <?php else: ?>
     <?php foreach ($history as $attempt): ?>

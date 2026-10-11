@@ -12,9 +12,10 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
 
 ?>
 
-<section class="page-header"><div><h1><?= $historical ? 'Historical Quiz Result' : 'Quiz Result' ?></h1><p>Review what you know and choose your next useful step.</p><?php if ($historical): ?><p class="muted-note"><?php $context = array_values(array_filter([$taxonomyLabel('boards', $historicalContext['board'] ?? ''), $taxonomyLabel('subjects', $historicalContext['subject'] ?? ''), \App\Support\Presentation\UiFormatter::statusLabel((string) ($historicalContext['mode'] ?? ''))])); ?><?= htmlspecialchars(implode(' · ', $context)) ?><?php if ($completedAt !== null): ?> · Completed <?= htmlspecialchars(\App\Support\Presentation\UiFormatter::formatDateTime($completedAt)) ?><?php endif; ?></p><?php endif; ?></div></section>
+<div class="quiz-result-page">
+<section class="page-header"><div><p class="eyebrow"><?= $historical ? 'Attempt review' : 'Practice complete' ?></p><h1><?= $historical ? 'Historical Quiz Result' : 'Quiz Result' ?></h1><p>Review what you know and choose your next useful step.</p><?php if ($historical): ?><p class="muted-note"><?php $context = array_values(array_filter([$taxonomyLabel('boards', $historicalContext['board'] ?? ''), $taxonomyLabel('subjects', $historicalContext['subject'] ?? ''), \App\Support\Presentation\UiFormatter::statusLabel((string) ($historicalContext['mode'] ?? ''))])); ?><?= htmlspecialchars(implode(' · ', $context)) ?><?php if ($completedAt !== null): ?> · Completed <?= htmlspecialchars(\App\Support\Presentation\UiFormatter::formatDateTime($completedAt)) ?><?php endif; ?></p><?php endif; ?></div></section>
 
-<div class="result-summary">
+<section class="result-summary" aria-label="Quiz score summary">
     <div class="result-score">
         <p class="eyebrow">Score</p>
         <h2><?= $summary["score"] ?? 0 ?> / <?= $summary["total"] ?? 0 ?></h2>
@@ -23,7 +24,7 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
         <p class="eyebrow">Accuracy</p>
         <h3><?= $summary["percentage"] ?? 0 ?>%</h3>
     </div>
-</div>
+</section>
 
 <?php if (!empty($actions)): ?>
 <section class="result-next-steps">
@@ -47,7 +48,8 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
 <?php if ($reviewUnavailable): ?>
 <div class="empty-state"><h2>Detailed review is unavailable</h2><p>This attempt's score is preserved, but its question-by-question details were not saved.</p><p><a class="button button-outline" href="/history">Back to History</a></p></div>
 <?php else: ?>
-<h2>Answer Review</h2>
+<section class="result-answer-review" aria-labelledby="answer-review-heading">
+<h2 id="answer-review-heading">Answer Review</h2>
 
 <?php foreach ($review as $index => $item): ?>
 <article class="question-review <?= !empty($item["correct"]) ? "is-correct" : "is-incorrect" ?>">
@@ -99,4 +101,6 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
 
 <hr>
 <?php endforeach; ?>
+</section>
 <?php endif; ?>
+</div>
