@@ -25,7 +25,12 @@ final class SourceRegistryService
 
     public static function validate(): array
     {
-        $validTypes = ['PRIMARY_LAW', 'OFFICIAL_EXAM_SPEC', 'OFFICIAL_PROGRAM', 'OFFICIAL_GUIDANCE', 'OPEN_TEXTBOOK', 'SECONDARY_REVIEW', 'COMMUNITY_REPORT', 'BOARDPREP_EDITORIAL'];
+        $validTypes = [
+            'ACADEMIC_COURSE', 'BOARDPREP_EDITORIAL', 'CURRENTNESS_INDICATOR', 'CURRENTNESS_TRACKING', 'LAW',
+            'OFFICIAL_EXAM_ADVISORY', 'OFFICIAL_EXAM_SPEC', 'OFFICIAL_GUIDANCE', 'OFFICIAL_PRB_NOTICE',
+            'OFFICIAL_PRB_RESOLUTION', 'OFFICIAL_PROGRAM', 'OFFICIAL_REGULATION', 'OFFICIAL_TOS', 'OPEN_TEXTBOOK',
+            'PRIMARY_LAW', 'REGULATORY_STANDARD', 'SAFETY_REFERENCE', 'SECONDARY_REVIEW',
+        ];
         $invalid = [];
         $ids = [];
         foreach (self::all() as $source) {

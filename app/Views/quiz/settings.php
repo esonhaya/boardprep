@@ -124,6 +124,8 @@ Review Mode
 
 </select></div>
 
+<small class="form-help">Exam mode hides answer feedback until you finish. It does not enforce a timer or reproduce every official board-exam format.</small>
+
 
 
 <label for="quiz-adaptive">

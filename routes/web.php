@@ -7,6 +7,7 @@ use App\Controllers\BlueprintController;
 use App\Controllers\BlueprintHealthController;
 use App\Controllers\CoverageController;
 use App\Controllers\DashboardController;
+use App\Controllers\DataHandlingController;
 use App\Controllers\FlashcardController;
 use App\Controllers\DeveloperToolsController;
 use App\Controllers\DoctorDashboardController;
@@ -33,6 +34,7 @@ $router->get(
     [HomeController::class, "index"]
 );
 $router->get("/exams", [HomeController::class, "exams"]);
+$router->get("/privacy", [DataHandlingController::class, "index"]);
 
 $router->get(
     "/grammar",

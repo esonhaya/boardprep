@@ -55,6 +55,12 @@ try {
     $revealed = $simulator->request('GET', (string) ($parsed['path'] ?? '/flashcards/review'), $revealQuery, [], [], $cookie);
     httpCheck($revealed['status'] === 200 && str_contains($revealed['output'], 'flashcard-answer'), 'answer reveal did not render');
     httpCheck(substr_count($revealed['output'], 'name="rating"') === 4, 'four rating actions were not rendered');
+    httpCheck(preg_match('/href="\/study-library\?material=([^"&]+)"/', $revealed['output'], $studyLink) === 1,
+        'revealed flashcard did not link to its related study material');
+    $materialId = rawurldecode(html_entity_decode($studyLink[1], ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+    $materialPage = $simulator->request('GET', '/study-library', ['material' => $materialId], [], [], $cookie);
+    httpCheck($materialPage['status'] === 200
+        && str_contains($materialPage['output'], 'study-material-' . $materialId), 'flashcard study reference did not open its linked material');
     $token = responseToken($revealed['output']);
     $cardKey = responseCardKey($revealed['output']);
 

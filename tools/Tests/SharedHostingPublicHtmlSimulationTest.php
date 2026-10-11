@@ -273,7 +273,73 @@ PHP;
         $assert(!$file->isLink(), 'public_html fixture requires symlink support');
     }
 
-    echo "public_html_layout=PASS routes=PASS storage=PASS health_identity=PASS session_cookie=PASS sensitive_paths=PASS symlinks=NOT_REQUIRED package_preflight=PASS postrelease_root_preflight=PASS apache=NOT_VERIFIED\n";
+    proc_terminate($process);
+    proc_close($process);
+    $process = null;
+
+    $publicRoot = $privateRoot . '/public';
+    $socket = stream_socket_server('tcp://127.0.0.1:0', $errorNumber, $errorMessage);
+    $assert(is_resource($socket), 'unable to reserve a direct-public-root HTTP port');
+    $address = stream_socket_get_name($socket, false);
+    fclose($socket);
+    $port = (int) substr(strrchr((string) $address, ':'), 1);
+    $directEnvironment = array_merge($environment, ['APP_PUBLIC_PATH' => $publicRoot]);
+    $process = proc_open([
+        PHP_BINARY,
+        '-d',
+        'display_errors=0',
+        '-S',
+        '127.0.0.1:' . $port,
+        '-t',
+        $publicRoot,
+        $publicRoot . '/router.php',
+    ], [
+        0 => ['file', '/dev/null', 'r'],
+        1 => ['file', $serverLog, 'a'],
+        2 => ['file', $serverLog, 'a'],
+    ], $pipes, $temporary, array_merge(getenv(), $directEnvironment));
+    $assert(is_resource($process), 'direct public-root HTTP simulation did not start');
+    $directBase = 'http://127.0.0.1:' . $port;
+    $ready = false;
+    for ($attempt = 0; $attempt < 30; $attempt++) {
+        if ($request($directBase . '/health.php')['status'] > 0) {
+            $ready = true;
+            break;
+        }
+        usleep(100000);
+    }
+    $assert($ready, 'direct public-root HTTP simulation did not become ready');
+
+    $directHome = $request($directBase . '/');
+    $directStudy = $request($directBase . '/study');
+    $directAsset = $request($directBase . '/assets/css/style.css');
+    $assert($directHome['status'] === 200 && $directStudy['status'] === 200, 'configured public document root did not route learner pages');
+    $assert($directAsset['status'] === 200 && trim($directAsset['body']) !== '', 'configured public document root did not serve a public asset');
+    $directCookie = '';
+    foreach ($directHome['headers'] as $header) {
+        if (preg_match('/^Set-Cookie:\s*PHPSESSID=([^;]+)/i', $header, $match) === 1) {
+            $directCookie = 'PHPSESSID=' . $match[1];
+            if (stripos($header, 'httponly') === false || stripos($header, 'samesite=lax') === false) {
+                throw new RuntimeException('direct-root session cookie safeguards are missing');
+            }
+            break;
+        }
+    }
+    $assert($directCookie !== '' && $request($directBase . '/dashboard', $directCookie)['status'] === 200, 'direct-root session did not persist across requests');
+    $directHealth = $request($directBase . '/health.php');
+    $directHealthJson = json_decode($directHealth['body'], true);
+    $assert($directHealth['status'] === 200 && ($directHealthJson['product_version'] ?? '') === '1.0.1', 'direct-root health identity did not match v1.0.1');
+    foreach (['/.env', '/storage/questions.json', '/config/app.php', '/tools/doctor.php', '/RELEASE_MANIFEST.json', '/developer', '/api/doctor.php'] as $path) {
+        $response = $request($directBase . $path);
+        $assert($response['status'] === 404, 'direct public root exposed a sensitive path: ' . $path);
+        $assert(!str_contains($response['body'], $privateRoot), 'direct-root response disclosed the private application path');
+    }
+
+    proc_terminate($process);
+    proc_close($process);
+    $process = null;
+
+    echo "public_root_layout=PASS routes=PASS storage=PASS health_identity=PASS session_cookie=PASS sensitive_paths=PASS; public_html_layout=PASS routes=PASS storage=PASS health_identity=PASS session_cookie=PASS sensitive_paths=PASS symlinks=NOT_REQUIRED package_preflight=PASS postrelease_root_preflight=PASS apache=NOT_VERIFIED\n";
 } catch (Throwable $exception) {
     fwrite(STDERR, '[FAIL] ' . $exception->getMessage() . PHP_EOL);
     $status = 1;

@@ -15,7 +15,10 @@ final class StudyLibraryController extends BaseDeveloperController
     public static function index(): void
     {
         $exam = Request::queryString('exam');
-        $materials = StudyLibraryService::all($exam !== '' ? $exam : null);
+        $materialId = Request::queryString('material');
+        $materials = $materialId !== ''
+            ? array_values(array_filter([StudyLibraryService::find($materialId)]))
+            : StudyLibraryService::all($exam !== '' ? $exam : null);
         if ($exam !== '') {
             $materials = array_map(static function (array $material) use ($exam): array {
                 $material['priority'] = ExamIntelligenceService::priority($material, $exam);
@@ -26,6 +29,7 @@ final class StudyLibraryController extends BaseDeveloperController
             'pageTitle' => 'Study Materials | BoardPrep',
             'materials' => $materials,
             'exam' => $exam,
+            'materialRequested' => $materialId !== '',
         ]);
     }
 

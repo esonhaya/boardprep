@@ -26,13 +26,15 @@ $http = new HttpSimulator($root . '/public/index.php');
 try {
     $detail = $http->request('GET', '/exams', ['exam' => 'LET']);
     if (!$detail['success'] || !str_contains($detail['output'], 'LET examination')
-        || !str_contains($detail['output'], 'Configure practice')) {
+        || !str_contains($detail['output'], 'Configure practice')
+        || !str_contains($detail['output'], '/study-library?exam=let')) {
         throw new RuntimeException('public board detail did not resolve from discovery');
     }
 
     $architecture = $http->request('GET', '/exams', ['exam' => 'ARCH']);
     if (!$architecture['success'] || !str_contains($architecture['output'], 'ARCH examination')
-        || !str_contains($architecture['output'], 'Configure practice')) {
+        || !str_contains($architecture['output'], 'Configure practice')
+        || !str_contains($architecture['output'], '/study-library?exam=architecture')) {
         throw new RuntimeException('populated architecture board remained inaccessible');
     }
 

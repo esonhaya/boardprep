@@ -10,6 +10,7 @@ use App\Core\View;
 use App\Services\Learning\LearningHistoryService;
 use App\Services\Learning\LearningProgressService;
 use App\Services\Quiz\HistoricalQuizResultService;
+use App\Services\Study\StudyLibraryService;
 
 final class HistoryController
 {
@@ -40,6 +41,12 @@ final class HistoryController
             'pageTitle' => 'Historical Quiz Result',
             'summary' => $result['summary'],
             'review' => $result['review'],
+            'studyReferencesByQuestion' => StudyLibraryService::forQuestions(array_map(
+                static fn(mixed $item): mixed => is_array($item) && is_array($item['question'] ?? null)
+                    ? ($item['question']['id'] ?? null)
+                    : null,
+                $result['review']
+            )),
             'actions' => $result['actions'],
             'historical' => true,
             'completedAt' => $result['completedAt'],

@@ -6,6 +6,7 @@ use App\Core\Request;
 use App\Core\Response;
 use App\Core\View;
 use App\Services\Quiz\Session\QuizSessionRecoveryService;
+use App\Services\Study\StudyLibraryService;
 
 class QuizSubmissionService
 {
@@ -199,7 +200,11 @@ class QuizSubmissionService
                 "feedback" =>
                     SessionService::get(
                         "feedback"
-                    )
+                    ),
+
+                "studyReferences" => SessionService::get("feedback") !== null
+                    ? StudyLibraryService::forQuestion(self::questionId($question))
+                    : [],
             ]
         );
     }

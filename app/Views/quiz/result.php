@@ -2,6 +2,7 @@
 
 $summary = $summary ?? [];
 $review = $review ?? [];
+$studyReferencesByQuestion = is_array($studyReferencesByQuestion ?? null) ? $studyReferencesByQuestion : [];
 $actions = $actions ?? [];
 $historical = ($historical ?? false) === true;
 $completedAt = is_string($completedAt ?? null) ? $completedAt : null;
@@ -89,6 +90,10 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
                 $item["question"]["explanation"] ?? ""
             ) ?></p>
         </div>
+        <?php $questionId = is_scalar($item['question']['id'] ?? null) ? (string) $item['question']['id'] : ''; $studyReferences = $studyReferencesByQuestion[$questionId] ?? []; ?>
+        <?php if (is_array($studyReferences) && $studyReferences !== []): ?>
+            <div class="quiz-study-support"><h4>Study support</h4><ul><?php foreach ($studyReferences as $reference): ?><?php $materialId = is_scalar($reference['material_id'] ?? null) ? (string) $reference['material_id'] : ''; ?><?php if ($materialId !== ''): ?><li><a href="/study-library?material=<?= rawurlencode($materialId) ?>"><?= htmlspecialchars((string) ($reference['title'] ?? 'Source-backed study material'), ENT_QUOTES, 'UTF-8') ?></a></li><?php endif; ?><?php endforeach; ?></ul></div>
+        <?php endif; ?>
     </div>
 </article>
 

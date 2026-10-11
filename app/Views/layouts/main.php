@@ -92,7 +92,7 @@ if (
 ?>
 
 
-<footer class="site-footer"><p>BoardPrep v0.1 · Prepare with confidence.</p></footer>
+<footer class="site-footer"><p>BoardPrep v<?= htmlspecialchars((string) \App\Core\App::config('version', '1.0.1'), ENT_QUOTES, 'UTF-8') ?> · Prepare with confidence. <a href="/privacy">Data and privacy</a></p></footer>
 <script src="/assets/js/app-shell.js"></script>
 
 </body>

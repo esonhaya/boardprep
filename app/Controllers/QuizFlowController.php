@@ -14,6 +14,7 @@ use App\Services\Quiz\Start\QuizStartInputNormalizer;
 use App\Services\Board\BoardViewService;
 use App\Services\Shared\CsrfTokenService;
 use App\Services\Quiz\LET\LETVariantRegistry;
+use App\Services\Study\StudyLibraryService;
 
 final class QuizFlowController
 {
@@ -124,13 +125,21 @@ final class QuizFlowController
         $result = \QuizResultService::build();
 
         $summary = $result['summary'] ?? [];
+        $review = $result['review'] ?? [];
         $session = \SessionService::get('quiz_session', []);
+        $studyReferencesByQuestion = StudyLibraryService::forQuestions(array_map(
+            static fn(mixed $item): mixed => is_array($item) && is_array($item['question'] ?? null)
+                ? ($item['question']['id'] ?? null)
+                : null,
+            $review
+        ));
 
         View::render(
             'quiz/result',
             [
                 'summary' => $summary,
-                'review' => $result['review'] ?? [],
+                'review' => $review,
+                'studyReferencesByQuestion' => $studyReferencesByQuestion,
                 'actions' => QuizResultActionService::build(
                     $session,
                     $summary,

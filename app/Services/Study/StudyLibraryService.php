@@ -53,6 +53,60 @@ final class StudyLibraryService
         ));
     }
 
+    public static function forQuestion(string $questionId): array
+    {
+        $questionId = trim($questionId);
+        if ($questionId === '') {
+            return [];
+        }
+
+        return self::forQuestions([$questionId])[$questionId] ?? [];
+    }
+
+    public static function forQuestions(array $questionIds): array
+    {
+        $questionIds = array_fill_keys(array_values(array_filter(array_map(
+            static fn(mixed $id): string => is_scalar($id) ? trim((string) $id) : '',
+            $questionIds
+        ))), true);
+        if ($questionIds === []) {
+            return [];
+        }
+
+        $materials = [];
+        foreach (App::storage()->all('study-materials') as $material) {
+            if (!is_array($material) || ($material['status'] ?? 'published') !== 'published') {
+                continue;
+            }
+            $materialId = is_scalar($material['id'] ?? null) ? trim((string) $material['id']) : '';
+            if ($materialId !== '') {
+                $materials[$materialId] = (string) ($material['title'] ?? 'Source-backed study material');
+            }
+        }
+
+        $references = [];
+        foreach (App::storage()->all('study-question-links') as $link) {
+            if (!is_array($link)) {
+                continue;
+            }
+            $questionId = is_scalar($link['question_id'] ?? null) ? trim((string) $link['question_id']) : '';
+            $materialId = is_scalar($link['material_id'] ?? null) ? trim((string) $link['material_id']) : '';
+            if ($questionId === '' || !isset($questionIds[$questionId]) || !isset($materials[$materialId])) {
+                continue;
+            }
+            $references[$questionId][$materialId] = [
+                'material_id' => $materialId,
+                'title' => $materials[$materialId],
+            ];
+        }
+
+        foreach ($references as $questionId => $items) {
+            $references[$questionId] = array_values($items);
+        }
+
+        return $references;
+    }
+
     private static function normalizeExam(?string $exam): ?string
     {
         if ($exam === null) {
