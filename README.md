@@ -124,6 +124,15 @@ The local Termux/Android runtime reports `BROWSER_ACCEPTANCE=DEPENDENCY_MISSING`
 without changing application data; CI installs Chromium and treats browser
 failures as blocking.
 
+### Product completeness
+
+The technical release gate checks release and content integrity; it does not
+prove product completeness or public-launch readiness. Run
+`php tools/product-readiness.php` for the separate evidence-based feature,
+defect, missing-capability, and launch-evidence gate. A non-zero result while
+human, provider, privacy-owner, or board-specific evidence is unresolved is
+intentional. See [`docs/PRODUCT_READINESS.md`](docs/PRODUCT_READINESS.md).
+
 ## Release-candidate acceptance
 
 The single human acceptance entry point is

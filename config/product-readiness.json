@@ -1,0 +1,323 @@
+{
+    "schema_version": 1,
+    "assessment_id": "batch662-product-completeness",
+    "baseline_commit": "9995bf7d290ec4cf348113e9792b34a1f621ad64",
+    "release": "v1.0.1",
+    "technical_release_gate": "SEPARATE: php tools/doctor.php --release --json",
+    "feature_assessment": [
+        {
+            "FEATURE": "Home and learner entry",
+            "STATUS": "IMPLEMENTED_AND_VERIFIED",
+            "SCOPE_INCLUDED": true,
+            "LAUNCH_CRITICAL": true,
+            "EVIDENCE": ["Production home route and learner entry links are exercised by LearnerJourneyHttpTest."],
+            "TEST_COVERAGE": ["tools/Tests/LearnerJourneyHttpTest.php", "tools/Tests/HomepageVisualContractTest.php"]
+        },
+        {
+            "FEATURE": "Board discovery and board detail",
+            "STATUS": "PARTIAL",
+            "SCOPE_INCLUDED": true,
+            "LAUNCH_CRITICAL": true,
+            "EVIDENCE": ["PublicBoardDiscoveryTest verifies the 10-board listing and detail routes for LET and Architecture; other board-specific detail journeys are not individually verified."],
+            "TEST_COVERAGE": ["tools/Tests/PublicBoardDiscoveryTest.php"]
+        },
+        {
+            "FEATURE": "Practice quiz lifecycle, question selection, answers, explanations, submission, results, and recovery",
+            "STATUS": "IMPLEMENTED_AND_VERIFIED",
+            "SCOPE_INCLUDED": true,
+            "LAUNCH_CRITICAL": true,
+            "EVIDENCE": ["HTTP journey tests exercise production route handling, answer feedback, result review, exact-once persistence, stale submissions, and restart behavior."],
+            "TEST_COVERAGE": ["tools/Tests/LearnerJourneyHttpTest.php", "tools/Tests/QuizCompletionHttpTest.php", "tools/Tests/QuizStartFailureHttpTest.php", "tools/Tests/QuizSessionResilienceTest.php"]
+        },
+        {
+            "FEATURE": "Result review and learner-scoped history",
+            "STATUS": "IMPLEMENTED_AND_VERIFIED",
+            "SCOPE_INCLUDED": true,
+            "LAUNCH_CRITICAL": true,
+            "EVIDENCE": ["Historical result retrieval rejects records owned by a different anonymous learner identity."],
+            "TEST_COVERAGE": ["tools/Tests/HistoryResultHttpTest.php", "tools/Tests/MultiAttemptLearningHttpTest.php"]
+        },
+        {
+            "FEATURE": "Dashboard, progress, weakness analysis, and adaptive recommendations",
+            "STATUS": "IMPLEMENTED_AND_VERIFIED",
+            "SCOPE_INCLUDED": true,
+            "LAUNCH_CRITICAL": true,
+            "EVIDENCE": ["Learner-facing aggregates and recommendations are tied to the current session identity and exercised across learner pages."],
+            "TEST_COVERAGE": ["tools/Tests/LearnerJourneyHttpTest.php", "tools/Tests/LearnerDashboardReliabilityTest.php", "tools/Tests/LearningProgressTest.php", "tools/Tests/ProgressRecommendationViewTest.php"]
+        },
+        {
+            "FEATURE": "Exam mode",
+            "STATUS": "PARTIAL",
+            "SCOPE_INCLUDED": true,
+            "LAUNCH_CRITICAL": true,
+            "EVIDENCE": ["Exam-mode HTTP lifecycle and partial-result behavior are verified for LET. Batch 662 now discloses that the UI does not enforce a timer or reproduce every official board format; exact fidelity is not demonstrated for every board."],
+            "TEST_COVERAGE": ["tools/Tests/ExamSimulationHttpTest.php", "tools/Tests/ExamSimulationBlueprintTest.php"]
+        },
+        {
+            "FEATURE": "Flashcard discovery, reveal, review, and scheduling",
+            "STATUS": "IMPLEMENTED_AND_VERIFIED",
+            "SCOPE_INCLUDED": true,
+            "LAUNCH_CRITICAL": false,
+            "EVIDENCE": ["HTTP tests cover reveal-before-rating, CSRF-protected review, storage, filters, empty states, and learner ownership."],
+            "TEST_COVERAGE": ["tools/Tests/FlashcardHttpTest.php", "tools/Tests/FlashcardIntegrationTest.php", "tools/Tests/FlashcardSchedulingTest.php"]
+        },
+        {
+            "FEATURE": "Source-backed study library and flashcard-to-material navigation",
+            "STATUS": "IMPLEMENTED_AND_VERIFIED",
+            "SCOPE_INCLUDED": true,
+            "LAUNCH_CRITICAL": false,
+            "EVIDENCE": ["Published materials include provenance; Batch 662 verifies board-scoped discovery and direct material links from flashcard references."],
+            "TEST_COVERAGE": ["tools/Tests/StudyLibraryNavigationTest.php", "tools/Tests/FlashcardHttpTest.php", "tools/Tests/SourceStudyLibraryTest.php"]
+        },
+        {
+            "FEATURE": "Question-level study support in practice feedback and result review",
+            "STATUS": "IMPLEMENTED_AND_VERIFIED",
+            "SCOPE_INCLUDED": true,
+            "LAUNCH_CRITICAL": false,
+            "EVIDENCE": ["All 8,962 canonical questions have study-question links in the baseline data; Batch 662 renders the linked published material from feedback and result review."],
+            "TEST_COVERAGE": ["tools/Tests/QuestionStudyReferenceTest.php", "tools/Tests/SourceStudyLibraryTest.php"]
+        },
+        {
+            "FEATURE": "Anonymous learner identity and same-browser persistence",
+            "STATUS": "IMPLEMENTED_AND_VERIFIED",
+            "SCOPE_INCLUDED": true,
+            "LAUNCH_CRITICAL": true,
+            "EVIDENCE": ["Random per-session learner identities scope attempts, weakness, and flashcard state; cookie clearing loses access to that identity."],
+            "TEST_COVERAGE": ["tools/Tests/MultiAttemptLearningHttpTest.php", "tools/Tests/SessionConfigurationTest.php", "tools/Tests/FlashcardHttpTest.php"]
+        },
+        {
+            "FEATURE": "Mobile layout and practical accessibility",
+            "STATUS": "IMPLEMENTED_UNVERIFIED",
+            "SCOPE_INCLUDED": true,
+            "LAUNCH_CRITICAL": true,
+            "EVIDENCE": ["Structural view contracts cover focus, labels, landmarks, wrapping, and touch-size tokens. No Playwright installation or real browser/device session is available in this environment."],
+            "TEST_COVERAGE": ["tools/Tests/LearnerMobileAccessibilityViewTest.php", "tools/Tests/LearnerNavigationUxTest.php", "tests/browser"]
+        },
+        {
+            "FEATURE": "Production administration and content authoring",
+            "STATUS": "INTENTIONALLY_DEFERRED",
+            "SCOPE_INCLUDED": false,
+            "LAUNCH_CRITICAL": false,
+            "EVIDENCE": ["MVP_RELEASE_SCOPE.md excludes role-based production administration; curated content is release-managed. Developer authoring and Doctor routes are disabled in production."],
+            "TEST_COVERAGE": ["tools/Tests/ProductionQuizCsrfTest.php", "tools/Tests/DeveloperToolsTest.php"]
+        },
+        {
+            "FEATURE": "Production error handling and private diagnostics boundary",
+            "STATUS": "IMPLEMENTED_AND_VERIFIED",
+            "SCOPE_INCLUDED": true,
+            "LAUNCH_CRITICAL": true,
+            "EVIDENCE": ["Production mode suppresses detailed exception output and rejects Developer/Doctor HTTP routes; health output is intentionally limited."],
+            "TEST_COVERAGE": ["tools/Tests/ProductionFoundationTest.php", "tools/Tests/ProductionQuizCsrfTest.php", "tools/Tests/SecurityTrustBoundaryTest.php"]
+        },
+        {
+            "FEATURE": "Data transparency and deployment-specific privacy terms",
+            "STATUS": "PARTIAL",
+            "SCOPE_INCLUDED": true,
+            "LAUNCH_CRITICAL": true,
+            "EVIDENCE": ["Batch 662 adds an in-product data notice describing anonymous identity and stored learner state. Operator identity, contact, retention schedule, deletion process, and hosting log/backup terms remain provider-specific and unverified."],
+            "TEST_COVERAGE": ["tools/Tests/ProductReadinessTest.php"]
+        }
+    ],
+    "board_assessment": [
+        {"BOARD": "LET", "STATUS": "PARTIAL", "EVIDENCE": "Public detail, practice lifecycle, exam-mode lifecycle, and study-material filter have targeted coverage; the complete set of board-specific flows and human presentation are not accepted."},
+        {"BOARD": "CSE", "STATUS": "IMPLEMENTED_UNVERIFIED", "EVIDENCE": "Listed among the ten populated boards and has published study materials; no independent full learner HTTP journey was run in Batch 662."},
+        {"BOARD": "NURSING", "STATUS": "IMPLEMENTED_UNVERIFIED", "EVIDENCE": "Listed among the ten populated boards and has published study materials; no independent full learner HTTP journey was run in Batch 662."},
+        {"BOARD": "CRIMINOLOGIST", "STATUS": "IMPLEMENTED_UNVERIFIED", "EVIDENCE": "Listed among the ten populated boards and has published study materials; no independent full learner HTTP journey was run in Batch 662."},
+        {"BOARD": "CIVIL_ENGINEERING", "STATUS": "IMPLEMENTED_UNVERIFIED", "EVIDENCE": "Listed among the ten populated boards and has published study materials; no independent full learner HTTP journey was run in Batch 662."},
+        {"BOARD": "MECHANICAL_ENGINEERING", "STATUS": "IMPLEMENTED_UNVERIFIED", "EVIDENCE": "Listed among the ten populated boards and has published study materials; no independent full learner HTTP journey was run in Batch 662."},
+        {"BOARD": "REE", "STATUS": "IMPLEMENTED_UNVERIFIED", "EVIDENCE": "Listed among the ten populated boards and has published study materials; no independent full learner HTTP journey was run in Batch 662."},
+        {"BOARD": "ARCHITECTURE", "STATUS": "PARTIAL", "EVIDENCE": "Public detail route and study-material filter are covered; no independent full practice/history/progress/explanation journey was run in Batch 662."},
+        {"BOARD": "PSYCHOMETRICIAN", "STATUS": "IMPLEMENTED_UNVERIFIED", "EVIDENCE": "Listed among the ten populated boards and has published study materials; no independent full learner HTTP journey was run in Batch 662."},
+        {"BOARD": "CPA", "STATUS": "IMPLEMENTED_UNVERIFIED", "EVIDENCE": "Listed among the ten populated boards and has published study materials; no independent full learner HTTP journey was run in Batch 662."}
+    ],
+    "findings": [
+        {
+            "ID": "BP662-DEF-001",
+            "FEATURE": "Flashcard study references",
+            "USER_IMPACT": "A learner following a study-support title could not reach the referenced material directly.",
+            "EVIDENCE": "FlashcardDerivationService supplied material_id, but the review template linked every reference to /study-library.",
+            "REPRODUCTION": "Open a revealed flashcard with study references and activate a reference title.",
+            "SEVERITY": "P2",
+            "ROOT_CAUSE": "The learner template discarded the material identity already present in derived references.",
+            "STATUS": "FIXED",
+            "FIX_COMMIT": "83d762ba98513f7aabf5096daac652b55f0caceb",
+            "TEST_COVERAGE": "tools/Tests/FlashcardHttpTest.php; tools/Tests/StudyLibraryNavigationTest.php",
+            "RELEASE_BLOCKING": false,
+            "DEPENDENCIES": []
+        },
+        {
+            "ID": "BP662-DEF-002",
+            "FEATURE": "Board-scoped study navigation",
+            "USER_IMPACT": "Learners on an examination detail page had no direct way to open the material library filtered to that board.",
+            "EVIDENCE": "home/exam.php linked to practice and exam mode but had no study-library link; StudyLibraryService already supports board filtering.",
+            "REPRODUCTION": "Open /exams?exam=LET and inspect the board actions.",
+            "SEVERITY": "P2",
+            "ROOT_CAUSE": "The board detail template did not connect its available study-material route.",
+            "STATUS": "FIXED",
+            "FIX_COMMIT": "83d762ba98513f7aabf5096daac652b55f0caceb",
+            "TEST_COVERAGE": "tools/Tests/PublicBoardDiscoveryTest.php; tools/Tests/StudyLibraryNavigationTest.php",
+            "RELEASE_BLOCKING": false,
+            "DEPENDENCIES": []
+        },
+        {
+            "ID": "BP662-DEF-003",
+            "FEATURE": "Release identity in shared layout",
+            "USER_IMPACT": "Every page displayed an obsolete v0.1 footer on the v1.0.1 product.",
+            "EVIDENCE": "The shared layout contained a literal BoardPrep v0.1 label.",
+            "REPRODUCTION": "Open any production learner page and inspect the footer.",
+            "SEVERITY": "P2",
+            "ROOT_CAUSE": "The footer version was hard-coded and not connected to release configuration.",
+            "STATUS": "FIXED",
+            "FIX_COMMIT": "83d762ba98513f7aabf5096daac652b55f0caceb",
+            "TEST_COVERAGE": "tools/Tests/ProductReadinessTest.php",
+            "RELEASE_BLOCKING": false,
+            "DEPENDENCIES": []
+        },
+        {
+            "ID": "BP662-DEF-004",
+            "FEATURE": "Anonymous learner data transparency",
+            "USER_IMPACT": "Learners had no in-product explanation that progress is tied to a browser session and remains server-side after cookie clearing.",
+            "EVIDENCE": "No privacy/data handling route or notice was present in the production route table or shared navigation.",
+            "REPRODUCTION": "Review production navigation and footer before Batch 662.",
+            "SEVERITY": "P2",
+            "ROOT_CAUSE": "The release documented session settings but did not disclose learner-state behavior to learners.",
+            "STATUS": "FIXED_WITH_LIMITATION",
+            "FIX_COMMIT": "83d762ba98513f7aabf5096daac652b55f0caceb",
+            "TEST_COVERAGE": "tools/Tests/ProductReadinessTest.php",
+            "RELEASE_BLOCKING": false,
+            "DEPENDENCIES": ["Site-specific privacy terms remain an open launch capability."]
+        },
+        {
+            "ID": "BP662-DEF-005",
+            "FEATURE": "Exam-mode expectations",
+            "USER_IMPACT": "A learner could mistake exam mode for a timed, exact official exam replica.",
+            "EVIDENCE": "Exam-mode route supports exam-style answer withholding and selectable counts; no timer is enforced and exact board-format coverage was not demonstrated.",
+            "REPRODUCTION": "Open quiz setup, select Exam Simulation, and inspect the setup instructions and session behavior.",
+            "SEVERITY": "P2",
+            "ROOT_CAUSE": "The mode's supported limits were not disclosed at its point of use.",
+            "STATUS": "FIXED_WITH_LIMITATION",
+            "FIX_COMMIT": "83d762ba98513f7aabf5096daac652b55f0caceb",
+            "TEST_COVERAGE": "tools/Tests/ProductReadinessTest.php; tools/Tests/ExamSimulationHttpTest.php",
+            "RELEASE_BLOCKING": false,
+            "DEPENDENCIES": ["A timer and official-format implementation remain deferred."]
+        },
+        {
+            "ID": "BP662-DEF-006",
+            "FEATURE": "Question-to-study resource navigation",
+            "USER_IMPACT": "Learners could read a question explanation but could not follow its linked source-backed material from practice feedback or result review.",
+            "EVIDENCE": "All 8,962 canonical questions have entries in study-question-links.json; quiz views did not render those links before Batch 662.",
+            "REPRODUCTION": "Submit an answer or open a historical result for a linked question and look for a study-support link.",
+            "SEVERITY": "P2",
+            "ROOT_CAUSE": "Question-to-material mappings were used by data validation and flashcard derivation but not connected to learner quiz templates.",
+            "STATUS": "FIXED",
+            "FIX_COMMIT": "83d762ba98513f7aabf5096daac652b55f0caceb",
+            "TEST_COVERAGE": "tools/Tests/QuestionStudyReferenceTest.php; tools/Tests/StudyLibraryNavigationTest.php",
+            "RELEASE_BLOCKING": false,
+            "DEPENDENCIES": []
+        },
+        {
+            "ID": "BP662-DEF-007",
+            "FEATURE": "Source registry validation",
+            "USER_IMPACT": "A valid source registry was reported invalid by the existing source/study regression check, obscuring genuine provenance defects and making the test suite fail.",
+            "EVIDENCE": "The committed sources.json uses 11 additional source_type categories that SourceRegistryService::validate() did not accept.",
+            "REPRODUCTION": "Run php tools/Tests/SourceStudyLibraryTest.php against the Batch 661 baseline.",
+            "SEVERITY": "P3",
+            "ROOT_CAUSE": "The validator's hard-coded allowed-type list was not updated with the committed source taxonomy.",
+            "STATUS": "FIXED",
+            "FIX_COMMIT": "83d762ba98513f7aabf5096daac652b55f0caceb",
+            "TEST_COVERAGE": "tools/Tests/SourceStudyLibraryTest.php",
+            "RELEASE_BLOCKING": false,
+            "DEPENDENCIES": []
+        }
+    ],
+    "missing_capabilities": [
+        {
+            "ID": "BP662-CAP-001",
+            "FEATURE": "Site-specific privacy terms and learner data controls",
+            "USER_IMPACT": "Learners cannot identify the deployment operator, review a fixed retention policy, request deletion/export through BoardPrep, or see provider-specific log and backup practices.",
+            "EVIDENCE": "The in-product notice explicitly discloses the absence of account, export, and deletion features; hosting provider and operator details are unknown.",
+            "REPRODUCTION": "Read /privacy and compare its deployment-specific disclosures with the deployed site's actual owner and retention terms.",
+            "SEVERITY": "P2",
+            "ROOT_CAUSE": "No site operator, provider, contact, retention decision, or deletion process was supplied for this audit.",
+            "STATUS": "MISSING",
+            "FIX_COMMIT": "",
+            "TEST_COVERAGE": "tools/Tests/ProductReadinessTest.php verifies disclosure only, not provider/legal readiness.",
+            "RELEASE_BLOCKING": true,
+            "DEPENDENCIES": ["Real deployment owner and hosting contract", "Owner/legal review"]
+        },
+        {
+            "ID": "BP662-CAP-002",
+            "FEATURE": "Cross-device learner accounts and recovery",
+            "USER_IMPACT": "An anonymous learner cannot recover progress after switching browser/device or clearing the session cookie.",
+            "EVIDENCE": "LearnerIdentityService stores a random ID in the PHP session; no account, login, password recovery, or identity linking routes exist. Cross-device access appears in long-term vision, not frozen MVP scope.",
+            "REPRODUCTION": "Complete an attempt and open the app in a new browser session; learner history is not linked.",
+            "SEVERITY": "P2",
+            "ROOT_CAUSE": "The MVP intentionally uses anonymous browser-session identity.",
+            "STATUS": "INTENTIONALLY_DEFERRED",
+            "FIX_COMMIT": "",
+            "TEST_COVERAGE": "tools/Tests/MultiAttemptLearningHttpTest.php",
+            "RELEASE_BLOCKING": false,
+            "DEPENDENCIES": []
+        },
+        {
+            "ID": "BP662-CAP-003",
+            "FEATURE": "Timed, official-format exam simulation for every board",
+            "USER_IMPACT": "The current exam mode does not enforce a time limit and does not demonstrate official-format fidelity across all ten boards.",
+            "EVIDENCE": "ExamSimulationHttpTest covers a short LET exam-mode flow; no learner-side timer was found in the mode UI or lifecycle.",
+            "REPRODUCTION": "Choose Exam Simulation in quiz setup and observe that no countdown or time limit is applied.",
+            "SEVERITY": "P2",
+            "ROOT_CAUSE": "The v1 MVP implements an exam-mode quiz workflow, not a complete timed replica of every board exam.",
+            "STATUS": "INTENTIONALLY_DEFERRED",
+            "FIX_COMMIT": "",
+            "TEST_COVERAGE": "tools/Tests/ExamSimulationHttpTest.php; tools/Tests/ExamSimulationBlueprintTest.php",
+            "RELEASE_BLOCKING": false,
+            "DEPENDENCIES": ["Official format and duration evidence per board"]
+        },
+        {
+            "ID": "BP662-CAP-004",
+            "FEATURE": "Production content authoring/admin login",
+            "USER_IMPACT": "Operators cannot edit curated content from the public production UI.",
+            "EVIDENCE": "All authoring and Doctor browser routes are registered only when APP_ENV is not production. MVP_RELEASE_SCOPE.md excludes role-based production administration.",
+            "REPRODUCTION": "Request /developer or /question-editor in production; the routes are absent and return 404.",
+            "SEVERITY": "P3",
+            "ROOT_CAUSE": "Content is intended to change through reviewed code/release packages, not live web authoring.",
+            "STATUS": "INTENTIONALLY_DEFERRED",
+            "FIX_COMMIT": "",
+            "TEST_COVERAGE": "tools/Tests/ProductionQuizCsrfTest.php; tools/Tests/DeveloperToolsTest.php",
+            "RELEASE_BLOCKING": false,
+            "DEPENDENCIES": []
+        }
+    ],
+    "mandatory_launch_evidence": [
+        {
+            "EVIDENCE": "Human acceptance MVP-01 through MVP-12 on a real browser/device",
+            "STATUS": "NOT_VERIFIED",
+            "REQUIRED": true,
+            "REASON": "No human tester session or device evidence was supplied."
+        },
+        {
+            "EVIDENCE": "Real-browser mobile visual, overflow, keyboard, and accessibility behavior",
+            "STATUS": "NOT_VERIFIED",
+            "REQUIRED": true,
+            "REASON": "Playwright is unavailable in this Termux environment; static contracts are not a visual pass."
+        },
+        {
+            "EVIDENCE": "Site-specific privacy terms, operator contact, retention, and deletion process",
+            "STATUS": "NOT_VERIFIED",
+            "REQUIRED": true,
+            "REASON": "No deployment owner/provider details or approved policy were supplied."
+        },
+        {
+            "EVIDENCE": "Live HTTPS deployment, provider PHP/extensions, session cookie, filesystem permissions, and routes",
+            "STATUS": "NOT_VERIFIED",
+            "REQUIRED": true,
+            "REASON": "No hosting account or domain is available; local simulations cannot prove remote behavior."
+        },
+        {
+            "EVIDENCE": "Per-board full learner journeys for all ten boards",
+            "STATUS": "NOT_VERIFIED",
+            "REQUIRED": true,
+            "REASON": "Board list/detail and shared generic flows have limited coverage; not all ten board-specific journeys were independently executed."
+        }
+    ]
+}

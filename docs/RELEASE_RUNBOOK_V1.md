@@ -156,6 +156,12 @@ without a verified backup and an explicit change decision.
 
 ## Deploy
 
+Before a public launch, run `php tools/product-readiness.php` in addition to
+the technical Doctor release gate. Product readiness remains NO until required
+human acceptance, site-specific privacy terms, real-provider checks, browser
+acceptance, and board-journey evidence are recorded. A technical release PASS
+does not waive those product checks; see [`PRODUCT_READINESS.md`](PRODUCT_READINESS.md).
+
 1. Record the previous known-good commit and back up persistent state.
 2. Prepare the domain or subdomain, point DNS to the provider, enable HTTPS,
    and confirm PHP receives the HTTPS state for secure session cookies.
