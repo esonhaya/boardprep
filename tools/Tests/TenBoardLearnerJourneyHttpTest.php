@@ -277,6 +277,14 @@ try {
             || !str_contains($result['output'], htmlspecialchars((string) $question['explanation'], ENT_QUOTES, 'UTF-8'))) {
             throw new RuntimeException('Scoring or result review failed for ' . $boardCode . '.');
         }
+        if (!preg_match('~href="([^"]*/quiz\?[^\"]*action=start[^\"]*)"~', $result['output'], $resultActionMatch)) {
+            throw new RuntimeException('Result page did not expose a usable retry action for ' . $boardCode . '.');
+        }
+        $resultActionUrl = html_entity_decode($resultActionMatch[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        parse_str((string) parse_url($resultActionUrl, PHP_URL_QUERY), $resultActionQuery);
+        if (($resultActionQuery['exam'] ?? '') !== $boardCode) {
+            throw new RuntimeException('Result retry action changed board context for ' . $boardCode . ': ' . json_encode($resultActionQuery));
+        }
         $attempts = $fixtureStorage->all('attempts');
         $saved = $attempts[count($attempts) - 1] ?? null;
         if (!is_array($saved) || ($saved['board'] ?? '') !== $boardCode
@@ -288,15 +296,17 @@ try {
         $progress = $http->request('GET', '/progress', [], [], [], $cookies);
         $history = $http->request('GET', '/history', [], [], [], $cookies);
         if (!$progress['success'] || !$history['success']
-            || !str_contains($history['output'], 'Quiz History')) {
+            || !str_contains($history['output'], 'Quiz History')
+            || !str_contains($history['output'], htmlspecialchars($boardName, ENT_QUOTES, 'UTF-8'))
+            || !str_contains($progress['output'], htmlspecialchars($boardName, ENT_QUOTES, 'UTF-8'))) {
             throw new RuntimeException('Saved learner history or progress failed for ' . $boardCode . '.');
         }
 
-        $retrySetup = $http->request('GET', '/quiz', $query, [], [], $cookies);
+        $retrySetup = $http->request('GET', '/quiz', $resultActionQuery, [], [], $cookies);
         if (!$retrySetup['success'] || !preg_match('/name="csrf_token" value="([a-f0-9]{64})"/', $retrySetup['output'], $retryCsrf)) {
             throw new RuntimeException('Retry setup failed for ' . $boardCode . '.');
         }
-        $retryFields = $postFields;
+        $retryFields = array_merge($resultActionQuery, $postFields);
         $retryFields['csrf_token'] = $retryCsrf[1];
         $retry = $http->request('POST', '/quiz', [], $retryFields, [], $cookies);
         $stale = $http->request('POST', '/quiz', [], [

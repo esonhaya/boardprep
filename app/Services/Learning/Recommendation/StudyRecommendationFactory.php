@@ -17,15 +17,47 @@ final class StudyRecommendationFactory
         }
 
         $subject = self::text($topic['subject'] ?? '');
-        $action = StudyActionService::quizForTopic($name, $subject);
+        $board = self::text($topic['board'] ?? '');
+        $letLevel = self::text($topic['let_level'] ?? '');
+        $letSpecialization = self::text($topic['let_specialization'] ?? '');
+        $civilServiceLevel = self::text($topic['civil_service_level'] ?? '');
+        $action = StudyActionService::quizForTopic(
+            $name,
+            $subject,
+            'practice',
+            5,
+            'mixed',
+            $board,
+            $letLevel,
+            $letSpecialization,
+            $civilServiceLevel
+        );
         $displayName = TaxonomyStorageService::label('taxonomy/topics', $name);
+        $boardLabel = $board !== '' ? TaxonomyStorageService::label('boards', $board) : '';
+        $variantLabel = '';
+        if ($civilServiceLevel !== '') {
+            $variantLabel = ucfirst(strtolower(str_replace('_', ' ', $civilServiceLevel)));
+        } elseif ($letLevel !== '') {
+            $variantLabel = ucfirst(strtolower($letLevel));
+            if ($letSpecialization !== '') {
+                $specialization = TaxonomyStorageService::find('let-specializations', $letSpecialization);
+                $variantLabel .= ' · ' . (is_array($specialization)
+                    ? self::text($specialization['official_name'] ?? $letSpecialization)
+                    : TaxonomyStorageService::label('let-specializations', $letSpecialization));
+            }
+        }
+        $contextLabels = array_filter([$boardLabel, $variantLabel]);
 
         return [
             'type' => 'topic',
-            'title' => "Review {$displayName}",
+            'title' => "Review {$displayName}" . ($contextLabels !== [] ? ' · ' . implode(' · ', $contextLabels) : ''),
             'reason' => 'Current average: ' . (int) ($topic['average'] ?? 0) . '%',
             'topic' => $name,
             'subject' => $action['subject'],
+            'board' => $board,
+            'let_level' => $letLevel,
+            'let_specialization' => $letSpecialization,
+            'civil_service_level' => $civilServiceLevel,
             'action' => StudyActionService::url($action),
             'label' => "Practice {$displayName}",
         ];

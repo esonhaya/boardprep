@@ -13,11 +13,19 @@ final class SubjectPerformanceService
         $rows = [];
 
         foreach (LearningAttemptNormalizer::all($attempts) as $attempt) {
-            $subject = LearningAttemptContext::fromAttempt($attempt)['subject'];
+            $context = LearningAttemptContext::fromAttempt($attempt);
+            $subject = $context['subject'];
             $subject = $subject !== '' ? $subject : 'General';
-            $key = strtolower($subject);
+            $key = implode("\0", array_map(
+                static fn(string $field): string => strtolower((string) ($context[$field] ?? '')),
+                ['board', 'let_level', 'let_specialization', 'civil_service_level']
+            )) . "\0" . strtolower($subject);
             $rows[$key] ??= [
                 'subject' => $subject,
+                'board' => $context['board'],
+                'let_level' => $context['let_level'],
+                'let_specialization' => $context['let_specialization'],
+                'civil_service_level' => $context['civil_service_level'],
                 'attempts' => 0,
                 'average' => 0,
                 'best' => 0,
@@ -38,6 +46,7 @@ final class SubjectPerformanceService
         $rows = array_values($rows);
         usort($rows, static fn(array $a, array $b): int =>
             ($b['average'] <=> $a['average'])
+            ?: strcasecmp((string) ($a['board'] ?? ''), (string) ($b['board'] ?? ''))
             ?: strcasecmp($a['subject'], $b['subject'])
         );
         return $rows;

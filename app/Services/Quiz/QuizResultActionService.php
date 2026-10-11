@@ -19,9 +19,19 @@ final class QuizResultActionService
             'difficulty' => $context['difficulty'],
         ];
 
-        if (in_array(strtolower((string) ($context['board'] ?? '')), ['cse', 'civil-service'], true)) {
+        if (($context['has_board_context'] ?? false) === true) {
             $params['exam'] = $context['board'];
+        }
+        if (in_array(strtolower((string) ($context['board'] ?? '')), ['cse', 'civil-service'], true)) {
             $params['civil_service_level'] = $context['civil_service_level'] ?? '';
+        }
+        if (strtolower((string) ($context['board'] ?? '')) === 'let') {
+            if (($context['let_level'] ?? '') !== '') {
+                $params['let_level'] = $context['let_level'];
+            }
+            if (($context['let_specialization'] ?? '') !== '') {
+                $params['let_specialization'] = $context['let_specialization'];
+            }
         }
 
         if ($context['topic'] !== '') {

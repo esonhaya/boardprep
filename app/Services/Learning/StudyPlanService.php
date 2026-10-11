@@ -22,14 +22,15 @@ final class StudyPlanService
                 $name,
                 "Focus",
                 (int) ($topic["average"] ?? 0),
-                self::text($topic["subject"] ?? "English")
+                self::text($topic["subject"] ?? "English"),
+                $topic
             );
         }
 
         foreach ($dashboard["recommendations"] ?? [] as $recommendation) {
             $name = self::text($recommendation["topic"] ?? "");
             $subject = self::text($recommendation["subject"] ?? "English") ?: "English";
-            if ($name === "" || self::contains($plan, $name, $subject)) {
+            if ($name === "" || self::contains($plan, $name, $subject, $recommendation)) {
                 continue;
             }
 
@@ -37,7 +38,8 @@ final class StudyPlanService
                 $name,
                 "Recommended",
                 null,
-                $subject
+                $subject,
+                $recommendation
             );
         }
 
@@ -52,16 +54,32 @@ final class StudyPlanService
         string $topic,
         string $type,
         ?int $average,
-        string $subject
+        string $subject,
+        array $context = []
     ): array {
+        $board = self::text($context['board'] ?? '');
+        $letLevel = self::text($context['let_level'] ?? '');
+        $letSpecialization = self::text($context['let_specialization'] ?? '');
+        $civilServiceLevel = self::text($context['civil_service_level'] ?? '');
         $spec = StudyActionService::quizForTopic(
             $topic,
-            $subject !== "" ? $subject : "English"
+            $subject !== "" ? $subject : "English",
+            'practice',
+            5,
+            'mixed',
+            $board,
+            $letLevel,
+            $letSpecialization,
+            $civilServiceLevel
         );
 
         return [
             "topic" => $topic,
             "subject" => $spec["subject"],
+            "board" => $board,
+            "let_level" => $letLevel,
+            "let_specialization" => $letSpecialization,
+            "civil_service_level" => $civilServiceLevel,
             "type" => $type,
             "average" => $average,
             "action" => StudyActionService::url($spec),
@@ -71,8 +89,21 @@ final class StudyPlanService
         ];
     }
 
-    private static function contains(array $plan, string $topic, string $subject): bool
+    private static function contains(array $plan, string $topic, string $subject, array $context): bool
     {
+        $sameContext = static function (array $item) use ($context): bool {
+            foreach (['board', 'let_level', 'let_specialization', 'civil_service_level'] as $field) {
+                if (strcasecmp(
+                    (string) ($item[$field] ?? ''),
+                    (string) ($context[$field] ?? '')
+                ) !== 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        };
+
         foreach ($plan as $item) {
             if (
                 strcasecmp(
@@ -83,6 +114,7 @@ final class StudyPlanService
                     (string) ($item["subject"] ?? ""),
                     $subject
                 ) === 0
+                && $sameContext($item)
             ) {
                 return true;
             }

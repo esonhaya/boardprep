@@ -12,6 +12,25 @@ $studyPlan = $dashboard["studyPlan"] ?? [];
 $history = $history ?? [];
 $weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
 $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Services\Shared\TaxonomyStorageService::label($collection, $id);
+$learningContextLabel = static function (array $row) use ($taxonomyLabel): string {
+    $labels = [];
+    if (($row['board'] ?? '') !== '') {
+        $labels[] = $taxonomyLabel('boards', $row['board']);
+    }
+    if (($row['civil_service_level'] ?? '') !== '') {
+        $labels[] = ucfirst(strtolower(str_replace('_', ' ', (string) $row['civil_service_level'])));
+    }
+    if (($row['let_level'] ?? '') !== '') {
+        $labels[] = ucfirst(strtolower((string) $row['let_level']));
+    }
+    if (($row['let_specialization'] ?? '') !== '') {
+        $specialization = \App\Services\Shared\TaxonomyStorageService::find('let-specializations', (string) $row['let_specialization']);
+        $labels[] = is_array($specialization)
+            ? (string) ($specialization['official_name'] ?? $row['let_specialization'])
+            : $taxonomyLabel('let-specializations', $row['let_specialization']);
+    }
+    return implode(' · ', $labels);
+};
 ?>
 
 <h1>Study Dashboard</h1>
@@ -67,6 +86,7 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
             $label = (string) ($item["label"] ?? "Start practice");
             $action = (string) ($item["action"] ?? "/quiz");
             $average = $item["average"] ?? null;
+            $contextLabel = $learningContextLabel($item);
             ?>
             <article class="study-plan-item">
                 <h3>
@@ -78,6 +98,7 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
                     <?= htmlspecialchars($type) ?>
                     —
                     <?= htmlspecialchars($taxonomyLabel('subjects', $subject)) ?>
+                    <?= $contextLabel !== '' ? ' · ' . htmlspecialchars($contextLabel) : '' ?>
 
                     <?php if ($average !== null): ?>
                         — Current average:
@@ -153,6 +174,8 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
         <?php foreach ($weakest as $topic): ?>
             <article>
                 <h3><?= htmlspecialchars($taxonomyLabel('taxonomy/topics', $topic["topic"] ?? "General")) ?></h3>
+                <?php $contextLabel = $learningContextLabel($topic); ?>
+                <?php if ($contextLabel !== ''): ?><p><?= htmlspecialchars($contextLabel) ?></p><?php endif; ?>
                 <p>
                     Average:
                     <strong><?= (int) ($topic["average"] ?? 0) ?>%</strong>
@@ -171,7 +194,8 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
         <p><a class="button button-outline" href="/quiz">Start a practice quiz</a></p>
     <?php else: ?>
         <?php foreach ($subjects as $subject): ?>
-            <p><strong><?= htmlspecialchars($taxonomyLabel('subjects', $subject["subject"])) ?></strong> — <?= (int) $subject["average"] ?>% average · <?= (int) $subject["attempts"] ?> attempt<?= ((int) $subject["attempts"]) === 1 ? "" : "s" ?></p>
+            <?php $contextLabel = $learningContextLabel($subject); ?>
+            <p><strong><?= htmlspecialchars($taxonomyLabel('subjects', $subject["subject"])) ?></strong><?= $contextLabel !== '' ? ' · ' . htmlspecialchars($contextLabel) : '' ?> — <?= (int) $subject["average"] ?>% average · <?= (int) $subject["attempts"] ?> attempt<?= ((int) $subject["attempts"]) === 1 ? "" : "s" ?></p>
         <?php endforeach; ?>
     <?php endif; ?>
 
@@ -183,8 +207,10 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
         <p><a class="button button-outline" href="/quiz">Start a practice quiz</a></p>
     <?php else: ?>
         <?php foreach ($topics as $topic): ?>
+            <?php $contextLabel = $learningContextLabel($topic); ?>
             <article>
                 <h3><?= htmlspecialchars($taxonomyLabel('taxonomy/topics', $topic["topic"] ?? "General")) ?><?php if (($topic["subject"] ?? "") !== ""): ?> (<?= htmlspecialchars($taxonomyLabel('subjects', $topic["subject"])) ?>)<?php endif; ?></h3>
+                <?php if ($contextLabel !== ''): ?><p><?= htmlspecialchars($contextLabel) ?></p><?php endif; ?>
                 <p>
                     Average: <?= (int) ($topic["average"] ?? 0) ?>%
                     —

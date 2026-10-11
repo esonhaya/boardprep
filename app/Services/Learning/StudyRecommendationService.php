@@ -20,7 +20,11 @@ final class StudyRecommendationService
             $recommendation = StudyRecommendationFactory::forTopic($topic);
             if ($recommendation !== null) {
                 $key = strtolower(
-                    (string) ($recommendation['subject'] ?? '') . "\0"
+                    (string) ($recommendation['board'] ?? '') . "\0"
+                    . (string) ($recommendation['let_level'] ?? '') . "\0"
+                    . (string) ($recommendation['let_specialization'] ?? '') . "\0"
+                    . (string) ($recommendation['civil_service_level'] ?? '') . "\0"
+                    . (string) ($recommendation['subject'] ?? '') . "\0"
                     . (string) ($recommendation['topic'] ?? '')
                 );
                 if (isset($seen[$key])) {

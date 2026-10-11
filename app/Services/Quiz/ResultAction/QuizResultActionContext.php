@@ -11,10 +11,23 @@ final class QuizResultActionContext
     public static function fromSession(array $session): array
     {
         $topic = self::firstTopic($session);
+        $board = self::firstText([
+            $session['board'] ?? null,
+            $session['exam'] ?? null,
+            $session['learning_context']['board'] ?? null,
+        ]);
+        $letVariant = is_array($session['let_variant'] ?? null)
+            ? $session['let_variant']
+            : [];
 
         $normalized = QuizStartInputNormalizer::normalize([
-            'exam' => $session['board'] ?? '',
+            'exam' => $board,
             'civil_service_level' => $session['civil_service_level'] ?? '',
+            'let_level' => $session['let_level'] ?? $letVariant['level'] ?? '',
+            'let_specialization' => $session['let_specialization_id']
+                ?? $session['let_specialization']
+                ?? $letVariant['specialization_id']
+                ?? '',
             'topic' => $topic,
             'subject' => $session['subject'] ?? '',
             'mode' => $session['mode'] ?? '',
@@ -24,7 +37,10 @@ final class QuizResultActionContext
 
         return [
             'board' => $normalized['board'],
+            'has_board_context' => $board !== '',
             'civil_service_level' => $normalized['civil_service_level'],
+            'let_level' => $normalized['let_level'],
+            'let_specialization' => $normalized['let_specialization'],
             'topic' => $normalized['topics'][0] ?? '',
             'subject' => $normalized['subject'],
             'mode' => $normalized['mode'],
@@ -50,6 +66,18 @@ final class QuizResultActionContext
     private static function text(mixed $value): string
     {
         return is_scalar($value) ? trim((string) $value) : '';
+    }
+
+    private static function firstText(array $values): string
+    {
+        foreach ($values as $value) {
+            $text = self::text($value);
+            if ($text !== '') {
+                return $text;
+            }
+        }
+
+        return '';
     }
 
 }

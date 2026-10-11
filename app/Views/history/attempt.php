@@ -4,6 +4,8 @@ $topic = \App\Services\Shared\TaxonomyStorageService::label(
     'taxonomy/topics',
     \App\Services\Learning\LearningHistoryService::topicOf($attempt)
 );
+$board = \App\Services\Shared\TaxonomyStorageService::label('boards', $attempt['board'] ?? '');
+$subject = \App\Services\Shared\TaxonomyStorageService::label('subjects', $attempt['subject'] ?? '');
 $mode = is_scalar($attempt["mode"] ?? null) ? (string) $attempt["mode"] : "practice";
 $score = (int) ($attempt["score"] ?? 0);
 $total = (int) ($attempt["total"] ?? 0);
@@ -14,6 +16,7 @@ $attemptId = is_scalar($attempt["id"] ?? null)
 ?>
 <article class="quiz-history-item">
     <h3><?= htmlspecialchars($topic) ?></h3>
+    <?php if ($board !== '' || $subject !== ''): ?><p class="muted-note"><?= htmlspecialchars(implode(' · ', array_filter([$board, $subject]))) ?></p><?php endif; ?>
     <p>
         <span class="badge badge-info"><?= htmlspecialchars(ucfirst($mode !== "" ? $mode : "practice")) ?></span>
         <strong><?= \App\Support\Presentation\UiFormatter::formatPercentage($percentage) ?></strong> —

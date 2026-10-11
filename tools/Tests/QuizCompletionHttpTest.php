@@ -6,11 +6,48 @@ require_once dirname(__DIR__) . "/Doctor/Project/BoardPrep/Simulation/HttpSimula
 require_once dirname(__DIR__, 2) . "/app/Core/Autoloader.php";
 \App\Core\Autoloader::register();
 
-use App\Core\App;
-use App\Repositories\AttemptRepository;
 use Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator;
 
-$attemptsPath = dirname(__DIR__, 2) . '/storage/attempts.json';
+$root = dirname(__DIR__, 2);
+$fixturePath = sys_get_temp_dir() . '/boardprep-completion-' . bin2hex(random_bytes(6));
+if (!mkdir($fixturePath, 0700, true)) {
+    throw new RuntimeException('Unable to create isolated completion fixture.');
+}
+$mutableCollections = ['attempts', 'weakness', 'flashcard_state', 'question-statistics'];
+$iterator = new RecursiveIteratorIterator(
+    new RecursiveDirectoryIterator($root . '/storage', FilesystemIterator::SKIP_DOTS),
+    RecursiveIteratorIterator::SELF_FIRST
+);
+foreach ($iterator as $entry) {
+    $relative = substr($entry->getPathname(), strlen($root . '/storage') + 1);
+    $target = $fixturePath . '/' . $relative;
+    if ($entry->isDir()) {
+        if (!is_dir($target) && !mkdir($target, 0700, true)) {
+            throw new RuntimeException('Unable to create isolated storage directory.');
+        }
+        continue;
+    }
+    if (in_array(pathinfo($relative, PATHINFO_FILENAME), $mutableCollections, true)) {
+        continue;
+    }
+    if (!copy($entry->getPathname(), $target)) {
+        throw new RuntimeException('Unable to seed isolated completion storage.');
+    }
+}
+foreach ($mutableCollections as $collection) {
+    if (file_put_contents($fixturePath . '/' . $collection . '.json', "[]\n", LOCK_EX) === false) {
+        throw new RuntimeException('Unable to initialize isolated learner state.');
+    }
+}
+$originalEnvironment = [];
+foreach (['APP_ENV', 'APP_DEBUG', 'APP_STORAGE_PATH', 'DB_DRIVER'] as $environmentKey) {
+    $originalEnvironment[$environmentKey] = getenv($environmentKey);
+}
+putenv('APP_ENV=production');
+putenv('APP_DEBUG=false');
+putenv('APP_STORAGE_PATH=' . $fixturePath);
+putenv('DB_DRIVER=json');
+$attemptsPath = $fixturePath . '/attempts.json';
 $before = json_decode((string) file_get_contents($attemptsPath), true);
 $before = is_array($before) ? $before : [];
 $beforeIds = array_values(array_filter(array_map(
@@ -20,10 +57,15 @@ $beforeIds = array_values(array_filter(array_map(
     $before
 )));
 
-$simulator = new HttpSimulator(dirname(__DIR__, 2) . '/public/index.php');
-$cookies = ['PHPSESSID' => 'batch426-completion'];
+$simulator = new HttpSimulator($root . '/public/index.php');
+$cookies = ['PHPSESSID' => 'batch665-completion-' . bin2hex(random_bytes(5))];
 
 try {
+    $settings = $simulator->request('GET', '/quiz', [], [], [], $cookies);
+    if (!$settings['success'] || !preg_match('/name="csrf_token" value="([a-f0-9]{64})"/', $settings['output'], $csrfMatch)) {
+        throw new RuntimeException('HTTP completion test could not obtain the quiz CSRF token');
+    }
+
     $start = $simulator->request(
         'POST',
         '/quiz',
@@ -35,6 +77,7 @@ try {
             'mode' => 'exam',
             'difficulty' => 'mixed',
             'count' => 1,
+            'csrf_token' => $csrfMatch[1],
         ],
         [],
         $cookies
@@ -52,7 +95,7 @@ try {
         'POST',
         '/quiz',
         [],
-        ['action' => 'submit', 'question_id' => $matches[1], 'answer' => 'A'],
+        ['action' => 'submit', 'question_id' => $matches[1], 'answer' => 'A', 'csrf_token' => $csrfMatch[1]],
         [],
         $cookies
     );
@@ -60,7 +103,7 @@ try {
         throw new RuntimeException('final answer did not redirect to completion');
     }
 
-    $finish = $simulator->request('POST', '/quiz', [], ['action' => 'finish'], [], $cookies);
+    $finish = $simulator->request('POST', '/quiz', [], ['action' => 'finish', 'csrf_token' => $csrfMatch[1]], [], $cookies);
     $result = $simulator->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
     if (!$finish['success'] || $finish['status'] !== 303
         || !$result['success'] || !str_contains($result['output'], 'Quiz Result')
@@ -80,7 +123,7 @@ try {
         'POST',
         '/quiz',
         [],
-        ['action' => 'submit', 'question_id' => $matches[1], 'answer' => 'B'],
+        ['action' => 'submit', 'question_id' => $matches[1], 'answer' => 'B', 'csrf_token' => $csrfMatch[1]],
         [],
         $cookies
     );
@@ -101,14 +144,24 @@ try {
 
     echo "[PASS] HTTP completion renders result and persists one attempt across retries.\n";
 } finally {
-    $repository = App::container()->get(AttemptRepository::class);
-    $after = json_decode((string) file_get_contents($attemptsPath), true);
-    foreach (is_array($after) ? $after : [] as $attempt) {
-        $id = is_array($attempt) && is_scalar($attempt['id'] ?? null)
-            ? (string) $attempt['id']
-            : '';
-        if ($id !== '' && !in_array($id, $beforeIds, true)) {
-            $repository->delete($id);
+    $iterator = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($fixturePath, FilesystemIterator::SKIP_DOTS),
+        RecursiveIteratorIterator::CHILD_FIRST
+    );
+    foreach ($iterator as $entry) {
+        if ($entry->isDir()) {
+            @rmdir($entry->getPathname());
+        } else {
+            @unlink($entry->getPathname());
+        }
+    }
+    @rmdir($fixturePath);
+    @unlink($root . '/storage/doctor/simulation-sessions/sess-' . $cookies['PHPSESSID']);
+    foreach ($originalEnvironment as $environmentKey => $value) {
+        if ($value === false) {
+            putenv($environmentKey);
+        } else {
+            putenv($environmentKey . '=' . $value);
         }
     }
 }
