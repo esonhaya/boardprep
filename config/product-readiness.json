@@ -270,6 +270,62 @@
             "TEST_COVERAGE": "tools/Tests/TenBoardLearnerJourneyHttpTest.php; tools/Tests/PublicBoardDiscoveryTest.php",
             "RELEASE_BLOCKING": true,
             "DEPENDENCIES": []
+        },
+        {
+            "ID": "BP664-DEF-001",
+            "FEATURE": "Isolated browser fixture startup",
+            "USER_IMPACT": "The owner preview and browser test server could not start from the committed application archive, blocking local acceptance preparation.",
+            "EVIDENCE": "The committed archive measured 103,260,160 bytes, exceeding spawnSync's default 64 MiB output buffer; file-backed archive extraction now starts the production fixture and serves safe routes.",
+            "REPRODUCTION": "Run node tests/browser/server.cjs on the Batch 663 baseline; it failed with 'Unable to export committed browser fixture'.",
+            "SEVERITY": "P2",
+            "ROOT_CAUSE": "The test server buffered the complete git archive in memory with a 64 MiB cap.",
+            "STATUS": "FIXED",
+            "FIX_COMMIT": "4baae1272f7b56cce7613292ff7649a72e0ef807",
+            "TEST_COVERAGE": "Post-commit isolated production fixture smoke: /, /exams, /quiz?exam=LET, /privacy, and /health.php returned 200; developer and private paths returned 404.",
+            "RELEASE_BLOCKING": false,
+            "DEPENDENCIES": []
+        },
+        {
+            "ID": "BP664-DEF-002",
+            "FEATURE": "Browser journey test validity",
+            "USER_IMPACT": "Browser checks could report a learner flow that depended on subjects or question counts the visible product form does not offer.",
+            "EVIDENCE": "The prior helper injected hidden subject options and a two-question count directly into the DOM. It now selects only enabled visible choices and the offered five-question minimum.",
+            "REPRODUCTION": "Inspect the old startQuiz helper's evaluate/add Option logic and run it with a subject absent from the rendered form or count=2.",
+            "SEVERITY": "P2",
+            "ROOT_CAUSE": "Test setup bypassed the production UI and fabricated controls instead of exercising learner-visible inputs.",
+            "STATUS": "FIXED",
+            "FIX_COMMIT": "4baae1272f7b56cce7613292ff7649a72e0ef807",
+            "TEST_COVERAGE": "Browser test helper rejects unavailable visible options; production HTML options were checked over isolated HTTP. Playwright execution remains NOT_VERIFIED on Termux.",
+            "RELEASE_BLOCKING": true,
+            "DEPENDENCIES": ["Run npm run test:browser on supported desktop or CI Chromium before browser evidence can pass."]
+        },
+        {
+            "ID": "BP664-DEF-003",
+            "FEATURE": "Human exam-mode acceptance instructions",
+            "USER_IMPACT": "The owner was instructed to start a three-question session even though the learner UI offers five as the minimum, making the acceptance case impossible as written.",
+            "EVIDENCE": "Quiz setup exposes a five-question minimum; the Android guide now specifies the smallest offered count and MVP-06 has a regression assertion.",
+            "REPRODUCTION": "Follow the prior Stage D/MVP-06 instructions and attempt to select three questions.",
+            "SEVERITY": "P3",
+            "ROOT_CAUSE": "The human checklist assumed an unsupported question count rather than matching the real configuration options.",
+            "STATUS": "FIXED",
+            "FIX_COMMIT": "4baae1272f7b56cce7613292ff7649a72e0ef807",
+            "TEST_COVERAGE": "tools/Tests/ProductReadinessTest.php asserts the guide specifies five and no longer requests a three-question exam.",
+            "RELEASE_BLOCKING": false,
+            "DEPENDENCIES": []
+        },
+        {
+            "ID": "BP664-DEF-004",
+            "FEATURE": "Exam-mode product readiness disclosure check",
+            "USER_IMPACT": "The product readiness report marked truthful learner-facing exam-mode limitations as undisclosed and incorrectly added a failed critical capability check.",
+            "EVIDENCE": "The live copy says 'does not enforce a timer or reproduce every official board-exam format'; the engine previously required 'does not reproduce' without the actual conjunction wording.",
+            "REPRODUCTION": "Run php tools/product-readiness.php --json before the fix; unsupported_exam_mode_claim_disclosed was false despite the actual settings copy.",
+            "SEVERITY": "P2",
+            "ROOT_CAUSE": "The readiness matcher accepted only one grammatical form and did not match the application's precise disclosure text.",
+            "STATUS": "FIXED",
+            "FIX_COMMIT": "4baae1272f7b56cce7613292ff7649a72e0ef807",
+            "TEST_COVERAGE": "tools/Tests/ProductReadinessTest.php asserts the live wording is recognized; the readiness output now reports the check PASS.",
+            "RELEASE_BLOCKING": false,
+            "DEPENDENCIES": []
         }
     ],
     "missing_capabilities": [
