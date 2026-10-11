@@ -1,4 +1,5 @@
 const { execFileSync } = require('node:child_process');
+const fs = require('node:fs');
 const path = require('node:path');
 
 const {
@@ -6,6 +7,7 @@ const {
   expect,
   assertPageHealthy,
   tabToKeyboardFocus,
+  recordBrowserEvidence,
 } = require('../fixtures/test.cjs');
 
 const boards = [
@@ -19,6 +21,19 @@ const boards = [
   ['ME', 'mechanical-engineering'],
   ['REE', 'registered-electrical-engineering'],
   ['ARCH', 'architecture'],
+];
+
+const fullJourneyBoards = [
+  ['LET', 'let'],
+  ['CSE', 'civil-service'],
+  ['NLE', 'nursing'],
+  ['CLE', 'criminologist'],
+  ['CE', 'civil-engineering'],
+  ['ME', 'mechanical-engineering'],
+  ['REE', 'registered-electrical-engineering'],
+  ['ARCH', 'architecture'],
+  ['PLE', 'psychometrician'],
+  ['CPA', 'cpa'],
 ];
 
 let questions;
@@ -48,28 +63,44 @@ async function startQuiz(page, {
   count = '5',
   difficulty = 'mixed',
 } = {}) {
-  const query = new URLSearchParams({ exam, subject, topic, count, difficulty });
+  const query = new URLSearchParams({ exam, topic });
   await page.goto(`/quiz?${query.toString()}`);
   const subjectSelect = page.locator('#quiz-subject');
-  await subjectSelect.evaluate((select, value) => {
-    if (![...select.options].some((option) => option.value === value)) {
-      select.add(new Option(value, value));
-    }
-    select.value = value;
-  }, subject);
-  await page.locator('input[name="topic"]').evaluate((input, value) => {
-    input.value = value;
-  }, topic);
-  const countSelect = page.locator('#quiz-count');
-  await countSelect.evaluate((select, value) => {
-    if (![...select.options].some((option) => option.value === value)) {
-      select.add(new Option(value, value));
-    }
-    select.value = value;
-  }, count);
+  const subjectOptions = await subjectSelect.locator('option').evaluateAll((options) => options
+    .filter((option) => !option.disabled && !option.hidden)
+    .map((option) => ({ value: option.value, label: option.label })));
+  const wantedSubject = normalize(subject);
+  const subjectOption = subjectOptions.find((option) => (
+    normalize(option.value) === wantedSubject || normalize(option.label) === wantedSubject
+  ));
+  if (!subjectOption) throw new Error(`Subject is not offered by the learner form: ${subject}`);
+  await subjectSelect.selectOption(subjectOption.value);
+  await page.locator('#quiz-count').selectOption(count);
   await page.locator('#quiz-difficulty').selectOption(difficulty);
   await page.getByRole('button', { name: 'Start quiz' }).click();
   await expect(page.locator('.quiz-question')).toBeVisible();
+}
+
+async function configureAvailableBoardQuiz(page, exam) {
+  await expect(page.locator('#quiz-exam')).toHaveValue(exam);
+
+  if (exam === 'CSE') {
+    await page.locator('#civil-service-level').selectOption('PROFESSIONAL');
+  }
+
+  const subjectOption = page.locator(`#quiz-subject option[data-exam="${exam}"]`).first();
+  await expect(subjectOption).toHaveCount(1);
+  const subject = await subjectOption.getAttribute('value');
+  await page.locator('#quiz-subject').selectOption(subject);
+  await page.locator('#quiz-count').selectOption('5');
+  await page.locator('#quiz-mode').selectOption('practice');
+  await page.getByRole('button', { name: 'Start quiz' }).click();
+  await expect(page.locator('.quiz-question')).toBeVisible();
+}
+
+async function startAvailableBoardQuiz(page, exam) {
+  await page.goto(`/quiz?exam=${encodeURIComponent(exam)}`);
+  await configureAvailableBoardQuiz(page, exam);
 }
 
 async function submitAnswer(page, wrong = false) {
@@ -128,6 +159,52 @@ async function inspectStructuredQuestions(page, testInfo, targets, maxQuestions)
 }
 
 test.describe('BoardPrep learner browser acceptance', () => {
+  test('records the actual browser engine, version, and viewport', async ({ page, browser }, testInfo) => {
+    await page.goto('/');
+    const engine = browser.browserType().name();
+    const version = browser.version();
+    const viewport = await page.evaluate(() => ({
+      width: document.documentElement.clientWidth,
+      height: document.documentElement.clientHeight,
+    }));
+    expect(engine).toBe('chromium');
+    expect(version).not.toBe('');
+    await expect(page.locator('.site-footer')).toContainText('BoardPrep v1.0.1');
+    const healthResponse = await page.request.get(new URL('/health.php', page.url()).toString());
+    expect(healthResponse.status()).toBe(200);
+    const health = await healthResponse.json();
+    expect(health.product_version).toBe('1.0.1');
+    expect(health.build_commit).toBe(execFileSync('git', ['rev-parse', 'HEAD'], {
+      cwd: path.resolve(__dirname, '../../..'),
+      encoding: 'utf8',
+    }).trim());
+    expect(health.status).toBe('PASS');
+    recordBrowserEvidence('runtime', { engine, version, viewport }, testInfo);
+  });
+
+  test('production hides developer routes and presents a safe not-found page', async ({ page }, testInfo) => {
+    const response = await page.goto('/developer');
+    expect(response.status()).toBe(404);
+    await expect(page.locator('body')).not.toContainText(/stack trace|fatal error|doctor dashboard/i);
+    await assertPageHealthy(page, testInfo, 'production-developer-route', {
+      allowHttpErrors: [{
+        status: 404,
+        url: page.url(),
+        pageUrl: page.url(),
+        resourceType: 'document',
+        consoleMessage: /^Failed to load resource: the server responded with a status of 404\b/,
+      }],
+    });
+    for (const sensitivePath of ['/.env', '/config/release.php', '/storage/questions.json']) {
+      const privateResponse = await page.request.get(new URL(sensitivePath, page.url()).toString());
+      expect(privateResponse.status(), `${sensitivePath} must not be public`).toBe(404);
+    }
+    recordBrowserEvidence('production-boundary', {
+      developerRoute: 'NOT_FOUND',
+      sensitiveFiles: 'NOT_FOUND',
+    }, testInfo);
+  });
+
   test('dashboard navigation and mobile menu are usable', async ({ page }, testInfo) => {
     await page.goto('/dashboard');
     await expect(page.locator('h1')).toHaveText('Welcome back');
@@ -155,6 +232,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
       await page.keyboard.press('Enter');
       await expect(page).toHaveURL(/\/exams/);
     }
+    recordBrowserEvidence('keyboard', { keyboardNavigation: 'PASS', visibleFocus: 'PASS' }, testInfo);
   });
 
   test('all populated board details render without browser failures', async ({ page }, testInfo) => {
@@ -174,6 +252,17 @@ test.describe('BoardPrep learner browser acceptance', () => {
   });
 
   test('quiz configuration and deterministic text round trip work', async ({ page }, testInfo) => {
+    await page.goto('/quiz');
+    await expect(page.getByText(/does not enforce a timer/i)).toBeVisible();
+    await expect(page.getByText(/does not enforce a timer or reproduce every official board-exam format/i)).toBeVisible();
+    const quizLabels = await page.evaluate(() => [...document.querySelectorAll(
+      'main input:not([type="hidden"]), main select, main textarea'
+    )].filter((control) => !control.labels?.length
+      && !control.getAttribute('aria-label')
+      && !control.getAttribute('aria-labelledby'))
+      .map((control) => control.outerHTML.slice(0, 120)));
+    expect(quizLabels, 'Learner quiz controls should have programmatic labels').toEqual([]);
+
     await startQuiz(page, {
       exam: 'LET',
       subject: 'professional-education',
@@ -207,6 +296,12 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await page.getByRole('link', { name: 'View result' }).first().click();
     await expect(page.locator('h1')).toHaveText('Historical Quiz Result');
     await assertPageHealthy(page, testInfo, 'history-result');
+    recordBrowserEvidence('accessibility', {
+      quizFormLabels: 'PASS',
+      resultFeedback: 'PASS',
+      namedPrimaryActions: 'PASS',
+      examModeLimitsDisclosed: 'PASS',
+    }, testInfo);
   });
 
   test('table and figure questions remain usable on the production path', async ({ page }, testInfo) => {
@@ -214,23 +309,23 @@ test.describe('BoardPrep learner browser acceptance', () => {
       exam: 'LET',
       subject: 'Science',
       topic: 'science-biology',
-      count: '2',
+      count: '5',
       difficulty: 'easy',
     });
     await inspectStructuredQuestions(page, testInfo, {
       31: { name: 'svg', selector: '.question-figure img', visible: true },
-    }, 2);
+    }, 5);
 
     await startQuiz(page, {
       exam: 'LET',
       subject: 'Science',
       topic: 'science-data-graphs',
-      count: '2',
+      count: '5',
       difficulty: 'hard',
     });
     await inspectStructuredQuestions(page, testInfo, {
       40: { name: 'table', selector: '.question-table-wrap', visible: true },
-    }, 2);
+    }, 5);
   });
 
   test('flashcard review, progress, history, and recovery states work', async ({ page }, testInfo) => {
@@ -271,5 +366,161 @@ test.describe('BoardPrep learner browser acceptance', () => {
         consoleMessage: /^Failed to load resource: the server responded with a status of 404\b/,
       }],
     });
+  });
+
+  test('privacy export, cancellation, confirmed deletion, and learner isolation work in the browser', async ({ page, browser }, testInfo) => {
+    await startAvailableBoardQuiz(page, 'LET');
+    await completeQuiz(page, true);
+    await page.goto('/history');
+    await expect(page.locator('.quiz-history-item')).toHaveCount(1);
+
+    const secondContext = await browser.newContext({ baseURL: 'http://127.0.0.1:4173' });
+    const secondPage = await secondContext.newPage();
+    await startAvailableBoardQuiz(secondPage, 'LET');
+    await completeQuiz(secondPage, false);
+    await secondPage.goto('/history');
+    await expect(secondPage.locator('.quiz-history-item')).toHaveCount(1);
+
+    await page.goto('/privacy');
+    await expect(page.locator('h1')).toHaveText('Data and privacy');
+    const originalCookies = await page.context().cookies(page.url());
+    const originalSession = originalCookies.find((cookie) => cookie.name === 'PHPSESSID');
+    expect(originalSession).toBeTruthy();
+    expect(originalSession.httpOnly).toBe(true);
+    expect(originalSession.sameSite).toBe('Lax');
+
+    const [download] = await Promise.all([
+      page.waitForEvent('download'),
+      page.getByRole('link', { name: 'Download my saved learning data' }).click(),
+    ]);
+    const exported = JSON.parse(fs.readFileSync(await download.path(), 'utf8'));
+    expect(exported.format).toBe('boardprep-anonymous-learner-data-v1');
+    expect(exported.records.quiz_attempts).toHaveLength(1);
+    expect(JSON.stringify(exported)).not.toContain('user_id');
+
+    await page.goto('/privacy');
+    const confirmation = page.locator('input[name="confirm_clear"]');
+    await expect(confirmation).not.toBeChecked();
+    await page.getByRole('button', { name: 'Clear my learning data' }).click();
+    await expect(confirmation).not.toBeChecked();
+    await page.goto('/history');
+    await expect(page.locator('.quiz-history-item')).toHaveCount(1);
+
+    await page.goto('/privacy');
+    await confirmation.check();
+    await page.getByRole('button', { name: 'Clear my learning data' }).click();
+    await expect(page.getByText(/Saved learning data for this browser session was cleared/)).toBeVisible();
+    const rotatedCookies = await page.context().cookies(page.url());
+    const rotatedSession = rotatedCookies.find((cookie) => cookie.name === 'PHPSESSID');
+    expect(rotatedSession).toBeTruthy();
+    expect(rotatedSession.value).not.toBe(originalSession.value);
+
+    await page.goto('/history');
+    await expect(page.locator('.quiz-history-item')).toHaveCount(0);
+    await secondPage.goto('/history');
+    await expect(secondPage.locator('.quiz-history-item')).toHaveCount(1);
+    await secondContext.close();
+    recordBrowserEvidence('privacy', {
+      export: 'PASS',
+      cancel: 'PASS',
+      confirmedDeletion: 'PASS',
+      sessionRotation: 'PASS',
+      postDeletionHistory: 'PASS',
+      secondLearnerPreserved: 'PASS',
+      sessionCookieHttpOnly: 'PASS',
+      sessionCookieSameSiteLax: 'PASS',
+    }, testInfo);
+  });
+
+  test('production browser flow reaches study, practice, results, history, and progress for all boards', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== 'mobile', 'The complete ten-board browser matrix runs once at a phone viewport.');
+    test.setTimeout(180_000);
+
+    for (const [boardIndex, [code]] of fullJourneyBoards.entries()) {
+      await page.goto(`/exams?exam=${encodeURIComponent(code)}`);
+      const boardName = await page.locator('.exam-detail h1').innerText();
+      await expect(page.getByRole('link', { name: 'Study materials' })).toBeVisible();
+      await page.getByRole('link', { name: 'Study materials' }).click();
+      await expect(page.locator('h1')).toHaveText('Source-backed study materials');
+      await page.goBack();
+
+      await page.getByRole('link', { name: 'Configure practice' }).click();
+      await configureAvailableBoardQuiz(page, code);
+      await completeQuiz(page, false);
+      await expect(page.locator('.result-score h2')).toHaveText(/\d+\s*\/\s*5/);
+
+      await page.goto('/history');
+      await expect(page.locator('.quiz-history-item')).toHaveCount(boardIndex + 1);
+      await page.getByRole('link', { name: 'View result' }).first().click();
+      await expect(page.locator('h1')).toHaveText('Historical Quiz Result');
+      await expect(page.locator('body')).toContainText(boardName);
+      await page.goto('/progress');
+      await expect(page.locator('h1')).toHaveText('Know what to review next');
+    }
+    recordBrowserEvidence('ten-board', {
+      boards: fullJourneyBoards.map(([code]) => code),
+      studyPracticeResultsHistoryProgress: 'PASS',
+    }, testInfo);
+  });
+
+  test('mobile layouts remain in the viewport at supported narrow widths', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== 'mobile', 'Viewport sweep runs once in the mobile project.');
+    const viewports = [
+      { width: 320, height: 640 },
+      { width: 360, height: 800 },
+      { width: 390, height: 844 },
+      { width: 430, height: 932 },
+      { width: 768, height: 1024 },
+    ];
+    const routes = [
+      '/dashboard',
+      '/exams',
+      '/study-library?exam=LET',
+      '/quiz',
+      '/flashcards?include_new=1',
+      '/progress',
+      '/history',
+      '/privacy',
+    ];
+
+    for (const viewport of viewports) {
+      await page.setViewportSize(viewport);
+      for (const route of routes) {
+        await page.goto(route);
+        const layout = await page.evaluate(() => {
+          const viewportWidth = document.documentElement.clientWidth;
+          const interactive = [...document.querySelectorAll(
+            'main button, main a.button, main select, .mobile-menu-button'
+          )].filter((element) => {
+            const rect = element.getBoundingClientRect();
+            return rect.width > 0 && rect.height > 0;
+          });
+          return {
+            viewportWidth,
+            documentWidth: document.documentElement.scrollWidth,
+            clippedControls: interactive
+              .filter((element) => {
+                const rect = element.getBoundingClientRect();
+                return rect.left < -1 || rect.right > viewportWidth + 1;
+              })
+              .map((element) => element.outerHTML.slice(0, 120)),
+            shortTouchTargets: interactive
+              .filter((element) => element.matches('button, a.button, .mobile-menu-button'))
+              .filter((element) => element.getBoundingClientRect().height < 44)
+              .map((element) => element.outerHTML.slice(0, 120)),
+          };
+        });
+        expect(layout.documentWidth, `${route} at ${viewport.width}px`).toBeLessThanOrEqual(viewport.width + 2);
+        expect(layout.clippedControls, `${route} clipped controls at ${viewport.width}px`).toEqual([]);
+        expect(layout.shortTouchTargets, `${route} undersized primary touch controls at ${viewport.width}px`).toEqual([]);
+      }
+    }
+    recordBrowserEvidence('viewports', {
+      sizes: viewports.map(({ width, height }) => `${width}x${height}`),
+      routes,
+      horizontalOverflow: 'PASS',
+      primaryControlBounds: 'PASS',
+      primaryTouchTargetMinimum: 'PASS',
+    }, testInfo);
   });
 });

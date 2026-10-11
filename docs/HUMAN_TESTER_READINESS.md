@@ -33,6 +33,38 @@ Do not begin human acceptance when the prerequisite is `FAIL`,
 on a fresh learner/session unless a precondition says otherwise. Use a phone
 viewport for `M` cases.
 
+## Android phone: isolated same-device preview
+
+For a local acceptance session on the Android phone that has the repository,
+use the committed build and Termux PHP/Node/Git tools. This starts an isolated
+production-mode fixture; it does not serve the working storage or open a LAN
+listener.
+
+```sh
+git status --short
+git rev-parse HEAD
+php tools/doctor.php --simulate
+node tests/browser/server.cjs
+```
+
+The fixture prints its URL (normally `http://127.0.0.1:4173`). Open that exact
+URL in Chrome on the same phone. If the port is occupied, stop the first server
+or set `BOARDPREP_BROWSER_PORT=4174` before starting it, then use port `4174`.
+The fixture serves the committed `HEAD` archive, copies its tracked storage and
+PHP sessions into temporary private directories, sets `APP_ENV=production`,
+and binds only to `127.0.0.1`. Stop it with Ctrl-C before leaving Termux; do not
+change the bind address to `0.0.0.0` or expose a tunnel. Starting it again
+creates a fresh fixture. This local preview does not verify HTTPS, a hosting
+provider, or production privacy terms. Record `git rev-parse HEAD` as the build
+under test; dirty/untracked changes are not included in the fixture archive.
+
+The app's Playwright suite is a separate headless desktop/CI run:
+`npm ci`, `npm run test:browser`. On Termux Android, Playwright cannot launch a
+compatible browser; use the same-device Chrome preview for human acceptance
+and run the Playwright suite on a supported desktop/CI environment. A prepared
+test file, HTTP check, CSS inspection, or screenshot alone is not a browser or
+human PASS.
+
 ## Result vocabulary
 
 `PASS` means the expected result and usable presentation were observed.
@@ -68,7 +100,7 @@ unexpected data, or confusing presentation.
 
 ### Stage D — Exam and second session
 
-Start a three-question exam, answer one, finish, revisit its result, then start
+Start the smallest offered exam-mode attempt (5 questions), answer one, finish, revisit its result, then start
 a second practice quiz. Run MVP-06 and MVP-07. Confirm the earlier history and
 result remain unchanged.
 
@@ -85,6 +117,39 @@ MVP-10.
 Use keyboard navigation where available and inspect headings, labels, visible
 focus, validation, and status messages. Run MVP-12. Record viewport/device
 details for any interaction or accessibility defect.
+
+## Exact case actions
+
+Use one fresh session through the cases. A separate reset means stop the local
+fixture, restart it, and open it in a fresh/private browser tab. Do not edit
+canonical question files to create an edge case.
+
+| CASE | START / PRECONDITION | ACTIONS | PASS EXPECTED | FAIL SIGNAL |
+|---|---|---|---|---|
+| MVP-01 | `/`; fresh session | Open Exams, choose LET, inspect its subjects/actions, open Configure practice | Main next steps and board links are understandable and reachable | Dead link, missing action, or unclear entry path |
+| MVP-02 | `/quiz?exam=LET`; fresh session | Keep LET, select an available subject and 5 questions, then Start quiz | A question, choices, and current/total progress appear | No question, wrong board context, or blank/incomplete controls |
+| MVP-03 | Active practice question | Select one answer, Submit Answer, read feedback, then Next Question | Selection is visible; one response is accepted; feedback and next item are clear | Lost selection, duplicate/skip, hidden feedback, or stuck navigation |
+| MVP-04 | Active practice attempt | Answer through the final item and Finish Quiz; inspect score, denominator, explanations, and missed-answer review | Result reflects submitted answers and offers usable review | Incorrect score/denominator, missing explanation, or dead-end result |
+| MVP-05 | Completed attempt | Refresh the result; open History, reopen the result, then visit Progress and Study Dashboard | One attempt remains consistent across result, history, and progress | Attempt disappears, duplicates, or disagrees across pages |
+| MVP-06 | `/quiz?exam=LET`; fresh session or after MVP-05 | Select Exam Simulation and the smallest offered count (5), answer all items, finish, inspect result | Answers are withheld until finish; the result is accurate; UI does not imply a timer or official replica | Premature feedback, incorrect result, or misleading official/timed claim |
+| MVP-07 | Completed history from MVP-05 | Start a second practice attempt and complete it; revisit History and the first result | Two distinct attempts appear; the first result is unchanged | First attempt is replaced, duplicated, or altered |
+| MVP-08 | Active attempt with one answer submitted | Refresh, use browser Back/Forward, and revisit the question; do not confirm a browser resubmission prompt unless the UI offers a safe retry | The active state recovers or provides a clear safe return; no duplicate attempt is created | Lost/corrupt state, accidental duplicate, or unrecoverable dead end |
+| MVP-09 | Completed attempt; browser history available | Use Back to revisit a stale question/result action, then follow the offered recovery link | Stale action is rejected safely and no false result or side effect appears | Stale request changes history/progress or produces a false completion |
+| MVP-10 | Fresh session; no content edits | Open `/quiz?exam=LET&topic=__no_such_topic__`; also try a valid short pool if the page offers one | An unavailable pool shows a clear recovery path, not a blank quiz or fabricated result | Blank/error detail, wrong-board content, or no way back to a valid choice |
+| MVP-11 | Android phone; portrait | At the phone's available width, open Exams, Study, Quiz, Flashcards, Results, Privacy; tap menu, radio choices, primary buttons, and deletion checkbox without confirming | No clipped primary control or unexpected horizontal page scroll; taps and scrolling remain controllable | Clipped controls, accidental submit, overlap, or unusable touch target |
+| MVP-12 | Keyboard available; any learner page | Use Tab/Shift+Tab and Enter/Space through navigation, quiz settings/choices, submission, and privacy confirmation; inspect focus and error/status text | Focus is visible and order is sensible; controls and feedback have understandable names | Keyboard trap, invisible focus, unlabeled control, or silent validation failure |
+
+MVP-06 uses five because five is the smallest count exposed by the current
+learner form; the older three-question instruction was not achievable through
+the UI. MVP-10's deliberately unavailable topic must only be used in the
+isolated fixture; if the local build does not display a recoverable no-match
+state, record the actual result rather than modifying content.
+
+```text
+MVP-01=NOT_RUN  MVP-02=NOT_RUN  MVP-03=NOT_RUN  MVP-04=NOT_RUN
+MVP-05=NOT_RUN  MVP-06=NOT_RUN  MVP-07=NOT_RUN  MVP-08=NOT_RUN
+MVP-09=NOT_RUN  MVP-10=NOT_RUN  MVP-11=NOT_RUN  MVP-12=NOT_RUN
+```
 
 | CASE | PURPOSE | AUTOMATED EVIDENCE | HUMAN ACTION | EXPECTED RESULT | STATUS |
 |---|---|---|---|---|---|

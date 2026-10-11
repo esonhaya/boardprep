@@ -11,8 +11,15 @@ module.exports = defineConfig({
   workers: 1,
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI
-    ? [['dot'], ['html', { outputFolder: 'playwright-report', open: 'never' }]]
-    : [['list']],
+    ? [
+      ['dot'],
+      ['json', { outputFile: 'test-results/browser-results.json' }],
+      ['html', { outputFolder: 'playwright-report', open: 'never' }],
+    ]
+    : [
+      ['list'],
+      ['json', { outputFile: 'test-results/browser-results.json' }],
+    ],
   use: {
     baseURL: 'http://127.0.0.1:4173',
     trace: 'retain-on-failure',

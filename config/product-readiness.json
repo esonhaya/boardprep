@@ -1,8 +1,22 @@
 {
     "schema_version": 1,
-    "assessment_id": "batch663-product-experience",
-    "baseline_commit": "4b27490fdcdfb3f6968af74e7564e07a91974e76",
+    "assessment_id": "batch664-browser-mobile-acceptance",
+    "baseline_commit": "25ca6708062468ad35f90aae78609d9e7c4d87a0",
     "release": "v1.0.1",
+    "browser_validation": {
+        "STATUS": "TEST_PREPARED_NOT_EXECUTED",
+        "AUTOMATION_TOOL": "Playwright",
+        "AUTOMATION_COMMAND": "npm run test:browser",
+        "OWNER_LOCAL_COMMAND": "node tests/browser/server.cjs",
+        "EVIDENCE_ARTIFACT": "test-results/browser-execution.json",
+        "ACCESSIBILITY_ENGINE": "NOT_INSTALLED",
+        "ACCESSIBILITY_SCOPE": "Prepared browser checks cover form labels, keyboard focus, and primary control names; they do not establish WCAG conformance or screen-reader behavior.",
+        "REQUIRED_PROJECTS": ["mobile", "desktop"],
+        "REQUIRED_VIEWPORTS": ["320x640", "360x800", "390x844", "430x932", "768x1024"],
+        "REQUIRED_JOURNEYS": ["keyboard_navigation", "accessibility_semantics", "privacy_export_and_deletion", "production_boundary", "ten_board_journeys", "responsive_viewport_sweep", "math_and_table_viewports"],
+        "HUMAN_ACCEPTANCE": "NOT_RUN",
+        "LIMITATION": "Termux Android has Chrome installed, but Playwright cannot launch a compatible Android browser from this runtime; use the local Android browser guide or run the full suite on desktop/CI."
+    },
     "technical_release_gate": "SEPARATE: php tools/doctor.php --release --json",
     "feature_assessment": [
         {
@@ -90,7 +104,7 @@
             "STATUS": "IMPLEMENTED_UNVERIFIED",
             "SCOPE_INCLUDED": true,
             "LAUNCH_CRITICAL": true,
-            "EVIDENCE": ["Structural view contracts cover focus, labels, landmarks, wrapping, and touch-size tokens. No Playwright installation or real browser/device session is available in this environment."],
+            "EVIDENCE": ["Batch664 prepares real Playwright flows for keyboard/focus, privacy export/deletion, all ten board journeys, and responsive pages plus math/table content at five target widths. This environment has Android Chrome but no Playwright-compatible Android executable; no complete rendered browser suite or owner human acceptance has been executed."],
             "TEST_COVERAGE": ["tools/Tests/LearnerMobileAccessibilityViewTest.php", "tools/Tests/LearnerNavigationUxTest.php", "tests/browser"]
         },
         {
@@ -335,13 +349,13 @@
             "EVIDENCE": "Human acceptance MVP-01 through MVP-12 on a real browser/device",
             "STATUS": "NOT_VERIFIED",
             "REQUIRED": true,
-            "REASON": "No human tester session or device evidence was supplied."
+            "REASON": "The Android acceptance guide and isolated local preview are prepared, but no human tester session or device evidence was supplied."
         },
         {
             "EVIDENCE": "Real-browser mobile visual, overflow, keyboard, and accessibility behavior",
             "STATUS": "NOT_VERIFIED",
             "REQUIRED": true,
-            "REASON": "Playwright is unavailable in this Termux environment; static contracts are not a visual pass."
+            "REASON": "The Playwright suite is prepared, but this Termux Android runtime cannot launch a compatible Chromium executable; static contracts are not a visual pass."
         },
         {
             "EVIDENCE": "Site-specific privacy terms, operator contact, retention, and deletion process",

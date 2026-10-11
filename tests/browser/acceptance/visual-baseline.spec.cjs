@@ -6,6 +6,7 @@ const {
   expect,
   assertPageHealthy,
   tabToKeyboardFocus,
+  recordBrowserEvidence,
 } = require('../fixtures/test.cjs');
 const { captureVisualState, writeVisualAudit } = require('../fixtures/visual.cjs');
 
@@ -41,23 +42,19 @@ async function startQuiz(page, {
   count = '5',
   difficulty = 'mixed',
 } = {}) {
-  const query = new URLSearchParams({ exam, subject, topic, count, difficulty });
+  const query = new URLSearchParams({ exam, topic });
   await page.goto(`/quiz?${query.toString()}`);
-  await page.locator('#quiz-subject').evaluate((select, value) => {
-    if (![...select.options].some((option) => option.value === value)) {
-      select.add(new Option(value, value));
-    }
-    select.value = value;
-  }, subject);
-  await page.locator('input[name="topic"]').evaluate((input, value) => {
-    input.value = value;
-  }, topic);
-  await page.locator('#quiz-count').evaluate((select, value) => {
-    if (![...select.options].some((option) => option.value === value)) {
-      select.add(new Option(value, value));
-    }
-    select.value = value;
-  }, count);
+  const subjectSelect = page.locator('#quiz-subject');
+  const subjectOptions = await subjectSelect.locator('option').evaluateAll((options) => options
+    .filter((option) => !option.disabled && !option.hidden)
+    .map((option) => ({ value: option.value, label: option.label })));
+  const wantedSubject = normalize(subject);
+  const subjectOption = subjectOptions.find((option) => (
+    normalize(option.value) === wantedSubject || normalize(option.label) === wantedSubject
+  ));
+  if (!subjectOption) throw new Error(`Subject is not offered by the learner form: ${subject}`);
+  await subjectSelect.selectOption(subjectOption.value);
+  await page.locator('#quiz-count').selectOption(count);
   await page.locator('#quiz-difficulty').selectOption(difficulty);
   await page.getByRole('button', { name: 'Start quiz' }).click();
   await expect(page.locator('.quiz-question')).toBeVisible();
@@ -123,6 +120,36 @@ async function capture(page, testInfo, entries, name, options = {}) {
   return report;
 }
 
+async function inspectQuestionAtMobileWidths(page, selector) {
+  const sizes = [
+    { width: 320, height: 640 },
+    { width: 360, height: 800 },
+    { width: 390, height: 844 },
+    { width: 430, height: 932 },
+    { width: 768, height: 1024 },
+  ];
+  const evidence = [];
+
+  for (const size of sizes) {
+    await page.setViewportSize(size);
+    const layout = await page.evaluate((contentSelector) => {
+      const element = document.querySelector(contentSelector);
+      return {
+        documentWidth: document.documentElement.scrollWidth,
+        viewportWidth: document.documentElement.clientWidth,
+        contentWidth: element?.getBoundingClientRect().width ?? 0,
+        contentScrollWidth: element?.scrollWidth ?? 0,
+      };
+    }, selector);
+    expect(layout.documentWidth, `${selector} document at ${size.width}px`).toBeLessThanOrEqual(size.width + 2);
+    expect(layout.contentWidth, `${selector} visibility at ${size.width}px`).toBeGreaterThan(0);
+    evidence.push(`${size.width}x${size.height}`);
+  }
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  return evidence;
+}
+
 test.describe('BoardPrep deterministic visual baseline', () => {
   test('captures representative learner product states', async ({ page }, testInfo) => {
     const entries = [];
@@ -173,26 +200,32 @@ test.describe('BoardPrep deterministic visual baseline', () => {
 
     await startQuiz(page, {
       exam: 'REE',
-      subject: 'REE Engineering Sciences and Allied Subjects',
+      subject: 'Engineering Sciences and Allied Subjects',
       topic: 'ree-allied-safety',
-      count: '2',
+      count: '5',
       difficulty: 'hard',
     });
-    await advanceToQuestion(page, '1637', 2);
+    await advanceToQuestion(page, '1637', 5);
     await expect(page.locator('.question-equation')).toBeVisible();
+    const mathViewports = mobile
+      ? await inspectQuestionAtMobileWidths(page, '.question-equation')
+      : [];
     await capture(page, testInfo, entries, 'quiz-numeric', { fullPage: false });
 
     await startQuiz(page, {
-      exam: 'LET', subject: 'Science', topic: 'science-data-graphs', count: '2', difficulty: 'hard',
+      exam: 'LET', subject: 'Science', topic: 'science-data-graphs', count: '5', difficulty: 'hard',
     });
-    await advanceToQuestion(page, '40', 2);
+    await advanceToQuestion(page, '40', 5);
     await expect(page.locator('.question-table-wrap')).toBeVisible();
+    const tableViewports = mobile
+      ? await inspectQuestionAtMobileWidths(page, '.question-table-wrap')
+      : [];
     await capture(page, testInfo, entries, 'quiz-table', { fullPage: false });
 
     await startQuiz(page, {
-      exam: 'LET', subject: 'Science', topic: 'science-biology', count: '2', difficulty: 'easy',
+      exam: 'LET', subject: 'Science', topic: 'science-biology', count: '5', difficulty: 'easy',
     });
-    await advanceToQuestion(page, '31', 2);
+    await advanceToQuestion(page, '31', 5);
     await expect(page.locator('.question-figure img')).toBeVisible();
     await capture(page, testInfo, entries, 'quiz-svg', { fullPage: false });
 
@@ -240,6 +273,13 @@ test.describe('BoardPrep deterministic visual baseline', () => {
 
     const reportPath = writeVisualAudit(testInfo, testInfo.project.name, entries);
     await testInfo.attach('visual audit report', { path: reportPath, contentType: 'text/markdown' });
+    if (mobile) {
+      recordBrowserEvidence('complex-content', {
+        math: mathViewports,
+        tables: tableViewports,
+        documentOverflow: 'PASS',
+      }, testInfo);
+    }
     expect(entries.length).toBe(mobile ? 22 : 21);
   });
 });

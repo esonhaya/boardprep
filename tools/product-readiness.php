@@ -24,6 +24,7 @@ if (!is_array($register) || (int) ($register['schema_version'] ?? 0) !== 1) {
     fwrite(STDERR, "Product readiness register schema is unsupported.\n");
     exit(2);
 }
+$head = trim((string) @shell_exec('git -C ' . escapeshellarg($root) . ' rev-parse HEAD 2>/dev/null'));
 
 $files = static function (string $relativeDirectory, ?array $extensions = null) use ($root): array {
     $directory = $root . '/' . $relativeDirectory;
@@ -225,7 +226,8 @@ $mobileStructuralTestsRegistered = is_file($root . '/tools/Tests/LearnerMobileAc
     && is_file($root . '/tools/Tests/LearnerNavigationUxTest.php');
 $quizSettings = (string) @file_get_contents($root . '/app/Views/quiz/settings.php');
 $unsupportedExamModeDisclosed = str_contains($quizSettings, 'does not enforce a timer')
-    && str_contains($quizSettings, 'does not reproduce every official board-exam format');
+    && (str_contains($quizSettings, 'does not reproduce every official board-exam format')
+        || str_contains($quizSettings, 'or reproduce every official board-exam format'));
 
 require_once $root . '/app/Core/Autoloader.php';
 \App\Core\Autoloader::register();
@@ -259,6 +261,62 @@ $humanCasesNotPassed = array_values(array_filter(
     static fn(string $status): bool => $status !== 'PASS'
 ));
 
+$browserValidation = is_array($register['browser_validation'] ?? null)
+    ? $register['browser_validation']
+    : [];
+$browserExecutionPath = $root . '/' . (string) ($browserValidation['EVIDENCE_ARTIFACT'] ?? '');
+$browserExecution = null;
+if (is_file($browserExecutionPath)) {
+    try {
+        $browserExecution = json_decode((string) file_get_contents($browserExecutionPath), true, 512, JSON_THROW_ON_ERROR);
+    } catch (Throwable) {
+        $browserExecution = null;
+    }
+}
+$requiredBrowserViewports = (array) ($browserValidation['REQUIRED_VIEWPORTS'] ?? []);
+$browserProjects = array_values(array_unique((array) ($browserExecution['projects'] ?? [])));
+$browserVersions = (array) ($browserExecution['engine_versions'] ?? []);
+$browserJourneyEvidence = (array) ($browserExecution['journey_evidence'] ?? []);
+$browserReportPath = $root . '/' . (string) ($browserExecution['report'] ?? '');
+$browserReport = null;
+if (is_file($browserReportPath)) {
+    try {
+        $browserReport = json_decode((string) file_get_contents($browserReportPath), true, 512, JSON_THROW_ON_ERROR);
+    } catch (Throwable) {
+        $browserReport = null;
+    }
+}
+$browserExecutionVerified = is_array($browserExecution)
+    && ($browserExecution['status'] ?? '') === 'BROWSER_EXECUTED_PASS'
+    && ($browserExecution['format_version'] ?? 0) === 1
+    && ($browserExecution['commit'] ?? '') !== ''
+    && $head !== ''
+    && hash_equals($head, (string) $browserExecution['commit'])
+    && ($browserExecution['working_tree_clean'] ?? false) === true
+    && ($browserExecution['engine'] ?? '') === 'chromium'
+    && in_array('mobile', $browserProjects, true)
+    && in_array('desktop', $browserProjects, true)
+    && trim((string) ($browserVersions['mobile'] ?? '')) !== ''
+    && trim((string) ($browserVersions['desktop'] ?? '')) !== ''
+    && array_diff($requiredBrowserViewports, (array) ($browserExecution['viewports_executed'] ?? [])) === []
+    && ($browserJourneyEvidence['keyboard_navigation'] ?? false) === true
+    && ($browserJourneyEvidence['accessibility_semantics'] ?? false) === true
+    && ($browserJourneyEvidence['privacy_export_and_deletion'] ?? false) === true
+    && ($browserJourneyEvidence['production_boundary'] ?? false) === true
+    && ($browserJourneyEvidence['ten_board_journeys'] ?? false) === true
+    && ($browserJourneyEvidence['responsive_viewport_sweep'] ?? false) === true
+    && ($browserJourneyEvidence['math_and_table_viewports'] ?? false) === true
+    && is_array($browserReport)
+    && (int) ($browserReport['stats']['expected'] ?? 0) > 0
+    && (int) ($browserReport['stats']['unexpected'] ?? -1) === 0
+    && is_array($browserExecution['results'] ?? null)
+    && (int) ($browserExecution['results']['passed'] ?? -1) === (int) ($browserReport['stats']['expected'] ?? 0)
+    && (int) ($browserExecution['results']['failed'] ?? -1) === (int) ($browserReport['stats']['unexpected'] ?? -2)
+    && (int) ($browserExecution['results']['failed'] ?? -1) === 0;
+$browserValidationStatus = $browserExecutionVerified
+    ? 'BROWSER_EXECUTED_PASS'
+    : (string) ($browserValidation['STATUS'] ?? 'NOT_VERIFIED');
+
 $criticalCapabilityChecks = [
     'privacy_control_routes' => $privacyRoutesComplete,
     'privacy_service_and_http_regression_test' => $privacyTestRegistered,
@@ -266,6 +324,7 @@ $criticalCapabilityChecks = [
     'ten_board_assessment_matrix_complete' => $boardMatrixComplete,
     'unsupported_exam_mode_claim_disclosed' => $unsupportedExamModeDisclosed,
     'human_acceptance_matrix_complete' => $humanAcceptanceInventoryComplete,
+    'current_commit_real_browser_acceptance' => $browserExecutionVerified,
     'owner_approved_privacy_terms_configured' => $privacyOwnerTermsConfigured,
 ];
 $failedCapabilityChecks = array_keys(array_filter(
@@ -281,14 +340,15 @@ $featureComplete = $invalidFeatures === []
     && $privacyTestRegistered
     && $boardJourneyTestRegistered
     && $unsupportedExamModeDisclosed
+    && $browserExecutionVerified
     && $openSeverityCounts['P0'] === 0
     && $openSeverityCounts['P1'] === 0;
 $launchReady = $featureComplete
     && $openFindings === []
     && $blockingCapabilities === []
     && $missingEvidence === []
+    && $browserExecutionVerified
     && $privacyOwnerTermsConfigured;
-$head = trim((string) @shell_exec('git -C ' . escapeshellarg($root) . ' rev-parse HEAD 2>/dev/null'));
 
 $report = [
     'report' => 'PRODUCT_READINESS',
@@ -305,6 +365,19 @@ $report = [
     'failed_critical_capability_checks' => $failedCapabilityChecks,
     'board_matrix_complete' => $boardMatrixComplete,
     'privacy_owner_terms_configured' => $privacyOwnerTermsConfigured,
+    'browser_validation' => [
+        'status' => $browserValidationStatus,
+        'execution_verified_for_current_commit' => $browserExecutionVerified,
+        'required_projects' => $browserValidation['REQUIRED_PROJECTS'] ?? [],
+        'required_viewports' => $requiredBrowserViewports,
+        'viewports_executed' => $browserExecution['viewports_executed'] ?? [],
+        'accessibility_engine' => $browserValidation['ACCESSIBILITY_ENGINE'] ?? 'NOT_RECORDED',
+        'accessibility_scope' => $browserValidation['ACCESSIBILITY_SCOPE'] ?? 'NOT_RECORDED',
+        'reproduction_command' => $browserValidation['AUTOMATION_COMMAND'] ?? '',
+        'evidence_artifact' => $browserValidation['EVIDENCE_ARTIFACT'] ?? '',
+        'human_acceptance' => $humanCases,
+        'evidence' => $browserExecution,
+    ],
     'human_acceptance_matrix' => [
         'case_count' => count($humanCases),
         'inventory_complete' => $humanAcceptanceInventoryComplete,
@@ -349,6 +422,7 @@ if ($jsonOutput) {
     echo 'NONPRODUCTION_WEB_ROUTES=' . $developerRouteCount . PHP_EOL;
     echo 'BOARD_MATRIX_COMPLETE=' . ($boardMatrixComplete ? 'YES' : 'NO') . PHP_EOL;
     echo 'PRIVACY_CONTROLS=' . ($privacyRoutesComplete && $privacyTestRegistered ? 'YES' : 'NO') . PHP_EOL;
+    echo 'REAL_BROWSER_ACCEPTANCE=' . $browserValidationStatus . PHP_EOL;
     echo 'OWNER_PRIVACY_TERMS=' . ($privacyOwnerTermsConfigured ? 'APPROVED' : 'MISSING_OR_UNAPPROVED') . PHP_EOL;
     echo 'HUMAN_ACCEPTANCE_CASES=' . count($humanCases) . '/12; NOT_PASSED=' . count($humanCasesNotPassed) . PHP_EOL;
     echo 'OPEN_P0_P1=' . ($openSeverityCounts['P0'] + $openSeverityCounts['P1']) . PHP_EOL;

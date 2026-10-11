@@ -1,4 +1,5 @@
 const fs = require('node:fs');
+const path = require('node:path');
 
 const { test: base, expect } = require('@playwright/test');
 const {
@@ -60,6 +61,24 @@ function installDiagnostics(page) {
   });
 
   return diagnostics;
+}
+
+function recordBrowserEvidence(name, evidence, testInfo) {
+  const directory = process.env.BOARDPREP_BROWSER_EVIDENCE_DIR;
+  if (!directory) return;
+
+  fs.mkdirSync(directory, { recursive: true });
+  const evidencePath = path.join(directory, `${name}.json`);
+  let record = { projects: [], results: {} };
+  if (fs.existsSync(evidencePath)) {
+    record = JSON.parse(fs.readFileSync(evidencePath, 'utf8'));
+  }
+  record.projects = [...new Set([...(record.projects || []), testInfo.project.name])].sort();
+  record.results = {
+    ...(record.results || {}),
+    [testInfo.project.name]: evidence,
+  };
+  fs.writeFileSync(evidencePath, JSON.stringify(record, null, 2));
 }
 
 function markExpectedConsoleErrors(diagnostics) {
@@ -174,7 +193,15 @@ const test = base.extend({
     } finally {
       markExpectedConsoleErrors(diagnostics);
       const reportPath = testInfo.outputPath('browser-diagnostics.json');
-      fs.writeFileSync(reportPath, JSON.stringify(diagnostics, null, 2));
+      const browser = page.context().browser();
+      const diagnosticsReport = {
+        engine: browser?.browserType().name() || 'unknown',
+        version: browser?.version() || 'unknown',
+        project: testInfo.project.name,
+        viewport: page.viewportSize(),
+        ...diagnostics,
+      };
+      fs.writeFileSync(reportPath, JSON.stringify(diagnosticsReport, null, 2));
       await testInfo.attach('browser diagnostics', {
         path: reportPath,
         contentType: 'application/json',
@@ -208,4 +235,5 @@ module.exports = {
   expect,
   assertPageHealthy,
   tabToKeyboardFocus,
+  recordBrowserEvidence,
 };
