@@ -144,6 +144,9 @@ main#main-content:focus{outline:none}
 .result-percentage h3{font-size:clamp(2rem,6vw,3rem)}
 .result-next-steps{display:grid;gap:12px;margin:0 0 26px;padding:20px;border:1px solid var(--border);border-radius:14px;background:#fff}
 .result-answer-review{display:grid;gap:12px}
+.quiz-result-page > *,
+.quiz-result-page .result-answer-review,
+.quiz-result-page .question-review{min-width:0;max-width:100%}
 .result-next-steps h2{margin:0}
 .result-action{padding:14px 0;border-top:1px solid var(--border)}
 .result-action h3{font-size:1rem}

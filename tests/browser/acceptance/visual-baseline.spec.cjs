@@ -72,6 +72,21 @@ async function answerCurrentQuestion(page, wrong = false) {
   await expect(page.locator('.quiz-feedback')).toBeVisible();
 }
 
+async function finishActiveQuiz(page, maxQuestions = 20) {
+  for (let index = 0; index < maxQuestions; index += 1) {
+    await answerCurrentQuestion(page);
+    const finish = page.getByRole('button', { name: 'Finish Quiz' });
+    if (await finish.isVisible()) {
+      await finish.click();
+      await expect(page.locator('.quiz-result-page')).toBeVisible();
+      return;
+    }
+    await page.getByRole('button', { name: 'Next Question' }).click();
+    await expect(page.locator('.quiz-answer-form')).toBeVisible();
+  }
+  throw new Error('Quiz did not reach its finish action within the configured question bound');
+}
+
 async function completeFiveQuestionQuiz(page, startAtIndex = 0, beforeFinish = null) {
   for (let index = startAtIndex; index < 5; index += 1) {
     await answerCurrentQuestion(page, true);
@@ -168,7 +183,9 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     await capture(page, testInfo, entries, 'home', { fullPage: true });
 
     await page.goto('/dashboard');
-    await expect(page.locator('h1')).toHaveText('Welcome back');
+    const dashboardHeading = page.locator('main h1');
+    await expect(dashboardHeading).toHaveCount(1);
+    await expect(dashboardHeading).toHaveText('Welcome back');
     await capture(page, testInfo, entries, 'dashboard', { fullPage: true });
 
     if (mobile) {
@@ -286,6 +303,13 @@ test.describe('BoardPrep deterministic visual baseline', () => {
       ))
       : [];
     await capture(page, testInfo, entries, 'quiz-table', { fullPage: false });
+
+    if (mobile) {
+      await finishActiveQuiz(page);
+      await expect(page.locator('.result-answer-review .question-table-wrap')).toBeVisible();
+      await assertPageHealthy(page, testInfo, 'table-question-result');
+      await capture(page, testInfo, entries, 'table-question-result', { fullPage: true });
+    }
 
     await startQuiz(page, {
       exam: 'LET',

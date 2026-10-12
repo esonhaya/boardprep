@@ -207,7 +207,9 @@ test.describe('BoardPrep learner browser acceptance', () => {
 
   test('dashboard navigation and mobile menu are usable', async ({ page }, testInfo) => {
     await page.goto('/dashboard');
-    await expect(page.locator('h1')).toHaveText('Welcome back');
+    const dashboardHeading = page.locator('main h1');
+    await expect(dashboardHeading).toHaveCount(1);
+    await expect(dashboardHeading).toHaveText('Welcome back');
     for (const href of ['/exams', '/history', '/flashcards', '/progress', '/quiz']) {
       await expect(page.locator(`a[href="${href}"]:visible`).first()).toBeVisible();
     }
