@@ -33,6 +33,16 @@ $browserExecutionVerified = ($report['browser_validation']['execution_verified_f
 $assert(($report['critical_capability_checks']['current_commit_real_browser_acceptance'] ?? false) === $browserExecutionVerified, 'Browser evidence status does not match the current-commit verification.');
 $assert(($report['browser_validation']['status'] ?? '') === ($browserExecutionVerified ? 'BROWSER_EXECUTED_PASS' : 'TEST_PREPARED_NOT_EXECUTED'), 'Browser execution state was not reported distinctly.');
 $assert(count((array) ($report['browser_validation']['required_viewports'] ?? [])) === 5, 'Required responsive viewport evidence was not inventoried.');
+$browserEvidence = array_values(array_filter(
+    (array) ($report['mandatory_launch_evidence'] ?? []),
+    static fn(mixed $evidence): bool => is_array($evidence)
+        && ($evidence['EVIDENCE'] ?? '') === 'Real-browser mobile visual, overflow, keyboard, and accessibility behavior'
+));
+$assert(count($browserEvidence) === 1, 'Mandatory current-commit browser evidence was not inventoried exactly once.');
+$assert(($browserEvidence[0]['STATUS'] ?? '') === ($browserExecutionVerified ? 'PASS' : 'NOT_VERIFIED'), 'Mandatory browser evidence status does not follow current-commit execution.');
+if ($browserExecutionVerified) {
+    $assert(str_contains((string) ($browserEvidence[0]['REASON'] ?? ''), 'does not establish screen-reader behavior'), 'Browser evidence overclaims assistive-technology coverage.');
+}
 $humanGuide = (string) file_get_contents($root . '/docs/HUMAN_TESTER_READINESS.md');
 $assert(str_contains($humanGuide, 'MVP-06 uses five') && !str_contains($humanGuide, 'Start a three-question exam'), 'Human acceptance instructions request a quiz count the learner UI does not offer.');
 $assert(($report['critical_capability_checks']['owner_approved_privacy_terms_configured'] ?? true) === false, 'Missing owner privacy approval did not fail closed.');

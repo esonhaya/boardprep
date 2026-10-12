@@ -154,19 +154,6 @@ foreach ((array) ($register['missing_capabilities'] ?? []) as $capability) {
     }
 }
 
-$missingEvidence = [];
-foreach ((array) ($register['mandatory_launch_evidence'] ?? []) as $evidence) {
-    if (!is_array($evidence)
-        || !isset($evidence['EVIDENCE'], $evidence['STATUS'])
-        || !in_array($evidence['STATUS'], ['PASS', 'FAIL', 'BLOCKED', 'NOT_VERIFIED'], true)) {
-        $invalidFeatures[] = 'malformed launch evidence';
-        continue;
-    }
-    if (($evidence['REQUIRED'] ?? false) === true && ($evidence['STATUS'] ?? '') !== 'PASS') {
-        $missingEvidence[] = (string) ($evidence['EVIDENCE'] ?? 'unknown');
-    }
-}
-
 $inventory = [
     'routes' => $routes,
     'controllers' => $files('app/Controllers', ['php']),
@@ -328,6 +315,36 @@ $browserValidationStatus = $browserExecutionVerified
     ? 'BROWSER_EXECUTED_PASS'
     : (string) ($browserValidation['STATUS'] ?? 'NOT_VERIFIED');
 
+$mandatoryEvidence = (array) ($register['mandatory_launch_evidence'] ?? []);
+foreach ($mandatoryEvidence as &$evidence) {
+    if (!is_array($evidence)
+        || ($evidence['EVIDENCE'] ?? '') !== 'Real-browser mobile visual, overflow, keyboard, and accessibility behavior') {
+        continue;
+    }
+
+    if ($browserExecutionVerified) {
+        $evidence['STATUS'] = 'PASS';
+        $evidence['REASON'] = 'Current-commit Chromium evidence verifies desktop and mobile projects, the required responsive viewports, keyboard navigation, browser accessibility semantics, ten-board journeys, and privacy/production boundaries. This automated evidence does not establish screen-reader behavior or WCAG conformance.';
+    } else {
+        $evidence['STATUS'] = 'NOT_VERIFIED';
+        $evidence['REASON'] = 'A current-commit Chromium execution manifest and report have not been verified; prepared tests or evidence for another commit do not satisfy this check.';
+    }
+}
+unset($evidence);
+
+$missingEvidence = [];
+foreach ($mandatoryEvidence as $evidence) {
+    if (!is_array($evidence)
+        || !isset($evidence['EVIDENCE'], $evidence['STATUS'])
+        || !in_array($evidence['STATUS'], ['PASS', 'FAIL', 'BLOCKED', 'NOT_VERIFIED'], true)) {
+        $invalidFeatures[] = 'malformed launch evidence';
+        continue;
+    }
+    if (($evidence['REQUIRED'] ?? false) === true && ($evidence['STATUS'] ?? '') !== 'PASS') {
+        $missingEvidence[] = (string) ($evidence['EVIDENCE'] ?? 'unknown');
+    }
+}
+
 $criticalCapabilityChecks = [
     'privacy_control_routes' => $privacyRoutesComplete,
     'privacy_service_and_http_regression_test' => $privacyTestRegistered,
@@ -419,7 +436,7 @@ $report = [
     'board_assessment' => $register['board_assessment'] ?? [],
     'findings' => $register['findings'] ?? [],
     'missing_capabilities' => $register['missing_capabilities'] ?? [],
-    'mandatory_launch_evidence' => $register['mandatory_launch_evidence'] ?? [],
+    'mandatory_launch_evidence' => $mandatoryEvidence,
     'inventory' => $inventory,
 ];
 

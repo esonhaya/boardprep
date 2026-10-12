@@ -15,7 +15,7 @@
         "REQUIRED_VIEWPORTS": ["320x640", "360x800", "390x844", "430x932", "768x1024"],
         "REQUIRED_JOURNEYS": ["keyboard_navigation", "accessibility_semantics", "privacy_export_and_deletion", "production_boundary", "ten_board_journeys", "responsive_viewport_sweep", "math_and_table_viewports"],
         "HUMAN_ACCEPTANCE": "NOT_RUN",
-        "LIMITATION": "Termux Android has Chrome installed, but Playwright cannot launch a compatible Android browser from this runtime; use the local Android browser guide or run the full suite on desktop/CI."
+        "LIMITATION": "Termux Android cannot launch the Playwright Chromium executable. Desktop/CI can provide current-commit rendered-browser evidence; this does not establish physical Android behavior, screen-reader behavior, or WCAG conformance."
     },
     "technical_release_gate": "SEPARATE: php tools/doctor.php --release --json",
     "feature_assessment": [
@@ -112,7 +112,7 @@
             "STATUS": "IMPLEMENTED_UNVERIFIED",
             "SCOPE_INCLUDED": true,
             "LAUNCH_CRITICAL": true,
-            "EVIDENCE": ["Batch664 prepares real Playwright flows for keyboard/focus, privacy export/deletion, all ten board journeys, and responsive pages plus math/table content at five target widths. This environment has Android Chrome but no Playwright-compatible Android executable; no complete rendered browser suite or owner human acceptance has been executed."],
+            "EVIDENCE": ["Current-commit desktop/mobile Chromium evidence verifies responsive layouts at five target widths, keyboard navigation, browser accessibility semantics, privacy controls, and all ten board journeys. Automation does not establish screen-reader behavior or WCAG conformance; all twelve owner human acceptance cases remain separate."],
             "TEST_COVERAGE": ["tools/Tests/LearnerMobileAccessibilityViewTest.php", "tools/Tests/LearnerNavigationUxTest.php", "tests/browser"]
         },
         {
@@ -447,7 +447,7 @@
             "EVIDENCE": "Real-browser mobile visual, overflow, keyboard, and accessibility behavior",
             "STATUS": "NOT_VERIFIED",
             "REQUIRED": true,
-            "REASON": "The Playwright suite is prepared, but this Termux Android runtime cannot launch a compatible Chromium executable; static contracts are not a visual pass."
+            "REASON": "The current-commit browser manifest is evaluated by Product Readiness; browser evidence is automated and does not establish screen-reader or WCAG conformance."
         },
         {
             "EVIDENCE": "Site-specific privacy terms, operator contact, retention, and deletion process",

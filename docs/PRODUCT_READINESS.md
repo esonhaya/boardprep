@@ -126,21 +126,23 @@ repositories, JSON storage files, templates, assets, and tests. Main areas are:
 | Source-first study support | `IMPLEMENTED_AND_VERIFIED` | Board-specific study libraries, question feedback links, and published material/source navigation are exercised by `TenBoardLearnerJourneyHttpTest.php`, `StudyLibraryNavigationTest.php`, and source/reference tests. This verifies linkage/rendering, not every resource's educational quality. |
 | Resume/reload, stale requests and retry | `IMPLEMENTED_AND_VERIFIED` in HTTP/simulation tests | Session is browser-cookie based; no account recovery or cross-device continuity is provided. |
 | Empty/error states | `IMPLEMENTED_AND_VERIFIED` structurally and in focused paths | Existing empty-state, invalid-action, shortage, and start-failure tests cover key paths; no claim that every copy has human acceptance. |
-| Mobile, visual layout, keyboard and assistive technology | `IMPLEMENTED_UNVERIFIED` | Static view/accessibility contracts exist. Playwright and a real browser/device were unavailable in this environment; visual and practical accessibility are NOT_VERIFIED. |
+| Mobile, visual layout, keyboard and assistive technology | `IMPLEMENTED_UNVERIFIED` | Current-commit desktop/mobile Chromium evidence covers five viewports, keyboard navigation, browser accessibility semantics, privacy controls, and all ten board journeys. Human device acceptance, screen-reader behavior, and WCAG conformance remain unverified. |
 | Anonymous data visibility, export, deletion and returning learner state | `PARTIAL` | `AnonymousLearnerPrivacyHttpTest.php` verifies session-scoped export/deletion, CSRF, confirmation, session rotation, idempotence, and JSON/SQLite isolation. Owner-approved terms and external log/backup retention remain outstanding. |
 
-The 14 feature rows reconcile to 10 `IMPLEMENTED_AND_VERIFIED`, 2 `PARTIAL`,
-1 `IMPLEMENTED_UNVERIFIED`, and 1 `INTENTIONALLY_DEFERRED`. This is distinct
+The feature rows reconcile their implementation status separately from
+current-commit browser evidence and owner acceptance. Automated Chromium
+evidence can pass without changing the human matrix or asserting screen-reader
+or WCAG coverage. This is distinct
 from the ten-board matrix and from the technical release gate.
 
 `tools/Tests/` has meaningful feature and HTTP tests, but the count of tests is
 not proof of coverage. Some legacy tests are source/contract assertions. The
 manual matrix in `docs/HUMAN_TESTER_READINESS.md` is authoritative for the
 12 learner acceptance cases; automation does not change any human status, and
-no human acceptance was conducted in Batch 663. The Playwright workflow is
-documented in `README.md`; no supported browser engine was available here, so
-rendered mobile, visual accessibility, and browser-interaction evidence remain
-`NOT_VERIFIED`.
+no human acceptance was conducted in Batch 670. The Playwright workflow runs
+on supported desktop/CI Chromium and its current-commit manifest is checked by
+Product Readiness. That evidence does not establish physical Android behavior,
+WCAG conformance, or screen-reader behavior.
 
 ### Ten-board evidence
 
