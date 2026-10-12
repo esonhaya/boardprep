@@ -47,7 +47,8 @@ final class QuestionIdMigrationService
                 ? trim((string) $taxonomy['board_id'])
                 : '';
         }
-        return is_scalar($board) ? strtolower(trim((string) $board)) : '';
+        $boardId = is_scalar($board) ? strtolower(trim((string) $board)) : '';
+        return $boardId === 'nle' ? 'nursing' : $boardId;
     }
 
     public static function canonicalizeAnswerPlan(array $questions, array $plan): array

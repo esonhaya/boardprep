@@ -13,7 +13,12 @@ use Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator;
 
 $root = dirname(__DIR__, 2);
 $storagePath = sys_get_temp_dir() . '/boardprep-privacy-' . bin2hex(random_bytes(6));
-$sessionDirectory = $root . '/storage/doctor/simulation-sessions';
+$sessionDirectory = trim((string) (getenv('APP_SESSION_PATH') ?: ''));
+if ($sessionDirectory === '') {
+    $sessionDirectory = $storagePath . '/sessions';
+    putenv('APP_SESSION_PATH=' . $sessionDirectory);
+}
+$sessionDirectory = rtrim($sessionDirectory, DIRECTORY_SEPARATOR);
 $existingSessions = array_fill_keys(glob($sessionDirectory . '/sess-*') ?: [], true);
 $sessionIds = [
     'batch663privacy' . bin2hex(random_bytes(6)),
@@ -210,7 +215,7 @@ try {
     }
     @rmdir($storagePath);
     foreach ([
-        'APP_ENV', 'APP_DEBUG', 'APP_TIMEZONE', 'DB_DRIVER', 'APP_STORAGE_PATH',
+        'APP_ENV', 'APP_DEBUG', 'APP_TIMEZONE', 'DB_DRIVER', 'APP_STORAGE_PATH', 'APP_SESSION_PATH',
         'PRIVACY_OPERATOR_NAME', 'PRIVACY_OPERATOR_CONTACT', 'PRIVACY_RETENTION_NOTICE',
         'PRIVACY_HOSTING_NOTICE', 'PRIVACY_TERMS_APPROVED',
     ] as $environmentKey) {

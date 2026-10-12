@@ -61,7 +61,11 @@ try {
 
     echo "[PASS] production quiz mutations require CSRF and developer/admin routes remain unavailable.\n";
 } finally {
-    $sessionPath = $root . '/storage/doctor/simulation-sessions/sess-' . $sessionId;
+    $sessionDirectory = trim((string) (getenv('APP_SESSION_PATH') ?: ''));
+    if ($sessionDirectory === '') {
+        $sessionDirectory = $root . '/storage/doctor/simulation-sessions';
+    }
+    $sessionPath = rtrim($sessionDirectory, DIRECTORY_SEPARATOR) . '/sess-' . $sessionId;
     @unlink($sessionPath);
     $iterator = new RecursiveIteratorIterator(
         new RecursiveDirectoryIterator($storage, FilesystemIterator::SKIP_DOTS),

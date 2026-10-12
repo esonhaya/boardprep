@@ -163,7 +163,11 @@ try {
         }
     }
     @rmdir($fixturePath);
-    @unlink($root . '/storage/doctor/simulation-sessions/sess_' . $cookies['PHPSESSID']);
+    $sessionDirectory = trim((string) (getenv('APP_SESSION_PATH') ?: ''));
+    if ($sessionDirectory === '') {
+        $sessionDirectory = $root . '/storage/doctor/simulation-sessions';
+    }
+    @unlink(rtrim($sessionDirectory, DIRECTORY_SEPARATOR) . '/sess_' . $cookies['PHPSESSID']);
     foreach ($originalEnvironment as $environmentKey => $value) {
         if ($value === false) {
             putenv($environmentKey);

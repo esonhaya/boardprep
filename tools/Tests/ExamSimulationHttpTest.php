@@ -10,15 +10,18 @@ use App\Core\App;
 use App\Repositories\AttemptRepository;
 use Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator;
 
-$path = dirname(__DIR__, 2) . '/storage/attempts.json';
-$questionsPath = dirname(__DIR__, 2) . '/storage/questions.json';
-$weaknessPath = dirname(__DIR__, 2) . '/storage/weakness.json';
+$root = dirname(__DIR__, 2);
+$configuredStorage = trim((string) (getenv('APP_STORAGE_PATH') ?: ''));
+$storagePath = $configuredStorage !== '' ? rtrim($configuredStorage, '/') : $root . '/storage';
+$path = $storagePath . '/attempts.json';
+$questionsPath = $storagePath . '/questions.json';
+$weaknessPath = $storagePath . '/weakness.json';
 $questionsBefore = (string) file_get_contents($questionsPath);
 $weaknessBefore = (string) file_get_contents($weaknessPath);
 $before = json_decode((string) file_get_contents($path), true);
 $before = is_array($before) ? $before : [];
 $beforeIds = array_column($before, 'id');
-$http = new HttpSimulator(dirname(__DIR__, 2) . '/public/index.php');
+$http = new HttpSimulator($root . '/public/index.php');
 $cookies = ['PHPSESSID' => 'batch437-exam-simulation'];
 
 try {

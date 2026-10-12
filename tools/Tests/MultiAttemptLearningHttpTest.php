@@ -12,7 +12,10 @@ use App\Services\Learning\WeaknessService;
 use App\Services\Learning\WeaknessStorageService;
 use Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator;
 
-$attemptsPath = dirname(__DIR__, 2) . '/storage/attempts.json';
+$root = dirname(__DIR__, 2);
+$configuredStorage = trim((string) (getenv('APP_STORAGE_PATH') ?: ''));
+$storagePath = $configuredStorage !== '' ? rtrim($configuredStorage, '/') : $root . '/storage';
+$attemptsPath = $storagePath . '/attempts.json';
 $before = json_decode((string) file_get_contents($attemptsPath), true);
 $before = is_array($before) ? $before : [];
 $beforeIds = array_values(array_filter(array_map(
@@ -23,7 +26,7 @@ $beforeIds = array_values(array_filter(array_map(
 )));
 $beforeWeaknesses = WeaknessStorageService::all();
 
-$simulator = new HttpSimulator(dirname(__DIR__, 2) . '/public/index.php');
+$simulator = new HttpSimulator($root . '/public/index.php');
 
 $complete = static function (string $cookie, string $topic) use ($simulator): void {
     $cookies = ['PHPSESSID' => $cookie];

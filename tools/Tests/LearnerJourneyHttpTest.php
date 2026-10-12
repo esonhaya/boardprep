@@ -13,8 +13,10 @@ use App\Services\Learning\WeaknessStorageService;
 use Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator;
 
 $root = dirname(__DIR__, 2);
-$attemptsPath = $root . '/storage/attempts.json';
-$questionsPath = $root . '/storage/questions.json';
+$configuredStorage = trim((string) (getenv('APP_STORAGE_PATH') ?: ''));
+$storagePath = $configuredStorage !== '' ? rtrim($configuredStorage, '/') : $root . '/storage';
+$attemptsPath = $storagePath . '/attempts.json';
+$questionsPath = $storagePath . '/questions.json';
 $questionsBefore = (string) file_get_contents($questionsPath);
 $before = json_decode((string) file_get_contents($attemptsPath), true);
 $before = is_array($before) ? $before : [];

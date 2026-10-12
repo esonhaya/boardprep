@@ -465,7 +465,7 @@ final class ReleaseReadinessService
             'result_review' => ['tools/Tests/HistoryResultHttpTest.php', 'tools/Tests/QuizCompletionHttpTest.php'],
             'simulator_recovery' => ['tools/Tests/ExamSimulationHttpTest.php'],
             'admin_core_flows' => ['tools/Tests/QuestionEditorEligibilityTest.php', 'tools/Tests/QuestionAuthoringWorkflowIntegrationTest.php'],
-            'shared_question_safety' => ['tools/Tests/CrossBoardCanonicalReuseTest.php'],
+            'shared_question_safety' => ['tools/Tests/CrossBoardCanonicalReuseTest.php', 'tools/Tests/Batch669NursingIntegrationTest.php'],
             'study_experience' => ['tools/Tests/FlashcardIntegrationTest.php'],
             'security_sanity' => ['tools/Tests/ProductionQuizCsrfTest.php'],
             'repository_determinism' => ['tools/Tests/ReleaseReadinessContractTest.php'],
@@ -497,17 +497,36 @@ final class ReleaseReadinessService
     private static function runScript(string $path, string $root): array
     {
         $descriptor = [0 => ['file', '/dev/null', 'r'], 1 => ['pipe', 'w'], 2 => ['pipe', 'w']];
+        $sessionPath = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR)
+            . '/boardprep-release-sessions-' . bin2hex(random_bytes(6));
+        if (!mkdir($sessionPath, 0700, true) && !is_dir($sessionPath)) {
+            return [255, 'Unable to create isolated release-test session storage.'];
+        }
+        $cleanupSessionPath = static function () use ($sessionPath): void {
+            foreach (glob($sessionPath . DIRECTORY_SEPARATOR . '*') ?: [] as $sessionFile) {
+                if (is_file($sessionFile) || is_link($sessionFile)) {
+                    @unlink($sessionFile);
+                }
+            }
+            @rmdir($sessionPath);
+        };
         // The repository's focused integration tests load the full indexed
         // application graph. Keep the release projection independent of the
         // caller's small CLI memory default.
-        $command = 'env APP_ENV=testing APP_DEBUG=false '
+        $command = 'env APP_ENV=testing APP_DEBUG=false APP_SESSION_PATH='
+            . escapeshellarg($sessionPath) . ' '
             . escapeshellarg(PHP_BINARY) . ' -d memory_limit=1024M ' . escapeshellarg($path);
         $process = proc_open($command, $descriptor, $pipes, $root);
-        if (!is_resource($process)) return [255, 'Unable to start release test.'];
+        if (!is_resource($process)) {
+            $cleanupSessionPath();
+            return [255, 'Unable to start release test.'];
+        }
         $stdout = stream_get_contents($pipes[1]) ?: '';
         $stderr = stream_get_contents($pipes[2]) ?: '';
         fclose($pipes[1]);
         fclose($pipes[2]);
-        return [proc_close($process), $stdout . $stderr];
+        $exitCode = proc_close($process);
+        $cleanupSessionPath();
+        return [$exitCode, $stdout . $stderr];
     }
 }

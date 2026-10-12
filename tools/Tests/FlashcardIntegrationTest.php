@@ -35,6 +35,7 @@ $sqlitePath = $root . '/integration.sqlite';
 mkdir($root, 0777, true);
 putenv('DB_DRIVER=sqlite');
 putenv('DB_SQLITE_PATH=' . $sqlitePath);
+putenv('BOARDPREP_SIMULATION_SEED=669531');
 
 try {
     $questions = json_decode(
@@ -110,7 +111,11 @@ try {
     $missedReview = $simulator->request('GET', $missedPath, $missedQuery, [], [], $learner);
     integrationCheck($missedReview['status'] === 200 && str_contains($missedReview['output'], 'Recall before revealing'), 'missed review did not render');
     preg_match('/card_key=([^&"]+)/', $missedReview['output'], $revealCard);
-    integrationCheck(isset($revealCard[1]), 'missed review did not provide a card key');
+    integrationCheck(
+        isset($revealCard[1]),
+        'missed review did not provide a card key for canonical question ' . $questionId
+            . ': ' . substr(strip_tags((string) ($missedReview['output'] ?? '')), 0, 240)
+    );
     $missedCardKey = rawurldecode($revealCard[1]);
 
     $reveal = $simulator->request('GET', '/flashcards/review', [
@@ -146,6 +151,7 @@ try {
 } finally {
     putenv('DB_DRIVER');
     putenv('DB_SQLITE_PATH');
+    putenv('BOARDPREP_SIMULATION_SEED');
     if (is_file($sqlitePath)) {
         @unlink($sqlitePath);
     }

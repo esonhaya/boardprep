@@ -196,7 +196,11 @@ try {
     echo "[PASS] Source references render as separate, readable list items.\n";
     echo "[PASS] Privacy disclosure and production Developer/Doctor route boundaries are safe.\n";
 } finally {
-    $sessionPath = $root . '/storage/doctor/simulation-sessions/sess-' . $sessionId;
+    $sessionDirectory = trim((string) (getenv('APP_SESSION_PATH') ?: ''));
+    if ($sessionDirectory === '') {
+        $sessionDirectory = $root . '/storage/doctor/simulation-sessions';
+    }
+    $sessionPath = rtrim($sessionDirectory, DIRECTORY_SEPARATOR) . '/sess-' . $sessionId;
     @unlink($sessionPath);
     foreach (glob($storage . '/*') ?: [] as $file) {
         if (is_file($file)) {

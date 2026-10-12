@@ -357,6 +357,10 @@ try {
     foreach (['APP_ENV', 'APP_DEBUG', 'APP_TIMEZONE', 'DB_DRIVER', 'APP_STORAGE_PATH'] as $environmentKey) {
         putenv($environmentKey);
     }
-    $sessionFile = $root . '/storage/doctor/simulation-sessions/sess-' . $cookieId;
+    $sessionDirectory = trim((string) (getenv('APP_SESSION_PATH') ?: ''));
+    if ($sessionDirectory === '') {
+        $sessionDirectory = $root . '/storage/doctor/simulation-sessions';
+    }
+    $sessionFile = rtrim($sessionDirectory, DIRECTORY_SEPARATOR) . '/sess-' . $cookieId;
     @unlink($sessionFile);
 }

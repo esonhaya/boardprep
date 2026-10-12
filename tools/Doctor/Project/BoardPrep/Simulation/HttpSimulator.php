@@ -148,9 +148,18 @@ PHP;
     {
         return <<<'PHP'
 
-$sessionDirectory =
-    dirname($argv[1], 2)
-    . '/storage/doctor/simulation-sessions';
+$simulationSeed = trim((string) (getenv('BOARDPREP_SIMULATION_SEED') ?: ''));
+if (preg_match('/^\d+$/D', $simulationSeed) === 1) {
+    mt_srand((int) $simulationSeed);
+}
+
+$configuredSessionPath = trim((string) (getenv('APP_SESSION_PATH') ?: ''));
+$configuredStoragePath = trim((string) (getenv('APP_STORAGE_PATH') ?: ''));
+$sessionDirectory = $configuredSessionPath !== ''
+    ? rtrim($configuredSessionPath, DIRECTORY_SEPARATOR)
+    : ($configuredStoragePath !== ''
+        ? rtrim($configuredStoragePath, DIRECTORY_SEPARATOR) . '/doctor/simulation-sessions'
+        : dirname($argv[1], 2) . '/storage/doctor/simulation-sessions');
 
 if (!is_dir($sessionDirectory)) {
     mkdir($sessionDirectory, 0777, true);

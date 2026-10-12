@@ -7,8 +7,10 @@ require_once dirname(__DIR__, 2) . '/app/Core/Autoloader.php';
 
 use App\Services\Question\QuestionIdMigrationService;
 use App\Services\Shared\ContentIntegrityService;
+use App\Services\Quiz\HistoricalQuizResultService;
 use App\Services\Quiz\Session\QuizSessionQuestion;
 use App\Repositories\QuestionRepository;
+use App\Core\App;
 
 $root = dirname(__DIR__, 2);
 $readJson = static function (string $path): array {
@@ -22,6 +24,11 @@ $assert = static function (bool $condition, string $message): void {
     if (!$condition) {
         throw new RuntimeException($message);
     }
+};
+$stemHash = static function (array $question): string {
+    $stem = trim((string) ($question['question'] ?? ''));
+    $stem = preg_replace('/\s+/u', ' ', $stem) ?? $stem;
+    return hash('sha256', mb_strtolower($stem, 'UTF-8'));
 };
 
 $report = $readJson($root . '/docs/BATCH669_NURSING_ID_RECONCILIATION.json');
@@ -45,6 +52,10 @@ $assert(($report['summary']['mutable_state_differences'] ?? -1) === 0, 'Legacy m
 $sourceIds = [];
 $canonicalIds = [];
 $fixtureRow = null;
+putenv('APP_ENV=testing');
+putenv('APP_DEBUG=false');
+App::boot();
+$questionRepository = App::container()->get(QuestionRepository::class);
 foreach ($mapping as $row) {
     $sourceId = (int) ($row['source_question_id'] ?? 0);
     $canonicalId = (int) ($row['canonical_nursing_question_id'] ?? 0);
@@ -54,11 +65,23 @@ foreach ($mapping as $row) {
     $assert(QuestionIdMigrationService::canonicalId((string) $sourceId, 'nursing') === (string) $canonicalId, 'Runtime Nursing compatibility mapping differs from the crosswalk.');
     $assert(QuestionIdMigrationService::canonicalId((string) $sourceId, 'cpa') === (string) $sourceId, 'CPA question IDs must not be remapped.');
     $assert(QuestionIdMigrationService::canonicalId((string) $sourceId, 'criminologist') === (string) $sourceId, 'Criminologist question IDs must not be remapped.');
+    $assert(QuestionIdMigrationService::canonicalId((string) $sourceId, 'NLE') === (string) $canonicalId, 'The NLE board alias must use the Nursing compatibility map.');
     $collision = $row['same_numeric_id_collision'] ?? [];
     $nursing = $row['nursing_record_reconciliation'] ?? [];
     $assert(($collision['classification'] ?? '') === 'DISTINCT_QUESTIONS_SHARED_ID', 'A shared numeric ID was incorrectly treated as identical content.');
     $assert(($nursing['content_equal_except_id_and_mutable_counters'] ?? false) === true, 'Incoming Nursing record does not match its retained canonical record.');
     $assert(($nursing['references_equal'] ?? false) === true, 'Nursing eligibility, sources, study links, or reuse metadata differ.');
+    $canonicalQuestion = $questionRepository->find((string) $canonicalId);
+    $collisionQuestion = $questionRepository->find((string) $sourceId);
+    $assert(is_array($canonicalQuestion), 'A mapped Nursing canonical record is missing from the current question bank.');
+    $assert(QuestionIdMigrationService::boardForQuestion($canonicalQuestion) === 'nursing', 'A mapped canonical record has leaked onto another board.');
+    $assert($stemHash($canonicalQuestion) === ($nursing['canonical_stem_sha256'] ?? null), 'The current canonical Nursing stem differs from its verified crosswalk fingerprint.');
+    $assert(($canonicalQuestion['answer'] ?? null) === ($nursing['canonical_answer'] ?? null), 'The current canonical Nursing answer differs from its verified crosswalk.');
+    $assert(($canonicalQuestion['source'] ?? null) === ($nursing['canonical_source'] ?? null), 'The current canonical Nursing provenance differs from its verified crosswalk.');
+    $assert(is_array($collisionQuestion), 'A distinct question sharing the legacy numeric ID was lost.');
+    $assert(QuestionIdMigrationService::boardForQuestion($collisionQuestion) === ($collision['existing_board'] ?? null), 'A shared-ID CPA/Criminologist record changed board.');
+    $assert($stemHash($collisionQuestion) === ($collision['existing_stem_sha256'] ?? null), 'A shared-ID CPA/Criminologist stem changed.');
+    $assert(($collisionQuestion['answer'] ?? null) === ($collision['existing_answer'] ?? null), 'A shared-ID CPA/Criminologist answer changed.');
     if ($sourceId === (int) ($fixture['shared_question_id'] ?? 0)) {
         $fixtureRow = $row;
     }
@@ -70,22 +93,25 @@ $assert(($fixtureRow['same_numeric_id_collision']['existing_board'] ?? '') === (
 $assert(($fixtureRow['same_numeric_id_collision']['incoming_board'] ?? '') === ($fixture['incoming_board'] ?? null), 'Collision fixture Nursing provenance changed.');
 $assert(($fixtureRow['nursing_record_reconciliation']['canonical_content_sha256'] ?? '') === ($fixtureRow['nursing_record_reconciliation']['incoming_content_sha256'] ?? null), 'Representative content fingerprints differ.');
 
-putenv('APP_ENV=testing');
-putenv('APP_DEBUG=false');
-\App\Core\App::boot();
-$canonicalQuestion = \App\Core\App::container()->get(QuestionRepository::class)->find('4873');
+$canonicalQuestion = $questionRepository->find('4873');
 $assert(is_array($canonicalQuestion), 'Canonical Nursing record 4873 is unavailable to the production repository.');
 $legacySessionQuestion = $canonicalQuestion;
 $legacySessionQuestion['id'] = '4163';
+$legacySessionQuestion['board'] = 'NLE';
+$legacySessionQuestion['taxonomy']['board_id'] = 'NLE';
 $assert(QuizSessionQuestion::isCurrent($legacySessionQuestion), 'A pre-reconciliation Nursing session no longer resolves to its canonical record.');
 
 $review = [[
     'question_id' => '4163',
     'question' => ['id' => '4163', 'board' => 'nursing', 'question' => 'unchanged review snapshot'],
+    'correct' => false,
+    'answered' => true,
 ]];
 $migratedReview = QuestionIdMigrationService::canonicalizeReview($review, ['board' => 'nursing']);
 $assert(($migratedReview[0]['question']['id'] ?? '') === '4873', 'Historical Nursing review did not resolve to the canonical Nursing ID.');
 $assert(($migratedReview[0]['question_id'] ?? '') === '4873', 'Historical review question reference was not migrated in memory.');
+$assert(($review[0]['question']['id'] ?? '') === '4163', 'Reading a historical result must not rewrite its persisted attempt snapshot.');
+$assert(HistoricalQuizResultService::missedQuestionIds($migratedReview) === ['4873'], 'Missed-question flashcards must use the canonical Nursing ID.');
 $cpaReview = QuestionIdMigrationService::canonicalizeReview([[
     'question' => ['id' => '4163', 'board' => 'cpa'],
 ]], ['board' => 'cpa']);
