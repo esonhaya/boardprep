@@ -96,9 +96,12 @@ final class QuizFlowController
                 if ($action !== '') {
                     self::rejectAction();
                 }
-                if (is_array(\SessionService::get('quiz_session'))
-                    && is_array(\SessionService::get('questions'))
-                    && \SessionService::get('attempt_persisted') !== true) {
+                $activeSession = self::activeSessionSummary();
+                if ($activeSession !== null && self::hasConfigurationIntent()) {
+                    self::settings($activeSession);
+                    return;
+                }
+                if ($activeSession !== null) {
                     \QuizNavigationService::renderCurrent();
                     return;
                 }
@@ -113,7 +116,7 @@ final class QuizFlowController
         Response::redirect('/quiz');
     }
 
-    private static function settings(): void
+    private static function settings(?array $activeSession = null): void
     {
         $settings = QuizStartInputNormalizer::normalize(Request::query());
         View::render(
@@ -123,8 +126,73 @@ final class QuizFlowController
                 'settings' => $settings,
                 'boards' => BoardViewService::all(),
                 'letSpecializations' => LETVariantRegistry::specializations(),
+                'activeSession' => $activeSession ?? self::activeSessionSummary(),
             ]
         );
+    }
+
+    /** @return array<string, int|string>|null */
+    private static function activeSessionSummary(): ?array
+    {
+        $quizSession = \SessionService::get('quiz_session', []);
+        $questions = \SessionService::get('questions', []);
+        if (!is_array($quizSession) || !is_array($questions) || $questions === []
+            || \SessionService::get('attempt_persisted') === true) {
+            return null;
+        }
+
+        $answers = \SessionService::get('answers', []);
+        $answers = is_array($answers) ? $answers : [];
+        $answered = 0;
+        foreach ($questions as $question) {
+            $id = is_array($question) && is_scalar($question['id'] ?? null)
+                ? (string) $question['id']
+                : '';
+            if ($id !== '' && is_scalar($answers[$id] ?? null)) {
+                $answered++;
+            }
+        }
+
+        $board = is_scalar($quizSession['board'] ?? $quizSession['exam'] ?? null)
+            ? (string) ($quizSession['board'] ?? $quizSession['exam'])
+            : '';
+        $subject = is_scalar($quizSession['subject'] ?? null)
+            ? (string) $quizSession['subject']
+            : '';
+        $mode = is_scalar($quizSession['mode'] ?? null)
+            ? (string) $quizSession['mode']
+            : 'practice';
+        $current = \QuizNavigationService::current();
+
+        return [
+            'board' => $board,
+            'board_label' => \App\Services\Shared\TaxonomyStorageService::label('boards', $board),
+            'subject' => $subject,
+            'subject_label' => \App\Services\Shared\TaxonomyStorageService::label('subjects', $subject),
+            'mode_label' => $mode === 'exam' ? 'Exam simulation' : ucfirst($mode),
+            'current_question' => min(max(0, $current), count($questions) - 1) + 1,
+            'question_count' => count($questions),
+            'answered_count' => $answered,
+        ];
+    }
+
+    private static function hasConfigurationIntent(): bool
+    {
+        $query = Request::query();
+        if (!is_array($query)) {
+            return false;
+        }
+
+        foreach ([
+            'exam', 'subject', 'topic', 'mode', 'difficulty', 'count', 'adaptive',
+            'let_level', 'let_specialization', 'civil_service_level', 'timer_mode', 'time_limit_minutes',
+        ] as $key) {
+            if (is_scalar($query[$key] ?? null) && trim((string) $query[$key]) !== '') {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private static function finish(): void

@@ -9,6 +9,19 @@
 <div class="practice-setup-page"><section class="page-header"><div><p class="eyebrow">Practice setup</p><h1>Choose practice or an exam simulation</h1><p>Set the examination context first, then tailor the session to your review goal.</p></div></section>
 
 <?php $settings = is_array($settings ?? null) ? $settings : []; ?>
+<?php $activeSession = is_array($activeSession ?? null) ? $activeSession : null; ?>
+
+<?php if ($activeSession !== null): ?>
+<aside class="active-session-warning card" aria-labelledby="active-session-heading">
+    <div>
+        <p class="eyebrow">Session in progress</p>
+        <h2 id="active-session-heading">Choose whether to resume or start a new session</h2>
+        <p><strong><?= htmlspecialchars((string) ($activeSession['board_label'] ?? $activeSession['board'] ?? 'Board'), ENT_QUOTES, 'UTF-8') ?></strong><?php if (($activeSession['subject_label'] ?? '') !== ''): ?> · <?= htmlspecialchars((string) $activeSession['subject_label'], ENT_QUOTES, 'UTF-8') ?><?php endif; ?> · <?= htmlspecialchars((string) ($activeSession['mode_label'] ?? 'Practice'), ENT_QUOTES, 'UTF-8') ?></p>
+        <p><?= (int) ($activeSession['answered_count'] ?? 0) ?> of <?= (int) ($activeSession['question_count'] ?? 0) ?> questions answered. Starting the session below will end this unfinished attempt and discard its answers. Completed attempts in your history will remain unchanged.</p>
+    </div>
+    <a class="button button-outline" href="/quiz">Resume current session</a>
+</aside>
+<?php endif; ?>
 
 <form class="quiz-settings card" method="POST" action="/quiz">
 

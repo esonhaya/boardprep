@@ -44,6 +44,11 @@ async function startQuiz(page, {
 } = {}) {
   const query = new URLSearchParams({ exam, topic });
   await page.goto(`/quiz?${query.toString()}`);
+  const activeSessionNotice = page.locator('.active-session-warning');
+  if (await activeSessionNotice.count()) {
+    await expect(activeSessionNotice).toContainText('Starting the session below will end this unfinished attempt and discard its answers.');
+    await expect(page.getByRole('link', { name: 'Resume current session' })).toHaveAttribute('href', '/quiz');
+  }
   const subjectSelect = page.locator('#quiz-subject');
   const subjectOptions = await subjectSelect.locator('option').evaluateAll((options) => options
     .filter((option) => !option.disabled && !option.hidden)

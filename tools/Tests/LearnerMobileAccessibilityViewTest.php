@@ -27,6 +27,9 @@ $checks = [
         && str_contains($review, '/assets/js/quiz-focus.js')
         && str_contains($result, '/assets/js/quiz-focus.js')
         && str_contains($focus, "target.focus({ preventScroll: true })"),
+    'active attempts disclose replacement and provide an explicit resume action' => str_contains($settings, 'class="active-session-warning card"')
+        && str_contains($settings, 'Starting the session below will end this unfinished attempt and discard its answers.')
+        && str_contains($settings, 'Resume current session'),
     'review correctness has textual and structural state' => str_contains($result, 'Correct answer</strong>')
         && str_contains($result, 'Incorrect answer</strong>')
         && str_contains($result, 'is-correct'),

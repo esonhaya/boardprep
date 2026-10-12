@@ -66,3 +66,9 @@ html{overflow-wrap:normal}.ui-technical{overflow-wrap:anywhere}
   .quiz-choice>span{min-width:0;overflow-wrap:anywhere}
   .exam-countdown{min-width:0}
 }
+.active-session-warning{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin:0 auto 20px;padding:18px;border-left:5px solid var(--warning,#a45c00);background:#fffaf1;min-width:0}
+.active-session-warning>div{flex:1 1 340px;min-width:0}
+.active-session-warning h2{margin:0 0 8px;font-size:1.1rem}
+.active-session-warning p{margin:6px 0;overflow-wrap:anywhere}
+.active-session-warning>.button{min-height:44px;flex:0 0 auto}
+@media(max-width:640px){.active-session-warning{align-items:stretch}.active-session-warning>div{flex-basis:100%}.active-session-warning>.button{width:100%}}

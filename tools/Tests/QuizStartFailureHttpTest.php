@@ -39,6 +39,25 @@ if (!$valid['success'] || !preg_match('/Question 1 \/ [1-9]\d*/', $valid['output
     ]));
 }
 
+$answeredActive = $simulator->request('POST', '/quiz', [], [
+    'action' => 'submit',
+    'question_id' => $activeQuestion[1],
+    'answer' => 'A',
+], [], $cookies);
+if (!$answeredActive['success'] || !str_contains($answeredActive['output'], 'quiz-feedback')) {
+    throw new RuntimeException('could not save an answer before testing active-session recovery');
+}
+
+$newBoardSetup = $simulator->request('GET', '/quiz', [
+    'exam' => 'CPA',
+    'subject' => 'cpa-financial-accounting',
+], [], [], $cookies);
+if (!$newBoardSetup['success'] || !str_contains($newBoardSetup['output'], 'active-session-warning')
+    || !str_contains($newBoardSetup['output'], 'Resume current session')
+    || !str_contains($newBoardSetup['output'], 'Licensure Examination for Certified Public Accountants')) {
+    throw new RuntimeException('requesting a different board did not offer a safe active-session choice');
+}
+
 $failed = $simulator->request(
     'POST',
     '/quiz',
@@ -63,8 +82,24 @@ if (!$failed['success'] || $failed['status'] !== 302 || $failed['location'] !== 
 $recovery = $simulator->request('GET', '/quiz', [], [], [], $cookies);
 if (!$recovery['success'] || !preg_match('/name="question_id"\s+value="([^"]+)"/', $recovery['output'], $resumedQuestion)
     || $resumedQuestion[1] !== $activeQuestion[1]
-    || !str_contains($recovery['output'], 'No questions matched those quiz settings')) {
+    || !str_contains($recovery['output'], 'No questions matched those quiz settings')
+    || !preg_match('/name="answer"\s+value="A"\s+required\s+checked/', $recovery['output'])) {
     throw new RuntimeException('a failed start discarded the learner\'s active question or hid its recovery message');
 }
 
-echo "[PASS] Failed quiz generation reports the error while preserving the active learner session.\n";
+$replacement = $simulator->request('POST', '/quiz', [], [
+    'action' => 'start',
+    'exam' => 'CPA',
+    'subject' => 'cpa-financial-accounting',
+    'mode' => 'practice',
+    'difficulty' => 'mixed',
+    'count' => 1,
+], [], $cookies);
+if (!$replacement['success']
+    || !str_contains($replacement['output'], 'Licensure Examination for Certified Public Accountants')
+    || !preg_match('/name="question_id"\s+value="([^\"]+)"/', $replacement['output'], $replacementQuestion)
+    || $replacementQuestion[1] === $activeQuestion[1]) {
+    throw new RuntimeException('an explicit new-session start did not replace the active board context safely');
+}
+
+echo "[PASS] Active sessions resume on refresh, offer a warned board switch, and survive invalid generation before an explicit replacement.\n";
