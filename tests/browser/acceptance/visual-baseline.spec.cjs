@@ -370,6 +370,9 @@ test.describe('BoardPrep deterministic visual baseline', () => {
         { width: 768, height: 1024 },
       ]) {
         await page.setViewportSize(size);
+        if (size.width === 320) {
+          await expect(page.locator('.ui-dashboard-hero .page-actions a[href="/flashcards/review?mode=weakness"]')).toBeVisible();
+        }
         await capture(page, testInfo, entries, `dashboard-width-${size.width}`, { fullPage: true });
       }
       recordBrowserEvidence('complex-content', {
