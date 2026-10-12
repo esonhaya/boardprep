@@ -372,7 +372,20 @@ test.describe('BoardPrep deterministic visual baseline', () => {
         reveal: '1',
       });
       await page.goto(`/flashcards/review?${structuredFlashcardQuery.toString()}`);
-      await expect(page.locator('.flashcard-card .question-table-wrap')).toBeVisible();
+      const structuredTable = page.locator('.flashcard-card .question-table-wrap');
+      await expect(structuredTable).toBeVisible();
+      await expect(structuredTable).toHaveRole('region');
+      await expect(structuredTable).toHaveAccessibleName('Scrollable question data');
+      await expect(structuredTable).toHaveAttribute('tabindex', '0');
+      const hasHorizontalOverflow = await structuredTable.evaluate((element) => element.scrollWidth > element.clientWidth);
+      expect(hasHorizontalOverflow).toBe(true);
+      await structuredTable.focus();
+      await page.keyboard.press('ArrowRight');
+      await expect.poll(() => structuredTable.evaluate((element) => element.scrollLeft)).toBeGreaterThan(0);
+      await structuredTable.evaluate((element) => {
+        element.scrollLeft = 0;
+        element.blur();
+      });
       await assertPageHealthy(page, testInfo, 'structured-flashcard-table');
       await capture(page, testInfo, entries, 'structured-flashcard-table', { fullPage: false });
     }

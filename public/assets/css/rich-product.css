@@ -136,6 +136,7 @@ main#main-content:focus{outline:none}
 .quiz-study-support h4{margin-bottom:8px}
 .quiz-study-support ul{margin-bottom:0;padding-left:22px}
 .question-equation,.question-table-wrap,.table-scroll,.table-wrap{max-width:100%;overflow-x:auto}
+.question-table-wrap:focus-visible{outline:3px solid var(--primary);outline-offset:2px}
 .question-equation code{overflow-wrap:anywhere}
 .question-data{min-width:360px}
 

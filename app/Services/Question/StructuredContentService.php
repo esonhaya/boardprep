@@ -177,7 +177,7 @@ final class StructuredContentService
                 $fallback = htmlspecialchars((string) ($block['fallback'] ?? $block['value'] ?? ''), ENT_QUOTES, 'UTF-8');
                 $html .= '<div class="question-equation" role="img" aria-label="' . $fallback . '"><code>' . $value . '</code></div>';
             } elseif ($type === 'table' || $type === 'chart') {
-                $html .= '<div class="question-table-wrap"><table class="question-data"><thead><tr>';
+                $html .= '<div class="question-table-wrap" role="region" aria-label="Scrollable question data" tabindex="0"><table class="question-data"><thead><tr>';
                 foreach (($block['columns'] ?? []) as $column) $html .= '<th scope="col">' . htmlspecialchars((string) $column, ENT_QUOTES, 'UTF-8') . '</th>';
                 $html .= '</tr></thead><tbody>';
                 foreach (($block['rows'] ?? []) as $row) { $html .= '<tr>'; foreach ($row as $cell) $html .= '<td>' . htmlspecialchars((string) $cell, ENT_QUOTES, 'UTF-8') . '</td>'; $html .= '</tr>'; }
