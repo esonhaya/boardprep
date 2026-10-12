@@ -306,7 +306,7 @@ test.describe('BoardPrep deterministic visual baseline', () => {
 
     if (mobile) {
       await finishActiveQuiz(page);
-      await expect(page.locator('.result-answer-review .question-table-wrap')).toBeVisible();
+      await expect(page.locator('.result-answer-review .question-table-wrap').first()).toBeVisible();
       await assertPageHealthy(page, testInfo, 'table-question-result');
       await capture(page, testInfo, entries, 'table-question-result', { fullPage: true });
     }
