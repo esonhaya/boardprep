@@ -346,6 +346,10 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     await capture(page, testInfo, entries, 'privacy-delete-confirmation', { fullPage: true });
 
     await page.goto('/missing-browser-acceptance-route');
+    await expect(page.locator('.site-header')).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'We couldn’t find that page' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Go to home' })).toHaveAttribute('href', '/');
+    await expect(page.getByRole('link', { name: 'Browse examinations' })).toBeVisible();
     await assertPageHealthy(page, testInfo, 'error-state', {
       allowHttpErrors: [{
         status: 404,

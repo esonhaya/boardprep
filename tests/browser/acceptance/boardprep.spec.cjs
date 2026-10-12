@@ -182,6 +182,9 @@ test.describe('BoardPrep learner browser acceptance', () => {
   test('production hides developer routes and presents a safe not-found page', async ({ page }, testInfo) => {
     const response = await page.goto('/developer');
     expect(response.status()).toBe(404);
+    await expect(page.locator('.site-header')).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'We couldn’t find that page' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Browse examinations' })).toHaveAttribute('href', '/exams');
     await expect(page.locator('body')).not.toContainText(/stack trace|fatal error|doctor dashboard/i);
     await assertPageHealthy(page, testInfo, 'production-developer-route', {
       allowHttpErrors: [{

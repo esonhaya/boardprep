@@ -51,9 +51,29 @@ class ExceptionHandler
 
         }
 
+        $statusCode = $this->statusCode($exception);
+        if (in_array($statusCode, [404, 405], true)) {
+            $bufferLevel = ob_get_level();
+            ob_start();
+
+            try {
+                View::render('errors/http', [
+                    'pageTitle' => $statusCode === 404 ? 'Page not found' : 'Method not allowed',
+                    'statusCode' => $statusCode,
+                ]);
+
+                return (string) ob_get_clean();
+            } catch (Throwable) {
+                while (ob_get_level() > $bufferLevel) {
+                    ob_end_clean();
+                }
+            }
+
+        }
+
         return sprintf(
             '<h1>Error %d</h1><p>Something went wrong.</p>',
-            $this->statusCode($exception)
+            $statusCode
         );
 
     }
