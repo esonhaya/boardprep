@@ -28,6 +28,7 @@ $assert(($report['nonproduction_web_route_count'] ?? 0) === 43, 'Non-production 
 $assert(($report['board_matrix_complete'] ?? false) === true, 'The evidence-backed automated ten-board matrix was not recognized.');
 $assert(($report['critical_capability_checks']['privacy_control_routes'] ?? false) === true, 'Privacy data-control routes were not detected.');
 $assert(($report['critical_capability_checks']['unsupported_exam_mode_claim_disclosed'] ?? false) === true, 'The actual learner-facing exam-mode limitations were not recognized.');
+$assert(($report['critical_capability_checks']['exam_simulation_timer_review_and_expiry_regression'] ?? false) === true, 'Timed exam simulation and review regression coverage were not recognized.');
 $browserExecutionVerified = ($report['browser_validation']['execution_verified_for_current_commit'] ?? false) === true;
 $assert(($report['critical_capability_checks']['current_commit_real_browser_acceptance'] ?? false) === $browserExecutionVerified, 'Browser evidence status does not match the current-commit verification.');
 $assert(($report['browser_validation']['status'] ?? '') === ($browserExecutionVerified ? 'BROWSER_EXECUTED_PASS' : 'TEST_PREPARED_NOT_EXECUTED'), 'Browser execution state was not reported distinctly.');
@@ -42,8 +43,8 @@ $assert(in_array('tools/Tests/StudyLibraryNavigationTest.php', (array) ($report[
 $assert(count((array) ($report['board_assessment'] ?? [])) === 10, 'Board-by-board evidence rows are incomplete.');
 $assert(count((array) ($report['incomplete_boards'] ?? [])) === 0, 'Automated ten-board journey evidence was not recorded.');
 $quizSettings = (string) file_get_contents($root . '/app/Views/quiz/settings.php');
-$assert((str_contains($quizSettings, 'does not enforce a timer') || preg_match('/\bis untimed\b/i', $quizSettings) === 1)
-    && str_contains($quizSettings, 'does not reproduce every official board-exam format'), 'Exam-mode limitations are not disclosed at setup.');
+$assert(str_contains($quizSettings, 'name="timer_mode"')
+    && str_contains($quizSettings, 'separate from the official board examination'), 'Exam simulation timer choices and official-exam distinction are not disclosed at setup.');
 $assert(($report['defects_discovered_by_severity']['P0'] ?? -1) === 0, 'Unexpected P0 defect was omitted.');
 $assert(($report['defects_discovered_by_severity']['P1'] ?? -1) === 4, 'The two prior and two Batch 665 P1 board journey findings were not preserved in the register.');
 $assert(($report['defects_remaining_by_severity']['P0'] ?? -1) === 0, 'Product gate is incorrectly treating a resolved P0 as open.');

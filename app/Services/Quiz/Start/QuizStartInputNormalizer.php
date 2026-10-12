@@ -19,6 +19,22 @@ final class QuizStartInputNormalizer
         if (!in_array($mode, ['practice', 'exam', 'review'], true)) {
             $mode = 'practice';
         }
+        $timerMode = strtolower(self::text($input['timer_mode'] ?? 'untimed'));
+        if (!in_array($timerMode, ['timed', 'untimed'], true)) {
+            $timerMode = 'untimed';
+        }
+        $timeLimitMinutes = 0;
+        if ($mode === 'exam' && $timerMode === 'timed') {
+            $rawTimeLimit = $input['time_limit_minutes'] ?? 60;
+            $numericTimeLimit = is_numeric($rawTimeLimit) ? (float) $rawTimeLimit : NAN;
+            if (!is_finite($numericTimeLimit) || floor($numericTimeLimit) !== $numericTimeLimit
+                || $numericTimeLimit < 1 || $numericTimeLimit > 600) {
+                throw new \InvalidArgumentException('Choose a whole-number timer from 1 to 600 minutes.');
+            }
+            $timeLimitMinutes = (int) $numericTimeLimit;
+        } else {
+            $timerMode = 'untimed';
+        }
         $defaultCount = $mode === 'exam' ? 150 : 10;
         $rawCount = $input['count'] ?? null;
         $numericCount = is_numeric($rawCount) ? (float) $rawCount : NAN;
@@ -69,6 +85,8 @@ final class QuizStartInputNormalizer
             'difficulty' => $difficulty,
             'count' => max(1, min($mode === 'exam' ? 150 : 20, $count)),
             'mode' => $mode,
+            'timer_mode' => $timerMode,
+            'time_limit_minutes' => $timeLimitMinutes,
             'adaptive' => isset($input['adaptive']),
             'shuffle' => true,
             'let_variant' => $letVariant,

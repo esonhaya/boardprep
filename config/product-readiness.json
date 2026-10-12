@@ -61,10 +61,18 @@
         },
         {
             "FEATURE": "Exam mode",
-            "STATUS": "PARTIAL",
+            "STATUS": "IMPLEMENTED_AND_VERIFIED",
             "SCOPE_INCLUDED": true,
             "LAUNCH_CRITICAL": true,
-            "EVIDENCE": ["Exam-mode HTTP lifecycle and partial-result behavior are verified for LET. Batch 662 now discloses that the UI does not enforce a timer or reproduce every official board format; exact fidelity is not demonstrated for every board."],
+            "EVIDENCE": ["BoardPrep provides a configurable study simulation with timed and untimed sessions, a persisted server deadline, refresh recovery, previous/skip/jump navigation, editable answers, required review before manual submission, automatic expiration, unanswered scoring, and exact-once result persistence. The interface identifies the simulator as separate from the official examination and does not claim official timing or format."],
+            "TEST_COVERAGE": ["tools/Tests/ExamSimulationHttpTest.php", "tools/Tests/ExamSimulationBlueprintTest.php"]
+        },
+        {
+            "FEATURE": "Official exam-format fidelity and published duration for every board",
+            "STATUS": "INTENTIONALLY_DEFERRED",
+            "SCOPE_INCLUDED": false,
+            "LAUNCH_CRITICAL": false,
+            "EVIDENCE": ["Timer duration is learner-configured for study use. Board-specific official formats and durations require current authoritative examination sources and are not represented as official."],
             "TEST_COVERAGE": ["tools/Tests/ExamSimulationHttpTest.php", "tools/Tests/ExamSimulationBlueprintTest.php"]
         },
         {
@@ -205,7 +213,7 @@
             "ID": "BP662-DEF-005",
             "FEATURE": "Exam-mode expectations",
             "USER_IMPACT": "A learner could mistake exam mode for a timed, exact official exam replica.",
-            "EVIDENCE": "Exam-mode route supports exam-style answer withholding and selectable counts; no timer is enforced and exact board-format coverage was not demonstrated.",
+            "EVIDENCE": "The learner-configured timer, answer withholding, question navigation, review gate, and unanswered results are covered by Batch 670 tests. Official duration and format fidelity remain deferred, and the interface identifies this as a separate study simulator.",
             "REPRODUCTION": "Open quiz setup, select Exam Simulation, and inspect the setup instructions and session behavior.",
             "SEVERITY": "P2",
             "ROOT_CAUSE": "The mode's supported limits were not disclosed at its point of use.",
@@ -213,7 +221,7 @@
             "FIX_COMMIT": "83d762ba98513f7aabf5096daac652b55f0caceb",
             "TEST_COVERAGE": "tools/Tests/ProductReadinessTest.php; tools/Tests/ExamSimulationHttpTest.php",
             "RELEASE_BLOCKING": false,
-            "DEPENDENCIES": ["A timer and official-format implementation remain deferred."]
+            "DEPENDENCIES": ["Current authoritative official format and duration evidence for every board remains deferred."]
         },
         {
             "ID": "BP662-DEF-006",
@@ -317,8 +325,8 @@
             "ID": "BP664-DEF-004",
             "FEATURE": "Exam-mode product readiness disclosure check",
             "USER_IMPACT": "The product readiness report marked truthful learner-facing exam-mode limitations as undisclosed and incorrectly added a failed critical capability check.",
-            "EVIDENCE": "The live copy says 'does not enforce a timer or reproduce every official board-exam format'; the engine previously required 'does not reproduce' without the actual conjunction wording.",
-            "REPRODUCTION": "Run php tools/product-readiness.php --json before the fix; unsupported_exam_mode_claim_disclosed was false despite the actual settings copy.",
+            "EVIDENCE": "Setup and active-question pages state that BoardPrep exam simulations are separate from the official board examination. The readiness check verifies that boundary and the timer/review/expiry lifecycle regression.",
+            "REPRODUCTION": "Run php tools/product-readiness.php --json and inspect unsupported_exam_mode_claim_disclosed and exam_simulation_timer_review_and_expiry_regression.",
             "SEVERITY": "P2",
             "ROOT_CAUSE": "The readiness matcher accepted only one grammatical form and did not match the application's precise disclosure text.",
             "STATUS": "FIXED",
@@ -401,17 +409,17 @@
         },
         {
             "ID": "BP662-CAP-003",
-            "FEATURE": "Timed, official-format exam simulation for every board",
-            "USER_IMPACT": "The current exam mode does not enforce a time limit and does not demonstrate official-format fidelity across all ten boards.",
-            "EVIDENCE": "ExamSimulationHttpTest covers a short LET exam-mode flow; no learner-side timer was found in the mode UI or lifecycle.",
-            "REPRODUCTION": "Choose Exam Simulation in quiz setup and observe that no countdown or time limit is applied.",
+            "FEATURE": "Official exam-format fidelity and published duration for every board",
+            "USER_IMPACT": "A learner could be misled if BoardPrep presented its generic study timer as an official board duration or implied that its question flow reproduces every board examination.",
+            "EVIDENCE": "BoardPrep now offers a learner-configured timer and explicitly identifies the exam simulator as a study tool separate from the official examination. Current authoritative format and duration sources for every board have not been assembled.",
+            "REPRODUCTION": "Review the exam simulation disclosure and compare its generic configurable timer with current official examination instructions for each board; no official duration or fidelity claim is made.",
             "SEVERITY": "P2",
-            "ROOT_CAUSE": "The v1 MVP implements an exam-mode quiz workflow, not a complete timed replica of every board exam.",
+            "ROOT_CAUSE": "The source corpus does not include verified current official exam-format and duration records for all boards.",
             "STATUS": "INTENTIONALLY_DEFERRED",
             "FIX_COMMIT": "",
             "TEST_COVERAGE": "tools/Tests/ExamSimulationHttpTest.php; tools/Tests/ExamSimulationBlueprintTest.php",
             "RELEASE_BLOCKING": false,
-            "DEPENDENCIES": ["Official format and duration evidence per board"]
+            "DEPENDENCIES": ["Authoritative, current official format and duration evidence per board"]
         },
         {
             "ID": "BP662-CAP-004",

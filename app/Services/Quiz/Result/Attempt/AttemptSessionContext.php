@@ -32,6 +32,9 @@ final class AttemptSessionContext
                 ? array_values($session["blueprint_issues"])
                 : [],
             "started_at" => AttemptValueReader::text($session["started_at"] ?? null),
+            "timer_mode" => AttemptValueReader::text($session["timer_mode"] ?? "untimed"),
+            "time_limit_minutes" => AttemptValueReader::nonNegativeInt($session["time_limit_minutes"] ?? null),
+            "time_expired" => ($session["time_expired"] ?? false) === true,
         ];
     }
 }

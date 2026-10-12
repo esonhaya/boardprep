@@ -35,6 +35,8 @@ final class QuizSpecification
 
         public readonly ?string $civilServiceLevel = null,
 
+        public readonly int $timeLimitMinutes = 0,
+
     ) {
     }
 }

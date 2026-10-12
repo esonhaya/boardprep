@@ -96,6 +96,11 @@ try {
         $submitted['status'] === 200 && $nextQuestionId !== $questionId,
         'exam-style answer did not advance to the next question'
     );
+    $reviewAnswers = $simulator->request('GET', '/quiz', ['action' => 'review'], [], [], $learner);
+    integrationCheck(
+        $reviewAnswers['status'] === 200 && str_contains($reviewAnswers['output'], 'Review your answers'),
+        'exam simulation did not expose its required pre-submit review'
+    );
     $finished = $simulator->request('POST', '/quiz', [], ['action' => 'finish', 'csrf_token' => $csrfToken], [], $learner);
     integrationCheck($finished['status'] === 303, 'quiz finish did not use PRG');
 

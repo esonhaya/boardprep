@@ -106,14 +106,23 @@ try {
         [],
         $cookies
     );
-    if (!$submit['success'] || $submit['status'] !== 302) {
-        throw new RuntimeException('final answer did not redirect to completion');
+    if (!$submit['success'] || $submit['status'] !== 303 || $submit['location'] !== '/quiz?action=review') {
+        throw new RuntimeException('final answer did not open answer review: HTTP '
+            . $submit['status'] . ' ' . ($submit['location'] ?? '') . ' ' . substr($submit['stderr'], -240));
     }
 
+    $review = $simulator->request('GET', '/quiz', ['action' => 'review'], [], [], $cookies);
+    if (!$review['success'] || !str_contains($review['output'], 'Review your answers')) {
+        throw new RuntimeException('exam result flow skipped pre-submit review');
+    }
+    $review = $simulator->request('GET', '/quiz', ['action' => 'review'], [], [], $cookies);
+    if (!$review['success'] || !str_contains($review['output'], 'Review your answers')) {
+        throw new RuntimeException('exam result flow skipped pre-submit review');
+    }
     $finish = $simulator->request('POST', '/quiz', [], ['action' => 'finish', 'csrf_token' => $csrfMatch[1]], [], $cookies);
     $result = $simulator->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
     if (!$finish['success'] || $finish['status'] !== 303
-        || !$result['success'] || !str_contains($result['output'], 'Quiz Result')
+        || !$result['success'] || !str_contains($result['output'], 'Exam Simulation Result')
         || !str_contains($result['output'], 'Answer Review')) {
         throw new RuntimeException('completed result did not render through HTTP');
     }

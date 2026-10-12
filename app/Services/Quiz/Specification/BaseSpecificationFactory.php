@@ -64,6 +64,9 @@ final class BaseSpecificationFactory
                     ? strtoupper(trim((string) ($options['civil_service_level'] ?? $options['civilServiceLevel'])))
                     : null,
 
+            timeLimitMinutes:
+                max(0, (int) ($options['time_limit_minutes'] ?? 0)),
+
         );
 
     }

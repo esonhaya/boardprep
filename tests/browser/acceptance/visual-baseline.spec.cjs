@@ -223,7 +223,7 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     await capture(page, testInfo, entries, 'quiz-config-cse-professional', { fullPage: false });
 
     await page.goto('/quiz');
-    await expect(page.locator('h1')).toContainText('Choose how you want to study');
+  await expect(page.locator('h1')).toContainText('Choose practice or an exam simulation');
     await capture(page, testInfo, entries, 'quiz-config', { fullPage: false });
 
     await page.goto('/history');

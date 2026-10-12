@@ -6,7 +6,7 @@
 </p>
 <?php endif; ?>
 
-<div class="practice-setup-page"><section class="page-header"><div><p class="eyebrow">Practice setup</p><h1>Choose how you want to study</h1><p>Set the examination context first, then tailor the session to your review goal.</p></div></section>
+<div class="practice-setup-page"><section class="page-header"><div><p class="eyebrow">Practice setup</p><h1>Choose practice or an exam simulation</h1><p>Set the examination context first, then tailor the session to your review goal.</p></div></section>
 
 <?php $settings = is_array($settings ?? null) ? $settings : []; ?>
 
@@ -101,7 +101,7 @@ Hard
 
 
 
-<div class="form-field"><label for="quiz-mode">Mode</label>
+<div class="form-field"><label for="quiz-mode">Session type</label>
 
 
 <select id="quiz-mode" name="mode">
@@ -111,14 +111,19 @@ Practice Mode
 </option>
 
 <option value="exam" <?= ($settings['mode'] ?? '') === 'exam' ? 'selected' : '' ?>>
-Exam-style practice (untimed)
+Exam simulation
 </option>
 
 <option value="review" <?= ($settings['mode'] ?? '') === 'review' ? 'selected' : '' ?>>
 Review Mode
 </option>
 
-</select><small class="form-help mode-disclosure">Exam-style practice hides answer feedback until you finish. It is untimed and does not reproduce every official board-exam format.</small></div>
+</select><small class="form-help mode-disclosure">Exam simulation withholds answer feedback until submission. It is a BoardPrep study tool, separate from the official board examination.</small></div>
+
+<div id="exam-timer-fields" class="quiz-variant-fields" <?= ($settings['mode'] ?? 'practice') === 'exam' ? '' : 'hidden' ?>>
+<div class="form-field"><label for="quiz-timer-mode">Exam simulation timer</label><select id="quiz-timer-mode" name="timer_mode" aria-controls="quiz-time-limit"><option value="untimed" <?= ($settings['timer_mode'] ?? 'untimed') === 'untimed' ? 'selected' : '' ?>>Untimed</option><option value="timed" <?= ($settings['timer_mode'] ?? '') === 'timed' ? 'selected' : '' ?>>Timed</option></select><small class="form-help">Choose a timer for this study session. This does not represent an official examination duration.</small></div>
+<div class="form-field"><label for="quiz-time-limit">Time limit in minutes</label><input id="quiz-time-limit" name="time_limit_minutes" type="number" min="1" max="600" step="1" value="<?= (int) ($settings['time_limit_minutes'] ?? 0) > 0 ? (int) $settings['time_limit_minutes'] : 60 ?>"><small class="form-help">Use a whole number from 1 to 600. The timer continues when you move between questions or refresh.</small></div>
+</div>
 
 
 
@@ -142,8 +147,8 @@ Prioritizes questions from your weak topics.
 
 </small></div>
 
-<div class="form-actions"><button type="submit" class="practice-start-button">
-Start practice
+<div class="form-actions"><button id="start-session-button" type="submit" class="practice-start-button">
+Start session
 </button></div>
 
 

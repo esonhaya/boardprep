@@ -7,6 +7,8 @@ $layout = file_get_contents($root . '/app/Views/layouts/main.php');
 $settings = file_get_contents($root . '/app/Views/quiz/settings.php');
 $quiz = file_get_contents($root . '/app/Views/quiz/index.php');
 $result = file_get_contents($root . '/app/Views/quiz/result.php');
+$review = file_get_contents($root . '/app/Views/quiz/review.php');
+$focus = file_get_contents($root . '/public/assets/js/quiz-focus.js');
 $css = file_get_contents($root . '/public/assets/css/style.css');
 
 $checks = [
@@ -15,12 +17,16 @@ $checks = [
     'primary navigation identifies landmark and current page' => str_contains($layout, 'aria-label="Primary navigation"')
         && str_contains($layout, 'aria-current="page"'),
     'document title is escaped' => str_contains($layout, 'htmlspecialchars((string) ($pageTitle'),
-    'quiz settings labels are explicitly associated' => preg_match_all('/<label for="quiz-[^"]+">/', $settings) === 6
-        && preg_match_all('/id="quiz-[^"]+"/', $settings) === 6,
+    'quiz settings labels are explicitly associated' => preg_match_all('/<label for="quiz-[^"]+">/', $settings) === 8
+        && preg_match_all('/id="quiz-[^"]+"/', $settings) === 8,
     'answer choices use a labelled fieldset and full-size labels' => str_contains($quiz, '<fieldset class="quiz-choices">')
         && str_contains($quiz, '<legend>Choose one answer</legend>')
         && str_contains($quiz, 'class="quiz-choice" for="answer-'),
     'quiz feedback is announced' => str_contains($quiz, 'role="status" aria-live="polite"'),
+    'quiz, review, and result transitions move keyboard focus to the update' => str_contains($quiz, '/assets/js/quiz-focus.js')
+        && str_contains($review, '/assets/js/quiz-focus.js')
+        && str_contains($result, '/assets/js/quiz-focus.js')
+        && str_contains($focus, "target.focus({ preventScroll: true })"),
     'review correctness has textual and structural state' => str_contains($result, 'Correct answer</strong>')
         && str_contains($result, 'Incorrect answer</strong>')
         && str_contains($result, 'is-correct'),

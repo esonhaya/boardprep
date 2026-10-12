@@ -120,7 +120,8 @@ repositories, JSON storage files, templates, assets, and tests. Main areas are:
 | Practice, question selection, answer feedback, submit, score, explanation, retry and recovery | `IMPLEMENTED_AND_VERIFIED` | `TenBoardLearnerJourneyHttpTest.php` exercises each board with a source-linked eligible question; `LearnerJourneyHttpTest.php`, `QuizStartFailureHttpTest.php`, and `QuizSessionResilienceTest.php` add generic lifecycle/recovery coverage. |
 | History, historical result, progress, dashboard and recommendations | `IMPLEMENTED_AND_VERIFIED` | `TenBoardLearnerJourneyHttpTest.php`, `HistoryResultHttpTest.php`, `MultiAttemptLearningHttpTest.php`, and learner journey tests; attempts remain scoped to the random learner identity. |
 | Adaptive practice and weakness analysis | `IMPLEMENTED_AND_VERIFIED` | Focused learning/recommendation tests plus the multi-page HTTP journey; behavior remains bounded by actual completed attempts. |
-| Exam mode | `PARTIAL` | `ExamSimulationHttpTest.php` verifies answer withholding and partial result persistence for LET. Setup now states there is no timer and no claim of a complete official-format replica for every board. |
+| Exam simulation | `IMPLEMENTED_AND_VERIFIED` | `ExamSimulationHttpTest.php` verifies timed and untimed sessions, server deadline recovery and expiry, navigation, editable answers, required review, unanswered scoring, retry, and exact-once persistence. The simulator is clearly separate from the official examination. |
+| Official exam format and duration for every board | `INTENTIONALLY_DEFERRED` | No official duration or exact format claim is made. Current authoritative source evidence for every board is required before representing those details. |
 | Flashcards | `IMPLEMENTED_AND_VERIFIED` | `FlashcardHttpTest.php` and integration/scheduling tests cover reveal, rating, CSRF, persisted state, and learner isolation. |
 | Source-first study support | `IMPLEMENTED_AND_VERIFIED` | Board-specific study libraries, question feedback links, and published material/source navigation are exercised by `TenBoardLearnerJourneyHttpTest.php`, `StudyLibraryNavigationTest.php`, and source/reference tests. This verifies linkage/rendering, not every resource's educational quality. |
 | Resume/reload, stale requests and retry | `IMPLEMENTED_AND_VERIFIED` in HTTP/simulation tests | Session is browser-cookie based; no account recovery or cross-device continuity is provided. |
@@ -250,7 +251,7 @@ and dependencies. Missing capabilities are kept in a separate collection.
 | `BP662-DEF-002` | P2 | Board detail lacked a board-scoped study-material action. | Fixed: detail links use canonical board IDs and verified filters. | No |
 | `BP662-DEF-003` | P2 | Shared footer said `v0.1` on v1.0.1. | Fixed: footer reads configured release identity. | No |
 | `BP662-DEF-004` | P2 | No learner-facing notice described anonymous session state. | Fixed with limitation: `/privacy` discloses actual behavior; site policy remains open. | No |
-| `BP662-DEF-005` | P2 | Exam mode could be mistaken for a timed official replica. | Fixed with limitation: setup states no timer and no universal official-format claim. | No |
+| `BP662-DEF-005` | P2 | Exam mode could be mistaken for a timed official replica. | Fixed with limitation: configurable timer and review flow are verified; official duration and format fidelity remain deferred and clearly disclosed. | No |
 | `BP662-DEF-006` | P2 | Question-to-material mappings were not visible from quiz feedback/results. | Fixed: practice and both current/historical review link relevant published materials. | No |
 | `BP662-DEF-007` | P3 | The source validator rejected valid committed source categories. | Fixed: validator accepts the existing source taxonomy; regression test passes. | No |
 | `BP663-DEF-001` | P1 | Seven short board codes did not normalize to their canonical eligibility IDs. | Fixed and covered by all-board production HTTP journeys. | No |
@@ -299,8 +300,9 @@ every board (`CAP-003`) remain intentionally deferred. Production authoring
 
 - Account-based cross-device continuity and recovery, if user research supports
   the added privacy and authentication burden.
-- Timers and verified official exam-format replicas, only with current,
-  board-specific authoritative duration and weighting evidence.
+- Official exam-format replicas and published durations, only with current,
+  board-specific authoritative evidence. The configurable study timer is not
+  an official duration claim.
 - Further production authoring convenience if release-managed content updates
   become operationally insufficient.
 

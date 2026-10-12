@@ -13,6 +13,10 @@ final class QuizStartSessionPayloadFactory
         array $issues = []
     ): array
     {
+        $timeLimitMinutes = $specification->mode === 'exam'
+            ? max(0, (int) ($specification->timeLimitMinutes ?? 0))
+            : 0;
+        $timeLimitSeconds = $timeLimitMinutes * 60;
         return [
             'id' => 'quiz-' . bin2hex(random_bytes(8)),
             'board' => $specification->board,
@@ -21,6 +25,11 @@ final class QuizStartSessionPayloadFactory
             'topics' => $specification->topics,
             'mode' => $specification->mode,
             'session_type' => $specification->mode === 'exam' ? 'exam_simulation' : 'quiz',
+            'timer_mode' => $timeLimitSeconds > 0 ? 'timed' : 'untimed',
+            'time_limit_minutes' => $timeLimitMinutes,
+            'time_limit_seconds' => $timeLimitSeconds,
+            'deadline_epoch' => $timeLimitSeconds > 0 ? time() + $timeLimitSeconds : null,
+            'time_expired' => false,
             'let_variant' => $specification->letVariant,
             'let_level' => $specification->letVariant['level'] ?? null,
             'let_specialization_id' => $specification->letVariant['specialization_id'] ?? null,

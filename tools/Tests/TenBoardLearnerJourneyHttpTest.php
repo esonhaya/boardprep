@@ -215,7 +215,9 @@ try {
         $setup = $http->request('GET', '/quiz', $query, [], [], $cookies);
         if (!$setup['success'] || !str_contains($setup['output'], 'data-exam="' . htmlspecialchars($boardCode, ENT_QUOTES, 'UTF-8') . '"')
             || !preg_match('/name="csrf_token" value="([a-f0-9]{64})"/', $setup['output'], $csrfMatch)) {
-            throw new RuntimeException('Practice configuration is missing board options or CSRF token for ' . $boardCode . '.');
+            throw new RuntimeException('Practice configuration is missing board options or CSRF token for ' . $boardCode
+                . ': HTTP ' . $setup['status'] . ' ' . ($setup['location'] ?? '') . ' '
+                . substr(preg_replace('/\s+/', ' ', strip_tags($setup['output'])) ?? '', 0, 320));
         }
         $csrfToken = $csrfMatch[1];
         $postFields['action'] = 'start';
@@ -316,9 +318,48 @@ try {
             'csrf_token' => $retryCsrf[1],
         ], [], $cookies);
         if (!$retry['success'] || !str_contains($retry['output'], 'Question 1 / 1')
+            || !preg_match('/name="question_id"\s+value="([^"]+)"/', $retry['output'], $retryQuestionMatch)
             || !$stale['success'] || !str_contains($stale['output'], 'no longer active')
-            || count($fixtureStorage->all('attempts')) !== count($boardResults) + 1) {
+            || count($fixtureStorage->all('attempts')) !== 2 * count($boardResults) + 1) {
             throw new RuntimeException('Retry or stale-action recovery failed for ' . $boardCode . '.');
+        }
+        $retryQuestionId = $retryQuestionMatch[1];
+        $retryQuestion = $selectedQuestionRecords[$retryQuestionId] ?? null;
+        if (!is_array($retryQuestion)) {
+            throw new RuntimeException('Retry selected a question outside the board fixture for ' . $boardCode . '.');
+        }
+        $retryAnswerLetter = null;
+        foreach (array_values($retryQuestion['choices'] ?? []) as $retryChoiceIndex => $retryChoice) {
+            if (strtolower(trim((string) $retryChoice)) === strtolower(trim((string) ($retryQuestion['answer'] ?? '')))) {
+                $retryAnswerLetter = chr(65 + $retryChoiceIndex);
+                break;
+            }
+        }
+        if ($retryAnswerLetter === null) {
+            throw new RuntimeException('Retry question has no matching answer choice for ' . $boardCode . '.');
+        }
+
+        $retrySubmission = $http->request('POST', '/quiz', [], [
+            'action' => 'submit',
+            'question_id' => $retryQuestionId,
+            'answer' => $retryAnswerLetter,
+            'csrf_token' => $retryCsrf[1],
+        ], [], $cookies);
+        $retryFinish = $http->request('POST', '/quiz', [], [
+            'action' => 'finish',
+            'csrf_token' => $retryCsrf[1],
+        ], [], $cookies);
+        $retryResult = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
+        if (!$retrySubmission['success'] || !str_contains($retrySubmission['output'], 'Correct!')
+            || !$retryFinish['success'] || $retryFinish['status'] !== 303
+            || !$retryResult['success'] || !str_contains($retryResult['output'], 'Quiz Result')
+            || count($fixtureStorage->all('attempts')) !== 2 * (count($boardResults) + 1)) {
+            throw new RuntimeException('A completed retry did not persist exactly one additional attempt for ' . $boardCode
+                . ': submit=' . $retrySubmission['status'] . ' ' . ($retrySubmission['location'] ?? '')
+                . ', finish=' . $retryFinish['status'] . ' ' . ($retryFinish['location'] ?? '')
+                . ', result=' . ($retryResult['success'] ? 'PASS' : 'FAIL')
+                . ', attempts=' . count($fixtureStorage->all('attempts'))
+                . ', submit_text=' . substr(preg_replace('/\s+/', ' ', strip_tags($retrySubmission['output'])) ?? '', 0, 180));
         }
 
         $boardResults[$boardCode] = [

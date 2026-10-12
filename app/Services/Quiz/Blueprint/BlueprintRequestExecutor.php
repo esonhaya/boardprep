@@ -14,6 +14,14 @@ final class BlueprintRequestExecutor
         array $requests,
         ?\App\Services\Question\QuestionEligibilityIndex $eligibilityIndex = null
     ): array {
+        if ($eligibilityIndex === null) {
+            foreach ($requests as $request) {
+                if ($request instanceof SelectionRequest && $request->exam !== null) {
+                    $eligibilityIndex = \App\Services\Question\QuestionEligibilityService::index();
+                    break;
+                }
+            }
+        }
         $session = new SelectionSession();
         $selected = [];
 

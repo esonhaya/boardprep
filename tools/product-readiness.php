@@ -225,11 +225,20 @@ $boardJourneyTestRegistered = is_file($root . '/tools/Tests/TenBoardLearnerJourn
 $mobileStructuralTestsRegistered = is_file($root . '/tools/Tests/LearnerMobileAccessibilityViewTest.php')
     && is_file($root . '/tools/Tests/LearnerNavigationUxTest.php');
 $quizSettings = (string) @file_get_contents($root . '/app/Views/quiz/settings.php');
-$examModeIsUntimed = str_contains($quizSettings, 'does not enforce a timer')
-    || preg_match('/\bis untimed\b/i', $quizSettings) === 1;
-$unsupportedExamModeDisclosed = $examModeIsUntimed
-    && (str_contains($quizSettings, 'does not reproduce every official board-exam format')
-        || str_contains($quizSettings, 'or reproduce every official board-exam format'));
+$quizView = (string) @file_get_contents($root . '/app/Views/quiz/index.php');
+$examTimerService = (string) @file_get_contents($root . '/app/Services/Quiz/ExamTimerService.php');
+$examController = (string) @file_get_contents($root . '/app/Controllers/QuizFlowController.php');
+$examHttpTest = (string) @file_get_contents($root . '/tools/Tests/ExamSimulationHttpTest.php');
+$unsupportedExamModeDisclosed = str_contains($quizSettings, 'separate from the official board examination')
+    && str_contains($quizView, 'separate from the official board examination');
+$examSimulationLifecycleVerified = is_file($root . '/app/Views/quiz/review.php')
+    && is_file($root . '/public/assets/js/exam-timer.js')
+    && str_contains($quizSettings, 'name="timer_mode"')
+    && str_contains($examTimerService, 'deadline_epoch')
+    && str_contains($examTimerService, 'enforceIfExpired')
+    && str_contains($examController, 'exam_reviewed_revision')
+    && str_contains($examHttpTest, 'time_expired')
+    && str_contains($examHttpTest, 'exact-once');
 
 require_once $root . '/app/Core/Autoloader.php';
 \App\Core\Autoloader::register();
@@ -324,6 +333,7 @@ $criticalCapabilityChecks = [
     'privacy_service_and_http_regression_test' => $privacyTestRegistered,
     'ten_board_http_journey_test' => $boardJourneyTestRegistered,
     'ten_board_assessment_matrix_complete' => $boardMatrixComplete,
+    'exam_simulation_timer_review_and_expiry_regression' => $examSimulationLifecycleVerified,
     'unsupported_exam_mode_claim_disclosed' => $unsupportedExamModeDisclosed,
     'human_acceptance_matrix_complete' => $humanAcceptanceInventoryComplete,
     'current_commit_real_browser_acceptance' => $browserExecutionVerified,

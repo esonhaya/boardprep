@@ -663,7 +663,7 @@ final class QuestionEligibilityService
     {
         $exam = self::normalize($exam);
         $id = (string) ($question['id'] ?? '');
-        if (self::hasOverride($id, $exam, 'EXCLUDE')) {
+        if ($index === null && self::hasOverride($id, $exam, 'EXCLUDE')) {
             return null;
         }
         if ($index !== null) {
@@ -758,7 +758,33 @@ final class QuestionEligibilityService
 
     public static function eligible(array $questions, string $exam): array
     {
-        return array_values(array_filter($questions, static fn(array $question): bool => self::forExam($question, $exam) !== null));
+        $index = self::index();
+        return array_values(array_filter(
+            $questions,
+            static fn(array $question): bool => self::forExam($question, $exam, $index) !== null
+        ));
+    }
+
+    /**
+     * Build one exact eligibility resolver for a request or batch operation.
+     * Persisted INCLUDE overrides are validated before indexing so callers
+     * retain the same acceptance rules as the storage-backed resolver.
+     */
+    public static function index(): QuestionEligibilityIndex
+    {
+        $overrides = array_values(array_filter(
+            App::storage()->all('question-reuse-overrides'),
+            static fn(mixed $override): bool => !is_array($override)
+                || ($override['override_type'] ?? '') !== 'INCLUDE'
+                || QuestionReuseEligibilityResolver::validateOverride($override) === []
+        ));
+
+        return new QuestionEligibilityIndex(
+            App::storage()->all('question-eligibility'),
+            App::storage()->all('blueprints'),
+            QuestionReuseEligibilityResolver::productionDerivedRelationships(),
+            $overrides
+        );
     }
 
     private static function containsId(mixed $ids, string $id): bool

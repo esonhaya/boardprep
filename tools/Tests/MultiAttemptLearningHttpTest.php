@@ -59,12 +59,24 @@ $complete = static function (string $cookie, string $topic) use ($simulator): vo
         [],
         $cookies
     );
-    if (!$submit['success'] || $submit['status'] !== 302) {
-        throw new RuntimeException("could not submit {$topic} quiz through HTTP");
+    if (!$submit['success'] || $submit['status'] !== 303
+        || ($submit['location'] ?? '') !== '/quiz?action=review') {
+        throw new RuntimeException("could not open {$topic} answer review through HTTP");
+    }
+
+    $review = $simulator->request('GET', '/quiz', ['action' => 'review'], [], [], $cookies);
+    if (!$review['success'] || !str_contains($review['output'], 'Review your answers')) {
+        throw new RuntimeException("could not review {$topic} answers through HTTP");
+    }
+
+    $finish = $simulator->request('POST', '/quiz', [], ['action' => 'finish'], [], $cookies);
+    if (!$finish['success'] || $finish['status'] !== 303
+        || ($finish['location'] ?? '') !== '/quiz?action=result') {
+        throw new RuntimeException("could not finish {$topic} exam simulation through HTTP");
     }
 
     $result = $simulator->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
-    if (!$result['success'] || !str_contains($result['output'], 'Quiz Result')) {
+    if (!$result['success'] || !str_contains($result['output'], 'Exam Simulation Result')) {
         throw new RuntimeException("{$topic} result did not render through HTTP");
     }
 

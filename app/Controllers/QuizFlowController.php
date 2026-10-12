@@ -9,6 +9,7 @@ use App\Core\Request;
 use App\Core\Response;
 use App\Core\View;
 use App\Services\Quiz\QuizResultActionService;
+use App\Services\Quiz\ExamTimerService;
 use App\Services\Quiz\Start\QuizStartSessionWriter;
 use App\Services\Quiz\Start\QuizStartInputNormalizer;
 use App\Services\Board\BoardViewService;
@@ -39,11 +40,15 @@ final class QuizFlowController
         }
 
         $allowed = $method === 'POST'
-            ? ['start', 'submit', 'next', 'finish']
-            : ['', 'start', 'result'];
+            ? ['start', 'submit', 'next', 'previous', 'jump', 'finish', 'timer-check']
+            : ['', 'start', 'result', 'review'];
 
         if (!in_array($action, $allowed, true)) {
             self::rejectAction();
+        }
+
+        if ($action !== 'start') {
+            ExamTimerService::enforceIfExpired();
         }
 
         switch ($action) {
@@ -63,6 +68,22 @@ final class QuizFlowController
                 \QuizNavigationService::next();
                 return;
 
+            case 'previous':
+                \QuizNavigationService::previous();
+                return;
+
+            case 'jump':
+                \QuizNavigationService::jump();
+                return;
+
+            case 'timer-check':
+                \QuizNavigationService::renderCurrent();
+                return;
+
+            case 'review':
+                self::review();
+                return;
+
             case 'finish':
                 self::finish();
                 return;
@@ -74,6 +95,12 @@ final class QuizFlowController
             default:
                 if ($action !== '') {
                     self::rejectAction();
+                }
+                if (is_array(\SessionService::get('quiz_session'))
+                    && is_array(\SessionService::get('questions'))
+                    && \SessionService::get('attempt_persisted') !== true) {
+                    \QuizNavigationService::renderCurrent();
+                    return;
                 }
                 self::settings();
                 return;
@@ -102,6 +129,15 @@ final class QuizFlowController
 
     private static function finish(): void
     {
+        if (\SessionService::get('mode', 'practice') === 'exam') {
+            $revision = \SessionService::get('exam_answer_revision', 0);
+            $reviewedRevision = \SessionService::get('exam_reviewed_revision', null);
+            if (!is_int($revision) || $reviewedRevision !== $revision) {
+                \SessionService::flash('error', 'Review your answers before submitting the exam simulation.');
+                Response::redirect('/quiz?action=review', 303);
+            }
+        }
+
         $resultInput = \QuizResultSessionReader::read();
         $questions = $resultInput['questions'];
 
@@ -144,6 +180,7 @@ final class QuizFlowController
             [
                 'summary' => $summary,
                 'review' => $review,
+                'quizSession' => is_array($session) ? $session : [],
                 'studyReferencesByQuestion' => $studyReferencesByQuestion,
                 'actions' => QuizResultActionService::build(
                     is_array($session) ? $session : [],
@@ -152,5 +189,34 @@ final class QuizFlowController
                 ),
             ]
         );
+    }
+
+    private static function review(): void
+    {
+        if (\SessionService::get('mode', 'practice') !== 'exam') {
+            \SessionService::flash('error', 'Answer review is available in an exam simulation.');
+            Response::redirect('/quiz?action=start', 303);
+        }
+
+        $questions = \SessionService::get('questions', []);
+        $answers = \SessionService::get('answers', []);
+        if (!is_array($questions) || $questions === [] || !is_array($answers)) {
+            \App\Services\Quiz\Session\QuizSessionRecoveryService::abandonInvalidSession();
+        }
+        $questions = array_values($questions);
+        foreach ($questions as $question) {
+            if (!\App\Services\Quiz\Session\QuizSessionQuestion::isCurrent($question)) {
+                \App\Services\Quiz\Session\QuizSessionRecoveryService::abandonInvalidSession();
+            }
+        }
+
+        $revision = \SessionService::get('exam_answer_revision', 0);
+        $revision = is_int($revision) && $revision >= 0 ? $revision : 0;
+        \SessionService::set('exam_reviewed_revision', $revision);
+        View::render('quiz/review', [
+            'questions' => $questions,
+            'answers' => $answers,
+            'current' => \QuizNavigationService::current(),
+        ]);
     }
 }

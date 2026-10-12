@@ -3,7 +3,9 @@
 declare(strict_types=1);
 
 use App\Core\Response;
+use App\Core\Request;
 use App\Core\View;
+use App\Services\Quiz\Session\QuizSessionQuestion;
 use App\Services\Quiz\Session\QuizSessionRecoveryService;
 
 class QuizNavigationService
@@ -12,9 +14,62 @@ class QuizNavigationService
     {
         self::redirectIfCompleted();
         $questions = self::sessionQuestions();
+        if (!self::isCurrentValid($questions)) {
+            QuizSessionRecoveryService::abandonInvalidSession();
+        }
+        if (SessionService::get('mode', 'practice') === 'exam'
+            && self::current() >= count($questions) - 1) {
+            Response::redirect('/quiz?action=review', 303);
+        }
         $current = self::nextQuestionIndex($questions);
 
         SessionService::set("currentQuestion", $current);
+        self::renderNextQuestion($questions, $current);
+    }
+
+    public static function previous(): void
+    {
+        self::redirectIfCompleted();
+        $questions = self::sessionQuestions();
+        if (!self::isCurrentValid($questions)) {
+            QuizSessionRecoveryService::abandonInvalidSession();
+        }
+        $current = max(0, self::current() - 1);
+        SessionService::set('currentQuestion', $current);
+        self::renderNextQuestion($questions, $current);
+    }
+
+    public static function jump(): void
+    {
+        self::redirectIfCompleted();
+        if (SessionService::get('mode', 'practice') !== 'exam') {
+            Response::redirect('/quiz');
+        }
+        $questions = self::sessionQuestions();
+        $rawIndex = Request::input('index');
+        if (!is_scalar($rawIndex) || preg_match('/^\\d{1,4}$/', (string) $rawIndex) !== 1) {
+            QuizSessionRecoveryService::abandonInvalidSession();
+        }
+        $current = (int) $rawIndex;
+        if ($current < 0 || $current >= count($questions)
+            || !QuizSessionQuestion::isCurrent($questions[$current] ?? null)) {
+            QuizSessionRecoveryService::abandonInvalidSession();
+        }
+        SessionService::set('currentQuestion', $current);
+        self::renderNextQuestion($questions, $current);
+    }
+
+    public static function renderCurrent(): void
+    {
+        self::redirectIfCompleted();
+        $questions = self::sessionQuestions();
+        if (!self::isCurrentValid($questions)) {
+            QuizSessionRecoveryService::abandonInvalidSession();
+        }
+        $current = self::current();
+        if (!QuizSessionQuestion::isCurrent($questions[$current] ?? null)) {
+            QuizSessionRecoveryService::abandonInvalidSession();
+        }
         self::renderNextQuestion($questions, $current);
     }
 

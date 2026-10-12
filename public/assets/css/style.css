@@ -34,3 +34,35 @@ html{overflow-wrap:normal}.ui-technical{overflow-wrap:anywhere}
 .quiz-settings{max-width:760px;margin:0 auto}
 @media(max-width:768px){.dashboard-flashcard-action{padding-right:var(--gutter)}.quiz-settings{max-width:none}}
 @media(max-width:480px){.progress-next-steps,.progress-recommendations{padding:16px}.flashcard-context-navigation .button{flex:1 1 calc(50% - 8px)}.history-summary{grid-template-columns:1fr 1fr}.history-summary>div:last-child{grid-column:1/-1}}
+
+/* Exam simulation controls and review stay usable at narrow mobile widths. */
+.quiz-shell,.exam-review-page{min-width:0;max-width:900px;margin-inline:auto}
+.exam-simulation-disclosure{padding:12px 15px;border-left:4px solid var(--primary);border-radius:0 var(--radius-sm) var(--radius-sm) 0;background:var(--primary-soft);color:var(--navy)}
+.exam-countdown{display:inline-flex;align-items:center;justify-content:space-between;gap:14px;min-width:190px;margin:12px 0;padding:12px 16px;border:1px solid var(--border);border-radius:var(--radius-md);background:#fff;box-shadow:var(--shadow)}
+.exam-countdown-label{color:var(--muted);font-size:.875rem;font-weight:700}
+.exam-countdown-value{color:var(--navy);font-size:1.4rem;font-variant-numeric:tabular-nums;font-weight:900}
+.exam-question-navigation,.exam-review-header-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:16px}
+.exam-question-navigation form,.exam-review-jump-form{margin:0}
+.exam-question-navigation button,.exam-question-navigation a,.exam-review-jump-form button{min-height:44px}
+.exam-review-summary{display:flex;flex-wrap:wrap;gap:6px 14px;margin:18px 0;padding:16px;border:1px solid var(--border);border-radius:var(--radius-md);background:#fff}
+.exam-review-list{display:grid;gap:12px;padding-left:2rem}
+.exam-review-item{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:18px;padding:16px;border:1px solid var(--border);border-left:5px solid var(--success);border-radius:var(--radius-md);background:#fff;min-width:0}
+.exam-review-item.is-unanswered{border-left-color:var(--warning,#a45c00)}
+.exam-review-item-copy,.exam-review-item-copy p{min-width:0;overflow-wrap:anywhere}
+.exam-review-item-copy h2{margin:0 0 6px;font-size:1rem}
+.exam-review-item-copy>p{margin:4px 0}
+.exam-answer-status{display:flex;flex-wrap:wrap;gap:4px 10px;color:var(--muted)}
+.exam-final-submit{margin-top:24px}
+.exam-final-submit form{margin:0}
+@media(max-width:640px){
+  .quiz-meta{align-items:flex-start;flex-direction:column;gap:5px}
+  .exam-question-navigation{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+  .exam-question-navigation form,.exam-question-navigation a,.exam-question-navigation button{width:100%}
+  .exam-review-header-actions{align-items:stretch;flex-direction:column}
+  .exam-review-header-actions .button,.exam-review-header-actions .exam-countdown{width:100%}
+  .exam-review-item{grid-template-columns:minmax(0,1fr);gap:10px;padding:14px}
+  .exam-review-jump-form,.exam-review-jump-form button{width:100%}
+  .quiz-choice{align-items:flex-start;min-height:48px;padding:14px}
+  .quiz-choice>span{min-width:0;overflow-wrap:anywhere}
+  .exam-countdown{min-width:0}
+}

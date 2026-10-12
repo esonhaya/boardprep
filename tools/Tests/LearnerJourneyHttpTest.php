@@ -17,7 +17,11 @@ $configuredStorage = trim((string) (getenv('APP_STORAGE_PATH') ?: ''));
 $storagePath = $configuredStorage !== '' ? rtrim($configuredStorage, '/') : $root . '/storage';
 $attemptsPath = $storagePath . '/attempts.json';
 $questionsPath = $storagePath . '/questions.json';
+$weaknessPath = $storagePath . '/weakness.json';
+$statisticsPath = $storagePath . '/question-statistics.json';
 $questionsBefore = (string) file_get_contents($questionsPath);
+$weaknessJsonBefore = (string) file_get_contents($weaknessPath);
+$statisticsBefore = is_file($statisticsPath) ? (string) file_get_contents($statisticsPath) : null;
 $before = json_decode((string) file_get_contents($attemptsPath), true);
 $before = is_array($before) ? $before : [];
 $beforeIds = array_values(array_filter(array_map(
@@ -26,7 +30,7 @@ $beforeIds = array_values(array_filter(array_map(
 )));
 $beforeWeaknesses = WeaknessStorageService::all();
 $http = new HttpSimulator($root . '/public/index.php');
-$cookies = ['PHPSESSID' => 'batch436-learner-journey'];
+$cookies = ['PHPSESSID' => 'batch670-learner-journey-' . bin2hex(random_bytes(5))];
 
 $complete = static function (array $query, bool $exerciseStaleForm = false) use ($http, $cookies): array {
     $start = $query;
@@ -67,14 +71,32 @@ $complete = static function (array $query, bool $exerciseStaleForm = false) use 
             }
         }
     }
+    if (($query['mode'] ?? 'practice') === 'exam') {
+        $review = $http->request('GET', '/quiz', ['action' => 'review'], [], [], $cookies);
+        if (!$review['success'] || !str_contains($review['output'], 'Review your answers')) {
+            throw new RuntimeException('exam simulation did not open answer review before final submission: HTTP '
+                . $review['status'] . ' ' . ($review['location'] ?? '') . ' ' . substr($review['stderr'], -240));
+        }
+    }
+    if (($query['mode'] ?? 'practice') === 'exam') {
+        $review = $http->request('GET', '/quiz', ['action' => 'review'], [], [], $cookies);
+        if (!$review['success'] || !str_contains($review['output'], 'Review your answers')) {
+            throw new RuntimeException('exam simulation did not open answer review before final submission');
+        }
+    }
     $finish = $http->request('POST', '/quiz', [], ['action' => 'finish'], [], $cookies);
     $result = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
     $refresh = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
+    $expectedResultTitle = ($query['mode'] ?? 'practice') === 'exam'
+        ? 'Exam Simulation Result'
+        : 'Quiz Result';
     if (!$finish['success'] || $finish['status'] !== 303
-        || !$result['success'] || !$refresh['success'] || !str_contains($result['output'], 'Quiz Result')
+        || !$result['success'] || !$refresh['success'] || !str_contains($result['output'], $expectedResultTitle)
         || !str_contains($result['output'], 'Answer Review')
         || !str_contains($result['output'], 'View Progress')) {
-        throw new RuntimeException('quiz completion did not render');
+        throw new RuntimeException('quiz completion did not render: finish HTTP ' . $finish['status']
+            . ' ' . ($finish['location'] ?? '') . '; result HTTP ' . $result['status']
+            . ' title=' . $expectedResultTitle . ' ' . substr($result['stderr'], -200));
     }
 
     return $result;
@@ -212,4 +234,10 @@ try {
     WeaknessService::clear();
     WeaknessStorageService::save($beforeWeaknesses);
     file_put_contents($questionsPath, $questionsBefore, LOCK_EX);
+    file_put_contents($weaknessPath, $weaknessJsonBefore, LOCK_EX);
+    if ($statisticsBefore !== null) {
+        file_put_contents($statisticsPath, $statisticsBefore, LOCK_EX);
+    } elseif (is_file($statisticsPath)) {
+        unlink($statisticsPath);
+    }
 }

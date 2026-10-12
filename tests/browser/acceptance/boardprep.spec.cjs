@@ -74,7 +74,8 @@ async function startQuiz(page, {
   await page.locator('#quiz-count').selectOption(count);
   await page.locator('#quiz-difficulty').selectOption(difficulty);
   await page.getByRole('button', { name: 'Start practice' }).click();
-  await expect(page.locator('.quiz-question')).toBeVisible();
+    await expect(page.locator('.quiz-question')).toBeVisible();
+    await expect(page.locator('.quiz-question')).toBeFocused();
 }
 
 async function configureAvailableBoardQuiz(page, exam) {
@@ -110,6 +111,7 @@ async function submitAnswer(page, wrong = false) {
   await expect(page.locator('input[name="answer"]').nth(answerIndex)).toBeChecked();
   await page.getByRole('button', { name: 'Submit Answer' }).click();
   await expect(page.locator('.quiz-feedback')).toBeVisible();
+  await expect(page.locator('.quiz-feedback')).toBeFocused();
 }
 
 async function completeQuiz(page, wrong = false) {
@@ -255,8 +257,16 @@ test.describe('BoardPrep learner browser acceptance', () => {
 
   test('quiz configuration and deterministic text round trip work', async ({ page }, testInfo) => {
     await page.goto('/quiz');
-    await expect(page.locator('#quiz-mode option[value="exam"]')).toHaveText(/Exam-style practice \(untimed\)/);
-    await expect(page.locator('.mode-disclosure')).toContainText('It is untimed and does not reproduce every official board-exam format.');
+    await expect(page.locator('#quiz-mode option[value="exam"]')).toHaveText('Exam simulation');
+    await expect(page.locator('.mode-disclosure')).toContainText('separate from the official board examination');
+    await page.locator('#quiz-mode').selectOption('exam');
+    await expect(page.locator('#exam-timer-fields')).toBeVisible();
+    await expect(page.locator('#quiz-timer-mode')).toHaveValue('untimed');
+    await page.locator('#quiz-timer-mode').selectOption('timed');
+    await expect(page.locator('#quiz-time-limit')).toBeEnabled();
+    await expect(page.locator('#quiz-time-limit')).toHaveAttribute('min', '1');
+    await page.locator('#quiz-mode').selectOption('practice');
+    await expect(page.locator('#exam-timer-fields')).toBeHidden();
     const quizLabels = await page.evaluate(() => [...document.querySelectorAll(
       'main input:not([type="hidden"]), main select, main textarea'
     )].filter((control) => !control.labels?.length
@@ -290,7 +300,7 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await assertPageHealthy(page, testInfo, 'study-after-result');
 
     await page.getByRole('link', { name: /Practice/ }).first().click();
-    await expect(page.locator('h1')).toContainText('Choose how you want to study');
+    await expect(page.locator('h1')).toContainText('Choose practice or an exam simulation');
     await assertPageHealthy(page, testInfo, 'quiz-config');
 
     await page.goto('/history');
@@ -302,7 +312,56 @@ test.describe('BoardPrep learner browser acceptance', () => {
       quizFormLabels: 'PASS',
       resultFeedback: 'PASS',
       namedPrimaryActions: 'PASS',
-      examModeLimitsDisclosed: 'PASS',
+      examOfficialBoundaryDisclosed: 'PASS',
+    }, testInfo);
+  });
+
+  test('timed exam simulation resumes, supports answer review, and submits once', async ({ page }, testInfo) => {
+    await page.goto('/quiz?exam=LET');
+    await page.locator('#quiz-mode').selectOption('exam');
+    await page.locator('#quiz-timer-mode').selectOption('timed');
+    await page.locator('#quiz-time-limit').fill('10');
+    await page.locator('#quiz-count').selectOption('5');
+    await page.getByRole('button', { name: 'Start exam simulation' }).click();
+    await expect(page.locator('.quiz-meta')).toContainText('Question 1 / 5');
+    await expect(page.locator('.quiz-question')).toBeFocused();
+    await expect(page.locator('.exam-countdown')).toBeVisible();
+    const initialRemaining = Number(await page.locator('.exam-countdown').getAttribute('data-remaining-seconds'));
+
+    await page.reload();
+    await expect(page.locator('.quiz-meta')).toContainText('Question 1 / 5');
+    await expect(page.locator('.quiz-question')).toBeFocused();
+    const resumedRemaining = Number(await page.locator('.exam-countdown').getAttribute('data-remaining-seconds'));
+    expect(resumedRemaining).toBeLessThanOrEqual(initialRemaining);
+
+    await page.locator('input[name="answer"]').first().check();
+    await page.getByRole('button', { name: 'Save answer and continue' }).click();
+    await expect(page.locator('.quiz-meta')).toContainText('Question 2 / 5');
+    await page.getByRole('button', { name: 'Skip to next question' }).click();
+    await expect(page.locator('.quiz-meta')).toContainText('Question 3 / 5');
+    await page.getByRole('link', { name: 'Review all answers' }).click();
+    await expect(page.locator('#exam-review-heading')).toBeFocused();
+    await expect(page.locator('.exam-review-summary')).toContainText('1 of 5 answered');
+    await expect(page.locator('.exam-review-summary')).toContainText('4 will be marked unanswered');
+    await assertPageHealthy(page, testInfo, 'exam-simulation-review', { screenshot: true });
+
+    await page.getByRole('button', { name: 'Review question 1' }).click();
+    await page.locator('input[name="answer"]').nth(1).check();
+    await page.getByRole('button', { name: 'Save answer and continue' }).click();
+    await page.getByRole('link', { name: 'Review all answers' }).click();
+    await page.getByRole('button', { name: 'Submit exam simulation' }).click();
+    await expect(page.locator('h1')).toHaveText('Exam Simulation Result');
+    await expect(page.locator('.quiz-result-page h1')).toBeFocused();
+    await expect(page.locator('.result-score h2')).toHaveText(/\d+\s*\/\s*5/);
+    await expect(page.locator('.result-answer-review')).toContainText('No answer');
+    await page.reload();
+    await expect(page.locator('h1')).toHaveText('Exam Simulation Result');
+    await assertPageHealthy(page, testInfo, 'exam-simulation-result');
+    recordBrowserEvidence('exam-simulation', {
+      timerResume: 'PASS',
+      savedAnswerReview: 'PASS',
+      unansweredScoring: 'PASS',
+      resultRefresh: 'PASS',
     }, testInfo);
   });
 

@@ -100,6 +100,11 @@ class QuizSubmissionService
         return SessionService::get("mode", "practice") === "practice";
     }
 
+    private static function isExamMode(): bool
+    {
+        return SessionService::get('mode', 'practice') === 'exam';
+    }
+
     private static function renderPracticeFeedback(
         array $question,
         int $current,
@@ -125,16 +130,27 @@ class QuizSubmissionService
         }
 
         $id = self::questionId($question);
-        if ($id === "" || array_key_exists($id, $answers)) {
+        $alreadyAnswered = array_key_exists($id, $answers);
+        if ($id === "" || ($alreadyAnswered && !self::isExamMode())) {
             return false;
         }
 
+        $changed = !$alreadyAnswered
+            || !is_scalar($answers[$id])
+            || (string) $answers[$id] !== $answer;
         $answers[$id] = $answer;
 
         SessionService::set(
             "answers",
             $answers
         );
+
+        if (self::isExamMode() && $changed) {
+            $revision = SessionService::get('exam_answer_revision', 0);
+            $revision = is_int($revision) && $revision >= 0 ? $revision : 0;
+            SessionService::set('exam_answer_revision', $revision + 1);
+            SessionService::remove('exam_reviewed_revision');
+        }
 
         return true;
     }

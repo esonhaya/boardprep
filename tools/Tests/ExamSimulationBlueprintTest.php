@@ -8,6 +8,7 @@ require_once dirname(__DIR__, 2) . '/app/Core/Autoloader.php';
 use App\Services\Quiz\Start\QuizStartInputNormalizer;
 use App\Services\Quiz\Start\QuizStartPreparationService;
 use App\Services\Quiz\Start\QuizStartSessionPayloadFactory;
+use App\Services\Quiz\ExamTimerService;
 
 $defaultExam = QuizStartInputNormalizer::normalize(['mode' => 'exam']);
 if ($defaultExam['count'] !== 150 || $defaultExam['mode'] !== 'exam') {
@@ -15,6 +16,31 @@ if ($defaultExam['count'] !== 150 || $defaultExam['mode'] !== 'exam') {
 }
 if (QuizStartInputNormalizer::normalize(['mode' => 'practice', 'count' => 150])['count'] !== 20) {
     throw new RuntimeException('Ordinary quiz limits must remain isolated from exam simulation.');
+}
+$timedOptions = QuizStartInputNormalizer::normalize([
+    'mode' => 'exam',
+    'timer_mode' => 'timed',
+    'time_limit_minutes' => '15',
+]);
+if ($timedOptions['timer_mode'] !== 'timed' || $timedOptions['time_limit_minutes'] !== 15) {
+    throw new RuntimeException('Timed exam simulation settings were not normalized.');
+}
+$invalidTimerRejected = false;
+try {
+    QuizStartInputNormalizer::normalize(['mode' => 'exam', 'timer_mode' => 'timed', 'time_limit_minutes' => '0']);
+} catch (InvalidArgumentException) {
+    $invalidTimerRejected = true;
+}
+if (!$invalidTimerRejected) {
+    throw new RuntimeException('An out-of-range timer value was accepted.');
+}
+$timedSpecification = BaseSpecificationFactory::create($timedOptions);
+if ($timedSpecification->timeLimitMinutes !== 15
+    || ExamTimerService::remainingSeconds(['mode' => 'exam', 'timer_mode' => 'timed', 'time_limit_seconds' => 900, 'deadline_epoch' => 1_234], 1_000) !== 234
+    || ExamTimerService::remainingSeconds(['mode' => 'exam', 'timer_mode' => 'timed', 'time_limit_seconds' => 900, 'deadline_epoch' => 999], 1_000) !== 0
+    || ExamTimerService::remainingSeconds(['mode' => 'exam', 'timer_mode' => 'untimed', 'time_limit_seconds' => 0], 1_000) !== null
+    || ExamTimerService::formatRemaining(3_661) !== '1:01:01') {
+    throw new RuntimeException('Exam timer deadline math, untimed mode, or accessible display formatting changed.');
 }
 
 $allocation = RuntimeAllocationService::allocate(7, ['general' => 20, 'professional' => 40, 'major' => 40]);
@@ -71,4 +97,4 @@ if ($summary['total'] !== 2 || $summary['unanswered'] !== 1) {
     throw new RuntimeException('Partial exam score denominator must include unanswered generated questions.');
 }
 
-echo "[PASS] Exam simulation blueprint, sparse-pool, isolation, and scoring behavior verified.\n";
+echo "[PASS] Exam simulation timer, blueprint, sparse-pool, isolation, and scoring behavior verified.\n";

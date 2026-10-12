@@ -19,6 +19,8 @@ final class QuizStartSessionWriter
             'quiz_completed',
             'quiz_result',
             'flashcard_missed_scope',
+            'exam_answer_revision',
+            'exam_reviewed_revision',
         ] as $key) {
             \SessionService::remove($key);
         }
@@ -40,6 +42,7 @@ final class QuizStartSessionWriter
         \SessionService::set('answers', []);
         \SessionService::set('feedback', null);
         \SessionService::set('mode', $specification->mode);
+        \SessionService::set('exam_answer_revision', 0);
         \SessionService::remove('attempt_persisted');
         \SessionService::remove('quiz_completed');
         \SessionService::remove('quiz_result');

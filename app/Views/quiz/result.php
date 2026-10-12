@@ -2,18 +2,30 @@
 
 $summary = $summary ?? [];
 $review = $review ?? [];
+$quizSession = is_array($quizSession ?? null) ? $quizSession : [];
 $studyReferencesByQuestion = is_array($studyReferencesByQuestion ?? null) ? $studyReferencesByQuestion : [];
 $actions = $actions ?? [];
 $historical = ($historical ?? false) === true;
+$isExamSimulation = !$historical && ($quizSession['mode'] ?? '') === 'exam';
 $completedAt = is_string($completedAt ?? null) ? $completedAt : null;
 $historicalContext = is_array($historicalContext ?? null) ? $historicalContext : [];
+$historicalMode = is_scalar($historicalContext['mode'] ?? null) ? (string) $historicalContext['mode'] : '';
+$historicalModeLabel = $historicalMode === 'exam'
+    ? 'Exam simulation'
+    : ($historicalMode !== '' ? \App\Support\Presentation\UiFormatter::statusLabel($historicalMode) : null);
+$historicalTimerMode = is_scalar($historicalContext['timer_mode'] ?? null)
+    ? (string) $historicalContext['timer_mode']
+    : '';
+$historicalTimeLimit = is_numeric($historicalContext['time_limit_minutes'] ?? null)
+    ? max(0, (int) $historicalContext['time_limit_minutes'])
+    : 0;
 $reviewUnavailable = ($reviewUnavailable ?? false) === true;
 $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Services\Shared\TaxonomyStorageService::label($collection, $id);
 
 ?>
 
 <div class="quiz-result-page">
-<section class="page-header"><div><p class="eyebrow"><?= $historical ? 'Attempt review' : 'Practice complete' ?></p><h1><?= $historical ? 'Historical Quiz Result' : 'Quiz Result' ?></h1><p>Review what you know and choose your next useful step.</p><?php if ($historical): ?><p class="muted-note"><?php $context = array_values(array_filter([$taxonomyLabel('boards', $historicalContext['board'] ?? ''), $taxonomyLabel('subjects', $historicalContext['subject'] ?? ''), \App\Support\Presentation\UiFormatter::statusLabel((string) ($historicalContext['mode'] ?? ''))])); ?><?= htmlspecialchars(implode(' · ', $context)) ?><?php if ($completedAt !== null): ?> · Completed <?= htmlspecialchars(\App\Support\Presentation\UiFormatter::formatDateTime($completedAt)) ?><?php endif; ?></p><?php endif; ?></div></section>
+<section class="page-header"><div><p class="eyebrow"><?= $historical ? 'Attempt review' : ($isExamSimulation ? 'Exam simulation complete' : 'Practice complete') ?></p><h1><?= $historical ? 'Historical Quiz Result' : ($isExamSimulation ? 'Exam Simulation Result' : 'Quiz Result') ?></h1><p>Review what you know and choose your next useful step.</p><?php if ($isExamSimulation || ($historical && $historicalMode === 'exam')): ?><p class="exam-simulation-disclosure">This BoardPrep study simulator is separate from the official board examination.</p><?php endif; ?><?php if ($isExamSimulation): ?><?php if (($quizSession['timer_mode'] ?? '') === 'timed'): ?><p class="muted-note"><?= !empty($quizSession['time_expired']) ? 'Time expired; your saved answers were submitted.' : 'Timed session completed.' ?> Time limit: <?= (int) ($quizSession['time_limit_minutes'] ?? 0) ?> minutes.</p><?php else: ?><p class="muted-note">Untimed session.</p><?php endif; ?><?php endif; ?><?php if ($historical): ?><?php $context = array_values(array_filter([$taxonomyLabel('boards', $historicalContext['board'] ?? ''), $taxonomyLabel('subjects', $historicalContext['subject'] ?? ''), $historicalModeLabel, $historicalMode === 'exam' ? ($historicalTimerMode === 'timed' ? 'Timed simulation' . ($historicalTimeLimit > 0 ? ' · ' . $historicalTimeLimit . ' min' : '') : 'Untimed simulation') : null])); ?><p class="muted-note"><?= htmlspecialchars(implode(' · ', $context), ENT_QUOTES, 'UTF-8') ?><?php if ($completedAt !== null): ?> · Completed <?= htmlspecialchars(\App\Support\Presentation\UiFormatter::formatDateTime($completedAt)) ?><?php endif; ?></p><?php endif; ?></div></section>
 
 <section class="result-summary" aria-label="Quiz score summary">
     <div class="result-score">
@@ -104,3 +116,4 @@ $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Servic
 </section>
 <?php endif; ?>
 </div>
+<script src="/assets/js/quiz-focus.js" defer></script>
