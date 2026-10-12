@@ -100,6 +100,7 @@ main#main-content:focus{outline:none}
 .quiz-settings .form-field label{margin:0}
 .quiz-settings .form-field select{min-width:0}
 .quiz-settings .quiz-variant-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:14px;border:1px solid var(--border);border-radius:12px;background:#f8faff}
+.quiz-settings #let-variant-fields{grid-column:1/-1}
 .quiz-settings .quiz-variant-fields[hidden]{display:none!important}
 .quiz-settings .quiz-variant-fields .form-field{min-width:0}
 .quiz-settings .mode-disclosure{grid-column:1/-1;margin-top:-8px}

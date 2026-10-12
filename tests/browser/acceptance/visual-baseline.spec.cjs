@@ -222,6 +222,9 @@ test.describe('BoardPrep deterministic visual baseline', () => {
 
     await page.goto('/quiz?exam=LET');
     await page.locator('#let-level').selectOption('ELEMENTARY');
+    const letSelectWidths = await page.locator('#let-level, #let-specialization').evaluateAll((elements) => elements
+      .map((element) => element.getBoundingClientRect().width));
+    expect(Math.min(...letSelectWidths)).toBeGreaterThan(240);
     await capture(page, testInfo, entries, 'quiz-config-let-elementary', { fullPage: false });
     await page.goto('/quiz?exam=CSE');
     await page.locator('#civil-service-level').selectOption('PROFESSIONAL');
@@ -334,6 +337,8 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     await page.goto('/study-library?exam=LET');
     await expect(page.locator('h1')).toHaveText('Source-backed study materials');
     const librarySearch = page.getByRole('searchbox', { name: 'Search titles and study notes' });
+    const librarySearchHeight = await librarySearch.evaluate((input) => input.getBoundingClientRect().height);
+    expect(librarySearchHeight).toBeLessThan(60);
     const firstStudyMaterial = page.locator('.study-material-card').first();
     const firstStudyTitle = await firstStudyMaterial.locator('h2').innerText();
     await librarySearch.fill('no-resource-has-this-phrase-670');

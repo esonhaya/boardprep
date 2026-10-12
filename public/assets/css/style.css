@@ -82,4 +82,4 @@ html{overflow-wrap:normal}.ui-technical{overflow-wrap:anywhere}
 .study-material-disclosure>summary{display:flex;align-items:center;min-height:44px;padding:5px 0;color:var(--primary);font-weight:700;cursor:pointer}
 .study-material-disclosure[open]>summary{margin-bottom:10px}
 .study-material-disclosure .study-material-notes{min-width:0}
-@media(max-width:480px){.study-library-search>div{align-items:stretch;flex-direction:column}.study-library-search button{width:100%}}
+@media(max-width:480px){.study-library-search>div{align-items:stretch;flex-direction:column}.study-library-search input{flex:0 1 auto}.study-library-search button{width:100%}}
