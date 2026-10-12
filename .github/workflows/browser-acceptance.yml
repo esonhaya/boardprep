@@ -3,6 +3,7 @@ name: Browser acceptance
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -36,12 +37,21 @@ jobs:
       - name: Run browser acceptance
         run: npm run test:browser
 
+      - name: Collect browser evidence artifacts
+        if: always()
+        run: node tools/collect-browser-artifacts.cjs
+
       - name: Upload browser visual and diagnostic artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: boardprep-playwright-artifacts
+          name: boardprep-batch667-visual-qa
           path: |
+            screenshots/
+            visual-audit.md
+            defect-register.md
+            browser-results.json
+            console-errors.txt
             test-results/
             playwright-report/
           if-no-files-found: ignore

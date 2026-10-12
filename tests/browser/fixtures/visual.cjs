@@ -1,4 +1,5 @@
 const fs = require('node:fs');
+const path = require('node:path');
 
 const { expect } = require('@playwright/test');
 
@@ -65,7 +66,7 @@ async function inspectVisualLayout(page, {
       .map(describe);
     const undersizedTouchTargets = mobileViewport
       ? elements
-        .filter((element) => /^(A|BUTTON|SELECT|INPUT)$/.test(element.tagName))
+        .filter((element) => /^(A|BUTTON|SELECT|INPUT)$/.test(element.tagName) || element.matches('.quiz-choice'))
         .filter((element) => {
           const rect = element.getBoundingClientRect();
           return rect.width < 40 || rect.height < 40;
@@ -103,6 +104,7 @@ async function inspectVisualLayout(page, {
       });
     return {
       viewport,
+      viewportHeight: window.innerHeight,
       scrollWidth: document.documentElement.scrollWidth,
       pageOverflow: document.documentElement.scrollWidth > viewport + 2,
       outsideViewport,
@@ -174,12 +176,25 @@ async function captureVisualState(page, testInfo, name, options = {}) {
   await assertBasicAccessibility(page, name);
 
   const screenshotPath = testInfo.outputPath(`${name}.png`);
+  const requestedViewport = page.viewportSize() || {
+    width: report.viewport,
+    height: report.viewportHeight,
+  };
   await page.screenshot({
     path: screenshotPath,
     fullPage: options.fullPage === true,
     animations: 'disabled',
     caret: 'hide',
   });
+  const screenshotCategory = requestedViewport.width <= 600
+    ? 'mobile'
+    : requestedViewport.width <= 1024
+      ? 'tablet'
+      : 'desktop';
+  const screenshotName = `${String(name).replace(/[^a-z0-9_-]+/gi, '-')}-${requestedViewport.width}x${requestedViewport.height}.png`;
+  const publishedScreenshot = path.resolve(process.cwd(), 'screenshots', screenshotCategory, screenshotName);
+  fs.mkdirSync(path.dirname(publishedScreenshot), { recursive: true });
+  fs.copyFileSync(screenshotPath, publishedScreenshot);
   await testInfo.attach(`${name} visual screenshot`, {
     path: screenshotPath,
     contentType: 'image/png',
@@ -199,24 +214,29 @@ async function captureVisualState(page, testInfo, name, options = {}) {
     });
   }
 
-  return report;
+  return {
+    ...report,
+    screenshotWidth: requestedViewport.width,
+    screenshotHeight: requestedViewport.height,
+    screenshot: path.relative(process.cwd(), publishedScreenshot),
+  };
 }
 
 function visualAuditMarkdown(project, entries) {
   const lines = [
-    '# BoardPrep Batch 570 visual audit',
+    '# BoardPrep Batch 667 rendered visual audit',
     '',
     `- Project: \`${project}\``,
-    '- Screenshots are deterministic viewport captures from the production path.',
+    '- Screenshots are actual Chromium viewport captures from the production learner routes.',
     '- Geometry checks use a 2px page-overflow tolerance; intentional table scrolling is recorded separately.',
     '',
     '| State | Viewport | Scroll width | Page overflow | Outside viewport | Tables | Figures | Screenshot |',
     '| --- | ---: | ---: | --- | ---: | ---: | ---: | --- |',
   ];
   for (const entry of entries) {
-    lines.push(`| ${entry.name} | ${entry.viewport}px | ${entry.scrollWidth}px | ${entry.pageOverflow ? 'FAIL' : 'PASS'} | ${entry.outsideViewport} | ${entry.tables} | ${entry.figures} | \`${entry.screenshot}\` |`);
+    lines.push(`| ${entry.name} | ${entry.viewport}×${entry.viewportHeight} | ${entry.scrollWidth}px | ${entry.pageOverflow ? 'FAIL' : 'PASS'} | ${entry.outsideViewport} | ${entry.tables} | ${entry.figures} | \`${entry.screenshot}\` |`);
   }
-  lines.push('', '## Manual UX review', '', 'This report records measurable visual evidence. Human review of the retained screenshots should classify hierarchy, spacing, typography, navigation, form, quiz, result, study, flashcard, progress, history, and consistency findings before Batch 571. No subjective finding is asserted by automation.', '');
+  lines.push('', '## Review limits', '', 'Automated geometry and accessibility semantics do not establish overall usability, physical touch behavior, screen-reader support, or WCAG conformance. See the accompanying defect register for screenshot-based human visual findings.', '');
   return lines.join('\n');
 }
 

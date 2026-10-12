@@ -39,11 +39,7 @@ const fullJourneyBoards = [
 let questions;
 function canonicalQuestions() {
   if (questions) return questions;
-  const source = execFileSync('git', ['show', 'HEAD:storage/questions.json'], {
-    cwd: path.resolve(__dirname, '../../..'),
-    encoding: 'utf8',
-    maxBuffer: 16 * 1024 * 1024,
-  });
+  const source = fs.readFileSync(path.resolve(__dirname, '../../..', 'storage', 'questions.json'), 'utf8');
   questions = JSON.parse(source);
   return questions;
 }
@@ -253,8 +249,8 @@ test.describe('BoardPrep learner browser acceptance', () => {
 
   test('quiz configuration and deterministic text round trip work', async ({ page }, testInfo) => {
     await page.goto('/quiz');
-    await expect(page.getByText(/does not enforce a timer/i)).toBeVisible();
-    await expect(page.getByText(/does not enforce a timer or reproduce every official board-exam format/i)).toBeVisible();
+    await expect(page.locator('#quiz-mode option[value="exam"]')).toHaveText(/Exam-style practice \(untimed\)/);
+    await expect(page.locator('.mode-disclosure')).toContainText('It is untimed and does not reproduce every official board-exam format.');
     const quizLabels = await page.evaluate(() => [...document.querySelectorAll(
       'main input:not([type="hidden"]), main select, main textarea'
     )].filter((control) => !control.labels?.length

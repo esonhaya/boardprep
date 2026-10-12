@@ -1,0 +1,11 @@
+# Batch 667 visual defect register
+
+Baseline captures are from [GitHub Actions run 38190101792](https://github.com/esonhaya/boardprep/actions/runs/38190101792), Chromium projects `mobile` (390×844) and `desktop` (1366×768). Screenshots below are retained in that run's `boardprep-playwright-artifacts` artifact.
+
+| ID | Screen | Viewport | Baseline screenshot | Severity | Observed defect | User impact | Repair / status |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| B667-VIS-001 | Progress report | Mobile 390×844 | `test-results/acceptance-boardprep-Board-513ed-ry-and-recovery-states-work-mobile/attachments/progress-screenshot-b862bbecc25b6c21aa479c166b32b55c9c3bbd15.png` | P2 | The top-level “Practice now” action has only the base `.button` class and renders as unboxed text. | The page's primary next action has weak button affordance, especially in the empty-history state. | Apply the primary green variant; browser assertion and after-capture pending final run. |
+| B667-VIS-002 | Quiz history | Mobile 390×844 | `test-results/acceptance-boardprep-Board-513ed-ry-and-recovery-states-work-mobile/attachments/history-screenshot-b491966290530896b8a25193d153f51e8bcf7e84.png` | P2 | The header “Start practice” action renders as unboxed text; the separate empty-state CTA is styled. | The repeated header action is easy to mistake for ordinary text and inconsistent with the control system. | Apply an outlined secondary variant; browser assertion and after-capture pending final run. |
+| B667-QA-001 | Browser acceptance harness | CI Chromium; viewport-independent | `test-results/acceptance-boardprep-Board-42bdd-nistic-text-round-trip-work-mobile/test-failed-1.png` | P2 | The suite used obsolete timer wording and loaded the large question bank with `git show`, which exceeded Node's synchronous child-process buffer and blocked nine flows. | Browser acceptance, privacy, and visual captures could not complete reliably. | Assert the current untimed disclosure and read the committed question fixture directly; final run pending. |
+
+No P0/P1 learner-facing visual or interaction defect was evidenced by the reviewed baseline captures. Other screen states and requested viewport sizes are pending complete capture and review; absence of a finding is not a pass for those states.

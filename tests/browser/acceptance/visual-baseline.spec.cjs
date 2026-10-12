@@ -1,4 +1,5 @@
 const { execFileSync } = require('node:child_process');
+const fs = require('node:fs');
 const path = require('node:path');
 
 const {
@@ -12,17 +13,16 @@ const { captureVisualState, writeVisualAudit } = require('../fixtures/visual.cjs
 
 const representativeBoards = [
   ['LET', 'LET'],
+  ['CSE', 'CSE'],
+  ['Nursing', 'NLE'],
+  ['CPA', 'CPA'],
   ['CE', 'CE'],
 ];
 
 let questions;
 function canonicalQuestions() {
   if (questions) return questions;
-  const source = execFileSync('git', ['show', 'HEAD:storage/questions.json'], {
-    cwd: path.resolve(__dirname, '../../..'),
-    encoding: 'utf8',
-    maxBuffer: 16 * 1024 * 1024,
-  });
+  const source = fs.readFileSync(path.resolve(__dirname, '../../..', 'storage', 'questions.json'), 'utf8');
   questions = JSON.parse(source);
   return questions;
 }
@@ -72,8 +72,8 @@ async function answerCurrentQuestion(page, wrong = false) {
   await expect(page.locator('.quiz-feedback')).toBeVisible();
 }
 
-async function completeFiveQuestionQuiz(page) {
-  for (let index = 0; index < 5; index += 1) {
+async function completeFiveQuestionQuiz(page, startAtIndex = 0) {
+  for (let index = startAtIndex; index < 5; index += 1) {
     await answerCurrentQuestion(page, true);
     await page.getByRole('button', { name: index === 4 ? 'Finish Quiz' : 'Next Question' }).click();
     if (index < 4) await expect(page.locator('.quiz-answer-form')).toBeVisible();
@@ -103,24 +103,27 @@ async function capture(page, testInfo, entries, name, options = {}) {
       'main .button',
       'main button',
       'main select',
+      '.quiz-choice',
       '.mobile-menu-button',
       '#learner-nav a',
     ],
   });
   entries.push({
     name,
-    viewport: report.viewport,
+    viewport: report.screenshotWidth,
+    viewportHeight: report.screenshotHeight,
+    clientWidth: report.viewport,
     scrollWidth: report.scrollWidth,
     pageOverflow: report.pageOverflow,
     outsideViewport: report.outsideViewport.length,
     tables: report.tables.length,
     figures: report.figures.length,
-    screenshot: `${name}.png`,
+    screenshot: report.screenshot,
   });
   return report;
 }
 
-async function inspectQuestionAtMobileWidths(page, selector) {
+async function inspectQuestionAtMobileWidths(page, selector, captureAtSize = null) {
   const sizes = [
     { width: 320, height: 640 },
     { width: 360, height: 800 },
@@ -144,6 +147,9 @@ async function inspectQuestionAtMobileWidths(page, selector) {
     expect(layout.documentWidth, `${selector} document at ${size.width}px`).toBeLessThanOrEqual(size.width + 2);
     expect(layout.contentWidth, `${selector} visibility at ${size.width}px`).toBeGreaterThan(0);
     evidence.push(`${size.width}x${size.height}`);
+    if (captureAtSize) {
+      await captureAtSize(size);
+    }
   }
 
   await page.setViewportSize({ width: 390, height: 844 });
@@ -154,6 +160,10 @@ test.describe('BoardPrep deterministic visual baseline', () => {
   test('captures representative learner product states', async ({ page }, testInfo) => {
     const entries = [];
     const mobile = testInfo.project.name === 'mobile';
+
+    await page.goto('/');
+    await expect(page.locator('h1')).toBeVisible();
+    await capture(page, testInfo, entries, 'home', { fullPage: true });
 
     await page.goto('/dashboard');
     await expect(page.locator('h1')).toHaveText('Welcome back');
@@ -176,12 +186,33 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     for (const [name, exam] of representativeBoards) {
       await page.goto(`/exams?exam=${exam}`);
       await expect(page.locator('h1')).toBeVisible();
-      await capture(page, testInfo, entries, name === 'LET' ? 'board-let' : 'board-engineering', { fullPage: true });
+      const screenshotName = {
+        LET: 'board-let',
+        CSE: 'board-cse',
+        Nursing: 'board-nursing',
+        CPA: 'board-cpa',
+        CE: 'board-engineering',
+      }[name];
+      await capture(page, testInfo, entries, screenshotName, { fullPage: true });
     }
+
+    await page.goto('/quiz?exam=LET');
+    await page.locator('#let-level').selectOption('ELEMENTARY');
+    await capture(page, testInfo, entries, 'quiz-config-let-elementary', { fullPage: false });
+    await page.goto('/quiz?exam=CSE');
+    await page.locator('#civil-service-level').selectOption('PROFESSIONAL');
+    await capture(page, testInfo, entries, 'quiz-config-cse-professional', { fullPage: false });
 
     await page.goto('/quiz');
     await expect(page.locator('h1')).toContainText('Choose how you want to study');
     await capture(page, testInfo, entries, 'quiz-config', { fullPage: false });
+
+    await page.goto('/history');
+    await expect(page.locator('.empty-state')).toBeVisible();
+    await capture(page, testInfo, entries, 'history-empty', { fullPage: true });
+    await page.goto('/progress');
+    await expect(page.locator('.progress-page > .page-header a[href="/quiz"]')).toHaveClass(/button-green/);
+    await capture(page, testInfo, entries, 'progress-empty', { fullPage: true });
 
     await page.goto('/flashcards/review?include_new=0');
     await expect(page.locator('.empty-state')).toBeVisible();
@@ -191,7 +222,17 @@ test.describe('BoardPrep deterministic visual baseline', () => {
       exam: 'LET', subject: 'English', count: '5', difficulty: 'mixed',
     });
     await capture(page, testInfo, entries, 'quiz-text', { fullPage: false });
-    await completeFiveQuestionQuiz(page);
+    const firstAnswer = page.locator('input[name="answer"]').first();
+    await firstAnswer.focus();
+    await page.keyboard.press('Space');
+    await expect(firstAnswer).toBeChecked();
+    await expect(page.locator('.quiz-feedback')).toHaveCount(0);
+    await capture(page, testInfo, entries, 'answer-selected', { fullPage: false });
+    await page.getByRole('button', { name: 'Submit Answer' }).click();
+    await expect(page.locator('.quiz-feedback')).toBeVisible();
+    await capture(page, testInfo, entries, 'answer-feedback', { fullPage: false });
+    await page.getByRole('button', { name: 'Next Question' }).click();
+    await completeFiveQuestionQuiz(page, 1);
     await capture(page, testInfo, entries, 'result-summary', { fullPage: false });
     const review = page.locator('.question-review').first();
     await expect(review).toBeVisible();
@@ -208,7 +249,13 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     await advanceToQuestion(page, '1637', 5);
     await expect(page.locator('.question-equation')).toBeVisible();
     const mathViewports = mobile
-      ? await inspectQuestionAtMobileWidths(page, '.question-equation')
+      ? await inspectQuestionAtMobileWidths(page, '.question-equation', () => capture(
+        page,
+        testInfo,
+        entries,
+        'quiz-numeric',
+        { fullPage: false, importantSelectors: ['main h1', 'main button', '.question-equation', '.quiz-choice', '.mobile-menu-button'] },
+      ))
       : [];
     await capture(page, testInfo, entries, 'quiz-numeric', { fullPage: false });
 
@@ -218,7 +265,13 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     await advanceToQuestion(page, '40', 5);
     await expect(page.locator('.question-table-wrap')).toBeVisible();
     const tableViewports = mobile
-      ? await inspectQuestionAtMobileWidths(page, '.question-table-wrap')
+      ? await inspectQuestionAtMobileWidths(page, '.question-table-wrap', () => capture(
+        page,
+        testInfo,
+        entries,
+        'quiz-table',
+        { fullPage: false, importantSelectors: ['main h1', 'main button', '.question-table-wrap', '.quiz-choice', '.mobile-menu-button'] },
+      ))
       : [];
     await capture(page, testInfo, entries, 'quiz-table', { fullPage: false });
 
@@ -236,6 +289,10 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     await page.goto('/study-library?exam=LET');
     await expect(page.locator('h1')).toHaveText('Source-backed study materials');
     await capture(page, testInfo, entries, 'study-resource', { fullPage: true });
+    const firstStudyMaterial = page.locator('.study-material-card').first();
+    await expect(firstStudyMaterial).toBeVisible();
+    await firstStudyMaterial.scrollIntoViewIfNeeded();
+    await capture(page, testInfo, entries, 'study-material-detail', { fullPage: false });
 
     await page.goto('/flashcards?include_new=1');
     await expect(page.locator('h1')).toHaveText('Flashcards');
@@ -249,6 +306,7 @@ test.describe('BoardPrep deterministic visual baseline', () => {
 
     await page.goto('/progress');
     await expect(page.locator('h1')).toBeVisible();
+    await expect(page.locator('.progress-page > .page-header a[href="/quiz"]')).toHaveClass(/button-green/);
     await capture(page, testInfo, entries, 'progress', { fullPage: true });
 
     await page.goto('/history');
@@ -259,6 +317,17 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     await historyResult.click();
     await expect(page.locator('h1')).toHaveText('Historical Quiz Result');
     await capture(page, testInfo, entries, 'history-reopen', { fullPage: true });
+
+    await page.goto('/history');
+    await expect(page.getByRole('link', { name: 'Start practice' })).toHaveClass(/button-outline/);
+    await capture(page, testInfo, entries, 'history', { fullPage: true });
+
+    await page.goto('/privacy');
+    await expect(page.locator('h1')).toHaveText('Data and privacy');
+    await capture(page, testInfo, entries, 'privacy-export', { fullPage: true });
+    const clearConfirmation = page.locator('input[name="confirm_clear"]');
+    await clearConfirmation.check();
+    await capture(page, testInfo, entries, 'privacy-delete-confirmation', { fullPage: true });
 
     await page.goto('/missing-browser-acceptance-route');
     await assertPageHealthy(page, testInfo, 'error-state', {
@@ -271,15 +340,30 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     });
     await capture(page, testInfo, entries, 'error-state', { fullPage: false });
 
-    const reportPath = writeVisualAudit(testInfo, testInfo.project.name, entries);
-    await testInfo.attach('visual audit report', { path: reportPath, contentType: 'text/markdown' });
     if (mobile) {
+      await page.goto('/dashboard');
+      for (const size of [
+        { width: 320, height: 640 },
+        { width: 360, height: 800 },
+        { width: 390, height: 844 },
+        { width: 430, height: 932 },
+        { width: 768, height: 1024 },
+      ]) {
+        await page.setViewportSize(size);
+        await capture(page, testInfo, entries, `dashboard-width-${size.width}`, { fullPage: true });
+      }
       recordBrowserEvidence('complex-content', {
         math: mathViewports,
         tables: tableViewports,
         documentOverflow: 'PASS',
       }, testInfo);
+    } else {
+      await page.goto('/dashboard');
+      await page.setViewportSize({ width: 1440, height: 900 });
+      await capture(page, testInfo, entries, 'dashboard-wide', { fullPage: true });
     }
-    expect(entries.length).toBe(mobile ? 22 : 21);
+    const reportPath = writeVisualAudit(testInfo, testInfo.project.name, entries);
+    await testInfo.attach('visual audit report', { path: reportPath, contentType: 'text/markdown' });
+    expect(entries.length).toBeGreaterThan(mobile ? 30 : 20);
   });
 });

@@ -35,7 +35,7 @@ $learningContextLabel = static function (array $row) use ($taxonomyLabel): strin
             <h1>Know what to review next</h1>
             <p>Use your actual quiz history to balance strengths and focus areas.</p>
         </div>
-        <a class="button" href="/quiz">Practice now</a>
+        <a class="button button-green" href="/quiz">Practice now</a>
     </section>
 
     <section class="ui-metric-grid progress-summary" data-ui-component="metric-grid" aria-label="Progress summary">
@@ -52,7 +52,7 @@ $learningContextLabel = static function (array $row) use ($taxonomyLabel): strin
                 <h2 id="progress-next-steps-heading">Choose what to review</h2>
             </div>
         </div>
-        <p class="progress-flashcard-action"><a class="button button-outline" href="/flashcards">Review flashcards</a><?php if ($weaknesses !== []): ?> <a class="button" href="/flashcards/review?mode=weakness">Review weak topics</a><?php endif; ?></p>
+        <p class="progress-flashcard-action"><a class="button button-outline" href="/flashcards">Review flashcards</a><?php if ($weaknesses !== []): ?> <a class="button button-outline" href="/flashcards/review?mode=weakness">Review weak topics</a><?php endif; ?></p>
         <?php if ($history === []): ?><p class="muted-note">No completed quizzes yet. <a href="/quiz">Practice now</a> to start building your progress.</p><?php endif; ?>
     </section>
 
