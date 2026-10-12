@@ -225,7 +225,9 @@ $boardJourneyTestRegistered = is_file($root . '/tools/Tests/TenBoardLearnerJourn
 $mobileStructuralTestsRegistered = is_file($root . '/tools/Tests/LearnerMobileAccessibilityViewTest.php')
     && is_file($root . '/tools/Tests/LearnerNavigationUxTest.php');
 $quizSettings = (string) @file_get_contents($root . '/app/Views/quiz/settings.php');
-$unsupportedExamModeDisclosed = str_contains($quizSettings, 'does not enforce a timer')
+$examModeIsUntimed = str_contains($quizSettings, 'does not enforce a timer')
+    || preg_match('/\bis untimed\b/i', $quizSettings) === 1;
+$unsupportedExamModeDisclosed = $examModeIsUntimed
     && (str_contains($quizSettings, 'does not reproduce every official board-exam format')
         || str_contains($quizSettings, 'or reproduce every official board-exam format'));
 
