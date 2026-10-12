@@ -1,4 +1,7 @@
 const { defineConfig, devices } = require('@playwright/test');
+const path = require('node:path');
+
+const repositoryRoot = path.resolve(__dirname, '../..');
 
 module.exports = defineConfig({
   testDir: __dirname,
@@ -13,12 +16,12 @@ module.exports = defineConfig({
   reporter: process.env.CI
     ? [
       ['dot'],
-      ['json', { outputFile: 'test-results/browser-results.json' }],
-      ['html', { outputFolder: 'playwright-report', open: 'never' }],
+      ['json', { outputFile: path.join(repositoryRoot, 'test-results', 'browser-results.json') }],
+      ['html', { outputFolder: path.join(repositoryRoot, 'playwright-report'), open: 'never' }],
     ]
     : [
       ['list'],
-      ['json', { outputFile: 'test-results/browser-results.json' }],
+      ['json', { outputFile: path.join(repositoryRoot, 'test-results', 'browser-results.json') }],
     ],
   use: {
     baseURL: 'http://127.0.0.1:4173',

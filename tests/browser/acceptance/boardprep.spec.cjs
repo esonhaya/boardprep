@@ -142,6 +142,7 @@ async function inspectStructuredQuestions(page, testInfo, targets, maxQuestions)
     if (found.size === Object.keys(targets).length) return;
 
     await submitAnswer(page, false);
+    if (await page.getByRole('button', { name: 'Finish Quiz' }).isVisible()) break;
     const next = page.getByRole('button', { name: 'Next Question' });
     await expect(next).toBeVisible();
     await next.click();
@@ -304,24 +305,24 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await startQuiz(page, {
       exam: 'LET',
       subject: 'Science',
-      topic: 'science-biology',
-      count: '5',
-      difficulty: 'easy',
+      topic: 'science-electricity-circuits',
+      count: '20',
+      difficulty: 'mixed',
     });
     await inspectStructuredQuestions(page, testInfo, {
-      31: { name: 'svg', selector: '.question-figure img', visible: true },
-    }, 5);
+      34: { name: 'figure', selector: '.question-figure img', visible: true },
+    }, 20);
 
     await startQuiz(page, {
-      exam: 'LET',
-      subject: 'Science',
-      topic: 'science-data-graphs',
-      count: '5',
-      difficulty: 'hard',
+      exam: 'CPA',
+      subject: 'Financial Accounting',
+      topic: 'cpa-financial-accounting-liabilities',
+      count: '20',
+      difficulty: 'mixed',
     });
     await inspectStructuredQuestions(page, testInfo, {
-      40: { name: 'table', selector: '.question-table-wrap', visible: true },
-    }, 5);
+      1267: { name: 'table', selector: '.question-table-wrap', visible: true },
+    }, 20);
   });
 
   test('flashcard review, progress, history, and recovery states work', async ({ page }, testInfo) => {

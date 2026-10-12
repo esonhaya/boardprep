@@ -13,6 +13,7 @@ function installDiagnostics(page) {
     consoleErrors: [],
     pageErrors: [],
     failedRequests: [],
+    allowedFailedRequests: [],
     httpErrors: [],
     allowedHttpErrors: [],
     expectedHttpErrors: [],
@@ -37,13 +38,27 @@ function installDiagnostics(page) {
     });
   });
   page.on('requestfailed', (request) => {
-    diagnostics.failedRequests.push({
+    const failure = {
       url: request.url(),
       method: request.method(),
       resourceType: request.resourceType(),
       pageUrl: page.url(),
       error: request.failure()?.errorText || 'request failed',
-    });
+    };
+    let requestPath = '';
+    try {
+      requestPath = new URL(failure.url).pathname;
+    } catch {
+      requestPath = '';
+    }
+    if (failure.method === 'GET'
+      && failure.resourceType === 'document'
+      && requestPath === '/privacy/export'
+      && failure.error === 'net::ERR_ABORTED') {
+      diagnostics.allowedFailedRequests.push(failure);
+      return;
+    }
+    diagnostics.failedRequests.push(failure);
   });
   page.on('response', (response) => {
     if (response.status() >= 400) {

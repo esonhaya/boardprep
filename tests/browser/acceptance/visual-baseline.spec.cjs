@@ -72,9 +72,10 @@ async function answerCurrentQuestion(page, wrong = false) {
   await expect(page.locator('.quiz-feedback')).toBeVisible();
 }
 
-async function completeFiveQuestionQuiz(page, startAtIndex = 0) {
+async function completeFiveQuestionQuiz(page, startAtIndex = 0, beforeFinish = null) {
   for (let index = startAtIndex; index < 5; index += 1) {
     await answerCurrentQuestion(page, true);
+    if (index === 4 && beforeFinish) await beforeFinish();
     await page.getByRole('button', { name: index === 4 ? 'Finish Quiz' : 'Next Question' }).click();
     if (index < 4) await expect(page.locator('.quiz-answer-form')).toBeVisible();
   }
@@ -86,6 +87,7 @@ async function advanceToQuestion(page, targetId, maxQuestions = 20) {
     const currentId = await page.locator('input[name="question_id"]').inputValue();
     if (String(currentId) === String(targetId)) return;
     await answerCurrentQuestion(page);
+    if (await page.getByRole('button', { name: 'Finish Quiz' }).isVisible()) break;
     const next = page.getByRole('button', { name: 'Next Question' });
     await expect(next).toBeVisible();
     await next.click();
@@ -232,7 +234,13 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     await expect(page.locator('.quiz-feedback')).toBeVisible();
     await capture(page, testInfo, entries, 'answer-feedback', { fullPage: false });
     await page.getByRole('button', { name: 'Next Question' }).click();
-    await completeFiveQuestionQuiz(page, 1);
+    await completeFiveQuestionQuiz(page, 1, () => capture(
+      page,
+      testInfo,
+      entries,
+      'finish-quiz-ready',
+      { fullPage: false },
+    ));
     await capture(page, testInfo, entries, 'result-summary', { fullPage: false });
     const review = page.locator('.question-review').first();
     await expect(review).toBeVisible();
@@ -240,13 +248,13 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     await capture(page, testInfo, entries, 'result-review', { fullPage: false });
 
     await startQuiz(page, {
-      exam: 'REE',
-      subject: 'Engineering Sciences and Allied Subjects',
-      topic: 'ree-allied-safety',
-      count: '5',
-      difficulty: 'hard',
+      exam: 'CPA',
+      subject: 'cpa-financial-accounting',
+      topic: 'cpa-financial-accounting-inventory',
+      count: '20',
+      difficulty: 'mixed',
     });
-    await advanceToQuestion(page, '1637', 5);
+    await advanceToQuestion(page, '1261', 20);
     await expect(page.locator('.question-equation')).toBeVisible();
     const mathViewports = mobile
       ? await inspectQuestionAtMobileWidths(page, '.question-equation', () => capture(
@@ -260,9 +268,13 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     await capture(page, testInfo, entries, 'quiz-numeric', { fullPage: false });
 
     await startQuiz(page, {
-      exam: 'LET', subject: 'Science', topic: 'science-data-graphs', count: '5', difficulty: 'hard',
+      exam: 'CPA',
+      subject: 'cpa-financial-accounting',
+      topic: 'cpa-financial-accounting-liabilities',
+      count: '20',
+      difficulty: 'mixed',
     });
-    await advanceToQuestion(page, '40', 5);
+    await advanceToQuestion(page, '1267', 20);
     await expect(page.locator('.question-table-wrap')).toBeVisible();
     const tableViewports = mobile
       ? await inspectQuestionAtMobileWidths(page, '.question-table-wrap', () => capture(
@@ -276,9 +288,13 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     await capture(page, testInfo, entries, 'quiz-table', { fullPage: false });
 
     await startQuiz(page, {
-      exam: 'LET', subject: 'Science', topic: 'science-biology', count: '5', difficulty: 'easy',
+      exam: 'LET',
+      subject: 'science',
+      topic: 'science-electricity-circuits',
+      count: '20',
+      difficulty: 'mixed',
     });
-    await advanceToQuestion(page, '31', 5);
+    await advanceToQuestion(page, '34', 20);
     await expect(page.locator('.question-figure img')).toBeVisible();
     await capture(page, testInfo, entries, 'quiz-svg', { fullPage: false });
 
