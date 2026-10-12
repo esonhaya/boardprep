@@ -12,7 +12,11 @@ final class StudyPlanService
     {
         $plan = [];
 
-        foreach ($dashboard["weakestTopics"] ?? [] as $topic) {
+        $focusTopics = is_array($dashboard['focusTopics'] ?? null)
+            ? $dashboard['focusTopics']
+            : ($dashboard['weakestTopics'] ?? []);
+
+        foreach ($focusTopics as $topic) {
             $name = self::text($topic["topic"] ?? "");
             if ($name === "") {
                 continue;

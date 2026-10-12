@@ -5,6 +5,9 @@ acceptance checklist; do not create a second tracker or infer a result from
 automation. Every case starts as `NOT_RUN` and requires a real browser and
 tester evidence.
 
+Before public launch, the operator must also complete and approve
+[`OWNER_PRIVACY_AND_HOSTING_DECISIONS.md`](OWNER_PRIVACY_AND_HOSTING_DECISIONS.md).
+
 ## Start here: automated prerequisite and session header
 
 Run this once for the build under test, before opening the matrix:
@@ -83,7 +86,7 @@ the interaction or presentation. No automated result changes `HUMAN_STATUS`.
 
 ### Stage A — Entry and mobile setup
 
-Set a phone viewport and open `/`, `/quiz`, and the settings page. Record the
+Set a phone viewport and open `/`, `/quiz`, and `/privacy`. Record the
 session header above. Run MVP-01 and MVP-11.
 
 ### Stage B — Practice start and active quiz
@@ -158,7 +161,7 @@ MVP-09=NOT_RUN  MVP-10=NOT_RUN  MVP-11=NOT_RUN  MVP-12=NOT_RUN
 | MVP-03 | Answer/navigation | `AUTOMATED_PARTIAL` — submission, feedback path, navigation pass | Answer and advance through practice; judge feedback | Answer is accepted, feedback is understandable, no skips/duplicates | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
 | MVP-04 | Result/review | `AUTOMATED_CONFIRMED` — score, denominator, review and result flow pass | Inspect result/review for comprehension | Score and review data are correct and coherent | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
 | MVP-05 | Revisit/persistence | `AUTOMATED_CONFIRMED` — result revisit, history, persistence pass | Refresh result; visit history/dashboard/progress/study/profile | One attempt persists and learner surfaces agree | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
-| MVP-06 | Exam mode | `AUTOMATED_CONFIRMED` — exam HTTP lifecycle and denominator pass | Run 3-question exam and judge labels | Exam navigation and partial result are accurate | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
+| MVP-06 | Exam mode | `AUTOMATED_CONFIRMED` — exam HTTP lifecycle and denominator pass | Run the smallest UI option (5 questions) and judge labels | Exam navigation and partial result are accurate | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
 | MVP-07 | Second session | `AUTOMATED_CONFIRMED` — replacement and exact-once isolation pass | Start another practice quiz; spot-check history | New session is distinct; earlier result is unchanged | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
 | MVP-08 | Reload/back/replay | `AUTOMATED_PARTIAL` — stale replay and lifecycle recovery pass | Refresh, Back, replay Submit/Finish during a session | No accidental completion, duplicate write, or corruption | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |
 | MVP-09 | Stale/unavailable question | `AUTOMATED_PARTIAL` — live status revalidation and safe redirect pass | Use a captured question after completion; try unavailable content if possible | Safe recovery message; no fabricated result or side effect | AUTOMATED_GATE=PASS; HUMAN_STATUS=NOT_RUN |

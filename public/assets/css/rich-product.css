@@ -167,6 +167,9 @@ main#main-content:focus{outline:none}
 .study-material-notes section{padding:12px 0;border-top:1px solid var(--border)}
 .study-material-notes section:first-child{border-top:0}
 .study-material-card a{overflow-wrap:anywhere}
+.study-material-sources{margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
+.study-material-sources h3{margin:0 0 10px}
+.study-material-sources ul{display:grid;gap:8px;margin:0;padding-inline-start:20px}
 .flashcard-card{line-height:1.7}
 .flashcard-rating{min-height:64px;border-radius:12px}
 .privacy-page>section.card{padding:clamp(18px,3vw,26px)}

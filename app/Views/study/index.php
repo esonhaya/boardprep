@@ -4,7 +4,7 @@ $dashboard = $dashboard ?? [];
 $progress = $dashboard["progress"] ?? [];
 $topics = $dashboard["topics"] ?? [];
 $subjects = $dashboard["subjects"] ?? [];
-$weakest = $dashboard["weakestTopics"] ?? [];
+$weakest = $dashboard["focusTopics"] ?? [];
 $streak = (int) ($dashboard["streak"] ?? 0);
 $insight = $dashboard["insight"] ?? [];
 $recommendations = $dashboard["recommendations"] ?? [];
@@ -169,7 +169,7 @@ $learningContextLabel = static function (array $row) use ($taxonomyLabel): strin
     <h2>Focus Areas</h2>
 
     <?php if (empty($weakest)): ?>
-        <p>Complete more quizzes to identify your weakest topics.</p>
+        <p>No topic is below its average for the same board and exam variant yet. Complete more quizzes to build a useful comparison.</p>
     <?php else: ?>
         <?php foreach ($weakest as $topic): ?>
             <article>

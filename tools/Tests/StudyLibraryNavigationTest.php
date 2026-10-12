@@ -28,6 +28,7 @@ $sessionId = 'batch662-study-library-' . bin2hex(random_bytes(6));
 $http = new HttpSimulator($root . '/public/index.php');
 $boards = json_decode((string) file_get_contents($root . '/storage/boards.json'), true, 512, JSON_THROW_ON_ERROR);
 $materials = json_decode((string) file_get_contents($root . '/storage/study-materials.json'), true, 512, JSON_THROW_ON_ERROR);
+$sourceRegistry = json_decode((string) file_get_contents($root . '/storage/sources.json'), true, 512, JSON_THROW_ON_ERROR);
 
 try {
     foreach ($boards as $board) {
@@ -89,6 +90,31 @@ try {
         throw new RuntimeException('A direct study-material reference did not resolve to exactly its target.');
     }
 
+    $sourceById = [];
+    foreach ($sourceRegistry as $source) {
+        if (is_array($source) && is_scalar($source['id'] ?? null)) {
+            $sourceById[(string) $source['id']] = $source;
+        }
+    }
+    $sources = array_values(array_filter(array_map(
+        static fn(mixed $id): ?array => is_scalar($id) ? ($sourceById[(string) $id] ?? null) : null,
+        (array) ($material['source_ids'] ?? [])
+    )));
+    $sourceStart = strpos($detail['output'], '<section class="study-material-sources"');
+    $sourceEnd = $sourceStart === false ? false : strpos($detail['output'], '</section>', $sourceStart);
+    $sourceMarkup = $sourceStart === false || $sourceEnd === false
+        ? ''
+        : substr($detail['output'], $sourceStart, $sourceEnd - $sourceStart);
+    if ($sources === [] || substr_count($sourceMarkup, '<li>') !== count($sources)) {
+        throw new RuntimeException('Study material sources did not render as separate, readable list items.');
+    }
+    foreach ($sources as $source) {
+        $title = htmlspecialchars((string) ($source['title'] ?? 'Verified reference'), ENT_QUOTES, 'UTF-8');
+        if (!str_contains($sourceMarkup, '>' . $title . '</a>')) {
+            throw new RuntimeException('A study material source title is missing from its separated list item.');
+        }
+    }
+
     $privacy = $http->request('GET', '/privacy', [], [], [], ['PHPSESSID' => $sessionId]);
     if ($privacy['status'] !== 200
         || !str_contains($privacy['output'], 'No learner accounts')
@@ -115,6 +141,7 @@ try {
 
     echo "[PASS] Production study library renders correctly scoped materials for all ten boards.\n";
     echo "[PASS] A direct material link resolves to one published source-backed resource.\n";
+    echo "[PASS] Source references render as separate, readable list items.\n";
     echo "[PASS] Privacy disclosure and production Developer/Doctor route boundaries are safe.\n";
 } finally {
     $sessionPath = $root . '/storage/doctor/simulation-sessions/sess-' . $sessionId;

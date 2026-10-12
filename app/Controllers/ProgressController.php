@@ -26,6 +26,8 @@ final class ProgressController
                 "topics" => $dashboard["topics"],
                 "subjects" => $dashboard["subjects"],
                 "weakestTopics" => $dashboard["weakestTopics"],
+                "focusTopics" => $dashboard["focusTopics"],
+                "strongestSubjects" => $dashboard["strongestSubjects"],
                 "streak" => $dashboard["streak"],
                 "insight" => $dashboard["insight"],
                 "recommendations" => $dashboard["recommendations"],

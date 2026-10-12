@@ -45,17 +45,29 @@ try {
     );
     $simulator = new HttpSimulator(dirname(__DIR__, 2) . '/public/index.php');
     $learner = ['PHPSESSID' => 'batch531-integration-a'];
+    $settings = $simulator->request('GET', '/quiz', [], [], [], $learner);
+    $csrfToken = integrationHidden($settings['output'], 'csrf_token');
 
     $start = $simulator->request('POST', '/quiz', [], [
+        'csrf_token' => $csrfToken,
         'action' => 'start',
         'exam' => 'LET',
         'subject' => 'social-studies',
         'topic' => 'let-art-interpretation',
-        'mode' => 'review',
-        'count' => 1,
+        'mode' => 'exam',
+        'count' => 5,
         'difficulty' => 'mixed',
     ], [], $learner);
-    integrationCheck($start['status'] === 200, 'quiz did not start');
+    $startMessage = '';
+    if ($start['status'] !== 200) {
+        $settingsPage = $simulator->request('GET', '/quiz', [], [], [], $learner)['output'] ?? '';
+        preg_match('/class="alert alert-danger"[^>]*>(.*?)<\/p>/s', $settingsPage, $match);
+        $startMessage = html_entity_decode(strip_tags((string) ($match[1] ?? '')), ENT_QUOTES, 'UTF-8');
+    }
+    integrationCheck(
+        $start['status'] === 200,
+        'quiz did not start: HTTP ' . $start['status'] . ' ' . ($start['location'] ?? '') . ' ' . $startMessage
+    );
     $questionId = integrationHidden($start['output'], 'question_id');
     $question = null;
     foreach ($questions as $candidate) {
@@ -71,12 +83,19 @@ try {
     $answer = chr(65 + $wrongIndex);
 
     $submitted = $simulator->request('POST', '/quiz', ['action' => 'submit'], [
+        'csrf_token' => $csrfToken,
         'action' => 'submit',
         'question_id' => $questionId,
         'answer' => $answer,
     ], [], $learner);
-    integrationCheck(in_array($submitted['status'], [302, 303], true), 'quiz submission did not redirect');
-    $finished = $simulator->request('POST', '/quiz', [], ['action' => 'finish'], [], $learner);
+    $nextQuestionId = $submitted['status'] === 200
+        ? integrationHidden($submitted['output'], 'question_id')
+        : '';
+    integrationCheck(
+        $submitted['status'] === 200 && $nextQuestionId !== $questionId,
+        'exam-style answer did not advance to the next question'
+    );
+    $finished = $simulator->request('POST', '/quiz', [], ['action' => 'finish', 'csrf_token' => $csrfToken], [], $learner);
     integrationCheck($finished['status'] === 303, 'quiz finish did not use PRG');
 
     $result = $simulator->request('GET', '/quiz', ['action' => 'result'], [], [], $learner);
