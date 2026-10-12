@@ -15,6 +15,7 @@ use App\Services\Board\BoardViewService;
 use App\Services\Shared\CsrfTokenService;
 use App\Services\Quiz\LET\LETVariantRegistry;
 use App\Services\Study\StudyLibraryService;
+use App\Services\Question\QuestionIdMigrationService;
 
 final class QuizFlowController
 {
@@ -127,6 +128,10 @@ final class QuizFlowController
         $summary = $result['summary'] ?? [];
         $review = $result['review'] ?? [];
         $session = \SessionService::get('quiz_session', []);
+        $review = QuestionIdMigrationService::canonicalizeReview(
+            is_array($review) ? $review : [],
+            is_array($session) ? $session : []
+        );
         $studyReferencesByQuestion = StudyLibraryService::forQuestions(array_map(
             static fn(mixed $item): mixed => is_array($item) && is_array($item['question'] ?? null)
                 ? ($item['question']['id'] ?? null)
@@ -141,7 +146,7 @@ final class QuizFlowController
                 'review' => $review,
                 'studyReferencesByQuestion' => $studyReferencesByQuestion,
                 'actions' => QuizResultActionService::build(
-                    $session,
+                    is_array($session) ? $session : [],
                     $summary,
                     $result['review'] ?? []
                 ),

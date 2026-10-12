@@ -7,6 +7,7 @@ namespace App\Services\Quiz;
 use App\Core\App;
 use App\Repositories\AttemptRepository;
 use App\Services\Learning\LearnerIdentityService;
+use App\Services\Question\QuestionIdMigrationService;
 
 final class HistoricalQuizResultService
 {
@@ -31,6 +32,7 @@ final class HistoricalQuizResultService
         }
 
         $review = self::review($attempt['review'] ?? null);
+        $review = QuestionIdMigrationService::canonicalizeReview($review, $attempt);
         $actions = QuizResultActionService::build($attempt, $summary, $review);
         $missedQuestionIds = self::missedQuestionIds($review);
         foreach ($actions as &$action) {

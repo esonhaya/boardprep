@@ -6,6 +6,7 @@ namespace App\Services\Quiz\Session;
 
 use App\Core\App;
 use App\Repositories\QuestionRepository;
+use App\Services\Question\QuestionIdMigrationService;
 
 final class QuizSessionQuestion
 {
@@ -58,8 +59,15 @@ final class QuizSessionQuestion
         }
 
         $id = trim((string) $question['id']);
-        $stored = App::container()->get(QuestionRepository::class)->find($id);
+        $canonicalId = QuestionIdMigrationService::canonicalIdForQuestion($question);
+        $stored = App::container()->get(QuestionRepository::class)->find($canonicalId);
         if (!self::isRenderable($stored)) {
+            return false;
+        }
+
+        if ($canonicalId !== $id
+            && QuestionIdMigrationService::boardForQuestion($stored)
+                !== QuestionIdMigrationService::boardForQuestion($question)) {
             return false;
         }
 

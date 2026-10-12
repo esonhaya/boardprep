@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\Quiz\Result;
 
 use App\Services\Learning\WeaknessService;
+use App\Services\Question\QuestionIdMigrationService;
 use App\Services\Question\QuestionStatisticsService;
 
 final class QuizAnswerStatisticsRecorder
@@ -12,6 +13,7 @@ final class QuizAnswerStatisticsRecorder
     public static function record(array $questions, array $answers): void
     {
         $plan = QuizAnswerStatisticsPlan::build($questions, $answers);
+        $plan = QuestionIdMigrationService::canonicalizeAnswerPlan($questions, $plan);
 
         QuestionStatisticsService::recordAnswers($plan);
 
@@ -28,10 +30,12 @@ final class QuizAnswerStatisticsRecorder
             $taxonomy = is_array($question["taxonomy"] ?? null)
                 ? $question["taxonomy"]
                 : [];
-            $topics[trim((string) $question["id"])] =
+            $topic =
                 $question["topic"]
                 ?? $taxonomy["topic_id"]
                 ?? "General";
+            $topics[trim((string) $question["id"])] = $topic;
+            $topics[QuestionIdMigrationService::canonicalIdForQuestion($question)] = $topic;
         }
 
         return array_map(

@@ -1,0 +1,12 @@
+{
+  "case": "Batch 625 Nursing question ID overlaps existing BoardPrep canonical IDs",
+  "incoming_commit": "0eb9704ba293e0aa3402af5d01a2d3392c005b73",
+  "retained_commit": "2354826b46820118083c61b3176002cbf8d8c124",
+  "shared_question_id": 4163,
+  "incoming_board": "nursing",
+  "existing_board": "cpa",
+  "incoming_stem_sha256": "57629f2f784e3d7bf17b27170fe4de37ed0993d0630c3a54c8e4bc070909e2c9",
+  "existing_stem_sha256": "5d9a29891a6473914bc7e5bc8c6fb498e98d8aa0ebee0a6d13336390db812bbd",
+  "canonical_nursing_question_id": 4873,
+  "resolution": "retain the CPA ID and use the identical existing Nursing canonical record"
+}

@@ -11,6 +11,7 @@ use App\Core\View;
 use App\Services\Flashcard\FlashcardService;
 use App\Services\Quiz\HistoricalQuizResultService;
 use App\Services\Quiz\Result\QuizAnswerStatisticsPlan;
+use App\Services\Question\QuestionIdMigrationService;
 use App\Services\Shared\CsrfTokenService;
 use App\Services\Shared\TaxonomyStorageService;
 
@@ -155,6 +156,7 @@ final class FlashcardController
             }
 
             $plan = QuizAnswerStatisticsPlan::build($result['questions'], $result['answers']);
+            $plan = QuestionIdMigrationService::canonicalizeAnswerPlan($result['questions'], $plan);
             $missed = [];
             foreach ($plan as $entry) {
                 if (($entry['correct'] ?? null) === false) {
