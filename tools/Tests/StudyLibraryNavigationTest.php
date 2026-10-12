@@ -90,6 +90,57 @@ try {
         throw new RuntimeException('A direct study-material reference did not resolve to exactly its target.');
     }
 
+    $positionalNotesMaterial = null;
+    foreach ($materials as $candidate) {
+        foreach ((array) ($candidate['notes'] ?? []) as $note) {
+            if (is_array($note) && array_is_list($note) && count($note) >= 2
+                && is_scalar($note[0]) && is_scalar($note[1])
+                && trim((string) $note[0]) !== '' && trim((string) $note[1]) !== '') {
+                $positionalNotesMaterial = $candidate;
+                break 2;
+            }
+        }
+    }
+    if (!is_array($positionalNotesMaterial)) {
+        throw new RuntimeException('No source-backed material with positional note content was available for rendering.');
+    }
+
+    $notesDetail = $http->request(
+        'GET',
+        '/study-library',
+        ['material' => (string) $positionalNotesMaterial['id']],
+        [],
+        [],
+        ['PHPSESSID' => $sessionId]
+    );
+    $notesStart = strpos($notesDetail['output'], '<div class="study-material-notes">');
+    $notesEnd = $notesStart === false ? false : strpos($notesDetail['output'], '</div>', $notesStart);
+    $notesMarkup = $notesStart === false || $notesEnd === false
+        ? ''
+        : substr($notesDetail['output'], $notesStart, $notesEnd - $notesStart);
+    $expectedNoteCount = 0;
+    foreach (array_slice($positionalNotesMaterial['notes'], 0, 4) as $note) {
+        if (!is_array($note)) {
+            continue;
+        }
+        $heading = trim((string) ($note['heading'] ?? $note[0] ?? ''));
+        $body = trim((string) ($note['body'] ?? $note[1] ?? ''));
+        if ($heading === '' && $body === '') {
+            continue;
+        }
+        $expectedNoteCount++;
+        if (($heading !== '' && !str_contains($notesMarkup, htmlspecialchars($heading, ENT_QUOTES, 'UTF-8')))
+            || ($body !== '' && !str_contains($notesMarkup, htmlspecialchars($body, ENT_QUOTES, 'UTF-8'))) ) {
+            throw new RuntimeException('A positional study note heading or body was missing from the rendered material.');
+        }
+    }
+    if (!$notesDetail['success'] || $notesDetail['status'] !== 200
+        || substr_count($notesMarkup, '<section>') !== $expectedNoteCount
+        || str_contains($notesMarkup, '<h3></h3>')
+        || str_contains($notesMarkup, '<p></p>')) {
+        throw new RuntimeException('Study material note content rendered as empty sections or lost its source-first text.');
+    }
+
     $sourceById = [];
     foreach ($sourceRegistry as $source) {
         if (is_array($source) && is_scalar($source['id'] ?? null)) {
@@ -141,6 +192,7 @@ try {
 
     echo "[PASS] Production study library renders correctly scoped materials for all ten boards.\n";
     echo "[PASS] A direct material link resolves to one published source-backed resource.\n";
+    echo "[PASS] Positional source-first study notes render their headings and bodies without blank sections.\n";
     echo "[PASS] Source references render as separate, readable list items.\n";
     echo "[PASS] Privacy disclosure and production Developer/Doctor route boundaries are safe.\n";
 } finally {

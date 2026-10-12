@@ -21,6 +21,11 @@
   uninspected after this pass.
 - Browser captures do not establish physical Android touch behavior, owner
   acceptance, screen-reader support, or WCAG conformance.
+- A fresh integration-branch run after the first two visual repairs is
+  recorded below. Pixel review of its study-material detail capture found a
+  separate note-schema rendering defect; that defect has since been repaired
+  in the view and covered by the production HTTP regression. The follow-up
+  browser run is required before calling the note repair visually verified.
 - The filename stem identifies the page/state (`quiz-table`, `result-review`,
   `privacy-delete-confirmation`, etc.); the viewport suffix identifies the
   target width/height. `board-*` files are board detail pages; LET/CSE
@@ -33,8 +38,29 @@
 
 | ID | Screen / viewport | Screenshot | Severity | Observation and impact | Repair / verification |
 |---|---|---|---|---|---|
-| B668-VIS-001 | Study material detail, desktop 1366×768 and mobile 390×844 | `screenshots/desktop/study-material-detail-1366x768.png`; `screenshots/mobile/study-material-detail-390x844.png` | P2 | Source titles and links run together with no visual/list separation, making references difficult to scan or activate accurately. The PHP template emits adjacent anchors in one paragraph. | Replaced with a labeled source section and one list item per reference; added focused production HTTP assertions. New rendered browser evidence is pending the integration-branch workflow. |
-| B668-VIS-002 | Dashboard/progress, mobile 320/360/390/430, tablet 768, desktop 1366/1440 | `screenshots/mobile/dashboard-width-320-320x640.png`; `screenshots/mobile/dashboard-width-360-360x800.png`; `screenshots/mobile/dashboard-width-390-390x844.png`; `screenshots/mobile/dashboard-width-430-430x932.png`; `screenshots/tablet/dashboard-width-768-768x1024.png`; `screenshots/desktop/dashboard-wide-1440x900.png`; `screenshots/desktop/progress-1366x768.png` | P2 | Top-N ranking labels a sole 100% topic as “weakest” and can include a 20% subject as “strongest” when fewer than three groups exist. Cross-board/variant aggregates also invite invalid comparisons. | Comparisons now use a weighted average within the same board and exam variant and show only groups above/below that baseline. Full history and actionable recommendations remain. Added service regression coverage; new browser screenshots are pending the integration-branch workflow. |
+| B668-VIS-001 | Study material detail, desktop 1366×768 and mobile 390×844 | `screenshots/desktop/study-material-detail-1366x768.png`; `screenshots/mobile/study-material-detail-390x844.png` | P2 | Source titles and links ran together with no visual/list separation, making references difficult to scan or activate accurately. | Replaced with a labeled source section and one list item per reference; production HTTP coverage passes. Run 38217569150 screenshots visually confirm distinct source rows. |
+| B668-VIS-002 | Dashboard/progress, mobile 320/360/390/430, tablet 768, desktop 1366/1440 | `screenshots/mobile/dashboard-width-320-320x640.png`; `screenshots/mobile/dashboard-width-360-360x800.png`; `screenshots/mobile/dashboard-width-390-390x844.png`; `screenshots/mobile/dashboard-width-430-430x932.png`; `screenshots/tablet/dashboard-width-768-768x1024.png`; `screenshots/desktop/dashboard-wide-1440x900.png`; `screenshots/desktop/progress-1366x768.png` | P2 | Top-N ranking labels a sole 100% topic as “weakest” and can include a 20% subject as “strongest” when fewer than three groups exist. Cross-board/variant aggregates also invite invalid comparisons. | Comparisons now use an attempt-weighted baseline within the same board and exam variant and show only groups above/below that baseline. Full history and actionable recommendations remain. Run 38217569150 screenshots visually confirm the corrected context labels and empty-history guidance. |
+| B668-VIS-003 | Study material detail, desktop 1366×768 and mobile 390×844 | `screenshots/desktop/study-material-detail-1366x768.png`; `screenshots/mobile/study-material-detail-390x844.png` | P2 | Four empty bordered note sections appear between the priority summary and sources. The source-first records store each note as a two-item positional list, while the PHP view only read named `heading` and `body` keys, hiding the actual learning text. | The template now reads both supported note shapes, escapes visible text, and omits empty sections. `StudyLibraryNavigationTest.php` passes the production-route assertion for positional note headings/bodies; browser rerun and after-pixel review remain pending. |
+
+## Integration-branch browser evidence
+
+- Run `38217569150` completed successfully for commit
+  `52bcca0a7ec61f4dadf149e9f3b79e3c1fe46830`:
+  [GitHub Actions run](https://github.com/esonhaya/boardprep/actions/runs/38217569150).
+- Chromium `153.0.8010.12`, `npm run test:browser`: 20 pass, 0 fail,
+  2 skip, 0 flaky. The execution record lists all five mobile/tablet widths,
+  ten-board journeys, keyboard navigation, privacy actions, and the math/table
+  viewport checks. The console report records no unexpected errors or failed
+  requests.
+- Artifact `11733546117` (`boardprep-batch667-visual-qa`):
+  [download artifact](https://github.com/esonhaya/boardprep/actions/runs/38217569150/artifacts/11733546117).
+  Its ZIP passed `unzip -t`; it contains the updated dashboard, progress, and
+  study-detail captures plus browser diagnostics. Pixel review confirmed the
+  separated source list and context-relative dashboard labels. It also exposed
+  the blank positional-note sections documented as B668-VIS-003 above.
+- The note repair is now under HTTP regression; a second workflow run after
+  that code change and visual inspection of its study-detail capture are still
+  required for final rendered evidence.
 
 No P0/P1 or P3 defects were identified in the visual set. All 86 screenshots
 showed usable general hierarchy and page width. In the 768px dashboard the
