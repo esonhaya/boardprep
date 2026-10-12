@@ -18,11 +18,16 @@ foreach (['study-materials.json', 'sources.json', 'study-question-links.json', '
     }
 }
 
+$sessionStorage = $storage . '/sessions';
+if (!mkdir($sessionStorage, 0700, true)) {
+    throw new RuntimeException('Unable to create isolated study library session storage.');
+}
 putenv('APP_ENV=production');
 putenv('APP_DEBUG=false');
 putenv('APP_TIMEZONE=UTC');
 putenv('DB_DRIVER=json');
 putenv('APP_STORAGE_PATH=' . $storage);
+putenv('APP_SESSION_PATH=' . $sessionStorage);
 
 $sessionId = 'batch662-study-library-' . bin2hex(random_bytes(6));
 $http = new HttpSimulator($root . '/public/index.php');
@@ -57,9 +62,36 @@ try {
         if (!$response['success'] || $response['status'] !== 200
             || !str_contains($response['output'], 'Study Library · ' . strtoupper($boardId))
             || !str_contains($response['output'], $expectedTitle)
+            || !str_contains($response['output'], 'Search titles and study notes')
+            || !str_contains($response['output'], '<details class="study-material-disclosure">')
             || str_contains($response['output'], 'No study materials are available yet')) {
             throw new RuntimeException('Board-scoped study materials did not render for ' . $boardId);
         }
+    }
+
+    $letMaterial = null;
+    foreach ($materials as $candidate) {
+        if (($candidate['status'] ?? 'published') === 'published'
+            && in_array('let', array_map('strtolower', array_map('strval', (array) ($candidate['exams'] ?? []))), true)) {
+            $letMaterial = $candidate;
+            break;
+        }
+    }
+    if (!is_array($letMaterial)) {
+        throw new RuntimeException('No LET material is available for search verification.');
+    }
+    $search = $http->request('GET', '/study-library', ['exam' => 'LET', 'q' => (string) $letMaterial['title']], [], [], ['PHPSESSID' => $sessionId]);
+    if (!$search['success'] || $search['status'] !== 200
+        || !str_contains($search['output'], 'Showing 1 study material matching')
+        || !str_contains($search['output'], (string) $letMaterial['id'])) {
+        throw new RuntimeException('Study-library search did not narrow results by a matching title.');
+    }
+
+    $emptySearch = $http->request('GET', '/study-library', ['exam' => 'LET', 'q' => 'no-resource-has-this-phrase-670'], [], [], ['PHPSESSID' => $sessionId]);
+    if (!$emptySearch['success'] || $emptySearch['status'] !== 200
+        || !str_contains($emptySearch['output'], 'No study materials match that search')
+        || !str_contains($emptySearch['output'], 'Clear search')) {
+        throw new RuntimeException('An empty study-library search did not provide a clear recovery action.');
     }
 
     $material = null;
@@ -86,6 +118,7 @@ try {
     if (!$detail['success'] || $detail['status'] !== 200
         || !str_contains($detail['output'], 'study-material-' . (string) $material['id'])
         || !str_contains($detail['output'], $expectedTitle)
+        || !str_contains($detail['output'], '<details class="study-material-disclosure" open>')
         || substr_count($detail['output'], 'class="card study-material-card"') !== 1) {
         throw new RuntimeException('A direct study-material reference did not resolve to exactly its target.');
     }
@@ -196,12 +229,9 @@ try {
     echo "[PASS] Source references render as separate, readable list items.\n";
     echo "[PASS] Privacy disclosure and production Developer/Doctor route boundaries are safe.\n";
 } finally {
-    $sessionDirectory = trim((string) (getenv('APP_SESSION_PATH') ?: ''));
-    if ($sessionDirectory === '') {
-        $sessionDirectory = $root . '/storage/doctor/simulation-sessions';
-    }
-    $sessionPath = rtrim($sessionDirectory, DIRECTORY_SEPARATOR) . '/sess-' . $sessionId;
+    $sessionPath = rtrim($sessionStorage, DIRECTORY_SEPARATOR) . '/sess_' . $sessionId;
     @unlink($sessionPath);
+    @rmdir($sessionStorage);
     foreach (glob($storage . '/*') ?: [] as $file) {
         if (is_file($file)) {
             @unlink($file);

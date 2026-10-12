@@ -333,10 +333,21 @@ test.describe('BoardPrep deterministic visual baseline', () => {
 
     await page.goto('/study-library?exam=LET');
     await expect(page.locator('h1')).toHaveText('Source-backed study materials');
-    await capture(page, testInfo, entries, 'study-resource', { fullPage: true });
+    const librarySearch = page.getByRole('searchbox', { name: 'Search titles and study notes' });
     const firstStudyMaterial = page.locator('.study-material-card').first();
-    await expect(firstStudyMaterial).toBeVisible();
-    await firstStudyMaterial.scrollIntoViewIfNeeded();
+    const firstStudyTitle = await firstStudyMaterial.locator('h2').innerText();
+    await librarySearch.fill('no-resource-has-this-phrase-670');
+    await librarySearch.press('Enter');
+    await expect(page.getByRole('heading', { name: 'No study materials match that search' })).toBeVisible();
+    await page.getByRole('link', { name: 'Clear search' }).click();
+    await expect(page.locator('.study-material-card')).toHaveCount(44);
+    await librarySearch.fill(firstStudyTitle);
+    await librarySearch.press('Enter');
+    await expect(page.locator('.study-material-card')).toHaveCount(1);
+    await capture(page, testInfo, entries, 'study-resource', { fullPage: true });
+    const firstStudyMaterialDetail = page.locator('.study-material-card').first();
+    await expect(firstStudyMaterialDetail).toBeVisible();
+    await firstStudyMaterialDetail.locator('.study-material-disclosure > summary').click();
     await capture(page, testInfo, entries, 'study-material-detail', { fullPage: false });
 
     await page.goto('/flashcards?include_new=1');

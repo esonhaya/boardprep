@@ -16,9 +16,32 @@ final class StudyLibraryController extends BaseDeveloperController
     {
         $exam = Request::queryString('exam');
         $materialId = Request::queryString('material');
+        $search = substr(trim(Request::queryString('q')), 0, 120);
         $materials = $materialId !== ''
             ? array_values(array_filter([StudyLibraryService::find($materialId)]))
             : StudyLibraryService::all($exam !== '' ? $exam : null);
+        if ($materialId === '' && $search !== '') {
+            $needle = function_exists('mb_strtolower') ? mb_strtolower($search) : strtolower($search);
+            $materials = array_values(array_filter($materials, static function (array $material) use ($needle): bool {
+                $parts = [
+                    (string) ($material['title'] ?? ''),
+                    (string) ($material['summary'] ?? ''),
+                ];
+                foreach ((array) ($material['notes'] ?? []) as $note) {
+                    if (!is_array($note)) {
+                        continue;
+                    }
+                    foreach (['heading', 'body', 0, 1] as $key) {
+                        if (is_scalar($note[$key] ?? null)) {
+                            $parts[] = (string) $note[$key];
+                        }
+                    }
+                }
+                $content = implode(' ', $parts);
+                $content = function_exists('mb_strtolower') ? mb_strtolower($content) : strtolower($content);
+                return str_contains($content, $needle);
+            }));
+        }
         if ($exam !== '') {
             $materials = array_map(static function (array $material) use ($exam): array {
                 $material['priority'] = ExamIntelligenceService::priority($material, $exam);
@@ -29,6 +52,7 @@ final class StudyLibraryController extends BaseDeveloperController
             'pageTitle' => 'Study Materials | BoardPrep',
             'materials' => $materials,
             'exam' => $exam,
+            'search' => $search,
             'materialRequested' => $materialId !== '',
         ]);
     }

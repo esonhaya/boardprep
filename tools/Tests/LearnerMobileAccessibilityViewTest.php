@@ -8,6 +8,7 @@ $settings = file_get_contents($root . '/app/Views/quiz/settings.php');
 $quiz = file_get_contents($root . '/app/Views/quiz/index.php');
 $result = file_get_contents($root . '/app/Views/quiz/result.php');
 $review = file_get_contents($root . '/app/Views/quiz/review.php');
+$studyLibrary = file_get_contents($root . '/app/Views/study/library.php');
 $focus = file_get_contents($root . '/public/assets/js/quiz-focus.js');
 $css = file_get_contents($root . '/public/assets/css/style.css');
 
@@ -30,6 +31,10 @@ $checks = [
     'active attempts disclose replacement and provide an explicit resume action' => str_contains($settings, 'class="active-session-warning card"')
         && str_contains($settings, 'Starting the session below will end this unfinished attempt and discard its answers.')
         && str_contains($settings, 'Resume current session'),
+    'study-library search is labelled and note disclosures meet touch sizing' => str_contains($studyLibrary, 'role="search"')
+        && str_contains($studyLibrary, 'label for="study-library-search"')
+        && str_contains($studyLibrary, '<summary>Read study notes and sources</summary>')
+        && str_contains($css, '.study-material-disclosure>summary{display:flex;align-items:center;min-height:44px'),
     'review correctness has textual and structural state' => str_contains($result, 'Correct answer</strong>')
         && str_contains($result, 'Incorrect answer</strong>')
         && str_contains($result, 'is-correct'),

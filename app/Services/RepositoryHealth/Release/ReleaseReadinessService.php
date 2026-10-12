@@ -466,7 +466,7 @@ final class ReleaseReadinessService
             'simulator_recovery' => ['tools/Tests/ExamSimulationHttpTest.php'],
             'admin_core_flows' => ['tools/Tests/QuestionEditorEligibilityTest.php', 'tools/Tests/QuestionAuthoringWorkflowIntegrationTest.php'],
             'shared_question_safety' => ['tools/Tests/CrossBoardCanonicalReuseTest.php', 'tools/Tests/Batch669NursingIntegrationTest.php'],
-            'study_experience' => ['tools/Tests/FlashcardIntegrationTest.php'],
+            'study_experience' => ['tools/Tests/StudyLibraryNavigationTest.php', 'tools/Tests/FlashcardIntegrationTest.php'],
             'security_sanity' => ['tools/Tests/ProductionQuizCsrfTest.php'],
             'repository_determinism' => ['tools/Tests/ReleaseReadinessContractTest.php'],
             'production_configuration' => ['tools/Tests/RuntimeConfigurationTest.php', 'tools/Tests/ProductionFoundationTest.php'],
