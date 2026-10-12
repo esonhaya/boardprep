@@ -365,6 +365,18 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     await expect(page.locator('.flashcard-answer')).toBeVisible();
     await capture(page, testInfo, entries, 'flashcard-revealed', { fullPage: false });
 
+    if (mobile) {
+      const structuredFlashcardQuery = new URLSearchParams({
+        include_new: '1',
+        card_key: 'q:135:formula-or-data:prof-development-readiness:r1',
+        reveal: '1',
+      });
+      await page.goto(`/flashcards/review?${structuredFlashcardQuery.toString()}`);
+      await expect(page.locator('.flashcard-card .question-table-wrap')).toBeVisible();
+      await assertPageHealthy(page, testInfo, 'structured-flashcard-table');
+      await capture(page, testInfo, entries, 'structured-flashcard-table', { fullPage: false });
+    }
+
     await page.goto('/progress');
     await expect(page.locator('h1')).toBeVisible();
     await expect(page.locator('.progress-page > .page-header a[href="/quiz"]')).toHaveClass(/button-green/);

@@ -171,7 +171,8 @@ main#main-content:focus{outline:none}
 .study-material-sources{margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
 .study-material-sources h3{margin:0 0 10px}
 .study-material-sources ul{display:grid;gap:8px;margin:0;padding-inline-start:20px}
-.flashcard-card{line-height:1.7}
+.flashcard-card{min-width:0;width:100%;line-height:1.7}
+.flashcard-review-page .question-table-wrap{width:100%;min-width:0}
 .flashcard-rating{min-height:64px;border-radius:12px}
 .privacy-page>section.card{padding:clamp(18px,3vw,26px)}
 .privacy-delete-form{margin-top:18px;padding:16px;border:1px solid #efc6cb;border-radius:12px;background:#fffafb}
