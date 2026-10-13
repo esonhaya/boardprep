@@ -45,7 +45,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: boardprep-batch667-visual-qa
+          name: boardprep-chromium-visual-qa
           path: |
             screenshots/
             visual-audit.md

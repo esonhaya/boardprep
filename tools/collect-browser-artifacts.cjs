@@ -80,13 +80,17 @@ const auditSections = auditFiles.map((file) => (
 const runUrl = process.env.GITHUB_SERVER_URL && process.env.GITHUB_REPOSITORY && process.env.GITHUB_RUN_ID
   ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
   : 'Not running in GitHub Actions.';
+const commitSha = process.env.GITHUB_SHA || 'Not recorded.';
+const branchName = process.env.GITHUB_REF_NAME || 'Not recorded.';
 const visualAudit = [
-  '# BoardPrep Batch 667 visual audit',
+  '# BoardPrep Chromium visual audit',
   '',
   `- Workflow run: ${runUrl}`,
+  `- Commit: ${commitSha}`,
+  `- Branch: ${branchName}`,
   `- Curated Chromium screenshots: ${screenshotFiles.length}`,
   '- Automated geometry checks use a 2px horizontal overflow tolerance; CSS/DOM checks are not visual-review substitutes.',
-  '- The defect register records actual screenshot review and before/after evidence.',
+  '- This generated report records automated browser and geometry evidence; it does not claim that a person visually reviewed every screenshot.',
   '',
   '## Screenshot files',
   '',
@@ -103,10 +107,19 @@ const visualAudit = [
 ].join('\n');
 fs.writeFileSync(path.join(repositoryRoot, 'visual-audit.md'), visualAudit);
 
-const defectSource = path.join(repositoryRoot, 'tests', 'browser', 'visual-defect-register.md');
-if (fs.existsSync(defectSource)) {
-  fs.copyFileSync(defectSource, path.join(repositoryRoot, 'defect-register.md'));
-}
+const defectRegister = [
+  '# Current-run browser review record',
+  '',
+  `- Workflow run: ${runUrl}`,
+  `- Commit: ${commitSha}`,
+  `- Branch: ${branchName}`,
+  '- Automated browser results are recorded in `browser-results.json`; console and request diagnostics are recorded in `console-errors.txt`.',
+  '- Automated viewport geometry does not establish visual usability, physical-device behavior, screen-reader support, or WCAG conformance.',
+  '- This CI job does not perform manual screenshot review and therefore records no human visual findings.',
+  '- Historical Batch 667 findings are retained at `tests/browser/visual-defect-register.md`; they are not evidence about this run.',
+  '',
+].join('\n');
+fs.writeFileSync(path.join(repositoryRoot, 'defect-register.md'), defectRegister);
 
 const browserResultsPath = path.join(resultsRoot, 'browser-results.json');
 const browserResultsOutput = path.join(repositoryRoot, 'browser-results.json');

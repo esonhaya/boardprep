@@ -224,7 +224,7 @@ async function captureVisualState(page, testInfo, name, options = {}) {
 
 function visualAuditMarkdown(project, entries) {
   const lines = [
-    '# BoardPrep Batch 667 rendered visual audit',
+    '# BoardPrep Chromium rendered visual audit',
     '',
     `- Project: \`${project}\``,
     '- Screenshots are actual Chromium viewport captures from the production learner routes.',
@@ -236,7 +236,7 @@ function visualAuditMarkdown(project, entries) {
   for (const entry of entries) {
     lines.push(`| ${entry.name} | ${entry.viewport}×${entry.viewportHeight} | ${entry.scrollWidth}px | ${entry.pageOverflow ? 'FAIL' : 'PASS'} | ${entry.outsideViewport} | ${entry.tables} | ${entry.figures} | \`${entry.screenshot}\` |`);
   }
-  lines.push('', '## Review limits', '', 'Automated geometry and accessibility semantics do not establish overall usability, physical touch behavior, screen-reader support, or WCAG conformance. See the accompanying defect register for screenshot-based human visual findings.', '');
+  lines.push('', '## Review limits', '', 'Automated geometry and accessibility semantics do not establish overall usability, physical touch behavior, screen-reader support, or WCAG conformance. The CI job does not perform human screenshot review; record such findings separately after inspecting the current run screenshots.', '');
   return lines.join('\n');
 }
 
