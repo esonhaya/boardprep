@@ -61,7 +61,13 @@ try {
     foreach (glob($storagePath . '/*') ?: [] as $file) {
         if (is_file($file) || is_link($file)) @unlink($file);
     }
-    @rmdir($storagePath);
+    $storageLock = $storagePath . DIRECTORY_SEPARATOR . '.storage.lock';
+    if (is_file($storageLock) || is_link($storageLock)) {
+        @unlink($storageLock);
+    }
+    if (is_dir($storagePath) && !@rmdir($storagePath)) {
+        throw new RuntimeException('isolated weakness/statistics fixture was not fully removed');
+    }
 }
 
 echo "[PASS] unanswered quiz items do not inflate persisted weakness errors.\n";
