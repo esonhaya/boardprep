@@ -1001,14 +1001,15 @@ final class RepositoryHealthEngine
             $board = self::questionBoard($question);
             $byBoard[$board] ??= ['eligible' => 0, 'derivable' => 0, 'justified_exclusion' => 0, 'nonderivable_defect' => 0, 'duplicate_card_key' => 0, 'malformed_card' => 0, 'broken_card_source' => 0, 'invalid_card_key' => 0];
             if ($profiler !== null) $statusChecks++;
-            $status = $deriver->derivationStatus($question);
+            $derivation = $deriver->deriveWithStatus($question);
+            $status = $derivation['status'];
             if (($status['eligible'] ?? false) !== true) {
                 continue;
             }
             $portfolio['eligible']++;
             $byBoard[$board]['eligible']++;
             if ($profiler !== null) $derivationCalls++;
-            $card = $deriver->derive($question);
+            $card = $derivation['card'];
             if (is_array($card)) {
                 $portfolio['derivable']++;
                 $byBoard[$board]['derivable']++;

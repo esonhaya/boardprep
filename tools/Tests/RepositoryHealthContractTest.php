@@ -114,6 +114,8 @@ $exclusionQuestion['content_blocks'] = [];
 $exclusionDeriver = new FlashcardDerivationService(null, $validCollections['study-materials'], [['id' => 'fixture-exclusion-link', 'material_id' => $link['material_id'], 'question_id' => 'fixture-exclusion-b639', 'source_ids' => $link['source_ids']]], [$exclusion]);
 $exclusionStatus = $exclusionDeriver->derivationStatus($exclusionQuestion);
 $assert($exclusionStatus['justified'] === true && is_array($exclusionStatus['exclusion']), 'explicit exclusion did not remain visible to derivation');
+$exclusionDerivation = $exclusionDeriver->deriveWithStatus($exclusionQuestion);
+$assert($exclusionDerivation['card'] === null && $exclusionDerivation['status'] === $exclusionStatus, 'combined derivation changed explicit-exclusion status');
 $malformedExclusion = $question;
 $malformedExclusion['id'] = 'fixture-b639';
 $malformedExclusionDeriver = new FlashcardDerivationService(null, $validCollections['study-materials'], $validCollections['study-question-links'], [array_merge($exclusion, ['entity_id' => 'fixture-b639'])]);

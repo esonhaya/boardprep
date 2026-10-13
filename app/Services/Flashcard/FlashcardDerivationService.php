@@ -99,8 +99,38 @@ final class FlashcardDerivationService
             return $this->cardCache[$cacheKey];
         }
 
-        if (!$this->eligible($question)) {
-            return $this->cardCache[$cacheKey] = null;
+        $status = $this->derivationStatusForKey($question, $cacheKey);
+        return $this->deriveCardForStatus($question, $cacheKey, $status);
+    }
+
+    /**
+     * Resolve the status and derived card together so integrity scans do not
+     * hash and validate the same question twice.
+     *
+     * @return array{card:?array,status:array{derivable:bool,justified:bool,eligible:bool,reason:string,exclusion:?array}}
+     */
+    public function deriveWithStatus(array $question): array
+    {
+        $cacheKey = self::statusCacheKey($question);
+        $status = $this->derivationStatusForKey($question, $cacheKey);
+        if (array_key_exists($cacheKey, $this->cardCache)) {
+            return ['card' => $this->cardCache[$cacheKey], 'status' => $status];
+        }
+
+        return [
+            'card' => $this->deriveCardForStatus($question, $cacheKey, $status),
+            'status' => $status,
+        ];
+    }
+
+    /**
+     * @param array{derivable:bool,justified:bool,eligible:bool,reason:string,exclusion:?array} $status
+     */
+    private function deriveCardForStatus(array $question, string $cacheKey, array $status): ?array
+    {
+        if (!$status['derivable']) {
+            $this->cardCache[$cacheKey] = null;
+            return null;
         }
 
         $cardType = $this->archetype($question);
@@ -132,12 +162,9 @@ final class FlashcardDerivationService
                 : [],
         ];
 
-        return $this->cardCache[$cacheKey] = FlashcardCardValidator::validate($card) === [] ? $card : null;
-    }
-
-    private function eligible(array $question): bool
-    {
-        return $this->derivationStatus($question)['derivable'];
+        $card = FlashcardCardValidator::validate($card) === [] ? $card : null;
+        $this->cardCache[$cacheKey] = $card;
+        return $card;
     }
 
     /**
@@ -149,6 +176,11 @@ final class FlashcardDerivationService
     public function derivationStatus(array $question): array
     {
         $cacheKey = self::statusCacheKey($question);
+        return $this->derivationStatusForKey($question, $cacheKey);
+    }
+
+    private function derivationStatusForKey(array $question, string $cacheKey): array
+    {
         if (isset($this->statusCache[$cacheKey])) {
             return $this->statusCache[$cacheKey];
         }

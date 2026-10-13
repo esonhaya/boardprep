@@ -21,7 +21,7 @@ $collections = [];
 foreach ([
     'questions', 'boards', 'subjects', 'board-subjects',
     'taxonomy/domains', 'taxonomy/topics', 'taxonomy/concepts',
-    'question-eligibility', 'study-materials', 'study-question-links', 'sources',
+    'question-eligibility', 'study-materials', 'study-question-links', 'sources', 'flashcard-exclusions',
 ] as $collection) {
     $collections[$collection] = App::storage()->all($collection);
 }
@@ -33,7 +33,32 @@ $assert = static function (bool $condition, string $message): void {
     }
 };
 
-$clean = ContentIntegrityService::analyze($collections);
+$cleanDeriver = new FlashcardDerivationService(
+    null,
+    $collections['study-materials'],
+    $collections['study-question-links'],
+    $collections['flashcard-exclusions']
+);
+$nonDerivableIds = [];
+$statusCalls = 0;
+$clean = ContentIntegrityService::analyze(
+    $collections,
+    static function (array $question) use ($cleanDeriver, &$nonDerivableIds): ?array {
+        $card = $cleanDeriver->derive($question);
+        if ($card === null) {
+            $nonDerivableIds[(string) ($question['id'] ?? '')] = true;
+        }
+        return $card;
+    },
+    static function (array $question) use ($cleanDeriver, &$nonDerivableIds, &$statusCalls): array {
+        $id = (string) ($question['id'] ?? '');
+        if (!isset($nonDerivableIds[$id])) {
+            throw new RuntimeException('integrity scan requested status for a successfully derived card');
+        }
+        $statusCalls++;
+        return $cleanDeriver->derivationStatus($question);
+    }
+);
 $canonicalCount = (int) ($clean['portfolio']['total_canonical'] ?? 0);
 $eligibleCount = (int) ($clean['portfolio']['total_eligible'] ?? 0);
 $derivableCount = (int) ($clean['portfolio']['total_derivable_cards'] ?? 0);
@@ -43,6 +68,7 @@ $assert($eligibleCount === $canonicalCount, 'clean eligibility total changed');
 $assert($derivableCount + $justifiedExclusions === $canonicalCount, 'clean flashcard derivation changed');
 $assert($clean['portfolio']['total_justified_exclusions'] === 18, 'justified exclusions were not preserved');
 $assert($clean['portfolio']['total_accidental_non_derivable'] === 0, 'clean portfolio has accidental exclusions');
+$assert($statusCalls === count($nonDerivableIds) && $statusCalls === 18, 'status lookup was not limited to non-derivable cards');
 $assert($clean['portfolio']['status'] !== 'FAIL', 'clean portfolio failed integrity');
 unset($clean);
 gc_collect_cycles();
@@ -117,6 +143,19 @@ unset($invalidAnswer, $invalidAnswerReport);
 gc_collect_cycles();
 
 $deriver = App::container()->get(FlashcardDerivationService::class);
+$pairedQuestion = null;
+$pairedDerivation = null;
+foreach ($collections['questions'] as $candidate) {
+    $paired = $deriver->deriveWithStatus($candidate);
+    if ($paired['card'] !== null) {
+        $pairedQuestion = $candidate;
+        $pairedDerivation = $paired;
+        break;
+    }
+}
+$assert(is_array($pairedQuestion) && is_array($pairedDerivation), 'combined flashcard status/derivation did not produce a valid card');
+$assert(($pairedDerivation['status']['derivable'] ?? false) === true, 'combined derivation status disagreed with its card');
+$assert($pairedDerivation['card'] === $deriver->derive($pairedQuestion), 'combined derivation changed the production card payload');
 $accidental = ContentIntegrityService::analyze($collections, static function (array $question) use ($deriver, $ownedId): ?array {
     return (string) ($question['id'] ?? '') === $ownedId ? null : $deriver->derive($question);
 });

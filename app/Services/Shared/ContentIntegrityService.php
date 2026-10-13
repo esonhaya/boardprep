@@ -296,9 +296,9 @@ final class ContentIntegrityService
             }
             if ($counterHook !== null) $flashcardDerivationCalls++;
             $card = $derive($question);
-            if ($counterHook !== null) $flashcardStatusCalls++;
-            $status = $statusForQuestion($question);
             if ($card === null) {
+                if ($counterHook !== null) $flashcardStatusCalls++;
+                $status = $statusForQuestion($question);
                 if (!$status['derivable'] && $status['justified']) {
                     $justifiedExclusions[] = $questionId;
                     if (is_array($status['exclusion'] ?? null)) {
