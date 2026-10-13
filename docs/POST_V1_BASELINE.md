@@ -1,9 +1,13 @@
 # BoardPrep v1 Post-Release Baseline
 
 This document is the maintenance starting point after the v1 release. Future
-work starts from the local `boardprep-v1` branch or a later integrated `main`,
-never from `boardprep-v1-rc`, the historical `pre-v1-main-backup`, or a
-Batch-specific worktree.
+work starts in `~/BoardPrep` from its verified `main` branch, then uses a
+`batchNNN-*` branch in that same checkout. Keep old batch worktrees untouched
+until their unique commits and learner-state backups are verified. Do not start
+from `boardprep-v1-rc` or the historical `pre-v1-main-backup`.
+
+The standard local branch and storage workflow is documented in
+[`DEVELOPMENT_WORKFLOW.md`](DEVELOPMENT_WORKFLOW.md).
 
 ## Release baseline
 

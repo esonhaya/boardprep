@@ -4,9 +4,9 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "english",
-            "domain_id": "grammar",
-            "topic_id": "subject-verb-agreement",
-            "concept_id": "subject-verb-agreement-singular-subjects"
+            "domain_id": "reading-comprehension",
+            "topic_id": "critical-reading",
+            "concept_id": "critical-reading-evidence-quality"
         },
         "board": "let",
         "status": "active",
@@ -44,8 +44,8 @@
             "board_id": "let",
             "subject_id": "english",
             "domain_id": "grammar",
-            "topic_id": "verb-tenses",
-            "concept_id": "verb-tenses-perfect-tenses"
+            "topic_id": "pronouns",
+            "concept_id": "pronouns-pronoun-reference"
         },
         "board": "let",
         "status": "active",
@@ -82,9 +82,9 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "english",
-            "domain_id": "grammar",
-            "topic_id": "pronouns",
-            "concept_id": "pronouns-pronoun-antecedent-agreement"
+            "domain_id": "reading-comprehension",
+            "topic_id": "authors-purpose-and-tone",
+            "concept_id": "authors-purpose-and-tone-purpose"
         },
         "board": "let",
         "status": "active",
@@ -121,9 +121,9 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "english",
-            "domain_id": "grammar",
-            "topic_id": "prepositions",
-            "concept_id": "prepositions-preposition-choice"
+            "domain_id": "reading-comprehension",
+            "topic_id": "authors-purpose-and-tone",
+            "concept_id": "authors-purpose-and-tone-purpose"
         },
         "board": "let",
         "status": "active",
@@ -199,9 +199,9 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "english",
-            "domain_id": "grammar",
-            "topic_id": "sentence-structure",
-            "concept_id": "sentence-structure-run-on-sentences"
+            "domain_id": "reading-comprehension",
+            "topic_id": "text-structure",
+            "concept_id": "text-structure-sequence"
         },
         "board": "let",
         "status": "active",
@@ -277,9 +277,9 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "english",
-            "domain_id": "grammar",
-            "topic_id": "parts-of-speech",
-            "concept_id": "parts-of-speech-adverbs"
+            "domain_id": "reading-comprehension",
+            "topic_id": "critical-reading",
+            "concept_id": "critical-reading-evidence-quality"
         },
         "board": "let",
         "status": "active",
@@ -355,9 +355,9 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "english",
-            "domain_id": "grammar",
-            "topic_id": "verb-tenses",
-            "concept_id": "verb-tenses-perfect-tenses"
+            "domain_id": "reading-comprehension",
+            "topic_id": "text-structure",
+            "concept_id": "text-structure-sequence"
         },
         "board": "let",
         "status": "active",
@@ -3050,9 +3050,9 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "english",
-            "domain_id": "grammar",
-            "topic_id": "subject-verb-agreement",
-            "concept_id": "subject-verb-agreement-singular-subjects"
+            "domain_id": "reading-comprehension",
+            "topic_id": "critical-reading",
+            "concept_id": "critical-reading-evidence-quality"
         },
         "subject": "English",
         "domain": "Grammar",
@@ -3084,23 +3084,23 @@
             "board_id": "let",
             "subject_id": "english",
             "domain_id": "grammar",
-            "topic_id": "subject-verb-agreement",
-            "concept_id": "subject-verb-agreement-indefinite-pronouns"
+            "topic_id": "pronouns",
+            "concept_id": "pronouns-pronoun-reference"
         },
         "subject": "English",
         "domain": "Grammar",
         "topic": "Subject-Verb Agreement",
         "concept": "Indefinite Pronouns",
         "difficulty": "medium",
-        "question": "A report says, \"The editor returned the article after she marked three unsupported claims.\" Which revision is clearest?",
+        "question": "A report says, \"The editor returned the article after she marked three unsupported claims.\" Which revision makes the reference clear?",
         "choices": [
-            "receiving",
-            "have received",
-            "receives",
-            "receive"
+            "After the editor marked three unsupported claims, she returned the article.",
+            "After marking three unsupported claims, it was returned by the editor.",
+            "After she marked three unsupported claims, the article returned her.",
+            "After marking three unsupported claims, the article returned."
         ],
-        "answer": "receives",
-        "explanation": "The passage matters because it reports \"A report says, \\\"The editor returned the article after she marked three unsupported claims.\". Thus \"receives\" is supported; a competing choice would require changing the stated evidence, relationship, or operation.",
+        "answer": "After the editor marked three unsupported claims, she returned the article.",
+        "explanation": "The revision names the editor before using she, so the pronoun has one clear antecedent and the sequence of actions is preserved.",
         "cognitive_intent": "application and interpretation",
         "multistep": true,
         "timesUsed": 0,
@@ -3116,9 +3116,9 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "english",
-            "domain_id": "grammar",
-            "topic_id": "verb-tenses",
-            "concept_id": "verb-tenses-past-tense"
+            "domain_id": "reading-comprehension",
+            "topic_id": "text-structure",
+            "concept_id": "text-structure-problem-and-solution"
         },
         "subject": "English",
         "domain": "Grammar",
@@ -3182,24 +3182,24 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "english",
-            "domain_id": "grammar",
-            "topic_id": "pronouns",
-            "concept_id": "pronouns-pronoun-reference"
+            "domain_id": "reading-comprehension",
+            "topic_id": "inference",
+            "concept_id": "inference-implicit-meaning"
         },
         "subject": "English",
         "domain": "Grammar",
         "topic": "Pronouns",
         "concept": "Pronoun Reference",
         "difficulty": "hard",
-        "question": "Mina chose the cheaper bus only after checking that it reached the testing center before 7:00. What influenced her decision?",
+        "question": "Mina chose the cheaper bus only after checking that it reached the testing center before 7:00. What evidence influenced her decision?",
         "choices": [
-            "When Ana spoke with Bea, she shared the lesson plan.",
-            "Ana spoke with Bea because she was ready.",
-            "After meeting Bea, she approved it.",
-            "When Ana spoke with Bea, Ana shared the lesson plan."
+            "The bus reached the testing center before 7:00.",
+            "A friend preferred the bus for its scenery.",
+            "The bus company promised that every trip would be early.",
+            "The testing center moved closer after Mina chose the bus."
         ],
-        "answer": "When Ana spoke with Bea, Ana shared the lesson plan.",
-        "explanation": "The civic evidence indicates \"Mina chose the cheaper bus only after checking that it reached the testing center before 7\". Thus \"When Ana spoke with Bea, Ana shared the lesson plan.\" is supported; a competing choice would require changing the stated evidence, relationship, or operation.",
+        "answer": "The bus reached the testing center before 7:00.",
+        "explanation": "The passage directly connects Mina's choice to checking the arrival time; the other options add facts that are not supplied.",
         "cognitive_intent": "application and interpretation",
         "multistep": true,
         "timesUsed": 0,
@@ -3216,23 +3216,23 @@
             "board_id": "let",
             "subject_id": "english",
             "domain_id": "grammar",
-            "topic_id": "prepositions",
-            "concept_id": "prepositions-idiomatic-prepositions"
+            "topic_id": "parallelism",
+            "concept_id": "parallelism-parallel-items"
         },
         "subject": "English",
         "domain": "Grammar",
         "topic": "Prepositions",
         "concept": "Idiomatic Prepositions",
         "difficulty": "medium",
-        "question": "A proposal is described as concise, evidence-based, and ____. Which completion is parallel?",
+        "question": "Which sentence presents the three review tasks in parallel form?",
         "choices": [
-            "with",
-            "at",
-            "for",
-            "to"
+            "The reviewer checks sources, compares claims, and records limits.",
+            "The reviewer checks sources, comparison of claims, and recording limits.",
+            "The reviewer checks sources, to compare claims, and limits are recorded.",
+            "The reviewer checking sources, compares claims, and records limits."
         ],
-        "answer": "for",
-        "explanation": "The revision succeeds because \"A proposal is described as concise, evidence-based, and ____. Which completion is parallel\". Thus \"for\" is supported; a competing choice would require changing the stated evidence, relationship, or operation.",
+        "answer": "The reviewer checks sources, compares claims, and records limits.",
+        "explanation": "Checks, compares, and records are parallel present-tense verbs with the same subject.",
         "cognitive_intent": "application and interpretation",
         "multistep": true,
         "timesUsed": 0,
@@ -3248,9 +3248,9 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "english",
-            "domain_id": "grammar",
-            "topic_id": "modifiers",
-            "concept_id": "modifiers-misplaced-modifiers"
+            "domain_id": "reading-comprehension",
+            "topic_id": "critical-reading",
+            "concept_id": "critical-reading-evidence-quality"
         },
         "subject": "English",
         "domain": "Grammar",
@@ -3290,15 +3290,15 @@
         "topic": "Sentence Structure",
         "concept": "Complex Sentences",
         "difficulty": "medium",
-        "question": "A museum opened in 1910; however, its catalog was published in 1912. What does however signal?",
+        "question": "Which sentence uses however with punctuation that clearly marks the contrast?",
         "choices": [
-            "Although the test was difficult, the class persisted.",
-            "The class persisted, and the teacher encouraged them.",
-            "The class persisted.",
-            "Persisting through difficulty helped."
+            "The museum opened in 1910; however, its catalog was published in 1912.",
+            "The museum opened in 1910; however its catalog was published in 1912.",
+            "The museum opened in 1910 however, its catalog was published in 1912.",
+            "The museum opened in 1910, however its catalog was published in 1912."
         ],
-        "answer": "Although the test was difficult, the class persisted.",
-        "explanation": "The contrast requires \"A museum opened in 1910; however, its catalog was published in 1912. What does however sig\". Thus \"Although the test was difficult, the class persisted.\" is supported; a competing choice would require changing the stated evidence, relationship, or operation.",
+        "answer": "The museum opened in 1910; however, its catalog was published in 1912.",
+        "explanation": "A semicolon separates the independent clauses and a comma follows however, making the contrast and clause boundaries clear.",
         "cognitive_intent": "application and interpretation",
         "multistep": false,
         "timesUsed": 0,

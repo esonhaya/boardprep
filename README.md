@@ -3,6 +3,10 @@
 BoardPrep is a PHP application with a file-backed JSON store by default. It
 requires PHP 8.1 or newer and a readable, writable storage directory.
 
+`~/BoardPrep` is the permanent local development checkout. See
+[`docs/DEVELOPMENT_WORKFLOW.md`](docs/DEVELOPMENT_WORKFLOW.md) for the branch,
+test-storage, and worktree policy.
+
 ## Configuration
 
 Copy `.env.example` to `.env` and adjust it for the local machine. `.env` is
