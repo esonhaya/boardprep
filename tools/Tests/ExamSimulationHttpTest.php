@@ -66,9 +66,12 @@ try {
     $startedSession = $readSession($cookies['PHPSESSID']);
     $startedQuiz = $startedSession['quiz_session'] ?? [];
     $deadline = is_array($startedQuiz) ? (int) ($startedQuiz['deadline_epoch'] ?? 0) : 0;
+    $startedAt = is_array($startedQuiz) ? strtotime((string) ($startedQuiz['started_at'] ?? '')) : false;
+    $deadlineOffset = $startedAt === false ? 0 : $deadline - $startedAt;
     if (($startedQuiz['timer_mode'] ?? '') !== 'timed'
         || (int) ($startedQuiz['time_limit_minutes'] ?? 0) !== 5
-        || $deadline < time() + 299 || $deadline > time() + 300) {
+        || (int) ($startedQuiz['time_limit_seconds'] ?? 0) !== 300
+        || $startedAt === false || $deadlineOffset < 299 || $deadlineOffset > 300) {
         throw new RuntimeException('Server deadline was not stored as the source of timer truth.');
     }
 

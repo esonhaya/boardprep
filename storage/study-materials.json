@@ -1,12 +1,12 @@
 [
     {
         "id": "constitution-review-foundation",
-        "title": "CSE General Information: Civic, Ethical, Rights, and Environmental Decisions",
-        "summary": "Current-source study material for CSE General Information application.",
+        "title": "Civic, Rights, and Public-Interest Decisions",
+        "summary": "Shared source-based civic reasoning for LET, Civil Service, and Criminologist study. BoardPrep editorial foundation, not an official examination prediction.",
         "notes": [
             [
                 "Scope",
-                "The current CSC announcement names the Philippine Constitution, RA 6713, peace and human-rights issues and concepts, and environment management and protection."
+                "Shared civic reasoning foundation for LET, Civil Service, and Criminologist learners. The CSC announcement is specific to Civil Service General Information; this resource does not establish LET or Criminologist examination scope or predict questions."
             ],
             [
                 "Application",
@@ -71,6 +71,22 @@
             [
                 "Batch 632 — Evidence limits",
                 "A rule question may be version-sensitive; a general principle question is not automatically volatile. Record the statutory provision relied on and avoid current-affairs trivia."
+            ],
+            [
+                "Batch 672 — Data privacy",
+                "For personal information, consult RA 10173 and check a lawful basis, specified purpose, transparency, legitimate purpose, proportionality, and safeguards. Information should be adequate and not excessive. Other disclosure authority may also apply; do not assume every record is public or automatically withheld."
+            ],
+            [
+                "Batch 672 — Accessible participation",
+                "RA 11106 recognizes Filipino Sign Language as the official sign language of government in transactions involving Deaf persons. An interpreter and written-comment option can reduce participation barriers; do not infer that the Act prescribes every local consultation procedure."
+            ],
+            [
+                "Batch 672 — Built-environment access",
+                "The NCDA’s Revised 2024 BP 344 rules provide the accessibility reference for built-environment decisions. The linked question asks learners to weigh stated access and safety evidence; it does not ask them to recall a technical dimension or determine code compliance."
+            ],
+            [
+                "Batch 672 — Assembly and route changes",
+                "The Supreme Court decision in Integrated Bar of the Philippines v. Atienza concerns a specific public-assembly permit venue change. Use it as context for reviewing stated safety reasons and alternatives; do not treat it as deciding every route restriction or replacing the governing legal standard."
             ]
         ],
         "source_ids": [
@@ -79,7 +95,12 @@
             "republic-act-6713",
             "universal-declaration-human-rights",
             "republic-act-8749",
-            "republic-act-9003"
+            "republic-act-9003",
+            "lawphil-ra10173",
+            "republic-act-11106",
+            "bp344-2024-irr",
+            "integrated-bar-v-atienza-2010",
+            "official-gazette-ra10173"
         ],
         "exams": [
             "let",
@@ -125,8 +146,8 @@
             "concept_id": "cse-public-accountability"
         },
         "status": "published",
-        "version": 13,
-        "updated_at": "2026-09-30"
+        "version": 16,
+        "updated_at": "2026-10-14"
     },
     {
         "id": "ra-6713-review-foundation",
@@ -1264,12 +1285,23 @@
             [
                 "Data interpretation",
                 "Use mean, range, probability, ratios, and patterns only within the information and assumptions supplied."
+            ],
+            [
+                "Batch 672 — Compare proportions",
+                "Use each group’s own denominator: divide the part by the relevant whole, convert to a percent if useful, and compare like measures. A larger count can still be a smaller proportion when group sizes differ."
+            ],
+            [
+                "Batch 672 — Read chart scales",
+                "Check axis labels, intervals, units, and the displayed values before judging a visual difference. A truncated axis can make a small change look large; compare the numeric change with the baseline and context."
             ]
         ],
         "source_ids": [
             "openstax-calculus-volume-1",
             "deped-math-curriculum-guide",
-            "openstax-algebra-and-trigonometry"
+            "openstax-algebra-and-trigonometry",
+            "openstax-introductory-statistics-2e",
+            "openstax-prealgebra-proportions-chapter6-5",
+            "openstax-statistics-graphs-chapter2-2"
         ],
         "exams": [
             "let"
@@ -1293,8 +1325,8 @@
             "concept_id": "mathematical-modeling-representation"
         },
         "status": "published",
-        "version": 3,
-        "updated_at": "2026-09-07",
+        "version": 5,
+        "updated_at": "2026-10-14",
         "batch629_update": {
             "updated_at": "2026-09-29",
             "action": "EXPAND",
@@ -1602,7 +1634,9 @@
         "source_ids": [
             "csc-cse-ppt-scope-2026",
             "openstax-prealgebra-2e",
-            "openstax-introductory-statistics-2e"
+            "openstax-introductory-statistics-2e",
+            "openstax-prealgebra-proportions-chapter6-5",
+            "openstax-statistics-graphs-chapter2-2"
         ],
         "exams": [
             "civil-service"
@@ -1614,8 +1648,8 @@
             "concept_id": "cse-percentages"
         },
         "status": "published",
-        "version": 12,
-        "updated_at": "2026-09-30",
+        "version": 13,
+        "updated_at": "2026-10-14",
         "exam_focus": {
             "civil-service-professional": {
                 "priority": "high",
@@ -3758,13 +3792,18 @@
             {
                 "heading": "Currentness",
                 "body": "Classification guidance can change. For version-sensitive claims, identify the source and edition used and avoid presenting older labels or thresholds as timeless."
+            },
+            {
+                "heading": "Batch 672 — Local mental-health law",
+                "body": "RA 11036 sets the Philippine national mental-health policy and protects the rights of persons using mental-health services. It does not make a diagnostic classification an automatic entitlement to a particular service; check the current program-specific legal criteria before applying a threshold."
             }
         ],
         "source_ids": [
             "prc-psychometrician-enhanced-tos-2023",
             "who-icd11-cddr-2024",
             "openstax-psychology-2e",
-            "apa-psychological-assessment-guidelines-2020"
+            "apa-psychological-assessment-guidelines-2020",
+            "republic-act-11036"
         ],
         "exams": [
             "psychometrician"
@@ -3779,8 +3818,8 @@
             "subject_id": "psychology-foundations"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-29"
+        "version": 3,
+        "updated_at": "2026-10-14"
     },
     {
         "id": "ple-487--ndustrial-rganizational-oundations",
@@ -4870,6 +4909,10 @@
             {
                 "heading": "Sensitivity",
                 "body": "Test how a stated change in volume, price, variable cost, or fixed cost changes the decision. A sensitivity result is conditional on the supplied assumptions; it does not establish an outcome outside them."
+            },
+            {
+                "heading": "Batch 672 — Special orders",
+                "body": "Compare incremental revenue with incremental costs. With idle capacity and no displaced sales, compute unit contribution times the order quantity, then subtract any order-specific setup cost. State those assumptions before interpreting the result."
             }
         ],
         "source_ids": [
@@ -4890,8 +4933,8 @@
         ],
         "technical_support_state": "ADEQUATE",
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-09"
+        "version": 2,
+        "updated_at": "2026-10-14"
     },
     {
         "id": "cpa-management-relevant-decisions-foundation",
@@ -4909,6 +4952,10 @@
             {
                 "heading": "Constraints",
                 "body": "When a resource is limiting, compare contribution per unit of the constrained resource and check demand and feasibility before selecting the mix."
+            },
+            {
+                "heading": "Batch 672 — Decision assumptions",
+                "body": "For make-or-buy comparisons, exclude costs that continue unchanged. For a constrained resource, compare contribution per unit of that resource and state any demand or feasibility assumptions."
             }
         ],
         "source_ids": [
@@ -4930,8 +4977,8 @@
         ],
         "technical_support_state": "ADEQUATE",
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-09"
+        "version": 2,
+        "updated_at": "2026-10-14"
     },
     {
         "id": "cpa-management-budgeting-foundation",

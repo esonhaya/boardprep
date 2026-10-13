@@ -461,16 +461,16 @@ final class ReleaseReadinessService
         $root ??= dirname(__DIR__, 4);
         $testStoragePath = self::createFlowTestStorage($root);
         $groups = [
-            'learner_core_flows' => ['tools/Tests/LearnerJourneyHttpTest.php', 'tools/Tests/LearnerDashboardReliabilityTest.php', 'tools/Tests/LearnerExperienceConsistencyTest.php', 'tools/Tests/LearningProfileActionViewTest.php', 'tools/Tests/ProgressRecommendationViewTest.php', 'tools/Tests/LearnerNavigationUxTest.php', 'tools/Tests/LearnerMobileAccessibilityViewTest.php'],
+            'learner_core_flows' => ['tools/Tests/TenBoardLearnerJourneyHttpTest.php', 'tools/Tests/LearnerJourneyHttpTest.php', 'tools/Tests/LearnerDashboardReliabilityTest.php', 'tools/Tests/LearnerExperienceConsistencyTest.php', 'tools/Tests/LearningProfileActionViewTest.php', 'tools/Tests/ProgressRecommendationViewTest.php', 'tools/Tests/LearnerNavigationUxTest.php', 'tools/Tests/LearnerMobileAccessibilityViewTest.php'],
             'attempt_safety' => ['tools/Tests/MultiAttemptLearningHttpTest.php', 'tools/Tests/QuizStartFailureHttpTest.php', 'tools/Tests/ApplicationResilienceTest.php'],
             'result_review' => ['tools/Tests/HistoryResultHttpTest.php', 'tools/Tests/QuizCompletionHttpTest.php'],
             'simulator_recovery' => ['tools/Tests/ExamSimulationHttpTest.php'],
             'admin_core_flows' => ['tools/Tests/QuestionEditorEligibilityTest.php', 'tools/Tests/QuestionAuthoringWorkflowIntegrationTest.php'],
             'shared_question_safety' => ['tools/Tests/CrossBoardCanonicalReuseTest.php', 'tools/Tests/Batch669NursingIntegrationTest.php'],
-            'study_experience' => ['tools/Tests/StudyLibraryNavigationTest.php', 'tools/Tests/FlashcardIntegrationTest.php'],
-            'security_sanity' => ['tools/Tests/ProductionQuizCsrfTest.php'],
+            'study_experience' => ['tools/Tests/StudyLibraryNavigationTest.php', 'tools/Tests/FlashcardIntegrationTest.php', 'tools/Tests/Batch672EducationalQualityTest.php', 'tools/Tests/Batch672CountReconciliationTest.php'],
+            'security_sanity' => ['tools/Tests/ProductionQuizCsrfTest.php', 'tools/Tests/AnonymousLearnerPrivacyHttpTest.php', 'tools/Tests/SessionConfigurationTest.php', 'tools/Tests/SecurityTrustBoundaryTest.php'],
             'repository_determinism' => ['tools/Tests/ReleaseReadinessContractTest.php', 'tools/Tests/QuizAnswerStatisticsWeaknessTest.php'],
-            'production_configuration' => ['tools/Tests/RuntimeConfigurationTest.php', 'tools/Tests/ProductionFoundationTest.php'],
+            'production_configuration' => ['tools/Tests/RuntimeConfigurationTest.php', 'tools/Tests/ProductionFoundationTest.php', 'tools/Tests/DeploymentPreflightIsolationTest.php'],
             'release_packaging' => ['tools/Tests/ReleasePackageTest.php'],
         ];
         $checks = [];

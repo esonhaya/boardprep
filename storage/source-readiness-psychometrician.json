@@ -274,10 +274,11 @@
             "lawphil-ra10029",
             "openstax-psychology-2e",
             "prc-psychometrician-enhanced-tos-2023",
-            "who-icd11-cddr-2024"
+            "who-icd11-cddr-2024",
+            "republic-act-11036"
         ],
-        "source_count": 6,
-        "primary_source_count": 5,
+        "source_count": 7,
+        "primary_source_count": 6,
         "source_authority": "ADEQUATE",
         "source_currentness": "UNKNOWN",
         "source_scope_fit": "NONE",
@@ -304,16 +305,16 @@
             "out_of_leaf_competency"
         ],
         "limitations": [
-            "The current source registry does not yet contain the controlling RA 11036 text needed for safe current-law expansion."
+            "RA 11036 is now in the source registry; verify current implementing and program-specific requirements before making service-eligibility claims. The exact PRC subcompetency crosswalk remains unverified."
         ],
         "readiness": "DEFER",
         "readiness_reason": "The current source inventory does not contain the controlling local mental-health-law text needed for safe expansion.",
         "review_reason": "",
-        "defer_reason": "NO_AUTHORITATIVE_SOURCE",
+        "defer_reason": "SCOPE_AND_CURRENTNESS_REVIEW",
         "max_new_questions": 0,
         "planned_new_questions": 0,
         "reviewed_at_batch": 643,
-        "evidence_hash": "6bb2b54d422e2da5da7e371723c2e3b7129fe3a8f5af0afc27e391e1f9363098"
+        "evidence_hash": "e4d36b418beae3abd72d89e963b5280ec4f1208a2049fda667f43e5729012837"
     },
     {
         "leaf_id": "psych-abnormal-sociocultural-ethics",
