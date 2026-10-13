@@ -103,6 +103,8 @@ foreach (['46', '50'] as $questionId) {
 }
 $assert(str_contains($questionById['46']['explanation'] ?? '', '80 ÷ 100 = 0.80') && str_contains($questionById['46']['explanation'] ?? '', '90 ÷ 150 = 0.60'), 'proportion rationale uses each group denominator');
 $assert(str_contains(strtolower($questionById['50']['explanation'] ?? ''), 'truncated axis'), 'chart rationale explains the effect of a truncated axis');
+$assert(($sourceById['openstax-prealgebra-proportions-chapter6-5']['publication_date'] ?? '') === '2020-03-11', 'OpenStax Prealgebra 2e publication date matches its official citation metadata');
+$assert(($sourceById['openstax-statistics-graphs-chapter2-2']['publication_date'] ?? '') === '2023-12-13', 'OpenStax Introductory Statistics 2e publication date matches its official citation metadata');
 
 foreach (['1300', '1316'] as $questionId) {
     $requireLink($questionId, 'cpa-management-relevant-decisions-foundation');
