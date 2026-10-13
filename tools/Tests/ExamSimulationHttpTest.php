@@ -120,7 +120,17 @@ try {
         throw new RuntimeException('Review did not show the updated answer.');
     }
 
-    $finish = $http->request('POST', '/quiz', [], ['action' => 'finish'], [], $cookies);
+    $concurrentFinishes = $http->requestsConcurrently([
+        ['method' => 'POST', 'path' => '/quiz', 'post' => ['action' => 'finish'], 'cookies' => $cookies],
+        ['method' => 'POST', 'path' => '/quiz', 'post' => ['action' => 'finish'], 'cookies' => $cookies],
+    ]);
+    $finish = $concurrentFinishes[0] ?? [];
+    $secondFinish = $concurrentFinishes[1] ?? [];
+    if (count($concurrentFinishes) !== 2
+        || ($finish['status'] ?? 0) !== 303 || ($finish['location'] ?? null) !== '/quiz?action=result'
+        || ($secondFinish['status'] ?? 0) !== 303 || ($secondFinish['location'] ?? null) !== '/quiz?action=result') {
+        throw new RuntimeException('Simultaneous final-submit requests did not both recover to the single persisted result.');
+    }
     $result = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
     $repeat = $http->request('GET', '/quiz', ['action' => 'result'], [], [], $cookies);
     $duplicateSubmit = $http->request('POST', '/quiz', [], [
@@ -208,7 +218,7 @@ try {
         throw new RuntimeException('Refreshing after the authoritative deadline did not submit once with unanswered items retained.');
     }
 
-    echo "[PASS] Timed/untimed exam simulation setup, resume, navigation, editable answers, review, expiration, partial scoring, history metadata, retry, and exact-once submission verified.\n";
+    echo "[PASS] Timed/untimed exam simulation setup, resume, navigation, editable answers, review, expiration, partial scoring, history metadata, retry, and concurrent exact-once submission verified.\n";
 } finally {
     $repository = App::container()->get(AttemptRepository::class);
     $after = json_decode((string) file_get_contents($path), true);

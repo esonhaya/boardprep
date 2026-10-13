@@ -459,6 +459,7 @@ final class ReleaseReadinessService
     public static function runFlowChecks(?string $root = null): array
     {
         $root ??= dirname(__DIR__, 4);
+        $testStoragePath = self::createFlowTestStorage($root);
         $groups = [
             'learner_core_flows' => ['tools/Tests/LearnerJourneyHttpTest.php', 'tools/Tests/LearnerDashboardReliabilityTest.php', 'tools/Tests/LearnerExperienceConsistencyTest.php', 'tools/Tests/LearningProfileActionViewTest.php', 'tools/Tests/ProgressRecommendationViewTest.php', 'tools/Tests/LearnerNavigationUxTest.php', 'tools/Tests/LearnerMobileAccessibilityViewTest.php'],
             'attempt_safety' => ['tools/Tests/MultiAttemptLearningHttpTest.php', 'tools/Tests/QuizStartFailureHttpTest.php', 'tools/Tests/ApplicationResilienceTest.php'],
@@ -468,33 +469,131 @@ final class ReleaseReadinessService
             'shared_question_safety' => ['tools/Tests/CrossBoardCanonicalReuseTest.php', 'tools/Tests/Batch669NursingIntegrationTest.php'],
             'study_experience' => ['tools/Tests/StudyLibraryNavigationTest.php', 'tools/Tests/FlashcardIntegrationTest.php'],
             'security_sanity' => ['tools/Tests/ProductionQuizCsrfTest.php'],
-            'repository_determinism' => ['tools/Tests/ReleaseReadinessContractTest.php'],
+            'repository_determinism' => ['tools/Tests/ReleaseReadinessContractTest.php', 'tools/Tests/QuizAnswerStatisticsWeaknessTest.php'],
             'production_configuration' => ['tools/Tests/RuntimeConfigurationTest.php', 'tools/Tests/ProductionFoundationTest.php'],
             'release_packaging' => ['tools/Tests/ReleasePackageTest.php'],
         ];
         $checks = [];
-        foreach ($groups as $group => $scripts) {
-            $tests = [];
-            $allPass = true;
-            foreach ($scripts as $script) {
-                $path = $root . '/' . $script;
-                if (!is_file($path)) {
-                    $tests[] = ['script' => $script, 'status' => 'UNKNOWN', 'exit_code' => null];
-                    $allPass = false;
+        try {
+            foreach ($groups as $group => $scripts) {
+                $tests = [];
+                $allPass = true;
+                foreach ($scripts as $script) {
+                    $path = $root . '/' . $script;
+                    if (!is_file($path)) {
+                        $tests[] = ['script' => $script, 'status' => 'UNKNOWN', 'exit_code' => null];
+                        $allPass = false;
+                        continue;
+                    }
+                    self::resetFlowTestLearnerState($testStoragePath);
+                    [$exitCode, $output] = self::runScript($path, $root, $testStoragePath);
+                    $status = $exitCode === 0 ? 'PASS' : 'FAIL';
+                    $tests[] = ['script' => $script, 'status' => $status, 'exit_code' => $exitCode, 'output_tail' => substr($output, -600)];
+                    if ($status !== 'PASS') $allPass = false;
+                }
+                $checks[$group] = ['status' => $allPass ? 'PASS' : 'FAIL', 'tests' => $tests, 'passed' => $allPass];
+            }
+            return ['checks' => $checks];
+        } finally {
+            self::removeFlowTestStorage($testStoragePath);
+        }
+    }
+
+    private static function createFlowTestStorage(string $root): string
+    {
+        $sourceRoot = $root . '/storage';
+        if (!is_dir($sourceRoot)) {
+            throw new \RuntimeException('Release flow tests require the repository storage fixture.');
+        }
+
+        $storagePath = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR)
+            . '/boardprep-release-test-storage-' . bin2hex(random_bytes(6));
+        if (!mkdir($storagePath, 0700, true)) {
+            throw new \RuntimeException('Unable to create isolated release-test storage.');
+        }
+
+        try {
+            $iterator = new \RecursiveIteratorIterator(
+                new \RecursiveDirectoryIterator($sourceRoot, \FilesystemIterator::SKIP_DOTS),
+                \RecursiveIteratorIterator::SELF_FIRST
+            );
+            $mutableCollections = ['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json'];
+            foreach ($iterator as $item) {
+                $source = $item->getPathname();
+                $relative = substr($source, strlen($sourceRoot) + 1);
+                if ($relative === false || $relative === ''
+                    || str_starts_with($relative, 'doctor/simulation-sessions/')) {
                     continue;
                 }
-                [$exitCode, $output] = self::runScript($path, $root);
-                $status = $exitCode === 0 ? 'PASS' : 'FAIL';
-                $tests[] = ['script' => $script, 'status' => $status, 'exit_code' => $exitCode, 'output_tail' => substr($output, -600)];
-                if ($status !== 'PASS') $allPass = false;
+                $destination = $storagePath . DIRECTORY_SEPARATOR
+                    . str_replace('/', DIRECTORY_SEPARATOR, $relative);
+                if ($item->isDir()) {
+                    if (!is_dir($destination)
+                        && !mkdir($destination, 0700, true)
+                        && !is_dir($destination)) {
+                        throw new \RuntimeException('Unable to create isolated release-test storage directory.');
+                    }
+                    continue;
+                }
+                if (!$item->isFile() || in_array($relative, $mutableCollections, true)) {
+                    continue;
+                }
+                $directory = dirname($destination);
+                if (!is_dir($directory) && !mkdir($directory, 0700, true) && !is_dir($directory)) {
+                    throw new \RuntimeException('Unable to create isolated release-test storage directory.');
+                }
+                if (!copy($source, $destination)) {
+                    throw new \RuntimeException('Unable to copy repository data into isolated release-test storage.');
+                }
             }
-            $checks[$group] = ['status' => $allPass ? 'PASS' : 'FAIL', 'tests' => $tests, 'passed' => $allPass];
+
+            foreach ($mutableCollections as $collection) {
+                if (file_put_contents($storagePath . DIRECTORY_SEPARATOR . $collection, "[]\n", LOCK_EX) === false) {
+                    throw new \RuntimeException('Unable to seed isolated learner test state.');
+                }
+            }
+            return $storagePath;
+        } catch (\Throwable $exception) {
+            self::removeFlowTestStorage($storagePath);
+            throw $exception;
         }
-        return ['checks' => $checks];
+    }
+
+    private static function removeFlowTestStorage(string $storagePath): void
+    {
+        $prefix = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR)
+            . DIRECTORY_SEPARATOR . 'boardprep-release-test-storage-';
+        if (!str_starts_with($storagePath, $prefix) || !is_dir($storagePath)) {
+            return;
+        }
+
+        $iterator = new \RecursiveIteratorIterator(
+            new \RecursiveDirectoryIterator($storagePath, \FilesystemIterator::SKIP_DOTS),
+            \RecursiveIteratorIterator::CHILD_FIRST
+        );
+        foreach ($iterator as $item) {
+            $path = $item->getPathname();
+            if ($item->isDir() && !$item->isLink()) {
+                @rmdir($path);
+            } else {
+                @unlink($path);
+            }
+        }
+        @rmdir($storagePath);
+    }
+
+    private static function resetFlowTestLearnerState(string $storagePath): void
+    {
+        foreach (['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json'] as $collection) {
+            $path = $storagePath . DIRECTORY_SEPARATOR . $collection;
+            if (file_put_contents($path, "[]\n", LOCK_EX) === false) {
+                throw new \RuntimeException('Unable to reset isolated learner test state.');
+            }
+        }
     }
 
     /** @return array{0:int,1:string} */
-    private static function runScript(string $path, string $root): array
+    private static function runScript(string $path, string $root, string $storagePath): array
     {
         $descriptor = [0 => ['file', '/dev/null', 'r'], 1 => ['pipe', 'w'], 2 => ['pipe', 'w']];
         $sessionPath = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR)
@@ -513,7 +612,8 @@ final class ReleaseReadinessService
         // The repository's focused integration tests load the full indexed
         // application graph. Keep the release projection independent of the
         // caller's small CLI memory default.
-        $command = 'env APP_ENV=testing APP_DEBUG=false APP_SESSION_PATH='
+        $command = 'env APP_ENV=testing APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH='
+            . escapeshellarg($storagePath) . ' APP_SESSION_PATH='
             . escapeshellarg($sessionPath) . ' '
             . escapeshellarg(PHP_BINARY) . ' -d memory_limit=1024M ' . escapeshellarg($path);
         $process = proc_open($command, $descriptor, $pipes, $root);

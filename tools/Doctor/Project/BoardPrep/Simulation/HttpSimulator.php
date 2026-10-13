@@ -72,6 +72,93 @@ final class HttpSimulator
     }
 
     /**
+     * Start a small set of requests before waiting for any response. This is
+     * used to exercise session-locked transitions such as duplicate submits.
+     *
+     * @param array<int, array{method?:string,path?:string,query?:array,post?:array,server?:array,cookies?:array}> $requests
+     * @return array<int, array<string, mixed>>
+     */
+    public function requestsConcurrently(array $requests): array
+    {
+        if (count($requests) < 2 || count($requests) > 4) {
+            throw new \InvalidArgumentException('Concurrent simulation requires between two and four requests.');
+        }
+
+        $command = $this->createCommand($this->createBootstrap());
+        $running = [];
+        $responses = [];
+
+        try {
+            foreach (array_values($requests) as $request) {
+                $stdoutFile = tempnam(sys_get_temp_dir(), 'boardprep_concurrent_stdout_');
+                $stderrFile = tempnam(sys_get_temp_dir(), 'boardprep_concurrent_stderr_');
+                if ($stdoutFile === false || $stderrFile === false) {
+                    if (is_string($stdoutFile)) @unlink($stdoutFile);
+                    if (is_string($stderrFile)) @unlink($stderrFile);
+                    throw new \RuntimeException('Unable to create concurrent simulation output files.');
+                }
+
+                $payload = $this->createPayload(
+                    (string) ($request['method'] ?? 'GET'),
+                    (string) ($request['path'] ?? '/'),
+                    (array) ($request['query'] ?? []),
+                    (array) ($request['post'] ?? []),
+                    (array) ($request['server'] ?? []),
+                    (array) ($request['cookies'] ?? [])
+                );
+                $processCommand = $this->createProcessCommand(
+                    $payload,
+                    $command,
+                    $stdoutFile,
+                    $stderrFile
+                );
+                $startedAt = microtime(true);
+                $process = proc_open($processCommand, [
+                    0 => ['file', '/dev/null', 'r'],
+                    1 => ['file', '/dev/null', 'w'],
+                    2 => ['file', '/dev/null', 'w'],
+                ], $pipes);
+                if (!is_resource($process)) {
+                    @unlink($stdoutFile);
+                    @unlink($stderrFile);
+                    throw new \RuntimeException('Unable to start concurrent HTTP simulation request.');
+                }
+
+                $running[] = [
+                    'process' => $process,
+                    'stdout' => $stdoutFile,
+                    'stderr' => $stderrFile,
+                    'started_at' => $startedAt,
+                ];
+            }
+
+            foreach ($running as $index => $request) {
+                $exitCode = proc_close($request['process']);
+                $running[$index]['process'] = null;
+                $stdout = (string) (file_get_contents($request['stdout']) ?: '');
+                $stderr = (string) (file_get_contents($request['stderr']) ?: '');
+                $responses[] = $this->buildResponse(
+                    $stdout,
+                    $stderr,
+                    $exitCode,
+                    microtime(true) - $request['started_at']
+                );
+            }
+
+            return $responses;
+        } finally {
+            foreach ($running as $request) {
+                if (is_resource($request['process'])) {
+                    @proc_terminate($request['process']);
+                    @proc_close($request['process']);
+                }
+                @unlink($request['stdout']);
+                @unlink($request['stderr']);
+            }
+        }
+    }
+
+    /**
      * @param array<string,string|int|float|bool|null> $query
      * @param array<string,string|int|float|bool|null> $post
      * @param array<string,string> $server

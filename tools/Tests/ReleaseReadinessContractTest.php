@@ -46,6 +46,12 @@ $routes = ReleaseReadinessService::routeCompleteness(dirname(__DIR__, 2));
 $assert((int) ($routes['active'] ?? 0) > 0, 'Release route scan found no registered routes.');
 $assert((int) ($routes['stub'] ?? 0) === 0, 'Release route scan found an unexpected stub.');
 
+$releaseSource = (string) file_get_contents(dirname(__DIR__, 2) . '/app/Services/RepositoryHealth/Release/ReleaseReadinessService.php');
+$assert(str_contains($releaseSource, 'createFlowTestStorage')
+    && str_contains($releaseSource, 'APP_STORAGE_PATH=')
+    && str_contains($releaseSource, 'resetFlowTestLearnerState'),
+    'Release flow tests no longer run on isolated learner storage.');
+
 $production = ReleaseReadinessService::productionConfiguration(dirname(__DIR__, 2));
 $assert(($production['status'] ?? '') === 'PASS', 'Production configuration contract did not pass.');
 $assert((int) ($production['secret_findings_count'] ?? -1) === 0, 'Production configuration reported a tracked secret.');
