@@ -43,8 +43,9 @@ final class StudyLibraryController extends BaseDeveloperController
             }));
         }
         if ($exam !== '') {
-            $materials = array_map(static function (array $material) use ($exam): array {
-                $material['priority'] = ExamIntelligenceService::priority($material, $exam);
+            $signals = ExamIntelligenceService::all($exam);
+            $materials = array_map(static function (array $material) use ($exam, $signals): array {
+                $material['priority'] = ExamIntelligenceService::priority($material, $exam, $signals);
                 return $material;
             }, $materials);
         }

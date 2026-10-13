@@ -3,8 +3,11 @@
 declare(strict_types=1);
 
 require_once dirname(__DIR__) . '/Doctor/Project/BoardPrep/Simulation/HttpSimulator.php';
+require_once dirname(__DIR__, 2) . '/app/Core/Autoloader.php';
+\App\Core\Autoloader::register();
 
 use Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator;
+use App\Services\Study\StudyLibraryService;
 
 $root = dirname(__DIR__, 2);
 $storage = sys_get_temp_dir() . '/boardprep-study-library-' . bin2hex(random_bytes(6));
@@ -34,8 +37,59 @@ $http = new HttpSimulator($root . '/public/index.php');
 $boards = json_decode((string) file_get_contents($root . '/storage/boards.json'), true, 512, JSON_THROW_ON_ERROR);
 $materials = json_decode((string) file_get_contents($root . '/storage/study-materials.json'), true, 512, JSON_THROW_ON_ERROR);
 $sourceRegistry = json_decode((string) file_get_contents($root . '/storage/sources.json'), true, 512, JSON_THROW_ON_ERROR);
+$questionLinks = json_decode((string) file_get_contents($root . '/storage/study-question-links.json'), true, 512, JSON_THROW_ON_ERROR);
 
 try {
+    $expectedSourceById = [];
+    foreach ($sourceRegistry as $source) {
+        if (is_array($source) && is_scalar($source['id'] ?? null)) {
+            $sourceId = (string) $source['id'];
+            if (!array_key_exists($sourceId, $expectedSourceById)) {
+                $expectedSourceById[$sourceId] = $source;
+            }
+        }
+    }
+
+    $indexedMaterials = StudyLibraryService::all();
+    $expectedPublished = array_values(array_filter(
+        $materials,
+        static fn(mixed $material): bool => is_array($material)
+            && ($material['status'] ?? 'published') === 'published'
+    ));
+    if (count($indexedMaterials) !== count($expectedPublished)) {
+        throw new RuntimeException('Indexed study library changed the published material count.');
+    }
+
+    $indexedById = [];
+    foreach ($indexedMaterials as $indexedMaterial) {
+        $indexedById[(string) ($indexedMaterial['id'] ?? '')] = $indexedMaterial;
+    }
+    foreach ($expectedPublished as $expectedMaterial) {
+        $materialId = (string) ($expectedMaterial['id'] ?? '');
+        $indexed = $indexedById[$materialId] ?? null;
+        $expectedSources = array_values(array_filter(array_map(
+            static fn(mixed $sourceId): ?array => is_scalar($sourceId)
+                ? ($expectedSourceById[(string) $sourceId] ?? null)
+                : null,
+            $expectedMaterial['source_ids'] ?? []
+        )));
+        $expectedLinks = array_values(array_filter(
+            $questionLinks,
+            static fn(mixed $link): bool => is_array($link)
+                && ($link['material_id'] ?? '') === ($expectedMaterial['id'] ?? '')
+        ));
+        if (!is_array($indexed)
+            || ($indexed['sources'] ?? null) !== $expectedSources
+            || ($indexed['question_links'] ?? null) !== $expectedLinks) {
+            throw new RuntimeException('Indexed material source or question provenance changed for ' . $materialId . '.');
+        }
+    }
+    $firstMaterialId = (string) ($expectedPublished[0]['id'] ?? '');
+    if ($firstMaterialId === ''
+        || StudyLibraryService::find($firstMaterialId) !== ($indexedById[$firstMaterialId] ?? null)) {
+        throw new RuntimeException('Direct material lookup differs from the indexed library result.');
+    }
+
     foreach ($boards as $board) {
         $boardId = (string) ($board['id'] ?? '');
         $expected = null;
@@ -224,6 +278,7 @@ try {
     }
 
     echo "[PASS] Production study library renders correctly scoped materials for all ten boards.\n";
+    echo "[PASS] Indexed browsing preserves all published source and question-link relationships.\n";
     echo "[PASS] A direct material link resolves to one published source-backed resource.\n";
     echo "[PASS] Positional source-first study notes render their headings and bodies without blank sections.\n";
     echo "[PASS] Source references render as separate, readable list items.\n";

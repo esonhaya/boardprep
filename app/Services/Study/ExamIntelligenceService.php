@@ -19,7 +19,7 @@ final class ExamIntelligenceService
         return array_values(array_filter($signals, static fn(array $signal): bool => strtolower((string) ($signal['exam'] ?? '')) === self::normalize($exam)));
     }
 
-    public static function priority(array $material, string $exam): array
+    public static function priority(array $material, string $exam, ?array $signals = null): array
     {
         $exam = self::normalize($exam);
         $focus = is_array($material['exam_focus'][$exam] ?? null) ? $material['exam_focus'][$exam] : [];
@@ -28,7 +28,10 @@ final class ExamIntelligenceService
         if (($focus['rationale'] ?? '') !== '') {
             $reasons[] = (string) $focus['rationale'];
         }
-        foreach (self::all($exam) as $signal) {
+        foreach ($signals ?? self::all($exam) as $signal) {
+            if (!is_array($signal) || strtolower((string) ($signal['exam'] ?? '')) !== $exam) {
+                continue;
+            }
             if (($signal['material_id'] ?? '') !== ($material['id'] ?? '')) {
                 continue;
             }
