@@ -119,6 +119,10 @@ try {
             if (!preg_match('/Completed quizzes\s*:?[\s]*([0-9]+)/i', $emptyText, $emptyCount)) {
                 throw new RuntimeException('fresh learner dashboard has no completed-quiz metric');
             }
+            if (!str_contains($emptyText, 'Welcome to BoardPrep')
+                || !str_contains($emptyText, 'after your first quiz')) {
+                throw new RuntimeException('fresh learner dashboard did not explain how to begin and unlock progress insights');
+            }
             $completedBefore = (int) $emptyCount[1];
         }
     }
@@ -130,6 +134,11 @@ try {
     if (!preg_match('/(?:Practice this again|Practice again|Keep practicing)/', $firstResult['output'])
         || !preg_match('/topic=Subject(?:-|\+|%20|\s)Verb/i', $firstResult['output'])) {
         throw new RuntimeException('result action did not preserve score guidance and quiz context');
+    }
+    $returningDashboard = $http->request('GET', '/dashboard', [], [], [], $cookies);
+    $returningDashboardText = preg_replace('/\s+/', ' ', strip_tags($returningDashboard['output'])) ?? '';
+    if (!$returningDashboard['success'] || !str_contains($returningDashboardText, 'Welcome back')) {
+        throw new RuntimeException('dashboard did not switch to returning-learner guidance after a completed quiz');
     }
 
     $outputs = [];

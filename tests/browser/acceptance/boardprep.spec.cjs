@@ -216,16 +216,25 @@ test.describe('BoardPrep learner browser acceptance', () => {
     await page.goto('/dashboard');
     const dashboardHeading = page.locator('main h1');
     await expect(dashboardHeading).toHaveCount(1);
-    await expect(dashboardHeading).toHaveText('Welcome back');
+    await expect(dashboardHeading).toHaveText('Welcome to BoardPrep');
     for (const href of ['/exams', '/history', '/flashcards', '/progress', '/quiz']) {
       await expect(page.locator(`a[href="${href}"]:visible`).first()).toBeVisible();
     }
     const menu = page.locator('.mobile-menu-button');
     if (testInfo.project.name === 'mobile') {
       await expect(menu).toHaveAttribute('aria-expanded', 'false');
+      await expect(menu).toHaveAccessibleName('Open primary navigation');
       await menu.click();
       await expect(menu).toHaveAttribute('aria-expanded', 'true');
+      await expect(menu).toHaveAccessibleName('Close primary navigation');
       await expect(page.locator('#learner-nav')).toHaveClass(/is-open/);
+      await menu.press('Escape');
+      await expect(menu).toHaveAttribute('aria-expanded', 'false');
+      await expect(menu).toHaveAccessibleName('Open primary navigation');
+      await expect(page.locator('#learner-nav')).not.toHaveClass(/is-open/);
+      await expect(menu).toBeFocused();
+      await menu.click();
+      await expect(menu).toHaveAttribute('aria-expanded', 'true');
       const mobileExamsLink = page.locator('#learner-nav a[href="/exams"]');
       await expect(mobileExamsLink).toBeVisible();
       await tabToKeyboardFocus(page, mobileExamsLink);

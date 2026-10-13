@@ -190,7 +190,7 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     await page.goto('/dashboard');
     const dashboardHeading = page.locator('main h1');
     await expect(dashboardHeading).toHaveCount(1);
-    await expect(dashboardHeading).toHaveText('Welcome back');
+    await expect(dashboardHeading).toHaveText('Welcome to BoardPrep');
     await capture(page, testInfo, entries, 'dashboard', { fullPage: true });
 
     if (mobile) {
