@@ -18,9 +18,15 @@ final class LetSourceCrosswalkCheck implements CheckInterface
     public function run(): CheckResult
     {
         $root = dirname(__DIR__, 5);
-        $currentCrosswalk = is_file($root . '/storage/let-source-crosswalk-batch674.json')
-            ? $root . '/storage/let-source-crosswalk-batch674.json'
-            : $root . '/storage/let-source-crosswalk-batch673.json';
+        $currentCrosswalk = null;
+        foreach (['let-source-crosswalk-batch677.json', 'let-source-crosswalk-batch674.json', 'let-source-crosswalk-batch673.json'] as $candidate) {
+            $candidatePath = $root . '/storage/' . $candidate;
+            if (is_file($candidatePath)) {
+                $currentCrosswalk = $candidatePath;
+                break;
+            }
+        }
+        $currentCrosswalk ??= $root . '/storage/let-source-crosswalk-batch673.json';
         $files = [
             'let-source-crosswalk-current' => $currentCrosswalk,
             'questions' => $root . '/storage/questions.json',

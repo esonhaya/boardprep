@@ -8,7 +8,6 @@ use App\Core\App;
 use App\Repositories\BoardRepository;
 use App\Repositories\BoardSubjectRepository;
 use App\Repositories\SubjectRepository;
-use App\Repositories\QuestionRepository;
 use App\Repositories\BlueprintRepository;
 use App\Services\Question\QuestionEligibilityIndex;
 use App\Services\Question\QuestionEligibilityService;
@@ -43,7 +42,7 @@ final class BoardViewService
         return self::withSubjects($board, self::context());
     }
 
-    /** @return array{relations: array, subjects: array<string, array>, questions: array, questions_by_id: array<string, array>, candidate_ids: array, blueprints: array, eligibility: QuestionEligibilityIndex} */
+    /** @return array{relations: array, subjects: array<string, array>, questions_by_id: array<string, array>, candidate_ids: array, blueprints: array, eligibility: QuestionEligibilityIndex} */
     private static function context(): array
     {
         $boardSubjects = App::container()
@@ -60,7 +59,9 @@ final class BoardViewService
             }
         }
 
-        $questions = App::container()->get(QuestionRepository::class)->all();
+        // Board availability depends on canonical question fields only. Avoid
+        // hydrating learner statistics and reuse metadata into every question.
+        $questions = App::storage()->all('questions');
         $blueprints = App::container()->get(BlueprintRepository::class)->all();
         $eligibility = new QuestionEligibilityIndex(
             App::storage()->all('question-eligibility'),
@@ -88,7 +89,6 @@ final class BoardViewService
         return [
             'relations' => $boardSubjects,
             'subjects' => $subjects,
-            'questions' => $questions,
             'questions_by_id' => $questionsById,
             'candidate_ids' => $candidateIds,
             'blueprints' => $blueprints,
@@ -129,7 +129,6 @@ final class BoardViewService
             )
         );
 
-        $allQuestions = $context['questions'];
         $eligibilityIndex = $context['eligibility'];
         $boardId = strtolower((string) ($board["id"] ?? ""));
         $boardCode = strtolower((string) ($board["code"] ?? ""));
@@ -218,7 +217,7 @@ final class BoardViewService
         }
         $readiness = ExamContentReadinessService::evaluate(
             $board,
-            $allQuestions,
+            $questions,
             $relations,
             $blueprint,
             $questions,

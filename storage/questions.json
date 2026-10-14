@@ -5315,7 +5315,7 @@
             "The room arrangement"
         ],
         "answer": "What they learned and what to improve",
-        "explanation": "The table contrasts a list of events with a reflection that connects evidence to a claim and names a revision. Asking what was learned and what to improve helps the learner turn observation into a specific next action.",
+        "explanation": "A useful reflection connects evidence from the task to what the learner understood and one specific next step. In the table, learner B links evidence to a claim and names a revision; a list of events alone does not guide improvement.",
         "content_blocks": [
             {
                 "type": "table",
@@ -63683,7 +63683,7 @@
             "Delete the order from the medication record"
         ],
         "answer": "Hold administration and clarify the discrepancy using the required verification process",
-        "explanation": "A mismatch involving a high-alert medication is a preventable safety risk. The nurse should pause and clarify through the approved process rather than independently changing or administering the dose.",
+        "explanation": "Pause administration and resolve the mismatch through the required verification and escalation process; do not independently change the dose or administer an order that conflicts with the available assessment. WHO’s medication-safety tool supports involving the patient or caregiver in medication conversations with health professionals, but that partnership does not let the patient choose an insulin dose or replace professional order verification.",
         "subject": "nursing-foundations",
         "content_blocks": [],
         "cognitive_intent": "analyze"
@@ -718739,7 +718739,7 @@
         "difficulty": "easy",
         "type": "multiple_choice",
         "question": "A hydro site has 68 m gross head and 8 m of stated hydraulic losses. What net head is available to the turbine?",
-        "explanation": "Net head is gross head less the stated hydraulic losses: 68 m - 8 m = 60 m.",
+        "explanation": "Net head is the head available to the turbine after the stated conveyance losses: H_net = H_gross - h_L = 68 m - 8 m = 60 m. The DOE hydropower overview describes flow and head as the water-side energy input before water passes through the penstock to the turbine-generator. Subtract the supplied loss once; no flow rate or conversion efficiency is needed to answer this head question.",
         "content_blocks": [],
         "board": "mechanical-engineering",
         "choices": [
@@ -725543,7 +725543,7 @@
             "Place reception at the fire exit and use the same narrow route for public arrival, deliveries, and emergency movement."
         ],
         "answer": "Run the public entry to reception and consultation; connect the staff/service entry to a back-of-house route; and keep the fire exit connected to an unobstructed escape path.",
-        "explanation": "The selected arrangement states each required relationship: a continuous public route, separated service movement, and an unobstructed exit path. A short or symmetrical route is not sufficient when it conflicts with access or life safety.",
+        "explanation": "The 2024 BP 344 IRR defines an accessible route as a continuous, unobstructed path connecting accessible elements and spaces. The public route in this arrangement therefore has to remain usable from the entry through the required destinations; the separate service path and unobstructed exit satisfy the other constraints in the brief. This schematic choice still needs its dimensions and details checked against the IRR and applicable fire requirements.",
         "content_blocks": [],
         "source_ids": [
             "bp344-2024-irr",

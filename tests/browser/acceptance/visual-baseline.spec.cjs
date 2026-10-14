@@ -373,13 +373,19 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     await capture(page, testInfo, entries, 'flashcard-revealed', { fullPage: false });
 
     if (mobile) {
+      const structuredFlashcardQuestion = questionById('135');
+      expect(structuredFlashcardQuestion?.data_interpretation).toBe(true);
+      expect(structuredFlashcardQuestion?.content_blocks?.some((block) => block.type === 'table')).toBe(true);
+      const structuredConceptId = structuredFlashcardQuestion?.taxonomy?.concept_id;
+      expect(structuredConceptId).toBeTruthy();
       const structuredFlashcardQuery = new URLSearchParams({
         include_new: '1',
-        card_key: 'q:135:formula-or-data:prof-development-readiness:r1',
+        card_key: `q:135:formula-or-data:${structuredConceptId}:r1`,
         reveal: '1',
       });
       await page.goto(`/flashcards/review?${structuredFlashcardQuery.toString()}`);
       const structuredTable = page.locator('.flashcard-card .question-table-wrap');
+      await expect(page.getByText('That flashcard is unavailable or no longer eligible.')).toHaveCount(0);
       await expect(structuredTable).toBeVisible();
       await expect(structuredTable).toHaveRole('region');
       await expect(structuredTable).toHaveAccessibleName('Scrollable question data');

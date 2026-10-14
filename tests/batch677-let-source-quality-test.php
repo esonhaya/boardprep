@@ -12,7 +12,7 @@ use Tools\Doctor\Registry\CheckRegistry;
 
 $root = dirname(__DIR__);
 $fail = static function (string $message): never {
-    fwrite(STDERR, 'BATCH674_TEST_FAIL=' . $message . PHP_EOL);
+    fwrite(STDERR, 'BATCH677_TEST_FAIL=' . $message . PHP_EOL);
     exit(1);
 };
 $read = static function (string $path) use ($root): array {
@@ -26,7 +26,7 @@ $collections = [
     'sources' => $read('storage/sources.json'),
     'source-readiness-let' => $read('storage/source-readiness-let.json'),
 ];
-$report = $read('storage/let-source-crosswalk-batch674.json');
+$report = $read('storage/let-source-crosswalk-batch677.json');
 $audit = LetSourceCrosswalkCheck::audit($report, $collections);
 if ($audit['errors'] !== []) $fail('Crosswalk/Doctor mismatch: ' . implode(' | ', $audit['errors']));
 if (count($report['crosswalks'] ?? []) !== 42) $fail('Expected 34 existing crosswalks plus eight decomposed LET study categories.');
@@ -276,7 +276,7 @@ if (count($registeredCrosswalkChecks) !== 1) $fail('Doctor directory discovery d
 $registeredDecompositionChecks = array_filter($registeredChecks, static fn(object $check): bool => $check instanceof LetCompetencyDecompositionCheck);
 if (count($registeredDecompositionChecks) !== 1) $fail('Doctor directory discovery did not register exactly one LET decomposition check.');
 
-fwrite(STDOUT, 'BATCH674_SOURCE_QUALITY_TEST=PASS' . PHP_EOL);
+fwrite(STDOUT, 'BATCH677_SOURCE_QUALITY_TEST=PASS' . PHP_EOL);
 fwrite(STDOUT, 'CROSSWALKS=42 VERIFIED=15 CORRECTABLE=27 DETECTOR_LIMITATION=0' . PHP_EOL);
 fwrite(STDOUT, 'BATCH673_LEARNING_THEORY_EXPLANATIONS_REWRITTEN=' . count($rewrittenIds) . PHP_EOL);
 fwrite(STDOUT, 'BATCH674_QUESTIONS_REWRITTEN=' . count($rewrittenQuestionIds) . ' STEMS_REVISED=' . count($stemRewrittenIds) . PHP_EOL);

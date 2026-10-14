@@ -15,7 +15,7 @@ use Tools\Doctor\DTO\CheckResult;
 final class LetCompetencyDecompositionCheck implements CheckInterface
 {
     private const PARENT = 'prof-development-readiness';
-    private const REPORT = 'let-source-crosswalk-batch674.json';
+    private const REPORT = 'let-source-crosswalk-batch677.json';
 
     public function run(): CheckResult
     {

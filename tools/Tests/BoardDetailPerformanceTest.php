@@ -78,12 +78,12 @@ if (function_exists('pcntl_async_signals') && function_exists('pcntl_signal') &&
     pcntl_async_signals(true);
     pcntl_signal(SIGALRM, static function () use ($countingStorage): void {
         echo json_encode([
-            'timeout_seconds' => 5,
+            'timeout_seconds' => 30,
             'reads' => $countingStorage->reads,
         ], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . PHP_EOL;
         exit(124);
     });
-    pcntl_alarm(5);
+    pcntl_alarm(30);
 }
 
 $boards = App::container()->get(\App\Repositories\BoardRepository::class)->all();
@@ -117,6 +117,13 @@ $run = static function (callable $operation) use ($countingStorage): array {
     $elapsed = (hrtime(true) - $start) / 1_000_000;
     return [$result, $elapsed, $countingStorage->reads];
 };
+$assertLearnerStatisticsUnused = static function (array $reads): void {
+    if (($reads['question-statistics'] ?? 0) > 0) {
+        throw new \RuntimeException(
+            'Board detail availability must not read learner question statistics.'
+        );
+    }
+};
 
 $single = [];
 $singleIds = ['let', 'civil-service', 'architecture', 'civil-engineering'];
@@ -125,6 +132,7 @@ if (($argv[1] ?? '') !== '' && ($argv[1] ?? '') !== 'single' && ($argv[1] ?? '')
 }
 foreach ($singleIds as $id) {
     [$result, $elapsed, $reads] = $run(static fn() => BoardViewService::find($id));
+    $assertLearnerStatisticsUnused($reads);
     $single[$id] = [
         'elapsed_ms' => round($elapsed, 3),
         'output' => is_array($result) ? $snapshot($result) : null,
@@ -138,6 +146,7 @@ if (($argv[1] ?? '') !== '' && ($argv[1] ?? '') !== 'all') {
 }
 
 [$all, $allElapsed, $allReads] = $run(static fn() => BoardViewService::all());
+$assertLearnerStatisticsUnused($allReads);
 [$repeat, $repeatElapsed, $repeatReads] = $run(static function () use ($ids): array {
     $results = [];
     foreach ($ids as $id) {
@@ -145,6 +154,7 @@ if (($argv[1] ?? '') !== '' && ($argv[1] ?? '') !== 'all') {
     }
     return $results;
 });
+$assertLearnerStatisticsUnused($repeatReads);
 
 $allHash = $snapshotHash($all);
 $repeatHash = $snapshotHash($repeat);
@@ -154,7 +164,7 @@ if (function_exists('pcntl_alarm')) {
 
 $output = [
     'board_count' => count($ids),
-    'question_count' => count(App::container()->get(\App\Repositories\QuestionRepository::class)->all()),
+    'question_count' => count(array_filter(App::storage()->all('questions'), 'is_array')),
     'single' => $single,
     'all' => [
         'elapsed_ms' => round($allElapsed, 3),

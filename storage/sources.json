@@ -3473,5 +3473,20 @@
         "status": "verified_reference",
         "confidence": "authoritative_educational_reference",
         "notes": "Specific open-textbook section for contribution per unit of constrained resource, demand limits, and allocation decisions. Licensed under CC BY-NC-SA 4.0; attribute OpenStax."
+    },
+    {
+        "id": "doe-hydropower-how-it-works",
+        "title": "How Hydropower Works",
+        "source_type": "OFFICIAL_GUIDANCE",
+        "authority": "U.S. Department of Energy, Water Power Technologies Office",
+        "url": "https://www.energy.gov/cmei/water/how-hydropower-works",
+        "publication_date": null,
+        "retrieved_at": "2026-10-15",
+        "version": "Current web overview",
+        "status": "verified_reference",
+        "confidence": "authoritative_reference",
+        "notes": "Supports the generic engineering description that flow and elevation change (head) determine available water energy and that a penstock conveys water to a turbine which drives a generator. This is not a source for Philippine licensure scope or local regulatory requirements.",
+        "source_role": "TECHNICAL_REFERENCE",
+        "volatility": "STABLE_TECHNICAL_OVERVIEW"
     }
 ]

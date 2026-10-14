@@ -748,7 +748,7 @@
     {
         "id": "let-assessment-review",
         "title": "Assessment of Learning",
-        "summary": "Review how assessment evidence should match the stated learning outcome, including cognitive-process demands, validity, feedback, and fair access.",
+        "summary": "Review how assessment evidence should match the stated learning outcome, including cognitive-process demands, validity, feedback, fair access, and evidence-based reflection.",
         "notes": [
             [
                 "Purpose",
@@ -773,12 +773,17 @@
             [
                 "Scope versus taxonomy",
                 "The PRC TOS uses Bloom’s taxonomy to describe cognitive demand across outcomes. This does not make every Bloom category a separate content topic or imply an official quota for each question type."
+            ],
+            [
+                "Reflection with evidence",
+                "A BoardPrep practice prompt, not a prescribed official formula: ask learners to connect a specific piece of work with what they now understand and one feasible next step. Match the next step to the learning criterion, then use later work to see whether it helped. This supports formative evidence, actionable feedback, and reflective teaching without claiming that an official source mandates this wording."
             ]
         ],
         "source_ids": [
             "deped-classroom-assessment-do-8-2015",
             "cornell-bloom-taxonomy",
-            "prc-let-enhanced-tos-2025"
+            "prc-let-enhanced-tos-2025",
+            "deped-ppst-do-42-2017"
         ],
         "exams": [
             "let"
@@ -803,11 +808,18 @@
             "boardprep_competency_ids": [
                 "let-assessment-evidence-use"
             ],
-            "boardprep_taxonomy_batch": 674
+            "boardprep_taxonomy_batch": 674,
+            "concept_ids": [
+                "bloom-cognitive-processes",
+                "prof-assessment-validity",
+                "prof-technology-access",
+                "let-learner-agency-self-regulation",
+                "let-assessment-evidence-use"
+            ]
         },
         "status": "published",
-        "version": 3,
-        "updated_at": "2026-10-14"
+        "version": 4,
+        "updated_at": "2026-10-15"
     },
     {
         "id": "let-teaching-strategies-review",
@@ -2959,6 +2971,10 @@
             {
                 "heading": "Teaching and common mistakes",
                 "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
+            },
+            {
+                "heading": "Patient partnership with medication safety",
+                "body": "Use the WHO 5 Moments for Medication Safety as a patient and caregiver engagement tool in collaboration with health professionals, with the tool remaining available to the patient, family, or caregiver. Integrate that conversation with role-specific medication reconciliation, current orders, administration checks, and local policy; the patient tool does not replace those professional controls."
             }
         ],
         "source_ids": [
@@ -2978,11 +2994,15 @@
             }
         },
         "taxonomy": {
-            "subject_id": "nursing-foundations"
+            "subject_id": "nursing-foundations",
+            "concept_ids": [
+                "nle-np-iv-medication",
+                "nle-np-iv-endocrine"
+            ]
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-28",
+        "version": 3,
+        "updated_at": "2026-10-15",
         "technical_support_state": "STRONG",
         "batch620_support": {
             "np_area": "NP IV",
@@ -5882,11 +5902,16 @@
             {
                 "heading": "Engineering checks",
                 "body": "Check continuity, sign direction, units, cavitation margin, and whether a pump curve and system curve are being compared at the same flow. A plausible number with the wrong control-volume boundary is still wrong."
+            },
+            {
+                "heading": "Hydroelectric conversion path",
+                "body": "For a hydroelectric system, available water energy depends on flow and elevation change (head); the penstock carries water to a turbine, and the turbine drives a generator. Keep hydraulic input, turbine shaft output, and electrical output at their stated boundaries, applying supplied efficiencies and losses only once. The DOE overview supports this general chain; PRC materials continue to define local examination scope."
             }
         ],
         "source_ids": [
             "prc-mechanical-engineering-board-page",
-            "openstax-university-physics-volume-1"
+            "openstax-university-physics-volume-1",
+            "doe-hydropower-how-it-works"
         ],
         "exams": [
             "mechanical-engineering"
@@ -5905,8 +5930,8 @@
         },
         "technical_support_state": "STRONG",
         "status": "published",
-        "version": 7,
-        "updated_at": "2026-09-28"
+        "version": 8,
+        "updated_at": "2026-10-15"
     },
     {
         "id": "me-material-6",
@@ -7521,6 +7546,10 @@
             {
                 "heading": "Common errors",
                 "body": "Do not place rooms by visual symmetry alone, hide service movement in a user route, or call a plan accessible because a route exists without checking continuity, maneuvering, and usable facilities."
+            },
+            {
+                "heading": "2024 accessible-route audit",
+                "body": "The 2024 BP 344 IRR defines an accessible route as continuous and unobstructed, connecting accessible elements and spaces. It requires public entrances to be accessible from arrival and departure points to the interior lobby, without longer travel or exclusion from the standard path. Trace the entire trip across site arrival, entries, doors, level changes, and interior destinations; then verify each dimension against the IRR. A route that exists on the plan but breaks at a segment is not continuous."
             }
         ],
         "source_ids": [
@@ -7541,11 +7570,15 @@
             }
         },
         "taxonomy": {
-            "subject_id": "architecture-architectural-design-and-site-planning"
+            "subject_id": "architecture-architectural-design-and-site-planning",
+            "concept_ids": [
+                "b633-arch-site-spatial-analysis",
+                "b633-arch-site-circulation"
+            ]
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-28",
+        "version": 3,
+        "updated_at": "2026-10-15",
         "technical_support_state": "STRONG"
     },
     {
