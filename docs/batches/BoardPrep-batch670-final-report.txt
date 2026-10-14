@@ -1,0 +1,160 @@
+BOARDPREP — BATCH 670 FINAL REPORT
+THREE-HOUR PRODUCT COMPLETENESS MARATHON
+
+ACTUAL_START=2026-10-13 00:12:36 Asia/Manila
+ACTUAL_END=2026-10-13 03:10:32 Asia/Manila
+ELAPSED_MINUTES=177.9
+TARGET_WINDOW=180 minutes; completed without waiting to fill time
+
+PROGRESS_CHECKPOINTS
+30m — 00:42: Exam simulation HTTP lifecycle passed timed/untimed setup, persisted deadline, resume, expiry, review gate, unanswered scoring, retry and duplicate-submit protection. Eligibility test improved from >131s to 6s. Mobile focus/accessibility contracts and learner-flow regressions advanced.
+60m — 01:11: Practice/history/results/flashcards/privacy flows passed; stale active-quiz switch and one legacy test expectation were found and corrected. Preflight and smoke passed.
+90m — 01:48: Doctor passed; ten-board learner journey passed. First Chromium run exposed silent active-attempt switching; added explicit warning/resume controls and regression.
+120m — 02:12: Chromium passed on 581d0e7. Study-library screenshot exposed a 62,672px full-page capture; implemented search, zero-result recovery and collapsible notes/sources.
+150m — 02:42: Browser run 38291889257 passed; actual mobile screenshots inspected. Structured flashcard overflow was fixed. Final release/browser and product-evidence work continued.
+
+BASELINE_AND_DELIVERY
+BASELINE_BRANCH=batch669-nursing-integration
+HEAD_BEFORE=1055fae27f1fd6d921ad513aa81e5522968def00
+HEAD_AFTER=c64303ba17271988a38f3174e0461e94ff13581d
+BRANCH=batch670-product-completeness
+PUSH_STATUS=origin/batch670-product-completeness matches HEAD_AFTER
+MAIN_UNCHANGED=YES; main remains at 0eb9704ba293e0aa3402af5d01a2d3392c005b73
+B668_UNCHANGED=YES; batch668-acceptance-preparation remains at 2354826b46820118083c61b3176002cbf8d8c124
+B669_UNCHANGED=YES; batch669 remains at HEAD_BEFORE
+UNRELATED_WORK_PRESERVED=YES; main’s 12 dirty/untracked entries, B668’s untracked question-statistics.json, and B669’s local attempts/weakness/statistics files remain present. B669 SHA-256 values match their starting hashes.
+B670_STORAGE=clean; tests used isolated copies of baseline storage. No learner records were overwritten.
+
+WORKSTREAM 1 — EXAM MODE
+BEFORE: the full simulation lifecycle and setup recovery were incomplete; requesting another board/configuration could silently resume an active session and hide the requested setup.
+AFTER: practice and exam simulation are clearly distinguished. Learners configure timed or untimed sessions; the server persists and enforces deadlines; refresh resumes; expiry submits; navigation preserves editable answers; a review step precedes submission; unanswered questions score as unanswered; duplicate submissions persist once; results expose score breakdowns and explanations; history labels simulations and supports retry. Switching an unfinished attempt now shows its board/mode/progress, warns before replacement, and provides a resume action. No official exam duration or exact-format claim is made.
+REGRESSION_EVIDENCE=ExamSimulationHttpTest, active-session switch tests, learner journey/history/result tests, Doctor release suite, and current Browser journey.
+
+WORKSTREAM 2 — MOBILE UX AND ACCESSIBILITY
+Fixed the mobile study-search field growing to roughly 220px, LET candidate/specialization selectors being truncated, and structured flashcard tables widening the document beyond the 390px viewport. Added labeled keyboard-focusable table/chart scroll regions with visible focus styling and an ArrowRight scrolling Browser regression. Existing responsive treatment contains table overflow within the card.
+Study-library title/note search announces result counts, recovers cleanly from no matches, and collapses notes/source lists; direct material links open their detail disclosure. These changes avoid extremely tall full-page library views while keeping provenance reachable.
+Mobile/accessibility view contracts passed 13/13; Batch 666 UI contracts passed 20/20. The final Browser run checked responsive widths 320, 360, 390, 430 and 768px. No physical Android, WCAG audit, or screen-reader session is claimed.
+
+WORKSTREAM 3 — ELIGIBILITY PERFORMANCE
+MultiExamEligibilityTest passed with indexed eligibility lookups and exact board-separation/parity assertions. The interrupted baseline exceeded 131 seconds; the optimized test completed in 6 seconds (>21.8x faster, >95% lower runtime at the test boundary). Nursing, CPA and Criminologist separation passed; no eligibility semantics were changed by later commits.
+
+WORKSTREAM 4 — STUDY AND LEARNER JOURNEY
+Added accessible study-library search, result count/live feedback, clear empty-result recovery, and direct note/source expansion. Preserved source provenance and question-to-resource links. Ten-board HTTP journeys exercised board-scoped study, eligible practice, answer/explanation, results, history, progress, retry and stale-action recovery. Existing weak-topic recommendations and practice links retained board/subject context in regressions. No educational questions or explanations were invented.
+
+COUNT AND CONTENT RECONCILIATION
+CANONICAL_BEFORE_AFTER=8962 -> 8962
+CANONICAL_IDS=8962 unique; 0 duplicate canonical ID groups
+NURSING_NATIVE_BEFORE_AFTER=878 -> 878
+NURSING_EFFECTIVE_BEFORE_AFTER=898 -> 898
+EFFECTIVE_TOTAL_BEFORE_AFTER=9746 -> 9746 board/variant eligibility placements; these are placements, not additional canonical questions
+COUNT_RECONCILIATION=8962 canonical/native records reconcile to 9746 effective board/variant placements; no content count change was introduced.
+NATIVE_BY_BOARD=LET 1788; CSE 1553; Criminologist 451; Nursing 878; Psychometrician 401; Civil Engineering 922; CPA 1132; Mechanical Engineering 511; Registered Electrical Engineering 842; Architecture 484.
+EFFECTIVE_BY_BOARD=LET 1886; CSE 2116; Criminologist 554; Nursing 898; Psychometrician 401; Civil Engineering 922; CPA 1132; Mechanical Engineering 511; Registered Electrical Engineering 842; Architecture 484.
+FLASHCARD_INTEGRITY=PASS; 8962 eligible, 8944 derivable, 18 justified exclusions, 0 defects.
+HISTORICAL_ATTEMPT_COMPATIBILITY=PASS in isolated learner/session and history/result regressions; protected B669 learner files were unchanged.
+
+WORKSTREAM 5 — BROWSER ACCEPTANCE
+BROWSER_RUN=38293992211
+BROWSER_COMMIT=c64303ba17271988a38f3174e0461e94ff13581d
+BROWSER_RESULT=success; Chromium 153.0.8010.12 desktop and mobile; 22 passed, 0 failed, 2 intentional project-scope skips, 0 flaky.
+BROWSER_VIEWPORTS=320x640, 360x800, 390x844, 430x932, 768x1024
+BROWSER_EVIDENCE=keyboard navigation, accessibility semantics, privacy export/deletion, production boundary, ten-board journeys, viewport sweep, math/table rendering all recorded PASS; no unexpected console errors, uncaught page errors, or failed requests.
+BROWSER_ARTIFACT_ID=11767821023 (89,517,430 bytes). The archive was integrity-checked; exact execution/results JSON and selected screenshots were extracted, then the duplicate ZIP was removed to preserve storage.
+SCREENSHOTS_REVIEWED (390x844 mobile):
+- /data/data/com.termux/files/home/BoardPrep-batch670-run/browser-evidence-38293992211-selected/structured-flashcard-table-390x844.png — structured rows/columns stay within the card; keyboard focus and ArrowRight scrolling passed.
+- /data/data/com.termux/files/home/BoardPrep-batch670-run/browser-evidence-38293992211-selected/study-resource-390x844.png — search/result feedback and source-backed material are legible.
+- /data/data/com.termux/files/home/BoardPrep-batch670-run/browser-evidence-38293992211-selected/quiz-config-let-elementary-390x844.png — candidate-level and specialization controls have usable width.
+BROWSER_ACCEPTANCE=PASS on exact final commit; no physical Android testing claimed.
+
+WORKSTREAM 6 — RELEASE VERIFICATION
+PHP_SYNTAX=PASS; 970 PHP files linted
+JSON_VALIDATION=PASS; 100 storage JSON files and 2 config JSON files parsed
+DOCTOR_GATES=PASS; 35/35 entries across 24 unique scripts, 0 failures; release decision RELEASE_READY_WITH_NONBLOCKING_DEBT
+REPOSITORY_HEALTH=REVIEW; 735 existing issues, 0 fail entities, 732 warning entities, 3 review entities
+SOURCE_TRACEABILITY=REVIEW; 0 hard source defects, 0 source-readiness failures, 46 editorial review signals
+TEN_BOARD_HTTP=PASS; all 10 supported boards
+ELIGIBILITY_AND_CONTENT=PASS; integrity and Nursing/CPA/Criminologist boundaries covered
+SECURITY=PASS; session, CSRF, privacy isolation, production boundaries and release security checks passed
+PRIVACY=PASS for automated session-scoped export/deletion, CSRF, rotation and isolation tests; owner-approved policy/hosting terms remain absent
+PREFLIGHT=PASS; APP_ENV=production, 22 pass, 0 warnings, 0 failures
+SMOKE=PASS; production smoke, 5 checks, 1383.309 ms
+PRODUCT_READINESS_TEST=PASS; current Browser evidence is reported as PASS while human and deployment evidence remains separate
+PRODUCT_READINESS_CLI=NOT_READY (expected exit 1 while required evidence is missing)
+PRODUCT_FEATURE_COMPLETE=false; 11 implemented/verified, 2 intentionally deferred, 1 implemented/unverified, 1 partial; no incomplete boards, open P0/P1 defects, or open findings
+PRODUCT_LAUNCH_READY=false
+CURRENT_BROWSER_EVIDENCE=PASS in Product Readiness for the exact final commit
+MANDATORY_EVIDENCE_REMAINING=Human acceptance MVP-01..MVP-12 (12/12 NOT_RUN); owner-approved operator/privacy/retention/provider terms; live HTTPS/hosting validation. Screen-reader behavior and WCAG conformance were not tested.
+FAILED_CRITICAL_CAPABILITY=owner_approved_privacy_terms_configured
+
+TEST HISTORY AND RESOLVED FINDINGS
+The early Chromium run 38284678368 had four failures exposing silent active-session switching; the explicit warned switch/resume change fixed them. Run 38290570505 had one flaky first-attempt mobile table overflow; the containment fix and exact structured-card regression removed it. The final run above has 0 failures and 0 flaky tests.
+One preflight invocation used APP_ENV=testing and correctly failed because deployment preflight requires production; rerun with APP_ENV=production passed 22/22. This was a command-environment mistake, not an application defect.
+
+FILES_CHANGED (52)
+app/Controllers/QuizFlowController.php
+app/Controllers/StudyLibraryController.php
+app/DTO/QuizSpecification.php
+app/Services/Question/QuestionEligibilityService.php
+app/Services/Question/StructuredContentService.php
+app/Services/Quiz/Blueprint/BlueprintRequestExecutor.php
+app/Services/Quiz/ExamTimerService.php
+app/Services/Quiz/QuestionSelectionService.php
+app/Services/Quiz/QuizNavigationService.php
+app/Services/Quiz/QuizStartService.php
+app/Services/Quiz/QuizSubmissionService.php
+app/Services/Quiz/Result/Attempt/AttemptSessionContext.php
+app/Services/Quiz/Specification/BaseSpecificationFactory.php
+app/Services/Quiz/Start/QuizStartInputNormalizer.php
+app/Services/Quiz/Start/QuizStartSessionPayloadFactory.php
+app/Services/Quiz/Start/QuizStartSessionWriter.php
+app/Services/RepositoryHealth/Release/ReleaseReadinessService.php
+app/Views/history/attempt.php
+app/Views/home/exam.php
+app/Views/quiz/_timer.php
+app/Views/quiz/index.php
+app/Views/quiz/result.php
+app/Views/quiz/review.php
+app/Views/quiz/settings.php
+app/Views/study/library.php
+config/product-readiness.json
+docs/HUMAN_TESTER_READINESS.md
+docs/PRODUCT_READINESS.md
+public/assets/css/rich-product.css
+public/assets/css/style.css
+public/assets/js/exam-timer.js
+public/assets/js/quiz-focus.js
+public/assets/js/quiz-settings.js
+tests/batch666-ui-contract-test.php
+tests/browser/acceptance/boardprep.spec.cjs
+tests/browser/acceptance/visual-baseline.spec.cjs
+tools/Tests/ContentIntegrityServiceTest.php
+tools/Tests/ExamSimulationBlueprintTest.php
+tools/Tests/ExamSimulationHttpTest.php
+tools/Tests/FlashcardIntegrationTest.php
+tools/Tests/LearnerJourneyHttpTest.php
+tools/Tests/LearnerMobileAccessibilityViewTest.php
+tools/Tests/LearningAttemptContextFallbackTest.php
+tools/Tests/MultiAttemptLearningHttpTest.php
+tools/Tests/MultiExamEligibilityTest.php
+tools/Tests/ProductReadinessTest.php
+tools/Tests/QuizCompletionHttpTest.php
+tools/Tests/QuizStartFailureHttpTest.php
+tools/Tests/StructuredQuestionContentTest.php
+tools/Tests/StudyLibraryNavigationTest.php
+tools/Tests/TenBoardLearnerJourneyHttpTest.php
+tools/product-readiness.php
+
+COMMITS
+c40bafe5c5b9c1de09c87c93e464104e27714c12 Complete exam simulation and learner reliability
+581d0e789664e6b4e43288f4c323cc13c606e4f6 Make active quiz switching explicit and safe
+42f2d9e098d7cc9ca5e70228fae52febcc84481a Improve study library discovery and provenance access
+baed987dc38d2c1dace02fd6de10a48ec0edfc0d Fix learner form sizing on narrow screens
+fa6edcdb8ace2b126aff3f049fbe60fc98fc5f67 Prevent structured flashcard overflow on mobile
+394a2c341bf2c036716a458eb244602cca890e82 Reconcile browser evidence in product readiness
+c64303ba17271988a38f3174e0461e94ff13581d Make structured tables keyboard-scrollable
+
+STORAGE_BEFORE_AFTER=approximately 3.4 GB free -> approximately 1.1 GB free. Protected learner stores unchanged; test mutations were isolated.
+REPORT_FILE=/data/data/com.termux/files/home/BoardPrep-batch670-final-report.txt
+CLIPBOARD_STATUS=UNVERIFIED
+CLIPBOARD_READBACK=UNVERIFIED; stdin and argument-form report copies returned empty from termux-clipboard-get; a small probe also returned empty (set command exit code 0)
+NEXT_BATCH_RECOMMENDATION=Complete the 12 real-user/device acceptance cases; collect owner-approved privacy/retention/provider and live HTTPS evidence; perform screen-reader/WCAG review; then reassess Product Readiness. Keep official exam-format claims deferred until authoritative per-board evidence is available.

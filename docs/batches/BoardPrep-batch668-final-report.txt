@@ -1,0 +1,101 @@
+BOARDPREP — BATCH 668 ACCEPTANCE PREPARATION
+
+=== BASELINE ===
+HEAD_BEFORE=c5e6369287d7cee2469621d7e5e81246e989001b
+HEAD_AFTER=2354826b46820118083c61b3176002cbf8d8c124
+BRANCH=batch668-acceptance-preparation
+MAIN_HEAD=0eb9704ba293e0aa3402af5d01a2d3392c005b73 (local and origin/main unchanged)
+BATCH666_PRESENT=YES (ancestor bbab9b0d36c9ce6303d287dc2c2599261ee44627)
+BATCH667_PRESENT=YES (ancestor c5e6369287d7cee2469621d7e5e81246e989001b)
+UNRELATED_WORK_PRESERVED=YES; existing other worktrees were not edited. B668 storage/weakness.json and storage/question-statistics.json were restored to hash-matched pre-run contents; test-generated snapshots are retained at $HOME/BoardPrep-batch668-test-mutated-weakness.json and $HOME/BoardPrep-batch668-test-mutated-question-statistics.json.
+TAGS_UNCHANGED=YES; local v1.0.0 and v1.0.1 still peel to their immutable commits. No tag was pushed or changed.
+
+=== INTEGRATION ===
+MAIN_ONLY_COMMITS=1: 0eb9704 Batch 625: modernize and expand Nursing bank
+BATCH667_ONLY_COMMITS=71; final branch is 74 commits ahead of the common base (includes three B668 commits)
+CONFLICTS_FOUND=6 paths: question-pool filtering, eligibility, reuse metadata, questions, study materials, study-question links
+CONFLICTS_RESOLVED=0; deferred because Batch625 introduces ambiguous canonical question-ID collisions (320 reported; sample ID 4163 differs in Nursing vs CPA). No data was guessed or merged.
+INTEGRATION_COMPLETE=PARTIAL: Batch666/667 work is present; main-only Batch625 content remains deferred for reviewed reconciliation.
+MAIN_MODIFIED=NO
+
+=== VISUAL REVIEW ===
+SCREENSHOTS_AVAILABLE=86 curated captures in run 38200931826; later browser artifacts include fresh screenshots and diagnostics (run 38217569150 ZIP validated; 423 PNGs including attachments in that artifact; run 38219994904 ZIP validated)
+UNIQUE_STATES=86 curated page/state/viewport captures; fresh reruns include repeated before/after states
+VISUALLY_INSPECTED=86/86 curated baseline screenshots pixel-reviewed, plus 6 targeted screenshots from run 38217569150 and 2 final study-detail screenshots from run 38219994904
+UNINSPECTED=0 of the 86 curated baseline set; other raw Playwright attachment PNGs were not all individually reviewed
+CONTACT_SHEET=NOT_NEEDED; actual pixel inspection was available
+P0_FOUND/FIXED/REMAINING=0/0/0
+P1_FOUND/FIXED/REMAINING=0/0/0
+P2_FOUND/FIXED/REMAINING=3/3/0
+P3_FOUND/FIXED/REMAINING=0/0/0
+
+=== GITHUB BROWSER ===
+WORKFLOW=.github/workflows/browser-acceptance.yml
+RUN_IDS=38217569150 (initial B668 visual fixes); 38219994904 (study-note fix)
+RUN_URLS=https://github.com/esonhaya/boardprep/actions/runs/38217569150 ; https://github.com/esonhaya/boardprep/actions/runs/38219994904
+ARTIFACT_URLS=https://github.com/esonhaya/boardprep/actions/runs/38217569150/artifacts/11733546117 ; https://github.com/esonhaya/boardprep/actions/runs/38219994904/artifacts/11734520671
+BROWSER_TESTS_PASS/FAIL/SKIP=20/0/2 on each run; final run 38219994904 succeeded for code commit a81a9bf65b3f16ddcb2764e7d1c669f082a15e4c
+CHROMIUM=153.0.8010.12; Playwright command npm run test:browser
+VIEWPORTS=320x640, 360x800, 390x844, 430x932, 768x1024; desktop screenshots include 1366x768 and 1440x900
+CONSOLE_ERRORS=NONE unexpected errors, uncaught page errors, or failed requests recorded
+OVERFLOW=PASS browser geometry uses 2px tolerance; no unexpected page-level horizontal overflow reported
+KEYBOARD=PASS automated keyboard-navigation evidence; not a physical-device or full WCAG claim
+
+=== UI REPAIRS ===
+FILES_CHANGED=16 tracked files across the B668 branch; code, tests, docs, and CSS only
+DEFECTS_FIXED=B668-VIS-001 source links separated into an accessible list; B668-VIS-002 misleading sparse/cross-context rankings replaced with within-board/variant comparisons; B668-VIS-003 positional source-first study notes now render headings and bodies instead of empty sections
+UNRESOLVED_DEFECTS=No confirmed visual P0-P3 defects remain in the reviewed register; physical Android touch, screen reader behavior, owner acceptance, and live host behavior remain unverified
+
+=== ANDROID ACCEPTANCE ===
+MVP_CASES_PREPARED=12 existing MVP-01 through MVP-12 cases retained
+MVP_CASES_HUMAN_PASSED=0; all cases remain NOT_RUN
+OWNER_CHECKLIST=docs/HUMAN_TESTER_READINESS.md
+PREVIEW_INSTRUCTIONS=Same-device Termux preview via node tests/browser/server.cjs at http://127.0.0.1:4173, loopback only; do not expose a tunnel or public diagnostic route
+
+=== PRIVACY/HOSTING ===
+OWNER_DECISIONS_REQUIRED=Operator identity/contact, retention, server logs, backups, hosting location/provider, HTTPS, and deletion limitations
+OWNER_DECISION_SHEET=docs/OWNER_PRIVACY_AND_HOSTING_DECISIONS.md
+PRIVACY_APPROVED=NO; owner-specific terms remain unapproved
+LIVE_HTTPS_VERIFIED=NO
+DEPLOYMENT_STATUS=NOT_DEPLOYED
+
+=== REGRESSION ===
+TARGETED_PHP=PASS StudyLibraryNavigationTest.php (all ten board material scopes, positional note text, source list, privacy route and production boundaries); PHP syntax and diff checks pass
+TEN_BOARD_HTTP=PASS previously verified full HTTP journeys; latest browser evidence also reports ten-board journeys PASS
+SECURITY=PASS release security sanity; production boundary, privacy export/deletion, keyboard and ten-board browser journeys passed; no auth/session code changed
+PRIVACY=PASS browser export/deletion and existing JSON/SQLite coverage; owner policy approval still missing
+PREFLIGHT=PASS FAIL=0 WARN=0; final HEAD 2354826b46820118083c61b3176002cbf8d8c124
+SMOKE=PASS FAIL=0; final run 1364 ms
+REPOSITORY_HEALTH=REVIEW, 0 failures (12 pass, 2 warnings, 1 review; 735 review/balance signals, chiefly balance distribution)
+TECHNICAL_RELEASE_GATE=PASS on code commit a81a9bf65b3f16ddcb2764e7d1c669f082a15e4c; final successor 2354826 is documentation-only. Release decision RELEASE_READY_WITH_NONBLOCKING_DEBT; P0=0, P1=0, P2=1, P3=2 nonblocking queue items.
+PRODUCT_READINESS_GATE=NOT_READY on final HEAD; product_feature_complete=false, product_launch_ready=false. It still flags external browser evidence as not imported/current-head verified, plus owner privacy terms, human acceptance, and live-host evidence.
+
+=== CONTENT ===
+CANONICAL/EFFECTIVE/RUNTIME=8962/9422/9746 (baseline retained; no canonical content files changed)
+CONTENT_MUTATIONS=0/0/0
+INTEGRITY=Release gate PASS; source/study, flashcard, and calculation hard-defect criteria pass; flashcard hard defects=0; CPA future-effective leakage=0. Nursing dosage baseline 24/16/8 unchanged; no content or eligibility files were modified.
+
+=== LAUNCH ===
+PRODUCT_FEATURE_COMPLETE=NO; product audit still records partial/deferred capabilities
+PRODUCT_LAUNCH_READY=NO
+MUST_FIX_BEFORE_LAUNCH=Owner-reviewed privacy/contact/retention/deletion terms; human MVP-01..12 on Android; live HTTPS/provider/storage/session verification
+SHOULD_FIX_BEFORE_LAUNCH=Import verified CI browser evidence into the readiness record; resolve Batch625 canonical-ID/data conflicts before any main integration
+POST_LAUNCH_OPTIONAL=Official-format timed simulator and cross-device learner accounts remain intentionally deferred
+NEXT_ACTION=Owner completes the privacy/hosting decision sheet and Android checklist; separately reconcile the Batch625 Nursing content collisions before main integration
+
+=== GIT ===
+COMMITS=52bcca0a7ec61f4dadf149e9f3b79e3c1fe46830; a81a9bf65b3f16ddcb2764e7d1c669f082a15e4c; 2354826b46820118083c61b3176002cbf8d8c124
+FILES_CHANGED=16; diff from B667 baseline: 601 insertions(+), 17 deletions(-)
+PUSHED_BRANCH=origin/batch668-acceptance-preparation (dedicated branch only)
+MAIN_UNCHANGED=YES
+TAGS_UNCHANGED=YES
+
+=== STATUS ===
+PRODUCT_FEATURE_COMPLETE=NO
+PRODUCT_LAUNCH_READY=NO
+REMAINING_BLOCKERS=Owner privacy approval, 12 human acceptance cases, live HTTPS/provider evidence; six main-integration conflicts remain deferred
+NEXT_ACTION=Complete owner decisions and Android acceptance; reconcile ambiguous Nursing question data before main integration
+CLIPBOARD_STATUS=UNVERIFIED; termux-clipboard-set exited successfully but termux-clipboard-get returned 0 bytes, so exact readback failed. Full report is saved here and printed below.
+REPORT_FILE=$HOME/BoardPrep-batch668-final-report.txt
+
+=== BATCH 668 COMPLETE ===

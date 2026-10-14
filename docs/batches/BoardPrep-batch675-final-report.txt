@@ -1,0 +1,45 @@
+BOARDPREP — BATCH 675 RECOVERY AND COMPLETION REPORT
+
+RECOVERY_START=2026-10-14T20:41+08:00 Asia/Manila
+RECOVERY_END=2026-10-14T21:37:30+08:00 Asia/Manila
+ORIGINAL_SESSION_STATUS=The prior Batch 675 process was not active. Existing branch batch675-static-source-quality held uncommitted edits at the baseline; no Batch 675 commit was found.
+ORIGINAL_WORK_RECOVERED=YES. Existing implementation, source work, and tests were continued in place; no new worktree or separate checkout was created.
+HEAD_BEFORE_RECOVERY=ad0bf9b6e51bfbab8213e1609f047b9e3219d29b
+HEAD_AFTER=49a398d6978e74f2984c23a075f1b21c4e0b407f
+MAIN_INTEGRATION=Local main fast-forwarded from the baseline to the verified Batch 675 commit; main, batch675-static-source-quality, and origin/main now match.
+REMOTE_MAIN_STATUS=VERIFIED after fetch: origin/main=49a398d6978e74f2984c23a075f1b21c4e0b407f; ahead=0, behind=0.
+UNCOMMITTED_CHANGES_RECOVERED=Batch 675 code/content committed. The 19 learner-usage rows remain unstaged in storage/questions.json; seven unrelated pre-existing untracked entries remain untracked.
+COMMITS_RECOVERED=1 commit created from recovered work: 49a398d6978e74f2984c23a075f1b21c4e0b407f.
+FILES_PRESERVED=Seven unrelated untracked entries, two stashes, five worktrees, existing ignored files, recovery bundles, and HayaDoctor history were retained. HayaDoctor remains dc4fcda730d9a922f726593746e34ca0c9c0e890. Ignored status entries: 220 at recovery and 222 at final inspection; the two additions are retained CSRF-only Doctor simulator records created by a test.
+LEARNER_DATA_PRESERVED=19 usage rows remain worktree-only and are absent from the commit. Attempts, weakness, statistics, and the other 23 pre-existing simulation-session records were preserved. Two touched fixed-ID simulator records were restored from the existing Batch 672 recovery snapshot; the generated test output was saved separately. Two new CSRF-only test sessions were retained. No learner rows or session files were deleted.
+STORAGE_BEFORE_AFTER=2.5 GiB free at recovery inspection; 2.3 GiB free at final inspection. The 1.5 GiB minimum was maintained.
+ORIGINAL_WORKSTREAM_COMPLETION=Implementation work completed as evidence permits: static findings classified; three CSE parent crosswalks verified; all 11 source signals adjudicated; source-first education improved across CSE, CPA, and Civil Engineering; Doctor/release checks completed; Batch 674 workflow metadata verified. Browser screenshots remain inaccessible, and product readiness remains NOT_READY.
+STATIC_FINDINGS_BEFORE_AFTER=43 dependency and 9 call-signature findings reproduced. Outcome: 42 dependency and 8 signature analyzer false positives resolved by precision improvements; 1 finding in each category retained as justified dynamic behavior; 0 confirmed defects and 0 unresolved findings.
+STATIC_DEFECTS_FIXED=0 confirmed defects existed.
+ANALYZER_FALSE_POSITIVES_FIXED=50 total (42 dependency, 8 static-call-signature).
+CSE_CROSSWALKS_BEFORE_AFTER=3 structural UNKNOWN rows now verify only to the official General Information parent. Unsupported child taxonomy and weights remain UNKNOWN. Evidence: [CSC Examination Announcement No. 03 s. 2026](https://csc.gov.ph/phocadownload/userupload/erpo/announcements/2026/ExamAnn_2026_03_Conduct%20of%2009%20Aug%202026%20CSE-PPT_orig%20signed.pdf).
+SOURCE_SIGNALS_BEFORE_AFTER=11 baseline signals -> 8 current warnings. Ledger: 3 VERIFIED_PARENT_SCOPE; 3 LET DEFERRED; 4 Criminologist JUSTIFIED_EXCEPTION; 1 Psychometrician DEFERRED_CURRENTNESS.
+CROSS_BOARD_EDUCATIONAL_CHANGES=Civil Service environmental/public-interest and RA 6713 learning pathways; CPA special-order, make-or-buy, and constrained-resource instruction; Civil Engineering seepage explanation and source path.
+QUESTIONS_IMPROVED=4 existing questions: Q1234, Q1300, Q1306, Q1316. Answer identities preserved; no questions added.
+STUDY_MATERIALS_IMPROVED=5 existing materials across CSE, CPA, and Civil Engineering.
+SOURCE_RECORDS=4 added: CSC 2026 scope notice and [OpenStax 10.2](https://openstax.org/books/principles-managerial-accounting/pages/10-2-evaluate-and-determine-whether-to-accept-or-reject-a-special-order), [10.3](https://openstax.org/books/principles-managerial-accounting/pages/10-3-evaluate-and-determine-whether-to-make-or-buy-a-component), and [10.6](https://openstax.org/books/principles-managerial-accounting/pages/10-6-evaluate-and-determine-how-to-make-decisions-when-resources-are-constrained). Existing [FHWA-NHI-06-089 (2006)](https://highways.dot.gov/sites/fhwa.dot.gov/files/FHWA-NHI-06-089.pdf) reference supports the seepage material.
+QUESTION_RESOURCE_LINKS=5 question-resource link records updated and verified; exact OpenStax sections are connected to Q1300/Q1306/Q1316; Q1234 retains its FHWA source relationship.
+FLASHCARD_INTEGRITY=PASS; full health report found 8,944 derivable cards, 18 justified exclusions, 0 defects. Flashcard workflow regression PASS.
+ELIGIBILITY=PASS; multi-exam eligibility regression passed across the 10 supported boards.
+CANONICAL_COUNTS=8,962 canonical / 9,422 effective / 9,746 runtime questions; source-review warnings=8.
+RUNTIME_PLACEMENTS=Production smoke PASS across 10 boards with 2,705 eligibility records; ten-board learner journeys PASS.
+BROWSER_WORKFLOW=Run 38542181424 completed FAILURE on exact commit ad0bf9b6e51bfbab8213e1609f047b9e3219d29b. Setup/install passed; browser acceptance failed with exit 1; evidence upload passed. Artifact boardprep-chromium-visual-qa was 90,461,732 bytes.
+SCREENSHOTS_INSPECTED=NO. GitHub job log returned 403 and artifact download returned 401 without authentication; no archive was downloaded.
+TEN_BOARD_HTTP=PASS for LET, CSE, CLE, NLE, PLE, CE, CPA, ME, REE, and ARCH.
+DOCTOR_RELEASE=PASS on the committed code/content tree before commit; release gate PASS, RELEASE_READY_WITH_NONBLOCKING_DEBT, 46 flow tests passed, 0 failed/unknown. Health: 13 pass, 2 warning, 0 fail, 0 review; warnings represent nonblocking debt. Standalone DoctorIntegrityTest failed because its filtered dashboard assertion depends on a stale ignored 2026-10-02 repository-health.json snapshot; the snapshot was preserved. The standard static Doctor CLI report was not regenerated because storage/doctor-report.json already existed and is ignored; targeted Doctor check classes were run directly by regressions.
+SECURITY=PASS SecurityTrustBoundaryTest.
+PRIVACY=PASS AnonymousLearnerPrivacyHttpTest.
+PREFLIGHT=PASS production mode; 22 checks, 0 warning/fail.
+SMOKE=PASS production mode; 10 boards, 8,962 questions, 2,705 eligibility records.
+PRODUCT_READINESS=NOT_READY (fail-closed). ProductReadinessTest passed; real-browser evidence, human sessions, site-specific privacy terms, and live HTTPS hosting remain unverified. No product launch claim is made.
+TESTS_PASS_FAIL_SKIP=Final HEAD: 4 focused regressions PASS (Batch 675 static precision, Batch 675 source pathways, Batch 672 count reconciliation, Batch 672 educational quality); PHP lint 11/11 PASS; JSON parse 8/8 PASS; whitespace checks PASS. On the same code/content tree before commit: 46 Doctor release flows PASS plus MultiExamEligibility, FlashcardIntegration, SourceStudyLibrary, QuestionStudyReference, SourceReadinessContract, TenBoardLearnerJourneyHttp, SecurityTrustBoundary, AnonymousLearnerPrivacy, and ProductReadiness tests PASS. DoctorIntegrityTest: 1 FAIL due to stale ignored report fixture. Skips were not separately reported.
+UNRESOLVED_GAPS=DoctorIntegrityTest still reads stale persisted health data and its simulator is not session-isolated; two CSRF-only simulator records were retained. Batch 674 screenshots could not be inspected and there is no current-HEAD browser pass. Product readiness remains NOT_READY. Eight source-review signals remain deferred or justified; unsupported CSE child-scope claims remain UNKNOWN.
+COMMITS=49a398d6978e74f2984c23a075f1b21c4e0b407f — feat: recover Batch 675 source quality and Doctor precision.
+PUSH_STATUS=SUCCESS. Ordinary non-force fast-forward `git push origin main` advanced remote main from ad0bf9b6e51bfbab8213e1609f047b9e3219d29b to 49a398d6978e74f2984c23a075f1b21c4e0b407f over GitHub SSH port 443; a post-push fetch verified the remote SHA.
+NEXT_BATCH_RECOMMENDATION=Isolate Doctor simulator session storage and make its health-filter test use deterministic current evidence; obtain authenticated access to the Batch 674 visual artifact; resolve remaining source-review deferrals only when primary evidence is available.
+CLIPBOARD_STATUS=UNVERIFIED; termux-clipboard-get returned empty content (0 bytes) after the set command.

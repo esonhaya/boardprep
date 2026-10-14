@@ -1,0 +1,82 @@
+BOARDPREP — BATCH 672 FINAL REPORT
+Source-first educational quality and mainline reconciliation
+
+ACTUAL_START=2026-10-14 01:10 Asia/Manila (approximate; first checkpoint)
+ACTUAL_END=2026-10-14 02:23 Asia/Manila
+ELAPSED_MINUTES=Approximately 73; meaningful work ended without padding the requested 180-minute target.
+CHECKPOINTS=
+- ~30 min / 01:39: reconciled the CSE Q6298 vs LET Q86 runtime collision; source-linked LET/CSE math and civic items; began focused regression checks. Storage ~2.3 GB free.
+- ~60 min / 02:05: completed ten-board/source review, HayaDoctor review, content and Doctor work; repaired a timing-sensitive simulator test; production preflight and smoke passed. Storage ~1.4–1.5 GB.
+- No 90/120/150-minute checkpoints: work was stopped after meaningful implementation and verification when storage dropped below the 1.5 GB safety target; no artificial wait or repeated unchanged suites.
+
+MAIN_HEAD_BEFORE=d288b17b78a22e75d661d0b571baf0e9edf2d9b7
+MAIN_HEAD_AFTER=0060c8b4222d08c220cf26c93f8a06ea56db6260
+BATCH_BRANCH=batch672-educational-quality; retained at final commit. Work used ~/BoardPrep only; no new worktree.
+REMOTE_MAIN_BEFORE_AFTER=0eb9704ba293e0aa3402af5d01a2d3392c005b73 -> 0060c8b4222d08c220cf26c93f8a06ea56db6260; verified as ordinary fast-forward push.
+MAIN_DIRTY_DATA_PRESERVED=YES. Kept the original dirty storage/questions.json and its 19 learner-usage rows, all 7 original untracked files (.commandcode/batch460.txt, .commandcode/batch461.txt, three ME SVG assets, storage/question-statistics.json, tools/Batch596Author.php), the 220 observed ignored paths, recovery stash, attempts/weakness/statistics, and 23 pre-existing simulation-session files. Nothing learner-owned was committed or replaced. User estimate was 218 ignored paths; actual inventory was 220.
+BACKUP_VERIFICATION=PASS. Timestamped external backup: /data/data/com.termux/files/home/BoardPrep-batch672-recovery-20261014-011108. Tracked patch, staged patch, untracked copies, ignored inventory/copies, learner data, refs, and worktree inventory were recorded; manifests were checked with no mismatches. The 19 learner-usage rows remain unstaged. Recovery stash and prior batch refs remain intact.
+
+CSE_LET_SOURCE_RECONCILIATION=The 13 existing LET links to material constitution-review-foundation (Q42, 44, 46, 48, 50, 2434–2438, 2441–2443) are educationally defensible as shared civic foundations. The material title/summary now state that the CSC citation establishes CSE scope only; it does not claim LET exam coverage. Q46/Q50 retain civic contexts and also link to board-scoped LET math and CSE numerical resources with exact OpenStax sections. Specific privacy, accessibility, and assembly propositions cite the relevant primary legal sources. No eligibility was removed.
+PLACEMENT_COUNT_RECONCILIATION=The old runtime total 9,745 was reproducible with production QuestionPoolFilter. CSE Q6298 and LET Q86 had the same normalized stem, and both were eligible in CSE; their contexts, choices, answers, and explanations establish distinct questions. Q6298 received a records-audit-specific stem. Both IDs, correct answers, choices, and eligibility remain. Runtime is now 9,746; this was a real dedupe-by-stem placement loss, not an eligibility correction.
+HAYADOCTOR_COMMIT_REVIEW=Active submodule remains pinned at dc4fcda730d9a922f726593746e34ca0c9c0e890. Four recovery commits were reviewed and not published or copied: 8ba5815 (atomic JSON/report integrity; useful, separate publication), 7181e18 (static UI contract analyzer; useful, calibrate heuristic warnings), 33f551e (UI density checks; useful refinement), 0b5001c (dynamic chart dimensions; useful refinement). No submodule API conflict identified; separate HayaDoctor testing/publication remains required before repinning.
+
+CONTENT_CHANGES_BY_BOARD=
+- LET: 12 questions rewritten for clearer context, calculation, or source fit; civic links preserved; no eligibility changes.
+- Civil Service: Q6298 rewritten to distinguish it from Q86 and restore one runtime placement.
+- CPA: Q1300, Q1306, Q1316 explanations improved with explicit relevant-cost calculations and assumptions.
+- Psychometrician: Q4798 linked to RA 11036 and the related material; readiness remains DEFER pending scope/currentness review.
+- Nursing and other boards: no unsupported content added; existing Batch 625 Nursing content and ten-board inventories were retained.
+QUESTIONS_ADDED_REWRITTEN=0 added; 17 rewritten. IDs, answer choices, correct-answer strings, taxonomy, and eligibility mappings stayed stable.
+STUDY_RESOURCES_ADDED_IMPROVED=Six materials improved; no study materials added (213 total). Six source records added (230 -> 236) and six question-resource links added (8,997 -> 9,003). Material areas: shared civic foundation, LET math, CSE numerical reasoning, CPA CVP/relevant decisions, and Psychometrician symptom/functioning review.
+AUTHORITATIVE_SOURCES_VERIFIED=Republic Acts 10173, 11036, 11106; NCDA revised 2024 BP 344 rules; Supreme Court E-Library, Integrated Bar of the Philippines v. Atienza; OpenStax Prealgebra 2e §6.5; OpenStax Introductory Statistics 2e §2.2. Corrected Prealgebra 2e publication date from 2024-01-01 to the official 2020-03-11 metadata. Reference links are listed below.
+SOURCE_REVIEW_SIGNALS_BEFORE_AFTER=46 -> 46. Classified as 35 LET scope-fit unknown, 3 LET structural, 3 Civil Service structural, 4 Criminologist structural, and 1 Psychometrician scope/currentness review. CPA Q1300/Q1306/Q1316 remain a separate conservative editorial review set; no source-fit signal was falsely marked resolved. Zero confirmed hard source defects.
+FLASHCARD_QUALITY=No flashcard text or key changes were justified in this pass; no new cards were authored. The pass prioritized source/question accuracy and retained justified exclusions. Full semantic editorial review of every card remains future work.
+FLASHCARD_INTEGRITY=PASS: 8,944 derivable cards, 18 documented justified exclusions, zero accidental non-derivable cards, across 8,962 eligible questions.
+DOCTOR_DETECTORS=Added Batch672EducationalQualityTest and Batch672CountReconciliationTest to ReleaseReadinessService. They check board-scoped source/material links, concrete source fit and explanation examples, stable answers, the Q86/Q6298 stem distinction, exact per-board native/effective/runtime counts, and stable classification of all 46 review signals. Doctor release flow also now includes the ten-board HTTP journey, privacy/session/security checks, and deployment-preflight isolation. This does not auto-promote subjective editorial warnings into failures.
+CANONICAL_BEFORE_AFTER=8,962 -> 8,962; no canonical IDs added, removed, or remapped.
+NATIVE_EFFECTIVE_RUNTIME_COUNTS=
+Board | Native | Effective declared | Runtime before | Runtime after
+Architecture | 484 | 484 | 484 | 484
+Civil Engineering | 922 | 922 | 922 | 922
+Civil Service | 1,553 | 1,807 | 2,115 | 2,116
+CPA | 1,132 | 1,132 | 1,132 | 1,132
+Criminologist | 451 | 554 | 554 | 554
+LET | 1,788 | 1,871 | 1,886 | 1,886
+Mechanical Engineering | 511 | 511 | 511 | 511
+Nursing | 878 | 898 | 898 | 898
+Psychometrician | 401 | 401 | 401 | 401
+Registered Electrical Engineering | 842 | 842 | 842 | 842
+TOTAL | 8,962 | 9,422 | 9,745 | 9,746
+ELIGIBILITY=PASS; all 8,962 canonical questions remain eligible and linked; no board eligibility was removed. Per-board reconciliation is covered by a deterministic Doctor test.
+CROSS_BOARD_REUSE=PASS for reviewed items. Shared civic use across Civil Service, LET, and Criminologist remains explicit as an editorial foundation; CSC exam-scope claims are confined to Civil Service. LET/CSE quantitative material stays board-scoped. Other cross-board reuse is unchanged.
+HISTORICAL_COMPATIBILITY=PASS for the changed records: all canonical question IDs, choices, and correct-answer strings are preserved; the 19 existing learner usage rows and historical attempts/session files match the backup. Historical learner-flow and attempt-safety checks passed in the completed Doctor evidence. No learner records were committed.
+
+TEN_BOARD_HTTP=PASS in the completed Doctor evidence: LET, CSE, CLE, NLE, PLE, CE, CPA, ME, REE, ARCH; journey includes board/subject selection, study links, practice, scoring, result, history, progress, retry, stale-action recovery, and persistence.
+SECURITY=PASS in Doctor evidence for CSRF, session configuration/isolation, and trust-boundary checks. Full suite was not rerun after the final source-date-only metadata correction.
+PRIVACY=Automated privacy export/deletion and session-boundary tests passed in Doctor evidence. This does not constitute owner privacy approval or legal sign-off.
+PREFLIGHT=PASS on final commit with production environment; 22 checks passed, 0 warnings, 0 failures.
+SMOKE=PASS on final commit; 5 checks passed.
+DOCTOR_RELEASE=PASS by composed evidence, not by one final full CLI run. The first completed suite had 31/32 pass; the sole failure was an existing simulator assertion comparing against a wall-clock second after slow HTTP bootstrap. Fixed it to compare the server deadline to stored started_at + 300 seconds; targeted simulator journey then passed (timed/untimed setup, resume, navigation, review, expiry, partial scoring, history, retry, concurrent exact-once submission). Final evidence combines 29 unaffected full-run results and 3 targeted final-commit test passes (simulator plus both Batch672 regressions), covering 32 unique checks, with 0 final known failures. The ReleasePackageTest passed in the earlier full run but was not rebuilt after the source publication-date-only correction because free storage was below 1.5 GB. Repository Health was REVIEW with 0 FAIL findings; release gate PASS, decision RELEASE_READY_WITH_NONBLOCKING_DEBT, no P0 blockers. Evidence: recovery bundle doctor-release-composed-final.json.
+PRODUCT_READINESS=NOT_READY. No product-launch claim. The report’s own browser-validation field still says current-commit evidence not verified even though the later GitHub workflow for this exact commit succeeded; owner-approved privacy terms are absent. Real human acceptance and live-host verification remain open.
+BROWSER_EVIDENCE=GitHub Actions Browser acceptance run 38445430141 for final SHA 0060c8b4222d08c220cf26c93f8a06ea56db6260 completed successfully; job 115462428963, browser step and artifact collection/upload succeeded. URL: https://github.com/esonhaya/boardprep/actions/runs/38445430141. Artifact 11838316903 (boardprep-chromium-visual-qa, 89,606,848 bytes) retained remotely; not downloaded because free storage was below the 1.5 GB target. The workflow configuration targets 320x640, 360x800, 390x844, 430x932, and 768x1024. Local Playwright Chromium is unsupported on Termux. Per-viewport counts were not extracted; screenshots inspected locally: 0. Do not infer screenshot review or physical Android/screen-reader acceptance.
+TESTS_PASS_FAIL_SKIP=Final composed Doctor evidence: 32 unique checks covered, 32 passed in final evidence (29 reused unchanged + 3 targeted final-commit passes), 0 final known failures, 0 reported skips. The initial simulator timing assertion failure is documented above. Separate final focused Batch672 education and count tests PASS; content integrity PASS. PHP lint and JSON parse checks PASS; git diff --check PASS. Package archive test not rerun after metadata-only source date change.
+UNRESOLVED_CONTENT_GAPS=35 LET competency/source crosswalks remain UNKNOWN; three shared CSE structural rows appear in Civil Service review; four Criminologist structural/general-foundation rows remain non-actionable; Psychometrician mental-health law scope/currentness remains DEFER; three CPA explanations remain conservative editorial review signals. No unsupported question authoring was used to mask these gaps.
+OWNER_HUMAN_LIVE_HOST_BLOCKERS=Owner must supply and approve privacy terms, operator identity/contact, and retention/log/backup policies. Complete the 12 human acceptance cases on real devices/browsers; perform live HTTPS, hosting-provider/PHP-extension, cookie/session, filesystem permission, route, and backup verification. No privacy approval, WCAG conformance, screen-reader acceptance, or live deployment is claimed.
+COMMITS=
+- 9068f218eb030a03ba68264cba615fb4203e259f — Batch 672: improve source-first study quality
+- 0060c8b4222d08c220cf26c93f8a06ea56db6260 — Batch 672: correct OpenStax source date metadata
+PUSH_STATUS=Both commits integrated into local main and pushed to origin/main by ordinary fast-forward after remote ancestry/state verification. No force push; earlier batch refs and tags were not changed.
+STORAGE_BEFORE_AFTER=Observed 2.3 GB free before work (user estimate: ~2.7 GB); ~1.3 GB free at report time. Below the preferred 1.5 GB floor, so no large browser download or final archive rebuild was attempted.
+TEMP_ARTIFACTS_CLEANED=Removed the verified disposable ~90 MB isolated Doctor test storage and targeted simulator session after retaining evidence. No browser ZIP downloaded. Pre-existing learner/session files, ignored files, recovery bundle, and other projects were not cleaned.
+NEXT_BATCH_RECOMMENDATION=Restore storage headroom, then review the 35 LET scope crosswalks with an authoritative blueprint; complete product-owner privacy/retention decisions and human acceptance; inspect selected screenshots from the existing final-commit CI artifact; rerun the final packaging/full Doctor suite when safe; then prioritize source-backed coverage gaps rather than raw question-count growth.
+REPORT_FILE=/data/data/com.termux/files/home/BoardPrep-batch672-final-report.txt
+CLIPBOARD_STATUS=UNVERIFIED
+
+PRIMARY SOURCE REFERENCES
+- Official Gazette, RA 10173: https://officialgazette.gov.ph/2012/08/15/republic-act-no-10173/
+- Supreme Court E-Library, RA 11036: https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/83255
+- Supreme Court E-Library, RA 11106: https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/85265
+- NCDA, Revised 2024 BP 344 rules: https://ncda.gov.ph/revised-2024-rules-and-regulations-implementing-batas-pambansa-344/
+- Supreme Court E-Library, Integrated Bar of the Philippines v. Atienza: https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/53592
+- OpenStax Prealgebra 2e §6.5: https://openstax.org/books/prealgebra-2e/pages/6-5-solve-proportions-and-their-applications
+- OpenStax Introductory Statistics 2e §2.2: https://openstax.org/books/introductory-statistics-2e/pages/2-2-histograms-frequency-polygons-and-time-series-graphs

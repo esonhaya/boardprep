@@ -1,0 +1,40 @@
+BATCH 670 CHECKPOINTS
+Start: 2026-10-13 00:12:36 Asia/Manila (2026-10-12 16:12:36 UTC)
+Baseline: batch669-nursing-integration @ 1055fae27f1fd6d921ad513aa81e5522968def00
+New branch/worktree: batch670-product-completeness @ /data/data/com.termux/files/home/BoardPrep-batch670
+Protected baseline: main 0eb9704ba293e0aa3402af5d01a2d3392c005b73 (dirty, retained); B668 2354826b46820118083c61b3176002cbf8d8c124 (untracked question-statistics.json retained); B669 1055fae27f1fd6d921ad513aa81e5522968def00 (attempts 07d3c742c80441f760f80ba3cf66cd16859d997ef7a94c62010fb8237aa91db8; weakness 37a10db2fe279be3349e2977fc93ebd089950b7bd695c2d1939b2f75ae20ccad; question-statistics a2c5bd7e6372f9b72714c71e0f4269a0e79890781a458be3f1164118ac84a4b8)
+Disk free at start: 3.4 GB
+
+CHECKPOINT_30_MIN — 2026-10-13 00:42 Asia/Manila
+Exam flow: Full deterministic HTTP simulation passed after result-page 500 fix; timed/untimed configuration, persisted deadline, refresh resume, edit/review gate, expiry submission, unanswered scoring, retry, duplicate-submit guard, exact-once attempt metadata, and explicit history labeling passed.
+Mobile/accessibility: Added route-change focus handoff for question, review, result, and alert; responsive exam controls and settings labels present. Accessibility contract 11/11 and prior UI contract 20/20 passed; browser engine unavailable locally.
+Eligibility: Collision-sensitive identity/board parity passed in 6 seconds after index optimization; baseline took >131 seconds and was interrupted. This is >21x faster at the test boundary. Nursing/CPA/Criminologist separation cases passed.
+Learner journey: Source/resource traceability and canonical question identity passed; recommendation actionability 7/7, study plan 7/7, deterministic flashcard derivation passed. Flashcard integration is currently running in isolated storage.
+Remaining: Finish flashcard/history/practice journey and security/privacy checks; run Doctor, preflight, smoke, product readiness and release gate; commit/push branch for Chromium CI and inspect any retained screenshots.
+
+CHECKPOINT_60_MIN — 2026-10-13 01:11 Asia/Manila
+Exam simulation: Timed/untimed setup, server deadline, refresh recovery, answer editing, review-before-submit, expiry, unanswered scoring, retry and exact-once behavior pass the deterministic HTTP flow. Product readiness now records exam simulation as verified while official board durations/formats stay deferred.
+Mobile/accessibility: 11 structural accessibility checks and 20 UI contracts pass; focus moves to route updates and timer/review controls meet mobile sizing. Current browser engine is remote CI only; local Termux has no Chromium.
+Eligibility: Indexed collision-aware resolver passes all CPA, Criminologist and Nursing cases; test runtime 6s versus baseline >131s.
+Learner flows: Practice, history/results, flashcards, privacy export/delete, session/CSRF and stale-start recovery pass. Ten-board production HTTP journey is running.
+Release checks: Production preflight and smoke pass. First Doctor release run identified one stale MultiAttemptLearningHttpTest expectation (the new mandatory answer-review redirect); test now follows review and final submit and passes alone against fresh isolated storage. Full release gate rerun pending.
+Remaining: Finish ten-board journey, rerun affected Doctor release gate on fresh isolated storage, current-commit Chromium CI, final Product Readiness, protection checks, commit/push and report/clipboard.
+
+CHECKPOINT_90_MIN — recorded 2026-10-13 01:48 Asia/Manila (CI and failure triage ran past the mark)
+Core implementation is committed and pushed at c40bafe5c5b9c1de09c87c93e464104e27714c12. Doctor release gate passed (32 script entries, 22 unique scripts, all PASS; zero P0); preflight/smoke pass; ten-board journey passes all boards.
+Chromium run 38284678368 executed the exact commit: 18 passed, 4 failed, 2 skipped, 0 browser console/network errors. All four failures exposed one confirmed UX gap: a requested board/configuration silently resumed an unfinished attempt, so the learner form and intended subject were inaccessible. The workflow artifact contains 47 curated screenshots. I inspected actual desktop 1366x768 and mobile 390x844 quiz setup screenshots; their layouts are readable. Product-level fix now shows active board/mode/progress, warns that starting a new session discards unfinished answers, and offers a direct resume link. Refresh without a new setup still resumes.
+The active-session switch HTTP regression passes; mobile/accessibility view contracts now pass 12/12 and UI contracts 20/20. Targeted exam HTTP regression is running. The initial Chromium run report/artifact is retained outside the repository.
+Remaining: finish impacted exam test, commit/push the session-switch fix, rerun current-commit Chromium and inspect screenshots, rerun Doctor release gate and Product Readiness, verify protected stores and report/clipboard.
+
+CHECKPOINT_120_MIN — 2026-10-13 02:12 Asia/Manila
+Exam and active-session flows: commit 581d0e7 adds an explicit warned board/session switch while preserving refresh resume and answers when generation fails. Active-session HTTP regression and ten-board HTTP journeys pass.
+Browser acceptance: current commit 581d0e789664e6b4e43288f4c323cc13c606e4f6 passed GitHub Chromium run 38287375462: 22 passed, 0 failed, 2 skipped, desktop/mobile, all five required viewport sizes. I inspected actual mobile dashboard, quiz setup, timed exam review, result explanation, and privacy screenshots. No visible horizontal overflow or broken control hierarchy in those views. Study-library screenshot exposed 44 LET material cards creating a 62,672px full-page capture.
+Release verification: Doctor on 581d0e7 passed its technical gate with 31 test entries / 21 unique scripts, zero failures and zero P0; health remains REVIEW for existing balance/depth/source-fit debt. Ten-board and Product Readiness contract tests passed; previous production preflight/smoke pass remains valid, to be rerun after the next product change.
+Study journey: added accessible title/note search, zero-result recovery, and collapsible note/source sections opening on direct resource links; regression covers all ten boards, matching/no-match search, direct links, sources, and positional notes. Study-library and mobile accessibility view tests pass; standalone test-fixture session cleanup is being verified.
+Remaining: finish isolated fixture cleanup check, commit/push study discovery improvement, run exact-commit Chromium and inspect shorter library capture, rerun Doctor + preflight/smoke + Product Readiness, verify protected trees/stores, report and clipboard.
+
+CHECKPOINT_150_MIN — 2026-10-13 02:42 Asia/Manila
+Implementation: Exam simulator lifecycle and active-session switching, mobile form sizing, source-backed study-library search/disclosures, structured-card overflow correction, indexed eligibility, and focused regression coverage are committed on the dedicated Batch 670 branch.
+Browser acceptance: Chromium workflow 38291889257 passed on fa6edcdb8ace2b126aff3f049fbe60fc98fc5f67 (22 passed, 0 failed, 2 skipped, 0 flaky). I inspected the actual 390x844 structured-flashcard, study-resource, and LET setup screenshots; page width stays contained, controls render full width, and study content/search are legible. Artifact 11767251603 retained at the Batch 670 run folder.
+Release verification: Full Doctor release gate is running against a fresh isolated copy of the captured baseline storage; Browser evidence is clean and exact-commit. Protected worktrees and learner-data hashes remain unchanged; 1.3 GB free.
+Remaining: Finish Doctor, run final preflight/smoke as needed, import the exact Browser manifest into ignored test-results and record Product Readiness, recheck branch/protection/storage, then write and clipboard-verify the report.

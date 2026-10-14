@@ -1,0 +1,54 @@
+BOARDPREP — BATCH 669R
+INTERRUPTION VERIFICATION + OVERNIGHT CONTINUATION
+
+HEAD_BEFORE=16cf11f1a699640975e627118817ef6cf90d1262
+HEAD_AFTER=1055fae27f1fd6d921ad513aa81e5522968def00
+BRANCH=batch669-nursing-integration
+INTERRUPTED_WORK_RECOVERED=YES; resumed the existing merge branch and reconciliation; no branch restart or merge/rebase was performed.
+EXISTING_COMMIT_VERIFIED=YES; reproduced the committed reconciliation JSON byte-for-byte and independently fingerprinted the main/B668 question snapshots and collision references.
+MAIN_UNCHANGED=YES; HEAD 0eb9704ba293e0aa3402af5d01a2d3392c005b73, dirty status and captured hashes match baseline; remote main unchanged.
+B668_UNCHANGED=YES; HEAD 2354826b46820118083c61b3176002cbf8d8c124, dirty status and captured hash match baseline.
+UNRELATED_WORK_PRESERVED=YES_WITH_SESSION_CAVEAT; learner files and protected worktrees are byte-exact; see SESSION_FILES_NOTE.
+
+COLLISIONS_REPORTED=320
+COLLISIONS_VERIFIED=320; every same-number collision independently classified by board, normalized stem, answer, explanation/source, eligibility, study links, reuse metadata, and mutable state.
+DISTINCT_QUESTIONS_PRESERVED=320; 151 CPA and 169 Criminologist records retain their original IDs and content.
+TRUE_DUPLICATES=320; incoming Nursing records match already-retained Nursing content under the verified canonical IDs; no new canonical rows were needed.
+IDS_REMAPPED=320 runtime compatibility aliases, 4163–4482 -> 4873–5192; persisted canonical IDs were not rewritten.
+REFERENCES_MIGRATED=Historical review/answer-plan references canonicalize in memory; 0 persisted content references or saved attempt snapshots were rewritten.
+UNRESOLVED_COLLISIONS=0
+NURSING_BEFORE_AFTER=Canonical/effective/runtime 878/898/898 -> 878/898/898 (main -> integrated); B668 -> Batch 669 also 878/898/898 -> 878/898/898.
+CANONICAL_BEFORE_AFTER=4482 -> 8962 (main -> integrated); 8962 -> 8962 (B668 -> Batch 669).
+EFFECTIVE_BEFORE_AFTER=4942 -> 9422 (main -> integrated); 9422 -> 9422 (B668 -> Batch 669).
+RUNTIME_BEFORE_AFTER=5266 -> 9746 (main -> integrated); 9746 -> 9746 (B668 -> Batch 669).
+COUNT_RECONCILIATION=Batch 669 added 0 canonical rows to B668; all 8962 integrated rows are active. The +4480 main-to-integrated difference is prior B668 lineage content, not this reconciliation. Main Nursing reconciliation: 558 exact-ID/content matches + 320 content matches under canonical IDs; main CPA: all 281 records retained exactly. All 320 mapped records have matching content fingerprints, references, and mutable state.
+MAIN_METRIC_REPLAY_NOTE=Counts were measured with the same B669 health code against committed main storage. That older snapshot returns HEALTH=FAIL (946 fail entities, including 482 flashcard and 464 malformed-question findings), so its health status is not treated as the B669 release result; only its canonical/effective/runtime totals are used for comparison.
+
+SOURCE_TRACEABILITY=PASS_WITH_REVIEW; no hard source/study defects; all reconciled sources resolve and linked materials match; Repository Health retains 46 source/scope review signals.
+FLASHCARD_INTEGRITY=PASS; 8944 derivable, 18 justified exclusions, 0 derivation/key/provenance defects.
+ELIGIBILITY_INTEGRITY=PASS; no deterministic eligibility failures; cross-board CPA/Criminologist records stay isolated from Nursing aliases.
+HISTORICAL_ATTEMPT_COMPATIBILITY=PASS; Nursing/NLE aliases resolve at read time, CPA remains unmapped, and persisted attempt snapshots stay unchanged. Current local attempts/statistics contain no IDs in 4163–4482.
+DOCTOR_GATES=Repository Health REVIEW (12 pass checks, 2 warnings, 0 fail checks, 1 review; 0 fail entities); release evaluator PASS after the targeted retest, 0 P0 blockers.
+
+TESTS_PASS=20/20 unique Doctor release-flow scripts after targeted retest; 10/10 isolated HTTP/security checks; 10-board production HTTP journeys; 7 focused content/flashcard tests; Batch 669 collision test; cross-board reuse; function test 67/67; Batch 666 UI contract 19/19 and app-shell JS; preflight; smoke; Chromium workflow.
+TESTS_FAIL=0 final confirmed. The first full release invocation had one nondeterministic FlashcardIntegrationTest failure; the test now uses a fixed simulation seed and improved failure context, then passed directly and through Doctor's exact subprocess runner. The other 19 unique release-flow scripts passed on the first full run.
+TESTS_SKIP=MultiExamEligibilityTest stopped after 2m11 because it performs an unbounded O(question-count x eligibility-records) scan; indexed Doctor eligibility, cross-board coverage, collision regressions, and ten-board journeys passed. Local Chromium/Playwright were unavailable; GitHub Chromium was used.
+PHP_JSON_VALIDATION=963 PHP files linted before final edits plus all 13 changed PHP files re-linted; all 105 JSON files across storage/config/tests/docs and package metadata validated.
+HTTP_TEN_BOARDS=PASS; LET, CSE, CLE, NLE, PLE, CE, CPA, ME, REE, ARCH; detail, study, practice, eligibility, answer, score, explanation, study link, history, progress, retry, stale action, and persistence.
+SECURITY=PASS; production CSRF, trust-boundary, session resilience, and protected-route checks.
+PRIVACY=PASS automated session-scoped export/deletion, CSRF/confirmation, isolation, and session rotation; deployment owner terms remain unconfigured.
+PREFLIGHT=PASS; 0 failures, 0 warnings.
+SMOKE=PASS; 0 failures, runtime 1390.121 ms.
+TECHNICAL_RELEASE_GATE=PASS_AFTER_TARGETED_RETEST; full run passed 19/20 initially, the sole failed randomized flow passed twice after deterministic seeding, and the gate evaluator then returned PASS with zero P0. Nonblocking source/currentness review debt remains.
+BROWSER_ACCEPTANCE=PASS; GitHub Actions run 22 (38273336678) on 1055fae27f1fd6d921ad513aa81e5522968def00; Chromium install, browser acceptance, artifact collection, and upload all succeeded. Artifact boardprep-batch667-visual-qa uploaded (122360299 bytes). Screenshots were not separately inspected. Run: https://github.com/esonhaya/boardprep/actions/runs/38273336678
+PRODUCT_LAUNCH_READY=NO; the post-commit Product Readiness report still records incomplete Exam mode, practical mobile/accessibility behavior, and deployment-specific privacy terms; owner privacy approval is absent and human acceptance remains outstanding.
+REMAINING_BLOCKERS=Owner-approved operator/contact, retention, hosting/log/backup and deletion disclosures; real-device human acceptance; mobile visual/overflow/keyboard/accessibility review; exam-mode scope and timing behavior. Product Readiness also requires its browser-evidence artifact to be recorded locally even though GitHub Chromium passed.
+NEXT_BATCH_RECOMMENDATION=Batch 670: close owner privacy/deployment terms, complete real-device human and mobile acceptance, record the current-commit browser evidence locally, and resolve the exam-mode scope decision.
+
+COMMITS=1055fae27f1fd6d921ad513aa81e5522968def00 (13 source/test files only), parent 16cf11f1a699640975e627118817ef6cf90d1262.
+PUSH_STATUS=PUSHED origin/batch669-nursing-integration; upstream configured; no main push or release-tag change.
+STORAGE_BEFORE_AFTER=3.8 GB -> 3.6 GB free; at least 1 GB remained. attempts.json SHA256 07d3c742c80441f760f80ba3cf66cd16859d997ef7a94c62010fb8237aa91db8; weakness.json 37a10db2fe279be3349e2977fc93ebd089950b7bd695c2d1939b2f75ae20ccad; question-statistics.json a2c5bd7e6372f9b72714c71e0f4269a0e79890781a458be3f1164118ac84a4b8. All match captured baselines.
+SESSION_FILES_NOTE=The first, pre-isolation FlashcardIntegrationTest updated two pre-existing ignored files under storage/doctor/simulation-sessions before their original bytes were captured. They were retained and not touched by later isolated runs. Current hashes: sess_batch531-integration-a 4d92a54cecef6c83cb4bb4bec21b5d56628e98bf713f5840159e37ecb56b8833; sess_batch531-integration-b d370c17ff7a40b70a75965dff34308b5a1ffbf6be94bff705165733176978643. Their exact pre-run contents cannot be verified.
+REPORT_FILE=/data/data/com.termux/files/home/BoardPrep-batch669-overnight-report.txt
+CLIPBOARD_STATUS=UNVERIFIED
+CLIPBOARD=UNVERIFIED; termux-clipboard-get returned 0 bytes, so exact readback could not be confirmed.

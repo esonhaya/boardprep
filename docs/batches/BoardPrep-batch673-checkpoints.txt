@@ -1,0 +1,62 @@
+BATCH 673 CHECKPOINT — ~30 MINUTES
+Actual time: 2026-10-14 13:09 PST (Asia/Manila)
+Work completed:
+- Recovered 368,721,920 bytes from four verified completed Batch 670 test storage fixtures and one byte-identical generated cache copy.
+- Preserved all recovery bundles, worktrees, browser evidence, unknown ignored files, and parent test reports. Recorded inventory and SHA-256 manifest at ~/BoardPrep-batch673-storage-inventory.txt and ~/BoardPrep-batch673-fixture-files.sha256.
+- Free storage increased from 1,526,264 KiB to 1,886,344 KiB (~1.8 GiB), still below the 2.5 GB target but above the 1.5 GB floor; avoid large downloads/artifacts.
+- Created branch batch673-let-source-quality in the existing checkout only.
+- Verified main/origin baseline HEAD remains 0060c8b4222d08c220cf26c93f8a06ea56db6260; protected dirty learner data remains unstaged.
+- Snapshotted all 19 rows with learner-use deltas as complete question records to ~/BoardPrep-batch673-learner-usage-before.json (SHA-256 6453d32a209f6e6f564bc94a712433d5c9e0f32701f8c3879504f19a5573ab2d).
+Educational/source findings:
+- PRC’s current Resolution 11 s.2025 TOS explicitly names inclusive foundations and child/adolescent learning outcomes, but does not enumerate each historical theorist as a discrete official blueprint leaf.
+- OpenStax, Cornell, Open University, CAST, PRC, and Supreme Court E-Library sources can support improved existing theory, assessment, and inclusion material.
+- Mapped the 35 requested source-readiness gaps to their question IDs and actual linked materials. The 67-question professional-development readiness group is an aggregation detector limitation; three CSE structural placeholders are separate.
+- Found 22 template explanations in LET questions 259–272 and 280–289; no question-count or eligibility changes planned.
+Tests/regressions: baseline hashes, file inventory, references, counts, PRC source search; no implementation tests yet.
+Next high-value work: add verified source references, improve existing LET learning/assessment/inclusion materials and question rationales, publish machine-readable crosswalk, add deterministic Doctor checks, then run bounded validation.
+Storage free: 1,886,344 KiB (~1.8 GiB).
+Blockers: 2.5 GB recovery target not reached safely; continue lightweight bounded work above the 1.5 GB floor.
+
+BATCH 673 CHECKPOINT — ~90 MINUTES
+Actual time: 2026-10-14 14:17 PST (Asia/Manila)
+Work completed:
+- Reviewed all 35 targeted LET crosswalks; machine report classifies 15 VERIFIED, 19 CORRECTABLE (broad academic subtopics supported without claiming individual official leaves), and 1 DETECTOR_LIMITATION; no item was deferred for lack of evidence. The remaining target unknown is the 67-question aggregate professional-development bucket.
+- Added eight source records, strengthened five existing LET study materials, corrected source associations, and improved 22 existing LET rationales without adding questions or changing answers/IDs/taxonomy/eligibility.
+- Added 36 specific source-linked study-question relationships; crosswalk scope UNKNOWN changed 35→1 (overall LET UNKNOWN 38→4 including three separate CSE structural placeholders).
+- Added the deterministic LET crosswalk Doctor and regression for stale IDs, undeclared sources, and a question missing its material pathway.
+- Updated the Batch 672 count reconciliation expectation to reflect completed crosswalk review; canonical/effective/runtime totals remain 8,962 / 9,422 / 9,746. Remaining source review signals reconcile to 12.
+Tests and regressions:
+- Batch 673 focused test PASS; targeted PHP syntax PASS.
+- Batch 672 count reconciliation PASS; Batch 672 educational-quality regression PASS.
+Storage free: approximately 1,870,636 KiB (~1.79 GiB), above the 1.5 GB floor.
+Cleanup performed: none since the verified 368,721,920-byte recovery; no additional temporary artifacts created.
+Next high-value work: validate source/readiness compatibility, run the bounded Doctor release/preflight/smoke and Product Readiness, inspect count and flashcard integrity, then commit content-only changes while excluding learner-use deltas and integrate/push safely.
+Blockers: 2.5 GB free target not reached safely; continue within bounded storage.
+
+BATCH 673 CHECKPOINT — ~120 MINUTES
+Actual time: 2026-10-14 14:41 PST (Asia/Manila)
+Work completed:
+- Second, current-code Doctor release run completed: RELEASE_GATE=PASS; 32 included flow scripts pass, 0 fail/unknown. Health snapshot: REVIEW with 12 PASS, 2 WARN, 0 FAIL, 1 REVIEW; no P0 blocker.
+- Flashcards remain 8,944 derivable, 18 justified exclusions, 0 nonderivable defects.
+- Corrected a preexisting source registry validator omission for the already-catalogued Supreme Court decision type; SourceStudyLibraryTest now passes. LET content foundation and Flashcard foundation tests also pass.
+- Production preflight and smoke pass when run with APP_ENV=production APP_DEBUG=false. Default development-mode failures were expected configuration checks, not product defects.
+- Product Readiness remains NOT_READY due real-browser/human acceptance and owner-approved privacy terms/contact/retention; no such evidence was claimed.
+- No UI or routes changed; no browser artifact retrieval was necessary, keeping storage use bounded.
+Tests:
+- Batch 673 crosswalk regression PASS; source study library PASS; LET content foundation PASS; flashcard foundation PASS; ten-board count reconciliation PASS; Batch 672 educational quality PASS; complete release flow 32/32 PASS.
+Storage free: approximately 1,865,172 KiB (~1.78 GiB) after temporary test storage cleanup; above the 1.5 GB floor.
+Cleanup performed: one full release test-storage fixture was automatically cleaned; no unique evidence/data removed.
+Next high-value work: verify all 19 learner-usage rows against the retained baseline snapshot, run final JSON/PHP checks, prepare a sanitized question-file index excluding learner deltas, commit only verified source/content/test changes, then fast-forward local and remote main safely.
+Remaining source gaps: one 67-question aggregate LET development bucket remains a detector limitation; 3 CSE structural placeholders remain outside the LET review.
+
+BATCH 673 FINAL CLOSEOUT CHECKPOINT
+Actual time: 2026-10-14 14:58 PST (Asia/Manila), approximately 137 minutes elapsed.
+Completed:
+- Two verified commits integrated into local main and pushed by ordinary fast-forward; main, origin/main, and batch673-let-source-quality all resolve to 279fbf3b6551c880be9ea96eee95dba79f3625bb.
+- Current-main crosswalk and Product Readiness regressions pass; Batch 672 count and study-library regressions pass; 19 learner usage rows match the retained snapshot.
+- Doctor release suite passed 32/32 included flow scripts on the same application/content tree before the final Doctor-only audit tightening; final targeted Doctor check and regressions pass.
+- Production-mode preflight and smoke pass. Product Readiness remains NOT_READY for human/browser, owner privacy, and live-host evidence.
+- Temporary test storage was removed automatically; the sanitized question staging file was verified identical to the committed question object and removed.
+Storage free: 1,873,328 KiB (~1.79 GiB), above the 1.5 GB floor; immediate cleanup recovered 368,721,920 bytes.
+Preservation: all 26 historical storage inventory hashes exact; 23 simulation sessions; two preexisting stashes; seven untracked files; all ignored paths retained.
+Checkpoint audit: approximately 30, 90, and 120-minute checkpoints were recorded. A distinct 60-minute checkpoint was missed; work concluded before 150 minutes, with no artificial waiting.

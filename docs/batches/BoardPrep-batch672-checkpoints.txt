@@ -1,0 +1,19 @@
+Batch 672 work checkpoints (all times Asia/Manila)
+
+Start: 2026-10-14 01:10 Asia/Manila (approx; first progress marker)
+Baseline: branch batch672-educational-quality at d288b17b78a22e75d661d0b571baf0e9edf2d9b7; primary checkout only; 2.3 GB free.
+Baseline implementation: verified 8,962 unique native records; 9,422 declared effective placements; 9,745 production runtime placements. Found the 1-placement gap: exact normalized stem collision between LET Q86 and CSE Q6298.
+Baseline audits: 10-board RepositoryHealth snapshot completed read-only (15.9 s); zero FAIL; 2 WARN, 1 REVIEW. Source review signal breakdown totals 46: LET scope-fit unknown 35 + structural 3; CSE structural 3; Criminologist structural 4; Psychometrician currentness unknown 1. Baseline snapshot counts: LET 1,788/1,871/1,886; CSE 1,553/1,807/2,115; Criminologist 451/554/554; Nursing 878/898/898; remaining boards each native/effective/runtime unchanged as captured in the task transcript.
+Next: classify source signals, finalize scope/source findings, then improve LET civic/math links and CPA learner explanations. Main dirty learner-data backup verified before code/content changes.
+
+Checkpoint ~30 min — 2026-10-14 01:39 Asia/Manila (elapsed approx 29 min)
+Completed: fixed Q86/Q6298 stem collision without ID or answer-key changes; confirmed 9746 runtime placements. Reframed shared civic study resource, added LET/CSE quantitative pathways with exact OpenStax section sources, RA 10173/11106, BP 344, Integrated Bar v. Atienza references, and the RA 11036 source path for Psychometrician Q4798. Improved CPA special-order, make-or-buy, and bottleneck explanations and linked them to the relevant-cost material.
+Tests: focused Batch672 educational-quality check PASS; three-way ten-board count regression PASS (8,962/9,422/9,746); Psychometrician source-readiness schema validation PASS; JSON parsing and PHP syntax checks PASS. Correct answer strings kept stable.
+Storage: 2.3 GB free; learner usage data and seven untracked files remain present; no temp copies created by this checkpoint.
+Next: finish exact 46-signal and HayaDoctor classifications, write evidence-backed audit, inspect learner-data deltas, then run isolated release/Doctor and deployment checks once.
+
+Checkpoint ~60 min — 2026-10-14 02:05 Asia/Manila (elapsed approx 55 min)
+Completed: finished source/eligibility review across ten boards; added source-backed LET/CSE quantitative paths and legal sources; improved CPA calculations and Psychometrician source traceability; added exact count and educational quality tests to the Doctor flow suite. The exact 9,745→9,746 runtime discrepancy is fixed by separating CSE Q6298 from LET Q86's identical stem.
+Tests: first full Doctor release run completed 42/43 PASS; the sole failure was a one-second wall-clock assertion in the existing simulator test. Reworked it against stored started_at + the exact 300-second limit; isolated simulator HTTP journey passed after the change. Second full run was stopped at the 1.5 GB storage floor; no package/artifact work was started from that point. Production preflight and smoke PASS with explicit production environment. Product Readiness NOT_READY due owner privacy approval, human acceptance, and live hosting evidence. Local Chromium unsupported on Android; the repository contains prior B671 browser evidence, not valid for this new content state.
+Storage: approximately 1.4–1.5 GB free after cleaning the exact 90 MB test fixture and targeted session directory; no active tests or large temp copies remain.
+Next: complete lightweight JSON/content checks, review exact staged content-vs-usage diff, commit only verified code/content/docs/tests, fast-forward local main, rerun small checks on final main, verify refs and dirty learner data, then report/clipboard.

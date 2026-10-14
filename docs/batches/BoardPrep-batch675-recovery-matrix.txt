@@ -1,0 +1,151 @@
+BOARDPREP — BATCH 675 RECOVERY MATRIX
+Created: 2026-10-14 20:41 Asia/Manila
+
+RECOVERY STATE
+- Checkout: /data/data/com.termux/files/home/BoardPrep
+- Branch: batch675-static-source-quality
+- HEAD before recovery: ad0bf9b6e51bfbab8213e1609f047b9e3219d29b
+- main and origin/main after requested fetch: same SHA as HEAD; no newer remote ancestry.
+- Batch 675 commits found: none. Batch branch was created but still points to baseline.
+- Existing Batch 675 work: 13 modified tracked files plus 5 new implementation/test files.
+- Existing unrelated/pre-batch untracked entries: 7 (two .commandcode files, three ME SVGs, storage/question-statistics.json, tools/Batch596Author.php); preserved.
+- Ignored entries: 220; preserved.
+- Existing checkpoint: ~/BoardPrep-batch675-checkpoints.txt. It records a 30-minute checkpoint and the previous test results.
+- Existing final report: none found. No separate PHP/test process was active during inspection; the current Codex session is active and was not interrupted.
+- Fetch: succeeded. No stash, worktree, ref, or ignored data was removed.
+- Storage: 2.5 GiB free at recovery inspection (checkpoint recorded about 2.0 GiB); keep at least 1.5 GiB free.
+- Learner data: attempts/weakness/simulation files were not modified. The dirty questions file has exactly 4 substantive content records (1234, 1300, 1306, 1316) and 19 learner-only metric records (46, 126, 226, 287, 361, 362, 364, 366, 367, 368, 372, 373, 375, 376, 377, 378, 379, 380, 501). Those 19 differ from HEAD only in usage counters and updatedAt; compact metric snapshot SHA-256=8c25e4c2e6d2d0f7ecc645a7a4fd1389ec252fd6d26f4ab2c394185a2dfa0ae2. The metrics remain unstaged and will be verified before/after integration. No learner data is staged.
+
+COMPLETION MATRIX
+
+1. Dependency-consistency findings (baseline: 43)
+Status: VERIFIED
+Files changed: tools/Doctor/Project/BoardPrep/Checks/DependencyConsistencyCheck.php; new tools/Doctor/Project/BoardPrep/Checks/DependencyFindingClassifier.php; tools/Tests/Batch675StaticDoctorPrecisionTest.php.
+Commits involved: none; all work is uncommitted on batch675-static-source-quality at ad0bf9b.
+Tests completed: checkpoint reports targeted static Doctor PASS and Batch675 static precision regression PASS; exact command/output not retained in the checkpoint.
+Findings resolved: prior implementation classifies dependency warnings, including analyzer artifacts and justified dynamic behavior, instead of suppressing all warnings.
+Findings remaining: recovery has not yet reproduced the live count against the 43-finding baseline or independently verified each classification.
+Source evidence: current dependency graph and call sites in the checked-in application; detailed evidence to be recorded during the renewed classification.
+Storage: no large fixture required; retain >=1.5 GiB free (currently 2.5 GiB).
+Next action: rerun the dependency Doctor check, compare the exact 43-item baseline, review every classification, fix confirmed defects, and run targeted regressions.
+
+2. Static call-signature findings (baseline: 9)
+Status: VERIFIED
+Files changed: tools/Doctor/Project/Shared/Checks/CallSignatureCheck.php; tools/Tests/Batch675StaticDoctorPrecisionTest.php.
+Commits involved: none; same uncommitted batch branch.
+Tests completed: checkpoint reports targeted static Doctor PASS and static precision regression PASS; recovery has not rerun them.
+Findings resolved: implementation distinguishes variadic analyzer false positives and justified unpacked/dynamic forwarding calls.
+Findings remaining: reproduce current count versus 9 and inspect every remaining or reclassified call; no independent recovery run yet.
+Source evidence: actual method signatures and invocation sites; classification rationale is encoded in the changed check and test.
+Storage: lightweight PHP checks; retain >=1.5 GiB free.
+Next action: reproduce the 9 baseline, audit all current findings, test valid dynamic cases and fix confirmed defects.
+
+3. Three Civil Service structural UNKNOWN crosswalks
+Status: VERIFIED
+Files changed: storage/source-readiness-civil-service.json; storage/sources.json; storage/study-materials.json; storage/study-question-links.json; storage/source-review-adjudications-batch675.json; new tools/Doctor/Project/BoardPrep/Checks/SourceScopeAdjudicationCheck.php; readiness record/service/validator.
+Commits involved: none; same uncommitted batch branch.
+Tests completed: checkpoint reports source-quality pathway PASS; dedicated scope/release checks have not been rerun in recovery.
+Findings resolved: checkpoint says the three parent-scope mappings were verified without asserting unsupported child blueprint leaves. Ledger records three VERIFIED_PARENT_SCOPE rows.
+Findings remaining: verify all three against the official announcement and confirm unsupported exact subtopics remain UNKNOWN; run the new integrity check.
+Source evidence: CSC Examination Announcement No. 03 s. 2026, 09 August 2026 CSE-PPT scope, official PDF URL stored in storage/sources.json and cited by the adjudication ledger.
+Storage: bounded JSON/PHP checks; retain >=1.5 GiB free.
+Next action: review the ledger and linked question/material IDs, verify official scope boundaries, then run CSE crosswalk checks.
+
+4. Eleven source-quality review signals
+Status: VERIFIED
+Files changed: storage/source-review-adjudications-batch675.json; storage/source-readiness-civil-service.json; app/Services/RepositoryHealth/Readiness/{SourceReadinessRecord,SourceReadinessService,SourceReadinessValidator}.php; source/material/link/question data files.
+Commits involved: none; same uncommitted batch branch.
+Tests completed: checkpoint reports source-quality pathway PASS. Ledger accounts for 11 rows; recovery has not rerun source-study link checks.
+Findings resolved: checkpoint reports aggregate signals decreased from 11 to 8. Ledger classifies 3 as VERIFIED_PARENT_SCOPE, 3 DEFERRED, 4 JUSTIFIED_EXCEPTION, and 1 DEFERRED_CURRENTNESS.
+Findings remaining: independently validate the 8 remaining signals, verify each adjudication and source fit, and preserve uncertainty where evidence is insufficient.
+Source evidence: the ledger cites CSC 2026 Examination Announcement No. 03; changed records include CSC scope, RA 6713, OpenStax Managerial Accounting sections 10.2/10.3/10.6, and the FHWA-backed Civil Engineering seepage material.
+Storage: source/link integrity scans are bounded; retain >=1.5 GiB free.
+Next action: compare the original 11 signal IDs with the ledger and current Doctor output; resolve only evidence-supported gaps.
+
+5. Cross-board source-first educational improvements
+Status: VERIFIED
+Files changed: storage/questions.json; storage/study-materials.json; storage/sources.json; storage/study-question-links.json; storage/content-fit-audits.json; storage/board-concept-coverage.json; tools/Tests/Batch675SourceQualityPathwaysTest.php; tools/Tests/Batch672CountReconciliationTest.php.
+Commits involved: none; same uncommitted batch branch.
+Tests completed: checkpoint reports Batch 672 count reconciliation PASS (canonical 8,962; effective 9,422; runtime 9,746) and source-quality pathway PASS. Recovery has not rerun content regressions.
+Findings resolved: checkpoint records improved Civil Service environmental/public-interest and RA 6713 learning paths, CPA relevant-cost decision questions/materials, and a Civil Engineering soil/seepage explanation/material. Existing LET content edits are also present in the dirty question file. No question-count increase is indicated by the checkpoint.
+Findings remaining: review changed stems/explanations/materials and precise question-resource links; confirm canonical identities, flashcard derivability, taxonomy, and board eligibility.
+Source evidence: CSC official examination announcement; RA 6713 source record; OpenStax Principles of Managerial Accounting chapters 10.2, 10.3, and 10.6; FHWA source record for seepage. Exact changed question IDs to be reported after review.
+Storage: content checks should reuse current storage and avoid full duplicated fixtures; retain >=1.5 GiB free.
+Next action: inspect substantive diffs, check the known learner-usage rows separately, and run content/link/eligibility/flashcard regressions.
+
+6. Doctor integrity checks and targeted regressions
+Status: IMPLEMENTED_UNVERIFIED
+Files changed: tools/Doctor/Project/BoardPrep/Checks/DependencyConsistencyCheck.php; new DependencyFindingClassifier.php and SourceScopeAdjudicationCheck.php; tools/Doctor/Project/Shared/Checks/CallSignatureCheck.php; new Batch675StaticDoctorPrecisionTest.php and Batch675SourceQualityPathwaysTest.php; source-readiness service/validator/record.
+Commits involved: none; same uncommitted batch branch.
+Tests completed: checkpoint reports targeted static Doctor PASS, source-quality pathway PASS, and count reconciliation PASS. Full Doctor release and security/privacy checks were not reported as run.
+Findings resolved: new classification and CSE-scope integrity mechanisms and regression coverage exist in the dirty worktree.
+Findings remaining: verify check registration, run focused regressions, then the requested Doctor release and security/privacy/product gates.
+Source evidence: explicit evidence ledger, PHP call-site signatures, and question/material/source relationships checked by the new tests.
+Storage: reuse existing test fixtures; no broad copies; retain >=1.5 GiB free.
+Next action: inspect/check registration and outputs, run focused tests first, then the storage-aware validation ladder.
+
+7. Batch 674 Chromium workflow 38542181424
+Status: PARTIAL
+Files changed: no Batch 675 files are known to affect this workflow; its artifacts are remote.
+Commits involved: workflow run was requested against Batch 674; exact commit not recorded in checkpoint.
+Tests completed: checkpoint states workflow conclusion FAILURE and a 90,461,732-byte artifact was available; logs/screenshots were not inspected there.
+Findings resolved: workflow status and artifact existence were identified.
+Findings remaining: verify exact commit/conclusion, inspect bounded test log and screenshots without downloading the large archive, if GitHub exposes them individually.
+Source evidence: GitHub Actions run 38542181424.
+Storage: do not download the 90 MB artifact unless free-space and value justify it; current free space is 2.5 GiB and minimum is 1.5 GiB.
+Next action: inspect run metadata/logs and a bounded screenshot set via browser or individual artifact access; report screenshot access honestly.
+
+8. Final validation, safe main integration, and reporting
+Status: PARTIAL
+Files changed: completion matrix and recovery checkpoint/report artifacts will be kept under ~/BoardPrep; implementation files remain as inventoried above.
+Commits involved: none recovered; HEAD/main/origin/main all remain ad0bf9b6e51bfbab8213e1609f047b9e3219d29b.
+Tests completed: only the checkpoint-listed targeted static Doctor, source-quality pathway, and count reconciliation checks are verified as previously passing. Recovery-run and final-HEAD tests: none yet.
+Findings resolved: recovery state and existing progress are recorded here; no destructive recovery occurred.
+Findings remaining: complete the requested validation ladder, preserve learner data, commit/integrate verified work into local main, decide whether safe fast-forward push is warranted, and create the final report/clipboard evidence.
+Source evidence: git status/branch/log/reflog, successful origin fetch, checkpoint file, session/process inventory, and current dirty diffs.
+Storage: 2.5 GiB free at inspection; preserve >=1.5 GiB free and avoid artifact-heavy duplicate fixtures.
+Next action: continue from existing edits and checkpoint; do not replay already implemented work wholesale.
+
+
+RECOVERY VALIDATION UPDATE (2026-10-14, Asia/Manila)
+
+- Reproduced static dependency findings: 43 total = 42 ANALYZER_FALSE_POSITIVE and 1 JUSTIFIED_DYNAMIC; unresolved 0, confirmed defects 0. The 42 records were verified against exact root-qualified symbols, instance parent dispatch, and token-level argument recounts in the stated source files. Targeted regression PASS.
+- Reproduced static call-signature findings: 9 total = 8 ANALYZER_FALSE_POSITIVE (true variadic targets) and 1 JUSTIFIED_DYNAMIC (verified spread forwarding); unresolved 0, confirmed defects 0. Targeted regression PASS.
+- CSE structural crosswalks verified against official CSC Announcement No. 03 s. 2026: the 2026 scope lists Constitution, RA 6713, Peace/Human Rights, and Environmental Management/Protection within General Information. The three BoardPrep rows (Constitutional Principles, Environmental Public Interest, Ethical Public Service) are supported as parent-level mappings. The child labels and weights remain explicitly editorial/unknown. CSC Announcement No. 05 s. 2026 states an individual announcement will provide 2027 scope; no unsupported 2027 leaf claim was added. SourceScopeAdjudicationCheck PASS.
+- All 11 baseline source-review entries are represented in the adjudication ledger: 3 verified CSE parent-scope rows; 3 LET rows deferred for missing independently verified PRC TOS annex evidence; 4 Criminologist shared-foundation exceptions retained outside native LEC scope; 1 Psychometrician currentness case deferred. Source-review warnings are 8 after recovery (11 before). Source pathway and source-readiness contract tests PASS.
+- Verified source-first learning changes on Civil Service, CPA, and Civil Engineering. Four existing question records were substantively touched: Q1234 (explanation/source path), Q1300 (exact special-order source relation), Q1306 (make/buy rationale/taxonomy/source), Q1316 (constrained-resource rationale/taxonomy/source). Answer identities remain intact; zero questions added. Five study-material records improved/linked. Four source records added (CSC 2026 notice and OpenStax sections 10.2, 10.3, 10.6). Exact source/link and CSE material pathway regression PASS.
+- Recovery-run checks PASS: Batch675StaticDoctorPrecisionTest; Batch675SourceQualityPathwaysTest; Batch672CountReconciliationTest (canonical 8,962; effective 9,422; runtime 9,746; source-review signals 8); PHP syntax for 10 changed PHP files; JSON parse for 8 changed JSON files; git diff --check; MultiExamEligibilityTest; FlashcardIntegrationTest; SourceStudyLibraryTest; QuestionStudyReferenceTest; SourceReadinessContractTest; TenBoardLearnerJourneyHttpTest across all 10 boards; SecurityTrustBoundaryTest; AnonymousLearnerPrivacyHttpTest.
+- DoctorIntegrityTest FAIL at its unchanged filter assertion. It expects TAXONOMY_GRANULARITY_REVIEW in storage/repository-health.json, but that ignored persisted snapshot is timestamped 2026-10-02 and contains no such queue row. Its timestamp predates this recovery; it was preserved without regeneration.
+- Production preflight: PASS, 22/22 checks, APP_ENV=production and APP_DEBUG=false. Production smoke: PASS, 10 boards, 8,962 questions, 2,705 eligibility records; no failures.
+- Browser workflow metadata verified via GitHub API: run 38542181424 completed FAILURE on exact commit ad0bf9b6e51bfbab8213e1609f047b9e3219d29b, branch main. Install/setup succeeded; browser acceptance step failed with exit 1; evidence upload succeeded. One unexpired artifact, boardprep-chromium-visual-qa, size 90,461,732 bytes. Job log endpoint returned HTTP 403, artifact download endpoint HTTP 401 without GitHub authentication, so screenshots were NOT inspected; no archive downloaded.
+- Current final gates still pending when this update was written: full Doctor release flow suite, Product Readiness, final protected-row hash check, final branch/main integration and push decision, final report and clipboard verification.
+
+RECOVERY VALIDATION UPDATE — FINAL PRE-INTEGRATION (2026-10-14, Asia/Manila)
+
+- The Doctor scope check is included by the normal CheckRegistry directory scan; targeted Batch 675 tests directly execute DependencyConsistencyCheck, CallSignatureCheck, and SourceScopeAdjudicationCheck. Existing ignored storage/doctor-report.json (Oct 13) and storage/repository-health.json (Oct 2) were preserved; no static Doctor CLI/report overwrite was performed.
+- Source-signal outcome: original 11 -> current 8 warnings. All 11 ledger rows reconcile: 3 CSC parent-scope verifications, 3 LET deferrals, 4 Criminologist justified shared-foundation exceptions, and 1 Psychometrician currentness deferral.
+- Educational data diff: 4 substantive question records improved (Q1234, Q1300, Q1306, Q1316), 5 study-material records updated, 4 source records added, 5 question-resource link rows updated, and 4 concept-coverage records reconciled. Canonical identities and answers are unchanged; no question-count inflation.
+- Question staging was sanitized from the HEAD blob: only Q1234/Q1300/Q1306/Q1316 were included. Structural comparison confirmed all 8,962 question rows match HEAD except those four. The 19 learner-metric records remain unstaged in the worktree; no attempt, weakness, statistics, or simulation-session data was staged. The only unstaged tracked path is storage/questions.json, with exactly those 19 usage-only rows. Seven unrelated untracked entries remain untracked.
+- Validation passed: 2 Batch 675 regression tests; count reconciliation (8,962 canonical / 9,422 effective / 9,746 runtime; 8 source-review signals); source study/library and question-reference tests; source-readiness contract; multi-exam eligibility; flashcard integration; ten-board learner HTTP journeys; security trust boundary; anonymous learner privacy; PHP syntax for changed/new PHP; JSON parse; and staged/worktree whitespace checks.
+- Full Doctor release rerun after correcting the Q1306 wording assertion: process exit 0, release gate PASS, decision RELEASE_READY_WITH_NONBLOCKING_DEBT, 46 flow tests passed, 0 failed/unknown. Health summary: 13 pass, 2 warning, 0 fail, 0 review (752 nonblocking issues); flashcard integrity 8,944 derivable, 18 justified exclusions, 0 defects.
+- Separate DoctorIntegrityTest failed at its filter assertion because the ignored persisted repository-health.json snapshot is from 2026-10-02 and does not contain TAXONOMY_GRANULARITY_REVIEW. The snapshot was preserved; this is a stale-fixture failure, not a Batch 675 content or PHP failure.
+- Production-mode preflight PASS (22 checks, 0 warning/fail); production smoke PASS (10 boards, 8,962 questions, 2,705 eligibility records). ProductReadinessTest PASS; the product-readiness command remains NOT_READY and reports no verified real-browser evidence, human sessions, site-specific privacy terms, or live HTTPS hosting. No launch claim is made.
+- Batch 674 run 38542181424: FAILURE on ad0bf9b6e51bfbab8213e1609f047b9e3219d29b; setup passed, browser acceptance failed, evidence upload passed. Artifact is 90,461,732 bytes; GitHub log/artifact endpoints require authentication (403/401), so no archive was downloaded and screenshots were NOT inspected.
+- Storage remained above threshold; latest free space 2.3 GiB. No disposable data, ignored files, stashes, refs, worktrees, or recovery bundles were removed.
+- Pending: commit verified staged files on this branch, fast-forward local main if ancestry still matches, rerun focused regressions on final HEAD, fetch and verify remote ancestry, ordinary fast-forward push only if safe, final report and clipboard verification.
+
+FINAL RECOVERY AND INTEGRATION (2026-10-14, Asia/Manila)
+
+- Original recovered state: main, origin/main, and batch675-static-source-quality began at ad0bf9b6e51bfbab8213e1609f047b9e3219d29b. The existing branch held uncommitted implementation; no Batch 675 commit or active prior test process existed. Resumed the existing branch without creating a worktree or replaying the mission wholesale.
+- Commit created: 49a398d6978e74f2984c23a075f1b21c4e0b407f, parent ad0bf9b6e51bfbab8213e1609f047b9e3219d29b. It contains 19 Batch 675 code/content/test files. Its questions.json delta includes only Q1234, Q1300, Q1306, and Q1316. No learner-generated storage was committed.
+- Local main advanced by compare-and-swap fast-forward from the recorded baseline. Final fetch verified origin/main=49a398d6978e74f2984c23a075f1b21c4e0b407f. Ordinary non-force `git push origin main` succeeded over GitHub SSH on port 443. Main, batch branch, and origin/main now match; no force operation was used.
+- Final-HEAD targeted tests PASS: Batch675StaticDoctorPrecisionTest, Batch675SourceQualityPathwaysTest, Batch672CountReconciliationTest, and Batch672EducationalQualityTest. Changed/new PHP syntax: 11/11 PASS; changed JSON parse: 8/8 PASS; staged/worktree whitespace checks PASS. Count reconciliation: canonical=8,962, effective=9,422, runtime=9,746, current source-review signals=8.
+- Full Doctor release PASS on the identical committed code/content tree before commit: release gate PASS, RELEASE_READY_WITH_NONBLOCKING_DEBT, 46 flow tests passed, 0 failed/unknown. Standalone DoctorIntegrityTest remains a known failure because its category filter reads the stale ignored 2026-10-02 repository-health.json snapshot. ProductReadinessTest PASS; the command correctly remains NOT_READY because real browser evidence, human sessions, site-specific privacy terms, and live HTTPS hosting were not verified.
+- Preservation correction: `FlashcardIntegrationTest` uses fixed simulator IDs `batch531-integration-a/b` without isolating APP_SESSION_PATH. It changed the shared ignored test-session A during recovery; B's bytes matched the preserved recovery snapshot. Both A and B were restored byte-for-byte and timestamp-wise from the existing `BoardPrep-batch672-recovery-20261014-011108/simulation-sessions` copy (23/23 pre-existing snapshot session files now match). The generated A output was preserved separately at `~/BoardPrep-batch675-checkpoints/simulation-session-after-flashcard-validation-sess_batch531-integration-a`. `DoctorIntegrityTest` created two random CSRF-only session files before its stale-snapshot assertion failed; they remain in place. No session file was deleted. This supersedes the earlier pre-test note that session files were untouched.
+- Learner preservation: the exact 19 question usage rows remain unstaged in the worktree; only counters/updatedAt differ from committed baseline for those IDs. Current compact metrics digest (defined over sorted-key JSON list of id and present usage fields) is bec41c5a5ec5ac4de7bee1b193abc5ea54466f6af7075f060aeba1491ef6e81b. Attempts, weakness files, untracked storage/question-statistics.json, and other pre-existing session files were not staged or removed. Seven unrelated untracked entries remain untouched. HayaDoctor submodule remains dc4fcda730d9a922f726593746e34ca0c9c0e890; 2 stashes and 5 worktrees remain.
+- Ignored status had 220 path entries at recovery inspection and 222 at final inspection; the two additions are the retained CSRF-only simulator session files described above. Existing ignored health snapshots and other ignored data were retained. The final Doctor/Repository Health snapshots were not regenerated or overwritten.
+- Final storage free space: 2.3 GiB (minimum 1.5 GiB maintained). No active PHP/test/browser process was found at final inspection.
+- Final report path: ~/BoardPrep-batch675-final-report.txt. Clipboard verification is pending final report creation.
+
+FINAL REPORT AND CLIPBOARD (2026-10-14T21:37:30+08:00)
+- Final report saved at ~/BoardPrep-batch675-final-report.txt. Clipboard set was attempted three times using the requested report file; termux-clipboard-get returned 0 bytes each time. CLIPBOARD_STATUS=UNVERIFIED; the complete report is printed in the final response.

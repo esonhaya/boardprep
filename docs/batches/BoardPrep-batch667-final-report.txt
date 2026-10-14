@@ -1,0 +1,103 @@
+BOARDPREP — BATCH 667 GITHUB VISUAL QA
+
+=== BASELINE ===
+HEAD_BEFORE=bbab9b0d36c9ce6303d287dc2c2599261ee44627
+HEAD_AFTER=c5e6369287d7cee2469621d7e5e81246e989001b
+BRANCH=batch667-github-visual-qa
+BATCH666_PRESENT=YES
+V1_TAGS_UNCHANGED=YES; local v1.0.0/v1.0.1 refs match the supplied hashes; no tag was modified or pushed.
+UNRELATED_WORK_PRESERVED=YES; left storage/weakness.json modified and storage/question-statistics.json untracked and unstaged.
+
+=== GITHUB ===
+REMOTE=github.com/esonhaya/boardprep
+WORKFLOW=.github/workflows/browser-acceptance.yml; GitHub-hosted Ubuntu, PHP 8.3, Node 22, npm ci, Playwright Chromium.
+WORKFLOW_RESTORED=NO; the existing workflow was extended with workflow_dispatch and categorized screenshot/evidence collection.
+PUSH_STATUS=SUCCESS; pushed only batch667-github-visual-qa.
+RUN_ID_BEFORE=38198966140 (failed on an ambiguous table-result locator; corrected).
+RUN_ID_AFTER=38200931826 (final commit passed).
+RUN_URLS=38198966140 failed; 38199504649, 38200144928, and 38200931826 passed. Final: https://github.com/esonhaya/boardprep/actions/runs/38200931826
+ARTIFACT_URLS=https://github.com/esonhaya/boardprep/actions/runs/38200931826/artifacts/11725317583 (86 screenshots, reports, diagnostics; 14-day retention).
+
+=== BROWSER ===
+CHROMIUM_VERSION=153.0.8010.12
+PLAYWRIGHT_VERSION=1.63.0
+BROWSER_EXECUTED=YES in GitHub Actions; no browser package was installed in Termux.
+SCREENSHOTS_CAPTURED=86; 47 mobile, 3 tablet, 36 desktop.
+SCREENSHOTS_VISUALLY_INSPECTED=YES; 9 representative final-run screenshots inspected, not all 86 individually.
+MOBILE_VIEWPORTS=320x640, 360x800, 390x844, 430x932.
+TABLET_VIEWPORTS=768x1024.
+DESKTOP_VIEWPORTS=1366x768, 1440x900.
+BROWSER_TESTS_PASS/FAIL=20/0; 2 project-scoped skips; 0 flaky.
+JS_CONSOLE_ERRORS=0; no uncaught page errors or failed requests.
+HORIZONTAL_OVERFLOW=No unexpected page overflow in audited states at a 2px tolerance; structured tables retain intentional local scrolling.
+KEYBOARD_NAVIGATION=PASS in Chromium for tested keyboard actions and visible focus; physical Android touch is NOT_VERIFIED.
+
+=== VISUAL AUDIT ===
+SCREENS_REVIEWED=Dashboard at 320/360px, table question and result, answer review, privacy deletion confirmation, error recovery, tablet dashboard, and desktop home.
+P0_FOUND/FIXED/REMAINING=0/0/0
+P1_FOUND/FIXED/REMAINING=0/0/0
+P2_FOUND/FIXED/REMAINING=6/6/0
+P3_FOUND/FIXED/REMAINING=0/0/0
+DEFECT_REGISTER=tests/browser/visual-defect-register.md
+VISUAL_NOTE=The privacy full-page confirmation capture shows the intentional focus-visible “Skip to main content” link after the checkbox action; this is a captured focus/scroll state, not a confirmed defect.
+
+=== UI REPAIRS ===
+HOME=Rendered and visually reviewed; no confirmed defect.
+NAVIGATION=Production 404/405 now use the shared shell and recovery links; mobile menu browser interactions pass.
+BOARD_SELECTION=All ten production board details and complete browser journeys pass.
+STUDY=Study library/resource navigation tested; no confirmed visual defect.
+PRACTICE_SETUP=Browser setup submissions pass with board/variant context preserved.
+QUIZ=Long/table question layouts tested at narrow widths; table-result page overflow fixed.
+RESULTS=Result review grid now contains long structured tables without widening the page; answer review remains readable.
+PROGRESS=Primary “Practice now” action receives consistent button styling.
+HISTORY=“Start practice” action receives consistent button styling; historical result flow passes.
+FLASHCARDS=Deck discovery/reveal interactions pass; no confirmed visual defect.
+PRIVACY=Export, delete confirmation, cancellation, session rotation and isolated-session browser checks pass.
+ACCESSIBILITY=Keyboard and semantic locator checks pass; no dedicated accessibility engine, screen-reader, or WCAG conformance claim.
+
+=== BEFORE/AFTER ===
+EVIDENCE_PAIRS=Six registered visual findings have before/after screenshots across runs; final dashboard and table-result repairs were visually confirmed in run 38200931826.
+UNRESOLVED_VISUAL_ISSUES=No confirmed P0/P1/P2 UI defect remains. Physical-device rendering, Android touch, screen-reader behavior, and human acceptance remain unverified.
+FINAL_SCREENSHOT_ARTIFACT=https://github.com/esonhaya/boardprep/actions/runs/38200931826/artifacts/11725317583
+
+=== REGRESSION ===
+TEN_BOARD_HTTP=PASS for LET, CSE, NURSING, CRIMINOLOGIST, CIVIL_ENGINEERING, MECHANICAL_ENGINEERING, REE, ARCHITECTURE, PSYCHOMETRICIAN, CPA; Chromium ten-board journeys also PASS.
+SECURITY=Production developer routes remain unavailable; production 404 recovery and route-boundary checks pass; no P0/P1 found.
+PRIVACY=PASS; isolated anonymous export/deletion and other-learner preservation verified.
+CSRF=PASS; production quiz mutations and privacy deletion remain CSRF-protected.
+SESSION_ISOLATION=PASS in isolated browser/HTTP fixtures; session cookies and learner separation checked.
+PREFLIGHT=PASS, 22 pass / 0 warnings / 0 fail.
+SMOKE=PASS, 5 checks / 0 failures; 10 boards and 8,962 questions load.
+REPOSITORY_HEALTH=REVIEW; 12 pass / 2 warnings / 0 fail / 1 review (735 nonblocking records).
+TECHNICAL_RELEASE_GATE=PASS on final commit; RELEASE_READY_WITH_NONBLOCKING_DEBT; P0=0, P2=1, P3=2.
+PRODUCT_READINESS_GATE=NOT_READY; exact-current-commit browser evidence is BROWSER_EXECUTED_PASS, but feature completeness and launch remain NO. Gate exits nonzero intentionally while mandatory evidence is unresolved.
+
+=== CONTENT ===
+CANONICAL/EFFECTIVE/RUNTIME=8962/9422/9746 (unchanged).
+CONTENT_MUTATIONS=0/0/0; no canonical educational content, eligibility, taxonomy, scoring, or study source files changed.
+INTEGRITY=Release gate PASS; 0 hard source/study/traceability defects, 0 flashcard defects, 0 calculation contradictions, 0 eligibility failures, 0 future-effective leakage.
+
+=== LAUNCH ===
+PRODUCT_FEATURE_COMPLETE=NO; readiness assessment remains 10 verified, 2 partial, 1 unverified, 1 intentionally deferred.
+PRODUCT_LAUNCH_READY=NO.
+HUMAN_ACCEPTANCE_STATUS=MVP-01 through MVP-12 NOT_RUN.
+OWNER_PRIVACY_TERMS_STATUS=NOT_APPROVED; operator/contact/retention/hosting terms require owner review.
+LIVE_HOST_STATUS=NOT_VERIFIED; no live HTTPS host/provider was available.
+REMAINING_BLOCKERS=Human Android acceptance; owner-approved privacy and hosting disclosures; live HTTPS/provider verification; physical touch and screen-reader evidence. Full official-format timed simulation remains intentionally deferred. The readiness gate still records its broader mobile/accessibility evidence as incomplete.
+
+=== GIT ===
+COMMITS=33b2de1, 8fe87a5, 8313450, 28e066c, fd16309, b4d0e7d, aebd602, c5e6369.
+FILES_CHANGED=17 tracked files; 447 insertions / 74 deletions.
+PUSHED_BRANCH=YES; batch667-github-visual-qa at c5e6369287d7cee2469621d7e5e81246e989001b; no main push.
+MAIN_UNCHANGED=YES; origin/main remains 0eb9704ba293e0aa3402af5d01a2d3392c005b73.
+TAGS_UNCHANGED=YES; v1.0.0=4753c03c11d5808c2ea80a9ab414ff73bd767d32; v1.0.1=d18db80238d689e8198b2db468e47953f8d96d21.
+
+=== CLIPBOARD ===
+CLIPBOARD_STATUS=UNVERIFIED; termux-clipboard-set returned successfully, but termux-clipboard-get returned empty data and exact readback failed.
+REPORT_FILE=/data/data/com.termux/files/home/BoardPrep-batch667-final-report.txt
+
+=== STATUS ===
+MILESTONE_STATUS=Browser CI, screenshot review, repairs, and final technical release gate complete; public product launch remains blocked by owner/human/live-host evidence.
+NEXT_ACTION=Owner completes MVP-01..12 on Android, approves deployment-specific privacy terms, and verifies a private HTTPS staging host; no generic engineering batch is proposed.
+
+=== BATCH 667 COMPLETE ===
