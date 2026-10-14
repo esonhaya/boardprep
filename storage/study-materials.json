@@ -286,28 +286,58 @@
     },
     {
         "id": "let-learning-theories-review",
-        "title": "Learning Theories: Classroom Applications",
-        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for learning theories: classroom applications.",
+        "title": "Learning and Development Theories: Classroom Applications",
+        "summary": "Source-first LET review for interpreting learning and development scenarios. The named theorists are useful academic lenses, while the official PRC TOS defines only broader examinable outcomes.",
         "notes": [
             [
-                "Learning lenses",
-                "Behaviorist, cognitive, constructivist, humanist, and sociocultural views emphasize different mechanisms; choose the lens that explains the observed evidence."
+                "Use theories as lenses",
+                "Compare the scenario evidence with a theory’s core idea, then explain the instructional implication. One behavior is not enough to diagnose a learner or assign a fixed stage."
             ],
             [
-                "Classroom application",
-                "A theory is useful when it predicts what learners will do and suggests a matching instructional response."
+                "Piaget and cognitive change",
+                "Conservation and concrete operations concern logical reasoning about concrete events; formal-operational reasoning includes abstract and hypothetical problems. Treat stages as a historical explanatory model, not a universal timetable: research has challenged rigid stage boundaries."
             ],
             [
-                "Evidence limits",
-                "Do not label a learner or lesson from one behavior; compare the context, task, feedback, and prior knowledge."
+                "Vygotsky and responsive support",
+                "The zone of proximal development concerns what a learner can do with appropriate help beyond independent performance. Scaffolding responds to progress, invites the learner to explain, and fades as control develops. Social interaction matters when it mediates reasoning, not merely because learners sit together."
             ],
             [
-                "Common contrasts",
-                "Scaffolding, reinforcement, discovery, and social mediation are related but not interchangeable teaching explanations."
+                "Erikson and moral reasoning",
+                "Industry versus inferiority concerns school-age competence; identity versus role confusion concerns identity exploration. Kohlberg classifies the reasoning offered for a moral choice, not the outward choice alone. These frameworks should not be used to label an individual from one answer."
+            ],
+            [
+                "Bronfenbrenner’s ecology",
+                "Development is influenced by connected settings: direct contexts such as home and school, relationships between those contexts, indirect environments, broader culture, and time. Use the system level that matches the described pathway of influence."
+            ],
+            [
+                "Conditioning and consequences",
+                "Classical conditioning connects stimuli that predict one another. Operant conditioning concerns how consequences change the likelihood of a behavior. Reinforcement increases behavior; punishment decreases it. Positive means adding a consequence and negative means removing one."
+            ],
+            [
+                "Bruner: guided discovery and representation",
+                "Examples, questions, feedback, and manageable direction can help learners discover a relationship; unassisted discovery is not equivalent to guided discovery. Enactive, iconic, and symbolic forms represent ideas through action, images, and symbols; they are complementary forms, not compulsory age-based stages."
+            ],
+            [
+                "Humanistic and needs-based views",
+                "Rogers emphasizes empathy, genuineness, respect, and learner agency. Maslow’s needs framework can prompt attention to immediate barriers such as hunger or safety, but should not be treated as a universal fixed sequence or a diagnosis."
+            ],
+            [
+                "Multiple intelligences: use cautiously",
+                "Gardner’s model is historically influential, but intervention evidence is limited. Offer varied ways to access and express a learning goal based on the task and learner needs; do not assign fixed intelligence or learning-style labels."
+            ],
+            [
+                "LET scope and source limits",
+                "The PRC 2025 Professional Education TOS states broad outcomes for foundations, learning principles, and inclusive education. It does not enumerate every theorist on this page as an individual blueprint item. OpenStax and academic teaching sources support concept explanations, not claims of official item frequency or prediction."
             ]
         ],
         "source_ids": [
-            "openstax-psychology-2e"
+            "openstax-psychology-2e",
+            "openstax-lifespan-development",
+            "openlearn-bruner-representations",
+            "open-university-guided-discovery",
+            "alfieri-discovery-meta-analysis-2011",
+            "ferrero-multiple-intelligences-review-2021",
+            "prc-let-enhanced-tos-2025"
         ],
         "exams": [
             "let"
@@ -330,13 +360,13 @@
             "concept_id": "learning-theories-behaviorism"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-10-14"
     },
     {
         "id": "let-child-development-review",
         "title": "Child and Adolescent Development",
-        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for child and adolescent development.",
+        "summary": "Source-first review of development across the lifespan and the contexts that shape learning. Developmental models guide interpretation; they are not diagnostic labels or rigid age cutoffs.",
         "notes": [
             [
                 "Development and variation",
@@ -353,11 +383,21 @@
             [
                 "Evidence-based response",
                 "Combine work samples, observation, and learner explanation before inferring a developmental need."
+            ],
+            [
+                "Ecological context",
+                "Bronfenbrenner’s model maps direct settings and the links among them, indirect influences, wider culture, and change over time. Identify the route by which a condition affects the learner instead of blaming one setting."
+            ],
+            [
+                "Interpretation limits",
+                "Developmental stages are theoretical summaries. Use the learner’s demonstrated task performance and context; do not infer a global ability from one response."
             ]
         ],
         "source_ids": [
             "openstax-psychology-2e",
-            "deped-ppst-do-42-2017"
+            "deped-ppst-do-42-2017",
+            "openstax-lifespan-development",
+            "prc-let-enhanced-tos-2025"
         ],
         "exams": [
             "let"
@@ -380,8 +420,8 @@
             "concept_id": "developmental-stages-cognitive"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-10-14"
     },
     {
         "id": "let-teaching-profession-review",
@@ -590,7 +630,7 @@
     {
         "id": "let-assessment-review",
         "title": "Assessment of Learning",
-        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for assessment of learning.",
+        "summary": "Review how assessment evidence should match the stated learning outcome, including cognitive-process demands, validity, feedback, and fair access.",
         "notes": [
             [
                 "Purpose",
@@ -607,10 +647,20 @@
             [
                 "Actionable feedback",
                 "Name the observed issue, connect it to the criterion, and give a feasible next step for revision."
+            ],
+            [
+                "Cognitive-process alignment",
+                "Use Bloom’s taxonomy as a planning and analysis aid. An objective that asks learners to evaluate needs an assessment that elicits and scores evaluation, not definition or recall alone."
+            ],
+            [
+                "Scope versus taxonomy",
+                "The PRC TOS uses Bloom’s taxonomy to describe cognitive demand across outcomes. This does not make every Bloom category a separate content topic or imply an official quota for each question type."
             ]
         ],
         "source_ids": [
-            "deped-classroom-assessment-do-8-2015"
+            "deped-classroom-assessment-do-8-2015",
+            "cornell-bloom-taxonomy",
+            "prc-let-enhanced-tos-2025"
         ],
         "exams": [
             "let"
@@ -634,8 +684,8 @@
             "concept_id": "assessment-validity-content"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-10-14"
     },
     {
         "id": "let-teaching-strategies-review",
@@ -789,28 +839,36 @@
     {
         "id": "let-inclusive-education-review",
         "title": "Inclusive Education and Learner Diversity",
-        "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for inclusive education and learner diversity.",
+        "summary": "Source-first review of accessible, equitable participation. Begin with the learning goal, identify task or environment barriers, and select supports that preserve valid evidence of the intended competency.",
         "notes": [
             [
-                "Barrier-focused planning",
-                "Identify barriers in the task, environment, communication, or assessment rather than treating difference as learner deficit."
+                "Start with barriers and the goal",
+                "Check the physical setting, communication, materials, task demands, and assessment. Identify what the learner must demonstrate before choosing a support."
             ],
             [
-                "Access with rigor",
-                "Accommodation changes access; it need not lower the competency or expectation being assessed."
+                "Access and expected learning",
+                "Accommodation, modification, adaptation, and individualization are distinct support options recognized in Philippine inclusive-education law. In assessment, distinguish an access route from a change to the target; state which construct must remain valid."
             ],
             [
-                "Differentiation",
-                "Vary support, representation, process, or extension using evidence of need while preserving a shared purpose."
+                "Universal Design for Learning",
+                "CAST’s Guidelines 3.0 organize options around engagement, representation, and action/expression. Offer flexible access and expression where these do not remove an essential part of the competency being assessed. UDL is a design framework, not a claim about fixed learning styles."
             ],
             [
-                "Partnership",
-                "Consult learners, families, specialists, and community supports within privacy and role boundaries."
+                "Participation and partnership",
+                "Invite learner and family knowledge and collaborate with relevant school supports. Protect dignity, privacy, agency, and the learner’s opportunity to participate directly."
+            ],
+            [
+                "LET scope",
+                "The PRC 2025 TOS places foundational special/inclusive education and inclusive, developmentally appropriate learner-centered approaches within broad Professional Education outcomes. The subtopics on this page are BoardPrep learning pathways, not individually enumerated PRC blueprint lines."
             ]
         ],
         "source_ids": [
             "deped-ppst-do-42-2017",
-            "republic-act-10533"
+            "republic-act-10533",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-11650",
+            "cast-udl-guidelines-3",
+            "deped-classroom-assessment-do-8-2015"
         ],
         "exams": [
             "let"
@@ -834,8 +892,8 @@
             "concept_id": "instructional-adaptations-access"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-10-14"
     },
     {
         "id": "let-ppst-review",
@@ -1357,7 +1415,9 @@
         ],
         "source_ids": [
             "1987-philippine-constitution",
-            "republic-act-6713"
+            "republic-act-6713",
+            "prc-let-enhanced-tos-2025",
+            "prc-code-of-ethics-professional-teachers"
         ],
         "exams": [
             "let"
@@ -1381,8 +1441,8 @@
             "concept_id": "ethical-reasoning-duties"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-10-14"
     },
     {
         "id": "let-understanding-self-review",

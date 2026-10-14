@@ -141,6 +141,7 @@
         "deficit_to_10": 7,
         "deficit_to_20": 17,
         "source_ids": [
+            "cornell-bloom-taxonomy",
             "deped-ppst-do-42-2017",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
@@ -148,16 +149,17 @@
             "prc-resolution-20-2025",
             "republic-act-7836"
         ],
-        "source_count": 6,
+        "source_count": 7,
         "primary_source_count": 6,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
+            "let-assessment-review",
             "let-teaching-profession-review"
         ],
-        "study_material_count": 1,
+        "study_material_count": 2,
         "study_coverage": "SUFFICIENT",
         "study_source_traceability": "COMPLETE",
         "supported_depth_min": 3,
@@ -189,7 +191,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -198,7 +200,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "a4370359fef81e7aaeae9ba4418d49c8c51b6a61dd8c3f8041f403b30331d7c0"
+        "evidence_hash": "99bd0eab88ce080e301d93d52577af02436f4f8af31787525eb8673f49d65605"
     },
     {
         "leaf_id": "bronfenbrenner-ecology",
@@ -211,22 +213,24 @@
         "deficit_to_20": 16,
         "source_ids": [
             "deped-ppst-do-42-2017",
+            "openstax-lifespan-development",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025",
             "republic-act-7836"
         ],
-        "source_count": 6,
+        "source_count": 7,
         "primary_source_count": 6,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
+            "let-child-development-review",
             "let-teaching-profession-review"
         ],
-        "study_material_count": 1,
+        "study_material_count": 2,
         "study_coverage": "SUFFICIENT",
         "study_source_traceability": "COMPLETE",
         "supported_depth_min": 2,
@@ -261,7 +265,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -270,7 +274,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "66f6b190a970d0badfc73e8458f11f2e238b10a6a44f2f306c63ce9e4fe58c2e"
+        "evidence_hash": "0dbd27e133e6dc0a17295b44d05f4866b930e1d8d92d8221b73b704b01b594f1"
     },
     {
         "leaf_id": "bruner-discovery",
@@ -282,17 +286,19 @@
         "deficit_to_10": 9,
         "deficit_to_20": 19,
         "source_ids": [
+            "alfieri-discovery-meta-analysis-2011",
+            "open-university-guided-discovery",
             "openstax-psychology-2e",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025"
         ],
-        "source_count": 5,
+        "source_count": 7,
         "primary_source_count": 4,
         "source_authority": "ADEQUATE",
         "source_currentness": "NOT_TIME_SENSITIVE",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
             "let-learning-theories-review"
@@ -326,7 +332,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -335,7 +341,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "77e032ad13f0338fce77185b765c784e83f4de566593140cd6c1d1a566ac3696"
+        "evidence_hash": "fe5423cdf5d5210c531147fa7ce325f06438a532913a2926c004902aa1c54e10"
     },
     {
         "leaf_id": "bruner-representation",
@@ -347,17 +353,18 @@
         "deficit_to_10": 9,
         "deficit_to_20": 19,
         "source_ids": [
+            "openlearn-bruner-representations",
             "openstax-psychology-2e",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025"
         ],
-        "source_count": 5,
+        "source_count": 6,
         "primary_source_count": 4,
         "source_authority": "ADEQUATE",
         "source_currentness": "NOT_TIME_SENSITIVE",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
             "let-learning-theories-review"
@@ -391,7 +398,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -400,7 +407,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "8a80e92ee9a62d3f29479c35076286e49e250f74b8f5b8fb20348e11fb453a13"
+        "evidence_hash": "0d73abe551cd3ad01080d8bf0cdeeffb2919aebc7b72234eb1b849cb302a964d"
     },
     {
         "leaf_id": "cae-art-elements-and-principles",
@@ -2348,7 +2355,7 @@
         "primary_source_count": 4,
         "source_authority": "ADEQUATE",
         "source_currentness": "NOT_TIME_SENSITIVE",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
             "let-learning-theories-review"
@@ -2386,7 +2393,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -2395,7 +2402,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "9bec1a321ad4b89f9fc79e4b895433a23b179b8d90973991867edadb95f8285c"
+        "evidence_hash": "a9388b2b969c77d12c2604ecc1b6d24437136a93f94bdb8efd93f736363678e2"
     },
     {
         "leaf_id": "erikson-identity",
@@ -2417,7 +2424,7 @@
         "primary_source_count": 4,
         "source_authority": "ADEQUATE",
         "source_currentness": "NOT_TIME_SENSITIVE",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
             "let-learning-theories-review"
@@ -2451,7 +2458,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -2460,7 +2467,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "e4afdeb86f009c523896b129adb3508bdab2cb6e56777e6f9533bf2f6d5b5740"
+        "evidence_hash": "162c81f7d8c143298b75c95038a6e351d3563cd298fd8bcf9b72bfd3baf9d8cb"
     },
     {
         "leaf_id": "filipino-gramatika-wastong-gamit",
@@ -3087,22 +3094,24 @@
         "deficit_to_20": 19,
         "source_ids": [
             "deped-ppst-do-42-2017",
+            "ferrero-multiple-intelligences-review-2021",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025",
             "republic-act-7836"
         ],
-        "source_count": 6,
+        "source_count": 7,
         "primary_source_count": 6,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
+            "let-learning-theories-review",
             "let-teaching-profession-review"
         ],
-        "study_material_count": 1,
+        "study_material_count": 2,
         "study_coverage": "SUFFICIENT",
         "study_source_traceability": "COMPLETE",
         "supported_depth_min": 3,
@@ -3132,7 +3141,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -3141,7 +3150,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "b150829147c1a1e2e48bf30db169a657d4549a5eb9f9470cabe34eaacb5d172f"
+        "evidence_hash": "c0bb68d01050b629c7c06b7de8dd092d0bdf08288cd11a28b30b20bd56cbf54b"
     },
     {
         "leaf_id": "inclusive-access",
@@ -3153,23 +3162,26 @@
         "deficit_to_10": 9,
         "deficit_to_20": 19,
         "source_ids": [
+            "cast-udl-guidelines-3",
             "deped-ppst-do-42-2017",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025",
+            "republic-act-11650",
             "republic-act-7836"
         ],
-        "source_count": 6,
-        "primary_source_count": 6,
+        "source_count": 8,
+        "primary_source_count": 7,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
+            "let-inclusive-education-review",
             "let-teaching-profession-review"
         ],
-        "study_material_count": 1,
+        "study_material_count": 2,
         "study_coverage": "SUFFICIENT",
         "study_source_traceability": "COMPLETE",
         "supported_depth_min": 3,
@@ -3199,7 +3211,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "Verified at the broad PRC Professional Education inclusive-education outcome level; this BoardPrep leaf is not an individually enumerated PRC TOS line. Instructional/statutory sources support the concepts, while exact item-level scope remains bounded.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -3208,7 +3220,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "43d9e4d51842aef8d0ea733db4007cf7234b694aa233a6609759d773dce014b1"
+        "evidence_hash": "b341f8674e6fad5ab13173609036dd0251dd33a6d19379eddeba18853cf7b6c4"
     },
     {
         "leaf_id": "inclusive-accommodation",
@@ -3220,23 +3232,26 @@
         "deficit_to_10": 9,
         "deficit_to_20": 19,
         "source_ids": [
+            "cast-udl-guidelines-3",
             "deped-ppst-do-42-2017",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025",
+            "republic-act-11650",
             "republic-act-7836"
         ],
-        "source_count": 6,
-        "primary_source_count": 6,
+        "source_count": 8,
+        "primary_source_count": 7,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
+            "let-inclusive-education-review",
             "let-teaching-profession-review"
         ],
-        "study_material_count": 1,
+        "study_material_count": 2,
         "study_coverage": "SUFFICIENT",
         "study_source_traceability": "COMPLETE",
         "supported_depth_min": 3,
@@ -3269,7 +3284,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "Verified at the broad PRC Professional Education inclusive-education outcome level; this BoardPrep leaf is not an individually enumerated PRC TOS line. Instructional/statutory sources support the concepts, while exact item-level scope remains bounded.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -3278,7 +3293,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "c15dcfdfa9e52ad7558cd5de3ca079c251e74907c17f8c11ee6255d088327fb3"
+        "evidence_hash": "7b676191fbd77e2ffe3107902f6fb2786fcf15d0c52860d0724f2aae8b411cd5"
     },
     {
         "leaf_id": "inclusive-adaptation",
@@ -3290,23 +3305,26 @@
         "deficit_to_10": 9,
         "deficit_to_20": 19,
         "source_ids": [
+            "cast-udl-guidelines-3",
             "deped-ppst-do-42-2017",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025",
+            "republic-act-11650",
             "republic-act-7836"
         ],
-        "source_count": 6,
-        "primary_source_count": 6,
+        "source_count": 8,
+        "primary_source_count": 7,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
+            "let-inclusive-education-review",
             "let-teaching-profession-review"
         ],
-        "study_material_count": 1,
+        "study_material_count": 2,
         "study_coverage": "SUFFICIENT",
         "study_source_traceability": "COMPLETE",
         "supported_depth_min": 3,
@@ -3336,7 +3354,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "Verified at the broad PRC Professional Education inclusive-education outcome level; this BoardPrep leaf is not an individually enumerated PRC TOS line. Instructional/statutory sources support the concepts, while exact item-level scope remains bounded.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -3345,7 +3363,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "098cff69f6dc303e1593c919d9e2db0b736e762edd307ce88460b754298c5742"
+        "evidence_hash": "3e190c42ebaedbd1d4085f5df02a29b16dc0e11d7f1e9f195f82564b358dcb9b"
     },
     {
         "leaf_id": "inclusive-assessment",
@@ -3357,25 +3375,28 @@
         "deficit_to_10": 3,
         "deficit_to_20": 13,
         "source_ids": [
+            "cast-udl-guidelines-3",
             "deped-classroom-assessment-do-8-2015",
             "deped-ppst-do-42-2017",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025",
+            "republic-act-11650",
             "republic-act-7836"
         ],
-        "source_count": 7,
-        "primary_source_count": 6,
+        "source_count": 9,
+        "primary_source_count": 7,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
+            "let-inclusive-education-review",
             "let-professional-education-foundation",
             "let-teaching-profession-review"
         ],
-        "study_material_count": 2,
+        "study_material_count": 3,
         "study_coverage": "SUFFICIENT",
         "study_source_traceability": "COMPLETE",
         "supported_depth_min": 2,
@@ -3405,7 +3426,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "Verified at the broad PRC Professional Education inclusive-education outcome level; this BoardPrep leaf is not an individually enumerated PRC TOS line. Instructional/statutory sources support the concepts, while exact item-level scope remains bounded.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -3414,7 +3435,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "6d6662851d050777acdf7b47b4af649e01f356db723c3be8a2fc9e0a46cf69dd"
+        "evidence_hash": "a40cc94fc5fa5ec2fd1267204a1cb82ff7fb771d4c7c1a40b1f9812117963c94"
     },
     {
         "leaf_id": "inclusive-barriers",
@@ -3426,23 +3447,26 @@
         "deficit_to_10": 9,
         "deficit_to_20": 19,
         "source_ids": [
+            "cast-udl-guidelines-3",
             "deped-ppst-do-42-2017",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025",
+            "republic-act-11650",
             "republic-act-7836"
         ],
-        "source_count": 6,
-        "primary_source_count": 6,
+        "source_count": 8,
+        "primary_source_count": 7,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
+            "let-inclusive-education-review",
             "let-teaching-profession-review"
         ],
-        "study_material_count": 1,
+        "study_material_count": 2,
         "study_coverage": "SUFFICIENT",
         "study_source_traceability": "COMPLETE",
         "supported_depth_min": 3,
@@ -3472,7 +3496,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "Verified at the broad PRC Professional Education inclusive-education outcome level; this BoardPrep leaf is not an individually enumerated PRC TOS line. Instructional/statutory sources support the concepts, while exact item-level scope remains bounded.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -3481,7 +3505,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "946ac8e1eb5ff873236580778d7473025b29457bf117e8ae996e73781708d99c"
+        "evidence_hash": "7279396bcd2d127fde03d2f84cfb7511a10afe76886979172d98025d4f3b9dbd"
     },
     {
         "leaf_id": "inclusive-classroom",
@@ -3493,23 +3517,26 @@
         "deficit_to_10": 9,
         "deficit_to_20": 19,
         "source_ids": [
+            "cast-udl-guidelines-3",
             "deped-ppst-do-42-2017",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025",
+            "republic-act-11650",
             "republic-act-7836"
         ],
-        "source_count": 6,
-        "primary_source_count": 6,
+        "source_count": 8,
+        "primary_source_count": 7,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
+            "let-inclusive-education-review",
             "let-teaching-profession-review"
         ],
-        "study_material_count": 1,
+        "study_material_count": 2,
         "study_coverage": "SUFFICIENT",
         "study_source_traceability": "COMPLETE",
         "supported_depth_min": 3,
@@ -3539,7 +3566,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "Verified at the broad PRC Professional Education inclusive-education outcome level; this BoardPrep leaf is not an individually enumerated PRC TOS line. Instructional/statutory sources support the concepts, while exact item-level scope remains bounded.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -3548,7 +3575,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "9bdede922fe1e59521130f5dd4bf7bf5de12fc06be143715b10af077a3a52bec"
+        "evidence_hash": "54e3ab43241270a138dd027939bdf4f7c8878b296df1d833a3e9714ce1e704f2"
     },
     {
         "leaf_id": "inclusive-collaboration",
@@ -3560,23 +3587,26 @@
         "deficit_to_10": 9,
         "deficit_to_20": 19,
         "source_ids": [
+            "cast-udl-guidelines-3",
             "deped-ppst-do-42-2017",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025",
+            "republic-act-11650",
             "republic-act-7836"
         ],
-        "source_count": 6,
-        "primary_source_count": 6,
+        "source_count": 8,
+        "primary_source_count": 7,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
+            "let-inclusive-education-review",
             "let-teaching-profession-review"
         ],
-        "study_material_count": 1,
+        "study_material_count": 2,
         "study_coverage": "SUFFICIENT",
         "study_source_traceability": "COMPLETE",
         "supported_depth_min": 3,
@@ -3606,7 +3636,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "Verified at the broad PRC Professional Education inclusive-education outcome level; this BoardPrep leaf is not an individually enumerated PRC TOS line. Instructional/statutory sources support the concepts, while exact item-level scope remains bounded.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -3615,7 +3645,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "24bdf24616c3a642473f1fda473795f20c562fb434ecfc5444e25f865d6b91e5"
+        "evidence_hash": "f2d40fdd4025a63e6d0105ab5794500d8509c0f7c72e505bd42d397259fc9b12"
     },
     {
         "leaf_id": "inclusive-differentiation",
@@ -3695,23 +3725,26 @@
         "deficit_to_10": 8,
         "deficit_to_20": 18,
         "source_ids": [
+            "cast-udl-guidelines-3",
             "deped-ppst-do-42-2017",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025",
+            "republic-act-11650",
             "republic-act-7836"
         ],
-        "source_count": 6,
-        "primary_source_count": 6,
+        "source_count": 8,
+        "primary_source_count": 7,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
+            "let-inclusive-education-review",
             "let-teaching-profession-review"
         ],
-        "study_material_count": 1,
+        "study_material_count": 2,
         "study_coverage": "SUFFICIENT",
         "study_source_traceability": "COMPLETE",
         "supported_depth_min": 3,
@@ -3741,7 +3774,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "Verified at the broad PRC Professional Education inclusive-education outcome level; this BoardPrep leaf is not an individually enumerated PRC TOS line. Instructional/statutory sources support the concepts, while exact item-level scope remains bounded.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -3750,7 +3783,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "b5c6c320b1610b73fc2fe7cc6917174e40cf16e3cae3290c5f044e5bcd58bae1"
+        "evidence_hash": "4533492108d7d3d4f1edb7ef17c6cd835e587bf06620da961ec8665bf0641371"
     },
     {
         "leaf_id": "inclusive-family",
@@ -3762,23 +3795,26 @@
         "deficit_to_10": 9,
         "deficit_to_20": 19,
         "source_ids": [
+            "cast-udl-guidelines-3",
             "deped-ppst-do-42-2017",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025",
+            "republic-act-11650",
             "republic-act-7836"
         ],
-        "source_count": 6,
-        "primary_source_count": 6,
+        "source_count": 8,
+        "primary_source_count": 7,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
+            "let-inclusive-education-review",
             "let-teaching-profession-review"
         ],
-        "study_material_count": 1,
+        "study_material_count": 2,
         "study_coverage": "SUFFICIENT",
         "study_source_traceability": "COMPLETE",
         "supported_depth_min": 3,
@@ -3808,7 +3844,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "Verified at the broad PRC Professional Education inclusive-education outcome level; this BoardPrep leaf is not an individually enumerated PRC TOS line. Instructional/statutory sources support the concepts, while exact item-level scope remains bounded.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -3817,7 +3853,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "0d1907fe6b1b03d09782c2662197daf45a6c2076f4e45cdfbf8a3a723c32350f"
+        "evidence_hash": "04ec18b542dcee060c33ae73ac44ac633eba0b3c062d1b7949bb1522e6d0c7e1"
     },
     {
         "leaf_id": "inclusive-modification",
@@ -3829,23 +3865,26 @@
         "deficit_to_10": 9,
         "deficit_to_20": 19,
         "source_ids": [
+            "cast-udl-guidelines-3",
             "deped-ppst-do-42-2017",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025",
+            "republic-act-11650",
             "republic-act-7836"
         ],
-        "source_count": 6,
-        "primary_source_count": 6,
+        "source_count": 8,
+        "primary_source_count": 7,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
+            "let-inclusive-education-review",
             "let-teaching-profession-review"
         ],
-        "study_material_count": 1,
+        "study_material_count": 2,
         "study_coverage": "SUFFICIENT",
         "study_source_traceability": "COMPLETE",
         "supported_depth_min": 2,
@@ -3875,7 +3914,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "Verified at the broad PRC Professional Education inclusive-education outcome level; this BoardPrep leaf is not an individually enumerated PRC TOS line. Instructional/statutory sources support the concepts, while exact item-level scope remains bounded.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -3884,7 +3923,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "67a53d5f7c14733b8be49c09b7b9ae370de503bde09fff54f073692f4b138f39"
+        "evidence_hash": "44f3841a5ed9f4646647a2fa35670f584a1007063b33e825b8f8c5026eb36e18"
     },
     {
         "leaf_id": "inclusive-participation",
@@ -3896,23 +3935,26 @@
         "deficit_to_10": 9,
         "deficit_to_20": 19,
         "source_ids": [
+            "cast-udl-guidelines-3",
             "deped-ppst-do-42-2017",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025",
+            "republic-act-11650",
             "republic-act-7836"
         ],
-        "source_count": 6,
-        "primary_source_count": 6,
+        "source_count": 8,
+        "primary_source_count": 7,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
+            "let-inclusive-education-review",
             "let-teaching-profession-review"
         ],
-        "study_material_count": 1,
+        "study_material_count": 2,
         "study_coverage": "SUFFICIENT",
         "study_source_traceability": "COMPLETE",
         "supported_depth_min": 3,
@@ -3942,7 +3984,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "Verified at the broad PRC Professional Education inclusive-education outcome level; this BoardPrep leaf is not an individually enumerated PRC TOS line. Instructional/statutory sources support the concepts, while exact item-level scope remains bounded.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -3951,7 +3993,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "143c5400965c490a3d59baa545f212cef4faa809d560e2342959257dbf82fbcb"
+        "evidence_hash": "79ed89fce64b12e2680746dcf86797d257e601d16bb867e09209ba88703c2a5d"
     },
     {
         "leaf_id": "inclusive-peer-support",
@@ -3963,23 +4005,26 @@
         "deficit_to_10": 9,
         "deficit_to_20": 19,
         "source_ids": [
+            "cast-udl-guidelines-3",
             "deped-ppst-do-42-2017",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025",
+            "republic-act-11650",
             "republic-act-7836"
         ],
-        "source_count": 6,
-        "primary_source_count": 6,
+        "source_count": 8,
+        "primary_source_count": 7,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
+            "let-inclusive-education-review",
             "let-teaching-profession-review"
         ],
-        "study_material_count": 1,
+        "study_material_count": 2,
         "study_coverage": "SUFFICIENT",
         "study_source_traceability": "COMPLETE",
         "supported_depth_min": 3,
@@ -4009,7 +4054,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "Verified at the broad PRC Professional Education inclusive-education outcome level; this BoardPrep leaf is not an individually enumerated PRC TOS line. Instructional/statutory sources support the concepts, while exact item-level scope remains bounded.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -4018,7 +4063,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "a4a17a76a2c0e10b50218e73c1dfd9c6b0fbbf807b4432c2b244c8814d304da8"
+        "evidence_hash": "439803d1c3ca05e782437a3c4e8fe18a11d59a8e707a192aafeb0886c348f02e"
     },
     {
         "leaf_id": "inclusive-respect",
@@ -4030,23 +4075,26 @@
         "deficit_to_10": 9,
         "deficit_to_20": 19,
         "source_ids": [
+            "cast-udl-guidelines-3",
             "deped-ppst-do-42-2017",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025",
+            "republic-act-11650",
             "republic-act-7836"
         ],
-        "source_count": 6,
-        "primary_source_count": 6,
+        "source_count": 8,
+        "primary_source_count": 7,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
+            "let-inclusive-education-review",
             "let-teaching-profession-review"
         ],
-        "study_material_count": 1,
+        "study_material_count": 2,
         "study_coverage": "SUFFICIENT",
         "study_source_traceability": "COMPLETE",
         "supported_depth_min": 3,
@@ -4076,7 +4124,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "Verified at the broad PRC Professional Education inclusive-education outcome level; this BoardPrep leaf is not an individually enumerated PRC TOS line. Instructional/statutory sources support the concepts, while exact item-level scope remains bounded.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -4085,7 +4133,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "0617553e4ed15578c3783dc368f3b409ff165694825de8899e16294534f1b839"
+        "evidence_hash": "e28208ce41be901d932bf3e4d6d82bbf021495f41f0c7e08e0bd0d15629c2dbf"
     },
     {
         "leaf_id": "inclusive-universal-design",
@@ -4097,25 +4145,28 @@
         "deficit_to_10": 4,
         "deficit_to_20": 14,
         "source_ids": [
+            "cast-udl-guidelines-3",
             "deped-classroom-assessment-do-8-2015",
             "deped-ppst-do-42-2017",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
             "prc-resolution-20-2025",
+            "republic-act-11650",
             "republic-act-7836"
         ],
-        "source_count": 7,
-        "primary_source_count": 6,
+        "source_count": 9,
+        "primary_source_count": 7,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
+            "let-inclusive-education-review",
             "let-professional-education-foundation",
             "let-teaching-profession-review"
         ],
-        "study_material_count": 2,
+        "study_material_count": 3,
         "study_coverage": "SUFFICIENT",
         "study_source_traceability": "COMPLETE",
         "supported_depth_min": 2,
@@ -4148,7 +4199,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "Verified at the broad PRC Professional Education inclusive-education outcome level; this BoardPrep leaf is not an individually enumerated PRC TOS line. Instructional/statutory sources support the concepts, while exact item-level scope remains bounded.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -4157,7 +4208,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "c4761a804068ed9a14f21a4de0936b6933e063e54302539285c919b715280a18"
+        "evidence_hash": "69dad5f71e379f2e922f3ed7c873f5e77e504bfba16f447da2ff1dcac0c58fec"
     },
     {
         "leaf_id": "inference-evidence-based-conclusions",
@@ -4313,7 +4364,7 @@
         "primary_source_count": 6,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
             "let-learning-theories-review",
@@ -4352,7 +4403,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -4361,7 +4412,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "fe0f3192682969f65df0a7828da39a4528171b0ead206e75966918c5f922f700"
+        "evidence_hash": "0e8c407a5bffa63ae4de8c13c5ce2fc4471847885c9038607cdc33b2cd4fb954"
     },
     {
         "leaf_id": "let-art-evidence",
@@ -4449,6 +4500,7 @@
         "source_ids": [
             "1987-philippine-constitution",
             "deped-araling-panlipunan-curriculum-guide",
+            "prc-code-of-ethics-professional-teachers",
             "prc-lept-alignment-guidance-2025",
             "prc-lept-program-march-2026",
             "prc-let-enhanced-tos-2025",
@@ -4456,11 +4508,11 @@
             "republic-act-10533",
             "republic-act-6713"
         ],
-        "source_count": 8,
-        "primary_source_count": 8,
+        "source_count": 9,
+        "primary_source_count": 9,
         "source_authority": "ADEQUATE",
         "source_currentness": "NOT_TIME_SENSITIVE",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "DIRECT",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
             "let-ethics-review",
@@ -4501,7 +4553,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "The 2025 PRC TOS explicitly includes teacher responsibilities under the Code of Ethics. The leaf is directly in-scope at the broad outcome level; individual question scenarios remain a BoardPrep learning organization.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -4512,7 +4564,7 @@
         "scope_component_ids": [
             "SPECIALIZATION"
         ],
-        "evidence_hash": "47d5e1ac5d275c1094815e277ee57bec9329d73b5a98e69ba8f25f7aaca96270"
+        "evidence_hash": "508d2d18039ce4f3a2346db9697707d1aa93c9e78e8be8ddd83c4f3e65b0ec33"
     },
     {
         "leaf_id": "let-global-local-effects",
@@ -4892,7 +4944,7 @@
         "primary_source_count": 4,
         "source_authority": "ADEQUATE",
         "source_currentness": "NOT_TIME_SENSITIVE",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
             "let-learning-theories-review"
@@ -4927,7 +4979,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -4936,7 +4988,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "79b8e7a64422aa9157ed3d7fb7063f1dee34ce37bdb74b7669865bcab8d3c1d5"
+        "evidence_hash": "09703b71338bda5653385c1781064d551eaee60297399f3379eea156e8ae1410"
     },
     {
         "leaf_id": "math-algebra-functions",
@@ -6482,7 +6534,7 @@
         "primary_source_count": 6,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
             "let-learning-theories-review",
@@ -6519,7 +6571,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -6528,7 +6580,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "473ea1b59ead794c0af397b58c9a6147caa8b60bc5b5e8fff7b750806802d3a9"
+        "evidence_hash": "a1851ed0dbc088f7ff0a5df75de1359615274ddcecc1b1658ef0c98276923904"
     },
     {
         "leaf_id": "pe-assessment-and-inclusion",
@@ -7137,7 +7189,7 @@
         "primary_source_count": 6,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
             "let-learning-theories-review",
@@ -7175,7 +7227,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -7184,7 +7236,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "d84bcfe86ba17720068cc66cf33fa222e62ec375d6681138d0c081fbf2030027"
+        "evidence_hash": "51eddc90a8102f617b41f7b922f0073669d739ebddcf9624f03651c6227bd3f1"
     },
     {
         "leaf_id": "piaget-stages",
@@ -7206,7 +7258,7 @@
         "primary_source_count": 4,
         "source_authority": "ADEQUATE",
         "source_currentness": "NOT_TIME_SENSITIVE",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
             "let-learning-theories-review"
@@ -7241,7 +7293,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -7250,7 +7302,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "68f5c0a657134ea60214908c44900990aff4237ff7727603e1a87aa7bc2765bf"
+        "evidence_hash": "90ec31da3c606648e3bbbdc4e8dbc855f9a4813b805ed328dae33d696ae84fa7"
     },
     {
         "leaf_id": "prepositions-idiomatic-prepositions",
@@ -8121,7 +8173,7 @@
         "primary_source_count": 6,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
             "let-teaching-profession-review"
@@ -8157,7 +8209,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -8166,7 +8218,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "513c732105abd98c1e2a2463877a8f2313c4cf7d0f027283b5f2e49dfa22cd11"
+        "evidence_hash": "b830ffb486c58ae5207aabf0e9d45aef7cc11782901cbed336515517fa9fad5f"
     },
     {
         "leaf_id": "science-biology-cells",
@@ -9246,7 +9298,7 @@
         "primary_source_count": 6,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
             "let-learning-theories-review",
@@ -9285,7 +9337,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -9294,7 +9346,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "a46384916609ae1ef89c3bf1d6c1445869032ef02decfe7a0a933f289cf4a130"
+        "evidence_hash": "3207f2e5b4f555b803e69da80f17c7870caa8bb8fdaeaefb06ec972a3e7bcaae"
     },
     {
         "leaf_id": "sne-accessible-materials",
@@ -10748,7 +10800,7 @@
         "primary_source_count": 4,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
             "let-learning-theories-review"
@@ -10786,7 +10838,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -10795,7 +10847,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "bd12a0b72ed62ca73128f20cc9a63536daa8c7d58b00c47488c94ce888e2adeb"
+        "evidence_hash": "ded18dac58d54446afa317f43f08b9a0b51146e733771d6d17b46b8508797dba"
     },
     {
         "leaf_id": "tle-afa-animal-and-fish-production",
@@ -14533,7 +14585,7 @@
         "primary_source_count": 6,
         "source_authority": "ADEQUATE",
         "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
             "let-learning-theories-review",
@@ -14570,7 +14622,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -14579,7 +14631,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "0a432c798073f0a7a0fca3c4c00330d448f008f2f91124dbc4dd66e7544b1302"
+        "evidence_hash": "1fe005953686301ca004f1d2466f98899aa5783337bb0ac7993bcc6246047a32"
     },
     {
         "leaf_id": "vygotsky-social-learning",
@@ -14601,7 +14653,7 @@
         "primary_source_count": 4,
         "source_authority": "ADEQUATE",
         "source_currentness": "NOT_TIME_SENSITIVE",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
             "let-learning-theories-review"
@@ -14641,7 +14693,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -14650,7 +14702,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "3cd1d387dfbdae50e6301f093304a4253be3f6343a25268423e87617769299cc"
+        "evidence_hash": "5b2f73549d3d0f594f2e5bc24eb8d82d1db0816a14097861de0ff1852b624ea8"
     },
     {
         "leaf_id": "vygotsky-zpd",
@@ -14672,7 +14724,7 @@
         "primary_source_count": 4,
         "source_authority": "ADEQUATE",
         "source_currentness": "NOT_TIME_SENSITIVE",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
             "let-learning-theories-review"
@@ -14707,7 +14759,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -14716,7 +14768,7 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "15da5965a8ab1555e255187b934eb11ba67ee2e963475d03b4e945afd5c772c3"
+        "evidence_hash": "61673ed4949bbebcb2e0f8f3a81da683daca16e2ab8a4bfde3e09cbc7c1bd542"
     },
     {
         "leaf_id": "watson-behaviorism",
@@ -14738,7 +14790,7 @@
         "primary_source_count": 4,
         "source_authority": "ADEQUATE",
         "source_currentness": "NOT_TIME_SENSITIVE",
-        "source_scope_fit": "UNKNOWN",
+        "source_scope_fit": "PARTIAL",
         "source_conflict_status": "UNKNOWN",
         "study_material_ids": [
             "let-learning-theories-review"
@@ -14772,7 +14824,7 @@
         ],
         "readiness": "REVIEW",
         "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Legacy flat professional-education placement is source-traceable but the precise current PRC TOS scope boundary and placement semantics require adjudication.",
+        "review_reason": "PRC TOS supports broad foundations and child/adolescent learning outcomes, but does not list this historical theorist as a dedicated blueprint leaf. Academic sources support concept teaching; preserve the item as a BoardPrep subtopic without claiming official item-level scope.",
         "defer_reason": "",
         "max_new_questions": 0,
         "planned_new_questions": 0,
@@ -14781,6 +14833,6 @@
         "scope_component_ids": [
             "PROFESSIONAL_EDUCATION"
         ],
-        "evidence_hash": "b3665dc7f5d6f1eb193e44bc7dc1c7a5535bc41718e1adda5f78b8267f1c60df"
+        "evidence_hash": "afccfd6ed7bc6d7b4441eb5d6545a2fa134957fb8e1569f807c06e1e77728b00"
     }
 ]

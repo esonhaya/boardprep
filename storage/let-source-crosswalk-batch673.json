@@ -1,0 +1,3676 @@
+{
+  "schema_version": 1,
+  "batch": 673,
+  "generated_at": "2026-10-14",
+  "base_head": "0060c8b4222d08c220cf26c93f8a06ea56db6260",
+  "scope": "The 35 LET source-scope rows recorded UNKNOWN before this review; three separate CSE structural placeholders are listed outside this target.",
+  "method": "Crosswalk ids and question sets are sourced from the pre-change readiness collection and current canonical taxonomy. Questions and materials are not inferred from raw counts alone. PRC evidence establishes broad current exam outcomes; academic sources support concept instruction only.",
+  "classification_legend": {
+    "VERIFIED": "Authoritative scope source directly names the broad subject outcome; individual leaves remain BoardPrep organization unless the TOS names them.",
+    "CORRECTABLE": "Broad PRC outcome supports the learning area and academic sources support the concept, but the theorist/construct is not individually named as a PRC TOS leaf.",
+    "DEFERRED": "No supported evidence permits resolution; do not infer scope.",
+    "DETECTOR_LIMITATION": "The readiness row aggregates multiple competencies/material pathways, so a single exact scope fit cannot be assigned."
+  },
+  "summary": {
+    "target_crosswalks_before": 35,
+    "target_crosswalks_after": 35,
+    "classifications": {
+      "CORRECTABLE": 19,
+      "VERIFIED": 15,
+      "DETECTOR_LIMITATION": 1,
+      "DEFERRED": 0
+    },
+    "target_unknown_before": 35,
+    "target_unknown_after": 1,
+    "let_scope_fit_unknown_before": 38,
+    "let_scope_fit_unknown_after": 4,
+    "separate_structural_unknown_rows": [
+      "cse-constitutional-principles",
+      "cse-environmental-public-interest",
+      "cse-ethical-public-service"
+    ]
+  },
+  "evidence_sources": {
+    "cornell-bloom-taxonomy": {
+      "id": "cornell-bloom-taxonomy",
+      "title": "Bloom’s Taxonomy",
+      "authority": "Cornell University Center for Teaching Innovation",
+      "url": "https://teaching.cornell.edu/resource/blooms-taxonomy",
+      "version": "current teaching resource",
+      "source_type": "ACADEMIC_COURSE",
+      "source_role": "ACADEMIC_SUPPORT"
+    },
+    "deped-ppst-do-42-2017": {
+      "id": "deped-ppst-do-42-2017",
+      "title": "DepEd Order No. 42, s. 2017: Philippine Professional Standards for Teachers",
+      "authority": "Department of Education, Philippines",
+      "url": "https://www.deped.gov.ph/2017/08/11/do-42-s-2017-national-adoption-and-implementation-of-the-philippine-professional-standards-for-teachers/",
+      "version": "DepEd Order No. 42, s. 2017",
+      "source_type": "OFFICIAL_GUIDANCE",
+      "source_role": "PROFESSIONAL_STANDARD"
+    },
+    "prc-lept-alignment-guidance-2025": {
+      "id": "prc-lept-alignment-guidance-2025",
+      "title": "PRC Guidelines on the Implementation of the PRC-CHED JMC on LEPT Alignment",
+      "authority": "Professional Regulation Commission",
+      "url": "https://www.prc.gov.ph/article/guidelines-implementation-prc-ched-jmc-alignment-teacher-education-curriculum",
+      "version": "September 2025 and succeeding LEPT schedules",
+      "source_type": "OFFICIAL_GUIDANCE",
+      "source_role": "REGULATORY_SOURCE"
+    },
+    "prc-lept-program-march-2026": {
+      "id": "prc-lept-program-march-2026",
+      "title": "PRC Revised Program of the March 15, 2026 LEPT",
+      "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+      "url": "https://www.prc.gov.ph/sites/default/files/March%202026%20%20lept%20exam%20program%20%28prof%20teachers%29revised.pdf",
+      "version": "Revised March 2026 LEPT program",
+      "source_type": "OFFICIAL_PROGRAM",
+      "source_role": "SCOPE_SOURCE"
+    },
+    "prc-let-enhanced-tos-2025": {
+      "id": "prc-let-enhanced-tos-2025",
+      "title": "Enhanced Tables of Specifications for the Licensure Examination for Professional Teachers",
+      "authority": "Professional Regulation Commission; Professional Regulatory Board for Professional Teachers",
+      "url": "https://prc.gov.ph/Pages/PRBv4/ProfessionalTeachersv9.htm",
+      "version": "Resolution No. 11 s. 2025",
+      "source_type": "OFFICIAL_EXAM_SPEC",
+      "source_role": "SCOPE_SOURCE"
+    },
+    "prc-resolution-20-2025": {
+      "id": "prc-resolution-20-2025",
+      "title": "PRC Board Resolution No. 20 s. 2025: Alignment of the CHED Teacher Education Curriculum and the LEPT",
+      "authority": "Professional Regulatory Board for Professional Teachers / Professional Regulation Commission",
+      "url": "https://www.prc.gov.ph/sites/default/files/2025-20%20published%20teachers.pdf",
+      "version": "Resolution No. 20 s. 2025",
+      "source_type": "OFFICIAL_EXAM_SPEC",
+      "source_role": "SCOPE_SOURCE"
+    },
+    "republic-act-7836": {
+      "id": "republic-act-7836",
+      "title": "Republic Act No. 7836: Philippine Teachers Professionalization Act",
+      "authority": "Republic of the Philippines",
+      "url": "https://www.officialgazette.gov.ph/1994/12/16/republic-act-no-7836/",
+      "version": "Republic Act No. 7836",
+      "source_type": "PRIMARY_LAW",
+      "source_role": null
+    },
+    "openstax-lifespan-development": {
+      "id": "openstax-lifespan-development",
+      "title": "1.4 Contexts and Settings of Development — Lifespan Development",
+      "authority": "OpenStax, Rice University",
+      "url": "https://openstax.org/books/lifespan-development/pages/1-4-contexts-and-settings-of-development",
+      "version": "current web edition",
+      "source_type": "OPEN_TEXTBOOK",
+      "source_role": "INSTRUCTIONAL_SOURCE"
+    },
+    "alfieri-discovery-meta-analysis-2011": {
+      "id": "alfieri-discovery-meta-analysis-2011",
+      "title": "Does Discovery-Based Instruction Enhance Learning?",
+      "authority": "Journal of Educational Psychology; American Psychological Association",
+      "url": "https://doi.org/10.1037/a0021017",
+      "version": "Journal of Educational Psychology, 103(1), 1–18",
+      "source_type": "SECONDARY_REVIEW",
+      "source_role": "ACADEMIC_SUPPORT"
+    },
+    "open-university-guided-discovery": {
+      "id": "open-university-guided-discovery",
+      "title": "Guided discovery style, section 6.5 (Open Research Online item 54853)",
+      "authority": "The Open University, Open Research Online",
+      "url": "https://oro.open.ac.uk/54853/1/340739.pdf",
+      "version": "repository PDF excerpt, section 6.5",
+      "source_type": "ACADEMIC_COURSE",
+      "source_role": "INSTRUCTIONAL_SOURCE"
+    },
+    "openstax-psychology-2e": {
+      "id": "openstax-psychology-2e",
+      "title": "Psychology 2e",
+      "authority": "OpenStax, Rice University",
+      "url": "https://openstax.org/details/books/psychology-2e",
+      "version": "current OpenStax web edition",
+      "source_type": "SECONDARY_REVIEW",
+      "source_role": "INSTRUCTIONAL_SOURCE"
+    },
+    "openlearn-bruner-representations": {
+      "id": "openlearn-bruner-representations",
+      "title": "Teaching mathematics: Bruner’s modes of representation",
+      "authority": "The Open University, OpenLearn",
+      "url": "https://www.open.edu/openlearn/mod/oucontent/view.php?id=95188&section=_unit5.2.1",
+      "version": "OpenLearn course page",
+      "source_type": "ACADEMIC_COURSE",
+      "source_role": "INSTRUCTIONAL_SOURCE"
+    },
+    "ferrero-multiple-intelligences-review-2021": {
+      "id": "ferrero-multiple-intelligences-review-2021",
+      "title": "A valid evaluation of the theory of multiple intelligences is not yet possible: Problems of methodological quality for intervention studies",
+      "authority": "Intelligence; Elsevier",
+      "url": "https://doi.org/10.1016/j.intell.2021.101566",
+      "version": "Intelligence, article 101566",
+      "source_type": "SECONDARY_REVIEW",
+      "source_role": "ACADEMIC_SUPPORT"
+    },
+    "cast-udl-guidelines-3": {
+      "id": "cast-udl-guidelines-3",
+      "title": "CAST Universal Design for Learning Guidelines 3.0",
+      "authority": "CAST",
+      "url": "https://udlguidelines.cast.org/",
+      "version": "UDL Guidelines 3.0",
+      "source_type": "OFFICIAL_GUIDANCE",
+      "source_role": "INSTRUCTIONAL_FRAMEWORK"
+    },
+    "republic-act-11650": {
+      "id": "republic-act-11650",
+      "title": "Republic Act No. 11650: Inclusive Education Act",
+      "authority": "Republic of the Philippines; Supreme Court E-Library",
+      "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/94483",
+      "version": "Republic Act No. 11650",
+      "source_type": "OFFICIAL_GUIDANCE",
+      "source_role": "STATUTORY_SOURCE"
+    },
+    "deped-classroom-assessment-do-8-2015": {
+      "id": "deped-classroom-assessment-do-8-2015",
+      "title": "DepEd Order No. 8, s. 2015: Policy Guidelines on Classroom Assessment",
+      "authority": "Department of Education, Philippines",
+      "url": "https://www.deped.gov.ph/2015/04/01/do-8-s-2015-policy-guidelines-on-classroom-assessment-for-the-k-to-12-basic-education-program/",
+      "version": "DepEd Order No. 8, s. 2015",
+      "source_type": "OFFICIAL_GUIDANCE",
+      "source_role": "NORMATIVE_SOURCE"
+    },
+    "republic-act-10533": {
+      "id": "republic-act-10533",
+      "title": "Republic Act No. 10533: Enhanced Basic Education Act of 2013",
+      "authority": "Republic of the Philippines",
+      "url": "https://www.officialgazette.gov.ph/2013/05/15/republic-act-no-10533/",
+      "version": "Republic Act No. 10533",
+      "source_type": "PRIMARY_LAW",
+      "source_role": "STATUTORY_SOURCE"
+    },
+    "1987-philippine-constitution": {
+      "id": "1987-philippine-constitution",
+      "title": "1987 Constitution of the Republic of the Philippines",
+      "authority": "Republic of the Philippines; text reproduced by The Lawphil Project",
+      "url": "https://lawphil.net/consti/cons1987.html",
+      "version": "1987 text",
+      "source_type": "PRIMARY_LAW",
+      "source_role": "STATUTORY_SOURCE"
+    },
+    "deped-araling-panlipunan-curriculum-guide": {
+      "id": "deped-araling-panlipunan-curriculum-guide",
+      "title": "DepEd K to 12 Araling Panlipunan Curriculum Guide",
+      "authority": "Department of Education, Philippines",
+      "url": "https://www.deped.gov.ph/wp-content/uploads/2019/01/AP-CG.pdf",
+      "version": "K to 12 Araling Panlipunan Curriculum Guide",
+      "source_type": "OFFICIAL_GUIDANCE",
+      "source_role": "CURRICULUM_SOURCE"
+    },
+    "prc-code-of-ethics-professional-teachers": {
+      "id": "prc-code-of-ethics-professional-teachers",
+      "title": "Code of Ethics for Professional Teachers",
+      "authority": "Professional Regulation Commission; Professional Regulatory Board for Professional Teachers",
+      "url": "https://prc.gov.ph/sites/default/files/Resolution%20no.%20435%20Code%20of%20Ethics.pdf",
+      "version": "PRC Board Resolution No. 435",
+      "source_type": "OFFICIAL_GUIDANCE",
+      "source_role": "PROFESSIONAL_RULE_SOURCE"
+    },
+    "republic-act-6713": {
+      "id": "republic-act-6713",
+      "title": "Republic Act No. 6713: Code of Conduct and Ethical Standards",
+      "authority": "Republic of the Philippines; text reproduced by The Lawphil Project",
+      "url": "https://lawphil.net/statutes/repacts/ra1989/ra_6713_1989.html",
+      "version": "Republic Act No. 6713",
+      "source_type": "PRIMARY_LAW",
+      "source_role": "STATUTORY_SOURCE"
+    }
+  },
+  "crosswalks": [
+    {
+      "board": "LET",
+      "leaf_id": "bloom-cognitive-processes",
+      "leaf_name": "Cognitive Processes",
+      "official_area_id": "professional-education",
+      "question_count": 3,
+      "question_ids": [
+        "293",
+        "294",
+        "295"
+      ],
+      "question_links": [
+        {
+          "question_id": "293",
+          "material_id": "let-assessment-review",
+          "source_ids": [
+            "cornell-bloom-taxonomy",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "293",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "294",
+          "material_id": "let-assessment-review",
+          "source_ids": [
+            "cornell-bloom-taxonomy",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "294",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "295",
+          "material_id": "let-assessment-review",
+          "source_ids": [
+            "cornell-bloom-taxonomy",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "295",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-assessment-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "cornell-bloom-taxonomy",
+        "deped-ppst-do-42-2017",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "The current TOS uses Bloom cognitive-process categories in its assessment matrix.",
+          "claim_limit": "This is an item cognitive-demand classification, not proof that Bloom is a separately weighted exam content area."
+        },
+        {
+          "source_id": "cornell-bloom-taxonomy",
+          "scope": "University teaching guide describes cognitive categories and outcome/assessment alignment.",
+          "claim_limit": "Instructional reference, not LET scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "bronfenbrenner-ecology",
+      "leaf_name": "Ecological Systems",
+      "official_area_id": "professional-education",
+      "question_count": 4,
+      "question_ids": [
+        "275",
+        "276",
+        "277",
+        "300"
+      ],
+      "question_links": [
+        {
+          "question_id": "275",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "openstax-lifespan-development",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "275",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "276",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "openstax-lifespan-development",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "276",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "277",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "openstax-lifespan-development",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "277",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "300",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "openstax-lifespan-development",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "300",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-child-development-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "deped-ppst-do-42-2017",
+        "openstax-lifespan-development",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad child/adolescent learning and sociocultural/development outcomes.",
+          "claim_limit": "The current TOS does not name Bronfenbrenner as an individual official leaf."
+        },
+        {
+          "source_id": "openstax-lifespan-development",
+          "scope": "Open textbook section explains Bronfenbrenner’s ecological systems model.",
+          "claim_limit": "Instructional reference, not exam scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "bruner-discovery",
+      "leaf_name": "Discovery Learning",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "286"
+      ],
+      "question_links": [
+        {
+          "question_id": "286",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "alfieri-discovery-meta-analysis-2011",
+            "open-university-guided-discovery",
+            "openstax-psychology-2e"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-learning-theories-review"
+      ],
+      "source_ids": [
+        "alfieri-discovery-meta-analysis-2011",
+        "open-university-guided-discovery",
+        "openstax-psychology-2e",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad Professional Education pedagogical and learning-principle outcomes.",
+          "claim_limit": "The current TOS does not name Bruner or discovery learning as an individual leaf."
+        },
+        {
+          "source_id": "open-university-guided-discovery",
+          "scope": "Open University repository section describes guided discovery based on Bruner and the tutor’s active role.",
+          "claim_limit": "Academic teaching material, not LET scope."
+        },
+        {
+          "source_id": "alfieri-discovery-meta-analysis-2011",
+          "scope": "Meta-analysis distinguishes unassisted from assisted/enhanced discovery and finds outcomes favor guidance, feedback, examples, scaffolding, and explanation.",
+          "claim_limit": "Evidence concerns instructional approaches generally; it does not establish LET scope or validate every Bruner claim."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "bruner-representation",
+      "leaf_name": "Modes of Representation",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "287"
+      ],
+      "question_links": [
+        {
+          "question_id": "287",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openlearn-bruner-representations",
+            "openstax-psychology-2e"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-learning-theories-review"
+      ],
+      "source_ids": [
+        "openlearn-bruner-representations",
+        "openstax-psychology-2e",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad foundations and learning-principle outcomes.",
+          "claim_limit": "The current TOS does not name Bruner’s representation modes as an individual leaf."
+        },
+        {
+          "source_id": "openlearn-bruner-representations",
+          "scope": "Open University resource describes enactive, iconic, and symbolic representation.",
+          "claim_limit": "Instructional reference, not LET scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "erikson-competence",
+      "leaf_name": "Psychosocial Competence",
+      "official_area_id": "professional-education",
+      "question_count": 2,
+      "question_ids": [
+        "269",
+        "271"
+      ],
+      "question_links": [
+        {
+          "question_id": "269",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "271",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-learning-theories-review"
+      ],
+      "source_ids": [
+        "openstax-psychology-2e",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad Professional Education foundations, theories, or child/adolescent learning-principle outcomes as applicable to this concept.",
+          "claim_limit": "The current TOS does not name this historical theorist as a dedicated official blueprint leaf."
+        },
+        {
+          "source_id": "openstax-psychology-2e",
+          "scope": "Academic open-textbook source for relevant developmental or learning theory concepts.",
+          "claim_limit": "Instructional concept evidence, not examination-scope evidence."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "erikson-identity",
+      "leaf_name": "Identity Development",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "270"
+      ],
+      "question_links": [
+        {
+          "question_id": "270",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-learning-theories-review"
+      ],
+      "source_ids": [
+        "openstax-psychology-2e",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad Professional Education foundations, theories, or child/adolescent learning-principle outcomes as applicable to this concept.",
+          "claim_limit": "The current TOS does not name this historical theorist as a dedicated official blueprint leaf."
+        },
+        {
+          "source_id": "openstax-psychology-2e",
+          "scope": "Academic open-textbook source for relevant developmental or learning theory concepts.",
+          "claim_limit": "Instructional concept evidence, not examination-scope evidence."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "gardner-multiple-intelligences",
+      "leaf_name": "Multiple Intelligences",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "292"
+      ],
+      "question_links": [
+        {
+          "question_id": "292",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "ferrero-multiple-intelligences-review-2021",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "292",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-learning-theories-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "deped-ppst-do-42-2017",
+        "ferrero-multiple-intelligences-review-2021",
+        "openstax-psychology-2e",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad pedagogical and child/adolescent learning outcomes.",
+          "claim_limit": "The current TOS does not name Gardner’s model as an individual leaf."
+        },
+        {
+          "source_id": "ferrero-multiple-intelligences-review-2021",
+          "scope": "Peer-reviewed review reports evidence/method limitations in MI-inspired interventions.",
+          "claim_limit": "Supports cautious framing; does not validate fixed intelligence labels or establish LET scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "inclusive-access",
+      "leaf_name": "Accessible Learning",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "301"
+      ],
+      "question_links": [
+        {
+          "question_id": "301",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-11650"
+          ]
+        },
+        {
+          "question_id": "301",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-inclusive-education-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "cast-udl-guidelines-3",
+        "deped-ppst-do-42-2017",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-11650",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "VERIFIED",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "PRC Resolution No. 11 s. 2025, Professional Education: Teaching Profession 1.2 (foundation theories of special and inclusive education); Child and Adolescent Learners and Learning Principles 1.1–1.4 (inclusive/developmentally appropriate pedagogy, varied backgrounds, differentiation, and developmental research).",
+          "claim_limit": "Supports the broad inclusive-education outcome; the named BoardPrep leaf is not individually enumerated."
+        },
+        {
+          "source_id": "republic-act-11650",
+          "scope": "Statutory support for inclusive education and access/support for learners with disabilities.",
+          "claim_limit": "Applies to its statutory subject; does not establish a standalone LET item category or define every assessment accommodation distinction."
+        },
+        {
+          "source_id": "cast-udl-guidelines-3",
+          "scope": "Design framework for engagement, representation, and action/expression.",
+          "claim_limit": "Instructional design guidance, not Philippine law or exam scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Retain the inclusive-education pathway and its exact linked resources. Review current PRC guidance on update; describe each leaf as a BoardPrep subtopic under the broad TOS outcome, not as an individually listed PRC competency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "inclusive-accommodation",
+      "leaf_name": "Accommodation and Access",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "303"
+      ],
+      "question_links": [
+        {
+          "question_id": "303",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-11650"
+          ]
+        },
+        {
+          "question_id": "303",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-inclusive-education-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "cast-udl-guidelines-3",
+        "deped-ppst-do-42-2017",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-11650",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "VERIFIED",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "PRC Resolution No. 11 s. 2025, Professional Education: Teaching Profession 1.2 (foundation theories of special and inclusive education); Child and Adolescent Learners and Learning Principles 1.1–1.4 (inclusive/developmentally appropriate pedagogy, varied backgrounds, differentiation, and developmental research).",
+          "claim_limit": "Supports the broad inclusive-education outcome; the named BoardPrep leaf is not individually enumerated."
+        },
+        {
+          "source_id": "republic-act-11650",
+          "scope": "Statutory support for inclusive education and access/support for learners with disabilities.",
+          "claim_limit": "Applies to its statutory subject; does not establish a standalone LET item category or define every assessment accommodation distinction."
+        },
+        {
+          "source_id": "cast-udl-guidelines-3",
+          "scope": "Design framework for engagement, representation, and action/expression.",
+          "claim_limit": "Instructional design guidance, not Philippine law or exam scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Retain the inclusive-education pathway and its exact linked resources. Review current PRC guidance on update; describe each leaf as a BoardPrep subtopic under the broad TOS outcome, not as an individually listed PRC competency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "inclusive-adaptation",
+      "leaf_name": "Instructional Adaptation",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "313"
+      ],
+      "question_links": [
+        {
+          "question_id": "313",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-11650"
+          ]
+        },
+        {
+          "question_id": "313",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-inclusive-education-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "cast-udl-guidelines-3",
+        "deped-ppst-do-42-2017",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-11650",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "VERIFIED",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "PRC Resolution No. 11 s. 2025, Professional Education: Teaching Profession 1.2 (foundation theories of special and inclusive education); Child and Adolescent Learners and Learning Principles 1.1–1.4 (inclusive/developmentally appropriate pedagogy, varied backgrounds, differentiation, and developmental research).",
+          "claim_limit": "Supports the broad inclusive-education outcome; the named BoardPrep leaf is not individually enumerated."
+        },
+        {
+          "source_id": "republic-act-11650",
+          "scope": "Statutory support for inclusive education and access/support for learners with disabilities.",
+          "claim_limit": "Applies to its statutory subject; does not establish a standalone LET item category or define every assessment accommodation distinction."
+        },
+        {
+          "source_id": "cast-udl-guidelines-3",
+          "scope": "Design framework for engagement, representation, and action/expression.",
+          "claim_limit": "Instructional design guidance, not Philippine law or exam scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Retain the inclusive-education pathway and its exact linked resources. Review current PRC guidance on update; describe each leaf as a BoardPrep subtopic under the broad TOS outcome, not as an individually listed PRC competency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "inclusive-assessment",
+      "leaf_name": "Accessible Assessment",
+      "official_area_id": "professional-education",
+      "question_count": 7,
+      "question_ids": [
+        "309",
+        "317",
+        "5933",
+        "5934",
+        "5935",
+        "5936",
+        "5937"
+      ],
+      "question_links": [
+        {
+          "question_id": "309",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-11650"
+          ]
+        },
+        {
+          "question_id": "309",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "317",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-11650"
+          ]
+        },
+        {
+          "question_id": "317",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "5933",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-11650"
+          ]
+        },
+        {
+          "question_id": "5933",
+          "material_id": "let-professional-education-foundation",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "5934",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-11650"
+          ]
+        },
+        {
+          "question_id": "5934",
+          "material_id": "let-professional-education-foundation",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "5935",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-11650"
+          ]
+        },
+        {
+          "question_id": "5935",
+          "material_id": "let-professional-education-foundation",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "5936",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-11650"
+          ]
+        },
+        {
+          "question_id": "5936",
+          "material_id": "let-professional-education-foundation",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "5937",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-11650"
+          ]
+        },
+        {
+          "question_id": "5937",
+          "material_id": "let-professional-education-foundation",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-inclusive-education-review",
+        "let-professional-education-foundation",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "cast-udl-guidelines-3",
+        "deped-classroom-assessment-do-8-2015",
+        "deped-ppst-do-42-2017",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-11650",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "VERIFIED",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "PRC Resolution No. 11 s. 2025, Professional Education: Teaching Profession 1.2 (foundation theories of special and inclusive education); Child and Adolescent Learners and Learning Principles 1.1–1.4 (inclusive/developmentally appropriate pedagogy, varied backgrounds, differentiation, and developmental research).",
+          "claim_limit": "Supports the broad inclusive-education outcome; the named BoardPrep leaf is not individually enumerated."
+        },
+        {
+          "source_id": "republic-act-11650",
+          "scope": "Statutory support for inclusive education and access/support for learners with disabilities.",
+          "claim_limit": "Applies to its statutory subject; does not establish a standalone LET item category or define every assessment accommodation distinction."
+        },
+        {
+          "source_id": "cast-udl-guidelines-3",
+          "scope": "Design framework for engagement, representation, and action/expression.",
+          "claim_limit": "Instructional design guidance, not Philippine law or exam scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Retain the inclusive-education pathway and its exact linked resources. Review current PRC guidance on update; describe each leaf as a BoardPrep subtopic under the broad TOS outcome, not as an individually listed PRC competency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "inclusive-barriers",
+      "leaf_name": "Barriers to Learning",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "306"
+      ],
+      "question_links": [
+        {
+          "question_id": "306",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "306",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-inclusive-education-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "cast-udl-guidelines-3",
+        "deped-ppst-do-42-2017",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-10533",
+        "republic-act-11650",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "VERIFIED",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "PRC Resolution No. 11 s. 2025, Professional Education: Teaching Profession 1.2 (foundation theories of special and inclusive education); Child and Adolescent Learners and Learning Principles 1.1–1.4 (inclusive/developmentally appropriate pedagogy, varied backgrounds, differentiation, and developmental research).",
+          "claim_limit": "Supports the broad inclusive-education outcome; the named BoardPrep leaf is not individually enumerated."
+        },
+        {
+          "source_id": "republic-act-11650",
+          "scope": "Statutory support for inclusive education and access/support for learners with disabilities.",
+          "claim_limit": "Applies to its statutory subject; does not establish a standalone LET item category or define every assessment accommodation distinction."
+        },
+        {
+          "source_id": "cast-udl-guidelines-3",
+          "scope": "Design framework for engagement, representation, and action/expression.",
+          "claim_limit": "Instructional design guidance, not Philippine law or exam scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Retain the inclusive-education pathway and its exact linked resources. Review current PRC guidance on update; describe each leaf as a BoardPrep subtopic under the broad TOS outcome, not as an individually listed PRC competency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "inclusive-classroom",
+      "leaf_name": "Inclusive Classroom Climate",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "316"
+      ],
+      "question_links": [
+        {
+          "question_id": "316",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "316",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-inclusive-education-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "cast-udl-guidelines-3",
+        "deped-ppst-do-42-2017",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-10533",
+        "republic-act-11650",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "VERIFIED",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "PRC Resolution No. 11 s. 2025, Professional Education: Teaching Profession 1.2 (foundation theories of special and inclusive education); Child and Adolescent Learners and Learning Principles 1.1–1.4 (inclusive/developmentally appropriate pedagogy, varied backgrounds, differentiation, and developmental research).",
+          "claim_limit": "Supports the broad inclusive-education outcome; the named BoardPrep leaf is not individually enumerated."
+        },
+        {
+          "source_id": "republic-act-11650",
+          "scope": "Statutory support for inclusive education and access/support for learners with disabilities.",
+          "claim_limit": "Applies to its statutory subject; does not establish a standalone LET item category or define every assessment accommodation distinction."
+        },
+        {
+          "source_id": "cast-udl-guidelines-3",
+          "scope": "Design framework for engagement, representation, and action/expression.",
+          "claim_limit": "Instructional design guidance, not Philippine law or exam scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Retain the inclusive-education pathway and its exact linked resources. Review current PRC guidance on update; describe each leaf as a BoardPrep subtopic under the broad TOS outcome, not as an individually listed PRC competency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "inclusive-collaboration",
+      "leaf_name": "Collaborative Support",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "308"
+      ],
+      "question_links": [
+        {
+          "question_id": "308",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "308",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-inclusive-education-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "cast-udl-guidelines-3",
+        "deped-ppst-do-42-2017",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-10533",
+        "republic-act-11650",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "VERIFIED",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "PRC Resolution No. 11 s. 2025, Professional Education: Teaching Profession 1.2 (foundation theories of special and inclusive education); Child and Adolescent Learners and Learning Principles 1.1–1.4 (inclusive/developmentally appropriate pedagogy, varied backgrounds, differentiation, and developmental research).",
+          "claim_limit": "Supports the broad inclusive-education outcome; the named BoardPrep leaf is not individually enumerated."
+        },
+        {
+          "source_id": "republic-act-11650",
+          "scope": "Statutory support for inclusive education and access/support for learners with disabilities.",
+          "claim_limit": "Applies to its statutory subject; does not establish a standalone LET item category or define every assessment accommodation distinction."
+        },
+        {
+          "source_id": "cast-udl-guidelines-3",
+          "scope": "Design framework for engagement, representation, and action/expression.",
+          "claim_limit": "Instructional design guidance, not Philippine law or exam scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Retain the inclusive-education pathway and its exact linked resources. Review current PRC guidance on update; describe each leaf as a BoardPrep subtopic under the broad TOS outcome, not as an individually listed PRC competency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "inclusive-equity",
+      "leaf_name": "Equity and Fairness",
+      "official_area_id": "professional-education",
+      "question_count": 2,
+      "question_ids": [
+        "307",
+        "318"
+      ],
+      "question_links": [
+        {
+          "question_id": "307",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "307",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "318",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "318",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-inclusive-education-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "cast-udl-guidelines-3",
+        "deped-ppst-do-42-2017",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-10533",
+        "republic-act-11650",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "VERIFIED",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "PRC Resolution No. 11 s. 2025, Professional Education: Teaching Profession 1.2 (foundation theories of special and inclusive education); Child and Adolescent Learners and Learning Principles 1.1–1.4 (inclusive/developmentally appropriate pedagogy, varied backgrounds, differentiation, and developmental research).",
+          "claim_limit": "Supports the broad inclusive-education outcome; the named BoardPrep leaf is not individually enumerated."
+        },
+        {
+          "source_id": "republic-act-11650",
+          "scope": "Statutory support for inclusive education and access/support for learners with disabilities.",
+          "claim_limit": "Applies to its statutory subject; does not establish a standalone LET item category or define every assessment accommodation distinction."
+        },
+        {
+          "source_id": "cast-udl-guidelines-3",
+          "scope": "Design framework for engagement, representation, and action/expression.",
+          "claim_limit": "Instructional design guidance, not Philippine law or exam scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Retain the inclusive-education pathway and its exact linked resources. Review current PRC guidance on update; describe each leaf as a BoardPrep subtopic under the broad TOS outcome, not as an individually listed PRC competency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "inclusive-family",
+      "leaf_name": "Family Collaboration",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "314"
+      ],
+      "question_links": [
+        {
+          "question_id": "314",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "314",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-inclusive-education-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "cast-udl-guidelines-3",
+        "deped-ppst-do-42-2017",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-10533",
+        "republic-act-11650",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "VERIFIED",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "PRC Resolution No. 11 s. 2025, Professional Education: Teaching Profession 1.2 (foundation theories of special and inclusive education); Child and Adolescent Learners and Learning Principles 1.1–1.4 (inclusive/developmentally appropriate pedagogy, varied backgrounds, differentiation, and developmental research).",
+          "claim_limit": "Supports the broad inclusive-education outcome; the named BoardPrep leaf is not individually enumerated."
+        },
+        {
+          "source_id": "republic-act-11650",
+          "scope": "Statutory support for inclusive education and access/support for learners with disabilities.",
+          "claim_limit": "Applies to its statutory subject; does not establish a standalone LET item category or define every assessment accommodation distinction."
+        },
+        {
+          "source_id": "cast-udl-guidelines-3",
+          "scope": "Design framework for engagement, representation, and action/expression.",
+          "claim_limit": "Instructional design guidance, not Philippine law or exam scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Retain the inclusive-education pathway and its exact linked resources. Review current PRC guidance on update; describe each leaf as a BoardPrep subtopic under the broad TOS outcome, not as an individually listed PRC competency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "inclusive-modification",
+      "leaf_name": "Learning Target Modification",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "304"
+      ],
+      "question_links": [
+        {
+          "question_id": "304",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-11650"
+          ]
+        },
+        {
+          "question_id": "304",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-inclusive-education-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "cast-udl-guidelines-3",
+        "deped-ppst-do-42-2017",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-11650",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "VERIFIED",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "PRC Resolution No. 11 s. 2025, Professional Education: Teaching Profession 1.2 (foundation theories of special and inclusive education); Child and Adolescent Learners and Learning Principles 1.1–1.4 (inclusive/developmentally appropriate pedagogy, varied backgrounds, differentiation, and developmental research).",
+          "claim_limit": "Supports the broad inclusive-education outcome; the named BoardPrep leaf is not individually enumerated."
+        },
+        {
+          "source_id": "republic-act-11650",
+          "scope": "Statutory support for inclusive education and access/support for learners with disabilities.",
+          "claim_limit": "Applies to its statutory subject; does not establish a standalone LET item category or define every assessment accommodation distinction."
+        },
+        {
+          "source_id": "cast-udl-guidelines-3",
+          "scope": "Design framework for engagement, representation, and action/expression.",
+          "claim_limit": "Instructional design guidance, not Philippine law or exam scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Retain the inclusive-education pathway and its exact linked resources. Review current PRC guidance on update; describe each leaf as a BoardPrep subtopic under the broad TOS outcome, not as an individually listed PRC competency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "inclusive-participation",
+      "leaf_name": "Inclusive Participation",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "305"
+      ],
+      "question_links": [
+        {
+          "question_id": "305",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "305",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-inclusive-education-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "cast-udl-guidelines-3",
+        "deped-ppst-do-42-2017",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-10533",
+        "republic-act-11650",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "VERIFIED",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "PRC Resolution No. 11 s. 2025, Professional Education: Teaching Profession 1.2 (foundation theories of special and inclusive education); Child and Adolescent Learners and Learning Principles 1.1–1.4 (inclusive/developmentally appropriate pedagogy, varied backgrounds, differentiation, and developmental research).",
+          "claim_limit": "Supports the broad inclusive-education outcome; the named BoardPrep leaf is not individually enumerated."
+        },
+        {
+          "source_id": "republic-act-11650",
+          "scope": "Statutory support for inclusive education and access/support for learners with disabilities.",
+          "claim_limit": "Applies to its statutory subject; does not establish a standalone LET item category or define every assessment accommodation distinction."
+        },
+        {
+          "source_id": "cast-udl-guidelines-3",
+          "scope": "Design framework for engagement, representation, and action/expression.",
+          "claim_limit": "Instructional design guidance, not Philippine law or exam scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Retain the inclusive-education pathway and its exact linked resources. Review current PRC guidance on update; describe each leaf as a BoardPrep subtopic under the broad TOS outcome, not as an individually listed PRC competency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "inclusive-peer-support",
+      "leaf_name": "Peer Support",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "315"
+      ],
+      "question_links": [
+        {
+          "question_id": "315",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "315",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-inclusive-education-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "cast-udl-guidelines-3",
+        "deped-ppst-do-42-2017",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-10533",
+        "republic-act-11650",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "VERIFIED",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "PRC Resolution No. 11 s. 2025, Professional Education: Teaching Profession 1.2 (foundation theories of special and inclusive education); Child and Adolescent Learners and Learning Principles 1.1–1.4 (inclusive/developmentally appropriate pedagogy, varied backgrounds, differentiation, and developmental research).",
+          "claim_limit": "Supports the broad inclusive-education outcome; the named BoardPrep leaf is not individually enumerated."
+        },
+        {
+          "source_id": "republic-act-11650",
+          "scope": "Statutory support for inclusive education and access/support for learners with disabilities.",
+          "claim_limit": "Applies to its statutory subject; does not establish a standalone LET item category or define every assessment accommodation distinction."
+        },
+        {
+          "source_id": "cast-udl-guidelines-3",
+          "scope": "Design framework for engagement, representation, and action/expression.",
+          "claim_limit": "Instructional design guidance, not Philippine law or exam scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Retain the inclusive-education pathway and its exact linked resources. Review current PRC guidance on update; describe each leaf as a BoardPrep subtopic under the broad TOS outcome, not as an individually listed PRC competency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "inclusive-respect",
+      "leaf_name": "Respectful Practice",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "311"
+      ],
+      "question_links": [
+        {
+          "question_id": "311",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "311",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-inclusive-education-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "cast-udl-guidelines-3",
+        "deped-ppst-do-42-2017",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-10533",
+        "republic-act-11650",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "VERIFIED",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "PRC Resolution No. 11 s. 2025, Professional Education: Teaching Profession 1.2 (foundation theories of special and inclusive education); Child and Adolescent Learners and Learning Principles 1.1–1.4 (inclusive/developmentally appropriate pedagogy, varied backgrounds, differentiation, and developmental research).",
+          "claim_limit": "Supports the broad inclusive-education outcome; the named BoardPrep leaf is not individually enumerated."
+        },
+        {
+          "source_id": "republic-act-11650",
+          "scope": "Statutory support for inclusive education and access/support for learners with disabilities.",
+          "claim_limit": "Applies to its statutory subject; does not establish a standalone LET item category or define every assessment accommodation distinction."
+        },
+        {
+          "source_id": "cast-udl-guidelines-3",
+          "scope": "Design framework for engagement, representation, and action/expression.",
+          "claim_limit": "Instructional design guidance, not Philippine law or exam scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Retain the inclusive-education pathway and its exact linked resources. Review current PRC guidance on update; describe each leaf as a BoardPrep subtopic under the broad TOS outcome, not as an individually listed PRC competency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "inclusive-universal-design",
+      "leaf_name": "Universal Design for Learning",
+      "official_area_id": "professional-education",
+      "question_count": 6,
+      "question_ids": [
+        "312",
+        "5928",
+        "5929",
+        "5930",
+        "5931",
+        "5932"
+      ],
+      "question_links": [
+        {
+          "question_id": "312",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "cast-udl-guidelines-3",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "312",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "5928",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "cast-udl-guidelines-3",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "5928",
+          "material_id": "let-professional-education-foundation",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "5929",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "cast-udl-guidelines-3",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "5929",
+          "material_id": "let-professional-education-foundation",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "5930",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "cast-udl-guidelines-3",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "5930",
+          "material_id": "let-professional-education-foundation",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "5931",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "cast-udl-guidelines-3",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "5931",
+          "material_id": "let-professional-education-foundation",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "5932",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "cast-udl-guidelines-3",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "5932",
+          "material_id": "let-professional-education-foundation",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-inclusive-education-review",
+        "let-professional-education-foundation",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "cast-udl-guidelines-3",
+        "deped-classroom-assessment-do-8-2015",
+        "deped-ppst-do-42-2017",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-11650",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "VERIFIED",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "PRC Resolution No. 11 s. 2025, Professional Education: Teaching Profession 1.2 (foundation theories of special and inclusive education); Child and Adolescent Learners and Learning Principles 1.1–1.4 (inclusive/developmentally appropriate pedagogy, varied backgrounds, differentiation, and developmental research).",
+          "claim_limit": "Supports the broad inclusive-education outcome; the named BoardPrep leaf is not individually enumerated."
+        },
+        {
+          "source_id": "republic-act-11650",
+          "scope": "Statutory support for inclusive education and access/support for learners with disabilities.",
+          "claim_limit": "Applies to its statutory subject; does not establish a standalone LET item category or define every assessment accommodation distinction."
+        },
+        {
+          "source_id": "cast-udl-guidelines-3",
+          "scope": "Design framework for engagement, representation, and action/expression.",
+          "claim_limit": "Instructional design guidance, not Philippine law or exam scope."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Retain the inclusive-education pathway and its exact linked resources. Review current PRC guidance on update; describe each leaf as a BoardPrep subtopic under the broad TOS outcome, not as an individually listed PRC competency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "kohlberg-moral-reasoning",
+      "leaf_name": "Moral Reasoning",
+      "official_area_id": "professional-education",
+      "question_count": 4,
+      "question_ids": [
+        "272",
+        "273",
+        "274",
+        "298"
+      ],
+      "question_links": [
+        {
+          "question_id": "272",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "273",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "274",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "298",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-learning-theories-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "deped-ppst-do-42-2017",
+        "openstax-psychology-2e",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad Professional Education foundations, theories, or child/adolescent learning-principle outcomes as applicable to this concept.",
+          "claim_limit": "The current TOS does not name this historical theorist as a dedicated official blueprint leaf."
+        },
+        {
+          "source_id": "openstax-psychology-2e",
+          "scope": "Academic open-textbook source for relevant developmental or learning theory concepts.",
+          "claim_limit": "Instructional concept evidence, not examination-scope evidence."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "let-ethical-duties",
+      "leaf_name": "Duties and Consequences",
+      "official_area_id": "professional-education",
+      "question_count": 31,
+      "question_ids": [
+        "381",
+        "382",
+        "383",
+        "384",
+        "385",
+        "386",
+        "387",
+        "388",
+        "389",
+        "390",
+        "391",
+        "392",
+        "393",
+        "394",
+        "395",
+        "396",
+        "397",
+        "398",
+        "399",
+        "400",
+        "2455",
+        "2456",
+        "2457",
+        "2458",
+        "2459",
+        "2460",
+        "5723",
+        "5724",
+        "5725",
+        "5726",
+        "5727"
+      ],
+      "question_links": [
+        {
+          "question_id": "381",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "382",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "383",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "384",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "385",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "386",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "387",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "388",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "389",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "390",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "391",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "392",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "393",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "394",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "395",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "396",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "397",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "398",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "399",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "400",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "2455",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "2456",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "2457",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "2458",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "2459",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "2460",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "prc-code-of-ethics-professional-teachers",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "5723",
+          "material_id": "let-specialization-social-studies-application",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "deped-araling-panlipunan-curriculum-guide",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "5724",
+          "material_id": "let-specialization-social-studies-application",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "deped-araling-panlipunan-curriculum-guide",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "5725",
+          "material_id": "let-specialization-social-studies-application",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "deped-araling-panlipunan-curriculum-guide",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "5726",
+          "material_id": "let-specialization-social-studies-application",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "deped-araling-panlipunan-curriculum-guide",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "5727",
+          "material_id": "let-specialization-social-studies-application",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "deped-araling-panlipunan-curriculum-guide",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-ethics-review",
+        "let-specialization-social-studies-application"
+      ],
+      "source_ids": [
+        "1987-philippine-constitution",
+        "deped-araling-panlipunan-curriculum-guide",
+        "prc-code-of-ethics-professional-teachers",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-10533",
+        "republic-act-6713"
+      ],
+      "source_scope_fit_after": "DIRECT",
+      "classification": "VERIFIED",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Professional Education: The Professional Teacher outcome 2.3 expressly includes responsibilities specified in the Code of Ethics for Professional Teachers.",
+          "claim_limit": "Direct broad-area fit; each BoardPrep scenario remains a practice organization, not an official blueprint leaf."
+        },
+        {
+          "source_id": "prc-code-of-ethics-professional-teachers",
+          "scope": "Official PRC-hosted teacher Code of Ethics used for the ethical-duty content.",
+          "claim_limit": "Use exact provisions for duties; no exam frequency claim."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Specialization placement is limited to the listed official registry identities; shared availability is not native specialization depth."
+      ],
+      "recommended_action": "Keep the direct Code of Ethics alignment, preserve the PRC code source on duty questions, and avoid claims about official item counts or frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "maslow-needs",
+      "leaf_name": "Needs and Learning",
+      "official_area_id": "professional-education",
+      "question_count": 2,
+      "question_ids": [
+        "288",
+        "289"
+      ],
+      "question_links": [
+        {
+          "question_id": "288",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "289",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-learning-theories-review"
+      ],
+      "source_ids": [
+        "openstax-psychology-2e",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad Professional Education foundations, theories, or child/adolescent learning-principle outcomes as applicable to this concept.",
+          "claim_limit": "The current TOS does not name this historical theorist as a dedicated official blueprint leaf."
+        },
+        {
+          "source_id": "openstax-psychology-2e",
+          "scope": "Academic open-textbook source for relevant developmental or learning theory concepts.",
+          "claim_limit": "Instructional concept evidence, not examination-scope evidence."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "pavlov-classical-conditioning",
+      "leaf_name": "Classical Conditioning",
+      "official_area_id": "professional-education",
+      "question_count": 2,
+      "question_ids": [
+        "278",
+        "279"
+      ],
+      "question_links": [
+        {
+          "question_id": "278",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "279",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-learning-theories-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "deped-ppst-do-42-2017",
+        "openstax-psychology-2e",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad Professional Education foundations, theories, or child/adolescent learning-principle outcomes as applicable to this concept.",
+          "claim_limit": "The current TOS does not name this historical theorist as a dedicated official blueprint leaf."
+        },
+        {
+          "source_id": "openstax-psychology-2e",
+          "scope": "Academic open-textbook source for relevant developmental or learning theory concepts.",
+          "claim_limit": "Instructional concept evidence, not examination-scope evidence."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "piaget-development",
+      "leaf_name": "Developmentally Appropriate Learning",
+      "official_area_id": "professional-education",
+      "question_count": 3,
+      "question_ids": [
+        "261",
+        "262",
+        "297"
+      ],
+      "question_links": [
+        {
+          "question_id": "261",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "262",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "297",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-learning-theories-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "deped-ppst-do-42-2017",
+        "openstax-psychology-2e",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad Professional Education foundations, theories, or child/adolescent learning-principle outcomes as applicable to this concept.",
+          "claim_limit": "The current TOS does not name this historical theorist as a dedicated official blueprint leaf."
+        },
+        {
+          "source_id": "openstax-psychology-2e",
+          "scope": "Academic open-textbook source for relevant developmental or learning theory concepts.",
+          "claim_limit": "Instructional concept evidence, not examination-scope evidence."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "piaget-stages",
+      "leaf_name": "Piaget and Cognitive Development",
+      "official_area_id": "professional-education",
+      "question_count": 3,
+      "question_ids": [
+        "259",
+        "260",
+        "263"
+      ],
+      "question_links": [
+        {
+          "question_id": "259",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "260",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "263",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-learning-theories-review"
+      ],
+      "source_ids": [
+        "openstax-psychology-2e",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad Professional Education foundations, theories, or child/adolescent learning-principle outcomes as applicable to this concept.",
+          "claim_limit": "The current TOS does not name this historical theorist as a dedicated official blueprint leaf."
+        },
+        {
+          "source_id": "openstax-psychology-2e",
+          "scope": "Academic open-textbook source for relevant developmental or learning theory concepts.",
+          "claim_limit": "Instructional concept evidence, not examination-scope evidence."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "prof-development-readiness",
+      "leaf_name": "Readiness and Development",
+      "official_area_id": "professional-education",
+      "question_count": 67,
+      "question_ids": [
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "131",
+        "132",
+        "133",
+        "134",
+        "135",
+        "136",
+        "137",
+        "138",
+        "139",
+        "140",
+        "339",
+        "360",
+        "441",
+        "442",
+        "443",
+        "444",
+        "445",
+        "446",
+        "447",
+        "448",
+        "449",
+        "450",
+        "451",
+        "452",
+        "453",
+        "479",
+        "480",
+        "481",
+        "482",
+        "483",
+        "484",
+        "485",
+        "486",
+        "487",
+        "488",
+        "489",
+        "490",
+        "491",
+        "492",
+        "493",
+        "494",
+        "495",
+        "496",
+        "497",
+        "498",
+        "499",
+        "2818",
+        "2819",
+        "2820",
+        "2821",
+        "2822",
+        "2823",
+        "2824",
+        "2825",
+        "2826",
+        "2827",
+        "5898",
+        "5899",
+        "5900",
+        "5901",
+        "5902"
+      ],
+      "question_links": [
+        {
+          "question_id": "51",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "52",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "53",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "54",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "55",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "56",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "131",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "132",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "133",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "134",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "135",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "136",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "137",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "138",
+          "material_id": "let-curriculum-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "139",
+          "material_id": "let-curriculum-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "140",
+          "material_id": "let-curriculum-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "339",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "360",
+          "material_id": "let-ppst-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "441",
+          "material_id": "let-code-of-ethics-review",
+          "source_ids": [
+            "republic-act-6713",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "442",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "443",
+          "material_id": "let-ppst-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "444",
+          "material_id": "let-teaching-strategies-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "445",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "446",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "447",
+          "material_id": "let-curriculum-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "448",
+          "material_id": "let-ethics-review",
+          "source_ids": [
+            "1987-philippine-constitution",
+            "republic-act-6713"
+          ]
+        },
+        {
+          "question_id": "449",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "450",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "451",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "452",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "453",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "479",
+          "material_id": "let-code-of-ethics-review",
+          "source_ids": [
+            "republic-act-6713",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "480",
+          "material_id": "let-code-of-ethics-review",
+          "source_ids": [
+            "republic-act-6713",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "481",
+          "material_id": "let-code-of-ethics-review",
+          "source_ids": [
+            "republic-act-6713",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "482",
+          "material_id": "let-code-of-ethics-review",
+          "source_ids": [
+            "republic-act-6713",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "483",
+          "material_id": "let-code-of-ethics-review",
+          "source_ids": [
+            "republic-act-6713",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "484",
+          "material_id": "let-code-of-ethics-review",
+          "source_ids": [
+            "republic-act-6713",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "485",
+          "material_id": "let-code-of-ethics-review",
+          "source_ids": [
+            "republic-act-6713",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "486",
+          "material_id": "let-code-of-ethics-review",
+          "source_ids": [
+            "republic-act-6713",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "487",
+          "material_id": "let-ppst-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "488",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "489",
+          "material_id": "let-assessment-review",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015"
+          ]
+        },
+        {
+          "question_id": "490",
+          "material_id": "let-ppst-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "491",
+          "material_id": "let-ppst-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "492",
+          "material_id": "let-ppst-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "493",
+          "material_id": "let-ppst-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "494",
+          "material_id": "let-ppst-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "495",
+          "material_id": "let-inclusive-education-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "496",
+          "material_id": "let-curriculum-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-10533"
+          ]
+        },
+        {
+          "question_id": "497",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "498",
+          "material_id": "let-code-of-ethics-review",
+          "source_ids": [
+            "republic-act-6713",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "499",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "2818",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "2819",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "2820",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "2821",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "2822",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "2823",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "2824",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "2825",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "2826",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "2827",
+          "material_id": "let-child-development-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017"
+          ]
+        },
+        {
+          "question_id": "5898",
+          "material_id": "let-professional-education-foundation",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "5899",
+          "material_id": "let-professional-education-foundation",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "5900",
+          "material_id": "let-professional-education-foundation",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "5901",
+          "material_id": "let-professional-education-foundation",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        },
+        {
+          "question_id": "5902",
+          "material_id": "let-professional-education-foundation",
+          "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-assessment-review",
+        "let-child-development-review",
+        "let-code-of-ethics-review",
+        "let-curriculum-review",
+        "let-ethics-review",
+        "let-inclusive-education-review",
+        "let-learning-theories-review",
+        "let-ppst-review",
+        "let-professional-education-foundation",
+        "let-teaching-profession-review",
+        "let-teaching-strategies-review"
+      ],
+      "source_ids": [
+        "1987-philippine-constitution",
+        "deped-classroom-assessment-do-8-2015",
+        "deped-ppst-do-42-2017",
+        "openstax-psychology-2e",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-10533",
+        "republic-act-6713",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "UNKNOWN",
+      "classification": "DETECTOR_LIMITATION",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad current Professional Education outcomes include professional growth/development, teaching practice, learning principles, curriculum, and assessment.",
+          "claim_limit": "The single BoardPrep leaf aggregates 67 questions over 11 materials and multiple competencies; it cannot be certified as a single crosswalk."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Split the 67 questions by demonstrated competency and material/taxonomy; create separate scope rows for professional standards, child development, learning theory, curriculum, teaching practice, ethics, and assessment as evidence supports. Keep this aggregate UNKNOWN until split."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "rogers-humanistic",
+      "leaf_name": "Humanistic Learning",
+      "official_area_id": "professional-education",
+      "question_count": 2,
+      "question_ids": [
+        "290",
+        "291"
+      ],
+      "question_links": [
+        {
+          "question_id": "290",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        },
+        {
+          "question_id": "291",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "deped-ppst-do-42-2017",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad Professional Education foundations, theories, or child/adolescent learning-principle outcomes as applicable to this concept.",
+          "claim_limit": "The current TOS does not name this historical theorist as a dedicated official blueprint leaf."
+        },
+        {
+          "source_id": "openstax-psychology-2e",
+          "scope": "Academic open-textbook source for relevant developmental or learning theory concepts.",
+          "claim_limit": "Instructional concept evidence, not examination-scope evidence."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "skinner-operant-conditioning",
+      "leaf_name": "Operant Conditioning",
+      "official_area_id": "professional-education",
+      "question_count": 5,
+      "question_ids": [
+        "280",
+        "281",
+        "282",
+        "283",
+        "299"
+      ],
+      "question_links": [
+        {
+          "question_id": "280",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "281",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "282",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "283",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "299",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-learning-theories-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "deped-ppst-do-42-2017",
+        "openstax-psychology-2e",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad Professional Education foundations, theories, or child/adolescent learning-principle outcomes as applicable to this concept.",
+          "claim_limit": "The current TOS does not name this historical theorist as a dedicated official blueprint leaf."
+        },
+        {
+          "source_id": "openstax-psychology-2e",
+          "scope": "Academic open-textbook source for relevant developmental or learning theory concepts.",
+          "claim_limit": "Instructional concept evidence, not examination-scope evidence."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "thorndike-law-effect",
+      "leaf_name": "Law of Effect",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "284"
+      ],
+      "question_links": [
+        {
+          "question_id": "284",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-learning-theories-review"
+      ],
+      "source_ids": [
+        "openstax-psychology-2e",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad Professional Education foundations, theories, or child/adolescent learning-principle outcomes as applicable to this concept.",
+          "claim_limit": "The current TOS does not name this historical theorist as a dedicated official blueprint leaf."
+        },
+        {
+          "source_id": "openstax-psychology-2e",
+          "scope": "Academic open-textbook source for relevant developmental or learning theory concepts.",
+          "claim_limit": "Instructional concept evidence, not examination-scope evidence."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "vygotsky-scaffolding",
+      "leaf_name": "Scaffolding",
+      "official_area_id": "professional-education",
+      "question_count": 3,
+      "question_ids": [
+        "265",
+        "266",
+        "296"
+      ],
+      "question_links": [
+        {
+          "question_id": "265",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "266",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "296",
+          "material_id": "let-teaching-profession-review",
+          "source_ids": [
+            "deped-ppst-do-42-2017",
+            "republic-act-7836"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-learning-theories-review",
+        "let-teaching-profession-review"
+      ],
+      "source_ids": [
+        "deped-ppst-do-42-2017",
+        "openstax-psychology-2e",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025",
+        "republic-act-7836"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad Professional Education foundations, theories, or child/adolescent learning-principle outcomes as applicable to this concept.",
+          "claim_limit": "The current TOS does not name this historical theorist as a dedicated official blueprint leaf."
+        },
+        {
+          "source_id": "openstax-psychology-2e",
+          "scope": "Academic open-textbook source for relevant developmental or learning theory concepts.",
+          "claim_limit": "Instructional concept evidence, not examination-scope evidence."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
+        "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "vygotsky-social-learning",
+      "leaf_name": "Social Mediation",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "267"
+      ],
+      "question_links": [
+        {
+          "question_id": "267",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-learning-theories-review"
+      ],
+      "source_ids": [
+        "openstax-psychology-2e",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad Professional Education foundations, theories, or child/adolescent learning-principle outcomes as applicable to this concept.",
+          "claim_limit": "The current TOS does not name this historical theorist as a dedicated official blueprint leaf."
+        },
+        {
+          "source_id": "openstax-psychology-2e",
+          "scope": "Academic open-textbook source for relevant developmental or learning theory concepts.",
+          "claim_limit": "Instructional concept evidence, not examination-scope evidence."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "vygotsky-zpd",
+      "leaf_name": "Zone of Proximal Development",
+      "official_area_id": "professional-education",
+      "question_count": 2,
+      "question_ids": [
+        "264",
+        "268"
+      ],
+      "question_links": [
+        {
+          "question_id": "264",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        },
+        {
+          "question_id": "268",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-learning-theories-review"
+      ],
+      "source_ids": [
+        "openstax-psychology-2e",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad Professional Education foundations, theories, or child/adolescent learning-principle outcomes as applicable to this concept.",
+          "claim_limit": "The current TOS does not name this historical theorist as a dedicated official blueprint leaf."
+        },
+        {
+          "source_id": "openstax-psychology-2e",
+          "scope": "Academic open-textbook source for relevant developmental or learning theory concepts.",
+          "claim_limit": "Instructional concept evidence, not examination-scope evidence."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    },
+    {
+      "board": "LET",
+      "leaf_id": "watson-behaviorism",
+      "leaf_name": "Behaviorist Orientation",
+      "official_area_id": "professional-education",
+      "question_count": 1,
+      "question_ids": [
+        "285"
+      ],
+      "question_links": [
+        {
+          "question_id": "285",
+          "material_id": "let-learning-theories-review",
+          "source_ids": [
+            "openstax-psychology-2e"
+          ]
+        }
+      ],
+      "material_ids": [
+        "let-learning-theories-review"
+      ],
+      "source_ids": [
+        "openstax-psychology-2e",
+        "prc-lept-alignment-guidance-2025",
+        "prc-lept-program-march-2026",
+        "prc-let-enhanced-tos-2025",
+        "prc-resolution-20-2025"
+      ],
+      "source_scope_fit_after": "PARTIAL",
+      "classification": "CORRECTABLE",
+      "evidence": [
+        {
+          "source_id": "prc-let-enhanced-tos-2025",
+          "scope": "Broad Professional Education foundations, theories, or child/adolescent learning-principle outcomes as applicable to this concept.",
+          "claim_limit": "The current TOS does not name this historical theorist as a dedicated official blueprint leaf."
+        },
+        {
+          "source_id": "openstax-psychology-2e",
+          "scope": "Academic open-textbook source for relevant developmental or learning theory concepts.",
+          "claim_limit": "Instructional concept evidence, not examination-scope evidence."
+        }
+      ],
+      "limitations": [
+        "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
+        "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
+        "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary."
+      ],
+      "recommended_action": "Keep concept teaching and question practice, but label the theorist as an academic subtopic within broader Professional Education outcomes. Do not claim the PRC TOS names this theorist as a separate item or predicts exam frequency."
+    }
+  ]
+}

@@ -36,7 +36,7 @@ foreach ($expected as $boardId => [$native, $effective, $runtime]) {
 $assert($totals === ['native' => 8962, 'effective' => 9422, 'runtime' => 9746], 'portfolio totals reconcile across all ten boards');
 $assert((int) ($health->summary['fail_count'] ?? -1) === 0, 'health snapshot has no FAIL findings');
 $reviewExpectations = [
-    'let' => ['source_scope_fit_unknown' => 35, 'structural_not_actionable' => 3],
+    'let' => ['source_scope_fit_unknown' => 1, 'structural_not_actionable' => 3],
     'civil-service' => ['structural_not_actionable' => 3],
     'criminologist' => ['structural_not_actionable' => 4],
     'psychometrician' => ['currentness_unknown' => 1],
@@ -50,6 +50,6 @@ foreach ($reviewExpectations as $boardId => $fields) {
         $reviewTotal += $actualCount;
     }
 }
-$assert($reviewTotal === 46, 'all 46 existing source review signals remain explicitly classified');
+$assert($reviewTotal === 12, 'remaining source review signals reconcile after the LET crosswalk review');
 echo "BATCH672_COUNT_RECONCILIATION=PASS\n";
 echo 'NATIVE=' . $totals['native'] . ' EFFECTIVE=' . $totals['effective'] . ' RUNTIME=' . $totals['runtime'] . ' SOURCE_REVIEW_SIGNALS=' . $reviewTotal . "\n";
