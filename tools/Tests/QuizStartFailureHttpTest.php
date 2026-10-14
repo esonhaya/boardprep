@@ -7,7 +7,7 @@ require_once dirname(__DIR__) . "/Doctor/Project/BoardPrep/Simulation/HttpSimula
 use Tools\Doctor\Project\BoardPrep\Simulation\HttpSimulator;
 
 $simulator = new HttpSimulator(dirname(__DIR__, 2) . '/public/index.php');
-$cookies = ['PHPSESSID' => 'batch670-failed-start-preserves-active-v2'];
+$cookies = ['PHPSESSID' => 'batch676-failed-start-' . bin2hex(random_bytes(8))];
 
 $valid = $simulator->request(
     'POST',

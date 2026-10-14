@@ -45,7 +45,7 @@ try {
         JSON_THROW_ON_ERROR
     );
     $simulator = new HttpSimulator(dirname(__DIR__, 2) . '/public/index.php');
-    $learner = ['PHPSESSID' => 'batch531-integration-a'];
+    $learner = ['PHPSESSID' => 'batch676-flashcard-integration-a-' . bin2hex(random_bytes(8))];
     $settings = $simulator->request('GET', '/quiz', [], [], [], $learner);
     $csrfToken = integrationHidden($settings['output'], 'csrf_token');
 
@@ -145,7 +145,7 @@ try {
         integrationCheck($page['status'] === 200 && str_contains($page['output'], '/flashcards'), "{$path} omitted flashcard action");
     }
 
-    $foreignMissed = $simulator->request('GET', '/flashcards/missed', ['attempt_id' => 'foreign-attempt'], [], [], ['PHPSESSID' => 'batch531-integration-b']);
+    $foreignMissed = $simulator->request('GET', '/flashcards/missed', ['attempt_id' => 'foreign-attempt'], [], [], ['PHPSESSID' => 'batch676-flashcard-integration-b-' . bin2hex(random_bytes(8))]);
     integrationCheck($foreignMissed['status'] === 303, 'foreign attempt input was not rejected');
     $pdo = new PDO('sqlite:' . $sqlitePath);
     $stateCount = (int) $pdo->query("SELECT COUNT(*) FROM storage_records WHERE collection = 'flashcard_state'")->fetchColumn();

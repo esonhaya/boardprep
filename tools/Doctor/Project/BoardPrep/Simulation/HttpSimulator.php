@@ -4,11 +4,24 @@ declare(strict_types=1);
 
 namespace Tools\Doctor\Project\BoardPrep\Simulation;
 
+require_once __DIR__ . '/SimulationStorageFixture.php';
+SimulationStorageFixture::activate(dirname(__DIR__, 5));
+
 final class HttpSimulator
 {
     public function __construct(
         private string $entryPoint
     ) {
+    }
+
+    public function storagePath(): string
+    {
+        return SimulationStorageFixture::storagePath();
+    }
+
+    public function sessionPath(): string
+    {
+        return SimulationStorageFixture::sessionPath();
     }
 
     /**

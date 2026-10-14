@@ -10,6 +10,9 @@ use App\Services\Quiz\LET\LETVariantRegistry;
 
 final class QuestionEligibilityService
 {
+    /** @var array<string, array<string, mixed>>|null */
+    private static ?array $metadataIndex = null;
+
     /**
      * Return the effective board placements used by the admin editor.
      *
@@ -369,6 +372,7 @@ final class QuestionEligibilityService
                 'placements' => $placements,
             ]);
             App::storage()->replace('question-eligibility', $records);
+            self::invalidateMetadataIndex();
             return ['valid' => true, 'removed' => $boardId];
         }
 
@@ -406,6 +410,7 @@ final class QuestionEligibilityService
                 'placements' => $placements,
             ]);
             App::storage()->replace('question-eligibility', $records);
+            self::invalidateMetadataIndex();
             return;
         }
 
@@ -431,6 +436,7 @@ final class QuestionEligibilityService
             ],
         ];
         App::storage()->replace('question-eligibility', $records);
+        self::invalidateMetadataIndex();
     }
 
     private static function editorMapping(
@@ -590,26 +596,76 @@ final class QuestionEligibilityService
     public static function metadata(array $question): array
     {
         $id = (string) ($question['id'] ?? '');
+        return self::metadataIndex()[$id] ?? [];
+    }
+
+    /**
+     * Return the persisted eligibility metadata for a set of questions after
+     * reading and indexing the grouped collection once.
+     *
+     * @param array<int, array<string, mixed>> $questions
+     * @return array<string, array<string, mixed>>
+     */
+    public static function metadataForQuestions(array $questions): array
+    {
+        $index = self::metadataIndex();
+        $metadata = [];
+        foreach ($questions as $question) {
+            if (!is_array($question)) {
+                continue;
+            }
+            $id = (string) ($question['id'] ?? '');
+            if (array_key_exists($id, $index)) {
+                $metadata[$id] = $index[$id];
+            }
+        }
+        return $metadata;
+    }
+
+    /** @return array<string, array<string, mixed>> */
+    private static function metadataIndex(): array
+    {
+        if (self::$metadataIndex !== null) {
+            return self::$metadataIndex;
+        }
+
+        $metadataByQuestion = [];
         foreach (App::storage()->all('question-eligibility') as $entry) {
-            if (is_array($entry) && self::containsId($entry['question_ids'] ?? [], $id)) {
-                $questionMappings = is_array($entry['question_mappings'] ?? null) ? $entry['question_mappings'] : [];
+            if (!is_array($entry) || !is_array($entry['question_ids'] ?? null)) {
+                continue;
+            }
+            $questionMappings = is_array($entry['question_mappings'] ?? null)
+                ? $entry['question_mappings']
+                : [];
+            foreach (array_map('strval', $entry['question_ids']) as $id) {
+                if (array_key_exists($id, $metadataByQuestion)) {
+                    continue;
+                }
                 $override = $questionMappings[$id] ?? null;
                 if (is_array($override)) {
-                    return [
+                    $metadataByQuestion[$id] = [
                         'exam_ids' => array_values($override['exam_ids'] ?? []),
                         'subject_ids' => is_array($override['subject_ids'] ?? null) ? $override['subject_ids'] : [],
                         'placements' => is_array($override['placements'] ?? null) ? $override['placements'] : [],
                         'variant_placements' => is_array($override['variant_placements'] ?? null) ? $override['variant_placements'] : [],
                     ];
+                    continue;
                 }
-                return [
+                $metadataByQuestion[$id] = [
                     'exam_ids' => array_values($entry['exam_ids'] ?? []),
                     'subject_ids' => is_array($entry['subject_ids'] ?? null) ? $entry['subject_ids'] : [],
                     'variant_placements' => is_array($entry['variant_placements'] ?? null) ? $entry['variant_placements'] : [],
                 ];
             }
         }
-        return [];
+
+        self::$metadataIndex = $metadataByQuestion;
+        return self::$metadataIndex;
+    }
+
+    private static function invalidateMetadataIndex(): void
+    {
+        self::$metadataIndex = null;
     }
 
     public static function persist(array $question, array $metadata): void
@@ -637,11 +693,13 @@ final class QuestionEligibilityService
                     $record['question_mappings'][$id]['variant_placements'] = $metadata['variant_placements'];
                 }
                 App::storage()->replace('question-eligibility', $records);
+                self::invalidateMetadataIndex();
                 return;
             }
             $record['exam_ids'] = $examIds;
             $record['subject_ids'] = is_array($metadata['subject_ids'] ?? null) ? $metadata['subject_ids'] : [];
             App::storage()->replace('question-eligibility', $records);
+            self::invalidateMetadataIndex();
             return;
         }
         $records[] = [
@@ -653,6 +711,7 @@ final class QuestionEligibilityService
             'variant_placements' => is_array($metadata['variant_placements'] ?? null) ? $metadata['variant_placements'] : [],
         ];
         App::storage()->replace('question-eligibility', $records);
+        self::invalidateMetadataIndex();
     }
 
     public static function forExam(

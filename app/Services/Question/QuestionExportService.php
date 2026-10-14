@@ -16,8 +16,10 @@ final class QuestionExportService
             App::container()
                 ->get(QuestionRepository::class)
                 ->all();
-        $questions = array_map(static function (array $question): array {
-            $eligibility = QuestionEligibilityService::metadata($question);
+        $eligibilityByQuestion = QuestionEligibilityService::metadataForQuestions($questions);
+        $questions = array_map(static function (array $question) use ($eligibilityByQuestion): array {
+            $id = (string) ($question['id'] ?? '');
+            $eligibility = $eligibilityByQuestion[$id] ?? [];
             if ($eligibility !== []) {
                 $question['_eligibility'] = $eligibility;
             }

@@ -1,6 +1,9 @@
 <?php
 $history = $history ?? [];
 $summary = $summary ?? [];
+$hasCompletedAttempts = (int) ($summary['completedAttempts'] ?? 0) > 0;
+$averageScore = $hasCompletedAttempts ? (int) ($summary['averageScore'] ?? 0) . '%' : '—';
+$bestScore = $hasCompletedAttempts ? (int) ($summary['bestScore'] ?? 0) . '%' : '—';
 ?>
 
 <div class="history-page">
@@ -8,8 +11,8 @@ $summary = $summary ?? [];
 
 <section class="history-summary" aria-label="Quiz summary">
     <div><span class="stat-label">Completed quizzes</span><strong><?= (int) ($summary["completedAttempts"] ?? 0) ?></strong></div>
-    <div><span class="stat-label">Average score</span><strong><?= (int) ($summary["averageScore"] ?? 0) ?>%</strong></div>
-    <div><span class="stat-label">Best score</span><strong><?= (int) ($summary["bestScore"] ?? 0) ?>%</strong></div>
+    <div><span class="stat-label">Average score</span><strong><?= htmlspecialchars($averageScore, ENT_QUOTES, 'UTF-8') ?></strong><?php if (!$hasCompletedAttempts): ?><small class="muted-note">No completed quizzes yet</small><?php endif; ?></div>
+    <div><span class="stat-label">Best score</span><strong><?= htmlspecialchars($bestScore, ENT_QUOTES, 'UTF-8') ?></strong><?php if (!$hasCompletedAttempts): ?><small class="muted-note">No completed quizzes yet</small><?php endif; ?></div>
 </section>
 
 <?php if ($history === []): ?>

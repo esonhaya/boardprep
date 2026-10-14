@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\Core\App;
 use App\Core\Request;
 use App\Services\RepositoryHealth\DTO\HealthReport;
+use App\Services\RepositoryHealth\Engine\RepositoryHealthEvidenceService;
 
 final class DoctorDashboardController
 {
@@ -17,8 +18,21 @@ final class DoctorDashboardController
             return;
         }
 
+        $storagePath = self::storagePath();
         $report = [];
-        $repositoryHealth = [];
+        $repositoryHealth = RepositoryHealthEvidenceService::currentReport();
+        $doctorEvidence = RepositoryHealthEvidenceService::classifyPersistedSnapshot(
+            $storagePath . '/doctor-report.json',
+            dirname(__DIR__, 2)
+        );
+        $cachedHealthEvidence = RepositoryHealthEvidenceService::classifyPersistedSnapshot(
+            $storagePath . '/repository-health.json',
+            dirname(__DIR__, 2)
+        );
+        $releaseEvidence = RepositoryHealthEvidenceService::classifyPersistedSnapshot(
+            $storagePath . '/release-readiness.json',
+            dirname(__DIR__, 2)
+        );
         $releaseReadiness = [];
         $healthFilters = [
             'severity' => Request::queryString('severity'),
@@ -27,35 +41,16 @@ final class DoctorDashboardController
             'entity_type' => Request::queryString('entity_type'),
         ];
 
-        $file = dirname(__DIR__, 2) . '/storage/doctor-report.json';
-
-        if (is_file($file)) {
-
-            $contents = file_get_contents($file);
-            $decoded = $contents === false
-                ? null
-                : json_decode($contents, true);
-
-            if (is_array($decoded)) {
-                $report = $decoded;
-            }
-
+        $file = $storagePath . '/doctor-report.json';
+        if (($doctorEvidence['state'] ?? '') === RepositoryHealthEvidenceService::CACHED) {
+            $report = self::readJson($file);
         }
 
-        $healthFile = dirname(__DIR__, 2) . '/storage/repository-health.json';
-        if (is_file($healthFile)) {
-            $contents = file_get_contents($healthFile);
-            $decoded = $contents === false ? null : json_decode($contents, true);
-            if (is_array($decoded)) {
-                $repositoryHealth = $decoded;
-            }
-        }
+        $repositoryHealth['cached_evidence'] = $cachedHealthEvidence;
 
-        $releaseFile = dirname(__DIR__, 2) . '/storage/release-readiness.json';
-        if (is_file($releaseFile)) {
-            $contents = file_get_contents($releaseFile);
-            $decoded = $contents === false ? null : json_decode($contents, true);
-            if (is_array($decoded)) $releaseReadiness = $decoded;
+        $releaseFile = $storagePath . '/release-readiness.json';
+        if (($releaseEvidence['state'] ?? '') === RepositoryHealthEvidenceService::CACHED) {
+            $releaseReadiness = self::readJson($releaseFile);
         }
 
         $healthIssues = HealthReport::filterActionQueue(
@@ -64,5 +59,22 @@ final class DoctorDashboardController
         );
 
         require dirname(__DIR__) . '/Views/developer/doctor/index.php';
+    }
+
+    private static function storagePath(): string
+    {
+        $database = App::config('database', []);
+        $path = is_array($database) ? ($database['path'] ?? null) : null;
+        return is_string($path) && trim($path) !== ''
+            ? rtrim($path, DIRECTORY_SEPARATOR)
+            : dirname(__DIR__, 2) . '/storage';
+    }
+
+    /** @return array<string, mixed> */
+    private static function readJson(string $path): array
+    {
+        $contents = is_file($path) ? file_get_contents($path) : false;
+        $decoded = $contents === false ? null : json_decode($contents, true);
+        return is_array($decoded) ? $decoded : [];
     }
 }

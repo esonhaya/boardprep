@@ -217,6 +217,12 @@ test.describe('BoardPrep learner browser acceptance', () => {
     const dashboardHeading = page.locator('main h1');
     await expect(dashboardHeading).toHaveCount(1);
     await expect(dashboardHeading).toHaveText('Welcome to BoardPrep');
+    const emptyAccuracy = page.locator('.stat-card').filter({ hasText: 'Average accuracy' });
+    const emptyBestScore = page.locator('.stat-card').filter({ hasText: 'Best score' });
+    await expect(emptyAccuracy).toContainText('—');
+    await expect(emptyAccuracy).toContainText('No completed quizzes yet');
+    await expect(emptyBestScore).toContainText('—');
+    await expect(emptyBestScore).toContainText('No completed quizzes yet');
     for (const href of ['/exams', '/history', '/flashcards', '/progress', '/quiz']) {
       await expect(page.locator(`a[href="${href}"]:visible`).first()).toBeVisible();
     }

@@ -21,6 +21,8 @@ action="/question-import/import"
 enctype="multipart/form-data"
 >
 
+<input type="hidden" name="_csrf" value="<?= htmlspecialchars((string) ($csrfToken ?? ''), ENT_QUOTES, 'UTF-8') ?>">
+
 
 <label for="question-file">
 

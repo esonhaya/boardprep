@@ -19,7 +19,7 @@ putenv('APP_TIMEZONE=UTC');
 putenv('DB_DRIVER=json');
 putenv('APP_STORAGE_PATH=' . $storage);
 
-$sessionId = 'batch556-production-csrf';
+$sessionId = 'batch676-production-csrf-' . bin2hex(random_bytes(8));
 $cookies = ['PHPSESSID' => $sessionId];
 $http = new HttpSimulator($root . '/public/index.php');
 
@@ -65,7 +65,7 @@ try {
     if ($sessionDirectory === '') {
         $sessionDirectory = $root . '/storage/doctor/simulation-sessions';
     }
-    $sessionPath = rtrim($sessionDirectory, DIRECTORY_SEPARATOR) . '/sess-' . $sessionId;
+    $sessionPath = rtrim($sessionDirectory, DIRECTORY_SEPARATOR) . '/sess_' . $sessionId;
     @unlink($sessionPath);
     $iterator = new RecursiveIteratorIterator(
         new RecursiveDirectoryIterator($storage, FilesystemIterator::SKIP_DOTS),

@@ -216,7 +216,7 @@ final class HttpTest
                     'count' => 1,
                 ],
                 [],
-                ['PHPSESSID' => 'batch424-quiz-start']
+                ['PHPSESSID' => 'batch676-quiz-start-' . bin2hex(random_bytes(8))]
             ),
             $passed,
             $failed,

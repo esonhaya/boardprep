@@ -16,7 +16,7 @@ $assert = static function (bool $condition, string $message): void {
 $critical = [
     'LEARNER_CORE_FLOWS', 'ATTEMPT_SAFETY', 'RESULT_REVIEW', 'PROGRESS_STATE',
     'HISTORY', 'SIMULATOR_RECOVERY', 'ADMIN_CORE_FLOWS', 'SHARED_QUESTION_SAFETY',
-    'STUDY_TRACEABILITY', 'FLASHCARD_INTEGRITY', 'CALCULATION_INTEGRITY',
+    'DEVELOPER_HEALTH', 'STUDY_TRACEABILITY', 'FLASHCARD_INTEGRITY', 'CALCULATION_INTEGRITY',
     'ELIGIBILITY_INTEGRITY', 'SECURITY_SANITY',
 ];
 $passing = [];
@@ -48,9 +48,10 @@ $assert((int) ($routes['stub'] ?? 0) === 0, 'Release route scan found an unexpec
 
 $releaseSource = (string) file_get_contents(dirname(__DIR__, 2) . '/app/Services/RepositoryHealth/Release/ReleaseReadinessService.php');
 $assert(str_contains($releaseSource, 'createFlowTestStorage')
-    && str_contains($releaseSource, 'APP_STORAGE_PATH=')
-    && str_contains($releaseSource, 'resetFlowTestLearnerState'),
-    'Release flow tests no longer run on isolated learner storage.');
+    && str_contains($releaseSource, 'copyFlowTestStorageTree')
+    && str_contains($releaseSource, 'restoreFlowTestStorage')
+    && str_contains($releaseSource, 'APP_STORAGE_PATH='),
+    'Release flow tests no longer restore isolated learner and content storage for each script.');
 
 $production = ReleaseReadinessService::productionConfiguration(dirname(__DIR__, 2));
 $assert(($production['status'] ?? '') === 'PASS', 'Production configuration contract did not pass.');
@@ -60,10 +61,15 @@ $assert((int) ($production['debug_leakage_count'] ?? -1) === 0, 'Production conf
 $unknownReport = RepositoryHealthEngine::analyzeCollections([]);
 $unknownRelease = ReleaseReadinessService::audit($unknownReport);
 $assert(($unknownRelease['release_domains']['LEARNER_CORE_FLOWS']['status'] ?? '') === 'UNKNOWN', 'Missing flow evidence was invented as a passing result.');
+$assert(($unknownRelease['release_domains']['DEVELOPER_HEALTH']['status'] ?? '') === 'UNKNOWN', 'Missing Doctor integrity evidence was invented as a passing result.');
 $assert(($unknownRelease['release_gate']['status'] ?? '') === 'REVIEW', 'Missing flow evidence did not keep the release gate in review.');
 
 $allFlowEvidence = ['checks' => []];
 foreach ($critical as $domain) {
+    if ($domain === 'DEVELOPER_HEALTH') {
+        $allFlowEvidence['checks']['doctor_integrity'] = ['status' => 'PASS'];
+        continue;
+    }
     $key = strtolower($domain);
     $allFlowEvidence['checks'][$key] = ['status' => 'PASS'];
 }

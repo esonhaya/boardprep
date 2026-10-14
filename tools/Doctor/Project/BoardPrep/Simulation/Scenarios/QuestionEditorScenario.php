@@ -36,7 +36,8 @@ final class QuestionEditorScenario extends SimulationScenario
 
         try {
             $this->verifyDeveloperSurfaces($simulation);
-            $this->verifyInvalidCreate($simulation, $repository, count($questionsBefore));
+            $csrfToken = $this->csrfToken($simulation);
+            $this->verifyInvalidCreate($simulation, $repository, count($questionsBefore), $csrfToken);
 
             $input = $this->authoringInput('BoardPrep developer lifecycle question');
             $duplicateInput = $this->authoringInput(
@@ -45,12 +46,13 @@ final class QuestionEditorScenario extends SimulationScenario
             $this->verifyDuplicateWarning(
                 $simulation,
                 $duplicateInput,
-                count($questionsBefore)
+                count($questionsBefore),
+                $csrfToken
             );
-            $id = $this->createQuestion($simulation, $repository, $input, $questionsBefore);
-            $this->verifyEditAndReload($simulation, $repository, $id);
-            $this->verifyStatusEligibility($simulation, $repository, $id);
-            $this->verifyFailureRecovery($simulation);
+            $id = $this->createQuestion($simulation, $repository, $input, $questionsBefore, $csrfToken);
+            $this->verifyEditAndReload($simulation, $repository, $id, $csrfToken);
+            $this->verifyStatusEligibility($simulation, $repository, $id, $csrfToken);
+            $this->verifyFailureRecovery($simulation, $csrfToken);
         } finally {
             $this->restore($questionPath, $questionBefore);
             if ($environmentBefore === false) {
@@ -100,13 +102,24 @@ final class QuestionEditorScenario extends SimulationScenario
         $simulation->get('/question-export')->execute()->assertSuccessful();
     }
 
+    private function csrfToken(ApplicationSimulator $simulation): string
+    {
+        $simulation->get('/question-editor/create')->execute()->assertSuccessful();
+        $body = $simulation->context()->get('http')['output'] ?? '';
+        if (!is_string($body) || preg_match('/name="_csrf"\s+value="([^"]+)"/', $body, $match) !== 1) {
+            throw new \RuntimeException('Question editor form did not provide its CSRF token.');
+        }
+        return html_entity_decode($match[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    }
+
     private function verifyInvalidCreate(
         ApplicationSimulator $simulation,
         QuestionRepository $repository,
-        int $expectedCount
+        int $expectedCount,
+        string $csrfToken
     ): void {
         $simulation
-            ->post('/question-editor/save', ['question' => ''])
+            ->post('/question-editor/save', ['question' => '', '_csrf' => $csrfToken])
             ->execute()
             ->assertSuccessful()
             ->assertContains('Create Question');
@@ -119,10 +132,11 @@ final class QuestionEditorScenario extends SimulationScenario
     private function verifyDuplicateWarning(
         ApplicationSimulator $simulation,
         array $input,
-        int $expectedCount
+        int $expectedCount,
+        string $csrfToken
     ): void {
         $simulation
-            ->post('/question-editor/save', $input)
+            ->post('/question-editor/save', $input + ['_csrf' => $csrfToken])
             ->execute()
             ->assertSuccessful()
             ->assertContains('Possible Duplicate Questions');
@@ -137,9 +151,10 @@ final class QuestionEditorScenario extends SimulationScenario
         ApplicationSimulator $simulation,
         QuestionRepository $repository,
         array $input,
-        array $questionsBefore
+        array $questionsBefore,
+        string $csrfToken
     ): string {
-        $simulation->post('/question-editor/save', $input)->execute()->assertStatus(302);
+        $simulation->post('/question-editor/save', $input + ['_csrf' => $csrfToken])->execute()->assertStatus(302);
         $created = array_values(array_filter(
             $repository->all(),
             static function (array $question) use ($questionsBefore): bool {
@@ -159,7 +174,8 @@ final class QuestionEditorScenario extends SimulationScenario
     private function verifyEditAndReload(
         ApplicationSimulator $simulation,
         QuestionRepository $repository,
-        string $id
+        string $id,
+        string $csrfToken
     ): void {
         $simulation
             ->get('/question-editor/edit?id=' . urlencode($id))
@@ -169,7 +185,7 @@ final class QuestionEditorScenario extends SimulationScenario
 
         $updatedText = 'BoardPrep developer lifecycle question updated';
         $simulation
-            ->post('/question-editor/update?id=' . urlencode($id), $this->authoringInput($updatedText))
+            ->post('/question-editor/update?id=' . urlencode($id), $this->authoringInput($updatedText) + ['_csrf' => $csrfToken])
             ->execute()
             ->assertStatus(302);
 
@@ -182,32 +198,40 @@ final class QuestionEditorScenario extends SimulationScenario
     private function verifyStatusEligibility(
         ApplicationSimulator $simulation,
         QuestionRepository $repository,
-        string $id
+        string $id,
+        string $csrfToken
     ): void {
-        $simulation
-            ->post('/question-editor/archive?id=' . urlencode($id))
-            ->execute()
-            ->assertStatus(302);
+        $archive = $simulation
+            ->post('/question-editor/archive?id=' . urlencode($id), ['_csrf' => $csrfToken])
+            ->execute();
+        $archive->assertStatus(302);
 
-        $archived = $repository->find($id);
+        $archived = $this->freshQuestion($repository, $id);
         if (($archived['status'] ?? '') !== 'archived') {
-            throw new \RuntimeException('Archive action did not persist status.');
+            $http = $simulation->context()->get('http', []);
+            throw new \RuntimeException(sprintf(
+                'Archive action did not persist status for question %s (stored=%s, HTTP=%s, location=%s).',
+                $id,
+                (string) ($archived['status'] ?? 'missing'),
+                (string) ($http['status'] ?? 'unknown'),
+                (string) ($http['location'] ?? 'none')
+            ));
         }
         $this->assertNotEligible($repository, $id);
 
         $simulation
-            ->post('/question-editor/restore?id=' . urlencode($id))
+            ->post('/question-editor/restore?id=' . urlencode($id), ['_csrf' => $csrfToken])
             ->execute()
             ->assertStatus(302);
 
-        $restored = $repository->find($id);
+        $restored = $this->freshQuestion($repository, $id);
         if (($restored['status'] ?? '') !== 'approved') {
             throw new \RuntimeException('Restore action did not persist approved status.');
         }
         $this->assertEligible($repository, $id);
     }
 
-    private function verifyFailureRecovery(ApplicationSimulator $simulation): void
+    private function verifyFailureRecovery(ApplicationSimulator $simulation, string $csrfToken): void
     {
         $simulation
             ->get('/question-editor/edit?id=missing-developer-question')
@@ -215,13 +239,17 @@ final class QuestionEditorScenario extends SimulationScenario
             ->assertStatus(302);
 
         $simulation
-            ->post('/question-import/import')
+            ->post('/question-import/import', ['_csrf' => $csrfToken])
             ->execute()
             ->assertStatus(302);
     }
 
     private function assertEligible(QuestionRepository $repository, string $id): void
     {
+        $question = $this->freshQuestion($repository, $id);
+        if ($question === null) {
+            throw new \RuntimeException("Authored question {$id} was not found in fresh storage.");
+        }
         $request = new \SelectionRequest(
             'english',
             'grammar',
@@ -229,14 +257,28 @@ final class QuestionEditorScenario extends SimulationScenario
             1,
             'parts-of-speech'
         );
-        $selected = \QuestionSelectionService::fulfillRequest($repository->all(), $request)->questions;
+        $selected = \QuestionSelectionService::fulfillRequest([$question], $request)->questions;
         if (!in_array($id, array_map(static fn (array $question): string => (string) $question['id'], $selected), true)) {
-            throw new \RuntimeException('Approved authored question was not learner eligible.');
+            $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
+            throw new \RuntimeException(sprintf(
+                'Approved authored question was not learner eligible (id=%s, status=%s, subject=%s, domain=%s, topic=%s, difficulty=%s, selected=%d).',
+                $id,
+                (string) ($question['status'] ?? 'missing'),
+                (string) ($question['subject'] ?? $taxonomy['subject_id'] ?? ''),
+                (string) ($question['domain'] ?? $taxonomy['domain_id'] ?? ''),
+                (string) ($question['topic'] ?? $taxonomy['topic_id'] ?? ''),
+                (string) ($question['difficulty'] ?? ''),
+                count($selected)
+            ));
         }
     }
 
     private function assertNotEligible(QuestionRepository $repository, string $id): void
     {
+        $question = $this->freshQuestion($repository, $id);
+        if ($question === null) {
+            throw new \RuntimeException("Authored question {$id} was not found in fresh storage.");
+        }
         $request = new \SelectionRequest(
             'english',
             'grammar',
@@ -244,10 +286,21 @@ final class QuestionEditorScenario extends SimulationScenario
             1,
             'parts-of-speech'
         );
-        $selected = \QuestionSelectionService::fulfillRequest($repository->all(), $request)->questions;
+        $selected = \QuestionSelectionService::fulfillRequest([$question], $request)->questions;
         if (in_array($id, array_map(static fn (array $question): string => (string) $question['id'], $selected), true)) {
             throw new \RuntimeException('Archived authored question became learner eligible.');
         }
+    }
+
+    private function freshQuestion(QuestionRepository $repository, string $id): ?array
+    {
+        foreach ($repository->all() as $question) {
+            if ((string) ($question['id'] ?? '') === $id) {
+                return $question;
+            }
+        }
+
+        return null;
     }
 
     private function authoringInput(string $question): array

@@ -17,7 +17,7 @@ final class ReleaseReadinessService
     private const CRITICAL_FLOW_DOMAINS = [
         'LEARNER_CORE_FLOWS', 'ATTEMPT_SAFETY', 'RESULT_REVIEW', 'PROGRESS_STATE',
         'HISTORY', 'SIMULATOR_RECOVERY', 'ADMIN_CORE_FLOWS', 'SHARED_QUESTION_SAFETY',
-        'STUDY_TRACEABILITY', 'FLASHCARD_INTEGRITY', 'CALCULATION_INTEGRITY',
+        'DEVELOPER_HEALTH', 'STUDY_TRACEABILITY', 'FLASHCARD_INTEGRITY', 'CALCULATION_INTEGRITY',
         'ELIGIBILITY_INTEGRITY', 'SECURITY_SANITY',
     ];
 
@@ -105,10 +105,19 @@ final class ReleaseReadinessService
         $domains['ADMIN_CORE_FLOWS'] = self::flowDomain($flowEvidence, 'admin_core_flows');
         $domains['SHARED_QUESTION_SAFETY'] = self::flowDomain($flowEvidence, 'shared_question_safety');
         $domains['STUDY_EXPERIENCE'] = self::flowDomain($flowEvidence, 'study_experience');
+        $doctorIntegrity = self::flowDomain($flowEvidence, 'doctor_integrity');
+        $developerHealthStatus = $healthFail > 0
+            ? 'FAIL'
+            : (string) ($doctorIntegrity['status'] ?? 'UNKNOWN');
         $domains['DEVELOPER_HEALTH'] = self::domain(
-            $healthFail > 0 ? 'FAIL' : 'PASS',
-            ['health_failures' => $healthFail],
-            'The same RepositoryHealthEngine snapshot powers the release summary.'
+            $developerHealthStatus,
+            [
+                'health_failures' => $healthFail,
+                'integrity_tests' => $doctorIntegrity['evidence']['tests'] ?? [],
+            ],
+            $healthFail > 0
+                ? 'Repository Health reported a deterministic failure.'
+                : (string) ($doctorIntegrity['reason'] ?? 'Focused Doctor integrity evidence is unavailable.')
         );
         $domains['PERFORMANCE'] = self::performanceDomain($performance);
         $domains['REPOSITORY_DETERMINISM'] = self::flowDomain($flowEvidence, 'repository_determinism');
@@ -460,21 +469,24 @@ final class ReleaseReadinessService
     {
         $root ??= dirname(__DIR__, 4);
         $testStoragePath = self::createFlowTestStorage($root);
+        $testStorageBaselinePath = $testStoragePath . '.baseline';
         $groups = [
             'learner_core_flows' => ['tools/Tests/TenBoardLearnerJourneyHttpTest.php', 'tools/Tests/LearnerJourneyHttpTest.php', 'tools/Tests/LearnerDashboardReliabilityTest.php', 'tools/Tests/LearnerExperienceConsistencyTest.php', 'tools/Tests/LearningProfileActionViewTest.php', 'tools/Tests/ProgressRecommendationViewTest.php', 'tools/Tests/LearnerNavigationUxTest.php', 'tools/Tests/LearnerMobileAccessibilityViewTest.php'],
             'attempt_safety' => ['tools/Tests/MultiAttemptLearningHttpTest.php', 'tools/Tests/QuizStartFailureHttpTest.php', 'tools/Tests/ApplicationResilienceTest.php'],
             'result_review' => ['tools/Tests/HistoryResultHttpTest.php', 'tools/Tests/QuizCompletionHttpTest.php'],
-            'simulator_recovery' => ['tools/Tests/ExamSimulationHttpTest.php'],
+            'simulator_recovery' => ['tools/Tests/ExamSimulationHttpTest.php', 'tools/Tests/SimulationFixtureLifecycleTest.php', 'tools/Tests/DoctorSimulatorStateIsolationTest.php'],
+            'doctor_integrity' => ['tools/Tests/DoctorIntegrityTest.php', 'tools/Tests/RepositoryHealthEvidenceFreshnessTest.php', 'tools/Tests/Batch675StaticDoctorPrecisionTest.php', 'tools/Tests/Batch675SourceQualityPathwaysTest.php'],
             'admin_core_flows' => ['tools/Tests/QuestionEditorEligibilityTest.php', 'tools/Tests/QuestionAuthoringWorkflowIntegrationTest.php'],
-            'shared_question_safety' => ['tools/Tests/CrossBoardCanonicalReuseTest.php', 'tools/Tests/Batch669NursingIntegrationTest.php'],
-            'study_experience' => ['tools/Tests/StudyLibraryNavigationTest.php', 'tools/Tests/FlashcardIntegrationTest.php', 'tools/Tests/Batch672EducationalQualityTest.php', 'tools/Tests/Batch672CountReconciliationTest.php'],
-            'security_sanity' => ['tools/Tests/ProductionQuizCsrfTest.php', 'tools/Tests/AnonymousLearnerPrivacyHttpTest.php', 'tools/Tests/SessionConfigurationTest.php', 'tools/Tests/SecurityTrustBoundaryTest.php'],
-            'repository_determinism' => ['tools/Tests/ReleaseReadinessContractTest.php', 'tools/Tests/QuizAnswerStatisticsWeaknessTest.php'],
-            'production_configuration' => ['tools/Tests/RuntimeConfigurationTest.php', 'tools/Tests/ProductionFoundationTest.php', 'tools/Tests/DeploymentPreflightIsolationTest.php'],
+            'shared_question_safety' => ['tools/Tests/CrossBoardCanonicalReuseTest.php', 'tools/Tests/Batch669NursingIntegrationTest.php', 'tools/Tests/MultiExamEligibilityTest.php'],
+            'study_experience' => ['tools/Tests/StudyLibraryNavigationTest.php', 'tools/Tests/SourceStudyLibraryTest.php', 'tools/Tests/QuestionStudyReferenceTest.php', 'tools/Tests/FlashcardIntegrationTest.php', 'tools/Tests/Batch672EducationalQualityTest.php', 'tools/Tests/Batch672CountReconciliationTest.php'],
+            'security_sanity' => ['tools/Tests/ProductionQuizCsrfTest.php', 'tools/Tests/QuestionImportCsrfTest.php', 'tools/Tests/AnonymousLearnerPrivacyHttpTest.php', 'tools/Tests/SessionConfigurationTest.php', 'tools/Tests/SecurityTrustBoundaryTest.php'],
+            'repository_determinism' => ['tools/Tests/ReleaseReadinessContractTest.php', 'tools/Tests/QuizAnswerStatisticsWeaknessTest.php', 'tools/Tests/ReleaseFlowStorageIsolationTest.php', 'tools/Tests/QuestionEligibilityMetadataBatchTest.php'],
+            'production_configuration' => ['tools/Tests/RuntimeConfigurationTest.php', 'tools/Tests/ProductionFoundationTest.php', 'tools/Tests/DeploymentPreflightIsolationTest.php', 'tools/Tests/ProductReadinessTest.php'],
             'release_packaging' => ['tools/Tests/ReleasePackageTest.php'],
         ];
         $checks = [];
         try {
+            self::copyFlowTestStorageTree($testStoragePath, $testStorageBaselinePath);
             foreach ($groups as $group => $scripts) {
                 $tests = [];
                 $allPass = true;
@@ -485,18 +497,76 @@ final class ReleaseReadinessService
                         $allPass = false;
                         continue;
                     }
-                    self::resetFlowTestLearnerState($testStoragePath);
+                    self::restoreFlowTestStorage($testStorageBaselinePath, $testStoragePath);
                     [$exitCode, $output] = self::runScript($path, $root, $testStoragePath);
                     $status = $exitCode === 0 ? 'PASS' : 'FAIL';
-                    $tests[] = ['script' => $script, 'status' => $status, 'exit_code' => $exitCode, 'output_tail' => substr($output, -600)];
+                    $tests[] = ['script' => $script, 'status' => $status, 'exit_code' => $exitCode, 'output_tail' => substr($output, -1200)];
                     if ($status !== 'PASS') $allPass = false;
                 }
                 $checks[$group] = ['status' => $allPass ? 'PASS' : 'FAIL', 'tests' => $tests, 'passed' => $allPass];
             }
             return ['checks' => $checks];
         } finally {
+            self::removeFlowTestStorage($testStorageBaselinePath);
             self::removeFlowTestStorage($testStoragePath);
         }
+    }
+
+    private static function copyFlowTestStorageTree(string $sourcePath, string $destinationPath): void
+    {
+        if (!is_dir($sourcePath)) {
+            throw new \RuntimeException('Release flow baseline storage is unavailable.');
+        }
+        if (!mkdir($destinationPath, 0700, true) && !is_dir($destinationPath)) {
+            throw new \RuntimeException('Unable to create release flow baseline storage.');
+        }
+
+        $iterator = new \RecursiveIteratorIterator(
+            new \RecursiveDirectoryIterator($sourcePath, \FilesystemIterator::SKIP_DOTS),
+            \RecursiveIteratorIterator::SELF_FIRST
+        );
+        foreach ($iterator as $item) {
+            if ($item->isLink()) {
+                throw new \RuntimeException('Release flow storage fixtures cannot contain symbolic links.');
+            }
+            $relativePath = substr($item->getPathname(), strlen($sourcePath) + 1);
+            if (!is_string($relativePath) || $relativePath === '') {
+                throw new \RuntimeException('Unable to resolve a release flow storage fixture path.');
+            }
+            $destination = $destinationPath . DIRECTORY_SEPARATOR . $relativePath;
+            if ($item->isDir()) {
+                if (!is_dir($destination) && !mkdir($destination, 0700, true) && !is_dir($destination)) {
+                    throw new \RuntimeException('Unable to create release flow storage fixture directory.');
+                }
+                continue;
+            }
+            if (!$item->isFile()) {
+                continue;
+            }
+            $directory = dirname($destination);
+            if (!is_dir($directory) && !mkdir($directory, 0700, true) && !is_dir($directory)) {
+                throw new \RuntimeException('Unable to create release flow storage fixture directory.');
+            }
+            if (!copy($item->getPathname(), $destination)) {
+                throw new \RuntimeException('Unable to copy release flow storage baseline file.');
+            }
+        }
+    }
+
+    private static function restoreFlowTestStorage(string $baselinePath, string $storagePath): void
+    {
+        $prefix = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR)
+            . DIRECTORY_SEPARATOR . 'boardprep-release-test-storage-';
+        if (
+            !str_starts_with($baselinePath, $prefix)
+            || !str_starts_with($storagePath, $prefix)
+            || $baselinePath === $storagePath
+        ) {
+            throw new \RuntimeException('Refusing to restore an unowned release flow storage fixture.');
+        }
+
+        self::removeFlowTestStorage($storagePath);
+        self::copyFlowTestStorageTree($baselinePath, $storagePath);
     }
 
     private static function createFlowTestStorage(string $root): string
@@ -521,8 +591,23 @@ final class ReleaseReadinessService
             foreach ($iterator as $item) {
                 $source = $item->getPathname();
                 $relative = substr($source, strlen($sourceRoot) + 1);
-                if ($relative === false || $relative === ''
-                    || str_starts_with($relative, 'doctor/simulation-sessions/')) {
+                $relativePath = str_replace(DIRECTORY_SEPARATOR, '/', (string) $relative);
+                $firstPathPart = explode('/', $relativePath, 2)[0];
+                if (
+                    $relative === false
+                    || $relative === ''
+                    || in_array($relativePath, [
+                        '.storage.lock',
+                        'doctor-manual-run.txt',
+                        'doctor-report.json',
+                        'doctor/latest-report.json',
+                        'repository-health.json',
+                        'release-readiness.json',
+                    ], true)
+                    || $relativePath === 'doctor/simulation-sessions'
+                    || str_starts_with($relativePath, 'doctor/simulation-sessions/')
+                    || in_array($firstPathPart, ['recovery', 'runtime'], true)
+                ) {
                     continue;
                 }
                 $destination = $storagePath . DIRECTORY_SEPARATOR
@@ -552,10 +637,49 @@ final class ReleaseReadinessService
                     throw new \RuntimeException('Unable to seed isolated learner test state.');
                 }
             }
+            self::stripTestQuestionUsageCounters($storagePath . DIRECTORY_SEPARATOR . 'questions.json');
             return $storagePath;
         } catch (\Throwable $exception) {
             self::removeFlowTestStorage($storagePath);
             throw $exception;
+        }
+    }
+
+    private static function stripTestQuestionUsageCounters(string $questionsPath): void
+    {
+        if (!is_file($questionsPath)) {
+            return;
+        }
+        $input = fopen($questionsPath, 'rb');
+        $temporaryPath = $questionsPath . '.test-fixture';
+        $output = fopen($temporaryPath, 'wb');
+        if (!is_resource($input) || !is_resource($output)) {
+            if (is_resource($input)) fclose($input);
+            if (is_resource($output)) fclose($output);
+            @unlink($temporaryPath);
+            throw new \RuntimeException('Unable to open isolated release question fixtures.');
+        }
+
+        $pendingLine = null;
+        while (($line = fgets($input)) !== false) {
+            if (preg_match('/^\s*"(?:timesUsed|timesCorrect|timesIncorrect|updatedAt)"\s*:/', $line) === 1) {
+                continue;
+            }
+            if ($pendingLine !== null) {
+                if (preg_match('/^\s*[}\]]/', $line) === 1) {
+                    $pendingLine = preg_replace('/,(\s*)$/', '$1', $pendingLine) ?? $pendingLine;
+                }
+                fwrite($output, $pendingLine);
+            }
+            $pendingLine = $line;
+        }
+        if ($pendingLine !== null) fwrite($output, $pendingLine);
+        fclose($input);
+        fclose($output);
+
+        if (!rename($temporaryPath, $questionsPath)) {
+            @unlink($temporaryPath);
+            throw new \RuntimeException('Unable to publish isolated release question fixtures.');
         }
     }
 
@@ -580,16 +704,6 @@ final class ReleaseReadinessService
             }
         }
         @rmdir($storagePath);
-    }
-
-    private static function resetFlowTestLearnerState(string $storagePath): void
-    {
-        foreach (['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json'] as $collection) {
-            $path = $storagePath . DIRECTORY_SEPARATOR . $collection;
-            if (file_put_contents($path, "[]\n", LOCK_EX) === false) {
-                throw new \RuntimeException('Unable to reset isolated learner test state.');
-            }
-        }
     }
 
     /** @return array{0:int,1:string} */

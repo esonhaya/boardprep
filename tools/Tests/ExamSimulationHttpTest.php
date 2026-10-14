@@ -32,7 +32,7 @@ $before = json_decode((string) file_get_contents($path), true);
 $before = is_array($before) ? $before : [];
 $beforeIds = array_column($before, 'id');
 $http = new HttpSimulator($root . '/public/index.php');
-$cookies = ['PHPSESSID' => 'batch670-exam-simulation'];
+$cookies = ['PHPSESSID' => 'batch676-exam-' . bin2hex(random_bytes(8))];
 
 $readSession = static function (string $sessionId) use ($sessionPath): array {
     if (session_status() === PHP_SESSION_ACTIVE) {
@@ -181,7 +181,7 @@ try {
         throw new RuntimeException('A new practice session did not replace the completed simulation.');
     }
 
-    $expiryCookies = ['PHPSESSID' => 'batch670-expired-exam-simulation'];
+$expiryCookies = ['PHPSESSID' => 'batch676-expired-exam-' . bin2hex(random_bytes(8))];
     $expiryStart = $http->request('POST', '/quiz', [], [
         'action' => 'start', 'exam' => 'LET', 'subject' => 'English',
         'mode' => 'exam', 'timer_mode' => 'timed', 'time_limit_minutes' => 1,

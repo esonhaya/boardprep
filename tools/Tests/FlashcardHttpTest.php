@@ -35,7 +35,7 @@ function responseCardKey(string $html): string
 
 try {
     $simulator = new HttpSimulator(dirname(__DIR__, 2) . '/public/index.php');
-    $cookie = ['PHPSESSID' => 'batch530-http-a'];
+    $cookie = ['PHPSESSID' => 'batch676-flashcards-a-' . bin2hex(random_bytes(8))];
 
     $landing = $simulator->request('GET', '/flashcards', [], [], [], $cookie);
     httpCheck($landing['status'] === 200 && str_contains($landing['output'], '<h1>Flashcards</h1'), 'landing page did not render');
@@ -108,7 +108,7 @@ try {
     $badFilter = $simulator->request('GET', '/flashcards', ['board' => 'attacker-value'], [], [], $cookie);
     httpCheck($badFilter['status'] === 200 && str_contains($badFilter['output'], 'valid flashcard filter'), 'unknown filter was not rejected safely');
 
-    $isolatedReview = $simulator->request('GET', '/flashcards/review', [], [], [], ['PHPSESSID' => 'batch530-http-b']);
+    $isolatedReview = $simulator->request('GET', '/flashcards/review', [], [], [], ['PHPSESSID' => 'batch676-flashcards-b-' . bin2hex(random_bytes(8))]);
     httpCheck($isolatedReview['status'] === 200 && str_contains($isolatedReview['output'], 'Recall before revealing'), 'isolated learner could not access review flow');
 
     $pdo = new PDO('sqlite:' . $sqlitePath);

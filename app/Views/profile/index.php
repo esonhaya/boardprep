@@ -1,4 +1,13 @@
-<?php $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Services\Shared\TaxonomyStorageService::label($collection, $id); ?>
+<?php
+$taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Services\Shared\TaxonomyStorageService::label($collection, $id);
+$hasCompletedQuizzes = (int) ($profile['totalQuizzes'] ?? 0) > 0;
+$overallAccuracy = $hasCompletedQuizzes ? (int) ($profile['overallAccuracy'] ?? 0) . '%' : '—';
+$bestScore = $hasCompletedQuizzes ? (int) ($profile['bestScore'] ?? 0) . '%' : '—';
+$latestScore = $hasCompletedQuizzes ? (int) ($profile['latestScore'] ?? 0) . '%' : '—';
+$recentTrend = $hasCompletedQuizzes
+    ? ucwords(str_replace('_', ' ', (string) ($analytics['trend']['direction'] ?? 'insufficient_history')))
+    : 'Not started';
+?>
 
 <h1>Learning Profile</h1>
 
@@ -11,13 +20,14 @@
 
 <h2>Performance</h2>
 <ul>
-    <li>Overall Accuracy: <?= (int) ($profile["overallAccuracy"] ?? 0) ?>%</li>
-    <li>Best Score: <?= (int) ($profile["bestScore"] ?? 0) ?>%</li>
-    <li>Latest Score: <?= (int) ($profile["latestScore"] ?? 0) ?>%</li>
+    <li>Overall Accuracy: <?= htmlspecialchars($overallAccuracy, ENT_QUOTES, 'UTF-8') ?></li>
+    <li>Best Score: <?= htmlspecialchars($bestScore, ENT_QUOTES, 'UTF-8') ?></li>
+    <li>Latest Score: <?= htmlspecialchars($latestScore, ENT_QUOTES, 'UTF-8') ?></li>
     <li>Total Quizzes: <?= (int) ($profile["totalQuizzes"] ?? 0) ?></li>
     <li>Current Streak: <?= (int) ($streak ?? 0) ?> day<?= ((int) ($streak ?? 0)) === 1 ? "" : "s" ?></li>
-    <li>Recent Trend: <?= htmlspecialchars(ucwords(str_replace("_", " ", (string) ($analytics["trend"]["direction"] ?? "insufficient_history")))) ?></li>
+    <li>Recent Trend: <?= htmlspecialchars($recentTrend, ENT_QUOTES, 'UTF-8') ?></li>
 </ul>
+<?php if (!$hasCompletedQuizzes): ?><p class="muted-note" role="status">No completed quizzes yet. Your performance summary will appear here after your first quiz.</p><?php endif; ?>
 
 <hr>
 

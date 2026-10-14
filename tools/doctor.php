@@ -106,6 +106,8 @@ if (in_array('--release', array_slice($argv ?? [], 1), true)) {
         $productionConfiguration
     );
     $payload = [
+        'generated_at' => date(DATE_ATOM),
+        'evidence_state' => \App\Services\RepositoryHealth\Engine\RepositoryHealthEvidenceService::CURRENT,
         'health' => [
             'overall_status' => $releaseReport->overallStatus,
             'summary' => $releaseReport->summary,
@@ -113,9 +115,18 @@ if (in_array('--release', array_slice($argv ?? [], 1), true)) {
         ],
         'release_readiness' => $release,
     ];
+    $payload['evidence'] = [
+        'state' => \App\Services\RepositoryHealth\Engine\RepositoryHealthEvidenceService::CURRENT,
+        'generated_at' => $payload['generated_at'],
+    ];
     if (in_array('--persist', $releaseArguments, true)) {
-        $releasePath = dirname(__DIR__) . '/storage/release-readiness.json';
-        $releaseJson = json_encode($payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
+        $database = \App\Core\App::config('database', []);
+        $storagePath = is_array($database) && is_string($database['path'] ?? null)
+            ? rtrim($database['path'], DIRECTORY_SEPARATOR)
+            : dirname(__DIR__) . '/storage';
+        $releasePath = $storagePath . '/release-readiness.json';
+        $persistedPayload = \App\Services\RepositoryHealth\Engine\RepositoryHealthEvidenceService::preparePersistedSnapshot($payload, dirname(__DIR__));
+        $releaseJson = json_encode($persistedPayload, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
         $temporary = $releasePath . '.tmp';
         file_put_contents($temporary, $releaseJson . PHP_EOL, LOCK_EX);
         rename($temporary, $releasePath);
@@ -163,10 +174,20 @@ if (in_array('--health', array_slice($argv ?? [], 1), true)) {
     $portfolioAudit = $portfolioRequested ? \App\Services\RepositoryHealth\Engine\RepositoryHealthEngine::portfolioReadinessAudit(null, $healthReport) : null;
     $materializationStartedAt = hrtime(true);
     $healthArray = $healthReport->toArray();
+    $healthArray['evidence_state'] = \App\Services\RepositoryHealth\Engine\RepositoryHealthEvidenceService::CURRENT;
+    $healthArray['evidence'] = [
+        'state' => \App\Services\RepositoryHealth\Engine\RepositoryHealthEvidenceService::CURRENT,
+        'generated_at' => $healthArray['generated_at'] ?? null,
+    ];
     $reportMaterializationMs = max(0.0, (hrtime(true) - $materializationStartedAt) / 1_000_000);
     if (in_array('--persist', $healthArguments, true)) {
-        $healthPath = dirname(__DIR__) . '/storage/repository-health.json';
-        $healthJson = json_encode($healthArray, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
+        $database = \App\Core\App::config('database', []);
+        $storagePath = is_array($database) && is_string($database['path'] ?? null)
+            ? rtrim($database['path'], DIRECTORY_SEPARATOR)
+            : dirname(__DIR__) . '/storage';
+        $healthPath = $storagePath . '/repository-health.json';
+        $persistedHealth = \App\Services\RepositoryHealth\Engine\RepositoryHealthEvidenceService::preparePersistedSnapshot($healthArray, dirname(__DIR__));
+        $healthJson = json_encode($persistedHealth, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
         $temporary = $healthPath . '.tmp';
         file_put_contents($temporary, $healthJson . PHP_EOL, LOCK_EX);
         rename($temporary, $healthPath);
@@ -180,6 +201,7 @@ if (in_array('--health', array_slice($argv ?? [], 1), true)) {
                     'summary' => $healthReport->summary,
                     'fail_entity_count' => (int) ($healthReport->summary['fail_count'] ?? 0),
                 ],
+                'evidence_state' => \App\Services\RepositoryHealth\Engine\RepositoryHealthEvidenceService::CURRENT,
             ];
             if ($readinessAudit !== null) $payload['readiness_audit'] = $readinessAudit;
             if ($portfolioAudit !== null) $payload['portfolio_audit'] = $portfolioAudit;
@@ -302,13 +324,21 @@ $simulate = in_array(
     true
 );
 
+if ($simulate) {
+    \Tools\Doctor\Project\BoardPrep\Simulation\SimulationStorageFixture::activate(dirname(__DIR__));
+}
+
 $result = (new DoctorRunner())->run();
 (new V2ConsoleWriter())->write($result);
 
 if ($simulate) {
     $simulationExit = SimulationCommand::run();
-
-    exit($result->failCount() > 0 ? 1 : $simulationExit);
+    $overallExit = $result->failCount() > 0 ? 1 : $simulationExit;
+    if ($overallExit !== 0) {
+        $_ENV['BOARDPREP_KEEP_SIMULATION_FIXTURES'] = '1';
+        putenv('BOARDPREP_KEEP_SIMULATION_FIXTURES=1');
+    }
+    exit($overallExit);
 }
 
 exit($result->failCount() > 0 ? 1 : 0);

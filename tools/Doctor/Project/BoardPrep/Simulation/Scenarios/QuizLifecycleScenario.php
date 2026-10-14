@@ -37,6 +37,7 @@ final class QuizLifecycleScenario extends SimulationScenario
             ->execute()
             ->assertSuccessful()
             ->assertContains('Quiz');
+        $csrfToken = $this->csrfToken($simulation);
 
         /*
          * 2. Start a real generated quiz.
@@ -53,10 +54,11 @@ final class QuizLifecycleScenario extends SimulationScenario
                 'difficulty' => 'mixed',
                 'count' => 1,
                 'mode' => 'practice',
+                'csrf_token' => $csrfToken,
             ])
             ->execute()
             ->assertSuccessful()
-            ->assertContains('Quiz');
+            ->assertContains('Question 1 / 1');
 
         $body = $simulation->context()->get('http')['output'] ?? '';
         if (!is_string($body)
@@ -73,7 +75,7 @@ final class QuizLifecycleScenario extends SimulationScenario
             ->get('/quiz')
             ->execute()
             ->assertSuccessful()
-            ->assertContains('Quiz');
+            ->assertContains('Question 1 / 1');
 
         $attemptsAfterSettingsVisit = array_values(array_filter(
             $attempts->all(),
@@ -104,6 +106,7 @@ final class QuizLifecycleScenario extends SimulationScenario
                     'question_id' => $match[1],
                     'answer' =>
                         'simulation-answer',
+                    'csrf_token' => $csrfToken,
                 ]
             )
             ->execute()
@@ -113,7 +116,7 @@ final class QuizLifecycleScenario extends SimulationScenario
          * 4. Build the result from the same persisted session.
          */
         $simulation
-            ->post('/quiz', ['action' => 'finish'])
+            ->post('/quiz', ['action' => 'finish', 'csrf_token' => $csrfToken])
             ->execute()
             ->assertStatus(303);
 
@@ -210,6 +213,7 @@ final class QuizLifecycleScenario extends SimulationScenario
                 'difficulty' => 'mixed',
                 'count' => 3,
                 'mode' => 'exam',
+                'csrf_token' => $csrfToken,
             ])
             ->execute()
             ->assertSuccessful()
@@ -226,13 +230,21 @@ final class QuizLifecycleScenario extends SimulationScenario
                 'action' => 'submit',
                 'question_id' => $examMatch[1],
                 'answer' => 'simulation-answer',
+                'csrf_token' => $csrfToken,
             ])
             ->execute()
             ->assertSuccessful()
             ->assertContains('Question 2 / 3');
 
         $simulation
-            ->post('/quiz', ['action' => 'finish'])
+            ->get('/quiz?action=review')
+            ->execute()
+            ->assertSuccessful()
+            ->assertContains('Review your answers')
+            ->assertContains('Submit exam simulation');
+
+        $simulation
+            ->post('/quiz', ['action' => 'finish', 'csrf_token' => $csrfToken])
             ->execute()
             ->assertStatus(303);
 
@@ -240,7 +252,7 @@ final class QuizLifecycleScenario extends SimulationScenario
             ->get('/quiz?action=result')
             ->execute()
             ->assertSuccessful()
-            ->assertContains('Quiz Result');
+            ->assertContains('Exam Simulation Result');
 
         $afterExam = array_values(array_filter(
             $attempts->all(),
@@ -255,7 +267,16 @@ final class QuizLifecycleScenario extends SimulationScenario
             static fn (array $attempt): bool => ($attempt['session_type'] ?? null) === 'exam_simulation'
         ));
         if (count($afterExam) !== 2 || count($examAttempts) !== 1) {
-            throw new \RuntimeException('Practice and exam completions were not persisted exactly once each.');
+            $types = array_map(
+                static fn (array $attempt): string => (string) ($attempt['session_type'] ?? 'missing'),
+                $afterExam
+            );
+            throw new \RuntimeException(sprintf(
+                'Practice and exam completions were not persisted exactly once each (new=%d, exam=%d, types=%s).',
+                count($afterExam),
+                count($examAttempts),
+                implode(',', $types)
+            ));
         }
 
         $preservedPractice = null;
@@ -279,13 +300,14 @@ final class QuizLifecycleScenario extends SimulationScenario
                 'action' => 'submit',
                 'question_id' => $examMatch[1],
                 'answer' => 'simulation-answer',
+                'csrf_token' => $csrfToken,
             ])
             ->execute()
             ->assertStatus(302);
 
         $staleSubmit = $simulation->context()->get('http');
         if (!is_array($staleSubmit)
-            || ($staleSubmit['location'] ?? null) !== '/quiz?action=finish') {
+            || ($staleSubmit['location'] ?? null) !== '/quiz?action=result') {
             throw new \RuntimeException('Post-completion exam submission was not rejected safely.');
         }
         if ($afterExam !== array_values(array_filter(
@@ -304,13 +326,13 @@ final class QuizLifecycleScenario extends SimulationScenario
          * must remain behind QuizNavigationService's completion guard.
          */
         $simulation
-            ->post('/quiz?action=next', ['action' => 'next'])
+            ->post('/quiz?action=next', ['action' => 'next', 'csrf_token' => $csrfToken])
             ->execute()
             ->assertStatus(302);
 
         $completedNavigation = $simulation->context()->get('http');
         if (!is_array($completedNavigation)
-            || ($completedNavigation['location'] ?? null) !== '/quiz?action=finish') {
+            || ($completedNavigation['location'] ?? null) !== '/quiz?action=result') {
             throw new \RuntimeException(
                 'Post-completion navigation did not remain behind the completion guard.'
             );
@@ -337,7 +359,7 @@ final class QuizLifecycleScenario extends SimulationScenario
             ->get('/quiz?action=result')
             ->execute()
             ->assertSuccessful()
-            ->assertContains('Quiz Result');
+            ->assertContains('Exam Simulation Result');
 
         if ($afterExam !== array_values(array_filter(
             $attempts->all(),
@@ -366,6 +388,7 @@ final class QuizLifecycleScenario extends SimulationScenario
             ->post('/quiz', [
                 'action' => 'start', 'exam' => 'LET', 'subject' => 'English',
                 'difficulty' => 'mixed', 'count' => 1, 'mode' => 'practice',
+                'csrf_token' => $csrfToken,
             ])
             ->execute()
             ->assertSuccessful()
@@ -377,6 +400,7 @@ final class QuizLifecycleScenario extends SimulationScenario
         $simulation
             ->post('/quiz?action=submit', [
                 'action' => 'submit', 'question_id' => 'simulation-mid-session', 'answer' => 'A',
+                'csrf_token' => $csrfToken,
             ])
             ->execute()
             ->assertStatus(302);
@@ -431,6 +455,7 @@ final class QuizLifecycleScenario extends SimulationScenario
                 'difficulty' => 'mixed',
                 'count' => 5,
                 'mode' => 'practice',
+                'csrf_token' => $csrfToken,
             ])
             ->execute()
             ->assertSuccessful()
@@ -451,12 +476,13 @@ final class QuizLifecycleScenario extends SimulationScenario
                 'action' => 'submit',
                 'question_id' => $shortageMatch[1],
                 'answer' => 'A',
+                'csrf_token' => $csrfToken,
             ])
             ->execute()
             ->assertSuccessful();
 
         $simulation
-            ->post('/quiz?action=next', ['action' => 'next'])
+            ->post('/quiz?action=next', ['action' => 'next', 'csrf_token' => $csrfToken])
             ->execute()
             ->assertSuccessful()
             ->assertContains('Question 2 / 2')
@@ -478,9 +504,12 @@ final class QuizLifecycleScenario extends SimulationScenario
             throw new \RuntimeException('Starting a shortage quiz persisted an attempt before completion.');
         }
 
+        $secondShortageQuestionId = $shortageMatch[1];
+
         /*
          * 8. An invalid taxonomy filter creates an empty eligible pool. The
-         * failed replacement must clear the still-active shortage quiz.
+         * previous session and its answers remain resumable while the new
+         * request's error is shown.
          */
         $simulation
             ->post('/quiz', [
@@ -491,6 +520,7 @@ final class QuizLifecycleScenario extends SimulationScenario
                 'difficulty' => 'hard',
                 'count' => 20,
                 'mode' => 'practice',
+                'csrf_token' => $csrfToken,
             ])
             ->execute()
             ->assertStatus(302);
@@ -505,35 +535,37 @@ final class QuizLifecycleScenario extends SimulationScenario
             ->execute()
             ->assertSuccessful()
             ->assertContains('No questions matched')
-            ->assertNotContains('name="question_id"');
+            ->assertContains('Question 2 / 2');
+
+        $resumedBody = $simulation->context()->get('http')['output'] ?? '';
+        if (!is_string($resumedBody)
+            || !preg_match('/name="question_id"\s+value="([^"]+)"/', $resumedBody, $resumedQuestion)
+            || $resumedQuestion[1] !== $secondShortageQuestionId) {
+            throw new \RuntimeException('Failed quiz generation did not preserve the active question for safe resumption.');
+        }
 
         if ($attemptIdsBeforeFailure !== array_map('strval', array_column($attempts->all(), 'id'))) {
             throw new \RuntimeException('Failed quiz generation accidentally persisted learner history.');
         }
 
         /*
-         * 9. Finishing after recovery must remain safe and cannot reactivate
-         * stale questions or create another attempt.
+         * 9. Continue the preserved session after the failed replacement.
+         * The learner should be able to submit the current answer without
+         * creating a completed attempt prematurely.
          */
         $simulation
-            ->post('/quiz', ['action' => 'finish'])
-            ->execute()
-            ->assertStatus(302);
-
-        $finishAfterFailure = $simulation->context()->get('http');
-        if (!is_array($finishAfterFailure) || ($finishAfterFailure['location'] ?? null) !== '/quiz') {
-            throw new \RuntimeException('Finish after failed generation did not return to quiz recovery.');
-        }
-
-        $simulation
-            ->get('/quiz')
+            ->post('/quiz?action=submit', [
+                'action' => 'submit',
+                'question_id' => $secondShortageQuestionId,
+                'answer' => 'B',
+                'csrf_token' => $csrfToken,
+            ])
             ->execute()
             ->assertSuccessful()
-            ->assertContains('stale or invalid')
-            ->assertNotContains('name="question_id"');
+            ->assertContains('Explanation:');
 
         if ($attemptIdsBeforeFailure !== array_map('strval', array_column($attempts->all(), 'id'))) {
-            throw new \RuntimeException('Finish after failed generation duplicated learner history.');
+            throw new \RuntimeException('Resuming after failed generation changed completed learner history.');
         }
         } finally {
             foreach ($attempts->all() as $attempt) {
@@ -545,6 +577,15 @@ final class QuizLifecycleScenario extends SimulationScenario
             $questions->replaceAll($questionsBefore);
             WeaknessStorageService::save($weaknessesBefore);
         }
+    }
+
+    private function csrfToken(ApplicationSimulator $simulation): string
+    {
+        $body = $simulation->context()->get('http')['output'] ?? '';
+        if (!is_string($body) || preg_match('/name="csrf_token"\s+value="([^"]+)"/', $body, $match) !== 1) {
+            throw new \RuntimeException('Quiz form did not provide its CSRF token.');
+        }
+        return html_entity_decode($match[1], ENT_QUOTES | ENT_HTML5, 'UTF-8');
     }
 
     private static function question(

@@ -161,7 +161,7 @@ final class LearnerPersonaScenario extends SimulationScenario
 
     private function verifyLongitudinalJourney(array &$created): void
     {
-        $userId = 'simulation-longitudinal-learner';
+        $userId = 'learner-' . substr(hash('sha256', 'simulation-longitudinal-learner'), 0, 32);
         $scores = [20, 90, 30];
         $dates = [
             '2026-08-20T10:00:00+08:00',
@@ -170,7 +170,10 @@ final class LearnerPersonaScenario extends SimulationScenario
         ];
         $states = [];
         $previousService = null;
+        $previousSession = $_SESSION ?? null;
+        $_SESSION = ['learner_identity' => $userId];
 
+        try {
         foreach ($scores as $index => $score) {
             $attempt = $this->attempt('LONGITUDINAL_LEARNER', $userId, $index, $score);
             $attempt['id'] = "batch454-{$userId}-{$index}";
@@ -234,6 +237,13 @@ final class LearnerPersonaScenario extends SimulationScenario
         if (($states[1]['progress']['trend']['direction'] ?? null) !== 'improving'
             || ($states[2]['progress']['trend']['direction'] ?? null) !== 'declining') {
             throw new \RuntimeException('latest-session trend did not show improvement then regression');
+        }
+        } finally {
+            if (is_array($previousSession)) {
+                $_SESSION = $previousSession;
+            } else {
+                unset($_SESSION);
+            }
         }
     }
 

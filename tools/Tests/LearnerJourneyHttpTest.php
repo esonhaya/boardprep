@@ -123,7 +123,23 @@ try {
                 || !str_contains($emptyText, 'after your first quiz')) {
                 throw new RuntimeException('fresh learner dashboard did not explain how to begin and unlock progress insights');
             }
+            if (!preg_match('/Average accuracy\s*—/', $emptyText)
+                || !preg_match('/Best score\s*—/', $emptyText)
+                || !preg_match('/Recent trend\s*Not started/', $emptyText)
+                || !str_contains($emptyText, 'No completed quizzes yet')) {
+                throw new RuntimeException('empty learner dashboard presents zero scores as completed quiz results');
+            }
             $completedBefore = (int) $emptyCount[1];
+        }
+        if ($path === '/profile') {
+            $emptyProfile = preg_replace('/\\s+/', ' ', strip_tags($empty['output'])) ?? '';
+            if (!str_contains($emptyProfile, 'No completed quizzes yet')
+                || !str_contains($emptyProfile, 'Overall Accuracy: —')
+                || !str_contains($emptyProfile, 'Best Score: —')
+                || !str_contains($emptyProfile, 'Latest Score: —')
+                || !str_contains($emptyProfile, 'Recent Trend: Not started')) {
+                throw new RuntimeException('empty learner profile presents zero scores as completed quiz results');
+            }
         }
     }
 

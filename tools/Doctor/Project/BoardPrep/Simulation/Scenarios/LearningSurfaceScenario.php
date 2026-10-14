@@ -28,8 +28,9 @@ final class LearningSurfaceScenario extends SimulationScenario
             ->execute()
             ->assertSuccessful()
             ->assertContains('Learner Dashboard')
-            ->assertContains('Learning Overview')
-            ->assertContains('Recommended Next Step');
+            ->assertContains('Welcome to BoardPrep')
+            ->assertContains('No completed quizzes yet')
+            ->assertContains('Start practice');
 
         /*
          * 2. Learning profile
@@ -59,8 +60,8 @@ final class LearningSurfaceScenario extends SimulationScenario
             ->execute()
             ->assertSuccessful()
             ->assertContains('Progress')
-            ->assertContains('Learning Overview')
-            ->assertContains('Subject Performance')
-            ->assertContains('Recent Quiz History');
+            ->assertContains('No completed quizzes yet')
+            ->assertContains('Subject performance')
+            ->assertContains('Recent activity');
     }
 }

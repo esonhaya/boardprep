@@ -10,6 +10,12 @@ $history = $history ?? [];
 $recommendations = $recommendations ?? [];
 $trend = $summary['trend']['direction'] ?? 'insufficient_history';
 $weaknesses = is_array($weaknesses ?? null) ? $weaknesses : [];
+$hasCompletedAttempts = (int) ($summary['completedAttempts'] ?? 0) > 0;
+$averageAccuracy = $hasCompletedAttempts ? (int) ($summary['averageScore'] ?? 0) . '%' : '—';
+$bestScore = $hasCompletedAttempts ? (int) ($summary['bestScore'] ?? 0) . '%' : '—';
+if (!$hasCompletedAttempts) {
+    $trend = 'not_started';
+}
 $taxonomyLabel = static fn(string $collection, mixed $id): string => \App\Services\Shared\TaxonomyStorageService::label($collection, $id);
 $learningContextLabel = static function (array $row) use ($taxonomyLabel): string {
     $labels = [];
@@ -43,8 +49,8 @@ $learningContextLabel = static function (array $row) use ($taxonomyLabel): strin
 
     <section class="ui-metric-grid progress-summary" data-ui-component="metric-grid" aria-label="Progress summary">
         <article class="card stat-card"><span class="stat-label">Completed quizzes</span><strong class="stat-value"><?= (int)($summary['completedAttempts']??0) ?></strong></article>
-        <article class="card stat-card"><span class="stat-label">Average accuracy</span><strong class="stat-value"><?= (int)($summary['averageScore']??0) ?>%</strong></article>
-        <article class="card stat-card"><span class="stat-label">Best score</span><strong class="stat-value"><?= (int)($summary['bestScore']??0) ?>%</strong></article>
+        <article class="card stat-card"><span class="stat-label">Average accuracy</span><strong class="stat-value"><?= htmlspecialchars($averageAccuracy) ?></strong><?php if (!$hasCompletedAttempts): ?><small class="muted-note">No completed quizzes yet</small><?php endif; ?></article>
+        <article class="card stat-card"><span class="stat-label">Best score</span><strong class="stat-value"><?= htmlspecialchars($bestScore) ?></strong><?php if (!$hasCompletedAttempts): ?><small class="muted-note">No completed quizzes yet</small><?php endif; ?></article>
         <article class="card stat-card"><span class="stat-label">Recent trend</span><strong class="stat-value stat-value-small"><?= htmlspecialchars(ucwords(str_replace('_',' ',$trend))) ?></strong></article>
     </section>
 

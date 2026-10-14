@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Core\App;
+use App\Services\RepositoryHealth\Engine\RepositoryHealthEvidenceService;
 
 final class DoctorApiController
 {
@@ -19,75 +20,79 @@ final class DoctorApiController
 
         $healthRequested = isset($_GET['health']) && in_array(strtolower((string) $_GET['health']), ['1', 'true', 'yes'], true);
         if ($healthRequested) {
-            self::writeJsonSnapshot(
-                dirname(__DIR__, 2) . '/storage/repository-health.json',
-                'Repository Health snapshot not found.',
-                'Repository Health snapshot is malformed.'
+            $report = RepositoryHealthEvidenceService::currentReport();
+            $report['cached_evidence'] = RepositoryHealthEvidenceService::classifyPersistedSnapshot(
+                self::storagePath() . '/repository-health.json',
+                dirname(__DIR__, 2)
             );
+            self::writeJson($report);
             return;
         }
         $releaseRequested = isset($_GET['release']) && in_array(strtolower((string) $_GET['release']), ['1', 'true', 'yes'], true);
         if ($releaseRequested) {
-            self::writeJsonSnapshot(
-                dirname(__DIR__, 2) . '/storage/release-readiness.json',
-                'Release Readiness snapshot not found.',
-                'Release Readiness snapshot is malformed.'
-            );
+            $path = self::storagePath() . '/release-readiness.json';
+            $evidence = RepositoryHealthEvidenceService::classifyPersistedSnapshot($path, dirname(__DIR__, 2));
+            if (($evidence['state'] ?? '') !== RepositoryHealthEvidenceService::CACHED) {
+                http_response_code(($evidence['state'] ?? '') === RepositoryHealthEvidenceService::UNAVAILABLE ? 404 : 409);
+                self::writeJson([
+                    'error' => 'No current release snapshot is available. Run the release gate again.',
+                    'evidence_state' => $evidence['state'] ?? RepositoryHealthEvidenceService::UNAVAILABLE,
+                    'cached_evidence' => $evidence,
+                ]);
+                return;
+            }
+            $report = self::readJson($path);
+            $report['evidence_state'] = RepositoryHealthEvidenceService::CACHED;
+            $report['cached_evidence'] = $evidence;
+            self::writeJson($report);
             return;
         }
 
-        $file =
-            dirname(__DIR__, 2) . '/storage/doctor-report.json';
+        $file = self::storagePath() . '/doctor-report.json';
+
+        $evidence = RepositoryHealthEvidenceService::classifyPersistedSnapshot($file, dirname(__DIR__, 2));
 
         header(
             'Content-Type: application/json'
         );
 
-        if (!is_file($file)) {
-
-            http_response_code(404);
-
+        if (($evidence['state'] ?? '') !== RepositoryHealthEvidenceService::CACHED) {
+            http_response_code(($evidence['state'] ?? '') === RepositoryHealthEvidenceService::UNAVAILABLE ? 404 : 409);
             echo json_encode([
-                'error' => 'Doctor report not found.'
-            ]);
-
+                'error' => 'No current Doctor report is available. Run Doctor again.',
+                'evidence_state' => $evidence['state'] ?? RepositoryHealthEvidenceService::UNAVAILABLE,
+                'cached_evidence' => $evidence,
+            ], JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
             return;
         }
 
-        $contents = file_get_contents($file);
-        $report = $contents === false
-            ? null
-            : json_decode($contents, true);
-
-        if (!is_array($report)) {
-            http_response_code(500);
-            echo json_encode([
-                'error' => 'Doctor report is malformed.'
-            ]);
-            return;
-        }
-
-        echo json_encode(
-            $report,
-            JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR
-        );
+        $report = self::readJson($file);
+        $report['evidence_state'] = RepositoryHealthEvidenceService::CACHED;
+        $report['cached_evidence'] = $evidence;
+        self::writeJson($report);
     }
 
-    private static function writeJsonSnapshot(string $file, string $missingMessage, string $malformedMessage): void
+    private static function storagePath(): string
+    {
+        $database = App::config('database', []);
+        $path = is_array($database) ? ($database['path'] ?? null) : null;
+        return is_string($path) && trim($path) !== ''
+            ? rtrim($path, DIRECTORY_SEPARATOR)
+            : dirname(__DIR__, 2) . '/storage';
+    }
+
+    /** @return array<string, mixed> */
+    private static function readJson(string $path): array
+    {
+        $contents = is_file($path) ? file_get_contents($path) : false;
+        $decoded = $contents === false ? null : json_decode($contents, true);
+        return is_array($decoded) ? $decoded : [];
+    }
+
+    /** @param array<string, mixed> $payload */
+    private static function writeJson(array $payload): void
     {
         header('Content-Type: application/json; charset=UTF-8');
-        if (!is_file($file)) {
-            http_response_code(404);
-            echo json_encode(['error' => $missingMessage]);
-            return;
-        }
-        $contents = file_get_contents($file);
-        $report = $contents === false ? null : json_decode($contents, true);
-        if (!is_array($report)) {
-            http_response_code(500);
-            echo json_encode(['error' => $malformedMessage]);
-            return;
-        }
-        echo json_encode($report, JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
+        echo json_encode($payload, JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
     }
 }

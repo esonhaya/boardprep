@@ -215,7 +215,7 @@ final class ApplicationSimulator
             $this->record(
                 "Response contains \"{$needle}\"",
                 false,
-                $exception->getMessage()
+                $this->diagnostic($exception->getMessage())
             );
         }
 
@@ -241,7 +241,7 @@ final class ApplicationSimulator
             $this->record(
                 "Response does not contain \"{$needle}\"",
                 false,
-                $exception->getMessage()
+                $this->diagnostic($exception->getMessage())
             );
         }
 
@@ -319,6 +319,29 @@ final class ApplicationSimulator
                 'No simulation response is available. Execute a request first.'
             );
         }
+    }
+
+    private function diagnostic(string $message): string
+    {
+        if ($this->response === null) {
+            return $message;
+        }
+
+        $body = preg_replace('/\\s+/', ' ', trim($this->response->body)) ?? '';
+        if ($body === '') {
+            $body = '[empty response body]';
+        } elseif (strlen($body) > 280) {
+            $body = substr($body, 0, 280) . '...';
+        }
+
+        return sprintf(
+            '%s Request: %s %s; HTTP %d; body: %s',
+            $message,
+            $this->method,
+            $this->uri,
+            $this->response->status,
+            $body
+        );
     }
 
     private function record(

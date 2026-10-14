@@ -236,9 +236,13 @@ test.describe('BoardPrep deterministic visual baseline', () => {
 
     await page.goto('/history');
     await expect(page.locator('.empty-state')).toBeVisible();
+    await expect(page.locator('.history-summary')).toContainText('—');
+    await expect(page.locator('.history-summary')).toContainText('No completed quizzes yet');
     await capture(page, testInfo, entries, 'history-empty', { fullPage: true });
     await page.goto('/progress');
     await expect(page.locator('.progress-page > .page-header a[href="/quiz"]')).toHaveClass(/button-green/);
+    await expect(page.locator('.progress-summary')).toContainText('—');
+    await expect(page.locator('.progress-summary')).toContainText('No completed quizzes yet');
     await capture(page, testInfo, entries, 'progress-empty', { fullPage: true });
 
     await page.goto('/flashcards/review?include_new=0');
@@ -339,16 +343,19 @@ test.describe('BoardPrep deterministic visual baseline', () => {
     const librarySearch = page.getByRole('searchbox', { name: 'Search titles and study notes' });
     const librarySearchHeight = await librarySearch.evaluate((input) => input.getBoundingClientRect().height);
     expect(librarySearchHeight).toBeLessThan(60);
-    const firstStudyMaterial = page.locator('.study-material-card').first();
+    const studyMaterialCards = page.locator('.study-material-card');
+    const studyMaterialCount = await studyMaterialCards.count();
+    expect(studyMaterialCount).toBeGreaterThan(0);
+    const firstStudyMaterial = studyMaterialCards.first();
     const firstStudyTitle = await firstStudyMaterial.locator('h2').innerText();
     await librarySearch.fill('no-resource-has-this-phrase-670');
     await librarySearch.press('Enter');
     await expect(page.getByRole('heading', { name: 'No study materials match that search' })).toBeVisible();
     await page.getByRole('link', { name: 'Clear search' }).click();
-    await expect(page.locator('.study-material-card')).toHaveCount(44);
+    await expect(studyMaterialCards).toHaveCount(studyMaterialCount);
     await librarySearch.fill(firstStudyTitle);
     await librarySearch.press('Enter');
-    await expect(page.locator('.study-material-card')).toHaveCount(1);
+    await expect(studyMaterialCards).toHaveCount(1);
     await capture(page, testInfo, entries, 'study-resource', { fullPage: true });
     const firstStudyMaterialDetail = page.locator('.study-material-card').first();
     await expect(firstStudyMaterialDetail).toBeVisible();

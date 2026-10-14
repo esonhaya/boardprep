@@ -3,6 +3,10 @@
 declare(strict_types=1);
 
 namespace App\Controllers;
+
+use App\Core\Request;
+use App\Core\Response;
+use App\Services\Shared\CsrfTokenService;
 use App\Services\Shared\QuestionImportService;
 
 class QuestionImportController extends BaseDeveloperController
@@ -16,7 +20,8 @@ class QuestionImportController extends BaseDeveloperController
             [
                 "pageTitle" =>
                     "Import Questions",
-                "expectedFormat" => '[{"id":"...","question":"...","options":[...]}]'
+                "expectedFormat" => '[{"id":"...","question":"...","options":[...]}]',
+                "csrfToken" => CsrfTokenService::token(),
             ]
         );
 
@@ -27,14 +32,12 @@ class QuestionImportController extends BaseDeveloperController
     public static function import(): void
     {
 
+        if (!CsrfTokenService::valid(Request::input('_csrf'))) {
+            Response::text('Invalid CSRF token.', 403);
+        }
+
         if (!isset($_FILES["file"]) || ($_FILES["file"]["error"] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK) {
-
-            header(
-                "Location: /question-import"
-            );
-
-            exit;
-
+            Response::redirect('/question-import');
         }
 
 

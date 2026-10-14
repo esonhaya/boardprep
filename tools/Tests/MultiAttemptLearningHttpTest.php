@@ -92,9 +92,10 @@ $complete = static function (string $cookie, string $topic) use ($simulator): vo
 };
 
 try {
-    $learnerCookies = ['PHPSESSID' => 'batch428-learning'];
-    $complete('batch428-learning', 'Subject-Verb Agreement');
-    $complete('batch428-learning', 'Verb Tenses');
+    $learnerId = 'batch676-learning-' . bin2hex(random_bytes(8));
+    $learnerCookies = ['PHPSESSID' => $learnerId];
+    $complete($learnerId, 'Subject-Verb Agreement');
+    $complete($learnerId, 'Verb Tenses');
 
     $study = $simulator->request('GET', '/study', [], [], [], $learnerCookies);
     $progress = $simulator->request('GET', '/progress', [], [], [], $learnerCookies);

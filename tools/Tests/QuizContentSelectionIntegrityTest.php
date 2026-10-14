@@ -15,7 +15,7 @@ $start = $http->request(
     [],
     ['action' => 'start', 'exam' => 'LET', 'subject' => 'English', 'topic' => 'Grammar', 'difficulty' => 'mixed', 'mode' => 'practice', 'count' => 1],
     [],
-    ['PHPSESSID' => 'batch432-content-selection']
+    ['PHPSESSID' => 'batch676-content-selection-' . bin2hex(random_bytes(8))]
 );
 if (!$start['success'] || $start['status'] !== 200 || !str_contains($start['output'], 'Question 1 / 1') ||
     !preg_match('/name="question_id"\s+value="([^"]+)"/', $start['output'])) {
