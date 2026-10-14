@@ -177,6 +177,12 @@ final class LetSourceCrosswalkCheck implements CheckInterface
             if (($record['source_scope_fit'] ?? '') !== ($row['source_scope_fit_after'] ?? null)) {
                 $errors[] = $leafId . ': report source-scope status is stale.';
             }
+            $sourceCurrentness = (string) ($record['source_currentness'] ?? '');
+            if (!in_array($sourceCurrentness, ['CURRENT', 'CURRENT_WITH_LIMITS', 'NOT_TIME_SENSITIVE', 'UNKNOWN'], true)) {
+                $errors[] = $leafId . ': readiness currentness value is missing or unsupported.';
+            } elseif ($sourceCurrentness === 'UNKNOWN') {
+                $warnings[] = $leafId . ': source currentness is UNKNOWN; verify the cited source versions before further content changes.';
+            }
             if (array_values((array) ($row['material_ids'] ?? [])) !== array_values((array) ($record['study_material_ids'] ?? []))) {
                 $errors[] = $leafId . ': report study-material IDs do not match readiness.';
             }
@@ -271,17 +277,33 @@ final class LetSourceCrosswalkCheck implements CheckInterface
                 $source = $sources[$sourceId];
                 if (($catalogEntry['id'] ?? null) !== $sourceId
                     || ($catalogEntry['title'] ?? null) !== ($source['title'] ?? null)
-                    || ($catalogEntry['url'] ?? null) !== ($source['url'] ?? null)) {
+                    || ($catalogEntry['url'] ?? null) !== ($source['url'] ?? null)
+                    || ($catalogEntry['source_type'] ?? null) !== ($source['source_type'] ?? null)) {
                     $errors[] = $leafId . ': evidence catalog metadata is stale for ' . $sourceId . '.';
                 }
                 $scheme = strtolower((string) parse_url((string) ($source['url'] ?? ''), PHP_URL_SCHEME));
                 if (!in_array($scheme, ['http', 'https'], true)) $errors[] = $leafId . ': source URL is not an absolute HTTP(S) URL for ' . $sourceId . '.';
+                $retrievedAt = (string) ($source['retrieved_at'] ?? '');
+                if (trim((string) ($source['status'] ?? '')) === ''
+                    || !preg_match('/^\d{4}-\d{2}-\d{2}$/D', $retrievedAt)
+                    || !checkdate((int) substr($retrievedAt, 5, 2), (int) substr($retrievedAt, 8, 2), (int) substr($retrievedAt, 0, 4))) {
+                    $errors[] = $leafId . ': source status/currentness metadata is missing or invalid for ' . $sourceId . '.';
+                }
             }
             foreach ((array) ($row['evidence'] ?? []) as $evidence) {
                 $sourceId = (string) (is_array($evidence) ? ($evidence['source_id'] ?? '') : '');
                 if ($sourceId === '' || !isset($sources[$sourceId])) $errors[] = $leafId . ': evidence source is missing or unresolved.';
                 elseif (!isset($evidenceCatalog[$sourceId])) $errors[] = $leafId . ': evidence source is missing from evidence catalog ' . $sourceId . '.';
+                if (is_array($evidence)
+                    && (trim((string) ($evidence['scope'] ?? '')) === '' || trim((string) ($evidence['claim_limit'] ?? '')) === '')) {
+                    $errors[] = $leafId . ': evidence must state its supported scope and claim limit' . ($sourceId !== '' ? ' for ' . $sourceId : '') . '.';
+                }
             }
+            $limitations = array_values(array_filter(
+                array_map(static fn(mixed $item): string => is_scalar($item) ? trim((string) $item) : '', (array) ($row['limitations'] ?? [])),
+                static fn(string $item): bool => $item !== ''
+            ));
+            if ($limitations === []) $errors[] = $leafId . ': crosswalk limits are missing; do not infer unsupported blueprint claims.';
             if (trim((string) ($row['recommended_action'] ?? '')) === '') $errors[] = $leafId . ': recommended action is missing.';
 
             if ($classification === 'DETECTOR_LIMITATION' || $classification === 'DEFERRED' || ($record['source_scope_fit'] ?? '') === 'UNKNOWN') {

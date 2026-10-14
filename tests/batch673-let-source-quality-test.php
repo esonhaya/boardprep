@@ -147,7 +147,38 @@ if (!array_filter($missingPathAudit['errors'], static fn(string $error): bool =>
     $fail('Doctor regression did not detect a question with no pathway to a declared study material.');
 }
 
-unset($collections, $questionById, $linkByPair, $sourceById, $materialById, $crosswalkById, $baselineById, $badReport, $badAudit, $missingPathReport, $missingPathCollections, $missingPathAudit, $audit);
+$claimLimitReport = $report;
+$claimLimitReport['crosswalks'][0]['evidence'][0]['claim_limit'] = '';
+$claimLimitAudit = LetSourceCrosswalkCheck::audit($claimLimitReport, $collections);
+if (!array_filter($claimLimitAudit['errors'], static fn(string $error): bool => str_contains($error, 'claim limit'))) {
+    $fail('Doctor regression did not detect evidence with no limit on what it supports.');
+}
+
+$staleSourceCollections = $collections;
+$staleSourceId = (string) $report['crosswalks'][0]['evidence'][0]['source_id'];
+foreach ($staleSourceCollections['sources'] as &$source) {
+    if ((string) ($source['id'] ?? '') === $staleSourceId) $source['retrieved_at'] = 'not-a-date';
+}
+unset($source);
+$staleSourceAudit = LetSourceCrosswalkCheck::audit($report, $staleSourceCollections);
+if (!array_filter($staleSourceAudit['errors'], static fn(string $error): bool => str_contains($error, 'status/currentness metadata'))) {
+    $fail('Doctor regression did not detect malformed source-currentness metadata.');
+}
+
+$unknownCurrentnessCollections = $collections;
+foreach ($unknownCurrentnessCollections['source-readiness-let'] as &$readinessRecord) {
+    if ((string) ($readinessRecord['leaf_id'] ?? '') === (string) $report['crosswalks'][0]['leaf_id']) {
+        $readinessRecord['source_currentness'] = 'UNKNOWN';
+    }
+}
+unset($readinessRecord);
+$unknownCurrentnessAudit = LetSourceCrosswalkCheck::audit($report, $unknownCurrentnessCollections);
+if ($unknownCurrentnessAudit['errors'] !== []
+    || !array_filter($unknownCurrentnessAudit['warnings'], static fn(string $warning): bool => str_contains($warning, 'source currentness is UNKNOWN'))) {
+    $fail('Unknown source currentness must remain a review warning, not a hard failure.');
+}
+
+unset($collections, $questionById, $linkByPair, $sourceById, $materialById, $crosswalkById, $baselineById, $badReport, $badAudit, $missingPathReport, $missingPathCollections, $missingPathAudit, $claimLimitReport, $claimLimitAudit, $staleSourceCollections, $staleSourceAudit, $unknownCurrentnessCollections, $unknownCurrentnessAudit, $audit);
 gc_collect_cycles();
 $doctor = (new LetSourceCrosswalkCheck())->run();
 if ($doctor->status !== 'WARNING') $fail('Doctor should surface the documented detector limitation as WARNING, got ' . $doctor->status);
