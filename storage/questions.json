@@ -50023,7 +50023,10 @@
             "0.02"
         ],
         "answer": "0.20",
-        "explanation": "Gradient=Δh/L=6/30=0.20.",
+        "explanation": "Hydraulic gradient is head loss per flow length: i = Δh/L = 6 m ÷ 30 m = 0.20, a dimensionless ratio. It is distinct from hydraulic conductivity k, which appears separately in Darcy flow.",
+        "source_ids": [
+            "fhwa-soils-foundations-reference"
+        ],
         "subject": "Geotechnical and Hydraulics",
         "content_blocks": [],
         "numeric": true,
@@ -53381,7 +53384,8 @@
         "explanation": "The contribution is 2,000 × (P18 − P12) = P12,000. Subtract the incremental P6,000 setup cost to get P6,000 incremental profit. The idle-capacity assumption means no displaced contribution is included.",
         "subject": "Cpa Management Services",
         "source_ids": [
-            "prc-accountancy-board-page"
+            "prc-accountancy-board-page",
+            "openstax-managerial-accounting-10-2-special-order"
         ],
         "numeric": true,
         "multistep": true,
@@ -53645,8 +53649,8 @@
             "board_id": "cpa",
             "subject_id": "cpa-management-services",
             "domain_id": "cpa-management-services",
-            "topic_id": "cpa-management-services-sunk-cost",
-            "concept_id": "cpa-management-services-sunk-cost-core"
+            "topic_id": "cpa-management-services-make-buy",
+            "concept_id": "cpa-management-services-make-buy-core"
         },
         "board": "cpa",
         "status": "active",
@@ -53662,10 +53666,11 @@
             "P30,000"
         ],
         "answer": "P30,000",
-        "explanation": "The avoidable in-house amount exceeds the supplier price by P140,000 − P110,000 = P30,000. The allocated P30,000 fixed cost continues under either option, so it cancels from this comparison; buying saves P30,000 on the stated costs.",
+        "explanation": "Compare the avoidable in-house cost of P140,000 with the supplier price of P110,000. The allocated P30,000 fixed amount continues under either choice, so it does not change the comparison; buying saves P30,000 on the stated costs. It is an unchanged cost here, not necessarily a sunk cost. Quality, capacity, and other effects were not supplied.",
         "subject": "Cpa Management Services",
         "source_ids": [
-            "prc-accountancy-board-page"
+            "prc-accountancy-board-page",
+            "openstax-managerial-accounting-10-3-make-buy"
         ],
         "numeric": true,
         "multistep": false,
@@ -54154,8 +54159,8 @@
             "board_id": "cpa",
             "subject_id": "cpa-management-services",
             "domain_id": "cpa-management-services",
-            "topic_id": "cpa-management-services-performance",
-            "concept_id": "cpa-management-services-performance-core"
+            "topic_id": "cpa-management-services-constraints",
+            "concept_id": "cpa-management-services-constraints-core"
         },
         "board": "cpa",
         "status": "active",
@@ -54171,10 +54176,11 @@
             "B, because it contributes P24 per constrained hour"
         ],
         "answer": "B, because it contributes P24 per constrained hour",
-        "explanation": "A earns P30 ÷ 2 = P15 per machine hour; B earns P24 ÷ 1 = P24 per machine hour. If both can use the same constrained machine and demand permits, B gives the greater contribution per bottleneck hour.",
+        "explanation": "A contributes P30 ÷ 2 = P15 per machine hour; B contributes P24 ÷ 1 = P24 per machine hour. With the stated shared bottleneck, B earns more contribution from each scarce hour. The choice still depends on demand and feasibility.",
         "subject": "Cpa Management Services",
         "source_ids": [
-            "prc-accountancy-board-page"
+            "prc-accountancy-board-page",
+            "openstax-managerial-accounting-10-6-constrained-resources"
         ],
         "cognitive_intent": "decide",
         "numeric": true,

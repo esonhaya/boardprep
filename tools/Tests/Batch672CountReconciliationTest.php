@@ -37,7 +37,7 @@ $assert($totals === ['native' => 8962, 'effective' => 9422, 'runtime' => 9746], 
 $assert((int) ($health->summary['fail_count'] ?? -1) === 0, 'health snapshot has no FAIL findings');
 $reviewExpectations = [
     'let' => ['source_scope_fit_unknown' => 0, 'structural_not_actionable' => 3],
-    'civil-service' => ['structural_not_actionable' => 3],
+    'civil-service' => ['structural_not_actionable' => 0],
     'criminologist' => ['structural_not_actionable' => 4],
     'psychometrician' => ['currentness_unknown' => 1],
 ];
@@ -50,6 +50,6 @@ foreach ($reviewExpectations as $boardId => $fields) {
         $reviewTotal += $actualCount;
     }
 }
-$assert($reviewTotal === 11, 'remaining source review signals reconcile after removing the invalid LET aggregate readiness row');
+$assert($reviewTotal === 8, 'three CSE concepts have verified parent-scope crosswalks; eight deferred or justified review signals remain');
 echo "BATCH672_COUNT_RECONCILIATION=PASS\n";
 echo 'NATIVE=' . $totals['native'] . ' EFFECTIVE=' . $totals['effective'] . ' RUNTIME=' . $totals['runtime'] . ' SOURCE_REVIEW_SIGNALS=' . $reviewTotal . "\n";

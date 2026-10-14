@@ -404,6 +404,7 @@ final class SourceReadinessService
         foreach ($records as $record) {
             if (!is_array($record)) continue;
             if (self::isStructuralException($record)) {
+                if (($record['scope_crosswalk_status'] ?? '') === 'VERIFIED_PARENT_SCOPE') continue;
                 $counts['structural_not_actionable']++;
                 continue;
             }

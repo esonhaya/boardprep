@@ -226,7 +226,7 @@
             ],
             [
                 "Norms of conduct",
-                "Apply professionalism, justness, sincerity, political neutrality, responsiveness, and simple living to the supplied scenario."
+                "Apply professionalism, justness, sincerity, political neutrality, responsiveness, nationalism and patriotism, commitment to democracy, and simple living to the supplied scenario."
             ],
             [
                 "Conflicts and transparency",
@@ -235,6 +235,14 @@
             [
                 "Accountability",
                 "A defensible response preserves records, follows the proper channel, protects confidentiality, and avoids retaliation or favoritism."
+            ],
+            [
+                "Batch 675 — Statutory duties versus ethics norms",
+                "Keep Section 4 norms separate from Section 5 service duties. Section 5(a) requires a response to public communications within fifteen working days and a reply stating the action taken. Section 5(c) calls for processing within a reasonable time and, as far as practicable, no more than three signatories. Section 5(e) requires public documents to be accessible for inspection within reasonable working hours. The fifteen-working-day period is for a response, not a universal deadline to complete every transaction."
+            ],
+            [
+                "Board scope",
+                "RA 6713 is a primary law reference. Its subject matter may support a learning pathway, but this resource alone does not establish the official examination scope or a board-specific weight."
             ]
         ],
         "source_ids": [
@@ -275,8 +283,8 @@
             "concept_id": "social-civics-public-good"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-10-14"
     },
     {
         "id": "human-rights-review-foundation",
@@ -1635,26 +1643,31 @@
         "summary": "Concept-focused LET review covering governing ideas, evidence, assumptions, and common reasoning errors for environmental and public-interest foundations.",
         "notes": [
             [
-                "Public interest",
-                "Connect constitutional stewardship, common good, and responsibility to present and future communities."
+                "CSE scope boundary",
+                "For the 2026 Civil Service Examination, CSC Announcement No. 03 lists Environment Management and Protection under the General Information parent. It publishes no section weights or separate BoardPrep child labels. The CSC CY2027 calendar says a later individual announcement will provide that administration’s scope. This CSC source does not establish LET scope."
             ],
             [
-                "Environmental law",
-                "Use the registered Clean Air and Ecological Solid Waste laws for the scope they actually establish; do not invent penalties or procedures."
+                "Environmental laws",
+                "RA 8749 addresses air-pollution prevention and control; RA 9003 establishes ecological solid-waste management. Identify the environmental medium and statutory purpose before applying a rule; do not transfer one Act’s mechanisms to the other."
             ],
             [
-                "Evidence and participation",
-                "Identify affected resources and communities, compare impacts, and include lawful public participation where the scenario supports it."
+                "Read evidence",
+                "Separate a measured observation from a causal conclusion. Compare the location, time period, and method before treating two environmental readings as comparable. A local example does not establish a nationwide condition."
             ],
             [
-                "Sustainable judgment",
-                "Balance feasible action, prevention, accountability, and long-term effects rather than treating one short-term metric as decisive."
+                "Public-interest decisions",
+                "State the affected resource, the supported duty, and the evidence in the scenario. Participation can inform a decision without automatically proving unanimous consent or a veto."
+            ],
+            [
+                "Cross-board use",
+                "This is a shared subject-matter foundation. Use it for a board only where that board’s own examination scope and linked question support the pathway; General Information is a Civil Service parent, not a universal board blueprint."
             ]
         ],
         "source_ids": [
             "1987-philippine-constitution",
             "republic-act-8749",
-            "republic-act-9003"
+            "republic-act-9003",
+            "csc-cse-ppt-scope-2026"
         ],
         "exams": [
             "civil-service",
@@ -1698,8 +1711,8 @@
             "concept_id": "social-civics-public-good"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-10-14"
     },
     {
         "id": "cse-verbal-foundation",
@@ -4464,7 +4477,7 @@
             ],
             [
                 "Seepage",
-                "Darcy discharge is permeability times hydraulic gradient times area. Exit gradients near or above critical values indicate piping or heave concern, not a guaranteed failure time."
+                "For one-dimensional Darcy flow, discharge is Q = k i A: hydraulic conductivity k, dimensionless hydraulic gradient i, and flow area A remain distinct inputs. The gradient is head loss per flow length. An exit gradient that approaches a critical condition prompts piping or heave assessment under the applicable soil and boundary conditions; it does not predict a failure time by itself."
             ]
         ],
         "source_ids": [
@@ -5088,7 +5101,7 @@
         "standalone_reason": "Published study/foundation resource intentionally retained without a question dependency; source chain is valid and future authoring may link it when authorized.",
         "standalone_reviewed_at_batch": 656
     },
-    {
+        {
         "id": "cpa-management-cost-cvp-foundation",
         "title": "Cost Behavior, CVP, Sales Mix, and Sensitivity",
         "summary": "Technical management-accounting foundation for fixed and variable cost behavior, contribution analysis, break-even reasoning, sales mix, and decision sensitivity.",
@@ -5107,12 +5120,17 @@
             },
             {
                 "heading": "Batch 672 — Special orders",
-                "body": "Compare incremental revenue with incremental costs. With idle capacity and no displaced sales, compute unit contribution times the order quantity, then subtract any order-specific setup cost. State those assumptions before interpreting the result."
+                "body": "Compare incremental revenue with incremental costs. With idle capacity and no displaced sales, compute unit contribution times the order quantity, then subtract order-specific setup cost. State those assumptions before interpreting the result."
+            },
+            {
+                "heading": "Batch 675 — Capacity and order-specific cost",
+                "body": "Before accepting a one-time order, check whether capacity is unused or whether regular sales would be displaced. Include costs caused by the order, such as setup, and exclude costs that do not change. The result is conditional on demand, capacity, and any stated qualitative constraints. OpenStax section 10.2 develops this decision."
             }
         ],
         "source_ids": [
             "openstax-principles-managerial-accounting",
-            "prc-accountancy-board-page"
+            "prc-accountancy-board-page",
+            "openstax-managerial-accounting-10-2-special-order"
         ],
         "exams": [
             "cpa"
@@ -5128,10 +5146,10 @@
         ],
         "technical_support_state": "ADEQUATE",
         "status": "published",
-        "version": 2,
+        "version": 3,
         "updated_at": "2026-10-14"
     },
-    {
+        {
         "id": "cpa-management-relevant-decisions-foundation",
         "title": "Relevant Costs and Short-Term Decisions",
         "summary": "Decision-focused coverage of avoidable, opportunity, and sunk costs for make-or-buy, special-order, and constrained-resource decisions.",
@@ -5151,11 +5169,22 @@
             {
                 "heading": "Batch 672 — Decision assumptions",
                 "body": "For make-or-buy comparisons, exclude costs that continue unchanged. For a constrained resource, compare contribution per unit of that resource and state any demand or feasibility assumptions."
+            },
+            {
+                "heading": "Batch 675 — Unavoidable is not automatically sunk",
+                "body": "In a make-or-buy decision, compare the supplier price with the costs that disappear if production stops. Exclude a fixed amount that continues under both choices because it does not change; do not label it a sunk cost unless it is a past, unrecoverable cost. Then check quality, capacity, supplier reliability, and other stated qualitative factors."
+            },
+            {
+                "heading": "Batch 675 — Constrained-resource rule",
+                "body": "For a single bottleneck, divide each option’s contribution margin per unit by the bottleneck units required per unit. Rank by contribution per scarce-resource unit, then check demand and feasibility. Contribution per product alone can choose the wrong option. OpenStax section 10.6 covers this comparison."
             }
         ],
         "source_ids": [
             "openstax-principles-managerial-accounting",
-            "prc-accountancy-board-page"
+            "prc-accountancy-board-page",
+            "openstax-managerial-accounting-10-2-special-order",
+            "openstax-managerial-accounting-10-3-make-buy",
+            "openstax-managerial-accounting-10-6-constrained-resources"
         ],
         "exams": [
             "cpa"
@@ -5172,7 +5201,7 @@
         ],
         "technical_support_state": "ADEQUATE",
         "status": "published",
-        "version": 2,
+        "version": 3,
         "updated_at": "2026-10-14"
     },
     {

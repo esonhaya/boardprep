@@ -157,6 +157,11 @@ final class SourceReadinessValidator
                 self::error($errors, 'SOURCE_READINESS.INVALID_ENUM', $leafId, "{$field} has an unsupported value.", ['field' => $field, 'value' => $record[$field]]);
             }
         }
+        if (array_key_exists('scope_crosswalk_status', $record)
+            && (!is_string($record['scope_crosswalk_status'])
+                || !in_array($record['scope_crosswalk_status'], SourceReadinessRecord::SCOPE_CROSSWALK_STATUSES, true))) {
+            self::error($errors, 'SOURCE_READINESS.INVALID_ENUM', $leafId, 'scope_crosswalk_status has an unsupported value.', ['field' => 'scope_crosswalk_status', 'value' => $record['scope_crosswalk_status']]);
+        }
         if (array_key_exists('blocker_classes', $record)) {
             foreach ((array) $record['blocker_classes'] as $blocker) {
                 if (!in_array((string) $blocker, SourceReadinessRecord::BLOCKER_CLASSES, true)) {

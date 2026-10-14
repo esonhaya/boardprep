@@ -31,22 +31,48 @@ final class DependencyConsistencyCheck implements CheckInterface
         );
 
         $issues = $result['issues'];
+        $unresolved = [];
+        $classified = ['FIXED_ANALYZER' => 0, 'JUSTIFIED_DYNAMIC' => 0];
+        $examples = ['FIXED_ANALYZER' => [], 'JUSTIFIED_DYNAMIC' => []];
+        foreach ($issues as $issue) {
+            $classification = DependencyFindingClassifier::classify($issue, $result['symbols']);
+            if ($classification === null) {
+                $unresolved[] = $issue;
+                continue;
+            }
+            $kind = $classification['classification'];
+            $classified[$kind] = ($classified[$kind] ?? 0) + 1;
+            if (count($examples[$kind] ?? []) < 2) {
+                $examples[$kind][] = sprintf(
+                    '%s:%d %s — %s',
+                    $issue['file'],
+                    (int) $issue['line'],
+                    $issue['message'],
+                    $classification['evidence']
+                );
+            }
+        }
 
-        if ($issues === []) {
+        if ($unresolved === []) {
+            $details = [
+                'Raw analyzer findings: ' . count($issues),
+                'FIXED_ANALYZER: ' . $classified['FIXED_ANALYZER'],
+                'JUSTIFIED_DYNAMIC: ' . $classified['JUSTIFIED_DYNAMIC'],
+                'UNRESOLVED: 0',
+            ];
+            foreach (array_merge($examples['FIXED_ANALYZER'], $examples['JUSTIFIED_DYNAMIC']) as $example) {
+                $details[] = $example;
+            }
             return new CheckResult(
                 title: 'Dependency Consistency',
                 status: 'PASS',
                 summary: sprintf(
-                    'No cross-file API inconsistencies detected across %d application PHP file(s).',
-                    count($files)
+                    'No unresolved cross-file API inconsistencies across %d application PHP file(s); %d analyzer artifact(s) and %d justified dynamic call(s) classified.',
+                    count($files),
+                    $classified['FIXED_ANALYZER'],
+                    $classified['JUSTIFIED_DYNAMIC']
                 ),
-                details: [
-                    'Class resolution ........ PASS',
-                    'Method contracts ........ PASS',
-                    'Property contracts ...... PASS',
-                    'Constructor arguments ... PASS',
-                    'Inheritance contracts ... PASS',
-                ],
+                details: $details,
                 recommendations: []
             );
         }
@@ -54,7 +80,7 @@ final class DependencyConsistencyCheck implements CheckInterface
         $details = [];
 
         foreach (
-            array_slice($issues, 0, $policy->maxIssues)
+            array_slice($unresolved, 0, $policy->maxIssues)
             as $issue
         ) {
             $details[] = sprintf(
@@ -65,19 +91,22 @@ final class DependencyConsistencyCheck implements CheckInterface
             );
         }
 
-        if (count($issues) > $policy->maxIssues) {
+        if (count($unresolved) > $policy->maxIssues) {
             $details[] = sprintf(
                 '... %d additional issue(s) omitted from console output.',
-                count($issues) - $policy->maxIssues
+                count($unresolved) - $policy->maxIssues
             );
         }
+        $details[] = 'CLASSIFIED FIXED_ANALYZER=' . $classified['FIXED_ANALYZER']
+            . ' JUSTIFIED_DYNAMIC=' . $classified['JUSTIFIED_DYNAMIC'];
 
         return new CheckResult(
             title: 'Dependency Consistency',
             status: 'FAIL',
             summary: sprintf(
-                '%d cross-file API consistency issue(s) detected.',
-                count($issues)
+                '%d unresolved cross-file API consistency issue(s) detected; %d analyzer artifact(s) classified.',
+                count($unresolved),
+                $classified['FIXED_ANALYZER']
             ),
             details: $details,
             recommendations: [

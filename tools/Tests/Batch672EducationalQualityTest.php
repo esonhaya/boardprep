@@ -110,7 +110,7 @@ foreach (['1300', '1316'] as $questionId) {
     $requireLink($questionId, 'cpa-management-relevant-decisions-foundation');
 }
 $assert(str_contains($questionById['1300']['explanation'] ?? '', 'P12,000') && str_contains($questionById['1300']['explanation'] ?? '', 'P6,000'), 'special-order rationale shows contribution and setup');
-$assert(str_contains($questionById['1306']['explanation'] ?? '', 'continues under either option'), 'make-or-buy rationale excludes unchanged allocated fixed cost');
+$assert(str_contains($questionById['1306']['explanation'] ?? '', 'continues under either choice'), 'make-or-buy rationale excludes unchanged allocated fixed cost');
 $assert(str_contains($questionById['1316']['explanation'] ?? '', 'P15 per machine hour') && str_contains($questionById['1316']['explanation'] ?? '', 'P24 per machine hour'), 'bottleneck rationale compares contribution per hour');
 
 $normalizeStem = static function (string $stem): string {

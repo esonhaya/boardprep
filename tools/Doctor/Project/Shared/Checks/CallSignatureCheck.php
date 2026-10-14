@@ -16,6 +16,8 @@ final class CallSignatureCheck implements CheckInterface
         $snapshot = DoctorContext::snapshot();
         $details = [];
         $errors = 0;
+        $fixedAnalyzer = 0;
+        $justifiedDynamic = 0;
 
         $classMap = $snapshot->classMap;
 
@@ -78,6 +80,27 @@ final class CallSignatureCheck implements CheckInterface
                     continue;
                 }
 
+                if (\Tools\Doctor\Project\BoardPrep\Checks\DependencyFindingClassifier::isVariadicArgumentCountFalsePositive(
+                    $target,
+                    $call['method'],
+                    (int) $call['arguments'],
+                    $classMap
+                )) {
+                    $fixedAnalyzer++;
+                    continue;
+                }
+
+                if (\Tools\Doctor\Project\BoardPrep\Checks\DependencyFindingClassifier::isVerifiedVariadicForwarding(
+                    $file,
+                    (int) $call['line'],
+                    $target,
+                    $call['method'],
+                    $classMap
+                )) {
+                    $justifiedDynamic++;
+                    continue;
+                }
+
                 $signature =
                     StaticContractScanner::methodSignatureInProject(
                         $target,
@@ -118,9 +141,13 @@ final class CallSignatureCheck implements CheckInterface
             status: $errors > 0 ? 'FAIL' : 'PASS',
             summary:
                 $errors > 0
-                    ? "{$errors} static call signature violation(s)."
-                    : 'Static call argument counts are valid.',
-            details: array_slice($details, 0, 50),
+                    ? "{$errors} unresolved static call signature violation(s); {$fixedAnalyzer} variadic analyzer false positive(s) and {$justifiedDynamic} justified unpacked call(s) classified."
+                    : "Static call argument counts are valid; {$fixedAnalyzer} variadic analyzer false positive(s) and {$justifiedDynamic} justified unpacked call(s) classified.",
+            details: array_slice(array_merge([
+                'FIXED_ANALYZER variadic methods: ' . $fixedAnalyzer,
+                'JUSTIFIED_DYNAMIC verified spread forwarding: ' . $justifiedDynamic,
+                'UNRESOLVED call signatures: ' . $errors,
+            ], $details), 0, 50),
             score: max(0, 100 - ($errors * 10))
         );
     }
