@@ -2,11 +2,11 @@
     {
         "id": "constitution-review-foundation",
         "title": "Civic, Rights, and Public-Interest Decisions",
-        "summary": "Shared source-based civic reasoning for LET, Civil Service, and Criminologist study. BoardPrep editorial foundation, not an official examination prediction.",
+        "summary": "Source-based review of rights, privacy, and professional-responsibility decisions across LET, Civil Service, Criminologist, Nursing, Psychometrician, and CPA pathways. Apply only the linked, board-relevant sources; this BoardPrep foundation does not establish examination scope or predict questions.",
         "notes": [
             [
                 "Scope",
-                "Shared civic reasoning foundation for LET, Civil Service, and Criminologist learners. The CSC announcement is specific to Civil Service General Information; this resource does not establish LET or Criminologist examination scope or predict questions."
+                "Shared, source-based rights and professional-responsibility study pathways for LET, Civil Service, Criminologist, Nursing, Psychometrician, and CPA questions. Use only the board-relevant linked topics and question-level sources. The Civil Service Commission source applies only to Civil Service General Information; this resource does not predict examination scope for any board."
             ],
             [
                 "Application",
@@ -87,25 +87,61 @@
             [
                 "Batch 672 — Assembly and route changes",
                 "The Supreme Court decision in Integrated Bar of the Philippines v. Atienza concerns a specific public-assembly permit venue change. Use it as context for reviewing stated safety reasons and alternatives; do not treat it as deciding every route restriction or replacing the governing legal standard."
+            ],
+            [
+                "Batch 674 — Privacy in professional records",
+                "Use RA 10173 as a general personal-data layer: identify the purpose and lawful authority, apply proportionality and safeguards, and limit disclosure to adequate, non-excessive information. Check sector-specific law, professional duties, and local protocols; consent is not the only possible lawful basis and this source does not decide every disclosure case."
+            ],
+            [
+                "Batch 674 — Teaching duties",
+                "For LET teaching cases, read confidentiality and fair treatment together with the Professional Teachers Code of Ethics and the facts. Use the authorized support route; do not infer that every disclosure is forbidden or that a general privacy statute supplies every school procedure."
+            ],
+            [
+                "Batch 674 — Public-service records",
+                "For Civil Service cases, apply the Data Privacy Act alongside public-record access rules and RA 6713 duties. Establish the purpose and controlling authority before releasing personal data; neither “public office” nor “private information” alone decides the outcome."
+            ],
+            [
+                "Batch 674 — Justice and corrections",
+                "For Criminologist scenarios, combine data-protection principles with applicable professional ethics, criminal-procedure rules, agency authority, and public-safety needs. Disclose only what the supported purpose and controlling process justify."
+            ],
+            [
+                "Batch 674 — Health records",
+                "For Nursing scenarios, this resource is a general personal-data foundation. Apply the Nursing Act, professional duties, patient-rights rules, and current clinical protocols to the specific care context; it does not prescribe a clinical disclosure decision."
+            ],
+            [
+                "Batch 674 — Psychological assessment",
+                "For assessment reports, consult applicable professional assessment and ethics guidance, state the intended use and recipients, and verify authorization and confidentiality limits. RA 10173 is one legal layer and does not decide every report-release question."
+            ],
+            [
+                "Batch 674 — Accountancy records",
+                "For CPA client or working-paper scenarios, apply the Philippine CPA Code of Ethics and the controlling legal or regulatory requirement. Do not infer an exception or a blanket consent rule from the general privacy principles alone."
             ]
         ],
         "source_ids": [
             "1987-philippine-constitution",
+            "apa-psychological-assessment-guidelines-2020",
+            "bp344-2024-irr",
             "csc-cse-ppt-scope-2026",
+            "integrated-bar-v-atienza-2010",
+            "lawphil-ra10173",
+            "official-gazette-ra10173",
+            "philippine-cpa-code-of-ethics",
+            "prc-code-of-ethics-professional-teachers",
+            "prc-criminology-ethics-amendment-2025",
+            "ra-9173-philippine-nursing-act",
+            "republic-act-11106",
             "republic-act-6713",
-            "universal-declaration-human-rights",
             "republic-act-8749",
             "republic-act-9003",
-            "lawphil-ra10173",
-            "republic-act-11106",
-            "bp344-2024-irr",
-            "integrated-bar-v-atienza-2010",
-            "official-gazette-ra10173"
+            "universal-declaration-human-rights"
         ],
         "exams": [
             "let",
             "civil-service",
-            "criminologist"
+            "criminologist",
+            "nursing",
+            "psychometrician",
+            "cpa"
         ],
         "exam_focus": {
             "let": {
@@ -137,6 +173,36 @@
                     "due process",
                     "public trust"
                 ]
+            },
+            "nursing": {
+                "priority": "medium",
+                "rationale": "Shared personal-data handling foundation; supplement the board’s professional, clinical, assessment, and sector-specific rules.",
+                "official_scope_status": "Shared source pathway; not a board-specific exam prediction",
+                "focus_topics": [
+                    "purpose and authority",
+                    "proportionality",
+                    "safeguards"
+                ]
+            },
+            "psychometrician": {
+                "priority": "medium",
+                "rationale": "Shared personal-data handling foundation; supplement the board’s professional, clinical, assessment, and sector-specific rules.",
+                "official_scope_status": "Shared source pathway; not a board-specific exam prediction",
+                "focus_topics": [
+                    "purpose and authority",
+                    "proportionality",
+                    "safeguards"
+                ]
+            },
+            "cpa": {
+                "priority": "medium",
+                "rationale": "Shared personal-data handling foundation; supplement the board’s professional, clinical, assessment, and sector-specific rules.",
+                "official_scope_status": "Shared source pathway; not a board-specific exam prediction",
+                "focus_topics": [
+                    "purpose and authority",
+                    "proportionality",
+                    "safeguards"
+                ]
             }
         },
         "taxonomy": {
@@ -146,7 +212,7 @@
             "concept_id": "cse-public-accountability"
         },
         "status": "published",
-        "version": 16,
+        "version": 18,
         "updated_at": "2026-10-14"
     },
     {
@@ -357,7 +423,11 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "learning-theories",
-            "concept_id": "learning-theories-behaviorism"
+            "concept_id": "learning-theories-behaviorism",
+            "boardprep_competency_ids": [
+                "let-educational-foundations-philosophical-sociological"
+            ],
+            "boardprep_taxonomy_batch": 674
         },
         "status": "published",
         "version": 3,
@@ -391,6 +461,10 @@
             [
                 "Interpretation limits",
                 "Developmental stages are theoretical summaries. Use the learner’s demonstrated task performance and context; do not infer a global ability from one response."
+            ],
+            [
+                "Applied study routine",
+                "For each case, record the observed work, distinguish task or access conditions from a learner label, select one support, and decide what independent evidence would justify fading it."
             ]
         ],
         "source_ids": [
@@ -417,10 +491,17 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "developmental-stages",
-            "concept_id": "developmental-stages-cognitive"
+            "concept_id": "developmental-stages-cognitive",
+            "boardprep_competency_ids": [
+                "let-assessment-evidence-use",
+                "let-developmental-readiness-scaffolding",
+                "let-inclusive-access-participation",
+                "let-learner-agency-self-regulation"
+            ],
+            "boardprep_taxonomy_batch": 674
         },
         "status": "published",
-        "version": 3,
+        "version": 4,
         "updated_at": "2026-10-14"
     },
     {
@@ -443,6 +524,14 @@
             [
                 "Accountability",
                 "Reflect on outcomes, seek feedback, and use the applicable professional standard rather than personal preference alone."
+            ],
+            [
+                "Family and community partnership",
+                "Connect a contribution to the learning purpose, clarify who is responsible for each action, communicate in accessible two-way language, and agree on a follow-up. Collaboration does not transfer the teacher’s duty to assess learning or protect private information."
+            ],
+            [
+                "Scope boundary",
+                "The PRC TOS names broad Professional Education outcomes. This material’s professional-practice pathways are BoardPrep study organization and do not claim separate exam weights."
             ]
         ],
         "source_ids": [
@@ -468,11 +557,15 @@
             "subject_id": "professional-education",
             "domain_id": "professional-ethics",
             "topic_id": "professional-responsibility",
-            "concept_id": "professional-responsibility-teacher-role"
+            "concept_id": "professional-responsibility-teacher-role",
+            "boardprep_competency_ids": [
+                "let-school-family-community-partnership"
+            ],
+            "boardprep_taxonomy_batch": 674
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-10-14"
     },
     {
         "id": "let-education-laws-review",
@@ -547,11 +640,17 @@
             [
                 "Proportionate response",
                 "Choose the least harmful defensible action, document concerns, and use the proper reporting or consultation route."
+            ],
+            [
+                "Personal information",
+                "Before sharing learner information, identify the purpose and authority, limit the information to what is adequate and not excessive, use safeguards, and check the applicable school and professional rules. Consent is not the only possible lawful basis, and the Data Privacy Act does not make every disclosure automatically prohibited or permitted."
             ]
         ],
         "source_ids": [
-            "republic-act-7836",
-            "republic-act-6713"
+            "lawphil-ra10173",
+            "official-gazette-ra10173",
+            "republic-act-6713",
+            "republic-act-7836"
         ],
         "exams": [
             "let"
@@ -571,11 +670,15 @@
             "subject_id": "professional-education",
             "domain_id": "professional-ethics",
             "topic_id": "professional-conduct",
-            "concept_id": "professional-conduct-ethical-judgment"
+            "concept_id": "professional-conduct-ethical-judgment",
+            "boardprep_competency_ids": [
+                "let-professional-ethics-duties"
+            ],
+            "boardprep_taxonomy_batch": 674
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-10-14"
     },
     {
         "id": "let-curriculum-review",
@@ -621,7 +724,14 @@
             "subject_id": "professional-education",
             "domain_id": "curriculum-development",
             "topic_id": "curriculum-alignment",
-            "concept_id": "curriculum-alignment-outcomes"
+            "concept_id": "curriculum-alignment-outcomes",
+            "boardprep_competency_ids": [
+                "let-developmental-readiness-scaffolding",
+                "let-inclusive-access-participation",
+                "let-learner-agency-self-regulation",
+                "let-school-family-community-partnership"
+            ],
+            "boardprep_taxonomy_batch": 674
         },
         "status": "published",
         "version": 2,
@@ -681,7 +791,11 @@
             "subject_id": "professional-education",
             "domain_id": "assessment-of-learning",
             "topic_id": "assessment-validity",
-            "concept_id": "assessment-validity-content"
+            "concept_id": "assessment-validity-content",
+            "boardprep_competency_ids": [
+                "let-assessment-evidence-use"
+            ],
+            "boardprep_taxonomy_batch": 674
         },
         "status": "published",
         "version": 3,
@@ -731,7 +845,11 @@
             "subject_id": "professional-education",
             "domain_id": "facilitating-learning",
             "topic_id": "instructional-strategies",
-            "concept_id": "instructional-strategies-scaffolding"
+            "concept_id": "instructional-strategies-scaffolding",
+            "boardprep_competency_ids": [
+                "let-educational-foundations-philosophical-sociological"
+            ],
+            "boardprep_taxonomy_batch": 674
         },
         "status": "published",
         "version": 2,
@@ -889,7 +1007,12 @@
             "subject_id": "professional-education",
             "domain_id": "inclusive-education",
             "topic_id": "instructional-adaptations",
-            "concept_id": "instructional-adaptations-access"
+            "concept_id": "instructional-adaptations-access",
+            "boardprep_competency_ids": [
+                "let-inclusive-access-participation",
+                "let-school-family-community-partnership"
+            ],
+            "boardprep_taxonomy_batch": 674
         },
         "status": "published",
         "version": 3,
@@ -915,6 +1038,10 @@
             [
                 "Developmental stance",
                 "Standards guide support and growth; they are not a reason to stereotype teachers or learners."
+            ],
+            [
+                "Standards and exam scope",
+                "PPST is a professional practice framework. Use it to organize reflection and growth; do not infer that each domain, career-stage indicator, or BoardPrep subtopic is a separately weighted PRC TOS item."
             ]
         ],
         "source_ids": [
@@ -939,11 +1066,15 @@
             "subject_id": "professional-education",
             "domain_id": "professional-ethics",
             "topic_id": "professional-development",
-            "concept_id": "professional-development-reflection"
+            "concept_id": "professional-development-reflection",
+            "boardprep_competency_ids": [
+                "let-reflective-professional-learning"
+            ],
+            "boardprep_taxonomy_batch": 674
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-10-14"
     },
     {
         "id": "let-english-communication-review",
@@ -1438,7 +1569,11 @@
             "subject_id": "social-studies",
             "domain_id": "ethics-and-values",
             "topic_id": "ethical-reasoning",
-            "concept_id": "ethical-reasoning-duties"
+            "concept_id": "ethical-reasoning-duties",
+            "boardprep_competency_ids": [
+                "let-educational-foundations-philosophical-sociological"
+            ],
+            "boardprep_taxonomy_batch": 674
         },
         "status": "published",
         "version": 3,
@@ -9142,30 +9277,35 @@
     },
     {
         "id": "let-professional-education-foundation",
-        "title": "LET Professional Education: Alignment, Assessment, Inclusion, and Facilitation",
-        "summary": "Thin-concept reinforcement for professional education, using PPST and classroom-assessment guidance to support applied teacher judgment.",
+        "title": "Learner Readiness: Evidence, Scaffolds, and Progress",
+        "summary": "A focused Professional Education study pathway for interpreting prerequisite evidence, selecting a temporary scaffold, and checking progress toward independent transfer. The PRC TOS supports the broad Professional Education area; this on-site learning category is not a separate official blueprint leaf or item-weight claim.",
         "notes": [
             [
-                "Alignment",
-                "State the competency first, then choose an activity and assessment that actually elicit it."
+                "Learning objectives",
+                "After review, identify the evidence in a learner’s work, name the prerequisite or access need it supports, choose one proportionate next step, and state what later performance would show that support can be reduced."
             ],
             [
-                "Assessment",
-                "Interpret evidence only to the extent supported by the task, access conditions, and scoring information."
+                "Readiness is task-specific",
+                "Compare what the learner can do independently with what changes after a prompt, example, representation, or accessible format. One result is not a permanent label of ability."
             ],
             [
-                "Learners",
-                "Use developmentally appropriate, inclusive supports and adjust instruction from observable evidence."
+                "Choose and fade scaffolds",
+                "Select the smallest support that addresses the observed barrier: model one step, connect prior knowledge, clarify directions, or vary a response route. Keep the target reasoning intact where possible and fade prompts as control grows."
             ],
             [
-                "Practice",
-                "Prefer a clear, respectful, feasible response that protects learner dignity and learning time."
+                "Check transfer",
+                "A correct response to a familiar example is not proof of transfer. Vary the example, ask the learner to explain the strategy, and use the evidence to plan the next step."
+            ],
+            [
+                "Scope boundary",
+                "This material organizes BoardPrep practice inside broad PRC Professional Education outcomes. The PRC TOS does not certify this category as a separately named blueprint line or establish its item share."
             ]
         ],
         "source_ids": [
             "prc-let-enhanced-tos-2025",
             "deped-ppst-do-42-2017",
-            "deped-classroom-assessment-do-8-2015"
+            "deped-classroom-assessment-do-8-2015",
+            "openstax-lifespan-development"
         ],
         "exams": [
             "let"
@@ -9173,21 +9313,31 @@
         "exam_focus": {
             "let": {
                 "priority": "high",
-                "rationale": "Specialization-specific foundation aligned to the current PRC enhanced TOS model; not a prediction of exact item counts.",
-                "official_scope_status": "source-backed specialization foundation",
-                "specialization_id": "shared-pe"
+                "rationale": "Focused applied practice within broad Professional Education outcomes; no separate official item frequency is claimed.",
+                "official_scope_status": "BoardPrep-derived study pathway; not an exam prediction",
+                "focus_topics": [
+                    "diagnostic evidence",
+                    "readiness",
+                    "scaffolding",
+                    "transfer"
+                ]
             }
         },
         "taxonomy": {
             "subject_id": "professional-education",
-            "domain_id": "professional-education",
-            "topic_id": "facilitating-learning",
-            "concept_id": "prof-facilitation-scaffolding"
+            "domain_id": "learner-development",
+            "topic_id": "prof-development",
+            "concept_id": "let-developmental-readiness-scaffolding",
+            "boardprep_competency_ids": [
+                "let-developmental-readiness-scaffolding",
+                "let-assessment-evidence-use"
+            ],
+            "boardprep_taxonomy_batch": 674
         },
         "let_specialization_id": "shared-pe",
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-29",
+        "version": 2,
+        "updated_at": "2026-10-14",
         "batch_marker": "batch629"
     },
     {
@@ -10437,5 +10587,65 @@
         "status": "published",
         "version": 1,
         "updated_at": "2026-10-02"
+    },
+    {
+        "id": "let-education-foundations-review",
+        "title": "Educational Foundations: Purpose, Institutions, and Social Effects",
+        "summary": "Use educational-philosophy and sociology lenses to compare a stated purpose of schooling with classroom or policy effects. PRC scope remains the broad Professional Education area; the perspectives below are instructional tools, not separate blueprint leaves or item predictions.",
+        "notes": [
+            [
+                "Learning objectives",
+                "Distinguish an intended educational function from an unintended consequence; compare perspectives on schooling; and support a claim about who benefits or faces a barrier with evidence from the case."
+            ],
+            [
+                "Purpose and cognitive demand",
+                "Recall can be useful evidence, but a learning goal may also require explanation, application, judgment, or evaluation. Match the assessment to the intended outcome instead of treating recall as the only purpose of education."
+            ],
+            [
+                "Education as a social institution",
+                "A functionalist lens asks what intended and unintended functions a school serves. A conflict or feminist lens asks how access and opportunities may be distributed unequally. An interactionist lens examines how everyday classroom interactions and labels shape experience. These are alternative analytical perspectives, not findings that every school has the same effect."
+            ],
+            [
+                "Analyze a policy case",
+                "State the policy’s intended purpose, identify which groups experience the result, separate observation from explanation, and ask what additional evidence would distinguish among plausible interpretations."
+            ],
+            [
+                "Philippine context and source limit",
+                "OpenStax examples are largely US-contextual and support general sociological concepts only. Apply Philippine law, policy, and local evidence before making a Philippine-specific claim. PRC TOS supports broad Professional Education scope but does not assign a separate weight to this BoardPrep category."
+            ]
+        ],
+        "source_ids": [
+            "prc-let-enhanced-tos-2025",
+            "openstax-sociology-education-3e",
+            "cornell-bloom-taxonomy"
+        ],
+        "exams": [
+            "let"
+        ],
+        "exam_focus": {
+            "let": {
+                "priority": "medium",
+                "rationale": "Source-backed practice within broad Professional Education scope; no exam prediction or separate weight is claimed.",
+                "official_scope_status": "BoardPrep-derived study pathway; not an exam prediction",
+                "focus_topics": [
+                    "educational purpose",
+                    "school as social institution",
+                    "policy effects"
+                ]
+            }
+        },
+        "taxonomy": {
+            "subject_id": "professional-education",
+            "domain_id": "educational-foundations",
+            "topic_id": "let-foundations-education-purpose",
+            "concept_id": "let-educational-foundations-philosophical-sociological",
+            "boardprep_competency_ids": [
+                "let-educational-foundations-philosophical-sociological"
+            ],
+            "boardprep_taxonomy_batch": 674
+        },
+        "status": "published",
+        "version": 1,
+        "updated_at": "2026-10-14"
     }
 ]

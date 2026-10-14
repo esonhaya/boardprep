@@ -7654,92 +7654,6 @@
         "evidence_hash": "5685d8172a495d76539c4f2a58302c2e9bbfabea2f4932eb4b2d25cb6777089d"
     },
     {
-        "leaf_id": "prof-development-readiness",
-        "board_id": "let",
-        "official_area_id": "professional-education",
-        "leaf_name": "Readiness and Development",
-        "current_question_count": 67,
-        "deficit_to_5": 0,
-        "deficit_to_10": 0,
-        "deficit_to_20": 0,
-        "source_ids": [
-            "1987-philippine-constitution",
-            "deped-classroom-assessment-do-8-2015",
-            "deped-ppst-do-42-2017",
-            "openstax-psychology-2e",
-            "prc-lept-alignment-guidance-2025",
-            "prc-lept-program-march-2026",
-            "prc-let-enhanced-tos-2025",
-            "prc-resolution-20-2025",
-            "republic-act-10533",
-            "republic-act-6713",
-            "republic-act-7836"
-        ],
-        "source_count": 11,
-        "primary_source_count": 9,
-        "source_authority": "ADEQUATE",
-        "source_currentness": "CURRENT_WITH_LIMITS",
-        "source_scope_fit": "UNKNOWN",
-        "source_conflict_status": "UNKNOWN",
-        "study_material_ids": [
-            "let-assessment-review",
-            "let-child-development-review",
-            "let-code-of-ethics-review",
-            "let-curriculum-review",
-            "let-ethics-review",
-            "let-inclusive-education-review",
-            "let-learning-theories-review",
-            "let-ppst-review",
-            "let-professional-education-foundation",
-            "let-teaching-profession-review",
-            "let-teaching-strategies-review"
-        ],
-        "study_material_count": 11,
-        "study_coverage": "SUFFICIENT",
-        "study_source_traceability": "COMPLETE",
-        "supported_depth_min": 2,
-        "supported_depth_max": 4,
-        "distinct_content_families": [
-            "ANALYSIS_OR_SYNTHESIS",
-            "APPLICATION_OR_DECISION",
-            "CIVIC_OR_ETHICAL_JUDGMENT",
-            "CLASSROOM_OR_ASSESSMENT_DECISION",
-            "COMPARISON_OR_CAUSE_EFFECT",
-            "CONTEXT_OR_SOURCE_INTERPRETATION",
-            "DIAGNOSIS_OR_CLASSIFICATION",
-            "EDUCATIONAL_CONCEPT_APPLICATION",
-            "EVALUATION_OR_JUDGMENT",
-            "INTERPRETATION_OR_INFERENCE",
-            "RATIONALE_OR_EVIDENCE_ANALYSIS"
-        ],
-        "distinct_content_family_count": 11,
-        "safe_headroom_min": 0,
-        "safe_headroom_preferred": 0,
-        "safe_headroom_max": 0,
-        "allowed_scope": [],
-        "excluded_scope": [
-            "prof-development-readiness: no authoring until scope/readiness review closes"
-        ],
-        "limitations": [
-            "PRC TOS controls exam inclusion; subject-matter sources alone do not establish LET scope.",
-            "Headroom is a bounded editorial evidence estimate, not a deficit quota or authorization to execute a wave.",
-            "The exact annex row for this BoardPrep-derived leaf was not independently crosswalked; author only within the named leaf and its cited study/source boundary.",
-            "Limit version-sensitive claims to the cited current official source versions; exclude unverified amendments or transition details."
-        ],
-        "readiness": "REVIEW",
-        "readiness_reason": "Current repository evidence is recorded, but source/scope/study or semantic limitations do not establish safe authoring permission.",
-        "review_reason": "Flat/shared LET placement has no subject-domain-topic path; current PRC scope and exact LET component fit cannot be safely distinguished from cross-board or legacy availability without semantic adjudication.",
-        "defer_reason": "",
-        "max_new_questions": 0,
-        "planned_new_questions": 0,
-        "reviewed_at_batch": 649,
-        "scope_specialization_ids": [],
-        "scope_component_ids": [
-            "PROFESSIONAL_EDUCATION"
-        ],
-        "evidence_hash": "aada1ffd59a0d69e6139f65bee2e6dfb05cd5d30f03b34afe16a3f16b4ae4ecb"
-    },
-    {
         "leaf_id": "prof-facilitation-scaffolding",
         "board_id": "let",
         "official_area_id": "professional-education",
@@ -14834,5 +14748,501 @@
             "PROFESSIONAL_EDUCATION"
         ],
         "evidence_hash": "afccfd6ed7bc6d7b4441eb5d6545a2fa134957fb8e1569f807c06e1e77728b00"
+    },
+    {
+        "leaf_id": "let-developmental-readiness-scaffolding",
+        "board_id": "let",
+        "official_area_id": "professional-education",
+        "leaf_name": "Developmental Readiness and Scaffolding",
+        "current_question_count": 21,
+        "deficit_to_5": 0,
+        "deficit_to_10": 0,
+        "deficit_to_20": 0,
+        "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533"
+        ],
+        "source_count": 5,
+        "primary_source_count": 4,
+        "source_authority": "ADEQUATE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "PARTIAL",
+        "source_conflict_status": "NONE",
+        "study_material_ids": [
+            "let-child-development-review",
+            "let-curriculum-review",
+            "let-professional-education-foundation"
+        ],
+        "study_material_count": 3,
+        "study_coverage": "SUFFICIENT",
+        "study_source_traceability": "COMPLETE",
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_families": [],
+        "distinct_content_family_count": 0,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "allowed_scope": [],
+        "excluded_scope": [
+            "let-developmental-readiness-scaffolding: no new question authoring authorized; use only verified existing materials and question repair."
+        ],
+        "limitations": [
+            "PRC TOS places the topic in broad Professional Education outcomes but does not name this BoardPrep-derived child as an official blueprint leaf or assign it an individual weight.",
+            "Academic, statutory, and professional-practice sources support instruction only within their stated scope; no exam frequency is inferred."
+        ],
+        "readiness": "REVIEW",
+        "readiness_reason": "Existing questions, source-backed study paths, and a bounded child competency are available; official leaf granularity remains partial.",
+        "review_reason": "The category is a semantic instructional grouping of existing canonical questions. Further scope certainty would require an official PRC source naming this exact subtopic.",
+        "defer_reason": "",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "reviewed_at_batch": 649,
+        "scope_specialization_ids": [],
+        "scope_component_ids": [
+            "PROFESSIONAL_EDUCATION"
+        ],
+        "scope_status": "ACTIONABLE",
+        "closure_state": "OPEN",
+        "blocker_classes": [
+            "OFFICIAL_SCOPE_GRANULARITY"
+        ],
+        "evidence_hash": "5598a5724c5fea57f9480b5456429c370ecd07cf9837118e692e074a3a739bfe"
+    },
+    {
+        "leaf_id": "let-assessment-evidence-use",
+        "board_id": "let",
+        "official_area_id": "professional-education",
+        "leaf_name": "Assessment Evidence and Instructional Decisions",
+        "current_question_count": 7,
+        "deficit_to_5": 0,
+        "deficit_to_10": 3,
+        "deficit_to_20": 13,
+        "source_ids": [
+            "deped-classroom-assessment-do-8-2015",
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e",
+            "prc-let-enhanced-tos-2025"
+        ],
+        "source_count": 4,
+        "primary_source_count": 3,
+        "source_authority": "ADEQUATE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "PARTIAL",
+        "source_conflict_status": "NONE",
+        "study_material_ids": [
+            "let-assessment-review",
+            "let-child-development-review",
+            "let-professional-education-foundation"
+        ],
+        "study_material_count": 3,
+        "study_coverage": "SUFFICIENT",
+        "study_source_traceability": "COMPLETE",
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_families": [],
+        "distinct_content_family_count": 0,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "allowed_scope": [],
+        "excluded_scope": [
+            "let-assessment-evidence-use: no new question authoring authorized; use only verified existing materials and question repair."
+        ],
+        "limitations": [
+            "PRC TOS places the topic in broad Professional Education outcomes but does not name this BoardPrep-derived child as an official blueprint leaf or assign it an individual weight.",
+            "Academic, statutory, and professional-practice sources support instruction only within their stated scope; no exam frequency is inferred."
+        ],
+        "readiness": "REVIEW",
+        "readiness_reason": "Existing questions, source-backed study paths, and a bounded child competency are available; official leaf granularity remains partial.",
+        "review_reason": "The category is a semantic instructional grouping of existing canonical questions. Further scope certainty would require an official PRC source naming this exact subtopic.",
+        "defer_reason": "",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "reviewed_at_batch": 649,
+        "scope_specialization_ids": [],
+        "scope_component_ids": [
+            "PROFESSIONAL_EDUCATION"
+        ],
+        "scope_status": "ACTIONABLE",
+        "closure_state": "OPEN",
+        "blocker_classes": [
+            "OFFICIAL_SCOPE_GRANULARITY"
+        ],
+        "evidence_hash": "5f7cb46b9fec59ec86d8d4ebace9cac0746ecfd949ef0b703122b2215d57dee3"
+    },
+    {
+        "leaf_id": "let-inclusive-access-participation",
+        "board_id": "let",
+        "official_area_id": "professional-education",
+        "leaf_name": "Inclusive Access and Participation",
+        "current_question_count": 7,
+        "deficit_to_5": 0,
+        "deficit_to_10": 3,
+        "deficit_to_20": 13,
+        "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533"
+        ],
+        "source_count": 4,
+        "primary_source_count": 3,
+        "source_authority": "ADEQUATE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "PARTIAL",
+        "source_conflict_status": "NONE",
+        "study_material_ids": [
+            "let-child-development-review",
+            "let-curriculum-review",
+            "let-inclusive-education-review"
+        ],
+        "study_material_count": 3,
+        "study_coverage": "SUFFICIENT",
+        "study_source_traceability": "COMPLETE",
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_families": [],
+        "distinct_content_family_count": 0,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "allowed_scope": [],
+        "excluded_scope": [
+            "let-inclusive-access-participation: no new question authoring authorized; use only verified existing materials and question repair."
+        ],
+        "limitations": [
+            "PRC TOS places the topic in broad Professional Education outcomes but does not name this BoardPrep-derived child as an official blueprint leaf or assign it an individual weight.",
+            "Academic, statutory, and professional-practice sources support instruction only within their stated scope; no exam frequency is inferred."
+        ],
+        "readiness": "REVIEW",
+        "readiness_reason": "Existing questions, source-backed study paths, and a bounded child competency are available; official leaf granularity remains partial.",
+        "review_reason": "The category is a semantic instructional grouping of existing canonical questions. Further scope certainty would require an official PRC source naming this exact subtopic.",
+        "defer_reason": "",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "reviewed_at_batch": 649,
+        "scope_specialization_ids": [],
+        "scope_component_ids": [
+            "PROFESSIONAL_EDUCATION"
+        ],
+        "scope_status": "ACTIONABLE",
+        "closure_state": "OPEN",
+        "blocker_classes": [
+            "OFFICIAL_SCOPE_GRANULARITY"
+        ],
+        "evidence_hash": "0ccde69e458f65cb23660845f69e6baa291980388a4b91b9aaf5d34b500d0267"
+    },
+    {
+        "leaf_id": "let-learner-agency-self-regulation",
+        "board_id": "let",
+        "official_area_id": "professional-education",
+        "leaf_name": "Learner Agency and Self-Regulation",
+        "current_question_count": 6,
+        "deficit_to_5": 0,
+        "deficit_to_10": 4,
+        "deficit_to_20": 14,
+        "source_ids": [
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533"
+        ],
+        "source_count": 4,
+        "primary_source_count": 3,
+        "source_authority": "ADEQUATE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "PARTIAL",
+        "source_conflict_status": "NONE",
+        "study_material_ids": [
+            "let-child-development-review",
+            "let-curriculum-review"
+        ],
+        "study_material_count": 2,
+        "study_coverage": "SUFFICIENT",
+        "study_source_traceability": "COMPLETE",
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_families": [],
+        "distinct_content_family_count": 0,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "allowed_scope": [],
+        "excluded_scope": [
+            "let-learner-agency-self-regulation: no new question authoring authorized; use only verified existing materials and question repair."
+        ],
+        "limitations": [
+            "PRC TOS places the topic in broad Professional Education outcomes but does not name this BoardPrep-derived child as an official blueprint leaf or assign it an individual weight.",
+            "Academic, statutory, and professional-practice sources support instruction only within their stated scope; no exam frequency is inferred."
+        ],
+        "readiness": "REVIEW",
+        "readiness_reason": "Existing questions, source-backed study paths, and a bounded child competency are available; official leaf granularity remains partial.",
+        "review_reason": "The category is a semantic instructional grouping of existing canonical questions. Further scope certainty would require an official PRC source naming this exact subtopic.",
+        "defer_reason": "",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "reviewed_at_batch": 649,
+        "scope_specialization_ids": [],
+        "scope_component_ids": [
+            "PROFESSIONAL_EDUCATION"
+        ],
+        "scope_status": "ACTIONABLE",
+        "closure_state": "OPEN",
+        "blocker_classes": [
+            "OFFICIAL_SCOPE_GRANULARITY"
+        ],
+        "evidence_hash": "46d9dd52ccf5054a9f2471e968d625346893ddd4cd3f4fe563b020a048e2cfe0"
+    },
+    {
+        "leaf_id": "let-educational-foundations-philosophical-sociological",
+        "board_id": "let",
+        "official_area_id": "professional-education",
+        "leaf_name": "Educational Foundations: Purpose and Social Effects",
+        "current_question_count": 3,
+        "deficit_to_5": 2,
+        "deficit_to_10": 7,
+        "deficit_to_20": 17,
+        "source_ids": [
+            "1987-philippine-constitution",
+            "deped-ppst-do-42-2017",
+            "openstax-psychology-2e",
+            "openstax-sociology-education-3e",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-6713"
+        ],
+        "source_count": 6,
+        "primary_source_count": 4,
+        "source_authority": "ADEQUATE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "PARTIAL",
+        "source_conflict_status": "NONE",
+        "study_material_ids": [
+            "let-education-foundations-review",
+            "let-ethics-review",
+            "let-learning-theories-review",
+            "let-teaching-strategies-review"
+        ],
+        "study_material_count": 4,
+        "study_coverage": "SUFFICIENT",
+        "study_source_traceability": "COMPLETE",
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_families": [],
+        "distinct_content_family_count": 0,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "allowed_scope": [],
+        "excluded_scope": [
+            "let-educational-foundations-philosophical-sociological: no new question authoring authorized; use only verified existing materials and question repair."
+        ],
+        "limitations": [
+            "PRC TOS places the topic in broad Professional Education outcomes but does not name this BoardPrep-derived child as an official blueprint leaf or assign it an individual weight.",
+            "Academic, statutory, and professional-practice sources support instruction only within their stated scope; no exam frequency is inferred."
+        ],
+        "readiness": "REVIEW",
+        "readiness_reason": "Existing questions, source-backed study paths, and a bounded child competency are available; official leaf granularity remains partial.",
+        "review_reason": "The category is a semantic instructional grouping of existing canonical questions. Further scope certainty would require an official PRC source naming this exact subtopic.",
+        "defer_reason": "",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "reviewed_at_batch": 649,
+        "scope_specialization_ids": [],
+        "scope_component_ids": [
+            "PROFESSIONAL_EDUCATION"
+        ],
+        "scope_status": "ACTIONABLE",
+        "closure_state": "OPEN",
+        "blocker_classes": [
+            "OFFICIAL_SCOPE_GRANULARITY"
+        ],
+        "evidence_hash": "88723973fca72f8f9ff38bb01104110c3ad397cdfafecd102ec90a5aee874b37"
+    },
+    {
+        "leaf_id": "let-professional-ethics-duties",
+        "board_id": "let",
+        "official_area_id": "professional-education",
+        "leaf_name": "Professional Ethics, Duties, and Boundaries",
+        "current_question_count": 10,
+        "deficit_to_5": 0,
+        "deficit_to_10": 0,
+        "deficit_to_20": 10,
+        "source_ids": [
+            "lawphil-ra10173",
+            "official-gazette-ra10173",
+            "prc-code-of-ethics-professional-teachers",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-6713",
+            "republic-act-7836"
+        ],
+        "source_count": 6,
+        "primary_source_count": 6,
+        "source_authority": "ADEQUATE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "PARTIAL",
+        "source_conflict_status": "NONE",
+        "study_material_ids": [
+            "constitution-review-foundation",
+            "let-code-of-ethics-review"
+        ],
+        "study_material_count": 2,
+        "study_coverage": "SUFFICIENT",
+        "study_source_traceability": "COMPLETE",
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_families": [],
+        "distinct_content_family_count": 0,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "allowed_scope": [],
+        "excluded_scope": [
+            "let-professional-ethics-duties: no new question authoring authorized; use only verified existing materials and question repair."
+        ],
+        "limitations": [
+            "PRC TOS places the topic in broad Professional Education outcomes but does not name this BoardPrep-derived child as an official blueprint leaf or assign it an individual weight.",
+            "Academic, statutory, and professional-practice sources support instruction only within their stated scope; no exam frequency is inferred."
+        ],
+        "readiness": "REVIEW",
+        "readiness_reason": "Existing questions, source-backed study paths, and a bounded child competency are available; official leaf granularity remains partial.",
+        "review_reason": "The category is a semantic instructional grouping of existing canonical questions. Further scope certainty would require an official PRC source naming this exact subtopic.",
+        "defer_reason": "",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "reviewed_at_batch": 649,
+        "scope_specialization_ids": [],
+        "scope_component_ids": [
+            "PROFESSIONAL_EDUCATION"
+        ],
+        "scope_status": "ACTIONABLE",
+        "closure_state": "OPEN",
+        "blocker_classes": [
+            "OFFICIAL_SCOPE_GRANULARITY"
+        ],
+        "evidence_hash": "f1b42ecf93c426b210f24f758edc00a7c44619bf27bb86909271a12143455ba0"
+    },
+    {
+        "leaf_id": "let-reflective-professional-learning",
+        "board_id": "let",
+        "official_area_id": "professional-education",
+        "leaf_name": "Reflective Practice and Professional Learning",
+        "current_question_count": 8,
+        "deficit_to_5": 0,
+        "deficit_to_10": 2,
+        "deficit_to_20": 12,
+        "source_ids": [
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025"
+        ],
+        "source_count": 2,
+        "primary_source_count": 2,
+        "source_authority": "ADEQUATE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "PARTIAL",
+        "source_conflict_status": "NONE",
+        "study_material_ids": [
+            "let-ppst-review"
+        ],
+        "study_material_count": 1,
+        "study_coverage": "SUFFICIENT",
+        "study_source_traceability": "COMPLETE",
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_families": [],
+        "distinct_content_family_count": 0,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "allowed_scope": [],
+        "excluded_scope": [
+            "let-reflective-professional-learning: no new question authoring authorized; use only verified existing materials and question repair."
+        ],
+        "limitations": [
+            "PRC TOS places the topic in broad Professional Education outcomes but does not name this BoardPrep-derived child as an official blueprint leaf or assign it an individual weight.",
+            "Academic, statutory, and professional-practice sources support instruction only within their stated scope; no exam frequency is inferred."
+        ],
+        "readiness": "REVIEW",
+        "readiness_reason": "Existing questions, source-backed study paths, and a bounded child competency are available; official leaf granularity remains partial.",
+        "review_reason": "The category is a semantic instructional grouping of existing canonical questions. Further scope certainty would require an official PRC source naming this exact subtopic.",
+        "defer_reason": "",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "reviewed_at_batch": 649,
+        "scope_specialization_ids": [],
+        "scope_component_ids": [
+            "PROFESSIONAL_EDUCATION"
+        ],
+        "scope_status": "ACTIONABLE",
+        "closure_state": "OPEN",
+        "blocker_classes": [
+            "OFFICIAL_SCOPE_GRANULARITY"
+        ],
+        "evidence_hash": "353473e7678d541b0f131ee07c2f180bc6b7a756936f55a7062a8766b570bbcb"
+    },
+    {
+        "leaf_id": "let-school-family-community-partnership",
+        "board_id": "let",
+        "official_area_id": "professional-education",
+        "leaf_name": "School, Family, and Community Partnership",
+        "current_question_count": 5,
+        "deficit_to_5": 0,
+        "deficit_to_10": 5,
+        "deficit_to_20": 15,
+        "source_ids": [
+            "deped-ppst-do-42-2017",
+            "prc-let-enhanced-tos-2025",
+            "republic-act-10533",
+            "republic-act-7836"
+        ],
+        "source_count": 4,
+        "primary_source_count": 4,
+        "source_authority": "ADEQUATE",
+        "source_currentness": "CURRENT_WITH_LIMITS",
+        "source_scope_fit": "PARTIAL",
+        "source_conflict_status": "NONE",
+        "study_material_ids": [
+            "let-curriculum-review",
+            "let-inclusive-education-review",
+            "let-teaching-profession-review"
+        ],
+        "study_material_count": 3,
+        "study_coverage": "SUFFICIENT",
+        "study_source_traceability": "COMPLETE",
+        "supported_depth_min": 2,
+        "supported_depth_max": 4,
+        "distinct_content_families": [],
+        "distinct_content_family_count": 0,
+        "safe_headroom_min": 0,
+        "safe_headroom_preferred": 0,
+        "safe_headroom_max": 0,
+        "allowed_scope": [],
+        "excluded_scope": [
+            "let-school-family-community-partnership: no new question authoring authorized; use only verified existing materials and question repair."
+        ],
+        "limitations": [
+            "PRC TOS places the topic in broad Professional Education outcomes but does not name this BoardPrep-derived child as an official blueprint leaf or assign it an individual weight.",
+            "Academic, statutory, and professional-practice sources support instruction only within their stated scope; no exam frequency is inferred."
+        ],
+        "readiness": "REVIEW",
+        "readiness_reason": "Existing questions, source-backed study paths, and a bounded child competency are available; official leaf granularity remains partial.",
+        "review_reason": "The category is a semantic instructional grouping of existing canonical questions. Further scope certainty would require an official PRC source naming this exact subtopic.",
+        "defer_reason": "",
+        "max_new_questions": 0,
+        "planned_new_questions": 0,
+        "reviewed_at_batch": 649,
+        "scope_specialization_ids": [],
+        "scope_component_ids": [
+            "PROFESSIONAL_EDUCATION"
+        ],
+        "scope_status": "ACTIONABLE",
+        "closure_state": "OPEN",
+        "blocker_classes": [
+            "OFFICIAL_SCOPE_GRANULARITY"
+        ],
+        "evidence_hash": "d86021df1c406e25792c75aef7276ad9fb88fb8d0fb1720cb27123ebef3e6af6"
     }
 ]

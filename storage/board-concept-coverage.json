@@ -17417,91 +17417,6 @@
         "confidence": "HIGH"
     },
     {
-        "id": "coverage-744896aaed56d6dee3f9324f40130b77f84a536d1f4d01f18880068cd05a498f",
-        "board_id": "let",
-        "concept_id": "prof-development-readiness",
-        "subject_id": "social-studies",
-        "domain_id": "",
-        "topic_id": "",
-        "blueprint_node_id": "social-studies",
-        "max_depth": 4,
-        "reuse_policy": "REVIEW",
-        "status": "VERIFIED",
-        "provenance": [
-            {
-                "type": "EXISTING_VERIFIED_MAPPING",
-                "reference": "question:360",
-                "note": "Existing direct eligibility establishes that the board consumes this canonical concept placement.",
-                "verified_status": "VERIFIED"
-            },
-            {
-                "type": "OTHER",
-                "reference": "batch-621-portfolio-depth-coverage",
-                "note": "Maximum is the highest defensibly calibrated effective question depth in this board-concept row; no professional depth 5 is inferred.",
-                "verified_status": "INFERRED",
-                "confidence": "MEDIUM"
-            },
-            {
-                "type": "BATCH629_SOURCE_FIRST",
-                "reference": "batch629-let-specialization-content-modernization",
-                "note": "Current specialization placement, study foundation, and reviewed cohort support this conservative maximum depth.",
-                "verified_status": "VERIFIED",
-                "confidence": "HIGH"
-            },
-            {
-                "type": "BATCH629_SOURCE_FIRST",
-                "reference": "batch629-let-specialization-content-modernization",
-                "note": "Current specialization placement, study foundation, and reviewed cohort support this conservative maximum depth.",
-                "verified_status": "VERIFIED",
-                "confidence": "HIGH"
-            },
-            {
-                "type": "BATCH629_SOURCE_FIRST",
-                "reference": "batch629-let-specialization-content-modernization",
-                "note": "Current specialization placement, study foundation, and reviewed cohort support this conservative maximum depth.",
-                "verified_status": "VERIFIED",
-                "confidence": "HIGH"
-            },
-            {
-                "type": "BATCH629_SOURCE_FIRST",
-                "reference": "batch629-let-specialization-content-modernization",
-                "note": "Current specialization placement, study foundation, and reviewed cohort support this conservative maximum depth.",
-                "verified_status": "VERIFIED",
-                "confidence": "HIGH"
-            },
-            {
-                "type": "BATCH629_SOURCE_FIRST",
-                "reference": "batch629-let-specialization-content-modernization",
-                "note": "Current specialization placement, study foundation, and reviewed cohort support this conservative maximum depth.",
-                "verified_status": "VERIFIED",
-                "confidence": "HIGH"
-            },
-            {
-                "type": "BATCH629_SOURCE_FIRST",
-                "reference": "batch629-let-specialization-content-modernization",
-                "note": "Current specialization placement, study foundation, and reviewed cohort support this conservative maximum depth.",
-                "verified_status": "VERIFIED",
-                "confidence": "HIGH"
-            },
-            {
-                "type": "BATCH629_SOURCE_FIRST",
-                "reference": "batch629-let-specialization-content-modernization",
-                "note": "Current specialization placement, study foundation, and reviewed cohort support this conservative maximum depth.",
-                "verified_status": "VERIFIED",
-                "confidence": "HIGH"
-            },
-            {
-                "type": "BATCH629_SOURCE_FIRST",
-                "reference": "batch629-let-specialization-content-modernization",
-                "note": "Current specialization placement, study foundation, and reviewed cohort support this conservative maximum depth.",
-                "verified_status": "VERIFIED",
-                "confidence": "HIGH"
-            }
-        ],
-        "evidence": "Effective board placement plus question-solving evidence and linked BoardPrep study/source chain.",
-        "confidence": "HIGH"
-    },
-    {
         "id": "coverage-d0e411b5b8c0714f60094aab2b3d4c6cf8c3beea98468928fef08cf4ad803085",
         "board_id": "let",
         "concept_id": "prof-curriculum-alignment",
@@ -25091,5 +25006,181 @@
         ],
         "evidence": "PRC current exam program and Resolution 57 TOS crosswalk with traceable technical/study evidence.",
         "confidence": "STRONG"
+    },
+    {
+        "id": "coverage-b674-let-let-developmental-readiness-scaffolding",
+        "board_id": "let",
+        "concept_id": "let-developmental-readiness-scaffolding",
+        "subject_id": "professional-education",
+        "domain_id": "learner-development",
+        "topic_id": "prof-development",
+        "blueprint_node_id": "professional-education",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH674_TAXONOMY_RECONCILIATION",
+                "reference": "storage/let-source-crosswalk-batch674.json#let-developmental-readiness-scaffolding",
+                "note": "Question IDs retain existing direct LET eligibility and are regrouped by observed learning competency. This is a BoardPrep-derived child placement under broad Professional Education, not an official TOS leaf.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "evidence": "Current taxonomy, canonical stems, answer rationale, and linked study pathways support this BoardPrep-derived instructional grouping.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b674-let-let-assessment-evidence-use",
+        "board_id": "let",
+        "concept_id": "let-assessment-evidence-use",
+        "subject_id": "professional-education",
+        "domain_id": "assessment-of-learning",
+        "topic_id": "prof-assessment",
+        "blueprint_node_id": "professional-education",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH674_TAXONOMY_RECONCILIATION",
+                "reference": "storage/let-source-crosswalk-batch674.json#let-assessment-evidence-use",
+                "note": "Question IDs retain existing direct LET eligibility and are regrouped by observed learning competency. This is a BoardPrep-derived child placement under broad Professional Education, not an official TOS leaf.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "evidence": "Current taxonomy, canonical stems, answer rationale, and linked study pathways support this BoardPrep-derived instructional grouping.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b674-let-let-inclusive-access-participation",
+        "board_id": "let",
+        "concept_id": "let-inclusive-access-participation",
+        "subject_id": "professional-education",
+        "domain_id": "inclusive-education",
+        "topic_id": "inclusive-practice",
+        "blueprint_node_id": "professional-education",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH674_TAXONOMY_RECONCILIATION",
+                "reference": "storage/let-source-crosswalk-batch674.json#let-inclusive-access-participation",
+                "note": "Question IDs retain existing direct LET eligibility and are regrouped by observed learning competency. This is a BoardPrep-derived child placement under broad Professional Education, not an official TOS leaf.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "evidence": "Current taxonomy, canonical stems, answer rationale, and linked study pathways support this BoardPrep-derived instructional grouping.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b674-let-let-learner-agency-self-regulation",
+        "board_id": "let",
+        "concept_id": "let-learner-agency-self-regulation",
+        "subject_id": "professional-education",
+        "domain_id": "facilitating-learning",
+        "topic_id": "prof-facilitation",
+        "blueprint_node_id": "professional-education",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH674_TAXONOMY_RECONCILIATION",
+                "reference": "storage/let-source-crosswalk-batch674.json#let-learner-agency-self-regulation",
+                "note": "Question IDs retain existing direct LET eligibility and are regrouped by observed learning competency. This is a BoardPrep-derived child placement under broad Professional Education, not an official TOS leaf.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "evidence": "Current taxonomy, canonical stems, answer rationale, and linked study pathways support this BoardPrep-derived instructional grouping.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b674-let-let-educational-foundations-philosophical-sociological",
+        "board_id": "let",
+        "concept_id": "let-educational-foundations-philosophical-sociological",
+        "subject_id": "professional-education",
+        "domain_id": "educational-foundations",
+        "topic_id": "let-foundations-education-purpose",
+        "blueprint_node_id": "professional-education",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH674_TAXONOMY_RECONCILIATION",
+                "reference": "storage/let-source-crosswalk-batch674.json#let-educational-foundations-philosophical-sociological",
+                "note": "Question IDs retain existing direct LET eligibility and are regrouped by observed learning competency. This is a BoardPrep-derived child placement under broad Professional Education, not an official TOS leaf.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "evidence": "Current taxonomy, canonical stems, answer rationale, and linked study pathways support this BoardPrep-derived instructional grouping.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b674-let-let-professional-ethics-duties",
+        "board_id": "let",
+        "concept_id": "let-professional-ethics-duties",
+        "subject_id": "professional-education",
+        "domain_id": "professional-ethics",
+        "topic_id": "let-professional-ethics-practice",
+        "blueprint_node_id": "professional-education",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH674_TAXONOMY_RECONCILIATION",
+                "reference": "storage/let-source-crosswalk-batch674.json#let-professional-ethics-duties",
+                "note": "Question IDs retain existing direct LET eligibility and are regrouped by observed learning competency. This is a BoardPrep-derived child placement under broad Professional Education, not an official TOS leaf.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "evidence": "Current taxonomy, canonical stems, answer rationale, and linked study pathways support this BoardPrep-derived instructional grouping.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b674-let-let-reflective-professional-learning",
+        "board_id": "let",
+        "concept_id": "let-reflective-professional-learning",
+        "subject_id": "professional-education",
+        "domain_id": "professional-ethics",
+        "topic_id": "let-professional-growth-reflection",
+        "blueprint_node_id": "professional-education",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH674_TAXONOMY_RECONCILIATION",
+                "reference": "storage/let-source-crosswalk-batch674.json#let-reflective-professional-learning",
+                "note": "Question IDs retain existing direct LET eligibility and are regrouped by observed learning competency. This is a BoardPrep-derived child placement under broad Professional Education, not an official TOS leaf.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "evidence": "Current taxonomy, canonical stems, answer rationale, and linked study pathways support this BoardPrep-derived instructional grouping.",
+        "confidence": "HIGH"
+    },
+    {
+        "id": "coverage-b674-let-let-school-family-community-partnership",
+        "board_id": "let",
+        "concept_id": "let-school-family-community-partnership",
+        "subject_id": "professional-education",
+        "domain_id": "school-community-relations",
+        "topic_id": "let-school-community-partnerships",
+        "blueprint_node_id": "professional-education",
+        "max_depth": 4,
+        "reuse_policy": "REVIEW",
+        "status": "VERIFIED",
+        "provenance": [
+            {
+                "type": "BATCH674_TAXONOMY_RECONCILIATION",
+                "reference": "storage/let-source-crosswalk-batch674.json#let-school-family-community-partnership",
+                "note": "Question IDs retain existing direct LET eligibility and are regrouped by observed learning competency. This is a BoardPrep-derived child placement under broad Professional Education, not an official TOS leaf.",
+                "verified_status": "VERIFIED"
+            }
+        ],
+        "evidence": "Current taxonomy, canonical stems, answer rationale, and linked study pathways support this BoardPrep-derived instructional grouping.",
+        "confidence": "HIGH"
     }
 ]

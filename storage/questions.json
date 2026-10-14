@@ -2020,12 +2020,16 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "concept_id": "let-developmental-readiness-scaffolding",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "subject": "Professional Education",
         "domain": "Learner Development",
         "topic": "Learner Development",
-        "concept": "Readiness and Development",
+        "concept": "Developmental Readiness and Scaffolding",
         "difficulty": "easy",
         "question": "A Grade 4 learner explains fractions with pictures but not symbols. What is the best next response?",
         "choices": [
@@ -2039,7 +2043,21 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 52,
@@ -2051,12 +2069,16 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "concept_id": "let-developmental-readiness-scaffolding",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "subject": "Professional Education",
         "domain": "Learner Development",
         "topic": "Learner Development",
-        "concept": "Readiness and Development",
+        "concept": "Developmental Readiness and Scaffolding",
         "difficulty": "medium",
         "question": "A learner knows the prerequisite skill but struggles with a new multi-step task. Which adjustment best matches readiness?",
         "choices": [
@@ -2070,7 +2092,21 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 53,
@@ -2080,14 +2116,18 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "assessment-of-learning",
+            "topic_id": "prof-assessment",
+            "concept_id": "let-assessment-evidence-use",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-assessment-evidence-use",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS places assessment outcomes in broad Professional Education scope; DepEd classroom-assessment policy supports assessment use; Bloom is a planning aid, not a separate quota."
         },
         "subject": "Professional Education",
-        "domain": "Learner Development",
-        "topic": "Learner Development",
-        "concept": "Readiness and Development",
+        "domain": "Assessment of Learning",
+        "topic": "Assessment Principles",
+        "concept": "Assessment Evidence and Instructional Decisions",
         "difficulty": "hard",
         "question": "A pre-assessment shows half the class confuses area with perimeter. How should the teacher use that information?",
         "choices": [
@@ -2101,7 +2141,20 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-assessment-evidence-use",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-classroom-assessment-do-8-2015",
+                "cornell-bloom-taxonomy"
+            ],
+            "rationale": "PRC TOS places assessment outcomes in broad Professional Education scope; DepEd classroom-assessment policy supports assessment use; Bloom is a planning aid, not a separate quota."
+        }
     },
     {
         "id": 54,
@@ -2113,12 +2166,16 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "concept_id": "let-developmental-readiness-scaffolding",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "subject": "Professional Education",
         "domain": "Learner Development",
         "topic": "Learner Development",
-        "concept": "Readiness and Development",
+        "concept": "Developmental Readiness and Scaffolding",
         "difficulty": "hard",
         "question": "After guided practice, a learner succeeds on one problem but errs on a novel example. What is the best next step?",
         "choices": [
@@ -2132,7 +2189,21 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 55,
@@ -2142,14 +2213,18 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "inclusive-education",
+            "topic_id": "inclusive-practice",
+            "concept_id": "let-inclusive-access-participation",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-inclusive-access-participation",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad inclusive and learner-centered outcomes; RA 11650 and CAST inform instructional practice, not individual PRC blueprint leaves."
         },
         "subject": "Professional Education",
-        "domain": "Learner Development",
-        "topic": "Learner Development",
-        "concept": "Readiness and Development",
+        "domain": "Inclusive Education",
+        "topic": "Inclusive Practice",
+        "concept": "Inclusive Access and Participation",
         "difficulty": "medium",
         "question": "Learners choose a written or audio explanation of the same target. Which action preserves agency and rigor?",
         "choices": [
@@ -2163,7 +2238,21 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-inclusive-access-participation",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "republic-act-11650",
+                "cast-udl-guidelines-3",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad inclusive and learner-centered outcomes; RA 11650 and CAST inform instructional practice, not individual PRC blueprint leaves."
+        }
     },
     {
         "id": 56,
@@ -2173,14 +2262,18 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "assessment-of-learning",
+            "topic_id": "prof-assessment",
+            "concept_id": "let-assessment-evidence-use",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-assessment-evidence-use",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS places assessment outcomes in broad Professional Education scope; DepEd classroom-assessment policy supports assessment use; Bloom is a planning aid, not a separate quota."
         },
         "subject": "Professional Education",
-        "domain": "Learner Development",
-        "topic": "Learner Development",
-        "concept": "Readiness and Development",
+        "domain": "Assessment of Learning",
+        "topic": "Assessment Principles",
+        "concept": "Assessment Evidence and Instructional Decisions",
         "difficulty": "medium",
         "question": "A reflection says, 'I got it wrong,' but names no strategy or next step. What feedback is most useful?",
         "choices": [
@@ -2194,7 +2287,20 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-assessment-evidence-use",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-classroom-assessment-do-8-2015",
+                "cornell-bloom-taxonomy"
+            ],
+            "rationale": "PRC TOS places assessment outcomes in broad Professional Education scope; DepEd classroom-assessment policy supports assessment use; Bloom is a planning aid, not a separate quota."
+        }
     },
     {
         "id": 57,
@@ -4969,14 +5075,18 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "assessment-of-learning",
+            "topic_id": "prof-assessment",
+            "concept_id": "let-assessment-evidence-use",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-assessment-evidence-use",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS places assessment outcomes in broad Professional Education scope; DepEd classroom-assessment policy supports assessment use; Bloom is a planning aid, not a separate quota."
         },
         "subject": "Professional Education",
-        "domain": "Learner Development",
-        "topic": "Learner Development",
-        "concept": "Readiness and Development",
+        "domain": "Assessment of Learning",
+        "topic": "Assessment Principles",
+        "concept": "Assessment Evidence and Instructional Decisions",
         "difficulty": "easy",
         "question": "Learners enter a lesson with very different prior knowledge. Which opening best supports sound instructional decisions?",
         "choices": [
@@ -4990,7 +5100,20 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-assessment-evidence-use",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-classroom-assessment-do-8-2015",
+                "cornell-bloom-taxonomy"
+            ],
+            "rationale": "PRC TOS places assessment outcomes in broad Professional Education scope; DepEd classroom-assessment policy supports assessment use; Bloom is a planning aid, not a separate quota."
+        }
     },
     {
         "id": 132,
@@ -5000,14 +5123,18 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "assessment-of-learning",
+            "topic_id": "prof-assessment",
+            "concept_id": "let-assessment-evidence-use",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-assessment-evidence-use",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS places assessment outcomes in broad Professional Education scope; DepEd classroom-assessment policy supports assessment use; Bloom is a planning aid, not a separate quota."
         },
         "subject": "Professional Education",
-        "domain": "Learner Development",
-        "topic": "Learner Development",
-        "concept": "Readiness and Development",
+        "domain": "Assessment of Learning",
+        "topic": "Assessment Principles",
+        "concept": "Assessment Evidence and Instructional Decisions",
         "difficulty": "medium",
         "question": "The table shows a learner’s prerequisite checks and new-task performance. Which evidence should guide the teacher’s next step?",
         "choices": [
@@ -5017,7 +5144,7 @@
             "The same interests as peers"
         ],
         "answer": "Relevant prerequisite knowledge",
-        "explanation": "The scenario’s evidence supports relevant prerequisite knowledge because the teacher must interpret the learner or classroom condition before choosing an educational response.",
+        "explanation": "The table shows accurate prerequisite examples, incomplete independent work on the new task, and an accurate response after a prompt. The teacher should use the relevant prerequisite evidence and the response to support to choose a next step; the result does not justify a fixed ability label.",
         "content_blocks": [
             {
                 "type": "table",
@@ -5046,7 +5173,20 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-assessment-evidence-use",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-classroom-assessment-do-8-2015",
+                "cornell-bloom-taxonomy"
+            ],
+            "rationale": "PRC TOS places assessment outcomes in broad Professional Education scope; DepEd classroom-assessment policy supports assessment use; Bloom is a planning aid, not a separate quota."
+        }
     },
     {
         "id": 133,
@@ -5056,14 +5196,18 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "inclusive-education",
+            "topic_id": "inclusive-practice",
+            "concept_id": "let-inclusive-access-participation",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-inclusive-access-participation",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad inclusive and learner-centered outcomes; RA 11650 and CAST inform instructional practice, not individual PRC blueprint leaves."
         },
         "subject": "Professional Education",
-        "domain": "Learner Development",
-        "topic": "Learner Development",
-        "concept": "Readiness and Development",
+        "domain": "Inclusive Education",
+        "topic": "Inclusive Practice",
+        "concept": "Inclusive Access and Participation",
         "difficulty": "medium",
         "question": "A learner needs extra processing time and gives accurate answers after a pause. Which response best preserves rigor?",
         "choices": [
@@ -5077,7 +5221,21 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-inclusive-access-participation",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "republic-act-11650",
+                "cast-udl-guidelines-3",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad inclusive and learner-centered outcomes; RA 11650 and CAST inform instructional practice, not individual PRC blueprint leaves."
+        }
     },
     {
         "id": 134,
@@ -5087,14 +5245,18 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "facilitating-learning",
+            "topic_id": "prof-facilitation",
+            "concept_id": "let-learner-agency-self-regulation",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-learner-agency-self-regulation",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-centered teaching outcomes; PPST and instructional sources support practice. Agency/self-regulation are BoardPrep instructional categories."
         },
         "subject": "Professional Education",
-        "domain": "Learner Development",
-        "topic": "Learner Development",
-        "concept": "Readiness and Development",
+        "domain": "Facilitating Learning",
+        "topic": "Facilitating Learning",
+        "concept": "Learner Agency and Self-Regulation",
         "difficulty": "medium",
         "question": "A teacher wants learners to take ownership of a research question while maintaining academic quality. Which design is strongest?",
         "choices": [
@@ -5108,7 +5270,21 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-learner-agency-self-regulation",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017",
+                "openstax-psychology-2e",
+                "cornell-bloom-taxonomy"
+            ],
+            "rationale": "PRC TOS supports broad learner-centered teaching outcomes; PPST and instructional sources support practice. Agency/self-regulation are BoardPrep instructional categories."
+        }
     },
     {
         "id": 135,
@@ -5118,14 +5294,18 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "facilitating-learning",
+            "topic_id": "prof-facilitation",
+            "concept_id": "let-learner-agency-self-regulation",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-learner-agency-self-regulation",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-centered teaching outcomes; PPST and instructional sources support practice. Agency/self-regulation are BoardPrep instructional categories."
         },
         "subject": "Professional Education",
-        "domain": "Learner Development",
-        "topic": "Learner Development",
-        "concept": "Readiness and Development",
+        "domain": "Facilitating Learning",
+        "topic": "Facilitating Learning",
+        "concept": "Learner Agency and Self-Regulation",
         "difficulty": "medium",
         "question": "The table records learners’ field observations and reflections. What should reflection ask them to connect?",
         "choices": [
@@ -5135,7 +5315,7 @@
             "The room arrangement"
         ],
         "answer": "What they learned and what to improve",
-        "explanation": "The scenario’s evidence supports what they learned and what to improve because the teacher must interpret the learner or classroom condition before choosing an educational response.",
+        "explanation": "The table contrasts a list of events with a reflection that connects evidence to a claim and names a revision. Asking what was learned and what to improve helps the learner turn observation into a specific next action.",
         "content_blocks": [
             {
                 "type": "table",
@@ -5168,7 +5348,21 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-learner-agency-self-regulation",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017",
+                "openstax-psychology-2e",
+                "cornell-bloom-taxonomy"
+            ],
+            "rationale": "PRC TOS supports broad learner-centered teaching outcomes; PPST and instructional sources support practice. Agency/self-regulation are BoardPrep instructional categories."
+        }
     },
     {
         "id": 136,
@@ -5178,14 +5372,18 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "inclusive-education",
+            "topic_id": "inclusive-practice",
+            "concept_id": "let-inclusive-access-participation",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-inclusive-access-participation",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad inclusive and learner-centered outcomes; RA 11650 and CAST inform instructional practice, not individual PRC blueprint leaves."
         },
         "subject": "Professional Education",
-        "domain": "Learner Development",
-        "topic": "Learner Development",
-        "concept": "Readiness and Development",
+        "domain": "Inclusive Education",
+        "topic": "Inclusive Practice",
+        "concept": "Inclusive Access and Participation",
         "difficulty": "easy",
         "question": "A learner meets the same science outcome as peers but needs audio instructions and a speech-to-text response. This change is best understood as:",
         "choices": [
@@ -5199,7 +5397,21 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-inclusive-access-participation",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "republic-act-11650",
+                "cast-udl-guidelines-3",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad inclusive and learner-centered outcomes; RA 11650 and CAST inform instructional practice, not individual PRC blueprint leaves."
+        }
     },
     {
         "id": 137,
@@ -5211,12 +5423,16 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "concept_id": "let-developmental-readiness-scaffolding",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "subject": "Professional Education",
         "domain": "Learner Development",
         "topic": "Learner Development",
-        "concept": "Readiness and Development",
+        "concept": "Developmental Readiness and Scaffolding",
         "difficulty": "hard",
         "question": "A normally engaged learner stops attempting a task after repeated public comparisons with higher scorers. Which first response is most appropriate?",
         "choices": [
@@ -5230,7 +5446,21 @@
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 138,
@@ -5242,12 +5472,16 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "concept_id": "let-developmental-readiness-scaffolding",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "subject": "Professional Education",
         "domain": "Learner Development",
         "topic": "Learner Development",
-        "concept": "Readiness and Development",
+        "concept": "Developmental Readiness and Scaffolding",
         "difficulty": "medium",
         "question": "A learner cannot connect a new ecology example to the lesson until the teacher elicits a familiar local example. Which instructional resource should guide the next explanation?",
         "choices": [
@@ -5257,11 +5491,25 @@
             "Classroom furniture"
         ],
         "answer": "Prior experience",
-        "explanation": "The evidence in the classroom case points to prior experience because the teacher must connect the observed learning condition to an appropriate educational response.",
+        "explanation": "The familiar local example gives the learner a usable bridge to the new ecology concept. Elicit relevant prior experience, connect it explicitly to the new idea, and then check whether the learner can use the concept beyond the familiar example.",
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 139,
@@ -5271,14 +5519,18 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "inclusive-education",
+            "topic_id": "inclusive-practice",
+            "concept_id": "let-inclusive-access-participation",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-inclusive-access-participation",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad inclusive and learner-centered outcomes; RA 11650 and CAST inform instructional practice, not individual PRC blueprint leaves."
         },
         "subject": "Professional Education",
-        "domain": "Learner Development",
-        "topic": "Learner Development",
-        "concept": "Readiness and Development",
+        "domain": "Inclusive Education",
+        "topic": "Inclusive Practice",
+        "concept": "Inclusive Access and Participation",
         "difficulty": "medium",
         "question": "During group work, a newly arrived learner contributes a useful home-language example but rarely volunteers. Which classroom message best supports inclusion?",
         "choices": [
@@ -5288,11 +5540,25 @@
             "Questions are discouraged"
         ],
         "answer": "Every learner belongs and can contribute",
-        "explanation": "The evidence in the classroom case points to every learner belongs and can contribute because the teacher must connect the observed learning condition to an appropriate educational response.",
+        "explanation": "The learner’s home-language contribution is evidence of knowledge the group can use. Communicate that every learner belongs and can contribute, then structure participation so the learner has a supported way to share without making language difference a deficit.",
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-inclusive-access-participation",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "republic-act-11650",
+                "cast-udl-guidelines-3",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad inclusive and learner-centered outcomes; RA 11650 and CAST inform instructional practice, not individual PRC blueprint leaves."
+        }
     },
     {
         "id": 140,
@@ -5302,14 +5568,18 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "facilitating-learning",
+            "topic_id": "prof-facilitation",
+            "concept_id": "let-learner-agency-self-regulation",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-learner-agency-self-regulation",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-centered teaching outcomes; PPST and instructional sources support practice. Agency/self-regulation are BoardPrep instructional categories."
         },
         "subject": "Professional Education",
-        "domain": "Learner Development",
-        "topic": "Learner Development",
-        "concept": "Readiness and Development",
+        "domain": "Facilitating Learning",
+        "topic": "Facilitating Learning",
+        "concept": "Learner Agency and Self-Regulation",
         "difficulty": "hard",
         "question": "A learner chooses a workable method for a novel task and explains why it fits the evidence. What best demonstrates growing independence?",
         "choices": [
@@ -5319,11 +5589,25 @@
             "Avoid unfamiliar tasks"
         ],
         "answer": "Select and apply a strategy with justification",
-        "explanation": "The evidence in the classroom case points to select and apply a strategy with justification because the teacher must connect the observed learning condition to an appropriate educational response.",
+        "explanation": "Independence is shown when the learner selects a method that fits the new task and can justify that choice with evidence. Repeating a model or waiting for every instruction would show less transfer and self-direction.",
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-learner-agency-self-regulation",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017",
+                "openstax-psychology-2e",
+                "cornell-bloom-taxonomy"
+            ],
+            "rationale": "PRC TOS supports broad learner-centered teaching outcomes; PPST and instructional sources support practice. Agency/self-regulation are BoardPrep instructional categories."
+        }
     },
     {
         "id": 141,
@@ -11371,9 +11655,13 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "inclusive-education",
+            "topic_id": "inclusive-practice",
+            "concept_id": "let-inclusive-access-participation",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-inclusive-access-participation",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad inclusive and learner-centered outcomes; RA 11650 and CAST inform instructional practice, not individual PRC blueprint leaves."
         },
         "board": "let",
         "status": "active",
@@ -11389,7 +11677,21 @@
         "answer": "Review participation evidence and adjust access while preserving the learning goal.",
         "explanation": "Professional judgment includes examining who had access to learning and revising instruction without abandoning the intended outcome.",
         "cognitive_intent": "evaluate",
-        "let_area": "Teaching Profession"
+        "let_area": "Teaching Profession",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-inclusive-access-participation",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "republic-act-11650",
+                "cast-udl-guidelines-3",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad inclusive and learner-centered outcomes; RA 11650 and CAST inform instructional practice, not individual PRC blueprint leaves."
+        }
     },
     {
         "id": 340,
@@ -12195,9 +12497,13 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-growth-reflection",
+            "concept_id": "let-reflective-professional-learning",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-reflective-professional-learning",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS provides broad Professional Education scope and the PPST is the professional practice framework; no separate examination weight or official child leaf is inferred."
         },
         "board": "let",
         "status": "active",
@@ -12213,7 +12519,19 @@
         "answer": "Use learner work and feedback to identify one instructional improvement.",
         "explanation": "Reflection uses evidence from practice to make a focused improvement; it is more than repeating habits or accepting advice uncritically.",
         "cognitive_intent": "apply",
-        "let_area": "Teaching Profession"
+        "let_area": "Teaching Profession",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-reflective-professional-learning",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "The PRC TOS provides broad Professional Education scope and the PPST is the professional practice framework; no separate examination weight or official child leaf is inferred."
+        }
     },
     {
         "id": 361,
@@ -14630,9 +14948,13 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-ethics-practice",
+            "concept_id": "let-professional-ethics-duties",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-professional-ethics-duties",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
         },
         "board": "let",
         "status": "active",
@@ -14648,16 +14970,35 @@
         "answer": "Protect confidentiality and use an appropriate private channel for necessary support.",
         "explanation": "Professional responsibility requires protecting sensitive information while coordinating support through an appropriate, limited channel.",
         "cognitive_intent": "apply",
-        "let_area": "Teaching Profession"
+        "let_area": "Teaching Profession",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-professional-ethics-duties",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "prc-code-of-ethics-professional-teachers",
+                "republic-act-7836",
+                "republic-act-6713",
+                "official-gazette-ra10173"
+            ],
+            "rationale": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
+        }
     },
     {
         "id": 442,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "inclusive-education",
+            "topic_id": "inclusive-practice",
+            "concept_id": "let-inclusive-access-participation",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-inclusive-access-participation",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad inclusive and learner-centered outcomes; RA 11650 and CAST inform instructional practice, not individual PRC blueprint leaves."
         },
         "board": "let",
         "status": "active",
@@ -14673,16 +15014,34 @@
         "answer": "Professional quality includes checking whether assumptions create barriers to participation.",
         "explanation": "A professional teacher examines context and access rather than equating sophistication with quality or abandoning the objective.",
         "cognitive_intent": "analyze",
-        "let_area": "Teaching Profession"
+        "let_area": "Teaching Profession",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-inclusive-access-participation",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "republic-act-11650",
+                "cast-udl-guidelines-3",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad inclusive and learner-centered outcomes; RA 11650 and CAST inform instructional practice, not individual PRC blueprint leaves."
+        }
     },
     {
         "id": 443,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-growth-reflection",
+            "concept_id": "let-reflective-professional-learning",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-reflective-professional-learning",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS provides broad Professional Education scope and the PPST is the professional practice framework; no separate examination weight or official child leaf is inferred."
         },
         "board": "let",
         "status": "active",
@@ -14698,16 +15057,32 @@
         "answer": "Ask for specific evidence, compare it with learner work, and decide what to try.",
         "explanation": "Evidence-based dialogue turns feedback into professional learning while preserving the teacher's responsibility to make informed decisions.",
         "cognitive_intent": "evaluate",
-        "let_area": "Teaching Profession"
+        "let_area": "Teaching Profession",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-reflective-professional-learning",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "The PRC TOS provides broad Professional Education scope and the PPST is the professional practice framework; no separate examination weight or official child leaf is inferred."
+        }
     },
     {
         "id": 444,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "educational-foundations",
+            "topic_id": "let-foundations-education-purpose",
+            "concept_id": "let-educational-foundations-philosophical-sociological",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-educational-foundations-philosophical-sociological",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad Professional Education foundations; OpenStax supports educational-sociology concepts. Neither source makes each child category an official blueprint leaf."
         },
         "board": "let",
         "status": "active",
@@ -14723,16 +15098,33 @@
         "answer": "Education as preparation for thoughtful participation in social life.",
         "explanation": "The design connects learning with inquiry, cooperation, and community participation, reflecting a social purpose of education.",
         "cognitive_intent": "interpret",
-        "let_area": "Foundations"
+        "let_area": "Foundations",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-educational-foundations-philosophical-sociological",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-sociology-education-3e",
+                "cornell-bloom-taxonomy"
+            ],
+            "rationale": "PRC TOS supports broad Professional Education foundations; OpenStax supports educational-sociology concepts. Neither source makes each child category an official blueprint leaf."
+        }
     },
     {
         "id": 445,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "educational-foundations",
+            "topic_id": "let-foundations-education-purpose",
+            "concept_id": "let-educational-foundations-philosophical-sociological",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-educational-foundations-philosophical-sociological",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad Professional Education foundations; OpenStax supports educational-sociology concepts. Neither source makes each child category an official blueprint leaf."
         },
         "board": "let",
         "status": "active",
@@ -14748,16 +15140,33 @@
         "answer": "Education can also develop judgment, values, and the ability to use knowledge meaningfully.",
         "explanation": "Recall can matter, but educational purposes also include understanding, judgment, values, and application.",
         "cognitive_intent": "diagnose",
-        "let_area": "Foundations"
+        "let_area": "Foundations",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-educational-foundations-philosophical-sociological",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-sociology-education-3e",
+                "cornell-bloom-taxonomy"
+            ],
+            "rationale": "PRC TOS supports broad Professional Education foundations; OpenStax supports educational-sociology concepts. Neither source makes each child category an official blueprint leaf."
+        }
     },
     {
         "id": 446,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "school-community-relations",
+            "topic_id": "let-school-community-partnerships",
+            "concept_id": "let-school-family-community-partnership",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-school-family-community-partnership",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS supports broad Professional Education scope; PPST supports community partnership practice. Specific partnership procedures depend on the applicable school policy and context."
         },
         "board": "let",
         "status": "active",
@@ -14773,16 +15182,34 @@
         "answer": "Schools and communities can share responsibility for learner development.",
         "explanation": "Learners are situated in families and communities, so collaboration can address conditions affecting participation while preserving clear roles.",
         "cognitive_intent": "infer",
-        "let_area": "Foundations"
+        "let_area": "Foundations",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-school-family-community-partnership",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017",
+                "republic-act-7836",
+                "republic-act-10533"
+            ],
+            "rationale": "The PRC TOS supports broad Professional Education scope; PPST supports community partnership practice. Specific partnership procedures depend on the applicable school policy and context."
+        }
     },
     {
         "id": 447,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "facilitating-learning",
+            "topic_id": "prof-facilitation",
+            "concept_id": "let-learner-agency-self-regulation",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-learner-agency-self-regulation",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-centered teaching outcomes; PPST and instructional sources support practice. Agency/self-regulation are BoardPrep instructional categories."
         },
         "board": "let",
         "status": "active",
@@ -14798,16 +15225,34 @@
         "answer": "Offer meaningful choices in how learners demonstrate a shared outcome.",
         "explanation": "Agency is supported when learners make bounded, meaningful choices connected to a common purpose; it does not require abandoning structure.",
         "cognitive_intent": "apply",
-        "let_area": "Foundations"
+        "let_area": "Foundations",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-learner-agency-self-regulation",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017",
+                "openstax-psychology-2e",
+                "cornell-bloom-taxonomy"
+            ],
+            "rationale": "PRC TOS supports broad learner-centered teaching outcomes; PPST and instructional sources support practice. Agency/self-regulation are BoardPrep instructional categories."
+        }
     },
     {
         "id": 448,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "educational-foundations",
+            "topic_id": "let-foundations-education-purpose",
+            "concept_id": "let-educational-foundations-philosophical-sociological",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-educational-foundations-philosophical-sociological",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad Professional Education foundations; OpenStax supports educational-sociology concepts. Neither source makes each child category an official blueprint leaf."
         },
         "board": "let",
         "status": "active",
@@ -14823,7 +15268,20 @@
         "answer": "Examining education as an institution with social consequences.",
         "explanation": "Foundational analysis asks how educational institutions and policies function in society and whom their effects reach.",
         "cognitive_intent": "analyze",
-        "let_area": "Foundations"
+        "let_area": "Foundations",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-educational-foundations-philosophical-sociological",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-sociology-education-3e",
+                "cornell-bloom-taxonomy"
+            ],
+            "rationale": "PRC TOS supports broad Professional Education foundations; OpenStax supports educational-sociology concepts. Neither source makes each child category an official blueprint leaf."
+        }
     },
     {
         "id": 449,
@@ -14832,7 +15290,11 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "concept_id": "let-developmental-readiness-scaffolding",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "board": "let",
         "status": "active",
@@ -14848,16 +15310,34 @@
         "answer": "Development is multidimensional, so one performance should not define the learner's overall ability.",
         "explanation": "Cognitive, language, motor, and social development do not always progress at the same rate. Instruction should use evidence from varied performances.",
         "cognitive_intent": "analyze",
-        "let_area": "Child/Adolescent Development"
+        "let_area": "Child/Adolescent Development",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 450,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "facilitating-learning",
+            "topic_id": "prof-facilitation",
+            "concept_id": "let-learner-agency-self-regulation",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-learner-agency-self-regulation",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-centered teaching outcomes; PPST and instructional sources support practice. Agency/self-regulation are BoardPrep instructional categories."
         },
         "board": "let",
         "status": "active",
@@ -14873,7 +15353,21 @@
         "answer": "Set clear expectations while involving learners in planning and evaluating parts of their work.",
         "explanation": "Adolescents benefit from increasing autonomy within supportive structure, not from either total control or total abandonment.",
         "cognitive_intent": "apply",
-        "let_area": "Child/Adolescent Development"
+        "let_area": "Child/Adolescent Development",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-learner-agency-self-regulation",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017",
+                "openstax-psychology-2e",
+                "cornell-bloom-taxonomy"
+            ],
+            "rationale": "PRC TOS supports broad learner-centered teaching outcomes; PPST and instructional sources support practice. Agency/self-regulation are BoardPrep instructional categories."
+        }
     },
     {
         "id": 451,
@@ -14882,7 +15376,11 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "concept_id": "let-developmental-readiness-scaffolding",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "board": "let",
         "status": "active",
@@ -14898,7 +15396,21 @@
         "answer": "Age is a useful context, but individual developmental variation must also guide support.",
         "explanation": "Development varies across domains and individuals. Age-related expectations should inform, not replace, observation of the learner.",
         "cognitive_intent": "evaluate",
-        "let_area": "Child/Adolescent Development"
+        "let_area": "Child/Adolescent Development",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 452,
@@ -14907,7 +15419,11 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "concept_id": "let-developmental-readiness-scaffolding",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "board": "let",
         "status": "active",
@@ -14923,7 +15439,21 @@
         "answer": "The task may not yet match learners' developmental readiness and available supports.",
         "explanation": "Instruction can extend development, but tasks should be accessible through appropriate representations and support rather than ignoring readiness.",
         "cognitive_intent": "diagnose",
-        "let_area": "Child/Adolescent Development"
+        "let_area": "Child/Adolescent Development",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 453,
@@ -14932,7 +15462,11 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "concept_id": "let-developmental-readiness-scaffolding",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "board": "let",
         "status": "active",
@@ -14948,7 +15482,21 @@
         "answer": "Adolescent identity develops through interaction among personal reflection, relationships, and social context.",
         "explanation": "Adolescent development includes growing self-reflection and negotiation of social relationships; no single influence explains the whole process.",
         "cognitive_intent": "interpret",
-        "let_area": "Child/Adolescent Development"
+        "let_area": "Child/Adolescent Development",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 454,
@@ -15580,9 +16128,13 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-ethics-practice",
+            "concept_id": "let-professional-ethics-duties",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-professional-ethics-duties",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
         },
         "board": "let",
         "status": "active",
@@ -15598,16 +16150,35 @@
         "answer": "Equal and fair application of school rules.",
         "explanation": "Fair administration requires consistent standards and a reasoned basis for any distinction; favoritism undermines trust and equal treatment.",
         "cognitive_intent": "analyze",
-        "let_area": "Education Laws"
+        "let_area": "Education Laws",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-professional-ethics-duties",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "prc-code-of-ethics-professional-teachers",
+                "republic-act-7836",
+                "republic-act-6713",
+                "official-gazette-ra10173"
+            ],
+            "rationale": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
+        }
     },
     {
         "id": 480,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-ethics-practice",
+            "concept_id": "let-professional-ethics-duties",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-professional-ethics-duties",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
         },
         "board": "let",
         "status": "active",
@@ -15623,16 +16194,35 @@
         "answer": "Consult the school's authorized policy or designated official before disclosing information.",
         "explanation": "Uncertain legal or policy questions should be checked through an authorized source before sensitive information is disclosed; this avoids inventing statutory requirements.",
         "cognitive_intent": "apply",
-        "let_area": "Education Laws"
+        "let_area": "Education Laws",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-professional-ethics-duties",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "prc-code-of-ethics-professional-teachers",
+                "republic-act-7836",
+                "republic-act-6713",
+                "official-gazette-ra10173"
+            ],
+            "rationale": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
+        }
     },
     {
         "id": 481,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-ethics-practice",
+            "concept_id": "let-professional-ethics-duties",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-professional-ethics-duties",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
         },
         "board": "let",
         "status": "active",
@@ -15648,16 +16238,35 @@
         "answer": "Address harassment through the school's established protective process and support the affected learner.",
         "explanation": "A safe environment requires timely, fair procedures and support, not normalization of harm or public exposure of a report.",
         "cognitive_intent": "apply",
-        "let_area": "Education Laws"
+        "let_area": "Education Laws",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-professional-ethics-duties",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "prc-code-of-ethics-professional-teachers",
+                "republic-act-7836",
+                "republic-act-6713",
+                "official-gazette-ra10173"
+            ],
+            "rationale": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
+        }
     },
     {
         "id": 482,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-ethics-practice",
+            "concept_id": "let-professional-ethics-duties",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-professional-ethics-duties",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
         },
         "board": "let",
         "status": "active",
@@ -15673,16 +16282,35 @@
         "answer": "Check applicable policy and follow an authorized, consistently communicated process.",
         "explanation": "School authority is exercised within policies and fair procedures; consequences should not be improvised in ways that undermine predictability or rights.",
         "cognitive_intent": "evaluate",
-        "let_area": "Education Laws"
+        "let_area": "Education Laws",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-professional-ethics-duties",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "prc-code-of-ethics-professional-teachers",
+                "republic-act-7836",
+                "republic-act-6713",
+                "official-gazette-ra10173"
+            ],
+            "rationale": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
+        }
     },
     {
         "id": 483,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-ethics-practice",
+            "concept_id": "let-professional-ethics-duties",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-professional-ethics-duties",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
         },
         "board": "let",
         "status": "active",
@@ -15698,16 +16326,35 @@
         "answer": "The private benefit creates a conflict of interest that can compromise impartiality.",
         "explanation": "A financial relationship with a current learner can affect or appear to affect professional judgment and should be avoided or managed through proper policy.",
         "cognitive_intent": "diagnose",
-        "let_area": "Code of Ethics"
+        "let_area": "Code of Ethics",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-professional-ethics-duties",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "prc-code-of-ethics-professional-teachers",
+                "republic-act-7836",
+                "republic-act-6713",
+                "official-gazette-ra10173"
+            ],
+            "rationale": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
+        }
     },
     {
         "id": 484,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-ethics-practice",
+            "concept_id": "let-professional-ethics-duties",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-professional-ethics-duties",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
         },
         "board": "let",
         "status": "active",
@@ -15723,16 +16370,35 @@
         "answer": "Use respectful, role-appropriate communication and keep personal interactions within school policy.",
         "explanation": "Professional boundaries protect learners and teachers by keeping relationships respectful, transparent, and connected to legitimate educational purposes.",
         "cognitive_intent": "apply",
-        "let_area": "Code of Ethics"
+        "let_area": "Code of Ethics",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-professional-ethics-duties",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "prc-code-of-ethics-professional-teachers",
+                "republic-act-7836",
+                "republic-act-6713",
+                "official-gazette-ra10173"
+            ],
+            "rationale": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
+        }
     },
     {
         "id": 485,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-ethics-practice",
+            "concept_id": "let-professional-ethics-duties",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-professional-ethics-duties",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
         },
         "board": "let",
         "status": "active",
@@ -15748,16 +16414,35 @@
         "answer": "Document the concern and use the appropriate confidential reporting or supervisory channel.",
         "explanation": "Integrity requires preserving evidence and using an authorized process that can investigate fairly, rather than falsifying records or publicly accusing someone.",
         "cognitive_intent": "evaluate",
-        "let_area": "Code of Ethics"
+        "let_area": "Code of Ethics",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-professional-ethics-duties",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "prc-code-of-ethics-professional-teachers",
+                "republic-act-7836",
+                "republic-act-6713",
+                "official-gazette-ra10173"
+            ],
+            "rationale": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
+        }
     },
     {
         "id": 486,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-ethics-practice",
+            "concept_id": "let-professional-ethics-duties",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-professional-ethics-duties",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
         },
         "board": "let",
         "status": "active",
@@ -15773,16 +16458,35 @@
         "answer": "Learner dignity, privacy, and ownership can be affected by public use.",
         "explanation": "Educational purpose does not erase obligations concerning privacy, dignity, and appropriate consent or policy-based protection.",
         "cognitive_intent": "interpret",
-        "let_area": "Code of Ethics"
+        "let_area": "Code of Ethics",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-professional-ethics-duties",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "prc-code-of-ethics-professional-teachers",
+                "republic-act-7836",
+                "republic-act-6713",
+                "official-gazette-ra10173"
+            ],
+            "rationale": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
+        }
     },
     {
         "id": 487,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-growth-reflection",
+            "concept_id": "let-reflective-professional-learning",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-reflective-professional-learning",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS provides broad Professional Education scope and the PPST is the professional practice framework; no separate examination weight or official child leaf is inferred."
         },
         "board": "let",
         "status": "active",
@@ -15798,16 +16502,32 @@
         "answer": "Using evidence and reflection to improve teaching practice.",
         "explanation": "The teacher identifies a practice, gathers evidence, and uses reflection to improve instruction—an evidence-informed professional behavior.",
         "cognitive_intent": "apply",
-        "let_area": "PPST"
+        "let_area": "PPST",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-reflective-professional-learning",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "The PRC TOS provides broad Professional Education scope and the PPST is the professional practice framework; no separate examination weight or official child leaf is inferred."
+        }
     },
     {
         "id": 488,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "inclusive-education",
+            "topic_id": "inclusive-practice",
+            "concept_id": "let-inclusive-access-participation",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-inclusive-access-participation",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad inclusive and learner-centered outcomes; RA 11650 and CAST inform instructional practice, not individual PRC blueprint leaves."
         },
         "board": "let",
         "status": "active",
@@ -15823,16 +16543,34 @@
         "answer": "Responsive, context-aware teaching.",
         "explanation": "Relevant contexts can make learning more accessible and meaningful without requiring the teacher to reduce conceptual accuracy or expectations.",
         "cognitive_intent": "interpret",
-        "let_area": "PPST"
+        "let_area": "PPST",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-inclusive-access-participation",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "republic-act-11650",
+                "cast-udl-guidelines-3",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad inclusive and learner-centered outcomes; RA 11650 and CAST inform instructional practice, not individual PRC blueprint leaves."
+        }
     },
     {
         "id": 489,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "assessment-of-learning",
+            "topic_id": "prof-assessment",
+            "concept_id": "let-assessment-evidence-use",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-assessment-evidence-use",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS places assessment outcomes in broad Professional Education scope; DepEd classroom-assessment policy supports assessment use; Bloom is a planning aid, not a separate quota."
         },
         "board": "let",
         "status": "active",
@@ -15848,16 +16586,33 @@
         "answer": "Multiple evidence sources support a more informed professional judgment.",
         "explanation": "Triangulating evidence reduces the risk of drawing a broad conclusion from one limited measure, while still requiring careful interpretation.",
         "cognitive_intent": "evaluate",
-        "let_area": "PPST"
+        "let_area": "PPST",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-assessment-evidence-use",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-classroom-assessment-do-8-2015",
+                "cornell-bloom-taxonomy"
+            ],
+            "rationale": "PRC TOS places assessment outcomes in broad Professional Education scope; DepEd classroom-assessment policy supports assessment use; Bloom is a planning aid, not a separate quota."
+        }
     },
     {
         "id": 490,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-growth-reflection",
+            "concept_id": "let-reflective-professional-learning",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-reflective-professional-learning",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS provides broad Professional Education scope and the PPST is the professional practice framework; no separate examination weight or official child leaf is inferred."
         },
         "board": "let",
         "status": "active",
@@ -15873,16 +16628,32 @@
         "answer": "Reflective practice linked to improved learner support.",
         "explanation": "Reflective practice connects observation of learning with a deliberate revision of teaching, rather than treating the first plan as permanent.",
         "cognitive_intent": "analyze",
-        "let_area": "PPST"
+        "let_area": "PPST",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-reflective-professional-learning",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "The PRC TOS provides broad Professional Education scope and the PPST is the professional practice framework; no separate examination weight or official child leaf is inferred."
+        }
     },
     {
         "id": 491,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-growth-reflection",
+            "concept_id": "let-reflective-professional-learning",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-reflective-professional-learning",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS provides broad Professional Education scope and the PPST is the professional practice framework; no separate examination weight or official child leaf is inferred."
         },
         "board": "let",
         "status": "active",
@@ -15898,16 +16669,32 @@
         "answer": "Evidence-informed professional learning.",
         "explanation": "Professional learning becomes evidence-informed when a teacher connects a real instructional need with relevant knowledge and tests an improvement.",
         "cognitive_intent": "classify",
-        "let_area": "Professional Development"
+        "let_area": "Professional Development",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-reflective-professional-learning",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "The PRC TOS provides broad Professional Education scope and the PPST is the professional practice framework; no separate examination weight or official child leaf is inferred."
+        }
     },
     {
         "id": 492,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-growth-reflection",
+            "concept_id": "let-reflective-professional-learning",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-reflective-professional-learning",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS provides broad Professional Education scope and the PPST is the professional practice framework; no separate examination weight or official child leaf is inferred."
         },
         "board": "let",
         "status": "active",
@@ -15923,16 +16710,32 @@
         "answer": "A focused question and evidence to notice during the lesson.",
         "explanation": "A shared focus and agreed evidence make peer observation formative and respectful rather than vague or evaluative by default.",
         "cognitive_intent": "apply",
-        "let_area": "Professional Development"
+        "let_area": "Professional Development",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-reflective-professional-learning",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "The PRC TOS provides broad Professional Education scope and the PPST is the professional practice framework; no separate examination weight or official child leaf is inferred."
+        }
     },
     {
         "id": 493,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-growth-reflection",
+            "concept_id": "let-reflective-professional-learning",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-reflective-professional-learning",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS provides broad Professional Education scope and the PPST is the professional practice framework; no separate examination weight or official child leaf is inferred."
         },
         "board": "let",
         "status": "active",
@@ -15948,16 +16751,32 @@
         "answer": "Participants use shared evidence to construct and test improvements together.",
         "explanation": "Collaboration is strengthened when educators jointly interpret evidence, exchange expertise, and act on a shared improvement problem.",
         "cognitive_intent": "analyze",
-        "let_area": "Professional Development"
+        "let_area": "Professional Development",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-reflective-professional-learning",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "The PRC TOS provides broad Professional Education scope and the PPST is the professional practice framework; no separate examination weight or official child leaf is inferred."
+        }
     },
     {
         "id": 494,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-growth-reflection",
+            "concept_id": "let-reflective-professional-learning",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-reflective-professional-learning",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS provides broad Professional Education scope and the PPST is the professional practice framework; no separate examination weight or official child leaf is inferred."
         },
         "board": "let",
         "status": "active",
@@ -15973,16 +16792,32 @@
         "answer": "Examine transfer conditions, seek feedback, and adapt the learning to a specific classroom need.",
         "explanation": "Professional development should be connected to implementation and learner evidence; popularity or attendance alone does not establish impact.",
         "cognitive_intent": "evaluate",
-        "let_area": "Professional Development"
+        "let_area": "Professional Development",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-reflective-professional-learning",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "The PRC TOS provides broad Professional Education scope and the PPST is the professional practice framework; no separate examination weight or official child leaf is inferred."
+        }
     },
     {
         "id": 495,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "school-community-relations",
+            "topic_id": "let-school-community-partnerships",
+            "concept_id": "let-school-family-community-partnership",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-school-family-community-partnership",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS supports broad Professional Education scope; PPST supports community partnership practice. Specific partnership procedures depend on the applicable school policy and context."
         },
         "board": "let",
         "status": "active",
@@ -15998,16 +16833,34 @@
         "answer": "Listen respectfully, clarify the learning purpose, and explore an equitable way to meet it.",
         "explanation": "Partnership begins with respectful communication and problem solving that preserves the learning purpose while considering the learner's context.",
         "cognitive_intent": "apply",
-        "let_area": "School/Community Relationships"
+        "let_area": "School/Community Relationships",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-school-family-community-partnership",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017",
+                "republic-act-7836",
+                "republic-act-10533"
+            ],
+            "rationale": "The PRC TOS supports broad Professional Education scope; PPST supports community partnership practice. Specific partnership procedures depend on the applicable school policy and context."
+        }
     },
     {
         "id": 496,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "school-community-relations",
+            "topic_id": "let-school-community-partnerships",
+            "concept_id": "let-school-family-community-partnership",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-school-family-community-partnership",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS supports broad Professional Education scope; PPST supports community partnership practice. Specific partnership procedures depend on the applicable school policy and context."
         },
         "board": "let",
         "status": "active",
@@ -16023,16 +16876,34 @@
         "answer": "Connect it to the objective, clarify roles, and prepare learners to engage critically.",
         "explanation": "Community collaboration is strongest when it is purposeful, accurate, and integrated with the teacher's responsibility for learning.",
         "cognitive_intent": "evaluate",
-        "let_area": "School/Community Relationships"
+        "let_area": "School/Community Relationships",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-school-family-community-partnership",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017",
+                "republic-act-7836",
+                "republic-act-10533"
+            ],
+            "rationale": "The PRC TOS supports broad Professional Education scope; PPST supports community partnership practice. Specific partnership procedures depend on the applicable school policy and context."
+        }
     },
     {
         "id": 497,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "school-community-relations",
+            "topic_id": "let-school-community-partnerships",
+            "concept_id": "let-school-family-community-partnership",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-school-family-community-partnership",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS supports broad Professional Education scope; PPST supports community partnership practice. Specific partnership procedures depend on the applicable school policy and context."
         },
         "board": "let",
         "status": "active",
@@ -16048,16 +16919,34 @@
         "answer": "Use clear, accessible language and provide a practical way for families to ask questions.",
         "explanation": "Accessible two-way communication reduces barriers and treats families as partners rather than passive recipients of unexplained information.",
         "cognitive_intent": "diagnose",
-        "let_area": "School/Community Relationships"
+        "let_area": "School/Community Relationships",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-school-family-community-partnership",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017",
+                "republic-act-7836",
+                "republic-act-10533"
+            ],
+            "rationale": "The PRC TOS supports broad Professional Education scope; PPST supports community partnership practice. Specific partnership procedures depend on the applicable school policy and context."
+        }
     },
     {
         "id": 498,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "professional-ethics",
+            "topic_id": "let-professional-ethics-practice",
+            "concept_id": "let-professional-ethics-duties",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-professional-ethics-duties",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
         },
         "board": "let",
         "status": "active",
@@ -16073,16 +16962,35 @@
         "answer": "Verify authorization, privacy requirements, and the minimum information needed for support.",
         "explanation": "Effective partnership balances learner support with privacy and professional responsibility by confirming authority and limiting disclosure.",
         "cognitive_intent": "analyze",
-        "let_area": "School/Community Relationships"
+        "let_area": "School/Community Relationships",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-professional-ethics-duties",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "prc-code-of-ethics-professional-teachers",
+                "republic-act-7836",
+                "republic-act-6713",
+                "official-gazette-ra10173"
+            ],
+            "rationale": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts."
+        }
     },
     {
         "id": 499,
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "school-community-relations",
+            "topic_id": "let-school-community-partnerships",
+            "concept_id": "let-school-family-community-partnership",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-school-family-community-partnership",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "The PRC TOS supports broad Professional Education scope; PPST supports community partnership practice. Specific partnership procedures depend on the applicable school policy and context."
         },
         "board": "let",
         "status": "active",
@@ -16098,7 +17006,21 @@
         "answer": "Compare observations and learner work, clarify shared goals, and agree on a follow-up plan.",
         "explanation": "Shared evidence and a common focus on learner growth turn disagreement into collaborative planning rather than blame.",
         "cognitive_intent": "apply",
-        "let_area": "School/Community Relationships"
+        "let_area": "School/Community Relationships",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-school-family-community-partnership",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017",
+                "republic-act-7836",
+                "republic-act-10533"
+            ],
+            "rationale": "The PRC TOS supports broad Professional Education scope; PPST supports community partnership practice. Specific partnership procedures depend on the applicable school policy and context."
+        }
     },
     {
         "id": 500,
@@ -117629,15 +118551,19 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness",
+            "concept_id": "let-developmental-readiness-scaffolding",
             "domain": "Learner Development",
             "topic": "Development and Readiness",
-            "concept": "Learner Readiness"
+            "concept": "Learner Readiness",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "subject": "Professional Education",
         "domain": "Learner Development",
-        "topic": "Development and Readiness",
-        "concept": "Learner Readiness",
+        "topic": "Learner Development",
+        "concept": "Developmental Readiness and Scaffolding",
         "difficulty": "hard",
         "question": "A beginning learner becomes quiet after repeated public corrections. What should the teacher do first?",
         "choices": [
@@ -117647,13 +118573,27 @@
             "Compare the learner with the highest scorer."
         ],
         "answer": "Use private feedback and a manageable next task to rebuild participation.",
-        "explanation": "The professional judgment is grounded in the learner evidence, the stated objective, and a response that preserves meaningful learning while addressing the concrete classroom condition.",
+        "explanation": "Public correction has become a barrier to participation. Private, specific feedback protects dignity and a manageable next task gives the learner a realistic opportunity to re-enter the work; then observe whether participation improves.",
         "cognitive_intent": "evaluation and professional judgment",
         "multistep": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 2819,
@@ -117665,15 +118605,19 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness",
+            "concept_id": "let-developmental-readiness-scaffolding",
             "domain": "Learner Development",
             "topic": "Development and Readiness",
-            "concept": "Learner Readiness"
+            "concept": "Learner Readiness",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "subject": "Professional Education",
         "domain": "Learner Development",
-        "topic": "Development and Readiness",
-        "concept": "Learner Readiness",
+        "topic": "Learner Development",
+        "concept": "Developmental Readiness and Scaffolding",
         "difficulty": "medium",
         "question": "A learner can explain a concept orally but struggles to organize a written response. Which support is most appropriate?",
         "choices": [
@@ -117683,13 +118627,27 @@
             "Give a harder topic with less time."
         ],
         "answer": "Provide an outline and model how oral ideas become connected written claims.",
-        "explanation": "The professional judgment is grounded in the learner evidence, the stated objective, and a response that preserves meaningful learning while addressing the concrete classroom condition.",
+        "explanation": "The learner can already express the idea orally, so an outline and a model can bridge that knowledge into connected written claims. The support targets organization while retaining the writing goal.",
         "cognitive_intent": "application and instructional decision-making",
         "multistep": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 2820,
@@ -117701,15 +118659,19 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness",
+            "concept_id": "let-developmental-readiness-scaffolding",
             "domain": "Learner Development",
             "topic": "Development and Readiness",
-            "concept": "Learner Readiness"
+            "concept": "Learner Readiness",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "subject": "Professional Education",
         "domain": "Learner Development",
-        "topic": "Development and Readiness",
-        "concept": "Learner Readiness",
+        "topic": "Learner Development",
+        "concept": "Developmental Readiness and Scaffolding",
         "difficulty": "medium",
         "question": "A class includes learners with different prior experiences of a topic. What planning choice is most responsive?",
         "choices": [
@@ -117719,13 +118681,27 @@
             "Remove the objective so no one is challenged."
         ],
         "answer": "Diagnose prior knowledge and provide varied entry points to the same objective.",
-        "explanation": "The professional judgment is grounded in the learner evidence, the stated objective, and a response that preserves meaningful learning while addressing the concrete classroom condition.",
+        "explanation": "Different prior experiences affect the examples learners can use at the start of a unit. A brief diagnostic and varied entry points help the teacher connect those experiences to one shared objective.",
         "cognitive_intent": "application and instructional decision-making",
         "multistep": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 2821,
@@ -117737,15 +118713,19 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness",
+            "concept_id": "let-developmental-readiness-scaffolding",
             "domain": "Learner Development",
             "topic": "Development and Readiness",
-            "concept": "Learner Readiness"
+            "concept": "Learner Readiness",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "subject": "Professional Education",
         "domain": "Learner Development",
-        "topic": "Development and Readiness",
-        "concept": "Learner Readiness",
+        "topic": "Learner Development",
+        "concept": "Developmental Readiness and Scaffolding",
         "difficulty": "medium",
         "question": "A learner finishes routine tasks quickly but makes careless errors. Which response best supports growth?",
         "choices": [
@@ -117755,13 +118735,27 @@
             "Tell the learner speed matters more than accuracy."
         ],
         "answer": "Offer a checking strategy and an extension requiring justification.",
-        "explanation": "The professional judgment is grounded in the learner evidence, the stated objective, and a response that preserves meaningful learning while addressing the concrete classroom condition.",
+        "explanation": "The learner finishes routine work but makes avoidable checking errors. A deliberate checking routine addresses accuracy, while an extension requiring justification adds challenge without merely adding more of the same work.",
         "cognitive_intent": "evaluation and professional judgment",
         "multistep": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 2822,
@@ -117773,15 +118767,19 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness",
+            "concept_id": "let-developmental-readiness-scaffolding",
             "domain": "Learner Development",
             "topic": "Development and Readiness",
-            "concept": "Learner Readiness"
+            "concept": "Learner Readiness",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "subject": "Professional Education",
         "domain": "Learner Development",
-        "topic": "Development and Readiness",
-        "concept": "Learner Readiness",
+        "topic": "Learner Development",
+        "concept": "Developmental Readiness and Scaffolding",
         "difficulty": "hard",
         "question": "A student avoids a group role after a previous conflict. What first step supports development?",
         "choices": [
@@ -117791,13 +118789,27 @@
             "Ignore the conflict and assess the group only."
         ],
         "answer": "Clarify roles, teach a communication routine, and begin with a low-risk contribution.",
-        "explanation": "The professional judgment is grounded in the learner evidence, the stated objective, and a response that preserves meaningful learning while addressing the concrete classroom condition.",
+        "explanation": "Because a previous conflict affects participation, begin by making the group role and communication expectations explicit. A low-risk contribution lets the learner practice the routine before taking on a more demanding role.",
         "cognitive_intent": "application and instructional decision-making",
         "multistep": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 2823,
@@ -117809,15 +118821,19 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness",
+            "concept_id": "let-developmental-readiness-scaffolding",
             "domain": "Learner Development",
             "topic": "Development and Readiness",
-            "concept": "Learner Readiness"
+            "concept": "Learner Readiness",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "subject": "Professional Education",
         "domain": "Learner Development",
-        "topic": "Development and Readiness",
-        "concept": "Learner Readiness",
+        "topic": "Learner Development",
+        "concept": "Developmental Readiness and Scaffolding",
         "difficulty": "medium",
         "question": "A teacher wants to know whether learners are ready for a new unit. Which evidence is most useful?",
         "choices": [
@@ -117827,13 +118843,27 @@
             "A general impression from hallway behavior."
         ],
         "answer": "A brief diagnostic task aligned with the prerequisite skills.",
-        "explanation": "The professional judgment is grounded in the learner evidence, the stated objective, and a response that preserves meaningful learning while addressing the concrete classroom condition.",
+        "explanation": "Readiness for a new unit depends on the prerequisite skills the unit will use. A short diagnostic aligned to those prerequisites gives more useful planning evidence than age, completion speed, or a general impression.",
         "cognitive_intent": "application and instructional decision-making",
         "multistep": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 2824,
@@ -117845,15 +118875,19 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness",
+            "concept_id": "let-developmental-readiness-scaffolding",
             "domain": "Learner Development",
             "topic": "Development and Readiness",
-            "concept": "Learner Readiness"
+            "concept": "Learner Readiness",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "subject": "Professional Education",
         "domain": "Learner Development",
-        "topic": "Development and Readiness",
-        "concept": "Learner Readiness",
+        "topic": "Learner Development",
+        "concept": "Developmental Readiness and Scaffolding",
         "difficulty": "medium",
         "question": "A learner’s performance varies sharply between independent and supported work. What should the teacher infer cautiously?",
         "choices": [
@@ -117863,13 +118897,27 @@
             "The learner should always receive the answer."
         ],
         "answer": "The learner may be approaching independence and needs targeted scaffolding.",
-        "explanation": "The professional judgment is grounded in the learner evidence, the stated objective, and a response that preserves meaningful learning while addressing the concrete classroom condition.",
+        "explanation": "The difference between independent and supported performance suggests the learner can do more with a specific prompt. Treat that as evidence for targeted scaffolding, then monitor whether the learner can take over the step.",
         "cognitive_intent": "evaluation and professional judgment",
         "multistep": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 2825,
@@ -117881,15 +118929,19 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness",
+            "concept_id": "let-developmental-readiness-scaffolding",
             "domain": "Learner Development",
             "topic": "Development and Readiness",
-            "concept": "Learner Readiness"
+            "concept": "Learner Readiness",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "subject": "Professional Education",
         "domain": "Learner Development",
-        "topic": "Development and Readiness",
-        "concept": "Learner Readiness",
+        "topic": "Learner Development",
+        "concept": "Developmental Readiness and Scaffolding",
         "difficulty": "medium",
         "question": "A class becomes anxious when a new task has many unfamiliar steps. What adjustment is most helpful?",
         "choices": [
@@ -117899,13 +118951,27 @@
             "Increase the number of simultaneous instructions."
         ],
         "answer": "Make the steps visible, model the first one, and check understanding before release.",
-        "explanation": "The professional judgment is grounded in the learner evidence, the stated objective, and a response that preserves meaningful learning while addressing the concrete classroom condition.",
+        "explanation": "Making steps visible and modeling the first one reduces unnecessary task complexity while preserving the goal. A quick check before release shows whether learners can proceed independently or need another scaffold.",
         "cognitive_intent": "application and instructional decision-making",
         "multistep": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 2826,
@@ -117917,15 +118983,19 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness",
+            "concept_id": "let-developmental-readiness-scaffolding",
             "domain": "Learner Development",
             "topic": "Development and Readiness",
-            "concept": "Learner Readiness"
+            "concept": "Learner Readiness",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "subject": "Professional Education",
         "domain": "Learner Development",
-        "topic": "Development and Readiness",
-        "concept": "Learner Readiness",
+        "topic": "Learner Development",
+        "concept": "Developmental Readiness and Scaffolding",
         "difficulty": "hard",
         "question": "A teacher notices that a learner’s errors occur only when directions use unfamiliar vocabulary. What is the best response?",
         "choices": [
@@ -117935,13 +119005,27 @@
             "Add more unfamiliar vocabulary for practice."
         ],
         "answer": "Clarify the language while preserving the cognitive demand of the task.",
-        "explanation": "The professional judgment is grounded in the learner evidence, the stated objective, and a response that preserves meaningful learning while addressing the concrete classroom condition.",
+        "explanation": "Errors limited to unfamiliar direction vocabulary may reflect a language-access barrier rather than a conceptual misconception. Clarify the directions and then check the same cognitive demand with accessible wording.",
         "cognitive_intent": "application and instructional decision-making",
         "multistep": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
+        }
     },
     {
         "id": 2827,
@@ -117951,17 +119035,21 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness",
+            "domain_id": "facilitating-learning",
+            "topic_id": "prof-facilitation",
+            "concept_id": "let-learner-agency-self-regulation",
             "domain": "Learner Development",
             "topic": "Development and Readiness",
-            "concept": "Learner Readiness"
+            "concept": "Learner Readiness",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-learner-agency-self-regulation",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-centered teaching outcomes; PPST and instructional sources support practice. Agency/self-regulation are BoardPrep instructional categories."
         },
         "subject": "Professional Education",
-        "domain": "Learner Development",
-        "topic": "Development and Readiness",
-        "concept": "Learner Readiness",
+        "domain": "Facilitating Learning",
+        "topic": "Facilitating Learning",
+        "concept": "Learner Agency and Self-Regulation",
         "difficulty": "medium",
         "question": "A learner asks for confirmation after every small step. Which plan builds autonomy?",
         "choices": [
@@ -117971,13 +119059,27 @@
             "Assign unrelated work whenever the learner asks."
         ],
         "answer": "Use a checklist and delayed prompts so the learner can self-monitor before asking.",
-        "explanation": "The professional judgment is grounded in the learner evidence, the stated objective, and a response that preserves meaningful learning while addressing the concrete classroom condition.",
+        "explanation": "A checklist and delayed prompts make the decision process visible while giving the learner time to try self-monitoring. The teacher remains available, then fades the prompt as independent checking becomes reliable.",
         "cognitive_intent": "evaluation and professional judgment",
         "multistep": true,
         "timesUsed": 0,
         "timesCorrect": 0,
         "timesIncorrect": 0,
-        "let_area": "Professional Education"
+        "let_area": "Professional Education",
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-learner-agency-self-regulation",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017",
+                "openstax-psychology-2e",
+                "cornell-bloom-taxonomy"
+            ],
+            "rationale": "PRC TOS supports broad learner-centered teaching outcomes; PPST and instructional sources support practice. Agency/self-regulation are BoardPrep instructional categories."
+        }
     },
     {
         "id": 2828,
@@ -342331,7 +343433,11 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "concept_id": "let-developmental-readiness-scaffolding",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "board": "let",
         "status": "active",
@@ -342340,19 +343446,19 @@
         "createdAt": "2026-09-29T00:00:00+08:00",
         "updatedAt": "2026-09-29T00:00:00+08:00",
         "difficulty": "easy",
-        "question": "Which statement best applies learner readiness in this situation: a learner meets an unfamiliar example during guided practice",
+        "question": "A brief diagnostic shows that learners compare fractions with common denominators accurately but are not yet reliable with unlike denominators. What is the teacher’s best next move?",
         "choices": [
             "Use learner evidence to select an achievable next step.",
-            "Use a generic activity without checking the stated competency.",
-            "Treat one observation as a fixed judgment about the learner.",
-            "Choose a convenient response that does not address the learning evidence."
+            "Move to the planned application lesson because learners passed one prerequisite check.",
+            "Repeat every earlier fraction lesson before identifying the point of difficulty.",
+            "Treat this result as a permanent measure of each learner’s mathematics ability."
         ],
         "answer": "Use learner evidence to select an achievable next step.",
-        "explanation": "Use learner evidence to select an achievable next step. The controlling rule is that instruction should begin from evidence of learner development and readiness.",
+        "explanation": "The diagnostic points to a specific prerequisite gap, not a general inability. Use that evidence to choose a manageable comparison task or representation, then check whether the support helps learners progress.",
         "subject": "professional-education",
         "domain": "learner-development",
         "topic": "prof-development",
-        "concept": "prof-development-readiness",
+        "concept": "let-developmental-readiness-scaffolding",
         "source_ids": [
             "prc-let-enhanced-tos-2025",
             "deped-ppst-do-42-2017",
@@ -342379,8 +343485,9 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness",
-            "blueprint_node": "professional-education"
+            "concept_id": "let-developmental-readiness-scaffolding",
+            "blueprint_node": "professional-education",
+            "board_id": "let"
         },
         "batch629": {
             "official_scope_chain": [
@@ -342429,6 +343536,20 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         }
     },
     {
@@ -342438,7 +343559,11 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "concept_id": "let-developmental-readiness-scaffolding",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "board": "let",
         "status": "active",
@@ -342447,19 +343572,19 @@
         "createdAt": "2026-09-29T00:00:00+08:00",
         "updatedAt": "2026-09-29T00:00:00+08:00",
         "difficulty": "medium",
-        "question": "A teacher asks learners to respond to this case: learner readiness Which response best demonstrates two plausible responses differ on the controlling criterion?",
+        "question": "A learner completes a modeled example but stalls on a new problem; classmates need different amounts of prompting. Which response best supports progress?",
         "choices": [
-            "Use a generic activity without checking the stated competency.",
-            "Treat one observation as a fixed judgment about the learner.",
-            "Choose a convenient response that does not address the learning evidence.",
+            "Keep identical prompts for everyone even when their work shows different needs.",
+            "Use the first score to place the learner in a permanent ability group.",
+            "Remove the reasoning goal whenever a learner needs temporary support.",
             "Differentiate support without treating readiness as a fixed label."
         ],
         "answer": "Differentiate support without treating readiness as a fixed label.",
-        "explanation": "Differentiate support without treating readiness as a fixed label. The controlling rule is that instruction should begin from evidence of learner development and readiness.",
+        "explanation": "Readiness is task-specific and can change with instruction. Match a temporary prompt or representation to current evidence, retain the intended reasoning goal, and reduce support as independent performance improves.",
         "subject": "professional-education",
         "domain": "learner-development",
         "topic": "prof-development",
-        "concept": "prof-development-readiness",
+        "concept": "let-developmental-readiness-scaffolding",
         "source_ids": [
             "prc-let-enhanced-tos-2025",
             "deped-ppst-do-42-2017",
@@ -342486,8 +343611,9 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness",
-            "blueprint_node": "professional-education"
+            "concept_id": "let-developmental-readiness-scaffolding",
+            "blueprint_node": "professional-education",
+            "board_id": "let"
         },
         "batch629": {
             "official_scope_chain": [
@@ -342536,6 +343662,20 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         }
     },
     {
@@ -342545,7 +343685,11 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "concept_id": "let-developmental-readiness-scaffolding",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-developmental-readiness-scaffolding",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         },
         "board": "let",
         "status": "active",
@@ -342554,19 +343698,19 @@
         "createdAt": "2026-09-29T00:00:00+08:00",
         "updatedAt": "2026-09-29T00:00:00+08:00",
         "difficulty": "medium",
-        "question": "When checking this example, which interpretation is most defensible under learner readiness? a teacher compares evidence before selecting an intervention",
+        "question": "Learners can record observations of a nearby stream but have not yet compared samples. Which sequence best prepares them for a more complex analysis?",
         "choices": [
-            "Treat one observation as a fixed judgment about the learner.",
-            "Choose a convenient response that does not address the learning evidence.",
+            "Begin with unfamiliar statistical terminology before learners examine any samples.",
+            "Repeat observation recording indefinitely without extending the task.",
             "Connect the task to prior knowledge before increasing complexity.",
-            "Use a generic activity without checking the stated competency."
+            "Ask learners to state a conclusion before they compare evidence."
         ],
         "answer": "Connect the task to prior knowledge before increasing complexity.",
-        "explanation": "Connect the task to prior knowledge before increasing complexity. The controlling rule is that instruction should begin from evidence of learner development and readiness.",
+        "explanation": "Start from the known observation routine, then model how to compare one feature across samples. The connection makes the next reasoning step accessible without mistaking familiarity for mastery of the harder analysis.",
         "subject": "professional-education",
         "domain": "learner-development",
         "topic": "prof-development",
-        "concept": "prof-development-readiness",
+        "concept": "let-developmental-readiness-scaffolding",
         "source_ids": [
             "prc-let-enhanced-tos-2025",
             "deped-ppst-do-42-2017",
@@ -342593,8 +343737,9 @@
             "subject_id": "professional-education",
             "domain_id": "learner-development",
             "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness",
-            "blueprint_node": "professional-education"
+            "concept_id": "let-developmental-readiness-scaffolding",
+            "blueprint_node": "professional-education",
+            "board_id": "let"
         },
         "batch629": {
             "official_scope_chain": [
@@ -342643,6 +343788,20 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-developmental-readiness-scaffolding",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "rationale": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf."
         }
     },
     {
@@ -342650,9 +343809,13 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "assessment-of-learning",
+            "topic_id": "prof-assessment",
+            "concept_id": "let-assessment-evidence-use",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-assessment-evidence-use",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS places assessment outcomes in broad Professional Education scope; DepEd classroom-assessment policy supports assessment use; Bloom is a planning aid, not a separate quota."
         },
         "board": "let",
         "status": "active",
@@ -342661,19 +343824,19 @@
         "createdAt": "2026-09-29T00:00:00+08:00",
         "updatedAt": "2026-09-29T00:00:00+08:00",
         "difficulty": "medium",
-        "question": "A learner makes the following move: learner readiness Which correction best reflects a written or observed response contains a common misconception?",
+        "question": "A learner explains a science idea accurately in conversation but leaves key parts blank on a written task whose directions include unfamiliar terms. What should the teacher check first?",
         "choices": [
-            "Choose a convenient response that does not address the learning evidence.",
+            "Assume the learner does not understand the science concept from the written response alone.",
             "Check whether the barrier is conceptual, linguistic, or access-related.",
-            "Use a generic activity without checking the stated competency.",
-            "Treat one observation as a fixed judgment about the learner."
+            "Lower the learning goal before checking how the task was presented.",
+            "Repeat the same written directions without clarifying the unfamiliar terms."
         ],
         "answer": "Check whether the barrier is conceptual, linguistic, or access-related.",
-        "explanation": "Check whether the barrier is conceptual, linguistic, or access-related. The controlling rule is that instruction should begin from evidence of learner development and readiness.",
+        "explanation": "The difference between oral and written performance is evidence to investigate, not a diagnosis. Check the concept, vocabulary, directions, and response access separately; then select a support that preserves the science reasoning being assessed.",
         "subject": "professional-education",
-        "domain": "learner-development",
-        "topic": "prof-development",
-        "concept": "prof-development-readiness",
+        "domain": "assessment-of-learning",
+        "topic": "prof-assessment",
+        "concept": "let-assessment-evidence-use",
         "source_ids": [
             "prc-let-enhanced-tos-2025",
             "deped-ppst-do-42-2017",
@@ -342698,10 +343861,11 @@
             "component": "PROFESSIONAL_EDUCATION",
             "specialization_id": null,
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness",
-            "blueprint_node": "professional-education"
+            "domain_id": "assessment-of-learning",
+            "topic_id": "prof-assessment",
+            "concept_id": "let-assessment-evidence-use",
+            "blueprint_node": "professional-education",
+            "board_id": "let"
         },
         "batch629": {
             "official_scope_chain": [
@@ -342750,6 +343914,19 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-assessment-evidence-use",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-classroom-assessment-do-8-2015",
+                "cornell-bloom-taxonomy"
+            ],
+            "rationale": "PRC TOS places assessment outcomes in broad Professional Education scope; DepEd classroom-assessment policy supports assessment use; Bloom is a planning aid, not a separate quota."
         }
     },
     {
@@ -342757,9 +343934,13 @@
         "taxonomy": {
             "board_id": "let",
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness"
+            "domain_id": "assessment-of-learning",
+            "topic_id": "prof-assessment",
+            "concept_id": "let-assessment-evidence-use",
+            "parent_concept_id": "prof-development-readiness",
+            "subcompetency_id": "let-assessment-evidence-use",
+            "subcompetency_confidence": "EXACT",
+            "subcompetency_evidence": "PRC TOS places assessment outcomes in broad Professional Education scope; DepEd classroom-assessment policy supports assessment use; Bloom is a planning aid, not a separate quota."
         },
         "board": "let",
         "status": "active",
@@ -342768,19 +343949,19 @@
         "createdAt": "2026-09-29T00:00:00+08:00",
         "updatedAt": "2026-09-29T00:00:00+08:00",
         "difficulty": "hard",
-        "question": "Which explanation would best teach learner readiness using this example: a new classroom task requires transfer rather than recall",
+        "question": "After a first transfer task, a learner’s answer is incomplete. Work samples show the concept is accurate in familiar examples, while a later attempt improves after a prompt to compare evidence. What is the best instructional response?",
         "choices": [
-            "Use observation and assessment to revise the starting point.",
-            "Use a generic activity without checking the stated competency.",
-            "Treat one observation as a fixed judgment about the learner.",
-            "Choose a convenient response that does not address the learning evidence."
+            "Increase task difficulty immediately because familiar examples were correct.",
+            "Treat the first transfer result as a fixed judgment of ability.",
+            "Repeat the same task without examining the learner’s work or response to support.",
+            "Use observation and assessment to revise the starting point."
         ],
         "answer": "Use observation and assessment to revise the starting point.",
-        "explanation": "Use observation and assessment to revise the starting point. The controlling rule is that instruction should begin from evidence of learner development and readiness.",
+        "explanation": "The contrasting work samples show where the task demand changed and which prompt helped. Use that evidence to adjust the starting point, provide a focused bridge to transfer, and reassess before fading the support.",
         "subject": "professional-education",
-        "domain": "learner-development",
-        "topic": "prof-development",
-        "concept": "prof-development-readiness",
+        "domain": "assessment-of-learning",
+        "topic": "prof-assessment",
+        "concept": "let-assessment-evidence-use",
         "source_ids": [
             "prc-let-enhanced-tos-2025",
             "deped-ppst-do-42-2017",
@@ -342805,10 +343986,11 @@
             "component": "PROFESSIONAL_EDUCATION",
             "specialization_id": null,
             "subject_id": "professional-education",
-            "domain_id": "learner-development",
-            "topic_id": "prof-development",
-            "concept_id": "prof-development-readiness",
-            "blueprint_node": "professional-education"
+            "domain_id": "assessment-of-learning",
+            "topic_id": "prof-assessment",
+            "concept_id": "let-assessment-evidence-use",
+            "blueprint_node": "professional-education",
+            "board_id": "let"
         },
         "batch629": {
             "official_scope_chain": [
@@ -342857,6 +344039,19 @@
                 "reviewed_at": "2026-09-29",
                 "sampled": false
             }
+        },
+        "batch674_competency": {
+            "parent_concept_id": "prof-development-readiness",
+            "child_concept_id": "let-assessment-evidence-use",
+            "classification": "BOARDPREP_DERIVED_LEAF",
+            "official_area_id": "professional-education",
+            "official_blueprint_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-classroom-assessment-do-8-2015",
+                "cornell-bloom-taxonomy"
+            ],
+            "rationale": "PRC TOS places assessment outcomes in broad Professional Education scope; DepEd classroom-assessment policy supports assessment use; Bloom is a planning aid, not a separate quota."
         }
     },
     {

@@ -2019,7 +2019,19 @@
         "id": "prof-development-readiness",
         "topic_id": "prof-development",
         "code": "LR",
-        "name": "Readiness and Development"
+        "name": "Professional Education: Learner and Professional Practice (structural parent)",
+        "status": "structural",
+        "boardprep_taxonomy": {
+            "batch": 674,
+            "board_id": "let",
+            "node_role": "STRUCTURAL_PARENT",
+            "official_area_id": "professional-education",
+            "official_status": "OFFICIAL_BROAD_AREA_PARENT",
+            "official_leaf_claim": false,
+            "evidence_source_ids": [
+                "prc-let-enhanced-tos-2025"
+            ]
+        }
     },
     {
         "id": "prof-curriculum-alignment",
@@ -12918,6 +12930,353 @@
             "official_subarea": "2013 TOS Machine Design 2.27 Engineering Drawing Practices",
             "official_status": "BOARDPREP_DERIVED_LEAF",
             "scope_alignment": "STRONG"
+        }
+    },
+    {
+        "id": "let-developmental-readiness-scaffolding",
+        "topic_id": "prof-development",
+        "code": "B674-96E9DC",
+        "name": "Developmental Readiness and Scaffolding",
+        "description": "Interpret observed prerequisite knowledge, developmental variation, task demand, and response to temporary support. These are BoardPrep learning categories within broad Professional Education scope, not official PRC blueprint leaves.",
+        "parent_concept_id": "prof-development-readiness",
+        "status": "active",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [
+                "developmental",
+                "readiness",
+                "and",
+                "scaffolding"
+            ],
+            "common_misconceptions": [],
+            "learning_objectives": [
+                "Identify the specific prerequisite or task demand shown by work and observation.",
+                "Choose a manageable next step and temporary support without treating a learner as fixed by one result.",
+                "Check transfer and fade support as independent performance grows."
+            ]
+        },
+        "boardprep_taxonomy": {
+            "batch": 674,
+            "board_id": "let",
+            "official_area_id": "professional-education",
+            "official_area_name": "Professional Education",
+            "official_status": "BOARDPREP_DERIVED_LEAF",
+            "official_leaf_claim": false,
+            "source_scope_fit": "PARTIAL",
+            "source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-psychology-2e",
+                "openstax-lifespan-development",
+                "deped-ppst-do-42-2017"
+            ],
+            "evidence": "PRC TOS supports broad learner-development and professional-education outcomes; OpenStax and PPST support instructional interpretation, not an individual exam leaf.",
+            "not_official_blueprint_leaf": true
+        }
+    },
+    {
+        "id": "let-assessment-evidence-use",
+        "topic_id": "prof-assessment",
+        "code": "B674-CAC345",
+        "name": "Assessment Evidence and Instructional Decisions",
+        "description": "Interpret diagnostic, formative, and performance evidence in relation to the stated learning goal; use the evidence to plan feedback or a next instructional step.",
+        "parent_concept_id": "prof-development-readiness",
+        "status": "active",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [
+                "assessment",
+                "evidence",
+                "and",
+                "instructional",
+                "decisions"
+            ],
+            "common_misconceptions": [],
+            "learning_objectives": [
+                "Distinguish evidence of prerequisite knowledge from a broad judgment about ability.",
+                "Use aligned, multiple evidence sources when one result is insufficient.",
+                "Give feedback that identifies a next step and evidence for checking progress."
+            ]
+        },
+        "boardprep_taxonomy": {
+            "batch": 674,
+            "board_id": "let",
+            "official_area_id": "professional-education",
+            "official_area_name": "Professional Education",
+            "official_status": "BOARDPREP_DERIVED_LEAF",
+            "official_leaf_claim": false,
+            "source_scope_fit": "PARTIAL",
+            "source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-classroom-assessment-do-8-2015",
+                "cornell-bloom-taxonomy"
+            ],
+            "evidence": "PRC TOS places assessment outcomes in broad Professional Education scope; DepEd classroom-assessment policy supports assessment use; Bloom is a planning aid, not a separate quota.",
+            "not_official_blueprint_leaf": true
+        }
+    },
+    {
+        "id": "let-inclusive-access-participation",
+        "topic_id": "inclusive-practice",
+        "code": "B674-B2E85C",
+        "name": "Inclusive Access and Participation",
+        "description": "Identify barriers to participation and select accessible ways to engage or express learning while retaining the intended competency and fair criteria.",
+        "parent_concept_id": "prof-development-readiness",
+        "status": "active",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [
+                "inclusive",
+                "access",
+                "and",
+                "participation"
+            ],
+            "common_misconceptions": [],
+            "learning_objectives": [
+                "Separate an access barrier from the learning outcome being assessed.",
+                "Use varied participation routes without lowering a common, valid learning expectation.",
+                "Check whether classroom assumptions exclude learners and adjust them using evidence."
+            ]
+        },
+        "boardprep_taxonomy": {
+            "batch": 674,
+            "board_id": "let",
+            "official_area_id": "professional-education",
+            "official_area_name": "Professional Education",
+            "official_status": "BOARDPREP_DERIVED_LEAF",
+            "official_leaf_claim": false,
+            "source_scope_fit": "PARTIAL",
+            "source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "republic-act-11650",
+                "cast-udl-guidelines-3",
+                "deped-ppst-do-42-2017"
+            ],
+            "evidence": "PRC TOS supports broad inclusive and learner-centered outcomes; RA 11650 and CAST inform instructional practice, not individual PRC blueprint leaves.",
+            "not_official_blueprint_leaf": true
+        }
+    },
+    {
+        "id": "let-learner-agency-self-regulation",
+        "topic_id": "prof-facilitation",
+        "code": "B674-2F3D28",
+        "name": "Learner Agency and Self-Regulation",
+        "description": "Support learner choice, self-monitoring, reflection, and increasing independence within shared goals, criteria, and appropriate teacher guidance.",
+        "parent_concept_id": "prof-development-readiness",
+        "status": "active",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [
+                "learner",
+                "agency",
+                "and",
+                "self-regulation"
+            ],
+            "common_misconceptions": [],
+            "learning_objectives": [
+                "Offer bounded choices connected to the learning goal and common criteria.",
+                "Prompt learners to use evidence to reflect, revise, and monitor their work.",
+                "Fade prompts gradually while preserving access to help and feedback."
+            ]
+        },
+        "boardprep_taxonomy": {
+            "batch": 674,
+            "board_id": "let",
+            "official_area_id": "professional-education",
+            "official_area_name": "Professional Education",
+            "official_status": "BOARDPREP_DERIVED_LEAF",
+            "official_leaf_claim": false,
+            "source_scope_fit": "PARTIAL",
+            "source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017",
+                "openstax-psychology-2e",
+                "cornell-bloom-taxonomy"
+            ],
+            "evidence": "PRC TOS supports broad learner-centered teaching outcomes; PPST and instructional sources support practice. Agency/self-regulation are BoardPrep instructional categories.",
+            "not_official_blueprint_leaf": true
+        }
+    },
+    {
+        "id": "let-educational-foundations-philosophical-sociological",
+        "topic_id": "let-foundations-education-purpose",
+        "code": "B674-A65FEA",
+        "name": "Educational Foundations: Purpose and Social Effects",
+        "description": "Analyze educational purpose and the social effects of schooling and policy while distinguishing an intended purpose from consequences for different groups.",
+        "parent_concept_id": "prof-development-readiness",
+        "status": "active",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [
+                "educational",
+                "foundations",
+                "purpose",
+                "and",
+                "social",
+                "effects"
+            ],
+            "common_misconceptions": [],
+            "learning_objectives": [
+                "Compare a stated educational purpose with the learning or social outcome a policy produces.",
+                "Use a sociological lens to ask who benefits, who faces barriers, and what evidence supports that judgment.",
+                "Treat educational perspectives as analytical tools rather than claims of a single official exam answer or item quota."
+            ]
+        },
+        "boardprep_taxonomy": {
+            "batch": 674,
+            "board_id": "let",
+            "official_area_id": "professional-education",
+            "official_area_name": "Professional Education",
+            "official_status": "BOARDPREP_DERIVED_LEAF",
+            "official_leaf_claim": false,
+            "source_scope_fit": "PARTIAL",
+            "source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "openstax-sociology-education-3e",
+                "cornell-bloom-taxonomy"
+            ],
+            "evidence": "PRC TOS supports broad Professional Education foundations; OpenStax supports educational-sociology concepts. Neither source makes each child category an official blueprint leaf.",
+            "not_official_blueprint_leaf": true
+        }
+    },
+    {
+        "id": "let-professional-ethics-duties",
+        "topic_id": "let-professional-ethics-practice",
+        "code": "B674-AE0432",
+        "name": "Professional Ethics, Duties, and Boundaries",
+        "description": "Apply fairness, confidentiality, learner welfare, appropriate authority, boundaries, and accountable reporting to professional decisions.",
+        "parent_concept_id": "prof-development-readiness",
+        "status": "active",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [
+                "professional",
+                "ethics,",
+                "duties,",
+                "and",
+                "boundaries"
+            ],
+            "common_misconceptions": [],
+            "learning_objectives": [
+                "Identify the duty and affected people in a professional dilemma.",
+                "Check the applicable rule and authorized channel before acting or disclosing information.",
+                "Choose a proportionate action that protects dignity, fairness, and legitimate support."
+            ]
+        },
+        "boardprep_taxonomy": {
+            "batch": 674,
+            "board_id": "let",
+            "official_area_id": "professional-education",
+            "official_area_name": "Professional Education",
+            "official_status": "BOARDPREP_DERIVED_LEAF",
+            "official_leaf_claim": false,
+            "source_scope_fit": "PARTIAL",
+            "source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "prc-code-of-ethics-professional-teachers",
+                "republic-act-7836",
+                "republic-act-6713",
+                "official-gazette-ra10173"
+            ],
+            "evidence": "The PRC TOS supports broad Teaching Profession outcomes; the Code of Ethics and cited laws support duties. Scope and application remain bounded by the controlling rule and facts.",
+            "not_official_blueprint_leaf": true
+        }
+    },
+    {
+        "id": "let-reflective-professional-learning",
+        "topic_id": "let-professional-growth-reflection",
+        "code": "B674-F7A1B3",
+        "name": "Reflective Practice and Professional Learning",
+        "description": "Use feedback, peer observation, learner work, and research to set a focused practice goal, test a change, and review its effect.",
+        "parent_concept_id": "prof-development-readiness",
+        "status": "active",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [
+                "reflective",
+                "practice",
+                "and",
+                "professional",
+                "learning"
+            ],
+            "common_misconceptions": [],
+            "learning_objectives": [
+                "Turn feedback into a testable question about teaching practice.",
+                "Select evidence aligned to the goal and distinguish evidence from an impression.",
+                "Review whether a change improved learner evidence and plan the next adjustment."
+            ]
+        },
+        "boardprep_taxonomy": {
+            "batch": 674,
+            "board_id": "let",
+            "official_area_id": "professional-education",
+            "official_area_name": "Professional Education",
+            "official_status": "BOARDPREP_DERIVED_LEAF",
+            "official_leaf_claim": false,
+            "source_scope_fit": "PARTIAL",
+            "source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017"
+            ],
+            "evidence": "The PRC TOS provides broad Professional Education scope and the PPST is the professional practice framework; no separate examination weight or official child leaf is inferred.",
+            "not_official_blueprint_leaf": true
+        }
+    },
+    {
+        "id": "let-school-family-community-partnership",
+        "topic_id": "let-school-community-partnerships",
+        "code": "B674-3EF52A",
+        "name": "School, Family, and Community Partnership",
+        "description": "Build accessible, purposeful collaboration with families and community partners while maintaining clear roles, privacy, and teacher accountability.",
+        "parent_concept_id": "prof-development-readiness",
+        "status": "active",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "keywords": [
+                "school,",
+                "family,",
+                "and",
+                "community",
+                "partnership"
+            ],
+            "common_misconceptions": [],
+            "learning_objectives": [
+                "Listen to family and community knowledge and identify the shared learning or participation goal.",
+                "Clarify roles, communication routes, privacy limits, and how contributions connect to curriculum.",
+                "Agree on a practical follow-up and evaluate whether the partnership improved access or learning."
+            ]
+        },
+        "boardprep_taxonomy": {
+            "batch": 674,
+            "board_id": "let",
+            "official_area_id": "professional-education",
+            "official_area_name": "Professional Education",
+            "official_status": "BOARDPREP_DERIVED_LEAF",
+            "official_leaf_claim": false,
+            "source_scope_fit": "PARTIAL",
+            "source_ids": [
+                "prc-let-enhanced-tos-2025",
+                "deped-ppst-do-42-2017",
+                "republic-act-7836",
+                "republic-act-10533"
+            ],
+            "evidence": "The PRC TOS supports broad Professional Education scope; PPST supports community partnership practice. Specific partnership procedures depend on the applicable school policy and context.",
+            "not_official_blueprint_leaf": true
         }
     }
 ]

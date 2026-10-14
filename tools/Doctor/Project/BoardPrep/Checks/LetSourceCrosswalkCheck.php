@@ -18,8 +18,11 @@ final class LetSourceCrosswalkCheck implements CheckInterface
     public function run(): CheckResult
     {
         $root = dirname(__DIR__, 5);
+        $currentCrosswalk = is_file($root . '/storage/let-source-crosswalk-batch674.json')
+            ? $root . '/storage/let-source-crosswalk-batch674.json'
+            : $root . '/storage/let-source-crosswalk-batch673.json';
         $files = [
-            'let-source-crosswalk-batch673' => $root . '/storage/let-source-crosswalk-batch673.json',
+            'let-source-crosswalk-current' => $currentCrosswalk,
             'questions' => $root . '/storage/questions.json',
             'study-question-links' => $root . '/storage/study-question-links.json',
             'study-materials' => $root . '/storage/study-materials.json',
@@ -56,8 +59,8 @@ final class LetSourceCrosswalkCheck implements CheckInterface
             );
         }
 
-        $report = $collections['let-source-crosswalk-batch673'];
-        unset($collections['let-source-crosswalk-batch673']);
+        $report = $collections['let-source-crosswalk-current'];
+        unset($collections['let-source-crosswalk-current']);
         $result = self::audit($report, $collections);
         $errors = $result['errors'];
         $warnings = $result['warnings'];
@@ -328,8 +331,8 @@ final class LetSourceCrosswalkCheck implements CheckInterface
         foreach (['VERIFIED' => 'verified', 'CORRECTABLE' => 'correctable', 'DEFERRED' => 'deferred', 'DETECTOR_LIMITATION' => 'detector_limitations'] as $classification => $field) {
             if ((int) ($reportedClasses[$classification] ?? -1) !== $summary[$field]) $errors[] = 'Report classification total is stale for ' . $classification . '.';
         }
-        if ($summary['crosswalks'] !== (int) ($reportedSummary['target_crosswalks_before'] ?? -1)) {
-            $errors[] = 'Report target crosswalk count is inconsistent.';
+        if ($summary['crosswalks'] !== (int) ($reportedSummary['target_crosswalks_after'] ?? -1)) {
+            $errors[] = 'Report current target crosswalk count is inconsistent.';
         }
 
         $structuralUnknown = [];
@@ -344,7 +347,7 @@ final class LetSourceCrosswalkCheck implements CheckInterface
         $reportedStructural = array_map('strval', (array) ($reportedSummary['separate_structural_unknown_rows'] ?? []));
         sort($reportedStructural, SORT_STRING);
         if ($structuralUnknown !== $reportedStructural) $errors[] = 'Separate structural CSE placeholders are missing or stale.';
-        if ($structuralUnknown !== []) $warnings[] = 'Separate structural CSE placeholders remain UNKNOWN and are outside this 35-row LET review: ' . implode(', ', $structuralUnknown) . '.';
+        if ($structuralUnknown !== []) $warnings[] = 'Separate structural CSE placeholders remain UNKNOWN and are outside the ' . $summary['crosswalks'] . '-row LET review: ' . implode(', ', $structuralUnknown) . '.';
 
         return ['errors' => array_values(array_unique($errors)), 'warnings' => array_values(array_unique($warnings)), 'summary' => $summary];
     }

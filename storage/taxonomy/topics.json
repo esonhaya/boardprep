@@ -5516,5 +5516,101 @@
         "status": "active",
         "board_id": "mechanical-engineering",
         "official_area_id": "machine-design-materials-shop-practice"
+    },
+    {
+        "id": "let-foundations-education-purpose",
+        "domain_id": "educational-foundations",
+        "code": "B674-BEC95D",
+        "name": "Educational Purpose and Social Effects",
+        "description": "Compare educational aims with observed social consequences and ask whose access, participation, or learning is affected.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the key distinction in this topic.",
+                "Apply evidence and the relevant source or professional duty to a bounded scenario."
+            ]
+        },
+        "boardprep_taxonomy": {
+            "batch": 674,
+            "board_id": "let",
+            "official_status": "BOARDPREP_DERIVED_TOPIC",
+            "official_scope_claim": false,
+            "official_area_id": "professional-education"
+        }
+    },
+    {
+        "id": "let-professional-ethics-practice",
+        "domain_id": "professional-ethics",
+        "code": "B674-80CA50",
+        "name": "Ethical Duties and Boundaries",
+        "description": "Apply professional duties, applicable policy, fairness, privacy, and learner welfare to practice decisions.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the key distinction in this topic.",
+                "Apply evidence and the relevant source or professional duty to a bounded scenario."
+            ]
+        },
+        "boardprep_taxonomy": {
+            "batch": 674,
+            "board_id": "let",
+            "official_status": "BOARDPREP_DERIVED_TOPIC",
+            "official_scope_claim": false,
+            "official_area_id": "professional-education"
+        }
+    },
+    {
+        "id": "let-professional-growth-reflection",
+        "domain_id": "professional-ethics",
+        "code": "B674-C7EACD",
+        "name": "Reflective Professional Learning",
+        "description": "Use evidence, feedback, and collaborative inquiry to improve teaching practice over time.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the key distinction in this topic.",
+                "Apply evidence and the relevant source or professional duty to a bounded scenario."
+            ]
+        },
+        "boardprep_taxonomy": {
+            "batch": 674,
+            "board_id": "let",
+            "official_status": "BOARDPREP_DERIVED_TOPIC",
+            "official_scope_claim": false,
+            "official_area_id": "professional-education"
+        }
+    },
+    {
+        "id": "let-school-community-partnerships",
+        "domain_id": "school-community-relations",
+        "code": "B674-D9663E",
+        "name": "Family and Community Partnership",
+        "description": "Coordinate accessible school-family-community support with clear roles, privacy, and shared learning goals.",
+        "learning": {
+            "difficulty": "medium",
+            "estimated_study_minutes": 90,
+            "mastery_threshold": 80,
+            "prerequisite_ids": [],
+            "learning_objectives": [
+                "Explain the key distinction in this topic.",
+                "Apply evidence and the relevant source or professional duty to a bounded scenario."
+            ]
+        },
+        "boardprep_taxonomy": {
+            "batch": 674,
+            "board_id": "let",
+            "official_status": "BOARDPREP_DERIVED_TOPIC",
+            "official_scope_claim": false,
+            "official_area_id": "professional-education"
+        }
     }
 ]
