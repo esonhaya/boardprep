@@ -1,8 +1,8 @@
 # BoardPrep — Batch 680: Question Bank Deepening and Learning Intelligence
 
 START_TIME=2026-10-15T10:47:01Z (earliest retained protected-state checkpoint; earlier start time is unavailable in resumed context)
-END_TIME=2026-10-15T13:24:15Z (final release, browser, report, and clipboard-verification checkpoint)
-ELAPSED_MINUTES=157 minutes from the earliest retained checkpoint; earlier elapsed time cannot be reconstructed from the resumed context
+END_TIME=2026-10-15T13:25:55Z (final evidence, report, and clipboard-verification checkpoint)
+ELAPSED_MINUTES=159 minutes from the earliest retained checkpoint; earlier elapsed time cannot be reconstructed from the resumed context
 HEAD_BEFORE=d9e470893077783733b245927210a965851b6f79
 HEAD_AFTER=455ce5bc4e84280f12aa237b55de6157b54912f8 (final application commit; report/evidence commit is documentation-only)
 BATCH679_STATUS=ABSENT; no Batch 679 report, commit, or attributable edits found; no recovery work was needed
