@@ -38,7 +38,7 @@ TESTS_PASS_FAIL_SKIP=Final Doctor release 53/0/0; PHP syntax 20/0; JSON integrit
 UNRESOLVED_GAPS=Product launch remains NOT_READY pending 12 human MVP acceptance cases, owner-approved privacy/contact/retention/deletion terms, live HTTPS validation, and real-device accessibility; 8 source-review signals remain open; 4 readiness records remain structural review items
 COMMITS=c92745b22b7315f7e51ec3015f298eba5d768964 — adaptive recommendations and source-backed learning paths; c31092eeb64250f34d37a8519f75c69b233759cc — official-form source validation; 39974fc87a4b436ff63dfc44cad56bf61f45a239 — verified cURL browser-evidence registration; 9405b13011cb63211ca45a0a25a05ecd89112ae9 — report and browser evidence registry; this closing metadata revision is documentation-only
 PUSH_STATUS=PASS; implementation commits and report/evidence are integrated into main by ordinary non-force fast-forward; final metadata revision was pushed and post-fetch confirmed local main equals origin/main
-CLIPBOARD_STATUS=UNVERIFIED; termux-clipboard-set exited 0, but termux-clipboard-get returned 0 bytes (empty SHA-256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855); complete report is preserved at docs/batches/batch-678.md; a final readback retry will follow the closing push
+CLIPBOARD_STATUS=UNVERIFIED; termux-clipboard-set exited 0, but termux-clipboard-get returned 0 bytes on repeated attempts (empty SHA-256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855), so the normalized hashes do not match; complete report remains preserved at docs/batches/batch-678.md
 
 ## Evidence details
 
