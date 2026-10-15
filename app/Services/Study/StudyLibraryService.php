@@ -144,9 +144,14 @@ final class StudyLibraryService
             if ($questionId === '' || !isset($questionIds[$questionId]) || !isset($materials[$materialId])) {
                 continue;
             }
-            $references[$questionId][$materialId] = [
+            $reviewGuidance = is_scalar($link['review_guidance'] ?? null)
+                ? trim((string) $link['review_guidance'])
+                : '';
+            $referenceKey = $materialId . "\0" . $reviewGuidance;
+            $references[$questionId][$referenceKey] = [
                 'material_id' => $materialId,
                 'title' => $materials[$materialId],
+                'review_guidance' => $reviewGuidance,
             ];
         }
 

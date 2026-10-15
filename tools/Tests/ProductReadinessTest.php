@@ -31,8 +31,24 @@ $assert(($report['critical_capability_checks']['unsupported_exam_mode_claim_disc
 $assert(($report['critical_capability_checks']['exam_simulation_timer_review_and_expiry_regression'] ?? false) === true, 'Timed exam simulation and review regression coverage were not recognized.');
 $browserExecutionVerified = ($report['browser_validation']['execution_verified_for_current_commit'] ?? false) === true;
 $assert(($report['critical_capability_checks']['current_commit_real_browser_acceptance'] ?? false) === $browserExecutionVerified, 'Browser evidence status does not match the current-commit verification.');
-$assert(($report['browser_validation']['status'] ?? '') === ($browserExecutionVerified ? 'BROWSER_EXECUTED_PASS' : 'TEST_PREPARED_NOT_EXECUTED'), 'Browser execution state was not reported distinctly.');
+$expectedBrowserStatus = $browserExecutionVerified
+    ? 'BROWSER_EXECUTED_PASS'
+    : match ((string) ($report['browser_validation']['status'] ?? '')) {
+        'STALE_EVIDENCE', 'COMMIT_MISMATCH', 'UNVERIFIED_EVIDENCE', 'UNCOMMITTED_APPLICATION_CHANGES', 'BROWSER_EXECUTED_FAIL' => $report['browser_validation']['status'],
+        default => 'NOT_VERIFIED',
+    };
+$assert(($report['browser_validation']['status'] ?? '') === $expectedBrowserStatus, 'Browser evidence freshness and conclusion were not reported distinctly.');
 $assert(count((array) ($report['browser_validation']['required_viewports'] ?? [])) === 5, 'Required responsive viewport evidence was not inventoried.');
+$assert(($report['browser_validation']['registered_run_count'] ?? 0) >= 1, 'GitHub browser workflow evidence was not registered.');
+if ($browserExecutionVerified) {
+    $assert(in_array(($report['browser_validation']['evidence_relation'] ?? ''), ['EXACT', 'DOCUMENTATION_ONLY_DESCENDANT'], true), 'Browser evidence passed without an exact or documentation-only commit relationship.');
+    $assert(($report['browser_validation']['workflow_conclusion'] ?? '') === 'success', 'Browser evidence passed without a successful GitHub workflow conclusion.');
+}
+$dirtyBrowserPaths = (array) ($report['browser_validation']['uncommitted_application_paths'] ?? []);
+if (($report['browser_validation']['status'] ?? '') === 'UNCOMMITTED_APPLICATION_CHANGES') {
+    $assert($dirtyBrowserPaths !== [], 'Product readiness reported uncommitted changes without listing their paths.');
+    $assert(str_contains((string) ($report['browser_validation']['evidence_reason'] ?? ''), 'uncommitted application-affecting changes'), 'Product readiness did not explain why dirty-checkout browser evidence is unverified.');
+}
 $browserEvidence = array_values(array_filter(
     (array) ($report['mandatory_launch_evidence'] ?? []),
     static fn(mixed $evidence): bool => is_array($evidence)

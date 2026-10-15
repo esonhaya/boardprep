@@ -6812,8 +6812,10 @@
         "material_id": "ce-489--onstruction-anagement-and-uantity",
         "question_id": "1181",
         "source_ids": [
-            "fhwa-construction-program-management-inspection"
-        ]
+            "fhwa-construction-program-management-inspection",
+            "fhwa-construction-quantity-review-appendix-d"
+        ],
+        "review_guidance": "Multiply the three stated dimensions: 12 m × 4 m × 1.5 m = 72 m³. The dimensions in meters produce cubic meters. FHWA Appendix D discusses verifying measurement methods and contract quantity records; this question asks for the geometric volume only."
     },
     {
         "id": "study-link-ce-1182",
@@ -8638,8 +8640,10 @@
         "material_id": "ree-material-electronics",
         "question_id": 1629,
         "source_ids": [
-            "prc-electrical-engineering-board-page"
-        ]
+            "prc-electrical-engineering-board-page",
+            "openstax-college-physics-magnetic-force-conductor"
+        ],
+        "review_guidance": "For a straight current-carrying conductor, F = BIL sin(θ). Here θ = 90°, so F = 0.5 × 4 × 2 = 4 N. Since T·A·m = N, the units agree. The direction is not needed because the question asks for magnitude."
     },
     {
         "id": "ree-link-1630",
@@ -9301,8 +9305,10 @@
         "material_id": "cpa-material-17",
         "question_id": "1365",
         "source_ids": [
-            "prc-accountancy-board-page"
-        ]
+            "prc-accountancy-board-page",
+            "bir-efps-form-1701-q"
+        ],
+        "review_guidance": "Subtract the documented payments given in the problem from tax due: P50,000 − P32,000 = P18,000 payable. The BIR form separates tax due, credits/payments, and payable; this calculation does not establish real-world credit eligibility."
     },
     {
         "id": "link-cpa-1367-depth",
@@ -69745,8 +69751,10 @@
         "question_id": 6811,
         "source_ids": [
             "csc-cse-ppt-scope-2026",
-            "openstax-prealgebra-2e"
-        ]
+            "openstax-prealgebra-2e",
+            "openstax-prealgebra-distributive-property-7-3"
+        ],
+        "review_guidance": "Use the distributive property: 2.5 × 36 = (2 + 0.5) × 36 = 72 + 18 = 90. Estimating with 3 × 36 = 108 checks that 90 is a plausible result."
     },
     {
         "id": "study-link-b632-6812",

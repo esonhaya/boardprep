@@ -262,58 +262,46 @@ $humanCasesNotPassed = array_values(array_filter(
 $browserValidation = is_array($register['browser_validation'] ?? null)
     ? $register['browser_validation']
     : [];
-$browserExecutionPath = $root . '/' . (string) ($browserValidation['EVIDENCE_ARTIFACT'] ?? '');
-$browserExecution = null;
-if (is_file($browserExecutionPath)) {
-    try {
-        $browserExecution = json_decode((string) file_get_contents($browserExecutionPath), true, 512, JSON_THROW_ON_ERROR);
-    } catch (Throwable) {
-        $browserExecution = null;
+$browserEvidenceRegistryPath = $root . '/docs/release-evidence/browser-workflows.json';
+$browserEvidenceRegistry = ['schema_version' => 1, 'records' => []];
+try {
+    if (is_file($browserEvidenceRegistryPath)) {
+        $decodedBrowserRegistry = json_decode(
+            (string) file_get_contents($browserEvidenceRegistryPath),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        );
+        if (is_array($decodedBrowserRegistry)
+            && (int) ($decodedBrowserRegistry['schema_version'] ?? 0) === 1
+            && is_array($decodedBrowserRegistry['records'] ?? null)) {
+            $browserEvidenceRegistry = $decodedBrowserRegistry;
+        }
     }
+} catch (Throwable) {
+    $browserEvidenceRegistry = ['schema_version' => 0, 'records' => []];
 }
+$browserEvidenceResult = \App\Services\Operations\BrowserEvidenceService::evaluate(
+    $browserEvidenceRegistry,
+    $head,
+    $root,
+    \App\Services\Operations\BrowserEvidenceService::applicationAffectingWorkingTreePaths($root)
+);
+$browserExecution = is_array($browserEvidenceResult['record'] ?? null)
+    ? $browserEvidenceResult['record']
+    : null;
 $requiredBrowserViewports = (array) ($browserValidation['REQUIRED_VIEWPORTS'] ?? []);
-$browserProjects = array_values(array_unique((array) ($browserExecution['projects'] ?? [])));
-$browserVersions = (array) ($browserExecution['engine_versions'] ?? []);
-$browserJourneyEvidence = (array) ($browserExecution['journey_evidence'] ?? []);
-$browserReportPath = $root . '/' . (string) ($browserExecution['report'] ?? '');
-$browserReport = null;
-if (is_file($browserReportPath)) {
-    try {
-        $browserReport = json_decode((string) file_get_contents($browserReportPath), true, 512, JSON_THROW_ON_ERROR);
-    } catch (Throwable) {
-        $browserReport = null;
-    }
-}
-$browserExecutionVerified = is_array($browserExecution)
-    && ($browserExecution['status'] ?? '') === 'BROWSER_EXECUTED_PASS'
-    && ($browserExecution['format_version'] ?? 0) === 1
-    && ($browserExecution['commit'] ?? '') !== ''
-    && $head !== ''
-    && hash_equals($head, (string) $browserExecution['commit'])
-    && ($browserExecution['working_tree_clean'] ?? false) === true
-    && ($browserExecution['engine'] ?? '') === 'chromium'
-    && in_array('mobile', $browserProjects, true)
-    && in_array('desktop', $browserProjects, true)
-    && trim((string) ($browserVersions['mobile'] ?? '')) !== ''
-    && trim((string) ($browserVersions['desktop'] ?? '')) !== ''
-    && array_diff($requiredBrowserViewports, (array) ($browserExecution['viewports_executed'] ?? [])) === []
-    && ($browserJourneyEvidence['keyboard_navigation'] ?? false) === true
-    && ($browserJourneyEvidence['accessibility_semantics'] ?? false) === true
-    && ($browserJourneyEvidence['privacy_export_and_deletion'] ?? false) === true
-    && ($browserJourneyEvidence['production_boundary'] ?? false) === true
-    && ($browserJourneyEvidence['ten_board_journeys'] ?? false) === true
-    && ($browserJourneyEvidence['responsive_viewport_sweep'] ?? false) === true
-    && ($browserJourneyEvidence['math_and_table_viewports'] ?? false) === true
-    && is_array($browserReport)
-    && (int) ($browserReport['stats']['expected'] ?? 0) > 0
-    && (int) ($browserReport['stats']['unexpected'] ?? -1) === 0
-    && is_array($browserExecution['results'] ?? null)
-    && (int) ($browserExecution['results']['passed'] ?? -1) === (int) ($browserReport['stats']['expected'] ?? 0)
-    && (int) ($browserExecution['results']['failed'] ?? -1) === (int) ($browserReport['stats']['unexpected'] ?? -2)
-    && (int) ($browserExecution['results']['failed'] ?? -1) === 0;
+$browserExecutionVerified = ($browserEvidenceResult['status'] ?? '') === 'PASS';
 $browserValidationStatus = $browserExecutionVerified
     ? 'BROWSER_EXECUTED_PASS'
-    : (string) ($browserValidation['STATUS'] ?? 'NOT_VERIFIED');
+    : match ((string) ($browserEvidenceResult['status'] ?? '')) {
+        'STALE' => 'STALE_EVIDENCE',
+        'MISMATCH' => 'COMMIT_MISMATCH',
+        'UNVERIFIED' => 'UNVERIFIED_EVIDENCE',
+        'DIRTY_WORKTREE' => 'UNCOMMITTED_APPLICATION_CHANGES',
+        'FAIL' => 'BROWSER_EXECUTED_FAIL',
+        default => 'NOT_VERIFIED',
+    };
 
 $mandatoryEvidence = (array) ($register['mandatory_launch_evidence'] ?? []);
 foreach ($mandatoryEvidence as &$evidence) {
@@ -324,10 +312,12 @@ foreach ($mandatoryEvidence as &$evidence) {
 
     if ($browserExecutionVerified) {
         $evidence['STATUS'] = 'PASS';
-        $evidence['REASON'] = 'Current-commit Chromium evidence verifies desktop and mobile projects, the required responsive viewports, keyboard navigation, browser accessibility semantics, ten-board journeys, and privacy/production boundaries. This automated evidence does not establish screen-reader behavior or WCAG conformance.';
+        $evidence['REASON'] = 'GitHub Actions run ' . (string) ($browserEvidenceResult['run_id'] ?? 'unknown')
+            . ' completed successfully on application commit ' . (string) ($browserEvidenceResult['application_commit'] ?? 'unknown')
+            . '; evidence is accepted because the assessed commit is exact or all descendants change docs/ files only. Automated Chromium does not establish screen-reader behavior or WCAG conformance.';
     } else {
         $evidence['STATUS'] = 'NOT_VERIFIED';
-        $evidence['REASON'] = 'A current-commit Chromium execution manifest and report have not been verified; prepared tests or evidence for another commit do not satisfy this check.';
+        $evidence['REASON'] = (string) ($browserEvidenceResult['reason'] ?? 'No verifiable Chromium workflow evidence is registered.');
     }
 }
 unset($evidence);
@@ -397,13 +387,23 @@ $report = [
     'browser_validation' => [
         'status' => $browserValidationStatus,
         'execution_verified_for_current_commit' => $browserExecutionVerified,
+        'evidence_reason' => (string) ($browserEvidenceResult['reason'] ?? ''),
+        'evidence_relation' => (string) ($browserEvidenceResult['relation'] ?? 'MISSING'),
+        'application_commit' => $browserEvidenceResult['application_commit'] ?? null,
+        'assessed_commit' => $head !== '' ? $head : 'UNAVAILABLE',
+        'run_id' => $browserEvidenceResult['run_id'] ?? null,
+        'workflow_conclusion' => $browserEvidenceResult['conclusion'] ?? null,
+        'registry_path' => 'docs/release-evidence/browser-workflows.json',
+        'registered_run_count' => $browserEvidenceResult['records_count'] ?? 0,
+        'uncommitted_application_paths' => $browserEvidenceResult['uncommitted_application_paths'] ?? [],
+        'historical_runs' => $browserEvidenceResult['registered_runs'] ?? [],
         'required_projects' => $browserValidation['REQUIRED_PROJECTS'] ?? [],
         'required_viewports' => $requiredBrowserViewports,
-        'viewports_executed' => $browserExecution['viewports_executed'] ?? [],
+        'viewports_executed' => $browserExecutionVerified ? $requiredBrowserViewports : [],
         'accessibility_engine' => $browserValidation['ACCESSIBILITY_ENGINE'] ?? 'NOT_RECORDED',
         'accessibility_scope' => $browserValidation['ACCESSIBILITY_SCOPE'] ?? 'NOT_RECORDED',
         'reproduction_command' => $browserValidation['AUTOMATION_COMMAND'] ?? '',
-        'evidence_artifact' => $browserValidation['EVIDENCE_ARTIFACT'] ?? '',
+        'evidence_artifact' => 'GitHub Actions workflow run and completed job conclusions',
         'human_acceptance' => $humanCases,
         'evidence' => $browserExecution,
     ],

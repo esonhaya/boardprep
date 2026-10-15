@@ -1849,6 +1849,10 @@
             [
                 "Batch 632 — Common errors",
                 "Watch for using the new value as the percent base, reversing a ratio, averaging unlike periods, and reporting a rate with mismatched units."
+            ],
+            [
+                "Batch 678 — Distributive decomposition",
+                "Rewrite 2.5 as 2 + 0.5. Then (2 + 0.5) × 36 = 2 × 36 + 0.5 × 36 = 72 + 18 = 90. Estimate first (about 3 × 36 = 108) and check that 90 is plausible; the result has no measurement unit because the inputs are numbers."
             ]
         ],
         "source_ids": [
@@ -1856,7 +1860,8 @@
             "openstax-prealgebra-2e",
             "openstax-introductory-statistics-2e",
             "openstax-prealgebra-proportions-chapter6-5",
-            "openstax-statistics-graphs-chapter2-2"
+            "openstax-statistics-graphs-chapter2-2",
+            "openstax-prealgebra-distributive-property-7-3"
         ],
         "exams": [
             "civil-service"
@@ -1868,8 +1873,8 @@
             "concept_id": "cse-percentages"
         },
         "status": "published",
-        "version": 13,
-        "updated_at": "2026-10-14",
+        "version": 14,
+        "updated_at": "2026-10-15",
         "exam_focus": {
             "civil-service-professional": {
                 "priority": "high",
@@ -4413,11 +4418,16 @@
             [
                 "Records and change",
                 "Document measured quantities, assumptions, approvals, and affected work. A unit-price quantity change uses the supported incremental quantity before other contract effects are considered."
+            ],
+            [
+                "Batch 678 — Worked volume and quantity review",
+                "For the stated rectangular excavation, multiply length × width × depth: 12 m × 4 m × 1.5 m = 72 m³. Check that all dimensions use meters so the result is cubic meters. This is geometric volume; a contract pay quantity can depend on the governing measurement method and approved records."
             ]
         ],
         "source_ids": [
             "prc-civil-engineering-board-page",
-            "fhwa-construction-program-management-inspection"
+            "fhwa-construction-program-management-inspection",
+            "fhwa-construction-quantity-review-appendix-d"
         ],
         "exams": [
             "civil-engineering"
@@ -4432,8 +4442,8 @@
             "subject_id": "civil-engineering-applied-mathematics"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-10-15"
     },
     {
         "id": "ce-489--luid-echanics-and-ydraulics",
@@ -5122,7 +5132,7 @@
         "standalone_reviewed_at_batch": 656
     },
         {
-        "id": "cpa-management-cost-cvp-foundation",
+            "id": "cpa-management-cost-cvp-foundation",
         "title": "Cost Behavior, CVP, Sales Mix, and Sensitivity",
         "summary": "Technical management-accounting foundation for fixed and variable cost behavior, contribution analysis, break-even reasoning, sales mix, and decision sensitivity.",
         "notes": [
@@ -5170,7 +5180,7 @@
         "updated_at": "2026-10-14"
     },
         {
-        "id": "cpa-management-relevant-decisions-foundation",
+            "id": "cpa-management-relevant-decisions-foundation",
         "title": "Relevant Costs and Short-Term Decisions",
         "summary": "Decision-focused coverage of avoidable, opportunity, and sunk costs for make-or-buy, special-order, and constrained-resource decisions.",
         "notes": [
@@ -5621,10 +5631,15 @@
             {
                 "heading": "Practice",
                 "body": "Use the linked CPA question set to test interpretation and computation."
+            },
+            {
+                "heading": "Batch 678 — Tax due and documented payments",
+                "body": "When a problem gives tax due and documented payments that may be credited against it, calculate the stated balance as tax due minus those payments. Here, P50,000 − P32,000 = P18,000 payable. This arithmetic does not determine whether a real payment is legally creditable; follow the facts and rules supplied by the problem."
             }
         ],
         "source_ids": [
-            "prc-accountancy-board-page"
+            "prc-accountancy-board-page",
+            "bir-efps-form-1701-q"
         ],
         "exams": [
             "cpa"
@@ -5633,8 +5648,8 @@
             "subject_id": "cpa-regulatory-framework"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-01"
+        "version": 2,
+        "updated_at": "2026-10-15"
     },
     {
         "id": "cpa-material-18",
@@ -6790,12 +6805,17 @@
             {
                 "heading": "Common mistakes",
                 "body": "Do not treat a diode as an always-on voltage source, confuse gain with output power, or ignore loading when a measurement or following stage changes the modeled circuit."
+            },
+            {
+                "heading": "Batch 678 — Force on a current-carrying conductor",
+                "body": "Use F = B I L sin(θ). The conductor is perpendicular to the field, so sin(90°) = 1: (0.5 T)(4 A)(2 m) = 4 N. The units T·A·m reduce to newtons. Use a right-hand rule only when the force direction is requested."
             }
         ],
         "source_ids": [
             "prc-electrical-engineering-board-page",
             "mit-ocw-6-002-circuits-electronics",
-            "openstax-university-physics-volume-2"
+            "openstax-university-physics-volume-2",
+            "openstax-college-physics-magnetic-force-conductor"
         ],
         "exams": [
             "registered-electrical-engineering"
@@ -6804,8 +6824,8 @@
             "subject_id": "registered-electrical-engineering-foundation"
         },
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-06",
+        "version": 2,
+        "updated_at": "2026-10-15",
         "supported_concept_ids": [
             "b633-ree-allied-electronics-semiconductor",
             "b633-ree-allied-electronics-analog",

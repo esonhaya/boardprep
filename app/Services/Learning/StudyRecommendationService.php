@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\Learning;
 
+use App\Services\Learning\LearningAttemptNormalizer;
 use App\Services\Learning\Recommendation\StudyRecommendationFactory;
 
 final class StudyRecommendationService
@@ -35,10 +36,11 @@ final class StudyRecommendationService
             }
         }
 
-        if (count($attempts) < 3) {
+        $completedAttemptCount = LearningAttemptNormalizer::total($attempts);
+        if ($completedAttemptCount < 3) {
             $recommendations[] = StudyRecommendationFactory::general(
                 'Build more history',
-                'Complete a few more quizzes to make your insights more reliable.'
+                'Complete a few more quizzes to make topic trends more reliable. Recommendations use completed attempts only.'
             );
         }
 
