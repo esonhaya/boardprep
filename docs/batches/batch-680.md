@@ -1,8 +1,8 @@
 # BoardPrep — Batch 680: Question Bank Deepening and Learning Intelligence
 
 START_TIME=2026-10-15T10:47:01Z (earliest retained protected-state checkpoint; earlier start time is unavailable in resumed context)
-END_TIME=2026-10-15T13:22:53Z (final release, browser, report, and clipboard-verification checkpoint)
-ELAPSED_MINUTES=156 minutes from the earliest retained checkpoint; earlier elapsed time cannot be reconstructed from the resumed context
+END_TIME=2026-10-15T13:24:15Z (final release, browser, report, and clipboard-verification checkpoint)
+ELAPSED_MINUTES=157 minutes from the earliest retained checkpoint; earlier elapsed time cannot be reconstructed from the resumed context
 HEAD_BEFORE=d9e470893077783733b245927210a965851b6f79
 HEAD_AFTER=455ce5bc4e84280f12aa237b55de6157b54912f8 (final application commit; report/evidence commit is documentation-only)
 BATCH679_STATUS=ABSENT; no Batch 679 report, commit, or attributable edits found; no recovery work was needed
@@ -45,7 +45,7 @@ TESTS_PASS_FAIL_SKIP=Final Doctor release 42/0/0 unique scripts; targeted post-o
 UNRESOLVED_GAPS=8 source-review signals remain; 752 health signals are nonblocking; 88 exact duplicate groups require editorial review and were preserved; 2,740 questions lack cognitive-intent metadata; difficulty labels have no psychometric calibration; four structural source-readiness review items remain; KWF PDF was inaccessible (HTTP 403); public launch gates remain NOT_READY.
 COMMITS=7799691e7d37354503a04f73f03b146e4e93ee76 — adaptive study and source-first content; 455ce5bc4e84280f12aa237b55de6157b54912f8 — board-candidate question-selection optimization; report and verified browser registry will be a documentation-only descendant.
 PUSH_STATUS=PASS for both application commits and the documentation-only report/evidence commit using ordinary non-force fast-forward; post-push fetch confirms local main equals origin/main.
-CLIPBOARD_STATUS=UNVERIFIED; termux-clipboard-set exited 0, but termux-clipboard-get returned only one newline (normalized SHA-256 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b), which does not match the 12,977-byte report; complete report is preserved here
+CLIPBOARD_STATUS=UNVERIFIED; termux-clipboard-set exited 0, but termux-clipboard-get returned only one newline (normalized SHA-256 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b), which does not match the report; the complete report is preserved here
 
 ## Evidence details
 
