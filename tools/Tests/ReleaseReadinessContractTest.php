@@ -17,7 +17,7 @@ $critical = [
     'LEARNER_CORE_FLOWS', 'ATTEMPT_SAFETY', 'RESULT_REVIEW', 'PROGRESS_STATE',
     'HISTORY', 'SIMULATOR_RECOVERY', 'ADMIN_CORE_FLOWS', 'SHARED_QUESTION_SAFETY',
     'DEVELOPER_HEALTH', 'STUDY_TRACEABILITY', 'FLASHCARD_INTEGRITY', 'CALCULATION_INTEGRITY',
-    'ELIGIBILITY_INTEGRITY', 'SECURITY_SANITY',
+    'ELIGIBILITY_INTEGRITY', 'SECURITY_SANITY', 'RELEASE_TEST_STORAGE',
 ];
 $passing = [];
 foreach ($critical as $domain) $passing[$domain] = ['status' => 'PASS'];
@@ -48,10 +48,13 @@ $assert((int) ($routes['stub'] ?? 0) === 0, 'Release route scan found an unexpec
 
 $releaseSource = (string) file_get_contents(dirname(__DIR__, 2) . '/app/Services/RepositoryHealth/Release/ReleaseReadinessService.php');
 $assert(str_contains($releaseSource, 'createFlowTestStorage')
-    && str_contains($releaseSource, 'copyFlowTestStorageTree')
-    && str_contains($releaseSource, 'restoreFlowTestStorage')
-    && str_contains($releaseSource, 'APP_STORAGE_PATH='),
-    'Release flow tests no longer restore isolated learner and content storage for each script.');
+    && str_contains($releaseSource, 'rebuildFlowTestStorage')
+    && str_contains($releaseSource, 'RELEASE_TEST_MIN_FREE_BYTES')
+    && str_contains($releaseSource, 'register_shutdown_function')
+    && str_contains($releaseSource, 'session_cleanup_status')
+    && str_contains($releaseSource, 'temporaryDirectoryInventory')
+    && str_contains($releaseSource, "['APP_STORAGE_PATH']"),
+    'Release flow tests no longer rebuild isolated storage with free-space and interruption safeguards.');
 
 $production = ReleaseReadinessService::productionConfiguration(dirname(__DIR__, 2));
 $assert(($production['status'] ?? '') === 'PASS', 'Production configuration contract did not pass.');
@@ -73,6 +76,7 @@ foreach ($critical as $domain) {
     $key = strtolower($domain);
     $allFlowEvidence['checks'][$key] = ['status' => 'PASS'];
 }
+$allFlowEvidence['checks']['flow_storage'] = ['status' => 'PASS', 'cleanup_status' => 'PASS'];
 $allFlowEvidence['route_completeness'] = ['active' => 1, 'stub' => 0, 'broken' => 0, 'unknown' => 0];
 $editorialRelease = ReleaseReadinessService::audit(
     RepositoryHealthEngine::analyzeCollections([]),
@@ -80,6 +84,13 @@ $editorialRelease = ReleaseReadinessService::audit(
     ['status' => 'PASS']
 );
 $assert(($editorialRelease['release_gate']['status'] ?? '') === 'PASS', 'Nonblocking evidence/thinness debt incorrectly blocked an otherwise passing gate.');
+$incompleteStorageRelease = ReleaseReadinessService::audit(
+    RepositoryHealthEngine::analyzeCollections([]),
+    ['checks' => ['flow_storage' => ['status' => 'REVIEW', 'reason' => 'Insufficient test storage; no scripts ran.']]],
+    ['status' => 'PASS']
+);
+$assert(($incompleteStorageRelease['release_domains']['RELEASE_TEST_STORAGE']['status'] ?? '') === 'REVIEW', 'Insufficient storage was not surfaced as a release evidence review.');
+$assert(($incompleteStorageRelease['release_gate']['status'] ?? '') === 'REVIEW', 'Incomplete storage evidence was allowed to pass the release gate.');
 $assert(($editorialRelease['priority_counts']['P0'] ?? -1) === 0, 'Nonblocking editorial debt became a P0 action.');
 $contentAction = array_values(array_filter(
     (array) ($editorialRelease['action_queue'] ?? []),

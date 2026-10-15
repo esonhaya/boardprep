@@ -108,6 +108,10 @@ if (in_array('--release', array_slice($argv ?? [], 1), true)) {
     $payload = [
         'generated_at' => date(DATE_ATOM),
         'evidence_state' => \App\Services\RepositoryHealth\Engine\RepositoryHealthEvidenceService::CURRENT,
+        'flow_test_storage' => $flowEvidence['storage'] ?? ($flowEvidence['checks']['flow_storage'] ?? [
+            'status' => 'UNKNOWN',
+            'reason' => '--no-tests was used or storage evidence was not generated.',
+        ]),
         'health' => [
             'overall_status' => $releaseReport->overallStatus,
             'summary' => $releaseReport->summary,

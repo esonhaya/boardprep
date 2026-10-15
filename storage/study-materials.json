@@ -4244,12 +4244,30 @@
             [
                 "Batch 680 — Resolve a member force along a reference direction",
                 "For an ideal member force F at angle θ to the reference axis, the component on that axis is F cos θ. With F = 81 kN and cos θ = 0.5, the component is 81 × 0.5 = 40.5 kN. Use sine for the perpendicular component and assign sign only after establishing the direction convention."
+            ],
+            [
+                "Centered point-load reactions (worked example)",
+                "For a simply supported beam with one centered 16 kN point load and no other applied vertical loads, vertical equilibrium gives R_A + R_B = 16 kN. Taking moments about support A over span L gives R_B L = 16(L/2), so R_B = 8 kN and R_A = 8 kN. Equal reactions follow from the centered load and these supports; an off-center load needs a moment calculation."
+            ],
+            [
+                "Cantilever point-load moment (worked example)",
+                "For a 23 kN point load acting 3.5 m from a cantilever fixed end, take moments about the fixed support: |M_A| = P d = (23 kN)(3.5 m) = 80.5 kN·m. The support reaction moment opposes the load-induced rotation. Use the stated lever arm, and report a sign only after defining a convention."
+            ],
+            [
+                "Zero-force truss joint boundary",
+                "At an ideal pin joint with exactly two non-collinear members and no applied joint load or support reaction, the two independent force-balance components require both member forces to be zero. Check the joint conditions before applying this rule; a joint load or support reaction changes the equilibrium equations."
+            ],
+            [
+                "Free-body diagram sequence",
+                "Choose the structure or member to isolate, draw every external load and support reaction at its actual location, label lever arms, and state a sign convention. Then write force and moment equilibrium. A symmetric-looking drawing is not a substitute for checking support constraints and all applied actions."
             ]
         ],
         "source_ids": [
             "prc-civil-engineering-board-page",
             "mit-structural-analysis-member-systems",
-            "openstax-university-physics-volume-1"
+            "openstax-university-physics-volume-1",
+            "openstax-static-equilibrium-12-1",
+            "mit-solid-mechanics-beam-reactions-316"
         ],
         "exams": [
             "civil-engineering"
@@ -4264,8 +4282,8 @@
             "subject_id": "civil-engineering-structural-engineering"
         },
         "status": "published",
-        "version": 3,
-        "updated_at": "2026-10-15"
+        "version": 4,
+        "updated_at": "2026-10-16"
     },
     {
         "id": "ce-489--trength-of-aterials",

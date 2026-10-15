@@ -3592,5 +3592,35 @@
         "source_role": "INSTRUCTIONAL_SOURCE",
         "volatility": "STABLE_FOUNDATIONAL",
         "notes": "Field guidance to confirm diagnoses, assess whether case counts exceed expected levels, define and identify cases, and describe time/place/person. Steps may overlap; do not declare a source before evidence."
+    },
+    {
+        "id": "openstax-static-equilibrium-12-1",
+        "title": "University Physics Volume 1, Section 12.1: Conditions for Static Equilibrium",
+        "source_type": "OPEN_TEXTBOOK",
+        "authority": "OpenStax, Rice University",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/12-1-conditions-for-static-equilibrium",
+        "publication_date": "2016-09-19",
+        "retrieved_at": "2026-10-16",
+        "version": "Current OpenStax web edition, Section 12.1",
+        "status": "verified_reference",
+        "confidence": "authoritative_educational_reference",
+        "notes": "Defines translational and rotational equilibrium and supports free-body diagrams, forces, moments, and support reactions.",
+        "source_role": "SCIENTIFIC_SOURCE",
+        "volatility": "STABLE_FOUNDATIONAL"
+    },
+    {
+        "id": "mit-solid-mechanics-beam-reactions-316",
+        "title": "MIT OpenCourseWare 1.050 Solid Mechanics: Internal Forces and Moments, Exercise 3.16",
+        "source_type": "ACADEMIC_COURSE",
+        "authority": "MIT OpenCourseWare, Department of Civil and Environmental Engineering",
+        "url": "https://live.ocw.mit.edu/courses/1-050-solid-mechanics-fall-2004/5070a932644d2cb44cc965ac56f79c66_emech3_04.pdf",
+        "publication_date": null,
+        "retrieved_at": "2026-10-16",
+        "version": "Fall 2004 course notes, Chapter 3, Exercise 3.16",
+        "status": "verified_reference",
+        "confidence": "authoritative_educational_reference",
+        "notes": "Official course problem asks learners to determine support reactions for a simply supported beam with a concentrated load and then apply force and moment equilibrium.",
+        "source_role": "TECHNICAL_REFERENCE",
+        "volatility": "STABLE_FOUNDATIONAL"
     }
 ]

@@ -18,8 +18,11 @@ final class ReleaseReadinessService
         'LEARNER_CORE_FLOWS', 'ATTEMPT_SAFETY', 'RESULT_REVIEW', 'PROGRESS_STATE',
         'HISTORY', 'SIMULATOR_RECOVERY', 'ADMIN_CORE_FLOWS', 'SHARED_QUESTION_SAFETY',
         'DEVELOPER_HEALTH', 'STUDY_TRACEABILITY', 'FLASHCARD_INTEGRITY', 'CALCULATION_INTEGRITY',
-        'ELIGIBILITY_INTEGRITY', 'SECURITY_SANITY',
+        'ELIGIBILITY_INTEGRITY', 'SECURITY_SANITY', 'RELEASE_TEST_STORAGE',
     ];
+
+    private const RELEASE_TEST_MIN_FREE_BYTES = 1610612736; // 1.5 GiB
+    private const RELEASE_TEST_RESERVE_BYTES = 134217728; // 128 MiB for session/output growth
 
     /** @param array<string, mixed> $flowEvidence @param array<string, mixed> $performance @param array<string, mixed>|null $production */
     public static function audit(HealthReport $report, array $flowEvidence = [], array $performance = [], ?array $production = null): array
@@ -144,6 +147,16 @@ final class ReleaseReadinessService
             (string) ($production['reason'] ?? 'Production configuration audit.')
         );
         $domains['RELEASE_PACKAGING'] = self::flowDomain($flowEvidence, 'release_packaging');
+        $flowStorage = is_array($flowEvidence['checks']['flow_storage'] ?? null)
+            ? $flowEvidence['checks']['flow_storage']
+            : null;
+        $domains['RELEASE_TEST_STORAGE'] = $flowStorage === null
+            ? self::domain('UNKNOWN', ['check' => 'flow_storage'], 'No release test storage preflight evidence was supplied.')
+            : self::domain(
+                strtoupper((string) ($flowStorage['status'] ?? 'UNKNOWN')),
+                $flowStorage,
+                (string) ($flowStorage['reason'] ?? 'Release test storage preflight and cleanup evidence.')
+            );
 
         $actions = [];
         foreach ($domains as $name => $domain) {
@@ -468,8 +481,6 @@ final class ReleaseReadinessService
     public static function runFlowChecks(?string $root = null): array
     {
         $root ??= dirname(__DIR__, 4);
-        $testStoragePath = self::createFlowTestStorage($root);
-        $testStorageBaselinePath = $testStoragePath . '.baseline';
         $groups = [
             'learner_core_flows' => ['tools/Tests/TenBoardLearnerJourneyHttpTest.php', 'tools/Tests/LearnerJourneyHttpTest.php', 'tools/Tests/LearnerDashboardReliabilityTest.php', 'tools/Tests/LearnerExperienceConsistencyTest.php', 'tools/Tests/AdaptiveStudyEvidenceTest.php', 'tools/Tests/LearningProfileActionViewTest.php', 'tools/Tests/ProgressRecommendationViewTest.php', 'tools/Tests/LearnerNavigationUxTest.php', 'tools/Tests/LearnerMobileAccessibilityViewTest.php', 'tools/Tests/BoardDetailPerformanceTest.php'],
             'attempt_safety' => ['tools/Tests/MultiAttemptLearningHttpTest.php', 'tools/Tests/QuizStartFailureHttpTest.php', 'tools/Tests/ApplicationResilienceTest.php'],
@@ -478,15 +489,71 @@ final class ReleaseReadinessService
             'doctor_integrity' => ['tools/Tests/DoctorIntegrityTest.php', 'tools/Tests/RepositoryHealthEvidenceFreshnessTest.php', 'tools/Tests/Batch675StaticDoctorPrecisionTest.php', 'tools/Tests/Batch675SourceQualityPathwaysTest.php', 'tools/Tests/EducationalIntegrityPrecisionTest.php'],
             'admin_core_flows' => ['tools/Tests/QuestionEditorEligibilityTest.php', 'tools/Tests/QuestionAuthoringWorkflowIntegrationTest.php'],
             'shared_question_safety' => ['tools/Tests/CrossBoardCanonicalReuseTest.php', 'tools/Tests/Batch669NursingIntegrationTest.php', 'tools/Tests/MultiExamEligibilityTest.php'],
-            'study_experience' => ['tools/Tests/StudyLibraryNavigationTest.php', 'tools/Tests/SourceStudyLibraryTest.php', 'tools/Tests/QuestionStudyReferenceTest.php', 'tools/Tests/Batch678StudyReviewNavigationTest.php', 'tools/Tests/FlashcardIntegrationTest.php', 'tools/Tests/Batch672EducationalQualityTest.php', 'tools/Tests/Batch672CountReconciliationTest.php', 'tools/Tests/Batch677SourceFirstImprovementsTest.php', 'tests/batch677-let-source-quality-test.php'],
+            'study_experience' => ['tools/Tests/StudyLibraryNavigationTest.php', 'tools/Tests/SourceStudyLibraryTest.php', 'tools/Tests/QuestionStudyReferenceTest.php', 'tools/Tests/Batch678StudyReviewNavigationTest.php', 'tools/Tests/FlashcardIntegrationTest.php', 'tools/Tests/Batch672EducationalQualityTest.php', 'tools/Tests/Batch672CountReconciliationTest.php', 'tools/Tests/Batch677SourceFirstImprovementsTest.php', 'tools/Tests/Batch682EducationalQualityTest.php', 'tests/batch677-let-source-quality-test.php'],
             'security_sanity' => ['tools/Tests/ProductionQuizCsrfTest.php', 'tools/Tests/QuestionImportCsrfTest.php', 'tools/Tests/AnonymousLearnerPrivacyHttpTest.php', 'tools/Tests/SessionConfigurationTest.php', 'tools/Tests/SecurityTrustBoundaryTest.php'],
             'repository_determinism' => ['tools/Tests/ReleaseReadinessContractTest.php', 'tools/Tests/QuizAnswerStatisticsWeaknessTest.php', 'tools/Tests/ReleaseFlowStorageIsolationTest.php', 'tools/Tests/QuestionEligibilityMetadataBatchTest.php'],
             'production_configuration' => ['tools/Tests/RuntimeConfigurationTest.php', 'tools/Tests/ProductionFoundationTest.php', 'tools/Tests/DeploymentPreflightIsolationTest.php', 'tools/Tests/ProductReadinessTest.php', 'tools/Tests/BrowserWorkflowEvidenceTest.php', 'tools/Tests/HayaDoctorAdapterCompatibilityTest.php'],
             'release_packaging' => ['tools/Tests/ReleasePackageTest.php'],
         ];
         $checks = [];
+        $temporaryRoot = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR);
+        $availableBefore = self::availableSpace($temporaryRoot);
+        $preexistingFixtures = self::temporaryDirectoryInventory('boardprep-release-test-storage-');
+        $preexistingSessions = self::temporaryDirectoryInventory('boardprep-release-sessions-');
         try {
-            self::copyFlowTestStorageTree($testStoragePath, $testStorageBaselinePath);
+            $fixturePlan = self::flowTestStoragePlan($root . '/storage');
+        } catch (\Throwable $exception) {
+            return self::incompleteFlowChecks(
+                $groups,
+                'FAIL',
+                'Unable to inspect release test storage safely: ' . $exception->getMessage(),
+                ['available_before_bytes' => $availableBefore]
+            );
+        }
+        $requiredBytes = self::RELEASE_TEST_MIN_FREE_BYTES
+            + self::RELEASE_TEST_RESERVE_BYTES
+            + (int) $fixturePlan['fixture_bytes'];
+        $storageEvidence = [
+            'status' => 'PASS',
+            'reason' => 'Available temporary storage covers one private fixture, the 128 MiB runtime reserve, and the 1.5 GiB safety floor.',
+            'temporary_root' => $temporaryRoot,
+            'available_before_bytes' => $availableBefore,
+            'minimum_free_bytes' => self::RELEASE_TEST_MIN_FREE_BYTES,
+            'runtime_reserve_bytes' => self::RELEASE_TEST_RESERVE_BYTES,
+            'fixture_bytes' => (int) $fixturePlan['fixture_bytes'],
+            'fixture_files' => (int) $fixturePlan['fixture_files'],
+            'simultaneous_fixture_copies' => 1,
+            'redundant_baseline_bytes_avoided' => (int) $fixturePlan['fixture_bytes'],
+            'required_available_bytes' => $requiredBytes,
+            'minimum_observed_available_bytes' => $availableBefore,
+            'preexisting_fixture_directories_left_untouched' => $preexistingFixtures,
+            'preexisting_session_directories_left_untouched' => $preexistingSessions,
+            'largest_session_bytes_before_cleanup' => 0,
+            'largest_additional_test_storage_bytes_observed' => 0,
+        ];
+        if ($availableBefore === null || $availableBefore < $requiredBytes) {
+            $storageEvidence['status'] = 'REVIEW';
+            $storageEvidence['reason'] = $availableBefore === null
+                ? 'Unable to measure temporary free space; release tests were not started.'
+                : 'Insufficient free space for the isolated fixture and safety reserve; release tests were not started.';
+            return self::incompleteFlowChecks($groups, 'REVIEW', $storageEvidence['reason'], $storageEvidence);
+        }
+
+        try {
+            $testStoragePath = self::createFlowTestStorage($root);
+        } catch (\Throwable $exception) {
+            $storageEvidence['status'] = 'FAIL';
+            $storageEvidence['reason'] = 'Unable to create the isolated release fixture: ' . $exception->getMessage();
+            return self::incompleteFlowChecks($groups, 'FAIL', $storageEvidence['reason'], $storageEvidence);
+        }
+        register_shutdown_function(static function () use (&$testStoragePath): void {
+            self::removeFlowTestStorage($testStoragePath);
+        });
+
+        $stoppedForStorage = false;
+        $fixtureIsClean = true;
+        $sessionsCleaned = true;
+        try {
             foreach ($groups as $group => $scripts) {
                 $tests = [];
                 $allPass = true;
@@ -497,132 +564,295 @@ final class ReleaseReadinessService
                         $allPass = false;
                         continue;
                     }
-                    self::restoreFlowTestStorage($testStorageBaselinePath, $testStoragePath);
-                    [$exitCode, $output] = self::runScript($path, $root, $testStoragePath);
-                    $status = $exitCode === 0 ? 'PASS' : 'FAIL';
-                    $tests[] = ['script' => $script, 'status' => $status, 'exit_code' => $exitCode, 'output_tail' => substr($output, -1200)];
+                    if (!$fixtureIsClean) self::rebuildFlowTestStorage($root, $testStoragePath);
+                    $availableAtTestStart = self::availableSpace($temporaryRoot);
+                    [$exitCode, $output, $runMetrics] = self::runScript($path, $root, $testStoragePath);
+                    $fixtureIsClean = false;
+                    $availableAfterTest = self::availableSpace($temporaryRoot);
+                    foreach ([$availableAtTestStart, $availableAfterTest, $runMetrics['minimum_observed_available_bytes'] ?? null] as $observed) {
+                        if (is_int($observed) && ($storageEvidence['minimum_observed_available_bytes'] === null || $observed < $storageEvidence['minimum_observed_available_bytes'])) {
+                            $storageEvidence['minimum_observed_available_bytes'] = $observed;
+                        }
+                    }
+                    if (is_int($runMetrics['session_bytes'] ?? null)) {
+                        $storageEvidence['largest_session_bytes_before_cleanup'] = max(
+                            (int) $storageEvidence['largest_session_bytes_before_cleanup'],
+                            (int) $runMetrics['session_bytes']
+                        );
+                    }
+                    $observedMinimum = $runMetrics['minimum_observed_available_bytes'] ?? null;
+                    if (is_int($availableAtTestStart) && is_int($observedMinimum)) {
+                        $storageEvidence['largest_additional_test_storage_bytes_observed'] = max(
+                            (int) $storageEvidence['largest_additional_test_storage_bytes_observed'],
+                            max(0, $availableAtTestStart - $observedMinimum)
+                        );
+                    }
+                    if ((int) ($runMetrics['session_cleanup_status'] ?? 0) !== 1) {
+                        $sessionsCleaned = false;
+                        $storageEvidence['status'] = 'FAIL';
+                        $storageEvidence['reason'] = 'A release test left its private session directory behind; remaining tests were not run.';
+                    }
+                    $storageFloorStop = (int) ($runMetrics['storage_floor_stop'] ?? 0) === 1;
+                    $spaceBelowReserve = is_int($availableAfterTest)
+                        && $availableAfterTest < self::RELEASE_TEST_MIN_FREE_BYTES + 33554432;
+                    $cleanupFailed = !$sessionsCleaned;
+                    $stoppedThisTestForStorage = $storageFloorStop || $spaceBelowReserve || $cleanupFailed;
+                    $status = $cleanupFailed ? 'FAIL' : ($storageFloorStop ? 'INTERRUPTED' : ($exitCode === 0 ? 'PASS' : 'FAIL'));
+                    $tests[] = [
+                        'script' => $script,
+                        'status' => $status,
+                        'exit_code' => $exitCode,
+                        'output_tail' => substr($output, -1200),
+                        'runtime_ms' => $runMetrics['runtime_ms'] ?? null,
+                        'fixture_bytes' => (int) $fixturePlan['fixture_bytes'],
+                        'session_bytes_before_cleanup' => $runMetrics['session_bytes'] ?? null,
+                        'available_before_bytes' => $availableAtTestStart,
+                        'available_after_bytes' => $availableAfterTest,
+                        'minimum_observed_available_bytes' => $runMetrics['minimum_observed_available_bytes'] ?? null,
+                    ];
                     if ($status !== 'PASS') $allPass = false;
+                    if ($stoppedThisTestForStorage) {
+                        $stoppedForStorage = true;
+                        if ($sessionsCleaned) {
+                            $storageEvidence['status'] = 'REVIEW';
+                            $storageEvidence['reason'] = 'A running test was interrupted or the observed free space approached the 1.5 GiB safety floor; remaining tests were not run.';
+                        }
+                        break;
+                    }
                 }
-                $checks[$group] = ['status' => $allPass ? 'PASS' : 'FAIL', 'tests' => $tests, 'passed' => $allPass];
+                $checks[$group] = [
+                    'status' => ($storageEvidence['status'] ?? '') === 'FAIL'
+                        ? 'FAIL'
+                        : ($stoppedForStorage ? 'REVIEW' : ($allPass ? 'PASS' : 'FAIL')),
+                    'tests' => $tests,
+                    'passed' => ($storageEvidence['status'] ?? '') !== 'FAIL' && !$stoppedForStorage && $allPass,
+                    'reason' => $stoppedForStorage ? $storageEvidence['reason'] : null,
+                ];
+                if ($stoppedForStorage) break;
             }
-            return ['checks' => $checks];
+        } catch (\Throwable $exception) {
+            $storageEvidence['status'] = 'FAIL';
+            $storageEvidence['reason'] = 'Release flow runner stopped with an actionable storage/setup error: ' . $exception->getMessage();
         } finally {
-            self::removeFlowTestStorage($testStorageBaselinePath);
             self::removeFlowTestStorage($testStoragePath);
         }
+
+        $storageEvidence['cleanup_status'] = is_dir($testStoragePath) || !$sessionsCleaned ? 'FAIL' : 'PASS';
+        $storageEvidence['sessions_cleaned'] = $sessionsCleaned;
+        if ($storageEvidence['cleanup_status'] === 'FAIL') {
+            $storageEvidence['status'] = 'FAIL';
+            $storageEvidence['reason'] = 'The isolated release fixture could not be fully removed after test execution.';
+        } elseif (($storageEvidence['status'] ?? '') === 'PASS') {
+            $storageEvidence['reason'] = 'Isolated release fixture and per-test sessions were removed; failure output tails remain in the returned evidence.';
+        }
+        if ($stoppedForStorage || ($storageEvidence['status'] ?? '') !== 'PASS') {
+            foreach ($groups as $group => $scripts) {
+                if (array_key_exists($group, $checks)) continue;
+                $checks[$group] = [
+                    'status' => ($storageEvidence['status'] ?? '') === 'FAIL' ? 'FAIL' : 'REVIEW',
+                    'passed' => false,
+                    'reason' => $storageEvidence['reason'],
+                    'tests' => array_map(static fn(string $script): array => [
+                        'script' => $script,
+                        'status' => 'NOT_RUN',
+                        'exit_code' => null,
+                        'reason' => $storageEvidence['reason'],
+                    ], $scripts),
+                ];
+            }
+        }
+        $checks['flow_storage'] = $storageEvidence;
+        if ($storageEvidence['status'] === 'FAIL') {
+            foreach ($checks as $key => $check) {
+                if ($key !== 'flow_storage' && ($check['status'] ?? '') === 'PASS') {
+                    $checks[$key]['status'] = 'FAIL';
+                    $checks[$key]['passed'] = false;
+                    $checks[$key]['reason'] = 'Release test storage cleanup failed.';
+                }
+            }
+        }
+        $storageEvidence['returned_evidence_bytes'] = strlen(json_encode(
+            ['checks' => $checks, 'storage' => $storageEvidence],
+            JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR
+        ));
+        $checks['flow_storage'] = $storageEvidence;
+        return ['checks' => $checks, 'storage' => $storageEvidence];
     }
 
-    private static function copyFlowTestStorageTree(string $sourcePath, string $destinationPath): void
+    /** @param array<string, array<int, string>> $groups @param array<string, mixed> $storageEvidence @return array<string, mixed> */
+    private static function incompleteFlowChecks(array $groups, string $status, string $reason, array $storageEvidence): array
+    {
+        $checks = [];
+        foreach ($groups as $group => $scripts) {
+            $checks[$group] = [
+                'status' => $status,
+                'passed' => false,
+                'reason' => $reason,
+                'tests' => array_map(static fn(string $script): array => [
+                    'script' => $script,
+                    'status' => 'NOT_RUN',
+                    'exit_code' => null,
+                    'reason' => $reason,
+                ], $scripts),
+            ];
+        }
+        $storageEvidence['status'] = $status;
+        $storageEvidence['reason'] = $reason;
+        $checks['flow_storage'] = $storageEvidence;
+        $storageEvidence['returned_evidence_bytes'] = strlen(json_encode(
+            ['checks' => $checks, 'storage' => $storageEvidence],
+            JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR
+        ));
+        $checks['flow_storage'] = $storageEvidence;
+        return ['checks' => $checks, 'storage' => $storageEvidence];
+    }
+
+    private static function availableSpace(string $path): ?int
+    {
+        $available = @disk_free_space($path);
+        return $available === false ? null : (int) $available;
+    }
+
+    /** @return array<string, int> Temporary evidence is inventoried but never removed automatically. */
+    private static function temporaryDirectoryInventory(string $namePrefix): array
+    {
+        $root = realpath(sys_get_temp_dir()) ?: sys_get_temp_dir();
+        $inventory = [];
+        foreach (glob(rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $namePrefix . '*') ?: [] as $path) {
+            if (!is_dir($path) || is_link($path)) continue;
+            $resolved = realpath($path);
+            if ($resolved === false || !str_starts_with($resolved, rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR)) continue;
+            $inventory[basename($resolved)] = self::directoryBytes($resolved) ?? 0;
+        }
+        ksort($inventory, SORT_STRING);
+        return $inventory;
+    }
+
+    /** @return array{fixture_bytes:int,fixture_files:int} */
+    private static function flowTestStoragePlan(string $sourcePath): array
     {
         if (!is_dir($sourcePath)) {
-            throw new \RuntimeException('Release flow baseline storage is unavailable.');
-        }
-        if (!mkdir($destinationPath, 0700, true) && !is_dir($destinationPath)) {
-            throw new \RuntimeException('Unable to create release flow baseline storage.');
+            throw new \RuntimeException('Repository storage fixture is unavailable.');
         }
 
+        $bytes = 0;
+        $files = 0;
+        $mutableCollections = ['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json'];
         $iterator = new \RecursiveIteratorIterator(
             new \RecursiveDirectoryIterator($sourcePath, \FilesystemIterator::SKIP_DOTS),
             \RecursiveIteratorIterator::SELF_FIRST
         );
         foreach ($iterator as $item) {
             if ($item->isLink()) {
-                throw new \RuntimeException('Release flow storage fixtures cannot contain symbolic links.');
+                throw new \RuntimeException('Release flow storage cannot safely include symbolic links.');
             }
             $relativePath = substr($item->getPathname(), strlen($sourcePath) + 1);
             if (!is_string($relativePath) || $relativePath === '') {
-                throw new \RuntimeException('Unable to resolve a release flow storage fixture path.');
+                throw new \RuntimeException('Unable to resolve a release flow storage path.');
             }
-            $destination = $destinationPath . DIRECTORY_SEPARATOR . $relativePath;
-            if ($item->isDir()) {
-                if (!is_dir($destination) && !mkdir($destination, 0700, true) && !is_dir($destination)) {
-                    throw new \RuntimeException('Unable to create release flow storage fixture directory.');
-                }
-                continue;
-            }
-            if (!$item->isFile()) {
-                continue;
-            }
-            $directory = dirname($destination);
-            if (!is_dir($directory) && !mkdir($directory, 0700, true) && !is_dir($directory)) {
-                throw new \RuntimeException('Unable to create release flow storage fixture directory.');
-            }
-            if (!copy($item->getPathname(), $destination)) {
-                throw new \RuntimeException('Unable to copy release flow storage baseline file.');
-            }
+            $relative = str_replace(DIRECTORY_SEPARATOR, '/', $relativePath);
+            if (!self::includeFlowStoragePath($relative, $mutableCollections) || !$item->isFile()) continue;
+            $size = $relative === 'questions.json'
+                ? self::strippedQuestionFixtureBytes($item->getPathname())
+                : $item->getSize();
+            if (!is_int($size) || $size < 0) throw new \RuntimeException('Unable to measure a release flow storage file.');
+            $bytes += $size;
+            $files++;
         }
+        // Four mutable learner collections are seeded as empty JSON arrays.
+        $bytes += 12;
+        $files += 4;
+        return ['fixture_bytes' => $bytes, 'fixture_files' => $files];
     }
 
-    private static function restoreFlowTestStorage(string $baselinePath, string $storagePath): void
+    private static function strippedQuestionFixtureBytes(string $questionsPath): int
     {
-        $prefix = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR)
-            . DIRECTORY_SEPARATOR . 'boardprep-release-test-storage-';
-        if (
-            !str_starts_with($baselinePath, $prefix)
-            || !str_starts_with($storagePath, $prefix)
-            || $baselinePath === $storagePath
-        ) {
-            throw new \RuntimeException('Refusing to restore an unowned release flow storage fixture.');
+        $input = fopen($questionsPath, 'rb');
+        if (!is_resource($input)) throw new \RuntimeException('Unable to inspect the isolated question fixture size.');
+        $pendingLine = null;
+        $bytes = 0;
+        while (($line = fgets($input)) !== false) {
+            if (preg_match('/^\s*"(?:timesUsed|timesCorrect|timesIncorrect|updatedAt)"\s*:/', $line) === 1) continue;
+            if ($pendingLine !== null) {
+                if (preg_match('/^\s*[}\]]/', $line) === 1) {
+                    $pendingLine = preg_replace('/,(\s*)$/', '$1', $pendingLine) ?? $pendingLine;
+                }
+                $bytes += strlen($pendingLine);
+            }
+            $pendingLine = $line;
         }
+        if ($pendingLine !== null) $bytes += strlen($pendingLine);
+        fclose($input);
+        return $bytes;
+    }
 
-        self::removeFlowTestStorage($storagePath);
-        self::copyFlowTestStorageTree($baselinePath, $storagePath);
+    /** @param string[] $mutableCollections */
+    private static function includeFlowStoragePath(string $relativePath, array $mutableCollections): bool
+    {
+        $firstPathPart = explode('/', $relativePath, 2)[0];
+        return !in_array($relativePath, [
+            '.storage.lock',
+            'doctor-manual-run.txt',
+            'doctor-report.json',
+            'doctor/latest-report.json',
+            'repository-health.json',
+            'release-readiness.json',
+        ], true)
+            && $relativePath !== 'doctor/simulation-sessions'
+            && !str_starts_with($relativePath, 'doctor/simulation-sessions/')
+            && !in_array($firstPathPart, ['recovery', 'runtime'], true)
+            && !in_array($relativePath, $mutableCollections, true);
     }
 
     private static function createFlowTestStorage(string $root): string
     {
-        $sourceRoot = $root . '/storage';
-        if (!is_dir($sourceRoot)) {
-            throw new \RuntimeException('Release flow tests require the repository storage fixture.');
-        }
-
         $storagePath = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR)
             . '/boardprep-release-test-storage-' . bin2hex(random_bytes(6));
+        self::rebuildFlowTestStorage($root, $storagePath);
+        return $storagePath;
+    }
+
+    private static function rebuildFlowTestStorage(string $root, string $storagePath): void
+    {
+        $prefix = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR)
+            . DIRECTORY_SEPARATOR . 'boardprep-release-test-storage-';
+        if (!str_starts_with($storagePath, $prefix)) {
+            throw new \RuntimeException('Refusing to rebuild a release fixture outside its owned temporary namespace.');
+        }
+        self::removeFlowTestStorage($storagePath);
         if (!mkdir($storagePath, 0700, true)) {
             throw new \RuntimeException('Unable to create isolated release-test storage.');
         }
 
+        $sourceRoot = $root . '/storage';
+        if (!is_dir($sourceRoot)) {
+            self::removeFlowTestStorage($storagePath);
+            throw new \RuntimeException('Release flow tests require the repository storage fixture.');
+        }
+        $mutableCollections = ['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json'];
         try {
             $iterator = new \RecursiveIteratorIterator(
                 new \RecursiveDirectoryIterator($sourceRoot, \FilesystemIterator::SKIP_DOTS),
                 \RecursiveIteratorIterator::SELF_FIRST
             );
-            $mutableCollections = ['attempts.json', 'weakness.json', 'question-statistics.json', 'flashcard_state.json'];
             foreach ($iterator as $item) {
+                if ($item->isLink()) {
+                    throw new \RuntimeException('Release flow storage fixtures cannot contain symbolic links.');
+                }
                 $source = $item->getPathname();
                 $relative = substr($source, strlen($sourceRoot) + 1);
                 $relativePath = str_replace(DIRECTORY_SEPARATOR, '/', (string) $relative);
-                $firstPathPart = explode('/', $relativePath, 2)[0];
-                if (
-                    $relative === false
-                    || $relative === ''
-                    || in_array($relativePath, [
-                        '.storage.lock',
-                        'doctor-manual-run.txt',
-                        'doctor-report.json',
-                        'doctor/latest-report.json',
-                        'repository-health.json',
-                        'release-readiness.json',
-                    ], true)
-                    || $relativePath === 'doctor/simulation-sessions'
-                    || str_starts_with($relativePath, 'doctor/simulation-sessions/')
-                    || in_array($firstPathPart, ['recovery', 'runtime'], true)
-                ) {
+                if ($relative === false || $relative === '' || !self::includeFlowStoragePath($relativePath, $mutableCollections)) {
                     continue;
                 }
-                $destination = $storagePath . DIRECTORY_SEPARATOR
-                    . str_replace('/', DIRECTORY_SEPARATOR, $relative);
+                $destination = $storagePath . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $relativePath);
                 if ($item->isDir()) {
-                    if (!is_dir($destination)
-                        && !mkdir($destination, 0700, true)
-                        && !is_dir($destination)) {
+                    if (!is_dir($destination) && !mkdir($destination, 0700, true) && !is_dir($destination)) {
                         throw new \RuntimeException('Unable to create isolated release-test storage directory.');
                     }
                     continue;
                 }
-                if (!$item->isFile() || in_array($relative, $mutableCollections, true)) {
-                    continue;
-                }
+                if (!$item->isFile()) continue;
                 $directory = dirname($destination);
                 if (!is_dir($directory) && !mkdir($directory, 0700, true) && !is_dir($directory)) {
                     throw new \RuntimeException('Unable to create isolated release-test storage directory.');
@@ -631,14 +861,12 @@ final class ReleaseReadinessService
                     throw new \RuntimeException('Unable to copy repository data into isolated release-test storage.');
                 }
             }
-
             foreach ($mutableCollections as $collection) {
                 if (file_put_contents($storagePath . DIRECTORY_SEPARATOR . $collection, "[]\n", LOCK_EX) === false) {
                     throw new \RuntimeException('Unable to seed isolated learner test state.');
                 }
             }
             self::stripTestQuestionUsageCounters($storagePath . DIRECTORY_SEPARATOR . 'questions.json');
-            return $storagePath;
         } catch (\Throwable $exception) {
             self::removeFlowTestStorage($storagePath);
             throw $exception;
@@ -706,41 +934,152 @@ final class ReleaseReadinessService
         @rmdir($storagePath);
     }
 
-    /** @return array{0:int,1:string} */
+    /** @return array{0:int,1:string,2:array<string, int|null>} */
     private static function runScript(string $path, string $root, string $storagePath): array
     {
         $descriptor = [0 => ['file', '/dev/null', 'r'], 1 => ['pipe', 'w'], 2 => ['pipe', 'w']];
         $sessionPath = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR)
-            . '/boardprep-release-sessions-' . bin2hex(random_bytes(6));
+            . '/boardprep-release-sessions-' . bin2hex(random_bytes(16));
         if (!mkdir($sessionPath, 0700, true) && !is_dir($sessionPath)) {
-            return [255, 'Unable to create isolated release-test session storage.'];
+            return [255, 'Unable to create isolated release-test session storage.', [
+                'runtime_ms' => 0,
+                'session_bytes' => null,
+                'minimum_observed_available_bytes' => self::availableSpace(sys_get_temp_dir()),
+                'session_cleanup_status' => 1,
+            ]];
         }
         $cleanupSessionPath = static function () use ($sessionPath): void {
-            foreach (glob($sessionPath . DIRECTORY_SEPARATOR . '*') ?: [] as $sessionFile) {
-                if (is_file($sessionFile) || is_link($sessionFile)) {
-                    @unlink($sessionFile);
+            if (!is_dir($sessionPath)) return;
+            $iterator = new \RecursiveIteratorIterator(
+                new \RecursiveDirectoryIterator($sessionPath, \FilesystemIterator::SKIP_DOTS),
+                \RecursiveIteratorIterator::CHILD_FIRST
+            );
+            foreach ($iterator as $sessionEntry) {
+                $entryPath = $sessionEntry->getPathname();
+                if ($sessionEntry->isDir() && !$sessionEntry->isLink()) {
+                    @rmdir($entryPath);
+                } else {
+                    @unlink($entryPath);
                 }
             }
             @rmdir($sessionPath);
         };
+        $process = null;
+        register_shutdown_function(static function () use (&$process, $cleanupSessionPath): void {
+            if (is_resource($process)) {
+                @proc_terminate($process);
+                @proc_close($process);
+            }
+            $cleanupSessionPath();
+        });
         // The repository's focused integration tests load the full indexed
         // application graph. Keep the release projection independent of the
         // caller's small CLI memory default.
-        $command = 'env APP_ENV=testing APP_DEBUG=false DB_DRIVER=json APP_STORAGE_PATH='
-            . escapeshellarg($storagePath) . ' APP_SESSION_PATH='
-            . escapeshellarg($sessionPath) . ' '
-            . escapeshellarg(PHP_BINARY) . ' -d memory_limit=1024M ' . escapeshellarg($path);
-        $process = proc_open($command, $descriptor, $pipes, $root);
+        $environment = array_filter((array) getenv(), static fn($value): bool => is_string($value));
+        $environment['APP_ENV'] = 'testing';
+        $environment['APP_DEBUG'] = 'false';
+        $environment['DB_DRIVER'] = 'json';
+        $environment['APP_STORAGE_PATH'] = $storagePath;
+        $environment['APP_SESSION_PATH'] = $sessionPath;
+        $command = [PHP_BINARY, '-d', 'memory_limit=1024M', $path];
+        $startedAt = hrtime(true);
+        $availableStart = self::availableSpace(sys_get_temp_dir());
+        $minimumAvailable = $availableStart;
+        $sessionBytes = null;
+        $sessionCleanupStatus = 0;
+        $stdout = '';
+        $stderr = '';
+        $exitCode = 255;
+        $storageFloorStop = false;
+        $process = proc_open($command, $descriptor, $pipes, $root, $environment);
         if (!is_resource($process)) {
             $cleanupSessionPath();
-            return [255, 'Unable to start release test.'];
+            $sessionCleanupStatus = is_dir($sessionPath) ? 0 : 1;
+            return [255, 'Unable to start release test.', [
+                'runtime_ms' => (int) round((hrtime(true) - $startedAt) / 1_000_000),
+                'session_bytes' => null,
+                'minimum_observed_available_bytes' => $minimumAvailable,
+                'session_cleanup_status' => $sessionCleanupStatus,
+            ]];
         }
-        $stdout = stream_get_contents($pipes[1]) ?: '';
-        $stderr = stream_get_contents($pipes[2]) ?: '';
-        fclose($pipes[1]);
-        fclose($pipes[2]);
-        $exitCode = proc_close($process);
-        $cleanupSessionPath();
-        return [$exitCode, $stdout . $stderr];
+        foreach ([1, 2] as $pipeIndex) stream_set_blocking($pipes[$pipeIndex], false);
+        $openPipes = [1 => true, 2 => true];
+        $appendBounded = static function (string &$buffer, string $chunk): void {
+            $buffer .= $chunk;
+            if (strlen($buffer) > 65536) $buffer = substr($buffer, -65536);
+        };
+        $lastExitCode = null;
+        try {
+            while ($openPipes !== []) {
+                $readable = [];
+                foreach (array_keys($openPipes) as $pipeIndex) $readable[] = $pipes[$pipeIndex];
+                $writable = null;
+                $except = null;
+                if ($readable !== []) @stream_select($readable, $writable, $except, 0, 100000);
+                foreach ($readable as $pipe) {
+                    $pipeIndex = $pipe === $pipes[1] ? 1 : 2;
+                    $chunk = fread($pipe, 8192);
+                    if (is_string($chunk) && $chunk !== '') {
+                        if ($pipeIndex === 1) $appendBounded($stdout, $chunk);
+                        else $appendBounded($stderr, $chunk);
+                    }
+                    if (feof($pipe)) {
+                        fclose($pipe);
+                        unset($openPipes[$pipeIndex]);
+                    }
+                }
+                $processStatus = proc_get_status($process);
+                if (!$processStatus['running'] && (int) ($processStatus['exitcode'] ?? -1) >= 0) {
+                    $lastExitCode = (int) $processStatus['exitcode'];
+                }
+                $currentAvailable = self::availableSpace(sys_get_temp_dir());
+                if (is_int($currentAvailable) && ($minimumAvailable === null || $currentAvailable < $minimumAvailable)) {
+                    $minimumAvailable = $currentAvailable;
+                }
+                if (
+                    $processStatus['running']
+                    && is_int($currentAvailable)
+                    && $currentAvailable < self::RELEASE_TEST_MIN_FREE_BYTES + 33554432
+                ) {
+                    $storageFloorStop = true;
+                    $appendBounded($stderr, "\nRelease test interrupted: temporary free space approached the 1.5 GiB safety floor.\n");
+                    @proc_terminate($process);
+                }
+                if ($readable === [] && $processStatus['running']) usleep(100000);
+            }
+            $closedCode = proc_close($process);
+            $process = null;
+            $exitCode = $lastExitCode ?? $closedCode;
+        } finally {
+            if (is_resource($process)) {
+                @proc_terminate($process);
+                @proc_close($process);
+                $process = null;
+            }
+            $sessionBytes = self::directoryBytes($sessionPath);
+            $cleanupSessionPath();
+            $sessionCleanupStatus = is_dir($sessionPath) ? 0 : 1;
+        }
+        return [$exitCode, $stdout . $stderr, [
+            'runtime_ms' => (int) round((hrtime(true) - $startedAt) / 1_000_000),
+            'session_bytes' => $sessionBytes,
+            'minimum_observed_available_bytes' => $minimumAvailable,
+            'storage_floor_stop' => $storageFloorStop ? 1 : 0,
+            'session_cleanup_status' => $sessionCleanupStatus,
+        ]];
+    }
+
+    private static function directoryBytes(string $path): ?int
+    {
+        if (!is_dir($path)) return null;
+        $bytes = 0;
+        $iterator = new \RecursiveIteratorIterator(
+            new \RecursiveDirectoryIterator($path, \FilesystemIterator::SKIP_DOTS),
+            \RecursiveIteratorIterator::LEAVES_ONLY
+        );
+        foreach ($iterator as $item) {
+            if ($item->isFile()) $bytes += $item->getSize();
+        }
+        return $bytes;
     }
 }
