@@ -9,6 +9,7 @@ use App\Services\Operations\BrowserEvidenceService;
 
 $root = dirname(__DIR__, 2);
 $registry = json_decode((string) file_get_contents($root . '/docs/release-evidence/browser-workflows.json'), true, 512, JSON_THROW_ON_ERROR);
+$registrationSource = (string) file_get_contents($root . '/tools/register-browser-evidence.php');
 $verifiedBaseline = 'deed26cdb202e496cb84aab66310fbd256a5e1b4';
 $actual = BrowserEvidenceService::evaluate($registry, $verifiedBaseline, $root);
 $batch677Records = array_values(array_filter(
@@ -31,6 +32,10 @@ $assert(($batch677['status'] ?? '') === 'PASS'
     && ($batch677['application_commit'] ?? '') === 'e8deef80e2aa658c7b7b5054a19247f79871fe58'
     && ($batch677['relation'] ?? '') === 'DOCUMENTATION_ONLY_DESCENDANT', 'Batch 677 browser evidence was not preserved across its documentation-only descendant.');
 $assert(($actual['records_count'] ?? 0) === count($registry['records']), 'Historical registry records were dropped.');
+$assert(str_contains($registrationSource, 'extension_loaded(\'curl\')')
+    && str_contains($registrationSource, 'CURLOPT_SSL_VERIFYPEER => true')
+    && str_contains($registrationSource, 'stream_context_create')
+    && !str_contains($registrationSource, 'curl_close('), 'GitHub API registration must use verified TLS, retain a stream fallback, and avoid deprecated cURL cleanup.');
 $assert(BrowserEvidenceService::classifyRelation(true, ['docs/batches/batch-677.md']) === 'DOCUMENTATION_ONLY_DESCENDANT', 'Documentation-only relation was rejected.');
 $assert(BrowserEvidenceService::classifyRelation(true, ['app/Controllers/DashboardController.php']) === 'STALE', 'Application code change did not stale earlier browser evidence.');
 $assert(BrowserEvidenceService::classifyRelation(false, []) === 'MISMATCH', 'Non-ancestor workflow evidence was accepted.');

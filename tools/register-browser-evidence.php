@@ -15,16 +15,14 @@ if (!preg_match('/\A[1-9][0-9]{0,19}\z/', $runId)) {
 }
 
 $apiRoot = 'https://api.github.com/repos/' . BrowserEvidenceService::REPOSITORY . '/actions/runs/' . $runId;
-$context = stream_context_create(['http' => [
-    'method' => 'GET',
-    'timeout' => 15,
-    'ignore_errors' => true,
-    'header' => "Accept: application/vnd.github+json\r\nUser-Agent: BoardPrep-browser-evidence\r\nX-GitHub-Api-Version: 2022-11-28\r\n",
-]]);
-$runBody = @file_get_contents($apiRoot, false, $context);
-$runHttpStatus = selfHttpStatus($http_response_header ?? []);
+$headers = [
+    'Accept: application/vnd.github+json',
+    'User-Agent: BoardPrep-browser-evidence',
+    'X-GitHub-Api-Version: 2022-11-28',
+];
+[$runBody, $runHttpStatus, $runRequestError] = githubApiGet($apiRoot, $headers);
 if (!is_string($runBody) || $runHttpStatus !== 200) {
-    fwrite(STDERR, "Could not verify GitHub workflow run {$runId}; API HTTP status {$runHttpStatus}.\n");
+    fwrite(STDERR, "Could not verify GitHub workflow run {$runId}; API HTTP status {$runHttpStatus}. {$runRequestError}\n");
     exit(2);
 }
 $run = json_decode($runBody, true);
@@ -47,10 +45,14 @@ if (!preg_match('/\A[0-9a-f]{40}\z/', $headSha) || $commitCheckStatus !== 0) {
 }
 
 $jobsUrl = $apiRoot . '/jobs?per_page=100';
-$jobsBody = @file_get_contents($jobsUrl, false, $context);
-$jobsHttpStatus = selfHttpStatus($http_response_header ?? []);
+$headers = [
+    'Accept: application/vnd.github+json',
+    'User-Agent: BoardPrep-browser-evidence',
+    'X-GitHub-Api-Version: 2022-11-28',
+];
+[$jobsBody, $jobsHttpStatus, $jobsRequestError] = githubApiGet($jobsUrl, $headers);
 if (!is_string($jobsBody) || $jobsHttpStatus !== 200) {
-    fwrite(STDERR, "Could not verify GitHub workflow jobs for run {$runId}; API HTTP status {$jobsHttpStatus}.\n");
+    fwrite(STDERR, "Could not verify GitHub workflow jobs for run {$runId}; API HTTP status {$jobsHttpStatus}. {$jobsRequestError}\n");
     exit(2);
 }
 $jobsResponse = json_decode($jobsBody, true);
@@ -146,6 +148,48 @@ echo '[REGISTERED] run=' . $record['run_id']
     . ' jobs=' . count($jobs)
     . ' status=' . ($validated['passed'] ? 'VERIFIED_PASS' : 'VERIFIED_NOT_PASS') . PHP_EOL;
 exit($validated['passed'] ? 0 : 1);
+
+/** @param list<string> $headers @return array{0:?string,1:int,2:string} */
+function githubApiGet(string $url, array $headers): array
+{
+    if (extension_loaded('curl') && function_exists('curl_init')) {
+        $handle = curl_init($url);
+        if ($handle === false) {
+            return [null, 0, 'Unable to initialize the PHP cURL client.'];
+        }
+        $configured = curl_setopt_array($handle, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CONNECTTIMEOUT => 5,
+            CURLOPT_TIMEOUT => 20,
+            CURLOPT_FOLLOWLOCATION => false,
+            CURLOPT_SSL_VERIFYPEER => true,
+            CURLOPT_SSL_VERIFYHOST => 2,
+            CURLOPT_HTTPHEADER => $headers,
+            CURLOPT_USERAGENT => 'BoardPrep-browser-evidence',
+        ]);
+        if (!$configured) {
+            return [null, 0, 'Unable to configure the PHP cURL client.'];
+        }
+        $body = curl_exec($handle);
+        $status = (int) curl_getinfo($handle, CURLINFO_RESPONSE_CODE);
+        $error = is_string($body) ? '' : curl_error($handle);
+        return [is_string($body) ? $body : null, $status, $error];
+    }
+
+    $context = stream_context_create(['http' => [
+        'method' => 'GET',
+        'timeout' => 20,
+        'ignore_errors' => true,
+        'header' => implode("\r\n", $headers) . "\r\n",
+    ]]);
+    $body = @file_get_contents($url, false, $context);
+    $status = selfHttpStatus($http_response_header ?? []);
+    $lastError = error_get_last();
+    $error = is_string($body) || !is_array($lastError)
+        ? ''
+        : (string) ($lastError['message'] ?? 'HTTP stream request failed.');
+    return [is_string($body) ? $body : null, $status, $error];
+}
 
 function selfHttpStatus(array $headers): int
 {
