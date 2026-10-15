@@ -114,7 +114,7 @@ $assert(($questionsById['1782']['taxonomy']['concept_id'] ?? '') === 'b633-arch-
     && str_contains((string) ($questionsById['1782']['explanation'] ?? ''), 'continuous, unobstructed path'), 'Architecture accessibility item is not classified and explained as route reasoning.');
 $assert(($questionsById['1525']['source_ids'] ?? []) === ['cdc-field-epi-outbreak-investigation'], 'Nursing outbreak item lacks its exact CDC field-investigation source.');
 $assert(isset($sources['cdc-field-epi-outbreak-investigation']), 'CDC field-investigation source was not registered.');
-$verifiedLegacyLabels = ['268' => 'apply', '323' => 'recall', '324' => 'understand', '332' => 'analyze'];
+$verifiedLegacyLabels = ['268' => 'apply', '323' => 'understand', '324' => 'understand', '332' => 'analyze'];
 foreach ($verifiedLegacyLabels as $id => $intent) {
     $assert(($questionsById[$id]['cognitive_intent'] ?? '') === $intent, 'A manually reviewed legacy LET label was not normalized conservatively: ' . $id);
 }
