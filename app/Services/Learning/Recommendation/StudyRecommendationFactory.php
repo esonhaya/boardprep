@@ -26,12 +26,15 @@ final class StudyRecommendationFactory
         $letLevel = self::text($topic['let_level'] ?? '');
         $letSpecialization = self::text($topic['let_specialization'] ?? '');
         $civilServiceLevel = self::text($topic['civil_service_level'] ?? '');
+        $difficultyFocus = self::difficultyFocus(
+            is_array($topic['difficulty_evidence'] ?? null) ? $topic['difficulty_evidence'] : []
+        );
         $action = StudyActionService::quizForTopic(
             $name,
             $subject,
             'practice',
             5,
-            'mixed',
+            $difficultyFocus['difficulty'] ?? 'mixed',
             $board,
             $letLevel,
             $letSpecialization,
@@ -83,6 +86,10 @@ final class StudyRecommendationFactory
                 $reason .= ' Review the source-linked notes, then retry.';
             }
         }
+        if ($difficultyFocus !== null) {
+            $reason .= ' Retry is focused on ' . $difficultyFocus['difficulty'] . '-labelled items because answered items at that label were missed across '
+                . $difficultyFocus['attempts'] . ' completed attempts; difficulty labels are descriptive and not psychometrically calibrated.';
+        }
 
         return [
             'type' => 'topic',
@@ -92,6 +99,8 @@ final class StudyRecommendationFactory
             'evidence_status' => self::text($topic['evidence_status'] ?? 'INSUFFICIENT_EVIDENCE'),
             'accuracy_basis' => self::text($topic['accuracy_basis'] ?? 'QUIZ_CONTEXT'),
             'repeated_mistakes' => $repeatMistakes,
+            'difficulty_focus' => $difficultyFocus['difficulty'] ?? null,
+            'difficulty_focus_attempts' => $difficultyFocus['attempts'] ?? 0,
             'trend' => $trend,
             'recent_change_points' => is_numeric($topic['recent_change_points'] ?? null)
                 ? (int) $topic['recent_change_points']
@@ -130,6 +139,32 @@ final class StudyRecommendationFactory
         return is_scalar($value) ? trim((string) $value) : '';
     }
 
+    /** @param array<string,mixed> $evidence @return array{difficulty:string,attempts:int,incorrect:int}|null */
+    private static function difficultyFocus(array $evidence): ?array
+    {
+        $best = null;
+        foreach (['easy', 'medium', 'hard'] as $difficulty) {
+            $row = is_array($evidence[$difficulty] ?? null) ? $evidence[$difficulty] : [];
+            $attempts = max(0, (int) ($row['incorrect_attempts'] ?? 0));
+            // Two distinct completed attempts are required before narrowing a
+            // retry to a stored difficulty label.
+            if ($attempts < 2) {
+                continue;
+            }
+            $candidate = [
+                'difficulty' => $difficulty,
+                'attempts' => $attempts,
+                'incorrect' => max(0, (int) ($row['incorrect'] ?? 0)),
+            ];
+            if ($best === null
+                || $candidate['attempts'] > $best['attempts']
+                || ($candidate['attempts'] === $best['attempts'] && $candidate['incorrect'] > $best['incorrect'])) {
+                $best = $candidate;
+            }
+        }
+        return $best;
+    }
+
     private static function studyLink(string $topic, string $board, array $repeatedQuestionIds = []): ?array
     {
         $contextKey = strtolower(trim($board));
@@ -142,7 +177,7 @@ final class StudyRecommendationFactory
                 }
                 $id = self::text($question['id'] ?? '');
                 $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
-                $topicId = self::text($question['topic'] ?? $taxonomy['topic_id'] ?? '');
+                $topicId = self::text($taxonomy['topic_id'] ?? $question['topic'] ?? '');
                 if ($id !== '' && $topicId !== '') {
                     $questionsById[$id] = $topicId;
                 }

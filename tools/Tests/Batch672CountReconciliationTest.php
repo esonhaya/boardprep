@@ -12,10 +12,13 @@ $assert = static function (bool $condition, string $message): void {
 };
 
 $health = RepositoryHealthEngine::analyze(false);
+// Runtime placement excludes exact duplicate normalized stems. The CE/CSE
+// authoring-label cleanup surfaced those repeats instead of counting their
+// former "Scenario N" labels as distinct learner-facing items.
 $expected = [
     'architecture' => [484, 484, 484],
-    'civil-engineering' => [922, 922, 922],
-    'civil-service' => [1553, 1807, 2116],
+    'civil-engineering' => [922, 922, 698],
+    'civil-service' => [1553, 1807, 2104],
     'cpa' => [1132, 1132, 1132],
     'criminologist' => [451, 554, 554],
     'let' => [1788, 1871, 1886],
@@ -33,7 +36,7 @@ foreach ($expected as $boardId => [$native, $effective, $runtime]) {
     $totals['effective'] += $actual[1];
     $totals['runtime'] += $actual[2];
 }
-$assert($totals === ['native' => 8962, 'effective' => 9422, 'runtime' => 9746], 'portfolio totals reconcile across all ten boards');
+$assert($totals === ['native' => 8962, 'effective' => 9422, 'runtime' => 9510], 'portfolio totals reconcile across all ten boards after exact-stem deduplication');
 $assert((int) ($health->summary['fail_count'] ?? -1) === 0, 'health snapshot has no FAIL findings');
 $reviewExpectations = [
     'let' => ['source_scope_fit_unknown' => 0, 'structural_not_actionable' => 3],

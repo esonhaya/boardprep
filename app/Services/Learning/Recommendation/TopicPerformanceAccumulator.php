@@ -15,14 +15,22 @@ final class TopicPerformanceAccumulator
             }
             $context = LearningAttemptContext::fromAttempt($attempt);
             $attemptKey = self::attemptKey($attempt, $index);
+            $reviewRows = is_array($attempt['review'] ?? null) ? $attempt['review'] : [];
             $reviewGroups = self::reviewGroups($attempt, $context);
 
             if ($reviewGroups === []) {
+                // A present review with no answered, usable rows is not
+                // summary evidence for this topic. In particular, a skipped
+                // question must not become a zero-accuracy attempt.
+                if ($reviewRows !== []) {
+                    continue;
+                }
                 $reviewGroups[$context['topic']] = [
                     'context' => $context,
                     'correct' => null,
                     'total' => 0,
                     'mistakes' => [],
+                    'difficulty_evidence' => self::emptyDifficultyEvidence(),
                     'basis' => 'QUIZ_CONTEXT',
                 ];
             }
@@ -52,6 +60,17 @@ final class TopicPerformanceAccumulator
                         '_reviewed_attempts' => 0,
                         '_question_review_count' => 0,
                         '_mistakes' => [],
+                        '_difficulty_missed_attempts' => [
+                            'easy' => [],
+                            'medium' => [],
+                            'hard' => [],
+                        ],
+                        '_difficulty_missed_questions' => [
+                            'easy' => [],
+                            'medium' => [],
+                            'hard' => [],
+                        ],
+                        '_difficulty_evidence' => self::emptyDifficultyEvidence(),
                         '_bases' => [],
                     ];
                 }
@@ -71,6 +90,24 @@ final class TopicPerformanceAccumulator
                     $rows[$key]['_question_review_count'] += (int) $group['total'];
                     foreach ($group['mistakes'] as $questionId) {
                         $rows[$key]['_mistakes'][$questionId][$attemptKey] = true;
+                    }
+                }
+                foreach ($group['difficulty_evidence'] as $difficulty => $evidence) {
+                    if (!isset($rows[$key]['_difficulty_evidence'][$difficulty])) {
+                        continue;
+                    }
+                    foreach (['answered', 'correct', 'incorrect'] as $metric) {
+                        $rows[$key]['_difficulty_evidence'][$difficulty][$metric]
+                            += (int) ($evidence[$metric] ?? 0);
+                    }
+                    if ((int) ($evidence['incorrect'] ?? 0) > 0) {
+                        $rows[$key]['_difficulty_missed_attempts'][$difficulty][$attemptKey] = true;
+                    }
+                    foreach ((array) ($evidence['missed_question_ids'] ?? []) as $questionId) {
+                        $questionId = self::text($questionId);
+                        if ($questionId !== '') {
+                            $rows[$key]['_difficulty_missed_questions'][$difficulty][$questionId] = true;
+                        }
                     }
                 }
             }
@@ -108,12 +145,29 @@ final class TopicPerformanceAccumulator
             $row['evidence_status'] = $row['attempts'] >= 2
                 ? 'MULTIPLE_ATTEMPTS'
                 : 'INSUFFICIENT_EVIDENCE';
+            $difficultyEvidence = [];
+            foreach (['easy', 'medium', 'hard'] as $difficulty) {
+                $evidence = $row['_difficulty_evidence'][$difficulty];
+                $missedQuestionIds = array_keys($row['_difficulty_missed_questions'][$difficulty]);
+                sort($missedQuestionIds, SORT_NATURAL);
+                $difficultyEvidence[$difficulty] = [
+                    'answered' => (int) $evidence['answered'],
+                    'correct' => (int) $evidence['correct'],
+                    'incorrect' => (int) $evidence['incorrect'],
+                    'incorrect_attempts' => count($row['_difficulty_missed_attempts'][$difficulty]),
+                    'missed_question_ids' => $missedQuestionIds,
+                ];
+            }
+            $row['difficulty_evidence'] = $difficultyEvidence;
             unset(
                 $row['_sum'],
                 $row['_scores'],
                 $row['_reviewed_attempts'],
                 $row['_question_review_count'],
                 $row['_mistakes'],
+                $row['_difficulty_missed_attempts'],
+                $row['_difficulty_missed_questions'],
+                $row['_difficulty_evidence'],
                 $row['_bases']
             );
         }
@@ -134,9 +188,12 @@ final class TopicPerformanceAccumulator
             if (!is_array($item) || !is_bool($item['correct'] ?? null)) {
                 continue;
             }
+            if (($item['answered'] ?? false) !== true) {
+                continue;
+            }
             $question = is_array($item['question'] ?? null) ? $item['question'] : [];
             $taxonomy = is_array($question['taxonomy'] ?? null) ? $question['taxonomy'] : [];
-            $topic = self::text($question['topic'] ?? $taxonomy['topic_id'] ?? $context['topic']);
+            $topic = self::text($taxonomy['topic_id'] ?? $question['topic'] ?? $context['topic']);
             if ($topic === '') {
                 $topic = 'General';
             }
@@ -149,16 +206,30 @@ final class TopicPerformanceAccumulator
                     'correct' => 0,
                     'total' => 0,
                     'mistakes' => [],
+                    'difficulty_evidence' => self::emptyDifficultyEvidence(),
                     'basis' => 'QUESTION_LEVEL_REVIEW',
                 ];
             }
             $groups[$key]['total']++;
             if ($item['correct']) {
                 $groups[$key]['correct']++;
+            }
+            $difficulty = strtolower(self::text($question['difficulty'] ?? ''));
+            if (isset($groups[$key]['difficulty_evidence'][$difficulty])) {
+                $groups[$key]['difficulty_evidence'][$difficulty]['answered']++;
+                $groups[$key]['difficulty_evidence'][$difficulty][$item['correct'] ? 'correct' : 'incorrect']++;
+                if (!$item['correct']) {
+                    $questionId = self::text($question['id'] ?? '');
+                    if ($questionId !== '') {
+                        $groups[$key]['difficulty_evidence'][$difficulty]['missed_question_ids'][$questionId] = true;
+                    }
+                }
+            }
+            if ($item['correct']) {
                 continue;
             }
             $questionId = self::text($question['id'] ?? '');
-            if (($item['answered'] ?? false) === true && $questionId !== '') {
+            if ($questionId !== '') {
                 $groups[$key]['mistakes'][$questionId] = $questionId;
             }
         }
@@ -188,6 +259,21 @@ final class TopicPerformanceAccumulator
     private static function percentage(mixed $value): int
     {
         return max(0, min(100, is_numeric($value) ? (int) round((float) $value) : 0));
+    }
+
+    /** @return array<string,array{answered:int,correct:int,incorrect:int,missed_question_ids:array<string,bool>}> */
+    private static function emptyDifficultyEvidence(): array
+    {
+        $empty = [];
+        foreach (['easy', 'medium', 'hard'] as $difficulty) {
+            $empty[$difficulty] = [
+                'answered' => 0,
+                'correct' => 0,
+                'incorrect' => 0,
+                'missed_question_ids' => [],
+            ];
+        }
+        return $empty;
     }
 
     private static function text(mixed $value): string

@@ -47,12 +47,12 @@ final class QuestionPoolFilter
                     $question['let_placement'] = $matchedLetPlacement;
                 }
             }
-            $subject=$question['subject']??$taxonomy['subject_id']??null;
+            $subject=$taxonomy['subject_id']??$question['subject']??null;
             if ($examEligibility !== null && ($examEligibility['subject_id'] ?? '') !== '') {
                 $subject = $examEligibility['subject_id'];
             }
-            $domain=$question['domain']??$taxonomy['domain_id']??null;
-            $topic=$question['topic']??$taxonomy['topic_id']??null;
+            $domain=$taxonomy['domain_id']??$question['domain']??null;
+            $topic=$taxonomy['topic_id']??$question['topic']??null;
             $status=strtolower(trim((string)($question['status']??'active')));
             $matches=in_array($status,['active','approved'],true)
                 && ($request->subject === '*' || self::sameTaxonomy($subject,$request->subject,'subjects'))

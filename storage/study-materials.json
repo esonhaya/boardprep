@@ -1116,12 +1116,17 @@
             [
                 "Revision practice",
                 "Prefer precise, coherent, audience-appropriate wording over a merely shorter or more formal sentence."
+            ],
+            [
+                "Batch 680 — Compare changes before making a causal claim",
+                "Calculate each group’s change from its own baseline, then compare the changes in percentage points. A larger change in a pilot group is evidence of a difference, not proof of cause when assignment, other interventions, or group differences are not controlled. In Q81, the changes are +20 and +6 percentage points; the 14-point gap does not by itself establish that feedback caused the difference."
             ]
         ],
         "source_ids": [
             "purdue-owl-writing",
             "prc-let-enhanced-tos-2025",
-            "deped-k12-english-curriculum-guide"
+            "deped-k12-english-curriculum-guide",
+            "openstax-psychology-2e"
         ],
         "exams": [
             "let"
@@ -1145,8 +1150,8 @@
             "concept_id": "communication-context-audience"
         },
         "status": "published",
-        "version": 3,
-        "updated_at": "2026-09-07",
+        "version": 4,
+        "updated_at": "2026-10-15",
         "batch629_update": {
             "updated_at": "2026-09-29",
             "action": "EXPAND",
@@ -1173,12 +1178,22 @@
             [
                 "Pormal na pagpapahayag",
                 "Piliin ang angkop na tono, bokabularyo, at ayos ayon sa sitwasyon nang hindi isinasakripisyo ang linaw."
+            ],
+            [
+                "Batch 680 — Paghinuha mula sa tala",
+                "Ihiwalay ang direktang naobserbahan sa ipinaliliwanag na sanhi. Sa Q11, tumaas ang pagdalo matapos ang paalala ngunit nagbago rin ang iskedyul; ipinakikita ng tala ang pagsabay ng mga pagbabago, hindi ang magkahiwalay na epekto ng mga ito."
+            ],
+            [
+                "Batch 680 — Gamit ng “may” at “mayroon”",
+                "Sa halimbawang “May pagsusulit bukas,” sinusundan ng pangngalang “pagsusulit” ang “may.” Suriin ang mismong salitang kasunod at ang kayarian ng pangungusap; gamitin ang sangguniang KWF para sa mas malawak na mga gamit ng “may” at “mayroon.”"
             ]
         ],
         "source_ids": [
             "prc-let-enhanced-tos-2025",
             "purdue-owl-writing",
-            "deped-filipino-curriculum-guide"
+            "deped-filipino-curriculum-guide",
+            "openstax-psychology-2e",
+            "kwf-balarila-pambansa"
         ],
         "exams": [
             "let"
@@ -1202,8 +1217,8 @@
             "concept_id": "functional-language-register"
         },
         "status": "published",
-        "version": 3,
-        "updated_at": "2026-09-07",
+        "version": 4,
+        "updated_at": "2026-10-15",
         "batch629_update": {
             "updated_at": "2026-09-29",
             "action": "EXPAND",
@@ -1230,6 +1245,10 @@
             [
                 "Historical interpretation",
                 "Explain how evidence supports an interpretation while acknowledging uncertainty and competing readings."
+            ],
+            [
+                "Batch 680 — Paghahambing ng magkasalungat na sanggunian",
+                "Sa Q41, huwag piliin agad ang talaarawan o aklat-aralin dahil lamang sa uri nito. Itala ang petsa at pinagmulan, alamin ang layunin at konteksto, tukuyin kung ano ang direktang pinatutunayan, at ihambing sa mga hiwalay na tala bago magpasya."
             ]
         ],
         "source_ids": [
@@ -1258,8 +1277,8 @@
             "concept_id": "philippine-history-and-culture-context"
         },
         "status": "published",
-        "version": 3,
-        "updated_at": "2026-09-07",
+        "version": 4,
+        "updated_at": "2026-10-15",
         "batch629_update": {
             "updated_at": "2026-09-29",
             "action": "EXPAND",
@@ -1502,6 +1521,10 @@
             [
                 "Batch 672 — Read chart scales",
                 "Check axis labels, intervals, units, and the displayed values before judging a visual difference. A truncated axis can make a small change look large; compare the numeric change with the baseline and context."
+            ],
+            [
+                "Batch 680 — Worked example: sum and compare a weekly table",
+                "For Q21, sum each row across the three days: Reading = 105 minutes, Practice = 60, and Review = 45. Rank the totals first, then subtract the second-largest (60) from the largest (105); the difference is 45 minutes. Keep the units and compare totals rather than individual cells."
             ]
         ],
         "source_ids": [
@@ -1534,8 +1557,8 @@
             "concept_id": "mathematical-modeling-representation"
         },
         "status": "published",
-        "version": 5,
-        "updated_at": "2026-10-14",
+        "version": 6,
+        "updated_at": "2026-10-15",
         "batch629_update": {
             "updated_at": "2026-09-29",
             "action": "EXPAND",
@@ -1853,6 +1876,10 @@
             [
                 "Batch 678 — Distributive decomposition",
                 "Rewrite 2.5 as 2 + 0.5. Then (2 + 0.5) × 36 = 2 × 36 + 0.5 × 36 = 72 + 18 = 90. Estimate first (about 3 × 36 = 108) and check that 90 is plausible; the result has no measurement unit because the inputs are numbers."
+            ],
+            [
+                "Batch 680 — Worked example: percentage of a whole",
+                "For 24 permits meeting a criterion out of 120 approved permits, compute part ÷ whole × 100 = 24 ÷ 120 × 100 = 20%. Check by reversing the operation: 20% of 120 is 24."
             ]
         ],
         "source_ids": [
@@ -1873,7 +1900,7 @@
             "concept_id": "cse-percentages"
         },
         "status": "published",
-        "version": 14,
+        "version": 15,
         "updated_at": "2026-10-15",
         "exam_focus": {
             "civil-service-professional": {
@@ -3094,7 +3121,11 @@
             {
                 "heading": "Teaching and common mistakes",
                 "body": "Use plain-language teaching, verify understanding, document response, and avoid treating an isolated number, label, routine, or mnemonic as a substitute for assessment and current policy."
-            }
+            },
+            [
+                "Batch 680 — Respiratory symptoms in a shared shelter",
+                "When several residents are coughing, begin with a workable screening and triage process, respiratory hygiene/source control, and separation when indicated and feasible. Escalate unstable residents for assessment. CDC core infection-control guidance supports early detection, source control, and separation when space permits; it does not justify assuming one cause from cough alone."
+            ]
         ],
         "source_ids": [
             "prc-nursing-enhanced-tos-2025",
@@ -3117,8 +3148,8 @@
             "subject_id": "nursing-foundations"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-28",
+        "version": 3,
+        "updated_at": "2026-10-15",
         "technical_support_state": "STRONG",
         "batch620_support": {
             "np_area": "NP I",
@@ -4205,6 +4236,10 @@
             [
                 "Stability and deformation",
                 "Euler buckling is an ideal elastic model sensitive to effective length. Deflection formulas require their stated load, support, small-deformation, and prismatic-member assumptions."
+            ],
+            [
+                "Batch 680 — Resolve a member force along a reference direction",
+                "For an ideal member force F at angle θ to the reference axis, the component on that axis is F cos θ. With F = 81 kN and cos θ = 0.5, the component is 81 × 0.5 = 40.5 kN. Use sine for the perpendicular component and assign sign only after establishing the direction convention."
             ]
         ],
         "source_ids": [
@@ -4225,8 +4260,8 @@
             "subject_id": "civil-engineering-structural-engineering"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-07"
+        "version": 3,
+        "updated_at": "2026-10-15"
     },
     {
         "id": "ce-489--trength-of-aterials",
@@ -5131,8 +5166,8 @@
         "standalone_reason": "Published study/foundation resource intentionally retained without a question dependency; source chain is valid and future authoring may link it when authorized.",
         "standalone_reviewed_at_batch": 656
     },
-        {
-            "id": "cpa-management-cost-cvp-foundation",
+    {
+        "id": "cpa-management-cost-cvp-foundation",
         "title": "Cost Behavior, CVP, Sales Mix, and Sensitivity",
         "summary": "Technical management-accounting foundation for fixed and variable cost behavior, contribution analysis, break-even reasoning, sales mix, and decision sensitivity.",
         "notes": [
@@ -5179,8 +5214,8 @@
         "version": 3,
         "updated_at": "2026-10-14"
     },
-        {
-            "id": "cpa-management-relevant-decisions-foundation",
+    {
+        "id": "cpa-management-relevant-decisions-foundation",
         "title": "Relevant Costs and Short-Term Decisions",
         "summary": "Decision-focused coverage of avoidable, opportunity, and sunk costs for make-or-buy, special-order, and constrained-resource decisions.",
         "notes": [
@@ -7194,13 +7229,18 @@
             {
                 "heading": "Common errors",
                 "body": "Do not freeze a building regardless of safety, reconstruct undocumented details as fact, or erase evidence of change merely to create a false original appearance."
-            }
+            },
+            [
+                "Batch 680 — Accessible reuse in a historic market",
+                "Document significance and character-defining fabric before intervention. Provide an accessible route that meets the current BP 344 IRR; the 2024 IRR specifies a 1200 mm minimum clear ramp width and a 1:20 general maximum gradient, with limited special cases and additional landing/handrail requirements. Coordinate the route with significant fabric and use compatible, reversible work where practicable; accessibility remains a required design outcome."
+            ]
         ],
         "source_ids": [
             "prc-architecture-exam-program-2024",
             "prc-architecture-exam-program-2025",
             "nps-preservation-briefs",
-            "mit-4-111-intro-architecture"
+            "mit-4-111-intro-architecture",
+            "bp344-2024-irr"
         ],
         "exams": [
             "architecture"
@@ -7216,8 +7256,8 @@
             "subject_id": "architecture-history-and-theory"
         },
         "status": "published",
-        "version": 2,
-        "updated_at": "2026-09-28",
+        "version": 3,
+        "updated_at": "2026-10-15",
         "technical_support_state": "STRONG"
     },
     {
@@ -8572,7 +8612,11 @@
             {
                 "heading": "Reporting and documentation",
                 "body": "Classify a misstatement or scope limitation by materiality and pervasiveness before selecting the report consequence. Documentation should allow an experienced auditor to understand the work, evidence, and conclusion. Current Philippine adoption and effective dates control standard-sensitive claims."
-            }
+            },
+            [
+                "Batch 680 — Match evidence to the assertion",
+                "An external confirmation about a customer receivable may support that receivable’s existence; it does not establish that all supplier liabilities were recorded. Identify the liability-completeness risk, choose evidence directed to recorded and potentially omitted obligations, and evaluate relevance and reliability before concluding."
+            ]
         ],
         "source_ids": [
             "prc-accountancy-current-tos-2022",
@@ -8613,8 +8657,8 @@
         ],
         "technical_support_state": "STRONG",
         "status": "published",
-        "version": 1,
-        "updated_at": "2026-09-29"
+        "version": 2,
+        "updated_at": "2026-10-15"
     },
     {
         "id": "batch622-cpa-regulatory-evidence",

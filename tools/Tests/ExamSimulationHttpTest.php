@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+putenv('BOARDPREP_SIMULATION_SEED=6801');
 require_once dirname(__DIR__) . '/Doctor/Project/BoardPrep/Simulation/HttpSimulator.php';
 require_once dirname(__DIR__, 2) . '/app/Core/Autoloader.php';
 \App\Core\Autoloader::register();
@@ -86,8 +87,8 @@ try {
         'action' => 'submit', 'question_id' => $match[1], 'answer' => 'A',
     ], [], $cookies);
     if (!$firstAnswer['success'] || !str_contains($firstAnswer['output'], 'Question 2 / 3')
-        || str_contains($firstAnswer['output'], 'Correct!') || str_contains($firstAnswer['output'], 'Incorrect')) {
-        throw new RuntimeException('Exam simulation did not withhold immediate answer feedback.');
+        || preg_match('/<section[^>]*class="[^"]*\bquiz-feedback\b/i', $firstAnswer['output']) === 1) {
+        throw new RuntimeException('Exam simulation did not advance without rendering its immediate answer-feedback component.');
     }
 
     $skipSecond = $http->request('POST', '/quiz', [], ['action' => 'next'], [], $cookies);

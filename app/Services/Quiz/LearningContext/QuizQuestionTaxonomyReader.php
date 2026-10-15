@@ -20,9 +20,13 @@ final class QuizQuestionTaxonomyReader
             : [];
         $taxonomyKey = self::KEYS[$field] ?? $field;
 
+        // Canonical taxonomy IDs drive practice selection and learning
+        // analytics. Legacy question fields may contain display labels or
+        // stale classifications, so only use them when canonical data is
+        // absent.
         return QuizContextValueReader::first([
-            $question[$field] ?? null,
             $taxonomy[$taxonomyKey] ?? null,
+            $question[$field] ?? null,
         ]);
     }
 

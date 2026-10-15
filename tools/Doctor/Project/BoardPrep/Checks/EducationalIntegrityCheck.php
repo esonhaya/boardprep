@@ -59,6 +59,12 @@ final class EducationalIntegrityCheck implements CheckInterface
         $materials = self::index(App::storage()->all('study-materials'));
         $sources = self::index(App::storage()->all('sources'));
         $links = App::storage()->all('study-question-links');
+        $editorialAudit = QuestionEditorialEvidenceAudit::analyze($questions);
+        foreach ($editorialAudit['findings'] as $finding) {
+            if (isset($classified[$finding['class']])) {
+                $classified[$finding['class']][] = $finding;
+            }
+        }
         $linkQuestionIds = [];
         foreach ($links as $link) {
             if (!is_array($link)) {
@@ -165,6 +171,7 @@ final class EducationalIntegrityCheck implements CheckInterface
             count(array_intersect_key($linkQuestionIds, $questionIds)),
             count(array_diff_key($questionIds, $linkQuestionIds))
         );
+        array_push($details, ...$editorialAudit['profiles']);
         $details[] = 'SEMANTIC_LIMITATION: Valid links and source records do not establish question correctness or editorial fit; review classifications remain open until checked.';
 
         $hardCount = count($classified['HARD_DEFECT']);

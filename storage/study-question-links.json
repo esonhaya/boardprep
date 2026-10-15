@@ -12897,7 +12897,8 @@
         "material_id": "let-english-communication-review",
         "question_id": "1",
         "source_ids": [
-            "purdue-owl-writing"
+            "purdue-owl-writing",
+            "openstax-psychology-2e"
         ]
     },
     {
@@ -12977,7 +12978,8 @@
         "material_id": "let-english-communication-review",
         "question_id": "81",
         "source_ids": [
-            "purdue-owl-writing"
+            "purdue-owl-writing",
+            "openstax-psychology-2e"
         ]
     },
     {
@@ -13057,8 +13059,8 @@
         "material_id": "let-filipino-communication-review",
         "question_id": "11",
         "source_ids": [
-            "prc-let-enhanced-tos-2025",
-            "purdue-owl-writing"
+            "deped-filipino-curriculum-guide",
+            "openstax-psychology-2e"
         ]
     },
     {
@@ -13147,8 +13149,8 @@
         "material_id": "let-filipino-communication-review",
         "question_id": "91",
         "source_ids": [
-            "prc-let-enhanced-tos-2025",
-            "purdue-owl-writing"
+            "deped-filipino-curriculum-guide",
+            "kwf-balarila-pambansa"
         ]
     },
     {
@@ -13192,7 +13194,8 @@
         "material_id": "let-mathematics-essentials-review",
         "question_id": "21",
         "source_ids": [
-            "openstax-calculus-volume-1"
+            "deped-math-curriculum-guide",
+            "openstax-statistics-graphs-chapter2-2"
         ]
     },
     {
@@ -13312,7 +13315,8 @@
         "material_id": "let-philippine-history-review",
         "question_id": "41",
         "source_ids": [
-            "nhcp-rizal-memory-collection"
+            "nhcp-rizal-memory-collection",
+            "deped-araling-panlipunan-curriculum-guide"
         ]
     },
     {
@@ -24945,10 +24949,12 @@
     },
     {
         "id": "study-link-b603-2868",
-        "material_id": "architecture-1-1-foundation",
+        "material_id": "architecture-1-3-foundation",
         "question_id": "2868",
         "source_ids": [
-            "prc-architecture-exam-program-2024"
+            "prc-architecture-exam-program-2024",
+            "nps-preservation-briefs",
+            "bp344-2024-irr"
         ]
     },
     {
@@ -35741,15 +35747,11 @@
     },
     {
         "id": "study-link-b620-3905",
-        "material_id": "nle-np-i-foundation",
+        "material_id": "nle-np-i-prevention",
         "question_id": "3905",
         "source_ids": [
-            "prc-nursing-program-aug-2026",
             "prc-nursing-enhanced-tos-2025",
-            "who-community-health",
-            "doh-national-immunization-program",
-            "cdc-infection-control-basics",
-            "openrn-nursing-fundamentals"
+            "cdc-infection-control-basics"
         ]
     },
     {
@@ -71290,8 +71292,6 @@
         "material_id": "ce-489--tructural-echanics-and-esign",
         "question_id": "6976",
         "source_ids": [
-            "prc-cele-program-march-2026",
-            "prc-civil-engineering-board-page",
             "mit-structural-analysis-member-systems",
             "openstax-university-physics-volume-1"
         ]

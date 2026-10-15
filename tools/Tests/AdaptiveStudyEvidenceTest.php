@@ -18,6 +18,7 @@ $assert = static function (bool $condition, string $message): void {
 $question = [
     'id' => '221',
     'topic' => 'cse-constitutional-civics',
+    'difficulty' => 'hard',
     'taxonomy' => [
         'board_id' => 'civil-service',
         'subject_id' => 'general-information',
@@ -56,6 +57,12 @@ $single = TopicPerformanceService::summarize([$attempt('one', '2026-10-14T10:00:
 $assert(($single['accuracy_basis'] ?? '') === 'QUESTION_LEVEL_REVIEW', 'Question-level review should be the accuracy source when present.');
 $assert(($single['average'] ?? null) === 0 && ($single['attempts'] ?? 0) === 1, 'One attempt should retain observed accuracy without implying mastery.');
 $assert(($single['evidence_status'] ?? '') === 'INSUFFICIENT_EVIDENCE' && ($single['trend'] ?? '') === 'INSUFFICIENT_EVIDENCE', 'One attempt must not produce a trend.');
+$singleRecommendation = StudyRecommendationService::build([
+    $attempt('one', '2026-10-14T10:00:00Z', false, $question),
+], [$single], 1)[0] ?? [];
+$singleActionQuery = [];
+parse_str((string) parse_url((string) ($singleRecommendation['action'] ?? ''), PHP_URL_QUERY), $singleActionQuery);
+$assert(($singleActionQuery['difficulty'] ?? '') === 'mixed', 'One difficulty-specific miss must not overfit the next practice action.');
 
 $repeated = [
     $attempt('newer-wrong', '2026-10-14T10:00:00Z', false, $question),
@@ -71,6 +78,8 @@ $assert(in_array(($recommendation['study_material_id'] ?? ''), $linkedMaterialId
 $assert(str_starts_with((string) ($recommendation['study_action'] ?? ''), '/study-library?material='), 'Study resource action is not a direct published-material link.');
 parse_str((string) parse_url((string) ($recommendation['action'] ?? ''), PHP_URL_QUERY), $quizQuery);
 $assert(($quizQuery['exam'] ?? '') === 'CSE' && ($quizQuery['civil_service_level'] ?? '') === 'SUBPROFESSIONAL', 'Retry practice must preserve board eligibility context.');
+$assert(($quizQuery['difficulty'] ?? '') === 'hard' && ($recommendation['difficulty_focus'] ?? '') === 'hard', 'Repeated answered misses at one recorded difficulty should focus the retry at that label.');
+$assert(str_contains((string) ($recommendation['reason'] ?? ''), 'not psychometrically calibrated'), 'Difficulty-focused guidance must disclose that stored labels are not calibrated.');
 
 $improving = [
     $attempt('newer-correct', '2026-10-14T10:00:00Z', true, $question),
@@ -89,7 +98,24 @@ $skipped = TopicPerformanceService::summarize([
     $skippedAttempt('skipped-newer', '2026-10-14T10:00:00Z', $question),
     $skippedAttempt('skipped-older', '2026-10-13T10:00:00Z', $question),
 ])[0] ?? [];
-$assert(($skipped['repeated_mistakes'] ?? -1) === 0, 'Repeated unanswered items must not be described as repeated mistakes.');
+$assert($skipped === [], 'A review containing only unanswered items must not create a zero-accuracy topic attempt.');
+
+$partial = $attempt('partial-answer', '2026-10-14T11:00:00Z', true, $question);
+$partial['score'] = 1;
+$partial['total'] = 2;
+$partial['answered'] = 1;
+$partial['percentage'] = 50;
+$unansweredHardQuestion = $question;
+$unansweredHardQuestion['id'] = '222';
+$partial['review'] = [
+    ['correct' => true, 'answered' => true, 'question' => $question],
+    ['correct' => false, 'answered' => false, 'question' => $unansweredHardQuestion],
+];
+$partialTopic = TopicPerformanceService::summarize([$partial])[0] ?? [];
+$assert(($partialTopic['average'] ?? null) === 100 && ($partialTopic['question_review_count'] ?? 0) === 1, 'Unanswered rows must not lower the accuracy denominator for answered topic evidence.');
+$assert(($partialTopic['difficulty_evidence']['hard']['answered'] ?? 0) === 1
+    && ($partialTopic['difficulty_evidence']['hard']['correct'] ?? 0) === 1
+    && ($partialTopic['difficulty_evidence']['hard']['incorrect'] ?? 0) === 0, 'Difficulty evidence must count answered rows only.');
 
 $unlinkedQuestion = $question;
 $unlinkedQuestion['id'] = 'test-unlinked-question';
@@ -112,5 +138,44 @@ $fresh = TopicPerformanceService::summarize([
 ])[0] ?? [];
 $assert(($fresh['average'] ?? null) === 100, 'A new calculation must not reuse stale progress from an earlier call.');
 
+$legacyLabelQuestion = [
+    'id' => '1',
+    'topic' => 'Subject-Verb Agreement',
+    'taxonomy' => [
+        'board_id' => 'let',
+        'subject_id' => 'english',
+        'topic_id' => 'critical-reading',
+    ],
+];
+$legacyLabelAttempt = [
+    'id' => 'legacy-topic-label',
+    'completed' => true,
+    'completed_at' => '2026-10-15T09:00:00Z',
+    'board' => 'LET',
+    'subject' => 'English',
+    'topic' => 'Subject-Verb Agreement',
+    'percentage' => 0,
+    'score' => 0,
+    'total' => 1,
+    'review' => [[
+        'correct' => false,
+        'answered' => true,
+        'question' => $legacyLabelQuestion,
+    ]],
+];
+$secondLegacyLabelAttempt = $legacyLabelAttempt;
+$secondLegacyLabelAttempt['id'] = 'legacy-topic-label-repeat';
+$secondLegacyLabelAttempt['completed_at'] = '2026-10-14T09:00:00Z';
+$canonicalAttempts = [$legacyLabelAttempt, $secondLegacyLabelAttempt];
+$canonicalTopic = TopicPerformanceService::summarize($canonicalAttempts)[0] ?? [];
+$assert(($canonicalTopic['topic'] ?? '') === 'critical-reading', 'Canonical taxonomy must override a stale legacy question topic in learner history.');
+$canonicalRecommendation = StudyRecommendationService::build($canonicalAttempts, [$canonicalTopic], 1)[0] ?? [];
+$assert(($canonicalRecommendation['topic'] ?? '') === 'critical-reading', 'Adaptive practice must target the canonical topic rather than a stale display label.');
+$canonicalActionQuery = [];
+parse_str((string) parse_url((string) ($canonicalRecommendation['action'] ?? ''), PHP_URL_QUERY), $canonicalActionQuery);
+$assert(($canonicalActionQuery['topic'] ?? '') === 'critical-reading', 'Retry action must carry the canonical topic ID.');
+$assert(($canonicalRecommendation['study_material_id'] ?? '') === 'let-english-communication-review', 'Canonical topic recommendation must preserve the published question-linked study path.');
+
 echo "[PASS] Adaptive topic analytics use question review, expose insufficient evidence, and detect repeated misses and improvement.\n";
 echo "[PASS] Study and retry actions retain exact board context and refuse unlinked resources.\n";
+echo "[PASS] Canonical taxonomy prevents stale legacy labels from misrouting adaptive study and practice.\n";
