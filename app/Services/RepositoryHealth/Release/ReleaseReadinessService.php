@@ -981,6 +981,9 @@ final class ReleaseReadinessService
         $environment['DB_DRIVER'] = 'json';
         $environment['APP_STORAGE_PATH'] = $storagePath;
         $environment['APP_SESSION_PATH'] = $sessionPath;
+        // Keep temp files from this script and any subprocesses inside the
+        // per-test namespace so interruption cleanup owns the complete tree.
+        $environment['TMPDIR'] = $sessionPath;
         $command = [PHP_BINARY, '-d', 'memory_limit=1024M', $path];
         $startedAt = hrtime(true);
         $availableStart = self::availableSpace(sys_get_temp_dir());

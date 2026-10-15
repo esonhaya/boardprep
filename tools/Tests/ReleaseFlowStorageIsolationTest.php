@@ -130,28 +130,35 @@ try {
     $successScript = $scratch . '/session-success.php';
     $failureScript = $scratch . '/session-failure.php';
     $interruptedScript = $scratch . '/session-interrupted.php';
-    file_put_contents($successScript, "<?php echo getenv('APP_SESSION_PATH'), PHP_EOL; usleep(200000);\n");
-    file_put_contents($failureScript, "<?php fwrite(STDOUT, getenv('APP_SESSION_PATH') . PHP_EOL); fwrite(STDERR, 'intentional diagnostic'); exit(7);\n");
-    file_put_contents($interruptedScript, "<?php fwrite(STDOUT, getenv('APP_SESSION_PATH') . PHP_EOL); fwrite(STDERR, 'simulated interrupted child'); exit(143);\n");
+    file_put_contents($successScript, "<?php echo getenv('APP_SESSION_PATH'), PHP_EOL, sys_get_temp_dir(), PHP_EOL; file_put_contents(sys_get_temp_dir() . '/descendant-temp-proof', 'private'); usleep(200000);\n");
+    file_put_contents($failureScript, "<?php fwrite(STDOUT, getenv('APP_SESSION_PATH') . PHP_EOL . sys_get_temp_dir() . PHP_EOL); file_put_contents(sys_get_temp_dir() . '/descendant-temp-proof', 'private'); fwrite(STDERR, 'intentional diagnostic'); exit(7);\n");
+    file_put_contents($interruptedScript, "<?php fwrite(STDOUT, getenv('APP_SESSION_PATH') . PHP_EOL . sys_get_temp_dir() . PHP_EOL); file_put_contents(sys_get_temp_dir() . '/descendant-temp-proof', 'private'); fwrite(STDERR, 'simulated interrupted child'); exit(143);\n");
     [$successCodeA, $successOutputA, $successMetricsA] = $runScript->invoke(null, $successScript, $root, $fixturePath);
     [$successCodeB, $successOutputB] = $runScript->invoke(null, $successScript, $root, $fixturePath);
     $sessionA = trim(strtok($successOutputA, "\n") ?: '');
     $sessionB = trim(strtok($successOutputB, "\n") ?: '');
+    $temporaryA = trim(explode("\n", $successOutputA)[1] ?? '');
+    $temporaryB = trim(explode("\n", $successOutputB)[1] ?? '');
     $assert($successCodeA === 0 && $successCodeB === 0, 'Successful isolated child scripts did not return PASS exit codes.');
     $assert($sessionA !== '' && $sessionB !== '' && $sessionA !== $sessionB, 'Sequential release tests reused a session namespace.');
+    $assert($temporaryA === $sessionA && $temporaryB === $sessionB, 'A test subprocess temp directory escaped its private session namespace.');
     $assert(!is_dir($sessionA) && !is_dir($sessionB), 'Successful release child left a session directory behind.');
-    $assert(($successMetricsA['session_bytes'] ?? null) === 0, 'Session growth was not measured before cleanup.');
+    $assert(($successMetricsA['session_bytes'] ?? null) === 7, 'Descendant temp growth was not measured before cleanup.');
     $assert(($successMetricsA['session_cleanup_status'] ?? 0) === 1, 'Runner did not verify cleanup after a successful test.');
 
     [$failureCode, $failureOutput] = $runScript->invoke(null, $failureScript, $root, $fixturePath);
-    $failureSession = trim(strtok($failureOutput, "\n") ?: '');
+    $failureLines = explode("\n", $failureOutput);
+    $failureSession = trim($failureLines[0] ?? '');
+    $failureTemporary = trim($failureLines[1] ?? '');
     $assert($failureCode === 7 && str_contains($failureOutput, 'intentional diagnostic'), 'Failed test diagnostics or exit status were lost.');
-    $assert($failureSession !== '' && !is_dir($failureSession), 'Failed release child left a session directory behind.');
+    $assert($failureSession !== '' && $failureTemporary === $failureSession && !is_dir($failureSession), 'Failed release child left session or descendant temp files behind.');
 
     [$interruptedCode, $interruptedOutput] = $runScript->invoke(null, $interruptedScript, $root, $fixturePath);
-    $interruptedSession = trim(strtok($interruptedOutput, "\n") ?: '');
+    $interruptedLines = explode("\n", $interruptedOutput);
+    $interruptedSession = trim($interruptedLines[0] ?? '');
+    $interruptedTemporary = trim($interruptedLines[1] ?? '');
     $assert($interruptedCode === 143 && str_contains($interruptedOutput, 'simulated interrupted child'), 'Interrupted test was incorrectly reported as successful or lost diagnostics.');
-    $assert($interruptedSession !== '' && !is_dir($interruptedSession), 'Interrupted release child left a session directory behind.');
+    $assert($interruptedSession !== '' && $interruptedTemporary === $interruptedSession && !is_dir($interruptedSession), 'Interrupted release child left session or descendant temp files behind.');
 
     // Two concurrent runner processes must allocate independent session directories.
     $concurrentChild = $scratch . '/session-concurrent.php';

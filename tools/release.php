@@ -36,28 +36,6 @@ function releaseFail(string $message): never
     exit(1);
 }
 
-function releaseCommand(string $command, string $workingDirectory, ?string $stderr = null): void
-{
-    $descriptor = [
-        0 => ['file', '/dev/null', 'r'],
-        1 => ['file', '/dev/null', 'w'],
-        2 => $stderr === null ? ['pipe', 'w'] : ['file', $stderr, 'w'],
-    ];
-    $process = proc_open($command, $descriptor, $pipes, $workingDirectory);
-    if (!is_resource($process)) {
-        releaseFail('Unable to start packaging command.');
-    }
-    $error = '';
-    if (isset($pipes[2])) {
-        $error = stream_get_contents($pipes[2]) ?: '';
-        fclose($pipes[2]);
-    }
-    $exitCode = proc_close($process);
-    if ($exitCode !== 0) {
-        releaseFail(trim($error) !== '' ? trim($error) : "Packaging command failed: {$command}");
-    }
-}
-
 function releaseRemoveTree(string $directory): void
 {
     if (!is_dir($directory)) {
@@ -123,95 +101,87 @@ if (!is_dir(dirname($output)) && !mkdir(dirname($output), 0777, true) && !is_dir
     releaseFail('Unable to create package output directory.');
 }
 
+$packageFiles = [
+    '.env.example', 'LICENSE', 'README.md',
+    'docs/Batch444_Configuration_Runtime_Readiness.md',
+    'docs/Batch449_Deployment_Production_Readiness.md',
+    'docs/MVP_RELEASE_SCOPE.md', 'docs/RELEASE_CHECKLIST_v0.1.0.md',
+    'docs/RELEASE_NOTES_v0.1.0.md', 'docs/RELEASE_NOTES_V1.0.1.md',
+    'docs/RELEASE_RUNBOOK_V1.md', 'docs/POST_V1_BASELINE.md',
+    'docs/PRODUCTION_HANDOFF_V1.0.1.md', 'tools/doctor.php',
+    'tools/backup.php', 'tools/restore.php', 'tools/release.php', 'tools/db-migrate.php',
+];
+$packageDirectories = ['app', 'bootstrap', 'config', 'database/migrations', 'public', 'routes', 'tools/Doctor'];
+$curatedStorage = [
+    'storage/board-subjects.json', 'storage/boards.json', 'storage/blueprints.json',
+    'storage/flashcard-exclusions.json', 'storage/let-specializations.json',
+    'storage/exam-intelligence.json', 'storage/board-concept-coverage.json',
+    'storage/concept-equivalence.json', 'storage/concept-derived-eligibility.json',
+    'storage/organizations/organizations.json', 'storage/question-eligibility.json',
+    'storage/question-required-concepts.json', 'storage/question-reuse-metadata.json',
+    'storage/question-reuse-overrides.json', 'storage/questions.json', 'storage/sources.json',
+    'storage/study-materials.json', 'storage/study-question-links.json', 'storage/subjects.json',
+    'storage/taxonomy/concepts.json', 'storage/taxonomy/domains.json', 'storage/taxonomy/topics.json',
+];
+
 $temporary = sys_get_temp_dir() . '/boardprep-release-' . bin2hex(random_bytes(6));
 $source = $temporary . '/tree';
-$tar = $temporary . '/source.tar';
 if (!mkdir($temporary, 0777, true) || !mkdir($source, 0777, true)) {
     releaseFail('Unable to create the isolated package workspace.');
 }
 
 try {
     $prefix = "BoardPrep_v{$productVersion}_{$shortHead}/";
-    $archiveCommand = 'git -C ' . escapeshellarg($root)
-        . ' archive --format=tar --prefix=' . escapeshellarg($prefix) . ' HEAD';
-    $descriptor = [
+    $archivePaths = array_merge($packageFiles, $packageDirectories, $curatedStorage);
+    $archiveCommand = array_merge(
+        ['git', '-C', $root, 'archive', '--format=tar', '--prefix=' . $prefix, 'HEAD', '--'],
+        $archivePaths
+    );
+    $archiveDescriptor = [
         0 => ['file', '/dev/null', 'r'],
-        1 => ['file', $tar, 'w'],
+        1 => ['pipe', 'w'],
         2 => ['pipe', 'w'],
     ];
-    $process = proc_open($archiveCommand, $descriptor, $pipes, $root);
-    if (!is_resource($process)) {
-        releaseFail('Unable to export the committed Git tree.');
+    $archiveProcess = proc_open($archiveCommand, $archiveDescriptor, $archivePipes, $root);
+    if (!is_resource($archiveProcess)) {
+        releaseFail('Unable to export the committed release files.');
     }
-    $error = stream_get_contents($pipes[2]) ?: '';
-    fclose($pipes[2]);
-    if (proc_close($process) !== 0) {
-        releaseFail(trim($error) !== '' ? trim($error) : 'Git archive failed.');
+    $tarDescriptor = [
+        0 => ['pipe', 'r'],
+        1 => ['file', '/dev/null', 'w'],
+        2 => ['pipe', 'w'],
+    ];
+    $tarProcess = proc_open(['tar', '-xf', '-', '-C', $source], $tarDescriptor, $tarPipes, $root);
+    if (!is_resource($tarProcess)) {
+        @proc_terminate($archiveProcess);
+        fclose($archivePipes[1]);
+        $archiveError = stream_get_contents($archivePipes[2]) ?: '';
+        fclose($archivePipes[2]);
+        proc_close($archiveProcess);
+        releaseFail(trim($archiveError) !== '' ? trim($archiveError) : 'Unable to start the release archive extractor.');
     }
-    releaseCommand('tar -xf ' . escapeshellarg($tar) . ' -C ' . escapeshellarg($source), $source);
+    $streamedBytes = @stream_copy_to_stream($archivePipes[1], $tarPipes[0]);
+    fclose($archivePipes[1]);
+    fclose($tarPipes[0]);
+    $archiveError = stream_get_contents($archivePipes[2]) ?: '';
+    $tarError = stream_get_contents($tarPipes[2]) ?: '';
+    fclose($archivePipes[2]);
+    fclose($tarPipes[2]);
+    $archiveExit = proc_close($archiveProcess);
+    $tarExit = proc_close($tarProcess);
+    if ($streamedBytes === false || $archiveExit !== 0 || $tarExit !== 0) {
+        $detail = trim($archiveError . "\n" . $tarError);
+        releaseFail($detail !== '' ? $detail : 'Unable to stream committed release files into the package workspace.');
+    }
     $tree = $source . '/BoardPrep_v' . $productVersion . '_' . $shortHead;
 
-    $includedFiles = releaseFiles(
-        $tree,
-        [
-            '.env.example',
-            'LICENSE',
-            'README.md',
-            'docs/Batch444_Configuration_Runtime_Readiness.md',
-            'docs/Batch449_Deployment_Production_Readiness.md',
-            'docs/MVP_RELEASE_SCOPE.md',
-            'docs/RELEASE_CHECKLIST_v0.1.0.md',
-            'docs/RELEASE_NOTES_v0.1.0.md',
-            'docs/RELEASE_NOTES_V1.0.1.md',
-            'docs/RELEASE_RUNBOOK_V1.md',
-            'docs/POST_V1_BASELINE.md',
-            'docs/PRODUCTION_HANDOFF_V1.0.1.md',
-            'tools/doctor.php',
-            'tools/backup.php',
-            'tools/restore.php',
-            'tools/release.php',
-            'tools/db-migrate.php',
-        ],
-        [
-            'app',
-            'bootstrap',
-            'config',
-        'database/migrations',
-        'public',
-        'routes',
-        'tools/Doctor',
-        ]
-    );
+    $includedFiles = releaseFiles($tree, $packageFiles, $packageDirectories);
     $includedFiles = releaseFiles(
         $tree,
         $includedFiles,
         []
     );
 
-    $curatedStorage = [
-        'storage/board-subjects.json',
-        'storage/boards.json',
-        'storage/blueprints.json',
-        'storage/flashcard-exclusions.json',
-        'storage/let-specializations.json',
-        'storage/exam-intelligence.json',
-        'storage/board-concept-coverage.json',
-        'storage/concept-equivalence.json',
-        'storage/concept-derived-eligibility.json',
-        'storage/organizations/organizations.json',
-        'storage/question-eligibility.json',
-        'storage/question-required-concepts.json',
-        'storage/question-reuse-metadata.json',
-        'storage/question-reuse-overrides.json',
-        'storage/questions.json',
-        'storage/sources.json',
-        'storage/study-materials.json',
-        'storage/study-question-links.json',
-        'storage/subjects.json',
-        'storage/taxonomy/concepts.json',
-        'storage/taxonomy/domains.json',
-        'storage/taxonomy/topics.json',
-    ];
     foreach ($curatedStorage as $path) {
         if (!is_file($tree . '/' . $path)) {
             releaseFail("Required curated storage file is missing: {$path}");

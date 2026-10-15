@@ -12,7 +12,9 @@ declare(strict_types=1);
 $root = dirname(__DIR__, 2);
 require_once $root . '/app/Core/Autoloader.php';
 App\Core\Autoloader::register();
-$temporary = sys_get_temp_dir() . '/boardprep-release-test-' . bin2hex(random_bytes(4));
+$temporaryRoot = trim((string) (getenv('APP_SESSION_PATH') ?: ''));
+if ($temporaryRoot === '' || !is_dir($temporaryRoot)) $temporaryRoot = sys_get_temp_dir();
+$temporary = rtrim($temporaryRoot, DIRECTORY_SEPARATOR) . '/boardprep-release-test-' . bin2hex(random_bytes(4));
 $packageOne = $temporary . '/build-one.zip';
 $packageTwo = $temporary . '/build-two.zip';
 
@@ -69,31 +71,30 @@ try {
     $releaseTool = $root . '/tools/release.php';
     $php = escapeshellarg(PHP_BINARY) . ' -d memory_limit=1024M';
     $tool = escapeshellarg($releaseTool);
+    $inspectPackage = static function (string $path) use ($assert): array {
+        $sha = hash_file('sha256', $path);
+        $archive = new ZipArchive();
+        $assert($archive->open($path) === true, 'release package cannot be opened');
+        $entries = [];
+        for ($index = 0; $index < $archive->numFiles; $index++) {
+            $name = $archive->getNameIndex($index);
+            $entries[$name] = hash('sha256', (string) $archive->getFromIndex($index));
+        }
+        $archive->close();
+        ksort($entries, SORT_STRING);
+        return [$sha, $entries];
+    };
+
     $run("{$php} {$tool} --output=" . escapeshellarg($packageOne), $root);
+    [$shaOne, $entriesOne] = $inspectPackage($packageOne);
+    $assert(unlink($packageOne), 'first release package could not be removed after its digest was captured');
     $run("{$php} {$tool} --output=" . escapeshellarg($packageTwo), $root);
-
-    $shaOne = hash_file('sha256', $packageOne);
-    $shaTwo = hash_file('sha256', $packageTwo);
+    [$shaTwo, $entriesTwo] = $inspectPackage($packageTwo);
     $assert(is_string($shaOne) && $shaOne === $shaTwo, 'repeated package builds differ byte-for-byte');
-
-    $zipOne = new ZipArchive();
-    $zipTwo = new ZipArchive();
-    $assert($zipOne->open($packageOne) === true, 'first package cannot be opened');
-    $assert($zipTwo->open($packageTwo) === true, 'second package cannot be opened');
-
-    $entriesOne = [];
-    for ($index = 0; $index < $zipOne->numFiles; $index++) {
-        $name = $zipOne->getNameIndex($index);
-        $entriesOne[$name] = hash('sha256', (string) $zipOne->getFromIndex($index));
-    }
-    $entriesTwo = [];
-    for ($index = 0; $index < $zipTwo->numFiles; $index++) {
-        $name = $zipTwo->getNameIndex($index);
-        $entriesTwo[$name] = hash('sha256', (string) $zipTwo->getFromIndex($index));
-    }
-    ksort($entriesOne, SORT_STRING);
-    ksort($entriesTwo, SORT_STRING);
     $assert($entriesOne === $entriesTwo, 'normalized package inventories differ');
+
+    $packageArchive = new ZipArchive();
+    $assert($packageArchive->open($packageTwo) === true, 'verified package cannot be reopened');
 
     $prefix = array_key_first($entriesOne);
     $assert(is_string($prefix) && preg_match('#^BoardPrep_v1\.0\.1_[^/]+/#', $prefix) === 1, 'package root is not release-scoped');
@@ -132,30 +133,30 @@ try {
         $assert(!in_array($relative, ['storage/attempts.json', 'storage/weakness.json', 'storage/question-statistics.json', 'storage/flashcard_state.json', 'boardprep.zip'], true), "local runtime artifact entered package: {$relative}");
     }
 
-    $manifest = json_decode((string) $zipOne->getFromName($packageRoot . 'RELEASE_MANIFEST.json'), true, 512, JSON_THROW_ON_ERROR);
+    $manifest = json_decode((string) $packageArchive->getFromName($packageRoot . 'RELEASE_MANIFEST.json'), true, 512, JSON_THROW_ON_ERROR);
     $head = trim((string) shell_exec('git -C ' . escapeshellarg($root) . ' rev-parse HEAD'));
     $assert(($manifest['release'] ?? null) === 'v1.0.1', 'release manifest version is incorrect');
     $assert(($manifest['product_version'] ?? null) === '1.0.1', 'product version is incorrect');
     $assert(($manifest['release_commit'] ?? null) === $head, 'release manifest commit does not match HEAD');
-    $packagedQuestions = json_decode((string) $zipOne->getFromName($packageRoot . 'storage/questions.json'), true, 512, JSON_THROW_ON_ERROR);
-    $packagedBoards = json_decode((string) $zipOne->getFromName($packageRoot . 'storage/boards.json'), true, 512, JSON_THROW_ON_ERROR);
-    $packagedEligibility = json_decode((string) $zipOne->getFromName($packageRoot . 'storage/question-eligibility.json'), true, 512, JSON_THROW_ON_ERROR);
-    $packagedLinks = json_decode((string) $zipOne->getFromName($packageRoot . 'storage/study-question-links.json'), true, 512, JSON_THROW_ON_ERROR);
-    $packagedMaterials = json_decode((string) $zipOne->getFromName($packageRoot . 'storage/study-materials.json'), true, 512, JSON_THROW_ON_ERROR);
-    $packagedExclusions = json_decode((string) $zipOne->getFromName($packageRoot . 'storage/flashcard-exclusions.json'), true, 512, JSON_THROW_ON_ERROR);
+    $packagedQuestions = json_decode((string) $packageArchive->getFromName($packageRoot . 'storage/questions.json'), true, 512, JSON_THROW_ON_ERROR);
+    $packagedBoards = json_decode((string) $packageArchive->getFromName($packageRoot . 'storage/boards.json'), true, 512, JSON_THROW_ON_ERROR);
+    $packagedEligibility = json_decode((string) $packageArchive->getFromName($packageRoot . 'storage/question-eligibility.json'), true, 512, JSON_THROW_ON_ERROR);
+    $packagedLinks = json_decode((string) $packageArchive->getFromName($packageRoot . 'storage/study-question-links.json'), true, 512, JSON_THROW_ON_ERROR);
+    $packagedMaterials = json_decode((string) $packageArchive->getFromName($packageRoot . 'storage/study-materials.json'), true, 512, JSON_THROW_ON_ERROR);
+    $packagedExclusions = json_decode((string) $packageArchive->getFromName($packageRoot . 'storage/flashcard-exclusions.json'), true, 512, JSON_THROW_ON_ERROR);
     $expectedCanonical = is_array($packagedQuestions) ? count($packagedQuestions) : 0;
     $expectedBoards = is_array($packagedBoards) ? count($packagedBoards) : 0;
     $assert(($manifest['canonical_questions'] ?? null) === $expectedCanonical, 'release manifest canonical count does not match packaged question storage');
     $assert(($manifest['registered_boards'] ?? null) === $expectedBoards, 'release manifest board count does not match packaged board storage');
 
-    $zipOne->close();
-    $zipTwo->close();
+    $packageArchive->close();
 
     $extract = $temporary . '/extracted';
     $archive = new ZipArchive();
-    $assert($archive->open($packageOne) === true, 'package cannot be reopened for extraction');
+    $assert($archive->open($packageTwo) === true, 'package cannot be reopened for extraction');
     $assert($archive->extractTo($extract), 'package extraction failed');
     $archive->close();
+    $assert(unlink($packageTwo), 'verified archive could not be removed after extraction');
     $extractedRoot = $extract . '/' . rtrim($packageRoot, '/');
 
 $integrityCode = <<<'PHP'
