@@ -16,6 +16,10 @@ $intelligenceCheck = ExamIntelligenceService::validate();
 if (!$sourceCheck['valid'] || !$materialCheck['valid'] || !$intelligenceCheck['valid'] || $sourceCheck['total'] < 2 || $materialCheck['total'] < 2) {
     throw new RuntimeException('source or study library validation failed');
 }
+$taxForm = SourceRegistryService::find('bir-efps-form-1701-q');
+if ($taxForm === null || ($taxForm['source_type'] ?? '') !== 'OFFICIAL_FORM') {
+    throw new RuntimeException('official form provenance is missing from the source registry');
+}
 $constitution = StudyLibraryService::find('constitution-review-foundation');
 $ra = StudyLibraryService::find('ra-6713-review-foundation');
 if ($constitution === null || $ra === null || ($constitution['sources'][0]['source_type'] ?? '') !== 'PRIMARY_LAW'
